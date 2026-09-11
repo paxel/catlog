@@ -8,6 +8,7 @@ import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import 'field_history_screen.dart';
+import 'vet_report_screen.dart';
 
 /// The timeline of an entity: every change in date order with Author —
 /// or, when [field] is given, the history of that one Field.
@@ -222,6 +223,15 @@ class _TimelineScreenState extends State<TimelineScreen> {
               setState(() {});
             },
           ),
+          if (widget.entityId.startsWith('cat:'))
+            IconButton(
+              icon: const Icon(Icons.picture_as_pdf_outlined),
+              tooltip: context.t.vetReportMenu,
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) =>
+                    VetReportScreen(store: store, catId: widget.entityId),
+              )),
+            ),
           HelpButton(store: store, screenId: 'timeline'),
         ],
       ),

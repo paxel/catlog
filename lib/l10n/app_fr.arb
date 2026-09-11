@@ -1145,5 +1145,14 @@
   "colWhen": "Quand",
   "colValue": "Valeur",
   "colWho": "Qui",
-  "pdfFontMissing": "La police de cette langue n'est pas encore sur le téléphone ; certaines lettres s'impriment en carrés. Connectez-vous une fois à Internet et refaites le PDF."
+  "pdfFontMissing": "La police de cette langue n'est pas encore sur le téléphone ; certaines lettres s'impriment en carrés. Connectez-vous une fois à Internet et refaites le PDF.",
+  "vetReportTitle": "Rapport pour le vétérinaire",
+  "vetReportMenu": "Rapport pour le vétérinaire…",
+  "vetReportFields": "Champs",
+  "vetReportFrom": "Du",
+  "vetReportTo": "Au",
+  "vetReportSummary": "Résumé du patient",
+  "vetReportOwner": "Propriétaire",
+  "vetReportLegend": "Légende",
+  "vetReportCurves": "Courbe"
 }

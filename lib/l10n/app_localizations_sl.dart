@@ -3430,4 +3430,31 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Pisava za ta jezik še ni na telefonu; nekatere črke se natisnejo kot kvadratki. Enkrat se povežite z internetom in znova ustvarite PDF.';
+
+  @override
+  String get vetReportTitle => 'Poročilo za veterinarja';
+
+  @override
+  String get vetReportMenu => 'Poročilo za veterinarja…';
+
+  @override
+  String get vetReportFields => 'Polja';
+
+  @override
+  String get vetReportFrom => 'Od';
+
+  @override
+  String get vetReportTo => 'Do';
+
+  @override
+  String get vetReportSummary => 'Povzetek pacienta';
+
+  @override
+  String get vetReportOwner => 'Lastnik';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Krivulja';
 }

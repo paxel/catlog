@@ -3422,4 +3422,31 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Шрифт для цієї мови ще не на телефоні; частина літер друкується квадратами. Один раз підключіться до інтернету та створіть PDF знову.';
+
+  @override
+  String get vetReportTitle => 'Звіт для ветеринара';
+
+  @override
+  String get vetReportMenu => 'Звіт для ветеринара…';
+
+  @override
+  String get vetReportFields => 'Поля';
+
+  @override
+  String get vetReportFrom => 'Від';
+
+  @override
+  String get vetReportTo => 'До';
+
+  @override
+  String get vetReportSummary => 'Зведення про пацієнта';
+
+  @override
+  String get vetReportOwner => 'Власник';
+
+  @override
+  String get vetReportLegend => 'Умовні позначення';
+
+  @override
+  String get vetReportCurves => 'Графік';
 }

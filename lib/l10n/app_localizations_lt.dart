@@ -3422,4 +3422,31 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Šios kalbos šriftas dar nėra telefone; kai kurios raidės spausdinamos kaip langeliai. Kartą prisijunkite prie interneto ir sukurkite PDF iš naujo.';
+
+  @override
+  String get vetReportTitle => 'Ataskaita veterinarui';
+
+  @override
+  String get vetReportMenu => 'Ataskaita veterinarui…';
+
+  @override
+  String get vetReportFields => 'Laukai';
+
+  @override
+  String get vetReportFrom => 'Nuo';
+
+  @override
+  String get vetReportTo => 'Iki';
+
+  @override
+  String get vetReportSummary => 'Paciento santrauka';
+
+  @override
+  String get vetReportOwner => 'Savininkas';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Kreivė';
 }

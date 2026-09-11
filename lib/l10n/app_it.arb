@@ -1145,5 +1145,14 @@
   "colWhen": "Quando",
   "colValue": "Valore",
   "colWho": "Chi",
-  "pdfFontMissing": "Il carattere per questa lingua non è ancora sul telefono; alcune lettere risultano quadratini. Collegati a internet una volta e rifai il PDF."
+  "pdfFontMissing": "Il carattere per questa lingua non è ancora sul telefono; alcune lettere risultano quadratini. Collegati a internet una volta e rifai il PDF.",
+  "vetReportTitle": "Rapporto per il veterinario",
+  "vetReportMenu": "Rapporto per il veterinario…",
+  "vetReportFields": "Campi",
+  "vetReportFrom": "Da",
+  "vetReportTo": "A",
+  "vetReportSummary": "Riepilogo del paziente",
+  "vetReportOwner": "Proprietario",
+  "vetReportLegend": "Legenda",
+  "vetReportCurves": "Curva"
 }

@@ -3403,4 +3403,31 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'A fonte para este idioma ainda não está no telemóvel; algumas letras saem como quadrados. Liga-te à internet uma vez e cria o PDF de novo.';
+
+  @override
+  String get vetReportTitle => 'Relatório para o veterinário';
+
+  @override
+  String get vetReportMenu => 'Relatório para o veterinário…';
+
+  @override
+  String get vetReportFields => 'Campos';
+
+  @override
+  String get vetReportFrom => 'De';
+
+  @override
+  String get vetReportTo => 'Até';
+
+  @override
+  String get vetReportSummary => 'Resumo do paciente';
+
+  @override
+  String get vetReportOwner => 'Dono';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Curva';
 }

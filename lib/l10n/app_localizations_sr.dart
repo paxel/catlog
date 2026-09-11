@@ -3414,4 +3414,31 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Фонт за овај језик још није на телефону; нека слова се штампају као квадратићи. Повежите се једном на интернет и поново направите PDF.';
+
+  @override
+  String get vetReportTitle => 'Извештај за ветеринара';
+
+  @override
+  String get vetReportMenu => 'Извештај за ветеринара…';
+
+  @override
+  String get vetReportFields => 'Поља';
+
+  @override
+  String get vetReportFrom => 'Од';
+
+  @override
+  String get vetReportTo => 'До';
+
+  @override
+  String get vetReportSummary => 'Преглед пацијента';
+
+  @override
+  String get vetReportOwner => 'Власник';
+
+  @override
+  String get vetReportLegend => 'Легенда';
+
+  @override
+  String get vetReportCurves => 'Крива';
 }

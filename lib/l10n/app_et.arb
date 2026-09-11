@@ -1145,5 +1145,14 @@
   "colWhen": "Millal",
   "colValue": "Väärtus",
   "colWho": "Kes",
-  "pdfFontMissing": "Selle keele font pole veel telefonis; osa tähti trükitakse kastidena. Ühenda korraks internetti ja tee PDF uuesti."
+  "pdfFontMissing": "Selle keele font pole veel telefonis; osa tähti trükitakse kastidena. Ühenda korraks internetti ja tee PDF uuesti.",
+  "vetReportTitle": "Aruanne loomaarstile",
+  "vetReportMenu": "Aruanne loomaarstile…",
+  "vetReportFields": "Väljad",
+  "vetReportFrom": "Alates",
+  "vetReportTo": "Kuni",
+  "vetReportSummary": "Patsiendi kokkuvõte",
+  "vetReportOwner": "Omanik",
+  "vetReportLegend": "Legend",
+  "vetReportCurves": "Kõver"
 }

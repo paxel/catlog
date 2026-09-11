@@ -3456,4 +3456,31 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Níl an cló don teanga seo ar an nguthán fós; priontáiltear roinnt litreacha mar bhoscaí. Ceangail leis an idirlíon uair amháin agus déan an PDF arís.';
+
+  @override
+  String get vetReportTitle => 'Tuairisc don tréidlia';
+
+  @override
+  String get vetReportMenu => 'Tuairisc don tréidlia…';
+
+  @override
+  String get vetReportFields => 'Réimsí';
+
+  @override
+  String get vetReportFrom => 'Ó';
+
+  @override
+  String get vetReportTo => 'Go';
+
+  @override
+  String get vetReportSummary => 'Achoimre othair';
+
+  @override
+  String get vetReportOwner => 'Úinéir';
+
+  @override
+  String get vetReportLegend => 'Eochair';
+
+  @override
+  String get vetReportCurves => 'Cuar';
 }

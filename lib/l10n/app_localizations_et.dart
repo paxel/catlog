@@ -3399,4 +3399,31 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Selle keele font pole veel telefonis; osa tähti trükitakse kastidena. Ühenda korraks internetti ja tee PDF uuesti.';
+
+  @override
+  String get vetReportTitle => 'Aruanne loomaarstile';
+
+  @override
+  String get vetReportMenu => 'Aruanne loomaarstile…';
+
+  @override
+  String get vetReportFields => 'Väljad';
+
+  @override
+  String get vetReportFrom => 'Alates';
+
+  @override
+  String get vetReportTo => 'Kuni';
+
+  @override
+  String get vetReportSummary => 'Patsiendi kokkuvõte';
+
+  @override
+  String get vetReportOwner => 'Omanik';
+
+  @override
+  String get vetReportLegend => 'Legend';
+
+  @override
+  String get vetReportCurves => 'Kõver';
 }

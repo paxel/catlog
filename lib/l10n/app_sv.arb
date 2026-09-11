@@ -1145,5 +1145,14 @@
   "colWhen": "När",
   "colValue": "Värde",
   "colWho": "Vem",
-  "pdfFontMissing": "Typsnittet för det här språket finns inte på telefonen än; vissa bokstäver blir rutor. Anslut till internet en gång och gör om PDF:en."
+  "pdfFontMissing": "Typsnittet för det här språket finns inte på telefonen än; vissa bokstäver blir rutor. Anslut till internet en gång och gör om PDF:en.",
+  "vetReportTitle": "Rapport till veterinären",
+  "vetReportMenu": "Rapport till veterinären…",
+  "vetReportFields": "Fält",
+  "vetReportFrom": "Från",
+  "vetReportTo": "Till",
+  "vetReportSummary": "Patientöversikt",
+  "vetReportOwner": "Ägare",
+  "vetReportLegend": "Teckenförklaring",
+  "vetReportCurves": "Kurva"
 }

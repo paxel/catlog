@@ -1145,5 +1145,14 @@
   "colWhen": "Kad",
   "colValue": "Vērtība",
   "colWho": "Kas",
-  "pdfFontMissing": "Šīs valodas fonts vēl nav tālrunī; daži burti tiek drukāti kā kastītes. Vienreiz pieslēdzieties internetam un izveidojiet PDF vēlreiz."
+  "pdfFontMissing": "Šīs valodas fonts vēl nav tālrunī; daži burti tiek drukāti kā kastītes. Vienreiz pieslēdzieties internetam un izveidojiet PDF vēlreiz.",
+  "vetReportTitle": "Ziņojums veterinārārstam",
+  "vetReportMenu": "Ziņojums veterinārārstam…",
+  "vetReportFields": "Lauki",
+  "vetReportFrom": "No",
+  "vetReportTo": "Līdz",
+  "vetReportSummary": "Pacienta kopsavilkums",
+  "vetReportOwner": "Īpašnieks",
+  "vetReportLegend": "Apzīmējumi",
+  "vetReportCurves": "Līkne"
 }

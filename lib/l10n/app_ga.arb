@@ -1145,5 +1145,14 @@
   "colWhen": "Cathain",
   "colValue": "Luach",
   "colWho": "Cé",
-  "pdfFontMissing": "Níl an cló don teanga seo ar an nguthán fós; priontáiltear roinnt litreacha mar bhoscaí. Ceangail leis an idirlíon uair amháin agus déan an PDF arís."
+  "pdfFontMissing": "Níl an cló don teanga seo ar an nguthán fós; priontáiltear roinnt litreacha mar bhoscaí. Ceangail leis an idirlíon uair amháin agus déan an PDF arís.",
+  "vetReportTitle": "Tuairisc don tréidlia",
+  "vetReportMenu": "Tuairisc don tréidlia…",
+  "vetReportFields": "Réimsí",
+  "vetReportFrom": "Ó",
+  "vetReportTo": "Go",
+  "vetReportSummary": "Achoimre othair",
+  "vetReportOwner": "Úinéir",
+  "vetReportLegend": "Eochair",
+  "vetReportCurves": "Cuar"
 }

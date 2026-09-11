@@ -1145,5 +1145,14 @@
   "colWhen": "Kedy",
   "colValue": "Hodnota",
   "colWho": "Kto",
-  "pdfFontMissing": "Písmo pre tento jazyk ešte nie je v telefóne; niektoré písmená sa tlačia ako štvorčeky. Raz sa pripojte na internet a PDF vytvorte znova."
+  "pdfFontMissing": "Písmo pre tento jazyk ešte nie je v telefóne; niektoré písmená sa tlačia ako štvorčeky. Raz sa pripojte na internet a PDF vytvorte znova.",
+  "vetReportTitle": "Správa pre veterinára",
+  "vetReportMenu": "Správa pre veterinára…",
+  "vetReportFields": "Polia",
+  "vetReportFrom": "Od",
+  "vetReportTo": "Do",
+  "vetReportSummary": "Prehľad pacienta",
+  "vetReportOwner": "Majiteľ",
+  "vetReportLegend": "Legenda",
+  "vetReportCurves": "Krivka"
 }

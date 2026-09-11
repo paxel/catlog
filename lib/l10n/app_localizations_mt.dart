@@ -3416,4 +3416,31 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Il-font għal din il-lingwa għadu mhux fuq it-telefon; xi ittri jiġu stampati bħala kaxxi. Aqbad mal-internet darba u erġa\' agħmel il-PDF.';
+
+  @override
+  String get vetReportTitle => 'Rapport għall-veterinarju';
+
+  @override
+  String get vetReportMenu => 'Rapport għall-veterinarju…';
+
+  @override
+  String get vetReportFields => 'Oqsma';
+
+  @override
+  String get vetReportFrom => 'Minn';
+
+  @override
+  String get vetReportTo => 'Sa';
+
+  @override
+  String get vetReportSummary => 'Sommarju tal-pazjent';
+
+  @override
+  String get vetReportOwner => 'Sid';
+
+  @override
+  String get vetReportLegend => 'Leġġenda';
+
+  @override
+  String get vetReportCurves => 'Kurva';
 }

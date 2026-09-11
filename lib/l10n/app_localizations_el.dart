@@ -3413,4 +3413,31 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Η γραμματοσειρά αυτής της γλώσσας δεν είναι ακόμη στο τηλέφωνο· κάποια γράμματα τυπώνονται ως κουτάκια. Συνδεθείτε μία φορά στο διαδίκτυο και φτιάξτε ξανά το PDF.';
+
+  @override
+  String get vetReportTitle => 'Αναφορά για τον κτηνίατρο';
+
+  @override
+  String get vetReportMenu => 'Αναφορά για τον κτηνίατρο…';
+
+  @override
+  String get vetReportFields => 'Πεδία';
+
+  @override
+  String get vetReportFrom => 'Από';
+
+  @override
+  String get vetReportTo => 'Έως';
+
+  @override
+  String get vetReportSummary => 'Σύνοψη ασθενούς';
+
+  @override
+  String get vetReportOwner => 'Ιδιοκτήτης';
+
+  @override
+  String get vetReportLegend => 'Υπόμνημα';
+
+  @override
+  String get vetReportCurves => 'Καμπύλη';
 }

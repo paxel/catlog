@@ -3407,4 +3407,31 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Het lettertype voor deze taal staat nog niet op de telefoon; sommige letters worden vakjes. Maak één keer verbinding met internet en maak de pdf opnieuw.';
+
+  @override
+  String get vetReportTitle => 'Rapport voor de dierenarts';
+
+  @override
+  String get vetReportMenu => 'Rapport voor de dierenarts…';
+
+  @override
+  String get vetReportFields => 'Velden';
+
+  @override
+  String get vetReportFrom => 'Van';
+
+  @override
+  String get vetReportTo => 'Tot';
+
+  @override
+  String get vetReportSummary => 'Patiëntoverzicht';
+
+  @override
+  String get vetReportOwner => 'Eigenaar';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Curve';
 }

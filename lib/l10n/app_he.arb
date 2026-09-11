@@ -1145,5 +1145,14 @@
   "colWhen": "מתי",
   "colValue": "ערך",
   "colWho": "מי",
-  "pdfFontMissing": "הגופן לשפה זו עדיין לא בטלפון; חלק מהאותיות מודפסות כריבועים. יש להתחבר פעם אחת לאינטרנט וליצור את ה-PDF מחדש."
+  "pdfFontMissing": "הגופן לשפה זו עדיין לא בטלפון; חלק מהאותיות מודפסות כריבועים. יש להתחבר פעם אחת לאינטרנט וליצור את ה-PDF מחדש.",
+  "vetReportTitle": "דוח לווטרינר",
+  "vetReportMenu": "דוח לווטרינר…",
+  "vetReportFields": "שדות",
+  "vetReportFrom": "מ־",
+  "vetReportTo": "עד",
+  "vetReportSummary": "סיכום מטופל",
+  "vetReportOwner": "בעלים",
+  "vetReportLegend": "מקרא",
+  "vetReportCurves": "עקומה"
 }

@@ -1145,5 +1145,14 @@
   "colWhen": "Când",
   "colValue": "Valoare",
   "colWho": "Cine",
-  "pdfFontMissing": "Fontul pentru această limbă nu e încă pe telefon; unele litere se tipăresc ca pătrate. Conectează-te o dată la internet și refă PDF-ul."
+  "pdfFontMissing": "Fontul pentru această limbă nu e încă pe telefon; unele litere se tipăresc ca pătrate. Conectează-te o dată la internet și refă PDF-ul.",
+  "vetReportTitle": "Raport pentru veterinar",
+  "vetReportMenu": "Raport pentru veterinar…",
+  "vetReportFields": "Câmpuri",
+  "vetReportFrom": "De la",
+  "vetReportTo": "Până la",
+  "vetReportSummary": "Rezumatul pacientului",
+  "vetReportOwner": "Proprietar",
+  "vetReportLegend": "Legendă",
+  "vetReportCurves": "Curbă"
 }

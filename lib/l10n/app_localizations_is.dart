@@ -3406,4 +3406,31 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Leturgerðin fyrir þetta tungumál er ekki enn í símanum; sumir stafir prentast sem kassar. Tengstu netinu einu sinni og búðu PDF-skjalið til aftur.';
+
+  @override
+  String get vetReportTitle => 'Skýrsla fyrir dýralækninn';
+
+  @override
+  String get vetReportMenu => 'Skýrsla fyrir dýralækninn…';
+
+  @override
+  String get vetReportFields => 'Reitir';
+
+  @override
+  String get vetReportFrom => 'Frá';
+
+  @override
+  String get vetReportTo => 'Til';
+
+  @override
+  String get vetReportSummary => 'Yfirlit sjúklings';
+
+  @override
+  String get vetReportOwner => 'Eigandi';
+
+  @override
+  String get vetReportLegend => 'Skýringar';
+
+  @override
+  String get vetReportCurves => 'Ferill';
 }

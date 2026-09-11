@@ -3399,4 +3399,31 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Typsnittet för det här språket finns inte på telefonen än; vissa bokstäver blir rutor. Anslut till internet en gång och gör om PDF:en.';
+
+  @override
+  String get vetReportTitle => 'Rapport till veterinären';
+
+  @override
+  String get vetReportMenu => 'Rapport till veterinären…';
+
+  @override
+  String get vetReportFields => 'Fält';
+
+  @override
+  String get vetReportFrom => 'Från';
+
+  @override
+  String get vetReportTo => 'Till';
+
+  @override
+  String get vetReportSummary => 'Patientöversikt';
+
+  @override
+  String get vetReportOwner => 'Ägare';
+
+  @override
+  String get vetReportLegend => 'Teckenförklaring';
+
+  @override
+  String get vetReportCurves => 'Kurva';
 }

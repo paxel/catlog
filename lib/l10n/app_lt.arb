@@ -1145,5 +1145,14 @@
   "colWhen": "Kada",
   "colValue": "Reikšmė",
   "colWho": "Kas",
-  "pdfFontMissing": "Šios kalbos šriftas dar nėra telefone; kai kurios raidės spausdinamos kaip langeliai. Kartą prisijunkite prie interneto ir sukurkite PDF iš naujo."
+  "pdfFontMissing": "Šios kalbos šriftas dar nėra telefone; kai kurios raidės spausdinamos kaip langeliai. Kartą prisijunkite prie interneto ir sukurkite PDF iš naujo.",
+  "vetReportTitle": "Ataskaita veterinarui",
+  "vetReportMenu": "Ataskaita veterinarui…",
+  "vetReportFields": "Laukai",
+  "vetReportFrom": "Nuo",
+  "vetReportTo": "Iki",
+  "vetReportSummary": "Paciento santrauka",
+  "vetReportOwner": "Savininkas",
+  "vetReportLegend": "Legenda",
+  "vetReportCurves": "Kreivė"
 }

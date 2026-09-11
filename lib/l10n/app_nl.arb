@@ -1145,5 +1145,14 @@
   "colWhen": "Wanneer",
   "colValue": "Waarde",
   "colWho": "Wie",
-  "pdfFontMissing": "Het lettertype voor deze taal staat nog niet op de telefoon; sommige letters worden vakjes. Maak één keer verbinding met internet en maak de pdf opnieuw."
+  "pdfFontMissing": "Het lettertype voor deze taal staat nog niet op de telefoon; sommige letters worden vakjes. Maak één keer verbinding met internet en maak de pdf opnieuw.",
+  "vetReportTitle": "Rapport voor de dierenarts",
+  "vetReportMenu": "Rapport voor de dierenarts…",
+  "vetReportFields": "Velden",
+  "vetReportFrom": "Van",
+  "vetReportTo": "Tot",
+  "vetReportSummary": "Patiëntoverzicht",
+  "vetReportOwner": "Eigenaar",
+  "vetReportLegend": "Legenda",
+  "vetReportCurves": "Curve"
 }

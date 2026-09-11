@@ -1145,5 +1145,14 @@
   "colWhen": "Mikor",
   "colValue": "Érték",
   "colWho": "Ki",
-  "pdfFontMissing": "Ennek a nyelvnek a betűtípusa még nincs a telefonon; egyes betűk négyzetként jelennek meg. Csatlakozz egyszer az internethez, és készítsd el újra a PDF-et."
+  "pdfFontMissing": "Ennek a nyelvnek a betűtípusa még nincs a telefonon; egyes betűk négyzetként jelennek meg. Csatlakozz egyszer az internethez, és készítsd el újra a PDF-et.",
+  "vetReportTitle": "Jelentés az állatorvosnak",
+  "vetReportMenu": "Jelentés az állatorvosnak…",
+  "vetReportFields": "Mezők",
+  "vetReportFrom": "Ettől",
+  "vetReportTo": "Eddig",
+  "vetReportSummary": "Betegösszefoglaló",
+  "vetReportOwner": "Gazda",
+  "vetReportLegend": "Jelmagyarázat",
+  "vetReportCurves": "Görbe"
 }

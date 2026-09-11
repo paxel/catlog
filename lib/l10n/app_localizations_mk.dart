@@ -3404,4 +3404,31 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Фонтот за овој јазик сè уште не е на телефонот; некои букви се печатат како квадратчиња. Поврзете се еднаш на интернет и направете го PDF-от повторно.';
+
+  @override
+  String get vetReportTitle => 'Извештај за ветеринарот';
+
+  @override
+  String get vetReportMenu => 'Извештај за ветеринарот…';
+
+  @override
+  String get vetReportFields => 'Полиња';
+
+  @override
+  String get vetReportFrom => 'Од';
+
+  @override
+  String get vetReportTo => 'До';
+
+  @override
+  String get vetReportSummary => 'Преглед на пациентот';
+
+  @override
+  String get vetReportOwner => 'Сопственик';
+
+  @override
+  String get vetReportLegend => 'Легенда';
+
+  @override
+  String get vetReportCurves => 'Крива';
 }

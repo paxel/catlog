@@ -1145,5 +1145,14 @@
   "colWhen": "Kiedy",
   "colValue": "Wartość",
   "colWho": "Kto",
-  "pdfFontMissing": "Czcionka dla tego języka nie jest jeszcze na telefonie; niektóre litery drukują się jako kwadraty. Połącz się raz z internetem i utwórz PDF ponownie."
+  "pdfFontMissing": "Czcionka dla tego języka nie jest jeszcze na telefonie; niektóre litery drukują się jako kwadraty. Połącz się raz z internetem i utwórz PDF ponownie.",
+  "vetReportTitle": "Raport dla weterynarza",
+  "vetReportMenu": "Raport dla weterynarza…",
+  "vetReportFields": "Pola",
+  "vetReportFrom": "Od",
+  "vetReportTo": "Do",
+  "vetReportSummary": "Podsumowanie pacjenta",
+  "vetReportOwner": "Właściciel",
+  "vetReportLegend": "Legenda",
+  "vetReportCurves": "Wykres"
 }

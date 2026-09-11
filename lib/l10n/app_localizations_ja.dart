@@ -3270,4 +3270,31 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'この言語のフォントがまだ端末にありません。一部の文字が四角で表示されます。一度インターネットに接続してから PDF を作り直してください。';
+
+  @override
+  String get vetReportTitle => '獣医向けレポート';
+
+  @override
+  String get vetReportMenu => '獣医向けレポート…';
+
+  @override
+  String get vetReportFields => '項目';
+
+  @override
+  String get vetReportFrom => '開始';
+
+  @override
+  String get vetReportTo => '終了';
+
+  @override
+  String get vetReportSummary => '患者情報';
+
+  @override
+  String get vetReportOwner => '飼い主';
+
+  @override
+  String get vetReportLegend => '凡例';
+
+  @override
+  String get vetReportCurves => 'グラフ';
 }

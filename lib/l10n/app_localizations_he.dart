@@ -3398,4 +3398,31 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'הגופן לשפה זו עדיין לא בטלפון; חלק מהאותיות מודפסות כריבועים. יש להתחבר פעם אחת לאינטרנט וליצור את ה-PDF מחדש.';
+
+  @override
+  String get vetReportTitle => 'דוח לווטרינר';
+
+  @override
+  String get vetReportMenu => 'דוח לווטרינר…';
+
+  @override
+  String get vetReportFields => 'שדות';
+
+  @override
+  String get vetReportFrom => 'מ־';
+
+  @override
+  String get vetReportTo => 'עד';
+
+  @override
+  String get vetReportSummary => 'סיכום מטופל';
+
+  @override
+  String get vetReportOwner => 'בעלים';
+
+  @override
+  String get vetReportLegend => 'מקרא';
+
+  @override
+  String get vetReportCurves => 'עקומה';
 }

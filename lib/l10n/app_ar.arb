@@ -1145,5 +1145,14 @@
   "colWhen": "متى",
   "colValue": "القيمة",
   "colWho": "من",
-  "pdfFontMissing": "خط هذه اللغة ليس على الهاتف بعد؛ تُطبع بعض الحروف كمربعات. اتصل بالإنترنت مرة واحدة ثم أنشئ ملف PDF من جديد."
+  "pdfFontMissing": "خط هذه اللغة ليس على الهاتف بعد؛ تُطبع بعض الحروف كمربعات. اتصل بالإنترنت مرة واحدة ثم أنشئ ملف PDF من جديد.",
+  "vetReportTitle": "تقرير للطبيب البيطري",
+  "vetReportMenu": "تقرير للطبيب البيطري…",
+  "vetReportFields": "الحقول",
+  "vetReportFrom": "من",
+  "vetReportTo": "إلى",
+  "vetReportSummary": "ملخص المريض",
+  "vetReportOwner": "المالك",
+  "vetReportLegend": "مفتاح الرموز",
+  "vetReportCurves": "المنحنى"
 }

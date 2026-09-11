@@ -5905,6 +5905,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again.'**
   String get pdfFontMissing;
+
+  /// No description provided for @vetReportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report for the vet'**
+  String get vetReportTitle;
+
+  /// No description provided for @vetReportMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Report for the vet…'**
+  String get vetReportMenu;
+
+  /// No description provided for @vetReportFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Fields'**
+  String get vetReportFields;
+
+  /// No description provided for @vetReportFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get vetReportFrom;
+
+  /// No description provided for @vetReportTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get vetReportTo;
+
+  /// No description provided for @vetReportSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Patient summary'**
+  String get vetReportSummary;
+
+  /// No description provided for @vetReportOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get vetReportOwner;
+
+  /// No description provided for @vetReportLegend.
+  ///
+  /// In en, this message translates to:
+  /// **'Legend'**
+  String get vetReportLegend;
+
+  /// No description provided for @vetReportCurves.
+  ///
+  /// In en, this message translates to:
+  /// **'Curve'**
+  String get vetReportCurves;
 }
 
 class _AppLocalizationsDelegate

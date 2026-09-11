@@ -3436,4 +3436,31 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'خط هذه اللغة ليس على الهاتف بعد؛ تُطبع بعض الحروف كمربعات. اتصل بالإنترنت مرة واحدة ثم أنشئ ملف PDF من جديد.';
+
+  @override
+  String get vetReportTitle => 'تقرير للطبيب البيطري';
+
+  @override
+  String get vetReportMenu => 'تقرير للطبيب البيطري…';
+
+  @override
+  String get vetReportFields => 'الحقول';
+
+  @override
+  String get vetReportFrom => 'من';
+
+  @override
+  String get vetReportTo => 'إلى';
+
+  @override
+  String get vetReportSummary => 'ملخص المريض';
+
+  @override
+  String get vetReportOwner => 'المالك';
+
+  @override
+  String get vetReportLegend => 'مفتاح الرموز';
+
+  @override
+  String get vetReportCurves => 'المنحنى';
 }

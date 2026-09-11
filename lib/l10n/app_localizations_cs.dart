@@ -3414,4 +3414,31 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Písmo pro tento jazyk ještě není v telefonu; některá písmena se tisknou jako čtverečky. Jednou se připojte k internetu a PDF vytvořte znovu.';
+
+  @override
+  String get vetReportTitle => 'Zpráva pro veterináře';
+
+  @override
+  String get vetReportMenu => 'Zpráva pro veterináře…';
+
+  @override
+  String get vetReportFields => 'Pole';
+
+  @override
+  String get vetReportFrom => 'Od';
+
+  @override
+  String get vetReportTo => 'Do';
+
+  @override
+  String get vetReportSummary => 'Přehled pacienta';
+
+  @override
+  String get vetReportOwner => 'Majitel';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Křivka';
 }

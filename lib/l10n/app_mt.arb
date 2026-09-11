@@ -1145,5 +1145,14 @@
   "colWhen": "Meta",
   "colValue": "Valur",
   "colWho": "Min",
-  "pdfFontMissing": "Il-font għal din il-lingwa għadu mhux fuq it-telefon; xi ittri jiġu stampati bħala kaxxi. Aqbad mal-internet darba u erġa' agħmel il-PDF."
+  "pdfFontMissing": "Il-font għal din il-lingwa għadu mhux fuq it-telefon; xi ittri jiġu stampati bħala kaxxi. Aqbad mal-internet darba u erġa' agħmel il-PDF.",
+  "vetReportTitle": "Rapport għall-veterinarju",
+  "vetReportMenu": "Rapport għall-veterinarju…",
+  "vetReportFields": "Oqsma",
+  "vetReportFrom": "Minn",
+  "vetReportTo": "Sa",
+  "vetReportSummary": "Sommarju tal-pazjent",
+  "vetReportOwner": "Sid",
+  "vetReportLegend": "Leġġenda",
+  "vetReportCurves": "Kurva"
 }

@@ -3400,4 +3400,31 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Bu dilin yazı tipi henüz telefonda yok; bazı harfler kutu olarak basılır. Bir kez internete bağlanıp PDF\'i yeniden oluşturun.';
+
+  @override
+  String get vetReportTitle => 'Veteriner için rapor';
+
+  @override
+  String get vetReportMenu => 'Veteriner için rapor…';
+
+  @override
+  String get vetReportFields => 'Alanlar';
+
+  @override
+  String get vetReportFrom => 'Başlangıç';
+
+  @override
+  String get vetReportTo => 'Bitiş';
+
+  @override
+  String get vetReportSummary => 'Hasta özeti';
+
+  @override
+  String get vetReportOwner => 'Sahibi';
+
+  @override
+  String get vetReportLegend => 'Açıklama';
+
+  @override
+  String get vetReportCurves => 'Eğri';
 }

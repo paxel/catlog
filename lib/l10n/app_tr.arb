@@ -1145,5 +1145,14 @@
   "colWhen": "Ne zaman",
   "colValue": "Değer",
   "colWho": "Kim",
-  "pdfFontMissing": "Bu dilin yazı tipi henüz telefonda yok; bazı harfler kutu olarak basılır. Bir kez internete bağlanıp PDF'i yeniden oluşturun."
+  "pdfFontMissing": "Bu dilin yazı tipi henüz telefonda yok; bazı harfler kutu olarak basılır. Bir kez internete bağlanıp PDF'i yeniden oluşturun.",
+  "vetReportTitle": "Veteriner için rapor",
+  "vetReportMenu": "Veteriner için rapor…",
+  "vetReportFields": "Alanlar",
+  "vetReportFrom": "Başlangıç",
+  "vetReportTo": "Bitiş",
+  "vetReportSummary": "Hasta özeti",
+  "vetReportOwner": "Sahibi",
+  "vetReportLegend": "Açıklama",
+  "vetReportCurves": "Eğri"
 }

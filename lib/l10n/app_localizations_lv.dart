@@ -3417,4 +3417,31 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Šīs valodas fonts vēl nav tālrunī; daži burti tiek drukāti kā kastītes. Vienreiz pieslēdzieties internetam un izveidojiet PDF vēlreiz.';
+
+  @override
+  String get vetReportTitle => 'Ziņojums veterinārārstam';
+
+  @override
+  String get vetReportMenu => 'Ziņojums veterinārārstam…';
+
+  @override
+  String get vetReportFields => 'Lauki';
+
+  @override
+  String get vetReportFrom => 'No';
+
+  @override
+  String get vetReportTo => 'Līdz';
+
+  @override
+  String get vetReportSummary => 'Pacienta kopsavilkums';
+
+  @override
+  String get vetReportOwner => 'Īpašnieks';
+
+  @override
+  String get vetReportLegend => 'Apzīmējumi';
+
+  @override
+  String get vetReportCurves => 'Līkne';
 }

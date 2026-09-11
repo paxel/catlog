@@ -3402,4 +3402,31 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again.';
+
+  @override
+  String get vetReportTitle => 'Report for the vet';
+
+  @override
+  String get vetReportMenu => 'Report for the vet…';
+
+  @override
+  String get vetReportFields => 'Fields';
+
+  @override
+  String get vetReportFrom => 'From';
+
+  @override
+  String get vetReportTo => 'To';
+
+  @override
+  String get vetReportSummary => 'Patient summary';
+
+  @override
+  String get vetReportOwner => 'Owner';
+
+  @override
+  String get vetReportLegend => 'Legend';
+
+  @override
+  String get vetReportCurves => 'Curve';
 }

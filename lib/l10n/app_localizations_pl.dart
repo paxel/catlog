@@ -3423,4 +3423,31 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Czcionka dla tego języka nie jest jeszcze na telefonie; niektóre litery drukują się jako kwadraty. Połącz się raz z internetem i utwórz PDF ponownie.';
+
+  @override
+  String get vetReportTitle => 'Raport dla weterynarza';
+
+  @override
+  String get vetReportMenu => 'Raport dla weterynarza…';
+
+  @override
+  String get vetReportFields => 'Pola';
+
+  @override
+  String get vetReportFrom => 'Od';
+
+  @override
+  String get vetReportTo => 'Do';
+
+  @override
+  String get vetReportSummary => 'Podsumowanie pacjenta';
+
+  @override
+  String get vetReportOwner => 'Właściciel';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Wykres';
 }

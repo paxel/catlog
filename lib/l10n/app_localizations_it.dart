@@ -3411,4 +3411,31 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Il carattere per questa lingua non è ancora sul telefono; alcune lettere risultano quadratini. Collegati a internet una volta e rifai il PDF.';
+
+  @override
+  String get vetReportTitle => 'Rapporto per il veterinario';
+
+  @override
+  String get vetReportMenu => 'Rapporto per il veterinario…';
+
+  @override
+  String get vetReportFields => 'Campi';
+
+  @override
+  String get vetReportFrom => 'Da';
+
+  @override
+  String get vetReportTo => 'A';
+
+  @override
+  String get vetReportSummary => 'Riepilogo del paziente';
+
+  @override
+  String get vetReportOwner => 'Proprietario';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Curva';
 }

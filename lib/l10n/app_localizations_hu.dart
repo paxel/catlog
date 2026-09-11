@@ -3402,4 +3402,31 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Ennek a nyelvnek a betűtípusa még nincs a telefonon; egyes betűk négyzetként jelennek meg. Csatlakozz egyszer az internethez, és készítsd el újra a PDF-et.';
+
+  @override
+  String get vetReportTitle => 'Jelentés az állatorvosnak';
+
+  @override
+  String get vetReportMenu => 'Jelentés az állatorvosnak…';
+
+  @override
+  String get vetReportFields => 'Mezők';
+
+  @override
+  String get vetReportFrom => 'Ettől';
+
+  @override
+  String get vetReportTo => 'Eddig';
+
+  @override
+  String get vetReportSummary => 'Betegösszefoglaló';
+
+  @override
+  String get vetReportOwner => 'Gazda';
+
+  @override
+  String get vetReportLegend => 'Jelmagyarázat';
+
+  @override
+  String get vetReportCurves => 'Görbe';
 }

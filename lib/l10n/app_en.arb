@@ -1933,5 +1933,14 @@
   "colWhen": "When",
   "colValue": "Value",
   "colWho": "Who",
-  "pdfFontMissing": "The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again."
+  "pdfFontMissing": "The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again.",
+  "vetReportTitle": "Report for the vet",
+  "vetReportMenu": "Report for the vet…",
+  "vetReportFields": "Fields",
+  "vetReportFrom": "From",
+  "vetReportTo": "To",
+  "vetReportSummary": "Patient summary",
+  "vetReportOwner": "Owner",
+  "vetReportLegend": "Legend",
+  "vetReportCurves": "Curve"
 }

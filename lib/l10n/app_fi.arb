@@ -1145,5 +1145,14 @@
   "colWhen": "Milloin",
   "colValue": "Arvo",
   "colWho": "Kuka",
-  "pdfFontMissing": "Tämän kielen fontti ei ole vielä puhelimessa; osa kirjaimista tulostuu laatikoina. Yhdistä kerran internetiin ja tee PDF uudelleen."
+  "pdfFontMissing": "Tämän kielen fontti ei ole vielä puhelimessa; osa kirjaimista tulostuu laatikoina. Yhdistä kerran internetiin ja tee PDF uudelleen.",
+  "vetReportTitle": "Raportti eläinlääkärille",
+  "vetReportMenu": "Raportti eläinlääkärille…",
+  "vetReportFields": "Kentät",
+  "vetReportFrom": "Alkaen",
+  "vetReportTo": "Asti",
+  "vetReportSummary": "Potilasyhteenveto",
+  "vetReportOwner": "Omistaja",
+  "vetReportLegend": "Selite",
+  "vetReportCurves": "Käyrä"
 }

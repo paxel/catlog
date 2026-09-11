@@ -1145,5 +1145,14 @@
   "colWhen": "Kada",
   "colValue": "Vrijednost",
   "colWho": "Tko",
-  "pdfFontMissing": "Font za ovaj jezik još nije na telefonu; neka slova se ispisuju kao kvadratići. Spojite se jednom na internet i ponovno napravite PDF."
+  "pdfFontMissing": "Font za ovaj jezik još nije na telefonu; neka slova se ispisuju kao kvadratići. Spojite se jednom na internet i ponovno napravite PDF.",
+  "vetReportTitle": "Izvještaj za veterinara",
+  "vetReportMenu": "Izvještaj za veterinara…",
+  "vetReportFields": "Polja",
+  "vetReportFrom": "Od",
+  "vetReportTo": "Do",
+  "vetReportSummary": "Pregled pacijenta",
+  "vetReportOwner": "Vlasnik",
+  "vetReportLegend": "Legenda",
+  "vetReportCurves": "Krivulja"
 }

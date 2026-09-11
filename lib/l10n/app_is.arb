@@ -1145,5 +1145,14 @@
   "colWhen": "Hvenær",
   "colValue": "Gildi",
   "colWho": "Hver",
-  "pdfFontMissing": "Leturgerðin fyrir þetta tungumál er ekki enn í símanum; sumir stafir prentast sem kassar. Tengstu netinu einu sinni og búðu PDF-skjalið til aftur."
+  "pdfFontMissing": "Leturgerðin fyrir þetta tungumál er ekki enn í símanum; sumir stafir prentast sem kassar. Tengstu netinu einu sinni og búðu PDF-skjalið til aftur.",
+  "vetReportTitle": "Skýrsla fyrir dýralækninn",
+  "vetReportMenu": "Skýrsla fyrir dýralækninn…",
+  "vetReportFields": "Reitir",
+  "vetReportFrom": "Frá",
+  "vetReportTo": "Til",
+  "vetReportSummary": "Yfirlit sjúklings",
+  "vetReportOwner": "Eigandi",
+  "vetReportLegend": "Skýringar",
+  "vetReportCurves": "Ferill"
 }

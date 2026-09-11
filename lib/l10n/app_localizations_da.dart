@@ -3401,4 +3401,31 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Skrifttypen til dette sprog er ikke på telefonen endnu; nogle bogstaver bliver til firkanter. Gå på internettet én gang og lav PDF\'en igen.';
+
+  @override
+  String get vetReportTitle => 'Rapport til dyrlægen';
+
+  @override
+  String get vetReportMenu => 'Rapport til dyrlægen…';
+
+  @override
+  String get vetReportFields => 'Felter';
+
+  @override
+  String get vetReportFrom => 'Fra';
+
+  @override
+  String get vetReportTo => 'Til';
+
+  @override
+  String get vetReportSummary => 'Patientoversigt';
+
+  @override
+  String get vetReportOwner => 'Ejer';
+
+  @override
+  String get vetReportLegend => 'Signaturforklaring';
+
+  @override
+  String get vetReportCurves => 'Kurve';
 }

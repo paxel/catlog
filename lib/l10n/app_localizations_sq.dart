@@ -3403,4 +3403,31 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Fonti për këtë gjuhë nuk është ende në telefon; disa shkronja printohen si kuti. Lidhu një herë me internetin dhe krijo PDF-në përsëri.';
+
+  @override
+  String get vetReportTitle => 'Raport për veterinerin';
+
+  @override
+  String get vetReportMenu => 'Raport për veterinerin…';
+
+  @override
+  String get vetReportFields => 'Fushat';
+
+  @override
+  String get vetReportFrom => 'Nga';
+
+  @override
+  String get vetReportTo => 'Deri';
+
+  @override
+  String get vetReportSummary => 'Përmbledhje e pacientit';
+
+  @override
+  String get vetReportOwner => 'Pronari';
+
+  @override
+  String get vetReportLegend => 'Legjenda';
+
+  @override
+  String get vetReportCurves => 'Kurba';
 }

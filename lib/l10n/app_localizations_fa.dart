@@ -3340,4 +3340,31 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'قلم این زبان هنوز روی گوشی نیست؛ برخی حروف به‌صورت مربع چاپ می‌شوند. یک بار به اینترنت وصل شوید و PDF را دوباره بسازید.';
+
+  @override
+  String get vetReportTitle => 'گزارش برای دامپزشک';
+
+  @override
+  String get vetReportMenu => 'گزارش برای دامپزشک…';
+
+  @override
+  String get vetReportFields => 'فیلدها';
+
+  @override
+  String get vetReportFrom => 'از';
+
+  @override
+  String get vetReportTo => 'تا';
+
+  @override
+  String get vetReportSummary => 'خلاصهٔ بیمار';
+
+  @override
+  String get vetReportOwner => 'صاحب';
+
+  @override
+  String get vetReportLegend => 'راهنما';
+
+  @override
+  String get vetReportCurves => 'نمودار';
 }

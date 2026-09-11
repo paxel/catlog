@@ -1145,5 +1145,14 @@
   "colWhen": "زمان",
   "colValue": "مقدار",
   "colWho": "چه کسی",
-  "pdfFontMissing": "قلم این زبان هنوز روی گوشی نیست؛ برخی حروف به‌صورت مربع چاپ می‌شوند. یک بار به اینترنت وصل شوید و PDF را دوباره بسازید."
+  "pdfFontMissing": "قلم این زبان هنوز روی گوشی نیست؛ برخی حروف به‌صورت مربع چاپ می‌شوند. یک بار به اینترنت وصل شوید و PDF را دوباره بسازید.",
+  "vetReportTitle": "گزارش برای دامپزشک",
+  "vetReportMenu": "گزارش برای دامپزشک…",
+  "vetReportFields": "فیلدها",
+  "vetReportFrom": "از",
+  "vetReportTo": "تا",
+  "vetReportSummary": "خلاصهٔ بیمار",
+  "vetReportOwner": "صاحب",
+  "vetReportLegend": "راهنما",
+  "vetReportCurves": "نمودار"
 }

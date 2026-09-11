@@ -3399,4 +3399,31 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Skrifttypen for dette språket er ikke på telefonen ennå; noen bokstaver blir firkanter. Koble til internett én gang og lag PDF-en på nytt.';
+
+  @override
+  String get vetReportTitle => 'Rapport til veterinæren';
+
+  @override
+  String get vetReportMenu => 'Rapport til veterinæren…';
+
+  @override
+  String get vetReportFields => 'Felt';
+
+  @override
+  String get vetReportFrom => 'Fra';
+
+  @override
+  String get vetReportTo => 'Til';
+
+  @override
+  String get vetReportSummary => 'Pasientoversikt';
+
+  @override
+  String get vetReportOwner => 'Eier';
+
+  @override
+  String get vetReportLegend => 'Tegnforklaring';
+
+  @override
+  String get vetReportCurves => 'Kurve';
 }

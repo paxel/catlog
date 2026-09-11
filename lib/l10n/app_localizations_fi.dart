@@ -3403,4 +3403,31 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Tämän kielen fontti ei ole vielä puhelimessa; osa kirjaimista tulostuu laatikoina. Yhdistä kerran internetiin ja tee PDF uudelleen.';
+
+  @override
+  String get vetReportTitle => 'Raportti eläinlääkärille';
+
+  @override
+  String get vetReportMenu => 'Raportti eläinlääkärille…';
+
+  @override
+  String get vetReportFields => 'Kentät';
+
+  @override
+  String get vetReportFrom => 'Alkaen';
+
+  @override
+  String get vetReportTo => 'Asti';
+
+  @override
+  String get vetReportSummary => 'Potilasyhteenveto';
+
+  @override
+  String get vetReportOwner => 'Omistaja';
+
+  @override
+  String get vetReportLegend => 'Selite';
+
+  @override
+  String get vetReportCurves => 'Käyrä';
 }

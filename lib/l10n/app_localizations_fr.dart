@@ -3412,4 +3412,31 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'La police de cette langue n\'est pas encore sur le téléphone ; certaines lettres s\'impriment en carrés. Connectez-vous une fois à Internet et refaites le PDF.';
+
+  @override
+  String get vetReportTitle => 'Rapport pour le vétérinaire';
+
+  @override
+  String get vetReportMenu => 'Rapport pour le vétérinaire…';
+
+  @override
+  String get vetReportFields => 'Champs';
+
+  @override
+  String get vetReportFrom => 'Du';
+
+  @override
+  String get vetReportTo => 'Au';
+
+  @override
+  String get vetReportSummary => 'Résumé du patient';
+
+  @override
+  String get vetReportOwner => 'Propriétaire';
+
+  @override
+  String get vetReportLegend => 'Légende';
+
+  @override
+  String get vetReportCurves => 'Courbe';
 }

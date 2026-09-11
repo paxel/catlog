@@ -2848,6 +2848,33 @@ class ModeLocalizations implements AppLocalizations {
   String versionLabel(String version, String build) => base.versionLabel(version, build);
 
   @override
+  String get vetReportCurves => base.vetReportCurves;
+
+  @override
+  String get vetReportFields => base.vetReportFields;
+
+  @override
+  String get vetReportFrom => base.vetReportFrom;
+
+  @override
+  String get vetReportLegend => base.vetReportLegend;
+
+  @override
+  String get vetReportMenu => base.vetReportMenu;
+
+  @override
+  String get vetReportOwner => base.vetReportOwner;
+
+  @override
+  String get vetReportSummary => base.vetReportSummary;
+
+  @override
+  String get vetReportTitle => base.vetReportTitle;
+
+  @override
+  String get vetReportTo => base.vetReportTo;
+
+  @override
   String get videoMobileOnly => base.videoMobileOnly;
 
   @override

@@ -3417,4 +3417,31 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Fontul pentru această limbă nu e încă pe telefon; unele litere se tipăresc ca pătrate. Conectează-te o dată la internet și refă PDF-ul.';
+
+  @override
+  String get vetReportTitle => 'Raport pentru veterinar';
+
+  @override
+  String get vetReportMenu => 'Raport pentru veterinar…';
+
+  @override
+  String get vetReportFields => 'Câmpuri';
+
+  @override
+  String get vetReportFrom => 'De la';
+
+  @override
+  String get vetReportTo => 'Până la';
+
+  @override
+  String get vetReportSummary => 'Rezumatul pacientului';
+
+  @override
+  String get vetReportOwner => 'Proprietar';
+
+  @override
+  String get vetReportLegend => 'Legendă';
+
+  @override
+  String get vetReportCurves => 'Curbă';
 }

@@ -3412,4 +3412,31 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Die Schrift für diese Sprache ist noch nicht auf dem Telefon; manche Buchstaben erscheinen als Kästchen. Einmal ins Internet gehen und das PDF erneut erstellen.';
+
+  @override
+  String get vetReportTitle => 'Bericht für den Tierarzt';
+
+  @override
+  String get vetReportMenu => 'Bericht für den Tierarzt…';
+
+  @override
+  String get vetReportFields => 'Felder';
+
+  @override
+  String get vetReportFrom => 'Von';
+
+  @override
+  String get vetReportTo => 'Bis';
+
+  @override
+  String get vetReportSummary => 'Patientenübersicht';
+
+  @override
+  String get vetReportOwner => 'Halter';
+
+  @override
+  String get vetReportLegend => 'Legende';
+
+  @override
+  String get vetReportCurves => 'Verlauf';
 }

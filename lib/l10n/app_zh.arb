@@ -1145,5 +1145,14 @@
   "colWhen": "时间",
   "colValue": "值",
   "colWho": "谁",
-  "pdfFontMissing": "此语言的字体尚未在手机上，部分文字会显示为方框。请连接一次互联网后重新生成 PDF。"
+  "pdfFontMissing": "此语言的字体尚未在手机上，部分文字会显示为方框。请连接一次互联网后重新生成 PDF。",
+  "vetReportTitle": "兽医报告",
+  "vetReportMenu": "兽医报告…",
+  "vetReportFields": "字段",
+  "vetReportFrom": "从",
+  "vetReportTo": "到",
+  "vetReportSummary": "患者摘要",
+  "vetReportOwner": "主人",
+  "vetReportLegend": "图例",
+  "vetReportCurves": "曲线"
 }

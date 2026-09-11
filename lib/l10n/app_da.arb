@@ -1145,5 +1145,14 @@
   "colWhen": "Hvornår",
   "colValue": "Værdi",
   "colWho": "Hvem",
-  "pdfFontMissing": "Skrifttypen til dette sprog er ikke på telefonen endnu; nogle bogstaver bliver til firkanter. Gå på internettet én gang og lav PDF'en igen."
+  "pdfFontMissing": "Skrifttypen til dette sprog er ikke på telefonen endnu; nogle bogstaver bliver til firkanter. Gå på internettet én gang og lav PDF'en igen.",
+  "vetReportTitle": "Rapport til dyrlægen",
+  "vetReportMenu": "Rapport til dyrlægen…",
+  "vetReportFields": "Felter",
+  "vetReportFrom": "Fra",
+  "vetReportTo": "Til",
+  "vetReportSummary": "Patientoversigt",
+  "vetReportOwner": "Ejer",
+  "vetReportLegend": "Signaturforklaring",
+  "vetReportCurves": "Kurve"
 }

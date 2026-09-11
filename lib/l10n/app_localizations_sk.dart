@@ -3413,4 +3413,31 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get pdfFontMissing =>
       'Písmo pre tento jazyk ešte nie je v telefóne; niektoré písmená sa tlačia ako štvorčeky. Raz sa pripojte na internet a PDF vytvorte znova.';
+
+  @override
+  String get vetReportTitle => 'Správa pre veterinára';
+
+  @override
+  String get vetReportMenu => 'Správa pre veterinára…';
+
+  @override
+  String get vetReportFields => 'Polia';
+
+  @override
+  String get vetReportFrom => 'Od';
+
+  @override
+  String get vetReportTo => 'Do';
+
+  @override
+  String get vetReportSummary => 'Prehľad pacienta';
+
+  @override
+  String get vetReportOwner => 'Majiteľ';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Krivka';
 }

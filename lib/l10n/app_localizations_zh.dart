@@ -3233,4 +3233,31 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get pdfFontMissing => '此语言的字体尚未在手机上，部分文字会显示为方框。请连接一次互联网后重新生成 PDF。';
+
+  @override
+  String get vetReportTitle => '兽医报告';
+
+  @override
+  String get vetReportMenu => '兽医报告…';
+
+  @override
+  String get vetReportFields => '字段';
+
+  @override
+  String get vetReportFrom => '从';
+
+  @override
+  String get vetReportTo => '到';
+
+  @override
+  String get vetReportSummary => '患者摘要';
+
+  @override
+  String get vetReportOwner => '主人';
+
+  @override
+  String get vetReportLegend => '图例';
+
+  @override
+  String get vetReportCurves => '曲线';
 }

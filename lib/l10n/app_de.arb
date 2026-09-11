@@ -1151,5 +1151,14 @@
   "colWhen": "Wann",
   "colValue": "Wert",
   "colWho": "Wer",
-  "pdfFontMissing": "Die Schrift für diese Sprache ist noch nicht auf dem Telefon; manche Buchstaben erscheinen als Kästchen. Einmal ins Internet gehen und das PDF erneut erstellen."
+  "pdfFontMissing": "Die Schrift für diese Sprache ist noch nicht auf dem Telefon; manche Buchstaben erscheinen als Kästchen. Einmal ins Internet gehen und das PDF erneut erstellen.",
+  "vetReportTitle": "Bericht für den Tierarzt",
+  "vetReportMenu": "Bericht für den Tierarzt…",
+  "vetReportFields": "Felder",
+  "vetReportFrom": "Von",
+  "vetReportTo": "Bis",
+  "vetReportSummary": "Patientenübersicht",
+  "vetReportOwner": "Halter",
+  "vetReportLegend": "Legende",
+  "vetReportCurves": "Verlauf"
 }

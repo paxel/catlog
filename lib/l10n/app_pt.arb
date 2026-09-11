@@ -1145,5 +1145,14 @@
   "colWhen": "Quando",
   "colValue": "Valor",
   "colWho": "Quem",
-  "pdfFontMissing": "A fonte para este idioma ainda não está no telemóvel; algumas letras saem como quadrados. Liga-te à internet uma vez e cria o PDF de novo."
+  "pdfFontMissing": "A fonte para este idioma ainda não está no telemóvel; algumas letras saem como quadrados. Liga-te à internet uma vez e cria o PDF de novo.",
+  "vetReportTitle": "Relatório para o veterinário",
+  "vetReportMenu": "Relatório para o veterinário…",
+  "vetReportFields": "Campos",
+  "vetReportFrom": "De",
+  "vetReportTo": "Até",
+  "vetReportSummary": "Resumo do paciente",
+  "vetReportOwner": "Dono",
+  "vetReportLegend": "Legenda",
+  "vetReportCurves": "Curva"
 }

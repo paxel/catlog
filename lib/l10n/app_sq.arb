@@ -1145,5 +1145,14 @@
   "colWhen": "Kur",
   "colValue": "Vlera",
   "colWho": "Kush",
-  "pdfFontMissing": "Fonti për këtë gjuhë nuk është ende në telefon; disa shkronja printohen si kuti. Lidhu një herë me internetin dhe krijo PDF-në përsëri."
+  "pdfFontMissing": "Fonti për këtë gjuhë nuk është ende në telefon; disa shkronja printohen si kuti. Lidhu një herë me internetin dhe krijo PDF-në përsëri.",
+  "vetReportTitle": "Raport për veterinerin",
+  "vetReportMenu": "Raport për veterinerin…",
+  "vetReportFields": "Fushat",
+  "vetReportFrom": "Nga",
+  "vetReportTo": "Deri",
+  "vetReportSummary": "Përmbledhje e pacientit",
+  "vetReportOwner": "Pronari",
+  "vetReportLegend": "Legjenda",
+  "vetReportCurves": "Kurba"
 }
