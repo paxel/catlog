@@ -155,14 +155,14 @@ pw.Document missingPosterPdf(PosterContent c, PdfFonts fonts) {
                     pw.BarcodeWidget(
                       barcode: pw.Barcode.qrCode(),
                       data: c.qr!,
-                      width: 96,
-                      height: 96,
+                      width: 130,
+                      height: 130,
                       color: PdfColors.black,
                     ),
                     pw.SizedBox(height: 2),
                     pw.Text(
                       c.qrCaption,
-                      style: const pw.TextStyle(fontSize: 7),
+                      style: const pw.TextStyle(fontSize: 8),
                     ),
                   ],
                 ),
