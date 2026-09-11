@@ -1167,5 +1167,7 @@
   "posterLastSeen": "Zuletzt gesehen bei",
   "posterFreeText": "Zusatzzeile",
   "posterQr": "QR-Code für cat(a)log",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Neue Katze in…",
+  "newCatInNeutral": "Neues Tier in…"
 }

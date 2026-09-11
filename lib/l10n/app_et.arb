@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Viimati nähtud",
   "posterFreeText": "Lisarida",
   "posterQr": "QR-kood cat(a)logi jaoks",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Uus kass kohta…",
+  "newCatInNeutral": "Uus lemmik kohta…"
 }

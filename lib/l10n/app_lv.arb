@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Pēdējo reizi redzēts pie",
   "posterFreeText": "Papildu rinda",
   "posterQr": "QR kods cat(a)log",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Jauns kaķis uz…",
+  "newCatInNeutral": "Jauns mājdzīvnieks uz…"
 }

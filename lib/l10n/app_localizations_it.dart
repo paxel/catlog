@@ -3460,4 +3460,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Nuovo gatto in…';
+
+  @override
+  String get newCatInNeutral => 'Nuovo animale in…';
 }

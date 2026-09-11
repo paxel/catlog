@@ -3471,4 +3471,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Фото';
+
+  @override
+  String get newCatIn => 'Нова кішка в…';
+
+  @override
+  String get newCatInNeutral => 'Новий улюбленець у…';
 }

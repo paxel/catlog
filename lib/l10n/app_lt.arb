@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Paskutinį kartą matytas prie",
   "posterFreeText": "Papildoma eilutė",
   "posterQr": "QR kodas cat(a)log",
-  "posterPhoto": "Nuotrauka"
+  "posterPhoto": "Nuotrauka",
+  "newCatIn": "Nauja katė į…",
+  "newCatInNeutral": "Naujas augintinis į…"
 }

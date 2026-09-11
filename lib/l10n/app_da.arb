@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Sidst set ved",
   "posterFreeText": "Ekstra linje",
   "posterQr": "QR-kode til cat(a)log",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Ny kat i…",
+  "newCatInNeutral": "Nyt kæledyr i…"
 }

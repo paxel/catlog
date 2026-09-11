@@ -1161,5 +1161,7 @@
   "posterLastSeen": "آخرین بار دیده شده نزدیک",
   "posterFreeText": "خط اضافه",
   "posterQr": "کد QR برای cat(a)log",
-  "posterPhoto": "عکس"
+  "posterPhoto": "عکس",
+  "newCatIn": "گربهٔ جدید در…",
+  "newCatInNeutral": "حیوان خانگی جدید در…"
 }

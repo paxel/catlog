@@ -3450,4 +3450,10 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Снимка';
+
+  @override
+  String get newCatIn => 'Нова котка в…';
+
+  @override
+  String get newCatInNeutral => 'Нов любимец в…';
 }

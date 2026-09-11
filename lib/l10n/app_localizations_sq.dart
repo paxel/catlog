@@ -3452,4 +3452,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Mace e re në…';
+
+  @override
+  String get newCatInNeutral => 'Kafshë e re në…';
 }

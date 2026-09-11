@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Naposledy videný pri",
   "posterFreeText": "Riadok navyše",
   "posterQr": "QR kód pre cat(a)log",
-  "posterPhoto": "Fotka"
+  "posterPhoto": "Fotka",
+  "newCatIn": "Nová mačka v…",
+  "newCatInNeutral": "Nové zviera v…"
 }

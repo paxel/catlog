@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Síðast séð við",
   "posterFreeText": "Aukalína",
   "posterQr": "QR-kóði fyrir cat(a)log",
-  "posterPhoto": "Mynd"
+  "posterPhoto": "Mynd",
+  "newCatIn": "Nýr köttur í…",
+  "newCatInNeutral": "Nýtt gæludýr í…"
 }

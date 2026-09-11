@@ -3466,4 +3466,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Pisică nouă în…';
+
+  @override
+  String get newCatInNeutral => 'Animal nou în…';
 }

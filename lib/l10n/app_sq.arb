@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Parë për herë të fundit pranë",
   "posterFreeText": "Rresht shtesë",
   "posterQr": "Kod QR për cat(a)log",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Mace e re në…",
+  "newCatInNeutral": "Kafshë e re në…"
 }

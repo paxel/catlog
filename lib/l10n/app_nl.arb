@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Laatst gezien bij",
   "posterFreeText": "Extra regel",
   "posterQr": "QR-code voor cat(a)log",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Nieuwe kat in…",
+  "newCatInNeutral": "Nieuw huisdier in…"
 }

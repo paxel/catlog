@@ -3453,4 +3453,10 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Фотографија';
+
+  @override
+  String get newCatIn => 'Нова мачка во…';
+
+  @override
+  String get newCatInNeutral => 'Ново милениче во…';
 }

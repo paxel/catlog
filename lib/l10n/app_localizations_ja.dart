@@ -3318,4 +3318,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get posterPhoto => '写真';
+
+  @override
+  String get newCatIn => '新しい猫を追加…';
+
+  @override
+  String get newCatInNeutral => '新しいペットを追加…';
 }

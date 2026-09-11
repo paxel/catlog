@@ -3389,4 +3389,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get posterPhoto => 'عکس';
+
+  @override
+  String get newCatIn => 'گربهٔ جدید در…';
+
+  @override
+  String get newCatInNeutral => 'حیوان خانگی جدید در…';
 }

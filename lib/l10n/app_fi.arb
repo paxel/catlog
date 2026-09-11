@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Nähty viimeksi lähellä",
   "posterFreeText": "Lisärivi",
   "posterQr": "QR-koodi cat(a)logille",
-  "posterPhoto": "Kuva"
+  "posterPhoto": "Kuva",
+  "newCatIn": "Uusi kissa kohteeseen…",
+  "newCatInNeutral": "Uusi lemmikki kohteeseen…"
 }

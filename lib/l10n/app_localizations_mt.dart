@@ -3465,4 +3465,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Ritratt';
+
+  @override
+  String get newCatIn => 'Qattus ġdid fi…';
+
+  @override
+  String get newCatInNeutral => 'Pet ġdid fi…';
 }

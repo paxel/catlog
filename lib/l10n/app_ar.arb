@@ -1161,5 +1161,7 @@
   "posterLastSeen": "شوهد آخر مرة قرب",
   "posterFreeText": "سطر إضافي",
   "posterQr": "رمز QR لـ cat(a)log",
-  "posterPhoto": "صورة"
+  "posterPhoto": "صورة",
+  "newCatIn": "قطة جديدة في…",
+  "newCatInNeutral": "حيوان أليف جديد في…"
 }

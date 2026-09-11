@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Visto l'ultima volta vicino a",
   "posterFreeText": "Riga aggiuntiva",
   "posterQr": "Codice QR per cat(a)log",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Nuovo gatto in…",
+  "newCatInNeutral": "Nuovo animale in…"
 }

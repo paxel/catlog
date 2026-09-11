@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Последњи пут виђен код",
   "posterFreeText": "Додатни ред",
   "posterQr": "QR код за cat(a)log",
-  "posterPhoto": "Фотографија"
+  "posterPhoto": "Фотографија",
+  "newCatIn": "Нова мачка у…",
+  "newCatInNeutral": "Нови љубимац у…"
 }

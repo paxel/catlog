@@ -1161,5 +1161,7 @@
   "posterLastSeen": "L-aħħar li deher qrib",
   "posterFreeText": "Linja żejda",
   "posterQr": "Kodiċi QR għal cat(a)log",
-  "posterPhoto": "Ritratt"
+  "posterPhoto": "Ritratt",
+  "newCatIn": "Qattus ġdid fi…",
+  "newCatInNeutral": "Pet ġdid fi…"
 }

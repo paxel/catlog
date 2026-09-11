@@ -1949,5 +1949,7 @@
   "posterLastSeen": "Last seen near",
   "posterFreeText": "Extra line",
   "posterQr": "QR code for cat(a)log",
-  "posterPhoto": "Photo"
+  "posterPhoto": "Photo",
+  "newCatIn": "New cat in…",
+  "newCatInNeutral": "New pet in…"
 }

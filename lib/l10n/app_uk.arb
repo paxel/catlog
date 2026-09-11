@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Востаннє бачили біля",
   "posterFreeText": "Додатковий рядок",
   "posterQr": "QR-код для cat(a)log",
-  "posterPhoto": "Фото"
+  "posterPhoto": "Фото",
+  "newCatIn": "Нова кішка в…",
+  "newCatInNeutral": "Новий улюбленець у…"
 }

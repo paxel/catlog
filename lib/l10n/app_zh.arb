@@ -1161,5 +1161,7 @@
   "posterLastSeen": "最后出现地点",
   "posterFreeText": "附加一行",
   "posterQr": "cat(a)log 二维码",
-  "posterPhoto": "照片"
+  "posterPhoto": "照片",
+  "newCatIn": "新猫加入…",
+  "newCatInNeutral": "新宠物加入…"
 }

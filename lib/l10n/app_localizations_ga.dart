@@ -3505,4 +3505,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Grianghraf';
+
+  @override
+  String get newCatIn => 'Cat nua i…';
+
+  @override
+  String get newCatInNeutral => 'Peata nua i…';
 }

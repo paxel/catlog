@@ -3462,4 +3462,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Fotka';
+
+  @override
+  String get newCatIn => 'Nová mačka v…';
+
+  @override
+  String get newCatInNeutral => 'Nové zviera v…';
 }

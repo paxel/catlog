@@ -3462,4 +3462,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Φωτογραφία';
+
+  @override
+  String get newCatIn => 'Νέα γάτα σε…';
+
+  @override
+  String get newCatInNeutral => 'Νέο κατοικίδιο σε…';
 }

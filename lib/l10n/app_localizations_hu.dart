@@ -3451,4 +3451,10 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Fotó';
+
+  @override
+  String get newCatIn => 'Új macska ide…';
+
+  @override
+  String get newCatInNeutral => 'Új kedvenc ide…';
 }

@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Последний раз видели у",
   "posterFreeText": "Дополнительная строка",
   "posterQr": "QR-код для cat(a)log",
-  "posterPhoto": "Фото"
+  "posterPhoto": "Фото",
+  "newCatIn": "Новая кошка в…",
+  "newCatInNeutral": "Новый питомец в…"
 }

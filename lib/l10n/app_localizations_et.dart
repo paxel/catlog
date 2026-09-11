@@ -3448,4 +3448,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Uus kass kohta…';
+
+  @override
+  String get newCatInNeutral => 'Uus lemmik kohta…';
 }

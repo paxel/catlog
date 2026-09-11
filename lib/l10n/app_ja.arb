@@ -1161,5 +1161,7 @@
   "posterLastSeen": "最後に見た場所",
   "posterFreeText": "追加の一行",
   "posterQr": "cat(a)log 用 QR コード",
-  "posterPhoto": "写真"
+  "posterPhoto": "写真",
+  "newCatIn": "新しい猫を追加…",
+  "newCatInNeutral": "新しいペットを追加…"
 }

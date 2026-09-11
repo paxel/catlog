@@ -3448,4 +3448,10 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Ny katt i…';
+
+  @override
+  String get newCatInNeutral => 'Nytt husdjur i…';
 }

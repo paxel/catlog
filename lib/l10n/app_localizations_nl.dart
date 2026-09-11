@@ -3456,4 +3456,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Nieuwe kat in…';
+
+  @override
+  String get newCatInNeutral => 'Nieuw huisdier in…';
 }

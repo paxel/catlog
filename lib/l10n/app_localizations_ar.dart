@@ -3485,4 +3485,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get posterPhoto => 'صورة';
+
+  @override
+  String get newCatIn => 'قطة جديدة في…';
+
+  @override
+  String get newCatInNeutral => 'حيوان أليف جديد في…';
 }

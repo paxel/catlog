@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Son görüldüğü yer",
   "posterFreeText": "Ek satır",
   "posterQr": "cat(a)log için QR kodu",
-  "posterPhoto": "Fotoğraf"
+  "posterPhoto": "Fotoğraf",
+  "newCatIn": "Şuraya yeni kedi…",
+  "newCatInNeutral": "Şuraya yeni evcil hayvan…"
 }

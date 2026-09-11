@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.3.0] - Unreleased
 
 ### Added
+- A photo shared into the app can become a new cat in a home of your choice, or in a new home.
 - A report for the vet from a cat's timeline: chosen fields and dates, a patient summary, the entries as a timeline with a colour per field, and a curve per number field, as a PDF.
 - A missing poster from the card page: photo, the name in letters for the street, missing since, the home's address, phone in a black band, Looks and a standing text, and a QR code another cat(a)log reads.
 

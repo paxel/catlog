@@ -3449,4 +3449,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Fotoğraf';
+
+  @override
+  String get newCatIn => 'Şuraya yeni kedi…';
+
+  @override
+  String get newCatInNeutral => 'Şuraya yeni evcil hayvan…';
 }

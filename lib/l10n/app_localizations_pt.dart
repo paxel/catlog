@@ -3452,4 +3452,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Novo gato em…';
+
+  @override
+  String get newCatInNeutral => 'Novo animal em…';
 }

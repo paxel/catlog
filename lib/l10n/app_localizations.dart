@@ -6001,6 +6001,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Photo'**
   String get posterPhoto;
+
+  /// No description provided for @newCatIn.
+  ///
+  /// In en, this message translates to:
+  /// **'New cat in…'**
+  String get newCatIn;
+
+  /// No description provided for @newCatInNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'New pet in…'**
+  String get newCatInNeutral;
 }
 
 class _AppLocalizationsDelegate

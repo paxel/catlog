@@ -3479,4 +3479,10 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Fotografija';
+
+  @override
+  String get newCatIn => 'Nova mačka v…';
+
+  @override
+  String get newCatInNeutral => 'Nov ljubljenček v…';
 }

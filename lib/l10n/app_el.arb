@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Τελευταία φορά κοντά σε",
   "posterFreeText": "Επιπλέον γραμμή",
   "posterQr": "Κωδικός QR για το cat(a)log",
-  "posterPhoto": "Φωτογραφία"
+  "posterPhoto": "Φωτογραφία",
+  "newCatIn": "Νέα γάτα σε…",
+  "newCatInNeutral": "Νέο κατοικίδιο σε…"
 }

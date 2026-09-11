@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Văzut ultima dată lângă",
   "posterFreeText": "Rând suplimentar",
   "posterQr": "Cod QR pentru cat(a)log",
-  "posterPhoto": "Foto"
+  "posterPhoto": "Foto",
+  "newCatIn": "Pisică nouă în…",
+  "newCatInNeutral": "Animal nou în…"
 }

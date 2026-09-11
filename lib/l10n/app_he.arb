@@ -1161,5 +1161,7 @@
   "posterLastSeen": "נראה לאחרונה ליד",
   "posterFreeText": "שורה נוספת",
   "posterQr": "קוד QR ל-cat(a)log",
-  "posterPhoto": "תמונה"
+  "posterPhoto": "תמונה",
+  "newCatIn": "חתול חדש ב…",
+  "newCatInNeutral": "חיית מחמד חדשה ב…"
 }

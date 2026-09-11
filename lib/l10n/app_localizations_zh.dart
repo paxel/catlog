@@ -3281,4 +3281,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get posterPhoto => '照片';
+
+  @override
+  String get newCatIn => '新猫加入…';
+
+  @override
+  String get newCatInNeutral => '新宠物加入…';
 }

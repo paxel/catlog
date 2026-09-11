@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Feicthe go deireanach in aice le",
   "posterFreeText": "Líne bhreise",
   "posterQr": "Cód QR do cat(a)log",
-  "posterPhoto": "Grianghraf"
+  "posterPhoto": "Grianghraf",
+  "newCatIn": "Cat nua i…",
+  "newCatInNeutral": "Peata nua i…"
 }

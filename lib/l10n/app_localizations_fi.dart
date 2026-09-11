@@ -3452,4 +3452,10 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get posterPhoto => 'Kuva';
+
+  @override
+  String get newCatIn => 'Uusi kissa kohteeseen…';
+
+  @override
+  String get newCatInNeutral => 'Uusi lemmikki kohteeseen…';
 }

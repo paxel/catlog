@@ -1161,5 +1161,7 @@
   "posterLastSeen": "Utoljára itt látták",
   "posterFreeText": "Plusz sor",
   "posterQr": "QR-kód a cat(a)loghoz",
-  "posterPhoto": "Fotó"
+  "posterPhoto": "Fotó",
+  "newCatIn": "Új macska ide…",
+  "newCatInNeutral": "Új kedvenc ide…"
 }
