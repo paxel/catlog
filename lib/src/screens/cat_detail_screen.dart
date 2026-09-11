@@ -666,7 +666,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 if (!mounted) return;
                 setState(() {});
               },
-              onHistory: (def) => _openTimeline(field: def.key),
+              // A correction or removal there shows here on return.
+              onHistory: (def) async {
+                await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) =>
+                      FieldHistoryScreen(store: store, entityId: id, def: def),
+                ));
+                if (mounted) setState(() {});
+              },
               onShowMap: _showOnMap,
               onLookup: (def, value) => openLookup(context, def, value),
       onGraph: (def) => Navigator.of(context).push(MaterialPageRoute(
@@ -677,12 +684,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         builder: (_) =>
             FieldHistoryScreen(store: store, entityId: id, def: def),
       )),
-              // Long-press in read mode: jump into edit mode with the
-              // field's editor open — fix what you just spotted (#46).
-              onReadLongPress: (def) {
-                setState(() => _editing = true);
-                _editField(def);
-              },
+              // Long-press in read mode: this one field's editor, the page
+              // stays as it is — fix what you just spotted (#46), nothing more.
+              onReadLongPress: _editField,
               onAddField: () async {
                 final created = await showNewFieldDialog(
                   context,

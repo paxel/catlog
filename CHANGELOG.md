@@ -11,6 +11,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A missing poster from the card page: photo, the name in letters for the street, missing since, the home's address, phone in a black band, Looks and a standing text, and a QR code another cat(a)log reads.
 
 ### Changed
+- A home's title wears the ear: hold it to rename; in edit mode a tap on the title renames as before.
+- Holding a field in read mode opens that one value's editor and leaves the page in read mode.
+- Holding a field in edit mode opens its history page; a field without a value has no ear and nothing to hold.
 - PDFs print Greek and Cyrillic letters; Arabic, Hebrew, Farsi, Japanese and Chinese get their font fetched once when first needed.
 
 ---

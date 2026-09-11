@@ -153,8 +153,10 @@ class FieldList extends StatelessWidget {
                   : editing
                       ? const Icon(Icons.edit_outlined)
                       : null;
+          // Edit mode: a hold opens the field's history, so only a field
+          // with a value wears the ear. Read mode: a hold edits the value.
           final hasHold =
-              editing || onReadLongPress != null;
+              editing ? _filled(def) : onReadLongPress != null;
           final tile = ListTile(
             title: Text(fieldDefName(context.t, def)),
             subtitle: Text(_display(context, def)),
@@ -169,8 +171,10 @@ class FieldList extends StatelessWidget {
                 : editing
                     ? () => onEdit(def)
                     : null,
+            // An empty field in edit mode swallows the hold: without a
+            // handler a long press would land as a tap and open the editor.
             onLongPress: editing
-                ? () => onHistory(def)
+                ? (_filled(def) ? () => onHistory(def) : () {})
                 : onReadLongPress == null
                     ? null
                     : () => onReadLongPress!(def),

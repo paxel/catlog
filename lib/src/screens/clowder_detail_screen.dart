@@ -397,7 +397,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         await Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) =>
-                TimelineScreen(store: store, entityId: id, field: def.key),
+                FieldHistoryScreen(store: store, entityId: id, def: def),
           ),
         );
         // Reverts happen on the timeline — the page must show them.
@@ -412,12 +412,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       locateNote: _locateNote,
       locating: _locating,
       onLookup: (def, value) => openLookup(context, def, value),
-      // Long-press in read mode: jump into edit mode with the field's
-      // editor open — fix what you just spotted (#46).
-      onReadLongPress: (def) {
-        setState(() => _editing = true);
-        _editField(def);
-      },
+      // Long-press in read mode: this one field's editor, the page
+      // stays as it is — fix what you just spotted (#46), nothing more.
+      onReadLongPress: _editField,
       onAddField: () async {
         final created = await showNewFieldDialog(
           context,
@@ -465,10 +462,19 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       child: Scaffold(
         appBar: roomyAppBar(
           context,
-          // Renaming lives in edit mode: the title becomes tappable there.
+          // Renaming: a tap on the title in edit mode; in read mode the
+          // title wears the ear and a hold opens the same dialog.
           title: _editing
               ? InkWell(onTap: _rename, child: Text(name))
-              : Text(name),
+              : WithCatEar(
+                  child: GestureDetector(
+                    onLongPress: _rename,
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.only(end: 14),
+                      child: Text(name),
+                    ),
+                  ),
+                ),
           actions: [
             HelpButton(store: store, screenId: 'clowder'),
             IconButton(
