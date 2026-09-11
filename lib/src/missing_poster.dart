@@ -59,8 +59,12 @@ pw.Document missingPosterPdf(PosterContent c, PdfFonts fonts) {
   final width = page.availableWidth;
   final bold = pw.TextStyle(fontWeight: pw.FontWeight.bold);
 
-  pw.Widget big(String text, double size) => pw.FittedBox(
-    fit: pw.BoxFit.scaleDown,
+  pw.Widget big(
+    String text,
+    double size, {
+    pw.BoxFit fit = pw.BoxFit.scaleDown,
+  }) => pw.FittedBox(
+    fit: fit,
     alignment: pw.Alignment.centerLeft,
     child: pw.Text(
       text,
@@ -78,7 +82,7 @@ pw.Document missingPosterPdf(PosterContent c, PdfFonts fonts) {
         children: [
           if (c.photo != null)
             pw.SizedBox(
-              height: page.availableHeight * 0.36,
+              height: page.availableHeight * 0.30,
               child: pw.Image(
                 pw.MemoryImage(c.photo!),
                 fit: pw.BoxFit.cover,
@@ -87,14 +91,49 @@ pw.Document missingPosterPdf(PosterContent c, PdfFonts fonts) {
             ),
           pw.SizedBox(height: 10),
           pw.SizedBox(width: width, height: 62, child: big(c.headline, 60)),
-          pw.SizedBox(width: width, height: 76, child: big(c.name, 72)),
+          // The name is what the poster is for: it takes the width, grown
+          // or shrunk, up to the band's height.
+          pw.SizedBox(
+            width: width,
+            height: 96,
+            child: big(c.name, 90, fit: pw.BoxFit.contain),
+          ),
           pw.SizedBox(height: 8),
-          if (c.since != null)
-            pw.Text(c.since!, style: bold.copyWith(fontSize: 22)),
-          if (c.place != null)
-            pw.Text(c.place!, style: bold.copyWith(fontSize: 22), maxLines: 2),
-          if (c.extra != null && c.extra!.isNotEmpty)
-            pw.Text(c.extra!, style: bold.copyWith(fontSize: 22), maxLines: 2),
+          // The lines in the middle give way; the phone band and the
+          // footer below keep their place whatever the lines do.
+          // An empty middle would scale nothing by nothing: a plain gap.
+          if (c.since == null && c.place == null && (c.extra ?? '').isEmpty)
+            pw.Spacer()
+          else
+            pw.Expanded(
+              child: pw.FittedBox(
+                fit: pw.BoxFit.scaleDown,
+                alignment: pw.Alignment.topLeft,
+                child: pw.SizedBox(
+                  width: width,
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.stretch,
+                    mainAxisSize: pw.MainAxisSize.min,
+                    children: [
+                      if (c.since != null)
+                        pw.Text(c.since!, style: bold.copyWith(fontSize: 20)),
+                      if (c.place != null)
+                        pw.Text(
+                          c.place!,
+                          style: bold.copyWith(fontSize: 20),
+                          maxLines: 2,
+                        ),
+                      if (c.extra != null && c.extra!.isNotEmpty)
+                        pw.Text(
+                          c.extra!,
+                          style: bold.copyWith(fontSize: 20),
+                          maxLines: 2,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           pw.SizedBox(height: 10),
           if (c.phone != null)
             pw.Container(
@@ -125,7 +164,7 @@ pw.Document missingPosterPdf(PosterContent c, PdfFonts fonts) {
                 maxLines: 1,
               ),
             ),
-          pw.Spacer(),
+          pw.SizedBox(height: 14),
           pw.Row(
             crossAxisAlignment: pw.CrossAxisAlignment.end,
             children: [

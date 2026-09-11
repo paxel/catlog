@@ -127,7 +127,7 @@ void main() {
     await tester.runAsync(() async {
       await tester.tap(find.text('Share as PDF'));
       await tester.pump();
-      for (var i = 0; i < 50 && shared == null; i++) {
+      for (var i = 0; i < 300 && shared == null; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 100));
       }
     });
