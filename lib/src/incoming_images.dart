@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
@@ -9,16 +10,19 @@ import 'image_import.dart';
 import 'l10n.dart';
 import 'name_proposals.dart';
 import 'screens/cat_detail_screen.dart';
+import 'video_frames_io.dart';
 import 'widgets/cat_avatar.dart';
 
-/// Photos shared INTO the app from anywhere (Immich, Signal, a browser):
-/// the user picks which cat they belong to — or a new stray, or a new
-/// cat in a home — and the photos join through the ordinary
-/// compression path.
+/// Photos and videos shared INTO the app from anywhere (Immich, Signal,
+/// a browser): the user picks which cat they belong to — or a new
+/// stray, or a new cat in a home — and the photos join through the
+/// ordinary compression path; a video (a path ending in `.video`) goes
+/// through the frame picker first.
 Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
     CatalogStore store, List<String> paths,
-    {Future<String?> Function(BuildContext, CatalogStore)?
-        chooseTarget}) async {
+    {Future<String?> Function(BuildContext, CatalogStore)? chooseTarget,
+    Future<List<Uint8List>?> Function(BuildContext, String)?
+        extractFrames}) async {
   // The first frame may not be up yet on a cold start — poll like the
   // .catsync import does.
   BuildContext? context;
@@ -38,6 +42,13 @@ Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
   // front were 150 MB before the first one was even compressed.
   for (final path in paths) {
     try {
+      if (path.endsWith('.video')) {
+        if (!context.mounted) return;
+        final frames =
+            await (extractFrames ?? framesFromVideoFile)(context, path);
+        if (frames != null) added += await addFrames(store, catId, frames);
+        continue;
+      }
       final bytes = await File(path).readAsBytes();
       if (await addCompressedImage(store, catId, bytes) != null) added++;
     } catch (_) {

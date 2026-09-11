@@ -122,4 +122,36 @@ void main() {
     final shed = store.clowders().firstWhere((c) => c.name == 'Shed');
     expect(store.current(picked!, Keys.clowder), shed.id);
   });
+
+  testWidgets('a shared video runs the frame picker and keeps its frames', (
+    tester,
+  ) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final cat = store.createCat('Miezi');
+    final dir = Directory.systemTemp.createTempSync('catlog-video');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final video = File('${dir.path}/clip.video')..writeAsBytesSync([0, 1, 2]);
+    final navigator = GlobalKey<NavigatorState>();
+    await tester.pumpWidget(MaterialApp(
+      navigatorKey: navigator,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const Scaffold(body: SizedBox()),
+    ));
+    Uint8List jpeg(int shade) => Uint8List.fromList(
+        img.encodeJpg(img.Image(width: 40, height: 40)..clear(img.ColorRgb8(shade, 0, 0))));
+    await tester.runAsync(() => handleSharedImages(
+          navigator,
+          store,
+          [video.path],
+          chooseTarget: (_, _) async => cat,
+          extractFrames: (_, path) async {
+            expect(path, video.path);
+            return [jpeg(10), jpeg(200)];
+          },
+        ));
+    await tester.pumpAndSettle();
+    expect(store.images(cat).length, 2);
+  });
 }
