@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "نسخ النص",
+  "colWhen": "متى",
+  "colValue": "القيمة",
+  "colWho": "من"
 }

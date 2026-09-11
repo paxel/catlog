@@ -3414,4 +3414,16 @@ class AppLocalizationsSl extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Obvestila na tem telefonu ne delujejo: $error';
   }
+
+  @override
+  String get copyText => 'Kopiraj besedilo';
+
+  @override
+  String get colWhen => 'Kdaj';
+
+  @override
+  String get colValue => 'Vrednost';
+
+  @override
+  String get colWho => 'Kdo';
 }

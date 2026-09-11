@@ -3324,4 +3324,16 @@ class AppLocalizationsFa extends AppLocalizations {
   String remindFailed(Object error) {
     return 'اعلان‌ها روی این گوشی کار نمی‌کنند: $error';
   }
+
+  @override
+  String get copyText => 'کپی متن';
+
+  @override
+  String get colWhen => 'زمان';
+
+  @override
+  String get colValue => 'مقدار';
+
+  @override
+  String get colWho => 'چه کسی';
 }

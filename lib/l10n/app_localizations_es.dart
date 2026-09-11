@@ -3395,4 +3395,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Las notificaciones no funcionan en este teléfono: $error';
   }
+
+  @override
+  String get copyText => 'Copiar texto';
+
+  @override
+  String get colWhen => 'Cuándo';
+
+  @override
+  String get colValue => 'Valor';
+
+  @override
+  String get colWho => 'Quién';
 }

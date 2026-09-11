@@ -3383,4 +3383,16 @@ class AppLocalizationsSv extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Aviseringar fungerar inte på den här telefonen: $error';
   }
+
+  @override
+  String get copyText => 'Kopiera text';
+
+  @override
+  String get colWhen => 'När';
+
+  @override
+  String get colValue => 'Värde';
+
+  @override
+  String get colWho => 'Vem';
 }

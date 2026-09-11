@@ -1,15 +1,11 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:share_plus/share_plus.dart';
 
 import '../field_editing.dart';
+import '../history_share.dart';
 import '../l10n.dart';
 import '../screens/field_history_screen.dart';
-import '../share.dart';
 import '../widgets/date_entry.dart';
 
 /// Remembered on this device: whether the log reads oldest first.
@@ -154,22 +150,40 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
     );
   }
 
-  Future<void> _share() async {
+  List<HistoryLine> _lines(AppLocalizations t, String locale) => [
+    for (final r in _rows)
+      (
+        when: DateFormat.yMEd(locale).format(r.due),
+        value: _line(t, locale, r),
+        who: r.author ?? '',
+        note: _voidedText(t, locale, r) ?? '',
+      ),
+  ];
+
+  String get _name =>
+      store.current(widget.chore.entity, Keys.name) ?? context.t.unnamed;
+
+  Future<void> _copy() {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
-    final name = store.current(widget.chore.entity, Keys.name) ?? t.unnamed;
-    final text = [
-      '${widget.chore.title} · $name',
-      for (final r in _rows)
-        '${DateFormat.yMEd(locale).format(r.due)} · ${_line(t, locale, r)}',
-    ].join('\n');
-    await shareFiles(context, [
-      XFile.fromData(
-        Uint8List.fromList(utf8.encode(text)),
-        mimeType: 'text/plain',
-        name: '$name ${widget.chore.title}.txt',
-      ),
-    ]);
+    return copyText(
+      context,
+      historyText(widget.chore.title, _name, _lines(t, locale)),
+    );
+  }
+
+  Future<void> _sharePdf() async {
+    final t = context.t;
+    final locale = Localizations.localeOf(context).toString();
+    final doc = historyPdf(
+      title: widget.chore.title,
+      subtitle: _name,
+      lines: _lines(t, locale),
+      whenHeader: t.colWhen,
+      valueHeader: t.colValue,
+      whoHeader: t.colWho,
+    );
+    await sharePdf(doc, '$_name ${widget.chore.title}.pdf');
   }
 
   @override
@@ -209,9 +223,14 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.ios_share),
-            tooltip: t.shareAsText,
-            onPressed: _share,
+            icon: const Icon(Icons.copy_outlined),
+            tooltip: t.copyText,
+            onPressed: _copy,
+          ),
+          IconButton(
+            icon: const Icon(Icons.picture_as_pdf_outlined),
+            tooltip: t.shareAsPdf,
+            onPressed: _sharePdf,
           ),
         ],
       ),

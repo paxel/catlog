@@ -3391,4 +3391,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Meldingen werken niet op deze telefoon: $error';
   }
+
+  @override
+  String get copyText => 'Tekst kopiëren';
+
+  @override
+  String get colWhen => 'Wanneer';
+
+  @override
+  String get colValue => 'Waarde';
+
+  @override
+  String get colWho => 'Wie';
 }

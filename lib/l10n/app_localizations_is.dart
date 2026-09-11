@@ -3390,4 +3390,16 @@ class AppLocalizationsIs extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Tilkynningar virka ekki á þessum síma: $error';
   }
+
+  @override
+  String get copyText => 'Afrita texta';
+
+  @override
+  String get colWhen => 'Hvenær';
+
+  @override
+  String get colValue => 'Gildi';
+
+  @override
+  String get colWho => 'Hver';
 }

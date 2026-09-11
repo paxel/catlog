@@ -3382,4 +3382,16 @@ class AppLocalizationsHe extends AppLocalizations {
   String remindFailed(Object error) {
     return 'ההתראות לא פועלות בטלפון הזה: $error';
   }
+
+  @override
+  String get copyText => 'העתקת טקסט';
+
+  @override
+  String get colWhen => 'מתי';
+
+  @override
+  String get colValue => 'ערך';
+
+  @override
+  String get colWho => 'מי';
 }

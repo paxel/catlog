@@ -3397,4 +3397,16 @@ class AppLocalizationsSk extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Upozornenia na tomto telefóne nefungujú: $error';
   }
+
+  @override
+  String get copyText => 'Kopírovať text';
+
+  @override
+  String get colWhen => 'Kedy';
+
+  @override
+  String get colValue => 'Hodnota';
+
+  @override
+  String get colWho => 'Kto';
 }

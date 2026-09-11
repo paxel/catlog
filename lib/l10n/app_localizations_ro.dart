@@ -3401,4 +3401,16 @@ class AppLocalizationsRo extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Notificările nu funcționează pe acest telefon: $error';
   }
+
+  @override
+  String get copyText => 'Copiază textul';
+
+  @override
+  String get colWhen => 'Când';
+
+  @override
+  String get colValue => 'Valoare';
+
+  @override
+  String get colWho => 'Cine';
 }

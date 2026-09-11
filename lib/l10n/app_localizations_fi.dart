@@ -3387,4 +3387,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Ilmoitukset eivät toimi tällä puhelimella: $error';
   }
+
+  @override
+  String get copyText => 'Kopioi teksti';
+
+  @override
+  String get colWhen => 'Milloin';
+
+  @override
+  String get colValue => 'Arvo';
+
+  @override
+  String get colWho => 'Kuka';
 }

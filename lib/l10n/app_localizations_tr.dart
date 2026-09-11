@@ -3384,4 +3384,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Bildirimler bu telefonda çalışmıyor: $error';
   }
+
+  @override
+  String get copyText => 'Metni kopyala';
+
+  @override
+  String get colWhen => 'Ne zaman';
+
+  @override
+  String get colValue => 'Değer';
+
+  @override
+  String get colWho => 'Kim';
 }

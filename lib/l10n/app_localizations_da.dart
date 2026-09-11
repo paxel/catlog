@@ -3385,4 +3385,16 @@ class AppLocalizationsDa extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Notifikationer virker ikke på denne telefon: $error';
   }
+
+  @override
+  String get copyText => 'Kopiér tekst';
+
+  @override
+  String get colWhen => 'Hvornår';
+
+  @override
+  String get colValue => 'Værdi';
+
+  @override
+  String get colWho => 'Hvem';
 }

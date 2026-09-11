@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Kopiuj tekst",
+  "colWhen": "Kiedy",
+  "colValue": "Wartość",
+  "colWho": "Kto"
 }

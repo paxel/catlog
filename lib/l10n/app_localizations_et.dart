@@ -3383,4 +3383,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Teavitused ei tööta selles telefonis: $error';
   }
+
+  @override
+  String get copyText => 'Kopeeri tekst';
+
+  @override
+  String get colWhen => 'Millal';
+
+  @override
+  String get colValue => 'Väärtus';
+
+  @override
+  String get colWho => 'Kes';
 }

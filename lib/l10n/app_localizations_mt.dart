@@ -3400,4 +3400,16 @@ class AppLocalizationsMt extends AppLocalizations {
   String remindFailed(Object error) {
     return 'In-notifiki mhux qed jaħdmu fuq dan it-telefon: $error';
   }
+
+  @override
+  String get copyText => 'Ikkopja t-test';
+
+  @override
+  String get colWhen => 'Meta';
+
+  @override
+  String get colValue => 'Valur';
+
+  @override
+  String get colWho => 'Min';
 }

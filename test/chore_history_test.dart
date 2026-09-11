@@ -43,7 +43,8 @@ void main() {
     expect(find.text('Missed'), findsOneWidget);
     expect(find.textContaining('done '), findsOneWidget);
     expect(find.textContaining('· anna'), findsOneWidget);
-    expect(find.byTooltip('Share as text'), findsOneWidget);
+    expect(find.byTooltip('Share as PDF'), findsOneWidget);
+    expect(find.byTooltip('Copy text'), findsOneWidget);
     final tiles = tester.widgetList<ListTile>(find.byType(ListTile)).toList();
     expect((tiles.first.subtitle as Text).data, 'Still open');
     await tester.tap(find.byTooltip('Oldest first'));

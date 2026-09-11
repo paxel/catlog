@@ -3383,4 +3383,16 @@ class AppLocalizationsNo extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Varsler virker ikke på denne telefonen: $error';
   }
+
+  @override
+  String get copyText => 'Kopier tekst';
+
+  @override
+  String get colWhen => 'Når';
+
+  @override
+  String get colValue => 'Verdi';
+
+  @override
+  String get colWho => 'Hvem';
 }

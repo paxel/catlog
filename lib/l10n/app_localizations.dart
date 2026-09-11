@@ -5875,6 +5875,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notifications are not working on this phone: {error}'**
   String remindFailed(Object error);
+
+  /// No description provided for @copyText.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy text'**
+  String get copyText;
+
+  /// No description provided for @colWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'When'**
+  String get colWhen;
+
+  /// No description provided for @colValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get colValue;
+
+  /// No description provided for @colWho.
+  ///
+  /// In en, this message translates to:
+  /// **'Who'**
+  String get colWho;
 }
 
 class _AppLocalizationsDelegate

@@ -3406,4 +3406,16 @@ class AppLocalizationsLt extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Pranešimai šiame telefone neveikia: $error';
   }
+
+  @override
+  String get copyText => 'Kopijuoti tekstą';
+
+  @override
+  String get colWhen => 'Kada';
+
+  @override
+  String get colValue => 'Reikšmė';
+
+  @override
+  String get colWho => 'Kas';
 }

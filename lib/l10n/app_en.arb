@@ -1928,5 +1928,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Copy text",
+  "colWhen": "When",
+  "colValue": "Value",
+  "colWho": "Who"
 }

@@ -3397,4 +3397,16 @@ class AppLocalizationsEl extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Οι ειδοποιήσεις δεν λειτουργούν σε αυτό το τηλέφωνο: $error';
   }
+
+  @override
+  String get copyText => 'Αντιγραφή κειμένου';
+
+  @override
+  String get colWhen => 'Πότε';
+
+  @override
+  String get colValue => 'Τιμή';
+
+  @override
+  String get colWho => 'Ποιος';
 }

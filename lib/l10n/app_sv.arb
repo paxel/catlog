@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Kopiera text",
+  "colWhen": "När",
+  "colValue": "Värde",
+  "colWho": "Vem"
 }

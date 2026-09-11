@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Kopijuoti tekstą",
+  "colWhen": "Kada",
+  "colValue": "Reikšmė",
+  "colWho": "Kas"
 }

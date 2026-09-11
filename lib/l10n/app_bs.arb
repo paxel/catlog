@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Kopiraj tekst",
+  "colWhen": "Kada",
+  "colValue": "Vrijednost",
+  "colWho": "Ko"
 }

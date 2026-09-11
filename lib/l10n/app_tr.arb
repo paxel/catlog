@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Metni kopyala",
+  "colWhen": "Ne zaman",
+  "colValue": "Değer",
+  "colWho": "Kim"
 }

@@ -3385,4 +3385,16 @@ class AppLocalizationsBg extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Известията не работят на този телефон: $error';
   }
+
+  @override
+  String get copyText => 'Копирай текста';
+
+  @override
+  String get colWhen => 'Кога';
+
+  @override
+  String get colValue => 'Стойност';
+
+  @override
+  String get colWho => 'Кой';
 }

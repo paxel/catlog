@@ -3420,4 +3420,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String remindFailed(Object error) {
     return 'الإشعارات لا تعمل على هذا الهاتف: $error';
   }
+
+  @override
+  String get copyText => 'نسخ النص';
+
+  @override
+  String get colWhen => 'متى';
+
+  @override
+  String get colValue => 'القيمة';
+
+  @override
+  String get colWho => 'من';
 }

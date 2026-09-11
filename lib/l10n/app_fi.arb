@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Kopioi teksti",
+  "colWhen": "Milloin",
+  "colValue": "Arvo",
+  "colWho": "Kuka"
 }

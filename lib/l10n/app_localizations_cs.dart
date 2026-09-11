@@ -3398,4 +3398,16 @@ class AppLocalizationsCs extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Oznámení na tomto telefonu nefungují: $error';
   }
+
+  @override
+  String get copyText => 'Kopírovat text';
+
+  @override
+  String get colWhen => 'Kdy';
+
+  @override
+  String get colValue => 'Hodnota';
+
+  @override
+  String get colWho => 'Kdo';
 }

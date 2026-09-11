@@ -1,15 +1,11 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:share_plus/share_plus.dart';
 
 import '../field_editing.dart';
 import '../field_labels.dart';
+import '../history_share.dart';
 import '../l10n.dart';
-import '../share.dart';
 
 /// The values a field has held, newest first: facts only. Cleared
 /// values, plans (reminder entries) and bookkeeping are left out;
@@ -42,9 +38,27 @@ const historyShowVoidedKey = 'historyShowVoided';
 String historyMoment(String locale, DateTime d) =>
     DateFormat.yMd(locale).add_Hm().format(d.toLocal());
 
-/// The history as plain text for the share sheet: the cat and the
-/// field on top, one line per value with its moment and author, in the
-/// order given; a hidden value says so.
+/// The history's lines for the clipboard and the PDF, in the order
+/// given: moment, value, author, and what happened to a hidden value.
+List<HistoryLine> historyLines(
+  AppLocalizations t,
+  CatalogStore store,
+  FieldDef def,
+  List<Entry> entries,
+  String locale,
+) => [
+  for (final e in entries)
+    (
+      when: historyMoment(locale, e.date),
+      value: valueLabel(t, store, def.key, e.value),
+      who: e.author,
+      note: e.voided ? voidedLine(t, store, def.key, e, locale) : '',
+    ),
+];
+
+/// The history as plain text: the cat and the field on top, one line
+/// per value with its moment and author, in the order given; a hidden
+/// value says so.
 String historyAsText(
   AppLocalizations t,
   CatalogStore store,
@@ -52,16 +66,11 @@ String historyAsText(
   FieldDef def,
   List<Entry> entries,
   String locale,
-) {
-  final name = store.current(entityId, Keys.name) ?? t.unnamed;
-  return [
-    '$name · ${fieldDefName(t, def)}',
-    for (final e in entries)
-      '${historyMoment(locale, e.date)} · '
-          '${valueLabel(t, store, def.key, e.value)} · ${e.author}'
-          '${e.voided ? ' · ${voidedLine(t, store, def.key, e, locale)}' : ''}',
-  ].join('\n');
-}
+) => historyText(
+  store.current(entityId, Keys.name) ?? t.unnamed,
+  fieldDefName(t, def),
+  historyLines(t, store, def, entries, locale),
+);
 
 /// What happened to a hidden value: replaced by which value, or
 /// removed, by whom and when.
@@ -133,25 +142,31 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     setState(() {});
   }
 
-  Future<void> _share() async {
-    final t = context.t;
-    final locale = Localizations.localeOf(context).toString();
-    final text = historyAsText(
-      t,
+  Future<void> _copy() => copyText(
+    context,
+    historyAsText(
+      context.t,
       store,
       widget.entityId,
       widget.def,
       _entries,
-      locale,
+      Localizations.localeOf(context).toString(),
+    ),
+  );
+
+  Future<void> _sharePdf() async {
+    final t = context.t;
+    final locale = Localizations.localeOf(context).toString();
+    final name = store.current(widget.entityId, Keys.name) ?? t.unnamed;
+    final doc = historyPdf(
+      title: name,
+      subtitle: fieldDefName(t, widget.def),
+      lines: historyLines(t, store, widget.def, _entries, locale),
+      whenHeader: t.colWhen,
+      valueHeader: t.colValue,
+      whoHeader: t.colWho,
     );
-    final name = store.current(widget.entityId, Keys.name) ?? 'cat';
-    await shareFiles(context, [
-      XFile.fromData(
-        Uint8List.fromList(utf8.encode(text)),
-        mimeType: 'text/plain',
-        name: '$name ${fieldDefName(t, widget.def)}.txt',
-      ),
-    ]);
+    await sharePdf(doc, '$name ${fieldDefName(t, widget.def)}.pdf');
   }
 
   Future<void> _correct(Entry e) async {
@@ -247,9 +262,14 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
             onPressed: _flipVoided,
           ),
           IconButton(
-            icon: const Icon(Icons.ios_share),
-            tooltip: t.shareAsText,
-            onPressed: _share,
+            icon: const Icon(Icons.copy_outlined),
+            tooltip: t.copyText,
+            onPressed: _copy,
+          ),
+          IconButton(
+            icon: const Icon(Icons.picture_as_pdf_outlined),
+            tooltip: t.shareAsPdf,
+            onPressed: _sharePdf,
           ),
         ],
       ),

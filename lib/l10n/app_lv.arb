@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Kopēt tekstu",
+  "colWhen": "Kad",
+  "colValue": "Vērtība",
+  "colWho": "Kas"
 }

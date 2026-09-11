@@ -3396,4 +3396,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Benachrichtigungen funktionieren auf diesem Telefon nicht: $error';
   }
+
+  @override
+  String get copyText => 'Text kopieren';
+
+  @override
+  String get colWhen => 'Wann';
+
+  @override
+  String get colValue => 'Wert';
+
+  @override
+  String get colWho => 'Wer';
 }

@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Afrita texta",
+  "colWhen": "Hvenær",
+  "colValue": "Gildi",
+  "colWho": "Hver"
 }

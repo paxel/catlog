@@ -3406,4 +3406,16 @@ class AppLocalizationsUk extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Сповіщення на цьому телефоні не працюють: $error';
   }
+
+  @override
+  String get copyText => 'Копіювати текст';
+
+  @override
+  String get colWhen => 'Коли';
+
+  @override
+  String get colValue => 'Значення';
+
+  @override
+  String get colWho => 'Хто';
 }

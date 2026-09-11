@@ -3398,4 +3398,16 @@ class AppLocalizationsHr extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Obavijesti ne rade na ovom telefonu: $error';
   }
+
+  @override
+  String get copyText => 'Kopiraj tekst';
+
+  @override
+  String get colWhen => 'Kada';
+
+  @override
+  String get colValue => 'Vrijednost';
+
+  @override
+  String get colWho => 'Tko';
 }

@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Копирај текст",
+  "colWhen": "Кога",
+  "colValue": "Вредност",
+  "colWho": "Кој"
 }

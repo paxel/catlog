@@ -3218,4 +3218,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String remindFailed(Object error) {
     return '此手机上的通知无法使用：$error';
   }
+
+  @override
+  String get copyText => '复制文本';
+
+  @override
+  String get colWhen => '时间';
+
+  @override
+  String get colValue => '值';
+
+  @override
+  String get colWho => '谁';
 }

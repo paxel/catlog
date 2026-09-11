@@ -3386,4 +3386,16 @@ class AppLocalizationsHu extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Az értesítések nem működnek ezen a telefonon: $error';
   }
+
+  @override
+  String get copyText => 'Szöveg másolása';
+
+  @override
+  String get colWhen => 'Mikor';
+
+  @override
+  String get colValue => 'Érték';
+
+  @override
+  String get colWho => 'Ki';
 }

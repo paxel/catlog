@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "Копіювати текст",
+  "colWhen": "Коли",
+  "colValue": "Значення",
+  "colWho": "Хто"
 }

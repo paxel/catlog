@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "テキストをコピー",
+  "colWhen": "日時",
+  "colValue": "値",
+  "colWho": "担当"
 }

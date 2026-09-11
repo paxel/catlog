@@ -670,6 +670,15 @@ class ModeLocalizations implements AppLocalizations {
   String get coffeeSubtitle => base.coffeeSubtitle;
 
   @override
+  String get colValue => base.colValue;
+
+  @override
+  String get colWhen => base.colWhen;
+
+  @override
+  String get colWho => base.colWho;
+
+  @override
   String get conflictBody => base.conflictBody;
 
   @override
@@ -689,6 +698,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get copyCode => base.copyCode;
+
+  @override
+  String get copyText => base.copyText;
 
   @override
   String get correctThisValue => base.correctThisValue;

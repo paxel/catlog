@@ -3407,4 +3407,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Powiadomienia nie działają na tym telefonie: $error';
   }
+
+  @override
+  String get copyText => 'Kopiuj tekst';
+
+  @override
+  String get colWhen => 'Kiedy';
+
+  @override
+  String get colValue => 'Wartość';
+
+  @override
+  String get colWho => 'Kto';
 }

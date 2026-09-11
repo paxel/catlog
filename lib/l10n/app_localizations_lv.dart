@@ -3401,4 +3401,16 @@ class AppLocalizationsLv extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Paziņojumi šajā tālrunī nedarbojas: $error';
   }
+
+  @override
+  String get copyText => 'Kopēt tekstu';
+
+  @override
+  String get colWhen => 'Kad';
+
+  @override
+  String get colValue => 'Vērtība';
+
+  @override
+  String get colWho => 'Kas';
 }

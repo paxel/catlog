@@ -3254,4 +3254,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String remindFailed(Object error) {
     return 'この端末では通知が機能していません: $error';
   }
+
+  @override
+  String get copyText => 'テキストをコピー';
+
+  @override
+  String get colWhen => '日時';
+
+  @override
+  String get colValue => '値';
+
+  @override
+  String get colWho => '担当';
 }

@@ -137,7 +137,8 @@ void main() {
     expect(order(), ['Sneezing', 'Vet: fine']);
     expect(store.localSetting('historyOldestFirst'), 'yes');
     expect(find.byTooltip('Newest first'), findsOneWidget);
-    expect(find.byTooltip('Share as text'), findsOneWidget);
+    expect(find.byTooltip('Share as PDF'), findsOneWidget);
+    expect(find.byTooltip('Copy text'), findsOneWidget);
     // The text follows the order on screen.
     final t = lookupAppLocalizations(const Locale('en'));
     final text = historyAsText(

@@ -3387,4 +3387,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String remindFailed(Object error) {
     return 'As notificações não funcionam neste telemóvel: $error';
   }
+
+  @override
+  String get copyText => 'Copiar texto';
+
+  @override
+  String get colWhen => 'Quando';
+
+  @override
+  String get colValue => 'Valor';
+
+  @override
+  String get colWho => 'Quem';
 }

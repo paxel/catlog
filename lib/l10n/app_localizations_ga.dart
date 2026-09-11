@@ -3440,4 +3440,16 @@ class AppLocalizationsGa extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Níl na fógraí ag obair ar an nguthán seo: $error';
   }
+
+  @override
+  String get copyText => 'Cóipeáil téacs';
+
+  @override
+  String get colWhen => 'Cathain';
+
+  @override
+  String get colValue => 'Luach';
+
+  @override
+  String get colWho => 'Cé';
 }

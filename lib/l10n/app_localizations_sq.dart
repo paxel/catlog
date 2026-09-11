@@ -3387,4 +3387,16 @@ class AppLocalizationsSq extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Njoftimet nuk funksionojnë në këtë telefon: $error';
   }
+
+  @override
+  String get copyText => 'Kopjo tekstin';
+
+  @override
+  String get colWhen => 'Kur';
+
+  @override
+  String get colValue => 'Vlera';
+
+  @override
+  String get colWho => 'Kush';
 }

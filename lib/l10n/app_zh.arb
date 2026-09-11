@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "复制文本",
+  "colWhen": "时间",
+  "colValue": "值",
+  "colWho": "谁"
 }

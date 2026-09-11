@@ -1140,5 +1140,9 @@
     "placeholders": {
       "error": {}
     }
-  }
+  },
+  "copyText": "کپی متن",
+  "colWhen": "زمان",
+  "colValue": "مقدار",
+  "colWho": "چه کسی"
 }

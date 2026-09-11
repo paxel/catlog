@@ -3388,4 +3388,16 @@ class AppLocalizationsMk extends AppLocalizations {
   String remindFailed(Object error) {
     return 'Известувањата не работат на овој телефон: $error';
   }
+
+  @override
+  String get copyText => 'Копирај текст';
+
+  @override
+  String get colWhen => 'Кога';
+
+  @override
+  String get colValue => 'Вредност';
+
+  @override
+  String get colWho => 'Кој';
 }
