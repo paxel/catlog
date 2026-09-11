@@ -3395,4 +3395,8 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get colWho => 'Kes';
+
+  @override
+  String get pdfFontMissing =>
+      'Selle keele font pole veel telefonis; osa tähti trükitakse kastidena. Ühenda korraks internetti ja tee PDF uuesti.';
 }

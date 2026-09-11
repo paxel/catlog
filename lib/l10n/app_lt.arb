@@ -1144,5 +1144,6 @@
   "copyText": "Kopijuoti tekstą",
   "colWhen": "Kada",
   "colValue": "Reikšmė",
-  "colWho": "Kas"
+  "colWho": "Kas",
+  "pdfFontMissing": "Šios kalbos šriftas dar nėra telefone; kai kurios raidės spausdinamos kaip langeliai. Kartą prisijunkite prie interneto ir sukurkite PDF iš naujo."
 }

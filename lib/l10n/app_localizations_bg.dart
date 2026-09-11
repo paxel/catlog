@@ -3397,4 +3397,8 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get colWho => 'Кой';
+
+  @override
+  String get pdfFontMissing =>
+      'Шрифтът за този език още не е на телефона; някои букви се печатат като квадратчета. Свържете се веднъж с интернет и създайте PDF отново.';
 }

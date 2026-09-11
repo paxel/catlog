@@ -3412,4 +3412,8 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get colWho => 'Min';
+
+  @override
+  String get pdfFontMissing =>
+      'Il-font għal din il-lingwa għadu mhux fuq it-telefon; xi ittri jiġu stampati bħala kaxxi. Aqbad mal-internet darba u erġa\' agħmel il-PDF.';
 }

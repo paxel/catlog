@@ -1144,5 +1144,6 @@
   "copyText": "Kopiera text",
   "colWhen": "När",
   "colValue": "Värde",
-  "colWho": "Vem"
+  "colWho": "Vem",
+  "pdfFontMissing": "Typsnittet för det här språket finns inte på telefonen än; vissa bokstäver blir rutor. Anslut till internet en gång och gör om PDF:en."
 }

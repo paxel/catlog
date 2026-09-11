@@ -3396,4 +3396,8 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get colWho => 'Kim';
+
+  @override
+  String get pdfFontMissing =>
+      'Bu dilin yazı tipi henüz telefonda yok; bazı harfler kutu olarak basılır. Bir kez internete bağlanıp PDF\'i yeniden oluşturun.';
 }

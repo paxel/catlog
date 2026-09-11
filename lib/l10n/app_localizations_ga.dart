@@ -3452,4 +3452,8 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get colWho => 'Cé';
+
+  @override
+  String get pdfFontMissing =>
+      'Níl an cló don teanga seo ar an nguthán fós; priontáiltear roinnt litreacha mar bhoscaí. Ceangail leis an idirlíon uair amháin agus déan an PDF arís.';
 }

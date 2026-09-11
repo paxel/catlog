@@ -3419,4 +3419,8 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get colWho => 'Kto';
+
+  @override
+  String get pdfFontMissing =>
+      'Czcionka dla tego języka nie jest jeszcze na telefonie; niektóre litery drukują się jako kwadraty. Połącz się raz z internetem i utwórz PDF ponownie.';
 }

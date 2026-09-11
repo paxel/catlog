@@ -3403,4 +3403,8 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get colWho => 'Wie';
+
+  @override
+  String get pdfFontMissing =>
+      'Het lettertype voor deze taal staat nog niet op de telefoon; sommige letters worden vakjes. Maak één keer verbinding met internet en maak de pdf opnieuw.';
 }

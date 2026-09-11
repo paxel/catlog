@@ -19,8 +19,10 @@ pw.Document historyPdf({
   required String whenHeader,
   required String valueHeader,
   required String whoHeader,
+  pw.ThemeData? theme,
+  String? warning,
 }) {
-  final doc = pw.Document(title: '$title — cat(a)log');
+  final doc = pw.Document(title: '$title — cat(a)log', theme: theme);
   final hasNotes = lines.any((l) => l.note.isNotEmpty);
   doc.addPage(
     pw.MultiPage(
@@ -35,6 +37,13 @@ pw.Document historyPdf({
           subtitle,
           style: const pw.TextStyle(fontSize: 11, color: PdfColors.grey700),
         ),
+        if (warning != null) ...[
+          pw.SizedBox(height: 6),
+          pw.Text(
+            warning,
+            style: const pw.TextStyle(fontSize: 9, color: PdfColors.red800),
+          ),
+        ],
         pw.SizedBox(height: 14),
         pw.TableHelper.fromTextArray(
           headers: [whenHeader, valueHeader, whoHeader, if (hasNotes) ''],

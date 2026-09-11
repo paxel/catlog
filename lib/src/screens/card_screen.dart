@@ -11,6 +11,7 @@ import '../field_labels.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
+import '../pdf_fonts.dart';
 import '../plus_code.dart';
 import '../share.dart';
 import '../spotlight.dart';
@@ -220,7 +221,8 @@ class _CardScreenState extends State<CardScreen> {
         _selected.contains(_photoKey) ? store.profileImage(id) : null;
     final photo = hash == null ? null : store.imageBytes(hash);
     final facts = _facts();
-    final doc = pw.Document(title: '$name — cat(a)log card');
+    final fonts = await pdfFontsFor(Localizations.localeOf(context).languageCode);
+    final doc = pw.Document(title: '$name — cat(a)log card', theme: fonts.theme);
     doc.addPage(
       pw.Page(
         pageFormat: PdfPageFormat.a5,

@@ -1144,5 +1144,6 @@
   "copyText": "Copiază textul",
   "colWhen": "Când",
   "colValue": "Valoare",
-  "colWho": "Cine"
+  "colWho": "Cine",
+  "pdfFontMissing": "Fontul pentru această limbă nu e încă pe telefon; unele litere se tipăresc ca pătrate. Conectează-te o dată la internet și refă PDF-ul."
 }

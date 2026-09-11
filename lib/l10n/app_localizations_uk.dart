@@ -3418,4 +3418,8 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get colWho => 'Хто';
+
+  @override
+  String get pdfFontMissing =>
+      'Шрифт для цієї мови ще не на телефоні; частина літер друкується квадратами. Один раз підключіться до інтернету та створіть PDF знову.';
 }

@@ -1144,5 +1144,6 @@
   "copyText": "Copiar texto",
   "colWhen": "Cuándo",
   "colValue": "Valor",
-  "colWho": "Quién"
+  "colWho": "Quién",
+  "pdfFontMissing": "La fuente de este idioma aún no está en el teléfono; algunas letras salen como cuadros. Conéctate a internet una vez y vuelve a crear el PDF."
 }

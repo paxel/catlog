@@ -3336,4 +3336,8 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get colWho => 'چه کسی';
+
+  @override
+  String get pdfFontMissing =>
+      'قلم این زبان هنوز روی گوشی نیست؛ برخی حروف به‌صورت مربع چاپ می‌شوند. یک بار به اینترنت وصل شوید و PDF را دوباره بسازید.';
 }

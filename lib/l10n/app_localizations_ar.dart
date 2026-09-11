@@ -3432,4 +3432,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get colWho => 'من';
+
+  @override
+  String get pdfFontMissing =>
+      'خط هذه اللغة ليس على الهاتف بعد؛ تُطبع بعض الحروف كمربعات. اتصل بالإنترنت مرة واحدة ثم أنشئ ملف PDF من جديد.';
 }

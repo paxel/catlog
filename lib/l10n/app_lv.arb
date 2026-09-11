@@ -1144,5 +1144,6 @@
   "copyText": "Kopēt tekstu",
   "colWhen": "Kad",
   "colValue": "Vērtība",
-  "colWho": "Kas"
+  "colWho": "Kas",
+  "pdfFontMissing": "Šīs valodas fonts vēl nav tālrunī; daži burti tiek drukāti kā kastītes. Vienreiz pieslēdzieties internetam un izveidojiet PDF vēlreiz."
 }

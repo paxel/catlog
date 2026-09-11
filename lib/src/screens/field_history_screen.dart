@@ -6,6 +6,7 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../history_share.dart';
 import '../l10n.dart';
+import '../pdf_fonts.dart';
 
 /// The values a field has held, newest first: facts only. Cleared
 /// values, plans (reminder entries) and bookkeeping are left out;
@@ -158,6 +159,7 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
     final name = store.current(widget.entityId, Keys.name) ?? t.unnamed;
+    final fonts = await pdfFontsFor(Localizations.localeOf(context).languageCode);
     final doc = historyPdf(
       title: name,
       subtitle: fieldDefName(t, widget.def),
@@ -165,6 +167,8 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
       whenHeader: t.colWhen,
       valueHeader: t.colValue,
       whoHeader: t.colWho,
+      theme: fonts.theme,
+      warning: fonts.complete ? null : t.pdfFontMissing,
     );
     await sharePdf(doc, '$name ${fieldDefName(t, widget.def)}.pdf');
   }

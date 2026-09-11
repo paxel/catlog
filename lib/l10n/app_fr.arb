@@ -1144,5 +1144,6 @@
   "copyText": "Copier le texte",
   "colWhen": "Quand",
   "colValue": "Valeur",
-  "colWho": "Qui"
+  "colWho": "Qui",
+  "pdfFontMissing": "La police de cette langue n'est pas encore sur le téléphone ; certaines lettres s'impriment en carrés. Connectez-vous une fois à Internet et refaites le PDF."
 }

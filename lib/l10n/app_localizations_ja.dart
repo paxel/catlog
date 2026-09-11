@@ -3266,4 +3266,8 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get colWho => '担当';
+
+  @override
+  String get pdfFontMissing =>
+      'この言語のフォントがまだ端末にありません。一部の文字が四角で表示されます。一度インターネットに接続してから PDF を作り直してください。';
 }

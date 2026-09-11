@@ -1900,6 +1900,9 @@ class ModeLocalizations implements AppLocalizations {
   String parentBornAfterKittenNeutral(String name, String date) => base.parentBornAfterKittenNeutral(name, date);
 
   @override
+  String get pdfFontMissing => base.pdfFontMissing;
+
+  @override
   String get phoneLabel => base.phoneLabel;
 
   @override

@@ -1144,5 +1144,6 @@
   "copyText": "Kopier tekst",
   "colWhen": "Når",
   "colValue": "Verdi",
-  "colWho": "Hvem"
+  "colWho": "Hvem",
+  "pdfFontMissing": "Skrifttypen for dette språket er ikke på telefonen ennå; noen bokstaver blir firkanter. Koble til internett én gang og lag PDF-en på nytt."
 }

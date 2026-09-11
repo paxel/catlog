@@ -1144,5 +1144,6 @@
   "copyText": "Cóipeáil téacs",
   "colWhen": "Cathain",
   "colValue": "Luach",
-  "colWho": "Cé"
+  "colWho": "Cé",
+  "pdfFontMissing": "Níl an cló don teanga seo ar an nguthán fós; priontáiltear roinnt litreacha mar bhoscaí. Ceangail leis an idirlíon uair amháin agus déan an PDF arís."
 }

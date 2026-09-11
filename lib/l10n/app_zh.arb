@@ -1144,5 +1144,6 @@
   "copyText": "复制文本",
   "colWhen": "时间",
   "colValue": "值",
-  "colWho": "谁"
+  "colWho": "谁",
+  "pdfFontMissing": "此语言的字体尚未在手机上，部分文字会显示为方框。请连接一次互联网后重新生成 PDF。"
 }

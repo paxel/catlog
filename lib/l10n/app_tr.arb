@@ -1144,5 +1144,6 @@
   "copyText": "Metni kopyala",
   "colWhen": "Ne zaman",
   "colValue": "Değer",
-  "colWho": "Kim"
+  "colWho": "Kim",
+  "pdfFontMissing": "Bu dilin yazı tipi henüz telefonda yok; bazı harfler kutu olarak basılır. Bir kez internete bağlanıp PDF'i yeniden oluşturun."
 }

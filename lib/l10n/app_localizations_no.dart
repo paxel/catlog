@@ -3395,4 +3395,8 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get colWho => 'Hvem';
+
+  @override
+  String get pdfFontMissing =>
+      'Skrifttypen for dette språket er ikke på telefonen ennå; noen bokstaver blir firkanter. Koble til internett én gang og lag PDF-en på nytt.';
 }

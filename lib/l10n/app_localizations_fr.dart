@@ -3408,4 +3408,8 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get colWho => 'Qui';
+
+  @override
+  String get pdfFontMissing =>
+      'La police de cette langue n\'est pas encore sur le téléphone ; certaines lettres s\'impriment en carrés. Connectez-vous une fois à Internet et refaites le PDF.';
 }

@@ -1144,5 +1144,6 @@
   "copyText": "Kopírovat text",
   "colWhen": "Kdy",
   "colValue": "Hodnota",
-  "colWho": "Kdo"
+  "colWho": "Kdo",
+  "pdfFontMissing": "Písmo pro tento jazyk ještě není v telefonu; některá písmena se tisknou jako čtverečky. Jednou se připojte k internetu a PDF vytvořte znovu."
 }

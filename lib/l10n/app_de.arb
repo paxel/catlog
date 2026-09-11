@@ -1150,5 +1150,6 @@
   "copyText": "Text kopieren",
   "colWhen": "Wann",
   "colValue": "Wert",
-  "colWho": "Wer"
+  "colWho": "Wer",
+  "pdfFontMissing": "Die Schrift für diese Sprache ist noch nicht auf dem Telefon; manche Buchstaben erscheinen als Kästchen. Einmal ins Internet gehen und das PDF erneut erstellen."
 }

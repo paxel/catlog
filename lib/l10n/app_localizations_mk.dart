@@ -3400,4 +3400,8 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get colWho => 'Кој';
+
+  @override
+  String get pdfFontMissing =>
+      'Фонтот за овој јазик сè уште не е на телефонот; некои букви се печатат како квадратчиња. Поврзете се еднаш на интернет и направете го PDF-от повторно.';
 }

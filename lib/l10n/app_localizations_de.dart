@@ -3408,4 +3408,8 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get colWho => 'Wer';
+
+  @override
+  String get pdfFontMissing =>
+      'Die Schrift für diese Sprache ist noch nicht auf dem Telefon; manche Buchstaben erscheinen als Kästchen. Einmal ins Internet gehen und das PDF erneut erstellen.';
 }

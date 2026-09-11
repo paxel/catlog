@@ -1144,5 +1144,6 @@
   "copyText": "Ikkopja t-test",
   "colWhen": "Meta",
   "colValue": "Valur",
-  "colWho": "Min"
+  "colWho": "Min",
+  "pdfFontMissing": "Il-font għal din il-lingwa għadu mhux fuq it-telefon; xi ittri jiġu stampati bħala kaxxi. Aqbad mal-internet darba u erġa' agħmel il-PDF."
 }

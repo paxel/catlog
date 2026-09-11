@@ -3395,4 +3395,8 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get colWho => 'Vem';
+
+  @override
+  String get pdfFontMissing =>
+      'Typsnittet för det här språket finns inte på telefonen än; vissa bokstäver blir rutor. Anslut till internet en gång och gör om PDF:en.';
 }

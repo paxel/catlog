@@ -3398,4 +3398,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get colWho => 'Who';
+
+  @override
+  String get pdfFontMissing =>
+      'The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again.';
 }

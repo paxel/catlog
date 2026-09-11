@@ -3410,4 +3410,8 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get colWho => 'Kdo';
+
+  @override
+  String get pdfFontMissing =>
+      'Písmo pro tento jazyk ještě není v telefonu; některá písmena se tisknou jako čtverečky. Jednou se připojte k internetu a PDF vytvořte znovu.';
 }

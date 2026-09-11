@@ -1932,5 +1932,6 @@
   "copyText": "Copy text",
   "colWhen": "When",
   "colValue": "Value",
-  "colWho": "Who"
+  "colWho": "Who",
+  "pdfFontMissing": "The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again."
 }

@@ -3413,4 +3413,8 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get colWho => 'Kas';
+
+  @override
+  String get pdfFontMissing =>
+      'Šīs valodas fonts vēl nav tālrunī; daži burti tiek drukāti kā kastītes. Vienreiz pieslēdzieties internetam un izveidojiet PDF vēlreiz.';
 }

@@ -3413,4 +3413,8 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get colWho => 'Cine';
+
+  @override
+  String get pdfFontMissing =>
+      'Fontul pentru această limbă nu e încă pe telefon; unele litere se tipăresc ca pătrate. Conectează-te o dată la internet și refă PDF-ul.';
 }

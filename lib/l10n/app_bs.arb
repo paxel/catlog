@@ -1144,5 +1144,6 @@
   "copyText": "Kopiraj tekst",
   "colWhen": "Kada",
   "colValue": "Vrijednost",
-  "colWho": "Ko"
+  "colWho": "Ko",
+  "pdfFontMissing": "Font za ovaj jezik još nije na telefonu; neka slova se štampaju kao kvadratići. Povežite se jednom na internet i ponovo napravite PDF."
 }

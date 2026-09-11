@@ -3409,4 +3409,8 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get colWho => 'Ποιος';
+
+  @override
+  String get pdfFontMissing =>
+      'Η γραμματοσειρά αυτής της γλώσσας δεν είναι ακόμη στο τηλέφωνο· κάποια γράμματα τυπώνονται ως κουτάκια. Συνδεθείτε μία φορά στο διαδίκτυο και φτιάξτε ξανά το PDF.';
 }

@@ -3398,4 +3398,8 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get colWho => 'Ki';
+
+  @override
+  String get pdfFontMissing =>
+      'Ennek a nyelvnek a betűtípusa még nincs a telefonon; egyes betűk négyzetként jelennek meg. Csatlakozz egyszer az internethez, és készítsd el újra a PDF-et.';
 }

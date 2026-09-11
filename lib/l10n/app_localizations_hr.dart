@@ -3410,4 +3410,8 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get colWho => 'Tko';
+
+  @override
+  String get pdfFontMissing =>
+      'Font za ovaj jezik još nije na telefonu; neka slova se ispisuju kao kvadratići. Spojite se jednom na internet i ponovno napravite PDF.';
 }

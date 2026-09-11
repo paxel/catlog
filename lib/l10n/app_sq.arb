@@ -1144,5 +1144,6 @@
   "copyText": "Kopjo tekstin",
   "colWhen": "Kur",
   "colValue": "Vlera",
-  "colWho": "Kush"
+  "colWho": "Kush",
+  "pdfFontMissing": "Fonti për këtë gjuhë nuk është ende në telefon; disa shkronja printohen si kuti. Lidhu një herë me internetin dhe krijo PDF-në përsëri."
 }

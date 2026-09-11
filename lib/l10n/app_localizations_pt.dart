@@ -3399,4 +3399,8 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get colWho => 'Quem';
+
+  @override
+  String get pdfFontMissing =>
+      'A fonte para este idioma ainda não está no telemóvel; algumas letras saem como quadrados. Liga-te à internet uma vez e cria o PDF de novo.';
 }

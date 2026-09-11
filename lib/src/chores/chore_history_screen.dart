@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../field_editing.dart';
 import '../history_share.dart';
 import '../l10n.dart';
+import '../pdf_fonts.dart';
 import '../screens/field_history_screen.dart';
 import '../widgets/date_entry.dart';
 
@@ -175,6 +176,7 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
   Future<void> _sharePdf() async {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
+    final fonts = await pdfFontsFor(Localizations.localeOf(context).languageCode);
     final doc = historyPdf(
       title: widget.chore.title,
       subtitle: _name,
@@ -182,6 +184,8 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
       whenHeader: t.colWhen,
       valueHeader: t.colValue,
       whoHeader: t.colWho,
+      theme: fonts.theme,
+      warning: fonts.complete ? null : t.pdfFontMissing,
     );
     await sharePdf(doc, '$_name ${widget.chore.title}.pdf');
   }

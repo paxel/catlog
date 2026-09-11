@@ -3411,4 +3411,8 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get colWho => 'Ko';
+
+  @override
+  String get pdfFontMissing =>
+      'Font za ovaj jezik još nije na telefonu; neka slova se štampaju kao kvadratići. Povežite se jednom na internet i ponovo napravite PDF.';
 }

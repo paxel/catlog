@@ -3402,4 +3402,8 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get colWho => 'Hver';
+
+  @override
+  String get pdfFontMissing =>
+      'Leturgerðin fyrir þetta tungumál er ekki enn í símanum; sumir stafir prentast sem kassar. Tengstu netinu einu sinni og búðu PDF-skjalið til aftur.';
 }

@@ -3410,4 +3410,8 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get colWho => 'Ко';
+
+  @override
+  String get pdfFontMissing =>
+      'Фонт за овај језик још није на телефону; нека слова се штампају као квадратићи. Повежите се једном на интернет и поново направите PDF.';
 }

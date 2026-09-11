@@ -3407,4 +3407,8 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get colWho => 'Chi';
+
+  @override
+  String get pdfFontMissing =>
+      'Il carattere per questa lingua non è ancora sul telefono; alcune lettere risultano quadratini. Collegati a internet una volta e rifai il PDF.';
 }

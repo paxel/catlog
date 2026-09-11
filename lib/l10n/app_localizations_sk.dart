@@ -3409,4 +3409,8 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get colWho => 'Kto';
+
+  @override
+  String get pdfFontMissing =>
+      'Písmo pre tento jazyk ešte nie je v telefóne; niektoré písmená sa tlačia ako štvorčeky. Raz sa pripojte na internet a PDF vytvorte znova.';
 }

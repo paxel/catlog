@@ -9,6 +9,7 @@ import '../layout.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
+import '../pdf_fonts.dart';
 import '../plus_code.dart';
 import '../share.dart';
 import '../widgets/cat_avatar.dart';
@@ -192,6 +193,7 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
   }
 
   Future<pw.Document> _buildPdf(List<EntityView> cats) async {
+    final language = Localizations.localeOf(context).languageCode;
     final t = context.t;
     final name = store.current(id, Keys.name) ?? '(unnamed)';
     final facts = _facts();
@@ -207,7 +209,8 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
         thumbs[cat.id] = await Isolate.run(() => pdfThumbnail(bytes));
       }
     }
-    final doc = pw.Document(title: '$name — cat(a)log card');
+    final fonts = await pdfFontsFor(language);
+    final doc = pw.Document(title: '$name — cat(a)log card', theme: fonts.theme);
     doc.addPage(
       // MultiPage: a long roster flows onto further pages instead of
       // silently clipping at the bottom of a single one.

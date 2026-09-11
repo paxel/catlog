@@ -3394,4 +3394,8 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get colWho => 'מי';
+
+  @override
+  String get pdfFontMissing =>
+      'הגופן לשפה זו עדיין לא בטלפון; חלק מהאותיות מודפסות כריבועים. יש להתחבר פעם אחת לאינטרנט וליצור את ה-PDF מחדש.';
 }

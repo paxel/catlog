@@ -3426,4 +3426,8 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get colWho => 'Kdo';
+
+  @override
+  String get pdfFontMissing =>
+      'Pisava za ta jezik še ni na telefonu; nekatere črke se natisnejo kot kvadratki. Enkrat se povežite z internetom in znova ustvarite PDF.';
 }

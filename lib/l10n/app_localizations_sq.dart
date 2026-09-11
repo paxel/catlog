@@ -3399,4 +3399,8 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get colWho => 'Kush';
+
+  @override
+  String get pdfFontMissing =>
+      'Fonti për këtë gjuhë nuk është ende në telefon; disa shkronja printohen si kuti. Lidhu një herë me internetin dhe krijo PDF-në përsëri.';
 }

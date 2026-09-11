@@ -3230,4 +3230,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get colWho => '谁';
+
+  @override
+  String get pdfFontMissing => '此语言的字体尚未在手机上，部分文字会显示为方框。请连接一次互联网后重新生成 PDF。';
 }

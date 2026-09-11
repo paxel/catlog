@@ -3418,4 +3418,8 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get colWho => 'Kas';
+
+  @override
+  String get pdfFontMissing =>
+      'Šios kalbos šriftas dar nėra telefone; kai kurios raidės spausdinamos kaip langeliai. Kartą prisijunkite prie interneto ir sukurkite PDF iš naujo.';
 }

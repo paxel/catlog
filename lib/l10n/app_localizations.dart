@@ -5899,6 +5899,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Who'**
   String get colWho;
+
+  /// No description provided for @pdfFontMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again.'**
+  String get pdfFontMissing;
 }
 
 class _AppLocalizationsDelegate
