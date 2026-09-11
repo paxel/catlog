@@ -12,7 +12,10 @@ import 'l10n.dart';
 Future<bool> showConflictDialog(BuildContext context, CatalogStore store,
     String entity, String field) async {
   final candidates = store.fieldHistory(entity, field).take(2).toList();
-  String? chosen = candidates.isEmpty ? null : candidates.first.value;
+  // Choices are entries, not values: two entries can carry the same
+  // value, and then there is nothing to pick — only the badge to clear.
+  final same = {for (final e in candidates) e.value}.length <= 1;
+  int? chosen = candidates.isEmpty ? null : candidates.first.seq;
 
   final result = await showDialog<bool>(
     context: context,
@@ -24,23 +27,28 @@ Future<bool> showConflictDialog(BuildContext context, CatalogStore store,
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(context.t.conflictBody),
-            const SizedBox(height: 8),
-            RadioGroup<String?>(
-              groupValue: chosen,
-              onChanged: (v) => setState(() => chosen = v),
-              child: Column(mainAxisSize: MainAxisSize.min, children: [
-                for (final e in candidates)
-                  RadioListTile<String?>(
-                    value: e.value,
-                    title: Text(
-                        valueLabel(context.t, store, field, e.value)),
-                    subtitle: Text(
-                        '${DateFormat.yMd(Localizations.localeOf(context).toString()).format(e.date.toLocal())}'
-                        ' · ${e.author}'),
-                  ),
-              ]),
-            ),
+            if (same) ...[
+              Text(context.t.conflictSame(valueLabel(context.t, store, field,
+                  candidates.firstOrNull?.value))),
+            ] else ...[
+              Text(context.t.conflictBody),
+              const SizedBox(height: 8),
+              RadioGroup<int?>(
+                groupValue: chosen,
+                onChanged: (v) => setState(() => chosen = v),
+                child: Column(mainAxisSize: MainAxisSize.min, children: [
+                  for (final e in candidates)
+                    RadioListTile<int?>(
+                      value: e.seq,
+                      title: Text(
+                          valueLabel(context.t, store, field, e.value)),
+                      subtitle: Text(
+                          '${DateFormat.yMd(Localizations.localeOf(context).toString()).format(e.date.toLocal())}'
+                          ' · ${e.author}'),
+                    ),
+                ]),
+              ),
+            ],
           ],
         ),
         actions: [
@@ -58,8 +66,10 @@ Future<bool> showConflictDialog(BuildContext context, CatalogStore store,
   );
 
   if (result != true) return false;
+  final picked =
+      candidates.where((e) => e.seq == chosen).firstOrNull?.value;
   final current = store.current(entity, field);
-  if (chosen != current) store.append(entity, field, chosen);
+  if (!same && picked != current) store.append(entity, field, picked);
   store.resolveConflict(entity, field);
   return true;
 }

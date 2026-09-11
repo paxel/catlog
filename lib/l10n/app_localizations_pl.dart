@@ -174,6 +174,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get shareAsImage => 'Udostępnij jako obraz';
 
   @override
+  String get sortOldestFirst => 'Najstarsze najpierw';
+
+  @override
+  String get sortNewestFirst => 'Najnowsze najpierw';
+
+  @override
+  String get shareAsText => 'Udostępnij jako tekst';
+
+  @override
   String get shareAsPdf => 'Udostępnij jako PDF';
 
   @override
@@ -555,13 +564,6 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Cofnij tę zmianę';
-
-  @override
-  String get revertSubtitle =>
-      'Przywraca poprzednią wartość jako nowy wpis — historia zachowuje oba.';
-
-  @override
   String fieldCleared(String field) {
     return '$field wyczyszczono';
   }
@@ -743,6 +745,18 @@ class AppLocalizationsPl extends AppLocalizations {
   String get syncFolderNow => 'Synchronizuj folder teraz';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'W nim ten katalog używa folderu „$name”, więc jeden wspólny folder może nieść wszystkie twoje katalogi.';
+  }
+
+  @override
+  String get useSameFolder => 'Użyj tego samego folderu co inne katalogi';
+
+  @override
+  String get folderHint =>
+      'Wystarczy dowolny folder, który dwa urządzenia trzymają w zgodzie: dysk w chmurze albo Syncthing dla folderu, który zostaje na waszych telefonach. Syncthing jest darmowy: zainstaluj go na każdym telefonie, udostępnij jeden folder między nimi i wybierz go tutaj na każdym urządzeniu.';
+
+  @override
   String folderSynced(String result) {
     return 'Folder zsynchronizowany: $result';
   }
@@ -778,6 +792,16 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get conflictBody =>
       'Zmienione w dwóch miejscach naraz. Wybierz, co jest prawdą:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (prywatne)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Obie zmiany mówią to samo: $value. Nie ma czego wybierać; Rozwiąż usuwa oznaczenie.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -909,6 +933,96 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sfinks';
+
+  @override
+  String get breedAbyssinian => 'Abisyński';
+
+  @override
+  String get breedAmericanShorthair => 'Amerykański krótkowłosy';
+
+  @override
+  String get breedBalinese => 'Balijski';
+
+  @override
+  String get breedBirman => 'Birmański';
+
+  @override
+  String get breedBombay => 'Bombajski';
+
+  @override
+  String get breedBurmese => 'Burmański';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Brytyjski długowłosy';
+
+  @override
+  String get breedChartreux => 'Kartuski';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Mau egipski';
+
+  @override
+  String get breedExoticShorthair => 'Egzotyczny krótkowłosy';
+
+  @override
+  String get breedHimalayan => 'Himalajski';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Orientalny krótkowłosy';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Rosyjski niebieski';
+
+  @override
+  String get breedSavannah => 'Sawanna';
+
+  @override
+  String get breedScottishFold => 'Szkocki zwisłouchy';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Syberyjski';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somalijski';
+
+  @override
+  String get breedTonkinese => 'Tonkijski';
+
+  @override
+  String get breedTurkishAngora => 'Turecka angora';
+
+  @override
+  String get breedTurkishVan => 'Turecki van';
 
   @override
   String get starterColor => 'Umaszczenie';
@@ -1088,7 +1202,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Jak dane trafiają do innych: połączenie na miejscu, folder widoczny dla obu urządzeń albo plik wysłany komunikatorem. Zawsze decydujesz, co wychodzi — a otrzymane pliki .catsync otwierasz również tutaj.';
+      'Jak dane trafiają do innych: połączenie na miejscu, folder widoczny dla obu urządzeń albo plik wysłany komunikatorem. Zawsze decydujesz, co wychodzi — a otrzymane pliki .catsync otwierasz również tutaj. Każdy katalog podpisuje, co zapisuje, własnym kluczem; partnerzy widzą kod klucza obok twojego imienia. Pierwszy klucz partnera jest przyjmowany na zaufanie z pliku i liczy się jako potwierdzony, gdy zsynchronizujecie osobiście. Wpisy pod znanym imieniem bez właściwego podpisu są odrzucane i wymienione na stronie przybycia.';
 
   @override
   String get helpFields =>
@@ -1100,7 +1214,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Każda kiedykolwiek wprowadzona zmiana, od najnowszej: kto, kiedy i na jaką wartość coś zmienił. Każdy wpis można cofnąć — powstaje wtedy nowy wpis, nic nigdy nie znika.';
+      'Każda zmiana, najnowsza na górze: kto, kiedy i na jaką wartość. Dotknij wpisu, aby go poprawić, przytrzymaj, aby go usunąć lub przywrócić; ukryty wpis zostaje w dzienniku i pokazuje się na żądanie.';
 
   @override
   String get helpDuplicates =>
@@ -1112,11 +1226,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Koty, które mogą być tym samym zwierzęciem: ten sam numer albo bezdomniak widziany w obszarze poszukiwań zaginionego kota. Dotknij pary, by scalić, przytrzymaj, by otworzyć pierwszego kota i porównać.';
+      'Koty, które mogą być tym samym zwierzęciem: ten sam numer albo bezdomniak widziany w obszarze poszukiwań zaginionego kota. Dotknij pary, by scalić, przytrzymaj, by otworzyć pierwszego kota i porównać. Na liście są też pary, których wygląd zgadza się w co najmniej dwóch cechach bez sprzeczności; chipy pokazują które. „To nie ten sam” ukrywa parę na tym telefonie, dopóki wygląd któregoś ze zwierząt się nie zmieni.';
 
   @override
   String get helpMatchesNeutral =>
-      'Zwierzęta, które mogą być tym samym osobnikiem: ten sam numer albo bezdomniak widziany w obszarze poszukiwań zaginionego zwierzęcia. Dotknij pary, by scalić, przytrzymaj, by otworzyć pierwsze zwierzę i porównać.';
+      'Zwierzęta, które mogą być tym samym osobnikiem: ten sam numer albo bezdomniak widziany w obszarze poszukiwań zaginionego zwierzęcia. Dotknij pary, by scalić, przytrzymaj, by otworzyć pierwsze zwierzę i porównać. Na liście są też pary, których wygląd zgadza się w co najmniej dwóch cechach bez sprzeczności; chipy pokazują które. „To nie ten sam” ukrywa parę na tym telefonie, dopóki wygląd któregoś ze zwierząt się nie zmieni.';
 
   @override
   String get helpFlier =>
@@ -1407,6 +1521,283 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterWeight => 'Waga';
 
   @override
+  String get starterLooks => 'Wygląd';
+
+  @override
+  String get looksGroupSize => 'Rozmiar';
+
+  @override
+  String get looksGroupColours => 'Kolory';
+
+  @override
+  String get looksGroupPattern => 'Wzór';
+
+  @override
+  String get looksGroupFur => 'Sierść';
+
+  @override
+  String get looksGroupTail => 'Ogon';
+
+  @override
+  String get looksGroupEars => 'Uszy';
+
+  @override
+  String get looksGroupMarks => 'Znaki';
+
+  @override
+  String get looksGroupCrest => 'Czubek';
+
+  @override
+  String get looksGroupBeak => 'Dziób';
+
+  @override
+  String get looksGroupRing => 'Obrączka';
+
+  @override
+  String get looksValueSmall => 'Mały';
+
+  @override
+  String get looksValueMedium => 'Średni';
+
+  @override
+  String get looksValueLarge => 'Duży';
+
+  @override
+  String get looksValueBlack => 'Czarny';
+
+  @override
+  String get looksValueWhite => 'Biały';
+
+  @override
+  String get looksValueGrey => 'Szary';
+
+  @override
+  String get looksValueBrown => 'Brązowy';
+
+  @override
+  String get looksValueGinger => 'Rudy';
+
+  @override
+  String get looksValueCream => 'Kremowy';
+
+  @override
+  String get looksValueGolden => 'Złoty';
+
+  @override
+  String get looksValueTan => 'Płowy';
+
+  @override
+  String get looksValueGreen => 'Zielony';
+
+  @override
+  String get looksValueBlue => 'Niebieski';
+
+  @override
+  String get looksValueYellow => 'Żółty';
+
+  @override
+  String get looksValueRed => 'Czerwony';
+
+  @override
+  String get looksValueOrange => 'Pomarańczowy';
+
+  @override
+  String get looksValuePink => 'Różowy';
+
+  @override
+  String get looksValueWhiteBib => 'Biały śliniak';
+
+  @override
+  String get looksValueWhitePaws => 'Białe łapy';
+
+  @override
+  String get looksValueWhiteTailTip => 'Biały koniec ogona';
+
+  @override
+  String get looksValueBlaze => 'Strzałka';
+
+  @override
+  String get looksValueMask => 'Maska';
+
+  @override
+  String get looksValueSpots => 'Cętki';
+
+  @override
+  String get looksValuePatches => 'Łaty';
+
+  @override
+  String get looksValueStripes => 'Pręgi';
+
+  @override
+  String get looksValueScar => 'Blizna';
+
+  @override
+  String get looksValueNotchedEar => 'Nacięte ucho';
+
+  @override
+  String get looksValueEarTip => 'Czubek ucha';
+
+  @override
+  String get looksValueCollar => 'Obroża';
+
+  @override
+  String get looksValueShort => 'Krótka';
+
+  @override
+  String get looksValueLong => 'Długa';
+
+  @override
+  String get looksValueHairless => 'Bez sierści';
+
+  @override
+  String get looksValueBobtail => 'Krótki ogon';
+
+  @override
+  String get looksValueNone => 'Brak';
+
+  @override
+  String get looksValueCurled => 'Zakręcony';
+
+  @override
+  String get looksValueUpright => 'Stojące';
+
+  @override
+  String get looksValueFloppy => 'Oklapnięte';
+
+  @override
+  String get looksValueFolded => 'Złożone';
+
+  @override
+  String get looksValueRounded => 'Zaokrąglone';
+
+  @override
+  String get looksValueSolid => 'Jednolity';
+
+  @override
+  String get looksValueTabby => 'Pręgowany';
+
+  @override
+  String get looksValueTortoiseshell => 'Szylkretowy';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dwukolorowy';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Pręgowany ciemny';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Nakrapiany';
+
+  @override
+  String get looksValuePatched => 'Łaciaty';
+
+  @override
+  String get looksValueTricolour => 'Trójkolorowy';
+
+  @override
+  String get looksValueSable => 'Sobolowy';
+
+  @override
+  String get looksGroupEyes => 'Oczy';
+
+  @override
+  String get looksGroupFeatures => 'Cechy szczególne';
+
+  @override
+  String get looksValueAmber => 'Bursztynowe';
+
+  @override
+  String get looksValueCopper => 'Miedziane';
+
+  @override
+  String get looksValueOddEyed => 'Różnobarwne';
+
+  @override
+  String get looksValueChocolate => 'Czekoladowy';
+
+  @override
+  String get looksValueLilac => 'Liliowy';
+
+  @override
+  String get looksValueSilver => 'Srebrny';
+
+  @override
+  String get looksValueSmoke => 'Dymny';
+
+  @override
+  String get looksValueTicked => 'Tykowany';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kręcona';
+
+  @override
+  String get looksValueWiry => 'Szorstka';
+
+  @override
+  String get looksValueKinked => 'Załamany';
+
+  @override
+  String get looksValueCropped => 'Kopiowane';
+
+  @override
+  String get looksValueTippedEar => 'Przycięte ucho';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuaż w uchu';
+
+  @override
+  String get looksValueMissingEar => 'Brak ucha';
+
+  @override
+  String get looksValueMissingEye => 'Brak oka';
+
+  @override
+  String get looksValueCloudyEye => 'Zmętniałe oko';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Brak przedniej łapy';
+
+  @override
+  String get looksValueMissingHindLeg => 'Brak tylnej łapy';
+
+  @override
+  String get looksValueNoTeeth => 'Brak zębów';
+
+  @override
+  String get looksValueExtraToes => 'Dodatkowe palce';
+
+  @override
+  String get rejectMatch => 'To nie ten sam';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count cechy się zgadzają',
+      many: '$count cech się zgadza',
+      few: '$count cechy się zgadzają',
+      one: '1 cecha się zgadza',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Domyślny systemowy';
 
   @override
@@ -1487,6 +1878,13 @@ class AppLocalizationsPl extends AppLocalizations {
       'Konfetti i wiwaty, gdy kot przeprowadza się do domu';
 
   @override
+  String get cheerToggle => 'Dźwięk wiwatów';
+
+  @override
+  String get cheerSubtitle =>
+      'Krótkie wiwaty przy konfetti, za każdym razem inne';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti i wiwaty, gdy zwierzę przeprowadza się do domu';
 
@@ -1529,8 +1927,62 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Usuwa z tego katalogu każdy wpis i zdjęcie zapisane przez $name na urządzeniu $device. Inne urządzenia zachowują swoje kopie. Nie można tego cofnąć.';
+  String get yourKey => 'Twój klucz';
+
+  @override
+  String get yourTitle => 'Twój tytuł';
+
+  @override
+  String get titleNone => 'Bez tytułu';
+
+  @override
+  String keyLine(Object code) {
+    return 'klucz $code';
+  }
+
+  @override
+  String get keyVerified => 'potwierdzony osobiście';
+
+  @override
+  String get keyFromFile => 'z pliku, jeszcze niepotwierdzony';
+
+  @override
+  String get keyUnsigned => 'jeszcze bez klucza, wpisy niepodpisane';
+
+  @override
+  String get summaryRefused => 'Odrzucone';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count wpisu odrzucone',
+      many: '$count wpisów odrzuconych',
+      few: '$count wpisy odrzucone',
+      one: '1 wpis odrzucony',
+    );
+    return '$_temp0: niepodpisane kluczem znanym dla $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Nowy klucz $code nazywa się $name. Zapytaj tę osobę, zanim mu zaufasz.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name zaproponował inny klucz niż znany tutaj. Znany zostaje, nowy nie został przyjęty.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nowy klucz: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Usuwa z tego katalogu każdy wpis i zdjęcie zapisane przez $name pod kluczem $key. Inne urządzenia zachowują swoje. Nie można tego cofnąć.';
   }
 
   @override
@@ -2034,7 +2486,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Wszystko, co należy tylko do tego katalogu: nazwa, czy zawiera koty czy zwierzęta, pola, autorzy i blokady, archiwum oraz cofanie w czasie. Zmiany tutaj dotyczą tylko tego katalogu — także takiego, w którym teraz nie jesteś. Usunięcie najpierw zapisuje katalog do pliku.';
+      'Wszystko, co należy tylko do tego katalogu: nazwa, czy zawiera koty czy zwierzęta, pola, autorzy i blokady, archiwum oraz cofanie w czasie. Zmiany tutaj dotyczą tylko tego katalogu — także takiego, w którym teraz nie jesteś. Usunięcie najpierw zapisuje katalog do pliku. Twój klucz to kod, który partnerzy widzą obok twojego imienia; należy do tego katalogu.';
 
   @override
   String get spotHomeCatalog =>
@@ -2343,12 +2795,16 @@ class AppLocalizationsPl extends AppLocalizations {
       'Włącz tutaj odbijanie terminów cat(a)log w wybranym kalendarzu.';
 
   @override
+  String get spotAgendaToday =>
+      'Dzisiejsze obowiązki: zaznacz po wykonaniu. Kropki pokazują ostatnie siedem dni.';
+
+  @override
   String get helpAgenda =>
-      'Przypomnienia pokazują zaplanowane terminy według daty. Są dwa rodzaje: terminy z godziną i przypomnienia obowiązujące na dany dzień. Przegapione zostają na górze. Dotknięcie otwiera kota lub clowder. Ptaszek potwierdza termin: wartość trafia do pola i możesz od razu zaplanować kolejny, na przykład za trzy miesiące. Przytrzymanie zmienia datę lub usuwa termin. Przełącznik u góry odbija terminy w kalendarzu telefonu. Menu eksportuje je jako plik kalendarza. Wizyta u weterynarza z kilkoma kotami to jedna wizyta: zaznacz koty, Agenda pokaże jedną kartę z ich imionami, a przy zakończeniu zapyta, które koty zostały zaopatrzone — odznacz pozostałe, zostają zaplanowane.';
+      'Przypomnienia pokazują zaplanowane terminy według daty. Są dwa rodzaje: terminy z godziną i przypomnienia obowiązujące na dany dzień. Przegapione zostają na górze. Dotknięcie otwiera kota lub clowder. Ptaszek potwierdza termin: wartość trafia do pola i możesz od razu zaplanować kolejny, na przykład za trzy miesiące. Przytrzymanie zmienia datę lub usuwa termin. Przełącznik u góry odbija terminy w kalendarzu telefonu. Menu eksportuje je jako plik kalendarza. Wizyta u weterynarza z kilkoma kotami to jedna wizyta: zaznacz koty, Agenda pokaże jedną kartę z ich imionami, a przy zakończeniu zapyta, które koty zostały zaopatrzone — odznacz pozostałe, zostają zaplanowane. Obowiązki to powtarzające się zadania, jak karmienie, kuweta czy leki. Stoją pod Dziś z zaznaczeniem, serią i ostatnimi siedmioma dniami jako kropki; Wkrótce pokazuje następny tydzień bez codziennych. Obowiązek może przypomnieć powiadomieniem o wybranej godzinie. Puchar otwiera osiągnięcia.';
 
   @override
   String get helpAgendaNeutral =>
-      'Przypomnienia pokazują zaplanowane terminy według daty. Są dwa rodzaje: terminy z godziną i przypomnienia obowiązujące na dany dzień. Przegapione zostają na górze. Dotknięcie otwiera zwierzę lub domostwo. Ptaszek potwierdza termin: wartość trafia do pola i możesz od razu zaplanować kolejny, na przykład za trzy miesiące. Przytrzymanie zmienia datę lub usuwa termin. Przełącznik u góry odbija terminy w kalendarzu telefonu. Menu eksportuje je jako plik kalendarza. Wizyta u weterynarza z kilkoma zwierzętami to jedna wizyta: zaznacz zwierzęta, Agenda pokaże jedną kartę z ich imionami, a przy zakończeniu zapyta, które zwierzęta zostały zaopatrzone — odznacz pozostałe, zostają zaplanowane.';
+      'Przypomnienia pokazują zaplanowane terminy według daty. Są dwa rodzaje: terminy z godziną i przypomnienia obowiązujące na dany dzień. Przegapione zostają na górze. Dotknięcie otwiera zwierzę lub domostwo. Ptaszek potwierdza termin: wartość trafia do pola i możesz od razu zaplanować kolejny, na przykład za trzy miesiące. Przytrzymanie zmienia datę lub usuwa termin. Przełącznik u góry odbija terminy w kalendarzu telefonu. Menu eksportuje je jako plik kalendarza. Wizyta u weterynarza z kilkoma zwierzętami to jedna wizyta: zaznacz zwierzęta, Agenda pokaże jedną kartę z ich imionami, a przy zakończeniu zapyta, które zwierzęta zostały zaopatrzone — odznacz pozostałe, zostają zaplanowane. Obowiązki to powtarzające się zadania, jak karmienie, kuweta czy leki. Stoją pod Dziś z zaznaczeniem, serią i ostatnimi siedmioma dniami jako kropki; Wkrótce pokazuje następny tydzień bez codziennych. Obowiązek może przypomnieć powiadomieniem o wybranej godzinie. Puchar otwiera osiągnięcia.';
 
   @override
   String get calendarRowOff => 'Kalendarz: wyłączony';
@@ -2393,6 +2849,303 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Przypomnienie — wartość, która staje się należna danego dnia';
+
+  @override
+  String get planChooserChore =>
+      'Obowiązek — coś, co wraca: karmienie, krople, kuweta';
+
+  @override
+  String get newChore => 'Nowy obowiązek';
+
+  @override
+  String get choreEdit => 'Edytuj obowiązek';
+
+  @override
+  String get choreTitleLabel => 'Co';
+
+  @override
+  String get choreRepeatDaily => 'Codziennie';
+
+  @override
+  String get choreRepeatEvery => 'Co…';
+
+  @override
+  String get choreRepeatWeekdays => 'Dni tygodnia';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n dni',
+      few: 'co $n dni',
+      one: 'codziennie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n tygodni',
+      few: 'co $n tygodnie',
+      one: 'co tydzień',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n miesięcy',
+      few: 'co $n miesiące',
+      one: 'co miesiąc',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n lat',
+      few: 'co $n lata',
+      one: 'co rok',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'O dowolnej porze';
+
+  @override
+  String get chorePause => 'Wstrzymaj';
+
+  @override
+  String get chorePaused => 'Wstrzymane';
+
+  @override
+  String get choreResume => 'Wznów';
+
+  @override
+  String get choreEnd => 'Zakończ obowiązek';
+
+  @override
+  String get choreHistory => 'Historia';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'zrobione $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'wcześniej';
+
+  @override
+  String get choreDoneLate => 'później';
+
+  @override
+  String get choreMissed => 'Pominięte';
+
+  @override
+  String get choreStillOpen => 'Jeszcze otwarte';
+
+  @override
+  String get choreEndConfirm =>
+      'Obowiązek znika z listy. To, co zaznaczono, zostaje w historii.';
+
+  @override
+  String get todaySection => 'Dziś';
+
+  @override
+  String get upcomingSection => 'Wkrótce';
+
+  @override
+  String get allDoneToday => 'Dziś: wszystko zrobione';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dni z rzędu',
+      few: '$n dni z rzędu',
+      one: '1 dzień z rzędu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Termin $date';
+  }
+
+  @override
+  String get remindMe => 'Przypomnij mi';
+
+  @override
+  String remindNext(Object when) {
+    return 'Następne przypomnienie: $when';
+  }
+
+  @override
+  String get remindNone =>
+      'Brak zaplanowanego przypomnienia: nic nie nadchodzi.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count przypomnień zaplanowanych na tym telefonie',
+      few: '$count przypomnienia zaplanowane na tym telefonie',
+      one: '1 przypomnienie zaplanowane na tym telefonie',
+      zero: 'Nic jeszcze nie zaplanowano na tym telefonie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Wyślij teraz testowe przypomnienie';
+
+  @override
+  String get remindLateHint =>
+      'Przypomnienia mogą przyjść kilka minut później; telefon wybiera dokładny moment.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Brak uprawnienia do powiadomień, przypomnienie pozostaje wyłączone. Zezwól na nie w ustawieniach aplikacji telefonu i spróbuj ponownie.';
+
+  @override
+  String get batteryHint =>
+      'Jeśli przypomnienia nie przychodzą, zezwól cat(a)log na działanie w tle w ustawieniach baterii telefonu.';
+
+  @override
+  String get batterySettings => 'Ustawienia baterii';
+
+  @override
+  String get achievementsTitle => 'Osiągnięcia';
+
+  @override
+  String get rankServant => 'Sługa';
+
+  @override
+  String get rankButler => 'Kamerdyner';
+
+  @override
+  String get rankSteward => 'Zarządca';
+
+  @override
+  String get rankChancellor => 'Kanclerz';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tygrys';
+
+  @override
+  String get coatTabby => 'Pręgowany';
+
+  @override
+  String get coatPaws => 'Łapki';
+
+  @override
+  String get coatRosettes => 'Rozety';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Sierść';
+
+  @override
+  String get coatRandom => 'Inna przy każdym uruchomieniu';
+
+  @override
+  String get coatSnowLeopard => 'Pantera śnieżna';
+
+  @override
+  String get coatSiamese => 'Znaczenia syjamskie';
+
+  @override
+  String get coatLynx => 'Ryś';
+
+  @override
+  String get coatTortoiseshell => 'Szylkret';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Nowa sierść: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Cały miesiąc obowiązków, wszystkie wykonane.';
+
+  @override
+  String get achievementsEmpty =>
+      'Nic jeszcze nie zdobyto. Obowiązki znają drogę.';
+
+  @override
+  String get achievementMonth => 'Pełny miesiąc';
+
+  @override
+  String get achievementYear => 'Pełny rok';
+
+  @override
+  String get achievementDecade => 'Pełna dekada';
+
+  @override
+  String get achievementCentury => 'Pełny wiek';
+
+  @override
+  String get achievementCenturyHint => 'Oboje będziemy bardzo dumni.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Mistrz: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Osiągnięto $times razy',
+      few: 'Osiągnięto $times razy',
+      one: 'Osiągnięto raz',
+    );
+    return '$_temp0, po raz pierwszy $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Następny przy $n';
+  }
+
+  @override
+  String get achievementLocked => 'Jeszcze nie';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Osiągnięcie: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Co';
@@ -2554,4 +3307,116 @@ class AppLocalizationsPl extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Usuń wizytę dla wszystkich $count zwierząt';
   }
+
+  @override
+  String get correctThisValue => 'Popraw tę wartość';
+
+  @override
+  String get removeThisValue => 'Usuń tę wartość';
+
+  @override
+  String get restoreThisValue => 'Przywróć tę wartość';
+
+  @override
+  String get showRemovedValues => 'Pokaż usunięte wartości';
+
+  @override
+  String get hideRemovedValues => 'Ukryj usunięte wartości';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Usunięto · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Zastąpiono przez $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Poprawka';
+
+  @override
+  String get restorePickFolder => 'Wybierz folder kopii…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Kopie poprzedniej instalacji są w Documents/catlog (w starszych wersjach Downloads/catlog). Wybierz ten folder raz; jego kopie pojawią się tutaj.';
+
+  @override
+  String get backupsTitle => 'Kopie zapasowe';
+
+  @override
+  String get backupsSubtitle => 'Gdzie twoje katalogi są bezpieczne';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google zapisuje katalogi tej aplikacji na twoim koncie, bez zdjęć. Wracają same po ponownej instalacji lub na nowym telefonie.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Pełna kopia każdego katalogu, ze zdjęciami, jest zapisywana w Documents/catlog za każdym razem, gdy opuszczasz aplikację po zmianach.';
+
+  @override
+  String get backupsIosSystem =>
+      'Kopia iCloud obejmuje tę aplikację z jej katalogami i zdjęciami, jak każdą inną aplikację na tym iPhonie.';
+
+  @override
+  String get backupsIosFiles =>
+      'Pełna kopia każdego katalogu jest w aplikacji Pliki pod cat(a)log. Stamtąd może trafić na iCloud Drive, przez AirDrop lub na inny telefon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Pełna kopia każdego katalogu, ze zdjęciami, jest zapisywana w folderze Pobrane za każdym razem, gdy opuszczasz aplikację po zmianach.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Ostatnia kopia: $date';
+  }
+
+  @override
+  String get backupsNever => 'Nie zapisano jeszcze żadnej kopii.';
+
+  @override
+  String get backupsNow => 'Utwórz kopię teraz';
+
+  @override
+  String get backupsDone => 'Kopia zapisana.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Przywrócono z kopii Google $date. Jeśli stary telefon nadal ma cat(a)log, zsynchronizuj raz z niego, a potem usuń tam aplikację.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Wybrany folder też może otrzymywać każdą kopię: taki, który aplikacja chmurowa synchronizuje na tym telefonie (Nextcloud, Syncthing i inne), karta pamięci, dowolny folder z wybieraka. Kopie trafiają do catlog-backups w jego środku.';
+
+  @override
+  String get backupsFolderPick => 'Kopiuj też do folderu…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopiowane też do $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Przestań tam kopiować';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Powiadomienia nie działają na tym telefonie: $error';
+  }
+
+  @override
+  String get copyText => 'Kopiuj tekst';
+
+  @override
+  String get colWhen => 'Kiedy';
+
+  @override
+  String get colValue => 'Wartość';
+
+  @override
+  String get colWho => 'Kto';
 }

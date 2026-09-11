@@ -175,6 +175,15 @@ class AppLocalizationsEl extends AppLocalizations {
   String get shareAsImage => 'Κοινοποίηση ως εικόνα';
 
   @override
+  String get sortOldestFirst => 'Παλαιότερα πρώτα';
+
+  @override
+  String get sortNewestFirst => 'Νεότερα πρώτα';
+
+  @override
+  String get shareAsText => 'Κοινοποίηση ως κείμενο';
+
+  @override
   String get shareAsPdf => 'Κοινοποίηση ως PDF';
 
   @override
@@ -560,13 +569,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Αναίρεση αυτής της αλλαγής';
-
-  @override
-  String get revertSubtitle =>
-      'Επαναφέρει την προηγούμενη τιμή ως νέα εγγραφή — το ιστορικό κρατά και τις δύο.';
-
-  @override
   String fieldCleared(String field) {
     return 'Το $field καθαρίστηκε';
   }
@@ -738,7 +740,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Και οι δύο συσκευές χρησιμοποιούν τον ίδιο φάκελο (π.χ. στο Dropbox ή σε USB). Κάθε συγχρονισμός αφήνει εκεί τις αλλαγές σου και παίρνει του άλλου.';
+      'Και οι δύο συσκευές χρησιμοποιούν τον ίδιο φάκελο (π.χ. στο Nextcloud ή σε USB). Κάθε συγχρονισμός αφήνει εκεί τις αλλαγές σου και παίρνει του άλλου.';
 
   @override
   String get noFolderChosenYet => 'Δεν έχει επιλεγεί φάκελος ακόμα';
@@ -748,6 +750,19 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Συγχρονισμός φακέλου τώρα';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Μέσα του αυτός ο κατάλογος χρησιμοποιεί τον φάκελο «$name», ώστε ένας κοινός φάκελος να χωρά όλους τους καταλόγους σου.';
+  }
+
+  @override
+  String get useSameFolder =>
+      'Χρήση του ίδιου φακέλου με τους άλλους καταλόγους';
+
+  @override
+  String get folderHint =>
+      'Αρκεί όποιος φάκελος κρατούν ίδιο δύο συσκευές: ένας δίσκος στο cloud, ή το Syncthing για φάκελο που μένει στα τηλέφωνά σας. Το Syncthing είναι δωρεάν: εγκατέστησέ το σε κάθε τηλέφωνο, μοιράσου έναν φάκελο μεταξύ τους και διάλεξε αυτόν τον φάκελο εδώ σε κάθε συσκευή.';
 
   @override
   String folderSynced(String result) {
@@ -785,6 +800,16 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get conflictBody =>
       'Άλλαξε σε δύο μέρη ταυτόχρονα. Διαλέξτε τι ισχύει:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (ιδιωτικό)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Και οι δύο αλλαγές λένε το ίδιο: $value. Τίποτα να διαλέξεις· η Επίλυση αφαιρεί το σήμα.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -916,6 +941,96 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Σφίγγα';
+
+  @override
+  String get breedAbyssinian => 'Αβησσυνίας';
+
+  @override
+  String get breedAmericanShorthair => 'Αμερικανική κοντότριχη';
+
+  @override
+  String get breedBalinese => 'Μπαλί';
+
+  @override
+  String get breedBirman => 'Βιρμανίας';
+
+  @override
+  String get breedBombay => 'Βομβάης';
+
+  @override
+  String get breedBurmese => 'Βιρμανική';
+
+  @override
+  String get breedBurmilla => 'Μπουρμίλα';
+
+  @override
+  String get breedBritishLonghair => 'Βρετανική μακρύτριχη';
+
+  @override
+  String get breedChartreux => 'Σαρτρέ';
+
+  @override
+  String get breedCornishRex => 'Κόρνις Ρεξ';
+
+  @override
+  String get breedDevonRex => 'Ντέβον Ρεξ';
+
+  @override
+  String get breedEgyptianMau => 'Αιγυπτιακή Μάου';
+
+  @override
+  String get breedExoticShorthair => 'Εξωτική κοντότριχη';
+
+  @override
+  String get breedHimalayan => 'Ιμαλαΐων';
+
+  @override
+  String get breedKorat => 'Κοράτ';
+
+  @override
+  String get breedManx => 'Μανξ';
+
+  @override
+  String get breedMunchkin => 'Μάντσκιν';
+
+  @override
+  String get breedOcicat => 'Οσικάτ';
+
+  @override
+  String get breedOrientalShorthair => 'Ανατολίτικη κοντότριχη';
+
+  @override
+  String get breedRagamuffin => 'Ραγκαμάφιν';
+
+  @override
+  String get breedRussianBlue => 'Ρωσική μπλε';
+
+  @override
+  String get breedSavannah => 'Σαβάνα';
+
+  @override
+  String get breedScottishFold => 'Σκωτσέζικη φολντ';
+
+  @override
+  String get breedSelkirkRex => 'Σέλκιρκ Ρεξ';
+
+  @override
+  String get breedSiberian => 'Σιβηρίας';
+
+  @override
+  String get breedSnowshoe => 'Σνόουσου';
+
+  @override
+  String get breedSomali => 'Σομαλίας';
+
+  @override
+  String get breedTonkinese => 'Τονκινέζικη';
+
+  @override
+  String get breedTurkishAngora => 'Τουρκική Αγκύρα';
+
+  @override
+  String get breedTurkishVan => 'Τουρκική Βαν';
 
   @override
   String get starterColor => 'Χρώμα';
@@ -1095,7 +1210,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Πώς φτάνουν τα δεδομένα σε άλλους: άμεση σύνδεση, φάκελος που βλέπουν και οι δύο συσκευές, ή αρχείο μέσω messenger. Εσύ αποφασίζεις πάντα τι φεύγει — και τα αρχεία .catsync που λαμβάνεις ανοίγουν επίσης εδώ.';
+      'Πώς φτάνουν τα δεδομένα σε άλλους: άμεση σύνδεση, φάκελος που βλέπουν και οι δύο συσκευές, ή αρχείο μέσω messenger. Εσύ αποφασίζεις πάντα τι φεύγει — και τα αρχεία .catsync που λαμβάνεις ανοίγουν επίσης εδώ. Κάθε κατάλογος υπογράφει ό,τι γράφει με το δικό του κλειδί· οι συνεργάτες βλέπουν τον κωδικό κλειδιού δίπλα στο όνομά σου. Το πρώτο κλειδί ενός συνεργάτη γίνεται δεκτό με εμπιστοσύνη από αρχείο και μετρά ως επιβεβαιωμένο μόλις συγχρονίσετε από κοντά. Καταχωρίσεις με γνωστό όνομα χωρίς τη σωστή υπογραφή απορρίπτονται και εμφανίζονται στη σελίδα άφιξης.';
 
   @override
   String get helpFields =>
@@ -1107,7 +1222,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Κάθε αλλαγή που έγινε ποτέ, με τη νεότερη πρώτη: ποιος άλλαξε τι, πότε και σε ποια τιμή. Κάθε καταχώριση αναιρείται — αυτό γράφει νέα καταχώριση, τίποτα δεν σβήνεται.';
+      'Κάθε αλλαγή, η νεότερη πρώτη: ποιος, πότε και σε ποια τιμή. Πατήστε μια καταχώριση για διόρθωση, κρατήστε την για αφαίρεση ή επαναφορά· μια κρυφή καταχώριση μένει στο αρχείο και εμφανίζεται κατόπιν αιτήματος.';
 
   @override
   String get helpDuplicates =>
@@ -1119,11 +1234,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Γάτες που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτη που εθεάθη μέσα στην περιοχή αναζήτησης μιας χαμένης γάτας. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει την πρώτη γάτα για σύγκριση.';
+      'Γάτες που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτη που εθεάθη μέσα στην περιοχή αναζήτησης μιας χαμένης γάτας. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει την πρώτη γάτα για σύγκριση. Στη λίστα είναι και ζεύγη των οποίων η εμφάνιση συμφωνεί σε δύο ή περισσότερα χαρακτηριστικά χωρίς αντίφαση· τα τσιπ δείχνουν ποια. Το «Δεν είναι το ίδιο» κρύβει ένα ζεύγος σε αυτό το τηλέφωνο μέχρι να αλλάξει η εμφάνιση ενός από τα ζώα.';
 
   @override
   String get helpMatchesNeutral =>
-      'Κατοικίδια που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτο που εθεάθη μέσα στην περιοχή αναζήτησης ενός χαμένου κατοικιδίου. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει το πρώτο κατοικίδιο για σύγκριση.';
+      'Κατοικίδια που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτο που εθεάθη μέσα στην περιοχή αναζήτησης ενός χαμένου κατοικιδίου. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει το πρώτο κατοικίδιο για σύγκριση. Στη λίστα είναι και ζεύγη των οποίων η εμφάνιση συμφωνεί σε δύο ή περισσότερα χαρακτηριστικά χωρίς αντίφαση· τα τσιπ δείχνουν ποια. Το «Δεν είναι το ίδιο» κρύβει ένα ζεύγος σε αυτό το τηλέφωνο μέχρι να αλλάξει η εμφάνιση ενός από τα ζώα.';
 
   @override
   String get helpFlier =>
@@ -1415,6 +1530,281 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterWeight => 'Βάρος';
 
   @override
+  String get starterLooks => 'Εμφάνιση';
+
+  @override
+  String get looksGroupSize => 'Μέγεθος';
+
+  @override
+  String get looksGroupColours => 'Χρώματα';
+
+  @override
+  String get looksGroupPattern => 'Μοτίβο';
+
+  @override
+  String get looksGroupFur => 'Τρίχωμα';
+
+  @override
+  String get looksGroupTail => 'Ουρά';
+
+  @override
+  String get looksGroupEars => 'Αυτιά';
+
+  @override
+  String get looksGroupMarks => 'Σημάδια';
+
+  @override
+  String get looksGroupCrest => 'Λοφίο';
+
+  @override
+  String get looksGroupBeak => 'Ράμφος';
+
+  @override
+  String get looksGroupRing => 'Δαχτυλίδι';
+
+  @override
+  String get looksValueSmall => 'Μικρό';
+
+  @override
+  String get looksValueMedium => 'Μεσαίο';
+
+  @override
+  String get looksValueLarge => 'Μεγάλο';
+
+  @override
+  String get looksValueBlack => 'Μαύρο';
+
+  @override
+  String get looksValueWhite => 'Λευκό';
+
+  @override
+  String get looksValueGrey => 'Γκρι';
+
+  @override
+  String get looksValueBrown => 'Καφέ';
+
+  @override
+  String get looksValueGinger => 'Κοκκινόξανθο';
+
+  @override
+  String get looksValueCream => 'Κρεμ';
+
+  @override
+  String get looksValueGolden => 'Χρυσό';
+
+  @override
+  String get looksValueTan => 'Ανοιχτό καφέ';
+
+  @override
+  String get looksValueGreen => 'Πράσινο';
+
+  @override
+  String get looksValueBlue => 'Μπλε';
+
+  @override
+  String get looksValueYellow => 'Κίτρινο';
+
+  @override
+  String get looksValueRed => 'Κόκκινο';
+
+  @override
+  String get looksValueOrange => 'Πορτοκαλί';
+
+  @override
+  String get looksValuePink => 'Ροζ';
+
+  @override
+  String get looksValueWhiteBib => 'Λευκό στήθος';
+
+  @override
+  String get looksValueWhitePaws => 'Λευκά πόδια';
+
+  @override
+  String get looksValueWhiteTailTip => 'Λευκή άκρη ουράς';
+
+  @override
+  String get looksValueBlaze => 'Αστέρι';
+
+  @override
+  String get looksValueMask => 'Μάσκα';
+
+  @override
+  String get looksValueSpots => 'Βούλες';
+
+  @override
+  String get looksValuePatches => 'Μπαλώματα';
+
+  @override
+  String get looksValueStripes => 'Ρίγες';
+
+  @override
+  String get looksValueScar => 'Ουλή';
+
+  @override
+  String get looksValueNotchedEar => 'Κομμένο αυτί';
+
+  @override
+  String get looksValueEarTip => 'Άκρη αυτιού';
+
+  @override
+  String get looksValueCollar => 'Κολάρο';
+
+  @override
+  String get looksValueShort => 'Κοντό';
+
+  @override
+  String get looksValueLong => 'Μακρύ';
+
+  @override
+  String get looksValueHairless => 'Άτριχο';
+
+  @override
+  String get looksValueBobtail => 'Κοντή ουρά';
+
+  @override
+  String get looksValueNone => 'Καμία';
+
+  @override
+  String get looksValueCurled => 'Κατσαρή';
+
+  @override
+  String get looksValueUpright => 'Όρθια';
+
+  @override
+  String get looksValueFloppy => 'Πεσμένα';
+
+  @override
+  String get looksValueFolded => 'Διπλωμένα';
+
+  @override
+  String get looksValueRounded => 'Στρογγυλά';
+
+  @override
+  String get looksValueSolid => 'Μονόχρωμο';
+
+  @override
+  String get looksValueTabby => 'Τιγρέ';
+
+  @override
+  String get looksValueTortoiseshell => 'Ταρταρούγα';
+
+  @override
+  String get looksValueCalico => 'Καλικό';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Δίχρωμο';
+
+  @override
+  String get looksValueTuxedo => 'Σμόκιν';
+
+  @override
+  String get looksValueBrindle => 'Ριγέ';
+
+  @override
+  String get looksValueMerle => 'Μερλ';
+
+  @override
+  String get looksValueSpotted => 'Πιτσιλωτό';
+
+  @override
+  String get looksValuePatched => 'Μπαλωματένιο';
+
+  @override
+  String get looksValueTricolour => 'Τρίχρωμο';
+
+  @override
+  String get looksValueSable => 'Σαμπλ';
+
+  @override
+  String get looksGroupEyes => 'Μάτια';
+
+  @override
+  String get looksGroupFeatures => 'Ιδιαιτερότητες';
+
+  @override
+  String get looksValueAmber => 'Κεχριμπάρι';
+
+  @override
+  String get looksValueCopper => 'Χάλκινα';
+
+  @override
+  String get looksValueOddEyed => 'Ετερόχρωμα';
+
+  @override
+  String get looksValueChocolate => 'Σοκολατί';
+
+  @override
+  String get looksValueLilac => 'Λιλά';
+
+  @override
+  String get looksValueSilver => 'Ασημί';
+
+  @override
+  String get looksValueSmoke => 'Καπνί';
+
+  @override
+  String get looksValueTicked => 'Τικ';
+
+  @override
+  String get looksValueVan => 'Βαν';
+
+  @override
+  String get looksValueCurly => 'Σγουρό';
+
+  @override
+  String get looksValueWiry => 'Σκληρό';
+
+  @override
+  String get looksValueKinked => 'Στραβή';
+
+  @override
+  String get looksValueCropped => 'Κομμένα';
+
+  @override
+  String get looksValueTippedEar => 'Κομμένη άκρη αυτιού';
+
+  @override
+  String get looksValueEarTattoo => 'Τατουάζ στο αυτί';
+
+  @override
+  String get looksValueMissingEar => 'Λείπει αυτί';
+
+  @override
+  String get looksValueMissingEye => 'Λείπει μάτι';
+
+  @override
+  String get looksValueCloudyEye => 'Θολό μάτι';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Λείπει μπροστινό πόδι';
+
+  @override
+  String get looksValueMissingHindLeg => 'Λείπει πίσω πόδι';
+
+  @override
+  String get looksValueNoTeeth => 'Χωρίς δόντια';
+
+  @override
+  String get looksValueExtraToes => 'Επιπλέον δάχτυλα';
+
+  @override
+  String get rejectMatch => 'Δεν είναι το ίδιο';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count χαρακτηριστικά συμφωνούν',
+      one: '1 χαρακτηριστικό συμφωνεί',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Προεπιλογή συστήματος';
 
   @override
@@ -1495,6 +1885,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο σπίτι της';
 
   @override
+  String get cheerToggle => 'Ήχος ζητωκραυγής';
+
+  @override
+  String get cheerSubtitle =>
+      'Μια σύντομη ζητωκραυγή με το κομφετί, διαφορετική κάθε φορά';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Κομφετί και ζητωκραυγές όταν ένα κατοικίδιο μετακομίζει στο σπίτι του';
 
@@ -1538,8 +1935,60 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Αφαιρεί από αυτόν τον κατάλογο κάθε καταχώριση και φωτογραφία που έγραψε ο/η $name στη συσκευή $device. Οι άλλες συσκευές κρατούν τις δικές τους. Δεν αναιρείται.';
+  String get yourKey => 'Το κλειδί σου';
+
+  @override
+  String get yourTitle => 'Ο τίτλος σου';
+
+  @override
+  String get titleNone => 'Χωρίς τίτλο';
+
+  @override
+  String keyLine(Object code) {
+    return 'κλειδί $code';
+  }
+
+  @override
+  String get keyVerified => 'επιβεβαιωμένο από κοντά';
+
+  @override
+  String get keyFromFile => 'από αρχείο, όχι ακόμη επιβεβαιωμένο';
+
+  @override
+  String get keyUnsigned => 'χωρίς κλειδί ακόμη, καταχωρίσεις ανυπόγραφες';
+
+  @override
+  String get summaryRefused => 'Απορρίφθηκε';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count καταχωρίσεις απορρίφθηκαν',
+      one: '1 καταχώριση απορρίφθηκε',
+    );
+    return '$_temp0: χωρίς υπογραφή με το γνωστό κλειδί για $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Ένα νέο κλειδί $code αυτοαποκαλείται $name. Ρώτησε το άτομο πριν το εμπιστευτείς.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return 'Ο/η $name πρόσφερε διαφορετικό κλειδί από το γνωστό εδώ. Το γνωστό μένει· το νέο δεν έγινε δεκτό.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Νέο κλειδί: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Αφαιρεί από αυτόν τον κατάλογο κάθε καταχώριση και φωτογραφία που έγραψε ο/η $name με το κλειδί $key. Οι άλλες συσκευές κρατούν τις δικές τους. Δεν αναιρείται.';
   }
 
   @override
@@ -2040,7 +2489,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Όλα όσα ανήκουν μόνο σε αυτόν τον κατάλογο: το όνομά του, αν έχει γάτες ή κατοικίδια, τα πεδία του, οι συντάκτες και οι αποκλεισμοί, το αρχείο και η επιστροφή στον χρόνο. Οι αλλαγές εδώ αφορούν μόνο αυτόν τον κατάλογο — και έναν στον οποίο δεν βρίσκεσαι τώρα. Η διαγραφή γράφει πρώτα τον κατάλογο σε αρχείο.';
+      'Όλα όσα ανήκουν μόνο σε αυτόν τον κατάλογο: το όνομά του, αν έχει γάτες ή κατοικίδια, τα πεδία του, οι συντάκτες και οι αποκλεισμοί, το αρχείο και η επιστροφή στον χρόνο. Οι αλλαγές εδώ αφορούν μόνο αυτόν τον κατάλογο — και έναν στον οποίο δεν βρίσκεσαι τώρα. Η διαγραφή γράφει πρώτα τον κατάλογο σε αρχείο. Το κλειδί σου είναι ο κωδικός που βλέπουν οι συνεργάτες δίπλα στο όνομά σου· ανήκει σε αυτόν τον κατάλογο.';
 
   @override
   String get spotHomeCatalog =>
@@ -2346,12 +2795,16 @@ class AppLocalizationsEl extends AppLocalizations {
       'Ενεργοποίησε εδώ τον αντικατοπτρισμό των ραντεβού του cat(a)log σε ένα ημερολόγιο της επιλογής σου.';
 
   @override
+  String get spotAgendaToday =>
+      'Οι σημερινές δουλειές: τσέκαρε όταν γίνει. Οι κουκκίδες δείχνουν τις τελευταίες επτά μέρες.';
+
+  @override
   String get helpAgenda =>
-      'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Υπάρχουν δύο είδη: ραντεβού με ώρα και υπενθυμίσεις που ισχύουν για μια μέρα. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει τη γάτα ή την ομάδα. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου. Μια επίσκεψη στον κτηνίατρο με πολλές γάτες είναι ένα ραντεβού: επιλέξτε τις γάτες, η Ατζέντα δείχνει μία κάρτα με τα ονόματά τους, και στην ολοκλήρωση ρωτά ποιες γάτες εξετάστηκαν — αποεπιλέξτε τις υπόλοιπες, παραμένουν προγραμματισμένες.';
+      'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Υπάρχουν δύο είδη: ραντεβού με ώρα και υπενθυμίσεις που ισχύουν για μια μέρα. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει τη γάτα ή την ομάδα. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου. Μια επίσκεψη στον κτηνίατρο με πολλές γάτες είναι ένα ραντεβού: επιλέξτε τις γάτες, η Ατζέντα δείχνει μία κάρτα με τα ονόματά τους, και στην ολοκλήρωση ρωτά ποιες γάτες εξετάστηκαν — αποεπιλέξτε τις υπόλοιπες, παραμένουν προγραμματισμένες. Οι δουλειές είναι οι επαναλαμβανόμενες υποχρεώσεις, όπως τάισμα, άμμος ή φάρμακα. Στέκονται κάτω από το Σήμερα με τικ, σερί και τις τελευταίες επτά μέρες ως κουκκίδες· το Προσεχώς δείχνει την επόμενη εβδομάδα χωρίς τις καθημερινές. Μια δουλειά μπορεί να υπενθυμίσει με ειδοποίηση στην επιλεγμένη ώρα. Το τρόπαιο ανοίγει τα επιτεύγματα.';
 
   @override
   String get helpAgendaNeutral =>
-      'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Υπάρχουν δύο είδη: ραντεβού με ώρα και υπενθυμίσεις που ισχύουν για μια μέρα. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει το κατοικίδιο ή το νοικοκυριό. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου. Μια επίσκεψη στον κτηνίατρο με πολλά κατοικίδια είναι ένα ραντεβού: επιλέξτε τα κατοικίδια, η Ατζέντα δείχνει μία κάρτα με τα ονόματά τους, και στην ολοκλήρωση ρωτά ποια κατοικίδια εξετάστηκαν — αποεπιλέξτε τα υπόλοιπα, παραμένουν προγραμματισμένα.';
+      'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Υπάρχουν δύο είδη: ραντεβού με ώρα και υπενθυμίσεις που ισχύουν για μια μέρα. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει το κατοικίδιο ή το νοικοκυριό. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου. Μια επίσκεψη στον κτηνίατρο με πολλά κατοικίδια είναι ένα ραντεβού: επιλέξτε τα κατοικίδια, η Ατζέντα δείχνει μία κάρτα με τα ονόματά τους, και στην ολοκλήρωση ρωτά ποια κατοικίδια εξετάστηκαν — αποεπιλέξτε τα υπόλοιπα, παραμένουν προγραμματισμένα. Οι δουλειές είναι οι επαναλαμβανόμενες υποχρεώσεις, όπως τάισμα, άμμος ή φάρμακα. Στέκονται κάτω από το Σήμερα με τικ, σερί και τις τελευταίες επτά μέρες ως κουκκίδες· το Προσεχώς δείχνει την επόμενη εβδομάδα χωρίς τις καθημερινές. Μια δουλειά μπορεί να υπενθυμίσει με ειδοποίηση στην επιλεγμένη ώρα. Το τρόπαιο ανοίγει τα επιτεύγματα.';
 
   @override
   String get calendarRowOff => 'Ημερολόγιο: ανενεργό';
@@ -2395,6 +2848,294 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get planChooserReminder => 'Υπενθύμιση — μια τιμή που λήγει μια μέρα';
+
+  @override
+  String get planChooserChore =>
+      'Δουλειά — κάτι που επαναλαμβάνεται: τάισμα, σταγόνες, άμμος';
+
+  @override
+  String get newChore => 'Νέα δουλειά';
+
+  @override
+  String get choreEdit => 'Επεξεργασία δουλειάς';
+
+  @override
+  String get choreTitleLabel => 'Τι';
+
+  @override
+  String get choreRepeatDaily => 'Καθημερινά';
+
+  @override
+  String get choreRepeatEvery => 'Κάθε…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ημέρες';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'κάθε $n μέρες',
+      one: 'κάθε μέρα',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'κάθε $n εβδομάδες',
+      one: 'κάθε εβδομάδα',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'κάθε $n μήνες',
+      one: 'κάθε μήνα',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'κάθε $n χρόνια',
+      one: 'κάθε χρόνο',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Οποιαδήποτε ώρα';
+
+  @override
+  String get chorePause => 'Παύση';
+
+  @override
+  String get chorePaused => 'Σε παύση';
+
+  @override
+  String get choreResume => 'Συνέχεια';
+
+  @override
+  String get choreEnd => 'Τέλος δουλειάς';
+
+  @override
+  String get choreHistory => 'Ιστορικό';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'έγινε $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'νωρίτερα';
+
+  @override
+  String get choreDoneLate => 'αργότερα';
+
+  @override
+  String get choreMissed => 'Παραλείφθηκε';
+
+  @override
+  String get choreStillOpen => 'Ακόμη ανοιχτό';
+
+  @override
+  String get choreEndConfirm =>
+      'Η δουλειά φεύγει από τη λίστα. Όσα τσεκαρίστηκαν μένουν στο ιστορικό.';
+
+  @override
+  String get todaySection => 'Σήμερα';
+
+  @override
+  String get upcomingSection => 'Προσεχώς';
+
+  @override
+  String get allDoneToday => 'Σήμερα: όλα έγιναν';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n μέρες συνεχόμενα',
+      one: '1 μέρα συνεχόμενα',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Έως $date';
+  }
+
+  @override
+  String get remindMe => 'Υπενθύμιση';
+
+  @override
+  String remindNext(Object when) {
+    return 'Επόμενη υπενθύμιση: $when';
+  }
+
+  @override
+  String get remindNone => 'Καμία υπενθύμιση: τίποτα δεν εκκρεμεί.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count υπενθυμίσεις προγραμματισμένες σε αυτό το τηλέφωνο',
+      one: '1 υπενθύμιση προγραμματισμένη σε αυτό το τηλέφωνο',
+      zero: 'Τίποτα προγραμματισμένο σε αυτό το τηλέφωνο ακόμη',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Στείλε τώρα δοκιμαστική υπενθύμιση';
+
+  @override
+  String get remindLateHint =>
+      'Οι υπενθυμίσεις μπορεί να έρθουν λίγα λεπτά αργότερα· το τηλέφωνο διαλέγει την ακριβή στιγμή.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Δεν υπάρχει άδεια για ειδοποιήσεις, η υπενθύμιση μένει ανενεργή. Επίτρεψέ τες στις ρυθμίσεις της εφαρμογής στο τηλέφωνο και δοκίμασε ξανά.';
+
+  @override
+  String get batteryHint =>
+      'Αν οι υπενθυμίσεις δεν έρχονται, επίτρεψε στο cat(a)log να τρέχει στο παρασκήνιο στις ρυθμίσεις μπαταρίας του τηλεφώνου.';
+
+  @override
+  String get batterySettings => 'Ρυθμίσεις μπαταρίας';
+
+  @override
+  String get achievementsTitle => 'Επιτεύγματα';
+
+  @override
+  String get rankServant => 'Υπηρέτης';
+
+  @override
+  String get rankButler => 'Μπάτλερ';
+
+  @override
+  String get rankSteward => 'Οικονόμος';
+
+  @override
+  String get rankChancellor => 'Καγκελάριος';
+
+  @override
+  String get rankMinister => 'Υπουργός';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Καλικό';
+
+  @override
+  String get coatCheetah => 'Τσιτάχ';
+
+  @override
+  String get coatTiger => 'Τίγρη';
+
+  @override
+  String get coatTabby => 'Τιγρέ';
+
+  @override
+  String get coatPaws => 'Πατούσες';
+
+  @override
+  String get coatRosettes => 'Ροζέτες';
+
+  @override
+  String get coatZebra => 'Ζέβρα';
+
+  @override
+  String get coatSetting => 'Γούνα';
+
+  @override
+  String get coatRandom => 'Διαφορετική σε κάθε εκκίνηση';
+
+  @override
+  String get coatSnowLeopard => 'Λεοπάρδαλη του χιονιού';
+
+  @override
+  String get coatSiamese => 'Σιαμέζικα σημάδια';
+
+  @override
+  String get coatLynx => 'Λύγκας';
+
+  @override
+  String get coatTortoiseshell => 'Ταρταρούγα';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Νέα γούνα: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Ένας ολόκληρος μήνας δουλειών, όλες έγιναν.';
+
+  @override
+  String get achievementsEmpty => 'Τίποτα ακόμη. Οι δουλειές ξέρουν τον δρόμο.';
+
+  @override
+  String get achievementMonth => 'Ένας ολόκληρος μήνας';
+
+  @override
+  String get achievementYear => 'Ένας ολόκληρος χρόνος';
+
+  @override
+  String get achievementDecade => 'Μια ολόκληρη δεκαετία';
+
+  @override
+  String get achievementCentury => 'Ένας ολόκληρος αιώνας';
+
+  @override
+  String get achievementCenturyHint => 'Θα είμαστε και οι δύο πολύ περήφανοι.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Μάστορας: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Επιτεύχθηκε $times φορές',
+      one: 'Επιτεύχθηκε μία φορά',
+    );
+    return '$_temp0, πρώτη φορά στις $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Επόμενο στα $n';
+  }
+
+  @override
+  String get achievementLocked => 'Όχι ακόμη';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Επίτευγμα: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Τι';
@@ -2556,4 +3297,116 @@ class AppLocalizationsEl extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Διαγραφή ραντεβού για όλα τα $count κατοικίδια';
   }
+
+  @override
+  String get correctThisValue => 'Διόρθωση αυτής της τιμής';
+
+  @override
+  String get removeThisValue => 'Αφαίρεση αυτής της τιμής';
+
+  @override
+  String get restoreThisValue => 'Επαναφορά αυτής της τιμής';
+
+  @override
+  String get showRemovedValues => 'Εμφάνιση αφαιρεμένων τιμών';
+
+  @override
+  String get hideRemovedValues => 'Απόκρυψη αφαιρεμένων τιμών';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Αφαιρέθηκε · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Αντικαταστάθηκε από $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Διόρθωση';
+
+  @override
+  String get restorePickFolder => 'Επιλογή φακέλου αντιγράφων…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Τα αντίγραφα της προηγούμενης εγκατάστασης βρίσκονται στο Documents/catlog (Downloads/catlog σε παλαιότερες εκδόσεις). Επιλέξτε αυτόν τον φάκελο μία φορά· τα αντίγραφά του εμφανίζονται εδώ.';
+
+  @override
+  String get backupsTitle => 'Αντίγραφα ασφαλείας';
+
+  @override
+  String get backupsSubtitle => 'Πού φυλάσσονται με ασφάλεια οι κατάλογοί σας';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Η Google αποθηκεύει τους καταλόγους της εφαρμογής με τον λογαριασμό σας, χωρίς φωτογραφίες. Επιστρέφουν μόνοι τους μετά από επανεγκατάσταση ή σε νέο τηλέφωνο.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Ένα πλήρες αντίγραφο κάθε καταλόγου, με τις φωτογραφίες, γράφεται στο Documents/catlog κάθε φορά που αφήνετε την εφαρμογή μετά από αλλαγές.';
+
+  @override
+  String get backupsIosSystem =>
+      'Το iCloud Backup περιλαμβάνει αυτή την εφαρμογή με τους καταλόγους και τις φωτογραφίες της, όπως κάθε άλλη εφαρμογή σε αυτό το iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Ένα πλήρες αντίγραφο κάθε καταλόγου βρίσκεται στην εφαρμογή Αρχεία, στο cat(a)log. Από εκεί μπορεί να πάει στο iCloud Drive, με AirDrop ή σε άλλο τηλέφωνο.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Ένα πλήρες αντίγραφο κάθε καταλόγου, με τις φωτογραφίες, γράφεται στον φάκελο Λήψεις κάθε φορά που αφήνετε την εφαρμογή μετά από αλλαγές.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Τελευταίο αντίγραφο: $date';
+  }
+
+  @override
+  String get backupsNever => 'Δεν έχει γραφτεί ακόμη αντίγραφο.';
+
+  @override
+  String get backupsNow => 'Αντίγραφο τώρα';
+
+  @override
+  String get backupsDone => 'Το αντίγραφο γράφτηκε.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Επαναφορά από το αντίγραφο Google στις $date. Αν το παλιό τηλέφωνο χρησιμοποιεί ακόμη το cat(a)log, συγχρονίστε μία φορά από αυτό και μετά αφαιρέστε εκεί την εφαρμογή.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Και ένας φάκελος της επιλογής σας μπορεί να λαμβάνει κάθε αντίγραφο: ένας που κάποια εφαρμογή cloud κρατά συγχρονισμένο σε αυτό το τηλέφωνο (Nextcloud, Syncthing και άλλες), μια κάρτα μνήμης, όποιος φάκελος προσφέρει ο επιλογέας. Τα αντίγραφα μπαίνουν στο catlog-backups μέσα του.';
+
+  @override
+  String get backupsFolderPick => 'Αντιγραφή και σε φάκελο…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Αντιγράφεται και στο $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Διακοπή αντιγραφής εκεί';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Οι ειδοποιήσεις δεν λειτουργούν σε αυτό το τηλέφωνο: $error';
+  }
+
+  @override
+  String get copyText => 'Αντιγραφή κειμένου';
+
+  @override
+  String get colWhen => 'Πότε';
+
+  @override
+  String get colValue => 'Τιμή';
+
+  @override
+  String get colWho => 'Ποιος';
 }

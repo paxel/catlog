@@ -2,6 +2,110 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.2.3] - 2026-09-09
+
+### Added
+- A chore's history page: every due day with done when and by whom, missed, or still open; oldest first on request, shareable as text.
+- A field's history can be read oldest first and shared as text, one line per value with date and author.
+- The graph page shares its curve as a picture, caption and curve only, through the phone's share sheet.
+- A title you earned can be worn next to your name, chosen in the catalog settings; partners see it on the author rows, and nobody can wear one in your name.
+- Five coats in colour behind the pages, calico to tortoiseshell, one earned per full month of chores; a favourite coat can be pinned in Settings.
+- Titles for chores done, Servant to Minister with the chore in brackets, and a new coat for every full month; the achievements page lists what was earned and nothing to chase.
+- Looks grew: eye colour, a Features group for what never changes (tipped or tattooed ear, a missing eye or leg, no teeth, extra toes), more colours, patterns, fur, tail and ear types. A shared feature alone makes a match candidate.
+- Thirty more cat breeds, Burmese and Abyssinian among them, named in every language; existing catalogs get them added.
+- Android backs the catalogs up into the keeper's Google account, photos left out, and puts them back on a reinstall or a new phone.
+- On iPhone the backup files show in the Files app under cat(a)log.
+- A Backups page in Settings says what the phone backs up where, writes a copy on request, and on Android sends every copy to a folder of your choice too.
+- Every value has a time of day: the editor's As of row picks date and time, and the history, the timeline and the graph show it.
+- A wrong value can be corrected or removed from its history; hidden values show on request and can be restored.
+- A done day in a chore's history can be corrected to another moment or removed.
+
+### Changed
+- Reverting a change removes it instead of writing the old value again.
+- Android backups go to Documents/catlog instead of Downloads/catlog.
+
+### Fixed
+- Restoring after a reinstall works on Android: the restore page opens the picker on the backup folder, and one grant lists every backup there.
+- Two devices changing a choice field's option list at the same time get both lists merged instead of a conflict.
+- Chores on a cat's or home's page are ordered like the agenda: due today by time, the rest and the paused ones behind a Coming up fold.
+- Chore reminders of every catalog stay scheduled; opening another catalog used to cancel them.
+- Chore reminders show with their own icon and a sound; a button sends a test reminder at once.
+
+## [1.2.2] - 2026-09-07
+
+### Added
+- A chore's gap can be days, weeks, months or years: a vaccine every year, not every 365 days.
+
+### Changed
+- One shared folder carries all catalogs: each uses a subfolder named after it, and the folder page explains Syncthing for a folder without a cloud.
+- A paused chore stays in sight everywhere, greyed and without its box, until resumed or ended.
+- Today's chores are sorted by time, those without a time first; ticked ones grey out.
+
+### Fixed
+- Folder sync on Android works in any folder the picker grants, cloud folders included.
+- Conflicts are raised only on fields a keeper can judge; two entries with the same value say so instead of showing two chosen boxes.
+- History, arrivals and conflicts show a position as coordinates and plus code; privacy markers read as the field's name.
+- A paused chore reads "Paused" on the cat's page, not "Pause"; End wears the bin icon.
+- Choosing "Every…" for a new chore no longer crashes the editor.
+- Ticking the day's last chore on a cat's or home's page celebrates too.
+- The cheer clips are loud enough to hear on a phone speaker.
+
+## [1.2.1] - 2026-09-07
+
+### Changed
+- The chore editor is a page that scrolls; Pause and End are rows at its bottom, End asks once.
+- When hosting an in-person sync, the page's private switch decides; the join popup asks no more.
+- Chore rows: the checkbox ticks, a tap opens the cat or home, a long-press edits.
+- Coming up on the agenda is folded until opened.
+
+### Fixed
+- No more crash when the day's last chore is ticked and the cheer plays.
+- Crash report mails keep the app's own frames instead of framework noise.
+- Ticking a chore on a cat's or home's page no longer turns the row into tomorrow's.
+
+## [1.2.0] - 2026-09-06
+
+### Added
+- Every catalog signs its entries with its own key; forged entries in a known name are refused and listed on the arrival page.
+- Partners show as name and key code; your key is in the catalog settings.
+- Looks: a chip field for size, colours, marks and per-species traits, asked right after a Stray Cam or poster capture.
+- Match candidates include pairs whose Looks agree in two traits or more; a wrong pair can be marked "Not the same".
+- Chores: recurring care on a cat or home, daily, every N days or on chosen weekdays, with Today and Coming up on the agenda, streaks and week dots.
+- Achievements page: full months, years, decades and centuries of chores, and a master ladder per chore.
+- A chore can remind you with a phone notification at a chosen time.
+
+### Changed
+- The celebration cheer is one of several clips and has its own switch in Settings.
+
+### Fixed
+- The map no longer freezes after a swipe.
+
+## [1.1.4] - Unreleased
+
+### Added
+
+- A fresh install offers to restore the catalogs of the install
+  before it: the backups now also live in a folder that survives
+  uninstalling, and after the name step the app lists them, one per
+  catalog, all ticked. Where several files of one catalog exist, all
+  are imported, newest first, so an older one can still supply a
+  missing photo. The same
+  page sits in Manage catalogs as "Restore backups…", with a file
+  picker for backups kept elsewhere.
+
+### Changed
+
+- The field chips above a table (columns) and above a card (what is on
+  it) fold away behind a header that names the choice and counts it;
+  once something is chosen they start folded. The fold is remembered
+  per device. A column no shown row has a value for is not offered.
+
+### Fixed
+
+- A photo whose bytes never arrived shows a grey tile saying "Photo
+  not received yet" and the same in the viewer, instead of an empty
+  square and a black page.
+
 ## [1.1.3] - 2026-09-05
 
 ### Fixed

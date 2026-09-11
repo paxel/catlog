@@ -173,6 +173,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get shareAsImage => '画像として共有';
 
   @override
+  String get sortOldestFirst => '古い順';
+
+  @override
+  String get sortNewestFirst => '新しい順';
+
+  @override
+  String get shareAsText => 'テキストとして共有';
+
+  @override
   String get shareAsPdf => 'PDF として共有';
 
   @override
@@ -547,12 +556,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'この変更を取り消す';
-
-  @override
-  String get revertSubtitle => '以前の値を新しい記録として復元します — 履歴には両方残ります。';
-
-  @override
   String fieldCleared(String field) {
     return '$field をクリアしました';
   }
@@ -721,7 +724,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      '両方の端末で同じフォルダーを使います（Dropbox や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。';
+      '両方の端末で同じフォルダーを使います（Nextcloud や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。';
 
   @override
   String get noFolderChosenYet => 'フォルダー未選択';
@@ -731,6 +734,18 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'フォルダーを今すぐ同期';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'その中でこのカタログはフォルダ「$name」を使うので、共有フォルダ1つで全カタログを運べます。';
+  }
+
+  @override
+  String get useSameFolder => '他のカタログと同じフォルダを使う';
+
+  @override
+  String get folderHint =>
+      '2台の端末が同じ状態に保つフォルダなら何でも使えます。クラウドドライブでも、端末内に留めたいなら Syncthing でも。Syncthing は無料です。各端末にインストールし、1つのフォルダを共有して、そのフォルダを各端末のここで選んでください。';
 
   @override
   String folderSynced(String result) {
@@ -767,6 +782,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get conflictBody => '2 か所で同時に変更されました。正しい方を選んでください:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field（非公開）';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return '両方の変更は同じ内容です：$value。選ぶものはありません。「解決」でマークを消します。';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -895,6 +920,96 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get breedSphynx => 'スフィンクス';
+
+  @override
+  String get breedAbyssinian => 'アビシニアン';
+
+  @override
+  String get breedAmericanShorthair => 'アメリカンショートヘア';
+
+  @override
+  String get breedBalinese => 'バリニーズ';
+
+  @override
+  String get breedBirman => 'バーマン';
+
+  @override
+  String get breedBombay => 'ボンベイ';
+
+  @override
+  String get breedBurmese => 'バーミーズ';
+
+  @override
+  String get breedBurmilla => 'バーミラ';
+
+  @override
+  String get breedBritishLonghair => 'ブリティッシュロングヘア';
+
+  @override
+  String get breedChartreux => 'シャルトリュー';
+
+  @override
+  String get breedCornishRex => 'コーニッシュレックス';
+
+  @override
+  String get breedDevonRex => 'デボンレックス';
+
+  @override
+  String get breedEgyptianMau => 'エジプシャンマウ';
+
+  @override
+  String get breedExoticShorthair => 'エキゾチックショートヘア';
+
+  @override
+  String get breedHimalayan => 'ヒマラヤン';
+
+  @override
+  String get breedKorat => 'コラット';
+
+  @override
+  String get breedManx => 'マンクス';
+
+  @override
+  String get breedMunchkin => 'マンチカン';
+
+  @override
+  String get breedOcicat => 'オシキャット';
+
+  @override
+  String get breedOrientalShorthair => 'オリエンタルショートヘア';
+
+  @override
+  String get breedRagamuffin => 'ラガマフィン';
+
+  @override
+  String get breedRussianBlue => 'ロシアンブルー';
+
+  @override
+  String get breedSavannah => 'サバンナ';
+
+  @override
+  String get breedScottishFold => 'スコティッシュフォールド';
+
+  @override
+  String get breedSelkirkRex => 'セルカークレックス';
+
+  @override
+  String get breedSiberian => 'サイベリアン';
+
+  @override
+  String get breedSnowshoe => 'スノーシュー';
+
+  @override
+  String get breedSomali => 'ソマリ';
+
+  @override
+  String get breedTonkinese => 'トンキニーズ';
+
+  @override
+  String get breedTurkishAngora => 'ターキッシュアンゴラ';
+
+  @override
+  String get breedTurkishVan => 'ターキッシュバン';
 
   @override
   String get starterColor => '毛色';
@@ -1066,7 +1181,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'データを他の人に渡す方法：直接つなぐ、両方の端末が見えるフォルダーを使う、メッセンジャーでファイルを送る。何を送るかは常にあなたが決めます。受け取った .catsync ファイルもここで開きます。';
+      'データを他の人に渡す方法：直接つなぐ、両方の端末が見えるフォルダーを使う、メッセンジャーでファイルを送る。何を送るかは常にあなたが決めます。受け取った .catsync ファイルもここで開きます。 各カタログは書き込みを自分の鍵で署名します。相手にはあなたの名前の横に鍵コードが表示されます。相手の最初の鍵はファイルから信頼して受け入れ、対面で同期すると確認済みになります。既知の名前で正しい署名のないエントリは拒否され、到着ページに一覧されます。';
 
   @override
   String get helpFields =>
@@ -1078,7 +1193,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'これまでのすべての変更（新しい順）：誰が・いつ・何を・どの値に変えたか。どの記録も取り消せます。取り消しは新しい記録として書かれ、消えるものはありません。';
+      'すべての変更を新しい順に表示: 誰がいつどの値に変えたか。項目をタップで修正、長押しで取り消しまたは復元。隠した項目も記録に残り、必要なときに表示できます。';
 
   @override
   String get helpDuplicates =>
@@ -1090,11 +1205,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      '同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。';
+      '同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。 見た目が2つ以上の特徴で一致し、矛盾がない組も一覧に載ります。チップがどの特徴かを示します。「同じではない」を選ぶと、どちらかの見た目が変わるまでこの端末ではその組を隠します。';
 
   @override
   String get helpMatchesNeutral =>
-      '同じ個体かもしれないペット：番号が同じ、または迷子ペットの捜索範囲内で見つかった野良。ペアをタップで統合、長押しで最初のペットを開いて見比べられます。';
+      '同じ個体かもしれないペット：番号が同じ、または迷子ペットの捜索範囲内で見つかった野良。ペアをタップで統合、長押しで最初のペットを開いて見比べられます。 見た目が2つ以上の特徴で一致し、矛盾がない組も一覧に載ります。チップがどの特徴かを示します。「同じではない」を選ぶと、どちらかの見た目が変わるまでこの端末ではその組を隠します。';
 
   @override
   String get helpFlier =>
@@ -1382,6 +1497,280 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterWeight => '体重';
 
   @override
+  String get starterLooks => '見た目';
+
+  @override
+  String get looksGroupSize => '大きさ';
+
+  @override
+  String get looksGroupColours => '色';
+
+  @override
+  String get looksGroupPattern => '柄';
+
+  @override
+  String get looksGroupFur => '毛';
+
+  @override
+  String get looksGroupTail => 'しっぽ';
+
+  @override
+  String get looksGroupEars => '耳';
+
+  @override
+  String get looksGroupMarks => '特徴';
+
+  @override
+  String get looksGroupCrest => '冠羽';
+
+  @override
+  String get looksGroupBeak => 'くちばし';
+
+  @override
+  String get looksGroupRing => '足環';
+
+  @override
+  String get looksValueSmall => '小さい';
+
+  @override
+  String get looksValueMedium => '中くらい';
+
+  @override
+  String get looksValueLarge => '大きい';
+
+  @override
+  String get looksValueBlack => '黒';
+
+  @override
+  String get looksValueWhite => '白';
+
+  @override
+  String get looksValueGrey => '灰色';
+
+  @override
+  String get looksValueBrown => '茶色';
+
+  @override
+  String get looksValueGinger => '茶トラ';
+
+  @override
+  String get looksValueCream => 'クリーム';
+
+  @override
+  String get looksValueGolden => '金色';
+
+  @override
+  String get looksValueTan => '薄茶';
+
+  @override
+  String get looksValueGreen => '緑';
+
+  @override
+  String get looksValueBlue => '青';
+
+  @override
+  String get looksValueYellow => '黄';
+
+  @override
+  String get looksValueRed => '赤';
+
+  @override
+  String get looksValueOrange => 'オレンジ';
+
+  @override
+  String get looksValuePink => 'ピンク';
+
+  @override
+  String get looksValueWhiteBib => '白い胸';
+
+  @override
+  String get looksValueWhitePaws => '白い足';
+
+  @override
+  String get looksValueWhiteTailTip => '白いしっぽの先';
+
+  @override
+  String get looksValueBlaze => '鼻筋の白';
+
+  @override
+  String get looksValueMask => 'マスク';
+
+  @override
+  String get looksValueSpots => '斑点';
+
+  @override
+  String get looksValuePatches => 'ぶち';
+
+  @override
+  String get looksValueStripes => 'しま';
+
+  @override
+  String get looksValueScar => '傷跡';
+
+  @override
+  String get looksValueNotchedEar => '耳の切れ込み';
+
+  @override
+  String get looksValueEarTip => '耳先';
+
+  @override
+  String get looksValueCollar => '首輪';
+
+  @override
+  String get looksValueShort => '短い';
+
+  @override
+  String get looksValueLong => '長い';
+
+  @override
+  String get looksValueHairless => '無毛';
+
+  @override
+  String get looksValueBobtail => '短いしっぽ';
+
+  @override
+  String get looksValueNone => 'なし';
+
+  @override
+  String get looksValueCurled => '巻き';
+
+  @override
+  String get looksValueUpright => '立ち耳';
+
+  @override
+  String get looksValueFloppy => '垂れ耳';
+
+  @override
+  String get looksValueFolded => '折れ耳';
+
+  @override
+  String get looksValueRounded => '丸い';
+
+  @override
+  String get looksValueSolid => '単色';
+
+  @override
+  String get looksValueTabby => 'トラ柄';
+
+  @override
+  String get looksValueTortoiseshell => 'サビ柄';
+
+  @override
+  String get looksValueCalico => '三毛';
+
+  @override
+  String get looksValueColourpoint => 'ポイント';
+
+  @override
+  String get looksValueBicolour => '二色';
+
+  @override
+  String get looksValueTuxedo => 'タキシード';
+
+  @override
+  String get looksValueBrindle => 'ブリンドル';
+
+  @override
+  String get looksValueMerle => 'マール';
+
+  @override
+  String get looksValueSpotted => '斑点';
+
+  @override
+  String get looksValuePatched => 'ぶち';
+
+  @override
+  String get looksValueTricolour => '三色';
+
+  @override
+  String get looksValueSable => 'セーブル';
+
+  @override
+  String get looksGroupEyes => '目';
+
+  @override
+  String get looksGroupFeatures => '特徴';
+
+  @override
+  String get looksValueAmber => 'アンバー';
+
+  @override
+  String get looksValueCopper => 'カッパー';
+
+  @override
+  String get looksValueOddEyed => 'オッドアイ';
+
+  @override
+  String get looksValueChocolate => 'チョコレート';
+
+  @override
+  String get looksValueLilac => 'ライラック';
+
+  @override
+  String get looksValueSilver => 'シルバー';
+
+  @override
+  String get looksValueSmoke => 'スモーク';
+
+  @override
+  String get looksValueTicked => 'ティックド';
+
+  @override
+  String get looksValueVan => 'バン';
+
+  @override
+  String get looksValueCurly => 'カーリー';
+
+  @override
+  String get looksValueWiry => 'ワイヤー';
+
+  @override
+  String get looksValueKinked => '折れ尾';
+
+  @override
+  String get looksValueCropped => '断耳';
+
+  @override
+  String get looksValueTippedEar => '耳先カット';
+
+  @override
+  String get looksValueEarTattoo => '耳の入れ墨';
+
+  @override
+  String get looksValueMissingEar => '片耳欠損';
+
+  @override
+  String get looksValueMissingEye => '片目欠損';
+
+  @override
+  String get looksValueCloudyEye => '白濁した目';
+
+  @override
+  String get looksValueMissingFrontLeg => '前脚欠損';
+
+  @override
+  String get looksValueMissingHindLeg => '後脚欠損';
+
+  @override
+  String get looksValueNoTeeth => '歯なし';
+
+  @override
+  String get looksValueExtraToes => '多指';
+
+  @override
+  String get rejectMatch => '同じではない';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 個の特徴が一致',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'システムの既定';
 
   @override
@@ -1461,6 +1850,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get celebrationsSubtitle => '猫がおうちに移るときに紙吹雪と歓声';
 
   @override
+  String get cheerToggle => '歓声の音';
+
+  @override
+  String get cheerSubtitle => '紙吹雪と一緒に短い歓声、毎回違うもの';
+
+  @override
   String get celebrationsSubtitleNeutral => 'ペットがおうちに移るときに紙吹雪と歓声';
 
   @override
@@ -1502,8 +1897,59 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return '$name が端末 $device で書いたすべての記録と写真をこのカタログから削除します。他の端末のデータは残ります。取り消せません。';
+  String get yourKey => 'あなたの鍵';
+
+  @override
+  String get yourTitle => 'あなたの称号';
+
+  @override
+  String get titleNone => '称号なし';
+
+  @override
+  String keyLine(Object code) {
+    return '鍵 $code';
+  }
+
+  @override
+  String get keyVerified => '対面で確認済み';
+
+  @override
+  String get keyFromFile => 'ファイル経由、未確認';
+
+  @override
+  String get keyUnsigned => '鍵なし、エントリは未署名';
+
+  @override
+  String get summaryRefused => '拒否';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 件を拒否',
+    );
+    return '$_temp0：$name の既知の鍵で署名されていません';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return '新しい鍵 $code が $name を名乗っています。信頼する前に本人に確認してください。';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name が既知と異なる鍵を提示しました。既知の鍵を維持し、新しい鍵は受け入れていません。';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return '新しい鍵：$name · $code（$how）';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return '$name が鍵 $key で書いたすべてのエントリと写真をこのカタログから削除します。他の端末は保持します。元に戻せません。';
   }
 
   @override
@@ -1961,7 +2407,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'このカタログだけに属するもの：名前、猫かペットか、項目、作成者とブロック、アーカイブ、時間を戻す。ここでの変更はこのカタログだけに及びます。今開いていないカタログでも同じです。削除の前にカタログはファイルに書き出されます。';
+      'このカタログだけに属するもの：名前、猫かペットか、項目、作成者とブロック、アーカイブ、時間を戻す。ここでの変更はこのカタログだけに及びます。今開いていないカタログでも同じです。削除の前にカタログはファイルに書き出されます。 あなたの鍵は、相手があなたの名前の横に見るコードです。このカタログに紐づきます。';
 
   @override
   String get spotHomeCatalog => 'いま開いているカタログです。名前をタップすると切り替えや新規作成ができます。';
@@ -2257,12 +2703,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotAgendaCalendar => 'ここをオンにすると、cat(a)log の予定を選んだカレンダーに反映します。';
 
   @override
+  String get spotAgendaToday => '今日のお世話：終わったらチェック。点は直近7日間を示します。';
+
+  @override
   String get helpAgenda =>
-      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。';
+      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。';
 
   @override
   String get helpAgendaNeutral =>
-      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。';
+      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。';
 
   @override
   String get calendarRowOff => 'カレンダー：オフ';
@@ -2302,6 +2751,254 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get planChooserReminder => 'リマインダー — ある日に期日となる値';
+
+  @override
+  String get planChooserChore => '日課 — 繰り返す作業: 給餌、点眼、トイレ';
+
+  @override
+  String get newChore => '新しい日課';
+
+  @override
+  String get choreEdit => '日課を編集';
+
+  @override
+  String get choreTitleLabel => '内容';
+
+  @override
+  String get choreRepeatDaily => '毎日';
+
+  @override
+  String get choreRepeatEvery => 'n日ごと';
+
+  @override
+  String get choreRepeatWeekdays => '曜日';
+
+  @override
+  String choreEveryDays(int n) {
+    return '$n日ごと';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    return '$n週間ごと';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    return '$nか月ごと';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    return '$n年ごと';
+  }
+
+  @override
+  String get choreNoTime => '時刻は問わない';
+
+  @override
+  String get chorePause => '一時停止';
+
+  @override
+  String get chorePaused => '一時停止中';
+
+  @override
+  String get choreResume => '再開';
+
+  @override
+  String get choreEnd => '日課を終了';
+
+  @override
+  String get choreHistory => '履歴';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return '完了 $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => '前倒し';
+
+  @override
+  String get choreDoneLate => '遅れ';
+
+  @override
+  String get choreMissed => '未実施';
+
+  @override
+  String get choreStillOpen => '未完了';
+
+  @override
+  String get choreEndConfirm => 'お世話は一覧から消えます。チェック済みの記録は履歴に残ります。';
+
+  @override
+  String get todaySection => '今日';
+
+  @override
+  String get upcomingSection => '近日';
+
+  @override
+  String get allDoneToday => '今日: すべて完了';
+
+  @override
+  String streakDays(int n) {
+    return '$n日連続';
+  }
+
+  @override
+  String choreDue(String date) {
+    return '予定 $date';
+  }
+
+  @override
+  String get remindMe => 'リマインド';
+
+  @override
+  String remindNext(Object when) {
+    return '次のリマインド：$when';
+  }
+
+  @override
+  String get remindNone => 'リマインドの予定なし：予定された期日がありません。';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'この端末に $count 件のリマインドを予定',
+      zero: 'この端末にはまだ予定がありません',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => '今すぐテスト通知を送る';
+
+  @override
+  String get remindLateHint => 'リマインドは数分遅れて届くことがあります。正確なタイミングは端末が決めます。';
+
+  @override
+  String get remindPermissionDenied =>
+      '通知の許可がないため、リマインドはオフのままです。端末のアプリ設定で許可してからやり直してください。';
+
+  @override
+  String get batteryHint =>
+      'リマインドが届かない場合は、端末の電池設定で cat(a)log のバックグラウンド動作を許可してください。';
+
+  @override
+  String get batterySettings => '電池設定';
+
+  @override
+  String get achievementsTitle => '実績';
+
+  @override
+  String get rankServant => '従者';
+
+  @override
+  String get rankButler => '執事';
+
+  @override
+  String get rankSteward => '家令';
+
+  @override
+  String get rankChancellor => '宰相';
+
+  @override
+  String get rankMinister => '大臣';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title（$chore）';
+  }
+
+  @override
+  String get coatCalico => '三毛';
+
+  @override
+  String get coatCheetah => 'チーター';
+
+  @override
+  String get coatTiger => 'トラ';
+
+  @override
+  String get coatTabby => 'トラ猫柄';
+
+  @override
+  String get coatPaws => '肉球';
+
+  @override
+  String get coatRosettes => 'ロゼット';
+
+  @override
+  String get coatZebra => 'シマウマ';
+
+  @override
+  String get coatSetting => '毛皮';
+
+  @override
+  String get coatRandom => '起動ごとに別のもの';
+
+  @override
+  String get coatSnowLeopard => 'ユキヒョウ';
+
+  @override
+  String get coatSiamese => 'シャムのポイント';
+
+  @override
+  String get coatLynx => 'オオヤマネコ';
+
+  @override
+  String get coatTortoiseshell => 'サビ';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return '新しい毛皮：$coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'ひと月まるごとのお世話、すべて完了。';
+
+  @override
+  String get achievementsEmpty => 'まだ何もありません。お世話が道を知っています。';
+
+  @override
+  String get achievementMonth => '皆勤の1か月';
+
+  @override
+  String get achievementYear => '皆勤の1年';
+
+  @override
+  String get achievementDecade => '皆勤の10年';
+
+  @override
+  String get achievementCentury => '皆勤の100年';
+
+  @override
+  String get achievementCenturyHint => 'そのときは一緒に誇りに思いましょう。';
+
+  @override
+  String achievementMaster(String title) {
+    return '$titleマスター';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    return '$times回達成、初回 $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return '次は $n 回';
+  }
+
+  @override
+  String get achievementLocked => 'まだ';
+
+  @override
+  String achievementUnlocked(String name) {
+    return '実績: $name';
+  }
 
   @override
   String get appointmentTitleLabel => '内容';
@@ -2457,4 +3154,116 @@ class AppLocalizationsJa extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return '$count匹すべての予定を削除';
   }
+
+  @override
+  String get correctThisValue => 'この値を修正';
+
+  @override
+  String get removeThisValue => 'この値を取り消す';
+
+  @override
+  String get restoreThisValue => 'この値を元に戻す';
+
+  @override
+  String get showRemovedValues => '取り消した値を表示';
+
+  @override
+  String get hideRemovedValues => '取り消した値を隠す';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return '取り消し · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return '$value に修正 · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => '修正';
+
+  @override
+  String get restorePickFolder => 'バックアップフォルダを選択…';
+
+  @override
+  String get restoreAndroidHint =>
+      '以前のインストールのバックアップは Documents/catlog にあります（古いバージョンでは Downloads/catlog）。そのフォルダを一度選ぶと、バックアップがここに表示されます。';
+
+  @override
+  String get backupsTitle => 'バックアップ';
+
+  @override
+  String get backupsSubtitle => 'カタログの保管場所';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google がこのアプリのカタログをアカウントにバックアップします（写真を除く）。再インストール後や新しい端末で自動的に戻ります。';
+
+  @override
+  String get backupsAndroidFiles =>
+      '変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）が Documents/catlog に書き込まれます。';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud バックアップには、この iPhone の他のアプリと同様、このアプリのカタログと写真が含まれます。';
+
+  @override
+  String get backupsIosFiles =>
+      '各カタログの完全なコピーは「ファイル」アプリの cat(a)log にあります。そこから iCloud Drive、AirDrop、別の端末へ送れます。';
+
+  @override
+  String get backupsDesktopFiles =>
+      '変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）がダウンロードフォルダに書き込まれます。';
+
+  @override
+  String backupsLast(Object date) {
+    return '最新のコピー: $date';
+  }
+
+  @override
+  String get backupsNever => 'まだコピーは書き込まれていません。';
+
+  @override
+  String get backupsNow => '今すぐバックアップ';
+
+  @override
+  String get backupsDone => 'コピーを書き込みました。';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return '$date に Google バックアップから復元しました。古い端末でまだ cat(a)log を使っている場合は、そこから一度同期してから、その端末のアプリを削除してください。';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      '任意のフォルダにも各コピーを送れます: クラウドアプリがこの端末上で同期しているフォルダ（Nextcloud、Syncthing など）、メモリーカード、選択画面に出るどのフォルダでも。コピーはその中の catlog-backups に入ります。';
+
+  @override
+  String get backupsFolderPick => 'フォルダにもコピー…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return '$name にもコピー';
+  }
+
+  @override
+  String get backupsFolderRemove => 'そこへのコピーをやめる';
+
+  @override
+  String remindFailed(Object error) {
+    return 'この端末では通知が機能していません: $error';
+  }
+
+  @override
+  String get copyText => 'テキストをコピー';
+
+  @override
+  String get colWhen => '日時';
+
+  @override
+  String get colValue => '値';
+
+  @override
+  String get colWho => '担当';
 }

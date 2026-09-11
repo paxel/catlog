@@ -174,6 +174,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get shareAsImage => 'Megosztás képként';
 
   @override
+  String get sortOldestFirst => 'Legrégebbi elöl';
+
+  @override
+  String get sortNewestFirst => 'Legújabb elöl';
+
+  @override
+  String get shareAsText => 'Megosztás szövegként';
+
+  @override
   String get shareAsPdf => 'Megosztás PDF-ként';
 
   @override
@@ -556,13 +565,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Változtatás visszavonása';
-
-  @override
-  String get revertSubtitle =>
-      'Az előző értéket új bejegyzésként állítja vissza — az előzmények mindkettőt megőrzik.';
-
-  @override
   String fieldCleared(String field) {
     return '$field kiürítve';
   }
@@ -733,7 +735,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Mindkét eszköz ugyanazt a mappát használja (pl. Dropboxban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.';
+      'Mindkét eszköz ugyanazt a mappát használja (pl. Nextcloudban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.';
 
   @override
   String get noFolderChosenYet => 'Még nincs mappa kiválasztva';
@@ -743,6 +745,18 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Mappa szinkronizálása most';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Benne ez a katalógus a(z) „$name” mappát használja, így egy megosztott mappa az összes katalógusodat viheti.';
+  }
+
+  @override
+  String get useSameFolder => 'Ugyanaz a mappa, mint a többi katalógusnál';
+
+  @override
+  String get folderHint =>
+      'Bármelyik mappa megteszi, amit két eszköz egyformán tart: egy felhőmeghajtó, vagy a Syncthing egy olyan mappához, ami a telefonjaitokon marad. A Syncthing ingyenes: telepítsd minden telefonra, ossz meg köztük egy mappát, és válaszd ki azt a mappát itt minden eszközön.';
 
   @override
   String folderSynced(String result) {
@@ -780,6 +794,16 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get conflictBody =>
       'Két helyen módosították egyszerre. Válaszd ki, mi igaz:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (privát)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Mindkét változtatás ugyanazt mondja: $value. Nincs mit választani; a Megoldás leveszi a jelölést.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -911,6 +935,96 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Szfinx';
+
+  @override
+  String get breedAbyssinian => 'Abesszin';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikai rövidszőrű';
+
+  @override
+  String get breedBalinese => 'Balinéz';
+
+  @override
+  String get breedBirman => 'Szent birma';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmai';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Brit hosszúszőrű';
+
+  @override
+  String get breedChartreux => 'Karthauzi';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egyiptomi mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotic rövidszőrű';
+
+  @override
+  String get breedHimalayan => 'Himalája';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Keleti rövidszőrű';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Orosz kék';
+
+  @override
+  String get breedSavannah => 'Szavanna';
+
+  @override
+  String get breedScottishFold => 'Skót lógófülű';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Szibériai';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Szomáli';
+
+  @override
+  String get breedTonkinese => 'Tonkini';
+
+  @override
+  String get breedTurkishAngora => 'Török angóra';
+
+  @override
+  String get breedTurkishVan => 'Török van';
 
   @override
   String get starterColor => 'Szín';
@@ -1089,7 +1203,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg.';
+      'Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg. Minden katalógus a saját kulcsával írja alá, amit ír; a partnerek a kulcskódot látják a neved mellett. A partner első kulcsát fájlból bizalommal vesszük át, és személyes szinkronizálás után számít igazoltnak. Ismert néven, helyes aláírás nélküli bejegyzéseket elutasítunk és az érkezési oldalon felsorolunk.';
 
   @override
   String get helpFields =>
@@ -1101,7 +1215,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Minden valaha végzett változtatás, a legújabb elöl: ki mit mikor és milyen értékre módosított. Bármelyik bejegyzés visszavonható — ez új bejegyzést ír, semmi nem törlődik.';
+      'Minden változás, a legújabb elöl: ki, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, tartsd nyomva az eltávolításhoz vagy visszaállításhoz; a rejtett bejegyzés a naplóban marad, és kérésre megjelenik.';
 
   @override
   String get helpDuplicates =>
@@ -1113,11 +1227,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz.';
+      'Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz. A listán olyan párok is szerepelnek, amelyek külseje legalább két jegyben egyezik, ellentmondás nélkül; a címkék mutatják, melyekben. A „Nem ugyanaz” elrejti a párt ezen a telefonon, amíg valamelyik állat külseje meg nem változik.';
 
   @override
   String get helpMatchesNeutral =>
-      'Kisállatok, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt kisállat keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első kisállat összehasonlításhoz.';
+      'Kisállatok, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt kisállat keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első kisállat összehasonlításhoz. A listán olyan párok is szerepelnek, amelyek külseje legalább két jegyben egyezik, ellentmondás nélkül; a címkék mutatják, melyekben. A „Nem ugyanaz” elrejti a párt ezen a telefonon, amíg valamelyik állat külseje meg nem változik.';
 
   @override
   String get helpFlier =>
@@ -1407,6 +1521,281 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterWeight => 'Súly';
 
   @override
+  String get starterLooks => 'Külső';
+
+  @override
+  String get looksGroupSize => 'Méret';
+
+  @override
+  String get looksGroupColours => 'Színek';
+
+  @override
+  String get looksGroupPattern => 'Mintázat';
+
+  @override
+  String get looksGroupFur => 'Szőr';
+
+  @override
+  String get looksGroupTail => 'Farok';
+
+  @override
+  String get looksGroupEars => 'Fülek';
+
+  @override
+  String get looksGroupMarks => 'Ismertetőjegyek';
+
+  @override
+  String get looksGroupCrest => 'Bóbita';
+
+  @override
+  String get looksGroupBeak => 'Csőr';
+
+  @override
+  String get looksGroupRing => 'Lábgyűrű';
+
+  @override
+  String get looksValueSmall => 'Kicsi';
+
+  @override
+  String get looksValueMedium => 'Közepes';
+
+  @override
+  String get looksValueLarge => 'Nagy';
+
+  @override
+  String get looksValueBlack => 'Fekete';
+
+  @override
+  String get looksValueWhite => 'Fehér';
+
+  @override
+  String get looksValueGrey => 'Szürke';
+
+  @override
+  String get looksValueBrown => 'Barna';
+
+  @override
+  String get looksValueGinger => 'Vörös';
+
+  @override
+  String get looksValueCream => 'Krém';
+
+  @override
+  String get looksValueGolden => 'Arany';
+
+  @override
+  String get looksValueTan => 'Fakó';
+
+  @override
+  String get looksValueGreen => 'Zöld';
+
+  @override
+  String get looksValueBlue => 'Kék';
+
+  @override
+  String get looksValueYellow => 'Sárga';
+
+  @override
+  String get looksValueRed => 'Piros';
+
+  @override
+  String get looksValueOrange => 'Narancs';
+
+  @override
+  String get looksValuePink => 'Rózsaszín';
+
+  @override
+  String get looksValueWhiteBib => 'Fehér előke';
+
+  @override
+  String get looksValueWhitePaws => 'Fehér mancsok';
+
+  @override
+  String get looksValueWhiteTailTip => 'Fehér farokvég';
+
+  @override
+  String get looksValueBlaze => 'Csillag';
+
+  @override
+  String get looksValueMask => 'Maszk';
+
+  @override
+  String get looksValueSpots => 'Pettyek';
+
+  @override
+  String get looksValuePatches => 'Foltok';
+
+  @override
+  String get looksValueStripes => 'Csíkok';
+
+  @override
+  String get looksValueScar => 'Heg';
+
+  @override
+  String get looksValueNotchedEar => 'Csorba fül';
+
+  @override
+  String get looksValueEarTip => 'Fülhegy';
+
+  @override
+  String get looksValueCollar => 'Nyakörv';
+
+  @override
+  String get looksValueShort => 'Rövid';
+
+  @override
+  String get looksValueLong => 'Hosszú';
+
+  @override
+  String get looksValueHairless => 'Szőrtelen';
+
+  @override
+  String get looksValueBobtail => 'Csonka farok';
+
+  @override
+  String get looksValueNone => 'Nincs';
+
+  @override
+  String get looksValueCurled => 'Kunkori';
+
+  @override
+  String get looksValueUpright => 'Álló';
+
+  @override
+  String get looksValueFloppy => 'Lógó';
+
+  @override
+  String get looksValueFolded => 'Hajtott';
+
+  @override
+  String get looksValueRounded => 'Kerek';
+
+  @override
+  String get looksValueSolid => 'Egyszínű';
+
+  @override
+  String get looksValueTabby => 'Cirmos';
+
+  @override
+  String get looksValueTortoiseshell => 'Teknőctarka';
+
+  @override
+  String get looksValueCalico => 'Kalikó';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Kétszínű';
+
+  @override
+  String get looksValueTuxedo => 'Szmokingos';
+
+  @override
+  String get looksValueBrindle => 'Csíkos';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Pettyes';
+
+  @override
+  String get looksValuePatched => 'Foltos';
+
+  @override
+  String get looksValueTricolour => 'Háromszínű';
+
+  @override
+  String get looksValueSable => 'Coboly';
+
+  @override
+  String get looksGroupEyes => 'Szemek';
+
+  @override
+  String get looksGroupFeatures => 'Különlegességek';
+
+  @override
+  String get looksValueAmber => 'Borostyán';
+
+  @override
+  String get looksValueCopper => 'Réz';
+
+  @override
+  String get looksValueOddEyed => 'Felemás';
+
+  @override
+  String get looksValueChocolate => 'Csokoládé';
+
+  @override
+  String get looksValueLilac => 'Lila';
+
+  @override
+  String get looksValueSilver => 'Ezüst';
+
+  @override
+  String get looksValueSmoke => 'Füst';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Göndör';
+
+  @override
+  String get looksValueWiry => 'Drótszőrű';
+
+  @override
+  String get looksValueKinked => 'Törött';
+
+  @override
+  String get looksValueCropped => 'Kupírozott';
+
+  @override
+  String get looksValueTippedEar => 'Levágott fülhegy';
+
+  @override
+  String get looksValueEarTattoo => 'Fültetoválás';
+
+  @override
+  String get looksValueMissingEar => 'Hiányzó fül';
+
+  @override
+  String get looksValueMissingEye => 'Hiányzó szem';
+
+  @override
+  String get looksValueCloudyEye => 'Homályos szem';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Hiányzó mellső láb';
+
+  @override
+  String get looksValueMissingHindLeg => 'Hiányzó hátsó láb';
+
+  @override
+  String get looksValueNoTeeth => 'Fogatlan';
+
+  @override
+  String get looksValueExtraToes => 'Több lábujj';
+
+  @override
+  String get rejectMatch => 'Nem ugyanaz';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count jegy egyezik',
+      one: '1 jegy egyezik',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Rendszer alapértelmezés';
 
   @override
@@ -1487,6 +1876,12 @@ class AppLocalizationsHu extends AppLocalizations {
       'Konfetti és éljenzés, amikor egy macska az otthonába költözik';
 
   @override
+  String get cheerToggle => 'Ujjongás hangja';
+
+  @override
+  String get cheerSubtitle => 'Rövid ujjongás a konfettihez, mindig más';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti és éljenzés, amikor egy kisállat az otthonába költözik';
 
@@ -1531,8 +1926,60 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Eltávolítja ebből a katalógusból minden bejegyzést és fotót, amelyet $name a(z) $device eszközön írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.';
+  String get yourKey => 'A kulcsod';
+
+  @override
+  String get yourTitle => 'A címed';
+
+  @override
+  String get titleNone => 'Nincs cím';
+
+  @override
+  String keyLine(Object code) {
+    return 'kulcs: $code';
+  }
+
+  @override
+  String get keyVerified => 'személyesen igazolva';
+
+  @override
+  String get keyFromFile => 'fájlból, még nem igazolva';
+
+  @override
+  String get keyUnsigned => 'még nincs kulcs, a bejegyzések aláíratlanok';
+
+  @override
+  String get summaryRefused => 'Elutasítva';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bejegyzés',
+      one: '1 bejegyzés',
+    );
+    return '$_temp0 elutasítva: nincs aláírva $name ismert kulcsával';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Egy új kulcs ($code) $name néven mutatkozik be. Kérdezd meg az illetőt, mielőtt megbízol benne.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name az itt ismerttől eltérő kulcsot ajánlott. Az ismert marad; az újat nem vettük át.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Új kulcs: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Eltávolít ebből a katalógusból minden bejegyzést és fotót, amelyet $name a(z) $key kulccsal írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.';
   }
 
   @override
@@ -2031,7 +2478,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust.';
+      'Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust. A kulcsod az a kód, amit a partnerek a neved mellett látnak; ehhez a katalógushoz tartozik.';
 
   @override
   String get spotHomeCatalog =>
@@ -2336,12 +2783,16 @@ class AppLocalizationsHu extends AppLocalizations {
       'Itt kapcsold be a cat(a)log időpontjainak tükrözését egy általad választott naptárba.';
 
   @override
+  String get spotAgendaToday =>
+      'A mai teendők: pipáld ki, ha kész. A pontok az utolsó hét napot mutatják.';
+
+  @override
   String get helpAgenda =>
-      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több macskával egyetlen időpont: jelöld be a macskákat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely macskákat kezelték — a többinél vedd ki a jelölést, tervezve maradnak.';
+      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több macskával egyetlen időpont: jelöld be a macskákat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely macskákat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.';
 
   @override
   String get helpAgendaNeutral =>
-      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a kisállatot vagy a háztartást. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több kisállattal egyetlen időpont: jelöld be a kisállatokat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely kisállatokat kezelték — a többinél vedd ki a jelölést, tervezve maradnak.';
+      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a kisállatot vagy a háztartást. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több kisállattal egyetlen időpont: jelöld be a kisállatokat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely kisállatokat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.';
 
   @override
   String get calendarRowOff => 'Naptár: ki';
@@ -2386,6 +2837,294 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Emlékeztető — egy érték, amely egy napon esedékes lesz';
+
+  @override
+  String get planChooserChore =>
+      'Teendő — ami visszatér: etetés, cseppek, alom';
+
+  @override
+  String get newChore => 'Új teendő';
+
+  @override
+  String get choreEdit => 'Teendő szerkesztése';
+
+  @override
+  String get choreTitleLabel => 'Mit';
+
+  @override
+  String get choreRepeatDaily => 'Naponta';
+
+  @override
+  String get choreRepeatEvery => 'Minden…';
+
+  @override
+  String get choreRepeatWeekdays => 'Napok';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n naponta',
+      one: 'minden nap',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n hetente',
+      one: 'minden héten',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n havonta',
+      one: 'minden hónapban',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n évente',
+      one: 'minden évben',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Bármikor napközben';
+
+  @override
+  String get chorePause => 'Szünet';
+
+  @override
+  String get chorePaused => 'Szüneteltetve';
+
+  @override
+  String get choreResume => 'Folytatás';
+
+  @override
+  String get choreEnd => 'Teendő lezárása';
+
+  @override
+  String get choreHistory => 'Előzmények';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'elvégezve $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'korábban';
+
+  @override
+  String get choreDoneLate => 'később';
+
+  @override
+  String get choreMissed => 'Kimaradt';
+
+  @override
+  String get choreStillOpen => 'Még nyitott';
+
+  @override
+  String get choreEndConfirm =>
+      'A teendő eltűnik a listáról. A kipipáltak a történetben maradnak.';
+
+  @override
+  String get todaySection => 'Ma';
+
+  @override
+  String get upcomingSection => 'Hamarosan';
+
+  @override
+  String get allDoneToday => 'Ma: minden kész';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n nap egymás után',
+      one: '1 nap egymás után',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Esedékes: $date';
+  }
+
+  @override
+  String get remindMe => 'Emlékeztess';
+
+  @override
+  String remindNext(Object when) {
+    return 'Következő emlékeztető: $when';
+  }
+
+  @override
+  String get remindNone => 'Nincs emlékeztető tervben: nincs esedékes.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count emlékeztető ütemezve ezen a telefonon',
+      one: '1 emlékeztető ütemezve ezen a telefonon',
+      zero: 'Ezen a telefonon még semmi nincs ütemezve',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Próba-emlékeztető küldése most';
+
+  @override
+  String get remindLateHint =>
+      'Az emlékeztetők pár perccel később is jöhetnek; a pontos pillanatot a telefon választja.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nincs engedély az értesítésekhez, az emlékeztető kikapcsolva marad. Engedélyezd a telefon alkalmazásbeállításaiban, és próbáld újra.';
+
+  @override
+  String get batteryHint =>
+      'Ha az emlékeztetők elmaradnak, engedd a cat(a)log háttérben futását a telefon akkumulátor-beállításaiban.';
+
+  @override
+  String get batterySettings => 'Akkumulátor-beállítások';
+
+  @override
+  String get achievementsTitle => 'Eredmények';
+
+  @override
+  String get rankServant => 'Szolga';
+
+  @override
+  String get rankButler => 'Komornyik';
+
+  @override
+  String get rankSteward => 'Intéző';
+
+  @override
+  String get rankChancellor => 'Kancellár';
+
+  @override
+  String get rankMinister => 'Miniszter';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kalikó';
+
+  @override
+  String get coatCheetah => 'Gepárd';
+
+  @override
+  String get coatTiger => 'Tigris';
+
+  @override
+  String get coatTabby => 'Cirmos';
+
+  @override
+  String get coatPaws => 'Mancsok';
+
+  @override
+  String get coatRosettes => 'Rozetták';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Bunda';
+
+  @override
+  String get coatRandom => 'Minden indításkor másik';
+
+  @override
+  String get coatSnowLeopard => 'Hópárduc';
+
+  @override
+  String get coatSiamese => 'Sziámi jegyek';
+
+  @override
+  String get coatLynx => 'Hiúz';
+
+  @override
+  String get coatTortoiseshell => 'Teknőctarka';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Új bunda: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Egy teljes hónap teendő, mind elvégezve.';
+
+  @override
+  String get achievementsEmpty => 'Még semmi. A teendők ismerik az utat.';
+
+  @override
+  String get achievementMonth => 'Egy teljes hónap';
+
+  @override
+  String get achievementYear => 'Egy teljes év';
+
+  @override
+  String get achievementDecade => 'Egy teljes évtized';
+
+  @override
+  String get achievementCentury => 'Egy teljes évszázad';
+
+  @override
+  String get achievementCenturyHint => 'Mindketten nagyon büszkék leszünk.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-mester';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times-szer elérve',
+      one: 'Egyszer elérve',
+    );
+    return '$_temp0, először $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Következő: $n';
+  }
+
+  @override
+  String get achievementLocked => 'Még nem';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Eredmény: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Mi';
@@ -2547,4 +3286,116 @@ class AppLocalizationsHu extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Időpont törlése mind a $count kisállatnál';
   }
+
+  @override
+  String get correctThisValue => 'Érték javítása';
+
+  @override
+  String get removeThisValue => 'Érték eltávolítása';
+
+  @override
+  String get restoreThisValue => 'Érték visszaállítása';
+
+  @override
+  String get showRemovedValues => 'Eltávolított értékek mutatása';
+
+  @override
+  String get hideRemovedValues => 'Eltávolított értékek elrejtése';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Eltávolítva · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Erre cserélve: $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Javítás';
+
+  @override
+  String get restorePickFolder => 'Mentési mappa kiválasztása…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Az előző telepítés mentései a Documents/catlog mappában vannak (régebbi verzióknál Downloads/catlog). Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg.';
+
+  @override
+  String get backupsTitle => 'Mentések';
+
+  @override
+  String get backupsSubtitle => 'Hol vannak biztonságban a katalógusaid';
+
+  @override
+  String get backupsAndroidSystem =>
+      'A Google a fiókoddal menti az app katalógusait, fotók nélkül. Újratelepítés után vagy új telefonon maguktól visszatérnek.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Minden katalógus teljes másolata, fotókkal együtt, a Documents/catlog mappába kerül, valahányszor változtatás után elhagyod az appot.';
+
+  @override
+  String get backupsIosSystem =>
+      'Az iCloud-mentés tartalmazza ezt az appot a katalógusaival és fotóival, mint minden más appot ezen az iPhone-on.';
+
+  @override
+  String get backupsIosFiles =>
+      'Minden katalógus teljes másolata a Fájlok appban, a cat(a)log mappában van. Onnan az iCloud Drive-ra, AirDroppal vagy másik telefonra vihető.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Minden katalógus teljes másolata, fotókkal együtt, a Letöltések mappádba kerül, valahányszor változtatás után elhagyod az appot.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Utolsó másolat: $date';
+  }
+
+  @override
+  String get backupsNever => 'Még nem készült másolat.';
+
+  @override
+  String get backupsNow => 'Mentés most';
+
+  @override
+  String get backupsDone => 'Másolat elkészült.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Visszaállítva a Google-mentésből: $date. Ha a régi telefonon még fut a cat(a)log, szinkronizálj egyszer onnan, majd ott töröld az appot.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Egy általad választott mappa is megkaphat minden másolatot: olyan, amelyet egy felhőapp ezen a telefonon szinkronban tart (Nextcloud, Syncthing és mások), memóriakártya, bármely mappa, amit a választó felkínál. A másolatok a benne lévő catlog-backups mappába kerülnek.';
+
+  @override
+  String get backupsFolderPick => 'Másolás mappába is…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Másolva ide is: $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Ne másoljon oda többé';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Az értesítések nem működnek ezen a telefonon: $error';
+  }
+
+  @override
+  String get copyText => 'Szöveg másolása';
+
+  @override
+  String get colWhen => 'Mikor';
+
+  @override
+  String get colValue => 'Érték';
+
+  @override
+  String get colWho => 'Ki';
 }

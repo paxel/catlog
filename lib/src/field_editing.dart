@@ -7,6 +7,7 @@ import 'l10n.dart';
 import 'screens/position_picker_screen.dart';
 import 'screens/scan_screen.dart';
 import 'widgets/date_entry.dart';
+import 'widgets/looks_input.dart';
 import 'units.dart';
 
 /// The outcome of editing a Field value: what to store and the effective
@@ -23,12 +24,16 @@ class FieldEdit {
 /// Type-aware editor dialog for a Field value. Returns null on cancel.
 /// Every editor carries an "as of" date so entries can be backdated
 /// ("spayed on 3 May", entered today).
+///
+/// [asOf] preloads the moment — a correction starts at the moment of
+/// the entry it replaces; a new value starts now.
 Future<FieldEdit?> editFieldValue(
   BuildContext context,
   FieldDef def,
   String? current, {
   CatalogStore? store,
   String? excludeId,
+  DateTime? asOf,
 }) {
   return showDialog<FieldEdit>(
     context: context,
@@ -37,6 +42,7 @@ Future<FieldEdit?> editFieldValue(
       current: current,
       store: store,
       excludeId: excludeId,
+      asOf: asOf,
     ),
   );
 }
@@ -93,6 +99,7 @@ class FieldValueController extends ChangeNotifier {
       case FieldType.location:
       case FieldType.number:
       case FieldType.id:
+      case FieldType.tags:
         final v = text.text.trim();
         return v.isEmpty ? null : v;
       case FieldType.unitValue:
@@ -238,6 +245,16 @@ class _FieldValueInputState extends State<FieldValueInput> {
             if (picked != null) setState(() => c.text.text = picked);
           },
         );
+      case FieldType.tags:
+        // Looks: chips per group, the groups following the animal's
+        // species; the controller's text holds the encoded line.
+        return LooksInput(
+          species: widget.excludeId == null
+              ? null
+              : widget.store?.current(widget.excludeId!, 'f:species'),
+          value: c.text.text.isEmpty ? null : c.text.text,
+          onChanged: (v) => setState(() => c.text.text = v ?? ''),
+        );
       case FieldType.text:
         // Remarks holds whole notes (OCR dumps included) — multiline.
         final multiline = def.slug == 'remarks';
@@ -305,12 +322,14 @@ class _FieldEditDialog extends StatefulWidget {
   final String? current;
   final CatalogStore? store;
   final String? excludeId;
+  final DateTime? asOf;
 
   const _FieldEditDialog({
     required this.def,
     required this.current,
     this.store,
     this.excludeId,
+    this.asOf,
   });
 
   @override
@@ -322,7 +341,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
     widget.def,
     current: widget.current,
   );
-  DateTime _asOf = DateTime.now();
+  late DateTime _asOf = widget.asOf?.toLocal() ?? DateTime.now();
   late bool _private =
       widget.store != null &&
       widget.excludeId != null &&
@@ -344,7 +363,21 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       lastDate: DateTime.now().add(const Duration(days: 1)),
     );
     if (!mounted) return;
-    if (picked != null) setState(() => _asOf = picked);
+    // The day changes, the time of day stays: a value has a moment, and
+    // a picked day is not a midnight.
+    if (picked != null) setState(() => _asOf = withTimeOf(picked, _asOf));
+  }
+
+  Future<void> _pickTime() async {
+    final picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.fromDateTime(_asOf),
+    );
+    if (!mounted) return;
+    if (picked != null) {
+      setState(() => _asOf = DateTime(_asOf.year, _asOf.month, _asOf.day,
+          picked.hour, picked.minute));
+    }
   }
 
   @override
@@ -386,6 +419,17 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
               trailing: const Icon(Icons.edit_calendar_outlined),
               onTap: _pickAsOf,
             ),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.schedule),
+              title: Text(
+                DateFormat.Hm(
+                  Localizations.localeOf(context).toString(),
+                ).format(_asOf),
+              ),
+              trailing: const Icon(Icons.edit_outlined),
+              onTap: _pickTime,
+            ),
           ],
         ),
       ),
@@ -404,3 +448,8 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
     );
   }
 }
+
+/// [day] at the hour and minute of [moment]: the picked day, the time
+/// the value had.
+DateTime withTimeOf(DateTime day, DateTime moment) =>
+    DateTime(day.year, day.month, day.day, moment.hour, moment.minute);

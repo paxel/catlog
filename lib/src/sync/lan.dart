@@ -22,9 +22,13 @@ class SyncResult {
   /// The moment before [applied] went in — what Reject returns to.
   final Moment? moment;
 
-  const SyncResult(this.entriesSent, this.entriesReceived, this.blobsSent,
+  /// Refused rows and the keys met (1.2.0) — met in person, so verified.
+  final ImportReport report;
+
+  SyncResult(this.entriesSent, this.entriesReceived, this.blobsSent,
       this.blobsReceived,
-      {this.applied = const [], this.moment});
+      {this.applied = const [], this.moment, ImportReport? report})
+      : report = report ?? ImportReport();
 
   @override
   String toString() =>
@@ -89,8 +93,15 @@ class LanSyncHost {
 
   /// Called after a joiner completed a session; receives what actually
   /// landed, so the host can show the import summary too.
-  /// A joiner has synced: what arrived here, and the moment before it.
-  final void Function(List<Entry> applied, Moment? moment)? onSession;
+  /// A joiner has synced: what arrived here, the moment before it, and
+  /// what the signatures said.
+  final void Function(List<Entry> applied, Moment? moment, ImportReport report)?
+      onSession;
+
+  /// Whether private values go out, read at every session: the page's
+  /// switch, the same one the joiner side uses. Null falls back to the
+  /// join decision (tests, older callers).
+  final bool Function()? includePrivate;
 
   HttpServer? _server;
   final _failures = <String, int>{};
@@ -105,7 +116,10 @@ class LanSyncHost {
   final TlsIdentity identity;
 
   LanSyncHost(this.store, this.pin,
-      {required this.identity, this.onJoinRequest, this.onSession});
+      {required this.identity,
+      this.onJoinRequest,
+      this.onSession,
+      this.includePrivate});
 
   Uint8List get fingerprint => identity.fingerprint;
 
@@ -237,8 +251,9 @@ class LanSyncHost {
           req.response.write('declined');
           return;
         }
+        final private = includePrivate?.call() ?? decision.includePrivate;
         final issued = decision.remember && deviceId.isNotEmpty
-            ? _remember(deviceId, author, deviceName, decision.includePrivate)
+            ? _remember(deviceId, author, deviceName, private)
             : null;
         final joinerVector = (body['vector'] as Map)
             .map((k, v) => MapEntry(k as String, v as int));
@@ -246,9 +261,19 @@ class LanSyncHost {
           for (final e in body['entries'] as List)
             Entry.fromJson((e as Map).cast<String, dynamic>())
         ];
+        // The joiner's own key, met over a session the pair code
+        // authenticated, in the same room: verified (1.2.0). The keys
+        // it carries for others stay on trust.
+        final joinerKeys = body['keys'] is List
+            ? parseKeys(jsonEncode(body['keys']))
+            : const <KeyRecord>[];
+        final report = ImportReport();
         final before = store.currentSeq();
-        final applied =
-            store.applyEntries(incoming, senderVector: joinerVector);
+        final applied = store.applyEntries(incoming,
+            senderVector: joinerVector,
+            keys: joinerKeys,
+            verifiedDevice: deviceId.isEmpty ? null : deviceId,
+            report: report);
         final moment = momentFor(store,
             before: before,
             changed: applied.isNotEmpty,
@@ -258,13 +283,14 @@ class LanSyncHost {
         req.response.write(jsonEncode({
           'entries': [
             for (final e in store.entriesSince(joinerVector,
-                includePrivate: decision.includePrivate))
+                includePrivate: private))
               e.toJson()
           ],
           'wantBlobs': store.missingBlobs(),
           'trust': ?issued,
+          'keys': [for (final k in store.keyRecords()) k.toJson()],
         }));
-        onSession?.call(applied, moment);
+        onSession?.call(applied, moment, report);
       } else if (req.method == 'GET' && path.startsWith('/blob/')) {
         final bytes = store.imageBytes(path.substring('/blob/'.length));
         if (bytes == null) {
@@ -418,6 +444,7 @@ Future<SyncResult> lanSync(
       'author': store.author ?? '?',
       'deviceName': Platform.localHostname,
       'deviceId': store.deviceId,
+      'keys': [for (final k in store.keyRecords()) k.toJson()],
       'trustSecret': ?(hostDevice == null
           ? null
           : store.localSetting(trustSecretKey(hostDevice!))),
@@ -432,9 +459,16 @@ Future<SyncResult> lanSync(
       for (final e in response['entries'] as List)
         Entry.fromJson((e as Map).cast<String, dynamic>())
     ];
+    final hostKeys = response['keys'] is List
+        ? parseKeys(jsonEncode(response['keys']))
+        : const <KeyRecord>[];
+    final report = ImportReport();
     final beforeApply = store.currentSeq();
-    final applied =
-        store.applyEntries(received, senderVector: hostVector);
+    final applied = store.applyEntries(received,
+        senderVector: hostVector,
+        keys: hostKeys,
+        verifiedDevice: hostDevice,
+        report: report);
     final moment = momentFor(store,
         before: beforeApply,
         changed: applied.isNotEmpty,
@@ -464,7 +498,7 @@ Future<SyncResult> lanSync(
       // Counted what landed; the rest waits for the next sync.
     }
     return SyncResult(toSend.length, received.length, blobsOut, blobsIn,
-        applied: applied, moment: moment);
+        applied: applied, moment: moment, report: report);
   } finally {
     client.close(force: true);
   }

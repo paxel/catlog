@@ -52,6 +52,9 @@
   "card": "Spjald",
   "cardTitle": "Spjald — {name}",
   "shareAsImage": "Deila sem mynd",
+  "sortOldestFirst": "Elsta fyrst",
+  "sortNewestFirst": "Nýjasta fyrst",
+  "shareAsText": "Deila sem texta",
   "shareAsPdf": "Deila sem PDF",
   "print": "Prenta",
   "renameCat": "Endurnefna kött",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Ekkert heimili — flækingur / strauk",
   "timelineOf": "Tímalína — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Afturkalla þessa breytingu",
-  "revertSubtitle": "Endurheimtir fyrra gildi sem nýja færslu — sagan geymir bæði.",
   "fieldCleared": "{field} tæmt",
   "fieldBackTo": "{field} aftur í \"{value}\"",
   "leftStray": "Fór — flækingur",
@@ -128,10 +129,13 @@
   "syncFailed": "Samstilling mistókst: {error}",
   "lastSyncWith": "Síðasta samstilling við {peer}: {time}",
   "sharedFolder": "Sameiginleg mappa",
-  "sharedFolderExplainer": "Bæði tækin nota sömu möppu (t.d. í Dropbox eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.",
+  "sharedFolderExplainer": "Bæði tækin nota sömu möppu (t.d. í Nextcloud eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.",
   "noFolderChosenYet": "Engin mappa valin ennþá",
   "choose": "Velja…",
   "syncFolderNow": "Samstilla möppu núna",
+  "folderCatalogHint": "Þar inni notar þessi skrá möppuna „{name}“, svo ein sameiginleg mappa getur borið allar skrárnar þínar.",
+  "useSameFolder": "Nota sömu möppu og hinar skrárnar",
+  "folderHint": "Hvaða mappa sem tvö tæki halda eins dugar: skýjadrif, eða Syncthing fyrir möppu sem verður eftir í símunum ykkar. Syncthing er ókeypis: settu það upp á hverjum síma, deildu einni möppu milli þeirra og veldu þá möppu hér á hverju tæki.",
   "folderSynced": "Mappa samstillt: {result}",
   "folderSyncFailed": "Samstilling möppu mistókst: {error}",
   "recordSightingHere": "Skrá að köttur sást hér:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Slóð: {name} ({count} staðsetningar)",
   "conflictOn": "Árekstur — {field}",
   "conflictBody": "Breytt á tveimur stöðum í einu. Veldu hvað er rétt:",
+  "privateMarker": "{field} (einka)",
+  "conflictSame": "Báðar breytingarnar segja það sama: {value}. Ekkert að velja; Leysa fjarlægir merkið.",
   "mergeThisInto": "Sameina þennan/þetta {kind} við…",
   "noOtherToMergeInto": "Ekkert annað ({kind}) til að sameina við.",
   "mergeIntoQuestion": "Sameina við {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Persaköttur",
   "breedBengal": "Bengalköttur",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Abyssiníu",
+  "breedAmericanShorthair": "Amerískur stutthærður",
+  "breedBalinese": "Balíkötturinn",
+  "breedBirman": "Birman",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Búrmakötturinn",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Breskur síðhærður",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egypskur mau",
+  "breedExoticShorthair": "Exotic",
+  "breedHimalayan": "Himalaja",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Austurlenskur stutthærður",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Rússneskur blár",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Skoskur fold",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Síberíuköttur",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Sómalíu",
+  "breedTonkinese": "Tonkínskur",
+  "breedTurkishAngora": "Tyrknesk angóra",
+  "breedTurkishVan": "Tyrkneskur van",
   "ownValue": "Eigið gildi",
   "locationDeniedForever": "Aðgangur að staðsetningu er læstur. Leyfðu hann í kerfisstillingum til að nota Stray Cam.",
   "locationServiceOff": "Slökkt er á staðsetningu á þessu tæki. Kveiktu á henni í stillingum og reyndu aftur.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Öll gæludýr og staðir með staðsetningu. Leitin finnur gæludýr, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds gæludýrs og um fyrra heimili þess. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun. Hver staðsetningarreitur er nál á kortinu; ýttu á nál til að sjá slóð hennar.",
   "helpCard": "Prentanlegt spjald kattarins: veldu efst með merkjunum hvað birtist á því og deildu því svo sem mynd eða PDF. Númer má prenta sem QR eða strikamerki og staðsetning verður QR sem opnar kort, ásamt stuttum Plus Code.",
   "helpCardNeutral": "Prentanlegt spjald gæludýrsins: veldu efst með merkjunum hvað birtist á því og deildu því svo sem mynd eða PDF. Númer má prenta sem QR eða strikamerki og staðsetning verður QR sem opnar kort, ásamt stuttum Plus Code.",
-  "helpSync": "Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér.",
+  "helpSync": "Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér. Hver skrá undirritar það sem hún skrifar með eigin lykli; samstarfsfólk sér lykilkóðann við hlið nafnsins þíns. Fyrsti lykill samstarfsaðila er tekinn í trausti úr skrá og telst staðfestur þegar þið samstillið í eigin persónu. Færslur undir þekktu nafni án réttrar undirritunar er hafnað og þær taldar upp á komusíðunni.",
   "helpFields": "Reitirnir sem skráin þín notar. Endurnefndu þá, breyttu valkostum valreits eða búðu til þína eigin. Auðkennisreitur getur bent á þjónustu (skrá), þá verður hægt að ýta á númerið hjá kettinum.",
   "helpFieldsNeutral": "Reitirnir sem skráin þín notar. Endurnefndu þá, breyttu valkostum valreits eða búðu til þína eigin. Auðkennisreitur getur bent á þjónustu (skrá), þá verður hægt að ýta á númerið hjá gæludýrinu.",
-  "helpTimeline": "Sérhver breyting sem gerð hefur verið, sú nýjasta efst: hver breytti hverju, hvenær og í hvaða gildi. Hverja færslu má afturkalla — það skrifar nýja færslu, engu er nokkurn tíma eytt.",
+  "helpTimeline": "Hver breyting, nýjasta fyrst: hver, hvenær og í hvaða gildi. Ýttu á færslu til að leiðrétta hana, haltu henni til að fjarlægja eða endurheimta; falin færsla er áfram í skránni og birtist sé þess óskað.",
   "helpDuplicates": "Kettir eða nýlendur sem virðast vera til tvisvar — sömu númer eða mjög lík nöfn með samsvarandi smáatriðum. Ýttu á par til að sameina; sameiningu er ekki hægt að afturkalla, því er spurt fyrst.",
   "helpDuplicatesNeutral": "Gæludýr eða heimili sem virðast vera til tvisvar — sömu númer eða mjög lík nöfn með samsvarandi smáatriðum. Ýttu á par til að sameina; sameiningu er ekki hægt að afturkalla, því er spurt fyrst.",
-  "helpMatches": "Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar.",
-  "helpMatchesNeutral": "Gæludýr sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds gæludýrs. Ýttu á par til að sameina, haltu inni til að opna fyrra gæludýrið til samanburðar.",
+  "helpMatches": "Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar. Pör þar sem útlitið stemmir í tveimur einkennum eða fleiri án mótsagnar eru líka á listanum; flögurnar sýna hver. „Ekki það sama“ felur par í þessum síma þar til útlit annars dýrsins breytist.",
+  "helpMatchesNeutral": "Gæludýr sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds gæludýrs. Ýttu á par til að sameina, haltu inni til að opna fyrra gæludýrið til samanburðar. Pör þar sem útlitið stemmir í tveimur einkennum eða fleiri án mótsagnar eru líka á listanum; flögurnar sýna hver. „Ekki það sama“ felur par í þessum síma þar til útlit annars dýrsins breytist.",
   "helpFlier": "Ljósmynduð auglýsing verður að ketti ásamt eiganda. Skref fyrir skref: gögn kattarins, tengiliður eigandans, andlit klippt fyrir prófílmynd, skráningarnúmer af auglýsingunni og loks yfirferð. Allt eru tillögur — leiðréttu það sem myndavélin las vitlaust.",
   "helpFlierNeutral": "Ljósmynduð auglýsing verður að gæludýri ásamt eiganda. Skref fyrir skref: gögn gæludýrsins, tengiliður eigandans, andlit klippt fyrir prófílmynd, skráningarnúmer af auglýsingunni og loks yfirferð. Allt eru tillögur — leiðréttu það sem myndavélin las vitlaust.",
   "archiveTitle": "Safn",
@@ -399,11 +435,109 @@
   "rangeAll": "Allt",
   "rangeCustom": "Sérsniðið…",
   "changeSince": "{delta} síðan {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Eins og á þínu svæði",
   "unitsMetric": "Metrakerfi (kg, cm, ml, °C)",
   "unitsImperial": "Breskt (lb, in, fl oz, °F)",
   "starterWeight": "Þyngd",
+  "starterLooks": "Útlit",
+  "looksGroupSize": "Stærð",
+  "looksGroupColours": "Litir",
+  "looksGroupPattern": "Mynstur",
+  "looksGroupFur": "Feldur",
+  "looksGroupTail": "Skott",
+  "looksGroupEars": "Eyru",
+  "looksGroupMarks": "Einkenni",
+  "looksGroupCrest": "Toppur",
+  "looksGroupBeak": "Goggur",
+  "looksGroupRing": "Fótahringur",
+  "looksValueSmall": "Lítill",
+  "looksValueMedium": "Miðlungs",
+  "looksValueLarge": "Stór",
+  "looksValueBlack": "Svartur",
+  "looksValueWhite": "Hvítur",
+  "looksValueGrey": "Grár",
+  "looksValueBrown": "Brúnn",
+  "looksValueGinger": "Rauður",
+  "looksValueCream": "Rjómalitur",
+  "looksValueGolden": "Gullinn",
+  "looksValueTan": "Ljósbrúnn",
+  "looksValueGreen": "Grænn",
+  "looksValueBlue": "Blár",
+  "looksValueYellow": "Gulur",
+  "looksValueRed": "Rauður",
+  "looksValueOrange": "Appelsínugulur",
+  "looksValuePink": "Bleikur",
+  "looksValueWhiteBib": "Hvít bringa",
+  "looksValueWhitePaws": "Hvítar loppur",
+  "looksValueWhiteTailTip": "Hvítur skottendi",
+  "looksValueBlaze": "Blesa",
+  "looksValueMask": "Gríma",
+  "looksValueSpots": "Deplar",
+  "looksValuePatches": "Flekkir",
+  "looksValueStripes": "Rendur",
+  "looksValueScar": "Ör",
+  "looksValueNotchedEar": "Skarð í eyra",
+  "looksValueEarTip": "Eyrnabroddur",
+  "looksValueCollar": "Hálsól",
+  "looksValueShort": "Stutt",
+  "looksValueLong": "Sítt",
+  "looksValueHairless": "Hárlaus",
+  "looksValueBobtail": "Stubbur",
+  "looksValueNone": "Ekkert",
+  "looksValueCurled": "Hringað",
+  "looksValueUpright": "Upprétt",
+  "looksValueFloppy": "Lafandi",
+  "looksValueFolded": "Brotin",
+  "looksValueRounded": "Ávöl",
+  "looksValueSolid": "Einlitur",
+  "looksValueTabby": "Bröndóttur",
+  "looksValueTortoiseshell": "Skjaldbökulitur",
+  "looksValueCalico": "Calico",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Tvílitur",
+  "looksValueTuxedo": "Smóking",
+  "looksValueBrindle": "Brindle",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Doppóttur",
+  "looksValuePatched": "Flekkóttur",
+  "looksValueTricolour": "Þrílitur",
+  "looksValueSable": "Sable",
+  "looksGroupEyes": "Augu",
+  "looksGroupFeatures": "Sérkenni",
+  "looksValueAmber": "Rafgul",
+  "looksValueCopper": "Kopar",
+  "looksValueOddEyed": "Mislit augu",
+  "looksValueChocolate": "Súkkulaði",
+  "looksValueLilac": "Lilla",
+  "looksValueSilver": "Silfur",
+  "looksValueSmoke": "Reykur",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Krullaður",
+  "looksValueWiry": "Stríður",
+  "looksValueKinked": "Kinkur",
+  "looksValueCropped": "Klippt",
+  "looksValueTippedEar": "Klipptur eyrnaoddur",
+  "looksValueEarTattoo": "Eyrnahúðflúr",
+  "looksValueMissingEar": "Vantar eyra",
+  "looksValueMissingEye": "Vantar auga",
+  "looksValueCloudyEye": "Skýjað auga",
+  "looksValueMissingFrontLeg": "Vantar framfót",
+  "looksValueMissingHindLeg": "Vantar afturfót",
+  "looksValueNoTeeth": "Tannlaus",
+  "looksValueExtraToes": "Aukatær",
+  "rejectMatch": "Ekki það sama",
+  "traitsAgree": "{count, plural, one{{count} einkenni stemmir} other{{count} einkenni stemma}}",
   "systemDefault": "Sjálfgefið kerfis",
   "iosLocalNetworkHint": "Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur.",
   "markPrivate": "Merkja sem einka",
@@ -432,6 +566,8 @@
   "otherOption": "Annað…",
   "celebrationsToggle": "Fagna ættleiðingum",
   "celebrationsSubtitle": "Skrautborðar og fagnaðarlæti þegar köttur flytur á heimili sitt",
+  "cheerToggle": "Fagnaðarhljóð",
+  "cheerSubtitle": "Stutt fagnaðaróp með konfettíinu, nýtt í hvert sinn",
   "celebrationsSubtitleNeutral": "Skrautborðar og fagnaðarlæti þegar gæludýr flytur á heimili sitt",
   "onMapLabel": "Á kortinu",
   "showOnMap": "Sýna á korti",
@@ -445,7 +581,19 @@
   "authorsSection": "Hver skrifaði í skrána",
   "hardDeleteAction": "Eyða öllu frá þessum höfundi",
   "hardDeleteWarning": "Fjarlægir allar færslur og myndir frá {name} af þessu tæki. Önnur tæki halda sínum. Ekki hægt að afturkalla.",
-  "hardDeleteWarningDevice": "Fjarlægir úr þessari skrá hverja færslu og mynd sem {name} skrifaði á tækinu {device}. Önnur tæki halda sínu. Ekki hægt að afturkalla.",
+  "yourKey": "Lykillinn þinn",
+  "yourTitle": "Titillinn þinn",
+  "titleNone": "Enginn titill",
+  "keyLine": "lykill {code}",
+  "keyVerified": "staðfest í eigin persónu",
+  "keyFromFile": "úr skrá, ekki enn staðfest",
+  "keyUnsigned": "enginn lykill enn, færslur óundirritaðar",
+  "summaryRefused": "Hafnað",
+  "refusedEntries": "{count, plural, one{{count} færslu hafnað} other{{count} færslum hafnað}}: ekki undirritað með þekktum lykli fyrir {name}",
+  "newKeyCallsItself": "Nýr lykill {code} kallar sig {name}. Spurðu viðkomandi áður en þú treystir honum.",
+  "keyChangedRefused": "{name} bauð annan lykil en þann sem er þekktur hér. Sá þekkti helst; sá nýi var ekki tekinn.",
+  "metaNewKey": "Nýr lykill: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Fjarlægir hverja færslu og mynd sem {name} skrifaði með lykli {key} úr þessari skrá. Önnur tæki halda sínum. Ekki hægt að afturkalla.",
   "typeToConfirm": "Sláðu inn {name} til að staðfesta",
   "alsoBan": "Banna líka — aldrei taka við gögnum aftur",
   "bansSection": "Bönn",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Ekkert endurheimt.} one{1 skrá endurheimt.} other{{count} skrár endurheimtar.}}",
   "helpCatalogs": "Skrá er heimur út af fyrir sig: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á skrá til að skipta yfir í hana. Tannhjólið við skrá opnar stillingar hennar: nafn, kettir eða dýr, reitir, höfundar og bönn, safn, fara aftur, eyða. Nafn þitt, tungumál og ábendingar sem þú hefur séð eru sameiginleg öllum.",
   "helpCatalogsNeutral": "Skrá er heimur út af fyrir sig: eigin dýr, heimili, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á skrá til að skipta yfir í hana. Tannhjólið við skrá opnar stillingar hennar: nafn, kettir eða dýr, reitir, höfundar og bönn, safn, fara aftur, eyða. Nafn þitt, tungumál og ábendingar sem þú hefur séð eru sameiginleg öllum.",
-  "helpCatalogSettings": "Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal.",
+  "helpCatalogSettings": "Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal. Lykillinn þinn er kóðinn sem samstarfsfólk sér við hlið nafnsins þíns; hann tilheyrir þessari skrá.",
   "spotHomeCatalog": "Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra.",
   "deleteCatalog": "Eyða skrá",
   "catalogSettings": "Stillingar skrár",
   "deleteCatalogBody": "Allt í {name} hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur.",
   "deleteCatalogBodyNeutral": "Allt í {name} hverfur: gæludýrin, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Engir tímar áætlaðir. Áætlaðu nýja hér með plúsnum eða á síðu gæludýrs eða heimilis.",
   "dueToday": "í dag",
   "dueInDays": "{count, plural, one{eftir 1 dag} other{eftir {count} daga}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 degi of seint} other{{count} dögum of seint}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Lokið",
   "repeatTitle": "Aftur eftir…",
   "noRepeatLabel": "Engin endurtekning",
@@ -720,15 +886,33 @@
   "unitMonths": "mánuði",
   "unitYears": "ár",
   "ageYears": "{years} ára",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mán.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Breyta dagsetningu",
   "removeReminderLabel": "Fjarlægja áminningu",
   "exportIcs": "Flytja út dagatalsskrá",
   "resyncCalendar": "Endursamstilla dagatal",
   "icsSavedTo": "Dagatalsskrá vistuð undir {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Spegla í dagatal tækisins",
   "calendarMirrorSubtitle": "Tímarnir birtast sem heilsdagsviðburðir í dagatalinu. cat(a)log uppfærir þá þar við hverja ræsingu og eftir hverja breytingu. Áminningar um tímana stýrir þú í dagatalinu.",
   "syncPeerOlder": "Hitt tækið keyrir eldra cat(a)log án áminninga. Uppfærðu cat(a)log þar og samstilltu aftur.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Áminningar: listi yfir áætlaða tíma — dýralæknir, lyf, eftirlit.",
   "spotAgendaAdd": "Áætla nýjan tíma.",
   "spotAgendaCalendar": "Kveiktu hér á speglun cat(a)log-tíma í dagatal að eigin vali.",
-  "helpAgenda": "Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir.",
-  "helpAgendaNeutral": "Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð.",
+  "spotAgendaToday": "Verk dagsins: hakaðu við þegar lokið. Punktarnir sýna síðustu sjö daga.",
+  "helpAgenda": "Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.",
+  "helpAgendaNeutral": "Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.",
   "calendarRowOff": "Dagatal: slökkt",
   "calendarRowOn": "Dagatal: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Áætlaðu tíma fyrir þennan kött. Hann birtist í áminningum og er staðfestur þar.",
   "spotAddReminderCatNeutral": "Áætlaðu tíma fyrir þetta gæludýr. Hann birtist í áminningum og er staðfestur þar.",
   "spotAddReminderClowder": "Áætlaðu tíma fyrir þennan clowder. Hann birtist í áminningum og er staðfestur þar.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Tími eða áminning?",
   "planChooserAppointment": "Tími — heimsókn á dagsetningu og tíma, með athugasemdum",
   "planChooserReminder": "Áminning — gildi sem fellur á gjalddaga á degi",
+  "planChooserChore": "Verk — eitthvað sem endurtekst: fóðrun, dropar, kassi",
+  "newChore": "Nýtt verk",
+  "choreEdit": "Breyta verki",
+  "choreTitleLabel": "Hvað",
+  "choreRepeatDaily": "Daglega",
+  "choreRepeatEvery": "Á…",
+  "choreRepeatWeekdays": "Vikudagar",
+  "choreEveryDays": "{n, plural, one{daglega} other{{n}. hvern dag}}",
+  "choreEveryWeeks": "{n, plural, one{vikulega} other{{n}. hverja viku}}",
+  "choreEveryMonths": "{n, plural, one{mánaðarlega} other{{n}. hvern mánuð}}",
+  "choreEveryYears": "{n, plural, one{árlega} other{{n}. hvert ár}}",
+  "choreNoTime": "Hvenær sem er dags",
+  "chorePause": "Gera hlé",
+  "chorePaused": "Í bið",
+  "choreResume": "Halda áfram",
+  "choreEnd": "Ljúka verki",
+  "choreHistory": "Ferill",
+  "choreDoneAt": "gert {when} · {who}",
+  "choreDoneEarly": "snemma",
+  "choreDoneLate": "seint",
+  "choreMissed": "Sleppt",
+  "choreStillOpen": "Enn opið",
+  "choreEndConfirm": "Verkið fer af listanum. Það sem var hakað við helst í sögunni.",
+  "todaySection": "Í dag",
+  "upcomingSection": "Á næstunni",
+  "allDoneToday": "Í dag: allt búið",
+  "streakDays": "{n, plural, one{1 dagur í röð} other{{n} dagar í röð}}",
+  "choreDue": "Á {date}",
+  "remindMe": "Minna mig á",
+  "remindNext": "Næsta áminning: {when}",
+  "remindNone": "Engin áminning fyrirhuguð: ekkert framundan.",
+  "remindPending": "{count, plural, =0{Ekkert áætlað á þessum síma enn} one{{count} áminning áætluð á þessum síma} other{{count} áminningar áætlaðar á þessum síma}}",
+  "remindTest": "Senda prufuáminningu núna",
+  "remindLateHint": "Áminningar geta borist nokkrum mínútum seinna; síminn velur nákvæma stundina.",
+  "remindPermissionDenied": "Engin heimild fyrir tilkynningar, áminningin helst slökkt. Leyfðu þær í forritsstillingum símans og reyndu aftur.",
+  "batteryHint": "Ef áminningar berast ekki, leyfðu cat(a)log að keyra í bakgrunni í rafhlöðustillingum símans.",
+  "batterySettings": "Rafhlöðustillingar",
+  "achievementsTitle": "Afrek",
+  "rankServant": "Þjónn",
+  "rankButler": "Bryti",
+  "rankSteward": "Ráðsmaður",
+  "rankChancellor": "Kanslari",
+  "rankMinister": "Ráðherra",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Calico",
+  "coatCheetah": "Blettatígur",
+  "coatTiger": "Tígur",
+  "coatTabby": "Bröndóttur",
+  "coatPaws": "Loppur",
+  "coatRosettes": "Rósettur",
+  "coatZebra": "Sebrahestur",
+  "coatSetting": "Feldur",
+  "coatRandom": "Nýr við hverja ræsingu",
+  "coatSnowLeopard": "Snæhlébarði",
+  "coatSiamese": "Síamsk mynstur",
+  "coatLynx": "Gaupa",
+  "coatTortoiseshell": "Skjaldbaka",
+  "coatUnlocked": "Nýr feldur: {coat}",
+  "coatUnlockedHow": "Heill mánuður af verkum, öll unnin.",
+  "achievementsEmpty": "Ekkert enn. Verkin þekkja leiðina.",
+  "achievementMonth": "Heill mánuður",
+  "achievementYear": "Heilt ár",
+  "achievementDecade": "Heill áratugur",
+  "achievementCentury": "Heil öld",
+  "achievementCenturyHint": "Við verðum bæði mjög stolt.",
+  "achievementMaster": "{title}-meistari",
+  "achievementReached": "{times, plural, one{Náð einu sinni} other{Náð {times} sinnum}}, fyrst {date}",
+  "achievementNext": "Næst við {n}",
+  "achievementLocked": "Ekki enn",
+  "achievementUnlocked": "Afrek: {name}",
   "appointmentTitleLabel": "Hvað",
   "notesLabel": "Athugasemdir",
   "timeLabel": "Tími",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Núverandi heimili",
   "createNewInstead": "Enginn — búa til nýtt",
   "overwritesValue": "Yfirskrifar núverandi gildi \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Hætta við skráninguna?",
   "abortScanBody": "Ekkert verður vistað.",
   "abortScan": "Hætta við",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Afmerktu ketti sem ekki voru meðhöndlaðir; þeir haldast áætlaðir.",
   "finishUntickHintNeutral": "Afmerktu gæludýr sem ekki voru meðhöndluð; þau haldast áætluð.",
   "deleteAppointmentGroup": "Eyða tíma fyrir alla {count} kettina",
-  "deleteAppointmentGroupNeutral": "Eyða tíma fyrir öll {count} gæludýrin"
+  "deleteAppointmentGroupNeutral": "Eyða tíma fyrir öll {count} gæludýrin",
+  "correctThisValue": "Leiðrétta þetta gildi",
+  "removeThisValue": "Fjarlægja þetta gildi",
+  "restoreThisValue": "Endurheimta þetta gildi",
+  "showRemovedValues": "Sýna fjarlægð gildi",
+  "hideRemovedValues": "Fela fjarlægð gildi",
+  "entryRemovedBy": "Fjarlægt · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Skipt út fyrir {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Leiðrétting",
+  "restorePickFolder": "Velja afritamöppu…",
+  "restoreAndroidHint": "Afrit fyrri uppsetningar eru í Documents/catlog (Downloads/catlog í eldri útgáfum). Veldu þá möppu einu sinni; afrit hennar birtast hér.",
+  "backupsTitle": "Afrit",
+  "backupsSubtitle": "Hvar skrárnar þínar eru geymdar örugglega",
+  "backupsAndroidSystem": "Google afritar skrár þessa forrits með reikningnum þínum, án mynda. Þær koma sjálfkrafa aftur eftir enduruppsetningu eða á nýjum síma.",
+  "backupsAndroidFiles": "Fullt afrit af hverri skrá, með myndum, er skrifað í Documents/catlog í hvert sinn sem þú ferð úr forritinu eftir breytingar.",
+  "backupsIosSystem": "iCloud-afrit inniheldur þetta forrit með skrám þess og myndum, eins og öll önnur forrit á þessum iPhone.",
+  "backupsIosFiles": "Fullt afrit af hverri skrá er í Skrár-forritinu undir cat(a)log. Þaðan getur það farið í iCloud Drive, með AirDrop eða í annan síma.",
+  "backupsDesktopFiles": "Fullt afrit af hverri skrá, með myndum, er skrifað í Niðurhal-möppuna þína í hvert sinn sem þú ferð úr forritinu eftir breytingar.",
+  "backupsLast": "Síðasta afrit: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Ekkert afrit skrifað enn.",
+  "backupsNow": "Taka afrit núna",
+  "backupsDone": "Afrit skrifað.",
+  "backupsRestoredNote": "Endurheimt úr Google-afriti {date}. Ef cat(a)log keyrir enn á gamla símanum, samstilltu einu sinni þaðan og fjarlægðu svo forritið þar.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Mappa að eigin vali getur líka fengið hvert afrit: mappa sem skýjaforrit heldur samstilltri á þessum síma (Nextcloud, Syncthing og fleiri), minniskort, hvaða mappa sem valið býður. Afritin lenda í catlog-backups inni í henni.",
+  "backupsFolderPick": "Afrita líka í möppu…",
+  "backupsFolderIs": "Afritað líka í {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Hætta að afrita þangað",
+  "remindFailed": "Tilkynningar virka ekki á þessum síma: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Afrita texta",
+  "colWhen": "Hvenær",
+  "colValue": "Gildi",
+  "colWho": "Hver"
 }

@@ -52,6 +52,9 @@
   "card": "البطاقة",
   "cardTitle": "بطاقة — {name}",
   "shareAsImage": "مشاركة كصورة",
+  "sortOldestFirst": "الأقدم أولًا",
+  "sortNewestFirst": "الأحدث أولًا",
+  "shareAsText": "مشاركة كنص",
   "shareAsPdf": "مشاركة كملف PDF",
   "print": "طباعة",
   "renameCat": "إعادة تسمية القطة",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "بلا منزل — ضال / هرب",
   "timelineOf": "السجل الزمني — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "التراجع عن هذا التغيير",
-  "revertSubtitle": "يعيد القيمة السابقة كسجل جديد — يحتفظ السجل بالاثنين.",
   "fieldCleared": "أُفرغ {field}",
   "fieldBackTo": "عاد {field} إلى \"{value}\"",
   "leftStray": "غادرت — ضالة",
@@ -128,10 +129,13 @@
   "syncFailed": "فشلت المزامنة: {error}",
   "lastSyncWith": "آخر مزامنة مع {peer}: {time}",
   "sharedFolder": "مجلد مشترك",
-  "sharedFolderExplainer": "يستخدم الجهازان المجلد نفسه (مثلًا في Dropbox أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.",
+  "sharedFolderExplainer": "يستخدم الجهازان المجلد نفسه (مثلًا في Nextcloud أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.",
   "noFolderChosenYet": "لم يُختَر مجلد بعد",
   "choose": "اختيار…",
   "syncFolderNow": "زامن المجلد الآن",
+  "folderCatalogHint": "بداخله يستخدم هذا الفهرس المجلد «{name}»، فيمكن لمجلد مشترك واحد أن يحمل كل فهارسك.",
+  "useSameFolder": "استخدم المجلد نفسه كالفهارس الأخرى",
+  "folderHint": "يكفي أي مجلد يبقيه جهازان متطابقًا: قرص سحابي، أو Syncthing لمجلد يبقى على هواتفكم. Syncthing مجاني: ثبّته على كل هاتف، وشارك مجلدًا واحدًا بينها، واختر ذلك المجلد هنا على كل جهاز.",
   "folderSynced": "تمت مزامنة المجلد: {result}",
   "folderSyncFailed": "فشلت مزامنة المجلد: {error}",
   "recordSightingHere": "سجّل مشاهدة هنا:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "المسار: {name} ({count} مواقع)",
   "conflictOn": "تعارض — {field}",
   "conflictBody": "تغيّر في مكانين في آن واحد. اختر الصحيح:",
+  "privateMarker": "{field} (خاص)",
+  "conflictSame": "كلا التغييرين يقول الشيء نفسه: {value}. لا شيء للاختيار؛ «حل» يزيل العلامة.",
   "mergeThisInto": "دمج هذا ({kind}) مع…",
   "noOtherToMergeInto": "لا يوجد ({kind}) آخر للدمج معه.",
   "mergeIntoQuestion": "الدمج مع {name}؟",
@@ -181,6 +187,36 @@
   "breedPersian": "شيرازية",
   "breedBengal": "بنغالية",
   "breedSphynx": "سفينكس",
+  "breedAbyssinian": "حبشي",
+  "breedAmericanShorthair": "أمريكي قصير الشعر",
+  "breedBalinese": "بالينيزي",
+  "breedBirman": "بيرماني",
+  "breedBombay": "بومباي",
+  "breedBurmese": "بورمي",
+  "breedBurmilla": "بورميلا",
+  "breedBritishLonghair": "بريطاني طويل الشعر",
+  "breedChartreux": "شارترو",
+  "breedCornishRex": "كورنيش ركس",
+  "breedDevonRex": "ديفون ركس",
+  "breedEgyptianMau": "ماو مصري",
+  "breedExoticShorthair": "إكزوتيك قصير الشعر",
+  "breedHimalayan": "هيمالايا",
+  "breedKorat": "كورات",
+  "breedManx": "مانكس",
+  "breedMunchkin": "مانشكين",
+  "breedOcicat": "أوسيكات",
+  "breedOrientalShorthair": "شرقي قصير الشعر",
+  "breedRagamuffin": "راغامافين",
+  "breedRussianBlue": "أزرق روسي",
+  "breedSavannah": "سافانا",
+  "breedScottishFold": "سكوتش فولد",
+  "breedSelkirkRex": "سيلكيرك ركس",
+  "breedSiberian": "سيبيري",
+  "breedSnowshoe": "سنوشو",
+  "breedSomali": "صومالي",
+  "breedTonkinese": "تونكيني",
+  "breedTurkishAngora": "أنغورا تركي",
+  "breedTurkishVan": "فان تركي",
   "ownValue": "قيمة خاصة",
   "locationDeniedForever": "الوصول إلى الموقع محظور. اسمح به في إعدادات النظام لاستخدام Stray Cam.",
   "locationServiceOff": "خدمة الموقع مُعطَّلة على هذا الجهاز. فعِّلها في الإعدادات ثم حاول مجددًا.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "كل الحيوانات الأليفة والأماكن ذات الموقع. البحث يجد الحيوانات الأليفة والأشخاص والأماكن — والاسم غير المعروف يُبحث عنه عالميًا. زر الطبقات يرسم دوائر 500 م حول أماكن منشورات حيوان أليف مفقود وحول البيت الذي هرب منه. الأسهم تنتقل من دبوس إلى دبوس، والضغط المطوّل على الخريطة يسجل مشاهدة. كل حقل موقع يظهر كدبوس على الخريطة؛ انقر على الدبوس لرؤية مساره.",
   "helpCard": "بطاقة القطة القابلة للطباعة: اختر بالأعلى بالرقائق ما يظهر عليها، ثم شاركها كصورة أو PDF. يمكن طباعة الأرقام كرمز QR أو باركود، ويصبح الموقع رمز QR يفتح خريطة مع Plus Code قصير.",
   "helpCardNeutral": "بطاقة الحيوان الأليف القابلة للطباعة: اختر بالأعلى بالرقائق ما يظهر عليها، ثم شاركها كصورة أو PDF. يمكن طباعة الأرقام كرمز QR أو باركود، ويصبح الموقع رمز QR يفتح خريطة مع Plus Code قصير.",
-  "helpSync": "كيف تصل البيانات إلى الآخرين: اتصال مباشر، مجلد يراه الجهازان، أو ملف عبر تطبيق مراسلة. أنت من يقرر دائمًا ما يخرج — وملفات .catsync المستلمة تُفتح هنا أيضًا.",
+  "helpSync": "كيف تصل البيانات إلى الآخرين: اتصال مباشر، مجلد يراه الجهازان، أو ملف عبر تطبيق مراسلة. أنت من يقرر دائمًا ما يخرج — وملفات .catsync المستلمة تُفتح هنا أيضًا. يوقّع كل فهرس ما يكتبه بمفتاحه الخاص؛ يرى الشركاء رمز المفتاح بجوار اسمك. يُقبل أول مفتاح لشريك من ملف على الثقة ويُعد متحققًا منه عند المزامنة شخصيًا. الإدخالات باسم معروف دون التوقيع الصحيح تُرفض وتُدرج في صفحة الوصول.",
   "helpFields": "الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند القطة.",
   "helpFieldsNeutral": "الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند الحيوان الأليف.",
-  "helpTimeline": "كل تغيير جرى يومًا، الأحدث أولًا: من غيّر ماذا ومتى وإلى أي قيمة. يمكن التراجع عن أي إدخال — يكتب ذلك إدخالًا جديدًا، ولا يُمحى شيء أبدًا.",
+  "helpTimeline": "كل تغيير، الأحدث أولاً: من غيّر ماذا ومتى وإلى أي قيمة. انقر على إدخال لتصحيحه، واضغط مطولاً لإزالته أو استعادته؛ يبقى الإدخال المخفي في السجل ويظهر عند الطلب.",
   "helpDuplicates": "قطط أو مستعمرات تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.",
   "helpDuplicatesNeutral": "حيوانات أليفة أو منازل تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.",
-  "helpMatches": "قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة.",
-  "helpMatchesNeutral": "حيوانات أليفة قد تكون الحيوان نفسه: رقم متطابق، أو حيوان ضال شوهد داخل منطقة البحث عن حيوان أليف مفقود. انقر زوجًا للدمج، والضغط المطوّل يفتح الحيوان الأليف الأول للمقارنة.",
+  "helpMatches": "قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة. تُدرج أيضًا الأزواج التي يتطابق مظهرها في سمتين أو أكثر دون تناقض؛ تُظهر الرقائق أيها. «ليس نفسه» يخفي الزوج على هذا الهاتف حتى يتغير مظهر أحد الحيوانين.",
+  "helpMatchesNeutral": "حيوانات أليفة قد تكون الحيوان نفسه: رقم متطابق، أو حيوان ضال شوهد داخل منطقة البحث عن حيوان أليف مفقود. انقر زوجًا للدمج، والضغط المطوّل يفتح الحيوان الأليف الأول للمقارنة. تُدرج أيضًا الأزواج التي يتطابق مظهرها في سمتين أو أكثر دون تناقض؛ تُظهر الرقائق أيها. «ليس نفسه» يخفي الزوج على هذا الهاتف حتى يتغير مظهر أحد الحيوانين.",
   "helpFlier": "منشور مصوَّر يتحول إلى قطة مع صاحبها. خطوة بخطوة: بيانات القطة، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.",
   "helpFlierNeutral": "منشور مصوَّر يتحول إلى حيوان أليف مع صاحبه. خطوة بخطوة: بيانات الحيوان الأليف، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.",
   "archiveTitle": "الأرشيف",
@@ -399,11 +435,109 @@
   "rangeAll": "الكل",
   "rangeCustom": "مخصص…",
   "changeSince": "{delta} منذ {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "حسب منطقتك",
   "unitsMetric": "متري (كغ، سم، مل، °م)",
   "unitsImperial": "إمبراطوري (رطل، بوصة، أونصة سائلة، °ف)",
   "starterWeight": "الوزن",
+  "starterLooks": "المظهر",
+  "looksGroupSize": "الحجم",
+  "looksGroupColours": "الألوان",
+  "looksGroupPattern": "النمط",
+  "looksGroupFur": "الفراء",
+  "looksGroupTail": "الذيل",
+  "looksGroupEars": "الأذنان",
+  "looksGroupMarks": "العلامات",
+  "looksGroupCrest": "العرف",
+  "looksGroupBeak": "المنقار",
+  "looksGroupRing": "الحلقة",
+  "looksValueSmall": "صغير",
+  "looksValueMedium": "متوسط",
+  "looksValueLarge": "كبير",
+  "looksValueBlack": "أسود",
+  "looksValueWhite": "أبيض",
+  "looksValueGrey": "رمادي",
+  "looksValueBrown": "بني",
+  "looksValueGinger": "برتقالي محمر",
+  "looksValueCream": "كريمي",
+  "looksValueGolden": "ذهبي",
+  "looksValueTan": "بني فاتح",
+  "looksValueGreen": "أخضر",
+  "looksValueBlue": "أزرق",
+  "looksValueYellow": "أصفر",
+  "looksValueRed": "أحمر",
+  "looksValueOrange": "برتقالي",
+  "looksValuePink": "وردي",
+  "looksValueWhiteBib": "صدر أبيض",
+  "looksValueWhitePaws": "أقدام بيضاء",
+  "looksValueWhiteTailTip": "طرف ذيل أبيض",
+  "looksValueBlaze": "غرة",
+  "looksValueMask": "قناع",
+  "looksValueSpots": "بقع",
+  "looksValuePatches": "رقع",
+  "looksValueStripes": "خطوط",
+  "looksValueScar": "ندبة",
+  "looksValueNotchedEar": "أذن مشقوقة",
+  "looksValueEarTip": "طرف الأذن",
+  "looksValueCollar": "طوق",
+  "looksValueShort": "قصير",
+  "looksValueLong": "طويل",
+  "looksValueHairless": "بلا شعر",
+  "looksValueBobtail": "ذيل قصير",
+  "looksValueNone": "بلا ذيل",
+  "looksValueCurled": "ملتف",
+  "looksValueUpright": "منتصبة",
+  "looksValueFloppy": "متدلية",
+  "looksValueFolded": "مطوية",
+  "looksValueRounded": "مستديرة",
+  "looksValueSolid": "لون واحد",
+  "looksValueTabby": "مخطط",
+  "looksValueTortoiseshell": "صدفي",
+  "looksValueCalico": "كاليكو",
+  "looksValueColourpoint": "كولوربوينت",
+  "looksValueBicolour": "لونان",
+  "looksValueTuxedo": "بدلة",
+  "looksValueBrindle": "مخطط داكن",
+  "looksValueMerle": "مرل",
+  "looksValueSpotted": "منقّط",
+  "looksValuePatched": "مرقّع",
+  "looksValueTricolour": "ثلاثة ألوان",
+  "looksValueSable": "سمور",
+  "looksGroupEyes": "العينان",
+  "looksGroupFeatures": "سمات",
+  "looksValueAmber": "كهرماني",
+  "looksValueCopper": "نحاسي",
+  "looksValueOddEyed": "عينان مختلفتان",
+  "looksValueChocolate": "شوكولاتي",
+  "looksValueLilac": "ليلكي",
+  "looksValueSilver": "فضي",
+  "looksValueSmoke": "دخاني",
+  "looksValueTicked": "مرقّط الشعرة",
+  "looksValueVan": "فان",
+  "looksValueCurly": "مجعد",
+  "looksValueWiry": "خشن",
+  "looksValueKinked": "مثنيّ",
+  "looksValueCropped": "مقصوصة",
+  "looksValueTippedEar": "طرف أذن مقصوص",
+  "looksValueEarTattoo": "وشم في الأذن",
+  "looksValueMissingEar": "أذن مفقودة",
+  "looksValueMissingEye": "عين مفقودة",
+  "looksValueCloudyEye": "عين ضبابية",
+  "looksValueMissingFrontLeg": "ساق أمامية مفقودة",
+  "looksValueMissingHindLeg": "ساق خلفية مفقودة",
+  "looksValueNoTeeth": "بلا أسنان",
+  "looksValueExtraToes": "أصابع زائدة",
+  "rejectMatch": "ليس نفسه",
+  "traitsAgree": "{count, plural, zero{لا سمات متطابقة} one{سمة واحدة متطابقة} two{سمتان متطابقتان} few{{count} سمات متطابقة} many{{count} سمة متطابقة} other{{count} سمة متطابقة}}",
   "systemDefault": "افتراضي النظام",
   "iosLocalNetworkHint": "إذا استمر الفشل على iPhone/iPad: الإعدادات → الخصوصية والأمن → الشبكة المحلية → اسمح لـ cat(a)log ثم أعد المحاولة.",
   "markPrivate": "وضع علامة خاص",
@@ -432,6 +566,8 @@
   "otherOption": "أخرى…",
   "celebrationsToggle": "الاحتفال بالتبني",
   "celebrationsSubtitle": "قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها",
+  "cheerToggle": "صوت الهتاف",
+  "cheerSubtitle": "هتاف قصير مع القصاصات، مختلف في كل مرة",
   "celebrationsSubtitleNeutral": "قصاصات ملونة وهتاف عندما ينتقل حيوان أليف إلى منزله",
   "onMapLabel": "على الخريطة",
   "showOnMap": "إظهار على الخريطة",
@@ -445,7 +581,19 @@
   "authorsSection": "من كتب في هذا السجل",
   "hardDeleteAction": "حذف كل شيء من هذا المؤلف",
   "hardDeleteWarning": "يزيل كل إدخال وصورة من {name} من هذا الجهاز. تحتفظ الأجهزة الأخرى بنسخها. لا يمكن التراجع عن ذلك.",
-  "hardDeleteWarningDevice": "يزيل من هذا الكتالوج كل مدخل وصورة كتبها {name} على الجهاز {device}. تحتفظ الأجهزة الأخرى بنسختها. لا يمكن التراجع.",
+  "yourKey": "مفتاحك",
+  "yourTitle": "لقبك",
+  "titleNone": "بلا لقب",
+  "keyLine": "المفتاح {code}",
+  "keyVerified": "تم التحقق شخصيًا",
+  "keyFromFile": "من ملف، لم يُتحقق منه بعد",
+  "keyUnsigned": "لا مفتاح بعد، الإدخالات غير موقّعة",
+  "summaryRefused": "مرفوض",
+  "refusedEntries": "{count, plural, zero{لا إدخالات مرفوضة} one{إدخال واحد مرفوض} two{إدخالان مرفوضان} few{{count} إدخالات مرفوضة} many{{count} إدخالًا مرفوضًا} other{{count} إدخال مرفوض}}: غير موقّعة بالمفتاح المعروف لـ {name}",
+  "newKeyCallsItself": "مفتاح جديد {code} يسمّي نفسه {name}. تحقق من الشخص قبل الوثوق به.",
+  "keyChangedRefused": "قدّم {name} مفتاحًا غير المعروف هنا. يبقى المعروف؛ لم يُقبل الجديد.",
+  "metaNewKey": "مفتاح جديد: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "يزيل من هذا الفهرس كل إدخال وصورة كتبها {name} تحت المفتاح {key}. تحتفظ الأجهزة الأخرى بنسخها. لا يمكن التراجع.",
   "typeToConfirm": "اكتب {name} للتأكيد",
   "alsoBan": "حظر أيضًا — عدم قبول بياناته مجددًا",
   "bansSection": "المحظورون",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{لم يُستعاد شيء.} one{استُعيد كتالوج واحد.} two{استُعيد كتالوجان.} few{استُعيدت {count} كتالوجات.} many{استُعيد {count} كتالوجًا.} other{استُعيد {count} كتالوج.}}",
   "helpCatalogs": "كل كتالوج عالمٌ بحد ذاته: قطط ومستعمرات وحقول وصور وشركاء مزامنة خاصة به. برلين وباريس لا تختلطان أبدًا. انقر على كتالوج للانتقال إليه. الترس بجانب الكتالوج يفتح إعداداته: الاسم، قطط أو حيوانات، الحقول، المؤلفون والحظر، الأرشيف، الرجوع، الحذف. اسمك ولغتك والنصائح التي رأيتها مشتركة بينها كلها.",
   "helpCatalogsNeutral": "كل كتالوج عالمٌ بحد ذاته: حيوانات وأسر وحقول وصور وشركاء مزامنة خاصة به. برلين وباريس لا تختلطان أبدًا. انقر على كتالوج للانتقال إليه. الترس بجانب الكتالوج يفتح إعداداته: الاسم، قطط أو حيوانات، الحقول، المؤلفون والحظر، الأرشيف، الرجوع، الحذف. اسمك ولغتك والنصائح التي رأيتها مشتركة بينها كلها.",
-  "helpCatalogSettings": "كل ما يخص هذا الكتالوج وحده: اسمه، هل يضم قططًا أم حيوانات، حقوله، مؤلفوه والحظر، الأرشيف، والرجوع في الزمن. التغييرات هنا تمس هذا الكتالوج فقط — حتى كتالوجًا لست فيه الآن. الحذف يكتب الكتالوج في ملف أولًا.",
+  "helpCatalogSettings": "كل ما يخص هذا الكتالوج وحده: اسمه، هل يضم قططًا أم حيوانات، حقوله، مؤلفوه والحظر، الأرشيف، والرجوع في الزمن. التغييرات هنا تمس هذا الكتالوج فقط — حتى كتالوجًا لست فيه الآن. الحذف يكتب الكتالوج في ملف أولًا. مفتاحك هو الرمز الذي يراه الشركاء بجوار اسمك؛ ويبقى مع هذا الفهرس.",
   "spotHomeCatalog": "هذا هو الكتالوج الذي أنت فيه. المس الاسم للتبديل أو لإنشاء كتالوج آخر.",
   "deleteCatalog": "حذف الكتالوج",
   "catalogSettings": "إعدادات الكتالوج",
   "deleteCatalogBody": "كل ما في {name} سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج.",
   "deleteCatalogBodyNeutral": "كل ما في {name} سيختفي: الحيوانات الأليفة والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "لا مواعيد مخططة. خطّط مواعيد جديدة هنا بزر الزائد، أو في صفحة حيوان أليف أو منزل.",
   "dueToday": "اليوم",
   "dueInDays": "{count, plural, one{بعد يوم واحد} two{بعد يومين} few{بعد {count} أيام} many{بعد {count} يومًا} other{بعد {count} يوم}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{متأخر يومًا واحدًا} two{متأخر يومين} few{متأخر {count} أيام} many{متأخر {count} يومًا} other{متأخر {count} يوم}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "تم",
   "repeatTitle": "مجددًا بعد…",
   "noRepeatLabel": "بلا تكرار",
@@ -720,15 +886,33 @@
   "unitMonths": "أشهر",
   "unitYears": "سنوات",
   "ageYears": "{years} سنة",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} شهر",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "تغيير التاريخ",
   "removeReminderLabel": "إزالة التذكير",
   "exportIcs": "تصدير ملف التقويم",
   "resyncCalendar": "إعادة مزامنة التقويم",
   "icsSavedTo": "حُفظ ملف التقويم في {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "انعكاس في تقويم الجهاز",
   "calendarMirrorSubtitle": "تظهر المواعيد كأحداث ليوم كامل في التقويم. يحدّثها cat(a)log هناك عند كل تشغيل وبعد كل تغيير. ويمكنك إدارة تنبيهات المواعيد في التقويم.",
   "syncPeerOlder": "الجهاز الآخر يشغّل نسخة أقدم من cat(a)log بلا تذكيرات. حدّث cat(a)log هناك ثم زامن مجددًا.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "المواعيد: قائمة المواعيد المخططة — البيطري، الدواء، الفحوص.",
   "spotAgendaAdd": "خطّط موعدًا جديدًا.",
   "spotAgendaCalendar": "شغّل هنا انعكاس مواعيد cat(a)log في تقويم تختاره.",
-  "helpAgenda": "تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة قطط هي موعد واحد: حدّد القطط، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي القطط عولجت — ألغِ تحديد الباقي، فتبقى مخططة.",
-  "helpAgendaNeutral": "تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح الحيوان الأليف أو المنزل. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة حيوانات أليفة هي موعد واحد: حدّد الحيوانات، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي الحيوانات عولجت — ألغِ تحديد الباقي، فتبقى مخططة.",
+  "spotAgendaToday": "مهام اليوم: ضع علامة عند الإنجاز. النقاط تعرض آخر سبعة أيام.",
+  "helpAgenda": "تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة قطط هي موعد واحد: حدّد القطط، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي القطط عولجت — ألغِ تحديد الباقي، فتبقى مخططة. المهام هي الواجبات المتكررة مثل الإطعام أو صندوق الرمل أو الدواء. تقع تحت «اليوم» مع علامة وسلسلة وآخر سبعة أيام كنقاط؛ «قريبًا» يعرض الأسبوع التالي دون اليومية. يمكن للمهمة أن تذكّرك بإشعار في وقت مختار. الكأس تفتح الإنجازات.",
+  "helpAgendaNeutral": "تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح الحيوان الأليف أو المنزل. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة حيوانات أليفة هي موعد واحد: حدّد الحيوانات، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي الحيوانات عولجت — ألغِ تحديد الباقي، فتبقى مخططة. المهام هي الواجبات المتكررة مثل الإطعام أو صندوق الرمل أو الدواء. تقع تحت «اليوم» مع علامة وسلسلة وآخر سبعة أيام كنقاط؛ «قريبًا» يعرض الأسبوع التالي دون اليومية. يمكن للمهمة أن تذكّرك بإشعار في وقت مختار. الكأس تفتح الإنجازات.",
   "calendarRowOff": "التقويم: متوقف",
   "calendarRowOn": "التقويم: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "خطّط موعدًا لهذه القطة. يظهر في المواعيد ويُؤكَّد هناك.",
   "spotAddReminderCatNeutral": "خطّط موعدًا لهذا الحيوان الأليف. يظهر في المواعيد ويُؤكَّد هناك.",
   "spotAddReminderClowder": "خطّط موعدًا لهذه المجموعة. يظهر في المواعيد ويُؤكَّد هناك.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "موعد أم تذكير؟",
   "planChooserAppointment": "موعد — زيارة في تاريخ ووقت، مع ملاحظات",
   "planChooserReminder": "تذكير — قيمة تستحق في يوم ما",
+  "planChooserChore": "مهمة — شيء يتكرر: إطعام، قطرات، رمل",
+  "newChore": "مهمة جديدة",
+  "choreEdit": "تعديل المهمة",
+  "choreTitleLabel": "ماذا",
+  "choreRepeatDaily": "يوميًا",
+  "choreRepeatEvery": "كل…",
+  "choreRepeatWeekdays": "أيام",
+  "choreEveryDays": "{n, plural, one{كل يوم} two{كل يومين} few{كل {n} أيام} many{كل {n} يومًا} other{كل {n} يوم}}",
+  "choreEveryWeeks": "{n, plural, one{كل أسبوع} two{كل أسبوعين} few{كل {n} أسابيع} many{كل {n} أسبوعًا} other{كل {n} أسبوع}}",
+  "choreEveryMonths": "{n, plural, one{كل شهر} two{كل شهرين} few{كل {n} أشهر} many{كل {n} شهرًا} other{كل {n} شهر}}",
+  "choreEveryYears": "{n, plural, one{كل سنة} two{كل سنتين} few{كل {n} سنوات} many{كل {n} سنة} other{كل {n} سنة}}",
+  "choreNoTime": "في أي وقت من اليوم",
+  "chorePause": "إيقاف مؤقت",
+  "chorePaused": "متوقف مؤقتًا",
+  "choreResume": "استئناف",
+  "choreEnd": "إنهاء المهمة",
+  "choreHistory": "السجل",
+  "choreDoneAt": "تم {when} · {who}",
+  "choreDoneEarly": "مبكرًا",
+  "choreDoneLate": "متأخرًا",
+  "choreMissed": "فائت",
+  "choreStillOpen": "ما زال مفتوحًا",
+  "choreEndConfirm": "تخرج المهمة من القائمة. ما تم تعليمه يبقى في السجل.",
+  "todaySection": "اليوم",
+  "upcomingSection": "قريبًا",
+  "allDoneToday": "اليوم: كل شيء تم",
+  "streakDays": "{n, plural, one{يوم واحد متتالٍ} two{يومان متتاليان} few{{n} أيام متتالية} many{{n} يومًا متتاليًا} other{{n} يوم متتالٍ}}",
+  "choreDue": "موعده {date}",
+  "remindMe": "ذكّرني",
+  "remindNext": "التذكير التالي: {when}",
+  "remindNone": "لا تذكير مخطط: لا شيء قادم.",
+  "remindPending": "{count, plural, =0{لا شيء مجدول على هذا الهاتف بعد} one{تذكير واحد مجدول على هذا الهاتف} two{تذكيران مجدولان على هذا الهاتف} few{{count} تذكيرات مجدولة على هذا الهاتف} many{{count} تذكيرًا مجدولًا على هذا الهاتف} other{{count} تذكير مجدول على هذا الهاتف}}",
+  "remindTest": "أرسل تذكيرًا تجريبيًا الآن",
+  "remindLateHint": "قد تصل التذكيرات متأخرة بضع دقائق؛ الهاتف يحدد اللحظة الدقيقة.",
+  "remindPermissionDenied": "لا إذن للإشعارات، فيبقى التذكير متوقفًا. اسمح بها في إعدادات التطبيق على الهاتف وحاول مرة أخرى.",
+  "batteryHint": "إذا لم تصل التذكيرات، اسمح لـ cat(a)log بالعمل في الخلفية من إعدادات البطارية في الهاتف.",
+  "batterySettings": "إعدادات البطارية",
+  "achievementsTitle": "الإنجازات",
+  "rankServant": "خادم",
+  "rankButler": "كبير الخدم",
+  "rankSteward": "وكيل",
+  "rankChancellor": "مستشار",
+  "rankMinister": "وزير",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "كاليكو",
+  "coatCheetah": "فهد",
+  "coatTiger": "نمر",
+  "coatTabby": "مخطط",
+  "coatPaws": "كفوف",
+  "coatRosettes": "وريدات",
+  "coatZebra": "حمار وحشي",
+  "coatSetting": "فراء",
+  "coatRandom": "مختلف في كل تشغيل",
+  "coatSnowLeopard": "نمر الثلج",
+  "coatSiamese": "علامات سيامية",
+  "coatLynx": "وشق",
+  "coatTortoiseshell": "صدف السلحفاة",
+  "coatUnlocked": "فراء جديد: {coat}",
+  "coatUnlockedHow": "شهر كامل من المهام، كلها منجزة.",
+  "achievementsEmpty": "لا شيء بعد. المهام تعرف الطريق.",
+  "achievementMonth": "شهر كامل",
+  "achievementYear": "سنة كاملة",
+  "achievementDecade": "عقد كامل",
+  "achievementCentury": "قرن كامل",
+  "achievementCenturyHint": "سنكون كلانا فخورَين جدًا.",
+  "achievementMaster": "خبير {title}",
+  "achievementReached": "{times, plural, one{تحقق مرة} two{تحقق مرتين} few{تحقق {times} مرات} many{تحقق {times} مرة} other{تحقق {times} مرة}}، أول مرة في {date}",
+  "achievementNext": "التالي عند {n}",
+  "achievementLocked": "ليس بعد",
+  "achievementUnlocked": "إنجاز: {name}",
   "appointmentTitleLabel": "ماذا",
   "notesLabel": "ملاحظات",
   "timeLabel": "الوقت",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "منزل موجود",
   "createNewInstead": "لا شيء — إنشاء جديد",
   "overwritesValue": "يستبدل القيمة الحالية \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "إلغاء المسح؟",
   "abortScanBody": "لن يُحفظ أي شيء.",
   "abortScan": "إلغاء",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "ألغِ تحديد القطط التي لم تُعالج؛ تبقى مخططة.",
   "finishUntickHintNeutral": "ألغِ تحديد الحيوانات الأليفة التي لم تُعالج؛ تبقى مخططة.",
   "deleteAppointmentGroup": "حذف الموعد لكل القطط الـ{count}",
-  "deleteAppointmentGroupNeutral": "حذف الموعد لكل الحيوانات الأليفة الـ{count}"
+  "deleteAppointmentGroupNeutral": "حذف الموعد لكل الحيوانات الأليفة الـ{count}",
+  "correctThisValue": "تصحيح هذه القيمة",
+  "removeThisValue": "إزالة هذه القيمة",
+  "restoreThisValue": "استعادة هذه القيمة",
+  "showRemovedValues": "إظهار القيم المزالة",
+  "hideRemovedValues": "إخفاء القيم المزالة",
+  "entryRemovedBy": "أُزيل · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "استُبدل بـ {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "تصحيح",
+  "restorePickFolder": "اختيار مجلد النسخ الاحتياطية…",
+  "restoreAndroidHint": "النسخ الاحتياطية للتثبيت السابق موجودة في Documents/catlog (وفي Downloads/catlog للإصدارات الأقدم). اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا.",
+  "backupsTitle": "النسخ الاحتياطية",
+  "backupsSubtitle": "أين تُحفظ فهارسك بأمان",
+  "backupsAndroidSystem": "تنسخ Google فهارس هذا التطبيق احتياطياً مع حسابك، من دون الصور. تعود من تلقاء نفسها بعد إعادة التثبيت أو على هاتف جديد.",
+  "backupsAndroidFiles": "تُكتب نسخة كاملة من كل فهرس، مع الصور، في Documents/catlog كلما غادرت التطبيق بعد تغييرات.",
+  "backupsIosSystem": "يشمل نسخ iCloud الاحتياطي هذا التطبيق بفهارسه وصوره، مثل أي تطبيق آخر على هذا الـ iPhone.",
+  "backupsIosFiles": "توجد نسخة كاملة من كل فهرس في تطبيق الملفات تحت cat(a)log. من هناك يمكن نقلها إلى iCloud Drive أو عبر AirDrop أو إلى هاتف آخر.",
+  "backupsDesktopFiles": "تُكتب نسخة كاملة من كل فهرس، مع الصور، في مجلد التنزيلات كلما غادرت التطبيق بعد تغييرات.",
+  "backupsLast": "آخر نسخة: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "لم تُكتب نسخة بعد.",
+  "backupsNow": "انسخ احتياطياً الآن",
+  "backupsDone": "كُتبت النسخة.",
+  "backupsRestoredNote": "استُعيد من نسخة Google الاحتياطية في {date}. إذا كان الهاتف القديم لا يزال يشغّل cat(a)log، فزامن منه مرة واحدة ثم أزل التطبيق هناك.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "يمكن لمجلد من اختيارك أن يتلقى كل نسخة أيضاً: مجلد يبقيه تطبيق سحابي متزامناً على هذا الهاتف (Nextcloud وSyncthing وغيرهما)، أو بطاقة ذاكرة، أو أي مجلد يعرضه المنتقي. تُحفظ النسخ في catlog-backups داخله.",
+  "backupsFolderPick": "انسخ أيضاً إلى مجلد…",
+  "backupsFolderIs": "يُنسخ أيضاً إلى {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "توقف عن النسخ إلى هناك",
+  "remindFailed": "الإشعارات لا تعمل على هذا الهاتف: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "نسخ النص",
+  "colWhen": "متى",
+  "colValue": "القيمة",
+  "colWho": "من"
 }

@@ -52,6 +52,9 @@
   "card": "カード",
   "cardTitle": "カード — {name}",
   "shareAsImage": "画像として共有",
+  "sortOldestFirst": "古い順",
+  "sortNewestFirst": "新しい順",
+  "shareAsText": "テキストとして共有",
   "shareAsPdf": "PDF として共有",
   "print": "印刷",
   "renameCat": "猫の名前を変更",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "世帯なし — 野良／逃走",
   "timelineOf": "履歴 — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "この変更を取り消す",
-  "revertSubtitle": "以前の値を新しい記録として復元します — 履歴には両方残ります。",
   "fieldCleared": "{field} をクリアしました",
   "fieldBackTo": "{field} を「{value}」に戻しました",
   "leftStray": "去った — 野良猫",
@@ -128,10 +129,13 @@
   "syncFailed": "同期に失敗: {error}",
   "lastSyncWith": "{peer} との最終同期: {time}",
   "sharedFolder": "共有フォルダー",
-  "sharedFolderExplainer": "両方の端末で同じフォルダーを使います（Dropbox や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。",
+  "sharedFolderExplainer": "両方の端末で同じフォルダーを使います（Nextcloud や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。",
   "noFolderChosenYet": "フォルダー未選択",
   "choose": "選択…",
   "syncFolderNow": "フォルダーを今すぐ同期",
+  "folderCatalogHint": "その中でこのカタログはフォルダ「{name}」を使うので、共有フォルダ1つで全カタログを運べます。",
+  "useSameFolder": "他のカタログと同じフォルダを使う",
+  "folderHint": "2台の端末が同じ状態に保つフォルダなら何でも使えます。クラウドドライブでも、端末内に留めたいなら Syncthing でも。Syncthing は無料です。各端末にインストールし、1つのフォルダを共有して、そのフォルダを各端末のここで選んでください。",
   "folderSynced": "フォルダーを同期しました: {result}",
   "folderSyncFailed": "フォルダー同期に失敗: {error}",
   "recordSightingHere": "ここで目撃を記録:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "経路: {name}（位置 {count} 件）",
   "conflictOn": "競合 — {field}",
   "conflictBody": "2 か所で同時に変更されました。正しい方を選んでください:",
+  "privateMarker": "{field}（非公開）",
+  "conflictSame": "両方の変更は同じ内容です：{value}。選ぶものはありません。「解決」でマークを消します。",
   "mergeThisInto": "この{kind}の統合先…",
   "noOtherToMergeInto": "統合できる他の{kind}がありません。",
   "mergeIntoQuestion": "{name} に統合しますか？",
@@ -181,6 +187,36 @@
   "breedPersian": "ペルシャ",
   "breedBengal": "ベンガル",
   "breedSphynx": "スフィンクス",
+  "breedAbyssinian": "アビシニアン",
+  "breedAmericanShorthair": "アメリカンショートヘア",
+  "breedBalinese": "バリニーズ",
+  "breedBirman": "バーマン",
+  "breedBombay": "ボンベイ",
+  "breedBurmese": "バーミーズ",
+  "breedBurmilla": "バーミラ",
+  "breedBritishLonghair": "ブリティッシュロングヘア",
+  "breedChartreux": "シャルトリュー",
+  "breedCornishRex": "コーニッシュレックス",
+  "breedDevonRex": "デボンレックス",
+  "breedEgyptianMau": "エジプシャンマウ",
+  "breedExoticShorthair": "エキゾチックショートヘア",
+  "breedHimalayan": "ヒマラヤン",
+  "breedKorat": "コラット",
+  "breedManx": "マンクス",
+  "breedMunchkin": "マンチカン",
+  "breedOcicat": "オシキャット",
+  "breedOrientalShorthair": "オリエンタルショートヘア",
+  "breedRagamuffin": "ラガマフィン",
+  "breedRussianBlue": "ロシアンブルー",
+  "breedSavannah": "サバンナ",
+  "breedScottishFold": "スコティッシュフォールド",
+  "breedSelkirkRex": "セルカークレックス",
+  "breedSiberian": "サイベリアン",
+  "breedSnowshoe": "スノーシュー",
+  "breedSomali": "ソマリ",
+  "breedTonkinese": "トンキニーズ",
+  "breedTurkishAngora": "ターキッシュアンゴラ",
+  "breedTurkishVan": "ターキッシュバン",
   "ownValue": "独自の値",
   "locationDeniedForever": "位置情報へのアクセスがブロックされています。Stray Cam を使うにはシステム設定で許可してください。",
   "locationServiceOff": "この端末では位置情報がオフになっています。設定でオンにしてから、もう一度お試しください。",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "位置があるペットと場所すべて。検索はペット・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子ペットのチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。すべての場所項目は地図上にピンで表示されます。ピンをタップすると経路が見られます。",
   "helpCard": "この猫の印刷用カード：上部のチップで載せる内容を選び、画像か PDF で共有します。番号は QR かバーコードで印刷でき、位置は地図を開く QR と短い Plus Code になります。",
   "helpCardNeutral": "このペットの印刷用カード：上部のチップで載せる内容を選び、画像か PDF で共有します。番号は QR かバーコードで印刷でき、位置は地図を開く QR と短い Plus Code になります。",
-  "helpSync": "データを他の人に渡す方法：直接つなぐ、両方の端末が見えるフォルダーを使う、メッセンジャーでファイルを送る。何を送るかは常にあなたが決めます。受け取った .catsync ファイルもここで開きます。",
+  "helpSync": "データを他の人に渡す方法：直接つなぐ、両方の端末が見えるフォルダーを使う、メッセンジャーでファイルを送る。何を送るかは常にあなたが決めます。受け取った .catsync ファイルもここで開きます。 各カタログは書き込みを自分の鍵で署名します。相手にはあなたの名前の横に鍵コードが表示されます。相手の最初の鍵はファイルから信頼して受け入れ、対面で同期すると確認済みになります。既知の名前で正しい署名のないエントリは拒否され、到着ページに一覧されます。",
   "helpFields": "カタログが使う項目です。名前の変更、選択項目の選択肢の変更、独自項目の追加ができます。ID 項目はサービス（登録機関）を指定でき、その番号は猫のページでタップできるようになります。",
   "helpFieldsNeutral": "カタログが使う項目です。名前の変更、選択項目の選択肢の変更、独自項目の追加ができます。ID 項目はサービス（登録機関）を指定でき、その番号はペットのページでタップできるようになります。",
-  "helpTimeline": "これまでのすべての変更（新しい順）：誰が・いつ・何を・どの値に変えたか。どの記録も取り消せます。取り消しは新しい記録として書かれ、消えるものはありません。",
+  "helpTimeline": "すべての変更を新しい順に表示: 誰がいつどの値に変えたか。項目をタップで修正、長押しで取り消しまたは復元。隠した項目も記録に残り、必要なときに表示できます。",
   "helpDuplicates": "同じものが二重に見える猫やコロニー：同一の番号、または詳細が一致するよく似た名前。ペアをタップすると統合します。統合は取り消せないため、先に確認します。",
   "helpDuplicatesNeutral": "同じものが二重に見えるペットや世帯：同一の番号、または詳細が一致するよく似た名前。ペアをタップすると統合します。統合は取り消せないため、先に確認します。",
-  "helpMatches": "同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。",
-  "helpMatchesNeutral": "同じ個体かもしれないペット：番号が同じ、または迷子ペットの捜索範囲内で見つかった野良。ペアをタップで統合、長押しで最初のペットを開いて見比べられます。",
+  "helpMatches": "同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。 見た目が2つ以上の特徴で一致し、矛盾がない組も一覧に載ります。チップがどの特徴かを示します。「同じではない」を選ぶと、どちらかの見た目が変わるまでこの端末ではその組を隠します。",
+  "helpMatchesNeutral": "同じ個体かもしれないペット：番号が同じ、または迷子ペットの捜索範囲内で見つかった野良。ペアをタップで統合、長押しで最初のペットを開いて見比べられます。 見た目が2つ以上の特徴で一致し、矛盾がない組も一覧に載ります。チップがどの特徴かを示します。「同じではない」を選ぶと、どちらかの見た目が変わるまでこの端末ではその組を隠します。",
   "helpFlier": "撮影したチラシから猫と飼い主ができます。手順：猫のデータ、飼い主の連絡先、プロフィール写真用の顔の切り抜き、チラシの登録番号、最後に確認。すべて提案なので、カメラの読み違いは直してください。",
   "helpFlierNeutral": "撮影したチラシからペットと飼い主ができます。手順：ペットのデータ、飼い主の連絡先、プロフィール写真用の顔の切り抜き、チラシの登録番号、最後に確認。すべて提案なので、カメラの読み違いは直してください。",
   "archiveTitle": "アーカイブ",
@@ -399,11 +435,109 @@
   "rangeAll": "すべて",
   "rangeCustom": "カスタム…",
   "changeSince": "{date} から {delta}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "地域に合わせる",
   "unitsMetric": "メートル法（kg、cm、ml、°C）",
   "unitsImperial": "ヤード・ポンド法（lb、in、fl oz、°F）",
   "starterWeight": "体重",
+  "starterLooks": "見た目",
+  "looksGroupSize": "大きさ",
+  "looksGroupColours": "色",
+  "looksGroupPattern": "柄",
+  "looksGroupFur": "毛",
+  "looksGroupTail": "しっぽ",
+  "looksGroupEars": "耳",
+  "looksGroupMarks": "特徴",
+  "looksGroupCrest": "冠羽",
+  "looksGroupBeak": "くちばし",
+  "looksGroupRing": "足環",
+  "looksValueSmall": "小さい",
+  "looksValueMedium": "中くらい",
+  "looksValueLarge": "大きい",
+  "looksValueBlack": "黒",
+  "looksValueWhite": "白",
+  "looksValueGrey": "灰色",
+  "looksValueBrown": "茶色",
+  "looksValueGinger": "茶トラ",
+  "looksValueCream": "クリーム",
+  "looksValueGolden": "金色",
+  "looksValueTan": "薄茶",
+  "looksValueGreen": "緑",
+  "looksValueBlue": "青",
+  "looksValueYellow": "黄",
+  "looksValueRed": "赤",
+  "looksValueOrange": "オレンジ",
+  "looksValuePink": "ピンク",
+  "looksValueWhiteBib": "白い胸",
+  "looksValueWhitePaws": "白い足",
+  "looksValueWhiteTailTip": "白いしっぽの先",
+  "looksValueBlaze": "鼻筋の白",
+  "looksValueMask": "マスク",
+  "looksValueSpots": "斑点",
+  "looksValuePatches": "ぶち",
+  "looksValueStripes": "しま",
+  "looksValueScar": "傷跡",
+  "looksValueNotchedEar": "耳の切れ込み",
+  "looksValueEarTip": "耳先",
+  "looksValueCollar": "首輪",
+  "looksValueShort": "短い",
+  "looksValueLong": "長い",
+  "looksValueHairless": "無毛",
+  "looksValueBobtail": "短いしっぽ",
+  "looksValueNone": "なし",
+  "looksValueCurled": "巻き",
+  "looksValueUpright": "立ち耳",
+  "looksValueFloppy": "垂れ耳",
+  "looksValueFolded": "折れ耳",
+  "looksValueRounded": "丸い",
+  "looksValueSolid": "単色",
+  "looksValueTabby": "トラ柄",
+  "looksValueTortoiseshell": "サビ柄",
+  "looksValueCalico": "三毛",
+  "looksValueColourpoint": "ポイント",
+  "looksValueBicolour": "二色",
+  "looksValueTuxedo": "タキシード",
+  "looksValueBrindle": "ブリンドル",
+  "looksValueMerle": "マール",
+  "looksValueSpotted": "斑点",
+  "looksValuePatched": "ぶち",
+  "looksValueTricolour": "三色",
+  "looksValueSable": "セーブル",
+  "looksGroupEyes": "目",
+  "looksGroupFeatures": "特徴",
+  "looksValueAmber": "アンバー",
+  "looksValueCopper": "カッパー",
+  "looksValueOddEyed": "オッドアイ",
+  "looksValueChocolate": "チョコレート",
+  "looksValueLilac": "ライラック",
+  "looksValueSilver": "シルバー",
+  "looksValueSmoke": "スモーク",
+  "looksValueTicked": "ティックド",
+  "looksValueVan": "バン",
+  "looksValueCurly": "カーリー",
+  "looksValueWiry": "ワイヤー",
+  "looksValueKinked": "折れ尾",
+  "looksValueCropped": "断耳",
+  "looksValueTippedEar": "耳先カット",
+  "looksValueEarTattoo": "耳の入れ墨",
+  "looksValueMissingEar": "片耳欠損",
+  "looksValueMissingEye": "片目欠損",
+  "looksValueCloudyEye": "白濁した目",
+  "looksValueMissingFrontLeg": "前脚欠損",
+  "looksValueMissingHindLeg": "後脚欠損",
+  "looksValueNoTeeth": "歯なし",
+  "looksValueExtraToes": "多指",
+  "rejectMatch": "同じではない",
+  "traitsAgree": "{count, plural, other{{count} 個の特徴が一致}}",
   "systemDefault": "システムの既定",
   "iosLocalNetworkHint": "iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。",
   "markPrivate": "プライベートに設定",
@@ -432,6 +566,8 @@
   "otherOption": "その他…",
   "celebrationsToggle": "譲渡をお祝いする",
   "celebrationsSubtitle": "猫がおうちに移るときに紙吹雪と歓声",
+  "cheerToggle": "歓声の音",
+  "cheerSubtitle": "紙吹雪と一緒に短い歓声、毎回違うもの",
   "celebrationsSubtitleNeutral": "ペットがおうちに移るときに紙吹雪と歓声",
   "onMapLabel": "地図上",
   "showOnMap": "地図で表示",
@@ -445,7 +581,19 @@
   "authorsSection": "このカタログに書き込んだ人",
   "hardDeleteAction": "この作成者のすべてを削除",
   "hardDeleteWarning": "{name} のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。",
-  "hardDeleteWarningDevice": "{name} が端末 {device} で書いたすべての記録と写真をこのカタログから削除します。他の端末のデータは残ります。取り消せません。",
+  "yourKey": "あなたの鍵",
+  "yourTitle": "あなたの称号",
+  "titleNone": "称号なし",
+  "keyLine": "鍵 {code}",
+  "keyVerified": "対面で確認済み",
+  "keyFromFile": "ファイル経由、未確認",
+  "keyUnsigned": "鍵なし、エントリは未署名",
+  "summaryRefused": "拒否",
+  "refusedEntries": "{count, plural, other{{count} 件を拒否}}：{name} の既知の鍵で署名されていません",
+  "newKeyCallsItself": "新しい鍵 {code} が {name} を名乗っています。信頼する前に本人に確認してください。",
+  "keyChangedRefused": "{name} が既知と異なる鍵を提示しました。既知の鍵を維持し、新しい鍵は受け入れていません。",
+  "metaNewKey": "新しい鍵：{name} · {code}（{how}）",
+  "hardDeleteWarningKey": "{name} が鍵 {key} で書いたすべてのエントリと写真をこのカタログから削除します。他の端末は保持します。元に戻せません。",
   "typeToConfirm": "確認のため {name} と入力",
   "alsoBan": "ブロックもする — 今後データを受け取らない",
   "bansSection": "ブロック",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{何も復元されませんでした。} other{{count} 件のカタログを復元しました。}}",
   "helpCatalogs": "カタログはそれぞれ独立した世界です。猫、コロニー、項目、写真、同期相手はすべて固有のもので、ベルリンとパリが混ざることはありません。カタログをタップすると切り替わります。カタログの歯車を押すとその設定が開きます：名前、猫かペットか、項目、作成者とブロック、アーカイブ、戻る、削除。あなたの名前、言語、すでに見たヒントはすべてのカタログで共通です。",
   "helpCatalogsNeutral": "カタログはそれぞれ独立した世界です。ペット、世帯、項目、写真、同期相手はすべて固有のもので、ベルリンとパリが混ざることはありません。カタログをタップすると切り替わります。カタログの歯車を押すとその設定が開きます：名前、猫かペットか、項目、作成者とブロック、アーカイブ、戻る、削除。あなたの名前、言語、すでに見たヒントはすべてのカタログで共通です。",
-  "helpCatalogSettings": "このカタログだけに属するもの：名前、猫かペットか、項目、作成者とブロック、アーカイブ、時間を戻す。ここでの変更はこのカタログだけに及びます。今開いていないカタログでも同じです。削除の前にカタログはファイルに書き出されます。",
+  "helpCatalogSettings": "このカタログだけに属するもの：名前、猫かペットか、項目、作成者とブロック、アーカイブ、時間を戻す。ここでの変更はこのカタログだけに及びます。今開いていないカタログでも同じです。削除の前にカタログはファイルに書き出されます。 あなたの鍵は、相手があなたの名前の横に見るコードです。このカタログに紐づきます。",
   "spotHomeCatalog": "いま開いているカタログです。名前をタップすると切り替えや新規作成ができます。",
   "deleteCatalog": "カタログを削除",
   "catalogSettings": "カタログの設定",
   "deleteCatalogBody": "{name} の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。",
   "deleteCatalogBodyNeutral": "{name} の中身はすべて消えます。ペットも写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "計画した予定はありません。ここのプラス、またはペットや世帯のページで新しい予定を計画できます。",
   "dueToday": "今日",
   "dueInDays": "{count, plural, other{{count} 日後}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, other{{count} 日超過}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "完了",
   "repeatTitle": "次回は…",
   "noRepeatLabel": "繰り返さない",
@@ -720,15 +886,33 @@
   "unitMonths": "か月後",
   "unitYears": "年後",
   "ageYears": "{years}歳",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months}か月",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "日付を変更",
   "removeReminderLabel": "リマインダーを削除",
   "exportIcs": "カレンダーファイルを書き出す",
   "resyncCalendar": "カレンダーを再同期",
   "icsSavedTo": "カレンダーファイルを {path} に保存しました",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "端末のカレンダーへ反映",
   "calendarMirrorSubtitle": "予定はカレンダーに終日の予定として表示されます。cat(a)log は起動のたび、また変更のたびにカレンダー側を更新します。予定の通知はカレンダーで管理できます。",
   "syncPeerOlder": "相手の端末はリマインダーのない古い cat(a)log です。そちらで cat(a)log を更新して、もう一度同期してください。",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "予定表：計画した予定の一覧 — 通院、投薬、健診。",
   "spotAgendaAdd": "新しい予定を計画します。",
   "spotAgendaCalendar": "ここをオンにすると、cat(a)log の予定を選んだカレンダーに反映します。",
-  "helpAgenda": "予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。",
-  "helpAgendaNeutral": "予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。",
+  "spotAgendaToday": "今日のお世話：終わったらチェック。点は直近7日間を示します。",
+  "helpAgenda": "予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。",
+  "helpAgendaNeutral": "予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。",
   "calendarRowOff": "カレンダー：オフ",
   "calendarRowOn": "カレンダー：{name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "この猫の予定を計画します。予定表に表示され、そこで確定します。",
   "spotAddReminderCatNeutral": "このペットの予定を計画します。予定表に表示され、そこで確定します。",
   "spotAddReminderClowder": "このクラウダーの予定を計画します。予定表に表示され、そこで確定します。",
@@ -766,6 +957,76 @@
   "planChooserTitle": "予定とリマインダー、どちら？",
   "planChooserAppointment": "予定 — 日付と時刻のある訪問、メモ付き",
   "planChooserReminder": "リマインダー — ある日に期日となる値",
+  "planChooserChore": "日課 — 繰り返す作業: 給餌、点眼、トイレ",
+  "newChore": "新しい日課",
+  "choreEdit": "日課を編集",
+  "choreTitleLabel": "内容",
+  "choreRepeatDaily": "毎日",
+  "choreRepeatEvery": "n日ごと",
+  "choreRepeatWeekdays": "曜日",
+  "choreEveryDays": "{n}日ごと",
+  "choreEveryWeeks": "{n}週間ごと",
+  "choreEveryMonths": "{n}か月ごと",
+  "choreEveryYears": "{n}年ごと",
+  "choreNoTime": "時刻は問わない",
+  "chorePause": "一時停止",
+  "chorePaused": "一時停止中",
+  "choreResume": "再開",
+  "choreEnd": "日課を終了",
+  "choreHistory": "履歴",
+  "choreDoneAt": "完了 {when} · {who}",
+  "choreDoneEarly": "前倒し",
+  "choreDoneLate": "遅れ",
+  "choreMissed": "未実施",
+  "choreStillOpen": "未完了",
+  "choreEndConfirm": "お世話は一覧から消えます。チェック済みの記録は履歴に残ります。",
+  "todaySection": "今日",
+  "upcomingSection": "近日",
+  "allDoneToday": "今日: すべて完了",
+  "streakDays": "{n}日連続",
+  "choreDue": "予定 {date}",
+  "remindMe": "リマインド",
+  "remindNext": "次のリマインド：{when}",
+  "remindNone": "リマインドの予定なし：予定された期日がありません。",
+  "remindPending": "{count, plural, =0{この端末にはまだ予定がありません} other{この端末に {count} 件のリマインドを予定}}",
+  "remindTest": "今すぐテスト通知を送る",
+  "remindLateHint": "リマインドは数分遅れて届くことがあります。正確なタイミングは端末が決めます。",
+  "remindPermissionDenied": "通知の許可がないため、リマインドはオフのままです。端末のアプリ設定で許可してからやり直してください。",
+  "batteryHint": "リマインドが届かない場合は、端末の電池設定で cat(a)log のバックグラウンド動作を許可してください。",
+  "batterySettings": "電池設定",
+  "achievementsTitle": "実績",
+  "rankServant": "従者",
+  "rankButler": "執事",
+  "rankSteward": "家令",
+  "rankChancellor": "宰相",
+  "rankMinister": "大臣",
+  "titleWithChore": "{title}（{chore}）",
+  "coatCalico": "三毛",
+  "coatCheetah": "チーター",
+  "coatTiger": "トラ",
+  "coatTabby": "トラ猫柄",
+  "coatPaws": "肉球",
+  "coatRosettes": "ロゼット",
+  "coatZebra": "シマウマ",
+  "coatSetting": "毛皮",
+  "coatRandom": "起動ごとに別のもの",
+  "coatSnowLeopard": "ユキヒョウ",
+  "coatSiamese": "シャムのポイント",
+  "coatLynx": "オオヤマネコ",
+  "coatTortoiseshell": "サビ",
+  "coatUnlocked": "新しい毛皮：{coat}",
+  "coatUnlockedHow": "ひと月まるごとのお世話、すべて完了。",
+  "achievementsEmpty": "まだ何もありません。お世話が道を知っています。",
+  "achievementMonth": "皆勤の1か月",
+  "achievementYear": "皆勤の1年",
+  "achievementDecade": "皆勤の10年",
+  "achievementCentury": "皆勤の100年",
+  "achievementCenturyHint": "そのときは一緒に誇りに思いましょう。",
+  "achievementMaster": "{title}マスター",
+  "achievementReached": "{times}回達成、初回 {date}",
+  "achievementNext": "次は {n} 回",
+  "achievementLocked": "まだ",
+  "achievementUnlocked": "実績: {name}",
   "appointmentTitleLabel": "内容",
   "notesLabel": "メモ",
   "timeLabel": "時刻",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "既存の世帯",
   "createNewInstead": "なし — 新規作成",
   "overwritesValue": "現在の値 \"{value}\" を上書きします",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "取り込みを中止しますか？",
   "abortScanBody": "何も保存されません。",
   "abortScan": "中止",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "処置されなかった猫のチェックを外してください。予定のまま残ります。",
   "finishUntickHintNeutral": "処置されなかったペットのチェックを外してください。予定のまま残ります。",
   "deleteAppointmentGroup": "{count}匹すべての予定を削除",
-  "deleteAppointmentGroupNeutral": "{count}匹すべての予定を削除"
+  "deleteAppointmentGroupNeutral": "{count}匹すべての予定を削除",
+  "correctThisValue": "この値を修正",
+  "removeThisValue": "この値を取り消す",
+  "restoreThisValue": "この値を元に戻す",
+  "showRemovedValues": "取り消した値を表示",
+  "hideRemovedValues": "取り消した値を隠す",
+  "entryRemovedBy": "取り消し · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "{value} に修正 · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "修正",
+  "restorePickFolder": "バックアップフォルダを選択…",
+  "restoreAndroidHint": "以前のインストールのバックアップは Documents/catlog にあります（古いバージョンでは Downloads/catlog）。そのフォルダを一度選ぶと、バックアップがここに表示されます。",
+  "backupsTitle": "バックアップ",
+  "backupsSubtitle": "カタログの保管場所",
+  "backupsAndroidSystem": "Google がこのアプリのカタログをアカウントにバックアップします（写真を除く）。再インストール後や新しい端末で自動的に戻ります。",
+  "backupsAndroidFiles": "変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）が Documents/catlog に書き込まれます。",
+  "backupsIosSystem": "iCloud バックアップには、この iPhone の他のアプリと同様、このアプリのカタログと写真が含まれます。",
+  "backupsIosFiles": "各カタログの完全なコピーは「ファイル」アプリの cat(a)log にあります。そこから iCloud Drive、AirDrop、別の端末へ送れます。",
+  "backupsDesktopFiles": "変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）がダウンロードフォルダに書き込まれます。",
+  "backupsLast": "最新のコピー: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "まだコピーは書き込まれていません。",
+  "backupsNow": "今すぐバックアップ",
+  "backupsDone": "コピーを書き込みました。",
+  "backupsRestoredNote": "{date} に Google バックアップから復元しました。古い端末でまだ cat(a)log を使っている場合は、そこから一度同期してから、その端末のアプリを削除してください。",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "任意のフォルダにも各コピーを送れます: クラウドアプリがこの端末上で同期しているフォルダ（Nextcloud、Syncthing など）、メモリーカード、選択画面に出るどのフォルダでも。コピーはその中の catlog-backups に入ります。",
+  "backupsFolderPick": "フォルダにもコピー…",
+  "backupsFolderIs": "{name} にもコピー",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "そこへのコピーをやめる",
+  "remindFailed": "この端末では通知が機能していません: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "テキストをコピー",
+  "colWhen": "日時",
+  "colValue": "値",
+  "colWho": "担当"
 }

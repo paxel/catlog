@@ -17,11 +17,14 @@ class BackupSet {
 
 /// The part of a backup file name that identifies its catalog:
 /// `catlog-berlin-nord.catsync` → `berlin-nord`. Older releases' files
-/// came back from MediaStore as `.catsync.zip`; same stem.
+/// came back from MediaStore as `.catsync.zip`; same stem. A reinstalled
+/// app cannot replace the rows of the install before, so MediaStore
+/// numbers its files, `catlog-berlin-nord (1).catsync`; same stem too.
 String backupStem(String fileName) {
   var stem = fileName;
   if (stem.endsWith('.zip')) stem = stem.substring(0, stem.length - 4);
   if (stem.endsWith('.catsync')) stem = stem.substring(0, stem.length - 8);
+  stem = stem.replaceFirst(RegExp(r' \(\d+\)$'), '');
   if (stem.startsWith('catlog-')) stem = stem.substring(7);
   return stem;
 }

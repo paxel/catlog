@@ -38,6 +38,10 @@ import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
 import 'field_graph_screen.dart';
 import 'field_history_screen.dart';
+import '../widgets/chore_row.dart';
+import '../chores/chore_feedback.dart';
+import '../widgets/fold_section.dart';
+import '../chores/chore_reminders.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
 class CatDetailScreen extends StatefulWidget {
@@ -217,8 +221,12 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   void _plansChanged() {
+    // A tick here earns the same cheer as one on the agenda.
+    afterChoreTick(context, store, manager: catalogManager);
     setState(() {});
     mirrorAfterChange(context, store);
+    refreshChoreReminders(store,
+        body: (c) => store.current(c.entity, Keys.name) ?? context.t.unnamed);
   }
 
   /// The cat's live plans, as the agenda shows them — nothing vanishes
@@ -229,7 +237,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         if (r.entity == store.resolveEntity(id)) r,
     ];
     final appointments = store.appointmentsOf(id);
-    if (plans.isEmpty && appointments.isEmpty) return const [];
+    final chores = partitionChores(
+        store, store.choresOf(id), DateUtils.dateOnly(DateTime.now()));
+    final laterCount = chores.later.length + chores.paused.length;
+    if (plans.isEmpty &&
+        appointments.isEmpty &&
+        chores.due.isEmpty &&
+        laterCount == 0) {
+      return const [];
+    }
+    final today = DateUtils.dateOnly(DateTime.now());
     return [
       const Divider(),
       Padding(
@@ -239,6 +256,47 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
+      // Its chores: today's occurrence while the chore is due today,
+      // ticked or not — a tick must not turn the row into tomorrow's;
+      // otherwise the next due day.
+      // Its chores due today, ticked or not; the rest, and the paused
+      // ones, wait behind a fold like the agenda's Coming up.
+      for (final c in chores.due)
+        ChoreRow(
+          store: store,
+          chore: c,
+          due: today,
+          today: today,
+          showEntity: false,
+          onChanged: _plansChanged,
+        ),
+      if (laterCount > 0)
+        FoldSection(
+          store: store,
+          id: 'page-upcoming',
+          title: context.t.upcomingSection,
+          count: laterCount,
+          children: [
+            for (final c in chores.later)
+              ChoreRow(
+              store: store,
+              chore: c,
+              due: nextDue(c, store.choreTicks(c), today) ?? today,
+              today: today,
+              showEntity: false,
+              onChanged: _plansChanged,
+            ),
+            for (final c in chores.paused)
+              ChoreRow(
+              store: store,
+              chore: c,
+              due: today,
+              today: today,
+              showEntity: false,
+              onChanged: _plansChanged,
+            ),
+          ],
+        ),
       // A vet run shows its other cats as chips; delete here takes only
       // this entity out of it.
       for (final a in appointments)

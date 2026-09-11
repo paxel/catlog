@@ -175,6 +175,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get shareAsImage => 'Поділитися як зображенням';
 
   @override
+  String get sortOldestFirst => 'Спочатку старі';
+
+  @override
+  String get sortNewestFirst => 'Спочатку нові';
+
+  @override
+  String get shareAsText => 'Поділитися текстом';
+
+  @override
   String get shareAsPdf => 'Поділитися як PDF';
 
   @override
@@ -558,13 +567,6 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Скасувати цю зміну';
-
-  @override
-  String get revertSubtitle =>
-      'Повертає попереднє значення новим записом — історія зберігає обидва.';
-
-  @override
   String fieldCleared(String field) {
     return '$field очищено';
   }
@@ -734,7 +736,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Обидва пристрої використовують одну теку (наприклад, у Dropbox або на флешці). Кожна синхронізація кладе туди ваші зміни й забирає чужі.';
+      'Обидва пристрої використовують одну теку (наприклад, у Nextcloud або на флешці). Кожна синхронізація кладе туди ваші зміни й забирає чужі.';
 
   @override
   String get noFolderChosenYet => 'Теку ще не обрано';
@@ -744,6 +746,18 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Синхронізувати теку зараз';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Усередині цей каталог використовує теку «$name», тож одна спільна тека може нести всі ваші каталоги.';
+  }
+
+  @override
+  String get useSameFolder => 'Використати ту саму теку, що й інші каталоги';
+
+  @override
+  String get folderHint =>
+      'Підійде будь-яка тека, яку два пристрої тримають однаковою: хмарний диск або Syncthing для теки, що залишається на ваших телефонах. Syncthing безкоштовний: встановіть його на кожному телефоні, відкрийте одну теку між ними й оберіть її тут на кожному пристрої.';
 
   @override
   String folderSynced(String result) {
@@ -781,6 +795,16 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get conflictBody =>
       'Змінено у двох місцях одночасно. Оберіть, що є правдою:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (особисте)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Обидві зміни кажуть те саме: $value. Нема чого вибирати; «Розв’язати» знімає позначку.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -912,6 +936,96 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Сфінкс';
+
+  @override
+  String get breedAbyssinian => 'Абіссінська';
+
+  @override
+  String get breedAmericanShorthair => 'Американська короткошерста';
+
+  @override
+  String get breedBalinese => 'Балінезійська';
+
+  @override
+  String get breedBirman => 'Бірманська';
+
+  @override
+  String get breedBombay => 'Бомбейська';
+
+  @override
+  String get breedBurmese => 'Бурманська';
+
+  @override
+  String get breedBurmilla => 'Бурмілла';
+
+  @override
+  String get breedBritishLonghair => 'Британська довгошерста';
+
+  @override
+  String get breedChartreux => 'Шартрез';
+
+  @override
+  String get breedCornishRex => 'Корніш-рекс';
+
+  @override
+  String get breedDevonRex => 'Девон-рекс';
+
+  @override
+  String get breedEgyptianMau => 'Єгипетська мау';
+
+  @override
+  String get breedExoticShorthair => 'Екзотична короткошерста';
+
+  @override
+  String get breedHimalayan => 'Гімалайська';
+
+  @override
+  String get breedKorat => 'Корат';
+
+  @override
+  String get breedManx => 'Менкс';
+
+  @override
+  String get breedMunchkin => 'Манчкін';
+
+  @override
+  String get breedOcicat => 'Оцикет';
+
+  @override
+  String get breedOrientalShorthair => 'Орієнтальна короткошерста';
+
+  @override
+  String get breedRagamuffin => 'Рагамаффін';
+
+  @override
+  String get breedRussianBlue => 'Російська блакитна';
+
+  @override
+  String get breedSavannah => 'Савана';
+
+  @override
+  String get breedScottishFold => 'Шотландська висловуха';
+
+  @override
+  String get breedSelkirkRex => 'Селкірк-рекс';
+
+  @override
+  String get breedSiberian => 'Сибірська';
+
+  @override
+  String get breedSnowshoe => 'Сноу-шу';
+
+  @override
+  String get breedSomali => 'Сомалійська';
+
+  @override
+  String get breedTonkinese => 'Тонкінська';
+
+  @override
+  String get breedTurkishAngora => 'Турецька ангора';
+
+  @override
+  String get breedTurkishVan => 'Турецький ван';
 
   @override
   String get starterColor => 'Забарвлення';
@@ -1090,7 +1204,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Як дані потрапляють до інших: з\'єднатися напряму, використати теку, яку бачать обидва пристрої, або надіслати файл через месенджер. Ви завжди вирішуєте, що надсилати — і отримані файли .catsync відкриваються теж тут.';
+      'Як дані потрапляють до інших: з\'єднатися напряму, використати теку, яку бачать обидва пристрої, або надіслати файл через месенджер. Ви завжди вирішуєте, що надсилати — і отримані файли .catsync відкриваються теж тут. Кожен каталог підписує свої записи власним ключем; партнери бачать код ключа поруч із вашим іменем. Перший ключ партнера приймається на довірі з файлу і вважається підтвердженим після особистої синхронізації. Записи під відомим іменем без правильного підпису відхиляються й перелічуються на сторінці прибуття.';
 
   @override
   String get helpFields =>
@@ -1102,7 +1216,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Кожна зроблена зміна, найновіші вгорі: хто, коли і на яке значення щось змінив. Будь-який запис можна скасувати — це створює новий запис, нічого ніколи не стирається.';
+      'Усі зміни, найновіші зверху: хто, коли і на яке значення. Торкніться запису, щоб виправити, утримуйте, щоб прибрати або повернути; прихований запис лишається в журналі й показується на запит.';
 
   @override
   String get helpDuplicates =>
@@ -1114,11 +1228,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Коти, які можуть бути однією твариною: однаковий номер або безпритульний, помічений у зоні пошуку зниклого кота. Торкніться пари, щоб об\'єднати, довге натискання відкриє першого кота для порівняння.';
+      'Коти, які можуть бути однією твариною: однаковий номер або безпритульний, помічений у зоні пошуку зниклого кота. Торкніться пари, щоб об\'єднати, довге натискання відкриє першого кота для порівняння. У списку є й пари, чия зовнішність збігається щонайменше у двох ознаках без суперечностей; чипи показують у яких. «Не той самий» ховає пару на цьому телефоні, доки зовнішність одної з тварин не зміниться.';
 
   @override
   String get helpMatchesNeutral =>
-      'Улюбленці, які можуть бути однією твариною: однаковий номер або безпритульна тварина, помічена в зоні пошуку зниклого улюбленця. Торкніться пари, щоб об\'єднати, довге натискання відкриє першого улюбленця для порівняння.';
+      'Улюбленці, які можуть бути однією твариною: однаковий номер або безпритульна тварина, помічена в зоні пошуку зниклого улюбленця. Торкніться пари, щоб об\'єднати, довге натискання відкриє першого улюбленця для порівняння. У списку є й пари, чия зовнішність збігається щонайменше у двох ознаках без суперечностей; чипи показують у яких. «Не той самий» ховає пару на цьому телефоні, доки зовнішність одної з тварин не зміниться.';
 
   @override
   String get helpFlier =>
@@ -1408,6 +1522,283 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterWeight => 'Вага';
 
   @override
+  String get starterLooks => 'Зовнішність';
+
+  @override
+  String get looksGroupSize => 'Розмір';
+
+  @override
+  String get looksGroupColours => 'Кольори';
+
+  @override
+  String get looksGroupPattern => 'Малюнок';
+
+  @override
+  String get looksGroupFur => 'Шерсть';
+
+  @override
+  String get looksGroupTail => 'Хвіст';
+
+  @override
+  String get looksGroupEars => 'Вуха';
+
+  @override
+  String get looksGroupMarks => 'Прикмети';
+
+  @override
+  String get looksGroupCrest => 'Чубчик';
+
+  @override
+  String get looksGroupBeak => 'Дзьоб';
+
+  @override
+  String get looksGroupRing => 'Кільце';
+
+  @override
+  String get looksValueSmall => 'Малий';
+
+  @override
+  String get looksValueMedium => 'Середній';
+
+  @override
+  String get looksValueLarge => 'Великий';
+
+  @override
+  String get looksValueBlack => 'Чорний';
+
+  @override
+  String get looksValueWhite => 'Білий';
+
+  @override
+  String get looksValueGrey => 'Сірий';
+
+  @override
+  String get looksValueBrown => 'Коричневий';
+
+  @override
+  String get looksValueGinger => 'Рудий';
+
+  @override
+  String get looksValueCream => 'Кремовий';
+
+  @override
+  String get looksValueGolden => 'Золотистий';
+
+  @override
+  String get looksValueTan => 'Палевий';
+
+  @override
+  String get looksValueGreen => 'Зелений';
+
+  @override
+  String get looksValueBlue => 'Синій';
+
+  @override
+  String get looksValueYellow => 'Жовтий';
+
+  @override
+  String get looksValueRed => 'Червоний';
+
+  @override
+  String get looksValueOrange => 'Помаранчевий';
+
+  @override
+  String get looksValuePink => 'Рожевий';
+
+  @override
+  String get looksValueWhiteBib => 'Біла манишка';
+
+  @override
+  String get looksValueWhitePaws => 'Білі лапи';
+
+  @override
+  String get looksValueWhiteTailTip => 'Білий кінчик хвоста';
+
+  @override
+  String get looksValueBlaze => 'Проточина';
+
+  @override
+  String get looksValueMask => 'Маска';
+
+  @override
+  String get looksValueSpots => 'Цятки';
+
+  @override
+  String get looksValuePatches => 'Плями';
+
+  @override
+  String get looksValueStripes => 'Смуги';
+
+  @override
+  String get looksValueScar => 'Шрам';
+
+  @override
+  String get looksValueNotchedEar => 'Надріз на вусі';
+
+  @override
+  String get looksValueEarTip => 'Кінчик вуха';
+
+  @override
+  String get looksValueCollar => 'Нашийник';
+
+  @override
+  String get looksValueShort => 'Коротка';
+
+  @override
+  String get looksValueLong => 'Довга';
+
+  @override
+  String get looksValueHairless => 'Без шерсті';
+
+  @override
+  String get looksValueBobtail => 'Короткий хвіст';
+
+  @override
+  String get looksValueNone => 'Немає';
+
+  @override
+  String get looksValueCurled => 'Закручений';
+
+  @override
+  String get looksValueUpright => 'Стоячі';
+
+  @override
+  String get looksValueFloppy => 'Висячі';
+
+  @override
+  String get looksValueFolded => 'Складені';
+
+  @override
+  String get looksValueRounded => 'Округлі';
+
+  @override
+  String get looksValueSolid => 'Однотонний';
+
+  @override
+  String get looksValueTabby => 'Табі';
+
+  @override
+  String get looksValueTortoiseshell => 'Черепаховий';
+
+  @override
+  String get looksValueCalico => 'Каліко';
+
+  @override
+  String get looksValueColourpoint => 'Колорпойнт';
+
+  @override
+  String get looksValueBicolour => 'Двоколірний';
+
+  @override
+  String get looksValueTuxedo => 'Смокінг';
+
+  @override
+  String get looksValueBrindle => 'Тигровий';
+
+  @override
+  String get looksValueMerle => 'Мерль';
+
+  @override
+  String get looksValueSpotted => 'Плямистий';
+
+  @override
+  String get looksValuePatched => 'Рябий';
+
+  @override
+  String get looksValueTricolour => 'Триколірний';
+
+  @override
+  String get looksValueSable => 'Соболиний';
+
+  @override
+  String get looksGroupEyes => 'Очі';
+
+  @override
+  String get looksGroupFeatures => 'Особливості';
+
+  @override
+  String get looksValueAmber => 'Бурштинові';
+
+  @override
+  String get looksValueCopper => 'Мідні';
+
+  @override
+  String get looksValueOddEyed => 'Різнокольорові';
+
+  @override
+  String get looksValueChocolate => 'Шоколадний';
+
+  @override
+  String get looksValueLilac => 'Ліловий';
+
+  @override
+  String get looksValueSilver => 'Сріблястий';
+
+  @override
+  String get looksValueSmoke => 'Димчастий';
+
+  @override
+  String get looksValueTicked => 'Тикований';
+
+  @override
+  String get looksValueVan => 'Ван';
+
+  @override
+  String get looksValueCurly => 'Кучерява';
+
+  @override
+  String get looksValueWiry => 'Жорстка';
+
+  @override
+  String get looksValueKinked => 'Із зламом';
+
+  @override
+  String get looksValueCropped => 'Купіровані';
+
+  @override
+  String get looksValueTippedEar => 'Підрізане вухо';
+
+  @override
+  String get looksValueEarTattoo => 'Татуювання у вусі';
+
+  @override
+  String get looksValueMissingEar => 'Немає вуха';
+
+  @override
+  String get looksValueMissingEye => 'Немає ока';
+
+  @override
+  String get looksValueCloudyEye => 'Мутне око';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Немає передньої лапи';
+
+  @override
+  String get looksValueMissingHindLeg => 'Немає задньої лапи';
+
+  @override
+  String get looksValueNoTeeth => 'Немає зубів';
+
+  @override
+  String get looksValueExtraToes => 'Зайві пальці';
+
+  @override
+  String get rejectMatch => 'Не той самий';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ознаки збігаються',
+      many: '$count ознак збігаються',
+      few: '$count ознаки збігаються',
+      one: '$count ознака збігається',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Системна за замовчуванням';
 
   @override
@@ -1488,6 +1879,12 @@ class AppLocalizationsUk extends AppLocalizations {
       'Конфеті та радість, коли кіт переїжджає у свій дім';
 
   @override
+  String get cheerToggle => 'Звук вітання';
+
+  @override
+  String get cheerSubtitle => 'Коротке вітання до конфеті, щоразу інше';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Конфеті та радість, коли улюбленець переїжджає у свій дім';
 
@@ -1531,8 +1928,62 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Вилучає з цього каталогу кожен запис і світлину, які $name написав(ла) на пристрої $device. Інші пристрої зберігають свої копії. Скасувати не можна.';
+  String get yourKey => 'Ваш ключ';
+
+  @override
+  String get yourTitle => 'Ваш титул';
+
+  @override
+  String get titleNone => 'Без титулу';
+
+  @override
+  String keyLine(Object code) {
+    return 'ключ $code';
+  }
+
+  @override
+  String get keyVerified => 'підтверджено особисто';
+
+  @override
+  String get keyFromFile => 'з файлу, ще не підтверджено';
+
+  @override
+  String get keyUnsigned => 'ключа ще немає, записи без підпису';
+
+  @override
+  String get summaryRefused => 'Відхилено';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count запису відхилено',
+      many: '$count записів відхилено',
+      few: '$count записи відхилено',
+      one: '$count запис відхилено',
+    );
+    return '$_temp0: не підписані ключем, відомим для $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Новий ключ $code називає себе $name. Уточніть у людини, перш ніж довіряти.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name запропонував ключ, відмінний від відомого тут. Відомий залишається, новий не прийнято.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Новий ключ: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Видаляє з цього каталогу всі записи й фото, написані $name під ключем $key. Інші пристрої зберігають свої. Скасувати неможливо.';
   }
 
   @override
@@ -2035,7 +2486,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Усе, що належить лише цьому каталогу: назва, коти в ньому чи тварини, поля, автори та блокування, архів і повернення назад у часі. Зміни тут стосуються лише цього каталогу — і того, в якому ви зараз не перебуваєте. Видалення спершу записує каталог у файл.';
+      'Усе, що належить лише цьому каталогу: назва, коти в ньому чи тварини, поля, автори та блокування, архів і повернення назад у часі. Зміни тут стосуються лише цього каталогу — і того, в якому ви зараз не перебуваєте. Видалення спершу записує каталог у файл. Ваш ключ — код, який партнери бачать поруч із вашим іменем; він належить цьому каталогу.';
 
   @override
   String get spotHomeCatalog =>
@@ -2344,12 +2795,16 @@ class AppLocalizationsUk extends AppLocalizations {
       'Увімкніть тут віддзеркалення візитів cat(a)log у вибраний календар.';
 
   @override
+  String get spotAgendaToday =>
+      'Справи на сьогодні: позначте, коли зроблено. Точки показують останні сім днів.';
+
+  @override
   String get helpAgenda =>
-      'Нагадування показують заплановані візити за датою. Є два види: візити із зазначенням часу і нагадування на день. Пропущені лишаються вгорі. Дотик відкриває кота чи клаудер. Галочка підтверджує візит: значення записується в поле, і можна одразу запланувати наступний, наприклад через три місяці. Утримання змінює дату або видаляє візит. Перемикач угорі віддзеркалює візити в календар телефона. Меню експортує їх файлом календаря. Поїздка до ветеринара з кількома котами — один прийом: позначте котів, Порядок денний покаже одну картку з їхніми іменами, а при завершенні запитає, яких котів лікували — зніміть позначку з решти, вони залишаються в плані.';
+      'Нагадування показують заплановані візити за датою. Є два види: візити із зазначенням часу і нагадування на день. Пропущені лишаються вгорі. Дотик відкриває кота чи клаудер. Галочка підтверджує візит: значення записується в поле, і можна одразу запланувати наступний, наприклад через три місяці. Утримання змінює дату або видаляє візит. Перемикач угорі віддзеркалює візити в календар телефона. Меню експортує їх файлом календаря. Поїздка до ветеринара з кількома котами — один прийом: позначте котів, Порядок денний покаже одну картку з їхніми іменами, а при завершенні запитає, яких котів лікували — зніміть позначку з решти, вони залишаються в плані. Справи — це повторювані обов’язки: годування, лоток, ліки. Вони стоять під «Сьогодні» з галочкою, серією та останніми сімома днями точками; «Незабаром» показує наступний тиждень без щоденних. Справа може нагадати сповіщенням у вибраний час. Кубок відкриває досягнення.';
 
   @override
   String get helpAgendaNeutral =>
-      'Нагадування показують заплановані візити за датою. Є два види: візити із зазначенням часу і нагадування на день. Пропущені лишаються вгорі. Дотик відкриває улюбленця чи домогосподарство. Галочка підтверджує візит: значення записується в поле, і можна одразу запланувати наступний, наприклад через три місяці. Утримання змінює дату або видаляє візит. Перемикач угорі віддзеркалює візити в календар телефона. Меню експортує їх файлом календаря. Поїздка до ветеринара з кількома улюбленцями — один прийом: позначте улюбленців, Порядок денний покаже одну картку з їхніми іменами, а при завершенні запитає, яких улюбленців лікували — зніміть позначку з решти, вони залишаються в плані.';
+      'Нагадування показують заплановані візити за датою. Є два види: візити із зазначенням часу і нагадування на день. Пропущені лишаються вгорі. Дотик відкриває улюбленця чи домогосподарство. Галочка підтверджує візит: значення записується в поле, і можна одразу запланувати наступний, наприклад через три місяці. Утримання змінює дату або видаляє візит. Перемикач угорі віддзеркалює візити в календар телефона. Меню експортує їх файлом календаря. Поїздка до ветеринара з кількома улюбленцями — один прийом: позначте улюбленців, Порядок денний покаже одну картку з їхніми іменами, а при завершенні запитає, яких улюбленців лікували — зніміть позначку з решти, вони залишаються в плані. Справи — це повторювані обов’язки: годування, лоток, ліки. Вони стоять під «Сьогодні» з галочкою, серією та останніми сімома днями точками; «Незабаром» показує наступний тиждень без щоденних. Справа може нагадати сповіщенням у вибраний час. Кубок відкриває досягнення.';
 
   @override
   String get calendarRowOff => 'Календар: вимк.';
@@ -2394,6 +2849,302 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Нагадування — значення, що настає певного дня';
+
+  @override
+  String get planChooserChore =>
+      'Справа — те, що повторюється: годування, краплі, лоток';
+
+  @override
+  String get newChore => 'Нова справа';
+
+  @override
+  String get choreEdit => 'Змінити справу';
+
+  @override
+  String get choreTitleLabel => 'Що';
+
+  @override
+  String get choreRepeatDaily => 'Щодня';
+
+  @override
+  String get choreRepeatEvery => 'Кожні…';
+
+  @override
+  String get choreRepeatWeekdays => 'Дні тижня';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n днів',
+      few: 'кожні $n дні',
+      one: 'щодня',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n тижнів',
+      few: 'кожні $n тижні',
+      one: 'щотижня',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n місяців',
+      few: 'кожні $n місяці',
+      one: 'щомісяця',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n років',
+      few: 'кожні $n роки',
+      one: 'щороку',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Будь-коли протягом дня';
+
+  @override
+  String get chorePause => 'Призупинити';
+
+  @override
+  String get chorePaused => 'Призупинено';
+
+  @override
+  String get choreResume => 'Відновити';
+
+  @override
+  String get choreEnd => 'Завершити справу';
+
+  @override
+  String get choreHistory => 'Історія';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'зроблено $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'раніше';
+
+  @override
+  String get choreDoneLate => 'пізніше';
+
+  @override
+  String get choreMissed => 'Пропущено';
+
+  @override
+  String get choreStillOpen => 'Ще не зроблено';
+
+  @override
+  String get choreEndConfirm =>
+      'Справа зникає зі списку. Позначене залишається в історії.';
+
+  @override
+  String get todaySection => 'Сьогодні';
+
+  @override
+  String get upcomingSection => 'Незабаром';
+
+  @override
+  String get allDoneToday => 'Сьогодні: усе зроблено';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n днів поспіль',
+      few: '$n дні поспіль',
+      one: '$n день поспіль',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Термін $date';
+  }
+
+  @override
+  String get remindMe => 'Нагадувати';
+
+  @override
+  String remindNext(Object when) {
+    return 'Наступне нагадування: $when';
+  }
+
+  @override
+  String get remindNone => 'Нагадування не заплановано: попереду нічого.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count нагадувань заплановано на цьому телефоні',
+      few: '$count нагадування заплановано на цьому телефоні',
+      one: '$count нагадування заплановано на цьому телефоні',
+      zero: 'На цьому телефоні ще нічого не заплановано',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Надіслати пробне нагадування зараз';
+
+  @override
+  String get remindLateHint =>
+      'Нагадування можуть приходити на кілька хвилин пізніше; точний момент обирає телефон.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Немає дозволу на сповіщення, нагадування залишається вимкненим. Дозвольте їх у налаштуваннях застосунку на телефоні й спробуйте ще раз.';
+
+  @override
+  String get batteryHint =>
+      'Якщо нагадування не приходять, дозвольте cat(a)log працювати у фоні в налаштуваннях батареї телефона.';
+
+  @override
+  String get batterySettings => 'Налаштування батареї';
+
+  @override
+  String get achievementsTitle => 'Досягнення';
+
+  @override
+  String get rankServant => 'Слуга';
+
+  @override
+  String get rankButler => 'Дворецький';
+
+  @override
+  String get rankSteward => 'Управитель';
+
+  @override
+  String get rankChancellor => 'Канцлер';
+
+  @override
+  String get rankMinister => 'Міністр';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Каліко';
+
+  @override
+  String get coatCheetah => 'Гепард';
+
+  @override
+  String get coatTiger => 'Тигр';
+
+  @override
+  String get coatTabby => 'Табі';
+
+  @override
+  String get coatPaws => 'Лапки';
+
+  @override
+  String get coatRosettes => 'Розетки';
+
+  @override
+  String get coatZebra => 'Зебра';
+
+  @override
+  String get coatSetting => 'Шубка';
+
+  @override
+  String get coatRandom => 'Щоразу інша';
+
+  @override
+  String get coatSnowLeopard => 'Сніговий барс';
+
+  @override
+  String get coatSiamese => 'Сіамські відмітини';
+
+  @override
+  String get coatLynx => 'Рись';
+
+  @override
+  String get coatTortoiseshell => 'Черепаховий';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Нова шубка: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Цілий місяць справ, усі зроблені.';
+
+  @override
+  String get achievementsEmpty =>
+      'Поки нічого не зароблено. Справи знають дорогу.';
+
+  @override
+  String get achievementMonth => 'Повний місяць';
+
+  @override
+  String get achievementYear => 'Повний рік';
+
+  @override
+  String get achievementDecade => 'Повне десятиліття';
+
+  @override
+  String get achievementCentury => 'Повне століття';
+
+  @override
+  String get achievementCenturyHint => 'Ми обоє дуже пишатимемось.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Майстер: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Досягнуто $times разів',
+      few: 'Досягнуто $times рази',
+      one: 'Досягнуто $times раз',
+    );
+    return '$_temp0, уперше $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Наступна сходинка: $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ще ні';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Досягнення: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Що';
@@ -2555,4 +3306,116 @@ class AppLocalizationsUk extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Видалити прийом для всіх $count улюбленців';
   }
+
+  @override
+  String get correctThisValue => 'Виправити це значення';
+
+  @override
+  String get removeThisValue => 'Прибрати це значення';
+
+  @override
+  String get restoreThisValue => 'Повернути це значення';
+
+  @override
+  String get showRemovedValues => 'Показати прибрані значення';
+
+  @override
+  String get hideRemovedValues => 'Сховати прибрані значення';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Прибрано · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Замінено на $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Виправлення';
+
+  @override
+  String get restorePickFolder => 'Вибрати теку резервних копій…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Резервні копії попередньої інсталяції лежать у Documents/catlog (у старіших версіях Downloads/catlog). Виберіть цю теку один раз; її копії з\'являться тут.';
+
+  @override
+  String get backupsTitle => 'Резервні копії';
+
+  @override
+  String get backupsSubtitle => 'Де зберігаються копії ваших каталогів';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google зберігає каталоги цього застосунку у вашому обліковому записі, без фотографій. Після перевстановлення або на новому телефоні вони повертаються самі.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Повна копія кожного каталогу, з фотографіями, записується в Documents/catlog щоразу, коли ви виходите із застосунку після змін.';
+
+  @override
+  String get backupsIosSystem =>
+      'Резервна копія iCloud містить цей застосунок з його каталогами й фотографіями, як і будь-який інший застосунок на цьому iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Повна копія кожного каталогу лежить у застосунку «Файли» в теці cat(a)log. Звідти її можна надіслати в iCloud Drive, через AirDrop або на інший телефон.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Повна копія кожного каталогу, з фотографіями, записується в теку «Завантаження» щоразу, коли ви виходите із застосунку після змін.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Остання копія: $date';
+  }
+
+  @override
+  String get backupsNever => 'Копію ще не записано.';
+
+  @override
+  String get backupsNow => 'Зберегти копію зараз';
+
+  @override
+  String get backupsDone => 'Копію записано.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Відновлено з резервної копії Google $date. Якщо на старому телефоні ще працює cat(a)log, синхронізуйтеся з ним один раз, потім видаліть там застосунок.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Кожну копію може отримувати й тека на ваш вибір: та, яку хмарний застосунок синхронізує на цьому телефоні (Nextcloud, Syncthing та інші), карта пам\'яті, будь-яка тека з вікна вибору. Копії лягають у catlog-backups усередині неї.';
+
+  @override
+  String get backupsFolderPick => 'Копіювати і в теку…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Копіюється і в $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Більше не копіювати туди';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Сповіщення на цьому телефоні не працюють: $error';
+  }
+
+  @override
+  String get copyText => 'Копіювати текст';
+
+  @override
+  String get colWhen => 'Коли';
+
+  @override
+  String get colValue => 'Значення';
+
+  @override
+  String get colWho => 'Хто';
 }

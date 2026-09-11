@@ -63,7 +63,13 @@
   "deleteClowderEmptyBodyNeutral": "The household disappears from the list.",
   "deleteClowderBody": "Its {count} cat(s) are not deleted — they become strays. Move them to another clowder first if that is not what you want.",
   "deleteClowderBodyNeutral": "Its {count} pet(s) are not deleted — they become strays. Move them to another household first if that is not what you want.",
-  "@deleteClowderBodyNeutral": {"placeholders": {"count": {"type": "int"}}},
+  "@deleteClowderBodyNeutral": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "@deleteClowderBody": {
     "placeholders": {
       "count": {
@@ -73,6 +79,9 @@
   },
   "card": "Card",
   "shareAsImage": "Share as image",
+  "sortOldestFirst": "Oldest first",
+  "sortNewestFirst": "Newest first",
+  "shareAsText": "Share as text",
   "shareAsPdf": "Share as PDF",
   "print": "Print",
   "cardTitle": "Card — {name}",
@@ -114,13 +123,28 @@
   "captureFlier": "Capture flier",
   "addPhotosTo": "Add photos to…",
   "photosAddedTo": "{count} photo(s) added to {name}",
-  "@photosAddedTo": {"placeholders": {"count": {"type": "String"}, "name": {"type": "String"}}},
+  "@photosAddedTo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "scanPrintedCode": "Scan printed code",
   "chipScanHint": "Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can't be read by a phone.",
   "chipScanHintNeutral": "Scans the printed QR/barcode from chip cards or vet papers — the chip inside the animal can't be read by a phone.",
   "savingLabel": "Saving…",
   "ownerOfCat": "Owner of {name}",
-  "@ownerOfCat": {"placeholders": {"name": {"type": "String"}}},
+  "@ownerOfCat": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "sortLabel": "Sort",
   "viewAsTable": "Show as table",
   "viewAsTiles": "Show as tiles",
@@ -139,7 +163,16 @@
   "keepThisFrame": "Keep this frame",
   "fromVideo": "From video…",
   "addingPhotos": "Adding photo {done} of {total}…",
-  "@addingPhotos": {"placeholders": {"done": {"type": "int"}, "total": {"type": "int"}}},
+  "@addingPhotos": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "videoMobileOnly": "Picking frames from a video works in the phone app (Android and iPhone) — not on this device yet.",
   "shareWhitelistExplainer": "Choose what goes into the file. Only ticked fields are included.",
   "exportShareFile": "Export share file…",
@@ -152,7 +185,13 @@
   "importShareTitleNeutral": "Import this pet?",
   "shareSource": "Source: {url}",
   "importLabel": "Import",
-  "@shareSource": {"placeholders": {"url": {"type": "String"}}},
+  "@shareSource": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
   "strayAreaLabel": "Possible stray area",
   "prevPin": "Previous pin",
   "nextPin": "Next pin",
@@ -161,8 +200,20 @@
   "noMatchCandidates": "No match candidates right now.",
   "sameIdField": "Same {field}",
   "metersApart": "{distance} m apart",
-  "@sameIdField": {"placeholders": {"field": {"type": "String"}}},
-  "@metersApart": {"placeholders": {"distance": {"type": "String"}}},
+  "@sameIdField": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "@metersApart": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
   "addFlier": "Add flier",
   "missingSinceLabel": "Missing since",
   "phoneLabel": "Phone",
@@ -201,14 +252,44 @@
   "motherNotFemale": "{name} is recorded as male and can't be the mother. Check the gender first.",
   "parentBornAfterKitten": "{name} was born {date} — a parent can't be born after its kitten.",
   "parentBornAfterKittenNeutral": "{name} was born {date} — a parent can't be born after its young.",
-  "@parentBornAfterKittenNeutral": {"placeholders": {"name": {"type": "String"}, "date": {"type": "String"}}},
+  "@parentBornAfterKittenNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "genderFatherFemale": "This cat is recorded as the father of other cats — the father can't be female. Check the family first.",
   "genderFatherFemaleNeutral": "This pet is recorded as the father of other pets — the father can't be female. Check the family first.",
   "genderMotherMale": "This cat is recorded as the mother of other cats — the mother can't be male. Check the family first.",
   "genderMotherMaleNeutral": "This pet is recorded as the mother of other pets — the mother can't be male. Check the family first.",
-  "@fatherNotMale": {"placeholders": {"name": {"type": "String"}}},
-  "@motherNotFemale": {"placeholders": {"name": {"type": "String"}}},
-  "@parentBornAfterKitten": {"placeholders": {"name": {"type": "String"}, "date": {"type": "String"}}},
+  "@fatherNotMale": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@motherNotFemale": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@parentBornAfterKitten": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "moveTo": "Move to",
   "noClowderStrayOption": "No clowder — stray / ran away",
   "noClowderStrayOptionNeutral": "No household — stray / ran away",
@@ -231,8 +312,6 @@
       }
     }
   },
-  "revertThisChange": "Revert this change",
-  "revertSubtitle": "Restores the previous value as a new entry — history keeps both.",
   "fieldCleared": "{field} cleared",
   "@fieldCleared": {
     "placeholders": {
@@ -383,10 +462,18 @@
     }
   },
   "sharedFolder": "Shared folder",
-  "sharedFolderExplainer": "Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side's.",
+  "sharedFolderExplainer": "Both devices use the same folder (for example in Nextcloud or on a USB stick). Each sync stores your changes there and picks up the other side's.",
   "noFolderChosenYet": "No folder chosen yet",
   "choose": "Choose…",
   "syncFolderNow": "Sync folder now",
+  "folderCatalogHint": "Inside it this catalog uses the folder \"{name}\", so one shared folder can carry all your catalogs.",
+  "@folderCatalogHint": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "useSameFolder": "Use the same folder as the other catalogs",
+  "folderHint": "Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.",
   "folderSynced": "Folder synced: {result}",
   "@folderSynced": {
     "placeholders": {
@@ -407,8 +494,29 @@
   "trailOf": "Trail: {name} ({count} sightings)",
   "trailOfField": "Trail: {name} — {field} ({count} values)",
   "trailOfPlace": "Trail: {name} ({count} positions)",
-  "@trailOfPlace": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}},
-  "@trailOfField": {"placeholders": {"name": {"type": "String"}, "field": {"type": "String"}, "count": {"type": "int"}}},
+  "@trailOfPlace": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@trailOfField": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "field": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "@trailOf": {
     "placeholders": {
       "name": {
@@ -428,6 +536,18 @@
     }
   },
   "conflictBody": "Changed in two places at once. Pick what is true:",
+  "privateMarker": "{field} (private)",
+  "@privateMarker": {
+    "placeholders": {
+      "field": {}
+    }
+  },
+  "conflictSame": "Both changes say the same: {value}. Nothing to pick; Resolve clears the badge.",
+  "@conflictSame": {
+    "placeholders": {
+      "value": {}
+    }
+  },
   "mergeThisInto": "Merge this {kind} into…",
   "@mergeThisInto": {
     "placeholders": {
@@ -505,6 +625,36 @@
   "breedPersian": "Persian",
   "breedBengal": "Bengal",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Abyssinian",
+  "breedAmericanShorthair": "American Shorthair",
+  "breedBalinese": "Balinese",
+  "breedBirman": "Birman",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmese",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "British Longhair",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish Rex",
+  "breedDevonRex": "Devon Rex",
+  "breedEgyptianMau": "Egyptian Mau",
+  "breedExoticShorthair": "Exotic Shorthair",
+  "breedHimalayan": "Himalayan",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Oriental Shorthair",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Russian Blue",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Scottish Fold",
+  "breedSelkirkRex": "Selkirk Rex",
+  "breedSiberian": "Siberian",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somali",
+  "breedTonkinese": "Tonkinese",
+  "breedTurkishAngora": "Turkish Angora",
+  "breedTurkishVan": "Turkish Van",
   "starterColor": "Color",
   "starterNeutered": "Neutered",
   "starterPregnant": "Pregnant",
@@ -516,10 +666,22 @@
   "starterPhone": "Phone",
   "lookupUrlLabel": "Lookup link",
   "lookupUrlHelp": "The service's page with {token} where the number goes, e.g. https://www.tasso.net/Tierregister/Suchmeldungen?snr={token}",
-  "@lookupUrlHelp": {"placeholders": {"token": {"type": "String"}}},
+  "@lookupUrlHelp": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
   "lookUpId": "Look up",
   "lookupFailed": "No app could open {url}. Copy the link into a browser.",
-  "@lookupFailed": {"placeholders": {"url": {"type": "String"}}},
+  "@lookupFailed": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
   "stepCat": "Cat",
   "stepCatNeutral": "Pet",
   "stepOwner": "Owner",
@@ -557,14 +719,14 @@
   "helpMapNeutral": "Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet's poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.",
   "helpCard": "The printable card of this cat: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.",
   "helpCardNeutral": "The printable card of this pet: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.",
-  "helpSync": "Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.",
+  "helpSync": "Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too. Every catalog signs what it writes with its own key; partners see the key code next to your name. A partner's first key is taken on trust from a file and counts as met once you sync in person. Entries in a known name without the right signature are refused and listed on the arrival page.",
   "helpFields": "The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the cat.",
   "helpFieldsNeutral": "The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the pet.",
-  "helpTimeline": "Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.",
+  "helpTimeline": "Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.",
   "helpDuplicates": "Cats or clowders that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.",
   "helpDuplicatesNeutral": "Pets or households that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.",
-  "helpMatches": "Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat's search area. Tap a pair to merge it, long-press to open the first cat and compare.",
-  "helpMatchesNeutral": "Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet's search area. Tap a pair to merge it, long-press to open the first pet and compare.",
+  "helpMatches": "Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat's search area. Tap a pair to merge it, long-press to open the first cat and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal's Looks change.",
+  "helpMatchesNeutral": "Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet's search area. Tap a pair to merge it, long-press to open the first pet and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal's Looks change.",
   "helpFlier": "A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat's data, the owner's contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.",
   "helpFlierNeutral": "A photographed missing-pet poster becomes a pet plus its owner. Step by step: the pet's data, the owner's contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.",
   "archiveTitle": "Archive",
@@ -572,28 +734,97 @@
   "archiveExplainerNeutral": "Deceased pets and empty households that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.",
   "archiveAction": "Archive",
   "archiveSelected": "Archive {count} entries",
-  "@archiveSelected": {"placeholders": {"count": {"type": "int"}}},
+  "@archiveSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "archiveConfirmTitle": "Archive {count} entries?",
-  "@archiveConfirmTitle": {"placeholders": {"count": {"type": "int"}}},
+  "@archiveConfirmTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "archiveConfirmBody": "{names} will be written into a file and then deleted — on your device and on every device you sync with. Importing the file brings everything back; without it, they are gone.",
-  "@archiveConfirmBody": {"placeholders": {"names": {"type": "String"}}},
+  "@archiveConfirmBody": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
   "archiveDone": "{count} entries archived and deleted",
-  "@archiveDone": {"placeholders": {"count": {"type": "int"}}},
+  "@archiveDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "archiveFailed": "Nothing was deleted: the archive file could not be written ({error}).",
-  "@archiveFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@archiveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "storageLine": "Database {db}, photos {photos} in {count} files",
-  "@storageLine": {"placeholders": {"db": {"type": "String"}, "photos": {"type": "String"}, "count": {"type": "int"}}},
+  "@storageLine": {
+    "placeholders": {
+      "db": {
+        "type": "String"
+      },
+      "photos": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "quietForYears": "Quiet for {years} years",
-  "@quietForYears": {"placeholders": {"years": {"type": "int"}}},
+  "@quietForYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "nothingToArchive": "Nothing old enough to archive.",
   "archiveCandidateLine": "Last change {date} · photos {size}",
-  "@archiveCandidateLine": {"placeholders": {"date": {"type": "String"}, "size": {"type": "String"}}},
+  "@archiveCandidateLine": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
   "helpArchive": "Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.",
   "helpArchiveNeutral": "Old data costs space, above all the photos, which every synced device carries. Here you pick deceased pets and empty households that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.",
   "restoreDeletedTitle": "Restore {count} deleted entries?",
-  "@restoreDeletedTitle": {"placeholders": {"count": {"type": "int"}}},
+  "@restoreDeletedTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "restoreDeletedBody": "{names} are deleted in this catalog, and the file you just imported carries them. Restoring brings them back here and on every device you sync with.",
-  "@restoreDeletedBody": {"placeholders": {"names": {"type": "String"}}},
+  "@restoreDeletedBody": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
   "restoreAction": "Restore",
   "keepDeleted": "Keep deleted",
   "archiveNotSaved": "Nothing was deleted: the archive was not saved anywhere.",
@@ -675,11 +906,116 @@
   "rangeAll": "All",
   "rangeCustom": "Custom…",
   "changeSince": "{delta} since {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "As in your region",
   "unitsMetric": "Metric (kg, cm, ml, °C)",
   "unitsImperial": "Imperial (lb, in, fl oz, °F)",
   "starterWeight": "Weight",
+  "starterLooks": "Looks",
+  "looksGroupSize": "Size",
+  "looksGroupColours": "Colours",
+  "looksGroupPattern": "Pattern",
+  "looksGroupFur": "Fur",
+  "looksGroupTail": "Tail",
+  "looksGroupEars": "Ears",
+  "looksGroupMarks": "Marks",
+  "looksGroupCrest": "Crest",
+  "looksGroupBeak": "Beak",
+  "looksGroupRing": "Leg ring",
+  "looksValueSmall": "Small",
+  "looksValueMedium": "Medium",
+  "looksValueLarge": "Large",
+  "looksValueBlack": "Black",
+  "looksValueWhite": "White",
+  "looksValueGrey": "Grey",
+  "looksValueBrown": "Brown",
+  "looksValueGinger": "Ginger",
+  "looksValueCream": "Cream",
+  "looksValueGolden": "Golden",
+  "looksValueTan": "Tan",
+  "looksValueGreen": "Green",
+  "looksValueBlue": "Blue",
+  "looksValueYellow": "Yellow",
+  "looksValueRed": "Red",
+  "looksValueOrange": "Orange",
+  "looksValuePink": "Pink",
+  "looksValueWhiteBib": "White bib",
+  "looksValueWhitePaws": "White paws",
+  "looksValueWhiteTailTip": "White tail tip",
+  "looksValueBlaze": "Blaze",
+  "looksValueMask": "Mask",
+  "looksValueSpots": "Spots",
+  "looksValuePatches": "Patches",
+  "looksValueStripes": "Stripes",
+  "looksValueScar": "Scar",
+  "looksValueNotchedEar": "Notched ear",
+  "looksValueEarTip": "Ear tip",
+  "looksValueCollar": "Collar",
+  "looksValueShort": "Short",
+  "looksValueLong": "Long",
+  "looksValueHairless": "Hairless",
+  "looksValueBobtail": "Bobtail",
+  "looksValueNone": "None",
+  "looksValueCurled": "Curled",
+  "looksValueUpright": "Upright",
+  "looksValueFloppy": "Floppy",
+  "looksValueFolded": "Folded",
+  "looksValueRounded": "Rounded",
+  "looksValueSolid": "Solid",
+  "looksValueTabby": "Tabby",
+  "looksValueTortoiseshell": "Tortoiseshell",
+  "looksValueCalico": "Calico",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Bicolour",
+  "looksValueTuxedo": "Tuxedo",
+  "looksValueBrindle": "Brindle",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Spotted",
+  "looksValuePatched": "Patched",
+  "looksValueTricolour": "Tricolour",
+  "looksValueSable": "Sable",
+  "looksGroupEyes": "Eyes",
+  "looksGroupFeatures": "Features",
+  "looksValueAmber": "Amber",
+  "looksValueCopper": "Copper",
+  "looksValueOddEyed": "Odd-eyed",
+  "looksValueChocolate": "Chocolate",
+  "looksValueLilac": "Lilac",
+  "looksValueSilver": "Silver",
+  "looksValueSmoke": "Smoke",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Curly",
+  "looksValueWiry": "Wiry",
+  "looksValueKinked": "Kinked",
+  "looksValueCropped": "Cropped",
+  "looksValueTippedEar": "Tipped ear",
+  "looksValueEarTattoo": "Ear tattoo",
+  "looksValueMissingEar": "Missing ear",
+  "looksValueMissingEye": "Missing eye",
+  "looksValueCloudyEye": "Cloudy eye",
+  "looksValueMissingFrontLeg": "Missing front leg",
+  "looksValueMissingHindLeg": "Missing hind leg",
+  "looksValueNoTeeth": "No teeth",
+  "looksValueExtraToes": "Extra toes",
+  "rejectMatch": "Not the same",
+  "traitsAgree": "{count, plural, =1{1 trait agrees} other{{count} traits agree}}",
+  "@traitsAgree": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "systemDefault": "System default",
   "iosLocalNetworkHint": "If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again.",
   "includePrivate": "Share private data",
@@ -706,6 +1042,8 @@
   "otherOption": "Other…",
   "celebrationsToggle": "Celebrate adoptions",
   "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home",
+  "cheerToggle": "Cheer sound",
+  "cheerSubtitle": "A short cheer with the confetti, a different one each time",
   "celebrationsSubtitleNeutral": "Confetti and a cheer when a pet moves into a forever home",
   "onMapLabel": "On the map",
   "showOnMap": "Show on map",
@@ -719,8 +1057,56 @@
   "authorsSection": "Who wrote into this catalog",
   "hardDeleteAction": "Delete everything by this author",
   "hardDeleteWarning": "Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.",
-  "hardDeleteWarningDevice": "Removes every entry and photo written by {name} on device {device} from this catalog. Other devices keep theirs. This cannot be undone.",
-  "@hardDeleteWarningDevice": {"placeholders": {"name": {"type": "String"}, "device": {"type": "String"}}},
+  "yourKey": "Your key",
+  "yourTitle": "Your title",
+  "titleNone": "No title",
+  "keyLine": "key {code}",
+  "@keyLine": {
+    "placeholders": {
+      "code": {}
+    }
+  },
+  "keyVerified": "met in person",
+  "keyFromFile": "from a file, not yet met",
+  "keyUnsigned": "no key yet, entries unsigned",
+  "summaryRefused": "Refused",
+  "refusedEntries": "{count, plural, =1{1 entry} other{{count} entries}} refused: not signed with the key known for {name}",
+  "@refusedEntries": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {}
+    }
+  },
+  "newKeyCallsItself": "A new key {code} calls itself {name}. Check with them before trusting it.",
+  "@newKeyCallsItself": {
+    "placeholders": {
+      "code": {},
+      "name": {}
+    }
+  },
+  "keyChangedRefused": "{name} offered a key other than the one known here. The known one stays; the new one was not taken.",
+  "@keyChangedRefused": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "metaNewKey": "New key: {name} · {code} ({how})",
+  "@metaNewKey": {
+    "placeholders": {
+      "name": {},
+      "code": {},
+      "how": {}
+    }
+  },
+  "hardDeleteWarningKey": "Removes every entry and photo written by {name} under key {key} from this catalog. Other devices keep theirs. This cannot be undone.",
+  "@hardDeleteWarningKey": {
+    "placeholders": {
+      "name": {},
+      "key": {}
+    }
+  },
   "typeToConfirm": "Type {name} to confirm",
   "alsoBan": "Also ban — never accept their data again",
   "bansSection": "Bans",
@@ -743,30 +1129,75 @@
   "summaryNew": "New",
   "summaryConflicts": "Conflicts to resolve",
   "conflictsMenu": "Conflicts ({n})",
-  "@conflictsMenu": {"placeholders": {"n": {"type": "int"}}},
+  "@conflictsMenu": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "rejectAfterResolve": "You settled a conflict here, so Reject is off: it would undo that too.",
   "arrivalIntro": "These changes are already in your catalog. Reject puts it back as it was.",
   "summaryUpdated": "Updated",
   "summaryDeleted": "Deleted",
   "keepMine": "Keep mine",
   "keptMine": "Kept your version of {name} on this device.",
-  "@keptMine": {"placeholders": {"name": {"type": "String"}}},
+  "@keptMine": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "summaryMeta": "Also arrived",
   "changesCount": "{n, plural, one{1 change} other{{n} changes}}",
-  "@changesCount": {"placeholders": {"n": {"type": "int"}}},
+  "@changesCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "acceptArrival": "Accept",
   "rejectArrival": "Reject",
   "photoAdded": "Photo added",
   "photoNotReceived": "Photo not received yet",
   "photoRemoved": "Photo removed",
   "metaFieldAdded": "New field: {name}",
-  "@metaFieldAdded": {"placeholders": {"name": {"type": "String"}}},
+  "@metaFieldAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "metaFieldChanged": "Field changed: {name}",
-  "@metaFieldChanged": {"placeholders": {"name": {"type": "String"}}},
+  "@metaFieldChanged": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "metaMerged": "{loser} merged into {survivor}",
-  "@metaMerged": {"placeholders": {"loser": {"type": "String"}, "survivor": {"type": "String"}}},
+  "@metaMerged": {
+    "placeholders": {
+      "loser": {
+        "type": "String"
+      },
+      "survivor": {
+        "type": "String"
+      }
+    }
+  },
   "metaPhotos": "{n, plural, one{1 photo} other{{n} photos}}",
-  "@metaPhotos": {"placeholders": {"n": {"type": "int"}}},
+  "@metaPhotos": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "@summaryOther": {
     "placeholders": {
       "n": {}
@@ -789,7 +1220,11 @@
   "toastAdopted": "💚 {cat} adopted by {home} 💚",
   "toastBorn": "✨ New kitten: {cat} ✨",
   "toastBornNeutral": "✨ Newborn: {cat} ✨",
-  "@toastBornNeutral": {"placeholders": {"cat": {}}},
+  "@toastBornNeutral": {
+    "placeholders": {
+      "cat": {}
+    }
+  },
   "toastDeceased": "{cat} has passed away",
   "toastEscaped": "{cat} has escaped",
   "toastMoved": "{cat} moved to {home}",
@@ -899,7 +1334,13 @@
   "intoCatalog": "Into catalog",
   "catalogNameLabel": "Catalog name",
   "catalogNameTaken": "A catalog called {name} already exists. Pick a different name.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Manage catalogs",
   "restoreTitle": "Restore backups",
   "restoreIntro": "Backups from an earlier installation were found on this device. Each one becomes a catalog again.",
@@ -907,36 +1348,111 @@
   "restoreBackupsMenu": "Restore backups…",
   "restorePickFiles": "Pick files…",
   "restoreFileLine": "{count, plural, one{1 file} other{{count} files}}, newest {date}",
-  "@restoreFileLine": {"placeholders": {"count": {"type": "int"}, "date": {"type": "String"}}},
+  "@restoreFileLine": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "restoreDone": "{count, plural, =0{Nothing restored.} one{1 catalog restored.} other{{count} catalogs restored.}}",
-  "@restoreDone": {"placeholders": {"count": {"type": "int"}}},
+  "@restoreDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "helpCatalogs": "A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.",
   "helpCatalogsNeutral": "A catalog is a world of its own: its own pets, households, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.",
-  "helpCatalogSettings": "Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.",
+  "helpCatalogSettings": "Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first. Your key is the code partners see next to your name; it stays with this catalog.",
   "spotHomeCatalog": "This is the catalog you are in. Tap the name to switch, or to make another one.",
   "deleteCatalog": "Delete catalog",
   "catalogSettings": "Catalog settings",
   "deleteCatalogBody": "Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back.",
   "deleteCatalogBodyNeutral": "Everything in {name} goes: its pets, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} deleted. The file is in {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Type {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Move to another catalog",
   "movedToCatalog": "{count} moved to {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "What should move?",
   "moveIntoNewCatalog": "Move something into {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Undo this import",
   "undoImportBody": "The {count} change(s) this import brought in are removed. They are written to a file first, so importing that file puts them back. People you already synced with keep their copy — that cannot be unsent.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Undone. The file is in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Go back",
   "goBackToHere": "Go back to here",
   "momentImport": "Before importing",
@@ -947,18 +1463,42 @@
   "momentManual": "Marked by you",
   "showOlderMoments": "Show older",
   "goBackBody": "Everything after this moment is removed — {count} change(s). They are written to a file first, so importing it puts them back, and every moment newer than this one goes with them. People you already synced with keep their copy — that cannot be unsent.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Name this moment",
   "helpGoBack": "The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.",
   "goBackFileFailed": "Nothing was removed: the file that keeps it could not be written ({error}). Free some space and try again.",
   "goBackChanged": "Nothing was removed: the catalog changed while the file was being saved. Try again.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "This is the catalog you are in. Switch to another one, then delete it.",
   "shareFileFailed": "The share file could not be written ({error}). Free some space and try again.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "privateLabel": "Private",
   "sharedCatalogIs": "Catalog: {name}",
-  "@sharedCatalogIs": {"placeholders": {"name": {"type": "String"}}},
+  "@sharedCatalogIs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "markPrivate": "Mark as private",
   "unmarkPrivate": "Remove private mark",
   "agenda": "Agenda",
@@ -967,9 +1507,21 @@
   "agendaEmptyNeutral": "No appointments planned. Plan new ones here with the plus, or on a pet's or household's page.",
   "dueToday": "due today",
   "dueInDays": "{count, plural, one{in 1 day} other{in {count} days}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 day overdue} other{{count} days overdue}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Done",
   "repeatTitle": "Again in…",
   "noRepeatLabel": "No repeat",
@@ -978,15 +1530,33 @@
   "unitMonths": "months",
   "unitYears": "years",
   "ageYears": "{years} yrs",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mo",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Change date",
   "removeReminderLabel": "Remove reminder",
   "exportIcs": "Export calendar file",
   "resyncCalendar": "Resync calendar",
   "icsSavedTo": "Calendar file saved under {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Mirror to device calendar",
   "calendarMirrorSubtitle": "The appointments appear as all-day entries in the calendar. cat(a)log updates them there at every start and after every change. You can manage alerts for them in the calendar.",
   "syncPeerOlder": "The other device runs an older cat(a)log that cannot carry reminders. Update cat(a)log there, then sync again.",
@@ -1009,11 +1579,18 @@
   "spotHomeAgenda": "Agenda: the list of planned appointments — vet visits, medicine, check-ups.",
   "spotAgendaAdd": "Plan a new appointment.",
   "spotAgendaCalendar": "Switch on here to mirror the cat(a)log appointments into a calendar of your choice.",
-  "helpAgenda": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned.",
-  "helpAgendaNeutral": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned.",
+  "spotAgendaToday": "Today's chores: tick when done. The dots show the last seven days.",
+  "helpAgenda": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.",
+  "helpAgendaNeutral": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.",
   "calendarRowOff": "Calendar: off",
   "calendarRowOn": "Calendar: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Plan an appointment for this cat. It shows in the Agenda and is confirmed there.",
   "spotAddReminderCatNeutral": "Plan an appointment for this pet. It shows in the Agenda and is confirmed there.",
   "spotAddReminderClowder": "Plan an appointment for this clowder. It shows in the Agenda and is confirmed there.",
@@ -1024,6 +1601,178 @@
   "planChooserTitle": "Appointment or reminder?",
   "planChooserAppointment": "Appointment — a visit at a date and time, with notes",
   "planChooserReminder": "Reminder — a value that becomes due on a day",
+  "planChooserChore": "Chore — a task that comes around: feeding, drops, litter",
+  "newChore": "New chore",
+  "choreEdit": "Edit chore",
+  "choreTitleLabel": "What",
+  "choreRepeatDaily": "Daily",
+  "choreRepeatEvery": "Every…",
+  "choreRepeatWeekdays": "Weekdays",
+  "choreEveryDays": "{n, plural, one{every day} other{every {n} days}}",
+  "@choreEveryDays": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "choreEveryWeeks": "{n, plural, one{every week} other{every {n} weeks}}",
+  "@choreEveryWeeks": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "choreEveryMonths": "{n, plural, one{every month} other{every {n} months}}",
+  "@choreEveryMonths": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "choreEveryYears": "{n, plural, one{every year} other{every {n} years}}",
+  "@choreEveryYears": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "choreNoTime": "Any time of day",
+  "chorePause": "Pause",
+  "chorePaused": "Paused",
+  "choreResume": "Resume",
+  "choreEnd": "End chore",
+  "choreHistory": "History",
+  "choreDoneAt": "done {when} · {who}",
+  "@choreDoneAt": {
+    "placeholders": {
+      "when": {},
+      "who": {}
+    }
+  },
+  "choreDoneEarly": "early",
+  "choreDoneLate": "late",
+  "choreMissed": "Missed",
+  "choreStillOpen": "Still open",
+  "choreEndConfirm": "The chore leaves the list. What was ticked stays in the history.",
+  "todaySection": "Today",
+  "upcomingSection": "Coming up",
+  "allDoneToday": "Today: all done",
+  "streakDays": "{n, plural, one{1 day in a row} other{{n} days in a row}}",
+  "@streakDays": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "choreDue": "Due {date}",
+  "remindMe": "Remind me",
+  "remindNext": "Next reminder: {when}",
+  "@remindNext": {
+    "placeholders": {
+      "when": {}
+    }
+  },
+  "remindNone": "No reminder planned: nothing due ahead.",
+  "remindPending": "{count, plural, =0{Nothing scheduled on this phone yet} =1{1 reminder scheduled on this phone} other{{count} reminders scheduled on this phone}}",
+  "@remindPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "remindTest": "Send a test reminder now",
+  "remindLateHint": "Reminders can arrive a few minutes late; the phone picks the exact moment.",
+  "remindPermissionDenied": "No permission for notifications, so the reminder stays off. Allow them in the phone's app settings and try again.",
+  "batteryHint": "If reminders stay away, allow cat(a)log to run in the background in the phone's battery settings.",
+  "batterySettings": "Battery settings",
+  "achievementsTitle": "Achievements",
+  "rankServant": "Servant",
+  "rankButler": "Butler",
+  "rankSteward": "Steward",
+  "rankChancellor": "Chancellor",
+  "rankMinister": "Minister",
+  "titleWithChore": "{title} ({chore})",
+  "@titleWithChore": {
+    "placeholders": {
+      "title": {},
+      "chore": {}
+    }
+  },
+  "coatCalico": "Calico",
+  "coatCheetah": "Cheetah",
+  "coatTiger": "Tiger",
+  "coatTabby": "Tabby",
+  "coatPaws": "Paws",
+  "coatRosettes": "Rosettes",
+  "coatZebra": "Zebra",
+  "coatSetting": "Coat",
+  "coatRandom": "A different one each start",
+  "coatSnowLeopard": "Snow leopard",
+  "coatSiamese": "Siamese points",
+  "coatLynx": "Lynx",
+  "coatTortoiseshell": "Tortoiseshell",
+  "coatUnlocked": "New coat: {coat}",
+  "@coatUnlocked": {
+    "placeholders": {
+      "coat": {}
+    }
+  },
+  "coatUnlockedHow": "A full month of chores, all done.",
+  "achievementsEmpty": "Nothing earned yet. The chores know the way.",
+  "achievementMonth": "A full month",
+  "achievementYear": "A full year",
+  "achievementDecade": "A full decade",
+  "achievementCentury": "A full century",
+  "achievementCenturyHint": "We will both be very proud.",
+  "achievementMaster": "{title} master",
+  "@achievementMaster": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "achievementReached": "{times, plural, one{Reached once} other{Reached {times} times}}, first on {date}",
+  "@achievementReached": {
+    "placeholders": {
+      "times": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "achievementNext": "Next at {n}",
+  "@achievementNext": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "achievementLocked": "Not yet",
+  "achievementUnlocked": "Achievement: {name}",
+  "@achievementUnlocked": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@choreDue": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "appointmentTitleLabel": "What",
   "notesLabel": "Notes",
   "timeLabel": "Time",
@@ -1043,9 +1792,21 @@
   "useCode": "Use this code",
   "qrNone": "No QR code found in the photo.",
   "qrFailed": "QR reading failed: {error}",
-  "@qrFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@qrFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "flierRecognized": "{name} poster recognized. Check below which field each line goes to.",
-  "@flierRecognized": {"placeholders": {"name": {"type": "String"}}},
+  "@flierRecognized": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "flierLayoutUnknown": "Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.",
   "targetRegistryNumber": "Registry number",
   "targetLostPlace": "Address (lost at)",
@@ -1057,7 +1818,13 @@
   "existingClowderNeutral": "Existing household",
   "createNewInstead": "None — create new",
   "overwritesValue": "Overwrites current value \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Abort the scan?",
   "abortScanBody": "Nothing gets saved.",
   "abortScan": "Abort",
@@ -1070,12 +1837,100 @@
   "pickCatsTitleNeutral": "Which pets come along?",
   "catsCount": "{count} cats",
   "catsCountNeutral": "{count} pets",
-  "@catsCountNeutral": {"placeholders": {"count": {"type": "int"}}},
-  "@catsCount": {"placeholders": {"count": {"type": "int"}}},
+  "@catsCountNeutral": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@catsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "finishUntickHint": "Untick the cats that were not treated; they stay planned.",
   "finishUntickHintNeutral": "Untick the pets that were not treated; they stay planned.",
   "deleteAppointmentGroup": "Delete appointment for all {count} cats",
   "deleteAppointmentGroupNeutral": "Delete appointment for all {count} pets",
-  "@deleteAppointmentGroupNeutral": {"placeholders": {"count": {"type": "int"}}},
-  "@deleteAppointmentGroup": {"placeholders": {"count": {"type": "int"}}}
+  "@deleteAppointmentGroupNeutral": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@deleteAppointmentGroup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "correctThisValue": "Correct this value",
+  "removeThisValue": "Remove this value",
+  "restoreThisValue": "Restore this value",
+  "showRemovedValues": "Show removed values",
+  "hideRemovedValues": "Hide removed values",
+  "entryRemovedBy": "Removed · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Replaced by {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Correction",
+  "restorePickFolder": "Choose backup folder…",
+  "restoreAndroidHint": "The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.",
+  "backupsTitle": "Backups",
+  "backupsSubtitle": "Where your catalogs are kept safe",
+  "backupsAndroidSystem": "Google backs up this app's catalogs with your account, photos left out. They come back by themselves after a reinstall or on a new phone.",
+  "backupsAndroidFiles": "A full copy of each catalog, photos included, is written to Documents/catlog whenever you leave the app after changes.",
+  "backupsIosSystem": "iCloud Backup includes this app with its catalogs and photos, like every other app on this iPhone.",
+  "backupsIosFiles": "A full copy of each catalog lies in the Files app under cat(a)log. From there it can go to iCloud Drive, AirDrop or another phone.",
+  "backupsDesktopFiles": "A full copy of each catalog, photos included, is written to your Downloads folder whenever you leave the app after changes.",
+  "backupsLast": "Last copy: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "No copy written yet.",
+  "backupsNow": "Back up now",
+  "backupsDone": "Copy written.",
+  "backupsRestoredNote": "Restored from the Google backup on {date}. If the old phone still runs cat(a)log, sync from it once, then remove the app there.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "A folder of your choice can receive every copy too: one a cloud app keeps in sync on this phone (Nextcloud, Syncthing and others), a memory card, any folder the picker offers. The copies land in catlog-backups inside it.",
+  "backupsFolderPick": "Also copy to a folder…",
+  "backupsFolderIs": "Also copied to {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Stop copying there",
+  "remindFailed": "Notifications are not working on this phone: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Copy text",
+  "colWhen": "When",
+  "colValue": "Value",
+  "colWho": "Who"
 }

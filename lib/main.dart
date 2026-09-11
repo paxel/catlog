@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui' show PlatformDispatcher;
 
 import 'package:catalog_core/catalog_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -15,6 +15,8 @@ import 'src/stray_cam.dart';
 import 'src/hidden.dart';
 import 'src/fur_background.dart';
 import 'src/screens/restore_screen.dart';
+import 'src/achievements.dart';
+import 'src/chores/chore_reminders.dart';
 import 'src/l10n.dart';
 import 'src/move_to_catalog.dart';
 import 'src/screens/author_setup_screen.dart';
@@ -40,6 +42,15 @@ void Function(CatalogInfo)? switchCatalog;
 Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    // The cheers are somebody's work: the credit CC BY asks for, on the
+    // licences page beside the packages'.
+    LicenseRegistry.addLicense(() => Stream.value(const LicenseEntryWithLineBreaks(
+          ['Free Crowd Cheering Sounds'],
+          'cheer1.wav–cheer4.wav are excerpts of "Free Crowd Cheering Sounds" '
+          'by Gregor Quendel (https://opengameart.org/content/free-crowd-cheering-sounds), '
+          'licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). '
+          'Cut short, mixed to mono, faded out.',
+        )));
     final dir = await getApplicationSupportDirectory();
     // The language decides what the catalog carried over from an older
     // version is called, so it is read before the catalogs are opened.
@@ -179,6 +190,28 @@ class _CatlogAppState extends State<CatlogApp>
     WidgetsBinding.instance.addPostFrameCallback((_) => previous.close());
   }
 
+  /// The coat of this launch: the favourite when earned, else one of
+  /// the coats earned so far at random. Earned ones come from the app
+  /// database's full-month count.
+  void _pickCoat() {
+    if (!_store.isOpen) return;
+    final months = catalogManager
+            ?.achievements()
+            .where((a) => a.id == fullMonthId)
+            .firstOrNull
+            ?.times ??
+        0;
+    pickCoat(favourite: _store.localSetting('furFavourite'), fullMonths: months);
+  }
+
+  /// Chore reminders follow the catalog as it is now: rebuilt on start,
+  /// on resume and after every change.
+  void _refreshReminders() {
+    if (!_store.isOpen) return;
+    refreshChoreReminders(_store,
+        body: (c) => _store.current(c.entity, Keys.name) ?? '');
+  }
+
   /// True only when the author was created THIS run: the intro is for
   /// fresh installs, never sprung on upgraders with a routine.
   bool _freshSetup = false;
@@ -191,6 +224,10 @@ class _CatlogAppState extends State<CatlogApp>
   void initState() {
     super.initState();
     switchCatalog = (to) => _switchCatalog(to);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _refreshReminders();
+      _pickCoat();
+    });
     // The words change with the mode; the whole tree reads them anew.
     petMode.addListener(_rebuild);
     WidgetsBinding.instance.addObserver(this);
@@ -266,6 +303,7 @@ class _CatlogAppState extends State<CatlogApp>
     }
     if (state == AppLifecycleState.resumed) {
       markRunning();
+      _refreshReminders();
     }
   }
 

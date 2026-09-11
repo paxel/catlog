@@ -52,6 +52,9 @@
   "card": "Kortelė",
   "cardTitle": "Kortelė — {name}",
   "shareAsImage": "Bendrinti kaip paveikslėlį",
+  "sortOldestFirst": "Seniausi pirmiausia",
+  "sortNewestFirst": "Naujausi pirmiausia",
+  "shareAsText": "Bendrinti kaip tekstą",
   "shareAsPdf": "Bendrinti kaip PDF",
   "print": "Spausdinti",
   "renameCat": "Pervadinti katę",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Be namų ūkio — benamis / pabėgo",
   "timelineOf": "Laiko juosta — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Atšaukti šį pakeitimą",
-  "revertSubtitle": "Grąžina ankstesnę reikšmę kaip naują įrašą — istorija išsaugo abu.",
   "fieldCleared": "{field} išvalyta",
   "fieldBackTo": "{field} grąžinta į \"{value}\"",
   "leftStray": "Išėjo — benamė",
@@ -128,10 +129,13 @@
   "syncFailed": "Sinchronizavimas nepavyko: {error}",
   "lastSyncWith": "Paskutinis sinchronizavimas su {peer}: {time}",
   "sharedFolder": "Bendras aplankas",
-  "sharedFolderExplainer": "Abu įrenginiai naudoja tą patį aplanką (pvz., „Dropbox“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.",
+  "sharedFolderExplainer": "Abu įrenginiai naudoja tą patį aplanką (pvz., „Nextcloud“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.",
   "noFolderChosenYet": "Aplankas dar nepasirinktas",
   "choose": "Pasirinkti…",
   "syncFolderNow": "Sinchronizuoti aplanką dabar",
+  "folderCatalogHint": "Jame šis katalogas naudoja aplanką „{name}“, tad vienas bendras aplankas gali nešti visus jūsų katalogus.",
+  "useSameFolder": "Naudoti tą patį aplanką kaip kiti katalogai",
+  "folderHint": "Tiks bet koks aplankas, kurį du įrenginiai laiko vienodą: debesies diskas arba Syncthing aplankui, kuris lieka jūsų telefonuose. Syncthing nemokamas: įdiekite jį kiekviename telefone, bendrinkite vieną aplanką tarp jų ir pasirinkite tą aplanką čia kiekviename įrenginyje.",
   "folderSynced": "Aplankas sinchronizuotas: {result}",
   "folderSyncFailed": "Aplanko sinchronizavimas nepavyko: {error}",
   "recordSightingHere": "Įrašyti pastebėjimą čia:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Kelias: {name} ({count} pozic.)",
   "conflictOn": "Konfliktas — {field}",
   "conflictBody": "Pakeista dviejose vietose vienu metu. Pasirinkite, kas teisinga:",
+  "privateMarker": "{field} (privatu)",
+  "conflictSame": "Abu pakeitimai sako tą patį: {value}. Nėra ko rinktis; „Išspręsti“ nuima žymę.",
   "mergeThisInto": "Sujungti šį įrašą ({kind}) su…",
   "noOtherToMergeInto": "Nėra kito įrašo ({kind}) sujungimui.",
   "mergeIntoQuestion": "Sujungti su {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Persų",
   "breedBengal": "Bengalijos",
   "breedSphynx": "Sfinksas",
+  "breedAbyssinian": "Abisinų",
+  "breedAmericanShorthair": "Amerikos trumpaplaukė",
+  "breedBalinese": "Balio",
+  "breedBirman": "Birmos",
+  "breedBombay": "Bombėjaus",
+  "breedBurmese": "Birmos trumpaplaukė",
+  "breedBurmilla": "Burmila",
+  "breedBritishLonghair": "Britų ilgaplaukė",
+  "breedChartreux": "Kartūzų",
+  "breedCornishRex": "Kornvalio reksas",
+  "breedDevonRex": "Devono reksas",
+  "breedEgyptianMau": "Egipto mau",
+  "breedExoticShorthair": "Egzotinė trumpaplaukė",
+  "breedHimalayan": "Himalajų",
+  "breedKorat": "Koratas",
+  "breedManx": "Menkso",
+  "breedMunchkin": "Mančkinas",
+  "breedOcicat": "Ocikatė",
+  "breedOrientalShorthair": "Rytų trumpaplaukė",
+  "breedRagamuffin": "Ragamafinas",
+  "breedRussianBlue": "Rusų mėlynoji",
+  "breedSavannah": "Savana",
+  "breedScottishFold": "Škotų kniurkė",
+  "breedSelkirkRex": "Selkirko reksas",
+  "breedSiberian": "Sibiro katė",
+  "breedSnowshoe": "Snoušu",
+  "breedSomali": "Somalio",
+  "breedTonkinese": "Tonkino",
+  "breedTurkishAngora": "Turkų angora",
+  "breedTurkishVan": "Turkų vanas",
   "ownValue": "Sava reikšmė",
   "locationDeniedForever": "Prieiga prie vietos užblokuota. Leiskite ją sistemos nustatymuose, kad galėtumėte naudoti Stray Cam.",
   "locationServiceOff": "Šiame įrenginyje vietos nustatymas išjungtas. Įjunkite jį nustatymuose ir bandykite dar kartą.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Visi augintiniai ir vietos, turinčios poziciją. Paieška randa augintinius, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusio augintinio skelbimų vietas ir aplink namus, iš kurių jis pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą. Kiekvienas vietos laukas žemėlapyje yra smeigtukas; bakstelėkite smeigtuką, kad matytumėte jo kelią.",
   "helpCard": "Spausdinama katės kortelė: viršuje ženkleliais pasirenkate, kas joje bus, tada dalinatės kaip paveikslėliu ar PDF. Numeriai gali būti spausdinami kaip QR arba brūkšninis kodas, o pozicija tampa QR, atveriančiu žemėlapį, ir trumpu Plus Code.",
   "helpCardNeutral": "Spausdinama augintinio kortelė: viršuje ženkleliais pasirenkate, kas joje bus, tada dalinatės kaip paveikslėliu ar PDF. Numeriai gali būti spausdinami kaip QR arba brūkšninis kodas, o pozicija tampa QR, atveriančiu žemėlapį, ir trumpu Plus Code.",
-  "helpSync": "Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia.",
+  "helpSync": "Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia. Kiekvienas katalogas pasirašo tai, ką rašo, savo raktu; partneriai mato rakto kodą šalia jūsų vardo. Pirmasis partnerio raktas iš failo priimamas pasitikint ir laikomas patvirtintu, kai sinchronizuojate asmeniškai. Įrašai žinomu vardu be tinkamo parašo atmetami ir išvardijami atvykimo puslapyje.",
   "helpFields": "Laukai, kuriuos naudoja jūsų katalogas. Pervadinkite juos, pakeiskite pasirinkimo lauko parinktis arba sukurkite savo. Identifikatoriaus laukas gali nurodyti paslaugą (registrą) — tada numerį prie katės galima paliesti.",
   "helpFieldsNeutral": "Laukai, kuriuos naudoja jūsų katalogas. Pervadinkite juos, pakeiskite pasirinkimo lauko parinktis arba sukurkite savo. Identifikatoriaus laukas gali nurodyti paslaugą (registrą) — tada numerį prie augintinio galima paliesti.",
-  "helpTimeline": "Kiekvienas kada nors atliktas pakeitimas, naujausi viršuje: kas, kada ir į kokią reikšmę ką pakeitė. Bet kurį įrašą galima atšaukti — tai sukuria naują įrašą, niekas niekada nedingsta.",
+  "helpTimeline": "Kiekvienas pakeitimas, naujausias pirmas: kas, kada ir į kokią reikšmę. Palieskite įrašą, kad pataisytumėte, palaikykite, kad pašalintumėte ar atkurtumėte; paslėptas įrašas lieka žurnale ir rodomas paprašius.",
   "helpDuplicates": "Katės ar kolonijos, kurios atrodo esančios du kartus — vienodi numeriai arba labai panašūs vardai su sutampančiomis detalėmis. Palieskite porą, kad sujungtumėte; sujungimo atšaukti negalima, todėl pirma paklausiama.",
   "helpDuplicatesNeutral": "Augintiniai ar namų ūkiai, kurie atrodo esantys du kartus — vienodi numeriai arba labai panašūs vardai su sutampančiomis detalėmis. Palieskite porą, kad sujungtumėte; sujungimo atšaukti negalima, todėl pirma paklausiama.",
-  "helpMatches": "Katės, kurios gali būti tas pats gyvūnas: tas pats numeris arba valkataujanti katė, pastebėta dingusios katės paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą katę palyginimui.",
-  "helpMatchesNeutral": "Augintiniai, kurie gali būti tas pats gyvūnas: tas pats numeris arba valkataujantis gyvūnas, pastebėtas dingusio augintinio paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą augintinį palyginimui.",
+  "helpMatches": "Katės, kurios gali būti tas pats gyvūnas: tas pats numeris arba valkataujanti katė, pastebėta dingusios katės paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą katę palyginimui. Sąraše yra ir poros, kurių išvaizda sutampa bent dviem požymiais be prieštaravimų; žymės rodo kuriais. „Ne tas pats“ paslepia porą šiame telefone, kol vieno iš gyvūnų išvaizda pasikeis.",
+  "helpMatchesNeutral": "Augintiniai, kurie gali būti tas pats gyvūnas: tas pats numeris arba valkataujantis gyvūnas, pastebėtas dingusio augintinio paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą augintinį palyginimui. Sąraše yra ir poros, kurių išvaizda sutampa bent dviem požymiais be prieštaravimų; žymės rodo kuriais. „Ne tas pats“ paslepia porą šiame telefone, kol vieno iš gyvūnų išvaizda pasikeis.",
   "helpFlier": "Nufotografuotas skelbimas virsta kate ir jos savininku. Žingsnis po žingsnio: katės duomenys, savininko kontaktas, snukučio iškirpimas profilio nuotraukai, registrų numeriai iš skelbimo ir galiausiai patikra. Visa tai pasiūlymai — pataisykite, ką kamera perskaitė ne taip.",
   "helpFlierNeutral": "Nufotografuotas skelbimas virsta augintiniu ir jo savininku. Žingsnis po žingsnio: augintinio duomenys, savininko kontaktas, snukučio iškirpimas profilio nuotraukai, registrų numeriai iš skelbimo ir galiausiai patikra. Visa tai pasiūlymai — pataisykite, ką kamera perskaitė ne taip.",
   "archiveTitle": "Archyvas",
@@ -399,11 +435,109 @@
   "rangeAll": "Viskas",
   "rangeCustom": "Pasirinktinis…",
   "changeSince": "{delta} nuo {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Kaip jūsų regione",
   "unitsMetric": "Metrinė (kg, cm, ml, °C)",
   "unitsImperial": "Imperinė (lb, in, fl oz, °F)",
   "starterWeight": "Svoris",
+  "starterLooks": "Išvaizda",
+  "looksGroupSize": "Dydis",
+  "looksGroupColours": "Spalvos",
+  "looksGroupPattern": "Raštas",
+  "looksGroupFur": "Kailis",
+  "looksGroupTail": "Uodega",
+  "looksGroupEars": "Ausys",
+  "looksGroupMarks": "Žymės",
+  "looksGroupCrest": "Kuodas",
+  "looksGroupBeak": "Snapas",
+  "looksGroupRing": "Žiedas",
+  "looksValueSmall": "Mažas",
+  "looksValueMedium": "Vidutinis",
+  "looksValueLarge": "Didelis",
+  "looksValueBlack": "Juoda",
+  "looksValueWhite": "Balta",
+  "looksValueGrey": "Pilka",
+  "looksValueBrown": "Ruda",
+  "looksValueGinger": "Rusva",
+  "looksValueCream": "Kreminė",
+  "looksValueGolden": "Auksinė",
+  "looksValueTan": "Šviesiai ruda",
+  "looksValueGreen": "Žalia",
+  "looksValueBlue": "Mėlyna",
+  "looksValueYellow": "Geltona",
+  "looksValueRed": "Raudona",
+  "looksValueOrange": "Oranžinė",
+  "looksValuePink": "Rožinė",
+  "looksValueWhiteBib": "Balta krūtinė",
+  "looksValueWhitePaws": "Baltos letenos",
+  "looksValueWhiteTailTip": "Baltas uodegos galas",
+  "looksValueBlaze": "Žvaigždė",
+  "looksValueMask": "Kaukė",
+  "looksValueSpots": "Dėmelės",
+  "looksValuePatches": "Lopai",
+  "looksValueStripes": "Dryžiai",
+  "looksValueScar": "Randas",
+  "looksValueNotchedEar": "Įpjauta ausis",
+  "looksValueEarTip": "Ausies galas",
+  "looksValueCollar": "Antkaklis",
+  "looksValueShort": "Trumpas",
+  "looksValueLong": "Ilgas",
+  "looksValueHairless": "Be kailio",
+  "looksValueBobtail": "Trumpa uodega",
+  "looksValueNone": "Nėra",
+  "looksValueCurled": "Susisukusi",
+  "looksValueUpright": "Stačios",
+  "looksValueFloppy": "Nukarusios",
+  "looksValueFolded": "Sulenktos",
+  "looksValueRounded": "Apvalios",
+  "looksValueSolid": "Vienspalvis",
+  "looksValueTabby": "Dryžuotas",
+  "looksValueTortoiseshell": "Vėžlio",
+  "looksValueCalico": "Kalikas",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Dvispalvis",
+  "looksValueTuxedo": "Smokingas",
+  "looksValueBrindle": "Tigrinis",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Taškuotas",
+  "looksValuePatched": "Lopuotas",
+  "looksValueTricolour": "Trispalvis",
+  "looksValueSable": "Sabalinis",
+  "looksGroupEyes": "Akys",
+  "looksGroupFeatures": "Ypatumai",
+  "looksValueAmber": "Gintariniai",
+  "looksValueCopper": "Variniai",
+  "looksValueOddEyed": "Skirtingų spalvų",
+  "looksValueChocolate": "Šokoladinė",
+  "looksValueLilac": "Alyvinė",
+  "looksValueSilver": "Sidabrinė",
+  "looksValueSmoke": "Dūminė",
+  "looksValueTicked": "Tikuotas",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Garbanotas",
+  "looksValueWiry": "Šiurkštus",
+  "looksValueKinked": "Užlenkta",
+  "looksValueCropped": "Kupiruotos",
+  "looksValueTippedEar": "Nukirptas ausies galiukas",
+  "looksValueEarTattoo": "Ausies tatuiruotė",
+  "looksValueMissingEar": "Trūksta ausies",
+  "looksValueMissingEye": "Trūksta akies",
+  "looksValueCloudyEye": "Drumsta akis",
+  "looksValueMissingFrontLeg": "Trūksta priekinės kojos",
+  "looksValueMissingHindLeg": "Trūksta užpakalinės kojos",
+  "looksValueNoTeeth": "Be dantų",
+  "looksValueExtraToes": "Papildomi pirštai",
+  "rejectMatch": "Ne tas pats",
+  "traitsAgree": "{count, plural, one{{count} požymis sutampa} few{{count} požymiai sutampa} many{{count} požymio sutampa} other{{count} požymių sutampa}}",
   "systemDefault": "Sistemos numatytoji",
   "iosLocalNetworkHint": "Jei iPhone/iPad vis nepavyksta: Nustatymai → Privatumas ir sauga → Vietinis tinklas → leisti cat(a)log ir bandyti dar kartą.",
   "markPrivate": "Pažymėti kaip privatų",
@@ -432,6 +566,8 @@
   "otherOption": "Kita…",
   "celebrationsToggle": "Švęsti priglaudimus",
   "celebrationsSubtitle": "Konfeti ir šūksniai, kai katė persikelia į namus",
+  "cheerToggle": "Šūksnių garsas",
+  "cheerSubtitle": "Trumpi šūksniai su konfeti, kaskart kiti",
   "celebrationsSubtitleNeutral": "Konfeti ir šūksniai, kai augintinis persikelia į namus",
   "onMapLabel": "Žemėlapyje",
   "showOnMap": "Rodyti žemėlapyje",
@@ -445,7 +581,19 @@
   "authorsSection": "Kas rašė į šį katalogą",
   "hardDeleteAction": "Ištrinti viską iš šio autoriaus",
   "hardDeleteWarning": "Pašalina visus {name} įrašus ir nuotraukas iš šio įrenginio. Kiti įrenginiai pasilieka savo. Neatšaukiama.",
-  "hardDeleteWarningDevice": "Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos {name} įrašė įrenginyje {device}. Kiti įrenginiai pasilieka savo kopijas. Atšaukti negalima.",
+  "yourKey": "Jūsų raktas",
+  "yourTitle": "Jūsų titulas",
+  "titleNone": "Be titulo",
+  "keyLine": "raktas {code}",
+  "keyVerified": "patvirtintas asmeniškai",
+  "keyFromFile": "iš failo, dar nepatvirtintas",
+  "keyUnsigned": "rakto dar nėra, įrašai nepasirašyti",
+  "summaryRefused": "Atmesta",
+  "refusedEntries": "{count, plural, one{{count} įrašas atmestas} few{{count} įrašai atmesti} many{{count} įrašo atmesta} other{{count} įrašų atmesta}}: nepasirašyta {name} žinomu raktu",
+  "newKeyCallsItself": "Naujas raktas {code} vadinasi {name}. Pasitikrinkite su tuo žmogumi, prieš pasitikėdami.",
+  "keyChangedRefused": "{name} pasiūlė kitą raktą nei čia žinomas. Žinomas lieka; naujasis nepriimtas.",
+  "metaNewKey": "Naujas raktas: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos {name} įrašė raktu {key}. Kiti įrenginiai savus pasilieka. Atšaukti negalima.",
   "typeToConfirm": "Patvirtinimui įveskite {name}",
   "alsoBan": "Taip pat uždrausti — daugiau niekada nepriimti duomenų",
   "bansSection": "Draudimai",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Nieko neatkurta.} one{Atkurtas {count} katalogas.} few{Atkurti {count} katalogai.} other{Atkurta {count} katalogų.}}",
   "helpCatalogs": "Katalogas yra atskiras pasaulis: savi katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.",
   "helpCatalogsNeutral": "Katalogas yra atskiras pasaulis: savi gyvūnai, namų ūkiai, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.",
-  "helpCatalogSettings": "Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą.",
+  "helpCatalogSettings": "Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą. Jūsų raktas – kodas, kurį partneriai mato šalia jūsų vardo; jis priklauso šiam katalogui.",
   "spotHomeCatalog": "Tai katalogas, kuriame esi. Bakstelėk pavadinimą, kad perjungtum ar sukurtum naują.",
   "deleteCatalog": "Ištrinti katalogą",
   "catalogSettings": "Katalogo nustatymai",
   "deleteCatalogBody": "Viskas kataloge {name} dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta.",
   "deleteCatalogBodyNeutral": "Viskas kataloge {name} dingsta: augintiniai, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas pavadinimą.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Suplanuotų vizitų nėra. Naujus planuok čia pliusu arba augintinio ar namų ūkio puslapyje.",
   "dueToday": "šiandien",
   "dueInDays": "{count, plural, one{po {count} dienos} few{po {count} dienų} many{po {count} dienos} other{po {count} dienų}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{vėluojama {count} dieną} few{vėluojama {count} dienas} many{vėluojama {count} dienos} other{vėluojama {count} dienų}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Atlikta",
   "repeatTitle": "Vėl po…",
   "noRepeatLabel": "Nekartoti",
@@ -720,15 +886,33 @@
   "unitMonths": "mėnesių",
   "unitYears": "metų",
   "ageYears": "{years} m.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mėn.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Keisti datą",
   "removeReminderLabel": "Pašalinti priminimą",
   "exportIcs": "Eksportuoti kalendoriaus failą",
   "resyncCalendar": "Iš naujo sinchronizuoti kalendorių",
   "icsSavedTo": "Kalendoriaus failas išsaugotas {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Atspindėti įrenginio kalendoriuje",
   "calendarMirrorSubtitle": "Vizitai kalendoriuje rodomi kaip visos dienos įvykiai. cat(a)log juos ten atnaujina kiekvieną kartą paleidus ir po kiekvieno pakeitimo. Vizitų priminimus tvarkai kalendoriuje.",
   "syncPeerOlder": "Kitame įrenginyje senesnis cat(a)log be priminimų. Atnaujink cat(a)log ten ir sinchronizuok iš naujo.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Priminimai: suplanuotų vizitų sąrašas — veterinaras, vaistai, patikros.",
   "spotAgendaAdd": "Suplanuoti naują vizitą.",
   "spotAgendaCalendar": "Čia įjunk cat(a)log vizitų atspindėjimą į pasirinktą kalendorių.",
-  "helpAgenda": "Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos.",
-  "helpAgendaNeutral": "Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria augintinį ar namų ūkį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliais augintiniais yra vienas vizitas: pažymėkite augintinius, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurie augintiniai buvo gydyti — nuimkite žymą nuo kitų, jie lieka suplanuoti.",
+  "spotAgendaToday": "Šiandienos darbai: pažymėkite, kai atlikta. Taškai rodo paskutines septynias dienas.",
+  "helpAgenda": "Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.",
+  "helpAgendaNeutral": "Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria augintinį ar namų ūkį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliais augintiniais yra vienas vizitas: pažymėkite augintinius, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurie augintiniai buvo gydyti — nuimkite žymą nuo kitų, jie lieka suplanuoti. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.",
   "calendarRowOff": "Kalendorius: išjungta",
   "calendarRowOn": "Kalendorius: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Suplanuok vizitą šiai katei. Jis rodomas priminimuose ir ten patvirtinamas.",
   "spotAddReminderCatNeutral": "Suplanuok vizitą šiam augintiniui. Jis rodomas priminimuose ir ten patvirtinamas.",
   "spotAddReminderClowder": "Suplanuok vizitą šiam klauderiui. Jis rodomas priminimuose ir ten patvirtinamas.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Vizitas ar priminimas?",
   "planChooserAppointment": "Vizitas — apsilankymas tam tikrą dieną ir valandą, su pastabomis",
   "planChooserReminder": "Priminimas — reikšmė, kurios terminas sueina tam tikrą dieną",
+  "planChooserChore": "Darbas — kas kartojasi: šėrimas, lašai, kraikas",
+  "newChore": "Naujas darbas",
+  "choreEdit": "Keisti darbą",
+  "choreTitleLabel": "Ką",
+  "choreRepeatDaily": "Kasdien",
+  "choreRepeatEvery": "Kas…",
+  "choreRepeatWeekdays": "Savaitės dienos",
+  "choreEveryDays": "{n, plural, one{kasdien} few{kas {n} dienas} other{kas {n} dienų}}",
+  "choreEveryWeeks": "{n, plural, one{kas savaitę} few{kas {n} savaites} other{kas {n} savaičių}}",
+  "choreEveryMonths": "{n, plural, one{kas mėnesį} few{kas {n} mėnesius} other{kas {n} mėnesių}}",
+  "choreEveryYears": "{n, plural, one{kasmet} few{kas {n} metus} other{kas {n} metų}}",
+  "choreNoTime": "Bet kuriuo dienos metu",
+  "chorePause": "Pristabdyti",
+  "chorePaused": "Pristabdyta",
+  "choreResume": "Tęsti",
+  "choreEnd": "Baigti darbą",
+  "choreHistory": "Istorija",
+  "choreDoneAt": "atlikta {when} · {who}",
+  "choreDoneEarly": "anksčiau",
+  "choreDoneLate": "vėliau",
+  "choreMissed": "Praleista",
+  "choreStillOpen": "Dar neatlikta",
+  "choreEndConfirm": "Darbas dingsta iš sąrašo. Pažymėta lieka istorijoje.",
+  "todaySection": "Šiandien",
+  "upcomingSection": "Netrukus",
+  "allDoneToday": "Šiandien: viskas padaryta",
+  "streakDays": "{n, plural, one{{n} diena iš eilės} few{{n} dienos iš eilės} other{{n} dienų iš eilės}}",
+  "choreDue": "Terminas {date}",
+  "remindMe": "Priminti",
+  "remindNext": "Kitas priminimas: {when}",
+  "remindNone": "Priminimas neplanuojamas: nieko nelaukia.",
+  "remindPending": "{count, plural, =0{Šiame telefone dar nieko nesuplanuota} one{{count} priminimas suplanuotas šiame telefone} few{{count} priminimai suplanuoti šiame telefone} other{{count} priminimų suplanuota šiame telefone}}",
+  "remindTest": "Išsiųsti bandomąjį priminimą dabar",
+  "remindLateHint": "Priminimai gali ateiti keliomis minutėmis vėliau; tikslų momentą parenka telefonas.",
+  "remindPermissionDenied": "Nėra leidimo pranešimams, priminimas lieka išjungtas. Leiskite juos telefono programos nustatymuose ir bandykite dar kartą.",
+  "batteryHint": "Jei priminimai neateina, telefono baterijos nustatymuose leiskite cat(a)log veikti fone.",
+  "batterySettings": "Baterijos nustatymai",
+  "achievementsTitle": "Pasiekimai",
+  "rankServant": "Tarnas",
+  "rankButler": "Liokajus",
+  "rankSteward": "Ūkvedys",
+  "rankChancellor": "Kancleris",
+  "rankMinister": "Ministras",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kalikas",
+  "coatCheetah": "Gepardas",
+  "coatTiger": "Tigras",
+  "coatTabby": "Dryžuotas",
+  "coatPaws": "Letenėlės",
+  "coatRosettes": "Rozetės",
+  "coatZebra": "Zebras",
+  "coatSetting": "Kailis",
+  "coatRandom": "Kaskart kitas",
+  "coatSnowLeopard": "Snieginis leopardas",
+  "coatSiamese": "Siamo žymės",
+  "coatLynx": "Lūšis",
+  "coatTortoiseshell": "Vėžlio kiautas",
+  "coatUnlocked": "Naujas kailis: {coat}",
+  "coatUnlockedHow": "Ištisas mėnuo darbų, visi atlikti.",
+  "achievementsEmpty": "Dar nieko. Darbai žino kelią.",
+  "achievementMonth": "Visas mėnuo",
+  "achievementYear": "Visi metai",
+  "achievementDecade": "Visas dešimtmetis",
+  "achievementCentury": "Visas šimtmetis",
+  "achievementCenturyHint": "Abu labai didžiuosimės.",
+  "achievementMaster": "{title} meistras",
+  "achievementReached": "{times, plural, one{Pasiekta {times} kartą} few{Pasiekta {times} kartus} other{Pasiekta {times} kartų}}, pirmą kartą {date}",
+  "achievementNext": "Kitas ties {n}",
+  "achievementLocked": "Dar ne",
+  "achievementUnlocked": "Pasiekimas: {name}",
   "appointmentTitleLabel": "Kas",
   "notesLabel": "Pastabos",
   "timeLabel": "Laikas",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Esamas namų ūkis",
   "createNewInstead": "Nėra — sukurti naują",
   "overwritesValue": "Perrašo dabartinę reikšmę \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Nutraukti skenavimą?",
   "abortScanBody": "Niekas nebus išsaugota.",
   "abortScan": "Nutraukti",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Nuimkite žymą nuo kačių, kurios nebuvo gydytos; jos lieka suplanuotos.",
   "finishUntickHintNeutral": "Nuimkite žymą nuo augintinių, kurie nebuvo gydyti; jie lieka suplanuoti.",
   "deleteAppointmentGroup": "Ištrinti vizitą visoms {count} katėms",
-  "deleteAppointmentGroupNeutral": "Ištrinti vizitą visiems {count} augintiniams"
+  "deleteAppointmentGroupNeutral": "Ištrinti vizitą visiems {count} augintiniams",
+  "correctThisValue": "Pataisyti šią reikšmę",
+  "removeThisValue": "Pašalinti šią reikšmę",
+  "restoreThisValue": "Atkurti šią reikšmę",
+  "showRemovedValues": "Rodyti pašalintas reikšmes",
+  "hideRemovedValues": "Slėpti pašalintas reikšmes",
+  "entryRemovedBy": "Pašalinta · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Pakeista į {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Pataisymas",
+  "restorePickFolder": "Pasirinkti atsarginių kopijų aplanką…",
+  "restoreAndroidHint": "Ankstesnio įdiegimo atsarginės kopijos yra Documents/catlog (senesnėse versijose Downloads/catlog). Pasirinkite šį aplanką vieną kartą; jo kopijos rodomos čia.",
+  "backupsTitle": "Atsarginės kopijos",
+  "backupsSubtitle": "Kur saugomi jūsų katalogai",
+  "backupsAndroidSystem": "Google saugo šios programėlės katalogus jūsų paskyroje, be nuotraukų. Įdiegus iš naujo ar naujame telefone jie grįžta patys.",
+  "backupsAndroidFiles": "Pilna kiekvieno katalogo kopija su nuotraukomis įrašoma į Documents/catlog kaskart, kai po pakeitimų išeinate iš programėlės.",
+  "backupsIosSystem": "iCloud atsarginė kopija apima šią programėlę su jos katalogais ir nuotraukomis, kaip ir kiekvieną kitą programėlę šiame iPhone.",
+  "backupsIosFiles": "Pilna kiekvieno katalogo kopija yra programėlėje „Failai“, aplanke cat(a)log. Iš ten ją galima perkelti į iCloud Drive, per AirDrop ar į kitą telefoną.",
+  "backupsDesktopFiles": "Pilna kiekvieno katalogo kopija su nuotraukomis įrašoma į jūsų Atsisiuntimų aplanką kaskart, kai po pakeitimų išeinate iš programėlės.",
+  "backupsLast": "Paskutinė kopija: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Kopija dar neįrašyta.",
+  "backupsNow": "Kurti kopiją dabar",
+  "backupsDone": "Kopija įrašyta.",
+  "backupsRestoredNote": "Atkurta iš Google atsarginės kopijos {date}. Jei sename telefone dar veikia cat(a)log, vieną kartą sinchronizuokite iš jo, tada ten pašalinkite programėlę.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Kiekvieną kopiją gali gauti ir jūsų pasirinktas aplankas: toks, kurį debesies programėlė šiame telefone sinchronizuoja (Nextcloud, Syncthing ir kitos), atminties kortelė, bet kuris parinkiklio siūlomas aplankas. Kopijos patenka į catlog-backups jo viduje.",
+  "backupsFolderPick": "Kopijuoti ir į aplanką…",
+  "backupsFolderIs": "Kopijuojama ir į {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Nebekopijuoti ten",
+  "remindFailed": "Pranešimai šiame telefone neveikia: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopijuoti tekstą",
+  "colWhen": "Kada",
+  "colValue": "Reikšmė",
+  "colWho": "Kas"
 }

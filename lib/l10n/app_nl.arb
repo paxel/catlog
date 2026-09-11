@@ -52,6 +52,9 @@
   "card": "Kaart",
   "cardTitle": "Kaart — {name}",
   "shareAsImage": "Delen als afbeelding",
+  "sortOldestFirst": "Oudste eerst",
+  "sortNewestFirst": "Nieuwste eerst",
+  "shareAsText": "Delen als tekst",
   "shareAsPdf": "Delen als PDF",
   "print": "Afdrukken",
   "renameCat": "Kat hernoemen",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Geen huishouden — zwerfdier / weggelopen",
   "timelineOf": "Tijdlijn — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Deze wijziging terugdraaien",
-  "revertSubtitle": "Zet de vorige waarde terug als nieuwe invoer — de tijdlijn bewaart beide.",
   "fieldCleared": "{field} leeggemaakt",
   "fieldBackTo": "{field} terug naar \"{value}\"",
   "leftStray": "Vertrokken — zwerfkat",
@@ -128,10 +129,13 @@
   "syncFailed": "Synchronisatie mislukt: {error}",
   "lastSyncWith": "Laatste synchronisatie met {peer}: {time}",
   "sharedFolder": "Gedeelde map",
-  "sharedFolderExplainer": "Beide apparaten gebruiken dezelfde map (bijvoorbeeld in Dropbox of op een USB-stick). Elke synchronisatie zet jouw wijzigingen daar neer en haalt die van de ander op.",
+  "sharedFolderExplainer": "Beide apparaten gebruiken dezelfde map (bijvoorbeeld in Nextcloud of op een USB-stick). Elke synchronisatie zet jouw wijzigingen daar neer en haalt die van de ander op.",
   "noFolderChosenYet": "Nog geen map gekozen",
   "choose": "Kiezen…",
   "syncFolderNow": "Map nu synchroniseren",
+  "folderCatalogHint": "Daarin gebruikt deze catalogus de map „{name}”, zodat één gedeelde map al je catalogi kan dragen.",
+  "useSameFolder": "Dezelfde map als de andere catalogi gebruiken",
+  "folderHint": "Elke map die twee apparaten gelijk houden volstaat: een clouddrive, of Syncthing voor een map die op jullie telefoons blijft. Syncthing is gratis: installeer het op elke telefoon, deel één map tussen hen en kies die map hier op elk apparaat.",
   "folderSynced": "Map gesynchroniseerd: {result}",
   "folderSyncFailed": "Map synchroniseren mislukt: {error}",
   "recordSightingHere": "Hier een waarneming vastleggen:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Spoor: {name} ({count} posities)",
   "conflictOn": "Conflict — {field}",
   "conflictBody": "Op twee plekken tegelijk gewijzigd. Kies wat waar is:",
+  "privateMarker": "{field} (privé)",
+  "conflictSame": "Beide wijzigingen zeggen hetzelfde: {value}. Niets te kiezen; Oplossen haalt de markering weg.",
   "mergeThisInto": "Deze {kind} samenvoegen met…",
   "noOtherToMergeInto": "Geen andere {kind} om mee samen te voegen.",
   "mergeIntoQuestion": "Samenvoegen met {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Pers",
   "breedBengal": "Bengaal",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Abessijn",
+  "breedAmericanShorthair": "Amerikaanse korthaar",
+  "breedBalinese": "Balinees",
+  "breedBirman": "Heilige Birmaan",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmees",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Britse langhaar",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egyptische mau",
+  "breedExoticShorthair": "Exotic korthaar",
+  "breedHimalayan": "Himalayaan",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Oosterse korthaar",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Russisch blauw",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Scottish fold",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Siberische kat",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somali",
+  "breedTonkinese": "Tonkinees",
+  "breedTurkishAngora": "Turkse angora",
+  "breedTurkishVan": "Turkse van",
   "ownValue": "Eigen waarde",
   "locationDeniedForever": "Locatietoegang is geblokkeerd. Sta het toe in de systeeminstellingen om Stray Cam te gebruiken.",
   "locationServiceOff": "Locatie staat uit op dit apparaat. Zet hem aan in de instellingen en probeer het opnieuw.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Alle huisdieren en plekken met een positie. Zoeken vindt huisdieren, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermist huisdier en rond zijn vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast. Elk locatieveld staat als pin op de kaart; tik op een pin voor zijn spoor.",
   "helpCard": "De printbare kaart van deze kat: kies bovenaan met de chips wat erop komt, deel hem daarna als afbeelding of pdf. Nummers kunnen als QR of streepjescode gedrukt worden, en een positie wordt een QR die een kaart opent, plus een korte Plus Code.",
   "helpCardNeutral": "De printbare kaart van dit huisdier: kies bovenaan met de chips wat erop komt, deel hem daarna als afbeelding of pdf. Nummers kunnen als QR of streepjescode gedrukt worden, en een positie wordt een QR die een kaart opent, plus een korte Plus Code.",
-  "helpSync": "Zo komen gegevens bij anderen: direct verbinden, een map gebruiken die beide apparaten zien, of een bestand via een messenger sturen. Jij bepaalt altijd wat weggaat — en ontvangen .catsync-bestanden open je hier ook.",
+  "helpSync": "Zo komen gegevens bij anderen: direct verbinden, een map gebruiken die beide apparaten zien, of een bestand via een messenger sturen. Jij bepaalt altijd wat weggaat — en ontvangen .catsync-bestanden open je hier ook. Elke catalogus signeert wat hij schrijft met zijn eigen sleutel; partners zien de sleutelcode naast je naam. De eerste sleutel van een partner wordt op vertrouwen uit een bestand overgenomen en geldt als ontmoet zodra jullie persoonlijk synchroniseren. Invoer onder een bekende naam zonder de juiste handtekening wordt geweigerd en op de aankomstpagina getoond.",
   "helpFields": "De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij de kat aantikbaar.",
   "helpFieldsNeutral": "De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij het huisdier aantikbaar.",
-  "helpTimeline": "Elke wijziging ooit, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Elke regel kan teruggedraaid worden — dat schrijft een nieuwe regel, er wordt nooit iets gewist.",
+  "helpTimeline": "Elke wijziging, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Tik op een item om het te corrigeren, houd het vast om het te verwijderen of te herstellen; een verborgen item blijft in het logboek en wordt op verzoek getoond.",
   "helpDuplicates": "Katten of kolonies die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.",
   "helpDuplicatesNeutral": "Huisdieren of huishoudens die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.",
-  "helpMatches": "Katten die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermiste kat. Tik op een paar om samen te voegen, houd ingedrukt om de eerste kat te openen en te vergelijken.",
-  "helpMatchesNeutral": "Huisdieren die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermist huisdier. Tik op een paar om samen te voegen, houd ingedrukt om het eerste huisdier te openen en te vergelijken.",
+  "helpMatches": "Katten die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermiste kat. Tik op een paar om samen te voegen, houd ingedrukt om de eerste kat te openen en te vergelijken. Paren waarvan het uiterlijk in twee of meer kenmerken overeenkomt zonder tegenspraak staan ook in de lijst; de chips tonen welke. „Niet dezelfde” verbergt een paar op deze telefoon tot het uiterlijk van een van beide dieren verandert.",
+  "helpMatchesNeutral": "Huisdieren die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermist huisdier. Tik op een paar om samen te voegen, houd ingedrukt om het eerste huisdier te openen en te vergelijken. Paren waarvan het uiterlijk in twee of meer kenmerken overeenkomt zonder tegenspraak staan ook in de lijst; de chips tonen welke. „Niet dezelfde” verbergt een paar op deze telefoon tot het uiterlijk van een van beide dieren verandert.",
   "helpFlier": "Een gefotografeerde poster wordt een kat plus eigenaar. Stap voor stap: gegevens van de kat, contact van de eigenaar, gezicht bijsnijden voor de profielfoto, registernummers van de poster, dan een laatste controle. Alles is een suggestie — corrigeer wat de camera verkeerd las.",
   "helpFlierNeutral": "Een gefotografeerde poster wordt een huisdier plus eigenaar. Stap voor stap: gegevens van het huisdier, contact van de eigenaar, gezicht bijsnijden voor de profielfoto, registernummers van de poster, dan een laatste controle. Alles is een suggestie — corrigeer wat de camera verkeerd las.",
   "archiveTitle": "Archief",
@@ -399,11 +435,109 @@
   "rangeAll": "Alles",
   "rangeCustom": "Aangepast…",
   "changeSince": "{delta} sinds {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Zoals in je regio",
   "unitsMetric": "Metrisch (kg, cm, ml, °C)",
   "unitsImperial": "Imperiaal (lb, in, fl oz, °F)",
   "starterWeight": "Gewicht",
+  "starterLooks": "Uiterlijk",
+  "looksGroupSize": "Grootte",
+  "looksGroupColours": "Kleuren",
+  "looksGroupPattern": "Patroon",
+  "looksGroupFur": "Vacht",
+  "looksGroupTail": "Staart",
+  "looksGroupEars": "Oren",
+  "looksGroupMarks": "Kenmerken",
+  "looksGroupCrest": "Kuif",
+  "looksGroupBeak": "Snavel",
+  "looksGroupRing": "Pootring",
+  "looksValueSmall": "Klein",
+  "looksValueMedium": "Middel",
+  "looksValueLarge": "Groot",
+  "looksValueBlack": "Zwart",
+  "looksValueWhite": "Wit",
+  "looksValueGrey": "Grijs",
+  "looksValueBrown": "Bruin",
+  "looksValueGinger": "Rood",
+  "looksValueCream": "Crème",
+  "looksValueGolden": "Goud",
+  "looksValueTan": "Beige",
+  "looksValueGreen": "Groen",
+  "looksValueBlue": "Blauw",
+  "looksValueYellow": "Geel",
+  "looksValueRed": "Rood",
+  "looksValueOrange": "Oranje",
+  "looksValuePink": "Roze",
+  "looksValueWhiteBib": "Witte bef",
+  "looksValueWhitePaws": "Witte poten",
+  "looksValueWhiteTailTip": "Witte staartpunt",
+  "looksValueBlaze": "Bles",
+  "looksValueMask": "Masker",
+  "looksValueSpots": "Vlekken",
+  "looksValuePatches": "Platen",
+  "looksValueStripes": "Strepen",
+  "looksValueScar": "Litteken",
+  "looksValueNotchedEar": "Oorkerf",
+  "looksValueEarTip": "Oorpunt",
+  "looksValueCollar": "Halsband",
+  "looksValueShort": "Kort",
+  "looksValueLong": "Lang",
+  "looksValueHairless": "Haarloos",
+  "looksValueBobtail": "Stompstaart",
+  "looksValueNone": "Geen",
+  "looksValueCurled": "Gekruld",
+  "looksValueUpright": "Rechtop",
+  "looksValueFloppy": "Hangend",
+  "looksValueFolded": "Gevouwen",
+  "looksValueRounded": "Rond",
+  "looksValueSolid": "Effen",
+  "looksValueTabby": "Cyperse",
+  "looksValueTortoiseshell": "Schildpad",
+  "looksValueCalico": "Lapjes",
+  "looksValueColourpoint": "Point",
+  "looksValueBicolour": "Tweekleurig",
+  "looksValueTuxedo": "Smoking",
+  "looksValueBrindle": "Gestroomd",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Gevlekt",
+  "looksValuePatched": "Gebont",
+  "looksValueTricolour": "Driekleurig",
+  "looksValueSable": "Sabel",
+  "looksGroupEyes": "Ogen",
+  "looksGroupFeatures": "Kenmerken",
+  "looksValueAmber": "Amber",
+  "looksValueCopper": "Koper",
+  "looksValueOddEyed": "Odd-eyed",
+  "looksValueChocolate": "Chocolade",
+  "looksValueLilac": "Lilac",
+  "looksValueSilver": "Zilver",
+  "looksValueSmoke": "Smoke",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Krullend",
+  "looksValueWiry": "Ruwharig",
+  "looksValueKinked": "Geknikt",
+  "looksValueCropped": "Gecoupeerd",
+  "looksValueTippedEar": "Getipt oor",
+  "looksValueEarTattoo": "Oortatoeage",
+  "looksValueMissingEar": "Ontbrekend oor",
+  "looksValueMissingEye": "Ontbrekend oog",
+  "looksValueCloudyEye": "Troebel oog",
+  "looksValueMissingFrontLeg": "Ontbrekende voorpoot",
+  "looksValueMissingHindLeg": "Ontbrekende achterpoot",
+  "looksValueNoTeeth": "Geen tanden",
+  "looksValueExtraToes": "Extra tenen",
+  "rejectMatch": "Niet dezelfde",
+  "traitsAgree": "{count, plural, =1{1 kenmerk komt overeen} other{{count} kenmerken komen overeen}}",
   "systemDefault": "Systeemstandaard",
   "iosLocalNetworkHint": "Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.",
   "markPrivate": "Markeren als privé",
@@ -432,6 +566,8 @@
   "otherOption": "Anders…",
   "celebrationsToggle": "Adopties vieren",
   "celebrationsSubtitle": "Confetti en gejuich wanneer een kat naar zijn thuis verhuist",
+  "cheerToggle": "Juichgeluid",
+  "cheerSubtitle": "Een kort gejuich bij de confetti, elke keer anders",
   "celebrationsSubtitleNeutral": "Confetti en gejuich wanneer een huisdier naar zijn thuis verhuist",
   "onMapLabel": "Op de kaart",
   "showOnMap": "Toon op kaart",
@@ -445,7 +581,19 @@
   "authorsSection": "Wie in deze catalogus schreef",
   "hardDeleteAction": "Alles van deze auteur verwijderen",
   "hardDeleteWarning": "Verwijdert elke invoer en foto van {name} van dit apparaat. Andere apparaten houden de hunne. Kan niet ongedaan worden gemaakt.",
-  "hardDeleteWarningDevice": "Verwijdert elke invoer en foto die {name} op apparaat {device} schreef uit deze catalogus. Andere apparaten houden hun kopie. Dit kan niet ongedaan worden gemaakt.",
+  "yourKey": "Jouw sleutel",
+  "yourTitle": "Jouw titel",
+  "titleNone": "Geen titel",
+  "keyLine": "sleutel {code}",
+  "keyVerified": "persoonlijk ontmoet",
+  "keyFromFile": "uit een bestand, nog niet ontmoet",
+  "keyUnsigned": "nog geen sleutel, invoer ongesigneerd",
+  "summaryRefused": "Geweigerd",
+  "refusedEntries": "{count, plural, =1{1 invoer} other{{count} invoeren}} geweigerd: niet gesigneerd met de bekende sleutel van {name}",
+  "newKeyCallsItself": "Een nieuwe sleutel {code} noemt zich {name}. Vraag het na voor je hem vertrouwt.",
+  "keyChangedRefused": "{name} bood een andere sleutel aan dan de hier bekende. De bekende blijft, de nieuwe is niet overgenomen.",
+  "metaNewKey": "Nieuwe sleutel: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Verwijdert elke invoer en foto die {name} onder sleutel {key} schreef uit deze catalogus. Andere apparaten houden de hunne. Dit kan niet ongedaan worden gemaakt.",
   "typeToConfirm": "Typ {name} om te bevestigen",
   "alsoBan": "Ook blokkeren — nooit meer gegevens accepteren",
   "bansSection": "Blokkades",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Niets teruggezet.} one{1 catalogus teruggezet.} other{{count} catalogi teruggezet.}}",
   "helpCatalogs": "Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.",
   "helpCatalogsNeutral": "Elke catalogus is een eigen wereld: eigen huisdieren, huishoudens, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.",
-  "helpCatalogSettings": "Alles wat alleen bij deze catalogus hoort: de naam, of hij katten of huisdieren bevat, de velden, de auteurs en blokkades, het archief en teruggaan in de tijd. Wijzigingen hier raken alleen deze catalogus, ook een waarin je nu niet zit. Verwijderen schrijft de catalogus eerst naar een bestand.",
+  "helpCatalogSettings": "Alles wat alleen bij deze catalogus hoort: de naam, of hij katten of huisdieren bevat, de velden, de auteurs en blokkades, het archief en teruggaan in de tijd. Wijzigingen hier raken alleen deze catalogus, ook een waarin je nu niet zit. Verwijderen schrijft de catalogus eerst naar een bestand. Jouw sleutel is de code die partners naast je naam zien; hij hoort bij deze catalogus.",
   "spotHomeCatalog": "Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken.",
   "deleteCatalog": "Catalogus verwijderen",
   "catalogSettings": "Catalogusinstellingen",
   "deleteCatalogBody": "Alles in {name} verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug.",
   "deleteCatalogBodyNeutral": "Alles in {name} verdwijnt: de huisdieren, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Geen afspraken gepland. Nieuwe afspraken plan je hier met de plus of op de pagina van een huisdier of huishouden.",
   "dueToday": "vandaag",
   "dueInDays": "{count, plural, one{over 1 dag} other{over {count} dagen}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 dag te laat} other{{count} dagen te laat}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Klaar",
   "repeatTitle": "Opnieuw over…",
   "noRepeatLabel": "Niet herhalen",
@@ -720,15 +886,33 @@
   "unitMonths": "maanden",
   "unitYears": "jaren",
   "ageYears": "{years} jr",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mnd",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Datum wijzigen",
   "removeReminderLabel": "Herinnering verwijderen",
   "exportIcs": "Agendabestand exporteren",
   "resyncCalendar": "Agenda opnieuw synchroniseren",
   "icsSavedTo": "Agendabestand opgeslagen onder {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Spiegelen naar apparaatagenda",
   "calendarMirrorSubtitle": "De afspraken verschijnen als hele-dag-afspraken in de agenda. cat(a)log werkt ze daar bij bij elke start en na elke wijziging. Herinneringen aan de afspraken beheer je in de agenda.",
   "syncPeerOlder": "Het andere apparaat draait een ouder cat(a)log zonder herinneringen. Werk cat(a)log daar bij en synchroniseer opnieuw.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Agenda: de lijst met geplande afspraken — dierenarts, medicijnen, controles.",
   "spotAgendaAdd": "Een nieuwe afspraak plannen.",
   "spotAgendaCalendar": "Zet hier het spiegelen van de cat(a)log-afspraken naar een agenda van je keuze aan.",
-  "helpAgenda": "De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere katten is één afspraak: vink de katten aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke katten behandeld zijn — vink de andere uit, die blijven gepland.",
-  "helpAgendaNeutral": "De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent het huisdier of huishouden. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere huisdieren is één afspraak: vink de huisdieren aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke huisdieren behandeld zijn — vink de andere uit, die blijven gepland.",
+  "spotAgendaToday": "De taken van vandaag: vink af als gedaan. De stippen tonen de laatste zeven dagen.",
+  "helpAgenda": "De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere katten is één afspraak: vink de katten aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke katten behandeld zijn — vink de andere uit, die blijven gepland. Taken zijn de terugkerende klussen, zoals voeren, kattenbak of medicijnen. Ze staan onder Vandaag met een vinkje, een reeks en de laatste zeven dagen als stippen; Binnenkort toont de komende week zonder de dagelijkse. Een taak kan je met een melding op een gekozen tijd herinneren. De trofee opent de prestaties.",
+  "helpAgendaNeutral": "De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent het huisdier of huishouden. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere huisdieren is één afspraak: vink de huisdieren aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke huisdieren behandeld zijn — vink de andere uit, die blijven gepland. Taken zijn de terugkerende klussen, zoals voeren, kattenbak of medicijnen. Ze staan onder Vandaag met een vinkje, een reeks en de laatste zeven dagen als stippen; Binnenkort toont de komende week zonder de dagelijkse. Een taak kan je met een melding op een gekozen tijd herinneren. De trofee opent de prestaties.",
   "calendarRowOff": "Agenda: uit",
   "calendarRowOn": "Agenda: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Plan een afspraak voor deze kat. Die staat in de agenda en wordt daar bevestigd.",
   "spotAddReminderCatNeutral": "Plan een afspraak voor dit huisdier. Die staat in de agenda en wordt daar bevestigd.",
   "spotAddReminderClowder": "Plan een afspraak voor deze clowder. Die staat in de agenda en wordt daar bevestigd.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Afspraak of herinnering?",
   "planChooserAppointment": "Afspraak — een bezoek op een datum met tijd en notities",
   "planChooserReminder": "Herinnering — een waarde die op een dag verschuldigd wordt",
+  "planChooserChore": "Taak — iets dat terugkomt: voeren, druppels, kattenbak",
+  "newChore": "Nieuwe taak",
+  "choreEdit": "Taak bewerken",
+  "choreTitleLabel": "Wat",
+  "choreRepeatDaily": "Dagelijks",
+  "choreRepeatEvery": "Elke…",
+  "choreRepeatWeekdays": "Weekdagen",
+  "choreEveryDays": "{n, plural, one{elke dag} other{elke {n} dagen}}",
+  "choreEveryWeeks": "{n, plural, one{elke week} other{elke {n} weken}}",
+  "choreEveryMonths": "{n, plural, one{elke maand} other{elke {n} maanden}}",
+  "choreEveryYears": "{n, plural, one{elk jaar} other{elke {n} jaar}}",
+  "choreNoTime": "Op elk moment van de dag",
+  "chorePause": "Pauzeren",
+  "chorePaused": "Gepauzeerd",
+  "choreResume": "Hervatten",
+  "choreEnd": "Taak beëindigen",
+  "choreHistory": "Geschiedenis",
+  "choreDoneAt": "gedaan {when} · {who}",
+  "choreDoneEarly": "eerder",
+  "choreDoneLate": "later",
+  "choreMissed": "Gemist",
+  "choreStillOpen": "Nog open",
+  "choreEndConfirm": "De taak verlaat de lijst. Wat is afgevinkt blijft in de geschiedenis.",
+  "todaySection": "Vandaag",
+  "upcomingSection": "Binnenkort",
+  "allDoneToday": "Vandaag: alles gedaan",
+  "streakDays": "{n, plural, one{1 dag op rij} other{{n} dagen op rij}}",
+  "choreDue": "Gepland {date}",
+  "remindMe": "Herinner me",
+  "remindNext": "Volgende herinnering: {when}",
+  "remindNone": "Geen herinnering gepland: niets op komst.",
+  "remindPending": "{count, plural, =0{Nog niets gepland op deze telefoon} =1{1 herinnering gepland op deze telefoon} other{{count} herinneringen gepland op deze telefoon}}",
+  "remindTest": "Nu een testherinnering sturen",
+  "remindLateHint": "Herinneringen kunnen een paar minuten later komen; de telefoon kiest het precieze moment.",
+  "remindPermissionDenied": "Geen toestemming voor meldingen, de herinnering blijft uit. Sta ze toe in de app-instellingen van de telefoon en probeer opnieuw.",
+  "batteryHint": "Blijven herinneringen uit, sta cat(a)log dan toe op de achtergrond te draaien in de batterij-instellingen van de telefoon.",
+  "batterySettings": "Batterij-instellingen",
+  "achievementsTitle": "Prestaties",
+  "rankServant": "Dienaar",
+  "rankButler": "Butler",
+  "rankSteward": "Rentmeester",
+  "rankChancellor": "Kanselier",
+  "rankMinister": "Minister",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Lapjeskat",
+  "coatCheetah": "Cheetah",
+  "coatTiger": "Tijger",
+  "coatTabby": "Cyperse",
+  "coatPaws": "Pootjes",
+  "coatRosettes": "Rozetten",
+  "coatZebra": "Zebra",
+  "coatSetting": "Vacht",
+  "coatRandom": "Elke start een andere",
+  "coatSnowLeopard": "Sneeuwpanter",
+  "coatSiamese": "Siamese points",
+  "coatLynx": "Lynx",
+  "coatTortoiseshell": "Schildpad",
+  "coatUnlocked": "Nieuwe vacht: {coat}",
+  "coatUnlockedHow": "Een volle maand taken, allemaal gedaan.",
+  "achievementsEmpty": "Nog niets verdiend. De taken kennen de weg.",
+  "achievementMonth": "Een volle maand",
+  "achievementYear": "Een vol jaar",
+  "achievementDecade": "Een vol decennium",
+  "achievementCentury": "Een volle eeuw",
+  "achievementCenturyHint": "We zullen allebei heel trots zijn.",
+  "achievementMaster": "{title}-meester",
+  "achievementReached": "{times, plural, one{Eén keer gehaald} other{{times} keer gehaald}}, de eerste op {date}",
+  "achievementNext": "Volgende bij {n}",
+  "achievementLocked": "Nog niet",
+  "achievementUnlocked": "Prestatie: {name}",
   "appointmentTitleLabel": "Wat",
   "notesLabel": "Notities",
   "timeLabel": "Tijd",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Bestaand huishouden",
   "createNewInstead": "Geen — nieuw aanmaken",
   "overwritesValue": "Overschrijft huidige waarde \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Opname afbreken?",
   "abortScanBody": "Er wordt niets opgeslagen.",
   "abortScan": "Afbreken",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Vink de katten uit die niet behandeld zijn; ze blijven gepland.",
   "finishUntickHintNeutral": "Vink de huisdieren uit die niet behandeld zijn; ze blijven gepland.",
   "deleteAppointmentGroup": "Afspraak voor alle {count} katten verwijderen",
-  "deleteAppointmentGroupNeutral": "Afspraak voor alle {count} huisdieren verwijderen"
+  "deleteAppointmentGroupNeutral": "Afspraak voor alle {count} huisdieren verwijderen",
+  "correctThisValue": "Deze waarde corrigeren",
+  "removeThisValue": "Deze waarde verwijderen",
+  "restoreThisValue": "Deze waarde herstellen",
+  "showRemovedValues": "Verwijderde waarden tonen",
+  "hideRemovedValues": "Verwijderde waarden verbergen",
+  "entryRemovedBy": "Verwijderd · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Vervangen door {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Correctie",
+  "restorePickFolder": "Back-upmap kiezen…",
+  "restoreAndroidHint": "De back-ups van de vorige installatie staan in Documents/catlog (Downloads/catlog bij oudere versies). Kies die map één keer; de back-ups verschijnen hier.",
+  "backupsTitle": "Back-ups",
+  "backupsSubtitle": "Waar je catalogi veilig bewaard worden",
+  "backupsAndroidSystem": "Google maakt een back-up van de catalogi van deze app met je account, zonder foto's. Ze komen vanzelf terug na een herinstallatie of op een nieuwe telefoon.",
+  "backupsAndroidFiles": "Een volledige kopie van elke catalogus, met foto's, wordt in Documents/catlog geschreven zodra je de app na wijzigingen verlaat.",
+  "backupsIosSystem": "iCloud-back-up bevat deze app met catalogi en foto's, net als elke andere app op deze iPhone.",
+  "backupsIosFiles": "Een volledige kopie van elke catalogus staat in de Bestanden-app onder cat(a)log. Van daaruit kan hij naar iCloud Drive, AirDrop of een andere telefoon.",
+  "backupsDesktopFiles": "Een volledige kopie van elke catalogus, met foto's, wordt in je Downloads-map geschreven zodra je de app na wijzigingen verlaat.",
+  "backupsLast": "Laatste kopie: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Nog geen kopie geschreven.",
+  "backupsNow": "Nu back-up maken",
+  "backupsDone": "Kopie geschreven.",
+  "backupsRestoredNote": "Hersteld uit de Google-back-up op {date}. Draait cat(a)log nog op de oude telefoon, synchroniseer dan één keer vanaf daar en verwijder de app daar.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Ook een map naar keuze kan elke kopie krijgen: een die een cloud-app op deze telefoon synchroon houdt (Nextcloud, Syncthing en andere), een geheugenkaart, elke map die de kiezer aanbiedt. De kopieën komen daarin in catlog-backups.",
+  "backupsFolderPick": "Ook naar een map kopiëren…",
+  "backupsFolderIs": "Ook gekopieerd naar {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Daar niet meer naartoe kopiëren",
+  "remindFailed": "Meldingen werken niet op deze telefoon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Tekst kopiëren",
+  "colWhen": "Wanneer",
+  "colValue": "Waarde",
+  "colWho": "Wie"
 }

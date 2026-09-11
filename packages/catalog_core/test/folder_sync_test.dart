@@ -26,15 +26,15 @@ void main() {
     dir.deleteSync(recursive: true);
   });
 
-  test('two stores converge through the folder', () {
+  test('two stores converge through the folder', () async {
     final home = a.createClowder('Home');
     final cat = a.createCat('Miezi', clowderId: home);
     a.addImage(cat, CatalogStore.compressImage(jpeg(50, 50)));
     b.createCat('Wanderer');
 
-    folderSync(a, dir.path); // a publishes
-    folderSync(b, dir.path); // b imports a, publishes itself
-    final second = folderSync(a, dir.path); // a imports b
+    await folderSync(a, dir.path); // a publishes
+    await folderSync(b, dir.path); // b imports a, publishes itself
+    final second = await folderSync(a, dir.path); // a imports b
 
     expect(second.entriesIn, greaterThan(0));
     expect(a.cats().length, 2);
@@ -44,61 +44,61 @@ void main() {
         isNotNull);
   });
 
-  test('only the own file is ever written', () {
+  test('only the own file is ever written', () async {
     a.createCat('Miezi');
-    folderSync(a, dir.path);
-    folderSync(b, dir.path);
+    await folderSync(a, dir.path);
+    await folderSync(b, dir.path);
     // No reminder was ever used, so the file keeps the pre-1.0.0 name.
     final aFile = File('${dir.path}/catlog-sync/${a.deviceId}.jsonl');
     final before = aFile.readAsStringSync();
-    folderSync(b, dir.path);
+    await folderSync(b, dir.path);
     expect(aFile.readAsStringSync(), before);
   });
 
-  test('repeated sync is a no-op', () {
+  test('repeated sync is a no-op', () async {
     a.createCat('Miezi');
-    folderSync(a, dir.path);
-    folderSync(b, dir.path);
-    final again = folderSync(b, dir.path);
+    await folderSync(a, dir.path);
+    await folderSync(b, dir.path);
+    final again = await folderSync(b, dir.path);
     expect(again.entriesIn, 0);
     expect(again.entriesOut, 0);
   });
 
-  test('concurrent edits through the folder flag conflicts', () {
+  test('concurrent edits through the folder flag conflicts', () async {
     final cat = a.createCat('Original');
-    folderSync(a, dir.path);
-    folderSync(b, dir.path);
+    await folderSync(a, dir.path);
+    await folderSync(b, dir.path);
     final catOnB = b.cats().single.id;
 
     a.append(cat, Keys.name, 'Axel Name');
     b.append(catOnB, Keys.name, 'Friend Name');
-    folderSync(a, dir.path);
-    folderSync(b, dir.path);
-    folderSync(a, dir.path);
+    await folderSync(a, dir.path);
+    await folderSync(b, dir.path);
+    await folderSync(a, dir.path);
 
     expect(a.hasConflict(cat, Keys.name), isTrue);
     expect(b.hasConflict(catOnB, Keys.name), isTrue);
     expect(a.current(cat, Keys.name), b.current(catOnB, Keys.name));
   });
 
-  test('deleted photos vanish from the folder once markers propagate', () {
+  test('deleted photos vanish from the folder once markers propagate', () async {
     final cat = a.createCat('Miezi');
     final hash = a.addImage(cat, CatalogStore.compressImage(jpeg(40, 40)));
-    folderSync(a, dir.path);
+    await folderSync(a, dir.path);
     final blob = File('${dir.path}/catlog-sync/blobs/$hash.jpg');
     expect(blob.existsSync(), isTrue);
 
     a.deleteImage(cat, hash);
-    folderSync(a, dir.path);
+    await folderSync(a, dir.path);
     expect(blob.existsSync(), isFalse);
   });
 
-  test('a half-written peer file is skipped, the whole one lands', () {
+  test('a half-written peer file is skipped, the whole one lands', () async {
     a.createCat('Miezi');
-    folderSync(a, dir.path);
+    await folderSync(a, dir.path);
     File('${dir.path}/partial.jsonl').writeAsStringSync(
         '{"device":"partial","dseq":1,"entity":"cat:x","field":"name","va');
-    final result = folderSync(b, dir.path);
+    final result = await folderSync(b, dir.path);
     expect(result.entriesIn, greaterThan(0));
     expect(b.cats().map((c) => c.name), contains('Miezi'));
   });

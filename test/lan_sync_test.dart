@@ -36,6 +36,36 @@ void main() {
     expect(again.entriesSent, 0);
   });
 
+  test('a session pins each other\'s key as verified', () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'friend';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    a.createCat('Miezi');
+    b.createCat('Wanderer');
+    ImportReport? hostReport;
+    final host =
+        await testHost(a, '123456', onSession: (_, _, r) => hostReport = r);
+    final result = await syncWith(b, host);
+    expect(result.report.newKeys.single.trust, KeyTrust.verified);
+    expect(b.pinnedKey(a.deviceId)!.trust, KeyTrust.verified);
+    expect(hostReport!.newKeys.single.record.device, b.deviceId);
+    expect(a.pinnedKey(b.deviceId)!.trust, KeyTrust.verified);
+    // What each side holds now verifies under the other's key.
+    for (final e in b.entriesSince(const {})) {
+      if (e.device == a.deviceId) expect(b.verifiesEntry(e), isTrue);
+    }
+    // A key the joiner merely carries for a third catalog arrives on
+    // the host on trust, not as met: only the partner in the room is.
+    final c = CatalogStore.inMemory()..author = 'carla';
+    addTearDown(c.close);
+    c.createCat('Mimi');
+    b.applyEntries(c.entriesSince(const {}), keys: c.keyRecords());
+    await syncWith(b, host);
+    expect(a.pinnedKey(c.deviceId)!.trust, KeyTrust.tofu);
+    expect(a.pinnedKey(b.deviceId)!.trust, KeyTrust.verified);
+  });
+
   test('wrong PIN is refused', () async {
     final a = CatalogStore.inMemory()..author = 'axel';
     final b = CatalogStore.inMemory()..author = 'friend';
@@ -87,6 +117,31 @@ void main() {
     expect(b.cats().map((c) => c.id), contains(secret));
     expect(b.isPrivate(secret), isTrue);
   });
+  test('the host page switch decides private data at every session',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'tablet';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final secret = a.createCat('Secret');
+    a.append(secret, 'f:remarks', 'hidden');
+    a.setPrivate(secret, true);
+    var switchOn = false;
+    // The gate says private; the switch, off, wins.
+    final host = await testHost(a, '123456',
+        onJoinRequest: (_, _) async =>
+            const JoinDecision(true, true, remember: true),
+        includePrivate: () => switchOn);
+    await syncWith(b, host);
+    // The cat's identity travels as a stub; its private value stays home.
+    expect(b.isWithheld(secret, 'f:remarks'), isTrue);
+    expect(b.current(secret, 'f:remarks'), isNull);
+    // Remembered device, switch now on: private comes without a question.
+    switchOn = true;
+    await syncWith(b, host);
+    expect(b.current(secret, 'f:remarks'), 'hidden');
+  });
+
   /// A 0.3.x joiner: no `format` in the /sync body.
   Future<(int, String)> postLegacySync(int port, String pin,
       Map<String, Object?> vector) async {

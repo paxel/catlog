@@ -402,7 +402,7 @@ void main() {
     expect(find.text('Miezi left to Adopter'), findsOneWidget);
   });
 
-  testWidgets('a change can be reverted from the timeline', (tester) async {
+  testWidgets('a change can be removed from the timeline', (tester) async {
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
@@ -418,13 +418,14 @@ void main() {
     await tester.tap(find.byTooltip('Timeline'));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.textContaining('Name: Mizzi'));
+    await tester.longPress(find.textContaining('Name: Mizzi'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Revert this change'));
+    await tester.tap(find.text('Remove this value'));
     await tester.pumpAndSettle();
 
     expect(store.current(cat, Keys.name), 'Miezi');
-    expect(store.fieldHistory(cat, Keys.name).length, 3);
+    expect(store.fieldHistory(cat, Keys.name).length, 1);
+    expect(store.fieldHistory(cat, Keys.name, includeVoided: true).length, 2);
   });
 
   testWidgets('card screen renders with and without a photo',

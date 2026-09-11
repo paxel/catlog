@@ -175,6 +175,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shareAsImage => 'Share as image';
 
   @override
+  String get sortOldestFirst => 'Oldest first';
+
+  @override
+  String get sortNewestFirst => 'Newest first';
+
+  @override
+  String get shareAsText => 'Share as text';
+
+  @override
   String get shareAsPdf => 'Share as PDF';
 
   @override
@@ -556,13 +565,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Revert this change';
-
-  @override
-  String get revertSubtitle =>
-      'Restores the previous value as a new entry — history keeps both.';
-
-  @override
   String fieldCleared(String field) {
     return '$field cleared';
   }
@@ -732,7 +734,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side\'s.';
+      'Both devices use the same folder (for example in Nextcloud or on a USB stick). Each sync stores your changes there and picks up the other side\'s.';
 
   @override
   String get noFolderChosenYet => 'No folder chosen yet';
@@ -742,6 +744,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Sync folder now';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Inside it this catalog uses the folder \"$name\", so one shared folder can carry all your catalogs.';
+  }
+
+  @override
+  String get useSameFolder => 'Use the same folder as the other catalogs';
+
+  @override
+  String get folderHint =>
+      'Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.';
 
   @override
   String folderSynced(String result) {
@@ -779,6 +793,16 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get conflictBody =>
       'Changed in two places at once. Pick what is true:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (private)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Both changes say the same: $value. Nothing to pick; Resolve clears the badge.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -910,6 +934,96 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sphynx';
+
+  @override
+  String get breedAbyssinian => 'Abyssinian';
+
+  @override
+  String get breedAmericanShorthair => 'American Shorthair';
+
+  @override
+  String get breedBalinese => 'Balinese';
+
+  @override
+  String get breedBirman => 'Birman';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmese';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'British Longhair';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish Rex';
+
+  @override
+  String get breedDevonRex => 'Devon Rex';
+
+  @override
+  String get breedEgyptianMau => 'Egyptian Mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotic Shorthair';
+
+  @override
+  String get breedHimalayan => 'Himalayan';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oriental Shorthair';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Russian Blue';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Scottish Fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk Rex';
+
+  @override
+  String get breedSiberian => 'Siberian';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somali';
+
+  @override
+  String get breedTonkinese => 'Tonkinese';
+
+  @override
+  String get breedTurkishAngora => 'Turkish Angora';
+
+  @override
+  String get breedTurkishVan => 'Turkish Van';
 
   @override
   String get starterColor => 'Color';
@@ -1088,7 +1202,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.';
+      'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too. Every catalog signs what it writes with its own key; partners see the key code next to your name. A partner\'s first key is taken on trust from a file and counts as met once you sync in person. Entries in a known name without the right signature are refused and listed on the arrival page.';
 
   @override
   String get helpFields =>
@@ -1100,7 +1214,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.';
+      'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.';
 
   @override
   String get helpDuplicates =>
@@ -1112,11 +1226,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.';
+      'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.';
 
   @override
   String get helpMatchesNeutral =>
-      'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare.';
+      'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.';
 
   @override
   String get helpFlier =>
@@ -1406,6 +1520,281 @@ class AppLocalizationsEn extends AppLocalizations {
   String get starterWeight => 'Weight';
 
   @override
+  String get starterLooks => 'Looks';
+
+  @override
+  String get looksGroupSize => 'Size';
+
+  @override
+  String get looksGroupColours => 'Colours';
+
+  @override
+  String get looksGroupPattern => 'Pattern';
+
+  @override
+  String get looksGroupFur => 'Fur';
+
+  @override
+  String get looksGroupTail => 'Tail';
+
+  @override
+  String get looksGroupEars => 'Ears';
+
+  @override
+  String get looksGroupMarks => 'Marks';
+
+  @override
+  String get looksGroupCrest => 'Crest';
+
+  @override
+  String get looksGroupBeak => 'Beak';
+
+  @override
+  String get looksGroupRing => 'Leg ring';
+
+  @override
+  String get looksValueSmall => 'Small';
+
+  @override
+  String get looksValueMedium => 'Medium';
+
+  @override
+  String get looksValueLarge => 'Large';
+
+  @override
+  String get looksValueBlack => 'Black';
+
+  @override
+  String get looksValueWhite => 'White';
+
+  @override
+  String get looksValueGrey => 'Grey';
+
+  @override
+  String get looksValueBrown => 'Brown';
+
+  @override
+  String get looksValueGinger => 'Ginger';
+
+  @override
+  String get looksValueCream => 'Cream';
+
+  @override
+  String get looksValueGolden => 'Golden';
+
+  @override
+  String get looksValueTan => 'Tan';
+
+  @override
+  String get looksValueGreen => 'Green';
+
+  @override
+  String get looksValueBlue => 'Blue';
+
+  @override
+  String get looksValueYellow => 'Yellow';
+
+  @override
+  String get looksValueRed => 'Red';
+
+  @override
+  String get looksValueOrange => 'Orange';
+
+  @override
+  String get looksValuePink => 'Pink';
+
+  @override
+  String get looksValueWhiteBib => 'White bib';
+
+  @override
+  String get looksValueWhitePaws => 'White paws';
+
+  @override
+  String get looksValueWhiteTailTip => 'White tail tip';
+
+  @override
+  String get looksValueBlaze => 'Blaze';
+
+  @override
+  String get looksValueMask => 'Mask';
+
+  @override
+  String get looksValueSpots => 'Spots';
+
+  @override
+  String get looksValuePatches => 'Patches';
+
+  @override
+  String get looksValueStripes => 'Stripes';
+
+  @override
+  String get looksValueScar => 'Scar';
+
+  @override
+  String get looksValueNotchedEar => 'Notched ear';
+
+  @override
+  String get looksValueEarTip => 'Ear tip';
+
+  @override
+  String get looksValueCollar => 'Collar';
+
+  @override
+  String get looksValueShort => 'Short';
+
+  @override
+  String get looksValueLong => 'Long';
+
+  @override
+  String get looksValueHairless => 'Hairless';
+
+  @override
+  String get looksValueBobtail => 'Bobtail';
+
+  @override
+  String get looksValueNone => 'None';
+
+  @override
+  String get looksValueCurled => 'Curled';
+
+  @override
+  String get looksValueUpright => 'Upright';
+
+  @override
+  String get looksValueFloppy => 'Floppy';
+
+  @override
+  String get looksValueFolded => 'Folded';
+
+  @override
+  String get looksValueRounded => 'Rounded';
+
+  @override
+  String get looksValueSolid => 'Solid';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Tortoiseshell';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Bicolour';
+
+  @override
+  String get looksValueTuxedo => 'Tuxedo';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Spotted';
+
+  @override
+  String get looksValuePatched => 'Patched';
+
+  @override
+  String get looksValueTricolour => 'Tricolour';
+
+  @override
+  String get looksValueSable => 'Sable';
+
+  @override
+  String get looksGroupEyes => 'Eyes';
+
+  @override
+  String get looksGroupFeatures => 'Features';
+
+  @override
+  String get looksValueAmber => 'Amber';
+
+  @override
+  String get looksValueCopper => 'Copper';
+
+  @override
+  String get looksValueOddEyed => 'Odd-eyed';
+
+  @override
+  String get looksValueChocolate => 'Chocolate';
+
+  @override
+  String get looksValueLilac => 'Lilac';
+
+  @override
+  String get looksValueSilver => 'Silver';
+
+  @override
+  String get looksValueSmoke => 'Smoke';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Curly';
+
+  @override
+  String get looksValueWiry => 'Wiry';
+
+  @override
+  String get looksValueKinked => 'Kinked';
+
+  @override
+  String get looksValueCropped => 'Cropped';
+
+  @override
+  String get looksValueTippedEar => 'Tipped ear';
+
+  @override
+  String get looksValueEarTattoo => 'Ear tattoo';
+
+  @override
+  String get looksValueMissingEar => 'Missing ear';
+
+  @override
+  String get looksValueMissingEye => 'Missing eye';
+
+  @override
+  String get looksValueCloudyEye => 'Cloudy eye';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Missing front leg';
+
+  @override
+  String get looksValueMissingHindLeg => 'Missing hind leg';
+
+  @override
+  String get looksValueNoTeeth => 'No teeth';
+
+  @override
+  String get looksValueExtraToes => 'Extra toes';
+
+  @override
+  String get rejectMatch => 'Not the same';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count traits agree',
+      one: '1 trait agrees',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'System default';
 
   @override
@@ -1486,6 +1875,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Confetti and a cheer when a cat moves into a forever home';
 
   @override
+  String get cheerToggle => 'Cheer sound';
+
+  @override
+  String get cheerSubtitle =>
+      'A short cheer with the confetti, a different one each time';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Confetti and a cheer when a pet moves into a forever home';
 
@@ -1528,8 +1924,60 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Removes every entry and photo written by $name on device $device from this catalog. Other devices keep theirs. This cannot be undone.';
+  String get yourKey => 'Your key';
+
+  @override
+  String get yourTitle => 'Your title';
+
+  @override
+  String get titleNone => 'No title';
+
+  @override
+  String keyLine(Object code) {
+    return 'key $code';
+  }
+
+  @override
+  String get keyVerified => 'met in person';
+
+  @override
+  String get keyFromFile => 'from a file, not yet met';
+
+  @override
+  String get keyUnsigned => 'no key yet, entries unsigned';
+
+  @override
+  String get summaryRefused => 'Refused';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries',
+      one: '1 entry',
+    );
+    return '$_temp0 refused: not signed with the key known for $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'A new key $code calls itself $name. Check with them before trusting it.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name offered a key other than the one known here. The known one stays; the new one was not taken.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'New key: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Removes every entry and photo written by $name under key $key from this catalog. Other devices keep theirs. This cannot be undone.';
   }
 
   @override
@@ -2029,7 +2477,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.';
+      'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first. Your key is the code partners see next to your name; it stays with this catalog.';
 
   @override
   String get spotHomeCatalog =>
@@ -2334,12 +2782,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'Switch on here to mirror the cat(a)log appointments into a calendar of your choice.';
 
   @override
+  String get spotAgendaToday =>
+      'Today\'s chores: tick when done. The dots show the last seven days.';
+
+  @override
   String get helpAgenda =>
-      'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned.';
+      'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.';
 
   @override
   String get helpAgendaNeutral =>
-      'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned.';
+      'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.';
 
   @override
   String get calendarRowOff => 'Calendar: off';
@@ -2384,6 +2836,295 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Reminder — a value that becomes due on a day';
+
+  @override
+  String get planChooserChore =>
+      'Chore — a task that comes around: feeding, drops, litter';
+
+  @override
+  String get newChore => 'New chore';
+
+  @override
+  String get choreEdit => 'Edit chore';
+
+  @override
+  String get choreTitleLabel => 'What';
+
+  @override
+  String get choreRepeatDaily => 'Daily';
+
+  @override
+  String get choreRepeatEvery => 'Every…';
+
+  @override
+  String get choreRepeatWeekdays => 'Weekdays';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'every $n days',
+      one: 'every day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'every $n weeks',
+      one: 'every week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'every $n months',
+      one: 'every month',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'every $n years',
+      one: 'every year',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Any time of day';
+
+  @override
+  String get chorePause => 'Pause';
+
+  @override
+  String get chorePaused => 'Paused';
+
+  @override
+  String get choreResume => 'Resume';
+
+  @override
+  String get choreEnd => 'End chore';
+
+  @override
+  String get choreHistory => 'History';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'done $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'early';
+
+  @override
+  String get choreDoneLate => 'late';
+
+  @override
+  String get choreMissed => 'Missed';
+
+  @override
+  String get choreStillOpen => 'Still open';
+
+  @override
+  String get choreEndConfirm =>
+      'The chore leaves the list. What was ticked stays in the history.';
+
+  @override
+  String get todaySection => 'Today';
+
+  @override
+  String get upcomingSection => 'Coming up';
+
+  @override
+  String get allDoneToday => 'Today: all done';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n days in a row',
+      one: '1 day in a row',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Due $date';
+  }
+
+  @override
+  String get remindMe => 'Remind me';
+
+  @override
+  String remindNext(Object when) {
+    return 'Next reminder: $when';
+  }
+
+  @override
+  String get remindNone => 'No reminder planned: nothing due ahead.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count reminders scheduled on this phone',
+      one: '1 reminder scheduled on this phone',
+      zero: 'Nothing scheduled on this phone yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Send a test reminder now';
+
+  @override
+  String get remindLateHint =>
+      'Reminders can arrive a few minutes late; the phone picks the exact moment.';
+
+  @override
+  String get remindPermissionDenied =>
+      'No permission for notifications, so the reminder stays off. Allow them in the phone\'s app settings and try again.';
+
+  @override
+  String get batteryHint =>
+      'If reminders stay away, allow cat(a)log to run in the background in the phone\'s battery settings.';
+
+  @override
+  String get batterySettings => 'Battery settings';
+
+  @override
+  String get achievementsTitle => 'Achievements';
+
+  @override
+  String get rankServant => 'Servant';
+
+  @override
+  String get rankButler => 'Butler';
+
+  @override
+  String get rankSteward => 'Steward';
+
+  @override
+  String get rankChancellor => 'Chancellor';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatCheetah => 'Cheetah';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Paws';
+
+  @override
+  String get coatRosettes => 'Rosettes';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Coat';
+
+  @override
+  String get coatRandom => 'A different one each start';
+
+  @override
+  String get coatSnowLeopard => 'Snow leopard';
+
+  @override
+  String get coatSiamese => 'Siamese points';
+
+  @override
+  String get coatLynx => 'Lynx';
+
+  @override
+  String get coatTortoiseshell => 'Tortoiseshell';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'New coat: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'A full month of chores, all done.';
+
+  @override
+  String get achievementsEmpty =>
+      'Nothing earned yet. The chores know the way.';
+
+  @override
+  String get achievementMonth => 'A full month';
+
+  @override
+  String get achievementYear => 'A full year';
+
+  @override
+  String get achievementDecade => 'A full decade';
+
+  @override
+  String get achievementCentury => 'A full century';
+
+  @override
+  String get achievementCenturyHint => 'We will both be very proud.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title master';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Reached $times times',
+      one: 'Reached once',
+    );
+    return '$_temp0, first on $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Next at $n';
+  }
+
+  @override
+  String get achievementLocked => 'Not yet';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Achievement: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'What';
@@ -2545,4 +3286,116 @@ class AppLocalizationsEn extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Delete appointment for all $count pets';
   }
+
+  @override
+  String get correctThisValue => 'Correct this value';
+
+  @override
+  String get removeThisValue => 'Remove this value';
+
+  @override
+  String get restoreThisValue => 'Restore this value';
+
+  @override
+  String get showRemovedValues => 'Show removed values';
+
+  @override
+  String get hideRemovedValues => 'Hide removed values';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Removed · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Replaced by $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Correction';
+
+  @override
+  String get restorePickFolder => 'Choose backup folder…';
+
+  @override
+  String get restoreAndroidHint =>
+      'The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.';
+
+  @override
+  String get backupsTitle => 'Backups';
+
+  @override
+  String get backupsSubtitle => 'Where your catalogs are kept safe';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google backs up this app\'s catalogs with your account, photos left out. They come back by themselves after a reinstall or on a new phone.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'A full copy of each catalog, photos included, is written to Documents/catlog whenever you leave the app after changes.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud Backup includes this app with its catalogs and photos, like every other app on this iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'A full copy of each catalog lies in the Files app under cat(a)log. From there it can go to iCloud Drive, AirDrop or another phone.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'A full copy of each catalog, photos included, is written to your Downloads folder whenever you leave the app after changes.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Last copy: $date';
+  }
+
+  @override
+  String get backupsNever => 'No copy written yet.';
+
+  @override
+  String get backupsNow => 'Back up now';
+
+  @override
+  String get backupsDone => 'Copy written.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Restored from the Google backup on $date. If the old phone still runs cat(a)log, sync from it once, then remove the app there.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'A folder of your choice can receive every copy too: one a cloud app keeps in sync on this phone (Nextcloud, Syncthing and others), a memory card, any folder the picker offers. The copies land in catlog-backups inside it.';
+
+  @override
+  String get backupsFolderPick => 'Also copy to a folder…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Also copied to $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Stop copying there';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Notifications are not working on this phone: $error';
+  }
+
+  @override
+  String get copyText => 'Copy text';
+
+  @override
+  String get colWhen => 'When';
+
+  @override
+  String get colValue => 'Value';
+
+  @override
+  String get colWho => 'Who';
 }

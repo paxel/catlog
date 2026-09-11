@@ -52,6 +52,9 @@
   "card": "Kart",
   "cardTitle": "Kart — {name}",
   "shareAsImage": "Görsel olarak paylaş",
+  "sortOldestFirst": "Önce en eski",
+  "sortNewestFirst": "Önce en yeni",
+  "shareAsText": "Metin olarak paylaş",
   "shareAsPdf": "PDF olarak paylaş",
   "print": "Yazdır",
   "renameCat": "Kediyi yeniden adlandır",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Hane yok — sokak hayvanı / kaçtı",
   "timelineOf": "Zaman çizelgesi — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Bu değişikliği geri al",
-  "revertSubtitle": "Önceki değeri yeni bir kayıt olarak geri getirir — geçmiş ikisini de saklar.",
   "fieldCleared": "{field} temizlendi",
   "fieldBackTo": "{field} \"{value}\" değerine döndü",
   "leftStray": "Ayrıldı — sokak kedisi",
@@ -128,10 +129,13 @@
   "syncFailed": "Eşitleme başarısız: {error}",
   "lastSyncWith": "{peer} ile son eşitleme: {time}",
   "sharedFolder": "Ortak klasör",
-  "sharedFolderExplainer": "İki cihaz da aynı klasörü kullanır (örn. Dropbox'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.",
+  "sharedFolderExplainer": "İki cihaz da aynı klasörü kullanır (örn. Nextcloud'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.",
   "noFolderChosenYet": "Henüz klasör seçilmedi",
   "choose": "Seç…",
   "syncFolderNow": "Klasörü şimdi eşitle",
+  "folderCatalogHint": "İçinde bu katalog „{name}“ klasörünü kullanır; böylece tek bir paylaşılan klasör tüm kataloglarını taşıyabilir.",
+  "useSameFolder": "Diğer kataloglarla aynı klasörü kullan",
+  "folderHint": "İki cihazın aynı tuttuğu herhangi bir klasör yeter: bir bulut sürücüsü ya da telefonlarınızda kalan bir klasör için Syncthing. Syncthing ücretsizdir: her telefona kur, aralarında bir klasörü paylaş ve o klasörü burada her cihazda seç.",
   "folderSynced": "Klasör eşitlendi: {result}",
   "folderSyncFailed": "Klasör eşitleme başarısız: {error}",
   "recordSightingHere": "Burada bir görülme kaydet:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "İz: {name} ({count} konum)",
   "conflictOn": "Çakışma — {field}",
   "conflictBody": "Aynı anda iki yerde değiştirildi. Doğru olanı seçin:",
+  "privateMarker": "{field} (özel)",
+  "conflictSame": "İki değişiklik de aynı şeyi söylüyor: {value}. Seçecek bir şey yok; Çöz işareti kaldırır.",
   "mergeThisInto": "Bu {kind} kaydını şununla birleştir…",
   "noOtherToMergeInto": "Birleştirilecek başka {kind} yok.",
   "mergeIntoQuestion": "{name} ile birleştirilsin mi?",
@@ -181,6 +187,36 @@
   "breedPersian": "İran kedisi",
   "breedBengal": "Bengal",
   "breedSphynx": "Sfenks",
+  "breedAbyssinian": "Habeş",
+  "breedAmericanShorthair": "Amerikan kısa tüylü",
+  "breedBalinese": "Bali",
+  "breedBirman": "Birman",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burma",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Britanya uzun tüylü",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish Rex",
+  "breedDevonRex": "Devon Rex",
+  "breedEgyptianMau": "Mısır mau",
+  "breedExoticShorthair": "Egzotik kısa tüylü",
+  "breedHimalayan": "Himalaya",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Oryantal kısa tüylü",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Rus mavisi",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "İskoç kıvrık kulak",
+  "breedSelkirkRex": "Selkirk Rex",
+  "breedSiberian": "Sibirya",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somali",
+  "breedTonkinese": "Tonkin",
+  "breedTurkishAngora": "Ankara kedisi",
+  "breedTurkishVan": "Van kedisi",
   "ownValue": "Kendi değeriniz",
   "locationDeniedForever": "Konum erişimi engellendi. Stray Cam kullanmak için sistem ayarlarından izin verin.",
   "locationServiceOff": "Bu cihazda konum kapalı. Ayarlardan açın ve yeniden deneyin.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Konumu olan tüm evcil hayvanlar ve yerler. Arama evcil hayvanları, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir evcil hayvanın ilan yerlerinin ve kaçtığı evin çevresine 500 m'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder. Her konum alanı haritada bir iğnedir; izini görmek için bir iğneye dokun.",
   "helpCard": "Kedinin yazdırılabilir kartı: üstteki çiplerle ne görüneceğini seç, sonra görsel ya da PDF olarak paylaş. Numaralar QR ya da barkod olarak basılabilir, konum ise haritayı açan bir QR'a ve kısa bir Plus Code'a dönüşür.",
   "helpCardNeutral": "Evcil hayvanın yazdırılabilir kartı: üstteki çiplerle ne görüneceğini seç, sonra görsel ya da PDF olarak paylaş. Numaralar QR ya da barkod olarak basılabilir, konum ise haritayı açan bir QR'a ve kısa bir Plus Code'a dönüşür.",
-  "helpSync": "Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır.",
+  "helpSync": "Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır. Her katalog yazdıklarını kendi anahtarıyla imzalar; ortaklar adının yanında anahtar kodunu görür. Bir ortağın ilk anahtarı dosyadan güvenle alınır ve yüz yüze eşitleyince doğrulanmış sayılır. Bilinen bir ad altında doğru imzası olmayan kayıtlar reddedilir ve varış sayfasında listelenir.",
   "helpFields": "Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara kedide tıklanabilir olur.",
   "helpFieldsNeutral": "Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara evcil hayvanda tıklanabilir olur.",
-  "helpTimeline": "Şimdiye kadar yapılmış her değişiklik, en yenisi üstte: kim neyi, ne zaman, hangi değere değiştirmiş. Her kayıt geri alınabilir — bu yeni bir kayıt yazar, hiçbir şey silinmez.",
+  "helpTimeline": "Her değişiklik, en yenisi önce: kim, ne zaman ve hangi değere. Düzeltmek için bir kayda dokunun, kaldırmak veya geri getirmek için basılı tutun; gizli bir kayıt günlükte kalır ve istendiğinde gösterilir.",
   "helpDuplicates": "İki kez var gibi görünen kediler ya da koloniler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.",
   "helpDuplicatesNeutral": "İki kez var gibi görünen evcil hayvanlar ya da haneler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.",
-  "helpMatches": "Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç.",
-  "helpMatchesNeutral": "Aynı hayvan olabilecek evcil hayvanlar: aynı numara ya da kayıp bir evcil hayvanın arama alanında görülen bir sokak hayvanı. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk evcil hayvanı aç.",
+  "helpMatches": "Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç. Görünüşü en az iki özellikte çelişmeden uyuşan çiftler de listelenir; çipler hangileri olduğunu gösterir. „Aynı değil“ bir çifti bu telefonda, hayvanlardan birinin görünüşü değişene dek gizler.",
+  "helpMatchesNeutral": "Aynı hayvan olabilecek evcil hayvanlar: aynı numara ya da kayıp bir evcil hayvanın arama alanında görülen bir sokak hayvanı. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk evcil hayvanı aç. Görünüşü en az iki özellikte çelişmeden uyuşan çiftler de listelenir; çipler hangileri olduğunu gösterir. „Aynı değil“ bir çifti bu telefonda, hayvanlardan birinin görünüşü değişene dek gizler.",
   "helpFlier": "Fotoğraflanan bir ilan, kediye ve sahibine dönüşür. Adım adım: kedinin bilgileri, sahibinin iletişimi, profil fotoğrafı için yüz kırpma, ilandaki kayıt numaraları, sonra son kontrol. Hepsi öneridir — kameranın yanlış okuduğunu düzelt.",
   "helpFlierNeutral": "Fotoğraflanan bir ilan, evcil hayvana ve sahibine dönüşür. Adım adım: evcil hayvanın bilgileri, sahibinin iletişimi, profil fotoğrafı için yüz kırpma, ilandaki kayıt numaraları, sonra son kontrol. Hepsi öneridir — kameranın yanlış okuduğunu düzelt.",
   "archiveTitle": "Arşiv",
@@ -399,11 +435,109 @@
   "rangeAll": "Tümü",
   "rangeCustom": "Özel…",
   "changeSince": "{date} tarihinden beri {delta}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Bölgendeki gibi",
   "unitsMetric": "Metrik (kg, cm, ml, °C)",
   "unitsImperial": "İngiliz (lb, in, fl oz, °F)",
   "starterWeight": "Ağırlık",
+  "starterLooks": "Görünüş",
+  "looksGroupSize": "Boyut",
+  "looksGroupColours": "Renkler",
+  "looksGroupPattern": "Desen",
+  "looksGroupFur": "Tüy",
+  "looksGroupTail": "Kuyruk",
+  "looksGroupEars": "Kulaklar",
+  "looksGroupMarks": "İşaretler",
+  "looksGroupCrest": "Tepelik",
+  "looksGroupBeak": "Gaga",
+  "looksGroupRing": "Halka",
+  "looksValueSmall": "Küçük",
+  "looksValueMedium": "Orta",
+  "looksValueLarge": "Büyük",
+  "looksValueBlack": "Siyah",
+  "looksValueWhite": "Beyaz",
+  "looksValueGrey": "Gri",
+  "looksValueBrown": "Kahverengi",
+  "looksValueGinger": "Kızıl",
+  "looksValueCream": "Krem",
+  "looksValueGolden": "Altın",
+  "looksValueTan": "Açık kahve",
+  "looksValueGreen": "Yeşil",
+  "looksValueBlue": "Mavi",
+  "looksValueYellow": "Sarı",
+  "looksValueRed": "Kırmızı",
+  "looksValueOrange": "Turuncu",
+  "looksValuePink": "Pembe",
+  "looksValueWhiteBib": "Beyaz göğüs",
+  "looksValueWhitePaws": "Beyaz patiler",
+  "looksValueWhiteTailTip": "Beyaz kuyruk ucu",
+  "looksValueBlaze": "Akıtma",
+  "looksValueMask": "Maske",
+  "looksValueSpots": "Benekler",
+  "looksValuePatches": "Yamalar",
+  "looksValueStripes": "Çizgiler",
+  "looksValueScar": "Yara izi",
+  "looksValueNotchedEar": "Çentikli kulak",
+  "looksValueEarTip": "Kulak ucu",
+  "looksValueCollar": "Tasma",
+  "looksValueShort": "Kısa",
+  "looksValueLong": "Uzun",
+  "looksValueHairless": "Tüysüz",
+  "looksValueBobtail": "Küt kuyruk",
+  "looksValueNone": "Yok",
+  "looksValueCurled": "Kıvrık",
+  "looksValueUpright": "Dik",
+  "looksValueFloppy": "Düşük",
+  "looksValueFolded": "Katlı",
+  "looksValueRounded": "Yuvarlak",
+  "looksValueSolid": "Düz",
+  "looksValueTabby": "Tekir",
+  "looksValueTortoiseshell": "Bağa",
+  "looksValueCalico": "Kaliko",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "İki renkli",
+  "looksValueTuxedo": "Smokin",
+  "looksValueBrindle": "Çizgili",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Benekli",
+  "looksValuePatched": "Yamalı",
+  "looksValueTricolour": "Üç renkli",
+  "looksValueSable": "Samur",
+  "looksGroupEyes": "Gözler",
+  "looksGroupFeatures": "Özellikler",
+  "looksValueAmber": "Kehribar",
+  "looksValueCopper": "Bakır",
+  "looksValueOddEyed": "Farklı renkli",
+  "looksValueChocolate": "Çikolata",
+  "looksValueLilac": "Leylak",
+  "looksValueSilver": "Gümüş",
+  "looksValueSmoke": "Duman",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Kıvırcık",
+  "looksValueWiry": "Sert",
+  "looksValueKinked": "Kıvrık",
+  "looksValueCropped": "Kesik",
+  "looksValueTippedEar": "Kesik kulak ucu",
+  "looksValueEarTattoo": "Kulak dövmesi",
+  "looksValueMissingEar": "Eksik kulak",
+  "looksValueMissingEye": "Eksik göz",
+  "looksValueCloudyEye": "Bulanık göz",
+  "looksValueMissingFrontLeg": "Eksik ön bacak",
+  "looksValueMissingHindLeg": "Eksik arka bacak",
+  "looksValueNoTeeth": "Dişsiz",
+  "looksValueExtraToes": "Fazla parmak",
+  "rejectMatch": "Aynı değil",
+  "traitsAgree": "{count, plural, =1{1 özellik uyuşuyor} other{{count} özellik uyuşuyor}}",
   "systemDefault": "Sistem varsayılanı",
   "iosLocalNetworkHint": "iPhone/iPad'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log'a izin ver, sonra tekrar dene.",
   "markPrivate": "Özel olarak işaretle",
@@ -432,6 +566,8 @@
   "otherOption": "Diğer…",
   "celebrationsToggle": "Sahiplendirmeleri kutla",
   "celebrationsSubtitle": "Bir kedi yuvasına taşındığında konfeti ve tezahürat",
+  "cheerToggle": "Tezahürat sesi",
+  "cheerSubtitle": "Konfetiyle kısa bir tezahürat, her seferinde farklı",
   "celebrationsSubtitleNeutral": "Bir evcil hayvan yuvasına taşındığında konfeti ve tezahürat",
   "onMapLabel": "Haritada",
   "showOnMap": "Haritada göster",
@@ -445,7 +581,19 @@
   "authorsSection": "Bu kataloğa kim yazdı",
   "hardDeleteAction": "Bu yazarın her şeyini sil",
   "hardDeleteWarning": "{name} tarafından yazılan her kaydı ve fotoğrafı bu cihazdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.",
-  "hardDeleteWarningDevice": "{name} adlı kişinin {device} cihazında yazdığı her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.",
+  "yourKey": "Anahtarın",
+  "yourTitle": "Unvanın",
+  "titleNone": "Unvan yok",
+  "keyLine": "anahtar {code}",
+  "keyVerified": "yüz yüze doğrulandı",
+  "keyFromFile": "dosyadan, henüz doğrulanmadı",
+  "keyUnsigned": "henüz anahtar yok, kayıtlar imzasız",
+  "summaryRefused": "Reddedildi",
+  "refusedEntries": "{count, plural, =1{1 kayıt} other{{count} kayıt}} reddedildi: {name} için bilinen anahtarla imzalanmamış",
+  "newKeyCallsItself": "Yeni bir anahtar {code} kendine {name} diyor. Güvenmeden önce kişiye sor.",
+  "keyChangedRefused": "{name} burada bilinenden farklı bir anahtar sundu. Bilinen kalır; yenisi alınmadı.",
+  "metaNewKey": "Yeni anahtar: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "{name} tarafından {key} anahtarıyla yazılan her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.",
   "typeToConfirm": "Onaylamak için {name} yazın",
   "alsoBan": "Ayrıca yasakla — bir daha asla veri kabul etme",
   "bansSection": "Yasaklar",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Hiçbir şey geri yüklenmedi.} one{1 katalog geri yüklendi.} other{{count} katalog geri yüklendi.}}",
   "helpCatalogs": "Bir katalog kendi başına bir dünyadır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris hiç karışmaz. Bir kataloğa geçmek için ona dokun. Katalogdaki dişli, ayarlarını açar: ad, kediler veya hayvanlar, alanlar, yazarlar ve engeller, arşiv, geri dön, sil. Adın, dilin ve zaten gördüğün ipuçları hepsinde ortaktır.",
   "helpCatalogsNeutral": "Bir katalog kendi başına bir dünyadır: kendi hayvanları, haneleri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris hiç karışmaz. Bir kataloğa geçmek için ona dokun. Katalogdaki dişli, ayarlarını açar: ad, kediler veya hayvanlar, alanlar, yazarlar ve engeller, arşiv, geri dön, sil. Adın, dilin ve zaten gördüğün ipuçları hepsinde ortaktır.",
-  "helpCatalogSettings": "Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar.",
+  "helpCatalogSettings": "Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar. Anahtarın, ortakların adının yanında gördüğü koddur; bu kataloğa aittir.",
   "spotHomeCatalog": "Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.",
   "deleteCatalog": "Kataloğu sil",
   "catalogSettings": "Katalog ayarları",
   "deleteCatalogBody": "{name} içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir.",
   "deleteCatalogBodyNeutral": "{name} içindeki her şey gider: evcil hayvanlar, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Planlanmış randevu yok. Yenilerini burada artı ile ya da bir evcil hayvanın veya hanenin sayfasında planla.",
   "dueToday": "bugün",
   "dueInDays": "{count, plural, one{1 gün içinde} other{{count} gün içinde}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 gün gecikmiş} other{{count} gün gecikmiş}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Yapıldı",
   "repeatTitle": "Tekrar…",
   "noRepeatLabel": "Tekrar yok",
@@ -720,15 +886,33 @@
   "unitMonths": "ay sonra",
   "unitYears": "yıl sonra",
   "ageYears": "{years} yıl",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} ay",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Tarihi değiştir",
   "removeReminderLabel": "Hatırlatmayı kaldır",
   "exportIcs": "Takvim dosyasını dışa aktar",
   "resyncCalendar": "Takvimi yeniden eşitle",
   "icsSavedTo": "Takvim dosyası {path} konumuna kaydedildi",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Cihaz takvimine yansıt",
   "calendarMirrorSubtitle": "Randevular takvimde tüm gün süren etkinlikler olarak görünür. cat(a)log her açılışta ve her değişiklikten sonra onları orada günceller. Randevu uyarılarını takvimde yönetebilirsin.",
   "syncPeerOlder": "Diğer cihazda hatırlatmasız daha eski bir cat(a)log var. Orada cat(a)log uygulamasını güncelle ve yeniden eşitle.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Ajanda: planlanan randevuların listesi — veteriner, ilaç, kontroller.",
   "spotAgendaAdd": "Yeni bir randevu planla.",
   "spotAgendaCalendar": "cat(a)log randevularının seçtiğin bir takvime yansıtılmasını buradan aç.",
-  "helpAgenda": "Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar.",
-  "helpAgendaNeutral": "Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar.",
+  "spotAgendaToday": "Bugünün görevleri: bitince işaretle. Noktalar son yedi günü gösterir.",
+  "helpAgenda": "Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.",
+  "helpAgendaNeutral": "Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.",
   "calendarRowOff": "Takvim: kapalı",
   "calendarRowOn": "Takvim: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Bu kedi için bir randevu planla. Ajandada görünür ve orada onaylanır.",
   "spotAddReminderCatNeutral": "Bu evcil hayvan için bir randevu planla. Ajandada görünür ve orada onaylanır.",
   "spotAddReminderClowder": "Bu clowder için bir randevu planla. Ajandada görünür ve orada onaylanır.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Randevu mu, hatırlatma mı?",
   "planChooserAppointment": "Randevu — bir tarih ve saatte ziyaret, notlarla",
   "planChooserReminder": "Hatırlatma — bir gün vadesi gelen bir değer",
+  "planChooserChore": "Görev — tekrar eden bir iş: mama, damla, kum",
+  "newChore": "Yeni görev",
+  "choreEdit": "Görevi düzenle",
+  "choreTitleLabel": "Ne",
+  "choreRepeatDaily": "Her gün",
+  "choreRepeatEvery": "Her…",
+  "choreRepeatWeekdays": "Günler",
+  "choreEveryDays": "{n, plural, one{her gün} other{her {n} günde bir}}",
+  "choreEveryWeeks": "{n, plural, one{her hafta} other{her {n} haftada bir}}",
+  "choreEveryMonths": "{n, plural, one{her ay} other{her {n} ayda bir}}",
+  "choreEveryYears": "{n, plural, one{her yıl} other{her {n} yılda bir}}",
+  "choreNoTime": "Günün herhangi bir saati",
+  "chorePause": "Duraklat",
+  "chorePaused": "Duraklatıldı",
+  "choreResume": "Sürdür",
+  "choreEnd": "Görevi bitir",
+  "choreHistory": "Geçmiş",
+  "choreDoneAt": "yapıldı {when} · {who}",
+  "choreDoneEarly": "erken",
+  "choreDoneLate": "geç",
+  "choreMissed": "Kaçırıldı",
+  "choreStillOpen": "Hâlâ açık",
+  "choreEndConfirm": "Görev listeden çıkar. İşaretlenenler geçmişte kalır.",
+  "todaySection": "Bugün",
+  "upcomingSection": "Yakında",
+  "allDoneToday": "Bugün: hepsi tamam",
+  "streakDays": "{n, plural, one{1 gün üst üste} other{{n} gün üst üste}}",
+  "choreDue": "Son gün {date}",
+  "remindMe": "Hatırlat",
+  "remindNext": "Sonraki hatırlatıcı: {when}",
+  "remindNone": "Planlanmış hatırlatıcı yok: yaklaşan bir şey yok.",
+  "remindPending": "{count, plural, =0{Bu telefonda henüz planlanmış bir şey yok} =1{Bu telefonda 1 hatırlatıcı planlı} other{Bu telefonda {count} hatırlatıcı planlı}}",
+  "remindTest": "Şimdi bir deneme hatırlatıcısı gönder",
+  "remindLateHint": "Hatırlatıcılar birkaç dakika geç gelebilir; tam anı telefon seçer.",
+  "remindPermissionDenied": "Bildirim izni yok, hatırlatıcı kapalı kalır. Telefonun uygulama ayarlarından izin ver ve tekrar dene.",
+  "batteryHint": "Hatırlatıcılar gelmiyorsa telefonun pil ayarlarında cat(a)log’un arka planda çalışmasına izin ver.",
+  "batterySettings": "Pil ayarları",
+  "achievementsTitle": "Başarılar",
+  "rankServant": "Hizmetkâr",
+  "rankButler": "Kâhya",
+  "rankSteward": "Vekilharç",
+  "rankChancellor": "Şansölye",
+  "rankMinister": "Bakan",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kaliko",
+  "coatCheetah": "Çita",
+  "coatTiger": "Kaplan",
+  "coatTabby": "Tekir",
+  "coatPaws": "Patiler",
+  "coatRosettes": "Rozetler",
+  "coatZebra": "Zebra",
+  "coatSetting": "Kürk",
+  "coatRandom": "Her açılışta farklı",
+  "coatSnowLeopard": "Kar leoparı",
+  "coatSiamese": "Siyam noktaları",
+  "coatLynx": "Vaşak",
+  "coatTortoiseshell": "Bağa",
+  "coatUnlocked": "Yeni kürk: {coat}",
+  "coatUnlockedHow": "Tam bir ay görev, hepsi yapıldı.",
+  "achievementsEmpty": "Henüz bir şey yok. Görevler yolu bilir.",
+  "achievementMonth": "Tam bir ay",
+  "achievementYear": "Tam bir yıl",
+  "achievementDecade": "Tam on yıl",
+  "achievementCentury": "Tam bir yüzyıl",
+  "achievementCenturyHint": "İkimiz de çok gurur duyacağız.",
+  "achievementMaster": "{title} ustası",
+  "achievementReached": "{times, plural, one{Bir kez ulaşıldı} other{{times} kez ulaşıldı}}, ilki {date}",
+  "achievementNext": "Sonraki: {n}",
+  "achievementLocked": "Henüz değil",
+  "achievementUnlocked": "Başarı: {name}",
   "appointmentTitleLabel": "Ne",
   "notesLabel": "Notlar",
   "timeLabel": "Saat",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Mevcut hane",
   "createNewInstead": "Yok — yeni oluştur",
   "overwritesValue": "Mevcut değerin üzerine yazar: \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Tarama iptal edilsin mi?",
   "abortScanBody": "Hiçbir şey kaydedilmez.",
   "abortScan": "İptal",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Tedavi edilmeyen kedilerin işaretini kaldırın; planlı kalırlar.",
   "finishUntickHintNeutral": "Tedavi edilmeyen evcil hayvanların işaretini kaldırın; planlı kalırlar.",
   "deleteAppointmentGroup": "Randevuyu {count} kedinin tümü için sil",
-  "deleteAppointmentGroupNeutral": "Randevuyu {count} evcil hayvanın tümü için sil"
+  "deleteAppointmentGroupNeutral": "Randevuyu {count} evcil hayvanın tümü için sil",
+  "correctThisValue": "Bu değeri düzelt",
+  "removeThisValue": "Bu değeri kaldır",
+  "restoreThisValue": "Bu değeri geri getir",
+  "showRemovedValues": "Kaldırılan değerleri göster",
+  "hideRemovedValues": "Kaldırılan değerleri gizle",
+  "entryRemovedBy": "Kaldırıldı · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "{value} ile değiştirildi · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Düzeltme",
+  "restorePickFolder": "Yedek klasörünü seç…",
+  "restoreAndroidHint": "Önceki kurulumun yedekleri Documents/catlog içinde (eski sürümlerde Downloads/catlog). O klasörü bir kez seçin; yedekleri burada listelenir.",
+  "backupsTitle": "Yedekler",
+  "backupsSubtitle": "Kataloglarının güvende tutulduğu yer",
+  "backupsAndroidSystem": "Google bu uygulamanın kataloglarını hesabınla yedekler, fotoğraflar hariç. Yeniden kurulumdan sonra veya yeni telefonda kendiliğinden geri gelirler.",
+  "backupsAndroidFiles": "Her kataloğun fotoğraflar dahil tam bir kopyası, değişikliklerden sonra uygulamadan her çıkışında Documents/catlog içine yazılır.",
+  "backupsIosSystem": "iCloud Yedekleme bu uygulamayı katalogları ve fotoğraflarıyla birlikte kapsar, bu iPhone'daki her uygulama gibi.",
+  "backupsIosFiles": "Her kataloğun tam bir kopyası Dosyalar uygulamasında cat(a)log altında durur. Oradan iCloud Drive'a, AirDrop ile veya başka bir telefona gidebilir.",
+  "backupsDesktopFiles": "Her kataloğun fotoğraflar dahil tam bir kopyası, değişikliklerden sonra uygulamadan her çıkışında İndirilenler klasörüne yazılır.",
+  "backupsLast": "Son kopya: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Henüz kopya yazılmadı.",
+  "backupsNow": "Şimdi yedekle",
+  "backupsDone": "Kopya yazıldı.",
+  "backupsRestoredNote": "{date} tarihinde Google yedeğinden geri yüklendi. Eski telefonda cat(a)log hâlâ çalışıyorsa, oradan bir kez eşitleyin, sonra uygulamayı orada kaldırın.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Seçtiğin bir klasör de her kopyayı alabilir: bir bulut uygulamasının bu telefonda eşitlediği bir klasör (Nextcloud, Syncthing ve diğerleri), bir hafıza kartı, seçicinin sunduğu herhangi bir klasör. Kopyalar içindeki catlog-backups klasörüne düşer.",
+  "backupsFolderPick": "Bir klasöre de kopyala…",
+  "backupsFolderIs": "{name} klasörüne de kopyalanıyor",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Oraya kopyalamayı bırak",
+  "remindFailed": "Bildirimler bu telefonda çalışmıyor: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Metni kopyala",
+  "colWhen": "Ne zaman",
+  "colValue": "Değer",
+  "colWho": "Kim"
 }

@@ -15,6 +15,7 @@ import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'cat_list_screen.dart';
 import '../exclusive.dart';
+import '../widgets/looks_input.dart';
 
 /// Cats currently in no Clowder: the shared cat list (#87) with the
 /// strays' own tools — flier capture, stray cam, match candidates,
@@ -58,6 +59,11 @@ class StraysScreen extends StatelessWidget {
     VoidCallback refresh, {
     bool startEditing = false,
   }) async {
+    // A fresh capture asks what the animal looks like before its page
+    // opens — the match list needs Looks, and now is when they are seen.
+    if (catId != null && startEditing && context.mounted) {
+      await askLooksAfterCapture(context, store, catId);
+    }
     if (catId != null && context.mounted) {
       await Navigator.of(context).push(
         MaterialPageRoute(

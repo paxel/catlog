@@ -52,6 +52,9 @@
   "card": "כרטיס",
   "cardTitle": "כרטיס — {name}",
   "shareAsImage": "שיתוף כתמונה",
+  "sortOldestFirst": "הישן קודם",
+  "sortNewestFirst": "החדש קודם",
+  "shareAsText": "שיתוף כטקסט",
   "shareAsPdf": "שיתוף כ-PDF",
   "print": "הדפסה",
   "renameCat": "שינוי שם החתול",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "ללא משק בית — חיית רחוב / ברחה",
   "timelineOf": "ציר זמן — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "ביטול השינוי הזה",
-  "revertSubtitle": "מחזיר את הערך הקודם כרשומה חדשה — ההיסטוריה שומרת את שניהם.",
   "fieldCleared": "{field} רוקן",
   "fieldBackTo": "{field} חזר אל \"{value}\"",
   "leftStray": "עזב — חתול רחוב",
@@ -128,10 +129,13 @@
   "syncFailed": "הסנכרון נכשל: {error}",
   "lastSyncWith": "סנכרון אחרון עם {peer}: {time}",
   "sharedFolder": "תיקייה משותפת",
-  "sharedFolderExplainer": "שני המכשירים משתמשים באותה תיקייה (למשל ב-Dropbox או בהתקן USB). כל סנכרון מניח שם את השינויים שלכם ואוסף את של הצד השני.",
+  "sharedFolderExplainer": "שני המכשירים משתמשים באותה תיקייה (למשל ב-Nextcloud או בהתקן USB). כל סנכרון מניח שם את השינויים שלכם ואוסף את של הצד השני.",
   "noFolderChosenYet": "טרם נבחרה תיקייה",
   "choose": "בחירה…",
   "syncFolderNow": "סנכרון התיקייה עכשיו",
+  "folderCatalogHint": "בתוכה הקטלוג הזה משתמש בתיקייה \"{name}\", כך שתיקייה משותפת אחת יכולה לשאת את כל הקטלוגים שלך.",
+  "useSameFolder": "להשתמש באותה תיקייה כמו הקטלוגים האחרים",
+  "folderHint": "כל תיקייה ששני מכשירים שומרים זהה מתאימה: כונן ענן, או Syncthing לתיקייה שנשארת בטלפונים שלכם. Syncthing חינמי: התקינו אותו בכל טלפון, שתפו תיקייה אחת ביניהם, ובחרו את התיקייה הזו כאן בכל מכשיר.",
   "folderSynced": "התיקייה סונכרנה: {result}",
   "folderSyncFailed": "סנכרון התיקייה נכשל: {error}",
   "recordSightingHere": "רישום תצפית כאן:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "מסלול: {name} ({count} מיקומים)",
   "conflictOn": "התנגשות — {field}",
   "conflictBody": "שונה בשני מקומות בו-זמנית. בחרו מה נכון:",
+  "privateMarker": "{field} (פרטי)",
+  "conflictSame": "שני השינויים אומרים אותו דבר: {value}. אין מה לבחור; \"פתור\" מסיר את הסימון.",
   "mergeThisInto": "מיזוג {kind} זה עם…",
   "noOtherToMergeInto": "אין {kind} אחר למזג איתו.",
   "mergeIntoQuestion": "למזג עם {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "פרסי",
   "breedBengal": "בנגלי",
   "breedSphynx": "ספינקס",
+  "breedAbyssinian": "אביסיני",
+  "breedAmericanShorthair": "אמריקאי קצר שיער",
+  "breedBalinese": "באלינזי",
+  "breedBirman": "בירמן",
+  "breedBombay": "בומביי",
+  "breedBurmese": "בורמזי",
+  "breedBurmilla": "בורמילה",
+  "breedBritishLonghair": "בריטי ארוך שיער",
+  "breedChartreux": "שארטרה",
+  "breedCornishRex": "קורניש רקס",
+  "breedDevonRex": "דבון רקס",
+  "breedEgyptianMau": "מאו מצרי",
+  "breedExoticShorthair": "אקזוטי קצר שיער",
+  "breedHimalayan": "הימלאי",
+  "breedKorat": "קוראט",
+  "breedManx": "מאנקס",
+  "breedMunchkin": "מאנצ'קין",
+  "breedOcicat": "אוסיקט",
+  "breedOrientalShorthair": "מזרחי קצר שיער",
+  "breedRagamuffin": "ראגאמאפין",
+  "breedRussianBlue": "כחול רוסי",
+  "breedSavannah": "סוואנה",
+  "breedScottishFold": "סקוטיש פולד",
+  "breedSelkirkRex": "סלקירק רקס",
+  "breedSiberian": "סיבירי",
+  "breedSnowshoe": "סנושו",
+  "breedSomali": "סומלי",
+  "breedTonkinese": "טונקינזי",
+  "breedTurkishAngora": "אנגורה טורקי",
+  "breedTurkishVan": "ואן טורקי",
   "ownValue": "ערך משלך",
   "locationDeniedForever": "הגישה למיקום חסומה. יש לאפשר אותה בהגדרות המערכת כדי להשתמש ב-Stray Cam.",
   "locationServiceOff": "המיקום כבוי במכשיר הזה. הפעילו אותו בהגדרות ונסו שוב.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "כל חיות המחמד והמקומות עם מיקום. החיפוש מוצא חיות מחמד, אנשים ומקומות — שם לא מוכר נבדק בכל העולם. כפתור השכבות מצייר מעגלי 500 מ' סביב מקומות המודעות של חיית מחמד נעדרת וסביב הבית שממנו ברחה. החצים עוברים מסיכה לסיכה, לחיצה ארוכה על המפה רושמת תצפית. כל שדה מיקום מופיע כסיכה על המפה; הקישו על סיכה כדי לראות את המסלול שלה.",
   "helpCard": "הכרטיס להדפסה של החתול: בחרו למעלה בעזרת התוויות מה יופיע בו, ואז שתפו כתמונה או PDF. מספרים אפשר להדפיס כ-QR או ברקוד, ומיקום הופך ל-QR שפותח מפה, בתוספת Plus Code קצר.",
   "helpCardNeutral": "הכרטיס להדפסה של חיית המחמד: בחרו למעלה בעזרת התוויות מה יופיע בו, ואז שתפו כתמונה או PDF. מספרים אפשר להדפיס כ-QR או ברקוד, ומיקום הופך ל-QR שפותח מפה, בתוספת Plus Code קצר.",
-  "helpSync": "כך הנתונים מגיעים לאחרים: חיבור ישיר, תיקייה ששני המכשירים רואים, או קובץ במסנג'ר. אתם תמיד מחליטים מה יוצא — וקבצי ‎.catsync שהתקבלו נפתחים גם כאן.",
+  "helpSync": "כך הנתונים מגיעים לאחרים: חיבור ישיר, תיקייה ששני המכשירים רואים, או קובץ במסנג'ר. אתם תמיד מחליטים מה יוצא — וקבצי ‎.catsync שהתקבלו נפתחים גם כאן. כל קטלוג חותם על מה שהוא כותב במפתח משלו; שותפים רואים את קוד המפתח ליד שמך. המפתח הראשון של שותף מתקבל באמון מקובץ ונחשב מאומת לאחר סנכרון פנים אל פנים. רשומות בשם מוכר ללא החתימה הנכונה נדחות ומופיעות בדף ההגעה.",
   "helpFields": "השדות שהקטלוג שלכם משתמש בהם. שנו את שמם, שנו אפשרויות של שדה בחירה או צרו שדות משלכם. שדה מזהה יכול להפנות לשירות (מרשם), ואז המספר ניתן ללחיצה אצל החתול.",
   "helpFieldsNeutral": "השדות שהקטלוג שלכם משתמש בהם. שנו את שמם, שנו אפשרויות של שדה בחירה או צרו שדות משלכם. שדה מזהה יכול להפנות לשירות (מרשם), ואז המספר ניתן ללחיצה אצל חיית המחמד.",
-  "helpTimeline": "כל שינוי שנעשה אי פעם, החדש ביותר ראשון: מי שינה מה, מתי ולאיזה ערך. כל רשומה ניתנת לביטול — זה כותב רשומה חדשה, שום דבר לא נמחק.",
+  "helpTimeline": "כל שינוי, החדש ראשון: מי שינה מה, מתי ולאיזה ערך. הקשה על רשומה מתקנת אותה, לחיצה ארוכה מסירה או משחזרת; רשומה מוסתרת נשארת ביומן ומוצגת לפי בקשה.",
   "helpDuplicates": "חתולים או מושבות שנראים כפולים — מזהים זהים או שמות דומים מאוד עם פרטים תואמים. הקישו על זוג כדי למזג; מיזוג בלתי הפיך, ולכן נשאלת שאלה תחילה.",
   "helpDuplicatesNeutral": "חיות מחמד או משקי בית שנראים כפולים — מזהים זהים או שמות דומים מאוד עם פרטים תואמים. הקישו על זוג כדי למזג; מיזוג בלתי הפיך, ולכן נשאלת שאלה תחילה.",
-  "helpMatches": "חתולים שעשויים להיות אותה חיה: מזהה זהה, או חתול רחוב שנצפה בתוך אזור החיפוש של חתול נעדר. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את החתול הראשון להשוואה.",
-  "helpMatchesNeutral": "חיות מחמד שעשויות להיות אותה חיה: מזהה זהה, או חיית רחוב שנצפתה בתוך אזור החיפוש של חיית מחמד נעדרת. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את חיית המחמד הראשונה להשוואה.",
+  "helpMatches": "חתולים שעשויים להיות אותה חיה: מזהה זהה, או חתול רחוב שנצפה בתוך אזור החיפוש של חתול נעדר. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את החתול הראשון להשוואה. גם זוגות שהמראה שלהם תואם בשתי תכונות או יותר ללא סתירה מופיעים ברשימה; התגיות מראות אילו. \"לא אותו אחד\" מסתיר זוג בטלפון הזה עד שהמראה של אחת החיות ישתנה.",
+  "helpMatchesNeutral": "חיות מחמד שעשויות להיות אותה חיה: מזהה זהה, או חיית רחוב שנצפתה בתוך אזור החיפוש של חיית מחמד נעדרת. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את חיית המחמד הראשונה להשוואה. גם זוגות שהמראה שלהם תואם בשתי תכונות או יותר ללא סתירה מופיעים ברשימה; התגיות מראות אילו. \"לא אותו אחד\" מסתיר זוג בטלפון הזה עד שהמראה של אחת החיות ישתנה.",
   "helpFlier": "מודעה מצולמת הופכת לחתול ולבעלים שלו. שלב אחר שלב: פרטי החתול, פרטי הבעלים, חיתוך הפנים לתמונת הפרופיל, מספרי מרשם מהמודעה, ולבסוף בדיקה. הכול הצעות — תקנו את מה שהמצלמה קראה לא נכון.",
   "helpFlierNeutral": "מודעה מצולמת הופכת לחיית מחמד ולבעלים שלה. שלב אחר שלב: פרטי חיית המחמד, פרטי הבעלים, חיתוך הפנים לתמונת הפרופיל, מספרי מרשם מהמודעה, ולבסוף בדיקה. הכול הצעות — תקנו את מה שהמצלמה קראה לא נכון.",
   "archiveTitle": "ארכיון",
@@ -399,11 +435,109 @@
   "rangeAll": "הכל",
   "rangeCustom": "מותאם…",
   "changeSince": "{delta} מאז {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "כמו באזורך",
   "unitsMetric": "מטרי (kg, cm, ml, °C)",
   "unitsImperial": "אימפריאלי (lb, in, fl oz, °F)",
   "starterWeight": "משקל",
+  "starterLooks": "מראה",
+  "looksGroupSize": "גודל",
+  "looksGroupColours": "צבעים",
+  "looksGroupPattern": "דוגמה",
+  "looksGroupFur": "פרווה",
+  "looksGroupTail": "זנב",
+  "looksGroupEars": "אוזניים",
+  "looksGroupMarks": "סימנים",
+  "looksGroupCrest": "ציצה",
+  "looksGroupBeak": "מקור",
+  "looksGroupRing": "טבעת רגל",
+  "looksValueSmall": "קטן",
+  "looksValueMedium": "בינוני",
+  "looksValueLarge": "גדול",
+  "looksValueBlack": "שחור",
+  "looksValueWhite": "לבן",
+  "looksValueGrey": "אפור",
+  "looksValueBrown": "חום",
+  "looksValueGinger": "ג׳ינג׳י",
+  "looksValueCream": "קרם",
+  "looksValueGolden": "זהוב",
+  "looksValueTan": "חום בהיר",
+  "looksValueGreen": "ירוק",
+  "looksValueBlue": "כחול",
+  "looksValueYellow": "צהוב",
+  "looksValueRed": "אדום",
+  "looksValueOrange": "כתום",
+  "looksValuePink": "ורוד",
+  "looksValueWhiteBib": "חזה לבן",
+  "looksValueWhitePaws": "כפות לבנות",
+  "looksValueWhiteTailTip": "קצה זנב לבן",
+  "looksValueBlaze": "פס לבן על הפנים",
+  "looksValueMask": "מסכה",
+  "looksValueSpots": "נקודות",
+  "looksValuePatches": "כתמים",
+  "looksValueStripes": "פסים",
+  "looksValueScar": "צלקת",
+  "looksValueNotchedEar": "אוזן חתוכה",
+  "looksValueEarTip": "קצה אוזן",
+  "looksValueCollar": "קולר",
+  "looksValueShort": "קצר",
+  "looksValueLong": "ארוך",
+  "looksValueHairless": "ללא פרווה",
+  "looksValueBobtail": "זנב קצר",
+  "looksValueNone": "אין",
+  "looksValueCurled": "מסולסל",
+  "looksValueUpright": "זקופות",
+  "looksValueFloppy": "נופלות",
+  "looksValueFolded": "מקופלות",
+  "looksValueRounded": "מעוגלות",
+  "looksValueSolid": "אחיד",
+  "looksValueTabby": "טאבי",
+  "looksValueTortoiseshell": "צב",
+  "looksValueCalico": "קליקו",
+  "looksValueColourpoint": "קולורפוינט",
+  "looksValueBicolour": "דו־צבעי",
+  "looksValueTuxedo": "טוקסידו",
+  "looksValueBrindle": "ברינדל",
+  "looksValueMerle": "מרל",
+  "looksValueSpotted": "מנוקד",
+  "looksValuePatched": "מוכתם",
+  "looksValueTricolour": "תלת־צבעי",
+  "looksValueSable": "סייבל",
+  "looksGroupEyes": "עיניים",
+  "looksGroupFeatures": "מאפיינים",
+  "looksValueAmber": "ענבר",
+  "looksValueCopper": "נחושת",
+  "looksValueOddEyed": "עיניים בצבעים שונים",
+  "looksValueChocolate": "שוקולד",
+  "looksValueLilac": "לילך",
+  "looksValueSilver": "כסוף",
+  "looksValueSmoke": "עשן",
+  "looksValueTicked": "טיקד",
+  "looksValueVan": "ואן",
+  "looksValueCurly": "מתולתל",
+  "looksValueWiry": "קשיח",
+  "looksValueKinked": "כפוף",
+  "looksValueCropped": "קצוצות",
+  "looksValueTippedEar": "קצה אוזן חתוך",
+  "looksValueEarTattoo": "קעקוע באוזן",
+  "looksValueMissingEar": "אוזן חסרה",
+  "looksValueMissingEye": "עין חסרה",
+  "looksValueCloudyEye": "עין עכורה",
+  "looksValueMissingFrontLeg": "רגל קדמית חסרה",
+  "looksValueMissingHindLeg": "רגל אחורית חסרה",
+  "looksValueNoTeeth": "ללא שיניים",
+  "looksValueExtraToes": "אצבעות נוספות",
+  "rejectMatch": "לא אותו אחד",
+  "traitsAgree": "{count, plural, one{תכונה אחת תואמת} two{שתי תכונות תואמות} other{{count} תכונות תואמות}}",
   "systemDefault": "ברירת מחדל של המערכת",
   "iosLocalNetworkHint": "אם זה ממשיך להיכשל ב-iPhone/iPad: הגדרות → פרטיות ואבטחה → רשת מקומית → אפשרו ל-cat(a)log ונסו שוב.",
   "markPrivate": "סמן כפרטי",
@@ -432,6 +566,8 @@
   "otherOption": "אחר…",
   "celebrationsToggle": "חגיגת אימוצים",
   "celebrationsSubtitle": "קונפטי ותרועות כשחתול עובר לבית",
+  "cheerToggle": "צליל תרועה",
+  "cheerSubtitle": "תרועה קצרה עם הקונפטי, שונה בכל פעם",
   "celebrationsSubtitleNeutral": "קונפטי ותרועות כשחיית מחמד עוברת לבית",
   "onMapLabel": "על המפה",
   "showOnMap": "הצג על המפה",
@@ -445,7 +581,19 @@
   "authorsSection": "מי כתב בקטלוג הזה",
   "hardDeleteAction": "מחק הכול מהמחבר הזה",
   "hardDeleteWarning": "מסיר כל רשומה ותמונה של {name} מהמכשיר הזה. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.",
-  "hardDeleteWarningDevice": "מסיר מהקטלוג הזה כל רשומה ותמונה שכתב/ה {name} במכשיר {device}. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.",
+  "yourKey": "המפתח שלך",
+  "yourTitle": "התואר שלך",
+  "titleNone": "ללא תואר",
+  "keyLine": "מפתח {code}",
+  "keyVerified": "אומת פנים אל פנים",
+  "keyFromFile": "מקובץ, טרם אומת",
+  "keyUnsigned": "אין מפתח עדיין, רשומות לא חתומות",
+  "summaryRefused": "נדחה",
+  "refusedEntries": "{count, plural, one{רשומה אחת נדחתה} two{שתי רשומות נדחו} other{{count} רשומות נדחו}}: לא חתומות במפתח המוכר של {name}",
+  "newKeyCallsItself": "מפתח חדש {code} מכנה את עצמו {name}. בדקו מול האדם לפני שתסמכו עליו.",
+  "keyChangedRefused": "{name} הציע מפתח שונה מזה המוכר כאן. המוכר נשאר; החדש לא התקבל.",
+  "metaNewKey": "מפתח חדש: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "מסיר מקטלוג זה כל רשומה ותמונה שנכתבו על ידי {name} תחת המפתח {key}. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.",
   "typeToConfirm": "הקלד {name} לאישור",
   "alsoBan": "גם לחסום — לעולם לא לקבל עוד נתונים",
   "bansSection": "חסימות",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{לא שוחזר דבר.} one{קטלוג אחד שוחזר.} two{{count} קטלוגים שוחזרו.} other{{count} קטלוגים שוחזרו.}}",
   "helpCatalogs": "קטלוג הוא עולם בפני עצמו: חתולים, מושבות, שדות, תמונות ושותפי סנכרון משלו. ברלין ופריז לעולם לא מתערבבות. הקישו על קטלוג כדי לעבור אליו. גלגל השיניים ליד קטלוג פותח את ההגדרות שלו: שם, חתולים או חיות, שדות, מחברים וחסימות, ארכיון, חזרה אחורה, מחיקה. השם שלכם, השפה והטיפים שכבר ראיתם משותפים לכולם.",
   "helpCatalogsNeutral": "קטלוג הוא עולם בפני עצמו: חיות, משקי בית, שדות, תמונות ושותפי סנכרון משלו. ברלין ופריז לעולם לא מתערבבות. הקישו על קטלוג כדי לעבור אליו. גלגל השיניים ליד קטלוג פותח את ההגדרות שלו: שם, חתולים או חיות, שדות, מחברים וחסימות, ארכיון, חזרה אחורה, מחיקה. השם שלכם, השפה והטיפים שכבר ראיתם משותפים לכולם.",
-  "helpCatalogSettings": "כל מה ששייך רק לקטלוג הזה: השם, אם יש בו חתולים או חיות, השדות, המחברים והחסימות, הארכיון והחזרה אחורה בזמן. שינויים כאן נוגעים רק לקטלוג הזה — גם לקטלוג שאינכם בו כעת. מחיקה כותבת את הקטלוג לקובץ קודם.",
+  "helpCatalogSettings": "כל מה ששייך רק לקטלוג הזה: השם, אם יש בו חתולים או חיות, השדות, המחברים והחסימות, הארכיון והחזרה אחורה בזמן. שינויים כאן נוגעים רק לקטלוג הזה — גם לקטלוג שאינכם בו כעת. מחיקה כותבת את הקטלוג לקובץ קודם. המפתח שלך הוא הקוד ששותפים רואים ליד שמך; הוא שייך לקטלוג הזה.",
   "spotHomeCatalog": "זה הקטלוג שאתה נמצא בו. הקש על השם כדי להחליף או ליצור עוד אחד.",
   "deleteCatalog": "מחיקת קטלוג",
   "catalogSettings": "הגדרות קטלוג",
   "deleteCatalogBody": "כל מה שיש ב-{name} נעלם: החתולים, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג.",
   "deleteCatalogBodyNeutral": "כל מה שיש ב-{name} נעלם: חיות המחמד, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג. הקלד את השם לאישור.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "אין פגישות מתוכננות. תכננו חדשות כאן בפלוס, או בדף של חיית מחמד או משק בית.",
   "dueToday": "היום",
   "dueInDays": "{count, plural, one{בעוד יום} two{בעוד יומיים} other{בעוד {count} ימים}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{באיחור של יום} two{באיחור של יומיים} other{באיחור של {count} ימים}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "בוצע",
   "repeatTitle": "שוב בעוד…",
   "noRepeatLabel": "ללא חזרה",
@@ -720,15 +886,33 @@
   "unitMonths": "חודשים",
   "unitYears": "שנים",
   "ageYears": "{years} שנים",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} חוד׳",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "שינוי תאריך",
   "removeReminderLabel": "הסרת תזכורת",
   "exportIcs": "ייצוא קובץ יומן",
   "resyncCalendar": "סנכרן מחדש את היומן",
   "icsSavedTo": "קובץ היומן נשמר תחת {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "שיקוף ליומן המכשיר",
   "calendarMirrorSubtitle": "הפגישות מופיעות ביומן כאירועים של יום שלם. cat(a)log מעדכן אותן שם בכל הפעלה ואחרי כל שינוי. את ההתראות לפגישות מנהלים ביומן.",
   "syncPeerOlder": "במכשיר השני פועל cat(a)log ישן יותר בלי תזכורות. עדכנו שם את cat(a)log וסנכרנו שוב.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "התזכורות: רשימת הפגישות המתוכננות — וטרינר, תרופות, בדיקות.",
   "spotAgendaAdd": "תכננו פגישה חדשה.",
   "spotAgendaCalendar": "הפעילו כאן את שיקוף הפגישות של cat(a)log ליומן לבחירתכם.",
-  "helpAgenda": "התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חתולים הוא תור אחד: סמנו את החתולים, סדר היום מציג כרטיס אחד עם שמותיהם, ובסיום נשאל אילו חתולים טופלו — בטלו את הסימון של השאר, הם נשארים מתוכננים.",
-  "helpAgendaNeutral": "התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את חיית המחמד או משק הבית. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חיות מחמד הוא תור אחד: סמנו את חיות המחמד, סדר היום מציג כרטיס אחד עם שמותיהן, ובסיום נשאל אילו חיות מחמד טופלו — בטלו את הסימון של השאר, הן נשארות מתוכננות.",
+  "spotAgendaToday": "המטלות של היום: סמנו כשבוצע. הנקודות מציגות את שבעת הימים האחרונים.",
+  "helpAgenda": "התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חתולים הוא תור אחד: סמנו את החתולים, סדר היום מציג כרטיס אחד עם שמותיהם, ובסיום נשאל אילו חתולים טופלו — בטלו את הסימון של השאר, הם נשארים מתוכננים. מטלות הן המשימות החוזרות, כמו האכלה, ארגז חול או תרופות. הן עומדות תחת היום עם סימון, רצף ושבעת הימים האחרונים כנקודות; בקרוב מציג את השבוע הבא בלי היומיות. מטלה יכולה להזכיר בהתראה בשעה שנבחרה. הגביע פותח את ההישגים.",
+  "helpAgendaNeutral": "התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את חיית המחמד או משק הבית. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חיות מחמד הוא תור אחד: סמנו את חיות המחמד, סדר היום מציג כרטיס אחד עם שמותיהן, ובסיום נשאל אילו חיות מחמד טופלו — בטלו את הסימון של השאר, הן נשארות מתוכננות. מטלות הן המשימות החוזרות, כמו האכלה, ארגז חול או תרופות. הן עומדות תחת היום עם סימון, רצף ושבעת הימים האחרונים כנקודות; בקרוב מציג את השבוע הבא בלי היומיות. מטלה יכולה להזכיר בהתראה בשעה שנבחרה. הגביע פותח את ההישגים.",
   "calendarRowOff": "יומן: כבוי",
   "calendarRowOn": "יומן: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "תכננו פגישה לחתול הזה. היא מוצגת בתזכורות ומאושרת שם.",
   "spotAddReminderCatNeutral": "תכננו פגישה לחיית המחמד הזו. היא מוצגת בתזכורות ומאושרת שם.",
   "spotAddReminderClowder": "תכננו פגישה לקבוצה הזו. היא מוצגת בתזכורות ומאושרת שם.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "פגישה או תזכורת?",
   "planChooserAppointment": "פגישה — ביקור בתאריך ושעה, עם הערות",
   "planChooserReminder": "תזכורת — ערך שמגיע מועדו ביום מסוים",
+  "planChooserChore": "מטלה — משהו שחוזר: האכלה, טיפות, ארגז חול",
+  "newChore": "מטלה חדשה",
+  "choreEdit": "עריכת מטלה",
+  "choreTitleLabel": "מה",
+  "choreRepeatDaily": "יומי",
+  "choreRepeatEvery": "כל…",
+  "choreRepeatWeekdays": "ימים",
+  "choreEveryDays": "{n, plural, one{כל יום} two{כל יומיים} other{כל {n} ימים}}",
+  "choreEveryWeeks": "{n, plural, one{כל שבוע} two{כל שבועיים} other{כל {n} שבועות}}",
+  "choreEveryMonths": "{n, plural, one{כל חודש} two{כל חודשיים} other{כל {n} חודשים}}",
+  "choreEveryYears": "{n, plural, one{כל שנה} two{כל שנתיים} other{כל {n} שנים}}",
+  "choreNoTime": "בכל שעה ביום",
+  "chorePause": "השהיה",
+  "chorePaused": "מושהה",
+  "choreResume": "המשך",
+  "choreEnd": "סיום מטלה",
+  "choreHistory": "היסטוריה",
+  "choreDoneAt": "בוצע {when} · {who}",
+  "choreDoneEarly": "מוקדם",
+  "choreDoneLate": "מאוחר",
+  "choreMissed": "הוחמץ",
+  "choreStillOpen": "עדיין פתוח",
+  "choreEndConfirm": "המטלה יוצאת מהרשימה. מה שסומן נשאר בהיסטוריה.",
+  "todaySection": "היום",
+  "upcomingSection": "בקרוב",
+  "allDoneToday": "היום: הכול בוצע",
+  "streakDays": "{n, plural, one{יום אחד ברצף} two{יומיים ברצף} other{{n} ימים ברצף}}",
+  "choreDue": "מועד {date}",
+  "remindMe": "תזכיר לי",
+  "remindNext": "התזכורת הבאה: {when}",
+  "remindNone": "לא מתוכננת תזכורת: אין דבר קרוב.",
+  "remindPending": "{count, plural, =0{עדיין לא מתוזמן דבר בטלפון הזה} one{תזכורת אחת מתוזמנת בטלפון הזה} two{שתי תזכורות מתוזמנות בטלפון הזה} other{{count} תזכורות מתוזמנות בטלפון הזה}}",
+  "remindTest": "לשלוח תזכורת בדיקה עכשיו",
+  "remindLateHint": "תזכורות עשויות להגיע כמה דקות מאוחר; הטלפון קובע את הרגע המדויק.",
+  "remindPermissionDenied": "אין הרשאה להתראות, לכן התזכורת נשארת כבויה. אפשרו אותן בהגדרות האפליקציה בטלפון ונסו שוב.",
+  "batteryHint": "אם תזכורות לא מגיעות, אפשרו ל-cat(a)log לפעול ברקע בהגדרות הסוללה של הטלפון.",
+  "batterySettings": "הגדרות סוללה",
+  "achievementsTitle": "הישגים",
+  "rankServant": "משרת",
+  "rankButler": "משרת ראשי",
+  "rankSteward": "סוכן הבית",
+  "rankChancellor": "קנצלר",
+  "rankMinister": "שר",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "קליקו",
+  "coatCheetah": "ברדלס",
+  "coatTiger": "נמר",
+  "coatTabby": "טאבי",
+  "coatPaws": "כפות",
+  "coatRosettes": "רוזטות",
+  "coatZebra": "זברה",
+  "coatSetting": "פרווה",
+  "coatRandom": "שונה בכל הפעלה",
+  "coatSnowLeopard": "נמר שלגים",
+  "coatSiamese": "סימני סיאמי",
+  "coatLynx": "לינקס",
+  "coatTortoiseshell": "צב",
+  "coatUnlocked": "פרווה חדשה: {coat}",
+  "coatUnlockedHow": "חודש שלם של מטלות, כולן בוצעו.",
+  "achievementsEmpty": "עדיין כלום. המטלות יודעות את הדרך.",
+  "achievementMonth": "חודש מלא",
+  "achievementYear": "שנה מלאה",
+  "achievementDecade": "עשור מלא",
+  "achievementCentury": "מאה שנה מלאות",
+  "achievementCenturyHint": "שנינו נהיה גאים מאוד.",
+  "achievementMaster": "אלוף {title}",
+  "achievementReached": "{times, plural, one{הושג פעם אחת} two{הושג פעמיים} other{הושג {times} פעמים}}, לראשונה ב-{date}",
+  "achievementNext": "הבא ב-{n}",
+  "achievementLocked": "עדיין לא",
+  "achievementUnlocked": "הישג: {name}",
   "appointmentTitleLabel": "מה",
   "notesLabel": "הערות",
   "timeLabel": "שעה",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "משק בית קיים",
   "createNewInstead": "ללא — ליצור חדש",
   "overwritesValue": "דורס את הערך הנוכחי \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "לבטל את הסריקה?",
   "abortScanBody": "שום דבר לא יישמר.",
   "abortScan": "ביטול",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "בטלו את הסימון של חתולים שלא טופלו; הם נשארים מתוכננים.",
   "finishUntickHintNeutral": "בטלו את הסימון של חיות מחמד שלא טופלו; הן נשארות מתוכננות.",
   "deleteAppointmentGroup": "מחיקת התור לכל {count} החתולים",
-  "deleteAppointmentGroupNeutral": "מחיקת התור לכל {count} חיות המחמד"
+  "deleteAppointmentGroupNeutral": "מחיקת התור לכל {count} חיות המחמד",
+  "correctThisValue": "תיקון הערך הזה",
+  "removeThisValue": "הסרת הערך הזה",
+  "restoreThisValue": "שחזור הערך הזה",
+  "showRemovedValues": "הצגת ערכים שהוסרו",
+  "hideRemovedValues": "הסתרת ערכים שהוסרו",
+  "entryRemovedBy": "הוסר · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "הוחלף ב-{value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "תיקון",
+  "restorePickFolder": "בחירת תיקיית גיבויים…",
+  "restoreAndroidHint": "הגיבויים של ההתקנה הקודמת נמצאים ב-Documents/catlog (בגרסאות ישנות ב-Downloads/catlog). יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן.",
+  "backupsTitle": "גיבויים",
+  "backupsSubtitle": "היכן הקטלוגים שלך נשמרים",
+  "backupsAndroidSystem": "Google מגבה את הקטלוגים של האפליקציה עם החשבון שלך, בלי תמונות. הם חוזרים מעצמם אחרי התקנה מחדש או בטלפון חדש.",
+  "backupsAndroidFiles": "עותק מלא של כל קטלוג, כולל תמונות, נכתב ל-Documents/catlog בכל פעם שיוצאים מהאפליקציה אחרי שינויים.",
+  "backupsIosSystem": "גיבוי iCloud כולל את האפליקציה הזו עם הקטלוגים והתמונות שלה, כמו כל אפליקציה אחרת ב-iPhone הזה.",
+  "backupsIosFiles": "עותק מלא של כל קטלוג נמצא באפליקציית הקבצים תחת cat(a)log. משם אפשר להעביר אותו ל-iCloud Drive, ב-AirDrop או לטלפון אחר.",
+  "backupsDesktopFiles": "עותק מלא של כל קטלוג, כולל תמונות, נכתב לתיקיית ההורדות שלך בכל פעם שיוצאים מהאפליקציה אחרי שינויים.",
+  "backupsLast": "עותק אחרון: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "עדיין לא נכתב עותק.",
+  "backupsNow": "גיבוי עכשיו",
+  "backupsDone": "העותק נכתב.",
+  "backupsRestoredNote": "שוחזר מגיבוי Google ב-{date}. אם cat(a)log עדיין פועל בטלפון הישן, יש לסנכרן ממנו פעם אחת ואז להסיר שם את האפליקציה.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "גם תיקייה לבחירתך יכולה לקבל כל עותק: תיקייה שאפליקציית ענן מסנכרנת בטלפון הזה (Nextcloud, Syncthing ואחרות), כרטיס זיכרון, כל תיקייה שהבורר מציע. העותקים נשמרים ב-catlog-backups שבתוכה.",
+  "backupsFolderPick": "להעתיק גם לתיקייה…",
+  "backupsFolderIs": "מועתק גם אל {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "להפסיק להעתיק לשם",
+  "remindFailed": "ההתראות לא פועלות בטלפון הזה: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "העתקת טקסט",
+  "colWhen": "מתי",
+  "colValue": "ערך",
+  "colWho": "מי"
 }

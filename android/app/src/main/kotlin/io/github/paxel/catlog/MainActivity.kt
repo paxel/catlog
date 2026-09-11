@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.provider.Settings
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -15,6 +16,8 @@ class MainActivity : FlutterActivity() {
     private var openChannel: MethodChannel? = null
     private var pendingOpen: String? = null
     private var pendingImages: List<String>? = null
+    private var folderChannel: FolderChannel? = null
+    private var restoreChannel: RestoreChannel? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -34,25 +37,40 @@ class MainActivity : FlutterActivity() {
         val hotspot = HotspotChannel(this)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/hotspot")
             .setMethodCallHandler { call, result -> hotspot.handle(call, result) }
+        // The shared sync folder through the picker's grant (1.2.2).
+        val folder = FolderChannel(this).also { folderChannel = it }
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/folder")
+            .setMethodCallHandler { call, result -> folder.handle(call, result) }
+        // The backups of the install before, through the picker (1.2.3).
+        val restore = RestoreChannel(this).also { restoreChannel = it }
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/restore")
+            .setMethodCallHandler { call, result -> restore.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/backup")
             .setMethodCallHandler { call, result ->
-                if (call.method == "saveToDownloads") {
+                if (call.method == "saveToDocuments") {
                     try {
                         val source = call.argument<String>("path")!!
                         val name = call.argument<String>("name")!!
-                        result.success(saveToDownloads(File(source), name))
+                        result.success(saveToDocuments(File(source), name))
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
                     }
-                } else if (call.method == "deleteFromDownloads") {
+                } else if (call.method == "deleteFromDocuments") {
                     try {
-                        deleteFromDownloads(call.argument<String>("name")!!)
+                        deleteFromDocuments(call.argument<String>("name")!!)
                         result.success(null)
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
                     }
-                } else if (call.method == "mediaBackupDir") {
-                    result.success(mediaBackupDir()?.absolutePath)
+                } else if (call.method == "openBatterySettings") {
+                    // Where the maker's battery saver can be told to leave
+                    // the app's reminders alone.
+                    try {
+                        startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+                        result.success(true)
+                    } catch (e: Exception) {
+                        result.success(false)
+                    }
                 } else {
                     result.notImplemented()
                 }
@@ -63,6 +81,14 @@ class MainActivity : FlutterActivity() {
         super.onNewIntent(intent)
         handleViewIntent(intent)
         handleShareIntent(intent)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (folderChannel?.onActivityResult(requestCode, resultCode, data) == true) return
+        if (restoreChannel?.onActivityResult(requestCode, resultCode, data) == true) return
+        @Suppress("DEPRECATION")
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     /// Copies a viewed .catsync (content: or file: URI) into the cache
@@ -119,51 +145,48 @@ class MainActivity : FlutterActivity() {
         openChannel?.invokeMethod("sharedImages", paths)
     }
 
-    /// The app's own folder on shared storage, Android/media/<package>/
-    /// backups. Unlike Android/data it is NOT removed on uninstall, and a
-    /// fresh install of the same package reads and writes it without any
-    /// permission — the WhatsApp way of surviving a reinstall. Plain
-    /// file access, so Dart lists and copies there itself.
-    private fun mediaBackupDir(): File? {
-        val root = externalMediaDirs.firstOrNull() ?: return null
-        return File(root, "backups").apply { mkdirs() }
-    }
+    /// Where the backups go on shared storage: Documents/catlog, through
+    /// MediaStore, which keeps the rows across an uninstall. Releases up
+    /// to 1.2.2 used Downloads/catlog; a delete covers both.
+    private val backupPaths = listOf(
+        Environment.DIRECTORY_DOCUMENTS + "/catlog",
+        Environment.DIRECTORY_DOWNLOADS + "/catlog",
+    )
 
-    /// Removes a backup file from Downloads/catlog — used when a catalog
-    /// is renamed, so the folder does not fill with names that no longer
-    /// mean anything.
-    private fun deleteFromDownloads(name: String) {
-        val relativePath = Environment.DIRECTORY_DOWNLOADS + "/catlog"
+    private val filesUri: Uri
+        get() = MediaStore.Files.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+
+    /// Removes this app's copies of a backup file, wherever a release put
+    /// them — used when a catalog is renamed, so the folder does not fill
+    /// with names that no longer mean anything. Rows another install
+    /// wrote are not this app's to delete; those stay.
+    private fun deleteFromDocuments(name: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            contentResolver.delete(
-                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
-                arrayOf("$relativePath/", "$name%")
-            )
+            for (path in backupPaths) {
+                contentResolver.delete(
+                    filesUri,
+                    "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
+                    arrayOf("$path/", "$name%")
+                )
+            }
         } else {
             @Suppress("DEPRECATION")
-            val dir = File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                "catlog"
-            )
-            File(dir, name).delete()
+            for (dir in listOf(Environment.DIRECTORY_DOCUMENTS, Environment.DIRECTORY_DOWNLOADS)) {
+                File(File(Environment.getExternalStoragePublicDirectory(dir), "catlog"), name).delete()
+            }
         }
     }
 
-    /// Writes into MediaStore Downloads/catlog — system-owned storage
+    /// Writes into MediaStore Documents/catlog — system-owned storage
     /// that survives uninstalling the app. Replaces the previous backup.
-    private fun saveToDownloads(source: File, name: String): String {
+    private fun saveToDocuments(source: File, name: String): String {
         val resolver = contentResolver
-        val relativePath = Environment.DIRECTORY_DOWNLOADS + "/catlog"
+        val relativePath = backupPaths.first()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             // Drop older copies of the same backup file. LIKE, not =:
             // earlier releases used a zip MIME type, and MediaStore renamed
             // those files to "$name.zip" (plus " (1)" duplicates).
-            resolver.delete(
-                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
-                arrayOf("$relativePath/", "$name%")
-            )
+            deleteFromDocuments(name)
             val values = ContentValues().apply {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, name)
                 // A recognized MIME type would make MediaStore force its
@@ -171,7 +194,7 @@ class MainActivity : FlutterActivity() {
                 put(MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream")
                 put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath)
             }
-            val uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)
+            val uri = resolver.insert(filesUri, values)
                 ?: throw IllegalStateException("MediaStore insert failed")
             resolver.openOutputStream(uri)!!.use { out ->
                 source.inputStream().use { it.copyTo(out) }
@@ -180,7 +203,7 @@ class MainActivity : FlutterActivity() {
         } else {
             @Suppress("DEPRECATION")
             val dir = File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
                 "catlog"
             )
             dir.mkdirs()

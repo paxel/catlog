@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The notification icon is named from Dart only, so the release
+     resource shrinker sees no reference and swaps it for a stub: Android
+     then drops every notification without a word. The debug build kept
+     it, the Play build did not (1.2.3). -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/ic_stat_catlog" />

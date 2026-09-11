@@ -52,6 +52,9 @@
   "card": "Fiche",
   "cardTitle": "Fiche — {name}",
   "shareAsImage": "Partager comme image",
+  "sortOldestFirst": "Le plus ancien d’abord",
+  "sortNewestFirst": "Le plus récent d’abord",
+  "shareAsText": "Partager en texte",
   "shareAsPdf": "Partager en PDF",
   "print": "Imprimer",
   "renameCat": "Renommer le chat",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Sans foyer — errant / enfui",
   "timelineOf": "Historique — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Annuler cette modification",
-  "revertSubtitle": "Rétablit la valeur précédente comme nouvelle entrée — l'historique garde les deux.",
   "fieldCleared": "{field} vidé",
   "fieldBackTo": "{field} revenu à « {value} »",
   "leftStray": "Parti — errant",
@@ -128,10 +129,13 @@
   "syncFailed": "Échec de la synchronisation : {error}",
   "lastSyncWith": "Dernière synchro avec {peer} : {time}",
   "sharedFolder": "Dossier partagé",
-  "sharedFolderExplainer": "Les deux appareils utilisent le même dossier (par exemple dans Dropbox ou sur une clé USB). Chaque synchronisation y dépose vos changements et récupère ceux de l'autre.",
+  "sharedFolderExplainer": "Les deux appareils utilisent le même dossier (par exemple dans Nextcloud ou sur une clé USB). Chaque synchronisation y dépose vos changements et récupère ceux de l'autre.",
   "noFolderChosenYet": "Aucun dossier choisi",
   "choose": "Choisir…",
   "syncFolderNow": "Synchroniser le dossier",
+  "folderCatalogHint": "À l’intérieur, ce catalogue utilise le dossier « {name} » ; un seul dossier partagé peut donc porter tous tes catalogues.",
+  "useSameFolder": "Utiliser le même dossier que les autres catalogues",
+  "folderHint": "N’importe quel dossier que deux appareils gardent identique convient : un disque cloud, ou Syncthing pour un dossier qui reste sur vos téléphones. Syncthing est gratuit : installe-le sur chaque téléphone, partage un dossier entre eux et choisis ce dossier ici sur chaque appareil.",
   "folderSynced": "Dossier synchronisé : {result}",
   "folderSyncFailed": "Échec de la synchro du dossier : {error}",
   "recordSightingHere": "Enregistrer une observation ici :",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Trajet : {name} ({count} positions)",
   "conflictOn": "Conflit — {field}",
   "conflictBody": "Modifié à deux endroits en même temps. Choisis ce qui est vrai :",
+  "privateMarker": "{field} (privé)",
+  "conflictSame": "Les deux modifications disent la même chose : {value}. Rien à choisir ; Résoudre retire la marque.",
   "mergeThisInto": "Fusionner ce {kind} avec…",
   "noOtherToMergeInto": "Aucun autre {kind} avec qui fusionner.",
   "mergeIntoQuestion": "Fusionner avec {name} ?",
@@ -181,6 +187,36 @@
   "breedPersian": "Persan",
   "breedBengal": "Bengal",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Abyssin",
+  "breedAmericanShorthair": "American shorthair",
+  "breedBalinese": "Balinais",
+  "breedBirman": "Sacré de Birmanie",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmese",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "British longhair",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Mau égyptien",
+  "breedExoticShorthair": "Exotic shorthair",
+  "breedHimalayan": "Himalayen",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Oriental shorthair",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Bleu russe",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Scottish fold",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Sibérien",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somali",
+  "breedTonkinese": "Tonkinois",
+  "breedTurkishAngora": "Angora turc",
+  "breedTurkishVan": "Turc de Van",
   "ownValue": "Valeur personnalisée",
   "locationDeniedForever": "L'accès à la position est bloqué. Autorisez-le dans les réglages du système pour utiliser Stray Cam.",
   "locationServiceOff": "La localisation est désactivée sur cet appareil. Activez-la dans les réglages puis réessayez.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Tous les animaux et lieux ayant une position. La recherche trouve animaux, personnes et lieux — un nom inconnu est cherché dans le monde entier. Le bouton calques trace les cercles de 500 m autour des affiches d'un animal disparu et de son ancien foyer. Les flèches vont d'un point à l'autre, un appui long note une observation. Chaque champ de lieu apparaît comme épingle sur la carte ; touche une épingle pour son trajet.",
   "helpCard": "La fiche imprimable de ce chat : choisissez son contenu avec les puces en haut, puis partagez-la en image ou en PDF. Les identifiants s'impriment en QR ou code-barres, et une position devient un QR qui ouvre une carte, plus un court Plus Code.",
   "helpCardNeutral": "La fiche imprimable de cet animal : choisissez son contenu avec les puces en haut, puis partagez-la en image ou en PDF. Les identifiants s'impriment en QR ou code-barres, et une position devient un QR qui ouvre une carte, plus un court Plus Code.",
-  "helpSync": "Transmettre les données à d'autres : se connecter en direct, utiliser un dossier visible par les deux appareils, ou envoyer un fichier par messagerie. C'est toujours vous qui décidez de ce qui part — et un fichier .catsync reçu s'ouvre ici aussi.",
+  "helpSync": "Transmettre les données à d'autres : se connecter en direct, utiliser un dossier visible par les deux appareils, ou envoyer un fichier par messagerie. C'est toujours vous qui décidez de ce qui part — et un fichier .catsync reçu s'ouvre ici aussi. Chaque catalogue signe ce qu’il écrit avec sa propre clé ; les partenaires voient le code de clé à côté de ton nom. La première clé d’un partenaire est acceptée de confiance depuis un fichier et compte comme rencontrée dès que vous synchronisez en personne. Les entrées sous un nom connu sans la bonne signature sont refusées et listées sur la page d’arrivée.",
   "helpFields": "Les champs utilisés par votre catalogue. Renommez-les, changez les options d'une liste, ou créez les vôtres. Un champ identifiant peut pointer vers un service (un registre) : le numéro devient alors cliquable sur le chat.",
   "helpFieldsNeutral": "Les champs utilisés par votre catalogue. Renommez-les, changez les options d'une liste, ou créez les vôtres. Un champ identifiant peut pointer vers un service (un registre) : le numéro devient alors cliquable sur l'animal.",
-  "helpTimeline": "Chaque modification jamais faite, la plus récente en haut : qui a changé quoi, quand et vers quelle valeur. Toute entrée peut être annulée — cela écrit une nouvelle entrée, rien n'est jamais effacé.",
+  "helpTimeline": "Chaque modification, la plus récente en premier : qui a changé quoi, quand, et pour quelle valeur. Touchez une entrée pour la corriger, maintenez-la pour la supprimer ou la rétablir ; une entrée masquée reste dans le journal et s'affiche sur demande.",
   "helpDuplicates": "Chats ou colonies qui semblent exister en double — identifiants identiques ou noms très proches avec des détails concordants. Touchez une paire pour la fusionner ; la fusion est définitive, elle demande confirmation.",
   "helpDuplicatesNeutral": "Animaux ou foyers qui semblent exister en double — identifiants identiques ou noms très proches avec des détails concordants. Touchez une paire pour la fusionner ; la fusion est définitive, elle demande confirmation.",
-  "helpMatches": "Chats qui pourraient être le même animal : identifiant identique, ou errant vu dans la zone de recherche d'un chat disparu. Touchez une paire pour fusionner, appui long pour ouvrir le premier chat et comparer.",
-  "helpMatchesNeutral": "Animaux qui pourraient être le même : identifiant identique, ou errant vu dans la zone de recherche d'un animal disparu. Touchez une paire pour fusionner, appui long pour ouvrir le premier animal et comparer.",
+  "helpMatches": "Chats qui pourraient être le même animal : identifiant identique, ou errant vu dans la zone de recherche d'un chat disparu. Touchez une paire pour fusionner, appui long pour ouvrir le premier chat et comparer. Les paires dont l’apparence concorde sur au moins deux traits, sans contradiction, sont listées aussi ; les puces montrent lesquels. « Pas le même » masque une paire sur ce téléphone jusqu’à ce que l’apparence de l’un des animaux change.",
+  "helpMatchesNeutral": "Animaux qui pourraient être le même : identifiant identique, ou errant vu dans la zone de recherche d'un animal disparu. Touchez une paire pour fusionner, appui long pour ouvrir le premier animal et comparer. Les paires dont l’apparence concorde sur au moins deux traits, sans contradiction, sont listées aussi ; les puces montrent lesquels. « Pas le même » masque une paire sur ce téléphone jusqu’à ce que l’apparence de l’un des animaux change.",
   "helpFlier": "Une affiche photographiée devient un chat et son propriétaire. Étape par étape : données du chat, contact du propriétaire, recadrage du visage pour la photo de profil, numéros de registre sur l'affiche, puis vérification finale. Tout n'est que suggestion — corrigez ce que l'appareil a mal lu.",
   "helpFlierNeutral": "Une affiche photographiée devient un animal et son propriétaire. Étape par étape : données de l'animal, contact du propriétaire, recadrage du visage pour la photo de profil, numéros de registre sur l'affiche, puis vérification finale. Tout n'est que suggestion — corrigez ce que l'appareil a mal lu.",
   "archiveTitle": "Archives",
@@ -399,11 +435,109 @@
   "rangeAll": "Tout",
   "rangeCustom": "Personnalisé…",
   "changeSince": "{delta} depuis le {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Comme dans votre région",
   "unitsMetric": "Métrique (kg, cm, ml, °C)",
   "unitsImperial": "Impérial (lb, in, fl oz, °F)",
   "starterWeight": "Poids",
+  "starterLooks": "Apparence",
+  "looksGroupSize": "Taille",
+  "looksGroupColours": "Couleurs",
+  "looksGroupPattern": "Motif",
+  "looksGroupFur": "Poil",
+  "looksGroupTail": "Queue",
+  "looksGroupEars": "Oreilles",
+  "looksGroupMarks": "Marques",
+  "looksGroupCrest": "Huppe",
+  "looksGroupBeak": "Bec",
+  "looksGroupRing": "Bague",
+  "looksValueSmall": "Petit",
+  "looksValueMedium": "Moyen",
+  "looksValueLarge": "Grand",
+  "looksValueBlack": "Noir",
+  "looksValueWhite": "Blanc",
+  "looksValueGrey": "Gris",
+  "looksValueBrown": "Brun",
+  "looksValueGinger": "Roux",
+  "looksValueCream": "Crème",
+  "looksValueGolden": "Doré",
+  "looksValueTan": "Fauve",
+  "looksValueGreen": "Vert",
+  "looksValueBlue": "Bleu",
+  "looksValueYellow": "Jaune",
+  "looksValueRed": "Rouge",
+  "looksValueOrange": "Orange",
+  "looksValuePink": "Rose",
+  "looksValueWhiteBib": "Plastron blanc",
+  "looksValueWhitePaws": "Pattes blanches",
+  "looksValueWhiteTailTip": "Bout de queue blanc",
+  "looksValueBlaze": "Liste",
+  "looksValueMask": "Masque",
+  "looksValueSpots": "Taches",
+  "looksValuePatches": "Plaques",
+  "looksValueStripes": "Rayures",
+  "looksValueScar": "Cicatrice",
+  "looksValueNotchedEar": "Oreille entaillée",
+  "looksValueEarTip": "Pointe d’oreille",
+  "looksValueCollar": "Collier",
+  "looksValueShort": "Court",
+  "looksValueLong": "Long",
+  "looksValueHairless": "Sans poil",
+  "looksValueBobtail": "Courte queue",
+  "looksValueNone": "Aucune",
+  "looksValueCurled": "Enroulée",
+  "looksValueUpright": "Droites",
+  "looksValueFloppy": "Tombantes",
+  "looksValueFolded": "Pliées",
+  "looksValueRounded": "Rondes",
+  "looksValueSolid": "Uni",
+  "looksValueTabby": "Tigré",
+  "looksValueTortoiseshell": "Écaille de tortue",
+  "looksValueCalico": "Calico",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Bicolore",
+  "looksValueTuxedo": "Smoking",
+  "looksValueBrindle": "Bringé",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Tacheté",
+  "looksValuePatched": "À plaques",
+  "looksValueTricolour": "Tricolore",
+  "looksValueSable": "Sable",
+  "looksGroupEyes": "Yeux",
+  "looksGroupFeatures": "Particularités",
+  "looksValueAmber": "Ambre",
+  "looksValueCopper": "Cuivre",
+  "looksValueOddEyed": "Yeux vairons",
+  "looksValueChocolate": "Chocolat",
+  "looksValueLilac": "Lilas",
+  "looksValueSilver": "Argenté",
+  "looksValueSmoke": "Fumé",
+  "looksValueTicked": "Tiqueté",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Frisé",
+  "looksValueWiry": "Dur",
+  "looksValueKinked": "Coudée",
+  "looksValueCropped": "Coupées",
+  "looksValueTippedEar": "Oreille écornée",
+  "looksValueEarTattoo": "Tatouage à l’oreille",
+  "looksValueMissingEar": "Oreille manquante",
+  "looksValueMissingEye": "Œil manquant",
+  "looksValueCloudyEye": "Œil voilé",
+  "looksValueMissingFrontLeg": "Patte avant manquante",
+  "looksValueMissingHindLeg": "Patte arrière manquante",
+  "looksValueNoTeeth": "Sans dents",
+  "looksValueExtraToes": "Doigts en plus",
+  "rejectMatch": "Pas le même",
+  "traitsAgree": "{count, plural, =1{1 trait concorde} other{{count} traits concordent}}",
   "systemDefault": "Langue du système",
   "iosLocalNetworkHint": "Si ça échoue encore sur iPhone/iPad : Réglages → Confidentialité et sécurité → Réseau local → autoriser cat(a)log, puis réessayer.",
   "markPrivate": "Marquer comme privé",
@@ -432,6 +566,8 @@
   "otherOption": "Autre…",
   "celebrationsToggle": "Fêter les adoptions",
   "celebrationsSubtitle": "Confettis et acclamations quand un chat rejoint son foyer",
+  "cheerToggle": "Son d’acclamation",
+  "cheerSubtitle": "Une courte acclamation avec les confettis, différente à chaque fois",
   "celebrationsSubtitleNeutral": "Confettis et acclamations quand un animal rejoint son foyer définitif",
   "onMapLabel": "Sur la carte",
   "showOnMap": "Afficher sur la carte",
@@ -445,7 +581,19 @@
   "authorsSection": "Qui a écrit dans ce catalogue",
   "hardDeleteAction": "Tout supprimer de cet auteur",
   "hardDeleteWarning": "Supprime chaque entrée et photo de {name} de cet appareil. Les autres appareils gardent les leurs. Irréversible.",
-  "hardDeleteWarningDevice": "Retire de ce catalogue chaque entrée et photo écrite par {name} sur l’appareil {device}. Les autres appareils gardent leur copie. Irréversible.",
+  "yourKey": "Ta clé",
+  "yourTitle": "Ton titre",
+  "titleNone": "Aucun titre",
+  "keyLine": "clé {code}",
+  "keyVerified": "rencontrée en personne",
+  "keyFromFile": "d’un fichier, pas encore rencontrée",
+  "keyUnsigned": "pas encore de clé, entrées non signées",
+  "summaryRefused": "Refusé",
+  "refusedEntries": "{count, plural, =1{1 entrée refusée} other{{count} entrées refusées}} : non signées avec la clé connue pour {name}",
+  "newKeyCallsItself": "Une nouvelle clé {code} se fait appeler {name}. Vérifie auprès de la personne avant de lui faire confiance.",
+  "keyChangedRefused": "{name} a proposé une clé différente de celle connue ici. La clé connue reste, la nouvelle n’a pas été prise.",
+  "metaNewKey": "Nouvelle clé : {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Retire de ce catalogue chaque entrée et photo écrite par {name} sous la clé {key}. Les autres appareils gardent les leurs. Irréversible.",
   "typeToConfirm": "Tapez {name} pour confirmer",
   "alsoBan": "Bloquer aussi — ne plus jamais accepter ses données",
   "bansSection": "Blocages",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Rien restauré.} one{1 catalogue restauré.} other{{count} catalogues restaurés.}}",
   "helpCatalogs": "Un catalogue est un monde à part : ses chats, ses colonies, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche un catalogue pour y passer. La roue dentée d’un catalogue ouvre ses réglages : nom, chats ou animaux, champs, auteurs et bannissements, archive, retour en arrière, suppression. Ton nom, ta langue et les astuces déjà vues sont communs à tous.",
   "helpCatalogsNeutral": "Un catalogue est un monde à part : ses animaux, ses foyers, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche un catalogue pour y passer. La roue dentée d’un catalogue ouvre ses réglages : nom, chats ou animaux, champs, auteurs et bannissements, archive, retour en arrière, suppression. Ton nom, ta langue et les astuces déjà vues sont communs à tous.",
-  "helpCatalogSettings": "Tout ce qui n’appartient qu’à ce catalogue : son nom, s’il contient des chats ou des animaux, ses champs, ses auteurs et bannissements, l’archive et le retour en arrière. Les changements ici ne touchent que ce catalogue — même un catalogue où tu n’es pas. La suppression écrit d’abord le catalogue dans un fichier.",
+  "helpCatalogSettings": "Tout ce qui n’appartient qu’à ce catalogue : son nom, s’il contient des chats ou des animaux, ses champs, ses auteurs et bannissements, l’archive et le retour en arrière. Les changements ici ne touchent que ce catalogue — même un catalogue où tu n’es pas. La suppression écrit d’abord le catalogue dans un fichier. Ta clé est le code que les partenaires voient à côté de ton nom ; elle reste liée à ce catalogue.",
   "spotHomeCatalog": "Voici le catalogue dans lequel tu es. Touche le nom pour changer ou en créer un autre.",
   "deleteCatalog": "Supprimer le catalogue",
   "catalogSettings": "Réglages du catalogue",
   "deleteCatalogBody": "Tout ce qui est dans {name} disparaît : ses chats, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue.",
   "deleteCatalogBodyNeutral": "Tout ce qui est dans {name} disparaît : ses animaux, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue. Tape le nom pour confirmer.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Aucun rendez-vous prévu. Prévois-en ici avec le plus, ou sur la page d'un animal ou d'un foyer.",
   "dueToday": "aujourd'hui",
   "dueInDays": "{count, plural, one{dans 1 jour} other{dans {count} jours}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{en retard de 1 jour} other{en retard de {count} jours}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Fait",
   "repeatTitle": "À nouveau dans…",
   "noRepeatLabel": "Pas de répétition",
@@ -720,15 +886,33 @@
   "unitMonths": "mois",
   "unitYears": "ans",
   "ageYears": "{years} ans",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mois",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Changer la date",
   "removeReminderLabel": "Supprimer le rappel",
   "exportIcs": "Exporter le fichier calendrier",
   "resyncCalendar": "Resynchroniser le calendrier",
   "icsSavedTo": "Fichier calendrier enregistré sous {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Refléter dans le calendrier de l'appareil",
   "calendarMirrorSubtitle": "Les rendez-vous apparaissent comme des événements d'une journée dans le calendrier. cat(a)log les y met à jour à chaque démarrage et après chaque modification. Tu peux gérer les alertes de ces rendez-vous dans le calendrier.",
   "syncPeerOlder": "L'autre appareil utilise un cat(a)log plus ancien sans rappels. Mets-y cat(a)log à jour, puis resynchronise.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Agenda : la liste des rendez-vous prévus — vétérinaire, médicaments, contrôles.",
   "spotAgendaAdd": "Prévoir un nouveau rendez-vous.",
   "spotAgendaCalendar": "Active ici le reflet des rendez-vous cat(a)log dans un calendrier de ton choix.",
-  "helpAgenda": "L'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs chats est un seul rendez-vous : cochez les chats concernés, l'Agenda affiche une carte avec leurs noms, et à la fin on demande quels chats ont été traités — décochez les autres, ils restent planifiés.",
-  "helpAgendaNeutral": "L'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre l'animal ou le foyer. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs animaux est un seul rendez-vous : cochez les animaux concernés, l'Agenda affiche une carte avec leurs noms, et à la fin on demande quels animaux ont été traités — décochez les autres, ils restent planifiés.",
+  "spotAgendaToday": "Les tâches du jour : coche quand c’est fait. Les points montrent les sept derniers jours.",
+  "helpAgenda": "L'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs chats est un seul rendez-vous : cochez les chats concernés, l'Agenda affiche une carte avec leurs noms, et à la fin on demande quels chats ont été traités — décochez les autres, ils restent planifiés. Les tâches sont les corvées récurrentes, comme nourrir, la litière ou les médicaments. Elles figurent sous Aujourd’hui avec une coche, une série et les sept derniers jours en points ; À venir montre la semaine suivante sans les quotidiennes. Une tâche peut rappeler par notification à l’heure choisie. Le trophée ouvre les succès.",
+  "helpAgendaNeutral": "L'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre l'animal ou le foyer. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs animaux est un seul rendez-vous : cochez les animaux concernés, l'Agenda affiche une carte avec leurs noms, et à la fin on demande quels animaux ont été traités — décochez les autres, ils restent planifiés. Les tâches sont les corvées récurrentes, comme nourrir, la litière ou les médicaments. Elles figurent sous Aujourd’hui avec une coche, une série et les sept derniers jours en points ; À venir montre la semaine suivante sans les quotidiennes. Une tâche peut rappeler par notification à l’heure choisie. Le trophée ouvre les succès.",
   "calendarRowOff": "Calendrier : désactivé",
   "calendarRowOn": "Calendrier : {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Prévoir un rendez-vous pour ce chat. Il apparaît dans l'agenda et s'y confirme.",
   "spotAddReminderCatNeutral": "Prévoir un rendez-vous pour cet animal. Il apparaît dans l'agenda et s'y confirme.",
   "spotAddReminderClowder": "Prévoir un rendez-vous pour ce clowder. Il apparaît dans l'agenda et s'y confirme.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Rendez-vous ou rappel ?",
   "planChooserAppointment": "Rendez-vous — une visite à une date et une heure, avec des notes",
   "planChooserReminder": "Rappel — une valeur qui arrive à échéance un jour",
+  "planChooserChore": "Tâche — quelque chose qui revient : nourrir, gouttes, litière",
+  "newChore": "Nouvelle tâche",
+  "choreEdit": "Modifier la tâche",
+  "choreTitleLabel": "Quoi",
+  "choreRepeatDaily": "Chaque jour",
+  "choreRepeatEvery": "Tous les…",
+  "choreRepeatWeekdays": "Jours",
+  "choreEveryDays": "{n, plural, one{chaque jour} other{tous les {n} jours}}",
+  "choreEveryWeeks": "{n, plural, one{chaque semaine} other{toutes les {n} semaines}}",
+  "choreEveryMonths": "{n, plural, one{chaque mois} other{tous les {n} mois}}",
+  "choreEveryYears": "{n, plural, one{chaque année} other{tous les {n} ans}}",
+  "choreNoTime": "À n’importe quelle heure",
+  "chorePause": "Suspendre",
+  "chorePaused": "En pause",
+  "choreResume": "Reprendre",
+  "choreEnd": "Terminer la tâche",
+  "choreHistory": "Historique",
+  "choreDoneAt": "fait {when} · {who}",
+  "choreDoneEarly": "en avance",
+  "choreDoneLate": "en retard",
+  "choreMissed": "Manqué",
+  "choreStillOpen": "Encore à faire",
+  "choreEndConfirm": "La tâche quitte la liste. Ce qui a été coché reste dans l’historique.",
+  "todaySection": "Aujourd’hui",
+  "upcomingSection": "À venir",
+  "allDoneToday": "Aujourd’hui : tout est fait",
+  "streakDays": "{n, plural, one{1 jour d’affilée} other{{n} jours d’affilée}}",
+  "choreDue": "Prévu {date}",
+  "remindMe": "Me rappeler",
+  "remindNext": "Prochain rappel : {when}",
+  "remindNone": "Aucun rappel prévu : rien à venir.",
+  "remindPending": "{count, plural, =0{Rien de programmé sur ce téléphone pour l’instant} =1{1 rappel programmé sur ce téléphone} other{{count} rappels programmés sur ce téléphone}}",
+  "remindTest": "Envoyer un rappel test maintenant",
+  "remindLateHint": "Les rappels peuvent arriver quelques minutes en retard ; le téléphone choisit le moment exact.",
+  "remindPermissionDenied": "Pas d’autorisation pour les notifications, le rappel reste désactivé. Autorise-les dans les réglages de l’application du téléphone et réessaie.",
+  "batteryHint": "Si les rappels n’arrivent pas, autorise cat(a)log à tourner en arrière-plan dans les réglages de batterie du téléphone.",
+  "batterySettings": "Réglages de batterie",
+  "achievementsTitle": "Succès",
+  "rankServant": "Serviteur",
+  "rankButler": "Majordome",
+  "rankSteward": "Intendant",
+  "rankChancellor": "Chancelier",
+  "rankMinister": "Ministre",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Calico",
+  "coatCheetah": "Guépard",
+  "coatTiger": "Tigre",
+  "coatTabby": "Tigré",
+  "coatPaws": "Pattes",
+  "coatRosettes": "Rosettes",
+  "coatZebra": "Zèbre",
+  "coatSetting": "Pelage",
+  "coatRandom": "Un autre à chaque démarrage",
+  "coatSnowLeopard": "Panthère des neiges",
+  "coatSiamese": "Points siamois",
+  "coatLynx": "Lynx",
+  "coatTortoiseshell": "Écaille de tortue",
+  "coatUnlocked": "Nouveau pelage : {coat}",
+  "coatUnlockedHow": "Un mois entier de tâches, toutes faites.",
+  "achievementsEmpty": "Rien de gagné encore. Les tâches connaissent le chemin.",
+  "achievementMonth": "Un mois complet",
+  "achievementYear": "Une année complète",
+  "achievementDecade": "Une décennie complète",
+  "achievementCentury": "Un siècle complet",
+  "achievementCenturyHint": "Nous serons tous les deux très fiers.",
+  "achievementMaster": "Maître {title}",
+  "achievementReached": "{times, plural, one{Atteint une fois} other{Atteint {times} fois}}, la première le {date}",
+  "achievementNext": "Prochain palier à {n}",
+  "achievementLocked": "Pas encore",
+  "achievementUnlocked": "Succès : {name}",
   "appointmentTitleLabel": "Quoi",
   "notesLabel": "Notes",
   "timeLabel": "Heure",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Foyer existant",
   "createNewInstead": "Aucun — créer",
   "overwritesValue": "Remplace la valeur actuelle \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Abandonner la capture ?",
   "abortScanBody": "Rien ne sera enregistré.",
   "abortScan": "Abandonner",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Décochez les chats non traités ; ils restent planifiés.",
   "finishUntickHintNeutral": "Décochez les animaux non traités ; ils restent planifiés.",
   "deleteAppointmentGroup": "Supprimer le rendez-vous pour les {count} chats",
-  "deleteAppointmentGroupNeutral": "Supprimer le rendez-vous pour les {count} animaux"
+  "deleteAppointmentGroupNeutral": "Supprimer le rendez-vous pour les {count} animaux",
+  "correctThisValue": "Corriger cette valeur",
+  "removeThisValue": "Supprimer cette valeur",
+  "restoreThisValue": "Rétablir cette valeur",
+  "showRemovedValues": "Afficher les valeurs supprimées",
+  "hideRemovedValues": "Masquer les valeurs supprimées",
+  "entryRemovedBy": "Supprimé · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Remplacé par {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Correction",
+  "restorePickFolder": "Choisir le dossier de sauvegardes…",
+  "restoreAndroidHint": "Les sauvegardes de l'installation précédente sont dans Documents/catlog (Downloads/catlog pour les versions plus anciennes). Choisissez ce dossier une fois ; ses sauvegardes s'affichent ici.",
+  "backupsTitle": "Sauvegardes",
+  "backupsSubtitle": "Où vos catalogues sont à l'abri",
+  "backupsAndroidSystem": "Google sauvegarde les catalogues de cette application avec votre compte, sans les photos. Ils reviennent d'eux-mêmes après une réinstallation ou sur un nouveau téléphone.",
+  "backupsAndroidFiles": "Une copie complète de chaque catalogue, photos comprises, est écrite dans Documents/catlog chaque fois que vous quittez l'application après des modifications.",
+  "backupsIosSystem": "La sauvegarde iCloud inclut cette application avec ses catalogues et photos, comme toute autre application sur cet iPhone.",
+  "backupsIosFiles": "Une copie complète de chaque catalogue se trouve dans l'app Fichiers sous cat(a)log. De là, elle peut aller vers iCloud Drive, AirDrop ou un autre téléphone.",
+  "backupsDesktopFiles": "Une copie complète de chaque catalogue, photos comprises, est écrite dans votre dossier Téléchargements chaque fois que vous quittez l'application après des modifications.",
+  "backupsLast": "Dernière copie : {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Aucune copie écrite pour l'instant.",
+  "backupsNow": "Sauvegarder maintenant",
+  "backupsDone": "Copie écrite.",
+  "backupsRestoredNote": "Restauré depuis la sauvegarde Google le {date}. Si l'ancien téléphone utilise encore cat(a)log, synchronisez une fois depuis celui-ci, puis supprimez-y l'application.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Un dossier de votre choix peut aussi recevoir chaque copie : un dossier qu'une app cloud synchronise sur ce téléphone (Nextcloud, Syncthing et d'autres), une carte mémoire, tout dossier proposé par le sélecteur. Les copies vont dans catlog-backups à l'intérieur.",
+  "backupsFolderPick": "Copier aussi dans un dossier…",
+  "backupsFolderIs": "Copié aussi dans {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Ne plus copier là",
+  "remindFailed": "Les notifications ne fonctionnent pas sur ce téléphone : {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Copier le texte",
+  "colWhen": "Quand",
+  "colValue": "Valeur",
+  "colWho": "Qui"
 }

@@ -52,6 +52,9 @@
   "card": "Kartoték",
   "cardTitle": "Kartoték — {name}",
   "shareAsImage": "Megosztás képként",
+  "sortOldestFirst": "Legrégebbi elöl",
+  "sortNewestFirst": "Legújabb elöl",
+  "shareAsText": "Megosztás szövegként",
   "shareAsPdf": "Megosztás PDF-ként",
   "print": "Nyomtatás",
   "renameCat": "Macska átnevezése",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Nincs háztartás — kóbor / elszökött",
   "timelineOf": "Idővonal — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Változtatás visszavonása",
-  "revertSubtitle": "Az előző értéket új bejegyzésként állítja vissza — az előzmények mindkettőt megőrzik.",
   "fieldCleared": "{field} kiürítve",
   "fieldBackTo": "{field} vissza erre: \"{value}\"",
   "leftStray": "Elment — kóbor",
@@ -128,10 +129,13 @@
   "syncFailed": "Sikertelen szinkronizálás: {error}",
   "lastSyncWith": "Utolsó szinkronizálás ezzel: {peer}: {time}",
   "sharedFolder": "Megosztott mappa",
-  "sharedFolderExplainer": "Mindkét eszköz ugyanazt a mappát használja (pl. Dropboxban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.",
+  "sharedFolderExplainer": "Mindkét eszköz ugyanazt a mappát használja (pl. Nextcloudban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.",
   "noFolderChosenYet": "Még nincs mappa kiválasztva",
   "choose": "Kiválasztás…",
   "syncFolderNow": "Mappa szinkronizálása most",
+  "folderCatalogHint": "Benne ez a katalógus a(z) „{name}” mappát használja, így egy megosztott mappa az összes katalógusodat viheti.",
+  "useSameFolder": "Ugyanaz a mappa, mint a többi katalógusnál",
+  "folderHint": "Bármelyik mappa megteszi, amit két eszköz egyformán tart: egy felhőmeghajtó, vagy a Syncthing egy olyan mappához, ami a telefonjaitokon marad. A Syncthing ingyenes: telepítsd minden telefonra, ossz meg köztük egy mappát, és válaszd ki azt a mappát itt minden eszközön.",
   "folderSynced": "Mappa szinkronizálva: {result}",
   "folderSyncFailed": "Mappa szinkronizálása sikertelen: {error}",
   "recordSightingHere": "Észlelés rögzítése itt:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Nyom: {name} ({count} pozíció)",
   "conflictOn": "Ütközés — {field}",
   "conflictBody": "Két helyen módosították egyszerre. Válaszd ki, mi igaz:",
+  "privateMarker": "{field} (privát)",
+  "conflictSame": "Mindkét változtatás ugyanazt mondja: {value}. Nincs mit választani; a Megoldás leveszi a jelölést.",
   "mergeThisInto": "E(z) {kind} egyesítése ezzel…",
   "noOtherToMergeInto": "Nincs másik {kind} az egyesítéshez.",
   "mergeIntoQuestion": "Egyesíted ezzel: {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Perzsa",
   "breedBengal": "Bengáli",
   "breedSphynx": "Szfinx",
+  "breedAbyssinian": "Abesszin",
+  "breedAmericanShorthair": "Amerikai rövidszőrű",
+  "breedBalinese": "Balinéz",
+  "breedBirman": "Szent birma",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmai",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Brit hosszúszőrű",
+  "breedChartreux": "Karthauzi",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egyiptomi mau",
+  "breedExoticShorthair": "Exotic rövidszőrű",
+  "breedHimalayan": "Himalája",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Keleti rövidszőrű",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Orosz kék",
+  "breedSavannah": "Szavanna",
+  "breedScottishFold": "Skót lógófülű",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Szibériai",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Szomáli",
+  "breedTonkinese": "Tonkini",
+  "breedTurkishAngora": "Török angóra",
+  "breedTurkishVan": "Török van",
   "ownValue": "Saját érték",
   "locationDeniedForever": "A helyhozzáférés le van tiltva. Engedélyezze a rendszerbeállításokban a Stray Cam használatához.",
   "locationServiceOff": "A helymeghatározás ki van kapcsolva ezen az eszközön. Kapcsolja be a beállításokban, és próbálja újra.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Minden kisállat és hely, aminek van pozíciója. A keresés kisállatot, embert és helyet talál — az ismeretlen nevet az egész világon keresi. A rétegek gomb megrajzolja az 500 m-es köröket egy eltűnt kisállat plakáthelyei és a régi otthona köré. A nyilak tűről tűre lépnek, hosszan nyomva a térképet észlelést rögzítesz. Minden helymező gombostű a térképen; koppints egy gombostűre a nyomvonalához.",
   "helpCard": "A macska nyomtatható kártyája: fent a chipekkel választod ki, mi kerüljön rá, aztán képként vagy PDF-ként osztod meg. A számok QR-ként vagy vonalkódként nyomtathatók, a pozícióból pedig térképet nyitó QR lesz, plusz egy rövid Plus Code.",
   "helpCardNeutral": "A kisállat nyomtatható kártyája: fent a chipekkel választod ki, mi kerüljön rá, aztán képként vagy PDF-ként osztod meg. A számok QR-ként vagy vonalkódként nyomtathatók, a pozícióból pedig térképet nyitó QR lesz, plusz egy rövid Plus Code.",
-  "helpSync": "Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg.",
+  "helpSync": "Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg. Minden katalógus a saját kulcsával írja alá, amit ír; a partnerek a kulcskódot látják a neved mellett. A partner első kulcsát fájlból bizalommal vesszük át, és személyes szinkronizálás után számít igazoltnak. Ismert néven, helyes aláírás nélküli bejegyzéseket elutasítunk és az érkezési oldalon felsorolunk.",
   "helpFields": "A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a macskánál koppintható lesz.",
   "helpFieldsNeutral": "A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a kisállatnál koppintható lesz.",
-  "helpTimeline": "Minden valaha végzett változtatás, a legújabb elöl: ki mit mikor és milyen értékre módosított. Bármelyik bejegyzés visszavonható — ez új bejegyzést ír, semmi nem törlődik.",
+  "helpTimeline": "Minden változás, a legújabb elöl: ki, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, tartsd nyomva az eltávolításhoz vagy visszaállításhoz; a rejtett bejegyzés a naplóban marad, és kérésre megjelenik.",
   "helpDuplicates": "Macskák vagy kolóniák, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.",
   "helpDuplicatesNeutral": "Kisállatok vagy háztartások, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.",
-  "helpMatches": "Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz.",
-  "helpMatchesNeutral": "Kisállatok, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt kisállat keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első kisállat összehasonlításhoz.",
+  "helpMatches": "Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz. A listán olyan párok is szerepelnek, amelyek külseje legalább két jegyben egyezik, ellentmondás nélkül; a címkék mutatják, melyekben. A „Nem ugyanaz” elrejti a párt ezen a telefonon, amíg valamelyik állat külseje meg nem változik.",
+  "helpMatchesNeutral": "Kisállatok, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt kisállat keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első kisállat összehasonlításhoz. A listán olyan párok is szerepelnek, amelyek külseje legalább két jegyben egyezik, ellentmondás nélkül; a címkék mutatják, melyekben. A „Nem ugyanaz” elrejti a párt ezen a telefonon, amíg valamelyik állat külseje meg nem változik.",
   "helpFlier": "Egy lefotózott plakátból macska lesz a gazdájával együtt. Lépésről lépésre: a macska adatai, a gazdi elérhetősége, arc kivágása a profilképhez, nyilvántartási számok a plakátról, végül egy ellenőrzés. Minden csak javaslat — javítsd ki, amit a kamera félreolvasott.",
   "helpFlierNeutral": "Egy lefotózott plakátból kisállat lesz a gazdájával együtt. Lépésről lépésre: a kisállat adatai, a gazdi elérhetősége, arc kivágása a profilképhez, nyilvántartási számok a plakátról, végül egy ellenőrzés. Minden csak javaslat — javítsd ki, amit a kamera félreolvasott.",
   "archiveTitle": "Archívum",
@@ -399,11 +435,109 @@
   "rangeAll": "Mind",
   "rangeCustom": "Egyéni…",
   "changeSince": "{delta} {date} óta",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Ahogy a régiódban",
   "unitsMetric": "Metrikus (kg, cm, ml, °C)",
   "unitsImperial": "Angolszász (lb, in, fl oz, °F)",
   "starterWeight": "Súly",
+  "starterLooks": "Külső",
+  "looksGroupSize": "Méret",
+  "looksGroupColours": "Színek",
+  "looksGroupPattern": "Mintázat",
+  "looksGroupFur": "Szőr",
+  "looksGroupTail": "Farok",
+  "looksGroupEars": "Fülek",
+  "looksGroupMarks": "Ismertetőjegyek",
+  "looksGroupCrest": "Bóbita",
+  "looksGroupBeak": "Csőr",
+  "looksGroupRing": "Lábgyűrű",
+  "looksValueSmall": "Kicsi",
+  "looksValueMedium": "Közepes",
+  "looksValueLarge": "Nagy",
+  "looksValueBlack": "Fekete",
+  "looksValueWhite": "Fehér",
+  "looksValueGrey": "Szürke",
+  "looksValueBrown": "Barna",
+  "looksValueGinger": "Vörös",
+  "looksValueCream": "Krém",
+  "looksValueGolden": "Arany",
+  "looksValueTan": "Fakó",
+  "looksValueGreen": "Zöld",
+  "looksValueBlue": "Kék",
+  "looksValueYellow": "Sárga",
+  "looksValueRed": "Piros",
+  "looksValueOrange": "Narancs",
+  "looksValuePink": "Rózsaszín",
+  "looksValueWhiteBib": "Fehér előke",
+  "looksValueWhitePaws": "Fehér mancsok",
+  "looksValueWhiteTailTip": "Fehér farokvég",
+  "looksValueBlaze": "Csillag",
+  "looksValueMask": "Maszk",
+  "looksValueSpots": "Pettyek",
+  "looksValuePatches": "Foltok",
+  "looksValueStripes": "Csíkok",
+  "looksValueScar": "Heg",
+  "looksValueNotchedEar": "Csorba fül",
+  "looksValueEarTip": "Fülhegy",
+  "looksValueCollar": "Nyakörv",
+  "looksValueShort": "Rövid",
+  "looksValueLong": "Hosszú",
+  "looksValueHairless": "Szőrtelen",
+  "looksValueBobtail": "Csonka farok",
+  "looksValueNone": "Nincs",
+  "looksValueCurled": "Kunkori",
+  "looksValueUpright": "Álló",
+  "looksValueFloppy": "Lógó",
+  "looksValueFolded": "Hajtott",
+  "looksValueRounded": "Kerek",
+  "looksValueSolid": "Egyszínű",
+  "looksValueTabby": "Cirmos",
+  "looksValueTortoiseshell": "Teknőctarka",
+  "looksValueCalico": "Kalikó",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Kétszínű",
+  "looksValueTuxedo": "Szmokingos",
+  "looksValueBrindle": "Csíkos",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Pettyes",
+  "looksValuePatched": "Foltos",
+  "looksValueTricolour": "Háromszínű",
+  "looksValueSable": "Coboly",
+  "looksGroupEyes": "Szemek",
+  "looksGroupFeatures": "Különlegességek",
+  "looksValueAmber": "Borostyán",
+  "looksValueCopper": "Réz",
+  "looksValueOddEyed": "Felemás",
+  "looksValueChocolate": "Csokoládé",
+  "looksValueLilac": "Lila",
+  "looksValueSilver": "Ezüst",
+  "looksValueSmoke": "Füst",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Göndör",
+  "looksValueWiry": "Drótszőrű",
+  "looksValueKinked": "Törött",
+  "looksValueCropped": "Kupírozott",
+  "looksValueTippedEar": "Levágott fülhegy",
+  "looksValueEarTattoo": "Fültetoválás",
+  "looksValueMissingEar": "Hiányzó fül",
+  "looksValueMissingEye": "Hiányzó szem",
+  "looksValueCloudyEye": "Homályos szem",
+  "looksValueMissingFrontLeg": "Hiányzó mellső láb",
+  "looksValueMissingHindLeg": "Hiányzó hátsó láb",
+  "looksValueNoTeeth": "Fogatlan",
+  "looksValueExtraToes": "Több lábujj",
+  "rejectMatch": "Nem ugyanaz",
+  "traitsAgree": "{count, plural, =1{1 jegy egyezik} other{{count} jegy egyezik}}",
   "systemDefault": "Rendszer alapértelmezés",
   "iosLocalNetworkHint": "Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra.",
   "markPrivate": "Megjelölés privátként",
@@ -432,6 +566,8 @@
   "otherOption": "Egyéb…",
   "celebrationsToggle": "Örökbefogadás ünneplése",
   "celebrationsSubtitle": "Konfetti és éljenzés, amikor egy macska az otthonába költözik",
+  "cheerToggle": "Ujjongás hangja",
+  "cheerSubtitle": "Rövid ujjongás a konfettihez, mindig más",
   "celebrationsSubtitleNeutral": "Konfetti és éljenzés, amikor egy kisállat az otthonába költözik",
   "onMapLabel": "A térképen",
   "showOnMap": "Mutasd a térképen",
@@ -445,7 +581,19 @@
   "authorsSection": "Ki írt ebbe a katalógusba",
   "hardDeleteAction": "Minden törlése ettől a szerzőtől",
   "hardDeleteWarning": "Eltávolítja {name} minden bejegyzését és fotóját erről az eszközről. A többi eszköz megtartja a magáét. Nem vonható vissza.",
-  "hardDeleteWarningDevice": "Eltávolítja ebből a katalógusból minden bejegyzést és fotót, amelyet {name} a(z) {device} eszközön írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.",
+  "yourKey": "A kulcsod",
+  "yourTitle": "A címed",
+  "titleNone": "Nincs cím",
+  "keyLine": "kulcs: {code}",
+  "keyVerified": "személyesen igazolva",
+  "keyFromFile": "fájlból, még nem igazolva",
+  "keyUnsigned": "még nincs kulcs, a bejegyzések aláíratlanok",
+  "summaryRefused": "Elutasítva",
+  "refusedEntries": "{count, plural, =1{1 bejegyzés} other{{count} bejegyzés}} elutasítva: nincs aláírva {name} ismert kulcsával",
+  "newKeyCallsItself": "Egy új kulcs ({code}) {name} néven mutatkozik be. Kérdezd meg az illetőt, mielőtt megbízol benne.",
+  "keyChangedRefused": "{name} az itt ismerttől eltérő kulcsot ajánlott. Az ismert marad; az újat nem vettük át.",
+  "metaNewKey": "Új kulcs: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Eltávolít ebből a katalógusból minden bejegyzést és fotót, amelyet {name} a(z) {key} kulccsal írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.",
   "typeToConfirm": "Megerősítéshez írd be: {name}",
   "alsoBan": "Tiltás is — soha többé ne fogadj tőle adatot",
   "bansSection": "Tiltások",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Semmi nem lett visszaállítva.} one{1 katalógus visszaállítva.} other{{count} katalógus visszaállítva.}}",
   "helpCatalogs": "Egy katalógus önálló világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs soha nem keveredik. Koppints egy katalógusra, hogy átválts rá. A katalógus fogaskereke megnyitja a beállításait: név, macskák vagy kedvencek, mezők, szerzők és tiltások, archívum, visszalépés, törlés. A neved, a nyelved és a már látott tippek mindegyikre közösek.",
   "helpCatalogsNeutral": "Egy katalógus önálló világ: saját kedvencek, háztartások, mezők, fotók és szinkronpartnerek. Berlin és Párizs soha nem keveredik. Koppints egy katalógusra, hogy átválts rá. A katalógus fogaskereke megnyitja a beállításait: név, macskák vagy kedvencek, mezők, szerzők és tiltások, archívum, visszalépés, törlés. A neved, a nyelved és a már látott tippek mindegyikre közösek.",
-  "helpCatalogSettings": "Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust.",
+  "helpCatalogSettings": "Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust. A kulcsod az a kód, amit a partnerek a neved mellett látnak; ehhez a katalógushoz tartozik.",
   "spotHomeCatalog": "Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.",
   "deleteCatalog": "Katalógus törlése",
   "catalogSettings": "Katalógus beállításai",
   "deleteCatalogBody": "Minden eltűnik a(z) {name} katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza.",
   "deleteCatalogBodyNeutral": "Minden eltűnik a(z) {name} katalógusból: a kisállatok, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Nincs tervezett időpont. Újat itt a plusszal, vagy egy kisállat vagy háztartás oldalán tervezhetsz.",
   "dueToday": "ma esedékes",
   "dueInDays": "{count, plural, one{1 nap múlva} other{{count} nap múlva}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 napja lejárt} other{{count} napja lejárt}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Kész",
   "repeatTitle": "Újra ennyi idő múlva…",
   "noRepeatLabel": "Nincs ismétlés",
@@ -720,15 +886,33 @@
   "unitMonths": "hónap",
   "unitYears": "év",
   "ageYears": "{years} év",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} hó",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Dátum módosítása",
   "removeReminderLabel": "Emlékeztető eltávolítása",
   "exportIcs": "Naptárfájl exportálása",
   "resyncCalendar": "Naptár újraszinkronizálása",
   "icsSavedTo": "A naptárfájl ide került: {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Tükrözés az eszköz naptárába",
   "calendarMirrorSubtitle": "Az időpontok egész napos eseményként jelennek meg a naptárban. A cat(a)log minden indításkor és minden változás után frissíti őket ott. Az időpontok emlékeztetőit a naptárban kezelheted.",
   "syncPeerOlder": "A másik eszközön régebbi, emlékeztetők nélküli cat(a)log fut. Frissítsd ott a cat(a)logot, és szinkronizálj újra.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Teendők: a tervezett időpontok listája — állatorvos, gyógyszer, ellenőrzés.",
   "spotAgendaAdd": "Új időpont tervezése.",
   "spotAgendaCalendar": "Itt kapcsold be a cat(a)log időpontjainak tükrözését egy általad választott naptárba.",
-  "helpAgenda": "A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több macskával egyetlen időpont: jelöld be a macskákat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely macskákat kezelték — a többinél vedd ki a jelölést, tervezve maradnak.",
-  "helpAgendaNeutral": "A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a kisállatot vagy a háztartást. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több kisállattal egyetlen időpont: jelöld be a kisállatokat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely kisállatokat kezelték — a többinél vedd ki a jelölést, tervezve maradnak.",
+  "spotAgendaToday": "A mai teendők: pipáld ki, ha kész. A pontok az utolsó hét napot mutatják.",
+  "helpAgenda": "A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több macskával egyetlen időpont: jelöld be a macskákat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely macskákat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.",
+  "helpAgendaNeutral": "A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a kisállatot vagy a háztartást. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több kisállattal egyetlen időpont: jelöld be a kisállatokat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely kisállatokat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.",
   "calendarRowOff": "Naptár: ki",
   "calendarRowOn": "Naptár: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Tervezz időpontot ennek a macskának. A teendők között jelenik meg, és ott hagyható jóvá.",
   "spotAddReminderCatNeutral": "Tervezz időpontot ennek a kisállatnak. A teendők között jelenik meg, és ott hagyható jóvá.",
   "spotAddReminderClowder": "Tervezz időpontot ennek a clowdernek. A teendők között jelenik meg, és ott hagyható jóvá.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Időpont vagy emlékeztető?",
   "planChooserAppointment": "Időpont — látogatás egy dátumon és időben, jegyzetekkel",
   "planChooserReminder": "Emlékeztető — egy érték, amely egy napon esedékes lesz",
+  "planChooserChore": "Teendő — ami visszatér: etetés, cseppek, alom",
+  "newChore": "Új teendő",
+  "choreEdit": "Teendő szerkesztése",
+  "choreTitleLabel": "Mit",
+  "choreRepeatDaily": "Naponta",
+  "choreRepeatEvery": "Minden…",
+  "choreRepeatWeekdays": "Napok",
+  "choreEveryDays": "{n, plural, one{minden nap} other{{n} naponta}}",
+  "choreEveryWeeks": "{n, plural, one{minden héten} other{{n} hetente}}",
+  "choreEveryMonths": "{n, plural, one{minden hónapban} other{{n} havonta}}",
+  "choreEveryYears": "{n, plural, one{minden évben} other{{n} évente}}",
+  "choreNoTime": "Bármikor napközben",
+  "chorePause": "Szünet",
+  "chorePaused": "Szüneteltetve",
+  "choreResume": "Folytatás",
+  "choreEnd": "Teendő lezárása",
+  "choreHistory": "Előzmények",
+  "choreDoneAt": "elvégezve {when} · {who}",
+  "choreDoneEarly": "korábban",
+  "choreDoneLate": "később",
+  "choreMissed": "Kimaradt",
+  "choreStillOpen": "Még nyitott",
+  "choreEndConfirm": "A teendő eltűnik a listáról. A kipipáltak a történetben maradnak.",
+  "todaySection": "Ma",
+  "upcomingSection": "Hamarosan",
+  "allDoneToday": "Ma: minden kész",
+  "streakDays": "{n, plural, one{1 nap egymás után} other{{n} nap egymás után}}",
+  "choreDue": "Esedékes: {date}",
+  "remindMe": "Emlékeztess",
+  "remindNext": "Következő emlékeztető: {when}",
+  "remindNone": "Nincs emlékeztető tervben: nincs esedékes.",
+  "remindPending": "{count, plural, =0{Ezen a telefonon még semmi nincs ütemezve} =1{1 emlékeztető ütemezve ezen a telefonon} other{{count} emlékeztető ütemezve ezen a telefonon}}",
+  "remindTest": "Próba-emlékeztető küldése most",
+  "remindLateHint": "Az emlékeztetők pár perccel később is jöhetnek; a pontos pillanatot a telefon választja.",
+  "remindPermissionDenied": "Nincs engedély az értesítésekhez, az emlékeztető kikapcsolva marad. Engedélyezd a telefon alkalmazásbeállításaiban, és próbáld újra.",
+  "batteryHint": "Ha az emlékeztetők elmaradnak, engedd a cat(a)log háttérben futását a telefon akkumulátor-beállításaiban.",
+  "batterySettings": "Akkumulátor-beállítások",
+  "achievementsTitle": "Eredmények",
+  "rankServant": "Szolga",
+  "rankButler": "Komornyik",
+  "rankSteward": "Intéző",
+  "rankChancellor": "Kancellár",
+  "rankMinister": "Miniszter",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kalikó",
+  "coatCheetah": "Gepárd",
+  "coatTiger": "Tigris",
+  "coatTabby": "Cirmos",
+  "coatPaws": "Mancsok",
+  "coatRosettes": "Rozetták",
+  "coatZebra": "Zebra",
+  "coatSetting": "Bunda",
+  "coatRandom": "Minden indításkor másik",
+  "coatSnowLeopard": "Hópárduc",
+  "coatSiamese": "Sziámi jegyek",
+  "coatLynx": "Hiúz",
+  "coatTortoiseshell": "Teknőctarka",
+  "coatUnlocked": "Új bunda: {coat}",
+  "coatUnlockedHow": "Egy teljes hónap teendő, mind elvégezve.",
+  "achievementsEmpty": "Még semmi. A teendők ismerik az utat.",
+  "achievementMonth": "Egy teljes hónap",
+  "achievementYear": "Egy teljes év",
+  "achievementDecade": "Egy teljes évtized",
+  "achievementCentury": "Egy teljes évszázad",
+  "achievementCenturyHint": "Mindketten nagyon büszkék leszünk.",
+  "achievementMaster": "{title}-mester",
+  "achievementReached": "{times, plural, one{Egyszer elérve} other{{times}-szer elérve}}, először {date}",
+  "achievementNext": "Következő: {n}",
+  "achievementLocked": "Még nem",
+  "achievementUnlocked": "Eredmény: {name}",
   "appointmentTitleLabel": "Mi",
   "notesLabel": "Jegyzetek",
   "timeLabel": "Idő",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Meglévő háztartás",
   "createNewInstead": "Nincs — új létrehozása",
   "overwritesValue": "Felülírja a jelenlegi értéket: \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Megszakítja a felvételt?",
   "abortScanBody": "Semmi nem lesz mentve.",
   "abortScan": "Megszakítás",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Vedd ki a jelölést azoknál a macskáknál, amelyeket nem kezeltek; tervezve maradnak.",
   "finishUntickHintNeutral": "Vedd ki a jelölést azoknál a kisállatoknál, amelyeket nem kezeltek; tervezve maradnak.",
   "deleteAppointmentGroup": "Időpont törlése mind a {count} macskánál",
-  "deleteAppointmentGroupNeutral": "Időpont törlése mind a {count} kisállatnál"
+  "deleteAppointmentGroupNeutral": "Időpont törlése mind a {count} kisállatnál",
+  "correctThisValue": "Érték javítása",
+  "removeThisValue": "Érték eltávolítása",
+  "restoreThisValue": "Érték visszaállítása",
+  "showRemovedValues": "Eltávolított értékek mutatása",
+  "hideRemovedValues": "Eltávolított értékek elrejtése",
+  "entryRemovedBy": "Eltávolítva · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Erre cserélve: {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Javítás",
+  "restorePickFolder": "Mentési mappa kiválasztása…",
+  "restoreAndroidHint": "Az előző telepítés mentései a Documents/catlog mappában vannak (régebbi verzióknál Downloads/catlog). Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg.",
+  "backupsTitle": "Mentések",
+  "backupsSubtitle": "Hol vannak biztonságban a katalógusaid",
+  "backupsAndroidSystem": "A Google a fiókoddal menti az app katalógusait, fotók nélkül. Újratelepítés után vagy új telefonon maguktól visszatérnek.",
+  "backupsAndroidFiles": "Minden katalógus teljes másolata, fotókkal együtt, a Documents/catlog mappába kerül, valahányszor változtatás után elhagyod az appot.",
+  "backupsIosSystem": "Az iCloud-mentés tartalmazza ezt az appot a katalógusaival és fotóival, mint minden más appot ezen az iPhone-on.",
+  "backupsIosFiles": "Minden katalógus teljes másolata a Fájlok appban, a cat(a)log mappában van. Onnan az iCloud Drive-ra, AirDroppal vagy másik telefonra vihető.",
+  "backupsDesktopFiles": "Minden katalógus teljes másolata, fotókkal együtt, a Letöltések mappádba kerül, valahányszor változtatás után elhagyod az appot.",
+  "backupsLast": "Utolsó másolat: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Még nem készült másolat.",
+  "backupsNow": "Mentés most",
+  "backupsDone": "Másolat elkészült.",
+  "backupsRestoredNote": "Visszaállítva a Google-mentésből: {date}. Ha a régi telefonon még fut a cat(a)log, szinkronizálj egyszer onnan, majd ott töröld az appot.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Egy általad választott mappa is megkaphat minden másolatot: olyan, amelyet egy felhőapp ezen a telefonon szinkronban tart (Nextcloud, Syncthing és mások), memóriakártya, bármely mappa, amit a választó felkínál. A másolatok a benne lévő catlog-backups mappába kerülnek.",
+  "backupsFolderPick": "Másolás mappába is…",
+  "backupsFolderIs": "Másolva ide is: {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Ne másoljon oda többé",
+  "remindFailed": "Az értesítések nem működnek ezen a telefonon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Szöveg másolása",
+  "colWhen": "Mikor",
+  "colValue": "Érték",
+  "colWho": "Ki"
 }

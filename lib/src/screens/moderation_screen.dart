@@ -2,10 +2,12 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n.dart';
+import '../titles.dart';
 
 /// Moderation (ADR-0006): per-author hard delete behind one plain
 /// confirmation, and the local ban list. Everything here acts on THIS device only —
-/// bans never propagate; the group coordinates by talking.
+/// bans never propagate; the group coordinates by talking. Each row is
+/// a name under a key (1.2.0): the key is what cannot be forged.
 class ModerationScreen extends StatefulWidget {
   final CatalogStore store;
 
@@ -28,11 +30,10 @@ class _ModerationScreenState extends State<ModerationScreen> {
         builder: (context, setDialogState) => AlertDialog(
           title: Text(t.hardDeleteAction),
           content: Column(mainAxisSize: MainAxisSize.min, children: [
-            // The row is one name on one device. A name is free text —
+            // The row is one name under one key. A name is free text —
             // anyone can wear it — so the deletion and the ban stick to
-            // the device, and the dialog says which one goes.
-            Text(t.hardDeleteWarningDevice(
-                row.author, row.device.substring(0, 8))),
+            // the key's device, and the dialog says which one goes.
+            Text(t.hardDeleteWarningKey(row.author, _code(row.device))),
             const SizedBox(height: 12),
             CheckboxListTile(
               value: alsoBan,
@@ -80,6 +81,21 @@ class _ModerationScreenState extends State<ModerationScreen> {
     }
   }
 
+  /// The key code of a device, or the start of its id when no key was
+  /// ever met.
+  String _code(String device) => device == store.deviceId
+      ? store.keyCode
+      : store.pinnedKey(device)?.record.code ?? device.substring(0, 8);
+
+  /// How far the key behind a row is trusted, as a word.
+  String _trust(String device) {
+    final t = context.t;
+    if (device == store.deviceId) return t.yourKey;
+    final key = store.pinnedKey(device);
+    if (key == null) return t.keyUnsigned;
+    return key.trust == KeyTrust.verified ? t.keyVerified : t.keyFromFile;
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.t;
@@ -95,9 +111,14 @@ class _ModerationScreenState extends State<ModerationScreen> {
         ),
         for (final row in rows)
           ListTile(
-            leading: const Icon(Icons.person_outline),
-            title: Text(row.author),
-            subtitle: Text('${row.count} · ${row.device.substring(0, 8)}'),
+            leading: Icon(store.pinnedKey(row.device)?.trust ==
+                        KeyTrust.verified ||
+                    row.device == store.deviceId
+                ? Icons.verified_user_outlined
+                : Icons.person_outline),
+            title: Text(personLabel(t, store, row.author, row.device)),
+            subtitle: Text(
+                '${row.count} · ${t.keyLine(_code(row.device))} · ${_trust(row.device)}'),
             trailing: row.author == store.author
                 ? null
                 : IconButton(

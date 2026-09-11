@@ -39,6 +39,18 @@ class Entry {
   /// missed appointment is not a treatment.
   final bool reminder;
 
+  /// The writing catalog's signature over the row (1.2.0, base64), or
+  /// null for rows from before signing.
+  final String? sig;
+
+  /// Corrected or removed (1.2.3): a live `$void:` marker names this
+  /// row, so the projection skips it. Derived locally, never on the
+  /// wire; only set on rows read with hidden ones included.
+  final bool voided;
+
+  /// Identity on the wire, as a `$void:` marker names it.
+  String get id => '$device:$dseq';
+
   const Entry({
     required this.seq,
     required this.device,
@@ -50,6 +62,8 @@ class Entry {
     required this.author,
     required this.recorded,
     this.reminder = false,
+    this.sig,
+    this.voided = false,
   });
 
   @override
@@ -68,6 +82,7 @@ class Entry {
         'author': author,
         'recorded': recorded.toIso8601String(),
         if (reminder) 'reminder': true,
+        if (sig != null) 'sig': sig,
       };
 
   factory Entry.fromJson(Map<String, dynamic> json) => Entry(
@@ -82,5 +97,6 @@ class Entry {
         recorded: DateTime.parse(json['recorded'] as String),
         // Absent in every pre-1.0.0 file and payload.
         reminder: json['reminder'] == true,
+        sig: json['sig'] as String?,
       );
 }

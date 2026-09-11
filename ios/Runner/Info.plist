@@ -124,5 +124,10 @@
 	     edited at their original location - hence not in place. -->
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
+	<!-- The automatic .catsync copies land in Documents; this shows
+	     that folder in the Files app under cat(a)log, so a keeper can
+	     drag a backup to iCloud Drive or AirDrop it. -->
+	<key>UIFileSharingEnabled</key>
+	<true/>
 </dict>
 </plist>

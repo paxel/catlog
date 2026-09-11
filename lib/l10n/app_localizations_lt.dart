@@ -174,6 +174,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String get shareAsImage => 'Bendrinti kaip paveikslėlį';
 
   @override
+  String get sortOldestFirst => 'Seniausi pirmiausia';
+
+  @override
+  String get sortNewestFirst => 'Naujausi pirmiausia';
+
+  @override
+  String get shareAsText => 'Bendrinti kaip tekstą';
+
+  @override
   String get shareAsPdf => 'Bendrinti kaip PDF';
 
   @override
@@ -556,13 +565,6 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Atšaukti šį pakeitimą';
-
-  @override
-  String get revertSubtitle =>
-      'Grąžina ankstesnę reikšmę kaip naują įrašą — istorija išsaugo abu.';
-
-  @override
   String fieldCleared(String field) {
     return '$field išvalyta';
   }
@@ -733,7 +735,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Abu įrenginiai naudoja tą patį aplanką (pvz., „Dropbox“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.';
+      'Abu įrenginiai naudoja tą patį aplanką (pvz., „Nextcloud“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.';
 
   @override
   String get noFolderChosenYet => 'Aplankas dar nepasirinktas';
@@ -743,6 +745,18 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Sinchronizuoti aplanką dabar';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Jame šis katalogas naudoja aplanką „$name“, tad vienas bendras aplankas gali nešti visus jūsų katalogus.';
+  }
+
+  @override
+  String get useSameFolder => 'Naudoti tą patį aplanką kaip kiti katalogai';
+
+  @override
+  String get folderHint =>
+      'Tiks bet koks aplankas, kurį du įrenginiai laiko vienodą: debesies diskas arba Syncthing aplankui, kuris lieka jūsų telefonuose. Syncthing nemokamas: įdiekite jį kiekviename telefone, bendrinkite vieną aplanką tarp jų ir pasirinkite tą aplanką čia kiekviename įrenginyje.';
 
   @override
   String folderSynced(String result) {
@@ -780,6 +794,16 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get conflictBody =>
       'Pakeista dviejose vietose vienu metu. Pasirinkite, kas teisinga:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (privatu)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Abu pakeitimai sako tą patį: $value. Nėra ko rinktis; „Išspręsti“ nuima žymę.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -911,6 +935,96 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sfinksas';
+
+  @override
+  String get breedAbyssinian => 'Abisinų';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikos trumpaplaukė';
+
+  @override
+  String get breedBalinese => 'Balio';
+
+  @override
+  String get breedBirman => 'Birmos';
+
+  @override
+  String get breedBombay => 'Bombėjaus';
+
+  @override
+  String get breedBurmese => 'Birmos trumpaplaukė';
+
+  @override
+  String get breedBurmilla => 'Burmila';
+
+  @override
+  String get breedBritishLonghair => 'Britų ilgaplaukė';
+
+  @override
+  String get breedChartreux => 'Kartūzų';
+
+  @override
+  String get breedCornishRex => 'Kornvalio reksas';
+
+  @override
+  String get breedDevonRex => 'Devono reksas';
+
+  @override
+  String get breedEgyptianMau => 'Egipto mau';
+
+  @override
+  String get breedExoticShorthair => 'Egzotinė trumpaplaukė';
+
+  @override
+  String get breedHimalayan => 'Himalajų';
+
+  @override
+  String get breedKorat => 'Koratas';
+
+  @override
+  String get breedManx => 'Menkso';
+
+  @override
+  String get breedMunchkin => 'Mančkinas';
+
+  @override
+  String get breedOcicat => 'Ocikatė';
+
+  @override
+  String get breedOrientalShorthair => 'Rytų trumpaplaukė';
+
+  @override
+  String get breedRagamuffin => 'Ragamafinas';
+
+  @override
+  String get breedRussianBlue => 'Rusų mėlynoji';
+
+  @override
+  String get breedSavannah => 'Savana';
+
+  @override
+  String get breedScottishFold => 'Škotų kniurkė';
+
+  @override
+  String get breedSelkirkRex => 'Selkirko reksas';
+
+  @override
+  String get breedSiberian => 'Sibiro katė';
+
+  @override
+  String get breedSnowshoe => 'Snoušu';
+
+  @override
+  String get breedSomali => 'Somalio';
+
+  @override
+  String get breedTonkinese => 'Tonkino';
+
+  @override
+  String get breedTurkishAngora => 'Turkų angora';
+
+  @override
+  String get breedTurkishVan => 'Turkų vanas';
 
   @override
   String get starterColor => 'Spalva';
@@ -1090,7 +1204,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia.';
+      'Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia. Kiekvienas katalogas pasirašo tai, ką rašo, savo raktu; partneriai mato rakto kodą šalia jūsų vardo. Pirmasis partnerio raktas iš failo priimamas pasitikint ir laikomas patvirtintu, kai sinchronizuojate asmeniškai. Įrašai žinomu vardu be tinkamo parašo atmetami ir išvardijami atvykimo puslapyje.';
 
   @override
   String get helpFields =>
@@ -1102,7 +1216,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kiekvienas kada nors atliktas pakeitimas, naujausi viršuje: kas, kada ir į kokią reikšmę ką pakeitė. Bet kurį įrašą galima atšaukti — tai sukuria naują įrašą, niekas niekada nedingsta.';
+      'Kiekvienas pakeitimas, naujausias pirmas: kas, kada ir į kokią reikšmę. Palieskite įrašą, kad pataisytumėte, palaikykite, kad pašalintumėte ar atkurtumėte; paslėptas įrašas lieka žurnale ir rodomas paprašius.';
 
   @override
   String get helpDuplicates =>
@@ -1114,11 +1228,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Katės, kurios gali būti tas pats gyvūnas: tas pats numeris arba valkataujanti katė, pastebėta dingusios katės paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą katę palyginimui.';
+      'Katės, kurios gali būti tas pats gyvūnas: tas pats numeris arba valkataujanti katė, pastebėta dingusios katės paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą katę palyginimui. Sąraše yra ir poros, kurių išvaizda sutampa bent dviem požymiais be prieštaravimų; žymės rodo kuriais. „Ne tas pats“ paslepia porą šiame telefone, kol vieno iš gyvūnų išvaizda pasikeis.';
 
   @override
   String get helpMatchesNeutral =>
-      'Augintiniai, kurie gali būti tas pats gyvūnas: tas pats numeris arba valkataujantis gyvūnas, pastebėtas dingusio augintinio paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą augintinį palyginimui.';
+      'Augintiniai, kurie gali būti tas pats gyvūnas: tas pats numeris arba valkataujantis gyvūnas, pastebėtas dingusio augintinio paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą augintinį palyginimui. Sąraše yra ir poros, kurių išvaizda sutampa bent dviem požymiais be prieštaravimų; žymės rodo kuriais. „Ne tas pats“ paslepia porą šiame telefone, kol vieno iš gyvūnų išvaizda pasikeis.';
 
   @override
   String get helpFlier =>
@@ -1408,6 +1522,283 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterWeight => 'Svoris';
 
   @override
+  String get starterLooks => 'Išvaizda';
+
+  @override
+  String get looksGroupSize => 'Dydis';
+
+  @override
+  String get looksGroupColours => 'Spalvos';
+
+  @override
+  String get looksGroupPattern => 'Raštas';
+
+  @override
+  String get looksGroupFur => 'Kailis';
+
+  @override
+  String get looksGroupTail => 'Uodega';
+
+  @override
+  String get looksGroupEars => 'Ausys';
+
+  @override
+  String get looksGroupMarks => 'Žymės';
+
+  @override
+  String get looksGroupCrest => 'Kuodas';
+
+  @override
+  String get looksGroupBeak => 'Snapas';
+
+  @override
+  String get looksGroupRing => 'Žiedas';
+
+  @override
+  String get looksValueSmall => 'Mažas';
+
+  @override
+  String get looksValueMedium => 'Vidutinis';
+
+  @override
+  String get looksValueLarge => 'Didelis';
+
+  @override
+  String get looksValueBlack => 'Juoda';
+
+  @override
+  String get looksValueWhite => 'Balta';
+
+  @override
+  String get looksValueGrey => 'Pilka';
+
+  @override
+  String get looksValueBrown => 'Ruda';
+
+  @override
+  String get looksValueGinger => 'Rusva';
+
+  @override
+  String get looksValueCream => 'Kreminė';
+
+  @override
+  String get looksValueGolden => 'Auksinė';
+
+  @override
+  String get looksValueTan => 'Šviesiai ruda';
+
+  @override
+  String get looksValueGreen => 'Žalia';
+
+  @override
+  String get looksValueBlue => 'Mėlyna';
+
+  @override
+  String get looksValueYellow => 'Geltona';
+
+  @override
+  String get looksValueRed => 'Raudona';
+
+  @override
+  String get looksValueOrange => 'Oranžinė';
+
+  @override
+  String get looksValuePink => 'Rožinė';
+
+  @override
+  String get looksValueWhiteBib => 'Balta krūtinė';
+
+  @override
+  String get looksValueWhitePaws => 'Baltos letenos';
+
+  @override
+  String get looksValueWhiteTailTip => 'Baltas uodegos galas';
+
+  @override
+  String get looksValueBlaze => 'Žvaigždė';
+
+  @override
+  String get looksValueMask => 'Kaukė';
+
+  @override
+  String get looksValueSpots => 'Dėmelės';
+
+  @override
+  String get looksValuePatches => 'Lopai';
+
+  @override
+  String get looksValueStripes => 'Dryžiai';
+
+  @override
+  String get looksValueScar => 'Randas';
+
+  @override
+  String get looksValueNotchedEar => 'Įpjauta ausis';
+
+  @override
+  String get looksValueEarTip => 'Ausies galas';
+
+  @override
+  String get looksValueCollar => 'Antkaklis';
+
+  @override
+  String get looksValueShort => 'Trumpas';
+
+  @override
+  String get looksValueLong => 'Ilgas';
+
+  @override
+  String get looksValueHairless => 'Be kailio';
+
+  @override
+  String get looksValueBobtail => 'Trumpa uodega';
+
+  @override
+  String get looksValueNone => 'Nėra';
+
+  @override
+  String get looksValueCurled => 'Susisukusi';
+
+  @override
+  String get looksValueUpright => 'Stačios';
+
+  @override
+  String get looksValueFloppy => 'Nukarusios';
+
+  @override
+  String get looksValueFolded => 'Sulenktos';
+
+  @override
+  String get looksValueRounded => 'Apvalios';
+
+  @override
+  String get looksValueSolid => 'Vienspalvis';
+
+  @override
+  String get looksValueTabby => 'Dryžuotas';
+
+  @override
+  String get looksValueTortoiseshell => 'Vėžlio';
+
+  @override
+  String get looksValueCalico => 'Kalikas';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dvispalvis';
+
+  @override
+  String get looksValueTuxedo => 'Smokingas';
+
+  @override
+  String get looksValueBrindle => 'Tigrinis';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Taškuotas';
+
+  @override
+  String get looksValuePatched => 'Lopuotas';
+
+  @override
+  String get looksValueTricolour => 'Trispalvis';
+
+  @override
+  String get looksValueSable => 'Sabalinis';
+
+  @override
+  String get looksGroupEyes => 'Akys';
+
+  @override
+  String get looksGroupFeatures => 'Ypatumai';
+
+  @override
+  String get looksValueAmber => 'Gintariniai';
+
+  @override
+  String get looksValueCopper => 'Variniai';
+
+  @override
+  String get looksValueOddEyed => 'Skirtingų spalvų';
+
+  @override
+  String get looksValueChocolate => 'Šokoladinė';
+
+  @override
+  String get looksValueLilac => 'Alyvinė';
+
+  @override
+  String get looksValueSilver => 'Sidabrinė';
+
+  @override
+  String get looksValueSmoke => 'Dūminė';
+
+  @override
+  String get looksValueTicked => 'Tikuotas';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Garbanotas';
+
+  @override
+  String get looksValueWiry => 'Šiurkštus';
+
+  @override
+  String get looksValueKinked => 'Užlenkta';
+
+  @override
+  String get looksValueCropped => 'Kupiruotos';
+
+  @override
+  String get looksValueTippedEar => 'Nukirptas ausies galiukas';
+
+  @override
+  String get looksValueEarTattoo => 'Ausies tatuiruotė';
+
+  @override
+  String get looksValueMissingEar => 'Trūksta ausies';
+
+  @override
+  String get looksValueMissingEye => 'Trūksta akies';
+
+  @override
+  String get looksValueCloudyEye => 'Drumsta akis';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Trūksta priekinės kojos';
+
+  @override
+  String get looksValueMissingHindLeg => 'Trūksta užpakalinės kojos';
+
+  @override
+  String get looksValueNoTeeth => 'Be dantų';
+
+  @override
+  String get looksValueExtraToes => 'Papildomi pirštai';
+
+  @override
+  String get rejectMatch => 'Ne tas pats';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count požymių sutampa',
+      many: '$count požymio sutampa',
+      few: '$count požymiai sutampa',
+      one: '$count požymis sutampa',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sistemos numatytoji';
 
   @override
@@ -1488,6 +1879,12 @@ class AppLocalizationsLt extends AppLocalizations {
       'Konfeti ir šūksniai, kai katė persikelia į namus';
 
   @override
+  String get cheerToggle => 'Šūksnių garsas';
+
+  @override
+  String get cheerSubtitle => 'Trumpi šūksniai su konfeti, kaskart kiti';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfeti ir šūksniai, kai augintinis persikelia į namus';
 
@@ -1530,8 +1927,62 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos $name įrašė įrenginyje $device. Kiti įrenginiai pasilieka savo kopijas. Atšaukti negalima.';
+  String get yourKey => 'Jūsų raktas';
+
+  @override
+  String get yourTitle => 'Jūsų titulas';
+
+  @override
+  String get titleNone => 'Be titulo';
+
+  @override
+  String keyLine(Object code) {
+    return 'raktas $code';
+  }
+
+  @override
+  String get keyVerified => 'patvirtintas asmeniškai';
+
+  @override
+  String get keyFromFile => 'iš failo, dar nepatvirtintas';
+
+  @override
+  String get keyUnsigned => 'rakto dar nėra, įrašai nepasirašyti';
+
+  @override
+  String get summaryRefused => 'Atmesta';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count įrašų atmesta',
+      many: '$count įrašo atmesta',
+      few: '$count įrašai atmesti',
+      one: '$count įrašas atmestas',
+    );
+    return '$_temp0: nepasirašyta $name žinomu raktu';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Naujas raktas $code vadinasi $name. Pasitikrinkite su tuo žmogumi, prieš pasitikėdami.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name pasiūlė kitą raktą nei čia žinomas. Žinomas lieka; naujasis nepriimtas.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Naujas raktas: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos $name įrašė raktu $key. Kiti įrenginiai savus pasilieka. Atšaukti negalima.';
   }
 
   @override
@@ -2036,7 +2487,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą.';
+      'Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą. Jūsų raktas – kodas, kurį partneriai mato šalia jūsų vardo; jis priklauso šiam katalogui.';
 
   @override
   String get spotHomeCatalog =>
@@ -2345,12 +2796,16 @@ class AppLocalizationsLt extends AppLocalizations {
       'Čia įjunk cat(a)log vizitų atspindėjimą į pasirinktą kalendorių.';
 
   @override
+  String get spotAgendaToday =>
+      'Šiandienos darbai: pažymėkite, kai atlikta. Taškai rodo paskutines septynias dienas.';
+
+  @override
   String get helpAgenda =>
-      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos.';
+      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.';
 
   @override
   String get helpAgendaNeutral =>
-      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria augintinį ar namų ūkį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliais augintiniais yra vienas vizitas: pažymėkite augintinius, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurie augintiniai buvo gydyti — nuimkite žymą nuo kitų, jie lieka suplanuoti.';
+      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria augintinį ar namų ūkį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliais augintiniais yra vienas vizitas: pažymėkite augintinius, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurie augintiniai buvo gydyti — nuimkite žymą nuo kitų, jie lieka suplanuoti. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.';
 
   @override
   String get calendarRowOff => 'Kalendorius: išjungta';
@@ -2395,6 +2850,301 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Priminimas — reikšmė, kurios terminas sueina tam tikrą dieną';
+
+  @override
+  String get planChooserChore =>
+      'Darbas — kas kartojasi: šėrimas, lašai, kraikas';
+
+  @override
+  String get newChore => 'Naujas darbas';
+
+  @override
+  String get choreEdit => 'Keisti darbą';
+
+  @override
+  String get choreTitleLabel => 'Ką';
+
+  @override
+  String get choreRepeatDaily => 'Kasdien';
+
+  @override
+  String get choreRepeatEvery => 'Kas…';
+
+  @override
+  String get choreRepeatWeekdays => 'Savaitės dienos';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kas $n dienų',
+      few: 'kas $n dienas',
+      one: 'kasdien',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kas $n savaičių',
+      few: 'kas $n savaites',
+      one: 'kas savaitę',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kas $n mėnesių',
+      few: 'kas $n mėnesius',
+      one: 'kas mėnesį',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kas $n metų',
+      few: 'kas $n metus',
+      one: 'kasmet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Bet kuriuo dienos metu';
+
+  @override
+  String get chorePause => 'Pristabdyti';
+
+  @override
+  String get chorePaused => 'Pristabdyta';
+
+  @override
+  String get choreResume => 'Tęsti';
+
+  @override
+  String get choreEnd => 'Baigti darbą';
+
+  @override
+  String get choreHistory => 'Istorija';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'atlikta $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'anksčiau';
+
+  @override
+  String get choreDoneLate => 'vėliau';
+
+  @override
+  String get choreMissed => 'Praleista';
+
+  @override
+  String get choreStillOpen => 'Dar neatlikta';
+
+  @override
+  String get choreEndConfirm =>
+      'Darbas dingsta iš sąrašo. Pažymėta lieka istorijoje.';
+
+  @override
+  String get todaySection => 'Šiandien';
+
+  @override
+  String get upcomingSection => 'Netrukus';
+
+  @override
+  String get allDoneToday => 'Šiandien: viskas padaryta';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dienų iš eilės',
+      few: '$n dienos iš eilės',
+      one: '$n diena iš eilės',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Terminas $date';
+  }
+
+  @override
+  String get remindMe => 'Priminti';
+
+  @override
+  String remindNext(Object when) {
+    return 'Kitas priminimas: $when';
+  }
+
+  @override
+  String get remindNone => 'Priminimas neplanuojamas: nieko nelaukia.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count priminimų suplanuota šiame telefone',
+      few: '$count priminimai suplanuoti šiame telefone',
+      one: '$count priminimas suplanuotas šiame telefone',
+      zero: 'Šiame telefone dar nieko nesuplanuota',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Išsiųsti bandomąjį priminimą dabar';
+
+  @override
+  String get remindLateHint =>
+      'Priminimai gali ateiti keliomis minutėmis vėliau; tikslų momentą parenka telefonas.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nėra leidimo pranešimams, priminimas lieka išjungtas. Leiskite juos telefono programos nustatymuose ir bandykite dar kartą.';
+
+  @override
+  String get batteryHint =>
+      'Jei priminimai neateina, telefono baterijos nustatymuose leiskite cat(a)log veikti fone.';
+
+  @override
+  String get batterySettings => 'Baterijos nustatymai';
+
+  @override
+  String get achievementsTitle => 'Pasiekimai';
+
+  @override
+  String get rankServant => 'Tarnas';
+
+  @override
+  String get rankButler => 'Liokajus';
+
+  @override
+  String get rankSteward => 'Ūkvedys';
+
+  @override
+  String get rankChancellor => 'Kancleris';
+
+  @override
+  String get rankMinister => 'Ministras';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kalikas';
+
+  @override
+  String get coatCheetah => 'Gepardas';
+
+  @override
+  String get coatTiger => 'Tigras';
+
+  @override
+  String get coatTabby => 'Dryžuotas';
+
+  @override
+  String get coatPaws => 'Letenėlės';
+
+  @override
+  String get coatRosettes => 'Rozetės';
+
+  @override
+  String get coatZebra => 'Zebras';
+
+  @override
+  String get coatSetting => 'Kailis';
+
+  @override
+  String get coatRandom => 'Kaskart kitas';
+
+  @override
+  String get coatSnowLeopard => 'Snieginis leopardas';
+
+  @override
+  String get coatSiamese => 'Siamo žymės';
+
+  @override
+  String get coatLynx => 'Lūšis';
+
+  @override
+  String get coatTortoiseshell => 'Vėžlio kiautas';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Naujas kailis: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Ištisas mėnuo darbų, visi atlikti.';
+
+  @override
+  String get achievementsEmpty => 'Dar nieko. Darbai žino kelią.';
+
+  @override
+  String get achievementMonth => 'Visas mėnuo';
+
+  @override
+  String get achievementYear => 'Visi metai';
+
+  @override
+  String get achievementDecade => 'Visas dešimtmetis';
+
+  @override
+  String get achievementCentury => 'Visas šimtmetis';
+
+  @override
+  String get achievementCenturyHint => 'Abu labai didžiuosimės.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title meistras';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Pasiekta $times kartų',
+      few: 'Pasiekta $times kartus',
+      one: 'Pasiekta $times kartą',
+    );
+    return '$_temp0, pirmą kartą $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Kitas ties $n';
+  }
+
+  @override
+  String get achievementLocked => 'Dar ne';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Pasiekimas: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Kas';
@@ -2556,4 +3306,116 @@ class AppLocalizationsLt extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Ištrinti vizitą visiems $count augintiniams';
   }
+
+  @override
+  String get correctThisValue => 'Pataisyti šią reikšmę';
+
+  @override
+  String get removeThisValue => 'Pašalinti šią reikšmę';
+
+  @override
+  String get restoreThisValue => 'Atkurti šią reikšmę';
+
+  @override
+  String get showRemovedValues => 'Rodyti pašalintas reikšmes';
+
+  @override
+  String get hideRemovedValues => 'Slėpti pašalintas reikšmes';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Pašalinta · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Pakeista į $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Pataisymas';
+
+  @override
+  String get restorePickFolder => 'Pasirinkti atsarginių kopijų aplanką…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Ankstesnio įdiegimo atsarginės kopijos yra Documents/catlog (senesnėse versijose Downloads/catlog). Pasirinkite šį aplanką vieną kartą; jo kopijos rodomos čia.';
+
+  @override
+  String get backupsTitle => 'Atsarginės kopijos';
+
+  @override
+  String get backupsSubtitle => 'Kur saugomi jūsų katalogai';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google saugo šios programėlės katalogus jūsų paskyroje, be nuotraukų. Įdiegus iš naujo ar naujame telefone jie grįžta patys.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Pilna kiekvieno katalogo kopija su nuotraukomis įrašoma į Documents/catlog kaskart, kai po pakeitimų išeinate iš programėlės.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud atsarginė kopija apima šią programėlę su jos katalogais ir nuotraukomis, kaip ir kiekvieną kitą programėlę šiame iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Pilna kiekvieno katalogo kopija yra programėlėje „Failai“, aplanke cat(a)log. Iš ten ją galima perkelti į iCloud Drive, per AirDrop ar į kitą telefoną.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Pilna kiekvieno katalogo kopija su nuotraukomis įrašoma į jūsų Atsisiuntimų aplanką kaskart, kai po pakeitimų išeinate iš programėlės.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Paskutinė kopija: $date';
+  }
+
+  @override
+  String get backupsNever => 'Kopija dar neįrašyta.';
+
+  @override
+  String get backupsNow => 'Kurti kopiją dabar';
+
+  @override
+  String get backupsDone => 'Kopija įrašyta.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Atkurta iš Google atsarginės kopijos $date. Jei sename telefone dar veikia cat(a)log, vieną kartą sinchronizuokite iš jo, tada ten pašalinkite programėlę.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Kiekvieną kopiją gali gauti ir jūsų pasirinktas aplankas: toks, kurį debesies programėlė šiame telefone sinchronizuoja (Nextcloud, Syncthing ir kitos), atminties kortelė, bet kuris parinkiklio siūlomas aplankas. Kopijos patenka į catlog-backups jo viduje.';
+
+  @override
+  String get backupsFolderPick => 'Kopijuoti ir į aplanką…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopijuojama ir į $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Nebekopijuoti ten';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Pranešimai šiame telefone neveikia: $error';
+  }
+
+  @override
+  String get copyText => 'Kopijuoti tekstą';
+
+  @override
+  String get colWhen => 'Kada';
+
+  @override
+  String get colValue => 'Reikšmė';
+
+  @override
+  String get colWho => 'Kas';
 }

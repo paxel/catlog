@@ -52,6 +52,9 @@
   "card": "Kaart",
   "cardTitle": "Kaart — {name}",
   "shareAsImage": "Jaga pildina",
+  "sortOldestFirst": "Vanim ees",
+  "sortNewestFirst": "Uusim ees",
+  "shareAsText": "Jaga tekstina",
   "shareAsPdf": "Jaga PDF-ina",
   "print": "Prindi",
   "renameCat": "Nimeta kass ümber",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Leibkonnata — hulkuja / jooksis ära",
   "timelineOf": "Ajajoon — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Võta see muudatus tagasi",
-  "revertSubtitle": "Taastab eelmise väärtuse uue kirjena — ajalugu säilitab mõlemad.",
   "fieldCleared": "{field} tühjendatud",
   "fieldBackTo": "{field} tagasi väärtusele \"{value}\"",
   "leftStray": "Lahkus — hulkuja",
@@ -128,10 +129,13 @@
   "syncFailed": "Sünkroonimine ebaõnnestus: {error}",
   "lastSyncWith": "Viimane sünkroonimine seadmega {peer}: {time}",
   "sharedFolder": "Jagatud kaust",
-  "sharedFolderExplainer": "Mõlemad seadmed kasutavad sama kausta (nt Dropboxis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.",
+  "sharedFolderExplainer": "Mõlemad seadmed kasutavad sama kausta (nt Nextcloudis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.",
   "noFolderChosenYet": "Kausta pole veel valitud",
   "choose": "Vali…",
   "syncFolderNow": "Sünkrooni kaust kohe",
+  "folderCatalogHint": "Selle sees kasutab see kataloog kausta „{name}“, nii et üks jagatud kaust kannab kõiki su katalooge.",
+  "useSameFolder": "Kasuta sama kausta mis teised kataloogid",
+  "folderHint": "Sobib iga kaust, mida kaks seadet ühesugusena hoiavad: pilveketas või Syncthing kausta jaoks, mis jääb teie telefonidesse. Syncthing on tasuta: paigalda see igasse telefoni, jaga nende vahel üht kausta ja vali see kaust siin igas seadmes.",
   "folderSynced": "Kaust sünkroonitud: {result}",
   "folderSyncFailed": "Kausta sünkroonimine ebaõnnestus: {error}",
   "recordSightingHere": "Salvesta vaatlus siin:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Rada: {name} ({count} asukohta)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Muudetud kahes kohas korraga. Vali, mis on õige:",
+  "privateMarker": "{field} (privaatne)",
+  "conflictSame": "Mõlemad muudatused ütlevad sama: {value}. Pole midagi valida; Lahenda eemaldab märgi.",
   "mergeThisInto": "Ühenda see {kind}…",
   "noOtherToMergeInto": "Pole teist ({kind}), millega ühendada.",
   "mergeIntoQuestion": "Ühendada kirjega {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Pärsia",
   "breedBengal": "Bengali",
   "breedSphynx": "Sfinks",
+  "breedAbyssinian": "Abessiinia",
+  "breedAmericanShorthair": "Ameerika lühikarvaline",
+  "breedBalinese": "Bali",
+  "breedBirman": "Birma",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Birma",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Briti pikakarvaline",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egiptuse mau",
+  "breedExoticShorthair": "Eksootiline lühikarvaline",
+  "breedHimalayan": "Himaalaja",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Idamaine lühikarvaline",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Vene sinine",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Šoti lontkõrv",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Siberi kass",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somaali",
+  "breedTonkinese": "Tonkini",
+  "breedTurkishAngora": "Türgi angoora",
+  "breedTurkishVan": "Türgi van",
   "ownValue": "Oma väärtus",
   "locationDeniedForever": "Juurdepääs asukohale on blokeeritud. Luba see süsteemi seadetes, et kasutada Stray Cami.",
   "locationServiceOff": "Asukoht on selles seadmes välja lülitatud. Lülita see seadetes sisse ja proovi uuesti.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Kõik lemmikloomad ja kohad, millel on asukoht. Otsing leiab lemmikloomad, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud lemmiklooma kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise. Iga asukohaväli on kaardil nõel; puuduta nõela, et näha selle rada.",
   "helpCard": "Kassi prinditav kaart: vali üleval kiipidega, mis sellel on, seejärel jaga seda pildi või PDF-ina. Numbreid saab printida QR- või vöötkoodina ja asukohast saab QR, mis avab kaardi, pluss lühike Plus Code.",
   "helpCardNeutral": "Lemmiklooma prinditav kaart: vali üleval kiipidega, mis sellel on, seejärel jaga seda pildi või PDF-ina. Numbreid saab printida QR- või vöötkoodina ja asukohast saab QR, mis avab kaardi, pluss lühike Plus Code.",
-  "helpSync": "Kuidas andmed teisteni jõuavad: ühendu otse, kasuta kausta, mida mõlemad seadmed näevad, või saada fail sõnumirakendusega. Alati sina otsustad, mis välja läheb — ja saadud .catsync failid avanevad samuti siin.",
+  "helpSync": "Kuidas andmed teisteni jõuavad: ühendu otse, kasuta kausta, mida mõlemad seadmed näevad, või saada fail sõnumirakendusega. Alati sina otsustad, mis välja läheb — ja saadud .catsync failid avanevad samuti siin. Iga kataloog allkirjastab kirjutatu oma võtmega; partnerid näevad võtmekoodi sinu nime kõrval. Partneri esimene võti võetakse failist usalduse peale ja loeb kohtutuks, kui sünkroonite isiklikult. Tuttava nime all olevad kirjed ilma õige allkirjata lükatakse tagasi ja loetletakse saabumislehel.",
   "helpFields": "Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit kassi juures puudutada.",
   "helpFieldsNeutral": "Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit lemmiklooma juures puudutada.",
-  "helpTimeline": "Iga kunagi tehtud muudatus, uusim ees: kes mida, millal ja millisele väärtusele muutis. Iga kirje saab tagasi võtta — see kirjutab uue kirje, midagi ei kustutata kunagi.",
+  "helpTimeline": "Iga muudatus, uusim esimesena: kes, millal ja milliseks väärtuseks. Puuduta kirjet, et seda parandada, hoia all, et see eemaldada või taastada; peidetud kirje jääb logisse ja kuvatakse soovi korral.",
   "helpDuplicates": "Kassid või kolooniad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.",
   "helpDuplicatesNeutral": "Lemmikloomad või leibkonnad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.",
-  "helpMatches": "Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi.",
-  "helpMatchesNeutral": "Lemmikloomad, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud lemmiklooma otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese lemmiklooma.",
+  "helpMatches": "Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi. Loendis on ka paarid, kelle välimus klapib vähemalt kahes tunnuses ilma vastuoluta; kiibid näitavad, millistes. „Pole sama“ peidab paari selles telefonis, kuni ühe looma välimus muutub.",
+  "helpMatchesNeutral": "Lemmikloomad, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud lemmiklooma otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese lemmiklooma. Loendis on ka paarid, kelle välimus klapib vähemalt kahes tunnuses ilma vastuoluta; kiibid näitavad, millistes. „Pole sama“ peidab paari selles telefonis, kuni ühe looma välimus muutub.",
   "helpFlier": "Pildistatud kuulutusest saab kass koos omanikuga. Samm-sammult: kassi andmed, omaniku kontakt, näo lõikamine profiilipildiks, registrinumbrid kuulutuselt ja lõpuks kontroll. Kõik on ettepanekud — paranda see, mille kaamera valesti luges.",
   "helpFlierNeutral": "Pildistatud kuulutusest saab lemmikloom koos omanikuga. Samm-sammult: lemmiklooma andmed, omaniku kontakt, näo lõikamine profiilipildiks, registrinumbrid kuulutuselt ja lõpuks kontroll. Kõik on ettepanekud — paranda see, mille kaamera valesti luges.",
   "archiveTitle": "Arhiiv",
@@ -399,11 +435,109 @@
   "rangeAll": "Kõik",
   "rangeCustom": "Kohandatud…",
   "changeSince": "{delta} alates {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Nagu sinu piirkonnas",
   "unitsMetric": "Meetriline (kg, cm, ml, °C)",
   "unitsImperial": "Inglise (lb, in, fl oz, °F)",
   "starterWeight": "Kaal",
+  "starterLooks": "Välimus",
+  "looksGroupSize": "Suurus",
+  "looksGroupColours": "Värvid",
+  "looksGroupPattern": "Muster",
+  "looksGroupFur": "Karv",
+  "looksGroupTail": "Saba",
+  "looksGroupEars": "Kõrvad",
+  "looksGroupMarks": "Tunnused",
+  "looksGroupCrest": "Tutt",
+  "looksGroupBeak": "Nokk",
+  "looksGroupRing": "Jalarõngas",
+  "looksValueSmall": "Väike",
+  "looksValueMedium": "Keskmine",
+  "looksValueLarge": "Suur",
+  "looksValueBlack": "Must",
+  "looksValueWhite": "Valge",
+  "looksValueGrey": "Hall",
+  "looksValueBrown": "Pruun",
+  "looksValueGinger": "Punane",
+  "looksValueCream": "Kreem",
+  "looksValueGolden": "Kuldne",
+  "looksValueTan": "Helepruun",
+  "looksValueGreen": "Roheline",
+  "looksValueBlue": "Sinine",
+  "looksValueYellow": "Kollane",
+  "looksValueRed": "Punane",
+  "looksValueOrange": "Oranž",
+  "looksValuePink": "Roosa",
+  "looksValueWhiteBib": "Valge rinnaesine",
+  "looksValueWhitePaws": "Valged käpad",
+  "looksValueWhiteTailTip": "Valge sabaots",
+  "looksValueBlaze": "Lauk",
+  "looksValueMask": "Mask",
+  "looksValueSpots": "Täpid",
+  "looksValuePatches": "Laigud",
+  "looksValueStripes": "Triibud",
+  "looksValueScar": "Arm",
+  "looksValueNotchedEar": "Sälk kõrvas",
+  "looksValueEarTip": "Kõrvatipp",
+  "looksValueCollar": "Kaelarihm",
+  "looksValueShort": "Lühike",
+  "looksValueLong": "Pikk",
+  "looksValueHairless": "Karvutu",
+  "looksValueBobtail": "Tömpsaba",
+  "looksValueNone": "Puudub",
+  "looksValueCurled": "Keerdus",
+  "looksValueUpright": "Püsti",
+  "looksValueFloppy": "Rippuvad",
+  "looksValueFolded": "Kokku murtud",
+  "looksValueRounded": "Ümarad",
+  "looksValueSolid": "Ühevärviline",
+  "looksValueTabby": "Tabby",
+  "looksValueTortoiseshell": "Kilpkonnavärv",
+  "looksValueCalico": "Kaliko",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Kahevärviline",
+  "looksValueTuxedo": "Smoking",
+  "looksValueBrindle": "Brindle",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Täpiline",
+  "looksValuePatched": "Laiguline",
+  "looksValueTricolour": "Kolmevärviline",
+  "looksValueSable": "Soobel",
+  "looksGroupEyes": "Silmad",
+  "looksGroupFeatures": "Eritunnused",
+  "looksValueAmber": "Merevaik",
+  "looksValueCopper": "Vask",
+  "looksValueOddEyed": "Erivärvilised",
+  "looksValueChocolate": "Šokolaad",
+  "looksValueLilac": "Lilla",
+  "looksValueSilver": "Hõbe",
+  "looksValueSmoke": "Suits",
+  "looksValueTicked": "Tikitud",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Lokkis",
+  "looksValueWiry": "Karm",
+  "looksValueKinked": "Kõver",
+  "looksValueCropped": "Kupeeritud",
+  "looksValueTippedEar": "Lõigatud kõrvatipp",
+  "looksValueEarTattoo": "Kõrvatätoveering",
+  "looksValueMissingEar": "Puuduv kõrv",
+  "looksValueMissingEye": "Puuduv silm",
+  "looksValueCloudyEye": "Hägune silm",
+  "looksValueMissingFrontLeg": "Puuduv esijalg",
+  "looksValueMissingHindLeg": "Puuduv tagajalg",
+  "looksValueNoTeeth": "Hambad puuduvad",
+  "looksValueExtraToes": "Lisavarbad",
+  "rejectMatch": "Pole sama",
+  "traitsAgree": "{count, plural, =1{1 tunnus klapib} other{{count} tunnust klapivad}}",
   "systemDefault": "Süsteemi vaikimisi",
   "iosLocalNetworkHint": "Kui iPhone'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.",
   "markPrivate": "Märgi privaatseks",
@@ -432,6 +566,8 @@
   "otherOption": "Muu…",
   "celebrationsToggle": "Tähista lapsendamisi",
   "celebrationsSubtitle": "Konfetid ja hõisked, kui kass kolib koju",
+  "cheerToggle": "Juubelduse heli",
+  "cheerSubtitle": "Lühike juubeldus konfettidega, iga kord erinev",
   "celebrationsSubtitleNeutral": "Konfetid ja hõisked, kui lemmikloom kolib koju",
   "onMapLabel": "Kaardil",
   "showOnMap": "Näita kaardil",
@@ -445,7 +581,19 @@
   "authorsSection": "Kes on kataloogi kirjutanud",
   "hardDeleteAction": "Kustuta kõik sellelt autorilt",
   "hardDeleteWarning": "Eemaldab kõik {name} kirjed ja fotod sellest seadmest. Teised seadmed hoiavad omad alles. Ei saa tagasi võtta.",
-  "hardDeleteWarningDevice": "Eemaldab sellest kataloogist iga kirje ja foto, mille {name} seadmes {device} kirjutas. Teised seadmed hoiavad oma koopia. Tagasi võtta ei saa.",
+  "yourKey": "Sinu võti",
+  "yourTitle": "Sinu tiitel",
+  "titleNone": "Tiitlita",
+  "keyLine": "võti {code}",
+  "keyVerified": "kohtutud isiklikult",
+  "keyFromFile": "failist, veel kohtumata",
+  "keyUnsigned": "võtit veel pole, kirjed allkirjastamata",
+  "summaryRefused": "Tagasi lükatud",
+  "refusedEntries": "{count, plural, =1{1 kirje} other{{count} kirjet}} tagasi lükatud: pole allkirjastatud {name} teadaoleva võtmega",
+  "newKeyCallsItself": "Uus võti {code} nimetab end {name}. Küsi inimeselt üle, enne kui usaldad.",
+  "keyChangedRefused": "{name} pakkus teistsugust võtit kui siin teada. Teadaolev jääb; uut ei võetud.",
+  "metaNewKey": "Uus võti: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Eemaldab sellest kataloogist iga kirje ja foto, mille {name} võtme {key} all kirjutas. Teised seadmed hoiavad omad. Tagasi võtta ei saa.",
   "typeToConfirm": "Kinnitamiseks kirjuta {name}",
   "alsoBan": "Keela ka — ära võta enam kunagi andmeid vastu",
   "bansSection": "Keelud",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Midagi ei taastatud.} one{1 kataloog taastatud.} other{{count} kataloogi taastatud.}}",
   "helpCatalogs": "Kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta kataloogi, et sellele lülituda. Kataloogi hammasratas avab selle seaded: nimi, kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv, tagasiminek, kustutamine. Su nimi, keel ja juba nähtud nõuanded on kõigil ühised.",
   "helpCatalogsNeutral": "Kataloog on omaette maailm: omad lemmikloomad, majapidamised, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta kataloogi, et sellele lülituda. Kataloogi hammasratas avab selle seaded: nimi, kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv, tagasiminek, kustutamine. Su nimi, keel ja juba nähtud nõuanded on kõigil ühised.",
-  "helpCatalogSettings": "Kõik, mis kuulub ainult sellele kataloogile: nimi, kas seal on kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv ning ajas tagasiminek. Siinsed muudatused puudutavad ainult seda kataloogi — ka sellist, milles sa praegu ei ole. Kustutamine kirjutab kataloogi enne faili.",
+  "helpCatalogSettings": "Kõik, mis kuulub ainult sellele kataloogile: nimi, kas seal on kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv ning ajas tagasiminek. Siinsed muudatused puudutavad ainult seda kataloogi — ka sellist, milles sa praegu ei ole. Kustutamine kirjutab kataloogi enne faili. Sinu võti on kood, mida partnerid näevad sinu nime kõrval; see kuulub sellele kataloogile.",
   "spotHomeCatalog": "See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.",
   "deleteCatalog": "Kustuta kataloog",
   "catalogSettings": "Kataloogi seaded",
   "deleteCatalogBody": "Kõik kataloogis {name} kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi.",
   "deleteCatalogBodyNeutral": "Kõik kataloogis {name} kaob: lemmikloomad, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Visiite pole plaanitud. Uusi plaanid siin plussiga või lemmiklooma või leibkonna lehel.",
   "dueToday": "täna",
   "dueInDays": "{count, plural, one{1 päeva pärast} other{{count} päeva pärast}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 päev üle tähtaja} other{{count} päeva üle tähtaja}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Tehtud",
   "repeatTitle": "Uuesti…",
   "noRepeatLabel": "Ei kordu",
@@ -720,15 +886,33 @@
   "unitMonths": "kuu pärast",
   "unitYears": "aasta pärast",
   "ageYears": "{years} a",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} k",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Muuda kuupäeva",
   "removeReminderLabel": "Eemalda meeldetuletus",
   "exportIcs": "Ekspordi kalendrifail",
   "resyncCalendar": "Sünkrooni kalender uuesti",
   "icsSavedTo": "Kalendrifail salvestatud asukohta {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Peegelda seadme kalendrisse",
   "calendarMirrorSubtitle": "Visiidid ilmuvad kalendrisse kogu päeva sündmustena. cat(a)log uuendab neid seal igal käivitusel ja pärast iga muudatust. Visiitide meeldetuletusi haldad kalendris.",
   "syncPeerOlder": "Teises seadmes on vanem cat(a)log ilma meeldetuletusteta. Uuenda cat(a)log seal ja sünkrooni uuesti.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Meeldetuletused: plaanitud visiitide nimekiri — loomaarst, ravimid, kontrollid.",
   "spotAgendaAdd": "Plaani uus visiit.",
   "spotAgendaCalendar": "Lülita siin sisse cat(a)logi visiitide peegeldus valitud kalendrisse.",
-  "helpAgenda": "Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme kassiga on üks kohtumine: märgi kassid, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid kasse raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks.",
-  "helpAgendaNeutral": "Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab lemmiklooma või leibkonna. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme lemmikloomaga on üks kohtumine: märgi lemmikloomad, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid lemmikloomi raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks.",
+  "spotAgendaToday": "Tänased toimetused: märgi, kui tehtud. Punktid näitavad viimast seitset päeva.",
+  "helpAgenda": "Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme kassiga on üks kohtumine: märgi kassid, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid kasse raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.",
+  "helpAgendaNeutral": "Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab lemmiklooma või leibkonna. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme lemmikloomaga on üks kohtumine: märgi lemmikloomad, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid lemmikloomi raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.",
   "calendarRowOff": "Kalender: väljas",
   "calendarRowOn": "Kalender: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Plaani sellele kassile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.",
   "spotAddReminderCatNeutral": "Plaani sellele lemmikloomale visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.",
   "spotAddReminderClowder": "Plaani sellele klauderile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Visiit või meeldetuletus?",
   "planChooserAppointment": "Visiit — külastus kuupäeval ja kellaajal, märkmetega",
   "planChooserReminder": "Meeldetuletus — väärtus, mille tähtaeg saabub mingil päeval",
+  "planChooserChore": "Toimetus — midagi, mis kordub: söötmine, tilgad, liivakast",
+  "newChore": "Uus toimetus",
+  "choreEdit": "Muuda toimetust",
+  "choreTitleLabel": "Mida",
+  "choreRepeatDaily": "Iga päev",
+  "choreRepeatEvery": "Iga…",
+  "choreRepeatWeekdays": "Nädalapäevad",
+  "choreEveryDays": "{n, plural, one{iga päev} other{iga {n} päeva järel}}",
+  "choreEveryWeeks": "{n, plural, one{iga nädal} other{iga {n} nädala järel}}",
+  "choreEveryMonths": "{n, plural, one{iga kuu} other{iga {n} kuu järel}}",
+  "choreEveryYears": "{n, plural, one{iga aasta} other{iga {n} aasta järel}}",
+  "choreNoTime": "Mis tahes kellaajal",
+  "chorePause": "Peata",
+  "chorePaused": "Peatatud",
+  "choreResume": "Jätka",
+  "choreEnd": "Lõpeta toimetus",
+  "choreHistory": "Ajalugu",
+  "choreDoneAt": "tehtud {when} · {who}",
+  "choreDoneEarly": "varem",
+  "choreDoneLate": "hiljem",
+  "choreMissed": "Vahele jäänud",
+  "choreStillOpen": "Veel lahtine",
+  "choreEndConfirm": "Toimetus kaob loendist. Märgitu jääb ajalukku.",
+  "todaySection": "Täna",
+  "upcomingSection": "Peagi",
+  "allDoneToday": "Täna: kõik tehtud",
+  "streakDays": "{n, plural, one{1 päev järjest} other{{n} päeva järjest}}",
+  "choreDue": "Tähtaeg {date}",
+  "remindMe": "Tuleta meelde",
+  "remindNext": "Järgmine meeldetuletus: {when}",
+  "remindNone": "Meeldetuletust pole: midagi ei ole ees.",
+  "remindPending": "{count, plural, =0{Selles telefonis pole veel midagi plaanitud} =1{1 meeldetuletus plaanitud selles telefonis} other{{count} meeldetuletust plaanitud selles telefonis}}",
+  "remindTest": "Saada kohe proovimeeldetuletus",
+  "remindLateHint": "Meeldetuletused võivad tulla paar minutit hiljem; täpse hetke valib telefon.",
+  "remindPermissionDenied": "Teavituste luba puudub, meeldetuletus jääb välja. Luba need telefoni rakenduse seadetes ja proovi uuesti.",
+  "batteryHint": "Kui meeldetuletused jäävad tulemata, luba cat(a)logil telefoni aku seadetes taustal töötada.",
+  "batterySettings": "Aku seaded",
+  "achievementsTitle": "Saavutused",
+  "rankServant": "Teener",
+  "rankButler": "Ülemteener",
+  "rankSteward": "Majapidaja",
+  "rankChancellor": "Kantsler",
+  "rankMinister": "Minister",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kaliko",
+  "coatCheetah": "Gepard",
+  "coatTiger": "Tiiger",
+  "coatTabby": "Tabby",
+  "coatPaws": "Käpad",
+  "coatRosettes": "Rosetid",
+  "coatZebra": "Sebra",
+  "coatSetting": "Kasukas",
+  "coatRandom": "Iga käivitusega erinev",
+  "coatSnowLeopard": "Lumeleopard",
+  "coatSiamese": "Siiami märgid",
+  "coatLynx": "Ilves",
+  "coatTortoiseshell": "Kilpkonnavärv",
+  "coatUnlocked": "Uus kasukas: {coat}",
+  "coatUnlockedHow": "Terve kuu toimetusi, kõik tehtud.",
+  "achievementsEmpty": "Veel pole midagi. Toimetused teavad teed.",
+  "achievementMonth": "Terve kuu",
+  "achievementYear": "Terve aasta",
+  "achievementDecade": "Terve kümnend",
+  "achievementCentury": "Terve sajand",
+  "achievementCenturyHint": "Oleme mõlemad väga uhked.",
+  "achievementMaster": "{title} meister",
+  "achievementReached": "{times, plural, one{Saavutatud korra} other{Saavutatud {times} korda}}, esimest korda {date}",
+  "achievementNext": "Järgmine {n} juures",
+  "achievementLocked": "Veel mitte",
+  "achievementUnlocked": "Saavutus: {name}",
   "appointmentTitleLabel": "Mis",
   "notesLabel": "Märkmed",
   "timeLabel": "Kellaaeg",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Olemasolev leibkond",
   "createNewInstead": "Puudub — loo uus",
   "overwritesValue": "Kirjutab üle praeguse väärtuse \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Katkestada jäädvustamine?",
   "abortScanBody": "Midagi ei salvestata.",
   "abortScan": "Katkesta",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Eemalda märge kassidelt, keda ei ravitud; nad jäävad planeerituks.",
   "finishUntickHintNeutral": "Eemalda märge lemmikloomadelt, keda ei ravitud; nad jäävad planeerituks.",
   "deleteAppointmentGroup": "Kustuta kohtumine kõigi {count} kassi jaoks",
-  "deleteAppointmentGroupNeutral": "Kustuta kohtumine kõigi {count} lemmiklooma jaoks"
+  "deleteAppointmentGroupNeutral": "Kustuta kohtumine kõigi {count} lemmiklooma jaoks",
+  "correctThisValue": "Paranda see väärtus",
+  "removeThisValue": "Eemalda see väärtus",
+  "restoreThisValue": "Taasta see väärtus",
+  "showRemovedValues": "Näita eemaldatud väärtusi",
+  "hideRemovedValues": "Peida eemaldatud väärtused",
+  "entryRemovedBy": "Eemaldatud · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Asendatud väärtusega {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Parandus",
+  "restorePickFolder": "Vali varukoopiate kaust…",
+  "restoreAndroidHint": "Eelmise paigalduse varukoopiad on kaustas Documents/catlog (vanematel versioonidel Downloads/catlog). Vali see kaust üks kord; selle koopiad kuvatakse siin.",
+  "backupsTitle": "Varukoopiad",
+  "backupsSubtitle": "Kus su kataloogid on kaitstud",
+  "backupsAndroidSystem": "Google varundab selle rakenduse kataloogid sinu kontoga, ilma fotodeta. Pärast uuesti paigaldamist või uues telefonis tulevad need ise tagasi.",
+  "backupsAndroidFiles": "Iga kataloogi täielik koopia koos fotodega kirjutatakse kausta Documents/catlog iga kord, kui pärast muudatusi rakendusest lahkud.",
+  "backupsIosSystem": "iCloudi varundus sisaldab seda rakendust koos kataloogide ja fotodega, nagu iga teist rakendust sellel iPhone'il.",
+  "backupsIosFiles": "Iga kataloogi täielik koopia on rakenduses Failid kausta cat(a)log all. Sealt saab selle viia iCloud Drive'i, AirDropiga või teise telefoni.",
+  "backupsDesktopFiles": "Iga kataloogi täielik koopia koos fotodega kirjutatakse sinu allalaadimiste kausta iga kord, kui pärast muudatusi rakendusest lahkud.",
+  "backupsLast": "Viimane koopia: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Koopiat pole veel kirjutatud.",
+  "backupsNow": "Varunda kohe",
+  "backupsDone": "Koopia kirjutatud.",
+  "backupsRestoredNote": "Taastatud Google'i varukoopiast {date}. Kui vanas telefonis on cat(a)log veel kasutusel, sünkrooni sealt üks kord ja eemalda siis rakendus sealt.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Iga koopia võib saada ka sinu valitud kaust: selline, mida mõni pilverakendus selles telefonis sünkroonis hoiab (Nextcloud, Syncthing jt), mälukaart, mis tahes kaust, mida valija pakub. Koopiad lähevad selle sees kausta catlog-backups.",
+  "backupsFolderPick": "Kopeeri ka kausta…",
+  "backupsFolderIs": "Kopeeritakse ka kausta {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Lõpeta sinna kopeerimine",
+  "remindFailed": "Teavitused ei tööta selles telefonis: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopeeri tekst",
+  "colWhen": "Millal",
+  "colValue": "Väärtus",
+  "colWho": "Kes"
 }

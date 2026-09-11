@@ -54,4 +54,28 @@ void main() {
       expect(lastCrashText(), isNull);
     });
   });
+
+  test('the mail body drops framework frames and puts ours first', () {
+    final body = [
+      'cat(a)log 1.2.0+166',
+      '',
+      'Bad state: No element',
+      '',
+      '#0 Stream.first. (dart:async/stream.dart:1653)',
+      '#1 _rootRun (dart:async/zone_root.dart:27)',
+      '#2 _CustomZone.run (dart:async/zone.dart:810)',
+      '#3 something (package:flutter/src/widgets/framework.dart:1)',
+      '#4 _playCheer (package:catlog/src/celebration.dart:79)',
+      '#5 tickChore (package:catalog_core/src/chores.dart:400)',
+    ].join('\n');
+    final mail = mailBody(body);
+    expect(mail, isNot(contains('dart:async')));
+    expect(mail, isNot(contains('zone')));
+    final ours = mail.indexOf('celebration.dart');
+    expect(ours, greaterThan(0));
+    expect(mail.indexOf('catalog_core'), greaterThan(ours));
+    expect(mail.indexOf('flutter/src'), greaterThan(mail.indexOf('catalog_core')));
+    expect(mail, startsWith('cat(a)log 1.2.0+166'));
+    expect(mailBody('x' * 3000).length, mailBodyLimit);
+  });
 }

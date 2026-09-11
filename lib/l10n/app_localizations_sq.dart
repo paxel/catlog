@@ -174,6 +174,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get shareAsImage => 'Ndaj si imazh';
 
   @override
+  String get sortOldestFirst => 'Më të vjetrat së pari';
+
+  @override
+  String get sortNewestFirst => 'Më të rejat së pari';
+
+  @override
+  String get shareAsText => 'Ndaj si tekst';
+
+  @override
   String get shareAsPdf => 'Ndaj si PDF';
 
   @override
@@ -558,13 +567,6 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Kthe mbrapsht këtë ndryshim';
-
-  @override
-  String get revertSubtitle =>
-      'Rikthen vlerën e mëparshme si regjistrim të ri — historia i ruan të dyja.';
-
-  @override
   String fieldCleared(String field) {
     return '$field u zbraz';
   }
@@ -734,7 +736,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Dropbox ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.';
+      'Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Nextcloud ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.';
 
   @override
   String get noFolderChosenYet => 'Ende s\'është zgjedhur dosje';
@@ -744,6 +746,18 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Sinkronizo dosjen tani';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Brenda saj ky katalog përdor dosjen „$name“, kështu një dosje e përbashkët mund të mbajë të gjithë katalogët e tu.';
+  }
+
+  @override
+  String get useSameFolder => 'Përdor të njëjtën dosje si katalogët e tjerë';
+
+  @override
+  String get folderHint =>
+      'Mjafton çdo dosje që dy pajisje e mbajnë njësoj: një disk në re, ose Syncthing për një dosje që mbetet në telefonat tuaj. Syncthing është falas: instaloje në çdo telefon, ndaj një dosje mes tyre dhe zgjidhe atë dosje këtu në çdo pajisje.';
 
   @override
   String folderSynced(String result) {
@@ -781,6 +795,16 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get conflictBody =>
       'U ndryshua në dy vende njëkohësisht. Zgjidhni çfarë është e vërtetë:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Të dy ndryshimet thonë të njëjtën gjë: $value. S’ka ç’të zgjidhet; Zgjidh heq shenjën.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -912,6 +936,96 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sfinks';
+
+  @override
+  String get breedAbyssinian => 'Abisiniane';
+
+  @override
+  String get breedAmericanShorthair => 'American Shorthair';
+
+  @override
+  String get breedBalinese => 'Balineze';
+
+  @override
+  String get breedBirman => 'Birmane';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmeze';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'British Longhair';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish Rex';
+
+  @override
+  String get breedDevonRex => 'Devon Rex';
+
+  @override
+  String get breedEgyptianMau => 'Mau egjiptian';
+
+  @override
+  String get breedExoticShorthair => 'Exotic Shorthair';
+
+  @override
+  String get breedHimalayan => 'Himalajane';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oriental Shorthair';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Blu ruse';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Scottish Fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk Rex';
+
+  @override
+  String get breedSiberian => 'Siberiane';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somaleze';
+
+  @override
+  String get breedTonkinese => 'Tonkineze';
+
+  @override
+  String get breedTurkishAngora => 'Angora turke';
+
+  @override
+  String get breedTurkishVan => 'Van turke';
 
   @override
   String get starterColor => 'Ngjyra';
@@ -1090,7 +1204,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu.';
+      'Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu. Çdo katalog nënshkruan atë që shkruan me çelësin e vet; partnerët shohin kodin e çelësit pranë emrit tënd. Çelësi i parë i një partneri merret me besim nga një skedar dhe vlen si i verifikuar sapo sinkronizoni personalisht. Hyrjet me një emër të njohur pa nënshkrimin e duhur refuzohen dhe listohen në faqen e mbërritjes.';
 
   @override
   String get helpFields =>
@@ -1102,7 +1216,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Çdo shënim mund të kthehet — kjo shkruan një shënim të ri, asgjë nuk fshihet.';
+      'Çdo ndryshim, më i riu i pari: kush, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, mbaje shtypur për ta hequr ose rikthyer; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.';
 
   @override
   String get helpDuplicates =>
@@ -1114,11 +1228,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim.';
+      'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim. Në listë janë edhe çiftet pamja e të cilëve përputhet në të paktën dy tipare pa kundërshtim; çipat tregojnë cilat. „Jo i njëjti“ e fsheh çiftin në këtë telefon derisa të ndryshojë pamja e njërës prej kafshëve.';
 
   @override
   String get helpMatchesNeutral =>
-      'Kafshë që mund të jenë e njëjta kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një kafshe të humbur. Prek një çift për bashkim, shtypja e gjatë hap kafshën e parë për krahasim.';
+      'Kafshë që mund të jenë e njëjta kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një kafshe të humbur. Prek një çift për bashkim, shtypja e gjatë hap kafshën e parë për krahasim. Në listë janë edhe çiftet pamja e të cilëve përputhet në të paktën dy tipare pa kundërshtim; çipat tregojnë cilat. „Jo i njëjti“ e fsheh çiftin në këtë telefon derisa të ndryshojë pamja e njërës prej kafshëve.';
 
   @override
   String get helpFlier =>
@@ -1407,6 +1521,281 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterWeight => 'Pesha';
 
   @override
+  String get starterLooks => 'Pamja';
+
+  @override
+  String get looksGroupSize => 'Madhësia';
+
+  @override
+  String get looksGroupColours => 'Ngjyrat';
+
+  @override
+  String get looksGroupPattern => 'Modeli';
+
+  @override
+  String get looksGroupFur => 'Qimja';
+
+  @override
+  String get looksGroupTail => 'Bishti';
+
+  @override
+  String get looksGroupEars => 'Veshët';
+
+  @override
+  String get looksGroupMarks => 'Shenjat';
+
+  @override
+  String get looksGroupCrest => 'Kreshta';
+
+  @override
+  String get looksGroupBeak => 'Sqepi';
+
+  @override
+  String get looksGroupRing => 'Unaza';
+
+  @override
+  String get looksValueSmall => 'I vogël';
+
+  @override
+  String get looksValueMedium => 'Mesatar';
+
+  @override
+  String get looksValueLarge => 'I madh';
+
+  @override
+  String get looksValueBlack => 'E zezë';
+
+  @override
+  String get looksValueWhite => 'E bardhë';
+
+  @override
+  String get looksValueGrey => 'Gri';
+
+  @override
+  String get looksValueBrown => 'Kafe';
+
+  @override
+  String get looksValueGinger => 'E kuqërremtë';
+
+  @override
+  String get looksValueCream => 'Krem';
+
+  @override
+  String get looksValueGolden => 'E artë';
+
+  @override
+  String get looksValueTan => 'Bezhë';
+
+  @override
+  String get looksValueGreen => 'E gjelbër';
+
+  @override
+  String get looksValueBlue => 'Blu';
+
+  @override
+  String get looksValueYellow => 'E verdhë';
+
+  @override
+  String get looksValueRed => 'E kuqe';
+
+  @override
+  String get looksValueOrange => 'Portokalli';
+
+  @override
+  String get looksValuePink => 'Rozë';
+
+  @override
+  String get looksValueWhiteBib => 'Gjoks i bardhë';
+
+  @override
+  String get looksValueWhitePaws => 'Putra të bardha';
+
+  @override
+  String get looksValueWhiteTailTip => 'Majë bishti e bardhë';
+
+  @override
+  String get looksValueBlaze => 'Yll';
+
+  @override
+  String get looksValueMask => 'Maskë';
+
+  @override
+  String get looksValueSpots => 'Pika';
+
+  @override
+  String get looksValuePatches => 'Njolla';
+
+  @override
+  String get looksValueStripes => 'Vija';
+
+  @override
+  String get looksValueScar => 'Shenjë plage';
+
+  @override
+  String get looksValueNotchedEar => 'Vesh i prerë';
+
+  @override
+  String get looksValueEarTip => 'Maja e veshit';
+
+  @override
+  String get looksValueCollar => 'Qafore';
+
+  @override
+  String get looksValueShort => 'E shkurtër';
+
+  @override
+  String get looksValueLong => 'E gjatë';
+
+  @override
+  String get looksValueHairless => 'Pa qime';
+
+  @override
+  String get looksValueBobtail => 'Bisht i shkurtër';
+
+  @override
+  String get looksValueNone => 'Asnjë';
+
+  @override
+  String get looksValueCurled => 'I përdredhur';
+
+  @override
+  String get looksValueUpright => 'Të ngritur';
+
+  @override
+  String get looksValueFloppy => 'Të varur';
+
+  @override
+  String get looksValueFolded => 'Të palosur';
+
+  @override
+  String get looksValueRounded => 'Të rrumbullakët';
+
+  @override
+  String get looksValueSolid => 'Njëngjyrësh';
+
+  @override
+  String get looksValueTabby => 'Tigër';
+
+  @override
+  String get looksValueTortoiseshell => 'Breshkë';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dyngjyrësh';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Vijëzuar';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Me pika';
+
+  @override
+  String get looksValuePatched => 'Me njolla';
+
+  @override
+  String get looksValueTricolour => 'Trengjyrësh';
+
+  @override
+  String get looksValueSable => 'Sable';
+
+  @override
+  String get looksGroupEyes => 'Sytë';
+
+  @override
+  String get looksGroupFeatures => 'Veçori';
+
+  @override
+  String get looksValueAmber => 'Qelibar';
+
+  @override
+  String get looksValueCopper => 'Bakër';
+
+  @override
+  String get looksValueOddEyed => 'Ngjyra të ndryshme';
+
+  @override
+  String get looksValueChocolate => 'Çokollatë';
+
+  @override
+  String get looksValueLilac => 'Jargavan';
+
+  @override
+  String get looksValueSilver => 'Argjend';
+
+  @override
+  String get looksValueSmoke => 'Tym';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kaçurrel';
+
+  @override
+  String get looksValueWiry => 'E ashpër';
+
+  @override
+  String get looksValueKinked => 'E thyer';
+
+  @override
+  String get looksValueCropped => 'Të prera';
+
+  @override
+  String get looksValueTippedEar => 'Vesh i prerë';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuazh në vesh';
+
+  @override
+  String get looksValueMissingEar => 'Mungon veshi';
+
+  @override
+  String get looksValueMissingEye => 'Mungon syri';
+
+  @override
+  String get looksValueCloudyEye => 'Sy i turbullt';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Mungon këmba e përparme';
+
+  @override
+  String get looksValueMissingHindLeg => 'Mungon këmba e pasme';
+
+  @override
+  String get looksValueNoTeeth => 'Pa dhëmbë';
+
+  @override
+  String get looksValueExtraToes => 'Gishta shtesë';
+
+  @override
+  String get rejectMatch => 'Jo i njëjti';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tipare përputhen',
+      one: '1 tipar përputhet',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Parazgjedhja e sistemit';
 
   @override
@@ -1487,6 +1876,13 @@ class AppLocalizationsSq extends AppLocalizations {
       'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj';
 
   @override
+  String get cheerToggle => 'Tingulli i brohoritjes';
+
+  @override
+  String get cheerSubtitle =>
+      'Një brohoritje e shkurtër me konfetat, e ndryshme çdo herë';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfeti dhe brohoritje kur një kafshë shpërngulet në shtëpinë e saj';
 
@@ -1529,8 +1925,60 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Heq nga ky katalog çdo shënim dhe foto që $name shkroi në pajisjen $device. Pajisjet e tjera mbajnë kopjet e tyre. Nuk mund të zhbëhet.';
+  String get yourKey => 'Çelësi yt';
+
+  @override
+  String get yourTitle => 'Titulli yt';
+
+  @override
+  String get titleNone => 'Pa titull';
+
+  @override
+  String keyLine(Object code) {
+    return 'çelësi $code';
+  }
+
+  @override
+  String get keyVerified => 'i verifikuar personalisht';
+
+  @override
+  String get keyFromFile => 'nga një skedar, ende i paverifikuar';
+
+  @override
+  String get keyUnsigned => 'ende pa çelës, hyrje të panënshkruara';
+
+  @override
+  String get summaryRefused => 'Refuzuar';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count hyrje të refuzuara',
+      one: '1 hyrje e refuzuar',
+    );
+    return '$_temp0: pa nënshkrim me çelësin e njohur për $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Një çelës i ri $code quhet $name. Pyete personin para se t’i besosh.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name ofroi një çelës tjetër nga ai i njohur këtu. I njohuri mbetet; i riu nuk u mor.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Çelës i ri: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Heq nga ky katalog çdo hyrje dhe foto të shkruar nga $name me çelësin $key. Pajisjet e tjera i mbajnë të tyret. Nuk mund të zhbëhet.';
   }
 
   @override
@@ -2030,7 +2478,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar.';
+      'Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar. Çelësi yt është kodi që partnerët shohin pranë emrit tënd; i përket këtij katalogu.';
 
   @override
   String get spotHomeCatalog =>
@@ -2335,12 +2783,16 @@ class AppLocalizationsSq extends AppLocalizations {
       'Ndize këtu pasqyrimin e takimeve të cat(a)log në një kalendar sipas zgjedhjes.';
 
   @override
+  String get spotAgendaToday =>
+      'Detyrat e sotme: shëno kur të kryhen. Pikat tregojnë shtatë ditët e fundit.';
+
+  @override
   String get helpAgenda =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
 
   @override
   String get helpAgendaNeutral =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
 
   @override
   String get calendarRowOff => 'Kalendari: fikur';
@@ -2385,6 +2837,295 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Përkujtues — një vlerë që bëhet e detyrueshme një ditë';
+
+  @override
+  String get planChooserChore =>
+      'Detyrë — diçka që përsëritet: ushqim, pika, kuti';
+
+  @override
+  String get newChore => 'Detyrë e re';
+
+  @override
+  String get choreEdit => 'Ndrysho detyrën';
+
+  @override
+  String get choreTitleLabel => 'Çfarë';
+
+  @override
+  String get choreRepeatDaily => 'Çdo ditë';
+
+  @override
+  String get choreRepeatEvery => 'Çdo…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ditë';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n ditë',
+      one: 'çdo ditë',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n javë',
+      one: 'çdo javë',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n muaj',
+      one: 'çdo muaj',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n vjet',
+      one: 'çdo vit',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Në çdo orë të ditës';
+
+  @override
+  String get chorePause => 'Pusho';
+
+  @override
+  String get chorePaused => 'Në pauzë';
+
+  @override
+  String get choreResume => 'Vazhdo';
+
+  @override
+  String get choreEnd => 'Përfundo detyrën';
+
+  @override
+  String get choreHistory => 'Historiku';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'kryer $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'më herët';
+
+  @override
+  String get choreDoneLate => 'më vonë';
+
+  @override
+  String get choreMissed => 'Humbur';
+
+  @override
+  String get choreStillOpen => 'Ende e hapur';
+
+  @override
+  String get choreEndConfirm =>
+      'Detyra largohet nga lista. Ç’u shënua mbetet në histori.';
+
+  @override
+  String get todaySection => 'Sot';
+
+  @override
+  String get upcomingSection => 'Së shpejti';
+
+  @override
+  String get allDoneToday => 'Sot: gjithçka u bë';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ditë radhazi',
+      one: '1 ditë radhazi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Afati $date';
+  }
+
+  @override
+  String get remindMe => 'Më kujto';
+
+  @override
+  String remindNext(Object when) {
+    return 'Kujtesa tjetër: $when';
+  }
+
+  @override
+  String get remindNone => 'S’ka kujtesë të planifikuar: asgjë përpara.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kujtesa të planifikuara në këtë telefon',
+      one: '1 kujtesë e planifikuar në këtë telefon',
+      zero: 'Ende asgjë e planifikuar në këtë telefon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Dërgo tani një kujtesë prove';
+
+  @override
+  String get remindLateHint =>
+      'Kujtesat mund të vijnë disa minuta më vonë; telefoni zgjedh çastin e saktë.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nuk ka leje për njoftime, kujtesa mbetet e fikur. Lejoji në cilësimet e aplikacionit në telefon dhe provo sërish.';
+
+  @override
+  String get batteryHint =>
+      'Nëse kujtesat nuk vijnë, lejo cat(a)log të punojë në sfond te cilësimet e baterisë së telefonit.';
+
+  @override
+  String get batterySettings => 'Cilësimet e baterisë';
+
+  @override
+  String get achievementsTitle => 'Arritje';
+
+  @override
+  String get rankServant => 'Shërbëtor';
+
+  @override
+  String get rankButler => 'Kryeshërbëtor';
+
+  @override
+  String get rankSteward => 'Kujdestar';
+
+  @override
+  String get rankChancellor => 'Kancelar';
+
+  @override
+  String get rankMinister => 'Ministër';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tigër';
+
+  @override
+  String get coatTabby => 'Tigër';
+
+  @override
+  String get coatPaws => 'Putra';
+
+  @override
+  String get coatRosettes => 'Rozeta';
+
+  @override
+  String get coatZebra => 'Zebër';
+
+  @override
+  String get coatSetting => 'Gëzof';
+
+  @override
+  String get coatRandom => 'Ndryshe në çdo nisje';
+
+  @override
+  String get coatSnowLeopard => 'Leopard i borës';
+
+  @override
+  String get coatSiamese => 'Shenja siameze';
+
+  @override
+  String get coatLynx => 'Rrëqebull';
+
+  @override
+  String get coatTortoiseshell => 'Breshkë';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Gëzof i ri: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow =>
+      'Një muaj i plotë detyrash, të gjitha të kryera.';
+
+  @override
+  String get achievementsEmpty => 'Ende asgjë. Detyrat e dinë rrugën.';
+
+  @override
+  String get achievementMonth => 'Një muaj i plotë';
+
+  @override
+  String get achievementYear => 'Një vit i plotë';
+
+  @override
+  String get achievementDecade => 'Një dekadë e plotë';
+
+  @override
+  String get achievementCentury => 'Një shekull i plotë';
+
+  @override
+  String get achievementCenturyHint => 'Do të jemi të dy shumë krenarë.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Mjeshtër i $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Arritur $times herë',
+      one: 'Arritur një herë',
+    );
+    return '$_temp0, herën e parë më $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Tjetra te $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ende jo';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Arritje: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Çfarë';
@@ -2546,4 +3287,116 @@ class AppLocalizationsSq extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Fshi takimin për të gjitha $count kafshët';
   }
+
+  @override
+  String get correctThisValue => 'Korrigjo këtë vlerë';
+
+  @override
+  String get removeThisValue => 'Hiq këtë vlerë';
+
+  @override
+  String get restoreThisValue => 'Rikthe këtë vlerë';
+
+  @override
+  String get showRemovedValues => 'Shfaq vlerat e hequra';
+
+  @override
+  String get hideRemovedValues => 'Fshih vlerat e hequra';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Hequr · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Zëvendësuar me $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Korrigjim';
+
+  @override
+  String get restorePickFolder => 'Zgjidh dosjen e kopjeve rezervë…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Kopjet rezervë të instalimit të mëparshëm janë në Documents/catlog (Downloads/catlog për versionet e vjetra). Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu.';
+
+  @override
+  String get backupsTitle => 'Kopje rezervë';
+
+  @override
+  String get backupsSubtitle => 'Ku ruhen të sigurt katalogët e tu';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google ruan katalogët e këtij aplikacioni me llogarinë tënde, pa foto. Kthehen vetë pas një riinstalimi ose në një telefon të ri.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Një kopje e plotë e çdo katalogu, me foto, shkruhet në Documents/catlog sa herë që del nga aplikacioni pas ndryshimeve.';
+
+  @override
+  String get backupsIosSystem =>
+      'Kopja rezervë e iCloud e përfshin këtë aplikacion me katalogët dhe fotot e tij, si çdo aplikacion tjetër në këtë iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Një kopje e plotë e çdo katalogu ndodhet në aplikacionin Files nën cat(a)log. Prej aty mund të shkojë në iCloud Drive, me AirDrop ose në një telefon tjetër.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Një kopje e plotë e çdo katalogu, me foto, shkruhet në dosjen Shkarkime sa herë që del nga aplikacioni pas ndryshimeve.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Kopja e fundit: $date';
+  }
+
+  @override
+  String get backupsNever => 'Ende nuk është shkruar asnjë kopje.';
+
+  @override
+  String get backupsNow => 'Bëj kopje tani';
+
+  @override
+  String get backupsDone => 'Kopja u shkrua.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Rikthyer nga kopja rezervë e Google më $date. Nëse telefoni i vjetër ende përdor cat(a)log, sinkronizo një herë prej tij, pastaj hiqe aplikacionin atje.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Edhe një dosje sipas zgjedhjes sate mund të marrë çdo kopje: një që një aplikacion cloud e mban të sinkronizuar në këtë telefon (Nextcloud, Syncthing e të tjerë), një kartë memorie, çdo dosje që ofron zgjedhësi. Kopjet përfundojnë në catlog-backups brenda saj.';
+
+  @override
+  String get backupsFolderPick => 'Kopjo edhe në një dosje…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopjohet edhe në $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Mos kopjo më atje';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Njoftimet nuk funksionojnë në këtë telefon: $error';
+  }
+
+  @override
+  String get copyText => 'Kopjo tekstin';
+
+  @override
+  String get colWhen => 'Kur';
+
+  @override
+  String get colValue => 'Vlera';
+
+  @override
+  String get colWho => 'Kush';
 }

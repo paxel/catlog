@@ -7,6 +7,7 @@ import '../auto_backup.dart';
 import '../help.dart';
 import '../l10n.dart';
 import '../pet_mode.dart';
+import '../titles.dart';
 import 'archive_screen.dart';
 import 'catalogs_screen.dart' show askCatalogName;
 import 'fields_screen.dart';
@@ -191,6 +192,32 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
     if (mounted) setState(() {});
   }
 
+  Future<void> _chooseTitle() async {
+    final t = context.t;
+    final earned =
+        earnedTitles(t, [_store], DateUtils.dateOnly(DateTime.now()));
+    final picked = await showDialog<String>(
+      context: context,
+      builder: (context) => SimpleDialog(
+        title: Text(t.yourTitle),
+        children: [
+          SimpleDialogOption(
+            onPressed: () => Navigator.of(context).pop(''),
+            child: Text(t.titleNone),
+          ),
+          for (final e in earned)
+            SimpleDialogOption(
+              onPressed: () => Navigator.of(context).pop(e.value),
+              child: Text(e.text),
+            ),
+        ],
+      ),
+    );
+    if (picked == null || !mounted || _closed) return;
+    _store.setOwnTitle(picked.isEmpty ? null : picked);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.t;
@@ -236,6 +263,22 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
             title: Text(t.moderationTitle),
             subtitle: Text(t.moderationSubtitle),
             onTap: () => _push(ModerationScreen(store: _store)),
+          ),
+          // The key this catalog signs with (1.2.0): partners see this
+          // code next to your name.
+          ListTile(
+            leading: const Icon(Icons.key_outlined),
+            title: Text(t.yourKey),
+            subtitle: Text(t.keyLine(_store.keyCode)),
+          ),
+          // The title worn next to the name, for partners to see: none
+          // by default, one of the earned ones when chosen.
+          ListTile(
+            leading: const Icon(Icons.workspace_premium_outlined),
+            title: Text(t.yourTitle),
+            subtitle: Text(
+                titleText(t, _store, _store.deviceId) ?? t.titleNone),
+            onTap: _chooseTitle,
           ),
           ListTile(
             leading: const Icon(Icons.inventory_2_outlined),

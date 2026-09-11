@@ -189,4 +189,49 @@ void main() {
     expect(slugs.toSet().length, slugs.length);
     expect(state(a), state(b));
   });
+
+  test('bookkeeping fields never raise a conflict; old ones stay hidden', () {
+    final a = CatalogStore.inMemory()..author = 'anna';
+    final b = CatalogStore.inMemory()..author = 'bob';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final cat = a.createCat('Miezi');
+    a.append(cat, 'f:remarks', 'shy');
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+    // Both toggle privacy at once, and both pick a profile image.
+    a.setFieldPrivate(cat, 'f:remarks', true);
+    b.setFieldPrivate(cat, 'f:remarks', false);
+    b.setFieldPrivate(cat, 'f:remarks', true);
+    a.applyEntries(b.entriesSince(a.versionVector(), includePrivate: true),
+        senderVector: b.versionVector());
+    expect(a.conflicts(), isEmpty);
+    // A badge an older version raised on a marker is out of sight.
+    a.append(cat, Keys.conflict(Keys.privateField('f:remarks')), 'open');
+    expect(a.conflicts(), isEmpty);
+    expect(CatalogStore.isConflictable('f:remarks'), isTrue);
+    expect(CatalogStore.isConflictable(Keys.withheld('f:remarks')), isFalse);
+    expect(CatalogStore.isConflictable(Keys.chore('x')), isFalse);
+  });
+
+  test('option lists changed on both sides merge instead of fighting', () {
+    final a = CatalogStore.inMemory()..author = 'anna';
+    final b = CatalogStore.inMemory()..author = 'bob';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final breed = a.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+    a.setFieldOptions(breed.id, ['Maine Coon', 'Hauskatze', 'mixed']);
+    b.setFieldOptions(breed.id, ['Maine Coon', 'Ragdoll', 'Balinese', 'mixed']);
+    a.applyEntries(b.entriesSince(a.versionVector()),
+        senderVector: b.versionVector());
+    expect(a.conflicts(), isEmpty);
+    expect(a.fieldDefs().firstWhere((d) => d.slug == 'breed').options,
+        ['Maine Coon', 'Hauskatze', 'Ragdoll', 'Balinese', 'mixed']);
+    // Bob takes Anna's merge back; both agree, nothing left to merge.
+    b.applyEntries(a.entriesSince(b.versionVector()),
+        senderVector: a.versionVector());
+    expect(b.conflicts(), isEmpty);
+    expect(b.fieldDefs().firstWhere((d) => d.slug == 'breed').options,
+        ['Maine Coon', 'Hauskatze', 'Ragdoll', 'Balinese', 'mixed']);
+  });
 }

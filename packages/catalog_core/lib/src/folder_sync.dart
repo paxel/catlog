@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
+import 'bundle.dart';
 import 'entry.dart';
 import 'fields.dart';
+import 'signing.dart';
 import 'store.dart';
 
 /// Outcome of one folder sync, for the summary line.
@@ -15,14 +18,128 @@ class FolderSyncResult {
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
-  const FolderSyncResult(
-      this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut,
-      {this.applied = const []});
+  /// Refused rows and the keys met (1.2.0).
+  final ImportReport report;
+
+  FolderSyncResult(this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut,
+      {this.applied = const [], ImportReport? report})
+      : report = report ?? ImportReport();
 
   @override
-  String toString() =>
-      '$entriesIn entries + $blobsIn photos in, '
+  String toString() => '$entriesIn entries + $blobsIn photos in, '
       '$entriesOut entries + $blobsOut photos out';
+}
+
+/// The shared folder as the sync sees it: a `catlog-sync` root with
+/// two subfolders, `blobs` and `keys`. Plain files on desktop; on
+/// Android the document access the folder picker granted, where
+/// nothing is a path. Every call may throw a [FileSystemException]
+/// when the folder is gone.
+abstract class SyncFolder {
+  /// The file names directly in [dir] — `''` for the root, `blobs`,
+  /// `keys`. An absent directory lists as empty.
+  Future<List<String>> list(String dir);
+
+  /// The file's bytes, or null when it is not there.
+  Future<Uint8List?> read(String dir, String name);
+
+  /// Writes [bytes] as [name] in [dir], replacing what was there.
+  Future<void> write(String dir, String name, List<int> bytes);
+
+  Future<void> delete(String dir, String name);
+
+  /// Makes sure [dir] exists (`''` makes the root).
+  Future<void> ensure(String dir);
+}
+
+/// The folder as plain files under `<path>/catlog-sync`.
+class LocalSyncFolder implements SyncFolder {
+  final String root;
+
+  LocalSyncFolder(String folderPath) : root = '$folderPath/catlog-sync';
+
+  Directory _dir(String dir) => Directory(dir.isEmpty ? root : '$root/$dir');
+
+  @override
+  Future<List<String>> list(String dir) async {
+    final d = _dir(dir);
+    if (!d.existsSync()) return const [];
+    return [
+      for (final f in d.listSync().whereType<File>()) f.uri.pathSegments.last
+    ];
+  }
+
+  @override
+  Future<Uint8List?> read(String dir, String name) async {
+    final f = File('${_dir(dir).path}/$name');
+    return f.existsSync() ? f.readAsBytesSync() : null;
+  }
+
+  @override
+  Future<void> write(String dir, String name, List<int> bytes) async {
+    // Atomically, via temp + rename: a cloud client must never upload
+    // half a file as the whole.
+    final target = File('${_dir(dir).path}/$name');
+    final tmp = File('${target.path}.tmp');
+    tmp.writeAsBytesSync(bytes);
+    tmp.renameSync(target.path);
+  }
+
+  @override
+  Future<void> delete(String dir, String name) async {
+    final f = File('${_dir(dir).path}/$name');
+    if (f.existsSync()) f.deleteSync();
+  }
+
+  @override
+  Future<void> ensure(String dir) async =>
+      _dir(dir).createSync(recursive: true);
+}
+
+/// A folder in memory: tests, and a picture of what the sync writes.
+class MemorySyncFolder implements SyncFolder {
+  final Map<String, Map<String, Uint8List>> dirs = {};
+
+  @override
+  Future<List<String>> list(String dir) async =>
+      dirs[dir]?.keys.toList() ?? const [];
+
+  @override
+  Future<Uint8List?> read(String dir, String name) async => dirs[dir]?[name];
+
+  @override
+  Future<void> write(String dir, String name, List<int> bytes) async =>
+      dirs.putIfAbsent(dir, () => {})[name] = Uint8List.fromList(bytes);
+
+  @override
+  Future<void> delete(String dir, String name) async => dirs[dir]?.remove(name);
+
+  @override
+  Future<void> ensure(String dir) async => dirs.putIfAbsent(dir, () => {});
+}
+
+/// The subfolder a catalog uses inside a shared folder, from its name:
+/// `leipzig`, so one folder can carry every catalog and partners find
+/// each other by the name they agreed on. A name the file system
+/// cannot carry, or an empty one, gets a short fingerprint instead.
+String catalogFolderName(String? catalogName) {
+  final name = (catalogName ?? '').trim();
+  final safe = name
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+      .replaceAll(RegExp(r'^-+|-+$'), '');
+  final faithful = safe == name.toLowerCase().replaceAll(RegExp(r'\s+'), '-');
+  if (safe.isEmpty) return 'catalog-${_fingerprint(name)}';
+  return faithful ? safe : '$safe-${_fingerprint(name)}';
+}
+
+String _fingerprint(String value) {
+  var hash = 0x811c9dc5;
+  for (final unit in value.runes) {
+    hash = (hash ^ unit) & 0xffffffff;
+    hash = (hash * 0x01000193) & 0xffffffff;
+  }
+  return hash.toRadixString(16).padLeft(8, '0');
 }
 
 /// Syncs through a shared folder on any file-sync service (ADR-0002):
@@ -30,13 +147,55 @@ class FolderSyncResult {
 /// blobs to `catlog-sync/blobs/`; every other device's file is imported
 /// read-only through the same idempotent engine as LAN sync. Each file
 /// carries its writer's full knowledge, so any pair of devices sharing
-/// the folder converges without meeting.
-FolderSyncResult folderSync(CatalogStore store, String folderPath,
-    {bool includePrivate = false}) {
-  final root = Directory('$folderPath/catlog-sync');
-  final blobDir = Directory('${root.path}/blobs');
-  root.createSync(recursive: true);
-  blobDir.createSync(recursive: true);
+/// the folder converges without meeting. With [catalog] the files live
+/// in `catlog-sync/<catalog>/` instead, so one folder carries several
+/// catalogs (1.2.2); the root is still read, for partners from before.
+Future<FolderSyncResult> folderSync(CatalogStore store, String folderPath,
+        {bool includePrivate = false, String? catalog}) =>
+    folderSyncIn(store, LocalSyncFolder(folderPath),
+        includePrivate: includePrivate, catalog: catalog);
+
+/// The same sync through any [SyncFolder].
+Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
+    {bool includePrivate = false, String? catalog}) async {
+  // Where this catalog's files go, and where partners' files are looked
+  // for: the catalog's own subfolder, plus the root for writers from
+  // before subfolders existed.
+  String own(String dir) =>
+      catalog == null ? dir : (dir.isEmpty ? catalog : '$catalog/$dir');
+  final readDirs = catalog == null ? [''] : [catalog, ''];
+  await folder.ensure(own(''));
+  await folder.ensure(own('blobs'));
+  await folder.ensure(own('keys'));
+
+  // ---- keys first (1.2.0): every device publishes the keys it holds
+  // under `keys/<deviceId>.json`; what the others published is learned
+  // before their entries are judged. A reader from before looks only
+  // at the root and never sees the folder.
+  final report = ImportReport();
+  final foreignKeys = <KeyRecord>[];
+  for (final base in readDirs) {
+    final keyDir = base.isEmpty ? 'keys' : '$base/keys';
+    for (final name in await folder.list(keyDir)) {
+      if (!name.endsWith('.json') || name == '${store.deviceId}.json') {
+        continue;
+      }
+      try {
+        final bytes = await folder.read(keyDir, name);
+        if (bytes != null) foreignKeys.addAll(parseKeys(utf8.decode(bytes)));
+      } catch (_) {
+        // Half-written by the cloud client: next round.
+      }
+    }
+  }
+  store.learnKeys(foreignKeys, report: report);
+  final ownKeysJson =
+      jsonEncode([for (final k in store.keyRecords()) k.toJson()]);
+  final ownKeysName = '${store.deviceId}.json';
+  final previousKeys = await folder.read(own('keys'), ownKeysName);
+  if (previousKeys == null || utf8.decode(previousKeys) != ownKeysJson) {
+    await folder.write(own('keys'), ownKeysName, utf8.encode(ownKeysJson));
+  }
 
   // ---- read every foreign device's file (never write them)
   //
@@ -49,21 +208,24 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
   // below so it at least does not read stale data as current.
   var entriesIn = 0;
   final applied = <Entry>[];
-  for (final file in root.listSync().whereType<File>()) {
-    if (!file.path.endsWith('.jsonl') && !file.path.endsWith('.jsonl2')) {
-      continue;
-    }
-    final name = file.uri.pathSegments.last;
+  final partnerFiles = <(String dir, String name)>[
+    for (final base in readDirs)
+      for (final name in await folder.list(base)) (base, name)
+  ];
+  for (final (dir, name) in partnerFiles) {
+    if (!name.endsWith('.jsonl') && !name.endsWith('.jsonl2')) continue;
     if (name == '${store.deviceId}.jsonl' ||
         name == '${store.deviceId}.jsonl2') {
       continue;
     }
     final foreign = <Entry>[];
     try {
-      for (final line in file.readAsLinesSync()) {
+      final bytes = await folder.read(dir, name);
+      if (bytes == null) continue;
+      for (final line in const LineSplitter().convert(utf8.decode(bytes))) {
         if (line.trim().isEmpty) continue;
-        foreign.add(Entry.fromJson(
-            (jsonDecode(line) as Map).cast<String, dynamic>()));
+        foreign.add(
+            Entry.fromJson((jsonDecode(line) as Map).cast<String, dynamic>()));
       }
     } catch (_) {
       // A file the cloud client is still writing, or a damaged one: it
@@ -95,12 +257,12 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
           e
     ];
     final imported =
-        store.applyEntries(fresh, senderVector: writerVector);
+        store.applyEntries(fresh, senderVector: writerVector, report: report);
     applied.addAll(imported);
     entriesIn += imported.length;
   }
 
-  // ---- write own file: full knowledge, atomically via temp + rename
+  // ---- write own file: full knowledge
   //
   // A payload with no flagged entry is byte-identical to the old
   // format and keeps the `.jsonl` name, so 0.3.x devices in the folder
@@ -108,26 +270,37 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
   // must not linger as a stale data source.
   final all = store.entriesSince(const {}, includePrivate: includePrivate);
   final flagged = all.any((e) => e.reminder);
-  final own = File(
-      '${root.path}/${store.deviceId}.jsonl${flagged ? '2' : ''}');
-  final stale = File(
-      '${root.path}/${store.deviceId}.jsonl${flagged ? '' : '2'}');
-  final previousLines = own.existsSync() ? own.readAsLinesSync().length : 0;
-  final tmp = File('${own.path}.tmp');
-  tmp.writeAsStringSync(
-      all.map((e) => jsonEncode(e.toJson())).join('\n'));
-  tmp.renameSync(own.path);
-  if (stale.existsSync()) stale.deleteSync();
+  final ownName = '${store.deviceId}.jsonl${flagged ? '2' : ''}';
+  final staleName = '${store.deviceId}.jsonl${flagged ? '' : '2'}';
+  final previous = await folder.read(own(''), ownName);
+  final previousLines = previous == null
+      ? 0
+      : const LineSplitter().convert(utf8.decode(previous)).length;
+  await folder.write(own(''), ownName,
+      utf8.encode(all.map((e) => jsonEncode(e.toJson())).join('\n')));
+  await folder.delete(own(''), staleName);
+  // A catalog that moved into its subfolder leaves no stale root file.
+  if (catalog != null) {
+    await folder.delete('', ownName);
+    await folder.delete('', staleName);
+  }
   final entriesOut =
       all.length > previousLines ? all.length - previousLines : 0;
 
   // ---- blobs: fetch missing, publish local ones, clean dead ones
   var blobsIn = 0, blobsOut = 0;
+  final blobDir = own('blobs');
+  final blobNames = (await folder.list(blobDir)).toSet();
+  // Partners from before keep their photos at the root.
+  final legacyBlobs =
+      catalog == null ? const <String>{} : (await folder.list('blobs')).toSet();
   for (final hash in store.missingBlobs()) {
-    final f = File('${blobDir.path}/$hash.jpg');
-    if (!f.existsSync()) continue;
+    final here = blobNames.contains('$hash.jpg');
+    if (!here && !legacyBlobs.contains('$hash.jpg')) continue;
     try {
-      store.putBlob(hash, f.readAsBytesSync());
+      final bytes = await folder.read(here ? blobDir : 'blobs', '$hash.jpg');
+      if (bytes == null) continue;
+      store.putBlob(hash, bytes);
       blobsIn++;
     } catch (_) {
       // Truncated by a cloud client mid-upload: not this photo, not
@@ -145,28 +318,25 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
     }
   }
   for (final hash in live) {
-    final f = File('${blobDir.path}/$hash.jpg');
-    if (!f.existsSync()) {
-      final bytes = store.imageBytes(hash);
-      if (bytes != null) {
-        f.writeAsBytesSync(bytes);
-        blobsOut++;
-      }
+    if (blobNames.contains('$hash.jpg')) continue;
+    final bytes = store.imageBytes(hash);
+    if (bytes != null) {
+      await folder.write(blobDir, '$hash.jpg', bytes);
+      blobsOut++;
     }
   }
   // Remove folder blobs that no non-deleted cat references anymore —
   // deletions propagate through the entry files, the bytes follow.
-  for (final f in blobDir.listSync().whereType<File>()) {
-    final name = f.uri.pathSegments.last;
+  for (final name in blobNames) {
     if (!name.endsWith('.jpg')) continue;
     final hash = name.substring(0, name.length - 4);
     if (!live.contains(hash) && _knownDeleted(store, hash)) {
-      f.deleteSync();
+      await folder.delete(blobDir, name);
     }
   }
 
   return FolderSyncResult(entriesIn, entriesOut, blobsIn, blobsOut,
-      applied: applied);
+      applied: applied, report: report);
 }
 
 /// True when this store has seen a deletion marker for [hash] and no

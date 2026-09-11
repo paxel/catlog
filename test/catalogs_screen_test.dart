@@ -227,6 +227,13 @@ void main() {
       await openSettings(tester, 'Berlin');
       // The row is there — a feature that vanishes teaches nothing —
       // and says what to do instead.
+      // The settings page grew; the delete row sits below the fold.
+      await tester.dragUntilVisible(
+        find.text('Delete catalog'),
+        find.byType(ListView).last,
+        const Offset(0, -300),
+      );
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       expect(find.textContaining('Switch to another one'), findsOneWidget);
@@ -237,6 +244,13 @@ void main() {
       catalogs.create('Paris');
       await pumpManage(tester);
       await openSettings(tester, 'Paris');
+      // The settings page grew; the delete row sits below the fold.
+      await tester.dragUntilVisible(
+        find.text('Delete catalog'),
+        find.byType(ListView).last,
+        const Offset(0, -300),
+      );
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       // One plain question, no word to type.
@@ -255,6 +269,13 @@ void main() {
 
       await pumpManage(tester);
       await openSettings(tester, 'Paris');
+      // The settings page grew; the delete row sits below the fold.
+      await tester.dragUntilVisible(
+        find.text('Delete catalog'),
+        find.byType(ListView).last,
+        const Offset(0, -300),
+      );
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
@@ -281,6 +302,13 @@ void main() {
       catalogs.create('Paris');
       await pumpManage(tester);
       await openSettings(tester, 'Paris');
+      // The settings page grew; the delete row sits below the fold.
+      await tester.dragUntilVisible(
+        find.text('Delete catalog'),
+        find.byType(ListView).last,
+        const Offset(0, -300),
+      );
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));

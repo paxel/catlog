@@ -476,6 +476,24 @@ abstract class AppLocalizations {
   /// **'Share as image'**
   String get shareAsImage;
 
+  /// No description provided for @sortOldestFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Oldest first'**
+  String get sortOldestFirst;
+
+  /// No description provided for @sortNewestFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Newest first'**
+  String get sortNewestFirst;
+
+  /// No description provided for @shareAsText.
+  ///
+  /// In en, this message translates to:
+  /// **'Share as text'**
+  String get shareAsText;
+
   /// No description provided for @shareAsPdf.
   ///
   /// In en, this message translates to:
@@ -1136,18 +1154,6 @@ abstract class AppLocalizations {
   /// **'{field} — {name}'**
   String fieldHistoryOf(String field, String name);
 
-  /// No description provided for @revertThisChange.
-  ///
-  /// In en, this message translates to:
-  /// **'Revert this change'**
-  String get revertThisChange;
-
-  /// No description provided for @revertSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Restores the previous value as a new entry — history keeps both.'**
-  String get revertSubtitle;
-
   /// No description provided for @fieldCleared.
   ///
   /// In en, this message translates to:
@@ -1433,7 +1439,7 @@ abstract class AppLocalizations {
   /// No description provided for @sharedFolderExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side\'s.'**
+  /// **'Both devices use the same folder (for example in Nextcloud or on a USB stick). Each sync stores your changes there and picks up the other side\'s.'**
   String get sharedFolderExplainer;
 
   /// No description provided for @noFolderChosenYet.
@@ -1453,6 +1459,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sync folder now'**
   String get syncFolderNow;
+
+  /// No description provided for @folderCatalogHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Inside it this catalog uses the folder \"{name}\", so one shared folder can carry all your catalogs.'**
+  String folderCatalogHint(Object name);
+
+  /// No description provided for @useSameFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the same folder as the other catalogs'**
+  String get useSameFolder;
+
+  /// No description provided for @folderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.'**
+  String get folderHint;
 
   /// No description provided for @folderSynced.
   ///
@@ -1501,6 +1525,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Changed in two places at once. Pick what is true:'**
   String get conflictBody;
+
+  /// No description provided for @privateMarker.
+  ///
+  /// In en, this message translates to:
+  /// **'{field} (private)'**
+  String privateMarker(Object field);
+
+  /// No description provided for @conflictSame.
+  ///
+  /// In en, this message translates to:
+  /// **'Both changes say the same: {value}. Nothing to pick; Resolve clears the badge.'**
+  String conflictSame(Object value);
 
   /// No description provided for @mergeThisInto.
   ///
@@ -1735,6 +1771,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sphynx'**
   String get breedSphynx;
+
+  /// No description provided for @breedAbyssinian.
+  ///
+  /// In en, this message translates to:
+  /// **'Abyssinian'**
+  String get breedAbyssinian;
+
+  /// No description provided for @breedAmericanShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'American Shorthair'**
+  String get breedAmericanShorthair;
+
+  /// No description provided for @breedBalinese.
+  ///
+  /// In en, this message translates to:
+  /// **'Balinese'**
+  String get breedBalinese;
+
+  /// No description provided for @breedBirman.
+  ///
+  /// In en, this message translates to:
+  /// **'Birman'**
+  String get breedBirman;
+
+  /// No description provided for @breedBombay.
+  ///
+  /// In en, this message translates to:
+  /// **'Bombay'**
+  String get breedBombay;
+
+  /// No description provided for @breedBurmese.
+  ///
+  /// In en, this message translates to:
+  /// **'Burmese'**
+  String get breedBurmese;
+
+  /// No description provided for @breedBurmilla.
+  ///
+  /// In en, this message translates to:
+  /// **'Burmilla'**
+  String get breedBurmilla;
+
+  /// No description provided for @breedBritishLonghair.
+  ///
+  /// In en, this message translates to:
+  /// **'British Longhair'**
+  String get breedBritishLonghair;
+
+  /// No description provided for @breedChartreux.
+  ///
+  /// In en, this message translates to:
+  /// **'Chartreux'**
+  String get breedChartreux;
+
+  /// No description provided for @breedCornishRex.
+  ///
+  /// In en, this message translates to:
+  /// **'Cornish Rex'**
+  String get breedCornishRex;
+
+  /// No description provided for @breedDevonRex.
+  ///
+  /// In en, this message translates to:
+  /// **'Devon Rex'**
+  String get breedDevonRex;
+
+  /// No description provided for @breedEgyptianMau.
+  ///
+  /// In en, this message translates to:
+  /// **'Egyptian Mau'**
+  String get breedEgyptianMau;
+
+  /// No description provided for @breedExoticShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'Exotic Shorthair'**
+  String get breedExoticShorthair;
+
+  /// No description provided for @breedHimalayan.
+  ///
+  /// In en, this message translates to:
+  /// **'Himalayan'**
+  String get breedHimalayan;
+
+  /// No description provided for @breedKorat.
+  ///
+  /// In en, this message translates to:
+  /// **'Korat'**
+  String get breedKorat;
+
+  /// No description provided for @breedManx.
+  ///
+  /// In en, this message translates to:
+  /// **'Manx'**
+  String get breedManx;
+
+  /// No description provided for @breedMunchkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Munchkin'**
+  String get breedMunchkin;
+
+  /// No description provided for @breedOcicat.
+  ///
+  /// In en, this message translates to:
+  /// **'Ocicat'**
+  String get breedOcicat;
+
+  /// No description provided for @breedOrientalShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'Oriental Shorthair'**
+  String get breedOrientalShorthair;
+
+  /// No description provided for @breedRagamuffin.
+  ///
+  /// In en, this message translates to:
+  /// **'Ragamuffin'**
+  String get breedRagamuffin;
+
+  /// No description provided for @breedRussianBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian Blue'**
+  String get breedRussianBlue;
+
+  /// No description provided for @breedSavannah.
+  ///
+  /// In en, this message translates to:
+  /// **'Savannah'**
+  String get breedSavannah;
+
+  /// No description provided for @breedScottishFold.
+  ///
+  /// In en, this message translates to:
+  /// **'Scottish Fold'**
+  String get breedScottishFold;
+
+  /// No description provided for @breedSelkirkRex.
+  ///
+  /// In en, this message translates to:
+  /// **'Selkirk Rex'**
+  String get breedSelkirkRex;
+
+  /// No description provided for @breedSiberian.
+  ///
+  /// In en, this message translates to:
+  /// **'Siberian'**
+  String get breedSiberian;
+
+  /// No description provided for @breedSnowshoe.
+  ///
+  /// In en, this message translates to:
+  /// **'Snowshoe'**
+  String get breedSnowshoe;
+
+  /// No description provided for @breedSomali.
+  ///
+  /// In en, this message translates to:
+  /// **'Somali'**
+  String get breedSomali;
+
+  /// No description provided for @breedTonkinese.
+  ///
+  /// In en, this message translates to:
+  /// **'Tonkinese'**
+  String get breedTonkinese;
+
+  /// No description provided for @breedTurkishAngora.
+  ///
+  /// In en, this message translates to:
+  /// **'Turkish Angora'**
+  String get breedTurkishAngora;
+
+  /// No description provided for @breedTurkishVan.
+  ///
+  /// In en, this message translates to:
+  /// **'Turkish Van'**
+  String get breedTurkishVan;
 
   /// No description provided for @starterColor.
   ///
@@ -2039,7 +2255,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpSync.
   ///
   /// In en, this message translates to:
-  /// **'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.'**
+  /// **'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too. Every catalog signs what it writes with its own key; partners see the key code next to your name. A partner\'s first key is taken on trust from a file and counts as met once you sync in person. Entries in a known name without the right signature are refused and listed on the arrival page.'**
   String get helpSync;
 
   /// No description provided for @helpFields.
@@ -2057,7 +2273,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpTimeline.
   ///
   /// In en, this message translates to:
-  /// **'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.'**
+  /// **'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.'**
   String get helpTimeline;
 
   /// No description provided for @helpDuplicates.
@@ -2075,13 +2291,13 @@ abstract class AppLocalizations {
   /// No description provided for @helpMatches.
   ///
   /// In en, this message translates to:
-  /// **'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.'**
+  /// **'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.'**
   String get helpMatches;
 
   /// No description provided for @helpMatchesNeutral.
   ///
   /// In en, this message translates to:
-  /// **'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare.'**
+  /// **'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.'**
   String get helpMatchesNeutral;
 
   /// No description provided for @helpFlier.
@@ -2582,6 +2798,540 @@ abstract class AppLocalizations {
   /// **'Weight'**
   String get starterWeight;
 
+  /// No description provided for @starterLooks.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks'**
+  String get starterLooks;
+
+  /// No description provided for @looksGroupSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Size'**
+  String get looksGroupSize;
+
+  /// No description provided for @looksGroupColours.
+  ///
+  /// In en, this message translates to:
+  /// **'Colours'**
+  String get looksGroupColours;
+
+  /// No description provided for @looksGroupPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern'**
+  String get looksGroupPattern;
+
+  /// No description provided for @looksGroupFur.
+  ///
+  /// In en, this message translates to:
+  /// **'Fur'**
+  String get looksGroupFur;
+
+  /// No description provided for @looksGroupTail.
+  ///
+  /// In en, this message translates to:
+  /// **'Tail'**
+  String get looksGroupTail;
+
+  /// No description provided for @looksGroupEars.
+  ///
+  /// In en, this message translates to:
+  /// **'Ears'**
+  String get looksGroupEars;
+
+  /// No description provided for @looksGroupMarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Marks'**
+  String get looksGroupMarks;
+
+  /// No description provided for @looksGroupCrest.
+  ///
+  /// In en, this message translates to:
+  /// **'Crest'**
+  String get looksGroupCrest;
+
+  /// No description provided for @looksGroupBeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Beak'**
+  String get looksGroupBeak;
+
+  /// No description provided for @looksGroupRing.
+  ///
+  /// In en, this message translates to:
+  /// **'Leg ring'**
+  String get looksGroupRing;
+
+  /// No description provided for @looksValueSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'Small'**
+  String get looksValueSmall;
+
+  /// No description provided for @looksValueMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get looksValueMedium;
+
+  /// No description provided for @looksValueLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Large'**
+  String get looksValueLarge;
+
+  /// No description provided for @looksValueBlack.
+  ///
+  /// In en, this message translates to:
+  /// **'Black'**
+  String get looksValueBlack;
+
+  /// No description provided for @looksValueWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'White'**
+  String get looksValueWhite;
+
+  /// No description provided for @looksValueGrey.
+  ///
+  /// In en, this message translates to:
+  /// **'Grey'**
+  String get looksValueGrey;
+
+  /// No description provided for @looksValueBrown.
+  ///
+  /// In en, this message translates to:
+  /// **'Brown'**
+  String get looksValueBrown;
+
+  /// No description provided for @looksValueGinger.
+  ///
+  /// In en, this message translates to:
+  /// **'Ginger'**
+  String get looksValueGinger;
+
+  /// No description provided for @looksValueCream.
+  ///
+  /// In en, this message translates to:
+  /// **'Cream'**
+  String get looksValueCream;
+
+  /// No description provided for @looksValueGolden.
+  ///
+  /// In en, this message translates to:
+  /// **'Golden'**
+  String get looksValueGolden;
+
+  /// No description provided for @looksValueTan.
+  ///
+  /// In en, this message translates to:
+  /// **'Tan'**
+  String get looksValueTan;
+
+  /// No description provided for @looksValueGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Green'**
+  String get looksValueGreen;
+
+  /// No description provided for @looksValueBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue'**
+  String get looksValueBlue;
+
+  /// No description provided for @looksValueYellow.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow'**
+  String get looksValueYellow;
+
+  /// No description provided for @looksValueRed.
+  ///
+  /// In en, this message translates to:
+  /// **'Red'**
+  String get looksValueRed;
+
+  /// No description provided for @looksValueOrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Orange'**
+  String get looksValueOrange;
+
+  /// No description provided for @looksValuePink.
+  ///
+  /// In en, this message translates to:
+  /// **'Pink'**
+  String get looksValuePink;
+
+  /// No description provided for @looksValueWhiteBib.
+  ///
+  /// In en, this message translates to:
+  /// **'White bib'**
+  String get looksValueWhiteBib;
+
+  /// No description provided for @looksValueWhitePaws.
+  ///
+  /// In en, this message translates to:
+  /// **'White paws'**
+  String get looksValueWhitePaws;
+
+  /// No description provided for @looksValueWhiteTailTip.
+  ///
+  /// In en, this message translates to:
+  /// **'White tail tip'**
+  String get looksValueWhiteTailTip;
+
+  /// No description provided for @looksValueBlaze.
+  ///
+  /// In en, this message translates to:
+  /// **'Blaze'**
+  String get looksValueBlaze;
+
+  /// No description provided for @looksValueMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Mask'**
+  String get looksValueMask;
+
+  /// No description provided for @looksValueSpots.
+  ///
+  /// In en, this message translates to:
+  /// **'Spots'**
+  String get looksValueSpots;
+
+  /// No description provided for @looksValuePatches.
+  ///
+  /// In en, this message translates to:
+  /// **'Patches'**
+  String get looksValuePatches;
+
+  /// No description provided for @looksValueStripes.
+  ///
+  /// In en, this message translates to:
+  /// **'Stripes'**
+  String get looksValueStripes;
+
+  /// No description provided for @looksValueScar.
+  ///
+  /// In en, this message translates to:
+  /// **'Scar'**
+  String get looksValueScar;
+
+  /// No description provided for @looksValueNotchedEar.
+  ///
+  /// In en, this message translates to:
+  /// **'Notched ear'**
+  String get looksValueNotchedEar;
+
+  /// No description provided for @looksValueEarTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Ear tip'**
+  String get looksValueEarTip;
+
+  /// No description provided for @looksValueCollar.
+  ///
+  /// In en, this message translates to:
+  /// **'Collar'**
+  String get looksValueCollar;
+
+  /// No description provided for @looksValueShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Short'**
+  String get looksValueShort;
+
+  /// No description provided for @looksValueLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Long'**
+  String get looksValueLong;
+
+  /// No description provided for @looksValueHairless.
+  ///
+  /// In en, this message translates to:
+  /// **'Hairless'**
+  String get looksValueHairless;
+
+  /// No description provided for @looksValueBobtail.
+  ///
+  /// In en, this message translates to:
+  /// **'Bobtail'**
+  String get looksValueBobtail;
+
+  /// No description provided for @looksValueNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get looksValueNone;
+
+  /// No description provided for @looksValueCurled.
+  ///
+  /// In en, this message translates to:
+  /// **'Curled'**
+  String get looksValueCurled;
+
+  /// No description provided for @looksValueUpright.
+  ///
+  /// In en, this message translates to:
+  /// **'Upright'**
+  String get looksValueUpright;
+
+  /// No description provided for @looksValueFloppy.
+  ///
+  /// In en, this message translates to:
+  /// **'Floppy'**
+  String get looksValueFloppy;
+
+  /// No description provided for @looksValueFolded.
+  ///
+  /// In en, this message translates to:
+  /// **'Folded'**
+  String get looksValueFolded;
+
+  /// No description provided for @looksValueRounded.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounded'**
+  String get looksValueRounded;
+
+  /// No description provided for @looksValueSolid.
+  ///
+  /// In en, this message translates to:
+  /// **'Solid'**
+  String get looksValueSolid;
+
+  /// No description provided for @looksValueTabby.
+  ///
+  /// In en, this message translates to:
+  /// **'Tabby'**
+  String get looksValueTabby;
+
+  /// No description provided for @looksValueTortoiseshell.
+  ///
+  /// In en, this message translates to:
+  /// **'Tortoiseshell'**
+  String get looksValueTortoiseshell;
+
+  /// No description provided for @looksValueCalico.
+  ///
+  /// In en, this message translates to:
+  /// **'Calico'**
+  String get looksValueCalico;
+
+  /// No description provided for @looksValueColourpoint.
+  ///
+  /// In en, this message translates to:
+  /// **'Colourpoint'**
+  String get looksValueColourpoint;
+
+  /// No description provided for @looksValueBicolour.
+  ///
+  /// In en, this message translates to:
+  /// **'Bicolour'**
+  String get looksValueBicolour;
+
+  /// No description provided for @looksValueTuxedo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuxedo'**
+  String get looksValueTuxedo;
+
+  /// No description provided for @looksValueBrindle.
+  ///
+  /// In en, this message translates to:
+  /// **'Brindle'**
+  String get looksValueBrindle;
+
+  /// No description provided for @looksValueMerle.
+  ///
+  /// In en, this message translates to:
+  /// **'Merle'**
+  String get looksValueMerle;
+
+  /// No description provided for @looksValueSpotted.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotted'**
+  String get looksValueSpotted;
+
+  /// No description provided for @looksValuePatched.
+  ///
+  /// In en, this message translates to:
+  /// **'Patched'**
+  String get looksValuePatched;
+
+  /// No description provided for @looksValueTricolour.
+  ///
+  /// In en, this message translates to:
+  /// **'Tricolour'**
+  String get looksValueTricolour;
+
+  /// No description provided for @looksValueSable.
+  ///
+  /// In en, this message translates to:
+  /// **'Sable'**
+  String get looksValueSable;
+
+  /// No description provided for @looksGroupEyes.
+  ///
+  /// In en, this message translates to:
+  /// **'Eyes'**
+  String get looksGroupEyes;
+
+  /// No description provided for @looksGroupFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Features'**
+  String get looksGroupFeatures;
+
+  /// No description provided for @looksValueAmber.
+  ///
+  /// In en, this message translates to:
+  /// **'Amber'**
+  String get looksValueAmber;
+
+  /// No description provided for @looksValueCopper.
+  ///
+  /// In en, this message translates to:
+  /// **'Copper'**
+  String get looksValueCopper;
+
+  /// No description provided for @looksValueOddEyed.
+  ///
+  /// In en, this message translates to:
+  /// **'Odd-eyed'**
+  String get looksValueOddEyed;
+
+  /// No description provided for @looksValueChocolate.
+  ///
+  /// In en, this message translates to:
+  /// **'Chocolate'**
+  String get looksValueChocolate;
+
+  /// No description provided for @looksValueLilac.
+  ///
+  /// In en, this message translates to:
+  /// **'Lilac'**
+  String get looksValueLilac;
+
+  /// No description provided for @looksValueSilver.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver'**
+  String get looksValueSilver;
+
+  /// No description provided for @looksValueSmoke.
+  ///
+  /// In en, this message translates to:
+  /// **'Smoke'**
+  String get looksValueSmoke;
+
+  /// No description provided for @looksValueTicked.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticked'**
+  String get looksValueTicked;
+
+  /// No description provided for @looksValueVan.
+  ///
+  /// In en, this message translates to:
+  /// **'Van'**
+  String get looksValueVan;
+
+  /// No description provided for @looksValueCurly.
+  ///
+  /// In en, this message translates to:
+  /// **'Curly'**
+  String get looksValueCurly;
+
+  /// No description provided for @looksValueWiry.
+  ///
+  /// In en, this message translates to:
+  /// **'Wiry'**
+  String get looksValueWiry;
+
+  /// No description provided for @looksValueKinked.
+  ///
+  /// In en, this message translates to:
+  /// **'Kinked'**
+  String get looksValueKinked;
+
+  /// No description provided for @looksValueCropped.
+  ///
+  /// In en, this message translates to:
+  /// **'Cropped'**
+  String get looksValueCropped;
+
+  /// No description provided for @looksValueTippedEar.
+  ///
+  /// In en, this message translates to:
+  /// **'Tipped ear'**
+  String get looksValueTippedEar;
+
+  /// No description provided for @looksValueEarTattoo.
+  ///
+  /// In en, this message translates to:
+  /// **'Ear tattoo'**
+  String get looksValueEarTattoo;
+
+  /// No description provided for @looksValueMissingEar.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing ear'**
+  String get looksValueMissingEar;
+
+  /// No description provided for @looksValueMissingEye.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing eye'**
+  String get looksValueMissingEye;
+
+  /// No description provided for @looksValueCloudyEye.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloudy eye'**
+  String get looksValueCloudyEye;
+
+  /// No description provided for @looksValueMissingFrontLeg.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing front leg'**
+  String get looksValueMissingFrontLeg;
+
+  /// No description provided for @looksValueMissingHindLeg.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing hind leg'**
+  String get looksValueMissingHindLeg;
+
+  /// No description provided for @looksValueNoTeeth.
+  ///
+  /// In en, this message translates to:
+  /// **'No teeth'**
+  String get looksValueNoTeeth;
+
+  /// No description provided for @looksValueExtraToes.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra toes'**
+  String get looksValueExtraToes;
+
+  /// No description provided for @rejectMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Not the same'**
+  String get rejectMatch;
+
+  /// No description provided for @traitsAgree.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 trait agrees} other{{count} traits agree}}'**
+  String traitsAgree(int count);
+
   /// No description provided for @systemDefault.
   ///
   /// In en, this message translates to:
@@ -2738,6 +3488,18 @@ abstract class AppLocalizations {
   /// **'Confetti and a cheer when a cat moves into a forever home'**
   String get celebrationsSubtitle;
 
+  /// No description provided for @cheerToggle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheer sound'**
+  String get cheerToggle;
+
+  /// No description provided for @cheerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A short cheer with the confetti, a different one each time'**
+  String get cheerSubtitle;
+
   /// No description provided for @celebrationsSubtitleNeutral.
   ///
   /// In en, this message translates to:
@@ -2816,11 +3578,83 @@ abstract class AppLocalizations {
   /// **'Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.'**
   String hardDeleteWarning(Object name);
 
-  /// No description provided for @hardDeleteWarningDevice.
+  /// No description provided for @yourKey.
   ///
   /// In en, this message translates to:
-  /// **'Removes every entry and photo written by {name} on device {device} from this catalog. Other devices keep theirs. This cannot be undone.'**
-  String hardDeleteWarningDevice(String name, String device);
+  /// **'Your key'**
+  String get yourKey;
+
+  /// No description provided for @yourTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your title'**
+  String get yourTitle;
+
+  /// No description provided for @titleNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No title'**
+  String get titleNone;
+
+  /// No description provided for @keyLine.
+  ///
+  /// In en, this message translates to:
+  /// **'key {code}'**
+  String keyLine(Object code);
+
+  /// No description provided for @keyVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'met in person'**
+  String get keyVerified;
+
+  /// No description provided for @keyFromFile.
+  ///
+  /// In en, this message translates to:
+  /// **'from a file, not yet met'**
+  String get keyFromFile;
+
+  /// No description provided for @keyUnsigned.
+  ///
+  /// In en, this message translates to:
+  /// **'no key yet, entries unsigned'**
+  String get keyUnsigned;
+
+  /// No description provided for @summaryRefused.
+  ///
+  /// In en, this message translates to:
+  /// **'Refused'**
+  String get summaryRefused;
+
+  /// No description provided for @refusedEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 entry} other{{count} entries}} refused: not signed with the key known for {name}'**
+  String refusedEntries(int count, Object name);
+
+  /// No description provided for @newKeyCallsItself.
+  ///
+  /// In en, this message translates to:
+  /// **'A new key {code} calls itself {name}. Check with them before trusting it.'**
+  String newKeyCallsItself(Object code, Object name);
+
+  /// No description provided for @keyChangedRefused.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} offered a key other than the one known here. The known one stays; the new one was not taken.'**
+  String keyChangedRefused(Object name);
+
+  /// No description provided for @metaNewKey.
+  ///
+  /// In en, this message translates to:
+  /// **'New key: {name} · {code} ({how})'**
+  String metaNewKey(Object name, Object code, Object how);
+
+  /// No description provided for @hardDeleteWarningKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Removes every entry and photo written by {name} under key {key} from this catalog. Other devices keep theirs. This cannot be undone.'**
+  String hardDeleteWarningKey(Object name, Object key);
 
   /// No description provided for @typeToConfirm.
   ///
@@ -3617,7 +4451,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpCatalogSettings.
   ///
   /// In en, this message translates to:
-  /// **'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.'**
+  /// **'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first. Your key is the code partners see next to your name; it stays with this catalog.'**
   String get helpCatalogSettings;
 
   /// No description provided for @spotHomeCatalog.
@@ -4088,16 +4922,22 @@ abstract class AppLocalizations {
   /// **'Switch on here to mirror the cat(a)log appointments into a calendar of your choice.'**
   String get spotAgendaCalendar;
 
+  /// No description provided for @spotAgendaToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s chores: tick when done. The dots show the last seven days.'**
+  String get spotAgendaToday;
+
   /// No description provided for @helpAgenda.
   ///
   /// In en, this message translates to:
-  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned.'**
+  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.'**
   String get helpAgenda;
 
   /// No description provided for @helpAgendaNeutral.
   ///
   /// In en, this message translates to:
-  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned.'**
+  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.'**
   String get helpAgendaNeutral;
 
   /// No description provided for @calendarRowOff.
@@ -4171,6 +5011,426 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reminder — a value that becomes due on a day'**
   String get planChooserReminder;
+
+  /// No description provided for @planChooserChore.
+  ///
+  /// In en, this message translates to:
+  /// **'Chore — a task that comes around: feeding, drops, litter'**
+  String get planChooserChore;
+
+  /// No description provided for @newChore.
+  ///
+  /// In en, this message translates to:
+  /// **'New chore'**
+  String get newChore;
+
+  /// No description provided for @choreEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit chore'**
+  String get choreEdit;
+
+  /// No description provided for @choreTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'What'**
+  String get choreTitleLabel;
+
+  /// No description provided for @choreRepeatDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get choreRepeatDaily;
+
+  /// No description provided for @choreRepeatEvery.
+  ///
+  /// In en, this message translates to:
+  /// **'Every…'**
+  String get choreRepeatEvery;
+
+  /// No description provided for @choreRepeatWeekdays.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekdays'**
+  String get choreRepeatWeekdays;
+
+  /// No description provided for @choreEveryDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every day} other{every {n} days}}'**
+  String choreEveryDays(int n);
+
+  /// No description provided for @choreEveryWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every week} other{every {n} weeks}}'**
+  String choreEveryWeeks(int n);
+
+  /// No description provided for @choreEveryMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every month} other{every {n} months}}'**
+  String choreEveryMonths(int n);
+
+  /// No description provided for @choreEveryYears.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every year} other{every {n} years}}'**
+  String choreEveryYears(int n);
+
+  /// No description provided for @choreNoTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Any time of day'**
+  String get choreNoTime;
+
+  /// No description provided for @chorePause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get chorePause;
+
+  /// No description provided for @chorePaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused'**
+  String get chorePaused;
+
+  /// No description provided for @choreResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume'**
+  String get choreResume;
+
+  /// No description provided for @choreEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'End chore'**
+  String get choreEnd;
+
+  /// No description provided for @choreHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get choreHistory;
+
+  /// No description provided for @choreDoneAt.
+  ///
+  /// In en, this message translates to:
+  /// **'done {when} · {who}'**
+  String choreDoneAt(Object when, Object who);
+
+  /// No description provided for @choreDoneEarly.
+  ///
+  /// In en, this message translates to:
+  /// **'early'**
+  String get choreDoneEarly;
+
+  /// No description provided for @choreDoneLate.
+  ///
+  /// In en, this message translates to:
+  /// **'late'**
+  String get choreDoneLate;
+
+  /// No description provided for @choreMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get choreMissed;
+
+  /// No description provided for @choreStillOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Still open'**
+  String get choreStillOpen;
+
+  /// No description provided for @choreEndConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'The chore leaves the list. What was ticked stays in the history.'**
+  String get choreEndConfirm;
+
+  /// No description provided for @todaySection.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get todaySection;
+
+  /// No description provided for @upcomingSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming up'**
+  String get upcomingSection;
+
+  /// No description provided for @allDoneToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today: all done'**
+  String get allDoneToday;
+
+  /// No description provided for @streakDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 day in a row} other{{n} days in a row}}'**
+  String streakDays(int n);
+
+  /// No description provided for @choreDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Due {date}'**
+  String choreDue(String date);
+
+  /// No description provided for @remindMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind me'**
+  String get remindMe;
+
+  /// No description provided for @remindNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next reminder: {when}'**
+  String remindNext(Object when);
+
+  /// No description provided for @remindNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminder planned: nothing due ahead.'**
+  String get remindNone;
+
+  /// No description provided for @remindPending.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing scheduled on this phone yet} =1{1 reminder scheduled on this phone} other{{count} reminders scheduled on this phone}}'**
+  String remindPending(int count);
+
+  /// No description provided for @remindTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a test reminder now'**
+  String get remindTest;
+
+  /// No description provided for @remindLateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders can arrive a few minutes late; the phone picks the exact moment.'**
+  String get remindLateHint;
+
+  /// No description provided for @remindPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'No permission for notifications, so the reminder stays off. Allow them in the phone\'s app settings and try again.'**
+  String get remindPermissionDenied;
+
+  /// No description provided for @batteryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'If reminders stay away, allow cat(a)log to run in the background in the phone\'s battery settings.'**
+  String get batteryHint;
+
+  /// No description provided for @batterySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery settings'**
+  String get batterySettings;
+
+  /// No description provided for @achievementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get achievementsTitle;
+
+  /// No description provided for @rankServant.
+  ///
+  /// In en, this message translates to:
+  /// **'Servant'**
+  String get rankServant;
+
+  /// No description provided for @rankButler.
+  ///
+  /// In en, this message translates to:
+  /// **'Butler'**
+  String get rankButler;
+
+  /// No description provided for @rankSteward.
+  ///
+  /// In en, this message translates to:
+  /// **'Steward'**
+  String get rankSteward;
+
+  /// No description provided for @rankChancellor.
+  ///
+  /// In en, this message translates to:
+  /// **'Chancellor'**
+  String get rankChancellor;
+
+  /// No description provided for @rankMinister.
+  ///
+  /// In en, this message translates to:
+  /// **'Minister'**
+  String get rankMinister;
+
+  /// No description provided for @titleWithChore.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} ({chore})'**
+  String titleWithChore(Object title, Object chore);
+
+  /// No description provided for @coatCalico.
+  ///
+  /// In en, this message translates to:
+  /// **'Calico'**
+  String get coatCalico;
+
+  /// No description provided for @coatCheetah.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheetah'**
+  String get coatCheetah;
+
+  /// No description provided for @coatTiger.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiger'**
+  String get coatTiger;
+
+  /// No description provided for @coatTabby.
+  ///
+  /// In en, this message translates to:
+  /// **'Tabby'**
+  String get coatTabby;
+
+  /// No description provided for @coatPaws.
+  ///
+  /// In en, this message translates to:
+  /// **'Paws'**
+  String get coatPaws;
+
+  /// No description provided for @coatRosettes.
+  ///
+  /// In en, this message translates to:
+  /// **'Rosettes'**
+  String get coatRosettes;
+
+  /// No description provided for @coatZebra.
+  ///
+  /// In en, this message translates to:
+  /// **'Zebra'**
+  String get coatZebra;
+
+  /// No description provided for @coatSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Coat'**
+  String get coatSetting;
+
+  /// No description provided for @coatRandom.
+  ///
+  /// In en, this message translates to:
+  /// **'A different one each start'**
+  String get coatRandom;
+
+  /// No description provided for @coatSnowLeopard.
+  ///
+  /// In en, this message translates to:
+  /// **'Snow leopard'**
+  String get coatSnowLeopard;
+
+  /// No description provided for @coatSiamese.
+  ///
+  /// In en, this message translates to:
+  /// **'Siamese points'**
+  String get coatSiamese;
+
+  /// No description provided for @coatLynx.
+  ///
+  /// In en, this message translates to:
+  /// **'Lynx'**
+  String get coatLynx;
+
+  /// No description provided for @coatTortoiseshell.
+  ///
+  /// In en, this message translates to:
+  /// **'Tortoiseshell'**
+  String get coatTortoiseshell;
+
+  /// No description provided for @coatUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'New coat: {coat}'**
+  String coatUnlocked(Object coat);
+
+  /// No description provided for @coatUnlockedHow.
+  ///
+  /// In en, this message translates to:
+  /// **'A full month of chores, all done.'**
+  String get coatUnlockedHow;
+
+  /// No description provided for @achievementsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing earned yet. The chores know the way.'**
+  String get achievementsEmpty;
+
+  /// No description provided for @achievementMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'A full month'**
+  String get achievementMonth;
+
+  /// No description provided for @achievementYear.
+  ///
+  /// In en, this message translates to:
+  /// **'A full year'**
+  String get achievementYear;
+
+  /// No description provided for @achievementDecade.
+  ///
+  /// In en, this message translates to:
+  /// **'A full decade'**
+  String get achievementDecade;
+
+  /// No description provided for @achievementCentury.
+  ///
+  /// In en, this message translates to:
+  /// **'A full century'**
+  String get achievementCentury;
+
+  /// No description provided for @achievementCenturyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'We will both be very proud.'**
+  String get achievementCenturyHint;
+
+  /// No description provided for @achievementMaster.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} master'**
+  String achievementMaster(String title);
+
+  /// No description provided for @achievementReached.
+  ///
+  /// In en, this message translates to:
+  /// **'{times, plural, one{Reached once} other{Reached {times} times}}, first on {date}'**
+  String achievementReached(int times, String date);
+
+  /// No description provided for @achievementNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next at {n}'**
+  String achievementNext(int n);
+
+  /// No description provided for @achievementLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Not yet'**
+  String get achievementLocked;
+
+  /// No description provided for @achievementUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement: {name}'**
+  String achievementUnlocked(String name);
 
   /// No description provided for @appointmentTitleLabel.
   ///
@@ -4453,6 +5713,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete appointment for all {count} pets'**
   String deleteAppointmentGroupNeutral(int count);
+
+  /// No description provided for @correctThisValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct this value'**
+  String get correctThisValue;
+
+  /// No description provided for @removeThisValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this value'**
+  String get removeThisValue;
+
+  /// No description provided for @restoreThisValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore this value'**
+  String get restoreThisValue;
+
+  /// No description provided for @showRemovedValues.
+  ///
+  /// In en, this message translates to:
+  /// **'Show removed values'**
+  String get showRemovedValues;
+
+  /// No description provided for @hideRemovedValues.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide removed values'**
+  String get hideRemovedValues;
+
+  /// No description provided for @entryRemovedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed · {who} · {when}'**
+  String entryRemovedBy(Object who, Object when);
+
+  /// No description provided for @entryReplacedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Replaced by {value} · {who} · {when}'**
+  String entryReplacedBy(Object value, Object who, Object when);
+
+  /// No description provided for @entryCorrection.
+  ///
+  /// In en, this message translates to:
+  /// **'Correction'**
+  String get entryCorrection;
+
+  /// No description provided for @restorePickFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose backup folder…'**
+  String get restorePickFolder;
+
+  /// No description provided for @restoreAndroidHint.
+  ///
+  /// In en, this message translates to:
+  /// **'The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.'**
+  String get restoreAndroidHint;
+
+  /// No description provided for @backupsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backups'**
+  String get backupsTitle;
+
+  /// No description provided for @backupsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where your catalogs are kept safe'**
+  String get backupsSubtitle;
+
+  /// No description provided for @backupsAndroidSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'Google backs up this app\'s catalogs with your account, photos left out. They come back by themselves after a reinstall or on a new phone.'**
+  String get backupsAndroidSystem;
+
+  /// No description provided for @backupsAndroidFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'A full copy of each catalog, photos included, is written to Documents/catlog whenever you leave the app after changes.'**
+  String get backupsAndroidFiles;
+
+  /// No description provided for @backupsIosSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'iCloud Backup includes this app with its catalogs and photos, like every other app on this iPhone.'**
+  String get backupsIosSystem;
+
+  /// No description provided for @backupsIosFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'A full copy of each catalog lies in the Files app under cat(a)log. From there it can go to iCloud Drive, AirDrop or another phone.'**
+  String get backupsIosFiles;
+
+  /// No description provided for @backupsDesktopFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'A full copy of each catalog, photos included, is written to your Downloads folder whenever you leave the app after changes.'**
+  String get backupsDesktopFiles;
+
+  /// No description provided for @backupsLast.
+  ///
+  /// In en, this message translates to:
+  /// **'Last copy: {date}'**
+  String backupsLast(Object date);
+
+  /// No description provided for @backupsNever.
+  ///
+  /// In en, this message translates to:
+  /// **'No copy written yet.'**
+  String get backupsNever;
+
+  /// No description provided for @backupsNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up now'**
+  String get backupsNow;
+
+  /// No description provided for @backupsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy written.'**
+  String get backupsDone;
+
+  /// No description provided for @backupsRestoredNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Restored from the Google backup on {date}. If the old phone still runs cat(a)log, sync from it once, then remove the app there.'**
+  String backupsRestoredNote(Object date);
+
+  /// No description provided for @backupsFolderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A folder of your choice can receive every copy too: one a cloud app keeps in sync on this phone (Nextcloud, Syncthing and others), a memory card, any folder the picker offers. The copies land in catlog-backups inside it.'**
+  String get backupsFolderHint;
+
+  /// No description provided for @backupsFolderPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Also copy to a folder…'**
+  String get backupsFolderPick;
+
+  /// No description provided for @backupsFolderIs.
+  ///
+  /// In en, this message translates to:
+  /// **'Also copied to {name}'**
+  String backupsFolderIs(Object name);
+
+  /// No description provided for @backupsFolderRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop copying there'**
+  String get backupsFolderRemove;
+
+  /// No description provided for @remindFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are not working on this phone: {error}'**
+  String remindFailed(Object error);
+
+  /// No description provided for @copyText.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy text'**
+  String get copyText;
+
+  /// No description provided for @colWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'When'**
+  String get colWhen;
+
+  /// No description provided for @colValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get colValue;
+
+  /// No description provided for @colWho.
+  ///
+  /// In en, this message translates to:
+  /// **'Who'**
+  String get colWho;
 }
 
 class _AppLocalizationsDelegate

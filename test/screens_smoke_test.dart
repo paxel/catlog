@@ -87,7 +87,7 @@ void main() {
         expect(find.text(row), findsOneWidget, reason: row);
       }
       expect(celebrationsEnabled(store), isTrue);
-      await tester.tap(find.byType(Switch));
+      await tester.tap(find.widgetWithText(SwitchListTile, 'Celebrate adoptions'));
       await tester.pumpAndSettle();
       expect(celebrationsEnabled(store), isFalse);
     });

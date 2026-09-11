@@ -1,35 +1,51 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:test/test.dart';
 
-/// Breeds by species (#95): the option list of a species learns a
-/// typed breed; cats and unknown species do not.
+/// The breed list: what a new catalog gets, and what an older one is
+/// given on open without losing what its keepers added.
 void main() {
   setUpAll(useSystemSqlite);
 
-  test('an animal without a species gets free text only', () {
-    final store = CatalogStore.inMemory()..author = 'test';
+  test('a new catalog offers the whole list, mixed last', () {
+    final store = CatalogStore.inMemory()..author = 'anna';
     addTearDown(store.close);
     final breed = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
-    expect(breedOptions(breed, null), isEmpty);
-    expect(breedOptions(breed, ''), isEmpty);
-    expect(breedOptions(breed, 'cat'), contains('Maine Coon'));
+    expect(breed.options, catBreeds);
+    expect(breed.options.last, 'mixed');
+    expect(
+        breed.options, containsAll(['Burmese', 'Abyssinian', 'Russian Blue']));
   });
 
-  test('a breed typed for a dog is offered for the next dog only', () {
-    final store = CatalogStore.inMemory()..author = 'test';
+  test('an older catalog gets the newcomers appended, own entries kept', () {
+    final store = CatalogStore.inMemory()..author = 'anna';
     addTearDown(store.close);
-    final dog = store.createCat('Rex', species: 'dog');
-    final cat = store.createCat('Miezi');
-    FieldDef breed() => store.fieldDefs().firstWhere((d) => d.slug == 'breed');
-    store.append(dog, breed().key, 'Whippet');
-    store.learnBreed(dog, 'Whippet');
-    expect(breedOptions(breed(), 'dog'), contains('Whippet'));
-    expect(breedOptions(breed(), 'cat'), isNot(contains('Whippet')));
-    // A known breed and a cat's breed change nothing.
-    store.learnBreed(dog, 'Beagle');
-    store.learnBreed(cat, 'Tabby Mix');
-    expect(breed().extraOptions['dog'], ['Whippet']);
-    expect(breed().extraOptions['cat'], isNull);
-    expect(breed().options, isNot(contains('Tabby Mix')));
+    final breed = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    // The 1.2.2 list plus a keeper's own breed.
+    store.setFieldOptions(
+        breed.id, ['European Shorthair', 'Maine Coon', 'Hauskatze', 'mixed']);
+    // A device from before 1.2.3 never recorded what it offered.
+    store.removeLocalSetting('breedsOffered');
+    // Seeding runs on every open; here it runs again by hand.
+    store.reseedStarterFields();
+    final after = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    expect(after.options.take(3),
+        ['European Shorthair', 'Maine Coon', 'Hauskatze']);
+    expect(after.options, contains('Burmese'));
+    expect(after.options.last, 'mixed');
+    expect(after.options.where((o) => o == 'mixed').length, 1);
+  });
+
+  test('a breed a keeper removed stays removed on the next open', () {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final breed = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    store.setFieldOptions(breed.id, [
+      for (final b in catBreeds)
+        if (b != 'Sphynx') b
+    ]);
+    store.reseedStarterFields();
+    final after = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    expect(after.options, isNot(contains('Sphynx')));
+    expect(after.options.last, 'mixed');
   });
 }

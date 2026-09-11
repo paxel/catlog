@@ -52,6 +52,9 @@
   "card": "Karta",
   "cardTitle": "Karta — {name}",
   "shareAsImage": "Sdílet jako obrázek",
+  "sortOldestFirst": "Nejstarší první",
+  "sortNewestFirst": "Nejnovější první",
+  "shareAsText": "Sdílet jako text",
   "shareAsPdf": "Sdílet jako PDF",
   "print": "Tisk",
   "renameCat": "Přejmenovat kočku",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Bez domácnosti — toulavý / utekl",
   "timelineOf": "Historie — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Vrátit tuto změnu",
-  "revertSubtitle": "Obnoví předchozí hodnotu jako nový záznam — historie zachová obojí.",
   "fieldCleared": "{field} vymazáno",
   "fieldBackTo": "{field} zpět na \"{value}\"",
   "leftStray": "Odešla — toulavá",
@@ -128,10 +129,13 @@
   "syncFailed": "Synchronizace selhala: {error}",
   "lastSyncWith": "Poslední synchronizace s {peer}: {time}",
   "sharedFolder": "Sdílená složka",
-  "sharedFolderExplainer": "Obě zařízení používají stejnou složku (např. v Dropboxu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.",
+  "sharedFolderExplainer": "Obě zařízení používají stejnou složku (např. v Nextcloudu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.",
   "noFolderChosenYet": "Zatím nevybrána žádná složka",
   "choose": "Vybrat…",
   "syncFolderNow": "Synchronizovat složku teď",
+  "folderCatalogHint": "Uvnitř tento katalog používá složku „{name}“, takže jedna sdílená složka unese všechny tvé katalogy.",
+  "useSameFolder": "Použít stejnou složku jako ostatní katalogy",
+  "folderHint": "Stačí jakákoli složka, kterou dvě zařízení drží stejnou: cloudový disk, nebo Syncthing pro složku, která zůstává ve vašich telefonech. Syncthing je zdarma: nainstaluj ho na každý telefon, sdílej mezi nimi jednu složku a tu zde vyber na každém zařízení.",
   "folderSynced": "Složka synchronizována: {result}",
   "folderSyncFailed": "Synchronizace složky selhala: {error}",
   "recordSightingHere": "Zaznamenat pozorování zde:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Stopa: {name} ({count} pozic)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Změněno na dvou místech zároveň. Vyberte, co platí:",
+  "privateMarker": "{field} (soukromé)",
+  "conflictSame": "Obě změny říkají totéž: {value}. Není co vybírat; Vyřešit odstraní značku.",
   "mergeThisInto": "Sloučit tento záznam ({kind}) s…",
   "noOtherToMergeInto": "Žádný jiný záznam ({kind}) ke sloučení.",
   "mergeIntoQuestion": "Sloučit s {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Perská",
   "breedBengal": "Bengálská",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Habešská",
+  "breedAmericanShorthair": "Americká krátkosrstá",
+  "breedBalinese": "Balinéská",
+  "breedBirman": "Birma",
+  "breedBombay": "Bombajská",
+  "breedBurmese": "Barmská",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Britská dlouhosrstá",
+  "breedChartreux": "Kartouzská",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egyptská mau",
+  "breedExoticShorthair": "Exotická krátkosrstá",
+  "breedHimalayan": "Himálajská",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Orientální krátkosrstá",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Ruská modrá",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Skotská klapouchá",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Sibiřská",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somálská",
+  "breedTonkinese": "Tonkinská",
+  "breedTurkishAngora": "Turecká angora",
+  "breedTurkishVan": "Turecká van",
   "ownValue": "Vlastní hodnota",
   "locationDeniedForever": "Přístup k poloze je zablokován. Povolte ho v nastavení systému, abyste mohli používat Stray Cam.",
   "locationServiceOff": "Poloha je na tomto zařízení vypnutá. Zapněte ji v nastavení a zkuste to znovu.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Všichni mazlíčci a místa s pozicí. Hledání najde mazlíčky, lidi i místa — neznámé jméno hledá po celém světě. Tlačítko vrstev nakreslí kruhy 500 m kolem míst letáků pohřešovaného mazlíčka a kolem domova, ze kterého utekl. Šipky vedou od špendlíku ke špendlíku, podržením mapy zapíšete pozorování. Každé pole s místem je špendlík na mapě; klepnutím na špendlík zobrazíš jeho stopu.",
   "helpCard": "Tisknutelná karta kočky: nahoře čipy vyberete, co na ní bude, pak ji sdílíte jako obrázek nebo PDF. Čísla lze vytisknout jako QR nebo čárový kód a z pozice vznikne QR otevírající mapu plus krátký Plus Code.",
   "helpCardNeutral": "Tisknutelná karta mazlíčka: nahoře čipy vyberete, co na ní bude, pak ji sdílíte jako obrázek nebo PDF. Čísla lze vytisknout jako QR nebo čárový kód a z pozice vznikne QR otevírající mapu plus krátký Plus Code.",
-  "helpSync": "Jak se data dostanou k dalším lidem: spojit se osobně, použít složku, kterou vidí obě zařízení, nebo poslat soubor přes messenger. Vždy rozhodujete vy, co odejde — a přijaté soubory .catsync otevřete také zde.",
+  "helpSync": "Jak se data dostanou k dalším lidem: spojit se osobně, použít složku, kterou vidí obě zařízení, nebo poslat soubor přes messenger. Vždy rozhodujete vy, co odejde — a přijaté soubory .catsync otevřete také zde. Každý katalog podepisuje, co zapíše, vlastním klíčem; partneři vidí kód klíče vedle tvého jména. První klíč partnera se ze souboru přijme na důvěru a platí za ověřený, jakmile synchronizujete osobně. Záznamy pod známým jménem bez správného podpisu se odmítnou a vypíší na stránce příchodu.",
   "helpFields": "Pole, která váš katalog používá. Přejmenujte je, změňte možnosti výběrového pole nebo přidejte vlastní. Pole s identifikátorem může ukazovat na službu (registr), pak jde číslo u kočky klepnout.",
   "helpFieldsNeutral": "Pole, která váš katalog používá. Přejmenujte je, změňte možnosti výběrového pole nebo přidejte vlastní. Pole s identifikátorem může ukazovat na službu (registr), pak jde číslo u mazlíčka klepnout.",
-  "helpTimeline": "Každá provedená změna, nejnovější nahoře: kdo co kdy a na jakou hodnotu změnil. Každý záznam lze vrátit — vznikne tím nový záznam, nic se nikdy nemaže.",
+  "helpTimeline": "Každá změna, nejnovější první: kdo, kdy a na jakou hodnotu. Klepnutím záznam opravíte, podržením odeberete nebo obnovíte; skrytý záznam zůstává v protokolu a zobrazí se na požádání.",
   "helpDuplicates": "Kočky nebo kolonie, které vypadají, že existují dvakrát — stejná čísla nebo velmi podobná jména se souhlasícími údaji. Klepnutím na dvojici ji sloučíte; sloučení nelze vzít zpět, proto se ptá předem.",
   "helpDuplicatesNeutral": "Mazlíčci nebo domácnosti, které vypadají, že existují dvakrát — stejná čísla nebo velmi podobná jména se souhlasícími údaji. Klepnutím na dvojici ji sloučíte; sloučení nelze vzít zpět, proto se ptá předem.",
-  "helpMatches": "Kočky, které mohou být totéž zvíře: stejné číslo, nebo toulavá kočka viděná v oblasti hledání pohřešované kočky. Klepnutím dvojici sloučíte, podržením otevřete první kočku k porovnání.",
-  "helpMatchesNeutral": "Mazlíčci, kteří mohou být totéž zvíře: stejné číslo, nebo toulavé zvíře viděné v oblasti hledání pohřešovaného mazlíčka. Klepnutím dvojici sloučíte, podržením otevřete prvního mazlíčka k porovnání.",
+  "helpMatches": "Kočky, které mohou být totéž zvíře: stejné číslo, nebo toulavá kočka viděná v oblasti hledání pohřešované kočky. Klepnutím dvojici sloučíte, podržením otevřete první kočku k porovnání. V seznamu jsou i dvojice, jejichž vzhled souhlasí aspoň ve dvou znacích bez rozporu; štítky ukazují ve kterých. „Není totéž“ dvojici na tomto telefonu skryje, dokud se vzhled jednoho ze zvířat nezmění.",
+  "helpMatchesNeutral": "Mazlíčci, kteří mohou být totéž zvíře: stejné číslo, nebo toulavé zvíře viděné v oblasti hledání pohřešovaného mazlíčka. Klepnutím dvojici sloučíte, podržením otevřete prvního mazlíčka k porovnání. V seznamu jsou i dvojice, jejichž vzhled souhlasí aspoň ve dvou znacích bez rozporu; štítky ukazují ve kterých. „Není totéž“ dvojici na tomto telefonu skryje, dokud se vzhled jednoho ze zvířat nezmění.",
   "helpFlier": "Z vyfoceného letáku vznikne kočka i majitel. Krok za krokem: údaje kočky, kontakt majitele, výřez obličeje pro profilovku, čísla registrů z letáku a nakonec kontrola. Vše jsou návrhy — opravte, co fotoaparát přečetl špatně.",
   "helpFlierNeutral": "Z vyfoceného letáku vznikne mazlíček i majitel. Krok za krokem: údaje mazlíčka, kontakt majitele, výřez obličeje pro profilovku, čísla registrů z letáku a nakonec kontrola. Vše jsou návrhy — opravte, co fotoaparát přečetl špatně.",
   "archiveTitle": "Archiv",
@@ -399,11 +435,109 @@
   "rangeAll": "Vše",
   "rangeCustom": "Vlastní…",
   "changeSince": "{delta} od {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Podle tvé oblasti",
   "unitsMetric": "Metrické (kg, cm, ml, °C)",
   "unitsImperial": "Imperiální (lb, in, fl oz, °F)",
   "starterWeight": "Hmotnost",
+  "starterLooks": "Vzhled",
+  "looksGroupSize": "Velikost",
+  "looksGroupColours": "Barvy",
+  "looksGroupPattern": "Vzor",
+  "looksGroupFur": "Srst",
+  "looksGroupTail": "Ocas",
+  "looksGroupEars": "Uši",
+  "looksGroupMarks": "Znaky",
+  "looksGroupCrest": "Chocholka",
+  "looksGroupBeak": "Zobák",
+  "looksGroupRing": "Kroužek",
+  "looksValueSmall": "Malý",
+  "looksValueMedium": "Střední",
+  "looksValueLarge": "Velký",
+  "looksValueBlack": "Černá",
+  "looksValueWhite": "Bílá",
+  "looksValueGrey": "Šedá",
+  "looksValueBrown": "Hnědá",
+  "looksValueGinger": "Zrzavá",
+  "looksValueCream": "Krémová",
+  "looksValueGolden": "Zlatá",
+  "looksValueTan": "Plavá",
+  "looksValueGreen": "Zelená",
+  "looksValueBlue": "Modrá",
+  "looksValueYellow": "Žlutá",
+  "looksValueRed": "Červená",
+  "looksValueOrange": "Oranžová",
+  "looksValuePink": "Růžová",
+  "looksValueWhiteBib": "Bílá náprsenka",
+  "looksValueWhitePaws": "Bílé tlapky",
+  "looksValueWhiteTailTip": "Bílá špička ocasu",
+  "looksValueBlaze": "Lysinka",
+  "looksValueMask": "Maska",
+  "looksValueSpots": "Skvrnky",
+  "looksValuePatches": "Plotny",
+  "looksValueStripes": "Pruhy",
+  "looksValueScar": "Jizva",
+  "looksValueNotchedEar": "Naříznuté ucho",
+  "looksValueEarTip": "Špička ucha",
+  "looksValueCollar": "Obojek",
+  "looksValueShort": "Krátká",
+  "looksValueLong": "Dlouhá",
+  "looksValueHairless": "Bez srsti",
+  "looksValueBobtail": "Krátký ocas",
+  "looksValueNone": "Žádný",
+  "looksValueCurled": "Zatočený",
+  "looksValueUpright": "Vzpřímené",
+  "looksValueFloppy": "Klopené",
+  "looksValueFolded": "Složené",
+  "looksValueRounded": "Zaoblené",
+  "looksValueSolid": "Jednobarevný",
+  "looksValueTabby": "Mourovatý",
+  "looksValueTortoiseshell": "Želvovinový",
+  "looksValueCalico": "Kaliko",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Dvoubarevný",
+  "looksValueTuxedo": "Smoking",
+  "looksValueBrindle": "Žíhaný",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Tečkovaný",
+  "looksValuePatched": "Strakatý",
+  "looksValueTricolour": "Tříbarevný",
+  "looksValueSable": "Sobolí",
+  "looksGroupEyes": "Oči",
+  "looksGroupFeatures": "Zvláštnosti",
+  "looksValueAmber": "Jantarové",
+  "looksValueCopper": "Měděné",
+  "looksValueOddEyed": "Různobarevné",
+  "looksValueChocolate": "Čokoládová",
+  "looksValueLilac": "Lilová",
+  "looksValueSilver": "Stříbrná",
+  "looksValueSmoke": "Kouřová",
+  "looksValueTicked": "Tikovaná",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Kudrnatá",
+  "looksValueWiry": "Drsná",
+  "looksValueKinked": "Zalomený",
+  "looksValueCropped": "Kupírované",
+  "looksValueTippedEar": "Zastřižené ucho",
+  "looksValueEarTattoo": "Tetování v uchu",
+  "looksValueMissingEar": "Chybí ucho",
+  "looksValueMissingEye": "Chybí oko",
+  "looksValueCloudyEye": "Zakalené oko",
+  "looksValueMissingFrontLeg": "Chybí přední noha",
+  "looksValueMissingHindLeg": "Chybí zadní noha",
+  "looksValueNoTeeth": "Bez zubů",
+  "looksValueExtraToes": "Přebytečné prsty",
+  "rejectMatch": "Není totéž",
+  "traitsAgree": "{count, plural, =1{1 znak souhlasí} few{{count} znaky souhlasí} other{{count} znaků souhlasí}}",
   "systemDefault": "Výchozí systému",
   "iosLocalNetworkHint": "Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu.",
   "markPrivate": "Označit jako soukromé",
@@ -432,6 +566,8 @@
   "otherOption": "Jiné…",
   "celebrationsToggle": "Slavit adopce",
   "celebrationsSubtitle": "Konfety a jásot, když se kočka stěhuje do svého domova",
+  "cheerToggle": "Zvuk jásotu",
+  "cheerSubtitle": "Krátký jásot ke konfetám, pokaždé jiný",
   "celebrationsSubtitleNeutral": "Konfety a jásot, když se mazlíček stěhuje do svého domova",
   "onMapLabel": "Na mapě",
   "showOnMap": "Zobrazit na mapě",
@@ -445,7 +581,19 @@
   "authorsSection": "Kdo do katalogu psal",
   "hardDeleteAction": "Smazat vše od tohoto autora",
   "hardDeleteWarning": "Odstraní každý záznam a fotku od {name} z tohoto zařízení. Ostatní zařízení si své ponechají. Nelze vrátit zpět.",
-  "hardDeleteWarningDevice": "Odstraní z tohoto katalogu každý záznam a fotku, které {name} zapsal(a) na zařízení {device}. Ostatní zařízení si své kopie nechají. Nelze vrátit.",
+  "yourKey": "Tvůj klíč",
+  "yourTitle": "Tvůj titul",
+  "titleNone": "Bez titulu",
+  "keyLine": "klíč {code}",
+  "keyVerified": "ověřen osobně",
+  "keyFromFile": "ze souboru, dosud neověřen",
+  "keyUnsigned": "zatím bez klíče, záznamy nepodepsané",
+  "summaryRefused": "Odmítnuto",
+  "refusedEntries": "{count, plural, =1{1 záznam odmítnut} few{{count} záznamy odmítnuty} other{{count} záznamů odmítnuto}}: nepodepsány klíčem známým pro {name}",
+  "newKeyCallsItself": "Nový klíč {code} si říká {name}. Ověř si to u dotyčné osoby, než mu uvěříš.",
+  "keyChangedRefused": "{name} nabídl jiný klíč než ten zde známý. Známý zůstává, nový nebyl přijat.",
+  "metaNewKey": "Nový klíč: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Odstraní z tohoto katalogu každý záznam a fotku, které {name} zapsal pod klíčem {key}. Ostatní zařízení si své nechají. Nelze vrátit.",
   "typeToConfirm": "Pro potvrzení napište {name}",
   "alsoBan": "Také zakázat — už nikdy nepřijímat data",
   "bansSection": "Zákazy",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Nic neobnoveno.} one{Obnoven 1 katalog.} few{Obnoveny {count} katalogy.} other{Obnoveno {count} katalogů.}}",
   "helpCatalogs": "Katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky a partneři synchronizace. Berlín a Paříž se nikdy nemíchají. Klepnutím na katalog do něj přepnete. Ozubené kolo u katalogu otevře jeho nastavení: název, kočky nebo zvířata, pole, autoři a blokace, archiv, návrat zpět, smazání. Vaše jméno, jazyk a už zobrazené tipy platí pro všechny.",
   "helpCatalogsNeutral": "Katalog je svět sám pro sebe: vlastní zvířata, domácnosti, pole, fotky a partneři synchronizace. Berlín a Paříž se nikdy nemíchají. Klepnutím na katalog do něj přepnete. Ozubené kolo u katalogu otevře jeho nastavení: název, kočky nebo zvířata, pole, autoři a blokace, archiv, návrat zpět, smazání. Vaše jméno, jazyk a už zobrazené tipy platí pro všechny.",
-  "helpCatalogSettings": "Vše, co patří jen tomuto katalogu: název, zda obsahuje kočky nebo zvířata, pole, autoři a blokace, archiv a návrat zpět v čase. Změny zde se týkají jen tohoto katalogu — i toho, ve kterém právě nejste. Smazání nejdřív zapíše katalog do souboru.",
+  "helpCatalogSettings": "Vše, co patří jen tomuto katalogu: název, zda obsahuje kočky nebo zvířata, pole, autoři a blokace, archiv a návrat zpět v čase. Změny zde se týkají jen tohoto katalogu — i toho, ve kterém právě nejste. Smazání nejdřív zapíše katalog do souboru. Tvůj klíč je kód, který partneři vidí vedle tvého jména; patří k tomuto katalogu.",
   "spotHomeCatalog": "Tohle je katalog, ve kterém jsi. Klepni na název pro přepnutí nebo vytvoření dalšího.",
   "deleteCatalog": "Smazat katalog",
   "catalogSettings": "Nastavení katalogu",
   "deleteCatalogBody": "Všechno v {name} zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí.",
   "deleteCatalogBodyNeutral": "Všechno v {name} zmizí: mazlíčci, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Žádné termíny nejsou naplánované. Nové naplánuješ tady plusem nebo na stránce mazlíčka či domácnosti.",
   "dueToday": "dnes",
   "dueInDays": "{count, plural, one{za 1 den} few{za {count} dny} other{za {count} dní}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 den po termínu} few{{count} dny po termínu} other{{count} dní po termínu}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Hotovo",
   "repeatTitle": "Znovu za…",
   "noRepeatLabel": "Bez opakování",
@@ -720,15 +886,33 @@
   "unitMonths": "měsíců",
   "unitYears": "let",
   "ageYears": "{years} r.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} měs.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Změnit datum",
   "removeReminderLabel": "Odebrat připomínku",
   "exportIcs": "Exportovat soubor kalendáře",
   "resyncCalendar": "Znovu synchronizovat kalendář",
   "icsSavedTo": "Soubor kalendáře uložen do {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Zrcadlit do kalendáře zařízení",
   "calendarMirrorSubtitle": "Termíny se v kalendáři objeví jako celodenní události. cat(a)log je tam aktualizuje při každém spuštění a po každé změně. Upozornění na termíny spravuješ v kalendáři.",
   "syncPeerOlder": "Druhé zařízení má starší cat(a)log bez připomínek. Aktualizuj tam cat(a)log a synchronizuj znovu.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Připomínky: seznam naplánovaných termínů — veterinář, léky, kontroly.",
   "spotAgendaAdd": "Naplánovat nový termín.",
   "spotAgendaCalendar": "Zapni tady zrcadlení termínů cat(a)logu do vybraného kalendáře.",
-  "helpAgenda": "Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více kočkami je jedna schůzka: zaškrtněte kočky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, které kočky byly ošetřeny — ostatní odškrtněte, zůstanou naplánované.",
-  "helpAgendaNeutral": "Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře mazlíčka nebo domácnost. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více mazlíčky je jedna schůzka: zaškrtněte mazlíčky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, kteří mazlíčci byli ošetřeni — ostatní odškrtněte, zůstanou naplánovaní.",
+  "spotAgendaToday": "Dnešní úkoly: zaškrtni, když je hotovo. Tečky ukazují posledních sedm dní.",
+  "helpAgenda": "Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více kočkami je jedna schůzka: zaškrtněte kočky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, které kočky byly ošetřeny — ostatní odškrtněte, zůstanou naplánované. Úkoly jsou opakující se povinnosti jako krmení, záchod nebo léky. Stojí pod Dnes se zaškrtnutím, sérií a posledními sedmi dny jako tečky; Brzy ukazuje příští týden bez těch denních. Úkol může připomenout oznámením ve zvolený čas. Pohár otevírá úspěchy.",
+  "helpAgendaNeutral": "Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře mazlíčka nebo domácnost. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více mazlíčky je jedna schůzka: zaškrtněte mazlíčky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, kteří mazlíčci byli ošetřeni — ostatní odškrtněte, zůstanou naplánovaní. Úkoly jsou opakující se povinnosti jako krmení, záchod nebo léky. Stojí pod Dnes se zaškrtnutím, sérií a posledními sedmi dny jako tečky; Brzy ukazuje příští týden bez těch denních. Úkol může připomenout oznámením ve zvolený čas. Pohár otevírá úspěchy.",
   "calendarRowOff": "Kalendář: vypnuto",
   "calendarRowOn": "Kalendář: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Naplánuj termín pro tuto kočku. Zobrazí se v připomínkách a tam se potvrdí.",
   "spotAddReminderCatNeutral": "Naplánuj termín pro tohoto mazlíčka. Zobrazí se v připomínkách a tam se potvrdí.",
   "spotAddReminderClowder": "Naplánuj termín pro tento clowder. Zobrazí se v připomínkách a tam se potvrdí.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Termín, nebo připomínka?",
   "planChooserAppointment": "Termín — návštěva v den a hodinu, s poznámkami",
   "planChooserReminder": "Připomínka — hodnota, která je v určitý den na řadě",
+  "planChooserChore": "Úkol — něco, co se vrací: krmení, kapky, záchod",
+  "newChore": "Nový úkol",
+  "choreEdit": "Upravit úkol",
+  "choreTitleLabel": "Co",
+  "choreRepeatDaily": "Denně",
+  "choreRepeatEvery": "Každých…",
+  "choreRepeatWeekdays": "Dny v týdnu",
+  "choreEveryDays": "{n, plural, one{každý den} few{každé {n} dny} other{každých {n} dní}}",
+  "choreEveryWeeks": "{n, plural, one{každý týden} few{každé {n} týdny} other{každých {n} týdnů}}",
+  "choreEveryMonths": "{n, plural, one{každý měsíc} few{každé {n} měsíce} other{každých {n} měsíců}}",
+  "choreEveryYears": "{n, plural, one{každý rok} few{každé {n} roky} other{každých {n} let}}",
+  "choreNoTime": "Kdykoli během dne",
+  "chorePause": "Pozastavit",
+  "chorePaused": "Pozastaveno",
+  "choreResume": "Pokračovat",
+  "choreEnd": "Ukončit úkol",
+  "choreHistory": "Historie",
+  "choreDoneAt": "hotovo {when} · {who}",
+  "choreDoneEarly": "dříve",
+  "choreDoneLate": "později",
+  "choreMissed": "Vynecháno",
+  "choreStillOpen": "Ještě otevřené",
+  "choreEndConfirm": "Úkol zmizí ze seznamu. Co bylo zaškrtnuto, zůstává v historii.",
+  "todaySection": "Dnes",
+  "upcomingSection": "Brzy",
+  "allDoneToday": "Dnes: vše hotovo",
+  "streakDays": "{n, plural, one{1 den v řadě} few{{n} dny v řadě} other{{n} dní v řadě}}",
+  "choreDue": "Termín {date}",
+  "remindMe": "Připomenout",
+  "remindNext": "Další připomínka: {when}",
+  "remindNone": "Žádná připomínka: nic není na řadě.",
+  "remindPending": "{count, plural, =0{V tomto telefonu ještě nic naplánováno} one{1 připomínka naplánována v tomto telefonu} few{{count} připomínky naplánovány v tomto telefonu} other{{count} připomínek naplánováno v tomto telefonu}}",
+  "remindTest": "Poslat teď zkušební připomínku",
+  "remindLateHint": "Připomínky mohou přijít o pár minut později; přesný okamžik volí telefon.",
+  "remindPermissionDenied": "Bez oprávnění k oznámením zůstává připomínka vypnutá. Povol je v nastavení aplikace v telefonu a zkus to znovu.",
+  "batteryHint": "Pokud připomínky nechodí, povol cat(a)log běžet na pozadí v nastavení baterie telefonu.",
+  "batterySettings": "Nastavení baterie",
+  "achievementsTitle": "Úspěchy",
+  "rankServant": "Sluha",
+  "rankButler": "Komorník",
+  "rankSteward": "Správce",
+  "rankChancellor": "Kancléř",
+  "rankMinister": "Ministr",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kaliko",
+  "coatCheetah": "Gepard",
+  "coatTiger": "Tygr",
+  "coatTabby": "Mourovatý",
+  "coatPaws": "Tlapky",
+  "coatRosettes": "Rozety",
+  "coatZebra": "Zebra",
+  "coatSetting": "Srst",
+  "coatRandom": "Při každém spuštění jiná",
+  "coatSnowLeopard": "Sněžný leopard",
+  "coatSiamese": "Siamské znaky",
+  "coatLynx": "Rys",
+  "coatTortoiseshell": "Želvovina",
+  "coatUnlocked": "Nová srst: {coat}",
+  "coatUnlockedHow": "Celý měsíc úkolů, vše hotovo.",
+  "achievementsEmpty": "Zatím nic. Úkoly znají cestu.",
+  "achievementMonth": "Celý měsíc",
+  "achievementYear": "Celý rok",
+  "achievementDecade": "Celé desetiletí",
+  "achievementCentury": "Celé století",
+  "achievementCenturyHint": "Oba budeme moc hrdí.",
+  "achievementMaster": "Mistr: {title}",
+  "achievementReached": "{times, plural, one{Dosaženo jednou} few{Dosaženo {times}krát} other{Dosaženo {times}krát}}, poprvé {date}",
+  "achievementNext": "Další při {n}",
+  "achievementLocked": "Ještě ne",
+  "achievementUnlocked": "Úspěch: {name}",
   "appointmentTitleLabel": "Co",
   "notesLabel": "Poznámky",
   "timeLabel": "Čas",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Existující domácnost",
   "createNewInstead": "Žádná — vytvořit novou",
   "overwritesValue": "Přepíše aktuální hodnotu \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Přerušit snímání?",
   "abortScanBody": "Nic se neuloží.",
   "abortScan": "Přerušit",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Odškrtněte kočky, které nebyly ošetřeny; zůstanou naplánované.",
   "finishUntickHintNeutral": "Odškrtněte mazlíčky, kteří nebyli ošetřeni; zůstanou naplánovaní.",
   "deleteAppointmentGroup": "Smazat schůzku pro všech {count} koček",
-  "deleteAppointmentGroupNeutral": "Smazat schůzku pro všech {count} mazlíčků"
+  "deleteAppointmentGroupNeutral": "Smazat schůzku pro všech {count} mazlíčků",
+  "correctThisValue": "Opravit tuto hodnotu",
+  "removeThisValue": "Odebrat tuto hodnotu",
+  "restoreThisValue": "Obnovit tuto hodnotu",
+  "showRemovedValues": "Zobrazit odebrané hodnoty",
+  "hideRemovedValues": "Skrýt odebrané hodnoty",
+  "entryRemovedBy": "Odebráno · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Nahrazeno hodnotou {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Oprava",
+  "restorePickFolder": "Vybrat složku záloh…",
+  "restoreAndroidHint": "Zálohy předchozí instalace jsou v Documents/catlog (u starších verzí Downloads/catlog). Vyberte tuto složku jednou; její zálohy se zobrazí zde.",
+  "backupsTitle": "Zálohy",
+  "backupsSubtitle": "Kde jsou vaše katalogy v bezpečí",
+  "backupsAndroidSystem": "Google zálohuje katalogy této aplikace s vaším účtem, bez fotografií. Po přeinstalaci nebo na novém telefonu se vrátí samy.",
+  "backupsAndroidFiles": "Úplná kopie každého katalogu, včetně fotografií, se zapíše do Documents/catlog pokaždé, když aplikaci po změnách opustíte.",
+  "backupsIosSystem": "Záloha iCloud zahrnuje tuto aplikaci s jejími katalogy a fotografiemi, jako každou jinou aplikaci na tomto iPhonu.",
+  "backupsIosFiles": "Úplná kopie každého katalogu je v aplikaci Soubory pod cat(a)log. Odtud může na iCloud Drive, přes AirDrop nebo do jiného telefonu.",
+  "backupsDesktopFiles": "Úplná kopie každého katalogu, včetně fotografií, se zapíše do složky Stažené pokaždé, když aplikaci po změnách opustíte.",
+  "backupsLast": "Poslední kopie: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Zatím nebyla zapsána žádná kopie.",
+  "backupsNow": "Zálohovat nyní",
+  "backupsDone": "Kopie zapsána.",
+  "backupsRestoredNote": "Obnoveno ze zálohy Google {date}. Pokud starý telefon stále používá cat(a)log, jednou z něj synchronizujte a pak tam aplikaci odeberte.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Každou kopii může dostávat i složka podle vašeho výběru: taková, kterou cloudová aplikace na tomto telefonu synchronizuje (Nextcloud, Syncthing a další), paměťová karta, jakákoli složka z výběru. Kopie končí v catlog-backups uvnitř.",
+  "backupsFolderPick": "Kopírovat i do složky…",
+  "backupsFolderIs": "Kopírováno i do {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Přestat tam kopírovat",
+  "remindFailed": "Oznámení na tomto telefonu nefungují: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopírovat text",
+  "colWhen": "Kdy",
+  "colValue": "Hodnota",
+  "colWho": "Kdo"
 }

@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
 import 'units.dart';
+import 'looks_labels.dart';
+import 'plus_code.dart';
 
 /// Localized display for a canonical Clowder status value, or null when
 /// the value is free text the app does not recognize.
@@ -53,6 +55,8 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
     return formatUnitValue(
         t.localeName, def!.unitDimension, value);
   }
+  // Looks read as group: values, in the device language.
+  if (def?.type == FieldType.tags) return looksDisplay(t, value);
   if (def?.slug == 'breed') {
     return switch (value) {
       'European Shorthair' => t.breedEuropeanShorthair,
@@ -64,6 +68,36 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
       'Persian' => t.breedPersian,
       'Bengal' => t.breedBengal,
       'Sphynx' => t.breedSphynx,
+      'Abyssinian' => t.breedAbyssinian,
+      'American Shorthair' => t.breedAmericanShorthair,
+      'Balinese' => t.breedBalinese,
+      'Birman' => t.breedBirman,
+      'Bombay' => t.breedBombay,
+      'Burmese' => t.breedBurmese,
+      'Burmilla' => t.breedBurmilla,
+      'British Longhair' => t.breedBritishLonghair,
+      'Chartreux' => t.breedChartreux,
+      'Cornish Rex' => t.breedCornishRex,
+      'Devon Rex' => t.breedDevonRex,
+      'Egyptian Mau' => t.breedEgyptianMau,
+      'Exotic Shorthair' => t.breedExoticShorthair,
+      'Himalayan' => t.breedHimalayan,
+      'Korat' => t.breedKorat,
+      'Manx' => t.breedManx,
+      'Munchkin' => t.breedMunchkin,
+      'Ocicat' => t.breedOcicat,
+      'Oriental Shorthair' => t.breedOrientalShorthair,
+      'Ragamuffin' => t.breedRagamuffin,
+      'Russian Blue' => t.breedRussianBlue,
+      'Savannah' => t.breedSavannah,
+      'Scottish Fold' => t.breedScottishFold,
+      'Selkirk Rex' => t.breedSelkirkRex,
+      'Siberian' => t.breedSiberian,
+      'Snowshoe' => t.breedSnowshoe,
+      'Somali' => t.breedSomali,
+      'Tonkinese' => t.breedTonkinese,
+      'Turkish Angora' => t.breedTurkishAngora,
+      'Turkish Van' => t.breedTurkishVan,
       'mixed' => t.valueMixed,
       _ => value,
     };
@@ -114,6 +148,7 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
   'position' => t.starterPosition,
   'remarks' => t.starterRemarks,
   'weight' => t.starterWeight,
+  'looks' => t.starterLooks,
   _ => null,
 };
 
@@ -121,6 +156,16 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
 /// through their definitions and mapping reserved keys.
 String fieldLabel(AppLocalizations t, CatalogStore store, String key) {
   if (key == Keys.name) return t.labelName;
+  // Privacy bookkeeping reads as the field it belongs to, marked.
+  if (key == Keys.private) return t.privateLabel;
+  if (key.startsWith(Keys.privatePrefix)) {
+    return t.privateMarker(
+        fieldLabel(t, store, key.substring(Keys.privatePrefix.length)));
+  }
+  if (key.startsWith(Keys.withheldPrefix)) {
+    return t.privateMarker(
+        fieldLabel(t, store, key.substring(Keys.withheldPrefix.length)));
+  }
   if (key.startsWith(Keys.appointmentPrefix)) return t.appointmentLabel;
   if (key == Keys.clowder) return t.clowderLabel;
   if (key == Keys.profileImage) return t.labelProfileImage;
@@ -168,6 +213,14 @@ String valueLabel(
   }
   if (def?.type == FieldType.cat) {
     return store.current(store.resolveEntity(value), Keys.name) ?? value;
+  }
+  // History, arrivals and conflicts need the position itself, not a
+  // "see the map": coordinates and the plus code, readable anywhere.
+  if (def?.type == FieldType.location || key == CatalogStore.positionKey) {
+    if (CatalogStore.parsePosition(value) case final pos?) {
+      return '${pos.$1.toStringAsFixed(5)}, ${pos.$2.toStringAsFixed(5)}'
+          ' · ${encodePlusCode(pos.$1, pos.$2)}';
+    }
   }
   return fieldValueDisplay(t, def, value);
 }

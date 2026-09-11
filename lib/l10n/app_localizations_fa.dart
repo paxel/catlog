@@ -174,6 +174,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get shareAsImage => 'اشتراک‌گذاری به‌صورت تصویر';
 
   @override
+  String get sortOldestFirst => 'قدیمی‌ترین اول';
+
+  @override
+  String get sortNewestFirst => 'جدیدترین اول';
+
+  @override
+  String get shareAsText => 'هم‌رسانی به‌صورت متن';
+
+  @override
   String get shareAsPdf => 'اشتراک‌گذاری به‌صورت PDF';
 
   @override
@@ -555,13 +564,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'واگردانی این تغییر';
-
-  @override
-  String get revertSubtitle =>
-      'مقدار قبلی را به‌صورت رکوردی تازه برمی‌گرداند — تاریخچه هر دو را نگه می‌دارد.';
-
-  @override
   String fieldCleared(String field) {
     return '$field خالی شد';
   }
@@ -731,7 +733,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'هر دو دستگاه از یک پوشه استفاده می‌کنند (مثلاً در Dropbox یا روی فلش). هر همگام‌سازی تغییرات شما را آنجا می‌گذارد و تغییرات طرف مقابل را برمی‌دارد.';
+      'هر دو دستگاه از یک پوشه استفاده می‌کنند (مثلاً در Nextcloud یا روی فلش). هر همگام‌سازی تغییرات شما را آنجا می‌گذارد و تغییرات طرف مقابل را برمی‌دارد.';
 
   @override
   String get noFolderChosenYet => 'هنوز پوشه‌ای انتخاب نشده';
@@ -741,6 +743,18 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'پوشه را اکنون همگام کن';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'در آن، این فهرست از پوشه «$name» استفاده می‌کند، پس یک پوشه مشترک می‌تواند همه فهرست‌هایتان را حمل کند.';
+  }
+
+  @override
+  String get useSameFolder => 'از همان پوشه فهرست‌های دیگر استفاده کن';
+
+  @override
+  String get folderHint =>
+      'هر پوشه‌ای که دو دستگاه یکسان نگه دارند کافی است: یک درایو ابری، یا Syncthing برای پوشه‌ای که روی گوشی‌هایتان می‌ماند. Syncthing رایگان است: روی هر گوشی نصب کنید، یک پوشه را بین آنها به اشتراک بگذارید و همان پوشه را اینجا در هر دستگاه انتخاب کنید.';
 
   @override
   String folderSynced(String result) {
@@ -778,6 +792,16 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get conflictBody =>
       'هم‌زمان در دو جا تغییر کرده است. درست را انتخاب کنید:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (خصوصی)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'هر دو تغییر یک چیز می‌گویند: $value. چیزی برای انتخاب نیست؛ «حل» نشان را برمی‌دارد.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -909,6 +933,96 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get breedSphynx => 'اسفینکس';
+
+  @override
+  String get breedAbyssinian => 'حبشی';
+
+  @override
+  String get breedAmericanShorthair => 'آمریکایی مو کوتاه';
+
+  @override
+  String get breedBalinese => 'بالینزی';
+
+  @override
+  String get breedBirman => 'بیرمن';
+
+  @override
+  String get breedBombay => 'بمبئی';
+
+  @override
+  String get breedBurmese => 'برمه‌ای';
+
+  @override
+  String get breedBurmilla => 'بورمیلا';
+
+  @override
+  String get breedBritishLonghair => 'بریتانیایی مو بلند';
+
+  @override
+  String get breedChartreux => 'شارترو';
+
+  @override
+  String get breedCornishRex => 'کورنیش رکس';
+
+  @override
+  String get breedDevonRex => 'دوون رکس';
+
+  @override
+  String get breedEgyptianMau => 'مائو مصری';
+
+  @override
+  String get breedExoticShorthair => 'اگزوتیک مو کوتاه';
+
+  @override
+  String get breedHimalayan => 'هیمالیایی';
+
+  @override
+  String get breedKorat => 'کورات';
+
+  @override
+  String get breedManx => 'مانکس';
+
+  @override
+  String get breedMunchkin => 'مانچکین';
+
+  @override
+  String get breedOcicat => 'اوسیکت';
+
+  @override
+  String get breedOrientalShorthair => 'اورینتال مو کوتاه';
+
+  @override
+  String get breedRagamuffin => 'راگامافین';
+
+  @override
+  String get breedRussianBlue => 'آبی روسی';
+
+  @override
+  String get breedSavannah => 'ساوانا';
+
+  @override
+  String get breedScottishFold => 'اسکاتیش فولد';
+
+  @override
+  String get breedSelkirkRex => 'سلکرک رکس';
+
+  @override
+  String get breedSiberian => 'سیبری';
+
+  @override
+  String get breedSnowshoe => 'اسنوشو';
+
+  @override
+  String get breedSomali => 'سومالی';
+
+  @override
+  String get breedTonkinese => 'تونکینی';
+
+  @override
+  String get breedTurkishAngora => 'آنگورای ترکی';
+
+  @override
+  String get breedTurkishVan => 'وان ترکی';
 
   @override
   String get starterColor => 'رنگ';
@@ -1087,7 +1201,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'داده‌ها این‌گونه به دیگران می‌رسند: اتصال مستقیم، پوشه‌ای که هر دو دستگاه می‌بینند، یا فایلی از راه پیام‌رسان. همیشه شما تصمیم می‌گیرید چه چیزی برود — فایل‌های ‎.catsync دریافتی هم اینجا باز می‌شوند.';
+      'داده‌ها این‌گونه به دیگران می‌رسند: اتصال مستقیم، پوشه‌ای که هر دو دستگاه می‌بینند، یا فایلی از راه پیام‌رسان. همیشه شما تصمیم می‌گیرید چه چیزی برود — فایل‌های ‎.catsync دریافتی هم اینجا باز می‌شوند. هر فهرست آنچه را می‌نویسد با کلید خودش امضا می‌کند؛ شرکا کد کلید را کنار نام شما می‌بینند. اولین کلید یک شریک از فایل با اعتماد پذیرفته می‌شود و پس از همگام‌سازی حضوری تأییدشده به‌شمار می‌آید. ورودی‌های با نام شناخته‌شده بدون امضای درست رد شده و در صفحه ورود فهرست می‌شوند.';
 
   @override
   String get helpFields =>
@@ -1099,7 +1213,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'هر تغییری که تا کنون انجام شده، تازه‌ترین در بالا: چه کسی چه چیزی را کی و به چه مقداری تغییر داده. هر مدخل قابل بازگرداندن است — این کار مدخل تازه می‌نویسد و چیزی پاک نمی‌شود.';
+      'هر تغییر، جدیدترین اول: چه کسی، چه زمانی و به چه مقداری. برای اصلاح روی یک مورد بزنید، برای حذف یا بازگرداندن نگه دارید؛ مورد پنهان در گزارش می‌ماند و در صورت درخواست نمایش داده می‌شود.';
 
   @override
   String get helpDuplicates =>
@@ -1111,11 +1225,11 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'گربه‌هایی که ممکن است یک حیوان باشند: شناسهٔ یکسان یا ولگردی که در محدودهٔ جست‌وجوی گربهٔ گمشده دیده شده. روی جفت بزنید تا ادغام شود، فشار طولانی گربهٔ اول را برای مقایسه باز می‌کند.';
+      'گربه‌هایی که ممکن است یک حیوان باشند: شناسهٔ یکسان یا ولگردی که در محدودهٔ جست‌وجوی گربهٔ گمشده دیده شده. روی جفت بزنید تا ادغام شود، فشار طولانی گربهٔ اول را برای مقایسه باز می‌کند. جفت‌هایی که ظاهرشان در دو ویژگی یا بیشتر بدون تناقض مطابقت دارد نیز فهرست می‌شوند؛ چیپ‌ها نشان می‌دهند کدام‌ها. «همان نیست» جفت را در این گوشی پنهان می‌کند تا ظاهر یکی از حیوان‌ها تغییر کند.';
 
   @override
   String get helpMatchesNeutral =>
-      'حیوانات خانگی‌ای که ممکن است یک حیوان باشند: شناسهٔ یکسان یا ولگردی که در محدودهٔ جست‌وجوی حیوان خانگی گمشده دیده شده. روی جفت بزنید تا ادغام شود، فشار طولانی حیوان خانگی اول را برای مقایسه باز می‌کند.';
+      'حیوانات خانگی‌ای که ممکن است یک حیوان باشند: شناسهٔ یکسان یا ولگردی که در محدودهٔ جست‌وجوی حیوان خانگی گمشده دیده شده. روی جفت بزنید تا ادغام شود، فشار طولانی حیوان خانگی اول را برای مقایسه باز می‌کند. جفت‌هایی که ظاهرشان در دو ویژگی یا بیشتر بدون تناقض مطابقت دارد نیز فهرست می‌شوند؛ چیپ‌ها نشان می‌دهند کدام‌ها. «همان نیست» جفت را در این گوشی پنهان می‌کند تا ظاهر یکی از حیوان‌ها تغییر کند.';
 
   @override
   String get helpFlier =>
@@ -1404,6 +1518,281 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterWeight => 'وزن';
 
   @override
+  String get starterLooks => 'ظاهر';
+
+  @override
+  String get looksGroupSize => 'اندازه';
+
+  @override
+  String get looksGroupColours => 'رنگ‌ها';
+
+  @override
+  String get looksGroupPattern => 'طرح';
+
+  @override
+  String get looksGroupFur => 'مو';
+
+  @override
+  String get looksGroupTail => 'دم';
+
+  @override
+  String get looksGroupEars => 'گوش‌ها';
+
+  @override
+  String get looksGroupMarks => 'نشانه‌ها';
+
+  @override
+  String get looksGroupCrest => 'کاکل';
+
+  @override
+  String get looksGroupBeak => 'منقار';
+
+  @override
+  String get looksGroupRing => 'حلقه پا';
+
+  @override
+  String get looksValueSmall => 'کوچک';
+
+  @override
+  String get looksValueMedium => 'متوسط';
+
+  @override
+  String get looksValueLarge => 'بزرگ';
+
+  @override
+  String get looksValueBlack => 'سیاه';
+
+  @override
+  String get looksValueWhite => 'سفید';
+
+  @override
+  String get looksValueGrey => 'خاکستری';
+
+  @override
+  String get looksValueBrown => 'قهوه‌ای';
+
+  @override
+  String get looksValueGinger => 'نارنجی';
+
+  @override
+  String get looksValueCream => 'کرم';
+
+  @override
+  String get looksValueGolden => 'طلایی';
+
+  @override
+  String get looksValueTan => 'قهوه‌ای روشن';
+
+  @override
+  String get looksValueGreen => 'سبز';
+
+  @override
+  String get looksValueBlue => 'آبی';
+
+  @override
+  String get looksValueYellow => 'زرد';
+
+  @override
+  String get looksValueRed => 'قرمز';
+
+  @override
+  String get looksValueOrange => 'نارنجی';
+
+  @override
+  String get looksValuePink => 'صورتی';
+
+  @override
+  String get looksValueWhiteBib => 'سینه سفید';
+
+  @override
+  String get looksValueWhitePaws => 'پنجه‌های سفید';
+
+  @override
+  String get looksValueWhiteTailTip => 'نوک دم سفید';
+
+  @override
+  String get looksValueBlaze => 'پیشانی سفید';
+
+  @override
+  String get looksValueMask => 'نقاب';
+
+  @override
+  String get looksValueSpots => 'خال‌ها';
+
+  @override
+  String get looksValuePatches => 'لکه‌ها';
+
+  @override
+  String get looksValueStripes => 'راه‌راه';
+
+  @override
+  String get looksValueScar => 'جای زخم';
+
+  @override
+  String get looksValueNotchedEar => 'گوش بریده';
+
+  @override
+  String get looksValueEarTip => 'نوک گوش';
+
+  @override
+  String get looksValueCollar => 'قلاده';
+
+  @override
+  String get looksValueShort => 'کوتاه';
+
+  @override
+  String get looksValueLong => 'بلند';
+
+  @override
+  String get looksValueHairless => 'بی‌مو';
+
+  @override
+  String get looksValueBobtail => 'دم کوتاه';
+
+  @override
+  String get looksValueNone => 'ندارد';
+
+  @override
+  String get looksValueCurled => 'پیچیده';
+
+  @override
+  String get looksValueUpright => 'ایستاده';
+
+  @override
+  String get looksValueFloppy => 'افتاده';
+
+  @override
+  String get looksValueFolded => 'تا شده';
+
+  @override
+  String get looksValueRounded => 'گرد';
+
+  @override
+  String get looksValueSolid => 'یکدست';
+
+  @override
+  String get looksValueTabby => 'ببری';
+
+  @override
+  String get looksValueTortoiseshell => 'لاک‌پشتی';
+
+  @override
+  String get looksValueCalico => 'سه‌رنگ کالیکو';
+
+  @override
+  String get looksValueColourpoint => 'کالرپوینت';
+
+  @override
+  String get looksValueBicolour => 'دو رنگ';
+
+  @override
+  String get looksValueTuxedo => 'تاکسیدو';
+
+  @override
+  String get looksValueBrindle => 'بریندل';
+
+  @override
+  String get looksValueMerle => 'مرل';
+
+  @override
+  String get looksValueSpotted => 'خالدار';
+
+  @override
+  String get looksValuePatched => 'لکه‌دار';
+
+  @override
+  String get looksValueTricolour => 'سه‌رنگ';
+
+  @override
+  String get looksValueSable => 'سمور';
+
+  @override
+  String get looksGroupEyes => 'چشم‌ها';
+
+  @override
+  String get looksGroupFeatures => 'ویژگی‌ها';
+
+  @override
+  String get looksValueAmber => 'کهربایی';
+
+  @override
+  String get looksValueCopper => 'مسی';
+
+  @override
+  String get looksValueOddEyed => 'چشم‌های ناهمرنگ';
+
+  @override
+  String get looksValueChocolate => 'شکلاتی';
+
+  @override
+  String get looksValueLilac => 'یاسی';
+
+  @override
+  String get looksValueSilver => 'نقره‌ای';
+
+  @override
+  String get looksValueSmoke => 'دودی';
+
+  @override
+  String get looksValueTicked => 'تیک‌دار';
+
+  @override
+  String get looksValueVan => 'وان';
+
+  @override
+  String get looksValueCurly => 'فرفری';
+
+  @override
+  String get looksValueWiry => 'زبر';
+
+  @override
+  String get looksValueKinked => 'شکسته';
+
+  @override
+  String get looksValueCropped => 'بریده';
+
+  @override
+  String get looksValueTippedEar => 'نوک گوش بریده';
+
+  @override
+  String get looksValueEarTattoo => 'خالکوبی گوش';
+
+  @override
+  String get looksValueMissingEar => 'گوش از دست رفته';
+
+  @override
+  String get looksValueMissingEye => 'چشم از دست رفته';
+
+  @override
+  String get looksValueCloudyEye => 'چشم کدر';
+
+  @override
+  String get looksValueMissingFrontLeg => 'پای جلو از دست رفته';
+
+  @override
+  String get looksValueMissingHindLeg => 'پای عقب از دست رفته';
+
+  @override
+  String get looksValueNoTeeth => 'بی‌دندان';
+
+  @override
+  String get looksValueExtraToes => 'انگشتان اضافی';
+
+  @override
+  String get rejectMatch => 'همان نیست';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ویژگی مطابقت دارند',
+      one: '$count ویژگی مطابقت دارد',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'پیش‌فرض سیستم';
 
   @override
@@ -1484,6 +1873,12 @@ class AppLocalizationsFa extends AppLocalizations {
       'کاغذرنگی و هلهله وقتی گربه‌ای به خانه‌اش می‌رود';
 
   @override
+  String get cheerToggle => 'صدای هلهله';
+
+  @override
+  String get cheerSubtitle => 'هلهله کوتاه همراه کاغذرنگی، هر بار متفاوت';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'کاغذرنگی و هلهله وقتی حیوان خانگی‌ای به خانه‌اش می‌رود';
 
@@ -1526,8 +1921,60 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'هر مدخل و عکسی را که $name روی دستگاه $device نوشته از این کاتالوگ حذف می‌کند. دستگاه‌های دیگر نسخه خود را نگه می‌دارند. قابل بازگشت نیست.';
+  String get yourKey => 'کلید شما';
+
+  @override
+  String get yourTitle => 'عنوان شما';
+
+  @override
+  String get titleNone => 'بدون عنوان';
+
+  @override
+  String keyLine(Object code) {
+    return 'کلید $code';
+  }
+
+  @override
+  String get keyVerified => 'حضوری تأیید شده';
+
+  @override
+  String get keyFromFile => 'از فایل، هنوز تأیید نشده';
+
+  @override
+  String get keyUnsigned => 'هنوز کلیدی نیست، ورودی‌ها امضانشده';
+
+  @override
+  String get summaryRefused => 'رد شده';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ورودی رد شد',
+      one: '$count ورودی رد شد',
+    );
+    return '$_temp0: با کلید شناخته‌شده $name امضا نشده';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'کلید جدید $code خود را $name می‌نامد. پیش از اعتماد، از خود شخص بپرسید.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name کلیدی متفاوت از کلید شناخته‌شده اینجا ارائه داد. کلید شناخته‌شده می‌ماند؛ کلید جدید پذیرفته نشد.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'کلید جدید: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'هر ورودی و عکسی را که $name با کلید $key نوشته از این فهرست حذف می‌کند. دستگاه‌های دیگر مال خود را نگه می‌دارند. قابل بازگشت نیست.';
   }
 
   @override
@@ -2007,7 +2454,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'هر چیزی که فقط به این کاتالوگ تعلق دارد: نامش، اینکه گربه دارد یا حیوان، فیلدهایش، نویسندگان و مسدودی‌ها، آرشیو و بازگشت در زمان. تغییرات اینجا فقط به این کاتالوگ می‌رسد — حتی کاتالوگی که اکنون در آن نیستید. حذف ابتدا کاتالوگ را در فایلی می‌نویسد.';
+      'هر چیزی که فقط به این کاتالوگ تعلق دارد: نامش، اینکه گربه دارد یا حیوان، فیلدهایش، نویسندگان و مسدودی‌ها، آرشیو و بازگشت در زمان. تغییرات اینجا فقط به این کاتالوگ می‌رسد — حتی کاتالوگی که اکنون در آن نیستید. حذف ابتدا کاتالوگ را در فایلی می‌نویسد. کلید شما همان کدی است که شرکا کنار نام شما می‌بینند؛ به این فهرست تعلق دارد.';
 
   @override
   String get spotHomeCatalog =>
@@ -2311,12 +2758,16 @@ class AppLocalizationsFa extends AppLocalizations {
       'بازتاب قرارهای cat(a)log در تقویم دلخواهت را اینجا روشن کن.';
 
   @override
+  String get spotAgendaToday =>
+      'کارهای امروز: پس از انجام تیک بزنید. نقطه‌ها هفت روز اخیر را نشان می‌دهند.';
+
+  @override
   String get helpAgenda =>
-      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، گربه یا گروه را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند گربه یک نوبت است: گربه‌ها را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام گربه‌ها درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند.';
+      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، گربه یا گروه را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند گربه یک نوبت است: گربه‌ها را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام گربه‌ها درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند. کارها وظایف تکراری مانند غذا دادن، خاک گربه یا دارو هستند. زیر «امروز» با تیک، رشته و هفت روز اخیر به‌صورت نقطه قرار می‌گیرند؛ «به‌زودی» هفته بعد را بدون کارهای روزانه نشان می‌دهد. یک کار می‌تواند در زمان انتخابی با اعلان یادآوری کند. جام دستاوردها را باز می‌کند.';
 
   @override
   String get helpAgendaNeutral =>
-      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، حیوان خانگی یا خانوار را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند حیوان خانگی یک نوبت است: حیوانات را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام حیوانات درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند.';
+      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، حیوان خانگی یا خانوار را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند حیوان خانگی یک نوبت است: حیوانات را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام حیوانات درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند. کارها وظایف تکراری مانند غذا دادن، خاک گربه یا دارو هستند. زیر «امروز» با تیک، رشته و هفت روز اخیر به‌صورت نقطه قرار می‌گیرند؛ «به‌زودی» هفته بعد را بدون کارهای روزانه نشان می‌دهد. یک کار می‌تواند در زمان انتخابی با اعلان یادآوری کند. جام دستاوردها را باز می‌کند.';
 
   @override
   String get calendarRowOff => 'تقویم: خاموش';
@@ -2360,6 +2811,258 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get planChooserReminder => 'یادآور — مقداری که در روزی سررسید می‌شود';
+
+  @override
+  String get planChooserChore =>
+      'کار روزمره — چیزی که تکرار می‌شود: غذا، قطره، خاک';
+
+  @override
+  String get newChore => 'کار جدید';
+
+  @override
+  String get choreEdit => 'ویرایش کار';
+
+  @override
+  String get choreTitleLabel => 'چه';
+
+  @override
+  String get choreRepeatDaily => 'هر روز';
+
+  @override
+  String get choreRepeatEvery => 'هر…';
+
+  @override
+  String get choreRepeatWeekdays => 'روزها';
+
+  @override
+  String choreEveryDays(int n) {
+    return 'هر $n روز';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    return 'هر $n هفته';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    return 'هر $n ماه';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    return 'هر $n سال';
+  }
+
+  @override
+  String get choreNoTime => 'هر ساعتی از روز';
+
+  @override
+  String get chorePause => 'توقف موقت';
+
+  @override
+  String get chorePaused => 'متوقف‌شده';
+
+  @override
+  String get choreResume => 'ادامه';
+
+  @override
+  String get choreEnd => 'پایان کار';
+
+  @override
+  String get choreHistory => 'تاریخچه';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'انجام شد $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'زودتر';
+
+  @override
+  String get choreDoneLate => 'دیرتر';
+
+  @override
+  String get choreMissed => 'از دست رفته';
+
+  @override
+  String get choreStillOpen => 'هنوز باز';
+
+  @override
+  String get choreEndConfirm =>
+      'کار از فهرست حذف می‌شود. آنچه تیک خورده در تاریخچه می‌ماند.';
+
+  @override
+  String get todaySection => 'امروز';
+
+  @override
+  String get upcomingSection => 'به‌زودی';
+
+  @override
+  String get allDoneToday => 'امروز: همه انجام شد';
+
+  @override
+  String streakDays(int n) {
+    return '$n روز پیاپی';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'موعد $date';
+  }
+
+  @override
+  String get remindMe => 'یادآوری کن';
+
+  @override
+  String remindNext(Object when) {
+    return 'یادآوری بعدی: $when';
+  }
+
+  @override
+  String get remindNone => 'یادآوری‌ای برنامه‌ریزی نشده: چیزی در پیش نیست.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count یادآوری روی این گوشی زمان‌بندی شده',
+      one: '$count یادآوری روی این گوشی زمان‌بندی شده',
+      zero: 'هنوز چیزی روی این گوشی زمان‌بندی نشده',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'اکنون یک یادآوری آزمایشی بفرست';
+
+  @override
+  String get remindLateHint =>
+      'یادآوری‌ها ممکن است چند دقیقه دیرتر برسند؛ لحظه دقیق را گوشی انتخاب می‌کند.';
+
+  @override
+  String get remindPermissionDenied =>
+      'اجازه اعلان وجود ندارد، پس یادآوری خاموش می‌ماند. در تنظیمات برنامه گوشی اجازه دهید و دوباره امتحان کنید.';
+
+  @override
+  String get batteryHint =>
+      'اگر یادآوری‌ها نمی‌رسند، در تنظیمات باتری گوشی به cat(a)log اجازه اجرای پس‌زمینه بدهید.';
+
+  @override
+  String get batterySettings => 'تنظیمات باتری';
+
+  @override
+  String get achievementsTitle => 'دستاوردها';
+
+  @override
+  String get rankServant => 'خدمتکار';
+
+  @override
+  String get rankButler => 'پیشخدمت';
+
+  @override
+  String get rankSteward => 'ناظر';
+
+  @override
+  String get rankChancellor => 'صدراعظم';
+
+  @override
+  String get rankMinister => 'وزیر';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'کالیکو';
+
+  @override
+  String get coatCheetah => 'یوزپلنگ';
+
+  @override
+  String get coatTiger => 'ببر';
+
+  @override
+  String get coatTabby => 'ببری';
+
+  @override
+  String get coatPaws => 'پنجه‌ها';
+
+  @override
+  String get coatRosettes => 'گل‌سرخی';
+
+  @override
+  String get coatZebra => 'گورخر';
+
+  @override
+  String get coatSetting => 'پوست';
+
+  @override
+  String get coatRandom => 'هر بار متفاوت';
+
+  @override
+  String get coatSnowLeopard => 'پلنگ برفی';
+
+  @override
+  String get coatSiamese => 'نشان‌های سیامی';
+
+  @override
+  String get coatLynx => 'سیاه‌گوش';
+
+  @override
+  String get coatTortoiseshell => 'لاک‌پشتی';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'پوست جدید: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'یک ماه کامل کارها، همه انجام شده.';
+
+  @override
+  String get achievementsEmpty => 'هنوز هیچ. کارها راه را می‌دانند.';
+
+  @override
+  String get achievementMonth => 'یک ماه کامل';
+
+  @override
+  String get achievementYear => 'یک سال کامل';
+
+  @override
+  String get achievementDecade => 'یک دهه کامل';
+
+  @override
+  String get achievementCentury => 'یک قرن کامل';
+
+  @override
+  String get achievementCenturyHint => 'هر دو خیلی افتخار خواهیم کرد.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'استاد $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    return '$times بار رسیده، اولین بار $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'بعدی در $n';
+  }
+
+  @override
+  String get achievementLocked => 'هنوز نه';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'دستاورد: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'چه';
@@ -2521,4 +3224,116 @@ class AppLocalizationsFa extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'حذف نوبت برای هر $count حیوان خانگی';
   }
+
+  @override
+  String get correctThisValue => 'اصلاح این مقدار';
+
+  @override
+  String get removeThisValue => 'حذف این مقدار';
+
+  @override
+  String get restoreThisValue => 'بازگرداندن این مقدار';
+
+  @override
+  String get showRemovedValues => 'نمایش مقادیر حذف‌شده';
+
+  @override
+  String get hideRemovedValues => 'پنهان کردن مقادیر حذف‌شده';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'حذف شد · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'جایگزین شد با $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'اصلاح';
+
+  @override
+  String get restorePickFolder => 'انتخاب پوشهٔ پشتیبان…';
+
+  @override
+  String get restoreAndroidHint =>
+      'پشتیبان‌های نصب قبلی در Documents/catlog هستند (در نسخه‌های قدیمی‌تر Downloads/catlog). آن پوشه را یک بار انتخاب کنید؛ پشتیبان‌هایش اینجا فهرست می‌شوند.';
+
+  @override
+  String get backupsTitle => 'پشتیبان‌ها';
+
+  @override
+  String get backupsSubtitle => 'جایی که فهرست‌های شما ایمن نگه داشته می‌شوند';
+
+  @override
+  String get backupsAndroidSystem =>
+      'گوگل فهرست‌های این برنامه را با حساب شما پشتیبان می‌گیرد، بدون عکس‌ها. پس از نصب مجدد یا روی گوشی جدید خودبه‌خود برمی‌گردند.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'هر بار که پس از تغییرات از برنامه خارج می‌شوید، نسخهٔ کامل هر فهرست، همراه با عکس‌ها، در Documents/catlog نوشته می‌شود.';
+
+  @override
+  String get backupsIosSystem =>
+      'پشتیبان iCloud این برنامه را همراه با فهرست‌ها و عکس‌هایش شامل می‌شود، مانند هر برنامهٔ دیگری روی این آیفون.';
+
+  @override
+  String get backupsIosFiles =>
+      'نسخهٔ کامل هر فهرست در برنامهٔ Files زیر cat(a)log قرار دارد. از آنجا می‌توان آن را به iCloud Drive، با AirDrop یا به گوشی دیگری فرستاد.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'هر بار که پس از تغییرات از برنامه خارج می‌شوید، نسخهٔ کامل هر فهرست، همراه با عکس‌ها، در پوشهٔ دانلودها نوشته می‌شود.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'آخرین نسخه: $date';
+  }
+
+  @override
+  String get backupsNever => 'هنوز نسخه‌ای نوشته نشده است.';
+
+  @override
+  String get backupsNow => 'اکنون پشتیبان بگیر';
+
+  @override
+  String get backupsDone => 'نسخه نوشته شد.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'در $date از پشتیبان گوگل بازیابی شد. اگر cat(a)log هنوز روی گوشی قدیمی اجرا می‌شود، یک بار از آن همگام کنید و سپس برنامه را آنجا حذف کنید.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'پوشه‌ای به انتخاب شما هم می‌تواند هر نسخه را دریافت کند: پوشه‌ای که یک برنامهٔ ابری روی این گوشی همگام نگه می‌دارد (Nextcloud، Syncthing و دیگران)، کارت حافظه، هر پوشه‌ای که انتخابگر ارائه می‌دهد. نسخه‌ها در catlog-backups داخل آن قرار می‌گیرند.';
+
+  @override
+  String get backupsFolderPick => 'کپی در یک پوشه هم…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'در $name هم کپی می‌شود';
+  }
+
+  @override
+  String get backupsFolderRemove => 'دیگر آنجا کپی نکن';
+
+  @override
+  String remindFailed(Object error) {
+    return 'اعلان‌ها روی این گوشی کار نمی‌کنند: $error';
+  }
+
+  @override
+  String get copyText => 'کپی متن';
+
+  @override
+  String get colWhen => 'زمان';
+
+  @override
+  String get colValue => 'مقدار';
+
+  @override
+  String get colWho => 'چه کسی';
 }

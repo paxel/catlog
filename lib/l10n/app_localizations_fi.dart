@@ -174,6 +174,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get shareAsImage => 'Jaa kuvana';
 
   @override
+  String get sortOldestFirst => 'Vanhin ensin';
+
+  @override
+  String get sortNewestFirst => 'Uusin ensin';
+
+  @override
+  String get shareAsText => 'Jaa tekstinä';
+
+  @override
   String get shareAsPdf => 'Jaa PDF:nä';
 
   @override
@@ -557,13 +566,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Kumoa tämä muutos';
-
-  @override
-  String get revertSubtitle =>
-      'Palauttaa edellisen arvon uutena merkintänä — historia säilyttää molemmat.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tyhjennetty';
   }
@@ -734,7 +736,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Molemmat laitteet käyttävät samaa kansiota (esim. Dropboxissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.';
+      'Molemmat laitteet käyttävät samaa kansiota (esim. Nextcloudissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.';
 
   @override
   String get noFolderChosenYet => 'Kansiota ei ole vielä valittu';
@@ -744,6 +746,18 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Synkronoi kansio nyt';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Sen sisällä tämä luettelo käyttää kansiota ”$name”, joten yksi jaettu kansio voi kantaa kaikki luettelosi.';
+  }
+
+  @override
+  String get useSameFolder => 'Käytä samaa kansiota kuin muut luettelot';
+
+  @override
+  String get folderHint =>
+      'Mikä tahansa kansio, jonka kaksi laitetta pitävät samana, kelpaa: pilvilevy, tai Syncthing kansiolle, joka pysyy puhelimissanne. Syncthing on ilmainen: asenna se jokaiseen puhelimeen, jaa yksi kansio niiden välillä ja valitse se kansio täällä jokaisella laitteella.';
 
   @override
   String folderSynced(String result) {
@@ -781,6 +795,16 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get conflictBody =>
       'Muutettu kahdessa paikassa yhtä aikaa. Valitse, mikä on totta:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (yksityinen)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Molemmat muutokset sanovat saman: $value. Ei valittavaa; Ratkaise poistaa merkin.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -912,6 +936,96 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sfinksi';
+
+  @override
+  String get breedAbyssinian => 'Abessinialainen';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikanlyhytkarva';
+
+  @override
+  String get breedBalinese => 'Balineesi';
+
+  @override
+  String get breedBirman => 'Pyhä birma';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burma';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Brittiläinen pitkäkarva';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egyptin mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotic';
+
+  @override
+  String get breedHimalayan => 'Himalaja';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Itämainen lyhytkarva';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Venäjänsininen';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Scottish fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Siperiankissa';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somali';
+
+  @override
+  String get breedTonkinese => 'Tonkinilainen';
+
+  @override
+  String get breedTurkishAngora => 'Turkkilainen angora';
+
+  @override
+  String get breedTurkishVan => 'Turkkilainen van';
 
   @override
   String get starterColor => 'Väri';
@@ -1090,7 +1204,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä.';
+      'Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä. Jokainen luettelo allekirjoittaa kirjoittamansa omalla avaimellaan; kumppanit näkevät avainkoodin nimesi vieressä. Kumppanin ensimmäinen avain otetaan tiedostosta luottamuksella ja lasketaan tavatuksi, kun synkronoitte kasvokkain. Merkinnät tutulla nimellä ilman oikeaa allekirjoitusta hylätään ja listataan saapumissivulla.';
 
   @override
   String get helpFields =>
@@ -1102,7 +1216,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja mihin arvoon. Minkä tahansa merkinnän voi perua — se kirjoittaa uuden merkinnän, mitään ei koskaan poisteta.';
+      'Jokainen muutos, uusin ensin: kuka muutti mitä, milloin ja miksi arvoksi. Napauta merkintää korjataksesi, pidä pohjassa poistaaksesi tai palauttaaksesi; piilotettu merkintä pysyy lokissa ja näkyy pyynnöstä.';
 
   @override
   String get helpDuplicates =>
@@ -1114,11 +1228,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten.';
+      'Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten. Listalla ovat myös parit, joiden ulkonäkö täsmää vähintään kahdessa piirteessä ilman ristiriitaa; sirut näyttävät missä. ”Ei sama” piilottaa parin tällä puhelimella, kunnes jommankumman eläimen ulkonäkö muuttuu.';
 
   @override
   String get helpMatchesNeutral =>
-      'Lemmikit, jotka voivat olla sama eläin: sama tunnus tai koditon nähtynä kadonneen lemmikin hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen lemmikin vertailua varten.';
+      'Lemmikit, jotka voivat olla sama eläin: sama tunnus tai koditon nähtynä kadonneen lemmikin hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen lemmikin vertailua varten. Listalla ovat myös parit, joiden ulkonäkö täsmää vähintään kahdessa piirteessä ilman ristiriitaa; sirut näyttävät missä. ”Ei sama” piilottaa parin tällä puhelimella, kunnes jommankumman eläimen ulkonäkö muuttuu.';
 
   @override
   String get helpFlier =>
@@ -1409,6 +1523,281 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterWeight => 'Paino';
 
   @override
+  String get starterLooks => 'Ulkonäkö';
+
+  @override
+  String get looksGroupSize => 'Koko';
+
+  @override
+  String get looksGroupColours => 'Värit';
+
+  @override
+  String get looksGroupPattern => 'Kuvio';
+
+  @override
+  String get looksGroupFur => 'Turkki';
+
+  @override
+  String get looksGroupTail => 'Häntä';
+
+  @override
+  String get looksGroupEars => 'Korvat';
+
+  @override
+  String get looksGroupMarks => 'Tuntomerkit';
+
+  @override
+  String get looksGroupCrest => 'Töyhtö';
+
+  @override
+  String get looksGroupBeak => 'Nokka';
+
+  @override
+  String get looksGroupRing => 'Jalkarengas';
+
+  @override
+  String get looksValueSmall => 'Pieni';
+
+  @override
+  String get looksValueMedium => 'Keskikokoinen';
+
+  @override
+  String get looksValueLarge => 'Suuri';
+
+  @override
+  String get looksValueBlack => 'Musta';
+
+  @override
+  String get looksValueWhite => 'Valkoinen';
+
+  @override
+  String get looksValueGrey => 'Harmaa';
+
+  @override
+  String get looksValueBrown => 'Ruskea';
+
+  @override
+  String get looksValueGinger => 'Punainen';
+
+  @override
+  String get looksValueCream => 'Kerma';
+
+  @override
+  String get looksValueGolden => 'Kultainen';
+
+  @override
+  String get looksValueTan => 'Vaaleanruskea';
+
+  @override
+  String get looksValueGreen => 'Vihreä';
+
+  @override
+  String get looksValueBlue => 'Sininen';
+
+  @override
+  String get looksValueYellow => 'Keltainen';
+
+  @override
+  String get looksValueRed => 'Punainen';
+
+  @override
+  String get looksValueOrange => 'Oranssi';
+
+  @override
+  String get looksValuePink => 'Vaaleanpunainen';
+
+  @override
+  String get looksValueWhiteBib => 'Valkoinen rintalappu';
+
+  @override
+  String get looksValueWhitePaws => 'Valkoiset tassut';
+
+  @override
+  String get looksValueWhiteTailTip => 'Valkoinen hännänpää';
+
+  @override
+  String get looksValueBlaze => 'Piirto';
+
+  @override
+  String get looksValueMask => 'Naamio';
+
+  @override
+  String get looksValueSpots => 'Täplät';
+
+  @override
+  String get looksValuePatches => 'Laikut';
+
+  @override
+  String get looksValueStripes => 'Raidat';
+
+  @override
+  String get looksValueScar => 'Arpi';
+
+  @override
+  String get looksValueNotchedEar => 'Lovi korvassa';
+
+  @override
+  String get looksValueEarTip => 'Korvan kärki';
+
+  @override
+  String get looksValueCollar => 'Kaulapanta';
+
+  @override
+  String get looksValueShort => 'Lyhyt';
+
+  @override
+  String get looksValueLong => 'Pitkä';
+
+  @override
+  String get looksValueHairless => 'Karvaton';
+
+  @override
+  String get looksValueBobtail => 'Tynkähäntä';
+
+  @override
+  String get looksValueNone => 'Ei ole';
+
+  @override
+  String get looksValueCurled => 'Kiertynyt';
+
+  @override
+  String get looksValueUpright => 'Pystyt';
+
+  @override
+  String get looksValueFloppy => 'Luppa';
+
+  @override
+  String get looksValueFolded => 'Taittuneet';
+
+  @override
+  String get looksValueRounded => 'Pyöreät';
+
+  @override
+  String get looksValueSolid => 'Yksivärinen';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Kilpikonna';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Kaksivärinen';
+
+  @override
+  String get looksValueTuxedo => 'Smokki';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Täplikäs';
+
+  @override
+  String get looksValuePatched => 'Laikukas';
+
+  @override
+  String get looksValueTricolour => 'Kolmivärinen';
+
+  @override
+  String get looksValueSable => 'Soopeli';
+
+  @override
+  String get looksGroupEyes => 'Silmät';
+
+  @override
+  String get looksGroupFeatures => 'Erityispiirteet';
+
+  @override
+  String get looksValueAmber => 'Meripihka';
+
+  @override
+  String get looksValueCopper => 'Kupari';
+
+  @override
+  String get looksValueOddEyed => 'Erivärinen';
+
+  @override
+  String get looksValueChocolate => 'Suklaa';
+
+  @override
+  String get looksValueLilac => 'Lila';
+
+  @override
+  String get looksValueSilver => 'Hopea';
+
+  @override
+  String get looksValueSmoke => 'Savu';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kihara';
+
+  @override
+  String get looksValueWiry => 'Karkea';
+
+  @override
+  String get looksValueKinked => 'Mutkainen';
+
+  @override
+  String get looksValueCropped => 'Typistetyt';
+
+  @override
+  String get looksValueTippedEar => 'Merkitty korva';
+
+  @override
+  String get looksValueEarTattoo => 'Korvatatuointi';
+
+  @override
+  String get looksValueMissingEar => 'Puuttuva korva';
+
+  @override
+  String get looksValueMissingEye => 'Puuttuva silmä';
+
+  @override
+  String get looksValueCloudyEye => 'Samea silmä';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Puuttuva etujalka';
+
+  @override
+  String get looksValueMissingHindLeg => 'Puuttuva takajalka';
+
+  @override
+  String get looksValueNoTeeth => 'Ei hampaita';
+
+  @override
+  String get looksValueExtraToes => 'Ylimääräiset varpaat';
+
+  @override
+  String get rejectMatch => 'Ei sama';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count piirrettä täsmää',
+      one: '1 piirre täsmää',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Järjestelmän oletus';
 
   @override
@@ -1489,6 +1878,12 @@ class AppLocalizationsFi extends AppLocalizations {
       'Konfettia ja hurraus, kun kissa muuttaa kotiinsa';
 
   @override
+  String get cheerToggle => 'Hurraus-ääni';
+
+  @override
+  String get cheerSubtitle => 'Lyhyt hurraus konfettien kanssa, joka kerta eri';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfettia ja hurraus, kun lemmikki muuttaa kotiinsa';
 
@@ -1532,8 +1927,60 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka $name kirjoitti laitteella $device. Muut laitteet pitävät omansa. Ei voi kumota.';
+  String get yourKey => 'Oma avain';
+
+  @override
+  String get yourTitle => 'Arvonimesi';
+
+  @override
+  String get titleNone => 'Ei arvonimeä';
+
+  @override
+  String keyLine(Object code) {
+    return 'avain $code';
+  }
+
+  @override
+  String get keyVerified => 'tavattu kasvokkain';
+
+  @override
+  String get keyFromFile => 'tiedostosta, ei vielä tavattu';
+
+  @override
+  String get keyUnsigned => 'ei vielä avainta, merkinnät allekirjoittamatta';
+
+  @override
+  String get summaryRefused => 'Hylätty';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count merkintää',
+      one: '1 merkintä',
+    );
+    return '$_temp0 hylätty: ei allekirjoitettu käyttäjän $name tunnetulla avaimella';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Uusi avain $code kutsuu itseään nimellä $name. Varmista henkilöltä ennen kuin luotat siihen.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name tarjosi eri avainta kuin täällä tunnettu. Tunnettu jää; uutta ei otettu.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Uusi avain: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka $name kirjoitti avaimella $key. Muut laitteet pitävät omansa. Ei voi kumota.';
   }
 
   @override
@@ -2032,7 +2479,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon.';
+      'Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon. Oma avaimesi on koodi, jonka kumppanit näkevät nimesi vieressä; se kuuluu tähän luetteloon.';
 
   @override
   String get spotHomeCatalog =>
@@ -2337,12 +2784,16 @@ class AppLocalizationsFi extends AppLocalizations {
       'Kytke tästä päälle cat(a)login tapaamisten peilaus valitsemaasi kalenteriin.';
 
   @override
+  String get spotAgendaToday =>
+      'Tämän päivän askareet: merkitse, kun tehty. Pisteet näyttävät viimeiset seitsemän päivää.';
+
+  @override
   String get helpAgenda =>
-      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla kissalla on yksi ajanvaraus: valitse kissat, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä kissat hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.';
+      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla kissalla on yksi ajanvaraus: valitse kissat, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä kissat hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina. Askareet ovat toistuvia tehtäviä, kuten ruokinta, hiekkalaatikko tai lääkkeet. Ne ovat Tänään-kohdassa merkinnällä, putkella ja viimeisillä seitsemällä päivällä pisteinä; Tulossa näyttää seuraavan viikon ilman päivittäisiä. Askare voi muistuttaa ilmoituksella valittuna aikana. Pokaali avaa saavutukset.';
 
   @override
   String get helpAgendaNeutral =>
-      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa lemmikin tai kotitalouden. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla lemmikillä on yksi ajanvaraus: valitse lemmikit, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä lemmikit hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.';
+      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa lemmikin tai kotitalouden. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla lemmikillä on yksi ajanvaraus: valitse lemmikit, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä lemmikit hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina. Askareet ovat toistuvia tehtäviä, kuten ruokinta, hiekkalaatikko tai lääkkeet. Ne ovat Tänään-kohdassa merkinnällä, putkella ja viimeisillä seitsemällä päivällä pisteinä; Tulossa näyttää seuraavan viikon ilman päivittäisiä. Askare voi muistuttaa ilmoituksella valittuna aikana. Pokaali avaa saavutukset.';
 
   @override
   String get calendarRowOff => 'Kalenteri: pois';
@@ -2387,6 +2838,294 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Muistutus — arvo, joka erääntyy tiettynä päivänä';
+
+  @override
+  String get planChooserChore =>
+      'Askare — jokin, joka toistuu: ruokinta, tipat, hiekkalaatikko';
+
+  @override
+  String get newChore => 'Uusi askare';
+
+  @override
+  String get choreEdit => 'Muokkaa askaretta';
+
+  @override
+  String get choreTitleLabel => 'Mitä';
+
+  @override
+  String get choreRepeatDaily => 'Päivittäin';
+
+  @override
+  String get choreRepeatEvery => 'Joka…';
+
+  @override
+  String get choreRepeatWeekdays => 'Viikonpäivät';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. päivä',
+      one: 'joka päivä',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. viikko',
+      one: 'joka viikko',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. kuukausi',
+      one: 'joka kuukausi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. vuosi',
+      one: 'joka vuosi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Mihin aikaan vain';
+
+  @override
+  String get chorePause => 'Keskeytä';
+
+  @override
+  String get chorePaused => 'Tauolla';
+
+  @override
+  String get choreResume => 'Jatka';
+
+  @override
+  String get choreEnd => 'Lopeta askare';
+
+  @override
+  String get choreHistory => 'Historia';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'tehty $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'etuajassa';
+
+  @override
+  String get choreDoneLate => 'myöhässä';
+
+  @override
+  String get choreMissed => 'Väliin';
+
+  @override
+  String get choreStillOpen => 'Vielä auki';
+
+  @override
+  String get choreEndConfirm =>
+      'Askare poistuu listalta. Merkityt kerrat jäävät historiaan.';
+
+  @override
+  String get todaySection => 'Tänään';
+
+  @override
+  String get upcomingSection => 'Tulossa';
+
+  @override
+  String get allDoneToday => 'Tänään: kaikki tehty';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n päivää putkeen',
+      one: '1 päivä putkeen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Vuorossa $date';
+  }
+
+  @override
+  String get remindMe => 'Muistuta';
+
+  @override
+  String remindNext(Object when) {
+    return 'Seuraava muistutus: $when';
+  }
+
+  @override
+  String get remindNone => 'Ei muistutusta: ei mitään tulossa.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count muistutusta ajastettu tälle puhelimelle',
+      one: '1 muistutus ajastettu tälle puhelimelle',
+      zero: 'Tälle puhelimelle ei ole vielä ajastettu mitään',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Lähetä testimuistutus nyt';
+
+  @override
+  String get remindLateHint =>
+      'Muistutukset voivat tulla muutaman minuutin myöhässä; puhelin valitsee tarkan hetken.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Ei lupaa ilmoituksiin, muistutus jää pois päältä. Salli ne puhelimen sovellusasetuksissa ja yritä uudelleen.';
+
+  @override
+  String get batteryHint =>
+      'Jos muistutukset jäävät tulematta, salli cat(a)login toimia taustalla puhelimen akkuasetuksissa.';
+
+  @override
+  String get batterySettings => 'Akkuasetukset';
+
+  @override
+  String get achievementsTitle => 'Saavutukset';
+
+  @override
+  String get rankServant => 'Palvelija';
+
+  @override
+  String get rankButler => 'Hovimestari';
+
+  @override
+  String get rankSteward => 'Taloudenhoitaja';
+
+  @override
+  String get rankChancellor => 'Kansleri';
+
+  @override
+  String get rankMinister => 'Ministeri';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kilpikonna-kalikko';
+
+  @override
+  String get coatCheetah => 'Gepardi';
+
+  @override
+  String get coatTiger => 'Tiikeri';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Tassut';
+
+  @override
+  String get coatRosettes => 'Rosetit';
+
+  @override
+  String get coatZebra => 'Seepra';
+
+  @override
+  String get coatSetting => 'Turkki';
+
+  @override
+  String get coatRandom => 'Eri joka käynnistyksellä';
+
+  @override
+  String get coatSnowLeopard => 'Lumileopardi';
+
+  @override
+  String get coatSiamese => 'Siamilaiset merkit';
+
+  @override
+  String get coatLynx => 'Ilves';
+
+  @override
+  String get coatTortoiseshell => 'Kilpikonna';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Uusi turkki: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Kokonainen kuukausi askareita, kaikki tehty.';
+
+  @override
+  String get achievementsEmpty => 'Ei vielä mitään. Askareet tietävät tien.';
+
+  @override
+  String get achievementMonth => 'Kokonainen kuukausi';
+
+  @override
+  String get achievementYear => 'Kokonainen vuosi';
+
+  @override
+  String get achievementDecade => 'Kokonainen vuosikymmen';
+
+  @override
+  String get achievementCentury => 'Kokonainen vuosisata';
+
+  @override
+  String get achievementCenturyHint => 'Olemme molemmat hyvin ylpeitä.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-mestari';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Saavutettu $times kertaa',
+      one: 'Saavutettu kerran',
+    );
+    return '$_temp0, ensi kerran $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Seuraava kohdassa $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ei vielä';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Saavutus: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Mitä';
@@ -2548,4 +3287,116 @@ class AppLocalizationsFi extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Poista ajanvaraus kaikilta $count lemmikiltä';
   }
+
+  @override
+  String get correctThisValue => 'Korjaa tämä arvo';
+
+  @override
+  String get removeThisValue => 'Poista tämä arvo';
+
+  @override
+  String get restoreThisValue => 'Palauta tämä arvo';
+
+  @override
+  String get showRemovedValues => 'Näytä poistetut arvot';
+
+  @override
+  String get hideRemovedValues => 'Piilota poistetut arvot';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Poistettu · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Korvattu arvolla $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Korjaus';
+
+  @override
+  String get restorePickFolder => 'Valitse varmuuskopiokansio…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Edellisen asennuksen varmuuskopiot ovat kansiossa Documents/catlog (vanhemmissa versioissa Downloads/catlog). Valitse kansio kerran; sen kopiot näkyvät tässä.';
+
+  @override
+  String get backupsTitle => 'Varmuuskopiot';
+
+  @override
+  String get backupsSubtitle => 'Missä luettelosi ovat turvassa';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google varmuuskopioi tämän sovelluksen luettelot tilillesi, ilman kuvia. Ne palaavat itsestään uudelleenasennuksen jälkeen tai uudella puhelimella.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Täysi kopio jokaisesta luettelosta, kuvineen, kirjoitetaan kansioon Documents/catlog aina, kun poistut sovelluksesta muutosten jälkeen.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud-varmuuskopio sisältää tämän sovelluksen luetteloineen ja kuvineen, kuten jokaisen muun sovelluksen tällä iPhonella.';
+
+  @override
+  String get backupsIosFiles =>
+      'Täysi kopio jokaisesta luettelosta on Tiedostot-sovelluksessa kohdassa cat(a)log. Sieltä sen voi viedä iCloud Driveen, AirDropilla tai toiseen puhelimeen.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Täysi kopio jokaisesta luettelosta, kuvineen, kirjoitetaan Lataukset-kansioosi aina, kun poistut sovelluksesta muutosten jälkeen.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Viimeisin kopio: $date';
+  }
+
+  @override
+  String get backupsNever => 'Kopiota ei ole vielä kirjoitettu.';
+
+  @override
+  String get backupsNow => 'Varmuuskopioi nyt';
+
+  @override
+  String get backupsDone => 'Kopio kirjoitettu.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Palautettu Google-varmuuskopiosta $date. Jos vanhassa puhelimessa on yhä cat(a)log, synkronoi kerran sieltä ja poista sovellus sitten sieltä.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Myös valitsemasi kansio voi saada jokaisen kopion: sellainen, jota pilvisovellus pitää tällä puhelimella synkronoituna (Nextcloud, Syncthing ja muut), muistikortti, mikä tahansa valitsimen tarjoama kansio. Kopiot menevät sen sisällä kansioon catlog-backups.';
+
+  @override
+  String get backupsFolderPick => 'Kopioi myös kansioon…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopioidaan myös kansioon $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Lopeta kopiointi sinne';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Ilmoitukset eivät toimi tällä puhelimella: $error';
+  }
+
+  @override
+  String get copyText => 'Kopioi teksti';
+
+  @override
+  String get colWhen => 'Milloin';
+
+  @override
+  String get colValue => 'Arvo';
+
+  @override
+  String get colWho => 'Kuka';
 }

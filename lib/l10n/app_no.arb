@@ -52,6 +52,9 @@
   "card": "Kort",
   "cardTitle": "Kort — {name}",
   "shareAsImage": "Del som bilde",
+  "sortOldestFirst": "Eldste først",
+  "sortNewestFirst": "Nyeste først",
+  "shareAsText": "Del som tekst",
   "shareAsPdf": "Del som PDF",
   "print": "Skriv ut",
   "renameCat": "Gi katten nytt navn",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Ingen husstand — hjemløs / rømte",
   "timelineOf": "Tidslinje — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Angre denne endringen",
-  "revertSubtitle": "Gjenoppretter forrige verdi som ny oppføring — historikken beholder begge.",
   "fieldCleared": "{field} tømt",
   "fieldBackTo": "{field} tilbake til \"{value}\"",
   "leftStray": "Dro — hjemløs",
@@ -128,10 +129,13 @@
   "syncFailed": "Synkronisering mislyktes: {error}",
   "lastSyncWith": "Siste synkronisering med {peer}: {time}",
   "sharedFolder": "Delt mappe",
-  "sharedFolderExplainer": "Begge enhetene bruker samme mappe (f.eks. i Dropbox eller på en USB-pinne). Hver synkronisering legger endringene dine der og henter den andres.",
+  "sharedFolderExplainer": "Begge enhetene bruker samme mappe (f.eks. i Nextcloud eller på en USB-pinne). Hver synkronisering legger endringene dine der og henter den andres.",
   "noFolderChosenYet": "Ingen mappe valgt ennå",
   "choose": "Velg…",
   "syncFolderNow": "Synkroniser mappen nå",
+  "folderCatalogHint": "Der inne bruker denne katalogen mappen «{name}», så én delt mappe kan bære alle katalogene dine.",
+  "useSameFolder": "Bruk samme mappe som de andre katalogene",
+  "folderHint": "Enhver mappe som to enheter holder like duger: en skylagring, eller Syncthing for en mappe som blir på telefonene deres. Syncthing er gratis: installer det på hver telefon, del én mappe mellom dem, og velg den mappen her på hver enhet.",
   "folderSynced": "Mappe synkronisert: {result}",
   "folderSyncFailed": "Mappesynkronisering mislyktes: {error}",
   "recordSightingHere": "Registrer en observasjon her:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Spor: {name} ({count} posisjoner)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Endret to steder samtidig. Velg hva som stemmer:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Begge endringene sier det samme: {value}. Ingenting å velge; Løs fjerner merket.",
   "mergeThisInto": "Slå sammen denne {kind} med…",
   "noOtherToMergeInto": "Ingen annen {kind} å slå sammen med.",
   "mergeIntoQuestion": "Slå sammen med {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Perser",
   "breedBengal": "Bengal",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Abessinier",
+  "breedAmericanShorthair": "Amerikansk korthår",
+  "breedBalinese": "Balineser",
+  "breedBirman": "Hellig Birma",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmeser",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Britisk langhår",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egyptisk mau",
+  "breedExoticShorthair": "Exotic",
+  "breedHimalayan": "Himalaya",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Orientalsk korthår",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Russian blue",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Scottish fold",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Sibirkatt",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somali",
+  "breedTonkinese": "Tonkineser",
+  "breedTurkishAngora": "Tyrkisk angora",
+  "breedTurkishVan": "Tyrkisk van",
   "ownValue": "Egen verdi",
   "locationDeniedForever": "Posisjonstilgang er blokkert. Tillat den i systeminnstillingene for å bruke Stray Cam.",
   "locationServiceOff": "Posisjon er slått av på denne enheten. Slå den på i innstillingene og prøv igjen.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Alle kjæledyr og steder med posisjon. Søket finner kjæledyr, personer og steder — et ukjent navn slås opp i hele verden. Lagknappen tegner 500 m-sirklene rundt oppslagsstedene til et savnet kjæledyr og rundt det gamle hjemmet. Pilene går fra nål til nål, langt trykk noterer en observasjon. Hvert stedfelt er en nål på kartet; trykk på en nål for sporet.",
   "helpCard": "Kattens utskrivbare kort: velg øverst med brikkene hva som skal stå på det, del det så som bilde eller PDF. Numre kan skrives ut som QR eller strekkode, og en posisjon blir en QR som åpner et kart, pluss en kort Plus Code.",
   "helpCardNeutral": "Kjæledyrets utskrivbare kort: velg øverst med brikkene hva som skal stå på det, del det så som bilde eller PDF. Numre kan skrives ut som QR eller strekkode, og en posisjon blir en QR som åpner et kart, pluss en kort Plus Code.",
-  "helpSync": "Slik når data andre folk: koble til direkte, bruk en mappe begge enheter ser, eller send en fil via en meldingsapp. Du bestemmer alltid hva som sendes — og mottatte .catsync-filer åpnes også her.",
+  "helpSync": "Slik når data andre folk: koble til direkte, bruk en mappe begge enheter ser, eller send en fil via en meldingsapp. Du bestemmer alltid hva som sendes — og mottatte .catsync-filer åpnes også her. Hver katalog signerer det den skriver med sin egen nøkkel; partnere ser nøkkelkoden ved siden av navnet ditt. En partners første nøkkel tas på tillit fra en fil og regnes som møtt når dere synkroniserer personlig. Oppføringer under et kjent navn uten riktig signatur avvises og listes på ankomstsiden.",
   "helpFields": "Feltene katalogen din bruker. Gi dem nytt navn, endre valgene i et valgfelt, eller lag egne. Et id-felt kan peke på en tjeneste (et register), da blir nummeret trykkbart hos katten.",
   "helpFieldsNeutral": "Feltene katalogen din bruker. Gi dem nytt navn, endre valgene i et valgfelt, eller lag egne. Et id-felt kan peke på en tjeneste (et register), da blir nummeret trykkbart hos kjæledyret.",
-  "helpTimeline": "Hver endring som er gjort, nyeste først: hvem som endret hva, når og til hvilken verdi. Enhver oppføring kan angres — det skriver en ny oppføring, ingenting slettes.",
+  "helpTimeline": "Hver endring, nyeste først: hvem endret hva, når og til hvilken verdi. Trykk på en oppføring for å rette den, hold den for å fjerne eller gjenopprette den; en skjult oppføring blir i loggen og vises på forespørsel.",
   "helpDuplicates": "Katter eller kolonier som ser ut til å finnes to ganger — like numre eller svært like navn med samsvarende detaljer. Trykk på et par for å slå sammen; det kan ikke angres, derfor spørres det først.",
   "helpDuplicatesNeutral": "Kjæledyr eller husstander som ser ut til å finnes to ganger — like numre eller svært like navn med samsvarende detaljer. Trykk på et par for å slå sammen; det kan ikke angres, derfor spørres det først.",
-  "helpMatches": "Katter som kan være samme dyr: samme nummer, eller en streifer sett innenfor søkeområdet til en savnet katt. Trykk på et par for å slå sammen, hold inne for å åpne den første katten og sammenligne.",
-  "helpMatchesNeutral": "Kjæledyr som kan være samme dyr: samme nummer, eller en streifer sett innenfor søkeområdet til et savnet kjæledyr. Trykk på et par for å slå sammen, hold inne for å åpne det første kjæledyret og sammenligne.",
+  "helpMatches": "Katter som kan være samme dyr: samme nummer, eller en streifer sett innenfor søkeområdet til en savnet katt. Trykk på et par for å slå sammen, hold inne for å åpne den første katten og sammenligne. Par der utseendet stemmer i to trekk eller flere uten motsigelse står også på listen; chipsene viser hvilke. «Ikke den samme» skjuler et par på denne telefonen til utseendet til et av dyrene endres.",
+  "helpMatchesNeutral": "Kjæledyr som kan være samme dyr: samme nummer, eller en streifer sett innenfor søkeområdet til et savnet kjæledyr. Trykk på et par for å slå sammen, hold inne for å åpne det første kjæledyret og sammenligne. Par der utseendet stemmer i to trekk eller flere uten motsigelse står også på listen; chipsene viser hvilke. «Ikke den samme» skjuler et par på denne telefonen til utseendet til et av dyrene endres.",
   "helpFlier": "Et fotografert oppslag blir en katt pluss eier. Steg for steg: kattens data, eierens kontakt, beskjæring av ansiktet til profilbildet, registernumre fra oppslaget, så en siste sjekk. Alt er forslag — rett det kameraet leste feil.",
   "helpFlierNeutral": "Et fotografert oppslag blir et kjæledyr pluss eier. Steg for steg: kjæledyrets data, eierens kontakt, beskjæring av ansiktet til profilbildet, registernumre fra oppslaget, så en siste sjekk. Alt er forslag — rett det kameraet leste feil.",
   "archiveTitle": "Arkiv",
@@ -399,11 +435,109 @@
   "rangeAll": "Alt",
   "rangeCustom": "Egendefinert…",
   "changeSince": "{delta} siden {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Som i din region",
   "unitsMetric": "Metrisk (kg, cm, ml, °C)",
   "unitsImperial": "Imperial (lb, in, fl oz, °F)",
   "starterWeight": "Vekt",
+  "starterLooks": "Utseende",
+  "looksGroupSize": "Størrelse",
+  "looksGroupColours": "Farger",
+  "looksGroupPattern": "Mønster",
+  "looksGroupFur": "Pels",
+  "looksGroupTail": "Hale",
+  "looksGroupEars": "Ører",
+  "looksGroupMarks": "Kjennetegn",
+  "looksGroupCrest": "Topp",
+  "looksGroupBeak": "Nebb",
+  "looksGroupRing": "Fotring",
+  "looksValueSmall": "Liten",
+  "looksValueMedium": "Middels",
+  "looksValueLarge": "Stor",
+  "looksValueBlack": "Svart",
+  "looksValueWhite": "Hvit",
+  "looksValueGrey": "Grå",
+  "looksValueBrown": "Brun",
+  "looksValueGinger": "Rød",
+  "looksValueCream": "Krem",
+  "looksValueGolden": "Gyllen",
+  "looksValueTan": "Lysebrun",
+  "looksValueGreen": "Grønn",
+  "looksValueBlue": "Blå",
+  "looksValueYellow": "Gul",
+  "looksValueRed": "Rød",
+  "looksValueOrange": "Oransje",
+  "looksValuePink": "Rosa",
+  "looksValueWhiteBib": "Hvit smekke",
+  "looksValueWhitePaws": "Hvite poter",
+  "looksValueWhiteTailTip": "Hvit halespiss",
+  "looksValueBlaze": "Bles",
+  "looksValueMask": "Maske",
+  "looksValueSpots": "Prikker",
+  "looksValuePatches": "Flekker",
+  "looksValueStripes": "Striper",
+  "looksValueScar": "Arr",
+  "looksValueNotchedEar": "Hakk i øret",
+  "looksValueEarTip": "Ørespiss",
+  "looksValueCollar": "Halsbånd",
+  "looksValueShort": "Kort",
+  "looksValueLong": "Lang",
+  "looksValueHairless": "Hårløs",
+  "looksValueBobtail": "Stumphale",
+  "looksValueNone": "Ingen",
+  "looksValueCurled": "Krøllet",
+  "looksValueUpright": "Oppreiste",
+  "looksValueFloppy": "Hengende",
+  "looksValueFolded": "Foldede",
+  "looksValueRounded": "Runde",
+  "looksValueSolid": "Ensfarget",
+  "looksValueTabby": "Tabby",
+  "looksValueTortoiseshell": "Skilpadde",
+  "looksValueCalico": "Calico",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Tofarget",
+  "looksValueTuxedo": "Smoking",
+  "looksValueBrindle": "Brindle",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Prikkete",
+  "looksValuePatched": "Flekkete",
+  "looksValueTricolour": "Trefarget",
+  "looksValueSable": "Sobel",
+  "looksGroupEyes": "Øyne",
+  "looksGroupFeatures": "Særtrekk",
+  "looksValueAmber": "Rav",
+  "looksValueCopper": "Kobber",
+  "looksValueOddEyed": "Ulike farger",
+  "looksValueChocolate": "Sjokolade",
+  "looksValueLilac": "Lilla",
+  "looksValueSilver": "Sølv",
+  "looksValueSmoke": "Røyk",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Krøllete",
+  "looksValueWiry": "Strihåret",
+  "looksValueKinked": "Knekket",
+  "looksValueCropped": "Kuperte",
+  "looksValueTippedEar": "Øremerket (spiss)",
+  "looksValueEarTattoo": "Øretatovering",
+  "looksValueMissingEar": "Manglende øre",
+  "looksValueMissingEye": "Manglende øye",
+  "looksValueCloudyEye": "Uklart øye",
+  "looksValueMissingFrontLeg": "Manglende forbein",
+  "looksValueMissingHindLeg": "Manglende bakbein",
+  "looksValueNoTeeth": "Ingen tenner",
+  "looksValueExtraToes": "Ekstra tær",
+  "rejectMatch": "Ikke den samme",
+  "traitsAgree": "{count, plural, =1{1 trekk stemmer} other{{count} trekk stemmer}}",
   "systemDefault": "Systemstandard",
   "iosLocalNetworkHint": "Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen.",
   "markPrivate": "Merk som privat",
@@ -432,6 +566,8 @@
   "otherOption": "Annet…",
   "celebrationsToggle": "Feir adopsjoner",
   "celebrationsSubtitle": "Konfetti og jubel når en katt flytter til sitt hjem",
+  "cheerToggle": "Jubellyd",
+  "cheerSubtitle": "En kort jubel til konfettien, en annen hver gang",
   "celebrationsSubtitleNeutral": "Konfetti og jubel når et kjæledyr flytter til sitt hjem",
   "onMapLabel": "På kartet",
   "showOnMap": "Vis på kart",
@@ -445,7 +581,19 @@
   "authorsSection": "Hvem har skrevet i katalogen",
   "hardDeleteAction": "Slett alt fra denne forfatteren",
   "hardDeleteWarning": "Fjerner alle oppføringer og bilder fra {name} på denne enheten. Andre enheter beholder sine. Kan ikke angres.",
-  "hardDeleteWarningDevice": "Fjerner hver oppføring og hvert bilde skrevet av {name} på enheten {device} fra denne katalogen. Andre enheter beholder sine. Kan ikke angres.",
+  "yourKey": "Din nøkkel",
+  "yourTitle": "Din tittel",
+  "titleNone": "Ingen tittel",
+  "keyLine": "nøkkel {code}",
+  "keyVerified": "møtt personlig",
+  "keyFromFile": "fra en fil, ennå ikke møtt",
+  "keyUnsigned": "ingen nøkkel ennå, oppføringer usignert",
+  "summaryRefused": "Avvist",
+  "refusedEntries": "{count, plural, =1{1 oppføring} other{{count} oppføringer}} avvist: ikke signert med nøkkelen som er kjent for {name}",
+  "newKeyCallsItself": "En ny nøkkel {code} kaller seg {name}. Sjekk med personen før du stoler på den.",
+  "keyChangedRefused": "{name} tilbød en annen nøkkel enn den som er kjent her. Den kjente blir; den nye ble ikke tatt.",
+  "metaNewKey": "Ny nøkkel: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Fjerner hver oppføring og hvert bilde skrevet av {name} under nøkkel {key} fra denne katalogen. Andre enheter beholder sine. Kan ikke angres.",
   "typeToConfirm": "Skriv {name} for å bekrefte",
   "alsoBan": "Utesteng også — aldri motta data igjen",
   "bansSection": "Utestengelser",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Ingenting gjenopprettet.} one{1 katalog gjenopprettet.} other{{count} kataloger gjenopprettet.}}",
   "helpCatalogs": "En katalog er en egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på en katalog for å bytte til den. Tannhjulet ved en katalog åpner innstillingene dens: navn, katter eller dyr, felt, forfattere og blokkeringer, arkiv, gå tilbake, slett. Navnet ditt, språket ditt og tipsene du alt har sett deles av alle.",
   "helpCatalogsNeutral": "En katalog er en egen verden: egne dyr, husholdninger, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på en katalog for å bytte til den. Tannhjulet ved en katalog åpner innstillingene dens: navn, katter eller dyr, felt, forfattere og blokkeringer, arkiv, gå tilbake, slett. Navnet ditt, språket ditt og tipsene du alt har sett deles av alle.",
-  "helpCatalogSettings": "Alt som bare hører til denne katalogen: navnet, om den rommer katter eller dyr, feltene, forfattere og blokkeringer, arkivet og å gå tilbake i tid. Endringer her berører bare denne katalogen — også en du ikke er i. Sletting skriver først katalogen til en fil.",
+  "helpCatalogSettings": "Alt som bare hører til denne katalogen: navnet, om den rommer katter eller dyr, feltene, forfattere og blokkeringer, arkivet og å gå tilbake i tid. Endringer her berører bare denne katalogen — også en du ikke er i. Sletting skriver først katalogen til en fil. Nøkkelen din er koden partnere ser ved siden av navnet ditt; den hører til denne katalogen.",
   "spotHomeCatalog": "Dette er katalogen du er i. Trykk på navnet for å bytte eller lage en ny.",
   "deleteCatalog": "Slett katalog",
   "catalogSettings": "Kataloginnstillinger",
   "deleteCatalogBody": "Alt i {name} forsvinner: kattene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake.",
   "deleteCatalogBodyNeutral": "Alt i {name} forsvinner: kjæledyrene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake. Skriv navnet for å bekrefte.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Ingen avtaler planlagt. Planlegg nye her med plusset eller på siden til et kjæledyr eller en husstand.",
   "dueToday": "i dag",
   "dueInDays": "{count, plural, one{om 1 dag} other{om {count} dager}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 dag forsinket} other{{count} dager forsinket}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Utført",
   "repeatTitle": "Igjen om…",
   "noRepeatLabel": "Ingen gjentakelse",
@@ -720,15 +886,33 @@
   "unitMonths": "måneder",
   "unitYears": "år",
   "ageYears": "{years} år",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mnd",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Endre dato",
   "removeReminderLabel": "Fjern påminnelse",
   "exportIcs": "Eksporter kalenderfil",
   "resyncCalendar": "Synkroniser kalender på nytt",
   "icsSavedTo": "Kalenderfil lagret under {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Speil til enhetens kalender",
   "calendarMirrorSubtitle": "Avtalene vises som heldagsavtaler i kalenderen. cat(a)log oppdaterer dem der ved hver start og etter hver endring. Påminnelser om avtalene styrer du i kalenderen.",
   "syncPeerOlder": "Den andre enheten kjører et eldre cat(a)log uten påminnelser. Oppdater cat(a)log der, og synkroniser igjen.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Påminnelser: listen over planlagte avtaler — veterinær, medisin, kontroller.",
   "spotAgendaAdd": "Planlegg en ny avtale.",
   "spotAgendaCalendar": "Slå på speiling av cat(a)log-avtalene til en kalender du velger her.",
-  "helpAgenda": "Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere katter er én avtale: kryss av kattene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke katter som ble behandlet — fjern krysset for de andre, de forblir planlagt.",
-  "helpAgendaNeutral": "Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner kjæledyret eller husstanden. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere kjæledyr er én avtale: kryss av kjæledyrene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke kjæledyr som ble behandlet — fjern krysset for de andre, de forblir planlagt.",
+  "spotAgendaToday": "Dagens gjøremål: hak av når det er gjort. Prikkene viser de siste sju dagene.",
+  "helpAgenda": "Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere katter er én avtale: kryss av kattene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke katter som ble behandlet — fjern krysset for de andre, de forblir planlagt. Gjøremål er de gjentakende oppgavene som fôring, kattedo eller medisin. De står under I dag med et hakemerke, en rekke og de siste sju dagene som prikker; Snart viser neste uke uten de daglige. Et gjøremål kan minne deg med et varsel til valgt tid. Pokalen åpner prestasjonene.",
+  "helpAgendaNeutral": "Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner kjæledyret eller husstanden. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere kjæledyr er én avtale: kryss av kjæledyrene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke kjæledyr som ble behandlet — fjern krysset for de andre, de forblir planlagt. Gjøremål er de gjentakende oppgavene som fôring, kattedo eller medisin. De står under I dag med et hakemerke, en rekke og de siste sju dagene som prikker; Snart viser neste uke uten de daglige. Et gjøremål kan minne deg med et varsel til valgt tid. Pokalen åpner prestasjonene.",
   "calendarRowOff": "Kalender: av",
   "calendarRowOn": "Kalender: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Planlegg en avtale for denne katten. Den vises i påminnelsene og bekreftes der.",
   "spotAddReminderCatNeutral": "Planlegg en avtale for dette kjæledyret. Den vises i påminnelsene og bekreftes der.",
   "spotAddReminderClowder": "Planlegg en avtale for denne clowderen. Den vises i påminnelsene og bekreftes der.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Avtale eller påminnelse?",
   "planChooserAppointment": "Avtale — et besøk på en dato og et tidspunkt, med notater",
   "planChooserReminder": "Påminnelse — en verdi som forfaller en dag",
+  "planChooserChore": "Gjøremål — noe som kommer igjen: mat, dråper, kattedo",
+  "newChore": "Nytt gjøremål",
+  "choreEdit": "Rediger gjøremål",
+  "choreTitleLabel": "Hva",
+  "choreRepeatDaily": "Daglig",
+  "choreRepeatEvery": "Hver…",
+  "choreRepeatWeekdays": "Ukedager",
+  "choreEveryDays": "{n, plural, one{hver dag} other{hver {n}. dag}}",
+  "choreEveryWeeks": "{n, plural, one{hver uke} other{hver {n}. uke}}",
+  "choreEveryMonths": "{n, plural, one{hver måned} other{hver {n}. måned}}",
+  "choreEveryYears": "{n, plural, one{hvert år} other{hvert {n}. år}}",
+  "choreNoTime": "Når som helst på dagen",
+  "chorePause": "Sett på pause",
+  "chorePaused": "Satt på pause",
+  "choreResume": "Fortsett",
+  "choreEnd": "Avslutt gjøremål",
+  "choreHistory": "Historikk",
+  "choreDoneAt": "gjort {when} · {who}",
+  "choreDoneEarly": "tidlig",
+  "choreDoneLate": "sent",
+  "choreMissed": "Glemt",
+  "choreStillOpen": "Fortsatt åpen",
+  "choreEndConfirm": "Gjøremålet forlater listen. Det som ble haket av blir i historikken.",
+  "todaySection": "I dag",
+  "upcomingSection": "Snart",
+  "allDoneToday": "I dag: alt gjort",
+  "streakDays": "{n, plural, one{1 dag på rad} other{{n} dager på rad}}",
+  "choreDue": "Forfaller {date}",
+  "remindMe": "Minn meg på",
+  "remindNext": "Neste påminnelse: {when}",
+  "remindNone": "Ingen påminnelse planlagt: ingenting framover.",
+  "remindPending": "{count, plural, =0{Ingenting planlagt på denne telefonen ennå} =1{1 påminnelse planlagt på denne telefonen} other{{count} påminnelser planlagt på denne telefonen}}",
+  "remindTest": "Send en testpåminnelse nå",
+  "remindLateHint": "Påminnelser kan komme noen minutter for sent; telefonen velger det nøyaktige tidspunktet.",
+  "remindPermissionDenied": "Ingen tillatelse til varsler, påminnelsen forblir av. Tillat dem i telefonens appinnstillinger og prøv igjen.",
+  "batteryHint": "Uteblir påminnelsene, tillat cat(a)log å kjøre i bakgrunnen i telefonens batteriinnstillinger.",
+  "batterySettings": "Batteriinnstillinger",
+  "achievementsTitle": "Prestasjoner",
+  "rankServant": "Tjener",
+  "rankButler": "Butler",
+  "rankSteward": "Forvalter",
+  "rankChancellor": "Kansler",
+  "rankMinister": "Minister",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Calico",
+  "coatCheetah": "Gepard",
+  "coatTiger": "Tiger",
+  "coatTabby": "Tabby",
+  "coatPaws": "Poter",
+  "coatRosettes": "Rosetter",
+  "coatZebra": "Sebra",
+  "coatSetting": "Pels",
+  "coatRandom": "En annen ved hver start",
+  "coatSnowLeopard": "Snøleopard",
+  "coatSiamese": "Siamesiske tegninger",
+  "coatLynx": "Gaupe",
+  "coatTortoiseshell": "Skilpadde",
+  "coatUnlocked": "Ny pels: {coat}",
+  "coatUnlockedHow": "En hel måned med gjøremål, alle gjort.",
+  "achievementsEmpty": "Ingenting opptjent ennå. Gjøremålene kjenner veien.",
+  "achievementMonth": "En hel måned",
+  "achievementYear": "Et helt år",
+  "achievementDecade": "Et helt tiår",
+  "achievementCentury": "Et helt århundre",
+  "achievementCenturyHint": "Vi blir begge veldig stolte.",
+  "achievementMaster": "{title}-mester",
+  "achievementReached": "{times, plural, one{Nådd én gang} other{Nådd {times} ganger}}, første gang {date}",
+  "achievementNext": "Neste ved {n}",
+  "achievementLocked": "Ikke ennå",
+  "achievementUnlocked": "Prestasjon: {name}",
   "appointmentTitleLabel": "Hva",
   "notesLabel": "Notater",
   "timeLabel": "Tidspunkt",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Eksisterende husstand",
   "createNewInstead": "Ingen — opprett ny",
   "overwritesValue": "Overskriver nåværende verdi \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Avbryte registreringen?",
   "abortScanBody": "Ingenting blir lagret.",
   "abortScan": "Avbryt",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Fjern krysset for katter som ikke ble behandlet; de forblir planlagt.",
   "finishUntickHintNeutral": "Fjern krysset for kjæledyr som ikke ble behandlet; de forblir planlagt.",
   "deleteAppointmentGroup": "Slett avtalen for alle {count} katter",
-  "deleteAppointmentGroupNeutral": "Slett avtalen for alle {count} kjæledyr"
+  "deleteAppointmentGroupNeutral": "Slett avtalen for alle {count} kjæledyr",
+  "correctThisValue": "Rett denne verdien",
+  "removeThisValue": "Fjern denne verdien",
+  "restoreThisValue": "Gjenopprett denne verdien",
+  "showRemovedValues": "Vis fjernede verdier",
+  "hideRemovedValues": "Skjul fjernede verdier",
+  "entryRemovedBy": "Fjernet · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Erstattet av {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Rettelse",
+  "restorePickFolder": "Velg sikkerhetskopimappe…",
+  "restoreAndroidHint": "Sikkerhetskopiene fra forrige installasjon ligger i Documents/catlog (Downloads/catlog i eldre versjoner). Velg den mappen én gang; kopiene vises her.",
+  "backupsTitle": "Sikkerhetskopier",
+  "backupsSubtitle": "Hvor katalogene dine er trygge",
+  "backupsAndroidSystem": "Google sikkerhetskopierer appens kataloger med kontoen din, uten bilder. De kommer tilbake av seg selv etter en reinstallasjon eller på en ny telefon.",
+  "backupsAndroidFiles": "En full kopi av hver katalog, med bilder, skrives til Documents/catlog hver gang du forlater appen etter endringer.",
+  "backupsIosSystem": "iCloud-sikkerhetskopien omfatter denne appen med katalogene og bildene, som enhver annen app på denne iPhonen.",
+  "backupsIosFiles": "En full kopi av hver katalog ligger i Filer-appen under cat(a)log. Derfra kan den gå til iCloud Drive, via AirDrop eller til en annen telefon.",
+  "backupsDesktopFiles": "En full kopi av hver katalog, med bilder, skrives til Nedlastinger-mappen din hver gang du forlater appen etter endringer.",
+  "backupsLast": "Siste kopi: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Ingen kopi skrevet ennå.",
+  "backupsNow": "Sikkerhetskopier nå",
+  "backupsDone": "Kopi skrevet.",
+  "backupsRestoredNote": "Gjenopprettet fra Google-sikkerhetskopien {date}. Kjører cat(a)log fortsatt på den gamle telefonen, synkroniser én gang derfra og fjern så appen der.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "En mappe du velger kan også få hver kopi: en som en skyapp holder synkronisert på denne telefonen (Nextcloud, Syncthing og andre), et minnekort, enhver mappe velgeren tilbyr. Kopiene havner i catlog-backups der inne.",
+  "backupsFolderPick": "Kopier også til en mappe…",
+  "backupsFolderIs": "Kopieres også til {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Slutt å kopiere dit",
+  "remindFailed": "Varsler virker ikke på denne telefonen: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopier tekst",
+  "colWhen": "Når",
+  "colValue": "Verdi",
+  "colWho": "Hvem"
 }

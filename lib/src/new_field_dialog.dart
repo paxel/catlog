@@ -82,7 +82,10 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
             initialValue: _type,
             decoration: InputDecoration(labelText: context.t.fieldType),
             items: [
+              // Tags are the built-in Looks field; its groups follow the
+              // species and cannot be typed in here.
               for (final t in FieldType.values)
+                if (t != FieldType.tags)
                 DropdownMenuItem(
                     value: t,
                     child: Text(t == FieldType.unitValue

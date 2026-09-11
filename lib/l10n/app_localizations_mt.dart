@@ -174,6 +174,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get shareAsImage => 'Aqsam bħala immaġni';
 
   @override
+  String get sortOldestFirst => 'L-eqdem l-ewwel';
+
+  @override
+  String get sortNewestFirst => 'L-aktar ġdid l-ewwel';
+
+  @override
+  String get shareAsText => 'Aqsam bħala test';
+
+  @override
   String get shareAsPdf => 'Aqsam bħala PDF';
 
   @override
@@ -558,13 +567,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Reġġa\' lura din il-bidla';
-
-  @override
-  String get revertSubtitle =>
-      'Jirrestawra l-valur ta\' qabel bħala entrata ġdida — l-istorja żżomm it-tnejn.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tbattal';
   }
@@ -735,7 +737,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Iż-żewġ apparati jużaw l-istess folder (eż. f\'Dropbox jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.';
+      'Iż-żewġ apparati jużaw l-istess folder (eż. f\'Nextcloud jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.';
 
   @override
   String get noFolderChosenYet => 'Għad m\'hemmx folder magħżul';
@@ -745,6 +747,18 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Issinkronizza l-folder issa';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Ġo fih dan il-katalgu juża l-folder „$name“, għalhekk folder wieħed kondiviż jista’ jġorr il-katalgi kollha tiegħek.';
+  }
+
+  @override
+  String get useSameFolder => 'Uża l-istess folder bħall-katalgi l-oħra';
+
+  @override
+  String get folderHint =>
+      'Kull folder li żewġ apparati jżommu l-istess jgħodd: drive fil-cloud, jew Syncthing għal folder li jibqa’ fuq it-telefowns tagħkom. Syncthing hu b’xejn: installah fuq kull telefon, aqsam folder wieħed bejniethom u agħżel dak il-folder hawn fuq kull apparat.';
 
   @override
   String folderSynced(String result) {
@@ -782,6 +796,16 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get conflictBody =>
       'Inbidel f\'żewġ postijiet fl-istess ħin. Agħżel x\'inhu veru:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Iż-żewġ bidliet jgħidu l-istess: $value. Xejn x’tagħżel; Solvi tneħħi l-marka.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -913,6 +937,96 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sphynx';
+
+  @override
+  String get breedAbyssinian => 'Abissinjan';
+
+  @override
+  String get breedAmericanShorthair => 'American Shorthair';
+
+  @override
+  String get breedBalinese => 'Baliniż';
+
+  @override
+  String get breedBirman => 'Birman';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmiż';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'British Longhair';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish Rex';
+
+  @override
+  String get breedDevonRex => 'Devon Rex';
+
+  @override
+  String get breedEgyptianMau => 'Mau Eġizzjan';
+
+  @override
+  String get breedExoticShorthair => 'Exotic Shorthair';
+
+  @override
+  String get breedHimalayan => 'Himalajan';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oriental Shorthair';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Blu Russu';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Scottish Fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk Rex';
+
+  @override
+  String get breedSiberian => 'Siberjan';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somali';
+
+  @override
+  String get breedTonkinese => 'Tonkiniż';
+
+  @override
+  String get breedTurkishAngora => 'Angora Tork';
+
+  @override
+  String get breedTurkishVan => 'Van Tork';
 
   @override
   String get starterColor => 'Kulur';
@@ -1091,7 +1205,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b\'messenger. Dejjem int tiddeċiedi x\'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll.';
+      'Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b\'messenger. Dejjem int tiddeċiedi x\'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll. Kull katalgu jiffirma dak li jikteb biċ-ċavetta tiegħu; is-sħab jaraw il-kodiċi taċ-ċavetta ħdejn ismek. L-ewwel ċavetta ta’ sieħeb tittieħed b’fiduċja minn fajl u tgħodd bħala vverifikata malli tissinkronizzaw personalment. Entrati taħt isem magħruf mingħajr il-firma t-tajba jiġu rrifjutati u elenkati fil-paġna tal-wasla.';
 
   @override
   String get helpFields =>
@@ -1103,7 +1217,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kull bidla li qatt saret, l-aktar reċenti l-ewwel: min biddel xiex, meta u għal liema valur. Kull entrata tista\' titreġġa\' lura — dan jikteb entrata ġdida, xejn ma jitħassar.';
+      'Kull bidla, l-aktar riċenti l-ewwel: min, meta u għal liema valur. Mess entrata biex tikkoreġiha, żommha biex tneħħiha jew tirrestawraha; entrata moħbija tibqa\' fir-reġistru u tidher fuq talba.';
 
   @override
   String get helpDuplicates =>
@@ -1115,11 +1229,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel.';
+      'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel. Jiġu elenkati wkoll pari li d-dehra tagħhom taqbel f’żewġ karatteristiċi jew aktar mingħajr kontradizzjoni; iċ-ċippi juru liema. „Mhux l-istess“ jaħbi par fuq dan it-telefon sakemm tinbidel id-dehra ta’ wieħed mill-annimali.';
 
   @override
   String get helpMatchesNeutral =>
-      'Annimali domestiċi li jistgħu jkunu l-istess annimal: numru identiku, jew annimal tat-triq li deher fiż-żona ta\' tfittxija ta\' annimal mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel annimal biex tqabbel.';
+      'Annimali domestiċi li jistgħu jkunu l-istess annimal: numru identiku, jew annimal tat-triq li deher fiż-żona ta\' tfittxija ta\' annimal mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel annimal biex tqabbel. Jiġu elenkati wkoll pari li d-dehra tagħhom taqbel f’żewġ karatteristiċi jew aktar mingħajr kontradizzjoni; iċ-ċippi juru liema. „Mhux l-istess“ jaħbi par fuq dan it-telefon sakemm tinbidel id-dehra ta’ wieħed mill-annimali.';
 
   @override
   String get helpFlier =>
@@ -1411,6 +1525,283 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterWeight => 'Piż';
 
   @override
+  String get starterLooks => 'Dehra';
+
+  @override
+  String get looksGroupSize => 'Daqs';
+
+  @override
+  String get looksGroupColours => 'Kuluri';
+
+  @override
+  String get looksGroupPattern => 'Disinn';
+
+  @override
+  String get looksGroupFur => 'Pil';
+
+  @override
+  String get looksGroupTail => 'Denb';
+
+  @override
+  String get looksGroupEars => 'Widnejn';
+
+  @override
+  String get looksGroupMarks => 'Marki';
+
+  @override
+  String get looksGroupCrest => 'Kresta';
+
+  @override
+  String get looksGroupBeak => 'Munqar';
+
+  @override
+  String get looksGroupRing => 'Ċirku';
+
+  @override
+  String get looksValueSmall => 'Żgħir';
+
+  @override
+  String get looksValueMedium => 'Medju';
+
+  @override
+  String get looksValueLarge => 'Kbir';
+
+  @override
+  String get looksValueBlack => 'Iswed';
+
+  @override
+  String get looksValueWhite => 'Abjad';
+
+  @override
+  String get looksValueGrey => 'Griż';
+
+  @override
+  String get looksValueBrown => 'Kannella';
+
+  @override
+  String get looksValueGinger => 'Aħmar';
+
+  @override
+  String get looksValueCream => 'Krema';
+
+  @override
+  String get looksValueGolden => 'Dehbi';
+
+  @override
+  String get looksValueTan => 'Kannella ċar';
+
+  @override
+  String get looksValueGreen => 'Aħdar';
+
+  @override
+  String get looksValueBlue => 'Blu';
+
+  @override
+  String get looksValueYellow => 'Isfar';
+
+  @override
+  String get looksValueRed => 'Aħmar';
+
+  @override
+  String get looksValueOrange => 'Oranġjo';
+
+  @override
+  String get looksValuePink => 'Roża';
+
+  @override
+  String get looksValueWhiteBib => 'Sider abjad';
+
+  @override
+  String get looksValueWhitePaws => 'Saqajn bojod';
+
+  @override
+  String get looksValueWhiteTailTip => 'Tarf tad-denb abjad';
+
+  @override
+  String get looksValueBlaze => 'Stilla';
+
+  @override
+  String get looksValueMask => 'Maskra';
+
+  @override
+  String get looksValueSpots => 'Tikek';
+
+  @override
+  String get looksValuePatches => 'Rqajja’';
+
+  @override
+  String get looksValueStripes => 'Strixxi';
+
+  @override
+  String get looksValueScar => 'Ċikatriċi';
+
+  @override
+  String get looksValueNotchedEar => 'Widna maqtugħa';
+
+  @override
+  String get looksValueEarTip => 'Tarf tal-widna';
+
+  @override
+  String get looksValueCollar => 'Kullar';
+
+  @override
+  String get looksValueShort => 'Qasir';
+
+  @override
+  String get looksValueLong => 'Twil';
+
+  @override
+  String get looksValueHairless => 'Bla pil';
+
+  @override
+  String get looksValueBobtail => 'Denb qasir';
+
+  @override
+  String get looksValueNone => 'Xejn';
+
+  @override
+  String get looksValueCurled => 'Mibrum';
+
+  @override
+  String get looksValueUpright => 'Wieqfa';
+
+  @override
+  String get looksValueFloppy => 'Imdendla';
+
+  @override
+  String get looksValueFolded => 'Mitwija';
+
+  @override
+  String get looksValueRounded => 'Tondi';
+
+  @override
+  String get looksValueSolid => 'Kulur wieħed';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Fekruna';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Żewġ kuluri';
+
+  @override
+  String get looksValueTuxedo => 'Tuxedo';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Bit-tikek';
+
+  @override
+  String get looksValuePatched => 'Bir-rqajja’';
+
+  @override
+  String get looksValueTricolour => 'Tliet kuluri';
+
+  @override
+  String get looksValueSable => 'Sable';
+
+  @override
+  String get looksGroupEyes => 'Għajnejn';
+
+  @override
+  String get looksGroupFeatures => 'Karatteristiċi';
+
+  @override
+  String get looksValueAmber => 'Ambra';
+
+  @override
+  String get looksValueCopper => 'Ram';
+
+  @override
+  String get looksValueOddEyed => 'Kuluri differenti';
+
+  @override
+  String get looksValueChocolate => 'Ċikkulata';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Fidda';
+
+  @override
+  String get looksValueSmoke => 'Duħħan';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Mgħawweġ';
+
+  @override
+  String get looksValueWiry => 'Aħrax';
+
+  @override
+  String get looksValueKinked => 'Milwija';
+
+  @override
+  String get looksValueCropped => 'Maqtugħin';
+
+  @override
+  String get looksValueTippedEar => 'Widna maqtugħa';
+
+  @override
+  String get looksValueEarTattoo => 'Tatwaġġ fil-widna';
+
+  @override
+  String get looksValueMissingEar => 'Nieqsa widna';
+
+  @override
+  String get looksValueMissingEye => 'Nieqsa għajn';
+
+  @override
+  String get looksValueCloudyEye => 'Għajn imċajpra';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Nieqsa sieq ta’ quddiem';
+
+  @override
+  String get looksValueMissingHindLeg => 'Nieqsa sieq ta’ wara';
+
+  @override
+  String get looksValueNoTeeth => 'Bla snien';
+
+  @override
+  String get looksValueExtraToes => 'Swaba’ żejda';
+
+  @override
+  String get rejectMatch => 'Mhux l-istess';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count karatteristiċi jaqblu',
+      many: '$count karatteristiċi jaqblu',
+      few: '$count karatteristiċi jaqblu',
+      one: '$count karatteristika taqbel',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Default tas-sistema';
 
   @override
@@ -1490,6 +1881,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get celebrationsSubtitle => 'Konfetti u ferħ meta qattus imur f\'daru';
 
   @override
+  String get cheerToggle => 'Ħoss ta’ ċapċip';
+
+  @override
+  String get cheerSubtitle =>
+      'Ċapċipa qasira mal-konfetti, kull darba differenti';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti u ferħ meta annimal domestiku jmur f\'daru';
 
@@ -1532,8 +1930,62 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Ineħħi minn dan il-katalgu kull entrata u ritratt li $name kiteb fuq l-apparat $device. L-apparati l-oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.';
+  String get yourKey => 'Iċ-ċavetta tiegħek';
+
+  @override
+  String get yourTitle => 'It-titlu tiegħek';
+
+  @override
+  String get titleNone => 'Ebda titlu';
+
+  @override
+  String keyLine(Object code) {
+    return 'ċavetta $code';
+  }
+
+  @override
+  String get keyVerified => 'ivverifikata personalment';
+
+  @override
+  String get keyFromFile => 'minn fajl, għadha mhux ivverifikata';
+
+  @override
+  String get keyUnsigned => 'għad m’hemmx ċavetta, entrati mhux iffirmati';
+
+  @override
+  String get summaryRefused => 'Irrifjutat';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entrati rrifjutati',
+      many: '$count entrati rrifjutati',
+      few: '$count entrati rrifjutati',
+      one: '$count entrata rrifjutata',
+    );
+    return '$_temp0: mhux iffirmati biċ-ċavetta magħrufa għal $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Ċavetta ġdida $code issejjaħ lilha nnifisha $name. Iċċekkja mal-persuna qabel ma tafdaha.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name offra ċavetta differenti minn dik magħrufa hawn. Dik magħrufa tibqa’; il-ġdida ma ttiħditx.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Ċavetta ġdida: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Ineħħi minn dan il-katalgu kull entrata u ritratt miktubin minn $name taħt iċ-ċavetta $key. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.';
   }
 
   @override
@@ -2034,7 +2486,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel.';
+      'Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel. Iċ-ċavetta tiegħek hi l-kodiċi li s-sħab jaraw ħdejn ismek; tibqa’ ma’ dan il-katalgu.';
 
   @override
   String get spotHomeCatalog =>
@@ -2343,12 +2795,16 @@ class AppLocalizationsMt extends AppLocalizations {
       'Ixgħel hawn ir-riflessjoni tal-appuntamenti ta\' cat(a)log f\'kalendarju tal-għażla tiegħek.';
 
   @override
+  String get spotAgendaToday =>
+      'Ix-xogħlijiet tal-lum: immarka meta jsir. It-tikek juru l-aħħar sebat ijiem.';
+
+  @override
   String get helpAgenda =>
-      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi qtates hija appuntament wieħed: immarka l-qtates, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema qtates ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati.';
+      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi qtates hija appuntament wieħed: immarka l-qtates, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema qtates ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.';
 
   @override
   String get helpAgendaNeutral =>
-      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ l-annimal domestiku jew id-dar. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi annimali domestiċi hija appuntament wieħed: immarka l-annimali, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema annimali ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati.';
+      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ l-annimal domestiku jew id-dar. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi annimali domestiċi hija appuntament wieħed: immarka l-annimali, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema annimali ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.';
 
   @override
   String get calendarRowOff => 'Kalendarju: mitfi';
@@ -2392,6 +2848,296 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get planChooserReminder => 'Tfakkira — valur li jsir dovut f\'ġurnata';
+
+  @override
+  String get planChooserChore =>
+      'Xogħol — xi ħaġa li terġa’ tiġi: ikel, qtar, ramel';
+
+  @override
+  String get newChore => 'Xogħol ġdid';
+
+  @override
+  String get choreEdit => 'Editja x-xogħol';
+
+  @override
+  String get choreTitleLabel => 'X’hiex';
+
+  @override
+  String get choreRepeatDaily => 'Kuljum';
+
+  @override
+  String get choreRepeatEvery => 'Kull…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ġranet';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n ijiem',
+      one: 'kuljum',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n ġimgħat',
+      one: 'kull ġimgħa',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n xhur',
+      one: 'kull xahar',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n snin',
+      one: 'kull sena',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Fi kwalunkwe ħin tal-ġurnata';
+
+  @override
+  String get chorePause => 'Waqqaf';
+
+  @override
+  String get chorePaused => 'Imwaqqaf';
+
+  @override
+  String get choreResume => 'Kompli';
+
+  @override
+  String get choreEnd => 'Temm ix-xogħol';
+
+  @override
+  String get choreHistory => 'Storja';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'magħmul $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'kmieni';
+
+  @override
+  String get choreDoneLate => 'tard';
+
+  @override
+  String get choreMissed => 'Maqbuż';
+
+  @override
+  String get choreStillOpen => 'Għadu miftuħ';
+
+  @override
+  String get choreEndConfirm =>
+      'Ix-xogħol jitlaq mil-lista. Dak li tmarka jibqa’ fl-istorja.';
+
+  @override
+  String get todaySection => 'Illum';
+
+  @override
+  String get upcomingSection => 'Dalwaqt';
+
+  @override
+  String get allDoneToday => 'Illum: kollox lest';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ijiem wara xulxin',
+      one: 'ġurnata waħda wara l-oħra',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Sad-data $date';
+  }
+
+  @override
+  String get remindMe => 'Fakkarni';
+
+  @override
+  String remindNext(Object when) {
+    return 'It-tfakkira li jmiss: $when';
+  }
+
+  @override
+  String get remindNone => 'Ebda tfakkira ppjanata: xejn ġej.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tfakkiriet skedati fuq dan it-telefon',
+      many: '$count tfakkiriet skedati fuq dan it-telefon',
+      few: '$count tfakkiriet skedati fuq dan it-telefon',
+      one: 'tfakkira waħda skedata fuq dan it-telefon',
+      zero: 'Xejn għadu skedat fuq dan it-telefon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Ibgħat tfakkira ta’ prova issa';
+
+  @override
+  String get remindLateHint =>
+      'It-tfakkiriet jistgħu jaslu xi minuti tard; it-telefon jagħżel il-mument eżatt.';
+
+  @override
+  String get remindPermissionDenied =>
+      'M’hemmx permess għan-notifiki, għalhekk it-tfakkira tibqa’ mitfija. Ippermettihom fis-settings tal-app tat-telefon u erġa’ pprova.';
+
+  @override
+  String get batteryHint =>
+      'Jekk it-tfakkiriet ma jaslux, ippermetti lil cat(a)log jaħdem fl-isfond fis-settings tal-batterija tat-telefon.';
+
+  @override
+  String get batterySettings => 'Settings tal-batterija';
+
+  @override
+  String get achievementsTitle => 'Kisbiet';
+
+  @override
+  String get rankServant => 'Qaddej';
+
+  @override
+  String get rankButler => 'Butler';
+
+  @override
+  String get rankSteward => 'Amministratur';
+
+  @override
+  String get rankChancellor => 'Kanċillier';
+
+  @override
+  String get rankMinister => 'Ministru';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatCheetah => 'Ċita';
+
+  @override
+  String get coatTiger => 'Tigra';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Saqajn';
+
+  @override
+  String get coatRosettes => 'Rużetti';
+
+  @override
+  String get coatZebra => 'Żebra';
+
+  @override
+  String get coatSetting => 'Pil';
+
+  @override
+  String get coatRandom => 'Wieħed differenti kull darba';
+
+  @override
+  String get coatSnowLeopard => 'Leopard tas-silġ';
+
+  @override
+  String get coatSiamese => 'Punti Siamiżi';
+
+  @override
+  String get coatLynx => 'Linċi';
+
+  @override
+  String get coatTortoiseshell => 'Fekruna';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Pil ġdid: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Xahar sħiħ ta’ xogħlijiet, kollha magħmula.';
+
+  @override
+  String get achievementsEmpty => 'Xejn s’issa. Ix-xogħlijiet jafu t-triq.';
+
+  @override
+  String get achievementMonth => 'Xahar sħiħ';
+
+  @override
+  String get achievementYear => 'Sena sħiħa';
+
+  @override
+  String get achievementDecade => 'Għaxar snin sħaħ';
+
+  @override
+  String get achievementCentury => 'Seklu sħiħ';
+
+  @override
+  String get achievementCenturyHint => 'It-tnejn se nkunu kburin ħafna.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Mastru ta’ $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Milħuq $times darbiet',
+      one: 'Milħuq darba',
+    );
+    return '$_temp0, l-ewwel darba $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Li jmiss f’$n';
+  }
+
+  @override
+  String get achievementLocked => 'Għadu mhux';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Kisba: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'X\'inhu';
@@ -2554,4 +3300,116 @@ class AppLocalizationsMt extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Ħassar l-appuntament għall-$count annimali domestiċi kollha';
   }
+
+  @override
+  String get correctThisValue => 'Ikkoreġi dan il-valur';
+
+  @override
+  String get removeThisValue => 'Neħħi dan il-valur';
+
+  @override
+  String get restoreThisValue => 'Irrestawra dan il-valur';
+
+  @override
+  String get showRemovedValues => 'Uri l-valuri mneħħija';
+
+  @override
+  String get hideRemovedValues => 'Aħbi l-valuri mneħħija';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Imneħħi · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Sostitwit b\'$value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Korrezzjoni';
+
+  @override
+  String get restorePickFolder => 'Agħżel il-folder tal-backups…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Il-backups tal-installazzjoni ta\' qabel qegħdin f\'Documents/catlog (Downloads/catlog f\'verżjonijiet eqdem). Agħżel dak il-folder darba; il-backups tiegħu jidhru hawn.';
+
+  @override
+  String get backupsTitle => 'Backups';
+
+  @override
+  String get backupsSubtitle => 'Fejn jinżammu fis-sod il-katalogi tiegħek';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google jagħmel backup tal-katalogi ta\' din l-app mal-kont tiegħek, mingħajr ritratti. Jerġgħu lura waħedhom wara installazzjoni mill-ġdid jew fuq telefon ġdid.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Kopja sħiħa ta\' kull katalgu, bir-ritratti, tinkiteb f\'Documents/catlog kull darba li toħroġ mill-app wara bidliet.';
+
+  @override
+  String get backupsIosSystem =>
+      'Il-backup tal-iCloud jinkludi din l-app bil-katalogi u r-ritratti tagħha, bħal kull app oħra fuq dan l-iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Kopja sħiħa ta\' kull katalgu tinsab fl-app Files taħt cat(a)log. Minn hemm tista\' tmur fuq iCloud Drive, b\'AirDrop jew fuq telefon ieħor.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Kopja sħiħa ta\' kull katalgu, bir-ritratti, tinkiteb fil-folder Downloads tiegħek kull darba li toħroġ mill-app wara bidliet.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'L-aħħar kopja: $date';
+  }
+
+  @override
+  String get backupsNever => 'Għad ma nkitbet l-ebda kopja.';
+
+  @override
+  String get backupsNow => 'Agħmel backup issa';
+
+  @override
+  String get backupsDone => 'Kopja miktuba.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Irrestawrat mill-backup ta\' Google fi $date. Jekk it-telefon il-qadim għadu juża cat(a)log, issinkronizza darba minnu, imbagħad neħħi l-app hemm.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Folder li tagħżel int jista\' jirċievi kull kopja wkoll: wieħed li app tal-cloud iżżomm sinkronizzat fuq dan it-telefon (Nextcloud, Syncthing u oħrajn), memory card, kull folder li joffri s-selettur. Il-kopji jispiċċaw f\'catlog-backups ġo fih.';
+
+  @override
+  String get backupsFolderPick => 'Ikkopja wkoll f\'folder…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Ikkopjat ukoll f\'$name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Ieqaf tikkopja hemm';
+
+  @override
+  String remindFailed(Object error) {
+    return 'In-notifiki mhux qed jaħdmu fuq dan it-telefon: $error';
+  }
+
+  @override
+  String get copyText => 'Ikkopja t-test';
+
+  @override
+  String get colWhen => 'Meta';
+
+  @override
+  String get colValue => 'Valur';
+
+  @override
+  String get colWho => 'Min';
 }

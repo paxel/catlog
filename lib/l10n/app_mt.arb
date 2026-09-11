@@ -52,6 +52,9 @@
   "card": "Karta",
   "cardTitle": "Karta — {name}",
   "shareAsImage": "Aqsam bħala immaġni",
+  "sortOldestFirst": "L-eqdem l-ewwel",
+  "sortNewestFirst": "L-aktar ġdid l-ewwel",
+  "shareAsText": "Aqsam bħala test",
   "shareAsPdf": "Aqsam bħala PDF",
   "print": "Ipprintja",
   "renameCat": "Ibdel isem il-qattus",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Bla dar — tat-triq / ħarab",
   "timelineOf": "Linja taż-żmien — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Reġġa' lura din il-bidla",
-  "revertSubtitle": "Jirrestawra l-valur ta' qabel bħala entrata ġdida — l-istorja żżomm it-tnejn.",
   "fieldCleared": "{field} tbattal",
   "fieldBackTo": "{field} lura għal \"{value}\"",
   "leftStray": "Telaq — tat-triq",
@@ -128,10 +129,13 @@
   "syncFailed": "Is-sinkronizzazzjoni falliet: {error}",
   "lastSyncWith": "L-aħħar sinkronizzazzjoni ma' {peer}: {time}",
   "sharedFolder": "Folder kondiviż",
-  "sharedFolderExplainer": "Iż-żewġ apparati jużaw l-istess folder (eż. f'Dropbox jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.",
+  "sharedFolderExplainer": "Iż-żewġ apparati jużaw l-istess folder (eż. f'Nextcloud jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.",
   "noFolderChosenYet": "Għad m'hemmx folder magħżul",
   "choose": "Agħżel…",
   "syncFolderNow": "Issinkronizza l-folder issa",
+  "folderCatalogHint": "Ġo fih dan il-katalgu juża l-folder „{name}“, għalhekk folder wieħed kondiviż jista’ jġorr il-katalgi kollha tiegħek.",
+  "useSameFolder": "Uża l-istess folder bħall-katalgi l-oħra",
+  "folderHint": "Kull folder li żewġ apparati jżommu l-istess jgħodd: drive fil-cloud, jew Syncthing għal folder li jibqa’ fuq it-telefowns tagħkom. Syncthing hu b’xejn: installah fuq kull telefon, aqsam folder wieħed bejniethom u agħżel dak il-folder hawn fuq kull apparat.",
   "folderSynced": "Folder sinkronizzat: {result}",
   "folderSyncFailed": "Is-sinkronizzazzjoni tal-folder falliet: {error}",
   "recordSightingHere": "Irreġistra dehra hawn:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Traċċa: {name} ({count} pożizzjonijiet)",
   "conflictOn": "Kunflitt — {field}",
   "conflictBody": "Inbidel f'żewġ postijiet fl-istess ħin. Agħżel x'inhu veru:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Iż-żewġ bidliet jgħidu l-istess: {value}. Xejn x’tagħżel; Solvi tneħħi l-marka.",
   "mergeThisInto": "Għaqqad dan il-{kind} ma'…",
   "noOtherToMergeInto": "M'hemmx {kind} ieħor biex tgħaqqad miegħu.",
   "mergeIntoQuestion": "Tgħaqqad ma' {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Persjan",
   "breedBengal": "Bengali",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Abissinjan",
+  "breedAmericanShorthair": "American Shorthair",
+  "breedBalinese": "Baliniż",
+  "breedBirman": "Birman",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmiż",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "British Longhair",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish Rex",
+  "breedDevonRex": "Devon Rex",
+  "breedEgyptianMau": "Mau Eġizzjan",
+  "breedExoticShorthair": "Exotic Shorthair",
+  "breedHimalayan": "Himalajan",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Oriental Shorthair",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Blu Russu",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Scottish Fold",
+  "breedSelkirkRex": "Selkirk Rex",
+  "breedSiberian": "Siberjan",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somali",
+  "breedTonkinese": "Tonkiniż",
+  "breedTurkishAngora": "Angora Tork",
+  "breedTurkishVan": "Van Tork",
   "ownValue": "Valur tiegħek",
   "locationDeniedForever": "L-aċċess għall-post huwa mblukkat. Ħallih fis-settings tas-sistema biex tuża Stray Cam.",
   "locationServiceOff": "Il-post huwa mitfi fuq dan l-apparat. Ixegħlu fis-settings u erġa' pprova.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "L-annimali domestiċi u l-postijiet kollha bi pożizzjoni. It-tiftix isib annimali domestiċi, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta' 500 m madwar il-postijiet tal-fliers ta' annimal mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni. Kull kamp ta’ post huwa labra fuq il-mappa; tektek labra għat-traċċa tagħha.",
   "helpCard": "Il-kard tal-qattus għall-istampar: fuq, bil-chips, tagħżel x'jidher fuqha, imbagħad taqsamha bħala stampa jew PDF. In-numri jistgħu jiġu stampati bħala QR jew barcode, u pożizzjoni ssir QR li jiftaħ mappa, flimkien ma' Plus Code qasir.",
   "helpCardNeutral": "Il-kard tal-annimal domestiku għall-istampar: fuq, bil-chips, tagħżel x'jidher fuqha, imbagħad taqsamha bħala stampa jew PDF. In-numri jistgħu jiġu stampati bħala QR jew barcode, u pożizzjoni ssir QR li jiftaħ mappa, flimkien ma' Plus Code qasir.",
-  "helpSync": "Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b'messenger. Dejjem int tiddeċiedi x'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll.",
+  "helpSync": "Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b'messenger. Dejjem int tiddeċiedi x'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll. Kull katalgu jiffirma dak li jikteb biċ-ċavetta tiegħu; is-sħab jaraw il-kodiċi taċ-ċavetta ħdejn ismek. L-ewwel ċavetta ta’ sieħeb tittieħed b’fiduċja minn fajl u tgħodd bħala vverifikata malli tissinkronizzaw personalment. Entrati taħt isem magħruf mingħajr il-firma t-tajba jiġu rrifjutati u elenkati fil-paġna tal-wasla.",
   "helpFields": "L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta' qasam ta' għażla, jew oħloq tiegħek. Qasam ta' identifikatur jista' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq il-qattus isir jingħafas.",
   "helpFieldsNeutral": "L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta' qasam ta' għażla, jew oħloq tiegħek. Qasam ta' identifikatur jista' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq l-annimal domestiku isir jingħafas.",
-  "helpTimeline": "Kull bidla li qatt saret, l-aktar reċenti l-ewwel: min biddel xiex, meta u għal liema valur. Kull entrata tista' titreġġa' lura — dan jikteb entrata ġdida, xejn ma jitħassar.",
+  "helpTimeline": "Kull bidla, l-aktar riċenti l-ewwel: min, meta u għal liema valur. Mess entrata biex tikkoreġiha, żommha biex tneħħiha jew tirrestawraha; entrata moħbija tibqa' fir-reġistru u tidher fuq talba.",
   "helpDuplicates": "Qtates jew kolonji li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa' lura, għalhekk tistaqsi l-ewwel.",
   "helpDuplicatesNeutral": "Annimali domestiċi jew djar li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa' lura, għalhekk tistaqsi l-ewwel.",
-  "helpMatches": "Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta' tfittxija ta' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel.",
-  "helpMatchesNeutral": "Annimali domestiċi li jistgħu jkunu l-istess annimal: numru identiku, jew annimal tat-triq li deher fiż-żona ta' tfittxija ta' annimal mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel annimal biex tqabbel.",
+  "helpMatches": "Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta' tfittxija ta' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel. Jiġu elenkati wkoll pari li d-dehra tagħhom taqbel f’żewġ karatteristiċi jew aktar mingħajr kontradizzjoni; iċ-ċippi juru liema. „Mhux l-istess“ jaħbi par fuq dan it-telefon sakemm tinbidel id-dehra ta’ wieħed mill-annimali.",
+  "helpMatchesNeutral": "Annimali domestiċi li jistgħu jkunu l-istess annimal: numru identiku, jew annimal tat-triq li deher fiż-żona ta' tfittxija ta' annimal mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel annimal biex tqabbel. Jiġu elenkati wkoll pari li d-dehra tagħhom taqbel f’żewġ karatteristiċi jew aktar mingħajr kontradizzjoni; iċ-ċippi juru liema. „Mhux l-istess“ jaħbi par fuq dan it-telefon sakemm tinbidel id-dehra ta’ wieħed mill-annimali.",
   "helpFlier": "Poster mitfugħ f'ritratt isir qattus flimkien mas-sid tiegħu. Pass pass: id-data tal-qattus, il-kuntatt tas-sid, qtugħ tal-wiċċ għar-ritratt tal-profil, numri ta' reġistri mill-poster, imbagħad verifika finali. Kollox suġġeriment — irranġa dak li l-kamera qrat ħażin.",
   "helpFlierNeutral": "Poster mitfugħ f'ritratt isir annimal domestiku flimkien mas-sid tiegħu. Pass pass: id-data tal-annimal, il-kuntatt tas-sid, qtugħ tal-wiċċ għar-ritratt tal-profil, numri ta' reġistri mill-poster, imbagħad verifika finali. Kollox suġġeriment — irranġa dak li l-kamera qrat ħażin.",
   "archiveTitle": "Arkivju",
@@ -399,11 +435,109 @@
   "rangeAll": "Kollox",
   "rangeCustom": "Personalizzat…",
   "changeSince": "{delta} minn {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Bħal fir-reġjun tiegħek",
   "unitsMetric": "Metriku (kg, cm, ml, °C)",
   "unitsImperial": "Imperjali (lb, in, fl oz, °F)",
   "starterWeight": "Piż",
+  "starterLooks": "Dehra",
+  "looksGroupSize": "Daqs",
+  "looksGroupColours": "Kuluri",
+  "looksGroupPattern": "Disinn",
+  "looksGroupFur": "Pil",
+  "looksGroupTail": "Denb",
+  "looksGroupEars": "Widnejn",
+  "looksGroupMarks": "Marki",
+  "looksGroupCrest": "Kresta",
+  "looksGroupBeak": "Munqar",
+  "looksGroupRing": "Ċirku",
+  "looksValueSmall": "Żgħir",
+  "looksValueMedium": "Medju",
+  "looksValueLarge": "Kbir",
+  "looksValueBlack": "Iswed",
+  "looksValueWhite": "Abjad",
+  "looksValueGrey": "Griż",
+  "looksValueBrown": "Kannella",
+  "looksValueGinger": "Aħmar",
+  "looksValueCream": "Krema",
+  "looksValueGolden": "Dehbi",
+  "looksValueTan": "Kannella ċar",
+  "looksValueGreen": "Aħdar",
+  "looksValueBlue": "Blu",
+  "looksValueYellow": "Isfar",
+  "looksValueRed": "Aħmar",
+  "looksValueOrange": "Oranġjo",
+  "looksValuePink": "Roża",
+  "looksValueWhiteBib": "Sider abjad",
+  "looksValueWhitePaws": "Saqajn bojod",
+  "looksValueWhiteTailTip": "Tarf tad-denb abjad",
+  "looksValueBlaze": "Stilla",
+  "looksValueMask": "Maskra",
+  "looksValueSpots": "Tikek",
+  "looksValuePatches": "Rqajja’",
+  "looksValueStripes": "Strixxi",
+  "looksValueScar": "Ċikatriċi",
+  "looksValueNotchedEar": "Widna maqtugħa",
+  "looksValueEarTip": "Tarf tal-widna",
+  "looksValueCollar": "Kullar",
+  "looksValueShort": "Qasir",
+  "looksValueLong": "Twil",
+  "looksValueHairless": "Bla pil",
+  "looksValueBobtail": "Denb qasir",
+  "looksValueNone": "Xejn",
+  "looksValueCurled": "Mibrum",
+  "looksValueUpright": "Wieqfa",
+  "looksValueFloppy": "Imdendla",
+  "looksValueFolded": "Mitwija",
+  "looksValueRounded": "Tondi",
+  "looksValueSolid": "Kulur wieħed",
+  "looksValueTabby": "Tabby",
+  "looksValueTortoiseshell": "Fekruna",
+  "looksValueCalico": "Calico",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Żewġ kuluri",
+  "looksValueTuxedo": "Tuxedo",
+  "looksValueBrindle": "Brindle",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Bit-tikek",
+  "looksValuePatched": "Bir-rqajja’",
+  "looksValueTricolour": "Tliet kuluri",
+  "looksValueSable": "Sable",
+  "looksGroupEyes": "Għajnejn",
+  "looksGroupFeatures": "Karatteristiċi",
+  "looksValueAmber": "Ambra",
+  "looksValueCopper": "Ram",
+  "looksValueOddEyed": "Kuluri differenti",
+  "looksValueChocolate": "Ċikkulata",
+  "looksValueLilac": "Lilla",
+  "looksValueSilver": "Fidda",
+  "looksValueSmoke": "Duħħan",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Mgħawweġ",
+  "looksValueWiry": "Aħrax",
+  "looksValueKinked": "Milwija",
+  "looksValueCropped": "Maqtugħin",
+  "looksValueTippedEar": "Widna maqtugħa",
+  "looksValueEarTattoo": "Tatwaġġ fil-widna",
+  "looksValueMissingEar": "Nieqsa widna",
+  "looksValueMissingEye": "Nieqsa għajn",
+  "looksValueCloudyEye": "Għajn imċajpra",
+  "looksValueMissingFrontLeg": "Nieqsa sieq ta’ quddiem",
+  "looksValueMissingHindLeg": "Nieqsa sieq ta’ wara",
+  "looksValueNoTeeth": "Bla snien",
+  "looksValueExtraToes": "Swaba’ żejda",
+  "rejectMatch": "Mhux l-istess",
+  "traitsAgree": "{count, plural, one{{count} karatteristika taqbel} few{{count} karatteristiċi jaqblu} many{{count} karatteristiċi jaqblu} other{{count} karatteristiċi jaqblu}}",
   "systemDefault": "Default tas-sistema",
   "iosLocalNetworkHint": "Jekk jibqa' jfalli fuq iPhone/iPad: Settings → Privatezza u sigurtà → Netwerk lokali → ħalli cat(a)log u erġa' pprova.",
   "markPrivate": "Immarka bħala privat",
@@ -432,6 +566,8 @@
   "otherOption": "Ieħor…",
   "celebrationsToggle": "Iċċelebra l-adozzjonijiet",
   "celebrationsSubtitle": "Konfetti u ferħ meta qattus imur f'daru",
+  "cheerToggle": "Ħoss ta’ ċapċip",
+  "cheerSubtitle": "Ċapċipa qasira mal-konfetti, kull darba differenti",
   "celebrationsSubtitleNeutral": "Konfetti u ferħ meta annimal domestiku jmur f'daru",
   "onMapLabel": "Fuq il-mappa",
   "showOnMap": "Uri fuq il-mappa",
@@ -445,7 +581,19 @@
   "authorsSection": "Min kiteb f'dan il-katalgu",
   "hardDeleteAction": "Ħassar kollox minn dan l-awtur",
   "hardDeleteWarning": "Ineħħi kull entrata u ritratt ta' {name} minn dan l-apparat. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa' lura.",
-  "hardDeleteWarningDevice": "Ineħħi minn dan il-katalgu kull entrata u ritratt li {name} kiteb fuq l-apparat {device}. L-apparati l-oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.",
+  "yourKey": "Iċ-ċavetta tiegħek",
+  "yourTitle": "It-titlu tiegħek",
+  "titleNone": "Ebda titlu",
+  "keyLine": "ċavetta {code}",
+  "keyVerified": "ivverifikata personalment",
+  "keyFromFile": "minn fajl, għadha mhux ivverifikata",
+  "keyUnsigned": "għad m’hemmx ċavetta, entrati mhux iffirmati",
+  "summaryRefused": "Irrifjutat",
+  "refusedEntries": "{count, plural, one{{count} entrata rrifjutata} few{{count} entrati rrifjutati} many{{count} entrati rrifjutati} other{{count} entrati rrifjutati}}: mhux iffirmati biċ-ċavetta magħrufa għal {name}",
+  "newKeyCallsItself": "Ċavetta ġdida {code} issejjaħ lilha nnifisha {name}. Iċċekkja mal-persuna qabel ma tafdaha.",
+  "keyChangedRefused": "{name} offra ċavetta differenti minn dik magħrufa hawn. Dik magħrufa tibqa’; il-ġdida ma ttiħditx.",
+  "metaNewKey": "Ċavetta ġdida: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Ineħħi minn dan il-katalgu kull entrata u ritratt miktubin minn {name} taħt iċ-ċavetta {key}. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.",
   "typeToConfirm": "Ikteb {name} biex tikkonferma",
   "alsoBan": "Ipprojbixxi wkoll — qatt iżjed data mingħandu",
   "bansSection": "Projbizzjonijiet",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Xejn ma ġie rrestawrat.} one{Katalgu wieħed irrestawrat.} other{{count} katalgi rrestawrati.}}",
   "helpCatalogs": "Katalgu huwa dinja għalih: il-qtates tiegħu, kolonji, kampijiet, ritratti u partners tas-sinkronizzazzjoni. Berlin u Pariġi qatt ma jitħalltu. Tektek katalgu biex taqleb għalih. Il-ger fuq katalgu jiftaħ is-settings tiegħu: isem, qtates jew annimali, kampijiet, awturi u blokki, arkivju, mur lura, ħassar. Ismek, il-lingwa tiegħek u l-pariri li rajt diġà huma komuni għal kollha.",
   "helpCatalogsNeutral": "Katalgu huwa dinja għalih: il-annimali tiegħu, djar, kampijiet, ritratti u partners tas-sinkronizzazzjoni. Berlin u Pariġi qatt ma jitħalltu. Tektek katalgu biex taqleb għalih. Il-ger fuq katalgu jiftaħ is-settings tiegħu: isem, qtates jew annimali, kampijiet, awturi u blokki, arkivju, mur lura, ħassar. Ismek, il-lingwa tiegħek u l-pariri li rajt diġà huma komuni għal kollha.",
-  "helpCatalogSettings": "Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel.",
+  "helpCatalogSettings": "Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel. Iċ-ċavetta tiegħek hi l-kodiċi li s-sħab jaraw ħdejn ismek; tibqa’ ma’ dan il-katalgu.",
   "spotHomeCatalog": "Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor.",
   "deleteCatalog": "Ħassar il-katalgu",
   "catalogSettings": "Settings tal-katalgu",
   "deleteCatalogBody": "Kollox f’{name} jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura.",
   "deleteCatalogBodyNeutral": "Kollox f’{name} jisparixxi: l-annimali domestiċi, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "L-ebda appuntament ippjanat. Ippjana oħrajn hawn bil-plus, jew fuq il-paġna ta' annimal domestiku jew dar.",
   "dueToday": "illum",
   "dueInDays": "{count, plural, one{fi żmien ġurnata} few{fi żmien {count} ijiem} many{fi żmien {count}-il jum} other{fi żmien {count} jum}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{ġurnata tard} few{{count} ijiem tard} many{{count}-il jum tard} other{{count} jum tard}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Sar",
   "repeatTitle": "Mill-ġdid fi żmien…",
   "noRepeatLabel": "Mingħajr repetizzjoni",
@@ -720,15 +886,33 @@
   "unitMonths": "xhur",
   "unitYears": "snin",
   "ageYears": "{years} sn.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} xhr.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Ibdel id-data",
   "removeReminderLabel": "Neħħi t-tfakkira",
   "exportIcs": "Esporta l-fajl tal-kalendarju",
   "resyncCalendar": "Erġa' ssinkronizza l-kalendarju",
   "icsSavedTo": "Il-fajl tal-kalendarju ġie salvat f'{path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Irrifletti fil-kalendarju tal-apparat",
   "calendarMirrorSubtitle": "L-appuntamenti jidhru bħala avvenimenti ta' ġurnata sħiħa fil-kalendarju. cat(a)log jaġġornahom hemm ma' kull startjar u wara kull bidla. It-twissijiet għall-appuntamenti tista' timmaniġġjahom fil-kalendarju.",
   "syncPeerOlder": "L-apparat l-ieħor għandu cat(a)log eqdem mingħajr tfakkiriet. Aġġorna cat(a)log hemmhekk u ssinkronizza mill-ġdid.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "It-tfakkiriet: il-lista tal-appuntamenti ppjanati — veterinarju, mediċina, kontrolli.",
   "spotAgendaAdd": "Ippjana appuntament ġdid.",
   "spotAgendaCalendar": "Ixgħel hawn ir-riflessjoni tal-appuntamenti ta' cat(a)log f'kalendarju tal-għażla tiegħek.",
-  "helpAgenda": "It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta' fuq jirrifletti l-appuntamenti f'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b'diversi qtates hija appuntament wieħed: immarka l-qtates, l-Aġenda turi karta waħda b'isimhom, u fit-tmiem tistaqsi liema qtates ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati.",
-  "helpAgendaNeutral": "It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ l-annimal domestiku jew id-dar. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta' fuq jirrifletti l-appuntamenti f'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b'diversi annimali domestiċi hija appuntament wieħed: immarka l-annimali, l-Aġenda turi karta waħda b'isimhom, u fit-tmiem tistaqsi liema annimali ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati.",
+  "spotAgendaToday": "Ix-xogħlijiet tal-lum: immarka meta jsir. It-tikek juru l-aħħar sebat ijiem.",
+  "helpAgenda": "It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta' fuq jirrifletti l-appuntamenti f'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b'diversi qtates hija appuntament wieħed: immarka l-qtates, l-Aġenda turi karta waħda b'isimhom, u fit-tmiem tistaqsi liema qtates ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.",
+  "helpAgendaNeutral": "It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ l-annimal domestiku jew id-dar. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta' fuq jirrifletti l-appuntamenti f'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b'diversi annimali domestiċi hija appuntament wieħed: immarka l-annimali, l-Aġenda turi karta waħda b'isimhom, u fit-tmiem tistaqsi liema annimali ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.",
   "calendarRowOff": "Kalendarju: mitfi",
   "calendarRowOn": "Kalendarju: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Ippjana appuntament għal dan il-qattus. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.",
   "spotAddReminderCatNeutral": "Ippjana appuntament għal dan l-annimal domestiku. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.",
   "spotAddReminderClowder": "Ippjana appuntament għal dan il-clowder. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Appuntament jew tfakkira?",
   "planChooserAppointment": "Appuntament — żjara f'data u ħin, b'noti",
   "planChooserReminder": "Tfakkira — valur li jsir dovut f'ġurnata",
+  "planChooserChore": "Xogħol — xi ħaġa li terġa’ tiġi: ikel, qtar, ramel",
+  "newChore": "Xogħol ġdid",
+  "choreEdit": "Editja x-xogħol",
+  "choreTitleLabel": "X’hiex",
+  "choreRepeatDaily": "Kuljum",
+  "choreRepeatEvery": "Kull…",
+  "choreRepeatWeekdays": "Ġranet",
+  "choreEveryDays": "{n, plural, one{kuljum} other{kull {n} ijiem}}",
+  "choreEveryWeeks": "{n, plural, one{kull ġimgħa} other{kull {n} ġimgħat}}",
+  "choreEveryMonths": "{n, plural, one{kull xahar} other{kull {n} xhur}}",
+  "choreEveryYears": "{n, plural, one{kull sena} other{kull {n} snin}}",
+  "choreNoTime": "Fi kwalunkwe ħin tal-ġurnata",
+  "chorePause": "Waqqaf",
+  "chorePaused": "Imwaqqaf",
+  "choreResume": "Kompli",
+  "choreEnd": "Temm ix-xogħol",
+  "choreHistory": "Storja",
+  "choreDoneAt": "magħmul {when} · {who}",
+  "choreDoneEarly": "kmieni",
+  "choreDoneLate": "tard",
+  "choreMissed": "Maqbuż",
+  "choreStillOpen": "Għadu miftuħ",
+  "choreEndConfirm": "Ix-xogħol jitlaq mil-lista. Dak li tmarka jibqa’ fl-istorja.",
+  "todaySection": "Illum",
+  "upcomingSection": "Dalwaqt",
+  "allDoneToday": "Illum: kollox lest",
+  "streakDays": "{n, plural, one{ġurnata waħda wara l-oħra} other{{n} ijiem wara xulxin}}",
+  "choreDue": "Sad-data {date}",
+  "remindMe": "Fakkarni",
+  "remindNext": "It-tfakkira li jmiss: {when}",
+  "remindNone": "Ebda tfakkira ppjanata: xejn ġej.",
+  "remindPending": "{count, plural, =0{Xejn għadu skedat fuq dan it-telefon} one{tfakkira waħda skedata fuq dan it-telefon} few{{count} tfakkiriet skedati fuq dan it-telefon} many{{count} tfakkiriet skedati fuq dan it-telefon} other{{count} tfakkiriet skedati fuq dan it-telefon}}",
+  "remindTest": "Ibgħat tfakkira ta’ prova issa",
+  "remindLateHint": "It-tfakkiriet jistgħu jaslu xi minuti tard; it-telefon jagħżel il-mument eżatt.",
+  "remindPermissionDenied": "M’hemmx permess għan-notifiki, għalhekk it-tfakkira tibqa’ mitfija. Ippermettihom fis-settings tal-app tat-telefon u erġa’ pprova.",
+  "batteryHint": "Jekk it-tfakkiriet ma jaslux, ippermetti lil cat(a)log jaħdem fl-isfond fis-settings tal-batterija tat-telefon.",
+  "batterySettings": "Settings tal-batterija",
+  "achievementsTitle": "Kisbiet",
+  "rankServant": "Qaddej",
+  "rankButler": "Butler",
+  "rankSteward": "Amministratur",
+  "rankChancellor": "Kanċillier",
+  "rankMinister": "Ministru",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Calico",
+  "coatCheetah": "Ċita",
+  "coatTiger": "Tigra",
+  "coatTabby": "Tabby",
+  "coatPaws": "Saqajn",
+  "coatRosettes": "Rużetti",
+  "coatZebra": "Żebra",
+  "coatSetting": "Pil",
+  "coatRandom": "Wieħed differenti kull darba",
+  "coatSnowLeopard": "Leopard tas-silġ",
+  "coatSiamese": "Punti Siamiżi",
+  "coatLynx": "Linċi",
+  "coatTortoiseshell": "Fekruna",
+  "coatUnlocked": "Pil ġdid: {coat}",
+  "coatUnlockedHow": "Xahar sħiħ ta’ xogħlijiet, kollha magħmula.",
+  "achievementsEmpty": "Xejn s’issa. Ix-xogħlijiet jafu t-triq.",
+  "achievementMonth": "Xahar sħiħ",
+  "achievementYear": "Sena sħiħa",
+  "achievementDecade": "Għaxar snin sħaħ",
+  "achievementCentury": "Seklu sħiħ",
+  "achievementCenturyHint": "It-tnejn se nkunu kburin ħafna.",
+  "achievementMaster": "Mastru ta’ {title}",
+  "achievementReached": "{times, plural, one{Milħuq darba} other{Milħuq {times} darbiet}}, l-ewwel darba {date}",
+  "achievementNext": "Li jmiss f’{n}",
+  "achievementLocked": "Għadu mhux",
+  "achievementUnlocked": "Kisba: {name}",
   "appointmentTitleLabel": "X'inhu",
   "notesLabel": "Noti",
   "timeLabel": "Ħin",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Dar eżistenti",
   "createNewInstead": "Xejn — oħloq ġdid",
   "overwritesValue": "Jissostitwixxi l-valur attwali \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Twaqqaf l-iskan?",
   "abortScanBody": "Xejn ma jiġi salvat.",
   "abortScan": "Waqqaf",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Neħħi l-marka mill-qtates li ma ġewx ittrattati; jibqgħu ppjanati.",
   "finishUntickHintNeutral": "Neħħi l-marka mill-annimali domestiċi li ma ġewx ittrattati; jibqgħu ppjanati.",
   "deleteAppointmentGroup": "Ħassar l-appuntament għall-{count} qtates kollha",
-  "deleteAppointmentGroupNeutral": "Ħassar l-appuntament għall-{count} annimali domestiċi kollha"
+  "deleteAppointmentGroupNeutral": "Ħassar l-appuntament għall-{count} annimali domestiċi kollha",
+  "correctThisValue": "Ikkoreġi dan il-valur",
+  "removeThisValue": "Neħħi dan il-valur",
+  "restoreThisValue": "Irrestawra dan il-valur",
+  "showRemovedValues": "Uri l-valuri mneħħija",
+  "hideRemovedValues": "Aħbi l-valuri mneħħija",
+  "entryRemovedBy": "Imneħħi · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Sostitwit b'{value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Korrezzjoni",
+  "restorePickFolder": "Agħżel il-folder tal-backups…",
+  "restoreAndroidHint": "Il-backups tal-installazzjoni ta' qabel qegħdin f'Documents/catlog (Downloads/catlog f'verżjonijiet eqdem). Agħżel dak il-folder darba; il-backups tiegħu jidhru hawn.",
+  "backupsTitle": "Backups",
+  "backupsSubtitle": "Fejn jinżammu fis-sod il-katalogi tiegħek",
+  "backupsAndroidSystem": "Google jagħmel backup tal-katalogi ta' din l-app mal-kont tiegħek, mingħajr ritratti. Jerġgħu lura waħedhom wara installazzjoni mill-ġdid jew fuq telefon ġdid.",
+  "backupsAndroidFiles": "Kopja sħiħa ta' kull katalgu, bir-ritratti, tinkiteb f'Documents/catlog kull darba li toħroġ mill-app wara bidliet.",
+  "backupsIosSystem": "Il-backup tal-iCloud jinkludi din l-app bil-katalogi u r-ritratti tagħha, bħal kull app oħra fuq dan l-iPhone.",
+  "backupsIosFiles": "Kopja sħiħa ta' kull katalgu tinsab fl-app Files taħt cat(a)log. Minn hemm tista' tmur fuq iCloud Drive, b'AirDrop jew fuq telefon ieħor.",
+  "backupsDesktopFiles": "Kopja sħiħa ta' kull katalgu, bir-ritratti, tinkiteb fil-folder Downloads tiegħek kull darba li toħroġ mill-app wara bidliet.",
+  "backupsLast": "L-aħħar kopja: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Għad ma nkitbet l-ebda kopja.",
+  "backupsNow": "Agħmel backup issa",
+  "backupsDone": "Kopja miktuba.",
+  "backupsRestoredNote": "Irrestawrat mill-backup ta' Google fi {date}. Jekk it-telefon il-qadim għadu juża cat(a)log, issinkronizza darba minnu, imbagħad neħħi l-app hemm.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Folder li tagħżel int jista' jirċievi kull kopja wkoll: wieħed li app tal-cloud iżżomm sinkronizzat fuq dan it-telefon (Nextcloud, Syncthing u oħrajn), memory card, kull folder li joffri s-selettur. Il-kopji jispiċċaw f'catlog-backups ġo fih.",
+  "backupsFolderPick": "Ikkopja wkoll f'folder…",
+  "backupsFolderIs": "Ikkopjat ukoll f'{name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Ieqaf tikkopja hemm",
+  "remindFailed": "In-notifiki mhux qed jaħdmu fuq dan it-telefon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Ikkopja t-test",
+  "colWhen": "Meta",
+  "colValue": "Valur",
+  "colWho": "Min"
 }

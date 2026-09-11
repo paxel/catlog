@@ -52,6 +52,9 @@
   "card": "Kortti",
   "cardTitle": "Kortti — {name}",
   "shareAsImage": "Jaa kuvana",
+  "sortOldestFirst": "Vanhin ensin",
+  "sortNewestFirst": "Uusin ensin",
+  "shareAsText": "Jaa tekstinä",
   "shareAsPdf": "Jaa PDF:nä",
   "print": "Tulosta",
   "renameCat": "Nimeä kissa uudelleen",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Ei kotitaloutta — koditon / karkasi",
   "timelineOf": "Aikajana — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Kumoa tämä muutos",
-  "revertSubtitle": "Palauttaa edellisen arvon uutena merkintänä — historia säilyttää molemmat.",
   "fieldCleared": "{field} tyhjennetty",
   "fieldBackTo": "{field} palautettu arvoon \"{value}\"",
   "leftStray": "Lähti — kulkukissa",
@@ -128,10 +129,13 @@
   "syncFailed": "Synkronointi epäonnistui: {error}",
   "lastSyncWith": "Viimeisin synkronointi ({peer}): {time}",
   "sharedFolder": "Jaettu kansio",
-  "sharedFolderExplainer": "Molemmat laitteet käyttävät samaa kansiota (esim. Dropboxissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.",
+  "sharedFolderExplainer": "Molemmat laitteet käyttävät samaa kansiota (esim. Nextcloudissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.",
   "noFolderChosenYet": "Kansiota ei ole vielä valittu",
   "choose": "Valitse…",
   "syncFolderNow": "Synkronoi kansio nyt",
+  "folderCatalogHint": "Sen sisällä tämä luettelo käyttää kansiota ”{name}”, joten yksi jaettu kansio voi kantaa kaikki luettelosi.",
+  "useSameFolder": "Käytä samaa kansiota kuin muut luettelot",
+  "folderHint": "Mikä tahansa kansio, jonka kaksi laitetta pitävät samana, kelpaa: pilvilevy, tai Syncthing kansiolle, joka pysyy puhelimissanne. Syncthing on ilmainen: asenna se jokaiseen puhelimeen, jaa yksi kansio niiden välillä ja valitse se kansio täällä jokaisella laitteella.",
   "folderSynced": "Kansio synkronoitu: {result}",
   "folderSyncFailed": "Kansion synkronointi epäonnistui: {error}",
   "recordSightingHere": "Kirjaa havainto tähän:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Reitti: {name} ({count} sijaintia)",
   "conflictOn": "Ristiriita — {field}",
   "conflictBody": "Muutettu kahdessa paikassa yhtä aikaa. Valitse, mikä on totta:",
+  "privateMarker": "{field} (yksityinen)",
+  "conflictSame": "Molemmat muutokset sanovat saman: {value}. Ei valittavaa; Ratkaise poistaa merkin.",
   "mergeThisInto": "Yhdistä tämä {kind} kohteeseen…",
   "noOtherToMergeInto": "Ei toista kohdetta ({kind}) yhdistettäväksi.",
   "mergeIntoQuestion": "Yhdistetäänkö kohteeseen {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Persialainen",
   "breedBengal": "Bengali",
   "breedSphynx": "Sfinksi",
+  "breedAbyssinian": "Abessinialainen",
+  "breedAmericanShorthair": "Amerikanlyhytkarva",
+  "breedBalinese": "Balineesi",
+  "breedBirman": "Pyhä birma",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burma",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Brittiläinen pitkäkarva",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egyptin mau",
+  "breedExoticShorthair": "Exotic",
+  "breedHimalayan": "Himalaja",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Itämainen lyhytkarva",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Venäjänsininen",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Scottish fold",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Siperiankissa",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somali",
+  "breedTonkinese": "Tonkinilainen",
+  "breedTurkishAngora": "Turkkilainen angora",
+  "breedTurkishVan": "Turkkilainen van",
   "ownValue": "Oma arvo",
   "locationDeniedForever": "Sijainnin käyttö on estetty. Salli se järjestelmäasetuksissa käyttääksesi Stray Camia.",
   "locationServiceOff": "Sijainti on pois päältä tällä laitteella. Kytke se päälle asetuksista ja yritä uudelleen.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Kaikki lemmikit ja paikat, joilla on sijainti. Haku löytää lemmikit, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen lemmikin ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon. Jokainen sijaintikenttä on neula kartalla; napauta neulaa nähdäksesi sen reitin.",
   "helpCard": "Kissan tulostettava kortti: valitse ylhäältä siruilla mitä siihen tulee, jaa se sitten kuvana tai PDF:nä. Numerot voi tulostaa QR- tai viivakoodina, ja sijainnista tulee QR, joka avaa kartan, sekä lyhyt Plus Code.",
   "helpCardNeutral": "Lemmikin tulostettava kortti: valitse ylhäältä siruilla mitä siihen tulee, jaa se sitten kuvana tai PDF:nä. Numerot voi tulostaa QR- tai viivakoodina, ja sijainnista tulee QR, joka avaa kartan, sekä lyhyt Plus Code.",
-  "helpSync": "Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä.",
+  "helpSync": "Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä. Jokainen luettelo allekirjoittaa kirjoittamansa omalla avaimellaan; kumppanit näkevät avainkoodin nimesi vieressä. Kumppanin ensimmäinen avain otetaan tiedostosta luottamuksella ja lasketaan tavatuksi, kun synkronoitte kasvokkain. Merkinnät tutulla nimellä ilman oikeaa allekirjoitusta hylätään ja listataan saapumissivulla.",
   "helpFields": "Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa kissan kohdalla.",
   "helpFieldsNeutral": "Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa lemmikin kohdalla.",
-  "helpTimeline": "Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja mihin arvoon. Minkä tahansa merkinnän voi perua — se kirjoittaa uuden merkinnän, mitään ei koskaan poisteta.",
+  "helpTimeline": "Jokainen muutos, uusin ensin: kuka muutti mitä, milloin ja miksi arvoksi. Napauta merkintää korjataksesi, pidä pohjassa poistaaksesi tai palauttaaksesi; piilotettu merkintä pysyy lokissa ja näkyy pyynnöstä.",
   "helpDuplicates": "Kissat tai koloniat, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.",
   "helpDuplicatesNeutral": "Lemmikit tai kotitaloudet, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.",
-  "helpMatches": "Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten.",
-  "helpMatchesNeutral": "Lemmikit, jotka voivat olla sama eläin: sama tunnus tai koditon nähtynä kadonneen lemmikin hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen lemmikin vertailua varten.",
+  "helpMatches": "Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten. Listalla ovat myös parit, joiden ulkonäkö täsmää vähintään kahdessa piirteessä ilman ristiriitaa; sirut näyttävät missä. ”Ei sama” piilottaa parin tällä puhelimella, kunnes jommankumman eläimen ulkonäkö muuttuu.",
+  "helpMatchesNeutral": "Lemmikit, jotka voivat olla sama eläin: sama tunnus tai koditon nähtynä kadonneen lemmikin hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen lemmikin vertailua varten. Listalla ovat myös parit, joiden ulkonäkö täsmää vähintään kahdessa piirteessä ilman ristiriitaa; sirut näyttävät missä. ”Ei sama” piilottaa parin tällä puhelimella, kunnes jommankumman eläimen ulkonäkö muuttuu.",
   "helpFlier": "Valokuvatusta ilmoituksesta tulee kissa ja sen omistaja. Vaihe vaiheelta: kissan tiedot, omistajan yhteystiedot, kasvojen rajaus profiilikuvaksi, ilmoituksen rekisterinumerot ja lopuksi tarkistus. Kaikki ovat ehdotuksia — korjaa se, minkä kamera luki väärin.",
   "helpFlierNeutral": "Valokuvatusta ilmoituksesta tulee lemmikki ja sen omistaja. Vaihe vaiheelta: lemmikin tiedot, omistajan yhteystiedot, kasvojen rajaus profiilikuvaksi, ilmoituksen rekisterinumerot ja lopuksi tarkistus. Kaikki ovat ehdotuksia — korjaa se, minkä kamera luki väärin.",
   "archiveTitle": "Arkisto",
@@ -399,11 +435,109 @@
   "rangeAll": "Kaikki",
   "rangeCustom": "Mukautettu…",
   "changeSince": "{delta} alkaen {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Kuten alueellasi",
   "unitsMetric": "Metrinen (kg, cm, ml, °C)",
   "unitsImperial": "Brittiläinen (lb, in, fl oz, °F)",
   "starterWeight": "Paino",
+  "starterLooks": "Ulkonäkö",
+  "looksGroupSize": "Koko",
+  "looksGroupColours": "Värit",
+  "looksGroupPattern": "Kuvio",
+  "looksGroupFur": "Turkki",
+  "looksGroupTail": "Häntä",
+  "looksGroupEars": "Korvat",
+  "looksGroupMarks": "Tuntomerkit",
+  "looksGroupCrest": "Töyhtö",
+  "looksGroupBeak": "Nokka",
+  "looksGroupRing": "Jalkarengas",
+  "looksValueSmall": "Pieni",
+  "looksValueMedium": "Keskikokoinen",
+  "looksValueLarge": "Suuri",
+  "looksValueBlack": "Musta",
+  "looksValueWhite": "Valkoinen",
+  "looksValueGrey": "Harmaa",
+  "looksValueBrown": "Ruskea",
+  "looksValueGinger": "Punainen",
+  "looksValueCream": "Kerma",
+  "looksValueGolden": "Kultainen",
+  "looksValueTan": "Vaaleanruskea",
+  "looksValueGreen": "Vihreä",
+  "looksValueBlue": "Sininen",
+  "looksValueYellow": "Keltainen",
+  "looksValueRed": "Punainen",
+  "looksValueOrange": "Oranssi",
+  "looksValuePink": "Vaaleanpunainen",
+  "looksValueWhiteBib": "Valkoinen rintalappu",
+  "looksValueWhitePaws": "Valkoiset tassut",
+  "looksValueWhiteTailTip": "Valkoinen hännänpää",
+  "looksValueBlaze": "Piirto",
+  "looksValueMask": "Naamio",
+  "looksValueSpots": "Täplät",
+  "looksValuePatches": "Laikut",
+  "looksValueStripes": "Raidat",
+  "looksValueScar": "Arpi",
+  "looksValueNotchedEar": "Lovi korvassa",
+  "looksValueEarTip": "Korvan kärki",
+  "looksValueCollar": "Kaulapanta",
+  "looksValueShort": "Lyhyt",
+  "looksValueLong": "Pitkä",
+  "looksValueHairless": "Karvaton",
+  "looksValueBobtail": "Tynkähäntä",
+  "looksValueNone": "Ei ole",
+  "looksValueCurled": "Kiertynyt",
+  "looksValueUpright": "Pystyt",
+  "looksValueFloppy": "Luppa",
+  "looksValueFolded": "Taittuneet",
+  "looksValueRounded": "Pyöreät",
+  "looksValueSolid": "Yksivärinen",
+  "looksValueTabby": "Tabby",
+  "looksValueTortoiseshell": "Kilpikonna",
+  "looksValueCalico": "Calico",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Kaksivärinen",
+  "looksValueTuxedo": "Smokki",
+  "looksValueBrindle": "Brindle",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Täplikäs",
+  "looksValuePatched": "Laikukas",
+  "looksValueTricolour": "Kolmivärinen",
+  "looksValueSable": "Soopeli",
+  "looksGroupEyes": "Silmät",
+  "looksGroupFeatures": "Erityispiirteet",
+  "looksValueAmber": "Meripihka",
+  "looksValueCopper": "Kupari",
+  "looksValueOddEyed": "Erivärinen",
+  "looksValueChocolate": "Suklaa",
+  "looksValueLilac": "Lila",
+  "looksValueSilver": "Hopea",
+  "looksValueSmoke": "Savu",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Kihara",
+  "looksValueWiry": "Karkea",
+  "looksValueKinked": "Mutkainen",
+  "looksValueCropped": "Typistetyt",
+  "looksValueTippedEar": "Merkitty korva",
+  "looksValueEarTattoo": "Korvatatuointi",
+  "looksValueMissingEar": "Puuttuva korva",
+  "looksValueMissingEye": "Puuttuva silmä",
+  "looksValueCloudyEye": "Samea silmä",
+  "looksValueMissingFrontLeg": "Puuttuva etujalka",
+  "looksValueMissingHindLeg": "Puuttuva takajalka",
+  "looksValueNoTeeth": "Ei hampaita",
+  "looksValueExtraToes": "Ylimääräiset varpaat",
+  "rejectMatch": "Ei sama",
+  "traitsAgree": "{count, plural, =1{1 piirre täsmää} other{{count} piirrettä täsmää}}",
   "systemDefault": "Järjestelmän oletus",
   "iosLocalNetworkHint": "Jos epäonnistuu yhä iPhonella/iPadilla: Asetukset → Tietosuoja ja turvallisuus → Paikallisverkko → salli cat(a)log ja yritä uudelleen.",
   "markPrivate": "Merkitse yksityiseksi",
@@ -432,6 +566,8 @@
   "otherOption": "Muu…",
   "celebrationsToggle": "Juhli adoptioita",
   "celebrationsSubtitle": "Konfettia ja hurraus, kun kissa muuttaa kotiinsa",
+  "cheerToggle": "Hurraus-ääni",
+  "cheerSubtitle": "Lyhyt hurraus konfettien kanssa, joka kerta eri",
   "celebrationsSubtitleNeutral": "Konfettia ja hurraus, kun lemmikki muuttaa kotiinsa",
   "onMapLabel": "Kartalla",
   "showOnMap": "Näytä kartalla",
@@ -445,7 +581,19 @@
   "authorsSection": "Kuka on kirjoittanut luetteloon",
   "hardDeleteAction": "Poista kaikki tältä tekijältä",
   "hardDeleteWarning": "Poistaa kaikki {name} merkinnät ja kuvat tältä laitteelta. Muut laitteet pitävät omansa. Ei voi perua.",
-  "hardDeleteWarningDevice": "Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka {name} kirjoitti laitteella {device}. Muut laitteet pitävät omansa. Ei voi kumota.",
+  "yourKey": "Oma avain",
+  "yourTitle": "Arvonimesi",
+  "titleNone": "Ei arvonimeä",
+  "keyLine": "avain {code}",
+  "keyVerified": "tavattu kasvokkain",
+  "keyFromFile": "tiedostosta, ei vielä tavattu",
+  "keyUnsigned": "ei vielä avainta, merkinnät allekirjoittamatta",
+  "summaryRefused": "Hylätty",
+  "refusedEntries": "{count, plural, =1{1 merkintä} other{{count} merkintää}} hylätty: ei allekirjoitettu käyttäjän {name} tunnetulla avaimella",
+  "newKeyCallsItself": "Uusi avain {code} kutsuu itseään nimellä {name}. Varmista henkilöltä ennen kuin luotat siihen.",
+  "keyChangedRefused": "{name} tarjosi eri avainta kuin täällä tunnettu. Tunnettu jää; uutta ei otettu.",
+  "metaNewKey": "Uusi avain: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka {name} kirjoitti avaimella {key}. Muut laitteet pitävät omansa. Ei voi kumota.",
   "typeToConfirm": "Vahvista kirjoittamalla {name}",
   "alsoBan": "Estä myös — älä koskaan enää vastaanota tietoja",
   "bansSection": "Estot",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Mitään ei palautettu.} one{1 luettelo palautettu.} other{{count} luetteloa palautettu.}}",
   "helpCatalogs": "Luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.",
   "helpCatalogsNeutral": "Luettelo on oma maailmansa: omat lemmikit, kotitaloudet, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.",
-  "helpCatalogSettings": "Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon.",
+  "helpCatalogSettings": "Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon. Oma avaimesi on koodi, jonka kumppanit näkevät nimesi vieressä; se kuuluu tähän luetteloon.",
   "spotHomeCatalog": "Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden.",
   "deleteCatalog": "Poista luettelo",
   "catalogSettings": "Luettelon asetukset",
   "deleteCatalogBody": "Kaikki luettelossa {name} katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon.",
   "deleteCatalogBodyNeutral": "Kaikki luettelossa {name} katoaa: lemmikit, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Ei suunniteltuja tapaamisia. Suunnittele uusia täältä plussalla tai lemmikin tai kotitalouden sivulta.",
   "dueToday": "tänään",
   "dueInDays": "{count, plural, one{1 päivän päästä} other{{count} päivän päästä}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 päivän myöhässä} other{{count} päivää myöhässä}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Tehty",
   "repeatTitle": "Uudelleen…",
   "noRepeatLabel": "Ei toistoa",
@@ -720,15 +886,33 @@
   "unitMonths": "kuukauden päästä",
   "unitYears": "vuoden päästä",
   "ageYears": "{years} v",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} kk",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Muuta päivämäärää",
   "removeReminderLabel": "Poista muistutus",
   "exportIcs": "Vie kalenteritiedosto",
   "resyncCalendar": "Synkronoi kalenteri uudelleen",
   "icsSavedTo": "Kalenteritiedosto tallennettu polkuun {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Peilaa laitteen kalenteriin",
   "calendarMirrorSubtitle": "Tapaamiset näkyvät koko päivän tapahtumina kalenterissa. cat(a)log päivittää ne siellä jokaisella käynnistyksellä ja jokaisen muutoksen jälkeen. Tapaamisten hälytyksiä hallitset kalenterissa.",
   "syncPeerOlder": "Toisella laitteella on vanhempi cat(a)log ilman muistutuksia. Päivitä cat(a)log siellä ja synkronoi uudelleen.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Muistutukset: suunniteltujen tapaamisten lista — eläinlääkäri, lääkkeet, tarkastukset.",
   "spotAgendaAdd": "Suunnittele uusi tapaaminen.",
   "spotAgendaCalendar": "Kytke tästä päälle cat(a)login tapaamisten peilaus valitsemaasi kalenteriin.",
-  "helpAgenda": "Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla kissalla on yksi ajanvaraus: valitse kissat, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä kissat hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.",
-  "helpAgendaNeutral": "Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa lemmikin tai kotitalouden. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla lemmikillä on yksi ajanvaraus: valitse lemmikit, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä lemmikit hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.",
+  "spotAgendaToday": "Tämän päivän askareet: merkitse, kun tehty. Pisteet näyttävät viimeiset seitsemän päivää.",
+  "helpAgenda": "Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla kissalla on yksi ajanvaraus: valitse kissat, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä kissat hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina. Askareet ovat toistuvia tehtäviä, kuten ruokinta, hiekkalaatikko tai lääkkeet. Ne ovat Tänään-kohdassa merkinnällä, putkella ja viimeisillä seitsemällä päivällä pisteinä; Tulossa näyttää seuraavan viikon ilman päivittäisiä. Askare voi muistuttaa ilmoituksella valittuna aikana. Pokaali avaa saavutukset.",
+  "helpAgendaNeutral": "Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa lemmikin tai kotitalouden. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla lemmikillä on yksi ajanvaraus: valitse lemmikit, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä lemmikit hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina. Askareet ovat toistuvia tehtäviä, kuten ruokinta, hiekkalaatikko tai lääkkeet. Ne ovat Tänään-kohdassa merkinnällä, putkella ja viimeisillä seitsemällä päivällä pisteinä; Tulossa näyttää seuraavan viikon ilman päivittäisiä. Askare voi muistuttaa ilmoituksella valittuna aikana. Pokaali avaa saavutukset.",
   "calendarRowOff": "Kalenteri: pois",
   "calendarRowOn": "Kalenteri: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Suunnittele tapaaminen tälle kissalle. Se näkyy muistutuksissa ja vahvistetaan siellä.",
   "spotAddReminderCatNeutral": "Suunnittele tapaaminen tälle lemmikille. Se näkyy muistutuksissa ja vahvistetaan siellä.",
   "spotAddReminderClowder": "Suunnittele tapaaminen tälle clowderille. Se näkyy muistutuksissa ja vahvistetaan siellä.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Tapaaminen vai muistutus?",
   "planChooserAppointment": "Tapaaminen — käynti tiettynä päivänä ja kellonaikana, muistiinpanoineen",
   "planChooserReminder": "Muistutus — arvo, joka erääntyy tiettynä päivänä",
+  "planChooserChore": "Askare — jokin, joka toistuu: ruokinta, tipat, hiekkalaatikko",
+  "newChore": "Uusi askare",
+  "choreEdit": "Muokkaa askaretta",
+  "choreTitleLabel": "Mitä",
+  "choreRepeatDaily": "Päivittäin",
+  "choreRepeatEvery": "Joka…",
+  "choreRepeatWeekdays": "Viikonpäivät",
+  "choreEveryDays": "{n, plural, one{joka päivä} other{joka {n}. päivä}}",
+  "choreEveryWeeks": "{n, plural, one{joka viikko} other{joka {n}. viikko}}",
+  "choreEveryMonths": "{n, plural, one{joka kuukausi} other{joka {n}. kuukausi}}",
+  "choreEveryYears": "{n, plural, one{joka vuosi} other{joka {n}. vuosi}}",
+  "choreNoTime": "Mihin aikaan vain",
+  "chorePause": "Keskeytä",
+  "chorePaused": "Tauolla",
+  "choreResume": "Jatka",
+  "choreEnd": "Lopeta askare",
+  "choreHistory": "Historia",
+  "choreDoneAt": "tehty {when} · {who}",
+  "choreDoneEarly": "etuajassa",
+  "choreDoneLate": "myöhässä",
+  "choreMissed": "Väliin",
+  "choreStillOpen": "Vielä auki",
+  "choreEndConfirm": "Askare poistuu listalta. Merkityt kerrat jäävät historiaan.",
+  "todaySection": "Tänään",
+  "upcomingSection": "Tulossa",
+  "allDoneToday": "Tänään: kaikki tehty",
+  "streakDays": "{n, plural, one{1 päivä putkeen} other{{n} päivää putkeen}}",
+  "choreDue": "Vuorossa {date}",
+  "remindMe": "Muistuta",
+  "remindNext": "Seuraava muistutus: {when}",
+  "remindNone": "Ei muistutusta: ei mitään tulossa.",
+  "remindPending": "{count, plural, =0{Tälle puhelimelle ei ole vielä ajastettu mitään} =1{1 muistutus ajastettu tälle puhelimelle} other{{count} muistutusta ajastettu tälle puhelimelle}}",
+  "remindTest": "Lähetä testimuistutus nyt",
+  "remindLateHint": "Muistutukset voivat tulla muutaman minuutin myöhässä; puhelin valitsee tarkan hetken.",
+  "remindPermissionDenied": "Ei lupaa ilmoituksiin, muistutus jää pois päältä. Salli ne puhelimen sovellusasetuksissa ja yritä uudelleen.",
+  "batteryHint": "Jos muistutukset jäävät tulematta, salli cat(a)login toimia taustalla puhelimen akkuasetuksissa.",
+  "batterySettings": "Akkuasetukset",
+  "achievementsTitle": "Saavutukset",
+  "rankServant": "Palvelija",
+  "rankButler": "Hovimestari",
+  "rankSteward": "Taloudenhoitaja",
+  "rankChancellor": "Kansleri",
+  "rankMinister": "Ministeri",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kilpikonna-kalikko",
+  "coatCheetah": "Gepardi",
+  "coatTiger": "Tiikeri",
+  "coatTabby": "Tabby",
+  "coatPaws": "Tassut",
+  "coatRosettes": "Rosetit",
+  "coatZebra": "Seepra",
+  "coatSetting": "Turkki",
+  "coatRandom": "Eri joka käynnistyksellä",
+  "coatSnowLeopard": "Lumileopardi",
+  "coatSiamese": "Siamilaiset merkit",
+  "coatLynx": "Ilves",
+  "coatTortoiseshell": "Kilpikonna",
+  "coatUnlocked": "Uusi turkki: {coat}",
+  "coatUnlockedHow": "Kokonainen kuukausi askareita, kaikki tehty.",
+  "achievementsEmpty": "Ei vielä mitään. Askareet tietävät tien.",
+  "achievementMonth": "Kokonainen kuukausi",
+  "achievementYear": "Kokonainen vuosi",
+  "achievementDecade": "Kokonainen vuosikymmen",
+  "achievementCentury": "Kokonainen vuosisata",
+  "achievementCenturyHint": "Olemme molemmat hyvin ylpeitä.",
+  "achievementMaster": "{title}-mestari",
+  "achievementReached": "{times, plural, one{Saavutettu kerran} other{Saavutettu {times} kertaa}}, ensi kerran {date}",
+  "achievementNext": "Seuraava kohdassa {n}",
+  "achievementLocked": "Ei vielä",
+  "achievementUnlocked": "Saavutus: {name}",
   "appointmentTitleLabel": "Mitä",
   "notesLabel": "Muistiinpanot",
   "timeLabel": "Kellonaika",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Olemassa oleva kotitalous",
   "createNewInstead": "Ei mitään — luo uusi",
   "overwritesValue": "Korvaa nykyisen arvon \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Keskeytetäänkö tallennus?",
   "abortScanBody": "Mitään ei tallenneta.",
   "abortScan": "Keskeytä",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Poista valinta kissoilta, joita ei hoidettu; ne pysyvät suunniteltuina.",
   "finishUntickHintNeutral": "Poista valinta lemmikeiltä, joita ei hoidettu; ne pysyvät suunniteltuina.",
   "deleteAppointmentGroup": "Poista ajanvaraus kaikilta {count} kissalta",
-  "deleteAppointmentGroupNeutral": "Poista ajanvaraus kaikilta {count} lemmikiltä"
+  "deleteAppointmentGroupNeutral": "Poista ajanvaraus kaikilta {count} lemmikiltä",
+  "correctThisValue": "Korjaa tämä arvo",
+  "removeThisValue": "Poista tämä arvo",
+  "restoreThisValue": "Palauta tämä arvo",
+  "showRemovedValues": "Näytä poistetut arvot",
+  "hideRemovedValues": "Piilota poistetut arvot",
+  "entryRemovedBy": "Poistettu · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Korvattu arvolla {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Korjaus",
+  "restorePickFolder": "Valitse varmuuskopiokansio…",
+  "restoreAndroidHint": "Edellisen asennuksen varmuuskopiot ovat kansiossa Documents/catlog (vanhemmissa versioissa Downloads/catlog). Valitse kansio kerran; sen kopiot näkyvät tässä.",
+  "backupsTitle": "Varmuuskopiot",
+  "backupsSubtitle": "Missä luettelosi ovat turvassa",
+  "backupsAndroidSystem": "Google varmuuskopioi tämän sovelluksen luettelot tilillesi, ilman kuvia. Ne palaavat itsestään uudelleenasennuksen jälkeen tai uudella puhelimella.",
+  "backupsAndroidFiles": "Täysi kopio jokaisesta luettelosta, kuvineen, kirjoitetaan kansioon Documents/catlog aina, kun poistut sovelluksesta muutosten jälkeen.",
+  "backupsIosSystem": "iCloud-varmuuskopio sisältää tämän sovelluksen luetteloineen ja kuvineen, kuten jokaisen muun sovelluksen tällä iPhonella.",
+  "backupsIosFiles": "Täysi kopio jokaisesta luettelosta on Tiedostot-sovelluksessa kohdassa cat(a)log. Sieltä sen voi viedä iCloud Driveen, AirDropilla tai toiseen puhelimeen.",
+  "backupsDesktopFiles": "Täysi kopio jokaisesta luettelosta, kuvineen, kirjoitetaan Lataukset-kansioosi aina, kun poistut sovelluksesta muutosten jälkeen.",
+  "backupsLast": "Viimeisin kopio: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Kopiota ei ole vielä kirjoitettu.",
+  "backupsNow": "Varmuuskopioi nyt",
+  "backupsDone": "Kopio kirjoitettu.",
+  "backupsRestoredNote": "Palautettu Google-varmuuskopiosta {date}. Jos vanhassa puhelimessa on yhä cat(a)log, synkronoi kerran sieltä ja poista sovellus sitten sieltä.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Myös valitsemasi kansio voi saada jokaisen kopion: sellainen, jota pilvisovellus pitää tällä puhelimella synkronoituna (Nextcloud, Syncthing ja muut), muistikortti, mikä tahansa valitsimen tarjoama kansio. Kopiot menevät sen sisällä kansioon catlog-backups.",
+  "backupsFolderPick": "Kopioi myös kansioon…",
+  "backupsFolderIs": "Kopioidaan myös kansioon {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Lopeta kopiointi sinne",
+  "remindFailed": "Ilmoitukset eivät toimi tällä puhelimella: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopioi teksti",
+  "colWhen": "Milloin",
+  "colValue": "Arvo",
+  "colWho": "Kuka"
 }

@@ -52,6 +52,9 @@
   "card": "Karta",
   "cardTitle": "Karta — {name}",
   "shareAsImage": "Ndaj si imazh",
+  "sortOldestFirst": "Më të vjetrat së pari",
+  "sortNewestFirst": "Më të rejat së pari",
+  "shareAsText": "Ndaj si tekst",
   "shareAsPdf": "Ndaj si PDF",
   "print": "Printo",
   "renameCat": "Riemërto macen",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Pa familje — endacake / iku",
   "timelineOf": "Kronologjia — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Kthe mbrapsht këtë ndryshim",
-  "revertSubtitle": "Rikthen vlerën e mëparshme si regjistrim të ri — historia i ruan të dyja.",
   "fieldCleared": "{field} u zbraz",
   "fieldBackTo": "{field} u kthye te \"{value}\"",
   "leftStray": "Iku — endacake",
@@ -128,10 +129,13 @@
   "syncFailed": "Sinkronizimi dështoi: {error}",
   "lastSyncWith": "Sinkronizimi i fundit me {peer}: {time}",
   "sharedFolder": "Dosje e përbashkët",
-  "sharedFolderExplainer": "Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Dropbox ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.",
+  "sharedFolderExplainer": "Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Nextcloud ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.",
   "noFolderChosenYet": "Ende s'është zgjedhur dosje",
   "choose": "Zgjidh…",
   "syncFolderNow": "Sinkronizo dosjen tani",
+  "folderCatalogHint": "Brenda saj ky katalog përdor dosjen „{name}“, kështu një dosje e përbashkët mund të mbajë të gjithë katalogët e tu.",
+  "useSameFolder": "Përdor të njëjtën dosje si katalogët e tjerë",
+  "folderHint": "Mjafton çdo dosje që dy pajisje e mbajnë njësoj: një disk në re, ose Syncthing për një dosje që mbetet në telefonat tuaj. Syncthing është falas: instaloje në çdo telefon, ndaj një dosje mes tyre dhe zgjidhe atë dosje këtu në çdo pajisje.",
   "folderSynced": "Dosja u sinkronizua: {result}",
   "folderSyncFailed": "Sinkronizimi i dosjes dështoi: {error}",
   "recordSightingHere": "Regjistro një vëzhgim këtu:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Gjurmë: {name} ({count} pozicione)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "U ndryshua në dy vende njëkohësisht. Zgjidhni çfarë është e vërtetë:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Të dy ndryshimet thonë të njëjtën gjë: {value}. S’ka ç’të zgjidhet; Zgjidh heq shenjën.",
   "mergeThisInto": "Bashko këtë {kind} me…",
   "noOtherToMergeInto": "S'ka {kind} tjetër për ta bashkuar.",
   "mergeIntoQuestion": "Të bashkohet me {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Persiane",
   "breedBengal": "Bengale",
   "breedSphynx": "Sfinks",
+  "breedAbyssinian": "Abisiniane",
+  "breedAmericanShorthair": "American Shorthair",
+  "breedBalinese": "Balineze",
+  "breedBirman": "Birmane",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmeze",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "British Longhair",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish Rex",
+  "breedDevonRex": "Devon Rex",
+  "breedEgyptianMau": "Mau egjiptian",
+  "breedExoticShorthair": "Exotic Shorthair",
+  "breedHimalayan": "Himalajane",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Oriental Shorthair",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Blu ruse",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Scottish Fold",
+  "breedSelkirkRex": "Selkirk Rex",
+  "breedSiberian": "Siberiane",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somaleze",
+  "breedTonkinese": "Tonkineze",
+  "breedTurkishAngora": "Angora turke",
+  "breedTurkishVan": "Van turke",
   "ownValue": "Vlerë e vetja",
   "locationDeniedForever": "Qasja në vendndodhje është e bllokuar. Lejojeni në cilësimet e sistemit për të përdorur Stray Cam.",
   "locationServiceOff": "Vendndodhja është e fikur në këtë pajisje. Ndizeni te cilësimet dhe provoni sërish.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Të gjitha kafshët dhe vendet me pozicion. Kërkimi gjen kafshë, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një kafshe të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim. Çdo fushë vendndodhjeje shfaqet si gjilpërë në hartë; prek një gjilpërë për gjurmën e saj.",
   "helpCard": "Karta e printueshme e maces: lart me çipat zgjedh çfarë shfaqet, pastaj e ndan si imazh ose PDF. Numrat mund të printohen si QR ose barkod, dhe pozicioni bëhet një QR që hap hartën, plus një Plus Code i shkurtër.",
   "helpCardNeutral": "Karta e printueshme e kafshës: lart me çipat zgjedh çfarë shfaqet, pastaj e ndan si imazh ose PDF. Numrat mund të printohen si QR ose barkod, dhe pozicioni bëhet një QR që hap hartën, plus një Plus Code i shkurtër.",
-  "helpSync": "Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu.",
+  "helpSync": "Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu. Çdo katalog nënshkruan atë që shkruan me çelësin e vet; partnerët shohin kodin e çelësit pranë emrit tënd. Çelësi i parë i një partneri merret me besim nga një skedar dhe vlen si i verifikuar sapo sinkronizoni personalisht. Hyrjet me një emër të njohur pa nënshkrimin e duhur refuzohen dhe listohen në faqen e mbërritjes.",
   "helpFields": "Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te macja bëhet i prekshëm.",
   "helpFieldsNeutral": "Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te kafsha bëhet i prekshëm.",
-  "helpTimeline": "Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Çdo shënim mund të kthehet — kjo shkruan një shënim të ri, asgjë nuk fshihet.",
+  "helpTimeline": "Çdo ndryshim, më i riu i pari: kush, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, mbaje shtypur për ta hequr ose rikthyer; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.",
   "helpDuplicates": "Mace ose koloni që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.",
   "helpDuplicatesNeutral": "Kafshë ose familje që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.",
-  "helpMatches": "Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim.",
-  "helpMatchesNeutral": "Kafshë që mund të jenë e njëjta kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një kafshe të humbur. Prek një çift për bashkim, shtypja e gjatë hap kafshën e parë për krahasim.",
+  "helpMatches": "Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim. Në listë janë edhe çiftet pamja e të cilëve përputhet në të paktën dy tipare pa kundërshtim; çipat tregojnë cilat. „Jo i njëjti“ e fsheh çiftin në këtë telefon derisa të ndryshojë pamja e njërës prej kafshëve.",
+  "helpMatchesNeutral": "Kafshë që mund të jenë e njëjta kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një kafshe të humbur. Prek një çift për bashkim, shtypja e gjatë hap kafshën e parë për krahasim. Në listë janë edhe çiftet pamja e të cilëve përputhet në të paktën dy tipare pa kundërshtim; çipat tregojnë cilat. „Jo i njëjti“ e fsheh çiftin në këtë telefon derisa të ndryshojë pamja e njërës prej kafshëve.",
   "helpFlier": "Një fletushkë e fotografuar bëhet mace bashkë me pronarin. Hap pas hapi: të dhënat e maces, kontakti i pronarit, prerja e fytyrës për foton e profilit, numrat e regjistrave nga fletushka, pastaj një kontroll i fundit. Gjithçka është sugjerim — korrigjo çfarë kamera lexoi gabim.",
   "helpFlierNeutral": "Një fletushkë e fotografuar bëhet kafshë bashkë me pronarin. Hap pas hapi: të dhënat e kafshës, kontakti i pronarit, prerja e fytyrës për foton e profilit, numrat e regjistrave nga fletushka, pastaj një kontroll i fundit. Gjithçka është sugjerim — korrigjo çfarë kamera lexoi gabim.",
   "archiveTitle": "Arkivi",
@@ -399,11 +435,109 @@
   "rangeAll": "Të gjitha",
   "rangeCustom": "I personalizuar…",
   "changeSince": "{delta} që nga {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Si në rajonin tënd",
   "unitsMetric": "Metrike (kg, cm, ml, °C)",
   "unitsImperial": "Imperiale (lb, in, fl oz, °F)",
   "starterWeight": "Pesha",
+  "starterLooks": "Pamja",
+  "looksGroupSize": "Madhësia",
+  "looksGroupColours": "Ngjyrat",
+  "looksGroupPattern": "Modeli",
+  "looksGroupFur": "Qimja",
+  "looksGroupTail": "Bishti",
+  "looksGroupEars": "Veshët",
+  "looksGroupMarks": "Shenjat",
+  "looksGroupCrest": "Kreshta",
+  "looksGroupBeak": "Sqepi",
+  "looksGroupRing": "Unaza",
+  "looksValueSmall": "I vogël",
+  "looksValueMedium": "Mesatar",
+  "looksValueLarge": "I madh",
+  "looksValueBlack": "E zezë",
+  "looksValueWhite": "E bardhë",
+  "looksValueGrey": "Gri",
+  "looksValueBrown": "Kafe",
+  "looksValueGinger": "E kuqërremtë",
+  "looksValueCream": "Krem",
+  "looksValueGolden": "E artë",
+  "looksValueTan": "Bezhë",
+  "looksValueGreen": "E gjelbër",
+  "looksValueBlue": "Blu",
+  "looksValueYellow": "E verdhë",
+  "looksValueRed": "E kuqe",
+  "looksValueOrange": "Portokalli",
+  "looksValuePink": "Rozë",
+  "looksValueWhiteBib": "Gjoks i bardhë",
+  "looksValueWhitePaws": "Putra të bardha",
+  "looksValueWhiteTailTip": "Majë bishti e bardhë",
+  "looksValueBlaze": "Yll",
+  "looksValueMask": "Maskë",
+  "looksValueSpots": "Pika",
+  "looksValuePatches": "Njolla",
+  "looksValueStripes": "Vija",
+  "looksValueScar": "Shenjë plage",
+  "looksValueNotchedEar": "Vesh i prerë",
+  "looksValueEarTip": "Maja e veshit",
+  "looksValueCollar": "Qafore",
+  "looksValueShort": "E shkurtër",
+  "looksValueLong": "E gjatë",
+  "looksValueHairless": "Pa qime",
+  "looksValueBobtail": "Bisht i shkurtër",
+  "looksValueNone": "Asnjë",
+  "looksValueCurled": "I përdredhur",
+  "looksValueUpright": "Të ngritur",
+  "looksValueFloppy": "Të varur",
+  "looksValueFolded": "Të palosur",
+  "looksValueRounded": "Të rrumbullakët",
+  "looksValueSolid": "Njëngjyrësh",
+  "looksValueTabby": "Tigër",
+  "looksValueTortoiseshell": "Breshkë",
+  "looksValueCalico": "Kaliko",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Dyngjyrësh",
+  "looksValueTuxedo": "Smoking",
+  "looksValueBrindle": "Vijëzuar",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Me pika",
+  "looksValuePatched": "Me njolla",
+  "looksValueTricolour": "Trengjyrësh",
+  "looksValueSable": "Sable",
+  "looksGroupEyes": "Sytë",
+  "looksGroupFeatures": "Veçori",
+  "looksValueAmber": "Qelibar",
+  "looksValueCopper": "Bakër",
+  "looksValueOddEyed": "Ngjyra të ndryshme",
+  "looksValueChocolate": "Çokollatë",
+  "looksValueLilac": "Jargavan",
+  "looksValueSilver": "Argjend",
+  "looksValueSmoke": "Tym",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Kaçurrel",
+  "looksValueWiry": "E ashpër",
+  "looksValueKinked": "E thyer",
+  "looksValueCropped": "Të prera",
+  "looksValueTippedEar": "Vesh i prerë",
+  "looksValueEarTattoo": "Tatuazh në vesh",
+  "looksValueMissingEar": "Mungon veshi",
+  "looksValueMissingEye": "Mungon syri",
+  "looksValueCloudyEye": "Sy i turbullt",
+  "looksValueMissingFrontLeg": "Mungon këmba e përparme",
+  "looksValueMissingHindLeg": "Mungon këmba e pasme",
+  "looksValueNoTeeth": "Pa dhëmbë",
+  "looksValueExtraToes": "Gishta shtesë",
+  "rejectMatch": "Jo i njëjti",
+  "traitsAgree": "{count, plural, =1{1 tipar përputhet} other{{count} tipare përputhen}}",
   "systemDefault": "Parazgjedhja e sistemit",
   "iosLocalNetworkHint": "Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish.",
   "markPrivate": "Shëno si private",
@@ -432,6 +566,8 @@
   "otherOption": "Tjetër…",
   "celebrationsToggle": "Festo birësimet",
   "celebrationsSubtitle": "Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj",
+  "cheerToggle": "Tingulli i brohoritjes",
+  "cheerSubtitle": "Një brohoritje e shkurtër me konfetat, e ndryshme çdo herë",
   "celebrationsSubtitleNeutral": "Konfeti dhe brohoritje kur një kafshë shpërngulet në shtëpinë e saj",
   "onMapLabel": "Në hartë",
   "showOnMap": "Shfaq në hartë",
@@ -445,7 +581,19 @@
   "authorsSection": "Kush ka shkruar në këtë katalog",
   "hardDeleteAction": "Fshi gjithçka nga ky autor",
   "hardDeleteWarning": "Heq çdo hyrje dhe foto të {name} nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.",
-  "hardDeleteWarningDevice": "Heq nga ky katalog çdo shënim dhe foto që {name} shkroi në pajisjen {device}. Pajisjet e tjera mbajnë kopjet e tyre. Nuk mund të zhbëhet.",
+  "yourKey": "Çelësi yt",
+  "yourTitle": "Titulli yt",
+  "titleNone": "Pa titull",
+  "keyLine": "çelësi {code}",
+  "keyVerified": "i verifikuar personalisht",
+  "keyFromFile": "nga një skedar, ende i paverifikuar",
+  "keyUnsigned": "ende pa çelës, hyrje të panënshkruara",
+  "summaryRefused": "Refuzuar",
+  "refusedEntries": "{count, plural, =1{1 hyrje e refuzuar} other{{count} hyrje të refuzuara}}: pa nënshkrim me çelësin e njohur për {name}",
+  "newKeyCallsItself": "Një çelës i ri {code} quhet {name}. Pyete personin para se t’i besosh.",
+  "keyChangedRefused": "{name} ofroi një çelës tjetër nga ai i njohur këtu. I njohuri mbetet; i riu nuk u mor.",
+  "metaNewKey": "Çelës i ri: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Heq nga ky katalog çdo hyrje dhe foto të shkruar nga {name} me çelësin {key}. Pajisjet e tjera i mbajnë të tyret. Nuk mund të zhbëhet.",
   "typeToConfirm": "Shkruaj {name} për konfirmim",
   "alsoBan": "Ndalo gjithashtu — mos prano më kurrë të dhëna",
   "bansSection": "Ndalimet",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Asgjë nuk u rikthye.} one{U rikthye 1 katalog.} other{U rikthyen {count} katalogë.}}",
   "helpCatalogs": "Një katalog është një botë më vete: macet e veta, kolonitë, fushat, fotot dhe partnerët e sinkronizimit. Berlini dhe Parisi nuk përzihen kurrë. Prek një katalog për të kaluar tek ai. Ingranazhi i një katalogu hap cilësimet e tij: emri, mace ose kafshë, fushat, autorët dhe bllokimet, arkivi, kthimi pas, fshirja. Emri yt, gjuha jote dhe këshillat që ke parë janë të përbashkëta për të gjithë.",
   "helpCatalogsNeutral": "Një katalog është një botë më vete: kafshët e veta, familjet, fushat, fotot dhe partnerët e sinkronizimit. Berlini dhe Parisi nuk përzihen kurrë. Prek një katalog për të kaluar tek ai. Ingranazhi i një katalogu hap cilësimet e tij: emri, mace ose kafshë, fushat, autorët dhe bllokimet, arkivi, kthimi pas, fshirja. Emri yt, gjuha jote dhe këshillat që ke parë janë të përbashkëta për të gjithë.",
-  "helpCatalogSettings": "Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar.",
+  "helpCatalogSettings": "Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar. Çelësi yt është kodi që partnerët shohin pranë emrit tënd; i përket këtij katalogu.",
   "spotHomeCatalog": "Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.",
   "deleteCatalog": "Fshi katalogun",
   "catalogSettings": "Cilësimet e katalogut",
   "deleteCatalogBody": "Gjithçka në {name} zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht.",
   "deleteCatalogBodyNeutral": "Gjithçka në {name} zhduket: kafshët, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "S'ka takime të planifikuara. Planifiko të reja këtu me plusin, ose në faqen e një kafshe a familjeje.",
   "dueToday": "sot",
   "dueInDays": "{count, plural, one{pas 1 dite} other{pas {count} ditësh}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 ditë vonesë} other{{count} ditë vonesë}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "U bë",
   "repeatTitle": "Sërish pas…",
   "noRepeatLabel": "Pa përsëritje",
@@ -720,15 +886,33 @@
   "unitMonths": "muajsh",
   "unitYears": "vjetësh",
   "ageYears": "{years} vj.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} muaj",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Ndrysho datën",
   "removeReminderLabel": "Hiq përkujtuesin",
   "exportIcs": "Eksporto skedarin e kalendarit",
   "resyncCalendar": "Risinkronizo kalendarin",
   "icsSavedTo": "Skedari i kalendarit u ruajt te {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Pasqyro në kalendarin e pajisjes",
   "calendarMirrorSubtitle": "Takimet shfaqen si ngjarje gjithëditore në kalendar. cat(a)log i përditëson atje në çdo nisje dhe pas çdo ndryshimi. Sinjalizimet për takimet i menaxhon në kalendar.",
   "syncPeerOlder": "Pajisja tjetër ka një cat(a)log më të vjetër pa përkujtues. Përditëso cat(a)log atje dhe sinkronizo sërish.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Përkujtuesit: lista e takimeve të planifikuara — veterineri, ilaçet, kontrollet.",
   "spotAgendaAdd": "Planifiko një takim të ri.",
   "spotAgendaCalendar": "Ndize këtu pasqyrimin e takimeve të cat(a)log në një kalendar sipas zgjedhjes.",
-  "helpAgenda": "Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara.",
-  "helpAgendaNeutral": "Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara.",
+  "spotAgendaToday": "Detyrat e sotme: shëno kur të kryhen. Pikat tregojnë shtatë ditët e fundit.",
+  "helpAgenda": "Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.",
+  "helpAgendaNeutral": "Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.",
   "calendarRowOff": "Kalendari: fikur",
   "calendarRowOn": "Kalendari: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Planifiko një takim për këtë mace. Shfaqet te përkujtuesit dhe konfirmohet atje.",
   "spotAddReminderCatNeutral": "Planifiko një takim për këtë kafshë. Shfaqet te përkujtuesit dhe konfirmohet atje.",
   "spotAddReminderClowder": "Planifiko një takim për këtë clowder. Shfaqet te përkujtuesit dhe konfirmohet atje.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Takim apo përkujtues?",
   "planChooserAppointment": "Takim — një vizitë në një datë dhe orë, me shënime",
   "planChooserReminder": "Përkujtues — një vlerë që bëhet e detyrueshme një ditë",
+  "planChooserChore": "Detyrë — diçka që përsëritet: ushqim, pika, kuti",
+  "newChore": "Detyrë e re",
+  "choreEdit": "Ndrysho detyrën",
+  "choreTitleLabel": "Çfarë",
+  "choreRepeatDaily": "Çdo ditë",
+  "choreRepeatEvery": "Çdo…",
+  "choreRepeatWeekdays": "Ditë",
+  "choreEveryDays": "{n, plural, one{çdo ditë} other{çdo {n} ditë}}",
+  "choreEveryWeeks": "{n, plural, one{çdo javë} other{çdo {n} javë}}",
+  "choreEveryMonths": "{n, plural, one{çdo muaj} other{çdo {n} muaj}}",
+  "choreEveryYears": "{n, plural, one{çdo vit} other{çdo {n} vjet}}",
+  "choreNoTime": "Në çdo orë të ditës",
+  "chorePause": "Pusho",
+  "chorePaused": "Në pauzë",
+  "choreResume": "Vazhdo",
+  "choreEnd": "Përfundo detyrën",
+  "choreHistory": "Historiku",
+  "choreDoneAt": "kryer {when} · {who}",
+  "choreDoneEarly": "më herët",
+  "choreDoneLate": "më vonë",
+  "choreMissed": "Humbur",
+  "choreStillOpen": "Ende e hapur",
+  "choreEndConfirm": "Detyra largohet nga lista. Ç’u shënua mbetet në histori.",
+  "todaySection": "Sot",
+  "upcomingSection": "Së shpejti",
+  "allDoneToday": "Sot: gjithçka u bë",
+  "streakDays": "{n, plural, one{1 ditë radhazi} other{{n} ditë radhazi}}",
+  "choreDue": "Afati {date}",
+  "remindMe": "Më kujto",
+  "remindNext": "Kujtesa tjetër: {when}",
+  "remindNone": "S’ka kujtesë të planifikuar: asgjë përpara.",
+  "remindPending": "{count, plural, =0{Ende asgjë e planifikuar në këtë telefon} =1{1 kujtesë e planifikuar në këtë telefon} other{{count} kujtesa të planifikuara në këtë telefon}}",
+  "remindTest": "Dërgo tani një kujtesë prove",
+  "remindLateHint": "Kujtesat mund të vijnë disa minuta më vonë; telefoni zgjedh çastin e saktë.",
+  "remindPermissionDenied": "Nuk ka leje për njoftime, kujtesa mbetet e fikur. Lejoji në cilësimet e aplikacionit në telefon dhe provo sërish.",
+  "batteryHint": "Nëse kujtesat nuk vijnë, lejo cat(a)log të punojë në sfond te cilësimet e baterisë së telefonit.",
+  "batterySettings": "Cilësimet e baterisë",
+  "achievementsTitle": "Arritje",
+  "rankServant": "Shërbëtor",
+  "rankButler": "Kryeshërbëtor",
+  "rankSteward": "Kujdestar",
+  "rankChancellor": "Kancelar",
+  "rankMinister": "Ministër",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kaliko",
+  "coatCheetah": "Gepard",
+  "coatTiger": "Tigër",
+  "coatTabby": "Tigër",
+  "coatPaws": "Putra",
+  "coatRosettes": "Rozeta",
+  "coatZebra": "Zebër",
+  "coatSetting": "Gëzof",
+  "coatRandom": "Ndryshe në çdo nisje",
+  "coatSnowLeopard": "Leopard i borës",
+  "coatSiamese": "Shenja siameze",
+  "coatLynx": "Rrëqebull",
+  "coatTortoiseshell": "Breshkë",
+  "coatUnlocked": "Gëzof i ri: {coat}",
+  "coatUnlockedHow": "Një muaj i plotë detyrash, të gjitha të kryera.",
+  "achievementsEmpty": "Ende asgjë. Detyrat e dinë rrugën.",
+  "achievementMonth": "Një muaj i plotë",
+  "achievementYear": "Një vit i plotë",
+  "achievementDecade": "Një dekadë e plotë",
+  "achievementCentury": "Një shekull i plotë",
+  "achievementCenturyHint": "Do të jemi të dy shumë krenarë.",
+  "achievementMaster": "Mjeshtër i {title}",
+  "achievementReached": "{times, plural, one{Arritur një herë} other{Arritur {times} herë}}, herën e parë më {date}",
+  "achievementNext": "Tjetra te {n}",
+  "achievementLocked": "Ende jo",
+  "achievementUnlocked": "Arritje: {name}",
   "appointmentTitleLabel": "Çfarë",
   "notesLabel": "Shënime",
   "timeLabel": "Ora",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Familje ekzistuese",
   "createNewInstead": "Asnjë — krijo të re",
   "overwritesValue": "Mbishkruan vlerën aktuale \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Të ndërpritet skanimi?",
   "abortScanBody": "Asgjë nuk do të ruhet.",
   "abortScan": "Ndërprit",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Hiq shenjën nga macet që nuk u trajtuan; ato mbeten të planifikuara.",
   "finishUntickHintNeutral": "Hiq shenjën nga kafshët që nuk u trajtuan; ato mbeten të planifikuara.",
   "deleteAppointmentGroup": "Fshi takimin për të gjitha {count} macet",
-  "deleteAppointmentGroupNeutral": "Fshi takimin për të gjitha {count} kafshët"
+  "deleteAppointmentGroupNeutral": "Fshi takimin për të gjitha {count} kafshët",
+  "correctThisValue": "Korrigjo këtë vlerë",
+  "removeThisValue": "Hiq këtë vlerë",
+  "restoreThisValue": "Rikthe këtë vlerë",
+  "showRemovedValues": "Shfaq vlerat e hequra",
+  "hideRemovedValues": "Fshih vlerat e hequra",
+  "entryRemovedBy": "Hequr · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Zëvendësuar me {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Korrigjim",
+  "restorePickFolder": "Zgjidh dosjen e kopjeve rezervë…",
+  "restoreAndroidHint": "Kopjet rezervë të instalimit të mëparshëm janë në Documents/catlog (Downloads/catlog për versionet e vjetra). Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu.",
+  "backupsTitle": "Kopje rezervë",
+  "backupsSubtitle": "Ku ruhen të sigurt katalogët e tu",
+  "backupsAndroidSystem": "Google ruan katalogët e këtij aplikacioni me llogarinë tënde, pa foto. Kthehen vetë pas një riinstalimi ose në një telefon të ri.",
+  "backupsAndroidFiles": "Një kopje e plotë e çdo katalogu, me foto, shkruhet në Documents/catlog sa herë që del nga aplikacioni pas ndryshimeve.",
+  "backupsIosSystem": "Kopja rezervë e iCloud e përfshin këtë aplikacion me katalogët dhe fotot e tij, si çdo aplikacion tjetër në këtë iPhone.",
+  "backupsIosFiles": "Një kopje e plotë e çdo katalogu ndodhet në aplikacionin Files nën cat(a)log. Prej aty mund të shkojë në iCloud Drive, me AirDrop ose në një telefon tjetër.",
+  "backupsDesktopFiles": "Një kopje e plotë e çdo katalogu, me foto, shkruhet në dosjen Shkarkime sa herë që del nga aplikacioni pas ndryshimeve.",
+  "backupsLast": "Kopja e fundit: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Ende nuk është shkruar asnjë kopje.",
+  "backupsNow": "Bëj kopje tani",
+  "backupsDone": "Kopja u shkrua.",
+  "backupsRestoredNote": "Rikthyer nga kopja rezervë e Google më {date}. Nëse telefoni i vjetër ende përdor cat(a)log, sinkronizo një herë prej tij, pastaj hiqe aplikacionin atje.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Edhe një dosje sipas zgjedhjes sate mund të marrë çdo kopje: një që një aplikacion cloud e mban të sinkronizuar në këtë telefon (Nextcloud, Syncthing e të tjerë), një kartë memorie, çdo dosje që ofron zgjedhësi. Kopjet përfundojnë në catlog-backups brenda saj.",
+  "backupsFolderPick": "Kopjo edhe në një dosje…",
+  "backupsFolderIs": "Kopjohet edhe në {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Mos kopjo më atje",
+  "remindFailed": "Njoftimet nuk funksionojnë në këtë telefon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopjo tekstin",
+  "colWhen": "Kur",
+  "colValue": "Vlera",
+  "colWho": "Kush"
 }

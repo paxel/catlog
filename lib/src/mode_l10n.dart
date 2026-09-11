@@ -37,6 +37,42 @@ class ModeLocalizations implements AppLocalizations {
   String get acceptArrival => base.acceptArrival;
 
   @override
+  String get achievementCentury => base.achievementCentury;
+
+  @override
+  String get achievementCenturyHint => base.achievementCenturyHint;
+
+  @override
+  String get achievementDecade => base.achievementDecade;
+
+  @override
+  String get achievementLocked => base.achievementLocked;
+
+  @override
+  String achievementMaster(String title) => base.achievementMaster(title);
+
+  @override
+  String get achievementMonth => base.achievementMonth;
+
+  @override
+  String achievementNext(int n) => base.achievementNext(n);
+
+  @override
+  String achievementReached(int times, String date) => base.achievementReached(times, date);
+
+  @override
+  String achievementUnlocked(String name) => base.achievementUnlocked(name);
+
+  @override
+  String get achievementYear => base.achievementYear;
+
+  @override
+  String get achievementsEmpty => base.achievementsEmpty;
+
+  @override
+  String get achievementsTitle => base.achievementsTitle;
+
+  @override
   String get addAppointment => base.addAppointment;
 
   @override
@@ -115,6 +151,9 @@ class ModeLocalizations implements AppLocalizations {
   String get allDayLabel => base.allDayLabel;
 
   @override
+  String get allDoneToday => base.allDoneToday;
+
+  @override
   String get allowAlways => base.allowAlways;
 
   @override
@@ -190,7 +229,61 @@ class ModeLocalizations implements AppLocalizations {
   String get backLabel => base.backLabel;
 
   @override
+  String get backupsAndroidFiles => base.backupsAndroidFiles;
+
+  @override
+  String get backupsAndroidSystem => base.backupsAndroidSystem;
+
+  @override
+  String get backupsDesktopFiles => base.backupsDesktopFiles;
+
+  @override
+  String get backupsDone => base.backupsDone;
+
+  @override
+  String get backupsFolderHint => base.backupsFolderHint;
+
+  @override
+  String backupsFolderIs(Object name) => base.backupsFolderIs(name);
+
+  @override
+  String get backupsFolderPick => base.backupsFolderPick;
+
+  @override
+  String get backupsFolderRemove => base.backupsFolderRemove;
+
+  @override
+  String get backupsIosFiles => base.backupsIosFiles;
+
+  @override
+  String get backupsIosSystem => base.backupsIosSystem;
+
+  @override
+  String backupsLast(Object date) => base.backupsLast(date);
+
+  @override
+  String get backupsNever => base.backupsNever;
+
+  @override
+  String get backupsNow => base.backupsNow;
+
+  @override
+  String backupsRestoredNote(Object date) => base.backupsRestoredNote(date);
+
+  @override
+  String get backupsSubtitle => base.backupsSubtitle;
+
+  @override
+  String get backupsTitle => base.backupsTitle;
+
+  @override
   String get bansSection => base.bansSection;
+
+  @override
+  String get batteryHint => base.batteryHint;
+
+  @override
+  String get batterySettings => base.batterySettings;
 
   @override
   String get birthdateInFuture => base.birthdateInFuture;
@@ -199,31 +292,121 @@ class ModeLocalizations implements AppLocalizations {
   String bornAfterDeceased(String date) => base.bornAfterDeceased(date);
 
   @override
+  String get breedAbyssinian => base.breedAbyssinian;
+
+  @override
+  String get breedAmericanShorthair => base.breedAmericanShorthair;
+
+  @override
+  String get breedBalinese => base.breedBalinese;
+
+  @override
   String get breedBengal => base.breedBengal;
+
+  @override
+  String get breedBirman => base.breedBirman;
+
+  @override
+  String get breedBombay => base.breedBombay;
+
+  @override
+  String get breedBritishLonghair => base.breedBritishLonghair;
 
   @override
   String get breedBritishShorthair => base.breedBritishShorthair;
 
   @override
+  String get breedBurmese => base.breedBurmese;
+
+  @override
+  String get breedBurmilla => base.breedBurmilla;
+
+  @override
+  String get breedChartreux => base.breedChartreux;
+
+  @override
+  String get breedCornishRex => base.breedCornishRex;
+
+  @override
+  String get breedDevonRex => base.breedDevonRex;
+
+  @override
+  String get breedEgyptianMau => base.breedEgyptianMau;
+
+  @override
   String get breedEuropeanShorthair => base.breedEuropeanShorthair;
+
+  @override
+  String get breedExoticShorthair => base.breedExoticShorthair;
+
+  @override
+  String get breedHimalayan => base.breedHimalayan;
+
+  @override
+  String get breedKorat => base.breedKorat;
 
   @override
   String get breedMaineCoon => base.breedMaineCoon;
 
   @override
+  String get breedManx => base.breedManx;
+
+  @override
+  String get breedMunchkin => base.breedMunchkin;
+
+  @override
   String get breedNorwegianForestCat => base.breedNorwegianForestCat;
+
+  @override
+  String get breedOcicat => base.breedOcicat;
+
+  @override
+  String get breedOrientalShorthair => base.breedOrientalShorthair;
 
   @override
   String get breedPersian => base.breedPersian;
 
   @override
+  String get breedRagamuffin => base.breedRagamuffin;
+
+  @override
   String get breedRagdoll => base.breedRagdoll;
+
+  @override
+  String get breedRussianBlue => base.breedRussianBlue;
+
+  @override
+  String get breedSavannah => base.breedSavannah;
+
+  @override
+  String get breedScottishFold => base.breedScottishFold;
+
+  @override
+  String get breedSelkirkRex => base.breedSelkirkRex;
 
   @override
   String get breedSiamese => base.breedSiamese;
 
   @override
+  String get breedSiberian => base.breedSiberian;
+
+  @override
+  String get breedSnowshoe => base.breedSnowshoe;
+
+  @override
+  String get breedSomali => base.breedSomali;
+
+  @override
   String get breedSphynx => base.breedSphynx;
+
+  @override
+  String get breedTonkinese => base.breedTonkinese;
+
+  @override
+  String get breedTurkishAngora => base.breedTurkishAngora;
+
+  @override
+  String get breedTurkishVan => base.breedTurkishVan;
 
   @override
   String bundleImportFailed(String error) => base.bundleImportFailed(error);
@@ -340,6 +523,12 @@ class ModeLocalizations implements AppLocalizations {
   String changesCount(int n) => base.changesCount(n);
 
   @override
+  String get cheerSubtitle => base.cheerSubtitle;
+
+  @override
+  String get cheerToggle => base.cheerToggle;
+
+  @override
   String get chipScanHint => pets ? base.chipScanHintNeutral : base.chipScanHint;
 
   @override
@@ -355,6 +544,72 @@ class ModeLocalizations implements AppLocalizations {
   String get chooseWhatToMove => base.chooseWhatToMove;
 
   @override
+  String choreDoneAt(Object when, Object who) => base.choreDoneAt(when, who);
+
+  @override
+  String get choreDoneEarly => base.choreDoneEarly;
+
+  @override
+  String get choreDoneLate => base.choreDoneLate;
+
+  @override
+  String choreDue(String date) => base.choreDue(date);
+
+  @override
+  String get choreEdit => base.choreEdit;
+
+  @override
+  String get choreEnd => base.choreEnd;
+
+  @override
+  String get choreEndConfirm => base.choreEndConfirm;
+
+  @override
+  String choreEveryDays(int n) => base.choreEveryDays(n);
+
+  @override
+  String choreEveryMonths(int n) => base.choreEveryMonths(n);
+
+  @override
+  String choreEveryWeeks(int n) => base.choreEveryWeeks(n);
+
+  @override
+  String choreEveryYears(int n) => base.choreEveryYears(n);
+
+  @override
+  String get choreHistory => base.choreHistory;
+
+  @override
+  String get choreMissed => base.choreMissed;
+
+  @override
+  String get choreNoTime => base.choreNoTime;
+
+  @override
+  String get chorePause => base.chorePause;
+
+  @override
+  String get chorePaused => base.chorePaused;
+
+  @override
+  String get choreRepeatDaily => base.choreRepeatDaily;
+
+  @override
+  String get choreRepeatEvery => base.choreRepeatEvery;
+
+  @override
+  String get choreRepeatWeekdays => base.choreRepeatWeekdays;
+
+  @override
+  String get choreResume => base.choreResume;
+
+  @override
+  String get choreStillOpen => base.choreStillOpen;
+
+  @override
+  String get choreTitleLabel => base.choreTitleLabel;
+
+  @override
   String get clowderLabel => pets ? base.clowderLabelNeutral : base.clowderLabel;
 
   @override
@@ -367,13 +622,70 @@ class ModeLocalizations implements AppLocalizations {
   String get clowdersNeutral => base.clowdersNeutral;
 
   @override
+  String get coatCalico => base.coatCalico;
+
+  @override
+  String get coatCheetah => base.coatCheetah;
+
+  @override
+  String get coatLynx => base.coatLynx;
+
+  @override
+  String get coatPaws => base.coatPaws;
+
+  @override
+  String get coatRandom => base.coatRandom;
+
+  @override
+  String get coatRosettes => base.coatRosettes;
+
+  @override
+  String get coatSetting => base.coatSetting;
+
+  @override
+  String get coatSiamese => base.coatSiamese;
+
+  @override
+  String get coatSnowLeopard => base.coatSnowLeopard;
+
+  @override
+  String get coatTabby => base.coatTabby;
+
+  @override
+  String get coatTiger => base.coatTiger;
+
+  @override
+  String get coatTortoiseshell => base.coatTortoiseshell;
+
+  @override
+  String coatUnlocked(Object coat) => base.coatUnlocked(coat);
+
+  @override
+  String get coatUnlockedHow => base.coatUnlockedHow;
+
+  @override
+  String get coatZebra => base.coatZebra;
+
+  @override
   String get coffeeSubtitle => base.coffeeSubtitle;
+
+  @override
+  String get colValue => base.colValue;
+
+  @override
+  String get colWhen => base.colWhen;
+
+  @override
+  String get colWho => base.colWho;
 
   @override
   String get conflictBody => base.conflictBody;
 
   @override
   String conflictOn(String field) => base.conflictOn(field);
+
+  @override
+  String conflictSame(Object value) => base.conflictSame(value);
 
   @override
   String conflictsMenu(int n) => base.conflictsMenu(n);
@@ -386,6 +698,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get copyCode => base.copyCode;
+
+  @override
+  String get copyText => base.copyText;
+
+  @override
+  String get correctThisValue => base.correctThisValue;
 
   @override
   String get crashBody => base.crashBody;
@@ -574,6 +892,15 @@ class ModeLocalizations implements AppLocalizations {
   String get editOptions => base.editOptions;
 
   @override
+  String get entryCorrection => base.entryCorrection;
+
+  @override
+  String entryRemovedBy(Object who, Object when) => base.entryRemovedBy(who, when);
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) => base.entryReplacedBy(value, who, when);
+
+  @override
   String get existingCat => pets ? base.existingCatNeutral : base.existingCat;
 
   @override
@@ -635,6 +962,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String flierRecognized(String name) => base.flierRecognized(name);
+
+  @override
+  String folderCatalogHint(Object name) => base.folderCatalogHint(name);
+
+  @override
+  String get folderHint => base.folderHint;
 
   @override
   String folderSyncFailed(String error) => base.folderSyncFailed(error);
@@ -703,7 +1036,7 @@ class ModeLocalizations implements AppLocalizations {
   String hardDeleteWarning(Object name) => base.hardDeleteWarning(name);
 
   @override
-  String hardDeleteWarningDevice(String name, String device) => base.hardDeleteWarningDevice(name, device);
+  String hardDeleteWarningKey(Object name, Object key) => base.hardDeleteWarningKey(name, key);
 
   @override
   String get helpAgenda => pets ? base.helpAgendaNeutral : base.helpAgenda;
@@ -800,6 +1133,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get hideLabel => base.hideLabel;
+
+  @override
+  String get hideRemovedValues => base.hideRemovedValues;
 
   @override
   String get host => base.host;
@@ -922,6 +1258,21 @@ class ModeLocalizations implements AppLocalizations {
   String keptMine(String name) => base.keptMine(name);
 
   @override
+  String keyChangedRefused(Object name) => base.keyChangedRefused(name);
+
+  @override
+  String get keyFromFile => base.keyFromFile;
+
+  @override
+  String keyLine(Object code) => base.keyLine(code);
+
+  @override
+  String get keyUnsigned => base.keyUnsigned;
+
+  @override
+  String get keyVerified => base.keyVerified;
+
+  @override
   String get kindCat => pets ? base.kindCatNeutral : base.kindCat;
 
   @override
@@ -992,6 +1343,264 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get lookUpId => base.lookUpId;
+
+  @override
+  String get looksGroupBeak => base.looksGroupBeak;
+
+  @override
+  String get looksGroupColours => base.looksGroupColours;
+
+  @override
+  String get looksGroupCrest => base.looksGroupCrest;
+
+  @override
+  String get looksGroupEars => base.looksGroupEars;
+
+  @override
+  String get looksGroupEyes => base.looksGroupEyes;
+
+  @override
+  String get looksGroupFeatures => base.looksGroupFeatures;
+
+  @override
+  String get looksGroupFur => base.looksGroupFur;
+
+  @override
+  String get looksGroupMarks => base.looksGroupMarks;
+
+  @override
+  String get looksGroupPattern => base.looksGroupPattern;
+
+  @override
+  String get looksGroupRing => base.looksGroupRing;
+
+  @override
+  String get looksGroupSize => base.looksGroupSize;
+
+  @override
+  String get looksGroupTail => base.looksGroupTail;
+
+  @override
+  String get looksValueAmber => base.looksValueAmber;
+
+  @override
+  String get looksValueBicolour => base.looksValueBicolour;
+
+  @override
+  String get looksValueBlack => base.looksValueBlack;
+
+  @override
+  String get looksValueBlaze => base.looksValueBlaze;
+
+  @override
+  String get looksValueBlue => base.looksValueBlue;
+
+  @override
+  String get looksValueBobtail => base.looksValueBobtail;
+
+  @override
+  String get looksValueBrindle => base.looksValueBrindle;
+
+  @override
+  String get looksValueBrown => base.looksValueBrown;
+
+  @override
+  String get looksValueCalico => base.looksValueCalico;
+
+  @override
+  String get looksValueChocolate => base.looksValueChocolate;
+
+  @override
+  String get looksValueCloudyEye => base.looksValueCloudyEye;
+
+  @override
+  String get looksValueCollar => base.looksValueCollar;
+
+  @override
+  String get looksValueColourpoint => base.looksValueColourpoint;
+
+  @override
+  String get looksValueCopper => base.looksValueCopper;
+
+  @override
+  String get looksValueCream => base.looksValueCream;
+
+  @override
+  String get looksValueCropped => base.looksValueCropped;
+
+  @override
+  String get looksValueCurled => base.looksValueCurled;
+
+  @override
+  String get looksValueCurly => base.looksValueCurly;
+
+  @override
+  String get looksValueEarTattoo => base.looksValueEarTattoo;
+
+  @override
+  String get looksValueEarTip => base.looksValueEarTip;
+
+  @override
+  String get looksValueExtraToes => base.looksValueExtraToes;
+
+  @override
+  String get looksValueFloppy => base.looksValueFloppy;
+
+  @override
+  String get looksValueFolded => base.looksValueFolded;
+
+  @override
+  String get looksValueGinger => base.looksValueGinger;
+
+  @override
+  String get looksValueGolden => base.looksValueGolden;
+
+  @override
+  String get looksValueGreen => base.looksValueGreen;
+
+  @override
+  String get looksValueGrey => base.looksValueGrey;
+
+  @override
+  String get looksValueHairless => base.looksValueHairless;
+
+  @override
+  String get looksValueKinked => base.looksValueKinked;
+
+  @override
+  String get looksValueLarge => base.looksValueLarge;
+
+  @override
+  String get looksValueLilac => base.looksValueLilac;
+
+  @override
+  String get looksValueLong => base.looksValueLong;
+
+  @override
+  String get looksValueMask => base.looksValueMask;
+
+  @override
+  String get looksValueMedium => base.looksValueMedium;
+
+  @override
+  String get looksValueMerle => base.looksValueMerle;
+
+  @override
+  String get looksValueMissingEar => base.looksValueMissingEar;
+
+  @override
+  String get looksValueMissingEye => base.looksValueMissingEye;
+
+  @override
+  String get looksValueMissingFrontLeg => base.looksValueMissingFrontLeg;
+
+  @override
+  String get looksValueMissingHindLeg => base.looksValueMissingHindLeg;
+
+  @override
+  String get looksValueNoTeeth => base.looksValueNoTeeth;
+
+  @override
+  String get looksValueNone => base.looksValueNone;
+
+  @override
+  String get looksValueNotchedEar => base.looksValueNotchedEar;
+
+  @override
+  String get looksValueOddEyed => base.looksValueOddEyed;
+
+  @override
+  String get looksValueOrange => base.looksValueOrange;
+
+  @override
+  String get looksValuePatched => base.looksValuePatched;
+
+  @override
+  String get looksValuePatches => base.looksValuePatches;
+
+  @override
+  String get looksValuePink => base.looksValuePink;
+
+  @override
+  String get looksValueRed => base.looksValueRed;
+
+  @override
+  String get looksValueRounded => base.looksValueRounded;
+
+  @override
+  String get looksValueSable => base.looksValueSable;
+
+  @override
+  String get looksValueScar => base.looksValueScar;
+
+  @override
+  String get looksValueShort => base.looksValueShort;
+
+  @override
+  String get looksValueSilver => base.looksValueSilver;
+
+  @override
+  String get looksValueSmall => base.looksValueSmall;
+
+  @override
+  String get looksValueSmoke => base.looksValueSmoke;
+
+  @override
+  String get looksValueSolid => base.looksValueSolid;
+
+  @override
+  String get looksValueSpots => base.looksValueSpots;
+
+  @override
+  String get looksValueSpotted => base.looksValueSpotted;
+
+  @override
+  String get looksValueStripes => base.looksValueStripes;
+
+  @override
+  String get looksValueTabby => base.looksValueTabby;
+
+  @override
+  String get looksValueTan => base.looksValueTan;
+
+  @override
+  String get looksValueTicked => base.looksValueTicked;
+
+  @override
+  String get looksValueTippedEar => base.looksValueTippedEar;
+
+  @override
+  String get looksValueTortoiseshell => base.looksValueTortoiseshell;
+
+  @override
+  String get looksValueTricolour => base.looksValueTricolour;
+
+  @override
+  String get looksValueTuxedo => base.looksValueTuxedo;
+
+  @override
+  String get looksValueUpright => base.looksValueUpright;
+
+  @override
+  String get looksValueVan => base.looksValueVan;
+
+  @override
+  String get looksValueWhite => base.looksValueWhite;
+
+  @override
+  String get looksValueWhiteBib => base.looksValueWhiteBib;
+
+  @override
+  String get looksValueWhitePaws => base.looksValueWhitePaws;
+
+  @override
+  String get looksValueWhiteTailTip => base.looksValueWhiteTailTip;
+
+  @override
+  String get looksValueWiry => base.looksValueWiry;
+
+  @override
+  String get looksValueYellow => base.looksValueYellow;
 
   @override
   String lookupFailed(String url) => base.lookupFailed(url);
@@ -1066,6 +1675,9 @@ class ModeLocalizations implements AppLocalizations {
   String metaMerged(String loser, String survivor) => base.metaMerged(loser, survivor);
 
   @override
+  String metaNewKey(Object name, Object code, Object how) => base.metaNewKey(name, code, how);
+
+  @override
   String metaPhotos(int n) => base.metaPhotos(n);
 
   @override
@@ -1138,6 +1750,9 @@ class ModeLocalizations implements AppLocalizations {
   String get newCatalog => base.newCatalog;
 
   @override
+  String get newChore => base.newChore;
+
+  @override
   String get newClowder => pets ? base.newClowderNeutral : base.newClowder;
 
   @override
@@ -1145,6 +1760,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get newField => base.newField;
+
+  @override
+  String newKeyCallsItself(Object code, Object name) => base.newKeyCallsItself(code, name);
 
   @override
   String get newStray => base.newStray;
@@ -1330,6 +1948,9 @@ class ModeLocalizations implements AppLocalizations {
   String get planChooserAppointment => base.planChooserAppointment;
 
   @override
+  String get planChooserChore => base.planChooserChore;
+
+  @override
   String get planChooserReminder => base.planChooserReminder;
 
   @override
@@ -1346,6 +1967,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get privateLabel => base.privateLabel;
+
+  @override
+  String privateMarker(Object field) => base.privateMarker(field);
 
   @override
   String get proposeAnotherName => base.proposeAnotherName;
@@ -1378,10 +2002,28 @@ class ModeLocalizations implements AppLocalizations {
   String get rangeYear => base.rangeYear;
 
   @override
+  String get rankButler => base.rankButler;
+
+  @override
+  String get rankChancellor => base.rankChancellor;
+
+  @override
+  String get rankMinister => base.rankMinister;
+
+  @override
+  String get rankServant => base.rankServant;
+
+  @override
+  String get rankSteward => base.rankSteward;
+
+  @override
   String get readOnlyCalendar => base.readOnlyCalendar;
 
   @override
   String get recordSightingHere => base.recordSightingHere;
+
+  @override
+  String refusedEntries(int count, Object name) => base.refusedEntries(count, name);
 
   @override
   String get rejectAfterResolve => base.rejectAfterResolve;
@@ -1390,10 +2032,37 @@ class ModeLocalizations implements AppLocalizations {
   String get rejectArrival => base.rejectArrival;
 
   @override
+  String get rejectMatch => base.rejectMatch;
+
+  @override
   String get rememberService => base.rememberService;
 
   @override
   String get rememberServiceHint => base.rememberServiceHint;
+
+  @override
+  String remindFailed(Object error) => base.remindFailed(error);
+
+  @override
+  String get remindLateHint => base.remindLateHint;
+
+  @override
+  String get remindMe => base.remindMe;
+
+  @override
+  String remindNext(Object when) => base.remindNext(when);
+
+  @override
+  String get remindNone => base.remindNone;
+
+  @override
+  String remindPending(int count) => base.remindPending(count);
+
+  @override
+  String get remindPermissionDenied => base.remindPermissionDenied;
+
+  @override
+  String get remindTest => base.remindTest;
 
   @override
   String get reminderDialogHint => base.reminderDialogHint;
@@ -1409,6 +2078,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get removeReminderLabel => base.removeReminderLabel;
+
+  @override
+  String get removeThisValue => base.removeThisValue;
 
   @override
   String get removeTrust => base.removeTrust;
@@ -1447,6 +2119,9 @@ class ModeLocalizations implements AppLocalizations {
   String get restoreAction => base.restoreAction;
 
   @override
+  String get restoreAndroidHint => base.restoreAndroidHint;
+
+  @override
   String get restoreBackupsMenu => base.restoreBackupsMenu;
 
   @override
@@ -1471,16 +2146,16 @@ class ModeLocalizations implements AppLocalizations {
   String get restorePickFiles => base.restorePickFiles;
 
   @override
+  String get restorePickFolder => base.restorePickFolder;
+
+  @override
+  String get restoreThisValue => base.restoreThisValue;
+
+  @override
   String get restoreTitle => base.restoreTitle;
 
   @override
   String get resyncCalendar => base.resyncCalendar;
-
-  @override
-  String get revertSubtitle => base.revertSubtitle;
-
-  @override
-  String get revertThisChange => base.revertThisChange;
 
   @override
   String sameIdField(String field) => base.sameIdField(field);
@@ -1549,6 +2224,9 @@ class ModeLocalizations implements AppLocalizations {
   String get shareAsPdf => base.shareAsPdf;
 
   @override
+  String get shareAsText => base.shareAsText;
+
+  @override
   String get shareBundle => base.shareBundle;
 
   @override
@@ -1582,6 +2260,9 @@ class ModeLocalizations implements AppLocalizations {
   String get showOnMap => base.showOnMap;
 
   @override
+  String get showRemovedValues => base.showRemovedValues;
+
+  @override
   String get showTipsAgain => base.showTipsAgain;
 
   @override
@@ -1595,6 +2276,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get sortLabel => base.sortLabel;
+
+  @override
+  String get sortNewestFirst => base.sortNewestFirst;
+
+  @override
+  String get sortOldestFirst => base.sortOldestFirst;
 
   @override
   String get sourceCode => base.sourceCode;
@@ -1616,6 +2303,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get spotAgendaCalendar => base.spotAgendaCalendar;
+
+  @override
+  String get spotAgendaToday => base.spotAgendaToday;
 
   @override
   String get spotCardChips => base.spotCardChips;
@@ -1721,6 +2411,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get starterGender => base.starterGender;
+
+  @override
+  String get starterLooks => base.starterLooks;
 
   @override
   String get starterMother => base.starterMother;
@@ -1837,6 +2530,9 @@ class ModeLocalizations implements AppLocalizations {
   String get strays => base.strays;
 
   @override
+  String streakDays(int n) => base.streakDays(n);
+
+  @override
   String get suggestedFrames => base.suggestedFrames;
 
   @override
@@ -1859,6 +2555,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get summaryNew => base.summaryNew;
+
+  @override
+  String get summaryRefused => base.summaryRefused;
 
   @override
   String get summaryUpdated => base.summaryUpdated;
@@ -1951,6 +2650,12 @@ class ModeLocalizations implements AppLocalizations {
   String timelineOf(String name) => base.timelineOf(name);
 
   @override
+  String get titleNone => base.titleNone;
+
+  @override
+  String titleWithChore(Object title, Object chore) => base.titleWithChore(title, chore);
+
+  @override
   String toastAdopted(Object cat, Object home) => base.toastAdopted(cat, home);
 
   @override
@@ -1990,6 +2695,9 @@ class ModeLocalizations implements AppLocalizations {
   String get toastSettingsTitle => base.toastSettingsTitle;
 
   @override
+  String get todaySection => base.todaySection;
+
+  @override
   String trailOf(String name, int count) => base.trailOf(name, count);
 
   @override
@@ -1997,6 +2705,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String trailOfPlace(String name, int count) => base.trailOfPlace(name, count);
+
+  @override
+  String traitsAgree(int count) => base.traitsAgree(count);
 
   @override
   String get trustBothWaysNote => base.trustBothWaysNote;
@@ -2065,6 +2776,9 @@ class ModeLocalizations implements AppLocalizations {
   String get unnamed => base.unnamed;
 
   @override
+  String get upcomingSection => base.upcomingSection;
+
+  @override
   String get useCode => base.useCode;
 
   @override
@@ -2072,6 +2786,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get useMyLocation => base.useMyLocation;
+
+  @override
+  String get useSameFolder => base.useSameFolder;
 
   @override
   String get usedOn => base.usedOn;
@@ -2152,6 +2869,12 @@ class ModeLocalizations implements AppLocalizations {
   String get writeTheDeveloper => base.writeTheDeveloper;
 
   @override
+  String get yourKey => base.yourKey;
+
+  @override
   String get yourName => base.yourName;
+
+  @override
+  String get yourTitle => base.yourTitle;
 
 }

@@ -174,6 +174,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get shareAsImage => 'Görsel olarak paylaş';
 
   @override
+  String get sortOldestFirst => 'Önce en eski';
+
+  @override
+  String get sortNewestFirst => 'Önce en yeni';
+
+  @override
+  String get shareAsText => 'Metin olarak paylaş';
+
+  @override
   String get shareAsPdf => 'PDF olarak paylaş';
 
   @override
@@ -555,13 +564,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Bu değişikliği geri al';
-
-  @override
-  String get revertSubtitle =>
-      'Önceki değeri yeni bir kayıt olarak geri getirir — geçmiş ikisini de saklar.';
-
-  @override
   String fieldCleared(String field) {
     return '$field temizlendi';
   }
@@ -731,7 +733,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'İki cihaz da aynı klasörü kullanır (örn. Dropbox\'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.';
+      'İki cihaz da aynı klasörü kullanır (örn. Nextcloud\'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.';
 
   @override
   String get noFolderChosenYet => 'Henüz klasör seçilmedi';
@@ -741,6 +743,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Klasörü şimdi eşitle';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'İçinde bu katalog „$name“ klasörünü kullanır; böylece tek bir paylaşılan klasör tüm kataloglarını taşıyabilir.';
+  }
+
+  @override
+  String get useSameFolder => 'Diğer kataloglarla aynı klasörü kullan';
+
+  @override
+  String get folderHint =>
+      'İki cihazın aynı tuttuğu herhangi bir klasör yeter: bir bulut sürücüsü ya da telefonlarınızda kalan bir klasör için Syncthing. Syncthing ücretsizdir: her telefona kur, aralarında bir klasörü paylaş ve o klasörü burada her cihazda seç.';
 
   @override
   String folderSynced(String result) {
@@ -778,6 +792,16 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get conflictBody =>
       'Aynı anda iki yerde değiştirildi. Doğru olanı seçin:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (özel)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'İki değişiklik de aynı şeyi söylüyor: $value. Seçecek bir şey yok; Çöz işareti kaldırır.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -909,6 +933,96 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sfenks';
+
+  @override
+  String get breedAbyssinian => 'Habeş';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikan kısa tüylü';
+
+  @override
+  String get breedBalinese => 'Bali';
+
+  @override
+  String get breedBirman => 'Birman';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burma';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Britanya uzun tüylü';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish Rex';
+
+  @override
+  String get breedDevonRex => 'Devon Rex';
+
+  @override
+  String get breedEgyptianMau => 'Mısır mau';
+
+  @override
+  String get breedExoticShorthair => 'Egzotik kısa tüylü';
+
+  @override
+  String get breedHimalayan => 'Himalaya';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oryantal kısa tüylü';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Rus mavisi';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'İskoç kıvrık kulak';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk Rex';
+
+  @override
+  String get breedSiberian => 'Sibirya';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somali';
+
+  @override
+  String get breedTonkinese => 'Tonkin';
+
+  @override
+  String get breedTurkishAngora => 'Ankara kedisi';
+
+  @override
+  String get breedTurkishVan => 'Van kedisi';
 
   @override
   String get starterColor => 'Renk';
@@ -1088,7 +1202,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır.';
+      'Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır. Her katalog yazdıklarını kendi anahtarıyla imzalar; ortaklar adının yanında anahtar kodunu görür. Bir ortağın ilk anahtarı dosyadan güvenle alınır ve yüz yüze eşitleyince doğrulanmış sayılır. Bilinen bir ad altında doğru imzası olmayan kayıtlar reddedilir ve varış sayfasında listelenir.';
 
   @override
   String get helpFields =>
@@ -1100,7 +1214,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Şimdiye kadar yapılmış her değişiklik, en yenisi üstte: kim neyi, ne zaman, hangi değere değiştirmiş. Her kayıt geri alınabilir — bu yeni bir kayıt yazar, hiçbir şey silinmez.';
+      'Her değişiklik, en yenisi önce: kim, ne zaman ve hangi değere. Düzeltmek için bir kayda dokunun, kaldırmak veya geri getirmek için basılı tutun; gizli bir kayıt günlükte kalır ve istendiğinde gösterilir.';
 
   @override
   String get helpDuplicates =>
@@ -1112,11 +1226,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç.';
+      'Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç. Görünüşü en az iki özellikte çelişmeden uyuşan çiftler de listelenir; çipler hangileri olduğunu gösterir. „Aynı değil“ bir çifti bu telefonda, hayvanlardan birinin görünüşü değişene dek gizler.';
 
   @override
   String get helpMatchesNeutral =>
-      'Aynı hayvan olabilecek evcil hayvanlar: aynı numara ya da kayıp bir evcil hayvanın arama alanında görülen bir sokak hayvanı. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk evcil hayvanı aç.';
+      'Aynı hayvan olabilecek evcil hayvanlar: aynı numara ya da kayıp bir evcil hayvanın arama alanında görülen bir sokak hayvanı. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk evcil hayvanı aç. Görünüşü en az iki özellikte çelişmeden uyuşan çiftler de listelenir; çipler hangileri olduğunu gösterir. „Aynı değil“ bir çifti bu telefonda, hayvanlardan birinin görünüşü değişene dek gizler.';
 
   @override
   String get helpFlier =>
@@ -1406,6 +1520,281 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterWeight => 'Ağırlık';
 
   @override
+  String get starterLooks => 'Görünüş';
+
+  @override
+  String get looksGroupSize => 'Boyut';
+
+  @override
+  String get looksGroupColours => 'Renkler';
+
+  @override
+  String get looksGroupPattern => 'Desen';
+
+  @override
+  String get looksGroupFur => 'Tüy';
+
+  @override
+  String get looksGroupTail => 'Kuyruk';
+
+  @override
+  String get looksGroupEars => 'Kulaklar';
+
+  @override
+  String get looksGroupMarks => 'İşaretler';
+
+  @override
+  String get looksGroupCrest => 'Tepelik';
+
+  @override
+  String get looksGroupBeak => 'Gaga';
+
+  @override
+  String get looksGroupRing => 'Halka';
+
+  @override
+  String get looksValueSmall => 'Küçük';
+
+  @override
+  String get looksValueMedium => 'Orta';
+
+  @override
+  String get looksValueLarge => 'Büyük';
+
+  @override
+  String get looksValueBlack => 'Siyah';
+
+  @override
+  String get looksValueWhite => 'Beyaz';
+
+  @override
+  String get looksValueGrey => 'Gri';
+
+  @override
+  String get looksValueBrown => 'Kahverengi';
+
+  @override
+  String get looksValueGinger => 'Kızıl';
+
+  @override
+  String get looksValueCream => 'Krem';
+
+  @override
+  String get looksValueGolden => 'Altın';
+
+  @override
+  String get looksValueTan => 'Açık kahve';
+
+  @override
+  String get looksValueGreen => 'Yeşil';
+
+  @override
+  String get looksValueBlue => 'Mavi';
+
+  @override
+  String get looksValueYellow => 'Sarı';
+
+  @override
+  String get looksValueRed => 'Kırmızı';
+
+  @override
+  String get looksValueOrange => 'Turuncu';
+
+  @override
+  String get looksValuePink => 'Pembe';
+
+  @override
+  String get looksValueWhiteBib => 'Beyaz göğüs';
+
+  @override
+  String get looksValueWhitePaws => 'Beyaz patiler';
+
+  @override
+  String get looksValueWhiteTailTip => 'Beyaz kuyruk ucu';
+
+  @override
+  String get looksValueBlaze => 'Akıtma';
+
+  @override
+  String get looksValueMask => 'Maske';
+
+  @override
+  String get looksValueSpots => 'Benekler';
+
+  @override
+  String get looksValuePatches => 'Yamalar';
+
+  @override
+  String get looksValueStripes => 'Çizgiler';
+
+  @override
+  String get looksValueScar => 'Yara izi';
+
+  @override
+  String get looksValueNotchedEar => 'Çentikli kulak';
+
+  @override
+  String get looksValueEarTip => 'Kulak ucu';
+
+  @override
+  String get looksValueCollar => 'Tasma';
+
+  @override
+  String get looksValueShort => 'Kısa';
+
+  @override
+  String get looksValueLong => 'Uzun';
+
+  @override
+  String get looksValueHairless => 'Tüysüz';
+
+  @override
+  String get looksValueBobtail => 'Küt kuyruk';
+
+  @override
+  String get looksValueNone => 'Yok';
+
+  @override
+  String get looksValueCurled => 'Kıvrık';
+
+  @override
+  String get looksValueUpright => 'Dik';
+
+  @override
+  String get looksValueFloppy => 'Düşük';
+
+  @override
+  String get looksValueFolded => 'Katlı';
+
+  @override
+  String get looksValueRounded => 'Yuvarlak';
+
+  @override
+  String get looksValueSolid => 'Düz';
+
+  @override
+  String get looksValueTabby => 'Tekir';
+
+  @override
+  String get looksValueTortoiseshell => 'Bağa';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'İki renkli';
+
+  @override
+  String get looksValueTuxedo => 'Smokin';
+
+  @override
+  String get looksValueBrindle => 'Çizgili';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Benekli';
+
+  @override
+  String get looksValuePatched => 'Yamalı';
+
+  @override
+  String get looksValueTricolour => 'Üç renkli';
+
+  @override
+  String get looksValueSable => 'Samur';
+
+  @override
+  String get looksGroupEyes => 'Gözler';
+
+  @override
+  String get looksGroupFeatures => 'Özellikler';
+
+  @override
+  String get looksValueAmber => 'Kehribar';
+
+  @override
+  String get looksValueCopper => 'Bakır';
+
+  @override
+  String get looksValueOddEyed => 'Farklı renkli';
+
+  @override
+  String get looksValueChocolate => 'Çikolata';
+
+  @override
+  String get looksValueLilac => 'Leylak';
+
+  @override
+  String get looksValueSilver => 'Gümüş';
+
+  @override
+  String get looksValueSmoke => 'Duman';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kıvırcık';
+
+  @override
+  String get looksValueWiry => 'Sert';
+
+  @override
+  String get looksValueKinked => 'Kıvrık';
+
+  @override
+  String get looksValueCropped => 'Kesik';
+
+  @override
+  String get looksValueTippedEar => 'Kesik kulak ucu';
+
+  @override
+  String get looksValueEarTattoo => 'Kulak dövmesi';
+
+  @override
+  String get looksValueMissingEar => 'Eksik kulak';
+
+  @override
+  String get looksValueMissingEye => 'Eksik göz';
+
+  @override
+  String get looksValueCloudyEye => 'Bulanık göz';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Eksik ön bacak';
+
+  @override
+  String get looksValueMissingHindLeg => 'Eksik arka bacak';
+
+  @override
+  String get looksValueNoTeeth => 'Dişsiz';
+
+  @override
+  String get looksValueExtraToes => 'Fazla parmak';
+
+  @override
+  String get rejectMatch => 'Aynı değil';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count özellik uyuşuyor',
+      one: '1 özellik uyuşuyor',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sistem varsayılanı';
 
   @override
@@ -1486,6 +1875,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bir kedi yuvasına taşındığında konfeti ve tezahürat';
 
   @override
+  String get cheerToggle => 'Tezahürat sesi';
+
+  @override
+  String get cheerSubtitle =>
+      'Konfetiyle kısa bir tezahürat, her seferinde farklı';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Bir evcil hayvan yuvasına taşındığında konfeti ve tezahürat';
 
@@ -1529,8 +1925,60 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return '$name adlı kişinin $device cihazında yazdığı her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
+  String get yourKey => 'Anahtarın';
+
+  @override
+  String get yourTitle => 'Unvanın';
+
+  @override
+  String get titleNone => 'Unvan yok';
+
+  @override
+  String keyLine(Object code) {
+    return 'anahtar $code';
+  }
+
+  @override
+  String get keyVerified => 'yüz yüze doğrulandı';
+
+  @override
+  String get keyFromFile => 'dosyadan, henüz doğrulanmadı';
+
+  @override
+  String get keyUnsigned => 'henüz anahtar yok, kayıtlar imzasız';
+
+  @override
+  String get summaryRefused => 'Reddedildi';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kayıt',
+      one: '1 kayıt',
+    );
+    return '$_temp0 reddedildi: $name için bilinen anahtarla imzalanmamış';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Yeni bir anahtar $code kendine $name diyor. Güvenmeden önce kişiye sor.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name burada bilinenden farklı bir anahtar sundu. Bilinen kalır; yenisi alınmadı.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Yeni anahtar: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return '$name tarafından $key anahtarıyla yazılan her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
   }
 
   @override
@@ -2029,7 +2477,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar.';
+      'Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar. Anahtarın, ortakların adının yanında gördüğü koddur; bu kataloğa aittir.';
 
   @override
   String get spotHomeCatalog =>
@@ -2334,12 +2782,16 @@ class AppLocalizationsTr extends AppLocalizations {
       'cat(a)log randevularının seçtiğin bir takvime yansıtılmasını buradan aç.';
 
   @override
+  String get spotAgendaToday =>
+      'Bugünün görevleri: bitince işaretle. Noktalar son yedi günü gösterir.';
+
+  @override
   String get helpAgenda =>
-      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
 
   @override
   String get helpAgendaNeutral =>
-      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
 
   @override
   String get calendarRowOff => 'Takvim: kapalı';
@@ -2384,6 +2836,293 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Hatırlatma — bir gün vadesi gelen bir değer';
+
+  @override
+  String get planChooserChore => 'Görev — tekrar eden bir iş: mama, damla, kum';
+
+  @override
+  String get newChore => 'Yeni görev';
+
+  @override
+  String get choreEdit => 'Görevi düzenle';
+
+  @override
+  String get choreTitleLabel => 'Ne';
+
+  @override
+  String get choreRepeatDaily => 'Her gün';
+
+  @override
+  String get choreRepeatEvery => 'Her…';
+
+  @override
+  String get choreRepeatWeekdays => 'Günler';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'her $n günde bir',
+      one: 'her gün',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'her $n haftada bir',
+      one: 'her hafta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'her $n ayda bir',
+      one: 'her ay',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'her $n yılda bir',
+      one: 'her yıl',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Günün herhangi bir saati';
+
+  @override
+  String get chorePause => 'Duraklat';
+
+  @override
+  String get chorePaused => 'Duraklatıldı';
+
+  @override
+  String get choreResume => 'Sürdür';
+
+  @override
+  String get choreEnd => 'Görevi bitir';
+
+  @override
+  String get choreHistory => 'Geçmiş';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'yapıldı $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'erken';
+
+  @override
+  String get choreDoneLate => 'geç';
+
+  @override
+  String get choreMissed => 'Kaçırıldı';
+
+  @override
+  String get choreStillOpen => 'Hâlâ açık';
+
+  @override
+  String get choreEndConfirm =>
+      'Görev listeden çıkar. İşaretlenenler geçmişte kalır.';
+
+  @override
+  String get todaySection => 'Bugün';
+
+  @override
+  String get upcomingSection => 'Yakında';
+
+  @override
+  String get allDoneToday => 'Bugün: hepsi tamam';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n gün üst üste',
+      one: '1 gün üst üste',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Son gün $date';
+  }
+
+  @override
+  String get remindMe => 'Hatırlat';
+
+  @override
+  String remindNext(Object when) {
+    return 'Sonraki hatırlatıcı: $when';
+  }
+
+  @override
+  String get remindNone => 'Planlanmış hatırlatıcı yok: yaklaşan bir şey yok.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Bu telefonda $count hatırlatıcı planlı',
+      one: 'Bu telefonda 1 hatırlatıcı planlı',
+      zero: 'Bu telefonda henüz planlanmış bir şey yok',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Şimdi bir deneme hatırlatıcısı gönder';
+
+  @override
+  String get remindLateHint =>
+      'Hatırlatıcılar birkaç dakika geç gelebilir; tam anı telefon seçer.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Bildirim izni yok, hatırlatıcı kapalı kalır. Telefonun uygulama ayarlarından izin ver ve tekrar dene.';
+
+  @override
+  String get batteryHint =>
+      'Hatırlatıcılar gelmiyorsa telefonun pil ayarlarında cat(a)log’un arka planda çalışmasına izin ver.';
+
+  @override
+  String get batterySettings => 'Pil ayarları';
+
+  @override
+  String get achievementsTitle => 'Başarılar';
+
+  @override
+  String get rankServant => 'Hizmetkâr';
+
+  @override
+  String get rankButler => 'Kâhya';
+
+  @override
+  String get rankSteward => 'Vekilharç';
+
+  @override
+  String get rankChancellor => 'Şansölye';
+
+  @override
+  String get rankMinister => 'Bakan';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatCheetah => 'Çita';
+
+  @override
+  String get coatTiger => 'Kaplan';
+
+  @override
+  String get coatTabby => 'Tekir';
+
+  @override
+  String get coatPaws => 'Patiler';
+
+  @override
+  String get coatRosettes => 'Rozetler';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Kürk';
+
+  @override
+  String get coatRandom => 'Her açılışta farklı';
+
+  @override
+  String get coatSnowLeopard => 'Kar leoparı';
+
+  @override
+  String get coatSiamese => 'Siyam noktaları';
+
+  @override
+  String get coatLynx => 'Vaşak';
+
+  @override
+  String get coatTortoiseshell => 'Bağa';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Yeni kürk: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Tam bir ay görev, hepsi yapıldı.';
+
+  @override
+  String get achievementsEmpty => 'Henüz bir şey yok. Görevler yolu bilir.';
+
+  @override
+  String get achievementMonth => 'Tam bir ay';
+
+  @override
+  String get achievementYear => 'Tam bir yıl';
+
+  @override
+  String get achievementDecade => 'Tam on yıl';
+
+  @override
+  String get achievementCentury => 'Tam bir yüzyıl';
+
+  @override
+  String get achievementCenturyHint => 'İkimiz de çok gurur duyacağız.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title ustası';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times kez ulaşıldı',
+      one: 'Bir kez ulaşıldı',
+    );
+    return '$_temp0, ilki $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Sonraki: $n';
+  }
+
+  @override
+  String get achievementLocked => 'Henüz değil';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Başarı: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Ne';
@@ -2545,4 +3284,116 @@ class AppLocalizationsTr extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Randevuyu $count evcil hayvanın tümü için sil';
   }
+
+  @override
+  String get correctThisValue => 'Bu değeri düzelt';
+
+  @override
+  String get removeThisValue => 'Bu değeri kaldır';
+
+  @override
+  String get restoreThisValue => 'Bu değeri geri getir';
+
+  @override
+  String get showRemovedValues => 'Kaldırılan değerleri göster';
+
+  @override
+  String get hideRemovedValues => 'Kaldırılan değerleri gizle';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Kaldırıldı · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return '$value ile değiştirildi · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Düzeltme';
+
+  @override
+  String get restorePickFolder => 'Yedek klasörünü seç…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Önceki kurulumun yedekleri Documents/catlog içinde (eski sürümlerde Downloads/catlog). O klasörü bir kez seçin; yedekleri burada listelenir.';
+
+  @override
+  String get backupsTitle => 'Yedekler';
+
+  @override
+  String get backupsSubtitle => 'Kataloglarının güvende tutulduğu yer';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google bu uygulamanın kataloglarını hesabınla yedekler, fotoğraflar hariç. Yeniden kurulumdan sonra veya yeni telefonda kendiliğinden geri gelirler.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Her kataloğun fotoğraflar dahil tam bir kopyası, değişikliklerden sonra uygulamadan her çıkışında Documents/catlog içine yazılır.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud Yedekleme bu uygulamayı katalogları ve fotoğraflarıyla birlikte kapsar, bu iPhone\'daki her uygulama gibi.';
+
+  @override
+  String get backupsIosFiles =>
+      'Her kataloğun tam bir kopyası Dosyalar uygulamasında cat(a)log altında durur. Oradan iCloud Drive\'a, AirDrop ile veya başka bir telefona gidebilir.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Her kataloğun fotoğraflar dahil tam bir kopyası, değişikliklerden sonra uygulamadan her çıkışında İndirilenler klasörüne yazılır.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Son kopya: $date';
+  }
+
+  @override
+  String get backupsNever => 'Henüz kopya yazılmadı.';
+
+  @override
+  String get backupsNow => 'Şimdi yedekle';
+
+  @override
+  String get backupsDone => 'Kopya yazıldı.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return '$date tarihinde Google yedeğinden geri yüklendi. Eski telefonda cat(a)log hâlâ çalışıyorsa, oradan bir kez eşitleyin, sonra uygulamayı orada kaldırın.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Seçtiğin bir klasör de her kopyayı alabilir: bir bulut uygulamasının bu telefonda eşitlediği bir klasör (Nextcloud, Syncthing ve diğerleri), bir hafıza kartı, seçicinin sunduğu herhangi bir klasör. Kopyalar içindeki catlog-backups klasörüne düşer.';
+
+  @override
+  String get backupsFolderPick => 'Bir klasöre de kopyala…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return '$name klasörüne de kopyalanıyor';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Oraya kopyalamayı bırak';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Bildirimler bu telefonda çalışmıyor: $error';
+  }
+
+  @override
+  String get copyText => 'Metni kopyala';
+
+  @override
+  String get colWhen => 'Ne zaman';
+
+  @override
+  String get colValue => 'Değer';
+
+  @override
+  String get colWho => 'Kim';
 }

@@ -20,6 +20,17 @@ abstract final class Keys {
 
   static String conflict(String field) => '$conflictPrefix$field';
 
+  /// A correction or removal of one entry (1.2.3): `$void:<device>:<dseq>`
+  /// on the same entity names the row by its wire identity. Value = the
+  /// `device:dseq` of the entry that replaces it, or [voidRemoved] when
+  /// it was simply taken back; null restores it. The row itself stays,
+  /// the projection skips it. An ordinary entry: signed, synced,
+  /// latest-wins, never private.
+  static const voidPrefix = r'$void:';
+  static const voidRemoved = 'removed';
+
+  static String voided(String device, int dseq) => '$voidPrefix$device:$dseq';
+
   /// Display name of a Cat, Clowder, or field definition.
   static const name = 'name';
 
@@ -59,6 +70,22 @@ abstract final class Keys {
   static const appointmentPrefix = r'$appt:';
   static String appointment(String id) => '$appointmentPrefix$id';
 
+  /// A chore on a cat or clowder (1.2.0): `$chore:<id>` holds one small
+  /// JSON document per chore; later entries on the same key edit, pause
+  /// or end it. A tick is `$chore:<id>@<occurrence day>` carrying the
+  /// day it was done; null unticks.
+  static const chorePrefix = r'$chore:';
+
+  /// A person's own record (1.2.3): `person:<device>`, written only by
+  /// that device — what it wears, for partners to see.
+  static const personPrefix = 'person:';
+  static String person(String device) => '$personPrefix$device';
+
+  /// The title a keeper wears, on their person record: `rank|chore`.
+  static const personTitle = 'title';
+  static String chore(String id) => '$chorePrefix$id';
+  static String choreTick(String id, String day) => '$chorePrefix$id@$day';
+
   /// Fields that carry no personal detail and hold the catalog together:
   /// without them a partner receives rows pointing at entities they have
   /// never heard of. Never private, on any entity.
@@ -71,7 +98,8 @@ abstract final class Keys {
       field == private ||
       field.startsWith(privatePrefix) ||
       field.startsWith(withheldPrefix) ||
-      field.startsWith(conflictPrefix);
+      field.startsWith(conflictPrefix) ||
+      field.startsWith(voidPrefix);
 
   /// Field-definition properties.
   static const fieldType = 'type';
@@ -101,8 +129,10 @@ abstract final class Kinds {
   static const fieldDef = 'fielddef';
 }
 
-/// The type of a user-defined Field (see CONTEXT.md: Field).
-enum FieldType { text, yesNo, date, number, choice, location, cat, id, unitValue }
+/// The type of a user-defined Field (see CONTEXT.md: Field). [tags] is
+/// the Looks field (1.2.0): chips in groups, see looks.dart; older
+/// versions read it as text.
+enum FieldType { text, yesNo, date, number, choice, location, cat, id, unitValue, tags }
 
 /// What a position entry records: a live sighting, or where a
 /// missing-cat flier hangs (#30). Flier positions never render as
@@ -174,12 +204,57 @@ const clowderStatusKeys = [
   'owner',
 ];
 
+/// The cat breeds a catalog starts with (1.2.3 grew the list; a
+/// catalog from before gets the missing ones appended on open).
+const catBreeds = [
+  'European Shorthair',
+  'Maine Coon',
+  'British Shorthair',
+  'Norwegian Forest Cat',
+  'Ragdoll',
+  'Siamese',
+  'Persian',
+  'Bengal',
+  'Sphynx',
+  'Abyssinian',
+  'American Shorthair',
+  'Balinese',
+  'Birman',
+  'Bombay',
+  'Burmese',
+  'Burmilla',
+  'British Longhair',
+  'Chartreux',
+  'Cornish Rex',
+  'Devon Rex',
+  'Egyptian Mau',
+  'Exotic Shorthair',
+  'Himalayan',
+  'Korat',
+  'Manx',
+  'Munchkin',
+  'Ocicat',
+  'Oriental Shorthair',
+  'Ragamuffin',
+  'Russian Blue',
+  'Savannah',
+  'Scottish Fold',
+  'Selkirk Rex',
+  'Siberian',
+  'Snowshoe',
+  'Somali',
+  'Tonkinese',
+  'Turkish Angora',
+  'Turkish Van',
+  'mixed',
+];
+
 /// Starter Fields seeded on first launch as ordinary entries, so a card
 /// can be filled without any configuration.
 const starterFields = [
   (slug: 'gender', name: 'Gender', type: FieldType.choice, scope: FieldScope.cat, options: ['female', 'male', 'unknown']),
   (slug: 'color', name: 'Color', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
-  (slug: 'breed', name: 'Breed', type: FieldType.choice, scope: FieldScope.cat, options: ['European Shorthair', 'Maine Coon', 'British Shorthair', 'Norwegian Forest Cat', 'Ragdoll', 'Siamese', 'Persian', 'Bengal', 'Sphynx', 'mixed']),
+  (slug: 'breed', name: 'Breed', type: FieldType.choice, scope: FieldScope.cat, options: catBreeds),
   (slug: 'chipid', name: 'Chip ID', type: FieldType.id, scope: FieldScope.cat, options: <String>[]),
   (slug: 'neutered', name: 'Neutered', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'pregnant', name: 'Pregnant', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
@@ -187,6 +262,7 @@ const starterFields = [
   (slug: 'deceased', name: 'Deceased', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
   (slug: 'species', name: 'Species', type: FieldType.choice, scope: FieldScope.cat, options: speciesPresets),
   (slug: 'weight', name: 'Weight', type: FieldType.unitValue, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'looks', name: 'Looks', type: FieldType.tags, scope: FieldScope.cat, options: <String>[]),
   (slug: 'mother', name: 'Mother', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'father', name: 'Father', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'status', name: 'Status', type: FieldType.choice, scope: FieldScope.clowder, options: clowderStatusKeys),

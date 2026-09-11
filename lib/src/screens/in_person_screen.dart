@@ -120,23 +120,15 @@ class _InPersonScreenState extends State<InPersonScreen> {
     // A remembered device never gets here: the host checks its secret
     // first. Everything else is the keeper's call.
     if (!mounted) return const JoinDecision(false, false);
-    var includePrivate = false;
-    // 'once' / 'always' / null (decline)
+    // 'once' / 'always' / null (decline). Private data follows the
+    // page's switch, the same one the joiner side uses — no second
+    // question here.
     final choice = await showDialog<String>(
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
           title: Text(context.t.trustQuestion(author, deviceName)),
-          content: Column(mainAxisSize: MainAxisSize.min, children: [
-            Text(context.t.trustBothWaysNote),
-            CheckboxListTile(
-              value: includePrivate,
-              onChanged: (v) =>
-                  setDialogState(() => includePrivate = v ?? false),
-              title: Text(context.t.includePrivate),
-              contentPadding: EdgeInsets.zero,
-            ),
-          ]),
+          content: Text(context.t.trustBothWaysNote),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
@@ -155,7 +147,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
       ),
     );
     if (choice == null) return const JoinDecision(false, false);
-    return JoinDecision(true, includePrivate, remember: choice == 'always');
+    return JoinDecision(true, _includePrivate, remember: choice == 'always');
   }
 
   Future<void> _toggleHost() async {
@@ -219,7 +211,8 @@ class _InPersonScreenState extends State<InPersonScreen> {
     final host = LanSyncHost(widget.store, pin,
         identity: identity,
         onJoinRequest: _onJoinRequest,
-        onSession: _onSession);
+        onSession: _onSession,
+        includePrivate: () => _includePrivate);
     final address = await host.start();
     if (!mounted) {
       // Backed out while binding: nothing may keep serving.
@@ -229,11 +222,12 @@ class _InPersonScreenState extends State<InPersonScreen> {
     return (host, pin, address);
   }
 
-  void _onSession(List<Entry> applied, Moment? moment) {
+  void _onSession(List<Entry> applied, Moment? moment, ImportReport report) {
     if (!mounted) return;
     setState(() => _sessions++);
-    if (applied.isNotEmpty) {
-      showImportSummary(context, widget.store, applied, undo: moment);
+    if (applied.isNotEmpty || needsAttention(report)) {
+      showImportSummary(context, widget.store, applied,
+          undo: moment, report: report);
     }
   }
 
@@ -330,9 +324,10 @@ class _InPersonScreenState extends State<InPersonScreen> {
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));
-      if (mounted && result.applied.isNotEmpty) {
+      if (mounted &&
+          (result.applied.isNotEmpty || needsAttention(result.report))) {
         await showImportSummary(context, widget.store, result.applied,
-            undo: result.moment);
+            undo: result.moment, report: result.report);
       }
     } on SyncException catch (e) {
       if (mounted) {

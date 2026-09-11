@@ -36,10 +36,17 @@ who made it, and you can look at any cat's story like a diary.
 - **Photos of a whole litter?** Crop the right kitten out when you add the
   photo, or draw a circle around it when they're too tangled to crop.
 - **Share with your helpers** — your phone and a friend's phone swap their
-  data directly over your Wi-Fi, or through a shared folder (Dropbox, Google
-  Drive, a USB stick — whatever you already use). No company server ever
+  data directly over your Wi-Fi, or through a shared folder (Nextcloud, Syncthing,
+  a USB stick — whatever you already use). No company server ever
   sees your cats. If two of you changed the same thing at the same time, the
   app shows both versions and you pick what's right.
+- **Sharing without a cloud** — [Syncthing](https://syncthing.net) keeps one
+  folder identical on all your phones, directly, no account, free (on
+  Android as *Syncthing-Fork*, on iOS as *Synctrain*, on desktop as
+  Syncthing). Install it on each phone, share one folder between them, then
+  in cat(a)log open Sync → Folder and pick that folder on every device. One
+  folder is enough for all your catalogs; each keeps its own subfolder named
+  after it, and partners find each other by the catalog's name.
 - **Your own fields** — want to track "flea treatment" or "favorite food"?
   Add it yourself; it works like everything else, diary included.
 - **Speaks your language** — 38 languages, including Arabic, Farsi, and

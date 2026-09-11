@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
@@ -11,6 +12,7 @@ import 'breeds.dart';
 import 'entry.dart';
 import 'fields.dart';
 import 'registry.dart';
+import 'signing.dart';
 import 'units.dart';
 
 /// Author name stamped on entries the store seeds itself (starter Fields).
@@ -22,6 +24,9 @@ const seedAuthor = 'cat(a)log';
 /// language, and the tutorial tips you have already seen.
 bool isSharedSetting(String key) =>
     key == 'locale' ||
+    key == 'syncFolderLast' ||
+    key == 'backupFolder' ||
+    key == 'furFavourite' ||
     key == 'units' ||
     key.startsWith('tls:') ||
     key == 'introSeen' ||
@@ -134,7 +139,8 @@ class CatalogStore {
         date     TEXT NOT NULL,
         author   TEXT NOT NULL,
         recorded TEXT NOT NULL,
-        reminder INTEGER NOT NULL DEFAULT 0
+        reminder INTEGER NOT NULL DEFAULT 0,
+        sig      TEXT
       );
       CREATE TABLE IF NOT EXISTS local_settings (
         key   TEXT PRIMARY KEY,
@@ -147,18 +153,28 @@ class CatalogStore {
         label TEXT,
         at    TEXT NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS voids (
+        device TEXT NOT NULL,
+        dseq   INTEGER NOT NULL,
+        PRIMARY KEY (device, dseq)
+      );
     ''');
     final store = CatalogStore._(db, blobs);
     store._ensureDeviceId();
     store._migrateV1();
     store._migrateReminder();
+    store._migrateSignatures();
     store._normalizeTimestamps();
+    store._rebuildVoids();
     db.execute('''
       CREATE UNIQUE INDEX IF NOT EXISTS idx_entries_device_dseq
         ON entries (device, dseq);
       CREATE INDEX IF NOT EXISTS idx_entries_entity_field
         ON entries (entity, field);
     ''');
+    // The key before the first own row this open writes (the seeded
+    // starters): everything from here on is signed.
+    store._ensureSigningKey();
     store._seedStarterFields();
     store._migrateValuePrivacy();
     return store;
@@ -171,12 +187,259 @@ class CatalogStore {
     return rows.first['value'] as String;
   }
 
-  void _ensureDeviceId() {
-    _db.execute(
-      'INSERT OR IGNORE INTO local_settings (key, value) VALUES (?, ?)',
-      ['device', _uuid()],
-    );
+  /// A raw row of this store's own settings table — the device id and
+  /// the signing key live here, never in the shared settings: both
+  /// belong to this catalog alone.
+  String? _rawSetting(String key) {
+    final rows = _db
+        .select('SELECT value FROM local_settings WHERE key = ?', [key]);
+    return rows.isEmpty ? null : rows.first['value'] as String;
   }
+
+  void _rawSet(String key, String value) => _db.execute(
+      'INSERT OR REPLACE INTO local_settings (key, value) VALUES (?, ?)',
+      [key, value]);
+
+  /// A new catalog's device id is derived from its signing key, made
+  /// here and now (1.2.0); a catalog from before keeps its random id
+  /// and gets its key in [_ensureSigningKey], once the log is migrated.
+  void _ensureDeviceId() {
+    if (_rawSetting('device') != null) return;
+    final key = SigningKey.generate();
+    _rawSet('device', deviceIdFromKey(key.publicKey));
+    _rawSet('signseed', key.seedHex);
+    _rawSet('signsince', '1');
+  }
+
+  /// A catalog that existed before signing: its key starts with the
+  /// next entry it writes, everything before passes as unsigned.
+  void _ensureSigningKey() {
+    if (_rawSetting('signseed') != null) return;
+    final key = SigningKey.generate();
+    final since = (versionVector()[deviceId] ?? 0) + 1;
+    _rawSet('signseed', key.seedHex);
+    _rawSet('signsince', '$since');
+  }
+
+  SigningKey? _signingKey;
+
+  /// This catalog's signing key (1.2.0, see signing.dart).
+  SigningKey get signingKey =>
+      _signingKey ??= SigningKey.fromSeed(fromHex(_rawSetting('signseed')!));
+
+  /// The first own dseq that carries a signature.
+  int get signingSince => int.parse(_rawSetting('signsince') ?? '1');
+
+  /// The key as it travels to partners, signed by itself.
+  KeyRecord get ownKeyRecord =>
+      KeyRecord.make(signingKey, deviceId, signingSince);
+
+  /// The short key code people see next to this catalog's author name.
+  String get keyCode => signingKey.code;
+
+  /// Adds the signature column (1.2.0). Existing rows stay unsigned;
+  /// [signingSince] says from where on a signature is expected.
+  void _migrateSignatures() {
+    final cols = _db
+        .select('PRAGMA table_info(entries)')
+        .map((r) => r['name'] as String)
+        .toSet();
+    if (cols.contains('sig')) return;
+    _db.execute('ALTER TABLE entries ADD COLUMN sig TEXT');
+  }
+
+  // ------------------------------------------------------ person (1.2.3)
+
+  /// The title this catalog's keeper wears, as `rank|chore`; null takes
+  /// it off. Written on the own person record, signed like every row.
+  void setOwnTitle(String? title) =>
+      append(Keys.person(deviceId), Keys.personTitle, title);
+
+  /// The title the keeper of [device] wears, as `rank|chore`.
+  String? titleOf(String device) =>
+      current(Keys.person(device), Keys.personTitle);
+
+  // ------------------------------------------------ partner keys (1.2.0)
+
+  /// The key pinned for a partner's device, if one was ever met.
+  PinnedKey? pinnedKey(String device) {
+    final raw = localSetting('key:$device');
+    if (raw == null) return null;
+    try {
+      return PinnedKey.fromJson(
+          (jsonDecode(raw) as Map).cast<String, dynamic>());
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Every partner key this catalog holds.
+  List<PinnedKey> pinnedKeys() => [
+        for (final (_, raw) in localSettingsByPrefix('key:'))
+          if (PinnedKey.fromJson(
+                  (jsonDecode(raw) as Map).cast<String, dynamic>())
+              case final k?)
+            k
+      ];
+
+  void _pin(KeyRecord record, KeyTrust trust) => setLocalSetting(
+      'key:${record.device}', jsonEncode(PinnedKey(record, trust).toJson()));
+
+  /// Forgets a partner's key: the next file from that device is
+  /// trusted on first use again.
+  void unpinKey(String device) => removeLocalSetting('key:$device');
+
+  /// The keys to send along with the entries: this catalog's own and
+  /// every one it holds, so keys reach partners who never met their
+  /// owner directly.
+  List<KeyRecord> keyRecords() =>
+      [ownKeyRecord, for (final k in pinnedKeys()) k.record];
+
+  /// Takes in the keys a payload carried. The first key seen for a
+  /// device is pinned on trust; only the key of [verifiedDevice] — the
+  /// partner met in person, over the session the pair code
+  /// authenticated — is pinned as verified, never the keys that partner
+  /// merely carries for others. A record that does not sign itself is
+  /// ignored; a second, different key for a pinned device is refused
+  /// and reported, the pinned one stands. [authors] are the names the
+  /// same payload writes under each new device, for the impostor
+  /// warning: a new key calling itself by a name known under another key.
+  void learnKeys(Iterable<KeyRecord> keys,
+      {String? verifiedDevice,
+      ImportReport? report,
+      Map<String, Set<String>> authors = const {}}) {
+    final self = deviceId;
+    for (final record in keys) {
+      if (record.device == self || !record.selfSigned) continue;
+      final verified = record.device == verifiedDevice;
+      final existing = pinnedKey(record.device);
+      if (existing == null) {
+        final trust = verified ? KeyTrust.verified : KeyTrust.tofu;
+        _pin(record, trust);
+        report?.newKeys.add(PinnedKey(record, trust));
+        for (final name in authors[record.device] ?? const <String>{}) {
+          if (_nameKnownElsewhere(name, record.device)) {
+            report?.impostors.add((name, record.device));
+          }
+        }
+      } else if (hex(existing.record.publicKey) != hex(record.publicKey)) {
+        if (report != null && !report.changedKeys.contains(record.device)) {
+          report.changedKeys.add(record.device);
+        }
+      } else if (verified && existing.trust == KeyTrust.tofu) {
+        _pin(existing.record, KeyTrust.verified);
+      }
+    }
+  }
+
+  /// Whether [name] is this catalog's own author or writes under a
+  /// device whose key is pinned — other than [device].
+  bool _nameKnownElsewhere(String name, String device) {
+    // The seeder's name is on every catalog and nobody's.
+    if (name == seedAuthor) return false;
+    if (name == author) return true;
+    for (final row in authorsOverview()) {
+      if (row.author != name || row.device == device) continue;
+      if (row.device == deviceId || pinnedKey(row.device) != null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /// The signature of one own row, as [append] and the re-stampers
+  /// write it.
+  String _sign(String device, int dseq, String entity, String field,
+          String? value, String dateIso, String author, String recordedIso,
+          bool reminder) =>
+      signingKey.sign(entryBytes(
+          device: device,
+          dseq: dseq,
+          entity: entity,
+          field: field,
+          value: value,
+          dateIso: dateIso,
+          author: author,
+          recordedIso: recordedIso,
+          reminder: reminder));
+
+  /// Writes one row under this catalog's own device, signed.
+  void _insertOwn(String device, int dseq, String entity, String field,
+      String? value, String dateIso, String author, String recordedIso,
+      {bool reminder = false}) {
+    _db.execute(
+      'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded, reminder, sig) '
+      'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+        device,
+        dseq,
+        entity,
+        field,
+        value,
+        dateIso,
+        author,
+        recordedIso,
+        reminder ? 1 : 0,
+        _sign(device, dseq, entity, field, value, dateIso, author,
+            recordedIso, reminder),
+      ],
+    );
+    _noteVoid(field);
+  }
+
+  // ---------------------------------------------------------------- voids
+
+  /// The rows the projection skips (1.2.3): every entry a live `$void:`
+  /// marker names. A device-local table, derived from the log and kept
+  /// in step with it — rebuilt on open and after going back, refreshed
+  /// per marker as one arrives or is written.
+  void _rebuildVoids() {
+    _db.execute('DELETE FROM voids');
+    for (final r in _db.select(
+        'SELECT DISTINCT field FROM entries WHERE field LIKE ?',
+        ['${Keys.voidPrefix}%'])) {
+      _noteVoid(r['field'] as String);
+    }
+  }
+
+  /// Brings the void table in step with the latest marker under [field],
+  /// if it is one.
+  void _noteVoid(String field) {
+    if (!field.startsWith(Keys.voidPrefix)) return;
+    final target = _voidTarget(field);
+    if (target == null) return;
+    final rows = _db.select(
+        'SELECT value FROM entries WHERE field = ? $_latest LIMIT 1',
+        [field]);
+    final live = rows.isNotEmpty && rows.first['value'] != null;
+    if (live) {
+      _db.execute('INSERT OR REPLACE INTO voids (device, dseq) VALUES (?, ?)',
+          [target.$1, target.$2]);
+    } else {
+      _db.execute('DELETE FROM voids WHERE device = ? AND dseq = ?',
+          [target.$1, target.$2]);
+    }
+  }
+
+  /// The (device, dseq) a `$void:` key names, or null when malformed.
+  static (String, int)? _voidTarget(String field) {
+    final body = field.substring(Keys.voidPrefix.length);
+    final cut = body.lastIndexOf(':');
+    if (cut <= 0) return null;
+    final dseq = int.tryParse(body.substring(cut + 1));
+    if (dseq == null) return null;
+    return (body.substring(0, cut), dseq);
+  }
+
+  /// SQL: the row is not voided. Appended to every projection query.
+  static const _live = 'AND NOT EXISTS (SELECT 1 FROM voids '
+      'WHERE voids.device = entries.device AND voids.dseq = entries.dseq)';
+
+  /// SQL column: whether the row is voided, for reads that keep hidden
+  /// rows and mark them.
+  static const _voidedColumn = 'EXISTS (SELECT 1 FROM voids '
+      'WHERE voids.device = entries.device AND voids.dseq = entries.dseq) '
+      'AS voided';
 
   /// Timestamps are compared as strings in SQL, so they MUST have fixed
   /// precision: Dart's toIso8601String emits 3 fraction digits when the
@@ -504,21 +767,9 @@ class CatalogStore {
     final now = DateTime.now().toUtc();
     final device = deviceId;
     final next = _nextDseq(device);
-    _db.execute(
-      'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded, reminder) '
-      'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [
-        device,
-        next,
-        entity,
-        field,
-        value,
-        _iso(date ?? now),
-        by,
+    _insertOwn(device, next, entity, field, value, _iso(date ?? now), by,
         _iso(now),
-        reminder ? 1 : 0,
-      ],
-    );
+        reminder: reminder);
     // A value written while this entity (or its field) is private needs
     // its public trace right away, or a partner sees an empty slot
     // instead of a redacted one.
@@ -540,21 +791,9 @@ class CatalogStore {
     final device = deviceId;
     var next = _nextDseq(device);
     for (final e in entries) {
-      _db.execute(
-        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded, reminder) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-        [
-          device,
-          next++,
-          e.entity,
-          e.field,
-          e.value,
-          _iso(e.date),
-          e.author,
-          _iso(e.recorded),
-          e.reminder ? 1 : 0,
-        ],
-      );
+      _insertOwn(device, next++, e.entity, e.field, e.value, _iso(e.date),
+          e.author, _iso(e.recorded),
+          reminder: e.reminder);
     }
   }
 
@@ -569,6 +808,8 @@ class CatalogStore {
         author: r['author'] as String,
         recorded: DateTime.parse(r['recorded'] as String),
         reminder: (r['reminder'] as int? ?? 0) != 0,
+        sig: r['sig'] as String?,
+        voided: r.containsKey('voided') && (r['voided'] as int? ?? 0) != 0,
       );
 
   /// Deterministic latest-wins ordering (ADR-0001): effective date, then
@@ -658,7 +899,7 @@ class CatalogStore {
     final rows = _db.select(
       'SELECT * FROM entries WHERE entity IN (${_placeholders(entities.length)}) '
       'AND field IN (${_placeholders(keys.length)}) '
-      'AND reminder = 0 $_latest LIMIT 1',
+      'AND reminder = 0 $_live $_latest LIMIT 1',
       [...entities, ...keys],
     );
     if (rows.isEmpty) return null;
@@ -674,7 +915,7 @@ class CatalogStore {
     final rows = _db.select(
       'SELECT field, value FROM entries '
       'WHERE entity IN (${_placeholders(entities.length)}) '
-      'AND reminder = 0 $_latest',
+      'AND reminder = 0 $_live $_latest',
       entities,
     );
     final result = <String, String?>{};
@@ -686,13 +927,15 @@ class CatalogStore {
   }
 
   /// Every entry of an entity (including merged-in losers), newest
-  /// effective date first.
-  List<Entry> timeline(String entity) {
+  /// effective date first. Corrected and removed rows stay out unless
+  /// [includeVoided], which brings them marked.
+  List<Entry> timeline(String entity, {bool includeVoided = false}) {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
     return _dedupe(_db
         .select(
-          'SELECT * FROM entries '
-          'WHERE entity IN (${_placeholders(entities.length)}) $_latest',
+          'SELECT entries.*, $_voidedColumn FROM entries '
+          'WHERE entity IN (${_placeholders(entities.length)}) '
+          '${includeVoided ? '' : _live} $_latest',
           entities,
         )
         .map(_entry));
@@ -712,14 +955,18 @@ class CatalogStore {
   }
 
   /// Every entry of one field of an entity, newest effective date first.
-  List<Entry> fieldHistory(String entity, String field) {
+  /// Corrected and removed rows stay out unless [includeVoided], which
+  /// brings them marked.
+  List<Entry> fieldHistory(String entity, String field,
+      {bool includeVoided = false}) {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
     final keys = _keysFor(field);
     return _dedupe(_db
         .select(
-          'SELECT * FROM entries '
+          'SELECT entries.*, $_voidedColumn FROM entries '
           'WHERE entity IN (${_placeholders(entities.length)}) '
-          'AND field IN (${_placeholders(keys.length)}) $_latest',
+          'AND field IN (${_placeholders(keys.length)}) '
+          '${includeVoided ? '' : _live} $_latest',
           [...entities, ...keys],
         )
         .map(_entry));
@@ -749,7 +996,7 @@ class CatalogStore {
   /// flagged null (cancelled).
   List<ActiveReminder> activeReminders() {
     final rows = _db.select(
-      'SELECT * FROM entries '
+      'SELECT * FROM entries WHERE 1 $_live '
       'ORDER BY recorded DESC, author DESC, device DESC, dseq DESC',
     );
     final newest = <(String, String), Entry>{};
@@ -770,49 +1017,129 @@ class CatalogStore {
     return result;
   }
 
-  /// True when [field] may be reverted from the history UI. Structural
-  /// markers and photo entries are not revertable (photo bytes are gone
-  /// for good once deleted).
-  static bool isRevertable(String field) =>
+  /// True when entries of [field] may be corrected or removed from the
+  /// history UI. Structural markers and photo entries are not (photo
+  /// bytes are gone for good once deleted).
+  static bool isCorrectable(String field) =>
       field != Keys.type &&
       field != Keys.deleted &&
       field != Keys.mergedInto &&
       !field.startsWith(Keys.conflictPrefix) &&
+      !field.startsWith(Keys.voidPrefix) &&
       !field.startsWith(Keys.imagePrefix);
 
-  /// Reverts one entry, git-style: appends the value that was current
-  /// just before it — for its (entity, field) — as a NEW entry at the
-  /// current time. Nothing is deleted; both the change and its undo
-  /// stay in history. Returns the value that was restored.
-  String? revertEntry(int seq) {
-    final rows =
-        _db.select('SELECT * FROM entries WHERE seq = ?', [seq]);
-    if (rows.isEmpty) throw ArgumentError('No entry with seq $seq');
-    final entry = _entry(rows.first);
-    if (!isRevertable(entry.field)) {
-      throw ArgumentError('Field ${entry.field} cannot be reverted');
+  /// Fields worth a conflict badge: what a keeper reads and can judge.
+  /// Privacy markers, the profile picture choice, appointments and
+  /// chores (JSON documents) are bookkeeping — two edits there merge by
+  /// latest-wins and nobody could pick between them anyway.
+  static bool isConflictable(String field) =>
+      isCorrectable(field) &&
+      field != Keys.private &&
+      field != Keys.profileImage &&
+      !field.startsWith(Keys.privatePrefix) &&
+      !field.startsWith(Keys.withheldPrefix) &&
+      !field.startsWith(Keys.appointmentPrefix) &&
+      !field.startsWith(Keys.chorePrefix);
+
+  // ------------------------------------------------ correct and remove
+
+  /// One row by its local handle, marked when voided; null if unknown.
+  Entry? entryBySeq(int seq) {
+    final rows = _db.select(
+        'SELECT entries.*, $_voidedColumn FROM entries WHERE seq = ?', [seq]);
+    return rows.isEmpty ? null : _entry(rows.first);
+  }
+
+  /// One row by its wire identity, marked when voided; null if unknown.
+  Entry? entryById(String device, int dseq) {
+    final rows = _db.select(
+        'SELECT entries.*, $_voidedColumn FROM entries '
+        'WHERE device = ? AND dseq = ?',
+        [device, dseq]);
+    return rows.isEmpty ? null : _entry(rows.first);
+  }
+
+  /// The marker that voids or restored [entry]: who did it, when, and
+  /// what replaced it (its value). Null when never touched.
+  Entry? voidMarker(Entry entry) => _marker(entry.device, entry.dseq);
+
+  Entry? _marker(String device, int dseq) {
+    final rows = _db.select(
+        'SELECT * FROM entries WHERE field = ? $_latest LIMIT 1',
+        [Keys.voided(device, dseq)]);
+    return rows.isEmpty ? null : _entry(rows.first);
+  }
+
+  /// The entry [entry] was corrected into, if its marker names one that
+  /// is still here.
+  Entry? replacementOf(Entry entry) {
+    final marker = voidMarker(entry);
+    final value = marker?.value;
+    if (value == null || value == Keys.voidRemoved) return null;
+    final target = _voidTarget('${Keys.voidPrefix}$value');
+    return target == null ? null : entryById(target.$1, target.$2);
+  }
+
+  /// The entry [entry] replaced, if it is a correction whose marker is
+  /// still live.
+  Entry? correctedBy(Entry entry) {
+    final rows = _db.select(
+        'SELECT * FROM entries WHERE field LIKE ? AND value = ? $_latest',
+        ['${Keys.voidPrefix}%', entry.id]);
+    for (final r in rows) {
+      final target = _voidTarget(r['field'] as String);
+      if (target == null) continue;
+      if (_marker(target.$1, target.$2)?.value != entry.id) continue;
+      return entryById(target.$1, target.$2);
     }
-    // Predecessor: the latest entry for the same (entity, field) that
-    // sorts strictly before the reverted one in projection order.
-    final prev = _db.select(
-      'SELECT * FROM entries WHERE entity = ? AND field = ? '
-      'AND reminder = 0 '
-      'AND (date, recorded, author, device, dseq) < (?, ?, ?, ?, ?) '
-      '$_latest LIMIT 1',
-      [
-        entry.entity,
-        entry.field,
-        _iso(entry.date),
-        _iso(entry.recorded),
-        entry.author,
-        entry.device,
-        entry.dseq,
-      ],
-    );
-    final restored =
-        prev.isEmpty ? null : prev.first['value'] as String?;
-    append(entry.entity, entry.field, restored);
-    return restored;
+    return null;
+  }
+
+  Entry _correctable(int seq) {
+    final entry = entryBySeq(seq);
+    if (entry == null) throw ArgumentError('No entry with seq $seq');
+    if (!isCorrectable(entry.field)) {
+      throw ArgumentError('Field ${entry.field} cannot be corrected');
+    }
+    return entry;
+  }
+
+  void _setVoid(Entry entry, String? value) =>
+      append(entry.entity, Keys.voided(entry.device, entry.dseq), value);
+
+  /// Takes one entry back (1.2.3): a marker hides it from the current
+  /// value, the history and the graph; the row stays and [restoreEntry]
+  /// brings it back. Taking back a correction also restores what it had
+  /// replaced.
+  void removeEntry(int seq) {
+    final entry = _correctable(seq);
+    final original = correctedBy(entry);
+    _setVoid(entry, Keys.voidRemoved);
+    if (original != null) _setVoid(original, null);
+  }
+
+  /// Replaces one entry with [value] as of [date] (the entry's own date
+  /// by default): the new entry is written, the old one is hidden and
+  /// its marker names the new one. Returns the new entry.
+  Entry correctEntry(int seq, String? value, {DateTime? date}) {
+    final entry = _correctable(seq);
+    final device = deviceId;
+    final next = _nextDseq(device);
+    append(entry.entity, entry.field, value, date: date ?? entry.date);
+    final fresh = entryById(device, next)!;
+    _setVoid(entry, fresh.id);
+    return fresh;
+  }
+
+  /// Brings a removed or corrected entry back. A correction that had
+  /// replaced it is taken back in turn, so the value does not show twice.
+  void restoreEntry(int seq) {
+    final entry = _correctable(seq);
+    final replacement = replacementOf(entry);
+    _setVoid(entry, null);
+    if (replacement != null && !replacement.voided) {
+      _setVoid(replacement, Keys.voidRemoved);
+    }
   }
 
   /// Ids of all non-deleted, non-merged entities of a kind, oldest first.
@@ -1283,6 +1610,7 @@ class CatalogStore {
       _db.execute('ROLLBACK');
       rethrow;
     }
+    _rebuildVoids();
   }
 
   // ------------------------------------------------------------------ sync
@@ -1490,27 +1818,15 @@ class CatalogStore {
         .select(
             'SELECT * FROM entries WHERE entity IN '
             '(${_placeholders(entities.length)}) AND field = ? '
-            'ORDER BY device, dseq',
+            '$_live ORDER BY device, dseq',
             [...entities, field])
         .map(_entry)
         .toList();
     final device = deviceId;
     var next = _nextDseq(device);
     for (final e in rows) {
-      _db.execute(
-        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-        [
-          device,
-          next++,
-          e.entity,
-          e.field,
-          e.value,
-          _iso(e.date),
-          e.author,
-          _iso(e.recorded),
-        ],
-      );
+      _insertOwn(device, next++, e.entity, e.field, e.value, _iso(e.date),
+          e.author, _iso(e.recorded));
     }
   }
 
@@ -1527,27 +1843,15 @@ class CatalogStore {
     final rows = _db
         .select(
             'SELECT * FROM entries WHERE ($where) AND field != ? '
-            'ORDER BY device, dseq',
+            '$_live ORDER BY device, dseq',
             [...args, Keys.private])
         .map(_entry)
         .toList();
     final device = deviceId;
     var next = _nextDseq(device);
     for (final e in rows) {
-      _db.execute(
-        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-        [
-          device,
-          next++,
-          e.entity,
-          e.field,
-          e.value,
-          _iso(e.date),
-          e.author,
-          _iso(e.recorded),
-        ],
-      );
+      _insertOwn(device, next++, e.entity, e.field, e.value, _iso(e.date),
+          e.author, _iso(e.recorded));
     }
   }
 
@@ -1560,9 +1864,32 @@ class CatalogStore {
   /// cover that entry), the edits were concurrent — the field is flagged
   /// in the device-local conflicts table when the values differ. With
   /// the vector absent, no conflicts are flagged.
+  ///
+  /// [keys] are the key records the payload carried; they are learned
+  /// first (see [learnKeys]), the one of [verifiedDevice] as verified
+  /// when the session that brought it was authenticated by a pair code.
+  /// Then every entry from a
+  /// device whose key is pinned — this catalog's own included — must
+  /// carry a valid signature, unless it is older than the key's
+  /// [KeyRecord.since]. Refused rows are counted in [report] and never
+  /// recorded: unlike a ban they must not move the version vector, or a
+  /// forger could make the real device's rows unreachable for good.
   List<Entry> applyEntries(List<Entry> entries,
-      {Map<String, int>? senderVector}) {
+      {Map<String, int>? senderVector,
+      Iterable<KeyRecord>? keys,
+      String? verifiedDevice,
+      ImportReport? report}) {
     return transaction(() {
+    if (keys != null) {
+      final authors = <String, Set<String>>{};
+      for (final e in entries) {
+        authors.putIfAbsent(e.device, () => {}).add(e.author);
+      }
+      learnKeys(keys,
+          verifiedDevice: verifiedDevice,
+          report: report ?? ImportReport(),
+          authors: authors);
+    }
     // Snapshot the pre-import winner of every field this batch touches.
     final touched = <(String, String)>{
       for (final e in entries) (e.entity, e.field)
@@ -1574,7 +1901,7 @@ class CatalogStore {
         // or a fact arriving over it would flag a bogus conflict.
         final rows = _db.select(
           'SELECT * FROM entries WHERE entity = ? AND field = ? '
-          'AND reminder = 0 $_latest LIMIT 1',
+          'AND reminder = 0 $_live $_latest LIMIT 1',
           [t.$1, t.$2],
         );
         pre[t] = rows.isEmpty ? null : _entry(rows.first);
@@ -1583,6 +1910,8 @@ class CatalogStore {
     final imported = <Entry>[];
     final self = deviceId;
     final ownMax = versionVector()[self] ?? 0;
+    final own = ownKeyRecord;
+    final pinned = <String, KeyRecord?>{};
     for (final e in entries) {
       // Rows under this device's own id come back only from its own
       // go-back files, and those never reach past the counter. One
@@ -1590,14 +1919,28 @@ class CatalogStore {
       // vectors skip this device's real, not yet synced entries for
       // good.
       if (e.device == self && e.dseq > ownMax) continue;
+      // A person record is its own device's to write: anything else
+      // claiming it is dropped, whatever key it carries.
+      if (e.entity.startsWith(Keys.personPrefix) &&
+          e.entity != Keys.person(e.device)) {
+        continue;
+      }
       if (_isBannedEntry(e)) {
         _recordDiscarded(e.device, e.dseq);
         continue;
       }
+      final key = e.device == self
+          ? own
+          : pinned.putIfAbsent(e.device, () => pinnedKey(e.device)?.record);
+      if (key != null && !_signed(e, key)) {
+        report?.refused.update((e.author, e.device), (n) => n + 1,
+            ifAbsent: () => 1);
+        continue;
+      }
       _db.execute(
         'INSERT OR IGNORE INTO entries '
-        '(device, dseq, entity, field, value, date, author, recorded, reminder) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        '(device, dseq, entity, field, value, date, author, recorded, reminder, sig) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [
           e.device,
           e.dseq,
@@ -1608,9 +1951,13 @@ class CatalogStore {
           e.author,
           _iso(e.recorded),
           e.reminder ? 1 : 0,
+          e.sig,
         ],
       );
       if (_db.updatedRows > 0) imported.add(e);
+    }
+    for (final e in imported) {
+      _noteVoid(e.field);
     }
     // Propagated image deletions: drop bytes with no live reference left.
     for (final e in imported) {
@@ -1624,13 +1971,20 @@ class CatalogStore {
     // resolution on any device clears it everywhere.
     if (senderVector != null) {
       for (final e in imported) {
-        if (!isRevertable(e.field)) continue;
+        if (!isConflictable(e.field)) continue;
         final before = pre[(e.entity, e.field)];
         if (before == null) continue; // field was new here
         if (e.value == before.value) continue; // same value, no fight
         final senderSawIt =
             (senderVector[before.device] ?? 0) >= before.dseq;
-        if (!senderSawIt && !hasConflict(e.entity, e.field)) {
+        if (senderSawIt) continue;
+        // Two devices grew a choice field's list at once — every
+        // upgrade does that: no fight to settle, both lists merge.
+        if (_isOptionList(e.field)) {
+          _mergeOptionLists(e.entity, e.field, before.value, e.value);
+          continue;
+        }
+        if (!hasConflict(e.entity, e.field)) {
           append(e.entity, Keys.conflict(e.field), 'open',
               as: author ?? 'cat(a)log');
         }
@@ -1638,6 +1992,58 @@ class CatalogStore {
     }
     return imported;
     });
+  }
+
+  static bool _isOptionList(String field) =>
+      field == Keys.fieldOptions || field.startsWith(Keys.fieldOptionsPrefix);
+
+  /// The union of two option lists as the new current value: [ours]
+  /// in its order, then what [theirs] adds, `mixed` kept last. Written
+  /// only when the union differs from what wins now.
+  void _mergeOptionLists(
+      String entity, String field, String? ours, String? theirs) {
+    List<String> split(String? v) =>
+        (v ?? '').split('\n').where((o) => o.isNotEmpty).toList();
+    final mine = split(ours);
+    final merged = [...mine, for (final o in split(theirs)) if (!mine.contains(o)) o];
+    if (merged.remove('mixed')) merged.add('mixed');
+    final now = split(current(entity, field));
+    if (merged.length == now.length &&
+        [for (var i = 0; i < merged.length; i++) merged[i] == now[i]]
+            .every((same) => same)) {
+      return;
+    }
+    append(entity, field, merged.join('\n'), as: author ?? 'cat(a)log');
+  }
+
+  /// Whether [e] passes under [key]: signed and valid, or older than
+  /// the key's first signed row.
+  bool _signed(Entry e, KeyRecord key) {
+    if (e.sig == null) return e.dseq < key.since;
+    return verifySignature(
+        key.publicKey,
+        entryBytes(
+            device: e.device,
+            dseq: e.dseq,
+            entity: e.entity,
+            field: e.field,
+            value: e.value,
+            dateIso: _iso(e.date),
+            author: e.author,
+            recordedIso: _iso(e.recorded),
+            reminder: e.reminder),
+        e.sig);
+  }
+
+  /// Whether a row in this catalog verifies under the key its device
+  /// holds here — own rows under the own key. Null when no key is
+  /// known for the device or the row is older than the key.
+  bool? verifiesEntry(Entry e) {
+    final key =
+        e.device == deviceId ? ownKeyRecord : pinnedKey(e.device)?.record;
+    if (key == null) return null;
+    if (e.sig == null && e.dseq < key.since) return null;
+    return _signed(e, key);
   }
 
   // ----------------------------------------------------------------- merge
@@ -1738,7 +2144,7 @@ class CatalogStore {
           [for (final e in slice) ...[e.device, e.dseq]]);
     }
     for (final e in rows) {
-      if (isRevertable(e.field) && hasConflict(e.entity, e.field)) {
+      if (isCorrectable(e.field) && hasConflict(e.entity, e.field)) {
         resolveConflict(e.entity, e.field);
       }
     }
@@ -1757,7 +2163,11 @@ class CatalogStore {
     );
     return [
       for (final r in rows)
-        if (current(r['entity'] as String, r['field'] as String) == 'open')
+        // Badges raised by older versions on bookkeeping fields stay in
+        // the log but out of sight: nothing there to decide.
+        if (current(r['entity'] as String, r['field'] as String) == 'open' &&
+            isConflictable(
+                (r['field'] as String).substring(Keys.conflictPrefix.length)))
           (
             r['entity'] as String,
             (r['field'] as String).substring(Keys.conflictPrefix.length)
@@ -2060,6 +2470,13 @@ class CatalogStore {
       .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
       .replaceAll(RegExp(r'^-+|-+$'), '');
 
+  /// Runs the starter seeding again — what every open does; here for
+  /// tests of the upgrade paths.
+  void reseedStarterFields() => _seedStarterFields();
+
+  /// The starter breeds this device has offered so far (local).
+  static const _breedsOfferedKey = 'breedsOffered';
+
   void _seedStarterFields() {
     for (final f in starterFields) {
       final id = 'fielddef:${f.slug}';
@@ -2071,6 +2488,32 @@ class CatalogStore {
           append(id, Keys.fieldType, FieldType.choice.name, as: seedAuthor);
           append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
         }
+        // The breed list grew (1.2.3): a catalog seeded before gets the
+        // newcomers appended, its own additions and order kept, "mixed"
+        // staying last.
+        if (f.slug == 'breed') {
+          // Only breeds this device never offered: one a keeper removed
+          // on purpose stays removed.
+          final offered = (localSetting(_breedsOfferedKey) ?? '')
+              .split('\n')
+              .where((o) => o.isNotEmpty)
+              .toSet();
+          final have = (current(id, Keys.fieldOptions) ?? '')
+              .split('\n')
+              .where((o) => o.isNotEmpty)
+              .toList();
+          final missing = [
+            for (final o in f.options)
+              if (!have.contains(o) && !offered.contains(o)) o
+          ];
+          if (missing.isNotEmpty) {
+            final mixed = have.remove('mixed');
+            final merged = [...have, ...missing.where((o) => o != 'mixed')];
+            if (mixed || missing.contains('mixed')) merged.add('mixed');
+            append(id, Keys.fieldOptions, merged.join('\n'), as: seedAuthor);
+          }
+          setLocalSetting(_breedsOfferedKey, f.options.join('\n'));
+        }
         continue;
       }
       append(id, Keys.type, Kinds.fieldDef, as: seedAuthor);
@@ -2079,6 +2522,9 @@ class CatalogStore {
       append(id, Keys.fieldScope, f.scope.name, as: seedAuthor);
       if (f.options.isNotEmpty) {
         append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
+      }
+      if (f.slug == 'breed') {
+        setLocalSetting(_breedsOfferedKey, f.options.join('\n'));
       }
       // Chip IDs are transponder numbers — the Card shows them scannable.
       if (f.type == FieldType.id) {

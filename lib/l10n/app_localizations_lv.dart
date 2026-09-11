@@ -175,6 +175,15 @@ class AppLocalizationsLv extends AppLocalizations {
   String get shareAsImage => 'Kopīgot kā attēlu';
 
   @override
+  String get sortOldestFirst => 'Vecākie vispirms';
+
+  @override
+  String get sortNewestFirst => 'Jaunākie vispirms';
+
+  @override
+  String get shareAsText => 'Kopīgot kā tekstu';
+
+  @override
   String get shareAsPdf => 'Kopīgot kā PDF';
 
   @override
@@ -557,13 +566,6 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Atsaukt šo izmaiņu';
-
-  @override
-  String get revertSubtitle =>
-      'Atjauno iepriekšējo vērtību kā jaunu ierakstu — vēsture saglabā abus.';
-
-  @override
   String fieldCleared(String field) {
     return '$field iztukšots';
   }
@@ -733,7 +735,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Abas ierīces izmanto vienu mapi (piem., Dropbox vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.';
+      'Abas ierīces izmanto vienu mapi (piem., Nextcloud vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.';
 
   @override
   String get noFolderChosenYet => 'Mape vēl nav izvēlēta';
@@ -743,6 +745,18 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Sinhronizēt mapi tagad';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Tajā šis katalogs izmanto mapi „$name”, tāpēc viena koplietota mape var nest visus tavus katalogus.';
+  }
+
+  @override
+  String get useSameFolder => 'Izmantot to pašu mapi kā citi katalogi';
+
+  @override
+  String get folderHint =>
+      'Der jebkura mape, ko divas ierīces tur vienādu: mākoņa disks vai Syncthing mapei, kas paliek jūsu tālruņos. Syncthing ir bez maksas: instalē to katrā tālrunī, koplieto vienu mapi starp tiem un izvēlies to mapi šeit katrā ierīcē.';
 
   @override
   String folderSynced(String result) {
@@ -780,6 +794,16 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get conflictBody =>
       'Mainīts divās vietās vienlaikus. Izvēlieties, kas ir patiesība:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (privāts)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Abas izmaiņas saka to pašu: $value. Nav ko izvēlēties; Atrisināt noņem atzīmi.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -911,6 +935,96 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sfinkss';
+
+  @override
+  String get breedAbyssinian => 'Abesīnijas';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikas īsspalvainais';
+
+  @override
+  String get breedBalinese => 'Bali';
+
+  @override
+  String get breedBirman => 'Birmas';
+
+  @override
+  String get breedBombay => 'Bombejas';
+
+  @override
+  String get breedBurmese => 'Birmas īsspalvainais';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Britu garspalvainais';
+
+  @override
+  String get breedChartreux => 'Šartrēzs';
+
+  @override
+  String get breedCornishRex => 'Kornvolas rekss';
+
+  @override
+  String get breedDevonRex => 'Devonas rekss';
+
+  @override
+  String get breedEgyptianMau => 'Ēģiptes mau';
+
+  @override
+  String get breedExoticShorthair => 'Eksotiskais īsspalvainais';
+
+  @override
+  String get breedHimalayan => 'Himalaju';
+
+  @override
+  String get breedKorat => 'Korats';
+
+  @override
+  String get breedManx => 'Menksa';
+
+  @override
+  String get breedMunchkin => 'Mančkins';
+
+  @override
+  String get breedOcicat => 'Ocikets';
+
+  @override
+  String get breedOrientalShorthair => 'Austrumu īsspalvainais';
+
+  @override
+  String get breedRagamuffin => 'Ragamafins';
+
+  @override
+  String get breedRussianBlue => 'Krievu zilais';
+
+  @override
+  String get breedSavannah => 'Savanna';
+
+  @override
+  String get breedScottishFold => 'Skotu nokarausainais';
+
+  @override
+  String get breedSelkirkRex => 'Selkirka rekss';
+
+  @override
+  String get breedSiberian => 'Sibīrijas kaķis';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somālijas';
+
+  @override
+  String get breedTonkinese => 'Tonkinas';
+
+  @override
+  String get breedTurkishAngora => 'Turku angora';
+
+  @override
+  String get breedTurkishVan => 'Turku vans';
 
   @override
   String get starterColor => 'Krāsa';
@@ -1090,7 +1204,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit.';
+      'Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit. Katrs katalogs paraksta rakstīto ar savu atslēgu; partneri redz atslēgas kodu blakus tavam vārdam. Partnera pirmā atslēga no faila tiek pieņemta uzticoties un skaitās apstiprināta, kad sinhronizējat klātienē. Ieraksti ar zināmu vārdu bez pareiza paraksta tiek noraidīti un uzskaitīti ierašanās lapā.';
 
   @override
   String get helpFields =>
@@ -1102,7 +1216,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Katra jebkad veiktā izmaiņa, jaunākā augšā: kurš ko, kad un uz kādu vērtību mainīja. Jebkuru ierakstu var atsaukt — tas raksta jaunu ierakstu, nekas nekad netiek dzēsts.';
+      'Katra izmaiņa, jaunākā pirmā: kas, kad un uz kādu vērtību. Pieskarieties ierakstam, lai to labotu, turiet, lai noņemtu vai atjaunotu; paslēpts ieraksts paliek žurnālā un tiek rādīts pēc pieprasījuma.';
 
   @override
   String get helpDuplicates =>
@@ -1114,11 +1228,11 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai.';
+      'Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai. Sarakstā ir arī pāri, kuru izskats sakrīt vismaz divās pazīmēs bez pretrunām; mikroshēmas rāda kurās. „Nav tas pats” paslēpj pāri šajā tālrunī, līdz mainās kāda dzīvnieka izskats.';
 
   @override
   String get helpMatchesNeutral =>
-      'Mājdzīvnieki, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša mājdzīvnieka meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo mājdzīvnieku salīdzināšanai.';
+      'Mājdzīvnieki, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša mājdzīvnieka meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo mājdzīvnieku salīdzināšanai. Sarakstā ir arī pāri, kuru izskats sakrīt vismaz divās pazīmēs bez pretrunām; mikroshēmas rāda kurās. „Nav tas pats” paslēpj pāri šajā tālrunī, līdz mainās kāda dzīvnieka izskats.';
 
   @override
   String get helpFlier =>
@@ -1408,6 +1522,282 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterWeight => 'Svars';
 
   @override
+  String get starterLooks => 'Izskats';
+
+  @override
+  String get looksGroupSize => 'Izmērs';
+
+  @override
+  String get looksGroupColours => 'Krāsas';
+
+  @override
+  String get looksGroupPattern => 'Raksts';
+
+  @override
+  String get looksGroupFur => 'Kažoks';
+
+  @override
+  String get looksGroupTail => 'Aste';
+
+  @override
+  String get looksGroupEars => 'Ausis';
+
+  @override
+  String get looksGroupMarks => 'Pazīmes';
+
+  @override
+  String get looksGroupCrest => 'Cekuls';
+
+  @override
+  String get looksGroupBeak => 'Knābis';
+
+  @override
+  String get looksGroupRing => 'Gredzens';
+
+  @override
+  String get looksValueSmall => 'Mazs';
+
+  @override
+  String get looksValueMedium => 'Vidējs';
+
+  @override
+  String get looksValueLarge => 'Liels';
+
+  @override
+  String get looksValueBlack => 'Melna';
+
+  @override
+  String get looksValueWhite => 'Balta';
+
+  @override
+  String get looksValueGrey => 'Pelēka';
+
+  @override
+  String get looksValueBrown => 'Brūna';
+
+  @override
+  String get looksValueGinger => 'Ruda';
+
+  @override
+  String get looksValueCream => 'Krēmkrāsa';
+
+  @override
+  String get looksValueGolden => 'Zeltaina';
+
+  @override
+  String get looksValueTan => 'Gaiši brūna';
+
+  @override
+  String get looksValueGreen => 'Zaļa';
+
+  @override
+  String get looksValueBlue => 'Zila';
+
+  @override
+  String get looksValueYellow => 'Dzeltena';
+
+  @override
+  String get looksValueRed => 'Sarkana';
+
+  @override
+  String get looksValueOrange => 'Oranža';
+
+  @override
+  String get looksValuePink => 'Rozā';
+
+  @override
+  String get looksValueWhiteBib => 'Balts krūšu laukums';
+
+  @override
+  String get looksValueWhitePaws => 'Baltas ķepas';
+
+  @override
+  String get looksValueWhiteTailTip => 'Balts astes gals';
+
+  @override
+  String get looksValueBlaze => 'Zvaigzne';
+
+  @override
+  String get looksValueMask => 'Maska';
+
+  @override
+  String get looksValueSpots => 'Plankumiņi';
+
+  @override
+  String get looksValuePatches => 'Lāsumi';
+
+  @override
+  String get looksValueStripes => 'Svītras';
+
+  @override
+  String get looksValueScar => 'Rēta';
+
+  @override
+  String get looksValueNotchedEar => 'Iegriezta auss';
+
+  @override
+  String get looksValueEarTip => 'Auss gals';
+
+  @override
+  String get looksValueCollar => 'Kaklasiksna';
+
+  @override
+  String get looksValueShort => 'Īss';
+
+  @override
+  String get looksValueLong => 'Garš';
+
+  @override
+  String get looksValueHairless => 'Bez spalvas';
+
+  @override
+  String get looksValueBobtail => 'Strupa aste';
+
+  @override
+  String get looksValueNone => 'Nav';
+
+  @override
+  String get looksValueCurled => 'Saritināta';
+
+  @override
+  String get looksValueUpright => 'Stāvas';
+
+  @override
+  String get looksValueFloppy => 'Nokarenas';
+
+  @override
+  String get looksValueFolded => 'Salocītas';
+
+  @override
+  String get looksValueRounded => 'Apaļas';
+
+  @override
+  String get looksValueSolid => 'Vienkrāsains';
+
+  @override
+  String get looksValueTabby => 'Svītrains';
+
+  @override
+  String get looksValueTortoiseshell => 'Bruņurupuča';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Divkrāsains';
+
+  @override
+  String get looksValueTuxedo => 'Smokings';
+
+  @override
+  String get looksValueBrindle => 'Tīģerains';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Plankumains';
+
+  @override
+  String get looksValuePatched => 'Lāsumains';
+
+  @override
+  String get looksValueTricolour => 'Trīskrāsains';
+
+  @override
+  String get looksValueSable => 'Sabuļa';
+
+  @override
+  String get looksGroupEyes => 'Acis';
+
+  @override
+  String get looksGroupFeatures => 'Īpatnības';
+
+  @override
+  String get looksValueAmber => 'Dzintara';
+
+  @override
+  String get looksValueCopper => 'Vara';
+
+  @override
+  String get looksValueOddEyed => 'Dažādu krāsu';
+
+  @override
+  String get looksValueChocolate => 'Šokolādes';
+
+  @override
+  String get looksValueLilac => 'Ceriņu';
+
+  @override
+  String get looksValueSilver => 'Sudraba';
+
+  @override
+  String get looksValueSmoke => 'Dūmu';
+
+  @override
+  String get looksValueTicked => 'Tikots';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Cirtains';
+
+  @override
+  String get looksValueWiry => 'Raupjš';
+
+  @override
+  String get looksValueKinked => 'Lauzta';
+
+  @override
+  String get looksValueCropped => 'Kupētas';
+
+  @override
+  String get looksValueTippedEar => 'Apgriezta auss';
+
+  @override
+  String get looksValueEarTattoo => 'Auss tetovējums';
+
+  @override
+  String get looksValueMissingEar => 'Trūkst auss';
+
+  @override
+  String get looksValueMissingEye => 'Trūkst acs';
+
+  @override
+  String get looksValueCloudyEye => 'Duļķaina acs';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Trūkst priekškājas';
+
+  @override
+  String get looksValueMissingHindLeg => 'Trūkst pakaļkājas';
+
+  @override
+  String get looksValueNoTeeth => 'Bez zobiem';
+
+  @override
+  String get looksValueExtraToes => 'Papildu pirksti';
+
+  @override
+  String get rejectMatch => 'Nav tas pats';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pazīmes sakrīt',
+      one: '$count pazīme sakrīt',
+      zero: '$count pazīmju sakrīt',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sistēmas noklusējums';
 
   @override
@@ -1488,6 +1878,12 @@ class AppLocalizationsLv extends AppLocalizations {
       'Konfeti un gaviles, kad kaķis pārceļas uz mājām';
 
   @override
+  String get cheerToggle => 'Gaviļu skaņa';
+
+  @override
+  String get cheerSubtitle => 'Īsas gaviles ar konfetī, katru reizi citādas';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfeti un gaviles, kad mājdzīvnieks pārceļas uz mājām';
 
@@ -1531,8 +1927,61 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Izņem no šī kataloga katru ierakstu un fotoattēlu, ko $name rakstīja ierīcē $device. Citas ierīces patur savas kopijas. Nevar atsaukt.';
+  String get yourKey => 'Tava atslēga';
+
+  @override
+  String get yourTitle => 'Tavs tituls';
+
+  @override
+  String get titleNone => 'Bez titula';
+
+  @override
+  String keyLine(Object code) {
+    return 'atslēga $code';
+  }
+
+  @override
+  String get keyVerified => 'apstiprināta klātienē';
+
+  @override
+  String get keyFromFile => 'no faila, vēl nav apstiprināta';
+
+  @override
+  String get keyUnsigned => 'atslēgas vēl nav, ieraksti neparakstīti';
+
+  @override
+  String get summaryRefused => 'Noraidīts';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ieraksti noraidīti',
+      one: '$count ieraksts noraidīts',
+      zero: '$count ierakstu noraidīti',
+    );
+    return '$_temp0: nav parakstīti ar $name zināmo atslēgu';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Jauna atslēga $code sauc sevi par $name. Pārjautā cilvēkam, pirms uzticies.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name piedāvāja citu atslēgu nekā šeit zināmo. Zināmā paliek; jaunā netika pieņemta.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Jauna atslēga: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Noņem no šī kataloga katru ierakstu un foto, ko $name rakstīja ar atslēgu $key. Citas ierīces savus patur. Nevar atsaukt.';
   }
 
   @override
@@ -2036,7 +2485,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā.';
+      'Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā. Tava atslēga ir kods, ko partneri redz blakus tavam vārdam; tā pieder šim katalogam.';
 
   @override
   String get spotHomeCatalog =>
@@ -2343,12 +2792,16 @@ class AppLocalizationsLv extends AppLocalizations {
       'Šeit ieslēdz cat(a)log vizīšu atspoguļošanu izvēlētā kalendārā.';
 
   @override
+  String get spotAgendaToday =>
+      'Šodienas pienākumi: atzīmē, kad izdarīts. Punkti rāda pēdējās septiņas dienas.';
+
+  @override
   String get helpAgenda =>
-      'Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem kaķiem ir viens pieraksts: atzīmē kaķus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri kaķi tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti.';
+      'Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem kaķiem ir viens pieraksts: atzīmē kaķus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri kaķi tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti. Pienākumi ir atkārtoti darbi: barošana, kaste vai zāles. Tie stāv zem Šodien ar atzīmi, sēriju un pēdējām septiņām dienām kā punktiem; Drīzumā rāda nākamo nedēļu bez ikdienas. Pienākums var atgādināt ar paziņojumu izvēlētajā laikā. Kauss atver sasniegumus.';
 
   @override
   String get helpAgendaNeutral =>
-      'Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver mājdzīvnieku vai mājsaimniecību. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem mājdzīvniekiem ir viens pieraksts: atzīmē mājdzīvniekus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri mājdzīvnieki tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti.';
+      'Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver mājdzīvnieku vai mājsaimniecību. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem mājdzīvniekiem ir viens pieraksts: atzīmē mājdzīvniekus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri mājdzīvnieki tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti. Pienākumi ir atkārtoti darbi: barošana, kaste vai zāles. Tie stāv zem Šodien ar atzīmi, sēriju un pēdējām septiņām dienām kā punktiem; Drīzumā rāda nākamo nedēļu bez ikdienas. Pienākums var atgādināt ar paziņojumu izvēlētajā laikā. Kauss atver sasniegumus.';
 
   @override
   String get calendarRowOff => 'Kalendārs: izslēgts';
@@ -2393,6 +2846,300 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Atgādinājums — vērtība, kurai kādā dienā pienāk termiņš';
+
+  @override
+  String get planChooserChore =>
+      'Pienākums — kas atkārtojas: barošana, pilieni, smilšu kaste';
+
+  @override
+  String get newChore => 'Jauns pienākums';
+
+  @override
+  String get choreEdit => 'Rediģēt pienākumu';
+
+  @override
+  String get choreTitleLabel => 'Ko';
+
+  @override
+  String get choreRepeatDaily => 'Katru dienu';
+
+  @override
+  String get choreRepeatEvery => 'Ik pēc…';
+
+  @override
+  String get choreRepeatWeekdays => 'Nedēļas dienas';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n dienām',
+      one: 'katru dienu',
+      zero: 'ik pēc $n dienām',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n nedēļām',
+      one: 'katru nedēļu',
+      zero: 'ik pēc $n nedēļām',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n mēnešiem',
+      one: 'katru mēnesi',
+      zero: 'ik pēc $n mēnešiem',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n gadiem',
+      one: 'katru gadu',
+      zero: 'ik pēc $n gadiem',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Jebkurā dienas laikā';
+
+  @override
+  String get chorePause => 'Apturēt';
+
+  @override
+  String get chorePaused => 'Apturēts';
+
+  @override
+  String get choreResume => 'Atsākt';
+
+  @override
+  String get choreEnd => 'Beigt pienākumu';
+
+  @override
+  String get choreHistory => 'Vēsture';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'izdarīts $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'agrāk';
+
+  @override
+  String get choreDoneLate => 'vēlāk';
+
+  @override
+  String get choreMissed => 'Izlaists';
+
+  @override
+  String get choreStillOpen => 'Vēl atvērts';
+
+  @override
+  String get choreEndConfirm =>
+      'Pienākums pazūd no saraksta. Atzīmētais paliek vēsturē.';
+
+  @override
+  String get todaySection => 'Šodien';
+
+  @override
+  String get upcomingSection => 'Drīzumā';
+
+  @override
+  String get allDoneToday => 'Šodien: viss padarīts';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dienas pēc kārtas',
+      one: '$n diena pēc kārtas',
+      zero: '$n dienu pēc kārtas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Termiņš $date';
+  }
+
+  @override
+  String get remindMe => 'Atgādināt';
+
+  @override
+  String remindNext(Object when) {
+    return 'Nākamais atgādinājums: $when';
+  }
+
+  @override
+  String get remindNone => 'Atgādinājums nav plānots: nekas nav priekšā.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count atgādinājumi ieplānoti šajā tālrunī',
+      one: '$count atgādinājums ieplānots šajā tālrunī',
+      zero: 'Šajā tālrunī vēl nekas nav ieplānots',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Nosūtīt testa atgādinājumu tagad';
+
+  @override
+  String get remindLateHint =>
+      'Atgādinājumi var pienākt dažas minūtes vēlāk; precīzo brīdi izvēlas tālrunis.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nav atļaujas paziņojumiem, atgādinājums paliek izslēgts. Atļaujiet tos tālruņa lietotnes iestatījumos un mēģiniet vēlreiz.';
+
+  @override
+  String get batteryHint =>
+      'Ja atgādinājumi nepienāk, tālruņa akumulatora iestatījumos atļaujiet cat(a)log darboties fonā.';
+
+  @override
+  String get batterySettings => 'Akumulatora iestatījumi';
+
+  @override
+  String get achievementsTitle => 'Sasniegumi';
+
+  @override
+  String get rankServant => 'Kalps';
+
+  @override
+  String get rankButler => 'Sulainis';
+
+  @override
+  String get rankSteward => 'Pārvaldnieks';
+
+  @override
+  String get rankChancellor => 'Kanclers';
+
+  @override
+  String get rankMinister => 'Ministrs';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatCheetah => 'Gepards';
+
+  @override
+  String get coatTiger => 'Tīģeris';
+
+  @override
+  String get coatTabby => 'Svītrains';
+
+  @override
+  String get coatPaws => 'Ķepas';
+
+  @override
+  String get coatRosettes => 'Rozetes';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Kažoks';
+
+  @override
+  String get coatRandom => 'Katru reizi cits';
+
+  @override
+  String get coatSnowLeopard => 'Sniega leopards';
+
+  @override
+  String get coatSiamese => 'Siāmas zīmes';
+
+  @override
+  String get coatLynx => 'Lūsis';
+
+  @override
+  String get coatTortoiseshell => 'Bruņurupuča';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Jauns kažoks: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Vesels mēnesis pienākumu, visi izdarīti.';
+
+  @override
+  String get achievementsEmpty => 'Vēl nekā. Pienākumi zina ceļu.';
+
+  @override
+  String get achievementMonth => 'Pilns mēnesis';
+
+  @override
+  String get achievementYear => 'Pilns gads';
+
+  @override
+  String get achievementDecade => 'Pilna desmitgade';
+
+  @override
+  String get achievementCentury => 'Pilns gadsimts';
+
+  @override
+  String get achievementCenturyHint => 'Mēs abi būsim ļoti lepni.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title meistars';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Sasniegts $times reizes',
+      one: 'Sasniegts $times reizi',
+      zero: 'Sasniegts $times reižu',
+    );
+    return '$_temp0, pirmoreiz $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Nākamais pie $n';
+  }
+
+  @override
+  String get achievementLocked => 'Vēl ne';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Sasniegums: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Kas';
@@ -2554,4 +3301,116 @@ class AppLocalizationsLv extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Dzēst pierakstu visiem $count mājdzīvniekiem';
   }
+
+  @override
+  String get correctThisValue => 'Labot šo vērtību';
+
+  @override
+  String get removeThisValue => 'Noņemt šo vērtību';
+
+  @override
+  String get restoreThisValue => 'Atjaunot šo vērtību';
+
+  @override
+  String get showRemovedValues => 'Rādīt noņemtās vērtības';
+
+  @override
+  String get hideRemovedValues => 'Slēpt noņemtās vērtības';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Noņemts · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Aizstāts ar $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Labojums';
+
+  @override
+  String get restorePickFolder => 'Izvēlēties rezerves kopiju mapi…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Iepriekšējās instalācijas rezerves kopijas ir mapē Documents/catlog (vecākās versijās Downloads/catlog). Izvēlieties šo mapi vienreiz; tās kopijas parādās šeit.';
+
+  @override
+  String get backupsTitle => 'Rezerves kopijas';
+
+  @override
+  String get backupsSubtitle => 'Kur jūsu katalogi ir drošībā';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google dublē šīs lietotnes katalogus jūsu kontā, bez fotoattēliem. Pēc pārinstalēšanas vai jaunā tālrunī tie atgriežas paši.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Pilna katra kataloga kopija ar fotoattēliem tiek ierakstīta mapē Documents/catlog ikreiz, kad pēc izmaiņām atstājat lietotni.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud dublējums ietver šo lietotni ar tās katalogiem un fotoattēliem, tāpat kā jebkuru citu lietotni šajā iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Pilna katra kataloga kopija atrodas lietotnē Faili sadaļā cat(a)log. No turienes to var aizsūtīt uz iCloud Drive, ar AirDrop vai uz citu tālruni.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Pilna katra kataloga kopija ar fotoattēliem tiek ierakstīta jūsu Lejupielāžu mapē ikreiz, kad pēc izmaiņām atstājat lietotni.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Pēdējā kopija: $date';
+  }
+
+  @override
+  String get backupsNever => 'Kopija vēl nav ierakstīta.';
+
+  @override
+  String get backupsNow => 'Dublēt tagad';
+
+  @override
+  String get backupsDone => 'Kopija ierakstīta.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Atjaunots no Google dublējuma $date. Ja vecajā tālrunī vēl darbojas cat(a)log, vienreiz sinhronizējiet no tā un pēc tam tur noņemiet lietotni.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Katru kopiju var saņemt arī jūsu izvēlēta mape: tāda, ko šajā tālrunī sinhronizē mākoņa lietotne (Nextcloud, Syncthing un citas), atmiņas karte, jebkura mape, ko piedāvā izvēle. Kopijas nonāk tajā esošajā catlog-backups.';
+
+  @override
+  String get backupsFolderPick => 'Kopēt arī mapē…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopē arī uz $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Vairs nekopēt turp';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Paziņojumi šajā tālrunī nedarbojas: $error';
+  }
+
+  @override
+  String get copyText => 'Kopēt tekstu';
+
+  @override
+  String get colWhen => 'Kad';
+
+  @override
+  String get colValue => 'Vērtība';
+
+  @override
+  String get colWho => 'Kas';
 }

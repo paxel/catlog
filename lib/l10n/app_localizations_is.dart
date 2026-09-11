@@ -174,6 +174,15 @@ class AppLocalizationsIs extends AppLocalizations {
   String get shareAsImage => 'Deila sem mynd';
 
   @override
+  String get sortOldestFirst => 'Elsta fyrst';
+
+  @override
+  String get sortNewestFirst => 'Nýjasta fyrst';
+
+  @override
+  String get shareAsText => 'Deila sem texta';
+
+  @override
   String get shareAsPdf => 'Deila sem PDF';
 
   @override
@@ -559,13 +568,6 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Afturkalla þessa breytingu';
-
-  @override
-  String get revertSubtitle =>
-      'Endurheimtir fyrra gildi sem nýja færslu — sagan geymir bæði.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tæmt';
   }
@@ -736,7 +738,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Bæði tækin nota sömu möppu (t.d. í Dropbox eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.';
+      'Bæði tækin nota sömu möppu (t.d. í Nextcloud eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.';
 
   @override
   String get noFolderChosenYet => 'Engin mappa valin ennþá';
@@ -746,6 +748,18 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Samstilla möppu núna';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Þar inni notar þessi skrá möppuna „$name“, svo ein sameiginleg mappa getur borið allar skrárnar þínar.';
+  }
+
+  @override
+  String get useSameFolder => 'Nota sömu möppu og hinar skrárnar';
+
+  @override
+  String get folderHint =>
+      'Hvaða mappa sem tvö tæki halda eins dugar: skýjadrif, eða Syncthing fyrir möppu sem verður eftir í símunum ykkar. Syncthing er ókeypis: settu það upp á hverjum síma, deildu einni möppu milli þeirra og veldu þá möppu hér á hverju tæki.';
 
   @override
   String folderSynced(String result) {
@@ -783,6 +797,16 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get conflictBody =>
       'Breytt á tveimur stöðum í einu. Veldu hvað er rétt:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (einka)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Báðar breytingarnar segja það sama: $value. Ekkert að velja; Leysa fjarlægir merkið.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -914,6 +938,96 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sphynx';
+
+  @override
+  String get breedAbyssinian => 'Abyssiníu';
+
+  @override
+  String get breedAmericanShorthair => 'Amerískur stutthærður';
+
+  @override
+  String get breedBalinese => 'Balíkötturinn';
+
+  @override
+  String get breedBirman => 'Birman';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Búrmakötturinn';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Breskur síðhærður';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egypskur mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotic';
+
+  @override
+  String get breedHimalayan => 'Himalaja';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Austurlenskur stutthærður';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Rússneskur blár';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Skoskur fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Síberíuköttur';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Sómalíu';
+
+  @override
+  String get breedTonkinese => 'Tonkínskur';
+
+  @override
+  String get breedTurkishAngora => 'Tyrknesk angóra';
+
+  @override
+  String get breedTurkishVan => 'Tyrkneskur van';
 
   @override
   String get starterColor => 'Litur';
@@ -1093,7 +1207,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér.';
+      'Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér. Hver skrá undirritar það sem hún skrifar með eigin lykli; samstarfsfólk sér lykilkóðann við hlið nafnsins þíns. Fyrsti lykill samstarfsaðila er tekinn í trausti úr skrá og telst staðfestur þegar þið samstillið í eigin persónu. Færslur undir þekktu nafni án réttrar undirritunar er hafnað og þær taldar upp á komusíðunni.';
 
   @override
   String get helpFields =>
@@ -1105,7 +1219,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Sérhver breyting sem gerð hefur verið, sú nýjasta efst: hver breytti hverju, hvenær og í hvaða gildi. Hverja færslu má afturkalla — það skrifar nýja færslu, engu er nokkurn tíma eytt.';
+      'Hver breyting, nýjasta fyrst: hver, hvenær og í hvaða gildi. Ýttu á færslu til að leiðrétta hana, haltu henni til að fjarlægja eða endurheimta; falin færsla er áfram í skránni og birtist sé þess óskað.';
 
   @override
   String get helpDuplicates =>
@@ -1117,11 +1231,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar.';
+      'Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar. Pör þar sem útlitið stemmir í tveimur einkennum eða fleiri án mótsagnar eru líka á listanum; flögurnar sýna hver. „Ekki það sama“ felur par í þessum síma þar til útlit annars dýrsins breytist.';
 
   @override
   String get helpMatchesNeutral =>
-      'Gæludýr sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds gæludýrs. Ýttu á par til að sameina, haltu inni til að opna fyrra gæludýrið til samanburðar.';
+      'Gæludýr sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds gæludýrs. Ýttu á par til að sameina, haltu inni til að opna fyrra gæludýrið til samanburðar. Pör þar sem útlitið stemmir í tveimur einkennum eða fleiri án mótsagnar eru líka á listanum; flögurnar sýna hver. „Ekki það sama“ felur par í þessum síma þar til útlit annars dýrsins breytist.';
 
   @override
   String get helpFlier =>
@@ -1411,6 +1525,281 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterWeight => 'Þyngd';
 
   @override
+  String get starterLooks => 'Útlit';
+
+  @override
+  String get looksGroupSize => 'Stærð';
+
+  @override
+  String get looksGroupColours => 'Litir';
+
+  @override
+  String get looksGroupPattern => 'Mynstur';
+
+  @override
+  String get looksGroupFur => 'Feldur';
+
+  @override
+  String get looksGroupTail => 'Skott';
+
+  @override
+  String get looksGroupEars => 'Eyru';
+
+  @override
+  String get looksGroupMarks => 'Einkenni';
+
+  @override
+  String get looksGroupCrest => 'Toppur';
+
+  @override
+  String get looksGroupBeak => 'Goggur';
+
+  @override
+  String get looksGroupRing => 'Fótahringur';
+
+  @override
+  String get looksValueSmall => 'Lítill';
+
+  @override
+  String get looksValueMedium => 'Miðlungs';
+
+  @override
+  String get looksValueLarge => 'Stór';
+
+  @override
+  String get looksValueBlack => 'Svartur';
+
+  @override
+  String get looksValueWhite => 'Hvítur';
+
+  @override
+  String get looksValueGrey => 'Grár';
+
+  @override
+  String get looksValueBrown => 'Brúnn';
+
+  @override
+  String get looksValueGinger => 'Rauður';
+
+  @override
+  String get looksValueCream => 'Rjómalitur';
+
+  @override
+  String get looksValueGolden => 'Gullinn';
+
+  @override
+  String get looksValueTan => 'Ljósbrúnn';
+
+  @override
+  String get looksValueGreen => 'Grænn';
+
+  @override
+  String get looksValueBlue => 'Blár';
+
+  @override
+  String get looksValueYellow => 'Gulur';
+
+  @override
+  String get looksValueRed => 'Rauður';
+
+  @override
+  String get looksValueOrange => 'Appelsínugulur';
+
+  @override
+  String get looksValuePink => 'Bleikur';
+
+  @override
+  String get looksValueWhiteBib => 'Hvít bringa';
+
+  @override
+  String get looksValueWhitePaws => 'Hvítar loppur';
+
+  @override
+  String get looksValueWhiteTailTip => 'Hvítur skottendi';
+
+  @override
+  String get looksValueBlaze => 'Blesa';
+
+  @override
+  String get looksValueMask => 'Gríma';
+
+  @override
+  String get looksValueSpots => 'Deplar';
+
+  @override
+  String get looksValuePatches => 'Flekkir';
+
+  @override
+  String get looksValueStripes => 'Rendur';
+
+  @override
+  String get looksValueScar => 'Ör';
+
+  @override
+  String get looksValueNotchedEar => 'Skarð í eyra';
+
+  @override
+  String get looksValueEarTip => 'Eyrnabroddur';
+
+  @override
+  String get looksValueCollar => 'Hálsól';
+
+  @override
+  String get looksValueShort => 'Stutt';
+
+  @override
+  String get looksValueLong => 'Sítt';
+
+  @override
+  String get looksValueHairless => 'Hárlaus';
+
+  @override
+  String get looksValueBobtail => 'Stubbur';
+
+  @override
+  String get looksValueNone => 'Ekkert';
+
+  @override
+  String get looksValueCurled => 'Hringað';
+
+  @override
+  String get looksValueUpright => 'Upprétt';
+
+  @override
+  String get looksValueFloppy => 'Lafandi';
+
+  @override
+  String get looksValueFolded => 'Brotin';
+
+  @override
+  String get looksValueRounded => 'Ávöl';
+
+  @override
+  String get looksValueSolid => 'Einlitur';
+
+  @override
+  String get looksValueTabby => 'Bröndóttur';
+
+  @override
+  String get looksValueTortoiseshell => 'Skjaldbökulitur';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Tvílitur';
+
+  @override
+  String get looksValueTuxedo => 'Smóking';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Doppóttur';
+
+  @override
+  String get looksValuePatched => 'Flekkóttur';
+
+  @override
+  String get looksValueTricolour => 'Þrílitur';
+
+  @override
+  String get looksValueSable => 'Sable';
+
+  @override
+  String get looksGroupEyes => 'Augu';
+
+  @override
+  String get looksGroupFeatures => 'Sérkenni';
+
+  @override
+  String get looksValueAmber => 'Rafgul';
+
+  @override
+  String get looksValueCopper => 'Kopar';
+
+  @override
+  String get looksValueOddEyed => 'Mislit augu';
+
+  @override
+  String get looksValueChocolate => 'Súkkulaði';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Silfur';
+
+  @override
+  String get looksValueSmoke => 'Reykur';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Krullaður';
+
+  @override
+  String get looksValueWiry => 'Stríður';
+
+  @override
+  String get looksValueKinked => 'Kinkur';
+
+  @override
+  String get looksValueCropped => 'Klippt';
+
+  @override
+  String get looksValueTippedEar => 'Klipptur eyrnaoddur';
+
+  @override
+  String get looksValueEarTattoo => 'Eyrnahúðflúr';
+
+  @override
+  String get looksValueMissingEar => 'Vantar eyra';
+
+  @override
+  String get looksValueMissingEye => 'Vantar auga';
+
+  @override
+  String get looksValueCloudyEye => 'Skýjað auga';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Vantar framfót';
+
+  @override
+  String get looksValueMissingHindLeg => 'Vantar afturfót';
+
+  @override
+  String get looksValueNoTeeth => 'Tannlaus';
+
+  @override
+  String get looksValueExtraToes => 'Aukatær';
+
+  @override
+  String get rejectMatch => 'Ekki það sama';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count einkenni stemma',
+      one: '$count einkenni stemmir',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sjálfgefið kerfis';
 
   @override
@@ -1491,6 +1880,13 @@ class AppLocalizationsIs extends AppLocalizations {
       'Skrautborðar og fagnaðarlæti þegar köttur flytur á heimili sitt';
 
   @override
+  String get cheerToggle => 'Fagnaðarhljóð';
+
+  @override
+  String get cheerSubtitle =>
+      'Stutt fagnaðaróp með konfettíinu, nýtt í hvert sinn';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Skrautborðar og fagnaðarlæti þegar gæludýr flytur á heimili sitt';
 
@@ -1533,8 +1929,60 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Fjarlægir úr þessari skrá hverja færslu og mynd sem $name skrifaði á tækinu $device. Önnur tæki halda sínu. Ekki hægt að afturkalla.';
+  String get yourKey => 'Lykillinn þinn';
+
+  @override
+  String get yourTitle => 'Titillinn þinn';
+
+  @override
+  String get titleNone => 'Enginn titill';
+
+  @override
+  String keyLine(Object code) {
+    return 'lykill $code';
+  }
+
+  @override
+  String get keyVerified => 'staðfest í eigin persónu';
+
+  @override
+  String get keyFromFile => 'úr skrá, ekki enn staðfest';
+
+  @override
+  String get keyUnsigned => 'enginn lykill enn, færslur óundirritaðar';
+
+  @override
+  String get summaryRefused => 'Hafnað';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count færslum hafnað',
+      one: '$count færslu hafnað',
+    );
+    return '$_temp0: ekki undirritað með þekktum lykli fyrir $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Nýr lykill $code kallar sig $name. Spurðu viðkomandi áður en þú treystir honum.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name bauð annan lykil en þann sem er þekktur hér. Sá þekkti helst; sá nýi var ekki tekinn.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nýr lykill: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Fjarlægir hverja færslu og mynd sem $name skrifaði með lykli $key úr þessari skrá. Önnur tæki halda sínum. Ekki hægt að afturkalla.';
   }
 
   @override
@@ -2034,7 +2482,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal.';
+      'Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal. Lykillinn þinn er kóðinn sem samstarfsfólk sér við hlið nafnsins þíns; hann tilheyrir þessari skrá.';
 
   @override
   String get spotHomeCatalog =>
@@ -2339,12 +2787,16 @@ class AppLocalizationsIs extends AppLocalizations {
       'Kveiktu hér á speglun cat(a)log-tíma í dagatal að eigin vali.';
 
   @override
+  String get spotAgendaToday =>
+      'Verk dagsins: hakaðu við þegar lokið. Punktarnir sýna síðustu sjö daga.';
+
+  @override
   String get helpAgenda =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
 
   @override
   String get helpAgendaNeutral =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
 
   @override
   String get calendarRowOff => 'Dagatal: slökkt';
@@ -2389,6 +2841,294 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Áminning — gildi sem fellur á gjalddaga á degi';
+
+  @override
+  String get planChooserChore =>
+      'Verk — eitthvað sem endurtekst: fóðrun, dropar, kassi';
+
+  @override
+  String get newChore => 'Nýtt verk';
+
+  @override
+  String get choreEdit => 'Breyta verki';
+
+  @override
+  String get choreTitleLabel => 'Hvað';
+
+  @override
+  String get choreRepeatDaily => 'Daglega';
+
+  @override
+  String get choreRepeatEvery => 'Á…';
+
+  @override
+  String get choreRepeatWeekdays => 'Vikudagar';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n. hvern dag',
+      one: 'daglega',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n. hverja viku',
+      one: 'vikulega',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n. hvern mánuð',
+      one: 'mánaðarlega',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n. hvert ár',
+      one: 'árlega',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Hvenær sem er dags';
+
+  @override
+  String get chorePause => 'Gera hlé';
+
+  @override
+  String get chorePaused => 'Í bið';
+
+  @override
+  String get choreResume => 'Halda áfram';
+
+  @override
+  String get choreEnd => 'Ljúka verki';
+
+  @override
+  String get choreHistory => 'Ferill';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'gert $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'snemma';
+
+  @override
+  String get choreDoneLate => 'seint';
+
+  @override
+  String get choreMissed => 'Sleppt';
+
+  @override
+  String get choreStillOpen => 'Enn opið';
+
+  @override
+  String get choreEndConfirm =>
+      'Verkið fer af listanum. Það sem var hakað við helst í sögunni.';
+
+  @override
+  String get todaySection => 'Í dag';
+
+  @override
+  String get upcomingSection => 'Á næstunni';
+
+  @override
+  String get allDoneToday => 'Í dag: allt búið';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dagar í röð',
+      one: '1 dagur í röð',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Á $date';
+  }
+
+  @override
+  String get remindMe => 'Minna mig á';
+
+  @override
+  String remindNext(Object when) {
+    return 'Næsta áminning: $when';
+  }
+
+  @override
+  String get remindNone => 'Engin áminning fyrirhuguð: ekkert framundan.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count áminningar áætlaðar á þessum síma',
+      one: '$count áminning áætluð á þessum síma',
+      zero: 'Ekkert áætlað á þessum síma enn',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Senda prufuáminningu núna';
+
+  @override
+  String get remindLateHint =>
+      'Áminningar geta borist nokkrum mínútum seinna; síminn velur nákvæma stundina.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Engin heimild fyrir tilkynningar, áminningin helst slökkt. Leyfðu þær í forritsstillingum símans og reyndu aftur.';
+
+  @override
+  String get batteryHint =>
+      'Ef áminningar berast ekki, leyfðu cat(a)log að keyra í bakgrunni í rafhlöðustillingum símans.';
+
+  @override
+  String get batterySettings => 'Rafhlöðustillingar';
+
+  @override
+  String get achievementsTitle => 'Afrek';
+
+  @override
+  String get rankServant => 'Þjónn';
+
+  @override
+  String get rankButler => 'Bryti';
+
+  @override
+  String get rankSteward => 'Ráðsmaður';
+
+  @override
+  String get rankChancellor => 'Kanslari';
+
+  @override
+  String get rankMinister => 'Ráðherra';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatCheetah => 'Blettatígur';
+
+  @override
+  String get coatTiger => 'Tígur';
+
+  @override
+  String get coatTabby => 'Bröndóttur';
+
+  @override
+  String get coatPaws => 'Loppur';
+
+  @override
+  String get coatRosettes => 'Rósettur';
+
+  @override
+  String get coatZebra => 'Sebrahestur';
+
+  @override
+  String get coatSetting => 'Feldur';
+
+  @override
+  String get coatRandom => 'Nýr við hverja ræsingu';
+
+  @override
+  String get coatSnowLeopard => 'Snæhlébarði';
+
+  @override
+  String get coatSiamese => 'Síamsk mynstur';
+
+  @override
+  String get coatLynx => 'Gaupa';
+
+  @override
+  String get coatTortoiseshell => 'Skjaldbaka';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Nýr feldur: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Heill mánuður af verkum, öll unnin.';
+
+  @override
+  String get achievementsEmpty => 'Ekkert enn. Verkin þekkja leiðina.';
+
+  @override
+  String get achievementMonth => 'Heill mánuður';
+
+  @override
+  String get achievementYear => 'Heilt ár';
+
+  @override
+  String get achievementDecade => 'Heill áratugur';
+
+  @override
+  String get achievementCentury => 'Heil öld';
+
+  @override
+  String get achievementCenturyHint => 'Við verðum bæði mjög stolt.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-meistari';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Náð $times sinnum',
+      one: 'Náð einu sinni',
+    );
+    return '$_temp0, fyrst $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Næst við $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ekki enn';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Afrek: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Hvað';
@@ -2550,4 +3290,116 @@ class AppLocalizationsIs extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Eyða tíma fyrir öll $count gæludýrin';
   }
+
+  @override
+  String get correctThisValue => 'Leiðrétta þetta gildi';
+
+  @override
+  String get removeThisValue => 'Fjarlægja þetta gildi';
+
+  @override
+  String get restoreThisValue => 'Endurheimta þetta gildi';
+
+  @override
+  String get showRemovedValues => 'Sýna fjarlægð gildi';
+
+  @override
+  String get hideRemovedValues => 'Fela fjarlægð gildi';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Fjarlægt · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Skipt út fyrir $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Leiðrétting';
+
+  @override
+  String get restorePickFolder => 'Velja afritamöppu…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Afrit fyrri uppsetningar eru í Documents/catlog (Downloads/catlog í eldri útgáfum). Veldu þá möppu einu sinni; afrit hennar birtast hér.';
+
+  @override
+  String get backupsTitle => 'Afrit';
+
+  @override
+  String get backupsSubtitle => 'Hvar skrárnar þínar eru geymdar örugglega';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google afritar skrár þessa forrits með reikningnum þínum, án mynda. Þær koma sjálfkrafa aftur eftir enduruppsetningu eða á nýjum síma.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Fullt afrit af hverri skrá, með myndum, er skrifað í Documents/catlog í hvert sinn sem þú ferð úr forritinu eftir breytingar.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud-afrit inniheldur þetta forrit með skrám þess og myndum, eins og öll önnur forrit á þessum iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Fullt afrit af hverri skrá er í Skrár-forritinu undir cat(a)log. Þaðan getur það farið í iCloud Drive, með AirDrop eða í annan síma.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Fullt afrit af hverri skrá, með myndum, er skrifað í Niðurhal-möppuna þína í hvert sinn sem þú ferð úr forritinu eftir breytingar.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Síðasta afrit: $date';
+  }
+
+  @override
+  String get backupsNever => 'Ekkert afrit skrifað enn.';
+
+  @override
+  String get backupsNow => 'Taka afrit núna';
+
+  @override
+  String get backupsDone => 'Afrit skrifað.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Endurheimt úr Google-afriti $date. Ef cat(a)log keyrir enn á gamla símanum, samstilltu einu sinni þaðan og fjarlægðu svo forritið þar.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Mappa að eigin vali getur líka fengið hvert afrit: mappa sem skýjaforrit heldur samstilltri á þessum síma (Nextcloud, Syncthing og fleiri), minniskort, hvaða mappa sem valið býður. Afritin lenda í catlog-backups inni í henni.';
+
+  @override
+  String get backupsFolderPick => 'Afrita líka í möppu…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Afritað líka í $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Hætta að afrita þangað';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Tilkynningar virka ekki á þessum síma: $error';
+  }
+
+  @override
+  String get copyText => 'Afrita texta';
+
+  @override
+  String get colWhen => 'Hvenær';
+
+  @override
+  String get colValue => 'Gildi';
+
+  @override
+  String get colWho => 'Hver';
 }

@@ -174,6 +174,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get shareAsImage => 'مشاركة كصورة';
 
   @override
+  String get sortOldestFirst => 'الأقدم أولًا';
+
+  @override
+  String get sortNewestFirst => 'الأحدث أولًا';
+
+  @override
+  String get shareAsText => 'مشاركة كنص';
+
+  @override
   String get shareAsPdf => 'مشاركة كملف PDF';
 
   @override
@@ -555,13 +564,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'التراجع عن هذا التغيير';
-
-  @override
-  String get revertSubtitle =>
-      'يعيد القيمة السابقة كسجل جديد — يحتفظ السجل بالاثنين.';
-
-  @override
   String fieldCleared(String field) {
     return 'أُفرغ $field';
   }
@@ -732,7 +734,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'يستخدم الجهازان المجلد نفسه (مثلًا في Dropbox أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.';
+      'يستخدم الجهازان المجلد نفسه (مثلًا في Nextcloud أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.';
 
   @override
   String get noFolderChosenYet => 'لم يُختَر مجلد بعد';
@@ -742,6 +744,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'زامن المجلد الآن';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'بداخله يستخدم هذا الفهرس المجلد «$name»، فيمكن لمجلد مشترك واحد أن يحمل كل فهارسك.';
+  }
+
+  @override
+  String get useSameFolder => 'استخدم المجلد نفسه كالفهارس الأخرى';
+
+  @override
+  String get folderHint =>
+      'يكفي أي مجلد يبقيه جهازان متطابقًا: قرص سحابي، أو Syncthing لمجلد يبقى على هواتفكم. Syncthing مجاني: ثبّته على كل هاتف، وشارك مجلدًا واحدًا بينها، واختر ذلك المجلد هنا على كل جهاز.';
 
   @override
   String folderSynced(String result) {
@@ -778,6 +792,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get conflictBody => 'تغيّر في مكانين في آن واحد. اختر الصحيح:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (خاص)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'كلا التغييرين يقول الشيء نفسه: $value. لا شيء للاختيار؛ «حل» يزيل العلامة.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -909,6 +933,96 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get breedSphynx => 'سفينكس';
+
+  @override
+  String get breedAbyssinian => 'حبشي';
+
+  @override
+  String get breedAmericanShorthair => 'أمريكي قصير الشعر';
+
+  @override
+  String get breedBalinese => 'بالينيزي';
+
+  @override
+  String get breedBirman => 'بيرماني';
+
+  @override
+  String get breedBombay => 'بومباي';
+
+  @override
+  String get breedBurmese => 'بورمي';
+
+  @override
+  String get breedBurmilla => 'بورميلا';
+
+  @override
+  String get breedBritishLonghair => 'بريطاني طويل الشعر';
+
+  @override
+  String get breedChartreux => 'شارترو';
+
+  @override
+  String get breedCornishRex => 'كورنيش ركس';
+
+  @override
+  String get breedDevonRex => 'ديفون ركس';
+
+  @override
+  String get breedEgyptianMau => 'ماو مصري';
+
+  @override
+  String get breedExoticShorthair => 'إكزوتيك قصير الشعر';
+
+  @override
+  String get breedHimalayan => 'هيمالايا';
+
+  @override
+  String get breedKorat => 'كورات';
+
+  @override
+  String get breedManx => 'مانكس';
+
+  @override
+  String get breedMunchkin => 'مانشكين';
+
+  @override
+  String get breedOcicat => 'أوسيكات';
+
+  @override
+  String get breedOrientalShorthair => 'شرقي قصير الشعر';
+
+  @override
+  String get breedRagamuffin => 'راغامافين';
+
+  @override
+  String get breedRussianBlue => 'أزرق روسي';
+
+  @override
+  String get breedSavannah => 'سافانا';
+
+  @override
+  String get breedScottishFold => 'سكوتش فولد';
+
+  @override
+  String get breedSelkirkRex => 'سيلكيرك ركس';
+
+  @override
+  String get breedSiberian => 'سيبيري';
+
+  @override
+  String get breedSnowshoe => 'سنوشو';
+
+  @override
+  String get breedSomali => 'صومالي';
+
+  @override
+  String get breedTonkinese => 'تونكيني';
+
+  @override
+  String get breedTurkishAngora => 'أنغورا تركي';
+
+  @override
+  String get breedTurkishVan => 'فان تركي';
 
   @override
   String get starterColor => 'اللون';
@@ -1086,7 +1200,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'كيف تصل البيانات إلى الآخرين: اتصال مباشر، مجلد يراه الجهازان، أو ملف عبر تطبيق مراسلة. أنت من يقرر دائمًا ما يخرج — وملفات .catsync المستلمة تُفتح هنا أيضًا.';
+      'كيف تصل البيانات إلى الآخرين: اتصال مباشر، مجلد يراه الجهازان، أو ملف عبر تطبيق مراسلة. أنت من يقرر دائمًا ما يخرج — وملفات .catsync المستلمة تُفتح هنا أيضًا. يوقّع كل فهرس ما يكتبه بمفتاحه الخاص؛ يرى الشركاء رمز المفتاح بجوار اسمك. يُقبل أول مفتاح لشريك من ملف على الثقة ويُعد متحققًا منه عند المزامنة شخصيًا. الإدخالات باسم معروف دون التوقيع الصحيح تُرفض وتُدرج في صفحة الوصول.';
 
   @override
   String get helpFields =>
@@ -1098,7 +1212,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'كل تغيير جرى يومًا، الأحدث أولًا: من غيّر ماذا ومتى وإلى أي قيمة. يمكن التراجع عن أي إدخال — يكتب ذلك إدخالًا جديدًا، ولا يُمحى شيء أبدًا.';
+      'كل تغيير، الأحدث أولاً: من غيّر ماذا ومتى وإلى أي قيمة. انقر على إدخال لتصحيحه، واضغط مطولاً لإزالته أو استعادته؛ يبقى الإدخال المخفي في السجل ويظهر عند الطلب.';
 
   @override
   String get helpDuplicates =>
@@ -1110,11 +1224,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة.';
+      'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة. تُدرج أيضًا الأزواج التي يتطابق مظهرها في سمتين أو أكثر دون تناقض؛ تُظهر الرقائق أيها. «ليس نفسه» يخفي الزوج على هذا الهاتف حتى يتغير مظهر أحد الحيوانين.';
 
   @override
   String get helpMatchesNeutral =>
-      'حيوانات أليفة قد تكون الحيوان نفسه: رقم متطابق، أو حيوان ضال شوهد داخل منطقة البحث عن حيوان أليف مفقود. انقر زوجًا للدمج، والضغط المطوّل يفتح الحيوان الأليف الأول للمقارنة.';
+      'حيوانات أليفة قد تكون الحيوان نفسه: رقم متطابق، أو حيوان ضال شوهد داخل منطقة البحث عن حيوان أليف مفقود. انقر زوجًا للدمج، والضغط المطوّل يفتح الحيوان الأليف الأول للمقارنة. تُدرج أيضًا الأزواج التي يتطابق مظهرها في سمتين أو أكثر دون تناقض؛ تُظهر الرقائق أيها. «ليس نفسه» يخفي الزوج على هذا الهاتف حتى يتغير مظهر أحد الحيوانين.';
 
   @override
   String get helpFlier =>
@@ -1403,6 +1517,285 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterWeight => 'الوزن';
 
   @override
+  String get starterLooks => 'المظهر';
+
+  @override
+  String get looksGroupSize => 'الحجم';
+
+  @override
+  String get looksGroupColours => 'الألوان';
+
+  @override
+  String get looksGroupPattern => 'النمط';
+
+  @override
+  String get looksGroupFur => 'الفراء';
+
+  @override
+  String get looksGroupTail => 'الذيل';
+
+  @override
+  String get looksGroupEars => 'الأذنان';
+
+  @override
+  String get looksGroupMarks => 'العلامات';
+
+  @override
+  String get looksGroupCrest => 'العرف';
+
+  @override
+  String get looksGroupBeak => 'المنقار';
+
+  @override
+  String get looksGroupRing => 'الحلقة';
+
+  @override
+  String get looksValueSmall => 'صغير';
+
+  @override
+  String get looksValueMedium => 'متوسط';
+
+  @override
+  String get looksValueLarge => 'كبير';
+
+  @override
+  String get looksValueBlack => 'أسود';
+
+  @override
+  String get looksValueWhite => 'أبيض';
+
+  @override
+  String get looksValueGrey => 'رمادي';
+
+  @override
+  String get looksValueBrown => 'بني';
+
+  @override
+  String get looksValueGinger => 'برتقالي محمر';
+
+  @override
+  String get looksValueCream => 'كريمي';
+
+  @override
+  String get looksValueGolden => 'ذهبي';
+
+  @override
+  String get looksValueTan => 'بني فاتح';
+
+  @override
+  String get looksValueGreen => 'أخضر';
+
+  @override
+  String get looksValueBlue => 'أزرق';
+
+  @override
+  String get looksValueYellow => 'أصفر';
+
+  @override
+  String get looksValueRed => 'أحمر';
+
+  @override
+  String get looksValueOrange => 'برتقالي';
+
+  @override
+  String get looksValuePink => 'وردي';
+
+  @override
+  String get looksValueWhiteBib => 'صدر أبيض';
+
+  @override
+  String get looksValueWhitePaws => 'أقدام بيضاء';
+
+  @override
+  String get looksValueWhiteTailTip => 'طرف ذيل أبيض';
+
+  @override
+  String get looksValueBlaze => 'غرة';
+
+  @override
+  String get looksValueMask => 'قناع';
+
+  @override
+  String get looksValueSpots => 'بقع';
+
+  @override
+  String get looksValuePatches => 'رقع';
+
+  @override
+  String get looksValueStripes => 'خطوط';
+
+  @override
+  String get looksValueScar => 'ندبة';
+
+  @override
+  String get looksValueNotchedEar => 'أذن مشقوقة';
+
+  @override
+  String get looksValueEarTip => 'طرف الأذن';
+
+  @override
+  String get looksValueCollar => 'طوق';
+
+  @override
+  String get looksValueShort => 'قصير';
+
+  @override
+  String get looksValueLong => 'طويل';
+
+  @override
+  String get looksValueHairless => 'بلا شعر';
+
+  @override
+  String get looksValueBobtail => 'ذيل قصير';
+
+  @override
+  String get looksValueNone => 'بلا ذيل';
+
+  @override
+  String get looksValueCurled => 'ملتف';
+
+  @override
+  String get looksValueUpright => 'منتصبة';
+
+  @override
+  String get looksValueFloppy => 'متدلية';
+
+  @override
+  String get looksValueFolded => 'مطوية';
+
+  @override
+  String get looksValueRounded => 'مستديرة';
+
+  @override
+  String get looksValueSolid => 'لون واحد';
+
+  @override
+  String get looksValueTabby => 'مخطط';
+
+  @override
+  String get looksValueTortoiseshell => 'صدفي';
+
+  @override
+  String get looksValueCalico => 'كاليكو';
+
+  @override
+  String get looksValueColourpoint => 'كولوربوينت';
+
+  @override
+  String get looksValueBicolour => 'لونان';
+
+  @override
+  String get looksValueTuxedo => 'بدلة';
+
+  @override
+  String get looksValueBrindle => 'مخطط داكن';
+
+  @override
+  String get looksValueMerle => 'مرل';
+
+  @override
+  String get looksValueSpotted => 'منقّط';
+
+  @override
+  String get looksValuePatched => 'مرقّع';
+
+  @override
+  String get looksValueTricolour => 'ثلاثة ألوان';
+
+  @override
+  String get looksValueSable => 'سمور';
+
+  @override
+  String get looksGroupEyes => 'العينان';
+
+  @override
+  String get looksGroupFeatures => 'سمات';
+
+  @override
+  String get looksValueAmber => 'كهرماني';
+
+  @override
+  String get looksValueCopper => 'نحاسي';
+
+  @override
+  String get looksValueOddEyed => 'عينان مختلفتان';
+
+  @override
+  String get looksValueChocolate => 'شوكولاتي';
+
+  @override
+  String get looksValueLilac => 'ليلكي';
+
+  @override
+  String get looksValueSilver => 'فضي';
+
+  @override
+  String get looksValueSmoke => 'دخاني';
+
+  @override
+  String get looksValueTicked => 'مرقّط الشعرة';
+
+  @override
+  String get looksValueVan => 'فان';
+
+  @override
+  String get looksValueCurly => 'مجعد';
+
+  @override
+  String get looksValueWiry => 'خشن';
+
+  @override
+  String get looksValueKinked => 'مثنيّ';
+
+  @override
+  String get looksValueCropped => 'مقصوصة';
+
+  @override
+  String get looksValueTippedEar => 'طرف أذن مقصوص';
+
+  @override
+  String get looksValueEarTattoo => 'وشم في الأذن';
+
+  @override
+  String get looksValueMissingEar => 'أذن مفقودة';
+
+  @override
+  String get looksValueMissingEye => 'عين مفقودة';
+
+  @override
+  String get looksValueCloudyEye => 'عين ضبابية';
+
+  @override
+  String get looksValueMissingFrontLeg => 'ساق أمامية مفقودة';
+
+  @override
+  String get looksValueMissingHindLeg => 'ساق خلفية مفقودة';
+
+  @override
+  String get looksValueNoTeeth => 'بلا أسنان';
+
+  @override
+  String get looksValueExtraToes => 'أصابع زائدة';
+
+  @override
+  String get rejectMatch => 'ليس نفسه';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سمة متطابقة',
+      many: '$count سمة متطابقة',
+      few: '$count سمات متطابقة',
+      two: 'سمتان متطابقتان',
+      one: 'سمة واحدة متطابقة',
+      zero: 'لا سمات متطابقة',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'افتراضي النظام';
 
   @override
@@ -1483,6 +1876,12 @@ class AppLocalizationsAr extends AppLocalizations {
       'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها';
 
   @override
+  String get cheerToggle => 'صوت الهتاف';
+
+  @override
+  String get cheerSubtitle => 'هتاف قصير مع القصاصات، مختلف في كل مرة';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'قصاصات ملونة وهتاف عندما ينتقل حيوان أليف إلى منزله';
 
@@ -1525,8 +1924,64 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'يزيل من هذا الكتالوج كل مدخل وصورة كتبها $name على الجهاز $device. تحتفظ الأجهزة الأخرى بنسختها. لا يمكن التراجع.';
+  String get yourKey => 'مفتاحك';
+
+  @override
+  String get yourTitle => 'لقبك';
+
+  @override
+  String get titleNone => 'بلا لقب';
+
+  @override
+  String keyLine(Object code) {
+    return 'المفتاح $code';
+  }
+
+  @override
+  String get keyVerified => 'تم التحقق شخصيًا';
+
+  @override
+  String get keyFromFile => 'من ملف، لم يُتحقق منه بعد';
+
+  @override
+  String get keyUnsigned => 'لا مفتاح بعد، الإدخالات غير موقّعة';
+
+  @override
+  String get summaryRefused => 'مرفوض';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count إدخال مرفوض',
+      many: '$count إدخالًا مرفوضًا',
+      few: '$count إدخالات مرفوضة',
+      two: 'إدخالان مرفوضان',
+      one: 'إدخال واحد مرفوض',
+      zero: 'لا إدخالات مرفوضة',
+    );
+    return '$_temp0: غير موقّعة بالمفتاح المعروف لـ $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'مفتاح جديد $code يسمّي نفسه $name. تحقق من الشخص قبل الوثوق به.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return 'قدّم $name مفتاحًا غير المعروف هنا. يبقى المعروف؛ لم يُقبل الجديد.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'مفتاح جديد: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'يزيل من هذا الفهرس كل إدخال وصورة كتبها $name تحت المفتاح $key. تحتفظ الأجهزة الأخرى بنسخها. لا يمكن التراجع.';
   }
 
   @override
@@ -2036,7 +2491,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'كل ما يخص هذا الكتالوج وحده: اسمه، هل يضم قططًا أم حيوانات، حقوله، مؤلفوه والحظر، الأرشيف، والرجوع في الزمن. التغييرات هنا تمس هذا الكتالوج فقط — حتى كتالوجًا لست فيه الآن. الحذف يكتب الكتالوج في ملف أولًا.';
+      'كل ما يخص هذا الكتالوج وحده: اسمه، هل يضم قططًا أم حيوانات، حقوله، مؤلفوه والحظر، الأرشيف، والرجوع في الزمن. التغييرات هنا تمس هذا الكتالوج فقط — حتى كتالوجًا لست فيه الآن. الحذف يكتب الكتالوج في ملف أولًا. مفتاحك هو الرمز الذي يراه الشركاء بجوار اسمك؛ ويبقى مع هذا الفهرس.';
 
   @override
   String get spotHomeCatalog =>
@@ -2346,12 +2801,16 @@ class AppLocalizationsAr extends AppLocalizations {
       'شغّل هنا انعكاس مواعيد cat(a)log في تقويم تختاره.';
 
   @override
+  String get spotAgendaToday =>
+      'مهام اليوم: ضع علامة عند الإنجاز. النقاط تعرض آخر سبعة أيام.';
+
+  @override
   String get helpAgenda =>
-      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة قطط هي موعد واحد: حدّد القطط، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي القطط عولجت — ألغِ تحديد الباقي، فتبقى مخططة.';
+      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة قطط هي موعد واحد: حدّد القطط، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي القطط عولجت — ألغِ تحديد الباقي، فتبقى مخططة. المهام هي الواجبات المتكررة مثل الإطعام أو صندوق الرمل أو الدواء. تقع تحت «اليوم» مع علامة وسلسلة وآخر سبعة أيام كنقاط؛ «قريبًا» يعرض الأسبوع التالي دون اليومية. يمكن للمهمة أن تذكّرك بإشعار في وقت مختار. الكأس تفتح الإنجازات.';
 
   @override
   String get helpAgendaNeutral =>
-      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح الحيوان الأليف أو المنزل. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة حيوانات أليفة هي موعد واحد: حدّد الحيوانات، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي الحيوانات عولجت — ألغِ تحديد الباقي، فتبقى مخططة.';
+      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح الحيوان الأليف أو المنزل. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة حيوانات أليفة هي موعد واحد: حدّد الحيوانات، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي الحيوانات عولجت — ألغِ تحديد الباقي، فتبقى مخططة. المهام هي الواجبات المتكررة مثل الإطعام أو صندوق الرمل أو الدواء. تقع تحت «اليوم» مع علامة وسلسلة وآخر سبعة أيام كنقاط؛ «قريبًا» يعرض الأسبوع التالي دون اليومية. يمكن للمهمة أن تذكّرك بإشعار في وقت مختار. الكأس تفتح الإنجازات.';
 
   @override
   String get calendarRowOff => 'التقويم: متوقف';
@@ -2394,6 +2853,314 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get planChooserReminder => 'تذكير — قيمة تستحق في يوم ما';
+
+  @override
+  String get planChooserChore => 'مهمة — شيء يتكرر: إطعام، قطرات، رمل';
+
+  @override
+  String get newChore => 'مهمة جديدة';
+
+  @override
+  String get choreEdit => 'تعديل المهمة';
+
+  @override
+  String get choreTitleLabel => 'ماذا';
+
+  @override
+  String get choreRepeatDaily => 'يوميًا';
+
+  @override
+  String get choreRepeatEvery => 'كل…';
+
+  @override
+  String get choreRepeatWeekdays => 'أيام';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n يوم',
+      many: 'كل $n يومًا',
+      few: 'كل $n أيام',
+      two: 'كل يومين',
+      one: 'كل يوم',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n أسبوع',
+      many: 'كل $n أسبوعًا',
+      few: 'كل $n أسابيع',
+      two: 'كل أسبوعين',
+      one: 'كل أسبوع',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n شهر',
+      many: 'كل $n شهرًا',
+      few: 'كل $n أشهر',
+      two: 'كل شهرين',
+      one: 'كل شهر',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n سنة',
+      many: 'كل $n سنة',
+      few: 'كل $n سنوات',
+      two: 'كل سنتين',
+      one: 'كل سنة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'في أي وقت من اليوم';
+
+  @override
+  String get chorePause => 'إيقاف مؤقت';
+
+  @override
+  String get chorePaused => 'متوقف مؤقتًا';
+
+  @override
+  String get choreResume => 'استئناف';
+
+  @override
+  String get choreEnd => 'إنهاء المهمة';
+
+  @override
+  String get choreHistory => 'السجل';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'تم $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'مبكرًا';
+
+  @override
+  String get choreDoneLate => 'متأخرًا';
+
+  @override
+  String get choreMissed => 'فائت';
+
+  @override
+  String get choreStillOpen => 'ما زال مفتوحًا';
+
+  @override
+  String get choreEndConfirm =>
+      'تخرج المهمة من القائمة. ما تم تعليمه يبقى في السجل.';
+
+  @override
+  String get todaySection => 'اليوم';
+
+  @override
+  String get upcomingSection => 'قريبًا';
+
+  @override
+  String get allDoneToday => 'اليوم: كل شيء تم';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n يوم متتالٍ',
+      many: '$n يومًا متتاليًا',
+      few: '$n أيام متتالية',
+      two: 'يومان متتاليان',
+      one: 'يوم واحد متتالٍ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'موعده $date';
+  }
+
+  @override
+  String get remindMe => 'ذكّرني';
+
+  @override
+  String remindNext(Object when) {
+    return 'التذكير التالي: $when';
+  }
+
+  @override
+  String get remindNone => 'لا تذكير مخطط: لا شيء قادم.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تذكير مجدول على هذا الهاتف',
+      many: '$count تذكيرًا مجدولًا على هذا الهاتف',
+      few: '$count تذكيرات مجدولة على هذا الهاتف',
+      two: 'تذكيران مجدولان على هذا الهاتف',
+      one: 'تذكير واحد مجدول على هذا الهاتف',
+      zero: 'لا شيء مجدول على هذا الهاتف بعد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'أرسل تذكيرًا تجريبيًا الآن';
+
+  @override
+  String get remindLateHint =>
+      'قد تصل التذكيرات متأخرة بضع دقائق؛ الهاتف يحدد اللحظة الدقيقة.';
+
+  @override
+  String get remindPermissionDenied =>
+      'لا إذن للإشعارات، فيبقى التذكير متوقفًا. اسمح بها في إعدادات التطبيق على الهاتف وحاول مرة أخرى.';
+
+  @override
+  String get batteryHint =>
+      'إذا لم تصل التذكيرات، اسمح لـ cat(a)log بالعمل في الخلفية من إعدادات البطارية في الهاتف.';
+
+  @override
+  String get batterySettings => 'إعدادات البطارية';
+
+  @override
+  String get achievementsTitle => 'الإنجازات';
+
+  @override
+  String get rankServant => 'خادم';
+
+  @override
+  String get rankButler => 'كبير الخدم';
+
+  @override
+  String get rankSteward => 'وكيل';
+
+  @override
+  String get rankChancellor => 'مستشار';
+
+  @override
+  String get rankMinister => 'وزير';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'كاليكو';
+
+  @override
+  String get coatCheetah => 'فهد';
+
+  @override
+  String get coatTiger => 'نمر';
+
+  @override
+  String get coatTabby => 'مخطط';
+
+  @override
+  String get coatPaws => 'كفوف';
+
+  @override
+  String get coatRosettes => 'وريدات';
+
+  @override
+  String get coatZebra => 'حمار وحشي';
+
+  @override
+  String get coatSetting => 'فراء';
+
+  @override
+  String get coatRandom => 'مختلف في كل تشغيل';
+
+  @override
+  String get coatSnowLeopard => 'نمر الثلج';
+
+  @override
+  String get coatSiamese => 'علامات سيامية';
+
+  @override
+  String get coatLynx => 'وشق';
+
+  @override
+  String get coatTortoiseshell => 'صدف السلحفاة';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'فراء جديد: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'شهر كامل من المهام، كلها منجزة.';
+
+  @override
+  String get achievementsEmpty => 'لا شيء بعد. المهام تعرف الطريق.';
+
+  @override
+  String get achievementMonth => 'شهر كامل';
+
+  @override
+  String get achievementYear => 'سنة كاملة';
+
+  @override
+  String get achievementDecade => 'عقد كامل';
+
+  @override
+  String get achievementCentury => 'قرن كامل';
+
+  @override
+  String get achievementCenturyHint => 'سنكون كلانا فخورَين جدًا.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'خبير $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'تحقق $times مرة',
+      many: 'تحقق $times مرة',
+      few: 'تحقق $times مرات',
+      two: 'تحقق مرتين',
+      one: 'تحقق مرة',
+    );
+    return '$_temp0، أول مرة في $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'التالي عند $n';
+  }
+
+  @override
+  String get achievementLocked => 'ليس بعد';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'إنجاز: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'ماذا';
@@ -2553,4 +3320,116 @@ class AppLocalizationsAr extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'حذف الموعد لكل الحيوانات الأليفة الـ$count';
   }
+
+  @override
+  String get correctThisValue => 'تصحيح هذه القيمة';
+
+  @override
+  String get removeThisValue => 'إزالة هذه القيمة';
+
+  @override
+  String get restoreThisValue => 'استعادة هذه القيمة';
+
+  @override
+  String get showRemovedValues => 'إظهار القيم المزالة';
+
+  @override
+  String get hideRemovedValues => 'إخفاء القيم المزالة';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'أُزيل · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'استُبدل بـ $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'تصحيح';
+
+  @override
+  String get restorePickFolder => 'اختيار مجلد النسخ الاحتياطية…';
+
+  @override
+  String get restoreAndroidHint =>
+      'النسخ الاحتياطية للتثبيت السابق موجودة في Documents/catlog (وفي Downloads/catlog للإصدارات الأقدم). اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا.';
+
+  @override
+  String get backupsTitle => 'النسخ الاحتياطية';
+
+  @override
+  String get backupsSubtitle => 'أين تُحفظ فهارسك بأمان';
+
+  @override
+  String get backupsAndroidSystem =>
+      'تنسخ Google فهارس هذا التطبيق احتياطياً مع حسابك، من دون الصور. تعود من تلقاء نفسها بعد إعادة التثبيت أو على هاتف جديد.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'تُكتب نسخة كاملة من كل فهرس، مع الصور، في Documents/catlog كلما غادرت التطبيق بعد تغييرات.';
+
+  @override
+  String get backupsIosSystem =>
+      'يشمل نسخ iCloud الاحتياطي هذا التطبيق بفهارسه وصوره، مثل أي تطبيق آخر على هذا الـ iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'توجد نسخة كاملة من كل فهرس في تطبيق الملفات تحت cat(a)log. من هناك يمكن نقلها إلى iCloud Drive أو عبر AirDrop أو إلى هاتف آخر.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'تُكتب نسخة كاملة من كل فهرس، مع الصور، في مجلد التنزيلات كلما غادرت التطبيق بعد تغييرات.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'آخر نسخة: $date';
+  }
+
+  @override
+  String get backupsNever => 'لم تُكتب نسخة بعد.';
+
+  @override
+  String get backupsNow => 'انسخ احتياطياً الآن';
+
+  @override
+  String get backupsDone => 'كُتبت النسخة.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'استُعيد من نسخة Google الاحتياطية في $date. إذا كان الهاتف القديم لا يزال يشغّل cat(a)log، فزامن منه مرة واحدة ثم أزل التطبيق هناك.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'يمكن لمجلد من اختيارك أن يتلقى كل نسخة أيضاً: مجلد يبقيه تطبيق سحابي متزامناً على هذا الهاتف (Nextcloud وSyncthing وغيرهما)، أو بطاقة ذاكرة، أو أي مجلد يعرضه المنتقي. تُحفظ النسخ في catlog-backups داخله.';
+
+  @override
+  String get backupsFolderPick => 'انسخ أيضاً إلى مجلد…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'يُنسخ أيضاً إلى $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'توقف عن النسخ إلى هناك';
+
+  @override
+  String remindFailed(Object error) {
+    return 'الإشعارات لا تعمل على هذا الهاتف: $error';
+  }
+
+  @override
+  String get copyText => 'نسخ النص';
+
+  @override
+  String get colWhen => 'متى';
+
+  @override
+  String get colValue => 'القيمة';
+
+  @override
+  String get colWho => 'من';
 }

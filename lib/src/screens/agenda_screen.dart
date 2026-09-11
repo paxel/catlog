@@ -22,6 +22,12 @@ import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
+import '../widgets/chore_row.dart';
+import '../widgets/fold_section.dart';
+import '../chores/chore_feedback.dart';
+import '../chores/chore_reminders.dart';
+import '../move_to_catalog.dart';
+import 'achievements_screen.dart';
 
 /// The agenda auto-opens once per app run when something is due within
 /// [agendaAutoOpenWindow]; this remembers that it already did.
@@ -97,7 +103,11 @@ class AgendaScreen extends StatefulWidget {
   /// Test override for the device calendar; null = the real one.
   final CalendarPort? calendarPort;
 
-  const AgendaScreen({super.key, required this.store, this.calendarPort});
+  /// Where achievements are kept; the app's manager when null.
+  final CatalogManager? manager;
+
+  const AgendaScreen(
+      {super.key, required this.store, this.calendarPort, this.manager});
 
   @override
   State<AgendaScreen> createState() => _AgendaScreenState();
@@ -123,7 +133,10 @@ class _AgendaScreenState extends State<AgendaScreen> {
   }
 
   Future<void> _add() async {
-    if (await showPlanChooser(context, store) && mounted) _changed();
+    if (await showPlanChooser(context, store) && mounted) {
+      _changed();
+      refreshChoreReminders(store, body: _reminderBody);
+    }
   }
 
   Future<void> _openEntity(String id) async {
@@ -252,16 +265,83 @@ class _AgendaScreenState extends State<AgendaScreen> {
     mirrorAfterChange(context, store, port: widget.calendarPort);
   }
 
+  /// The chores due today and the ones due in the coming week, from the
+  /// active chores of every cat and home.
+  ({List<Chore> today, List<(Chore, DateTime)> upcoming, List<Chore> paused})
+      _chores(DateTime today) {
+    final all = store.allChores();
+    final active = [for (final c in all) if (c.active) c];
+    // Paused chores stay in sight, greyed, so one tap on Pause never
+    // hides a chore from the agenda for good.
+    final paused = [for (final c in all) if (c.paused && !c.ended) c]
+      ..sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+    // By time of day; chores without a time first, they fit any hour.
+    int byTime(Chore a, Chore b) {
+      final ta = a.time == null ? -1 : a.time!.hour * 60 + a.time!.minute;
+      final tb = b.time == null ? -1 : b.time!.hour * 60 + b.time!.minute;
+      final t = ta.compareTo(tb);
+      return t != 0 ? t : a.title.toLowerCase().compareTo(b.title.toLowerCase());
+    }
+
+    final due = [
+      for (final c in active)
+        if (isDueOn(c, store.choreTicks(c), today)) c
+    ]..sort(byTime);
+    final soon = <(Chore, DateTime)>[
+      for (final c in active)
+        for (final day in upcoming(c, store.choreTicks(c), today).take(1))
+          (c, day)
+    ]..sort((a, b) {
+        final d = a.$2.compareTo(b.$2);
+        return d != 0 ? d : byTime(a.$1, b.$1);
+      });
+    return (today: due, upcoming: soon, paused: paused);
+  }
+
+  /// After a tick: the cheer and the ladders (see afterChoreTick), then
+  /// the list and the reminders follow.
+  void _choreChanged() {
+    afterChoreTick(context, store, manager: widget.manager ?? catalogManager);
+    setState(() {});
+    refreshChoreReminders(store, body: _reminderBody);
+  }
+
+  String _reminderBody(Chore c) =>
+      store.current(c.entity, Keys.name) ?? context.t.unnamed;
+
+  void _openAchievements() {
+    final manager = widget.manager ?? catalogManager;
+    if (manager == null) return;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => AchievementsScreen(manager: manager, stores: [store]),
+    ));
+  }
+
+  Widget _header(String text) => Padding(
+        padding: const EdgeInsets.fromLTRB(8, 12, 8, 4),
+        child: Text(text, style: Theme.of(context).textTheme.titleSmall),
+      );
+
   @override
   Widget build(BuildContext context) {
     final t = context.t;
     final items = agendaItems(store);
+    final today = DateUtils.dateOnly(DateTime.now());
+    final chores = _chores(today);
+    final allDone = chores.today.isNotEmpty &&
+        chores.today.every((c) => store.choreTicks(c).containsKey(today));
     return Scaffold(
       appBar: roomyAppBar(
         context,
         title: Text(t.agenda),
         actions: [
           HelpButton(store: store, screenId: 'agenda'),
+          if ((widget.manager ?? catalogManager) != null)
+            IconButton(
+              icon: const Icon(Icons.emoji_events_outlined),
+              tooltip: t.achievementsTitle,
+              onPressed: _openAchievements,
+            ),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'ics') _exportIcs();
@@ -300,7 +380,49 @@ class _AgendaScreenState extends State<AgendaScreen> {
                 onChanged: (_) => _toggleMirror(),
               ),
             ),
-          if (items.isEmpty)
+          if (chores.today.isNotEmpty || chores.paused.isNotEmpty) ...[
+            Spotlight(
+              id: 'agenda-today',
+              child: _header(allDone ? t.allDoneToday : t.todaySection),
+            ),
+            for (final c in [...chores.today, ...chores.paused])
+              ChoreRow(
+                store: store,
+                chore: c,
+                due: today,
+                today: today,
+                onChanged: _choreChanged,
+                onOpen: () => _openEntity(c.entity),
+              ),
+          ],
+          if (chores.upcoming.isNotEmpty)
+            FoldSection(
+              store: store,
+              id: 'agenda-upcoming',
+              title: t.upcomingSection,
+              count: chores.upcoming.length,
+              padding: const EdgeInsets.fromLTRB(8, 12, 8, 4),
+              children: [
+                for (final (c, day) in chores.upcoming)
+                  ChoreRow(
+                    store: store,
+                    chore: c,
+                    due: day,
+                    today: today,
+                    onChanged: _choreChanged,
+                    onOpen: () => _openEntity(c.entity),
+                  ),
+              ],
+            ),
+          if (items.isNotEmpty &&
+              (chores.today.isNotEmpty ||
+                  chores.upcoming.isNotEmpty ||
+                  chores.paused.isNotEmpty))
+            _header(t.plannedSection),
+          if (items.isEmpty &&
+              chores.today.isEmpty &&
+              chores.upcoming.isEmpty &&
+              chores.paused.isEmpty)
             Padding(
               padding: const EdgeInsets.all(24),
               child: Text(t.agendaEmpty),

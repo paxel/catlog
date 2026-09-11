@@ -175,6 +175,15 @@ class AppLocalizationsDa extends AppLocalizations {
   String get shareAsImage => 'Del som billede';
 
   @override
+  String get sortOldestFirst => 'Ældste først';
+
+  @override
+  String get sortNewestFirst => 'Nyeste først';
+
+  @override
+  String get shareAsText => 'Del som tekst';
+
+  @override
   String get shareAsPdf => 'Del som PDF';
 
   @override
@@ -558,13 +567,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Fortryd denne ændring';
-
-  @override
-  String get revertSubtitle =>
-      'Gendanner den forrige værdi som ny post — historikken beholder begge.';
-
-  @override
   String fieldCleared(String field) {
     return '$field ryddet';
   }
@@ -734,7 +736,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Begge enheder bruger samme mappe (fx i Dropbox eller på et USB-stik). Hver synkronisering lægger dine ændringer der og henter den andens.';
+      'Begge enheder bruger samme mappe (fx i Nextcloud eller på et USB-stik). Hver synkronisering lægger dine ændringer der og henter den andens.';
 
   @override
   String get noFolderChosenYet => 'Ingen mappe valgt endnu';
@@ -744,6 +746,18 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Synkronisér mappe nu';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Deri bruger dette katalog mappen „$name“, så én delt mappe kan bære alle dine kataloger.';
+  }
+
+  @override
+  String get useSameFolder => 'Brug samme mappe som de andre kataloger';
+
+  @override
+  String get folderHint =>
+      'Enhver mappe, som to enheder holder ens, dur: et clouddrev, eller Syncthing til en mappe, der bliver på jeres telefoner. Syncthing er gratis: installer det på hver telefon, del én mappe mellem dem, og vælg den mappe her på hver enhed.';
 
   @override
   String folderSynced(String result) {
@@ -781,6 +795,16 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get conflictBody =>
       'Ændret to steder på én gang. Vælg, hvad der er sandt:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Begge ændringer siger det samme: $value. Intet at vælge; Løs fjerner mærket.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -912,6 +936,96 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sphynx';
+
+  @override
+  String get breedAbyssinian => 'Abyssinier';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikansk korthår';
+
+  @override
+  String get breedBalinese => 'Balineser';
+
+  @override
+  String get breedBirman => 'Hellig Birma';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmeser';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Britisk langhår';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egyptisk mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotic';
+
+  @override
+  String get breedHimalayan => 'Himalaya';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Orientalsk korthår';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Russian blue';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Scottish fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Sibirisk kat';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somali';
+
+  @override
+  String get breedTonkinese => 'Tonkineser';
+
+  @override
+  String get breedTurkishAngora => 'Tyrkisk angora';
+
+  @override
+  String get breedTurkishVan => 'Tyrkisk van';
 
   @override
   String get starterColor => 'Farve';
@@ -1090,7 +1204,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Sådan når data frem til andre: forbind direkte, brug en mappe begge enheder ser, eller send en fil via en messenger. Du bestemmer altid, hvad der sendes — og modtagne .catsync-filer åbnes også her.';
+      'Sådan når data frem til andre: forbind direkte, brug en mappe begge enheder ser, eller send en fil via en messenger. Du bestemmer altid, hvad der sendes — og modtagne .catsync-filer åbnes også her. Hvert katalog signerer det, det skriver, med sin egen nøgle; partnere ser nøglekoden ved siden af dit navn. En partners første nøgle tages på tillid fra en fil og gælder som mødt, når I synkroniserer personligt. Poster under et kendt navn uden den rette signatur afvises og vises på ankomstsiden.';
 
   @override
   String get helpFields =>
@@ -1102,7 +1216,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Hver eneste ændring, nyeste først: hvem der ændrede hvad, hvornår og til hvilken værdi. Enhver post kan fortrydes — det skriver en ny post, intet slettes nogensinde.';
+      'Hver ændring, nyeste først: hvem ændrede hvad, hvornår og til hvilken værdi. Tryk på en post for at rette den, hold den for at fjerne eller gendanne den; en skjult post bliver i loggen og vises efter ønske.';
 
   @override
   String get helpDuplicates =>
@@ -1114,11 +1228,11 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Katte, der kan være samme dyr: samme nummer, eller en strejfer set inde i en savnet kats søgeområde. Tryk på et par for at flette, hold nede for at åbne den første kat og sammenligne.';
+      'Katte, der kan være samme dyr: samme nummer, eller en strejfer set inde i en savnet kats søgeområde. Tryk på et par for at flette, hold nede for at åbne den første kat og sammenligne. Par, hvis udseende stemmer i to træk eller flere uden modsigelse, står også på listen; chipsene viser hvilke. „Ikke den samme“ skjuler et par på denne telefon, indtil et af dyrenes udseende ændrer sig.';
 
   @override
   String get helpMatchesNeutral =>
-      'Kæledyr, der kan være samme dyr: samme nummer, eller en strejfer set inde i et savnet kæledyrs søgeområde. Tryk på et par for at flette, hold nede for at åbne det første kæledyr og sammenligne.';
+      'Kæledyr, der kan være samme dyr: samme nummer, eller en strejfer set inde i et savnet kæledyrs søgeområde. Tryk på et par for at flette, hold nede for at åbne det første kæledyr og sammenligne. Par, hvis udseende stemmer i to træk eller flere uden modsigelse, står også på listen; chipsene viser hvilke. „Ikke den samme“ skjuler et par på denne telefon, indtil et af dyrenes udseende ændrer sig.';
 
   @override
   String get helpFlier =>
@@ -1408,6 +1522,281 @@ class AppLocalizationsDa extends AppLocalizations {
   String get starterWeight => 'Vægt';
 
   @override
+  String get starterLooks => 'Udseende';
+
+  @override
+  String get looksGroupSize => 'Størrelse';
+
+  @override
+  String get looksGroupColours => 'Farver';
+
+  @override
+  String get looksGroupPattern => 'Mønster';
+
+  @override
+  String get looksGroupFur => 'Pels';
+
+  @override
+  String get looksGroupTail => 'Hale';
+
+  @override
+  String get looksGroupEars => 'Ører';
+
+  @override
+  String get looksGroupMarks => 'Kendetegn';
+
+  @override
+  String get looksGroupCrest => 'Top';
+
+  @override
+  String get looksGroupBeak => 'Næb';
+
+  @override
+  String get looksGroupRing => 'Fodring';
+
+  @override
+  String get looksValueSmall => 'Lille';
+
+  @override
+  String get looksValueMedium => 'Mellem';
+
+  @override
+  String get looksValueLarge => 'Stor';
+
+  @override
+  String get looksValueBlack => 'Sort';
+
+  @override
+  String get looksValueWhite => 'Hvid';
+
+  @override
+  String get looksValueGrey => 'Grå';
+
+  @override
+  String get looksValueBrown => 'Brun';
+
+  @override
+  String get looksValueGinger => 'Rød';
+
+  @override
+  String get looksValueCream => 'Creme';
+
+  @override
+  String get looksValueGolden => 'Gylden';
+
+  @override
+  String get looksValueTan => 'Lysebrun';
+
+  @override
+  String get looksValueGreen => 'Grøn';
+
+  @override
+  String get looksValueBlue => 'Blå';
+
+  @override
+  String get looksValueYellow => 'Gul';
+
+  @override
+  String get looksValueRed => 'Rød';
+
+  @override
+  String get looksValueOrange => 'Orange';
+
+  @override
+  String get looksValuePink => 'Lyserød';
+
+  @override
+  String get looksValueWhiteBib => 'Hvid smæk';
+
+  @override
+  String get looksValueWhitePaws => 'Hvide poter';
+
+  @override
+  String get looksValueWhiteTailTip => 'Hvid halespids';
+
+  @override
+  String get looksValueBlaze => 'Blis';
+
+  @override
+  String get looksValueMask => 'Maske';
+
+  @override
+  String get looksValueSpots => 'Pletter';
+
+  @override
+  String get looksValuePatches => 'Felter';
+
+  @override
+  String get looksValueStripes => 'Striber';
+
+  @override
+  String get looksValueScar => 'Ar';
+
+  @override
+  String get looksValueNotchedEar => 'Hak i øret';
+
+  @override
+  String get looksValueEarTip => 'Ørespids';
+
+  @override
+  String get looksValueCollar => 'Halsbånd';
+
+  @override
+  String get looksValueShort => 'Kort';
+
+  @override
+  String get looksValueLong => 'Lang';
+
+  @override
+  String get looksValueHairless => 'Hårløs';
+
+  @override
+  String get looksValueBobtail => 'Stumphale';
+
+  @override
+  String get looksValueNone => 'Ingen';
+
+  @override
+  String get looksValueCurled => 'Krøllet';
+
+  @override
+  String get looksValueUpright => 'Oprejste';
+
+  @override
+  String get looksValueFloppy => 'Hængende';
+
+  @override
+  String get looksValueFolded => 'Foldede';
+
+  @override
+  String get looksValueRounded => 'Runde';
+
+  @override
+  String get looksValueSolid => 'Ensfarvet';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Skildpadde';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Tofarvet';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Plettet';
+
+  @override
+  String get looksValuePatched => 'Broget';
+
+  @override
+  String get looksValueTricolour => 'Trefarvet';
+
+  @override
+  String get looksValueSable => 'Sabel';
+
+  @override
+  String get looksGroupEyes => 'Øjne';
+
+  @override
+  String get looksGroupFeatures => 'Særlige kendetegn';
+
+  @override
+  String get looksValueAmber => 'Rav';
+
+  @override
+  String get looksValueCopper => 'Kobber';
+
+  @override
+  String get looksValueOddEyed => 'Forskelligfarvede';
+
+  @override
+  String get looksValueChocolate => 'Chokolade';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Sølv';
+
+  @override
+  String get looksValueSmoke => 'Røg';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Krøllet';
+
+  @override
+  String get looksValueWiry => 'Ruhåret';
+
+  @override
+  String get looksValueKinked => 'Knækket';
+
+  @override
+  String get looksValueCropped => 'Kuperede';
+
+  @override
+  String get looksValueTippedEar => 'Øremærket (spids)';
+
+  @override
+  String get looksValueEarTattoo => 'Øretatovering';
+
+  @override
+  String get looksValueMissingEar => 'Manglende øre';
+
+  @override
+  String get looksValueMissingEye => 'Manglende øje';
+
+  @override
+  String get looksValueCloudyEye => 'Uklart øje';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Manglende forben';
+
+  @override
+  String get looksValueMissingHindLeg => 'Manglende bagben';
+
+  @override
+  String get looksValueNoTeeth => 'Ingen tænder';
+
+  @override
+  String get looksValueExtraToes => 'Ekstra tæer';
+
+  @override
+  String get rejectMatch => 'Ikke den samme';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count træk stemmer',
+      one: '1 træk stemmer',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Systemstandard';
 
   @override
@@ -1488,6 +1877,12 @@ class AppLocalizationsDa extends AppLocalizations {
       'Konfetti og jubel, når en kat flytter til sit hjem';
 
   @override
+  String get cheerToggle => 'Jubellyd';
+
+  @override
+  String get cheerSubtitle => 'En kort jubel til konfettien, en ny hver gang';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti og jubel, når et kæledyr flytter til sit hjem';
 
@@ -1530,8 +1925,60 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Fjerner hver post og hvert foto skrevet af $name på enheden $device fra dette katalog. Andre enheder beholder deres. Kan ikke fortrydes.';
+  String get yourKey => 'Din nøgle';
+
+  @override
+  String get yourTitle => 'Din titel';
+
+  @override
+  String get titleNone => 'Ingen titel';
+
+  @override
+  String keyLine(Object code) {
+    return 'nøgle $code';
+  }
+
+  @override
+  String get keyVerified => 'mødt personligt';
+
+  @override
+  String get keyFromFile => 'fra en fil, endnu ikke mødt';
+
+  @override
+  String get keyUnsigned => 'ingen nøgle endnu, poster usignerede';
+
+  @override
+  String get summaryRefused => 'Afvist';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count poster',
+      one: '1 post',
+    );
+    return '$_temp0 afvist: ikke signeret med den kendte nøgle for $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'En ny nøgle $code kalder sig $name. Spørg personen, før du stoler på den.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name tilbød en anden nøgle end den kendte her. Den kendte bliver; den nye blev ikke taget.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Ny nøgle: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Fjerner hver post og hvert foto skrevet af $name under nøgle $key fra dette katalog. Andre enheder beholder deres. Kan ikke fortrydes.';
   }
 
   @override
@@ -2030,7 +2477,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Alt, der kun hører til dette katalog: navnet, om det rummer katte eller dyr, felterne, forfattere og blokeringer, arkivet og at gå tilbage i tiden. Ændringer her rører kun dette katalog — også et, du ikke er i. Sletning skriver først kataloget til en fil.';
+      'Alt, der kun hører til dette katalog: navnet, om det rummer katte eller dyr, felterne, forfattere og blokeringer, arkivet og at gå tilbage i tiden. Ændringer her rører kun dette katalog — også et, du ikke er i. Sletning skriver først kataloget til en fil. Din nøgle er den kode, partnere ser ved siden af dit navn; den hører til dette katalog.';
 
   @override
   String get spotHomeCatalog =>
@@ -2335,12 +2782,16 @@ class AppLocalizationsDa extends AppLocalizations {
       'Slå spejlingen af cat(a)log-aftalerne til en kalender efter eget valg til her.';
 
   @override
+  String get spotAgendaToday =>
+      'Dagens pligter: sæt flueben, når det er gjort. Prikkerne viser de sidste syv dage.';
+
+  @override
   String get helpAgenda =>
-      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner katten eller clowderen. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og du kan straks planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen eller slette aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere katte er én aftale: kryds kattene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke katte der blev behandlet — fjern krydset ved de andre, de forbliver planlagt.';
+      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner katten eller clowderen. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og du kan straks planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen eller slette aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere katte er én aftale: kryds kattene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke katte der blev behandlet — fjern krydset ved de andre, de forbliver planlagt. Pligter er de tilbagevendende opgaver som fodring, kattebakke eller medicin. De står under I dag med et flueben, en stime og de sidste syv dage som prikker; Snart viser næste uge uden de daglige. En pligt kan minde dig med en meddelelse på et valgt tidspunkt. Pokalen åbner præstationerne.';
 
   @override
   String get helpAgendaNeutral =>
-      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner kæledyret eller husstanden. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og du kan straks planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen eller slette aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere kæledyr er én aftale: kryds kæledyrene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke kæledyr der blev behandlet — fjern krydset ved de andre, de forbliver planlagt.';
+      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner kæledyret eller husstanden. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og du kan straks planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen eller slette aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere kæledyr er én aftale: kryds kæledyrene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke kæledyr der blev behandlet — fjern krydset ved de andre, de forbliver planlagt. Pligter er de tilbagevendende opgaver som fodring, kattebakke eller medicin. De står under I dag med et flueben, en stime og de sidste syv dage som prikker; Snart viser næste uge uden de daglige. En pligt kan minde dig med en meddelelse på et valgt tidspunkt. Pokalen åbner præstationerne.';
 
   @override
   String get calendarRowOff => 'Kalender: fra';
@@ -2385,6 +2836,295 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Påmindelse — en værdi, der forfalder en dag';
+
+  @override
+  String get planChooserChore =>
+      'Pligt — noget der kommer igen: fodring, dråber, kattebakke';
+
+  @override
+  String get newChore => 'Ny pligt';
+
+  @override
+  String get choreEdit => 'Rediger pligt';
+
+  @override
+  String get choreTitleLabel => 'Hvad';
+
+  @override
+  String get choreRepeatDaily => 'Dagligt';
+
+  @override
+  String get choreRepeatEvery => 'Hver…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ugedage';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hver $n. dag',
+      one: 'hver dag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hver $n. uge',
+      one: 'hver uge',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hver $n. måned',
+      one: 'hver måned',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hvert $n. år',
+      one: 'hvert år',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Når som helst på dagen';
+
+  @override
+  String get chorePause => 'Sæt på pause';
+
+  @override
+  String get chorePaused => 'Sat på pause';
+
+  @override
+  String get choreResume => 'Genoptag';
+
+  @override
+  String get choreEnd => 'Afslut pligt';
+
+  @override
+  String get choreHistory => 'Historik';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'gjort $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'tidligt';
+
+  @override
+  String get choreDoneLate => 'sent';
+
+  @override
+  String get choreMissed => 'Sprunget over';
+
+  @override
+  String get choreStillOpen => 'Stadig åben';
+
+  @override
+  String get choreEndConfirm =>
+      'Pligten forlader listen. Det afkrydsede bliver i historikken.';
+
+  @override
+  String get todaySection => 'I dag';
+
+  @override
+  String get upcomingSection => 'Snart';
+
+  @override
+  String get allDoneToday => 'I dag: alt gjort';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dage i træk',
+      one: '1 dag i træk',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Forfalder $date';
+  }
+
+  @override
+  String get remindMe => 'Mind mig om det';
+
+  @override
+  String remindNext(Object when) {
+    return 'Næste påmindelse: $when';
+  }
+
+  @override
+  String get remindNone => 'Ingen påmindelse planlagt: intet forude.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count påmindelser planlagt på denne telefon',
+      one: '1 påmindelse planlagt på denne telefon',
+      zero: 'Intet planlagt på denne telefon endnu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Send en testpåmindelse nu';
+
+  @override
+  String get remindLateHint =>
+      'Påmindelser kan komme et par minutter for sent; telefonen vælger det præcise tidspunkt.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Ingen tilladelse til meddelelser, så påmindelsen forbliver slået fra. Tillad dem i telefonens app-indstillinger og prøv igen.';
+
+  @override
+  String get batteryHint =>
+      'Udebliver påmindelser, så tillad cat(a)log at køre i baggrunden i telefonens batteriindstillinger.';
+
+  @override
+  String get batterySettings => 'Batteriindstillinger';
+
+  @override
+  String get achievementsTitle => 'Præstationer';
+
+  @override
+  String get rankServant => 'Tjener';
+
+  @override
+  String get rankButler => 'Butler';
+
+  @override
+  String get rankSteward => 'Forvalter';
+
+  @override
+  String get rankChancellor => 'Kansler';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Poter';
+
+  @override
+  String get coatRosettes => 'Rosetter';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Pels';
+
+  @override
+  String get coatRandom => 'En ny ved hver start';
+
+  @override
+  String get coatSnowLeopard => 'Sneleopard';
+
+  @override
+  String get coatSiamese => 'Siameser-tegninger';
+
+  @override
+  String get coatLynx => 'Los';
+
+  @override
+  String get coatTortoiseshell => 'Skildpadde';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Ny pels: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'En hel måneds pligter, alle gjort.';
+
+  @override
+  String get achievementsEmpty =>
+      'Intet optjent endnu. Pligterne kender vejen.';
+
+  @override
+  String get achievementMonth => 'En hel måned';
+
+  @override
+  String get achievementYear => 'Et helt år';
+
+  @override
+  String get achievementDecade => 'Et helt årti';
+
+  @override
+  String get achievementCentury => 'Et helt århundrede';
+
+  @override
+  String get achievementCenturyHint => 'Vi bliver begge meget stolte.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-mester';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Nået $times gange',
+      one: 'Nået én gang',
+    );
+    return '$_temp0, første gang $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Næste ved $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ikke endnu';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Præstation: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Hvad';
@@ -2545,4 +3285,116 @@ class AppLocalizationsDa extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Slet aftalen for alle $count kæledyr';
   }
+
+  @override
+  String get correctThisValue => 'Ret denne værdi';
+
+  @override
+  String get removeThisValue => 'Fjern denne værdi';
+
+  @override
+  String get restoreThisValue => 'Gendan denne værdi';
+
+  @override
+  String get showRemovedValues => 'Vis fjernede værdier';
+
+  @override
+  String get hideRemovedValues => 'Skjul fjernede værdier';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Fjernet · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Erstattet af $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Rettelse';
+
+  @override
+  String get restorePickFolder => 'Vælg backupmappe…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Backups fra den forrige installation ligger i Documents/catlog (Downloads/catlog i ældre versioner). Vælg den mappe én gang; dens backups vises her.';
+
+  @override
+  String get backupsTitle => 'Backups';
+
+  @override
+  String get backupsSubtitle => 'Hvor dine kataloger er i sikkerhed';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google sikkerhedskopierer denne apps kataloger med din konto, uden billeder. De kommer tilbage af sig selv efter en geninstallation eller på en ny telefon.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'En fuld kopi af hvert katalog, med billeder, skrives til Documents/catlog, hver gang du forlader appen efter ændringer.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud-sikkerhedskopien omfatter denne app med dens kataloger og billeder, som enhver anden app på denne iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'En fuld kopi af hvert katalog ligger i appen Arkiver under cat(a)log. Derfra kan den sendes til iCloud Drive, via AirDrop eller til en anden telefon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'En fuld kopi af hvert katalog, med billeder, skrives til din Overførsler-mappe, hver gang du forlader appen efter ændringer.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Seneste kopi: $date';
+  }
+
+  @override
+  String get backupsNever => 'Ingen kopi skrevet endnu.';
+
+  @override
+  String get backupsNow => 'Sikkerhedskopiér nu';
+
+  @override
+  String get backupsDone => 'Kopi skrevet.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Gendannet fra Google-sikkerhedskopien $date. Kører cat(a)log stadig på den gamle telefon, så synkronisér én gang derfra og fjern derefter appen der.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'En mappe efter eget valg kan også modtage hver kopi: en som en cloud-app holder synkroniseret på denne telefon (Nextcloud, Syncthing og andre), et hukommelseskort, enhver mappe vælgeren tilbyder. Kopierne lander i catlog-backups derinde.';
+
+  @override
+  String get backupsFolderPick => 'Kopiér også til en mappe…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopieres også til $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Stop med at kopiere dertil';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Notifikationer virker ikke på denne telefon: $error';
+  }
+
+  @override
+  String get copyText => 'Kopiér tekst';
+
+  @override
+  String get colWhen => 'Hvornår';
+
+  @override
+  String get colValue => 'Værdi';
+
+  @override
+  String get colWho => 'Hvem';
 }

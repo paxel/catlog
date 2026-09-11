@@ -52,6 +52,9 @@
   "card": "Cárta",
   "cardTitle": "Cárta — {name}",
   "shareAsImage": "Roinn mar íomhá",
+  "sortOldestFirst": "Is sine ar dtús",
+  "sortNewestFirst": "Is nuaí ar dtús",
+  "shareAsText": "Roinn mar théacs",
   "shareAsPdf": "Roinn mar PDF",
   "print": "Priontáil",
   "renameCat": "Athainmnigh an cat",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Gan líon tí — fánaí / d'éalaigh sé",
   "timelineOf": "Amlíne — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Cuir an t-athrú seo ar ceal",
-  "revertSubtitle": "Athchóiríonn sé an luach roimhe mar iontráil nua — coimeádann an stair an dá cheann.",
   "fieldCleared": "{field} glanta",
   "fieldBackTo": "{field} ar ais go \"{value}\"",
   "leftStray": "D'imigh — cat fáin",
@@ -128,10 +129,13 @@
   "syncFailed": "Theip ar an sioncrónú: {error}",
   "lastSyncWith": "Sioncrónú deireanach le {peer}: {time}",
   "sharedFolder": "Fillteán comhroinnte",
-  "sharedFolderExplainer": "Úsáideann an dá ghléas an fillteán céanna (m.sh. i Dropbox nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.",
+  "sharedFolderExplainer": "Úsáideann an dá ghléas an fillteán céanna (m.sh. i Nextcloud nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.",
   "noFolderChosenYet": "Níl aon fhillteán roghnaithe fós",
   "choose": "Roghnaigh…",
   "syncFolderNow": "Sioncrónaigh an fillteán anois",
+  "folderCatalogHint": "Istigh ann úsáideann an chatalóg seo an fillteán „{name}“, mar sin is féidir le fillteán comhroinnte amháin do chuid catalóg ar fad a iompar.",
+  "useSameFolder": "Úsáid an fillteán céanna leis na catalóga eile",
+  "folderHint": "Déanfaidh fillteán ar bith a choinníonn dhá ghléas mar a chéile cúis: tiomántán néil, nó Syncthing d’fhillteán a fhanann ar bhur nguthán. Tá Syncthing saor in aisce: suiteáil ar gach guthán é, comhroinn fillteán amháin eatarthu agus roghnaigh an fillteán sin anseo ar gach gléas.",
   "folderSynced": "Fillteán sioncrónaithe: {result}",
   "folderSyncFailed": "Theip ar shioncrónú an fhillteáin: {error}",
   "recordSightingHere": "Taifead feiceáil anseo:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Rian: {name} ({count} suíomh)",
   "conflictOn": "Coinbhleacht — {field}",
   "conflictBody": "Athraithe in dhá áit ag an am céanna. Roghnaigh cad atá fíor:",
+  "privateMarker": "{field} (príobháideach)",
+  "conflictSame": "Deir an dá athrú an rud céanna: {value}. Níl aon rud le roghnú; glanann Réitigh an marc.",
   "mergeThisInto": "Cumaisc an {kind} seo le…",
   "noOtherToMergeInto": "Níl aon {kind} eile le cumasc leis.",
   "mergeIntoQuestion": "Cumaisc le {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Peirseach",
   "breedBengal": "Beangálach",
   "breedSphynx": "Sphynx",
+  "breedAbyssinian": "Aibisíneach",
+  "breedAmericanShorthair": "Meiriceánach gearrfhionnaidh",
+  "breedBalinese": "Bailíoch",
+  "breedBirman": "Biormach",
+  "breedBombay": "Bombay",
+  "breedBurmese": "Burmach",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Briotanach fadfhionnaidh",
+  "breedChartreux": "Chartreux",
+  "breedCornishRex": "Cornish Rex",
+  "breedDevonRex": "Devon Rex",
+  "breedEgyptianMau": "Mau Éigipteach",
+  "breedExoticShorthair": "Coimhthíoch gearrfhionnaidh",
+  "breedHimalayan": "Himiléach",
+  "breedKorat": "Korat",
+  "breedManx": "Manannach",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Oirthearach gearrfhionnaidh",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Gorm Rúiseach",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Fillte Albanach",
+  "breedSelkirkRex": "Selkirk Rex",
+  "breedSiberian": "Sibéarach",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somálach",
+  "breedTonkinese": "Tonkinéiseach",
+  "breedTurkishAngora": "Angóra Turcach",
+  "breedTurkishVan": "Van Turcach",
   "ownValue": "Luach féin",
   "locationDeniedForever": "Tá rochtain ar an suíomh coiscthe. Ceadaigh í i socruithe an chórais chun Stray Cam a úsáid.",
   "locationServiceOff": "Tá an suíomh múchta ar an ngléas seo. Cuir air é sna socruithe agus bain triail eile as.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Gach peata agus áit a bhfuil suíomh acu. Aimsíonn an cuardach peataí, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer peata ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc. Is biorán ar an léarscáil gach réimse suímh; tapáil biorán dá rian.",
   "helpCard": "Cárta inphriontáilte an chait: roghnaigh thuas leis na sliseanna cad a bheidh air, ansin roinn é mar íomhá nó PDF. Is féidir uimhreacha a phriontáil mar QR nó barrachód, agus déantar QR a osclaíonn léarscáil de shuíomh, chomh maith le Plus Code gearr.",
   "helpCardNeutral": "Cárta inphriontáilte an pheata: roghnaigh thuas leis na sliseanna cad a bheidh air, ansin roinn é mar íomhá nó PDF. Is féidir uimhreacha a phriontáil mar QR nó barrachód, agus déantar QR a osclaíonn léarscáil de shuíomh, chomh maith le Plus Code gearr.",
-  "helpSync": "Conas a shroicheann sonraí daoine eile: ceangail go díreach, úsáid fillteán a fheiceann an dá ghléas, nó seol comhad trí theachtaireacht. Is tusa a shocraíonn i gcónaí cad a imíonn — agus osclaítear comhaid .catsync a fhaightear anseo freisin.",
+  "helpSync": "Conas a shroicheann sonraí daoine eile: ceangail go díreach, úsáid fillteán a fheiceann an dá ghléas, nó seol comhad trí theachtaireacht. Is tusa a shocraíonn i gcónaí cad a imíonn — agus osclaítear comhaid .catsync a fhaightear anseo freisin. Síníonn gach catalóg a scríobhann sí lena eochair féin; feiceann comhpháirtithe cód na heochrach in aice le d’ainm. Glactar le chéad eochair comhpháirtí ar iontaoibh ó chomhad agus áirítear í mar dheimhnithe nuair a shioncrónaíonn sibh go pearsanta. Diúltaítear d’iontrálacha faoi ainm aitheanta gan an síniú ceart agus liostaítear iad ar leathanach na teachta.",
   "helpFields": "Na réimsí a úsáideann do chatalóg. Athainmnigh iad, athraigh roghanna réimse rogha, nó cruthaigh do chuid féin. Is féidir le réimse aitheantais díriú ar sheirbhís (clár), agus ansin is féidir an uimhir a thapáil ag an gcat.",
   "helpFieldsNeutral": "Na réimsí a úsáideann do chatalóg. Athainmnigh iad, athraigh roghanna réimse rogha, nó cruthaigh do chuid féin. Is féidir le réimse aitheantais díriú ar sheirbhís (clár), agus ansin is féidir an uimhir a thapáil ag an bpeata.",
-  "helpTimeline": "Gach athrú a rinneadh riamh, an ceann is nuaí ar dtús: cé a d'athraigh cad é, cathain agus go dtí cén luach. Is féidir aon iontráil a chur ar ais — scríobhann sé sin iontráil nua, ní scriostar aon rud riamh.",
+  "helpTimeline": "Gach athrú, an ceann is nuaí ar dtús: cé, cathain agus go dtí cén luach. Tapáil iontráil chun í a cheartú, coinnigh í chun í a bhaint nó a athchóiriú; fanann iontráil fholaithe sa loga agus taispeántar í ar iarratas.",
   "helpDuplicates": "Cait nó coilíneachtaí atá ann faoi dhó de réir cosúlachta — uimhreacha comhionanna nó ainmneacha an-chosúil le sonraí a mheaitseálann. Tapáil péire chun iad a chumasc; ní féidir cumasc a chur ar ceal, mar sin fiafraítear díot ar dtús.",
   "helpDuplicatesNeutral": "Peataí nó líonta tí atá ann faoi dhó de réir cosúlachta — uimhreacha comhionanna nó ainmneacha an-chosúil le sonraí a mheaitseálann. Tapáil péire chun iad a chumasc; ní féidir cumasc a chur ar ceal, mar sin fiafraítear díot ar dtús.",
-  "helpMatches": "Cait a d'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh.",
-  "helpMatchesNeutral": "Peataí a d'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh peata ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad pheata a oscailt le comparáid a dhéanamh.",
+  "helpMatches": "Cait a d'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh. Liostáiltear freisin péirí a dtagann a gcuma le chéile in dhá thréith nó níos mó gan aon chontrárthacht; taispeánann na sliseanna cé acu. Cuireann „Ní hé an ceann céanna“ péire i bhfolach ar an nguthán seo go dtí go n-athraíonn cuma ceachtar ainmhí.",
+  "helpMatchesNeutral": "Peataí a d'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh peata ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad pheata a oscailt le comparáid a dhéanamh. Liostáiltear freisin péirí a dtagann a gcuma le chéile in dhá thréith nó níos mó gan aon chontrárthacht; taispeánann na sliseanna cé acu. Cuireann „Ní hé an ceann céanna“ péire i bhfolach ar an nguthán seo go dtí go n-athraíonn cuma ceachtar ainmhí.",
   "helpFlier": "Déantar cat agus a úinéir as póstaer a ghrianghrafáiltear. Céim ar chéim: sonraí an chait, teagmháil an úinéara, an aghaidh a ghearradh don phictiúr próifíle, uimhreacha cláir ón bpóstaer, ansin seiceáil dheiridh. Moltaí atá i ngach rud — ceartaigh cibé rud a léigh an ceamara mícheart.",
   "helpFlierNeutral": "Déantar peata agus a úinéir as póstaer a ghrianghrafáiltear. Céim ar chéim: sonraí an pheata, teagmháil an úinéara, an aghaidh a ghearradh don phictiúr próifíle, uimhreacha cláir ón bpóstaer, ansin seiceáil dheiridh. Moltaí atá i ngach rud — ceartaigh cibé rud a léigh an ceamara mícheart.",
   "archiveTitle": "Cartlann",
@@ -399,11 +435,109 @@
   "rangeAll": "Uile",
   "rangeCustom": "Saincheaptha…",
   "changeSince": "{delta} ó {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Mar atá i do réigiún",
   "unitsMetric": "Méadrach (kg, cm, ml, °C)",
   "unitsImperial": "Impiriúil (lb, in, fl oz, °F)",
   "starterWeight": "Meáchan",
+  "starterLooks": "Cuma",
+  "looksGroupSize": "Méid",
+  "looksGroupColours": "Dathanna",
+  "looksGroupPattern": "Patrún",
+  "looksGroupFur": "Fionnadh",
+  "looksGroupTail": "Eireaball",
+  "looksGroupEars": "Cluasa",
+  "looksGroupMarks": "Marcanna",
+  "looksGroupCrest": "Cíor",
+  "looksGroupBeak": "Gob",
+  "looksGroupRing": "Fáinne",
+  "looksValueSmall": "Beag",
+  "looksValueMedium": "Meánach",
+  "looksValueLarge": "Mór",
+  "looksValueBlack": "Dubh",
+  "looksValueWhite": "Bán",
+  "looksValueGrey": "Liath",
+  "looksValueBrown": "Donn",
+  "looksValueGinger": "Rua",
+  "looksValueCream": "Uachtar",
+  "looksValueGolden": "Órga",
+  "looksValueTan": "Buíbhán",
+  "looksValueGreen": "Glas",
+  "looksValueBlue": "Gorm",
+  "looksValueYellow": "Buí",
+  "looksValueRed": "Dearg",
+  "looksValueOrange": "Oráiste",
+  "looksValuePink": "Bándearg",
+  "looksValueWhiteBib": "Bibe bán",
+  "looksValueWhitePaws": "Lapaí bána",
+  "looksValueWhiteTailTip": "Barr eireabaill bán",
+  "looksValueBlaze": "Réalta",
+  "looksValueMask": "Masc",
+  "looksValueSpots": "Spotaí",
+  "looksValuePatches": "Paistí",
+  "looksValueStripes": "Straidhpeanna",
+  "looksValueScar": "Colm",
+  "looksValueNotchedEar": "Cluas eangaithe",
+  "looksValueEarTip": "Barr cluaise",
+  "looksValueCollar": "Coiléar",
+  "looksValueShort": "Gearr",
+  "looksValueLong": "Fada",
+  "looksValueHairless": "Gan fionnadh",
+  "looksValueBobtail": "Eireaball gearr",
+  "looksValueNone": "Gan",
+  "looksValueCurled": "Casta",
+  "looksValueUpright": "Ina seasamh",
+  "looksValueFloppy": "Ar sileadh",
+  "looksValueFolded": "Fillte",
+  "looksValueRounded": "Cruinn",
+  "looksValueSolid": "Aondathach",
+  "looksValueTabby": "Tabaí",
+  "looksValueTortoiseshell": "Toirtís",
+  "looksValueCalico": "Calico",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Dédhathach",
+  "looksValueTuxedo": "Tuxedo",
+  "looksValueBrindle": "Brindle",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Spotach",
+  "looksValuePatched": "Paisteach",
+  "looksValueTricolour": "Trídhathach",
+  "looksValueSable": "Sable",
+  "looksGroupEyes": "Súile",
+  "looksGroupFeatures": "Sainghnéithe",
+  "looksValueAmber": "Ómra",
+  "looksValueCopper": "Copair",
+  "looksValueOddEyed": "Súile éagsúla",
+  "looksValueChocolate": "Seacláid",
+  "looksValueLilac": "Liath-chorcra",
+  "looksValueSilver": "Airgead",
+  "looksValueSmoke": "Deatach",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Catach",
+  "looksValueWiry": "Garbh",
+  "looksValueKinked": "Casta",
+  "looksValueCropped": "Bearrtha",
+  "looksValueTippedEar": "Cluas bearrtha",
+  "looksValueEarTattoo": "Tatú cluaise",
+  "looksValueMissingEar": "Cluas ar iarraidh",
+  "looksValueMissingEye": "Súil ar iarraidh",
+  "looksValueCloudyEye": "Súil scamallach",
+  "looksValueMissingFrontLeg": "Cos tosaigh ar iarraidh",
+  "looksValueMissingHindLeg": "Cos deiridh ar iarraidh",
+  "looksValueNoTeeth": "Gan fiacla",
+  "looksValueExtraToes": "Ladhracha breise",
+  "rejectMatch": "Ní hé an ceann céanna",
+  "traitsAgree": "{count, plural, one{{count} tréith ag teacht le chéile} two{{count} thréith ag teacht le chéile} few{{count} thréith ag teacht le chéile} many{{count} dtréith ag teacht le chéile} other{{count} tréith ag teacht le chéile}}",
   "systemDefault": "Réamhshocrú an chórais",
   "iosLocalNetworkHint": "Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as.",
   "markPrivate": "Marcáil mar phríobháideach",
@@ -432,6 +566,8 @@
   "otherOption": "Eile…",
   "celebrationsToggle": "Ceiliúradh uchtálacha",
   "celebrationsSubtitle": "Coinfití agus gártha nuair a bhogann cat go dtí a bhaile",
+  "cheerToggle": "Fuaim gártha",
+  "cheerSubtitle": "Gártha gearra leis an confetti, ceann difriúil gach uair",
   "celebrationsSubtitleNeutral": "Coinfití agus gártha nuair a bhogann peata go dtí a bhaile",
   "onMapLabel": "Ar an léarscáil",
   "showOnMap": "Taispeáin ar an léarscáil",
@@ -445,7 +581,19 @@
   "authorsSection": "Cé a scríobh sa chatalóg",
   "hardDeleteAction": "Scrios gach rud ón údar seo",
   "hardDeleteWarning": "Baineann sé gach iontráil agus grianghraf le {name} den ghléas seo. Coinníonn gléasanna eile a gcuid. Ní féidir é a chealú.",
-  "hardDeleteWarningDevice": "Baineann sé den chatalóg seo gach iontráil agus grianghraf a scríobh {name} ar an ngléas {device}. Coinníonn gléasanna eile a gcóip. Ní féidir é a chealú.",
+  "yourKey": "D’eochair",
+  "yourTitle": "Do theideal",
+  "titleNone": "Gan teideal",
+  "keyLine": "eochair {code}",
+  "keyVerified": "deimhnithe go pearsanta",
+  "keyFromFile": "ó chomhad, gan deimhniú fós",
+  "keyUnsigned": "gan eochair fós, iontrálacha gan síniú",
+  "summaryRefused": "Diúltaithe",
+  "refusedEntries": "{count, plural, one{{count} iontráil diúltaithe} two{{count} iontráil diúltaithe} few{{count} iontráil diúltaithe} many{{count} n-iontráil diúltaithe} other{{count} iontráil diúltaithe}}: gan síniú leis an eochair aitheanta do {name}",
+  "newKeyCallsItself": "Tugann eochair nua {code} {name} uirthi féin. Fiafraigh den duine sula gcuireann tú muinín inti.",
+  "keyChangedRefused": "Thairg {name} eochair seachas an ceann atá aitheanta anseo. Fanann an ceann aitheanta; níor glacadh leis an gceann nua.",
+  "metaNewKey": "Eochair nua: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Baineann sé gach iontráil agus grianghraf a scríobh {name} faoin eochair {key} den chatalóg seo. Coinníonn gléasanna eile a gcuid féin. Ní féidir é a chealú.",
   "typeToConfirm": "Clóscríobh {name} le deimhniú",
   "alsoBan": "Cosc freisin — ná glac sonraí uaidh arís",
   "bansSection": "Coisc",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Níor athchóiríodh aon rud.} one{Athchóiríodh 1 chatalóg.} two{Athchóiríodh {count} chatalóg.} few{Athchóiríodh {count} chatalóg.} many{Athchóiríodh {count} gcatalóg.} other{Athchóiríodh {count} catalóg.}}",
   "helpCatalogs": "Is domhan ann féin gach catalóg: a cait féin, coilíneachtaí, réimsí, grianghraif agus comhpháirtithe sioncronaithe. Ní mheascann Beirlín agus Páras riamh. Tapáil catalóg le hathrú chuici. Osclaíonn an giar ar chatalóg a socruithe: ainm, cait nó peataí, réimsí, údair agus coscanna, cartlann, dul siar, scriosadh. Tá d’ainm, do theanga agus na leideanna atá feicthe agat i bpáirt acu uile.",
   "helpCatalogsNeutral": "Is domhan ann féin gach catalóg: a peataí féin, teaghlaigh, réimsí, grianghraif agus comhpháirtithe sioncronaithe. Ní mheascann Beirlín agus Páras riamh. Tapáil catalóg le hathrú chuici. Osclaíonn an giar ar chatalóg a socruithe: ainm, cait nó peataí, réimsí, údair agus coscanna, cartlann, dul siar, scriosadh. Tá d’ainm, do theanga agus na leideanna atá feicthe agat i bpáirt acu uile.",
-  "helpCatalogSettings": "Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús.",
+  "helpCatalogSettings": "Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús. Is í d’eochair an cód a fheiceann comhpháirtithe in aice le d’ainm; fanann sí leis an gcatalóg seo.",
   "spotHomeCatalog": "Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú.",
   "deleteCatalog": "Scrios an chatalóg",
   "catalogSettings": "Socruithe an chatalóg",
   "deleteCatalogBody": "Imíonn gach rud in {name}: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais.",
   "deleteCatalogBodyNeutral": "Imíonn gach rud in {name}: na peataí, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Níl aon choinne beartaithe. Beartaigh cinn nua anseo leis an bplus, nó ar leathanach peata nó lín tí.",
   "dueToday": "inniu",
   "dueInDays": "{count, plural, one{i gceann 1 lá} two{i gceann {count} lá} few{i gceann {count} lá} many{i gceann {count} lá} other{i gceann {count} lá}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 lá thar téarma} two{{count} lá thar téarma} few{{count} lá thar téarma} many{{count} lá thar téarma} other{{count} lá thar téarma}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Déanta",
   "repeatTitle": "Arís i gceann…",
   "noRepeatLabel": "Gan athdhéanamh",
@@ -720,15 +886,33 @@
   "unitMonths": "mí",
   "unitYears": "bliana",
   "ageYears": "{years} bl.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mhí",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Athraigh an dáta",
   "removeReminderLabel": "Bain an meabhrúchán",
   "exportIcs": "Easpórtáil comhad féilire",
   "resyncCalendar": "Athshioncronaigh an féilire",
   "icsSavedTo": "Sábháladh an comhad féilire faoi {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Scáthánaigh chuig féilire an ghléis",
   "calendarMirrorSubtitle": "Feictear na coinní mar imeachtaí lae iomláin san fhéilire. Nuashonraíonn cat(a)log ansin iad ag gach tosú agus tar éis gach athraithe. Is féidir leat foláirimh do na coinní a bhainistiú san fhéilire.",
   "syncPeerOlder": "Tá cat(a)log níos sine gan mheabhrúcháin ar an ngléas eile. Nuashonraigh cat(a)log ansin agus sioncronaigh arís.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Meabhrúcháin: liosta na gcoinní beartaithe — tréidlia, cógais, seiceálacha.",
   "spotAgendaAdd": "Beartaigh coinne nua.",
   "spotAgendaCalendar": "Cas air anseo scáthánú choinní cat(a)log isteach i bhféilire de do rogha.",
-  "helpAgenda": "Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt cat: ticeáil na cait, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na cait ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte.",
-  "helpAgendaNeutral": "Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an peata nó an líon tí. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt peataí: ticeáil na peataí, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na peataí ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte.",
+  "spotAgendaToday": "Cúraimí an lae inniu: cuir tic nuair atá sé déanta. Taispeánann na poncanna na seacht lá deireanacha.",
+  "helpAgenda": "Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt cat: ticeáil na cait, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na cait ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.",
+  "helpAgendaNeutral": "Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an peata nó an líon tí. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt peataí: ticeáil na peataí, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na peataí ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.",
   "calendarRowOff": "Féilire: as",
   "calendarRowOn": "Féilire: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Beartaigh coinne don chat seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.",
   "spotAddReminderCatNeutral": "Beartaigh coinne don pheata seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.",
   "spotAddReminderClowder": "Beartaigh coinne don chlowdar seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Coinne nó meabhrúchán?",
   "planChooserAppointment": "Coinne — cuairt ar dháta agus ag am, le nótaí",
   "planChooserReminder": "Meabhrúchán — luach a bhíonn dlite lá éigin",
+  "planChooserChore": "Cúram — rud a thagann ar ais: beathú, braonta, bruscar",
+  "newChore": "Cúram nua",
+  "choreEdit": "Cuir cúram in eagar",
+  "choreTitleLabel": "Cad",
+  "choreRepeatDaily": "Gach lá",
+  "choreRepeatEvery": "Gach…",
+  "choreRepeatWeekdays": "Laethanta",
+  "choreEveryDays": "{n, plural, one{gach lá} two{gach {n} lá} few{gach {n} lá} many{gach {n} lá} other{gach {n} lá}}",
+  "choreEveryWeeks": "{n, plural, one{gach seachtain} two{gach {n} sheachtain} few{gach {n} seachtaine} many{gach {n} seachtain} other{gach {n} seachtain}}",
+  "choreEveryMonths": "{n, plural, one{gach mí} two{gach {n} mhí} few{gach {n} mhí} many{gach {n} mí} other{gach {n} mí}}",
+  "choreEveryYears": "{n, plural, one{gach bliain} two{gach {n} bhliain} few{gach {n} bliana} many{gach {n} mbliana} other{gach {n} bliain}}",
+  "choreNoTime": "Am ar bith den lá",
+  "chorePause": "Cuir ar sos",
+  "chorePaused": "Ar sos",
+  "choreResume": "Atosaigh",
+  "choreEnd": "Cuir deireadh leis an gcúram",
+  "choreHistory": "Stair",
+  "choreDoneAt": "déanta {when} · {who}",
+  "choreDoneEarly": "luath",
+  "choreDoneLate": "déanach",
+  "choreMissed": "Caillte",
+  "choreStillOpen": "Fós oscailte",
+  "choreEndConfirm": "Imíonn an cúram den liosta. Fanann a bhfuil ticeáilte sa stair.",
+  "todaySection": "Inniu",
+  "upcomingSection": "Ag teacht",
+  "allDoneToday": "Inniu: gach rud déanta",
+  "streakDays": "{n, plural, one{1 lá as a chéile} two{{n} lá as a chéile} few{{n} lá as a chéile} many{{n} lá as a chéile} other{{n} lá as a chéile}}",
+  "choreDue": "Dlite {date}",
+  "remindMe": "Cuir i gcuimhne dom",
+  "remindNext": "An chéad mheabhrúchán eile: {when}",
+  "remindNone": "Níl meabhrúchán ar bith beartaithe: níl aon rud le teacht.",
+  "remindPending": "{count, plural, =0{Níl aon rud sceidealta ar an nguthán seo fós} one{{count} meabhrúchán sceidealta ar an nguthán seo} two{{count} mheabhrúchán sceidealta ar an nguthán seo} few{{count} mheabhrúchán sceidealta ar an nguthán seo} many{{count} meabhrúchán sceidealta ar an nguthán seo} other{{count} meabhrúchán sceidealta ar an nguthán seo}}",
+  "remindTest": "Seol meabhrúchán tástála anois",
+  "remindLateHint": "D’fhéadfadh meabhrúcháin teacht cúpla nóiméad déanach; roghnaíonn an guthán an nóiméad féin.",
+  "remindPermissionDenied": "Níl cead ann d’fhógraí, mar sin fanann an meabhrúchán múchta. Ceadaigh iad i socruithe aip an ghutháin agus bain triail eile as.",
+  "batteryHint": "Mura dtagann meabhrúcháin, lig do cat(a)log rith sa chúlra i socruithe ceallra an ghutháin.",
+  "batterySettings": "Socruithe ceallra",
+  "achievementsTitle": "Éachtaí",
+  "rankServant": "Seirbhíseach",
+  "rankButler": "Buitléir",
+  "rankSteward": "Maor",
+  "rankChancellor": "Seansailéir",
+  "rankMinister": "Aire",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Calico",
+  "coatCheetah": "Síota",
+  "coatTiger": "Tíogar",
+  "coatTabby": "Tabaí",
+  "coatPaws": "Lapaí",
+  "coatRosettes": "Roiséid",
+  "coatZebra": "Séabra",
+  "coatSetting": "Fionnadh",
+  "coatRandom": "Ceann eile gach uair",
+  "coatSnowLeopard": "Liopard sneachta",
+  "coatSiamese": "Comharthaí Siamacha",
+  "coatLynx": "Lincse",
+  "coatTortoiseshell": "Toirtís",
+  "coatUnlocked": "Fionnadh nua: {coat}",
+  "coatUnlockedHow": "Mí iomlán de chúraimí, iad ar fad déanta.",
+  "achievementsEmpty": "Faic go fóill. Tá an bealach ar eolas ag na cúraimí.",
+  "achievementMonth": "Mí iomlán",
+  "achievementYear": "Bliain iomlán",
+  "achievementDecade": "Deich mbliana iomlána",
+  "achievementCentury": "Céad bliain iomlán",
+  "achievementCenturyHint": "Beidh an-bhród orainn beirt.",
+  "achievementMaster": "Máistir {title}",
+  "achievementReached": "{times, plural, one{Bainte amach uair amháin} two{Bainte amach {times} uair} few{Bainte amach {times} huaire} many{Bainte amach {times} n-uaire} other{Bainte amach {times} uair}}, den chéad uair {date}",
+  "achievementNext": "An chéad cheann eile ag {n}",
+  "achievementLocked": "Níl fós",
+  "achievementUnlocked": "Éacht: {name}",
   "appointmentTitleLabel": "Cad",
   "notesLabel": "Nótaí",
   "timeLabel": "Am",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Líon tí atá ann",
   "createNewInstead": "Ceann ar bith — cruthaigh nua",
   "overwritesValue": "Forscríobhann sé an luach reatha \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Éirigh as an scanadh?",
   "abortScanBody": "Ní shábhálfar rud ar bith.",
   "abortScan": "Éirigh as",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Bain an tic de na cait nár cuireadh cóir leighis orthu; fanann siad pleanáilte.",
   "finishUntickHintNeutral": "Bain an tic de na peataí nár cuireadh cóir leighis orthu; fanann siad pleanáilte.",
   "deleteAppointmentGroup": "Scrios an choinne do na {count} chat ar fad",
-  "deleteAppointmentGroupNeutral": "Scrios an choinne do na {count} peata ar fad"
+  "deleteAppointmentGroupNeutral": "Scrios an choinne do na {count} peata ar fad",
+  "correctThisValue": "Ceartaigh an luach seo",
+  "removeThisValue": "Bain an luach seo",
+  "restoreThisValue": "Athchóirigh an luach seo",
+  "showRemovedValues": "Taispeáin luachanna a baineadh",
+  "hideRemovedValues": "Folaigh luachanna a baineadh",
+  "entryRemovedBy": "Bainte · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Curtha in ionad {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Ceartúchán",
+  "restorePickFolder": "Roghnaigh fillteán na gcúltacaí…",
+  "restoreAndroidHint": "Tá cúltacaí na suiteála roimhe seo in Documents/catlog (Downloads/catlog i leaganacha níos sine). Roghnaigh an fillteán sin uair amháin; liostáiltear a chúltacaí anseo.",
+  "backupsTitle": "Cúltacaí",
+  "backupsSubtitle": "An áit a gcoinnítear do chatalóga slán",
+  "backupsAndroidSystem": "Déanann Google cúltaca de chatalóga an aip seo le do chuntas, gan grianghraif. Tagann siad ar ais uathu féin tar éis athshuiteála nó ar ghuthán nua.",
+  "backupsAndroidFiles": "Scríobhtar cóip iomlán de gach catalóg, grianghraif san áireamh, chuig Documents/catlog gach uair a fhágann tú an aip tar éis athruithe.",
+  "backupsIosSystem": "Cuimsíonn Cúltaca iCloud an aip seo lena catalóga agus grianghraif, mar gach aip eile ar an iPhone seo.",
+  "backupsIosFiles": "Tá cóip iomlán de gach catalóg san aip Comhaid faoi cat(a)log. Uaidh sin is féidir í a chur chuig iCloud Drive, trí AirDrop nó chuig guthán eile.",
+  "backupsDesktopFiles": "Scríobhtar cóip iomlán de gach catalóg, grianghraif san áireamh, chuig d'fhillteán Íoslódálacha gach uair a fhágann tú an aip tar éis athruithe.",
+  "backupsLast": "An chóip dheireanach: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Níor scríobhadh cóip fós.",
+  "backupsNow": "Déan cúltaca anois",
+  "backupsDone": "Cóip scríofa.",
+  "backupsRestoredNote": "Athchóirithe ó chúltaca Google ar {date}. Má tá cat(a)log fós ar an seanghuthán, sioncronaigh uair amháin uaidh, ansin bain an aip ansin.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Is féidir le fillteán de do rogha gach cóip a fháil freisin: ceann a choinníonn aip néil sioncronaithe ar an nguthán seo (Nextcloud, Syncthing agus eile), cárta cuimhne, aon fhillteán a thairgeann an roghnóir. Téann na cóipeanna isteach i catlog-backups laistigh de.",
+  "backupsFolderPick": "Cóipeáil chuig fillteán freisin…",
+  "backupsFolderIs": "Cóipeáilte chuig {name} freisin",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Stop ag cóipeáil ansin",
+  "remindFailed": "Níl na fógraí ag obair ar an nguthán seo: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Cóipeáil téacs",
+  "colWhen": "Cathain",
+  "colValue": "Luach",
+  "colWho": "Cé"
 }

@@ -202,7 +202,7 @@ void main() {
     expect(find.byTooltip('Done'), findsOneWidget);
   });
 
-  testWidgets('a revert on the timeline shows after returning',
+  testWidgets('a removal on the timeline shows after returning',
       (tester) async {
     store.append(cat, Keys.userField('gender'), 'male');
     await pump(tester);
@@ -213,10 +213,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.longPress(find.text('Gender'));
     await tester.pumpAndSettle();
-    // Timeline entry -> revert sheet -> revert.
-    await tester.tap(find.byIcon(Icons.undo).first);
+    // Timeline entry -> long press -> remove.
+    await tester.longPress(find.textContaining('Gender: male'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Revert this change'));
+    await tester.tap(find.text('Remove this value'));
     await tester.pumpAndSettle();
     await tester.pageBack();
     await tester.pumpAndSettle();

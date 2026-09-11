@@ -172,6 +172,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get shareAsImage => '以图片分享';
 
   @override
+  String get sortOldestFirst => '最早的在前';
+
+  @override
+  String get sortNewestFirst => '最新的在前';
+
+  @override
+  String get shareAsText => '以文本分享';
+
+  @override
   String get shareAsPdf => '以 PDF 分享';
 
   @override
@@ -533,12 +542,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => '撤销此更改';
-
-  @override
-  String get revertSubtitle => '把之前的值作为新记录恢复——历史会保留两者。';
-
-  @override
   String fieldCleared(String field) {
     return '已清空 $field';
   }
@@ -707,7 +710,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      '两台设备使用同一个文件夹（例如 Dropbox 或U盘）。每次同步会把你的更改放进去，并取回对方的更改。';
+      '两台设备使用同一个文件夹（例如 Nextcloud 或U盘）。每次同步会把你的更改放进去，并取回对方的更改。';
 
   @override
   String get noFolderChosenYet => '尚未选择文件夹';
@@ -717,6 +720,18 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get syncFolderNow => '立即同步文件夹';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return '此目录在其中使用文件夹“$name”，因此一个共享文件夹即可承载你的所有目录。';
+  }
+
+  @override
+  String get useSameFolder => '使用与其他目录相同的文件夹';
+
+  @override
+  String get folderHint =>
+      '任何由两台设备保持同步的文件夹都可以：云盘，或用 Syncthing 让文件夹留在你们的手机上。Syncthing 免费：在每部手机上安装，在它们之间共享一个文件夹，然后在每台设备上于此处选择该文件夹。';
 
   @override
   String folderSynced(String result) {
@@ -753,6 +768,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get conflictBody => '同时在两处被修改。选出正确的：';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field（私密）';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return '两处更改内容相同：$value。无需选择；“解决”会清除标记。';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -881,6 +906,96 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get breedSphynx => '斯芬克斯猫';
+
+  @override
+  String get breedAbyssinian => '阿比西尼亚猫';
+
+  @override
+  String get breedAmericanShorthair => '美国短毛猫';
+
+  @override
+  String get breedBalinese => '巴厘猫';
+
+  @override
+  String get breedBirman => '伯曼猫';
+
+  @override
+  String get breedBombay => '孟买猫';
+
+  @override
+  String get breedBurmese => '缅甸猫';
+
+  @override
+  String get breedBurmilla => '波米拉猫';
+
+  @override
+  String get breedBritishLonghair => '英国长毛猫';
+
+  @override
+  String get breedChartreux => '沙特尔猫';
+
+  @override
+  String get breedCornishRex => '柯尼斯卷毛猫';
+
+  @override
+  String get breedDevonRex => '德文卷毛猫';
+
+  @override
+  String get breedEgyptianMau => '埃及猫';
+
+  @override
+  String get breedExoticShorthair => '异国短毛猫';
+
+  @override
+  String get breedHimalayan => '喜马拉雅猫';
+
+  @override
+  String get breedKorat => '呵叻猫';
+
+  @override
+  String get breedManx => '马恩岛猫';
+
+  @override
+  String get breedMunchkin => '曼基康猫';
+
+  @override
+  String get breedOcicat => '欧西猫';
+
+  @override
+  String get breedOrientalShorthair => '东方短毛猫';
+
+  @override
+  String get breedRagamuffin => '褴褛猫';
+
+  @override
+  String get breedRussianBlue => '俄罗斯蓝猫';
+
+  @override
+  String get breedSavannah => '萨凡纳猫';
+
+  @override
+  String get breedScottishFold => '苏格兰折耳猫';
+
+  @override
+  String get breedSelkirkRex => '塞尔凯克卷毛猫';
+
+  @override
+  String get breedSiberian => '西伯利亚猫';
+
+  @override
+  String get breedSnowshoe => '雪鞋猫';
+
+  @override
+  String get breedSomali => '索马里猫';
+
+  @override
+  String get breedTonkinese => '东奇尼猫';
+
+  @override
+  String get breedTurkishAngora => '土耳其安哥拉猫';
+
+  @override
+  String get breedTurkishVan => '土耳其梵猫';
 
   @override
   String get starterColor => '毛色';
@@ -1050,7 +1165,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpSync =>
-      '把数据交给他人的方式：当面直连、使用两台设备都能看到的文件夹，或用即时通讯发送文件。发送什么始终由你决定——收到的 .catsync 文件也在这里打开。';
+      '把数据交给他人的方式：当面直连、使用两台设备都能看到的文件夹，或用即时通讯发送文件。发送什么始终由你决定——收到的 .catsync 文件也在这里打开。 每个目录用自己的密钥为写入内容签名；伙伴会在你的名字旁看到密钥码。伙伴的第一把密钥从文件中先行信任，当面同步后视为已确认。以已知名字写入但签名不正确的条目会被拒绝，并列在到达页面上。';
 
   @override
   String get helpFields =>
@@ -1062,7 +1177,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      '所有做过的更改，最新在上：谁在何时把什么改成了什么值。任何记录都可撤销——撤销会写入新记录，任何内容都不会被抹去。';
+      '所有更改，最新在前：谁在何时改成了什么值。点按条目可修正，长按可移除或恢复；隐藏的条目仍留在记录中，可按需显示。';
 
   @override
   String get helpDuplicates =>
@@ -1074,11 +1189,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。';
+      '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。 外貌有两项或更多特征相符且无矛盾的配对也会列出；标签显示是哪些特征。“不是同一只”会在本手机上隐藏该配对，直到任一动物的外貌发生变化。';
 
   @override
   String get helpMatchesNeutral =>
-      '可能是同一只动物的宠物：编号相同，或在走失宠物搜索范围内出现的流浪动物。点按一对合并，长按可打开第一只宠物进行比较。';
+      '可能是同一只动物的宠物：编号相同，或在走失宠物搜索范围内出现的流浪动物。点按一对合并，长按可打开第一只宠物进行比较。 外貌有两项或更多特征相符且无矛盾的配对也会列出；标签显示是哪些特征。“不是同一只”会在本手机上隐藏该配对，直到任一动物的外貌发生变化。';
 
   @override
   String get helpFlier =>
@@ -1365,6 +1480,280 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterWeight => '体重';
 
   @override
+  String get starterLooks => '外貌';
+
+  @override
+  String get looksGroupSize => '体型';
+
+  @override
+  String get looksGroupColours => '颜色';
+
+  @override
+  String get looksGroupPattern => '花纹';
+
+  @override
+  String get looksGroupFur => '毛';
+
+  @override
+  String get looksGroupTail => '尾巴';
+
+  @override
+  String get looksGroupEars => '耳朵';
+
+  @override
+  String get looksGroupMarks => '特征';
+
+  @override
+  String get looksGroupCrest => '羽冠';
+
+  @override
+  String get looksGroupBeak => '喙';
+
+  @override
+  String get looksGroupRing => '脚环';
+
+  @override
+  String get looksValueSmall => '小';
+
+  @override
+  String get looksValueMedium => '中';
+
+  @override
+  String get looksValueLarge => '大';
+
+  @override
+  String get looksValueBlack => '黑';
+
+  @override
+  String get looksValueWhite => '白';
+
+  @override
+  String get looksValueGrey => '灰';
+
+  @override
+  String get looksValueBrown => '棕';
+
+  @override
+  String get looksValueGinger => '橘';
+
+  @override
+  String get looksValueCream => '奶油色';
+
+  @override
+  String get looksValueGolden => '金色';
+
+  @override
+  String get looksValueTan => '浅棕';
+
+  @override
+  String get looksValueGreen => '绿';
+
+  @override
+  String get looksValueBlue => '蓝';
+
+  @override
+  String get looksValueYellow => '黄';
+
+  @override
+  String get looksValueRed => '红';
+
+  @override
+  String get looksValueOrange => '橙';
+
+  @override
+  String get looksValuePink => '粉';
+
+  @override
+  String get looksValueWhiteBib => '白色胸口';
+
+  @override
+  String get looksValueWhitePaws => '白色脚掌';
+
+  @override
+  String get looksValueWhiteTailTip => '白色尾尖';
+
+  @override
+  String get looksValueBlaze => '白色鼻梁';
+
+  @override
+  String get looksValueMask => '面罩';
+
+  @override
+  String get looksValueSpots => '斑点';
+
+  @override
+  String get looksValuePatches => '色块';
+
+  @override
+  String get looksValueStripes => '条纹';
+
+  @override
+  String get looksValueScar => '伤疤';
+
+  @override
+  String get looksValueNotchedEar => '耳缺';
+
+  @override
+  String get looksValueEarTip => '耳尖';
+
+  @override
+  String get looksValueCollar => '项圈';
+
+  @override
+  String get looksValueShort => '短';
+
+  @override
+  String get looksValueLong => '长';
+
+  @override
+  String get looksValueHairless => '无毛';
+
+  @override
+  String get looksValueBobtail => '短尾';
+
+  @override
+  String get looksValueNone => '无';
+
+  @override
+  String get looksValueCurled => '卷尾';
+
+  @override
+  String get looksValueUpright => '竖立';
+
+  @override
+  String get looksValueFloppy => '下垂';
+
+  @override
+  String get looksValueFolded => '折耳';
+
+  @override
+  String get looksValueRounded => '圆';
+
+  @override
+  String get looksValueSolid => '纯色';
+
+  @override
+  String get looksValueTabby => '虎斑';
+
+  @override
+  String get looksValueTortoiseshell => '玳瑁';
+
+  @override
+  String get looksValueCalico => '三花';
+
+  @override
+  String get looksValueColourpoint => '重点色';
+
+  @override
+  String get looksValueBicolour => '双色';
+
+  @override
+  String get looksValueTuxedo => '燕尾服';
+
+  @override
+  String get looksValueBrindle => '斑纹';
+
+  @override
+  String get looksValueMerle => '陨石色';
+
+  @override
+  String get looksValueSpotted => '点状';
+
+  @override
+  String get looksValuePatched => '块状';
+
+  @override
+  String get looksValueTricolour => '三色';
+
+  @override
+  String get looksValueSable => '貂色';
+
+  @override
+  String get looksGroupEyes => '眼睛';
+
+  @override
+  String get looksGroupFeatures => '特征';
+
+  @override
+  String get looksValueAmber => '琥珀色';
+
+  @override
+  String get looksValueCopper => '铜色';
+
+  @override
+  String get looksValueOddEyed => '异色瞳';
+
+  @override
+  String get looksValueChocolate => '巧克力色';
+
+  @override
+  String get looksValueLilac => '淡紫色';
+
+  @override
+  String get looksValueSilver => '银色';
+
+  @override
+  String get looksValueSmoke => '烟色';
+
+  @override
+  String get looksValueTicked => '多层色';
+
+  @override
+  String get looksValueVan => '梵色';
+
+  @override
+  String get looksValueCurly => '卷毛';
+
+  @override
+  String get looksValueWiry => '硬毛';
+
+  @override
+  String get looksValueKinked => '折尾';
+
+  @override
+  String get looksValueCropped => '剪耳';
+
+  @override
+  String get looksValueTippedEar => '耳尖剪';
+
+  @override
+  String get looksValueEarTattoo => '耳纹身';
+
+  @override
+  String get looksValueMissingEar => '缺耳';
+
+  @override
+  String get looksValueMissingEye => '缺眼';
+
+  @override
+  String get looksValueCloudyEye => '浑浊眼';
+
+  @override
+  String get looksValueMissingFrontLeg => '缺前腿';
+
+  @override
+  String get looksValueMissingHindLeg => '缺后腿';
+
+  @override
+  String get looksValueNoTeeth => '无牙';
+
+  @override
+  String get looksValueExtraToes => '多趾';
+
+  @override
+  String get rejectMatch => '不是同一只';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 项特征相符',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => '跟随系统';
 
   @override
@@ -1444,6 +1833,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get celebrationsSubtitle => '猫咪搬进新家时撒彩纸并欢呼';
 
   @override
+  String get cheerToggle => '欢呼声';
+
+  @override
+  String get cheerSubtitle => '伴随彩纸的短促欢呼，每次不同';
+
+  @override
   String get celebrationsSubtitleNeutral => '宠物搬进新家时撒彩纸并欢呼';
 
   @override
@@ -1485,8 +1880,59 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return '从此目录中移除 $name 在设备 $device 上写入的所有条目和照片。其他设备保留各自的数据。无法撤销。';
+  String get yourKey => '你的密钥';
+
+  @override
+  String get yourTitle => '你的头衔';
+
+  @override
+  String get titleNone => '无头衔';
+
+  @override
+  String keyLine(Object code) {
+    return '密钥 $code';
+  }
+
+  @override
+  String get keyVerified => '已当面确认';
+
+  @override
+  String get keyFromFile => '来自文件，尚未确认';
+
+  @override
+  String get keyUnsigned => '尚无密钥，条目未签名';
+
+  @override
+  String get summaryRefused => '已拒绝';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '已拒绝 $count 条',
+    );
+    return '$_temp0：未使用 $name 的已知密钥签名';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return '新密钥 $code 自称 $name。信任前请向本人核实。';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name 提供了与此处已知不同的密钥。保留已知密钥，未接受新密钥。';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return '新密钥：$name · $code（$how）';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return '从此目录中移除 $name 使用密钥 $key 写入的所有条目和照片。其他设备保留各自的内容。无法撤销。';
   }
 
   @override
@@ -1938,7 +2384,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      '只属于此目录的一切：名称、收录的是猫还是宠物、字段、作者与封禁、归档以及回退到过去。这里的更改只影响此目录，即使你当前不在其中。删除前会先把目录写入文件。';
+      '只属于此目录的一切：名称、收录的是猫还是宠物、字段、作者与封禁、归档以及回退到过去。这里的更改只影响此目录，即使你当前不在其中。删除前会先把目录写入文件。 你的密钥是伙伴在你名字旁看到的代码；它属于此目录。';
 
   @override
   String get spotHomeCatalog => '这是你当前所在的目录。点按名称即可切换或新建。';
@@ -2226,12 +2672,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotAgendaCalendar => '在这里开启，把 cat(a)log 的安排同步到你选择的日历。';
 
   @override
+  String get spotAgendaToday => '今天的事务：完成后勾选。圆点显示最近七天。';
+
+  @override
   String get helpAgenda =>
-      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只猫一起看兽医是一个预约：勾选这些猫，日程会显示一张带有它们名字的卡片，完成时会询问哪些猫接受了处理——取消勾选其余的猫，它们仍保持计划中。';
+      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只猫一起看兽医是一个预约：勾选这些猫，日程会显示一张带有它们名字的卡片，完成时会询问哪些猫接受了处理——取消勾选其余的猫，它们仍保持计划中。 日常事务是喂食、猫砂、喂药等重复的任务。它们位于“今天”下方，带勾选、连续记录和最近七天的圆点；“即将”显示下一周，不含每日事务。事务可在选定时间通过通知提醒你。奖杯打开成就。';
 
   @override
   String get helpAgendaNeutral =>
-      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开宠物或家庭。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只宠物一起看兽医是一个预约：勾选这些宠物，日程会显示一张带有它们名字的卡片，完成时会询问哪些宠物接受了处理——取消勾选其余的宠物，它们仍保持计划中。';
+      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开宠物或家庭。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只宠物一起看兽医是一个预约：勾选这些宠物，日程会显示一张带有它们名字的卡片，完成时会询问哪些宠物接受了处理——取消勾选其余的宠物，它们仍保持计划中。 日常事务是喂食、猫砂、喂药等重复的任务。它们位于“今天”下方，带勾选、连续记录和最近七天的圆点；“即将”显示下一周，不含每日事务。事务可在选定时间通过通知提醒你。奖杯打开成就。';
 
   @override
   String get calendarRowOff => '日历：关';
@@ -2270,6 +2719,252 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get planChooserReminder => '提醒——在某一天到期的值';
+
+  @override
+  String get planChooserChore => '日常任务 — 会重复的事：喂食、滴药、猫砂';
+
+  @override
+  String get newChore => '新任务';
+
+  @override
+  String get choreEdit => '编辑任务';
+
+  @override
+  String get choreTitleLabel => '内容';
+
+  @override
+  String get choreRepeatDaily => '每天';
+
+  @override
+  String get choreRepeatEvery => '每隔…';
+
+  @override
+  String get choreRepeatWeekdays => '星期';
+
+  @override
+  String choreEveryDays(int n) {
+    return '每 $n 天';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    return '每 $n 周';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    return '每 $n 个月';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    return '每 $n 年';
+  }
+
+  @override
+  String get choreNoTime => '一天中任何时间';
+
+  @override
+  String get chorePause => '暂停';
+
+  @override
+  String get chorePaused => '已暂停';
+
+  @override
+  String get choreResume => '继续';
+
+  @override
+  String get choreEnd => '结束任务';
+
+  @override
+  String get choreHistory => '历史';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return '已完成 $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => '提前';
+
+  @override
+  String get choreDoneLate => '延后';
+
+  @override
+  String get choreMissed => '未完成';
+
+  @override
+  String get choreStillOpen => '尚未完成';
+
+  @override
+  String get choreEndConfirm => '该事务将从列表中移除。已勾选的记录保留在历史中。';
+
+  @override
+  String get todaySection => '今天';
+
+  @override
+  String get upcomingSection => '即将到来';
+
+  @override
+  String get allDoneToday => '今天：全部完成';
+
+  @override
+  String streakDays(int n) {
+    return '连续 $n 天';
+  }
+
+  @override
+  String choreDue(String date) {
+    return '到期 $date';
+  }
+
+  @override
+  String get remindMe => '提醒我';
+
+  @override
+  String remindNext(Object when) {
+    return '下次提醒：$when';
+  }
+
+  @override
+  String get remindNone => '未安排提醒：前方没有到期事项。';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '此手机上已安排 $count 条提醒',
+      zero: '此手机上尚未安排任何提醒',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => '立即发送测试提醒';
+
+  @override
+  String get remindLateHint => '提醒可能晚几分钟到达；具体时刻由手机决定。';
+
+  @override
+  String get remindPermissionDenied => '没有通知权限，提醒保持关闭。请在手机的应用设置中允许通知后重试。';
+
+  @override
+  String get batteryHint => '如果收不到提醒，请在手机的电池设置中允许 cat(a)log 在后台运行。';
+
+  @override
+  String get batterySettings => '电池设置';
+
+  @override
+  String get achievementsTitle => '成就';
+
+  @override
+  String get rankServant => '仆人';
+
+  @override
+  String get rankButler => '管家';
+
+  @override
+  String get rankSteward => '总管';
+
+  @override
+  String get rankChancellor => '宰相';
+
+  @override
+  String get rankMinister => '大臣';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title（$chore）';
+  }
+
+  @override
+  String get coatCalico => '三花';
+
+  @override
+  String get coatCheetah => '猎豹';
+
+  @override
+  String get coatTiger => '老虎';
+
+  @override
+  String get coatTabby => '虎斑';
+
+  @override
+  String get coatPaws => '爪印';
+
+  @override
+  String get coatRosettes => '玫瑰斑';
+
+  @override
+  String get coatZebra => '斑马';
+
+  @override
+  String get coatSetting => '毛皮';
+
+  @override
+  String get coatRandom => '每次启动不同';
+
+  @override
+  String get coatSnowLeopard => '雪豹';
+
+  @override
+  String get coatSiamese => '暹罗重点色';
+
+  @override
+  String get coatLynx => '猞猁';
+
+  @override
+  String get coatTortoiseshell => '玳瑁';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return '新毛皮：$coat';
+  }
+
+  @override
+  String get coatUnlockedHow => '整整一个月的事务，全部完成。';
+
+  @override
+  String get achievementsEmpty => '尚未获得任何东西。事务知道该怎么走。';
+
+  @override
+  String get achievementMonth => '完整的一个月';
+
+  @override
+  String get achievementYear => '完整的一年';
+
+  @override
+  String get achievementDecade => '完整的十年';
+
+  @override
+  String get achievementCentury => '完整的一百年';
+
+  @override
+  String get achievementCenturyHint => '到那时我们都会非常自豪。';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title大师';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    return '已达成 $times 次，首次于 $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return '下一级 $n';
+  }
+
+  @override
+  String get achievementLocked => '尚未';
+
+  @override
+  String achievementUnlocked(String name) {
+    return '成就：$name';
+  }
 
   @override
   String get appointmentTitleLabel => '事项';
@@ -2425,4 +3120,114 @@ class AppLocalizationsZh extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return '删除全部 $count 只宠物的预约';
   }
+
+  @override
+  String get correctThisValue => '修正此值';
+
+  @override
+  String get removeThisValue => '移除此值';
+
+  @override
+  String get restoreThisValue => '恢复此值';
+
+  @override
+  String get showRemovedValues => '显示已移除的值';
+
+  @override
+  String get hideRemovedValues => '隐藏已移除的值';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return '已移除 · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return '已修正为 $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => '修正';
+
+  @override
+  String get restorePickFolder => '选择备份文件夹…';
+
+  @override
+  String get restoreAndroidHint =>
+      '上一次安装的备份位于 Documents/catlog（旧版本为 Downloads/catlog）。选择该文件夹一次，其中的备份会列在这里。';
+
+  @override
+  String get backupsTitle => '备份';
+
+  @override
+  String get backupsSubtitle => '您的目录的安全存放位置';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google 会用您的账号备份此应用的目录（不含照片）。重新安装或换新手机后会自动恢复。';
+
+  @override
+  String get backupsAndroidFiles =>
+      '每当您在更改后离开应用，每个目录的完整副本（含照片）都会写入 Documents/catlog。';
+
+  @override
+  String get backupsIosSystem => 'iCloud 云备份包含此应用及其目录和照片，与这部 iPhone 上的其他应用一样。';
+
+  @override
+  String get backupsIosFiles =>
+      '每个目录的完整副本位于“文件”应用的 cat(a)log 下。可从那里发送到 iCloud 云盘、隔空投送或另一部手机。';
+
+  @override
+  String get backupsDesktopFiles => '每当您在更改后离开应用，每个目录的完整副本（含照片）都会写入您的下载文件夹。';
+
+  @override
+  String backupsLast(Object date) {
+    return '最近副本：$date';
+  }
+
+  @override
+  String get backupsNever => '尚未写入副本。';
+
+  @override
+  String get backupsNow => '立即备份';
+
+  @override
+  String get backupsDone => '副本已写入。';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return '已于 $date 从 Google 备份恢复。如果旧手机仍在运行 cat(a)log，请先从它同步一次，然后在旧手机上卸载应用。';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      '您选择的文件夹也可以收到每份副本：云应用在本机上保持同步的文件夹（Nextcloud、Syncthing 等）、存储卡、选择器提供的任何文件夹。副本会放在其中的 catlog-backups 里。';
+
+  @override
+  String get backupsFolderPick => '同时复制到文件夹…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return '同时复制到 $name';
+  }
+
+  @override
+  String get backupsFolderRemove => '停止复制到那里';
+
+  @override
+  String remindFailed(Object error) {
+    return '此手机上的通知无法使用：$error';
+  }
+
+  @override
+  String get copyText => '复制文本';
+
+  @override
+  String get colWhen => '时间';
+
+  @override
+  String get colValue => '值';
+
+  @override
+  String get colWho => '谁';
 }

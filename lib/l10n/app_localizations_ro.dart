@@ -174,6 +174,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get shareAsImage => 'Distribuie ca imagine';
 
   @override
+  String get sortOldestFirst => 'Cel mai vechi primul';
+
+  @override
+  String get sortNewestFirst => 'Cel mai nou primul';
+
+  @override
+  String get shareAsText => 'Trimite ca text';
+
+  @override
   String get shareAsPdf => 'Distribuie ca PDF';
 
   @override
@@ -557,13 +566,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Anulează această modificare';
-
-  @override
-  String get revertSubtitle =>
-      'Restaurează valoarea anterioară ca înregistrare nouă — istoricul le păstrează pe ambele.';
-
-  @override
   String fieldCleared(String field) {
     return '$field golit';
   }
@@ -734,7 +736,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Ambele dispozitive folosesc același dosar (de exemplu în Dropbox sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.';
+      'Ambele dispozitive folosesc același dosar (de exemplu în Nextcloud sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.';
 
   @override
   String get noFolderChosenYet => 'Niciun dosar ales încă';
@@ -744,6 +746,18 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Sincronizează dosarul acum';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'În ea acest catalog folosește dosarul „$name”, așa că un singur dosar partajat poate purta toate cataloagele tale.';
+  }
+
+  @override
+  String get useSameFolder => 'Folosește același dosar ca celelalte cataloage';
+
+  @override
+  String get folderHint =>
+      'Merge orice dosar pe care două dispozitive îl țin la fel: un drive în cloud, sau Syncthing pentru un dosar care rămâne pe telefoanele voastre. Syncthing e gratuit: instalează-l pe fiecare telefon, partajează un dosar între ele și alege acel dosar aici pe fiecare dispozitiv.';
 
   @override
   String folderSynced(String result) {
@@ -781,6 +795,16 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get conflictBody =>
       'Modificat în două locuri deodată. Alege ce e adevărat:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Ambele modificări spun același lucru: $value. Nimic de ales; Rezolvă scoate marcajul.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -912,6 +936,96 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sphynx';
+
+  @override
+  String get breedAbyssinian => 'Abisiniană';
+
+  @override
+  String get breedAmericanShorthair => 'American Shorthair';
+
+  @override
+  String get breedBalinese => 'Balineză';
+
+  @override
+  String get breedBirman => 'Birmaneză';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmeză';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'British Longhair';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish Rex';
+
+  @override
+  String get breedDevonRex => 'Devon Rex';
+
+  @override
+  String get breedEgyptianMau => 'Mau egiptean';
+
+  @override
+  String get breedExoticShorthair => 'Exotic Shorthair';
+
+  @override
+  String get breedHimalayan => 'Himalayană';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oriental Shorthair';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Albastru de Rusia';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Scottish Fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk Rex';
+
+  @override
+  String get breedSiberian => 'Siberiană';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somaleză';
+
+  @override
+  String get breedTonkinese => 'Tonkineză';
+
+  @override
+  String get breedTurkishAngora => 'Angora turcească';
+
+  @override
+  String get breedTurkishVan => 'Van turcească';
 
   @override
   String get starterColor => 'Culoare';
@@ -1091,7 +1205,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Cum ajung datele la alți oameni: conectare directă, un dosar pe care îl văd ambele dispozitive, sau un fișier trimis prin messenger. Tu decizi mereu ce pleacă — iar fișierele .catsync primite se deschid tot aici.';
+      'Cum ajung datele la alți oameni: conectare directă, un dosar pe care îl văd ambele dispozitive, sau un fișier trimis prin messenger. Tu decizi mereu ce pleacă — iar fișierele .catsync primite se deschid tot aici. Fiecare catalog semnează ce scrie cu propria cheie; partenerii văd codul cheii lângă numele tău. Prima cheie a unui partener este luată pe încredere dintr-un fișier și contează ca întâlnită când sincronizați în persoană. Intrările sub un nume cunoscut fără semnătura corectă sunt respinse și listate pe pagina de sosire.';
 
   @override
   String get helpFields =>
@@ -1103,7 +1217,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Fiecare modificare făcută vreodată, cea mai nouă prima: cine ce a schimbat, când și în ce valoare. Orice intrare poate fi anulată — asta scrie o intrare nouă, nimic nu se șterge.';
+      'Fiecare modificare, cea mai nouă prima: cine, când și la ce valoare. Atinge o intrare pentru a o corecta, ține apăsat pentru a o elimina sau restabili; o intrare ascunsă rămâne în jurnal și apare la cerere.';
 
   @override
   String get helpDuplicates =>
@@ -1115,11 +1229,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Pisici care ar putea fi același animal: identificator identic sau un vagabond văzut în zona de căutare a unei pisici dispărute. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi prima pisică și să compari.';
+      'Pisici care ar putea fi același animal: identificator identic sau un vagabond văzut în zona de căutare a unei pisici dispărute. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi prima pisică și să compari. Sunt listate și perechile al căror aspect se potrivește în două trăsături sau mai multe fără contradicție; cipurile arată care. „Nu e același” ascunde o pereche pe acest telefon până când aspectul unuia dintre animale se schimbă.';
 
   @override
   String get helpMatchesNeutral =>
-      'Animale care ar putea fi același: identificator identic sau un vagabond văzut în zona de căutare a unui animal dispărut. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi primul animal și să compari.';
+      'Animale care ar putea fi același: identificator identic sau un vagabond văzut în zona de căutare a unui animal dispărut. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi primul animal și să compari. Sunt listate și perechile al căror aspect se potrivește în două trăsături sau mai multe fără contradicție; cipurile arată care. „Nu e același” ascunde o pereche pe acest telefon până când aspectul unuia dintre animale se schimbă.';
 
   @override
   String get helpFlier =>
@@ -1409,6 +1523,282 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterWeight => 'Greutate';
 
   @override
+  String get starterLooks => 'Aspect';
+
+  @override
+  String get looksGroupSize => 'Mărime';
+
+  @override
+  String get looksGroupColours => 'Culori';
+
+  @override
+  String get looksGroupPattern => 'Model';
+
+  @override
+  String get looksGroupFur => 'Blană';
+
+  @override
+  String get looksGroupTail => 'Coadă';
+
+  @override
+  String get looksGroupEars => 'Urechi';
+
+  @override
+  String get looksGroupMarks => 'Semne';
+
+  @override
+  String get looksGroupCrest => 'Creastă';
+
+  @override
+  String get looksGroupBeak => 'Cioc';
+
+  @override
+  String get looksGroupRing => 'Inel';
+
+  @override
+  String get looksValueSmall => 'Mic';
+
+  @override
+  String get looksValueMedium => 'Mediu';
+
+  @override
+  String get looksValueLarge => 'Mare';
+
+  @override
+  String get looksValueBlack => 'Negru';
+
+  @override
+  String get looksValueWhite => 'Alb';
+
+  @override
+  String get looksValueGrey => 'Gri';
+
+  @override
+  String get looksValueBrown => 'Maro';
+
+  @override
+  String get looksValueGinger => 'Roșcat';
+
+  @override
+  String get looksValueCream => 'Crem';
+
+  @override
+  String get looksValueGolden => 'Auriu';
+
+  @override
+  String get looksValueTan => 'Bej';
+
+  @override
+  String get looksValueGreen => 'Verde';
+
+  @override
+  String get looksValueBlue => 'Albastru';
+
+  @override
+  String get looksValueYellow => 'Galben';
+
+  @override
+  String get looksValueRed => 'Roșu';
+
+  @override
+  String get looksValueOrange => 'Portocaliu';
+
+  @override
+  String get looksValuePink => 'Roz';
+
+  @override
+  String get looksValueWhiteBib => 'Bavetă albă';
+
+  @override
+  String get looksValueWhitePaws => 'Labe albe';
+
+  @override
+  String get looksValueWhiteTailTip => 'Vârf de coadă alb';
+
+  @override
+  String get looksValueBlaze => 'Stea';
+
+  @override
+  String get looksValueMask => 'Mască';
+
+  @override
+  String get looksValueSpots => 'Pete';
+
+  @override
+  String get looksValuePatches => 'Petice';
+
+  @override
+  String get looksValueStripes => 'Dungi';
+
+  @override
+  String get looksValueScar => 'Cicatrice';
+
+  @override
+  String get looksValueNotchedEar => 'Ureche crestată';
+
+  @override
+  String get looksValueEarTip => 'Vârful urechii';
+
+  @override
+  String get looksValueCollar => 'Zgardă';
+
+  @override
+  String get looksValueShort => 'Scurtă';
+
+  @override
+  String get looksValueLong => 'Lungă';
+
+  @override
+  String get looksValueHairless => 'Fără blană';
+
+  @override
+  String get looksValueBobtail => 'Coadă scurtă';
+
+  @override
+  String get looksValueNone => 'Fără';
+
+  @override
+  String get looksValueCurled => 'Răsucită';
+
+  @override
+  String get looksValueUpright => 'Drepte';
+
+  @override
+  String get looksValueFloppy => 'Lăsate';
+
+  @override
+  String get looksValueFolded => 'Pliate';
+
+  @override
+  String get looksValueRounded => 'Rotunjite';
+
+  @override
+  String get looksValueSolid => 'Uni';
+
+  @override
+  String get looksValueTabby => 'Tigrat';
+
+  @override
+  String get looksValueTortoiseshell => 'Carapace';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Bicolor';
+
+  @override
+  String get looksValueTuxedo => 'Smoching';
+
+  @override
+  String get looksValueBrindle => 'Tigrat închis';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Pătat';
+
+  @override
+  String get looksValuePatched => 'Cu petice';
+
+  @override
+  String get looksValueTricolour => 'Tricolor';
+
+  @override
+  String get looksValueSable => 'Sable';
+
+  @override
+  String get looksGroupEyes => 'Ochi';
+
+  @override
+  String get looksGroupFeatures => 'Particularități';
+
+  @override
+  String get looksValueAmber => 'Chihlimbar';
+
+  @override
+  String get looksValueCopper => 'Aramiu';
+
+  @override
+  String get looksValueOddEyed => 'Culori diferite';
+
+  @override
+  String get looksValueChocolate => 'Ciocolatiu';
+
+  @override
+  String get looksValueLilac => 'Liliachiu';
+
+  @override
+  String get looksValueSilver => 'Argintiu';
+
+  @override
+  String get looksValueSmoke => 'Fumuriu';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Creț';
+
+  @override
+  String get looksValueWiry => 'Sârmos';
+
+  @override
+  String get looksValueKinked => 'Îndoită';
+
+  @override
+  String get looksValueCropped => 'Tăiate';
+
+  @override
+  String get looksValueTippedEar => 'Ureche tăiată';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuaj în ureche';
+
+  @override
+  String get looksValueMissingEar => 'Ureche lipsă';
+
+  @override
+  String get looksValueMissingEye => 'Ochi lipsă';
+
+  @override
+  String get looksValueCloudyEye => 'Ochi tulbure';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Picior din față lipsă';
+
+  @override
+  String get looksValueMissingHindLeg => 'Picior din spate lipsă';
+
+  @override
+  String get looksValueNoTeeth => 'Fără dinți';
+
+  @override
+  String get looksValueExtraToes => 'Degete în plus';
+
+  @override
+  String get rejectMatch => 'Nu e același';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de trăsături se potrivesc',
+      few: '$count trăsături se potrivesc',
+      one: '1 trăsătură se potrivește',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Implicit sistem';
 
   @override
@@ -1489,6 +1879,13 @@ class AppLocalizationsRo extends AppLocalizations {
       'Confetti și urale când o pisică se mută în căminul ei';
 
   @override
+  String get cheerToggle => 'Sunet de urale';
+
+  @override
+  String get cheerSubtitle =>
+      'Urale scurte la confetti, de fiecare dată altele';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Confetti și urale când un animal se mută în căminul lui';
 
@@ -1531,8 +1928,61 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Elimină din acest catalog fiecare intrare și fotografie scrisă de $name pe dispozitivul $device. Celelalte dispozitive își păstrează copia. Nu se poate anula.';
+  String get yourKey => 'Cheia ta';
+
+  @override
+  String get yourTitle => 'Titlul tău';
+
+  @override
+  String get titleNone => 'Fără titlu';
+
+  @override
+  String keyLine(Object code) {
+    return 'cheia $code';
+  }
+
+  @override
+  String get keyVerified => 'întâlnită în persoană';
+
+  @override
+  String get keyFromFile => 'dintr-un fișier, încă neîntâlnită';
+
+  @override
+  String get keyUnsigned => 'încă fără cheie, intrări nesemnate';
+
+  @override
+  String get summaryRefused => 'Respins';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de intrări respinse',
+      few: '$count intrări respinse',
+      one: '1 intrare respinsă',
+    );
+    return '$_temp0: nesemnate cu cheia cunoscută pentru $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'O cheie nouă $code se numește $name. Verifică cu persoana înainte să ai încredere.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name a oferit o cheie diferită de cea cunoscută aici. Cea cunoscută rămâne; cea nouă nu a fost luată.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Cheie nouă: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Elimină din acest catalog fiecare intrare și fotografie scrisă de $name sub cheia $key. Celelalte dispozitive le păstrează pe ale lor. Nu se poate anula.';
   }
 
   @override
@@ -2035,7 +2485,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Tot ce ține doar de acest catalog: numele, dacă are pisici sau animale, câmpurile, autorii și blocările, arhiva și întoarcerea în timp. Modificările de aici privesc doar acest catalog — și unul în care nu ești acum. Ștergerea scrie mai întâi catalogul într-un fișier.';
+      'Tot ce ține doar de acest catalog: numele, dacă are pisici sau animale, câmpurile, autorii și blocările, arhiva și întoarcerea în timp. Modificările de aici privesc doar acest catalog — și unul în care nu ești acum. Ștergerea scrie mai întâi catalogul într-un fișier. Cheia ta este codul pe care partenerii îl văd lângă numele tău; aparține acestui catalog.';
 
   @override
   String get spotHomeCatalog =>
@@ -2342,12 +2792,16 @@ class AppLocalizationsRo extends AppLocalizations {
       'Pornește aici oglindirea programărilor cat(a)log într-un calendar la alegere.';
 
   @override
+  String get spotAgendaToday =>
+      'Treburile de azi: bifează când e gata. Punctele arată ultimele șapte zile.';
+
+  @override
   String get helpAgenda =>
-      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe pisici este o singură programare: bifează pisicile, Agenda arată un card cu numele lor, iar la încheiere întreabă ce pisici au fost tratate — debifează-le pe celelalte, rămân planificate.';
+      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe pisici este o singură programare: bifează pisicile, Agenda arată un card cu numele lor, iar la încheiere întreabă ce pisici au fost tratate — debifează-le pe celelalte, rămân planificate. Treburile sunt sarcinile recurente, cum ar fi hrănirea, litiera sau medicamentele. Stau sub Azi cu o bifă, o serie și ultimele șapte zile ca puncte; În curând arată săptămâna următoare fără cele zilnice. O treabă îți poate aminti printr-o notificare la ora aleasă. Trofeul deschide realizările.';
 
   @override
   String get helpAgendaNeutral =>
-      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide animalul sau gospodăria. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe animale este o singură programare: bifează animalele, Agenda arată un card cu numele lor, iar la încheiere întreabă ce animale au fost tratate — debifează-le pe celelalte, rămân planificate.';
+      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide animalul sau gospodăria. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe animale este o singură programare: bifează animalele, Agenda arată un card cu numele lor, iar la încheiere întreabă ce animale au fost tratate — debifează-le pe celelalte, rămân planificate. Treburile sunt sarcinile recurente, cum ar fi hrănirea, litiera sau medicamentele. Stau sub Azi cu o bifă, o serie și ultimele șapte zile ca puncte; În curând arată săptămâna următoare fără cele zilnice. O treabă îți poate aminti printr-o notificare la ora aleasă. Trofeul deschide realizările.';
 
   @override
   String get calendarRowOff => 'Calendar: oprit';
@@ -2392,6 +2846,301 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Memento — o valoare care devine scadentă într-o zi';
+
+  @override
+  String get planChooserChore =>
+      'Treabă — ceva ce revine: hrănire, picături, litieră';
+
+  @override
+  String get newChore => 'Treabă nouă';
+
+  @override
+  String get choreEdit => 'Editează treaba';
+
+  @override
+  String get choreTitleLabel => 'Ce';
+
+  @override
+  String get choreRepeatDaily => 'Zilnic';
+
+  @override
+  String get choreRepeatEvery => 'La fiecare…';
+
+  @override
+  String get choreRepeatWeekdays => 'Zile';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de zile',
+      few: 'la fiecare $n zile',
+      one: 'în fiecare zi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de săptămâni',
+      few: 'la fiecare $n săptămâni',
+      one: 'în fiecare săptămână',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de luni',
+      few: 'la fiecare $n luni',
+      one: 'în fiecare lună',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de ani',
+      few: 'la fiecare $n ani',
+      one: 'în fiecare an',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Oricând în timpul zilei';
+
+  @override
+  String get chorePause => 'Suspendă';
+
+  @override
+  String get chorePaused => 'În pauză';
+
+  @override
+  String get choreResume => 'Reia';
+
+  @override
+  String get choreEnd => 'Încheie treaba';
+
+  @override
+  String get choreHistory => 'Istoric';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'făcut $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'mai devreme';
+
+  @override
+  String get choreDoneLate => 'mai târziu';
+
+  @override
+  String get choreMissed => 'Ratat';
+
+  @override
+  String get choreStillOpen => 'Încă deschis';
+
+  @override
+  String get choreEndConfirm =>
+      'Treaba iese din listă. Ce a fost bifat rămâne în istoric.';
+
+  @override
+  String get todaySection => 'Azi';
+
+  @override
+  String get upcomingSection => 'În curând';
+
+  @override
+  String get allDoneToday => 'Azi: totul făcut';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n de zile la rând',
+      few: '$n zile la rând',
+      one: '1 zi la rând',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Scadent $date';
+  }
+
+  @override
+  String get remindMe => 'Amintește-mi';
+
+  @override
+  String remindNext(Object when) {
+    return 'Următorul memento: $when';
+  }
+
+  @override
+  String get remindNone => 'Niciun memento planificat: nimic în față.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de memento-uri programate pe acest telefon',
+      few: '$count memento-uri programate pe acest telefon',
+      one: '1 memento programat pe acest telefon',
+      zero: 'Nimic programat încă pe acest telefon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Trimite acum un memento de test';
+
+  @override
+  String get remindLateHint =>
+      'Memento-urile pot veni cu câteva minute întârziere; telefonul alege momentul exact.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Fără permisiune pentru notificări, memento-ul rămâne oprit. Permite-le în setările aplicației din telefon și încearcă din nou.';
+
+  @override
+  String get batteryHint =>
+      'Dacă memento-urile nu vin, permite cat(a)log să ruleze în fundal în setările de baterie ale telefonului.';
+
+  @override
+  String get batterySettings => 'Setări baterie';
+
+  @override
+  String get achievementsTitle => 'Realizări';
+
+  @override
+  String get rankServant => 'Servitor';
+
+  @override
+  String get rankButler => 'Majordom';
+
+  @override
+  String get rankSteward => 'Administrator';
+
+  @override
+  String get rankChancellor => 'Cancelar';
+
+  @override
+  String get rankMinister => 'Ministru';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatCheetah => 'Ghepard';
+
+  @override
+  String get coatTiger => 'Tigru';
+
+  @override
+  String get coatTabby => 'Tigrat';
+
+  @override
+  String get coatPaws => 'Lăbuțe';
+
+  @override
+  String get coatRosettes => 'Rozete';
+
+  @override
+  String get coatZebra => 'Zebră';
+
+  @override
+  String get coatSetting => 'Blană';
+
+  @override
+  String get coatRandom => 'Alta la fiecare pornire';
+
+  @override
+  String get coatSnowLeopard => 'Leopardul zăpezilor';
+
+  @override
+  String get coatSiamese => 'Puncte siameze';
+
+  @override
+  String get coatLynx => 'Râs';
+
+  @override
+  String get coatTortoiseshell => 'Carapace de țestoasă';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Blană nouă: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'O lună întreagă de treburi, toate făcute.';
+
+  @override
+  String get achievementsEmpty => 'Nimic câștigat încă. Treburile știu drumul.';
+
+  @override
+  String get achievementMonth => 'O lună întreagă';
+
+  @override
+  String get achievementYear => 'Un an întreg';
+
+  @override
+  String get achievementDecade => 'Un deceniu întreg';
+
+  @override
+  String get achievementCentury => 'Un secol întreg';
+
+  @override
+  String get achievementCenturyHint => 'Vom fi amândoi foarte mândri.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Maestru $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Atins de $times de ori',
+      few: 'Atins de $times ori',
+      one: 'Atins o dată',
+    );
+    return '$_temp0, prima dată pe $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Următorul la $n';
+  }
+
+  @override
+  String get achievementLocked => 'Încă nu';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Realizare: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Ce';
@@ -2552,4 +3301,116 @@ class AppLocalizationsRo extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Șterge programarea pentru toate cele $count animale';
   }
+
+  @override
+  String get correctThisValue => 'Corectează această valoare';
+
+  @override
+  String get removeThisValue => 'Elimină această valoare';
+
+  @override
+  String get restoreThisValue => 'Restabilește această valoare';
+
+  @override
+  String get showRemovedValues => 'Arată valorile eliminate';
+
+  @override
+  String get hideRemovedValues => 'Ascunde valorile eliminate';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Eliminat · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Înlocuit cu $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Corectură';
+
+  @override
+  String get restorePickFolder => 'Alege dosarul copiilor de siguranță…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Copiile de siguranță ale instalării anterioare sunt în Documents/catlog (Downloads/catlog la versiunile mai vechi). Alege acel dosar o dată; copiile lui apar aici.';
+
+  @override
+  String get backupsTitle => 'Copii de siguranță';
+
+  @override
+  String get backupsSubtitle => 'Unde sunt în siguranță cataloagele tale';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google salvează cataloagele acestei aplicații cu contul tău, fără fotografii. Revin singure după o reinstalare sau pe un telefon nou.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'O copie completă a fiecărui catalog, cu fotografii, este scrisă în Documents/catlog ori de câte ori părăsești aplicația după modificări.';
+
+  @override
+  String get backupsIosSystem =>
+      'Copia de siguranță iCloud include această aplicație cu cataloagele și fotografiile ei, ca orice altă aplicație de pe acest iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'O copie completă a fiecărui catalog se află în aplicația Fișiere, sub cat(a)log. De acolo poate merge în iCloud Drive, prin AirDrop sau pe alt telefon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'O copie completă a fiecărui catalog, cu fotografii, este scrisă în dosarul Descărcări ori de câte ori părăsești aplicația după modificări.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Ultima copie: $date';
+  }
+
+  @override
+  String get backupsNever => 'Nicio copie scrisă încă.';
+
+  @override
+  String get backupsNow => 'Fă o copie acum';
+
+  @override
+  String get backupsDone => 'Copie scrisă.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Restaurat din copia Google la $date. Dacă vechiul telefon mai rulează cat(a)log, sincronizează o dată de pe el, apoi elimină aplicația acolo.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Și un dosar la alegerea ta poate primi fiecare copie: unul pe care o aplicație cloud îl ține sincronizat pe acest telefon (Nextcloud, Syncthing și altele), un card de memorie, orice dosar oferit de selector. Copiile ajung în catlog-backups din el.';
+
+  @override
+  String get backupsFolderPick => 'Copiază și într-un dosar…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Copiat și în $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Nu mai copia acolo';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Notificările nu funcționează pe acest telefon: $error';
+  }
+
+  @override
+  String get copyText => 'Copiază textul';
+
+  @override
+  String get colWhen => 'Când';
+
+  @override
+  String get colValue => 'Valoare';
+
+  @override
+  String get colWho => 'Cine';
 }

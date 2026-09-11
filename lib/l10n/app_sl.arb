@@ -52,6 +52,9 @@
   "card": "Kartica",
   "cardTitle": "Kartica — {name}",
   "shareAsImage": "Deli kot sliko",
+  "sortOldestFirst": "Najstarejše najprej",
+  "sortNewestFirst": "Najnovejše najprej",
+  "shareAsText": "Deli kot besedilo",
   "shareAsPdf": "Deli kot PDF",
   "print": "Natisni",
   "renameCat": "Preimenuj mačko",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Brez gospodinjstva — potepuh / pobegnil",
   "timelineOf": "Časovnica — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Razveljavi to spremembo",
-  "revertSubtitle": "Obnovi prejšnjo vrednost kot nov zapis — zgodovina ohrani oboje.",
   "fieldCleared": "{field} izpraznjeno",
   "fieldBackTo": "{field} nazaj na \"{value}\"",
   "leftStray": "Odšla — potepuška",
@@ -128,10 +129,13 @@
   "syncFailed": "Sinhronizacija ni uspela: {error}",
   "lastSyncWith": "Zadnja sinhronizacija z {peer}: {time}",
   "sharedFolder": "Skupna mapa",
-  "sharedFolderExplainer": "Obe napravi uporabljata isto mapo (npr. v Dropboxu ali na USB ključku). Vsaka sinhronizacija tja odloži vaše spremembe in prevzame spremembe druge strani.",
+  "sharedFolderExplainer": "Obe napravi uporabljata isto mapo (npr. v Nextcloudu ali na USB ključku). Vsaka sinhronizacija tja odloži vaše spremembe in prevzame spremembe druge strani.",
   "noFolderChosenYet": "Mapa še ni izbrana",
   "choose": "Izberi…",
   "syncFolderNow": "Sinhroniziraj mapo zdaj",
+  "folderCatalogHint": "V njej ta katalog uporablja mapo „{name}“, zato lahko ena skupna mapa nosi vse tvoje kataloge.",
+  "useSameFolder": "Uporabi isto mapo kot drugi katalogi",
+  "folderHint": "Zadošča vsaka mapa, ki jo dve napravi držita enako: disk v oblaku ali Syncthing za mapo, ki ostane na vajinih telefonih. Syncthing je brezplačen: namestita ga na vsak telefon, delita eno mapo med njima in to mapo izbereta tukaj na vsaki napravi.",
   "folderSynced": "Mapa sinhronizirana: {result}",
   "folderSyncFailed": "Sinhronizacija mape ni uspela: {error}",
   "recordSightingHere": "Zabeleži opažanje tukaj:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Sled: {name} ({count} položajev)",
   "conflictOn": "Spor — {field}",
   "conflictBody": "Spremenjeno na dveh mestih hkrati. Izberite, kaj drži:",
+  "privateMarker": "{field} (zasebno)",
+  "conflictSame": "Obe spremembi pravita isto: {value}. Ni kaj izbrati; Razreši odstrani oznako.",
   "mergeThisInto": "Združi ta zapis ({kind}) z…",
   "noOtherToMergeInto": "Ni drugega zapisa ({kind}) za združitev.",
   "mergeIntoQuestion": "Združim z {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Perzijska",
   "breedBengal": "Bengalska",
   "breedSphynx": "Sfinks",
+  "breedAbyssinian": "Abesinska",
+  "breedAmericanShorthair": "Ameriška kratkodlaka",
+  "breedBalinese": "Balinezijska",
+  "breedBirman": "Birmanska",
+  "breedBombay": "Bombajska",
+  "breedBurmese": "Burmanska",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Britanska dolgodlaka",
+  "breedChartreux": "Kartuzijska",
+  "breedCornishRex": "Cornish rex",
+  "breedDevonRex": "Devon rex",
+  "breedEgyptianMau": "Egipčanska mau",
+  "breedExoticShorthair": "Eksotična kratkodlaka",
+  "breedHimalayan": "Himalajska",
+  "breedKorat": "Korat",
+  "breedManx": "Manx",
+  "breedMunchkin": "Munchkin",
+  "breedOcicat": "Ocicat",
+  "breedOrientalShorthair": "Orientalska kratkodlaka",
+  "breedRagamuffin": "Ragamuffin",
+  "breedRussianBlue": "Ruska modra",
+  "breedSavannah": "Savannah",
+  "breedScottishFold": "Škotska povešenouha",
+  "breedSelkirkRex": "Selkirk rex",
+  "breedSiberian": "Sibirska",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somalijska",
+  "breedTonkinese": "Tonkinška",
+  "breedTurkishAngora": "Turška angora",
+  "breedTurkishVan": "Turška van",
   "ownValue": "Lastna vrednost",
   "locationDeniedForever": "Dostop do lokacije je blokiran. Dovolite ga v sistemskih nastavitvah za uporabo Stray Cam.",
   "locationServiceOff": "Lokacija je na tej napravi izklopljena. Vklopite jo v nastavitvah in poskusite znova.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Vsi ljubljenčki in kraji s položajem. Iskanje najde ljubljenčke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešanega ljubljenčka in okoli doma, iz katerega je pobegnil. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje. Vsako polje z lokacijo je bucika na zemljevidu; tapnite buciko za njeno sled.",
   "helpCard": "Kartica mačke za tisk: zgoraj s čipi izbereš, kaj bo na njej, nato jo deliš kot sliko ali PDF. Številke se lahko natisnejo kot QR ali črtna koda, položaj pa postane QR, ki odpre zemljevid, plus kratek Plus Code.",
   "helpCardNeutral": "Kartica ljubljenčka za tisk: zgoraj s čipi izbereš, kaj bo na njej, nato jo deliš kot sliko ali PDF. Številke se lahko natisnejo kot QR ali črtna koda, položaj pa postane QR, ki odpre zemljevid, plus kratek Plus Code.",
-  "helpSync": "Kako podatki pridejo do drugih: neposredna povezava, mapa, ki jo vidita obe napravi, ali datoteka prek sporočilnika. Vedno ti odločaš, kaj gre ven — prejete datoteke .catsync pa odpreš tudi tukaj.",
+  "helpSync": "Kako podatki pridejo do drugih: neposredna povezava, mapa, ki jo vidita obe napravi, ali datoteka prek sporočilnika. Vedno ti odločaš, kaj gre ven — prejete datoteke .catsync pa odpreš tudi tukaj. Vsak katalog podpiše, kar zapiše, s svojim ključem; partnerji vidijo kodo ključa ob tvojem imenu. Prvi ključ partnerja se iz datoteke sprejme na zaupanje in velja za potrjenega, ko sinhronizirata osebno. Vnosi pod znanim imenom brez pravega podpisa se zavrnejo in izpišejo na strani prihoda.",
   "helpFields": "Polja, ki jih uporablja tvoj katalog. Preimenuj jih, spremeni možnosti izbirnega polja ali ustvari svoja. Polje z identifikatorjem lahko kaže na storitev (register), takrat je številka pri mački tapljiva.",
   "helpFieldsNeutral": "Polja, ki jih uporablja tvoj katalog. Preimenuj jih, spremeni možnosti izbirnega polja ali ustvari svoja. Polje z identifikatorjem lahko kaže na storitev (register), takrat je številka pri ljubljenčku tapljiva.",
-  "helpTimeline": "Vsaka kdaj narejena sprememba, najnovejša zgoraj: kdo je kaj, kdaj in v katero vrednost spremenil. Vsak vnos je mogoče razveljaviti — to zapiše nov vnos, nič se nikoli ne izbriše.",
+  "helpTimeline": "Vsaka sprememba, najnovejša prva: kdo, kdaj in na katero vrednost. Tapnite vnos, da ga popravite, pridržite, da ga odstranite ali obnovite; skrit vnos ostane v dnevniku in se pokaže na zahtevo.",
   "helpDuplicates": "Mačke ali kolonije, ki se zdijo podvojene — enake številke ali zelo podobna imena z ujemajočimi podrobnostmi. Tapni par za združitev; združitve ni mogoče razveljaviti, zato prej vpraša.",
   "helpDuplicatesNeutral": "Ljubljenčki ali gospodinjstva, ki se zdijo podvojeni — enake številke ali zelo podobna imena z ujemajočimi podrobnostmi. Tapni par za združitev; združitve ni mogoče razveljaviti, zato prej vpraša.",
-  "helpMatches": "Mačke, ki bi lahko bile ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešane mačke. Tapni par za združitev, z dolgim pritiskom odpreš prvo mačko za primerjavo.",
-  "helpMatchesNeutral": "Ljubljenčki, ki bi lahko bili ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešanega ljubljenčka. Tapni par za združitev, z dolgim pritiskom odpreš prvega ljubljenčka za primerjavo.",
+  "helpMatches": "Mačke, ki bi lahko bile ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešane mačke. Tapni par za združitev, z dolgim pritiskom odpreš prvo mačko za primerjavo. Na seznamu so tudi pari, katerih videz se ujema v vsaj dveh znakih brez nasprotja; čipi kažejo v katerih. „Ni isto“ skrije par na tem telefonu, dokler se videz ene od živali ne spremeni.",
+  "helpMatchesNeutral": "Ljubljenčki, ki bi lahko bili ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešanega ljubljenčka. Tapni par za združitev, z dolgim pritiskom odpreš prvega ljubljenčka za primerjavo. Na seznamu so tudi pari, katerih videz se ujema v vsaj dveh znakih brez nasprotja; čipi kažejo v katerih. „Ni isto“ skrije par na tem telefonu, dokler se videz ene od živali ne spremeni.",
   "helpFlier": "Fotografiran letak postane mačka in njen lastnik. Korak za korakom: podatki mačke, stik lastnika, izrez obraza za profilno sliko, številke registrov z letaka, nato končno preverjanje. Vse je predlog — popravi, kar je kamera napačno prebrala.",
   "helpFlierNeutral": "Fotografiran letak postane ljubljenček in njegov lastnik. Korak za korakom: podatki ljubljenčka, stik lastnika, izrez obraza za profilno sliko, številke registrov z letaka, nato končno preverjanje. Vse je predlog — popravi, kar je kamera napačno prebrala.",
   "archiveTitle": "Arhiv",
@@ -399,11 +435,109 @@
   "rangeAll": "Vse",
   "rangeCustom": "Po meri…",
   "changeSince": "{delta} od {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Kot v tvoji regiji",
   "unitsMetric": "Metrične (kg, cm, ml, °C)",
   "unitsImperial": "Imperialne (lb, in, fl oz, °F)",
   "starterWeight": "Teža",
+  "starterLooks": "Videz",
+  "looksGroupSize": "Velikost",
+  "looksGroupColours": "Barve",
+  "looksGroupPattern": "Vzorec",
+  "looksGroupFur": "Dlaka",
+  "looksGroupTail": "Rep",
+  "looksGroupEars": "Ušesa",
+  "looksGroupMarks": "Znaki",
+  "looksGroupCrest": "Čop",
+  "looksGroupBeak": "Kljun",
+  "looksGroupRing": "Obroček",
+  "looksValueSmall": "Majhen",
+  "looksValueMedium": "Srednji",
+  "looksValueLarge": "Velik",
+  "looksValueBlack": "Črna",
+  "looksValueWhite": "Bela",
+  "looksValueGrey": "Siva",
+  "looksValueBrown": "Rjava",
+  "looksValueGinger": "Rdečkasta",
+  "looksValueCream": "Krem",
+  "looksValueGolden": "Zlata",
+  "looksValueTan": "Svetlo rjava",
+  "looksValueGreen": "Zelena",
+  "looksValueBlue": "Modra",
+  "looksValueYellow": "Rumena",
+  "looksValueRed": "Rdeča",
+  "looksValueOrange": "Oranžna",
+  "looksValuePink": "Rožnata",
+  "looksValueWhiteBib": "Bel prsni del",
+  "looksValueWhitePaws": "Bele tačke",
+  "looksValueWhiteTailTip": "Bela konica repa",
+  "looksValueBlaze": "Zvezda",
+  "looksValueMask": "Maska",
+  "looksValueSpots": "Pike",
+  "looksValuePatches": "Lise",
+  "looksValueStripes": "Proge",
+  "looksValueScar": "Brazgotina",
+  "looksValueNotchedEar": "Zarezano uho",
+  "looksValueEarTip": "Konica uhlja",
+  "looksValueCollar": "Ovratnica",
+  "looksValueShort": "Kratka",
+  "looksValueLong": "Dolga",
+  "looksValueHairless": "Brez dlake",
+  "looksValueBobtail": "Kratek rep",
+  "looksValueNone": "Brez",
+  "looksValueCurled": "Zavit",
+  "looksValueUpright": "Pokončna",
+  "looksValueFloppy": "Povešena",
+  "looksValueFolded": "Prepognjena",
+  "looksValueRounded": "Zaobljena",
+  "looksValueSolid": "Enobarven",
+  "looksValueTabby": "Tigrast",
+  "looksValueTortoiseshell": "Želvovina",
+  "looksValueCalico": "Kaliko",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Dvobarven",
+  "looksValueTuxedo": "Smoking",
+  "looksValueBrindle": "Progast",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Pikčast",
+  "looksValuePatched": "Lisast",
+  "looksValueTricolour": "Tribarven",
+  "looksValueSable": "Sobolji",
+  "looksGroupEyes": "Oči",
+  "looksGroupFeatures": "Posebnosti",
+  "looksValueAmber": "Jantarne",
+  "looksValueCopper": "Bakrene",
+  "looksValueOddEyed": "Raznobarvne",
+  "looksValueChocolate": "Čokoladna",
+  "looksValueLilac": "Lila",
+  "looksValueSilver": "Srebrna",
+  "looksValueSmoke": "Dimna",
+  "looksValueTicked": "Ticked",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Kodrasta",
+  "looksValueWiry": "Žičnata",
+  "looksValueKinked": "Zlomljen",
+  "looksValueCropped": "Kupirana",
+  "looksValueTippedEar": "Odrezana konica uhlja",
+  "looksValueEarTattoo": "Tetovaža v uhlju",
+  "looksValueMissingEar": "Manjka uho",
+  "looksValueMissingEye": "Manjka oko",
+  "looksValueCloudyEye": "Motno oko",
+  "looksValueMissingFrontLeg": "Manjka sprednja noga",
+  "looksValueMissingHindLeg": "Manjka zadnja noga",
+  "looksValueNoTeeth": "Brez zob",
+  "looksValueExtraToes": "Dodatni prsti",
+  "rejectMatch": "Ni isto",
+  "traitsAgree": "{count, plural, one{{count} znak se ujema} two{{count} znaka se ujemata} few{{count} znaki se ujemajo} other{{count} znakov se ujema}}",
   "systemDefault": "Sistemsko privzeto",
   "iosLocalNetworkHint": "Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova.",
   "markPrivate": "Označi kot zasebno",
@@ -432,6 +566,8 @@
   "otherOption": "Drugo…",
   "celebrationsToggle": "Praznuj posvojitve",
   "celebrationsSubtitle": "Konfeti in vzkliki, ko se mačka preseli v svoj dom",
+  "cheerToggle": "Zvok navijanja",
+  "cheerSubtitle": "Kratko navijanje ob konfetih, vsakič drugačno",
   "celebrationsSubtitleNeutral": "Konfeti in vzkliki, ko se ljubljenček preseli v svoj dom",
   "onMapLabel": "Na zemljevidu",
   "showOnMap": "Pokaži na zemljevidu",
@@ -445,7 +581,19 @@
   "authorsSection": "Kdo je pisal v ta katalog",
   "hardDeleteAction": "Izbriši vse od tega avtorja",
   "hardDeleteWarning": "Odstrani vsak vnos in fotografijo od {name} s te naprave. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.",
-  "hardDeleteWarningDevice": "Iz tega kataloga odstrani vsak vnos in fotografijo, ki jih je {name} zapisal(a) na napravi {device}. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.",
+  "yourKey": "Tvoj ključ",
+  "yourTitle": "Tvoj naziv",
+  "titleNone": "Brez naziva",
+  "keyLine": "ključ {code}",
+  "keyVerified": "potrjen osebno",
+  "keyFromFile": "iz datoteke, še nepotrjen",
+  "keyUnsigned": "ključa še ni, vnosi nepodpisani",
+  "summaryRefused": "Zavrnjeno",
+  "refusedEntries": "{count, plural, one{{count} vnos zavrnjen} two{{count} vnosa zavrnjena} few{{count} vnosi zavrnjeni} other{{count} vnosov zavrnjenih}}: niso podpisani z znanim ključem za {name}",
+  "newKeyCallsItself": "Nov ključ {code} se imenuje {name}. Preveri pri tej osebi, preden mu zaupaš.",
+  "keyChangedRefused": "{name} je ponudil drug ključ od tukaj znanega. Znani ostane; novi ni bil sprejet.",
+  "metaNewKey": "Nov ključ: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Iz tega kataloga odstrani vsak vnos in fotografijo, ki ju je {name} zapisal pod ključem {key}. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.",
   "typeToConfirm": "Za potrditev vpiši {name}",
   "alsoBan": "Tudi prepovej — nikoli več ne sprejmi podatkov",
   "bansSection": "Prepovedi",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Nič ni obnovljeno.} one{Obnovljen {count} katalog.} two{Obnovljena {count} kataloga.} few{Obnovljeni {count} katalogi.} other{Obnovljenih {count} katalogov.}}",
   "helpCatalogs": "Katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne mešata. Tapnite katalog, da preklopite nanj. Zobnik pri katalogu odpre njegove nastavitve: ime, mačke ali živali, polja, avtorji in blokade, arhiv, vrnitev nazaj, izbris. Vaše ime, jezik in že videni namigi so skupni vsem.",
   "helpCatalogsNeutral": "Katalog je svet zase: svoje živali, gospodinjstva, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne mešata. Tapnite katalog, da preklopite nanj. Zobnik pri katalogu odpre njegove nastavitve: ime, mačke ali živali, polja, avtorji in blokade, arhiv, vrnitev nazaj, izbris. Vaše ime, jezik in že videni namigi so skupni vsem.",
-  "helpCatalogSettings": "Vse, kar pripada samo temu katalogu: ime, ali vsebuje mačke ali živali, polja, avtorji in blokade, arhiv in vrnitev nazaj v času. Spremembe tukaj zadevajo samo ta katalog — tudi tistega, v katerem trenutno niste. Izbris najprej zapiše katalog v datoteko.",
+  "helpCatalogSettings": "Vse, kar pripada samo temu katalogu: ime, ali vsebuje mačke ali živali, polja, avtorji in blokade, arhiv in vrnitev nazaj v času. Spremembe tukaj zadevajo samo ta katalog — tudi tistega, v katerem trenutno niste. Izbris najprej zapiše katalog v datoteko. Tvoj ključ je koda, ki jo partnerji vidijo ob tvojem imenu; pripada temu katalogu.",
   "spotHomeCatalog": "To je katalog, v katerem si. Tapni ime za preklop ali za novega.",
   "deleteCatalog": "Izbriši katalog",
   "catalogSettings": "Nastavitve kataloga",
   "deleteCatalogBody": "Vse v katalogu {name} izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne.",
   "deleteCatalogBodyNeutral": "Vse v katalogu {name} izgine: ljubljenčki, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Ni načrtovanih terminov. Nove načrtuješ tukaj s plusom ali na strani ljubljenčka ali gospodinjstva.",
   "dueToday": "danes",
   "dueInDays": "{count, plural, one{čez {count} dan} two{čez {count} dneva} few{čez {count} dni} other{čez {count} dni}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{{count} dan zamude} two{{count} dneva zamude} few{{count} dni zamude} other{{count} dni zamude}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Opravljeno",
   "repeatTitle": "Znova čez…",
   "noRepeatLabel": "Brez ponavljanja",
@@ -720,15 +886,33 @@
   "unitMonths": "mesecev",
   "unitYears": "let",
   "ageYears": "{years} l.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mes.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Spremeni datum",
   "removeReminderLabel": "Odstrani opomnik",
   "exportIcs": "Izvozi koledarsko datoteko",
   "resyncCalendar": "Znova sinhroniziraj koledar",
   "icsSavedTo": "Koledarska datoteka shranjena v {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Zrcali v koledar naprave",
   "calendarMirrorSubtitle": "Termini se v koledarju prikažejo kot celodnevni dogodki. cat(a)log jih tam posodobi ob vsakem zagonu in po vsaki spremembi. Opomnike na termine upravljaš v koledarju.",
   "syncPeerOlder": "Druga naprava ima starejši cat(a)log brez opomnikov. Posodobi cat(a)log tam in znova sinhroniziraj.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Opomniki: seznam načrtovanih terminov — veterinar, zdravila, pregledi.",
   "spotAgendaAdd": "Načrtuj nov termin.",
   "spotAgendaCalendar": "Tukaj vklopi zrcaljenje terminov cat(a)log v izbrani koledar.",
-  "helpAgenda": "Opomniki prikazujejo načrtovane termine po datumu. Obstajata dve vrsti: termini z uro in opomniki, ki veljajo za dan. Zamujeni ostanejo na vrhu. Dotik odpre mačko ali clowder. Kljukica potrdi termin: vrednost se zapiše v polje in takoj lahko načrtuješ naslednjega, na primer čez tri mesece. Pridržanje spremeni datum ali izbriše termin. Stikalo na vrhu zrcali termine v koledar tvojega telefona. Meni jih izvozi kot koledarsko datoteko. Obisk veterinarja z več mačkami je en termin: označi mačke, Agenda pokaže eno kartico z njihovimi imeni, ob zaključku pa vpraša, katere mačke so bile obravnavane — odznači ostale, ostanejo načrtovane.",
-  "helpAgendaNeutral": "Opomniki prikazujejo načrtovane termine po datumu. Obstajata dve vrsti: termini z uro in opomniki, ki veljajo za dan. Zamujeni ostanejo na vrhu. Dotik odpre ljubljenčka ali gospodinjstvo. Kljukica potrdi termin: vrednost se zapiše v polje in takoj lahko načrtuješ naslednjega, na primer čez tri mesece. Pridržanje spremeni datum ali izbriše termin. Stikalo na vrhu zrcali termine v koledar tvojega telefona. Meni jih izvozi kot koledarsko datoteko. Obisk veterinarja z več ljubljenčki je en termin: označi ljubljenčke, Agenda pokaže eno kartico z njihovimi imeni, ob zaključku pa vpraša, kateri ljubljenčki so bili obravnavani — odznači ostale, ostanejo načrtovani.",
+  "spotAgendaToday": "Današnja opravila: odkljukaj, ko je opravljeno. Pike kažejo zadnjih sedem dni.",
+  "helpAgenda": "Opomniki prikazujejo načrtovane termine po datumu. Obstajata dve vrsti: termini z uro in opomniki, ki veljajo za dan. Zamujeni ostanejo na vrhu. Dotik odpre mačko ali clowder. Kljukica potrdi termin: vrednost se zapiše v polje in takoj lahko načrtuješ naslednjega, na primer čez tri mesece. Pridržanje spremeni datum ali izbriše termin. Stikalo na vrhu zrcali termine v koledar tvojega telefona. Meni jih izvozi kot koledarsko datoteko. Obisk veterinarja z več mačkami je en termin: označi mačke, Agenda pokaže eno kartico z njihovimi imeni, ob zaključku pa vpraša, katere mačke so bile obravnavane — odznači ostale, ostanejo načrtovane. Opravila so ponavljajoče se naloge, kot so hranjenje, pesek ali zdravila. Stojijo pod Danes s kljukico, nizom in zadnjimi sedmimi dnevi kot pikami; Kmalu kaže naslednji teden brez dnevnih. Opravilo lahko opomni z obvestilom ob izbrani uri. Pokal odpre dosežke.",
+  "helpAgendaNeutral": "Opomniki prikazujejo načrtovane termine po datumu. Obstajata dve vrsti: termini z uro in opomniki, ki veljajo za dan. Zamujeni ostanejo na vrhu. Dotik odpre ljubljenčka ali gospodinjstvo. Kljukica potrdi termin: vrednost se zapiše v polje in takoj lahko načrtuješ naslednjega, na primer čez tri mesece. Pridržanje spremeni datum ali izbriše termin. Stikalo na vrhu zrcali termine v koledar tvojega telefona. Meni jih izvozi kot koledarsko datoteko. Obisk veterinarja z več ljubljenčki je en termin: označi ljubljenčke, Agenda pokaže eno kartico z njihovimi imeni, ob zaključku pa vpraša, kateri ljubljenčki so bili obravnavani — odznači ostale, ostanejo načrtovani. Opravila so ponavljajoče se naloge, kot so hranjenje, pesek ali zdravila. Stojijo pod Danes s kljukico, nizom in zadnjimi sedmimi dnevi kot pikami; Kmalu kaže naslednji teden brez dnevnih. Opravilo lahko opomni z obvestilom ob izbrani uri. Pokal odpre dosežke.",
   "calendarRowOff": "Koledar: izklopljen",
   "calendarRowOn": "Koledar: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Načrtuj termin za to mačko. Prikaže se med opomniki in se tam potrdi.",
   "spotAddReminderCatNeutral": "Načrtuj termin za tega ljubljenčka. Prikaže se med opomniki in se tam potrdi.",
   "spotAddReminderClowder": "Načrtuj termin za ta clowder. Prikaže se med opomniki in se tam potrdi.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Termin ali opomnik?",
   "planChooserAppointment": "Termin — obisk na datum in ob uri, z zapiski",
   "planChooserReminder": "Opomnik — vrednost, ki zapade na določen dan",
+  "planChooserChore": "Opravilo — nekaj, kar se ponavlja: hranjenje, kapljice, pesek",
+  "newChore": "Novo opravilo",
+  "choreEdit": "Uredi opravilo",
+  "choreTitleLabel": "Kaj",
+  "choreRepeatDaily": "Vsak dan",
+  "choreRepeatEvery": "Vsakih…",
+  "choreRepeatWeekdays": "Dnevi",
+  "choreEveryDays": "{n, plural, one{vsak dan} two{vsaka {n} dneva} few{vsake {n} dni} other{vsakih {n} dni}}",
+  "choreEveryWeeks": "{n, plural, one{vsak teden} two{vsaka {n} tedna} few{vsake {n} tedne} other{vsakih {n} tednov}}",
+  "choreEveryMonths": "{n, plural, one{vsak mesec} two{vsaka {n} meseca} few{vsake {n} mesece} other{vsakih {n} mesecev}}",
+  "choreEveryYears": "{n, plural, one{vsako leto} two{vsaki {n} leti} few{vsaka {n} leta} other{vsakih {n} let}}",
+  "choreNoTime": "Kadar koli čez dan",
+  "chorePause": "Začasno ustavi",
+  "chorePaused": "Ustavljeno",
+  "choreResume": "Nadaljuj",
+  "choreEnd": "Končaj opravilo",
+  "choreHistory": "Zgodovina",
+  "choreDoneAt": "opravljeno {when} · {who}",
+  "choreDoneEarly": "prej",
+  "choreDoneLate": "pozneje",
+  "choreMissed": "Zamujeno",
+  "choreStillOpen": "Še odprto",
+  "choreEndConfirm": "Opravilo izgine s seznama. Odkljukano ostane v zgodovini.",
+  "todaySection": "Danes",
+  "upcomingSection": "Kmalu",
+  "allDoneToday": "Danes: vse opravljeno",
+  "streakDays": "{n, plural, one{{n} dan zapored} two{{n} dneva zapored} few{{n} dni zapored} other{{n} dni zapored}}",
+  "choreDue": "Rok {date}",
+  "remindMe": "Opomni me",
+  "remindNext": "Naslednji opomnik: {when}",
+  "remindNone": "Ni načrtovanega opomnika: nič ni pred nami.",
+  "remindPending": "{count, plural, =0{Na tem telefonu še ni nič načrtovano} one{{count} opomnik načrtovan na tem telefonu} two{{count} opomnika načrtovana na tem telefonu} few{{count} opomniki načrtovani na tem telefonu} other{{count} opomnikov načrtovanih na tem telefonu}}",
+  "remindTest": "Pošlji preizkusni opomnik zdaj",
+  "remindLateHint": "Opomniki lahko pridejo nekaj minut pozneje; natančni trenutek izbere telefon.",
+  "remindPermissionDenied": "Ni dovoljenja za obvestila, opomnik ostane izklopljen. Dovolite jih v nastavitvah aplikacije na telefonu in poskusite znova.",
+  "batteryHint": "Če opomniki izostajajo, v nastavitvah baterije telefona dovolite cat(a)logu delovanje v ozadju.",
+  "batterySettings": "Nastavitve baterije",
+  "achievementsTitle": "Dosežki",
+  "rankServant": "Služabnik",
+  "rankButler": "Butler",
+  "rankSteward": "Oskrbnik",
+  "rankChancellor": "Kancler",
+  "rankMinister": "Minister",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kaliko",
+  "coatCheetah": "Gepard",
+  "coatTiger": "Tiger",
+  "coatTabby": "Tigrast",
+  "coatPaws": "Tačke",
+  "coatRosettes": "Rozete",
+  "coatZebra": "Zebra",
+  "coatSetting": "Kožuh",
+  "coatRandom": "Vsakič drugačen",
+  "coatSnowLeopard": "Snežni leopard",
+  "coatSiamese": "Siamske oznake",
+  "coatLynx": "Ris",
+  "coatTortoiseshell": "Želvovina",
+  "coatUnlocked": "Nov kožuh: {coat}",
+  "coatUnlockedHow": "Cel mesec opravil, vsa opravljena.",
+  "achievementsEmpty": "Še nič. Opravila poznajo pot.",
+  "achievementMonth": "Cel mesec",
+  "achievementYear": "Celo leto",
+  "achievementDecade": "Celo desetletje",
+  "achievementCentury": "Celo stoletje",
+  "achievementCenturyHint": "Oba bova zelo ponosna.",
+  "achievementMaster": "Mojster: {title}",
+  "achievementReached": "{times, plural, one{Doseženo {times}-krat} two{Doseženo {times}-krat} few{Doseženo {times}-krat} other{Doseženo {times}-krat}}, prvič {date}",
+  "achievementNext": "Naslednje pri {n}",
+  "achievementLocked": "Še ne",
+  "achievementUnlocked": "Dosežek: {name}",
   "appointmentTitleLabel": "Kaj",
   "notesLabel": "Zapiski",
   "timeLabel": "Ura",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Obstoječe gospodinjstvo",
   "createNewInstead": "Brez — ustvari novo",
   "overwritesValue": "Prepiše trenutno vrednost \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Prekinem zajem?",
   "abortScanBody": "Nič ne bo shranjeno.",
   "abortScan": "Prekini",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Odznači mačke, ki niso bile obravnavane; ostanejo načrtovane.",
   "finishUntickHintNeutral": "Odznači ljubljenčke, ki niso bili obravnavani; ostanejo načrtovani.",
   "deleteAppointmentGroup": "Izbriši termin za vseh {count} mačk",
-  "deleteAppointmentGroupNeutral": "Izbriši termin za vseh {count} ljubljenčkov"
+  "deleteAppointmentGroupNeutral": "Izbriši termin za vseh {count} ljubljenčkov",
+  "correctThisValue": "Popravi to vrednost",
+  "removeThisValue": "Odstrani to vrednost",
+  "restoreThisValue": "Obnovi to vrednost",
+  "showRemovedValues": "Pokaži odstranjene vrednosti",
+  "hideRemovedValues": "Skrij odstranjene vrednosti",
+  "entryRemovedBy": "Odstranjeno · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Zamenjano z {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Popravek",
+  "restorePickFolder": "Izberi mapo varnostnih kopij…",
+  "restoreAndroidHint": "Varnostne kopije prejšnje namestitve so v Documents/catlog (pri starejših različicah Downloads/catlog). Izberite to mapo enkrat; njene kopije so navedene tukaj.",
+  "backupsTitle": "Varnostne kopije",
+  "backupsSubtitle": "Kje so vaši katalogi na varnem",
+  "backupsAndroidSystem": "Google varnostno kopira kataloge te aplikacije z vašim računom, brez fotografij. Po ponovni namestitvi ali na novem telefonu se vrnejo sami.",
+  "backupsAndroidFiles": "Popolna kopija vsakega kataloga, s fotografijami, se zapiše v Documents/catlog vsakič, ko po spremembah zapustite aplikacijo.",
+  "backupsIosSystem": "Varnostna kopija iCloud vključuje to aplikacijo s katalogi in fotografijami, kot vsako drugo aplikacijo na tem iPhonu.",
+  "backupsIosFiles": "Popolna kopija vsakega kataloga je v aplikaciji Datoteke pod cat(a)log. Od tam lahko gre v iCloud Drive, prek AirDropa ali na drug telefon.",
+  "backupsDesktopFiles": "Popolna kopija vsakega kataloga, s fotografijami, se zapiše v mapo Prenosi vsakič, ko po spremembah zapustite aplikacijo.",
+  "backupsLast": "Zadnja kopija: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Kopija še ni bila zapisana.",
+  "backupsNow": "Varnostno kopiraj zdaj",
+  "backupsDone": "Kopija zapisana.",
+  "backupsRestoredNote": "Obnovljeno iz Googlove varnostne kopije {date}. Če stari telefon še uporablja cat(a)log, enkrat sinhronizirajte z njega, nato tam odstranite aplikacijo.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Vsako kopijo lahko prejema tudi mapa po vaši izbiri: taka, ki jo aplikacija v oblaku na tem telefonu sinhronizira (Nextcloud, Syncthing in druge), pomnilniška kartica, katera koli mapa, ki jo ponudi izbirnik. Kopije pristanejo v catlog-backups v njej.",
+  "backupsFolderPick": "Kopiraj tudi v mapo…",
+  "backupsFolderIs": "Kopira se tudi v {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Nehaj kopirati tja",
+  "remindFailed": "Obvestila na tem telefonu ne delujejo: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopiraj besedilo",
+  "colWhen": "Kdaj",
+  "colValue": "Vrednost",
+  "colWho": "Kdo"
 }

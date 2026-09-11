@@ -500,6 +500,13 @@ void main() {
     expect(find.textContaining('not available'), findsOneWidget);
     await tester.enterText(find.byType(TextField), 'typed by hand');
     await next(tester);
+    // The Looks chips sit above the remarks now: scroll until it shows.
+    await tester.dragUntilVisible(
+      find.widgetWithText(TextField, 'typed by hand'),
+      find.byType(ListView).last,
+      const Offset(0, -300),
+    );
+    await tester.pumpAndSettle();
     expect(find.widgetWithText(TextField, 'typed by hand'), findsOneWidget);
     await save(tester);
     expect(

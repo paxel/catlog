@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'fields.dart';
+import 'looks.dart';
 import 'store.dart';
 
 /// 75% of lost cats are found within 500 m of home (Huang et al.,
@@ -8,8 +9,9 @@ import 'store.dart';
 /// search (#33). No knob.
 const strayAreaRadiusMeters = 500.0;
 
-/// Why two cats might be the same animal.
-enum MatchReason { idExact, geoDate }
+/// Why two cats might be the same animal: the same ID, positions in
+/// one stray area, or Looks that agree (1.2.0, see looks.dart).
+enum MatchReason { idExact, geoDate, looks }
 
 /// A candidate pair, deterministic and offline — confirmation is the
 /// existing Merge, nothing here changes data (#33).
@@ -21,11 +23,16 @@ class MatchCandidate {
   /// The ID field both share, for [MatchReason.idExact].
   final FieldDef? idField;
 
-  /// Meters between the closest positions, for [MatchReason.geoDate].
+  /// Meters between the closest positions, for [MatchReason.geoDate];
+  /// between the current positions, when both have one, for
+  /// [MatchReason.looks].
   final double? distanceMeters;
 
+  /// The groups that agree, gender included, for [MatchReason.looks].
+  final List<String> agreeing;
+
   const MatchCandidate(this.a, this.b, this.reason,
-      {this.idField, this.distanceMeters});
+      {this.idField, this.distanceMeters, this.agreeing = const []});
 }
 
 /// Great-circle distance in meters.
@@ -148,5 +155,14 @@ List<MatchCandidate> matchCandidates(CatalogStore store) {
     }
   }
   geo.sort((x, y) => x.distanceMeters!.compareTo(y.distanceMeters!));
-  return [...result, ...geo];
+
+  // Looks last: already ranked, a pair the ID or the map found is not
+  // listed twice.
+  final looks = [
+    for (final m in looksCandidates(store))
+      if (!seen.contains(_pairKey(m.a, m.b)))
+        MatchCandidate(m.a, m.b, MatchReason.looks,
+            distanceMeters: m.distanceMeters, agreeing: m.agreeing),
+  ];
+  return [...result, ...geo, ...looks];
 }

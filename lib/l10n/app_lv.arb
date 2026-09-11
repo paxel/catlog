@@ -52,6 +52,9 @@
   "card": "Kartīte",
   "cardTitle": "Kartīte — {name}",
   "shareAsImage": "Kopīgot kā attēlu",
+  "sortOldestFirst": "Vecākie vispirms",
+  "sortNewestFirst": "Jaunākie vispirms",
+  "shareAsText": "Kopīgot kā tekstu",
   "shareAsPdf": "Kopīgot kā PDF",
   "print": "Drukāt",
   "renameCat": "Pārdēvēt kaķi",
@@ -80,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Bez mājsaimniecības — klaiņojošs / aizbēga",
   "timelineOf": "Laika skala — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Atsaukt šo izmaiņu",
-  "revertSubtitle": "Atjauno iepriekšējo vērtību kā jaunu ierakstu — vēsture saglabā abus.",
   "fieldCleared": "{field} iztukšots",
   "fieldBackTo": "{field} atgriezts uz \"{value}\"",
   "leftStray": "Aizgāja — klaiņojošs",
@@ -128,10 +129,13 @@
   "syncFailed": "Sinhronizācija neizdevās: {error}",
   "lastSyncWith": "Pēdējā sinhronizācija ar {peer}: {time}",
   "sharedFolder": "Koplietota mape",
-  "sharedFolderExplainer": "Abas ierīces izmanto vienu mapi (piem., Dropbox vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.",
+  "sharedFolderExplainer": "Abas ierīces izmanto vienu mapi (piem., Nextcloud vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.",
   "noFolderChosenYet": "Mape vēl nav izvēlēta",
   "choose": "Izvēlēties…",
   "syncFolderNow": "Sinhronizēt mapi tagad",
+  "folderCatalogHint": "Tajā šis katalogs izmanto mapi „{name}”, tāpēc viena koplietota mape var nest visus tavus katalogus.",
+  "useSameFolder": "Izmantot to pašu mapi kā citi katalogi",
+  "folderHint": "Der jebkura mape, ko divas ierīces tur vienādu: mākoņa disks vai Syncthing mapei, kas paliek jūsu tālruņos. Syncthing ir bez maksas: instalē to katrā tālrunī, koplieto vienu mapi starp tiem un izvēlies to mapi šeit katrā ierīcē.",
   "folderSynced": "Mape sinhronizēta: {result}",
   "folderSyncFailed": "Mapes sinhronizācija neizdevās: {error}",
   "recordSightingHere": "Ierakstīt novērojumu šeit:",
@@ -141,6 +145,8 @@
   "trailOfPlace": "Ceļš: {name} ({count} pozīcijas)",
   "conflictOn": "Konflikts — {field}",
   "conflictBody": "Mainīts divās vietās vienlaikus. Izvēlieties, kas ir patiesība:",
+  "privateMarker": "{field} (privāts)",
+  "conflictSame": "Abas izmaiņas saka to pašu: {value}. Nav ko izvēlēties; Atrisināt noņem atzīmi.",
   "mergeThisInto": "Apvienot šo ierakstu ({kind}) ar…",
   "noOtherToMergeInto": "Nav cita ieraksta ({kind}), ar ko apvienot.",
   "mergeIntoQuestion": "Apvienot ar {name}?",
@@ -181,6 +187,36 @@
   "breedPersian": "Persu",
   "breedBengal": "Bengālijas",
   "breedSphynx": "Sfinkss",
+  "breedAbyssinian": "Abesīnijas",
+  "breedAmericanShorthair": "Amerikas īsspalvainais",
+  "breedBalinese": "Bali",
+  "breedBirman": "Birmas",
+  "breedBombay": "Bombejas",
+  "breedBurmese": "Birmas īsspalvainais",
+  "breedBurmilla": "Burmilla",
+  "breedBritishLonghair": "Britu garspalvainais",
+  "breedChartreux": "Šartrēzs",
+  "breedCornishRex": "Kornvolas rekss",
+  "breedDevonRex": "Devonas rekss",
+  "breedEgyptianMau": "Ēģiptes mau",
+  "breedExoticShorthair": "Eksotiskais īsspalvainais",
+  "breedHimalayan": "Himalaju",
+  "breedKorat": "Korats",
+  "breedManx": "Menksa",
+  "breedMunchkin": "Mančkins",
+  "breedOcicat": "Ocikets",
+  "breedOrientalShorthair": "Austrumu īsspalvainais",
+  "breedRagamuffin": "Ragamafins",
+  "breedRussianBlue": "Krievu zilais",
+  "breedSavannah": "Savanna",
+  "breedScottishFold": "Skotu nokarausainais",
+  "breedSelkirkRex": "Selkirka rekss",
+  "breedSiberian": "Sibīrijas kaķis",
+  "breedSnowshoe": "Snowshoe",
+  "breedSomali": "Somālijas",
+  "breedTonkinese": "Tonkinas",
+  "breedTurkishAngora": "Turku angora",
+  "breedTurkishVan": "Turku vans",
   "ownValue": "Sava vērtība",
   "locationDeniedForever": "Piekļuve atrašanās vietai ir bloķēta. Atļaujiet to sistēmas iestatījumos, lai izmantotu Stray Cam.",
   "locationServiceOff": "Šajā ierīcē atrašanās vieta ir izslēgta. Ieslēdziet to iestatījumos un mēģiniet vēlreiz.",
@@ -314,14 +350,14 @@
   "helpMapNeutral": "Visi mājdzīvnieki un vietas ar atrašanās vietu. Meklēšana atrod mājdzīvniekus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša mājdzīvnieka sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu. Katrs vietas lauks kartē ir spraudīte; pieskarieties spraudītei, lai redzētu tās ceļu.",
   "helpCard": "Kaķa izdrukājamā kartīte: augšā ar žetoniem izvēlies, kas uz tās būs, tad kopīgo to kā attēlu vai PDF. Numurus var drukāt kā QR vai svītrkodu, un atrašanās vieta kļūst par QR, kas atver karti, plus īss Plus Code.",
   "helpCardNeutral": "Mājdzīvnieka izdrukājamā kartīte: augšā ar žetoniem izvēlies, kas uz tās būs, tad kopīgo to kā attēlu vai PDF. Numurus var drukāt kā QR vai svītrkodu, un atrašanās vieta kļūst par QR, kas atver karti, plus īss Plus Code.",
-  "helpSync": "Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit.",
+  "helpSync": "Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit. Katrs katalogs paraksta rakstīto ar savu atslēgu; partneri redz atslēgas kodu blakus tavam vārdam. Partnera pirmā atslēga no faila tiek pieņemta uzticoties un skaitās apstiprināta, kad sinhronizējat klātienē. Ieraksti ar zināmu vārdu bez pareiza paraksta tiek noraidīti un uzskaitīti ierašanās lapā.",
   "helpFields": "Lauki, ko izmanto tavs katalogs. Pārdēvē tos, maini izvēles lauka iespējas vai izveido savus. Identifikatora lauks var norādīt uz pakalpojumu (reģistru), tad numurs pie kaķa kļūst piespiežams.",
   "helpFieldsNeutral": "Lauki, ko izmanto tavs katalogs. Pārdēvē tos, maini izvēles lauka iespējas vai izveido savus. Identifikatora lauks var norādīt uz pakalpojumu (reģistru), tad numurs pie mājdzīvnieka kļūst piespiežams.",
-  "helpTimeline": "Katra jebkad veiktā izmaiņa, jaunākā augšā: kurš ko, kad un uz kādu vērtību mainīja. Jebkuru ierakstu var atsaukt — tas raksta jaunu ierakstu, nekas nekad netiek dzēsts.",
+  "helpTimeline": "Katra izmaiņa, jaunākā pirmā: kas, kad un uz kādu vērtību. Pieskarieties ierakstam, lai to labotu, turiet, lai noņemtu vai atjaunotu; paslēpts ieraksts paliek žurnālā un tiek rādīts pēc pieprasījuma.",
   "helpDuplicates": "Kaķi vai kolonijas, kas šķiet esam divreiz — vienādi numuri vai ļoti līdzīgi vārdi ar saskanīgām detaļām. Pieskaries pārim, lai apvienotu; apvienošanu nevar atsaukt, tāpēc vispirms tiek jautāts.",
   "helpDuplicatesNeutral": "Mājdzīvnieki vai mājsaimniecības, kas šķiet esam divreiz — vienādi numuri vai ļoti līdzīgi vārdi ar saskanīgām detaļām. Pieskaries pārim, lai apvienotu; apvienošanu nevar atsaukt, tāpēc vispirms tiek jautāts.",
-  "helpMatches": "Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai.",
-  "helpMatchesNeutral": "Mājdzīvnieki, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša mājdzīvnieka meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo mājdzīvnieku salīdzināšanai.",
+  "helpMatches": "Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai. Sarakstā ir arī pāri, kuru izskats sakrīt vismaz divās pazīmēs bez pretrunām; mikroshēmas rāda kurās. „Nav tas pats” paslēpj pāri šajā tālrunī, līdz mainās kāda dzīvnieka izskats.",
+  "helpMatchesNeutral": "Mājdzīvnieki, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša mājdzīvnieka meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo mājdzīvnieku salīdzināšanai. Sarakstā ir arī pāri, kuru izskats sakrīt vismaz divās pazīmēs bez pretrunām; mikroshēmas rāda kurās. „Nav tas pats” paslēpj pāri šajā tālrunī, līdz mainās kāda dzīvnieka izskats.",
   "helpFlier": "Nofotografēts sludinājums kļūst par kaķi un tā īpašnieku. Soli pa solim: kaķa dati, īpašnieka kontakts, sejas izgriešana profila attēlam, reģistru numuri no sludinājuma un beigās pārbaude. Viss ir tikai ieteikumi — izlabo to, ko kamera nolasīja nepareizi.",
   "helpFlierNeutral": "Nofotografēts sludinājums kļūst par mājdzīvnieku un tā īpašnieku. Soli pa solim: mājdzīvnieka dati, īpašnieka kontakts, sejas izgriešana profila attēlam, reģistru numuri no sludinājuma un beigās pārbaude. Viss ir tikai ieteikumi — izlabo to, ko kamera nolasīja nepareizi.",
   "archiveTitle": "Arhīvs",
@@ -399,11 +435,109 @@
   "rangeAll": "Viss",
   "rangeCustom": "Pielāgots…",
   "changeSince": "{delta} kopš {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Kā tavā reģionā",
   "unitsMetric": "Metriskā (kg, cm, ml, °C)",
   "unitsImperial": "Imperiālā (lb, in, fl oz, °F)",
   "starterWeight": "Svars",
+  "starterLooks": "Izskats",
+  "looksGroupSize": "Izmērs",
+  "looksGroupColours": "Krāsas",
+  "looksGroupPattern": "Raksts",
+  "looksGroupFur": "Kažoks",
+  "looksGroupTail": "Aste",
+  "looksGroupEars": "Ausis",
+  "looksGroupMarks": "Pazīmes",
+  "looksGroupCrest": "Cekuls",
+  "looksGroupBeak": "Knābis",
+  "looksGroupRing": "Gredzens",
+  "looksValueSmall": "Mazs",
+  "looksValueMedium": "Vidējs",
+  "looksValueLarge": "Liels",
+  "looksValueBlack": "Melna",
+  "looksValueWhite": "Balta",
+  "looksValueGrey": "Pelēka",
+  "looksValueBrown": "Brūna",
+  "looksValueGinger": "Ruda",
+  "looksValueCream": "Krēmkrāsa",
+  "looksValueGolden": "Zeltaina",
+  "looksValueTan": "Gaiši brūna",
+  "looksValueGreen": "Zaļa",
+  "looksValueBlue": "Zila",
+  "looksValueYellow": "Dzeltena",
+  "looksValueRed": "Sarkana",
+  "looksValueOrange": "Oranža",
+  "looksValuePink": "Rozā",
+  "looksValueWhiteBib": "Balts krūšu laukums",
+  "looksValueWhitePaws": "Baltas ķepas",
+  "looksValueWhiteTailTip": "Balts astes gals",
+  "looksValueBlaze": "Zvaigzne",
+  "looksValueMask": "Maska",
+  "looksValueSpots": "Plankumiņi",
+  "looksValuePatches": "Lāsumi",
+  "looksValueStripes": "Svītras",
+  "looksValueScar": "Rēta",
+  "looksValueNotchedEar": "Iegriezta auss",
+  "looksValueEarTip": "Auss gals",
+  "looksValueCollar": "Kaklasiksna",
+  "looksValueShort": "Īss",
+  "looksValueLong": "Garš",
+  "looksValueHairless": "Bez spalvas",
+  "looksValueBobtail": "Strupa aste",
+  "looksValueNone": "Nav",
+  "looksValueCurled": "Saritināta",
+  "looksValueUpright": "Stāvas",
+  "looksValueFloppy": "Nokarenas",
+  "looksValueFolded": "Salocītas",
+  "looksValueRounded": "Apaļas",
+  "looksValueSolid": "Vienkrāsains",
+  "looksValueTabby": "Svītrains",
+  "looksValueTortoiseshell": "Bruņurupuča",
+  "looksValueCalico": "Kaliko",
+  "looksValueColourpoint": "Colourpoint",
+  "looksValueBicolour": "Divkrāsains",
+  "looksValueTuxedo": "Smokings",
+  "looksValueBrindle": "Tīģerains",
+  "looksValueMerle": "Merle",
+  "looksValueSpotted": "Plankumains",
+  "looksValuePatched": "Lāsumains",
+  "looksValueTricolour": "Trīskrāsains",
+  "looksValueSable": "Sabuļa",
+  "looksGroupEyes": "Acis",
+  "looksGroupFeatures": "Īpatnības",
+  "looksValueAmber": "Dzintara",
+  "looksValueCopper": "Vara",
+  "looksValueOddEyed": "Dažādu krāsu",
+  "looksValueChocolate": "Šokolādes",
+  "looksValueLilac": "Ceriņu",
+  "looksValueSilver": "Sudraba",
+  "looksValueSmoke": "Dūmu",
+  "looksValueTicked": "Tikots",
+  "looksValueVan": "Van",
+  "looksValueCurly": "Cirtains",
+  "looksValueWiry": "Raupjš",
+  "looksValueKinked": "Lauzta",
+  "looksValueCropped": "Kupētas",
+  "looksValueTippedEar": "Apgriezta auss",
+  "looksValueEarTattoo": "Auss tetovējums",
+  "looksValueMissingEar": "Trūkst auss",
+  "looksValueMissingEye": "Trūkst acs",
+  "looksValueCloudyEye": "Duļķaina acs",
+  "looksValueMissingFrontLeg": "Trūkst priekškājas",
+  "looksValueMissingHindLeg": "Trūkst pakaļkājas",
+  "looksValueNoTeeth": "Bez zobiem",
+  "looksValueExtraToes": "Papildu pirksti",
+  "rejectMatch": "Nav tas pats",
+  "traitsAgree": "{count, plural, zero{{count} pazīmju sakrīt} one{{count} pazīme sakrīt} other{{count} pazīmes sakrīt}}",
   "systemDefault": "Sistēmas noklusējums",
   "iosLocalNetworkHint": "Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz.",
   "markPrivate": "Atzīmēt kā privātu",
@@ -432,6 +566,8 @@
   "otherOption": "Cits…",
   "celebrationsToggle": "Svinēt adopcijas",
   "celebrationsSubtitle": "Konfeti un gaviles, kad kaķis pārceļas uz mājām",
+  "cheerToggle": "Gaviļu skaņa",
+  "cheerSubtitle": "Īsas gaviles ar konfetī, katru reizi citādas",
   "celebrationsSubtitleNeutral": "Konfeti un gaviles, kad mājdzīvnieks pārceļas uz mājām",
   "onMapLabel": "Kartē",
   "showOnMap": "Rādīt kartē",
@@ -445,7 +581,19 @@
   "authorsSection": "Kurš rakstīja šajā katalogā",
   "hardDeleteAction": "Dzēst visu no šī autora",
   "hardDeleteWarning": "Noņem visus {name} ierakstus un fotoattēlus no šīs ierīces. Citas ierīces patur savus. Nevar atsaukt.",
-  "hardDeleteWarningDevice": "Izņem no šī kataloga katru ierakstu un fotoattēlu, ko {name} rakstīja ierīcē {device}. Citas ierīces patur savas kopijas. Nevar atsaukt.",
+  "yourKey": "Tava atslēga",
+  "yourTitle": "Tavs tituls",
+  "titleNone": "Bez titula",
+  "keyLine": "atslēga {code}",
+  "keyVerified": "apstiprināta klātienē",
+  "keyFromFile": "no faila, vēl nav apstiprināta",
+  "keyUnsigned": "atslēgas vēl nav, ieraksti neparakstīti",
+  "summaryRefused": "Noraidīts",
+  "refusedEntries": "{count, plural, zero{{count} ierakstu noraidīti} one{{count} ieraksts noraidīts} other{{count} ieraksti noraidīti}}: nav parakstīti ar {name} zināmo atslēgu",
+  "newKeyCallsItself": "Jauna atslēga {code} sauc sevi par {name}. Pārjautā cilvēkam, pirms uzticies.",
+  "keyChangedRefused": "{name} piedāvāja citu atslēgu nekā šeit zināmo. Zināmā paliek; jaunā netika pieņemta.",
+  "metaNewKey": "Jauna atslēga: {name} · {code} ({how})",
+  "hardDeleteWarningKey": "Noņem no šī kataloga katru ierakstu un foto, ko {name} rakstīja ar atslēgu {key}. Citas ierīces savus patur. Nevar atsaukt.",
   "typeToConfirm": "Apstiprināšanai ierakstiet {name}",
   "alsoBan": "Arī aizliegt — nekad vairs nepieņemt datus",
   "bansSection": "Aizliegumi",
@@ -585,13 +733,19 @@
   "restoreDone": "{count, plural, =0{Nekas nav atjaunots.} zero{Atjaunoti {count} katalogi.} one{Atjaunots {count} katalogs.} other{Atjaunoti {count} katalogi.}}",
   "helpCatalogs": "Katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskarieties katalogam, lai uz to pārslēgtos. Zobrats pie kataloga atver tā iestatījumus: nosaukums, kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs, atgriešanās, dzēšana. Jūsu vārds, valoda un jau redzētie padomi ir kopīgi visiem.",
   "helpCatalogsNeutral": "Katalogs ir pasaule pati par sevi: savi dzīvnieki, mājsaimniecības, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskarieties katalogam, lai uz to pārslēgtos. Zobrats pie kataloga atver tā iestatījumus: nosaukums, kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs, atgriešanās, dzēšana. Jūsu vārds, valoda un jau redzētie padomi ir kopīgi visiem.",
-  "helpCatalogSettings": "Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā.",
+  "helpCatalogSettings": "Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā. Tava atslēga ir kods, ko partneri redz blakus tavam vārdam; tā pieder šim katalogam.",
   "spotHomeCatalog": "Šis ir katalogs, kurā esi. Pieskaries nosaukumam, lai pārslēgtu vai izveidotu jaunu.",
   "deleteCatalog": "Dzēst katalogu",
   "catalogSettings": "Kataloga iestatījumi",
   "deleteCatalogBody": "Viss katalogā {name} pazūd: kaķi, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež.",
   "deleteCatalogBodyNeutral": "Viss katalogā {name} pazūd: mājdzīvnieki, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -709,9 +863,21 @@
   "agendaEmptyNeutral": "Nav ieplānotu vizīšu. Jaunas plāno šeit ar plusu vai mājdzīvnieka vai mājsaimniecības lapā.",
   "dueToday": "šodien",
   "dueInDays": "{count, plural, zero{pēc {count} dienām} one{pēc {count} dienas} other{pēc {count} dienām}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, zero{nokavēts par {count} dienām} one{nokavēts par {count} dienu} other{nokavēts par {count} dienām}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Izdarīts",
   "repeatTitle": "Atkal pēc…",
   "noRepeatLabel": "Bez atkārtošanas",
@@ -720,15 +886,33 @@
   "unitMonths": "mēnešiem",
   "unitYears": "gadiem",
   "ageYears": "{years} g.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mēn.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Mainīt datumu",
   "removeReminderLabel": "Noņemt atgādinājumu",
   "exportIcs": "Eksportēt kalendāra failu",
   "resyncCalendar": "Sinhronizēt kalendāru vēlreiz",
   "icsSavedTo": "Kalendāra fails saglabāts {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Atspoguļot ierīces kalendārā",
   "calendarMirrorSubtitle": "Vizītes kalendārā parādās kā visas dienas notikumi. cat(a)log tās tur atjaunina katrā palaišanā un pēc katras izmaiņas. Vizīšu atgādinājumus pārvaldi kalendārā.",
   "syncPeerOlder": "Otrā ierīcē ir vecāks cat(a)log bez atgādinājumiem. Atjaunini cat(a)log tur un sinhronizē vēlreiz.",
@@ -751,11 +935,18 @@
   "spotHomeAgenda": "Atgādinājumi: ieplānoto vizīšu saraksts — veterinārārsts, zāles, pārbaudes.",
   "spotAgendaAdd": "Ieplānot jaunu vizīti.",
   "spotAgendaCalendar": "Šeit ieslēdz cat(a)log vizīšu atspoguļošanu izvēlētā kalendārā.",
-  "helpAgenda": "Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem kaķiem ir viens pieraksts: atzīmē kaķus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri kaķi tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti.",
-  "helpAgendaNeutral": "Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver mājdzīvnieku vai mājsaimniecību. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem mājdzīvniekiem ir viens pieraksts: atzīmē mājdzīvniekus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri mājdzīvnieki tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti.",
+  "spotAgendaToday": "Šodienas pienākumi: atzīmē, kad izdarīts. Punkti rāda pēdējās septiņas dienas.",
+  "helpAgenda": "Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem kaķiem ir viens pieraksts: atzīmē kaķus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri kaķi tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti. Pienākumi ir atkārtoti darbi: barošana, kaste vai zāles. Tie stāv zem Šodien ar atzīmi, sēriju un pēdējām septiņām dienām kā punktiem; Drīzumā rāda nākamo nedēļu bez ikdienas. Pienākums var atgādināt ar paziņojumu izvēlētajā laikā. Kauss atver sasniegumus.",
+  "helpAgendaNeutral": "Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver mājdzīvnieku vai mājsaimniecību. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem mājdzīvniekiem ir viens pieraksts: atzīmē mājdzīvniekus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri mājdzīvnieki tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti. Pienākumi ir atkārtoti darbi: barošana, kaste vai zāles. Tie stāv zem Šodien ar atzīmi, sēriju un pēdējām septiņām dienām kā punktiem; Drīzumā rāda nākamo nedēļu bez ikdienas. Pienākums var atgādināt ar paziņojumu izvēlētajā laikā. Kauss atver sasniegumus.",
   "calendarRowOff": "Kalendārs: izslēgts",
   "calendarRowOn": "Kalendārs: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Ieplāno vizīti šim kaķim. Tā rādās atgādinājumos un tur tiek apstiprināta.",
   "spotAddReminderCatNeutral": "Ieplāno vizīti šim mājdzīvniekam. Tā rādās atgādinājumos un tur tiek apstiprināta.",
   "spotAddReminderClowder": "Ieplāno vizīti šim klauderim. Tā rādās atgādinājumos un tur tiek apstiprināta.",
@@ -766,6 +957,76 @@
   "planChooserTitle": "Vizīte vai atgādinājums?",
   "planChooserAppointment": "Vizīte — apmeklējums datumā un laikā, ar piezīmēm",
   "planChooserReminder": "Atgādinājums — vērtība, kurai kādā dienā pienāk termiņš",
+  "planChooserChore": "Pienākums — kas atkārtojas: barošana, pilieni, smilšu kaste",
+  "newChore": "Jauns pienākums",
+  "choreEdit": "Rediģēt pienākumu",
+  "choreTitleLabel": "Ko",
+  "choreRepeatDaily": "Katru dienu",
+  "choreRepeatEvery": "Ik pēc…",
+  "choreRepeatWeekdays": "Nedēļas dienas",
+  "choreEveryDays": "{n, plural, zero{ik pēc {n} dienām} one{katru dienu} other{ik pēc {n} dienām}}",
+  "choreEveryWeeks": "{n, plural, zero{ik pēc {n} nedēļām} one{katru nedēļu} other{ik pēc {n} nedēļām}}",
+  "choreEveryMonths": "{n, plural, zero{ik pēc {n} mēnešiem} one{katru mēnesi} other{ik pēc {n} mēnešiem}}",
+  "choreEveryYears": "{n, plural, zero{ik pēc {n} gadiem} one{katru gadu} other{ik pēc {n} gadiem}}",
+  "choreNoTime": "Jebkurā dienas laikā",
+  "chorePause": "Apturēt",
+  "chorePaused": "Apturēts",
+  "choreResume": "Atsākt",
+  "choreEnd": "Beigt pienākumu",
+  "choreHistory": "Vēsture",
+  "choreDoneAt": "izdarīts {when} · {who}",
+  "choreDoneEarly": "agrāk",
+  "choreDoneLate": "vēlāk",
+  "choreMissed": "Izlaists",
+  "choreStillOpen": "Vēl atvērts",
+  "choreEndConfirm": "Pienākums pazūd no saraksta. Atzīmētais paliek vēsturē.",
+  "todaySection": "Šodien",
+  "upcomingSection": "Drīzumā",
+  "allDoneToday": "Šodien: viss padarīts",
+  "streakDays": "{n, plural, zero{{n} dienu pēc kārtas} one{{n} diena pēc kārtas} other{{n} dienas pēc kārtas}}",
+  "choreDue": "Termiņš {date}",
+  "remindMe": "Atgādināt",
+  "remindNext": "Nākamais atgādinājums: {when}",
+  "remindNone": "Atgādinājums nav plānots: nekas nav priekšā.",
+  "remindPending": "{count, plural, =0{Šajā tālrunī vēl nekas nav ieplānots} one{{count} atgādinājums ieplānots šajā tālrunī} other{{count} atgādinājumi ieplānoti šajā tālrunī}}",
+  "remindTest": "Nosūtīt testa atgādinājumu tagad",
+  "remindLateHint": "Atgādinājumi var pienākt dažas minūtes vēlāk; precīzo brīdi izvēlas tālrunis.",
+  "remindPermissionDenied": "Nav atļaujas paziņojumiem, atgādinājums paliek izslēgts. Atļaujiet tos tālruņa lietotnes iestatījumos un mēģiniet vēlreiz.",
+  "batteryHint": "Ja atgādinājumi nepienāk, tālruņa akumulatora iestatījumos atļaujiet cat(a)log darboties fonā.",
+  "batterySettings": "Akumulatora iestatījumi",
+  "achievementsTitle": "Sasniegumi",
+  "rankServant": "Kalps",
+  "rankButler": "Sulainis",
+  "rankSteward": "Pārvaldnieks",
+  "rankChancellor": "Kanclers",
+  "rankMinister": "Ministrs",
+  "titleWithChore": "{title} ({chore})",
+  "coatCalico": "Kaliko",
+  "coatCheetah": "Gepards",
+  "coatTiger": "Tīģeris",
+  "coatTabby": "Svītrains",
+  "coatPaws": "Ķepas",
+  "coatRosettes": "Rozetes",
+  "coatZebra": "Zebra",
+  "coatSetting": "Kažoks",
+  "coatRandom": "Katru reizi cits",
+  "coatSnowLeopard": "Sniega leopards",
+  "coatSiamese": "Siāmas zīmes",
+  "coatLynx": "Lūsis",
+  "coatTortoiseshell": "Bruņurupuča",
+  "coatUnlocked": "Jauns kažoks: {coat}",
+  "coatUnlockedHow": "Vesels mēnesis pienākumu, visi izdarīti.",
+  "achievementsEmpty": "Vēl nekā. Pienākumi zina ceļu.",
+  "achievementMonth": "Pilns mēnesis",
+  "achievementYear": "Pilns gads",
+  "achievementDecade": "Pilna desmitgade",
+  "achievementCentury": "Pilns gadsimts",
+  "achievementCenturyHint": "Mēs abi būsim ļoti lepni.",
+  "achievementMaster": "{title} meistars",
+  "achievementReached": "{times, plural, zero{Sasniegts {times} reižu} one{Sasniegts {times} reizi} other{Sasniegts {times} reizes}}, pirmoreiz {date}",
+  "achievementNext": "Nākamais pie {n}",
+  "achievementLocked": "Vēl ne",
+  "achievementUnlocked": "Sasniegums: {name}",
   "appointmentTitleLabel": "Kas",
   "notesLabel": "Piezīmes",
   "timeLabel": "Laiks",
@@ -797,7 +1058,13 @@
   "existingClowderNeutral": "Esoša mājsaimniecība",
   "createNewInstead": "Nav — izveidot jaunu",
   "overwritesValue": "Pārraksta pašreizējo vērtību \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Pārtraukt skenēšanu?",
   "abortScanBody": "Nekas netiks saglabāts.",
   "abortScan": "Pārtraukt",
@@ -813,5 +1080,69 @@
   "finishUntickHint": "Noņem atzīmi kaķiem, kuri netika ārstēti; tie paliek plānoti.",
   "finishUntickHintNeutral": "Noņem atzīmi mājdzīvniekiem, kuri netika ārstēti; tie paliek plānoti.",
   "deleteAppointmentGroup": "Dzēst pierakstu visiem {count} kaķiem",
-  "deleteAppointmentGroupNeutral": "Dzēst pierakstu visiem {count} mājdzīvniekiem"
+  "deleteAppointmentGroupNeutral": "Dzēst pierakstu visiem {count} mājdzīvniekiem",
+  "correctThisValue": "Labot šo vērtību",
+  "removeThisValue": "Noņemt šo vērtību",
+  "restoreThisValue": "Atjaunot šo vērtību",
+  "showRemovedValues": "Rādīt noņemtās vērtības",
+  "hideRemovedValues": "Slēpt noņemtās vērtības",
+  "entryRemovedBy": "Noņemts · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Aizstāts ar {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Labojums",
+  "restorePickFolder": "Izvēlēties rezerves kopiju mapi…",
+  "restoreAndroidHint": "Iepriekšējās instalācijas rezerves kopijas ir mapē Documents/catlog (vecākās versijās Downloads/catlog). Izvēlieties šo mapi vienreiz; tās kopijas parādās šeit.",
+  "backupsTitle": "Rezerves kopijas",
+  "backupsSubtitle": "Kur jūsu katalogi ir drošībā",
+  "backupsAndroidSystem": "Google dublē šīs lietotnes katalogus jūsu kontā, bez fotoattēliem. Pēc pārinstalēšanas vai jaunā tālrunī tie atgriežas paši.",
+  "backupsAndroidFiles": "Pilna katra kataloga kopija ar fotoattēliem tiek ierakstīta mapē Documents/catlog ikreiz, kad pēc izmaiņām atstājat lietotni.",
+  "backupsIosSystem": "iCloud dublējums ietver šo lietotni ar tās katalogiem un fotoattēliem, tāpat kā jebkuru citu lietotni šajā iPhone.",
+  "backupsIosFiles": "Pilna katra kataloga kopija atrodas lietotnē Faili sadaļā cat(a)log. No turienes to var aizsūtīt uz iCloud Drive, ar AirDrop vai uz citu tālruni.",
+  "backupsDesktopFiles": "Pilna katra kataloga kopija ar fotoattēliem tiek ierakstīta jūsu Lejupielāžu mapē ikreiz, kad pēc izmaiņām atstājat lietotni.",
+  "backupsLast": "Pēdējā kopija: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Kopija vēl nav ierakstīta.",
+  "backupsNow": "Dublēt tagad",
+  "backupsDone": "Kopija ierakstīta.",
+  "backupsRestoredNote": "Atjaunots no Google dublējuma {date}. Ja vecajā tālrunī vēl darbojas cat(a)log, vienreiz sinhronizējiet no tā un pēc tam tur noņemiet lietotni.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsFolderHint": "Katru kopiju var saņemt arī jūsu izvēlēta mape: tāda, ko šajā tālrunī sinhronizē mākoņa lietotne (Nextcloud, Syncthing un citas), atmiņas karte, jebkura mape, ko piedāvā izvēle. Kopijas nonāk tajā esošajā catlog-backups.",
+  "backupsFolderPick": "Kopēt arī mapē…",
+  "backupsFolderIs": "Kopē arī uz {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Vairs nekopēt turp",
+  "remindFailed": "Paziņojumi šajā tālrunī nedarbojas: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copyText": "Kopēt tekstu",
+  "colWhen": "Kad",
+  "colValue": "Vērtība",
+  "colWho": "Kas"
 }

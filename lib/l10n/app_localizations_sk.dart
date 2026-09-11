@@ -174,6 +174,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get shareAsImage => 'Zdieľať ako obrázok';
 
   @override
+  String get sortOldestFirst => 'Najstaršie prvé';
+
+  @override
+  String get sortNewestFirst => 'Najnovšie prvé';
+
+  @override
+  String get shareAsText => 'Zdieľať ako text';
+
+  @override
   String get shareAsPdf => 'Zdieľať ako PDF';
 
   @override
@@ -556,13 +565,6 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Vrátiť túto zmenu';
-
-  @override
-  String get revertSubtitle =>
-      'Obnoví predchádzajúcu hodnotu ako nový záznam — história zachová oboje.';
-
-  @override
   String fieldCleared(String field) {
     return '$field vyprázdnené';
   }
@@ -732,7 +734,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Obe zariadenia používajú rovnaký priečinok (napr. v Dropboxe alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.';
+      'Obe zariadenia používajú rovnaký priečinok (napr. v Nextcloude alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.';
 
   @override
   String get noFolderChosenYet => 'Zatiaľ nie je vybraný priečinok';
@@ -742,6 +744,18 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Synchronizovať priečinok teraz';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Vnútri tento katalóg používa priečinok „$name“, takže jeden zdieľaný priečinok unesie všetky tvoje katalógy.';
+  }
+
+  @override
+  String get useSameFolder => 'Použiť rovnaký priečinok ako ostatné katalógy';
+
+  @override
+  String get folderHint =>
+      'Stačí akýkoľvek priečinok, ktorý dve zariadenia držia rovnaký: cloudový disk alebo Syncthing pre priečinok, ktorý zostáva vo vašich telefónoch. Syncthing je zadarmo: nainštaluj ho na každý telefón, zdieľaj medzi nimi jeden priečinok a ten tu vyber na každom zariadení.';
 
   @override
   String folderSynced(String result) {
@@ -779,6 +793,16 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get conflictBody =>
       'Zmenené na dvoch miestach naraz. Vyberte, čo platí:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (súkromné)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Obe zmeny hovoria to isté: $value. Niet čo vyberať; Vyriešiť odstráni značku.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -910,6 +934,96 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sphynx';
+
+  @override
+  String get breedAbyssinian => 'Habešská';
+
+  @override
+  String get breedAmericanShorthair => 'Americká krátkosrstá';
+
+  @override
+  String get breedBalinese => 'Balinézska';
+
+  @override
+  String get breedBirman => 'Birma';
+
+  @override
+  String get breedBombay => 'Bombajská';
+
+  @override
+  String get breedBurmese => 'Barmská';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Britská dlhosrstá';
+
+  @override
+  String get breedChartreux => 'Kartuziánska';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egyptská mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotická krátkosrstá';
+
+  @override
+  String get breedHimalayan => 'Himalájska';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Orientálna krátkosrstá';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Ruská modrá';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Škótska klapouchá';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Sibírska';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somálska';
+
+  @override
+  String get breedTonkinese => 'Tonkinská';
+
+  @override
+  String get breedTurkishAngora => 'Turecká angora';
+
+  @override
+  String get breedTurkishVan => 'Turecká van';
 
   @override
   String get starterColor => 'Farba';
@@ -1089,7 +1203,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Ako sa údaje dostanú k ďalším ľuďom: spojiť sa osobne, použiť priečinok, ktorý vidia obe zariadenia, alebo poslať súbor cez messenger. Vždy rozhoduješ ty, čo odíde — a prijaté súbory .catsync otvoríš tiež tu.';
+      'Ako sa údaje dostanú k ďalším ľuďom: spojiť sa osobne, použiť priečinok, ktorý vidia obe zariadenia, alebo poslať súbor cez messenger. Vždy rozhoduješ ty, čo odíde — a prijaté súbory .catsync otvoríš tiež tu. Každý katalóg podpisuje, čo zapíše, vlastným kľúčom; partneri vidia kód kľúča vedľa tvojho mena. Prvý kľúč partnera sa zo súboru prijme na dôveru a platí za overený, len čo synchronizujete osobne. Záznamy pod známym menom bez správneho podpisu sa odmietnu a vypíšu na stránke príchodu.';
 
   @override
   String get helpFields =>
@@ -1101,7 +1215,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Každá kedy vykonaná zmena, najnovšia hore: kto čo kedy a na akú hodnotu zmenil. Každý záznam sa dá vrátiť — vznikne tým nový záznam, nič sa nikdy nemaže.';
+      'Každá zmena, najnovšia prvá: kto, kedy a na akú hodnotu. Ťuknutím záznam opravíte, podržaním odstránite alebo obnovíte; skrytý záznam ostáva v protokole a zobrazí sa na požiadanie.';
 
   @override
   String get helpDuplicates =>
@@ -1113,11 +1227,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie.';
+      'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie. V zozname sú aj dvojice, ktorých vzhľad súhlasí aspoň v dvoch znakoch bez rozporu; štítky ukazujú v ktorých. „Nie je to isté“ dvojicu na tomto telefóne skryje, kým sa vzhľad jedného zo zvierat nezmení.';
 
   @override
   String get helpMatchesNeutral =>
-      'Miláčikovia, ktorí môžu byť to isté zviera: rovnaké číslo alebo túlavé zviera videné v oblasti hľadania nezvestného miláčika. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvého miláčika na porovnanie.';
+      'Miláčikovia, ktorí môžu byť to isté zviera: rovnaké číslo alebo túlavé zviera videné v oblasti hľadania nezvestného miláčika. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvého miláčika na porovnanie. V zozname sú aj dvojice, ktorých vzhľad súhlasí aspoň v dvoch znakoch bez rozporu; štítky ukazujú v ktorých. „Nie je to isté“ dvojicu na tomto telefóne skryje, kým sa vzhľad jedného zo zvierat nezmení.';
 
   @override
   String get helpFlier =>
@@ -1406,6 +1520,282 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterWeight => 'Hmotnosť';
 
   @override
+  String get starterLooks => 'Vzhľad';
+
+  @override
+  String get looksGroupSize => 'Veľkosť';
+
+  @override
+  String get looksGroupColours => 'Farby';
+
+  @override
+  String get looksGroupPattern => 'Vzor';
+
+  @override
+  String get looksGroupFur => 'Srsť';
+
+  @override
+  String get looksGroupTail => 'Chvost';
+
+  @override
+  String get looksGroupEars => 'Uši';
+
+  @override
+  String get looksGroupMarks => 'Znaky';
+
+  @override
+  String get looksGroupCrest => 'Chochlík';
+
+  @override
+  String get looksGroupBeak => 'Zobák';
+
+  @override
+  String get looksGroupRing => 'Krúžok';
+
+  @override
+  String get looksValueSmall => 'Malý';
+
+  @override
+  String get looksValueMedium => 'Stredný';
+
+  @override
+  String get looksValueLarge => 'Veľký';
+
+  @override
+  String get looksValueBlack => 'Čierna';
+
+  @override
+  String get looksValueWhite => 'Biela';
+
+  @override
+  String get looksValueGrey => 'Sivá';
+
+  @override
+  String get looksValueBrown => 'Hnedá';
+
+  @override
+  String get looksValueGinger => 'Ryšavá';
+
+  @override
+  String get looksValueCream => 'Krémová';
+
+  @override
+  String get looksValueGolden => 'Zlatá';
+
+  @override
+  String get looksValueTan => 'Plavá';
+
+  @override
+  String get looksValueGreen => 'Zelená';
+
+  @override
+  String get looksValueBlue => 'Modrá';
+
+  @override
+  String get looksValueYellow => 'Žltá';
+
+  @override
+  String get looksValueRed => 'Červená';
+
+  @override
+  String get looksValueOrange => 'Oranžová';
+
+  @override
+  String get looksValuePink => 'Ružová';
+
+  @override
+  String get looksValueWhiteBib => 'Biely náprsník';
+
+  @override
+  String get looksValueWhitePaws => 'Biele labky';
+
+  @override
+  String get looksValueWhiteTailTip => 'Biela špička chvosta';
+
+  @override
+  String get looksValueBlaze => 'Lysina';
+
+  @override
+  String get looksValueMask => 'Maska';
+
+  @override
+  String get looksValueSpots => 'Škvrnky';
+
+  @override
+  String get looksValuePatches => 'Fľaky';
+
+  @override
+  String get looksValueStripes => 'Pruhy';
+
+  @override
+  String get looksValueScar => 'Jazva';
+
+  @override
+  String get looksValueNotchedEar => 'Narezané ucho';
+
+  @override
+  String get looksValueEarTip => 'Špička ucha';
+
+  @override
+  String get looksValueCollar => 'Obojok';
+
+  @override
+  String get looksValueShort => 'Krátka';
+
+  @override
+  String get looksValueLong => 'Dlhá';
+
+  @override
+  String get looksValueHairless => 'Bez srsti';
+
+  @override
+  String get looksValueBobtail => 'Krátky chvost';
+
+  @override
+  String get looksValueNone => 'Žiadny';
+
+  @override
+  String get looksValueCurled => 'Zatočený';
+
+  @override
+  String get looksValueUpright => 'Vzpriamené';
+
+  @override
+  String get looksValueFloppy => 'Ovisnuté';
+
+  @override
+  String get looksValueFolded => 'Zložené';
+
+  @override
+  String get looksValueRounded => 'Zaoblené';
+
+  @override
+  String get looksValueSolid => 'Jednofarebný';
+
+  @override
+  String get looksValueTabby => 'Mourovatý';
+
+  @override
+  String get looksValueTortoiseshell => 'Korytnačinový';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dvojfarebný';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Žíhaný';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Bodkovaný';
+
+  @override
+  String get looksValuePatched => 'Strakatý';
+
+  @override
+  String get looksValueTricolour => 'Trojfarebný';
+
+  @override
+  String get looksValueSable => 'Sobolí';
+
+  @override
+  String get looksGroupEyes => 'Oči';
+
+  @override
+  String get looksGroupFeatures => 'Zvláštnosti';
+
+  @override
+  String get looksValueAmber => 'Jantárové';
+
+  @override
+  String get looksValueCopper => 'Medené';
+
+  @override
+  String get looksValueOddEyed => 'Rôznofarebné';
+
+  @override
+  String get looksValueChocolate => 'Čokoládová';
+
+  @override
+  String get looksValueLilac => 'Lilová';
+
+  @override
+  String get looksValueSilver => 'Strieborná';
+
+  @override
+  String get looksValueSmoke => 'Dymová';
+
+  @override
+  String get looksValueTicked => 'Tikovaná';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kučeravá';
+
+  @override
+  String get looksValueWiry => 'Drsná';
+
+  @override
+  String get looksValueKinked => 'Zalomený';
+
+  @override
+  String get looksValueCropped => 'Kupírované';
+
+  @override
+  String get looksValueTippedEar => 'Zastrihnuté ucho';
+
+  @override
+  String get looksValueEarTattoo => 'Tetovanie v uchu';
+
+  @override
+  String get looksValueMissingEar => 'Chýba ucho';
+
+  @override
+  String get looksValueMissingEye => 'Chýba oko';
+
+  @override
+  String get looksValueCloudyEye => 'Zakalené oko';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Chýba predná noha';
+
+  @override
+  String get looksValueMissingHindLeg => 'Chýba zadná noha';
+
+  @override
+  String get looksValueNoTeeth => 'Bez zubov';
+
+  @override
+  String get looksValueExtraToes => 'Nadbytočné prsty';
+
+  @override
+  String get rejectMatch => 'Nie je to isté';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count znakov súhlasí',
+      few: '$count znaky súhlasia',
+      one: '1 znak súhlasí',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Predvolený systém';
 
   @override
@@ -1486,6 +1876,12 @@ class AppLocalizationsSk extends AppLocalizations {
       'Konfety a jasot, keď sa mačka sťahuje do svojho domova';
 
   @override
+  String get cheerToggle => 'Zvuk jasotu';
+
+  @override
+  String get cheerSubtitle => 'Krátky jasot ku konfetám, zakaždým iný';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfety a jasot, keď sa miláčik sťahuje do svojho domova';
 
@@ -1528,8 +1924,61 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Odstráni z tohto katalógu každý záznam a fotku, ktoré $name zapísal(a) na zariadení $device. Ostatné zariadenia si svoje kópie nechajú. Nedá sa vrátiť.';
+  String get yourKey => 'Tvoj kľúč';
+
+  @override
+  String get yourTitle => 'Tvoj titul';
+
+  @override
+  String get titleNone => 'Bez titulu';
+
+  @override
+  String keyLine(Object code) {
+    return 'kľúč $code';
+  }
+
+  @override
+  String get keyVerified => 'overený osobne';
+
+  @override
+  String get keyFromFile => 'zo súboru, zatiaľ neoverený';
+
+  @override
+  String get keyUnsigned => 'zatiaľ bez kľúča, záznamy nepodpísané';
+
+  @override
+  String get summaryRefused => 'Odmietnuté';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count záznamov odmietnutých',
+      few: '$count záznamy odmietnuté',
+      one: '1 záznam odmietnutý',
+    );
+    return '$_temp0: nepodpísané kľúčom známym pre $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Nový kľúč $code sa volá $name. Over si to u danej osoby, kým mu uveríš.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name ponúkol iný kľúč než ten tu známy. Známy zostáva, nový nebol prijatý.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nový kľúč: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Odstráni z tohto katalógu každý záznam a fotku, ktoré $name zapísal pod kľúčom $key. Ostatné zariadenia si svoje nechajú. Nedá sa vrátiť.';
   }
 
   @override
@@ -2032,7 +2481,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Všetko, čo patrí len tomuto katalógu: názov, či obsahuje mačky alebo zvieratá, polia, autori a blokovania, archív a návrat späť v čase. Zmeny tu sa týkajú len tohto katalógu — aj toho, v ktorom práve nie ste. Vymazanie najprv zapíše katalóg do súboru.';
+      'Všetko, čo patrí len tomuto katalógu: názov, či obsahuje mačky alebo zvieratá, polia, autori a blokovania, archív a návrat späť v čase. Zmeny tu sa týkajú len tohto katalógu — aj toho, v ktorom práve nie ste. Vymazanie najprv zapíše katalóg do súboru. Tvoj kľúč je kód, ktorý partneri vidia vedľa tvojho mena; patrí k tomuto katalógu.';
 
   @override
   String get spotHomeCatalog =>
@@ -2338,12 +2787,16 @@ class AppLocalizationsSk extends AppLocalizations {
       'Zapni tu zrkadlenie termínov cat(a)logu do vybraného kalendára.';
 
   @override
+  String get spotAgendaToday =>
+      'Dnešné úlohy: zaškrtni, keď je hotovo. Bodky ukazujú posledných sedem dní.';
+
+  @override
   String get helpAgenda =>
-      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí mačku alebo clowder. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými mačkami je jedno stretnutie: zaškrtnite mačky, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktoré mačky boli ošetrené — ostatné odškrtnite, zostanú naplánované.';
+      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí mačku alebo clowder. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými mačkami je jedno stretnutie: zaškrtnite mačky, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktoré mačky boli ošetrené — ostatné odškrtnite, zostanú naplánované. Úlohy sú opakujúce sa povinnosti ako kŕmenie, záchod alebo lieky. Stoja pod Dnes so zaškrtnutím, sériou a poslednými siedmimi dňami ako bodky; Čoskoro ukazuje budúci týždeň bez tých denných. Úloha môže pripomenúť upozornením vo zvolený čas. Pohár otvára úspechy.';
 
   @override
   String get helpAgendaNeutral =>
-      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí miláčika alebo domácnosť. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými miláčikmi je jedno stretnutie: zaškrtnite miláčikov, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktorí miláčikovia boli ošetrení — ostatných odškrtnite, zostanú naplánovaní.';
+      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí miláčika alebo domácnosť. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými miláčikmi je jedno stretnutie: zaškrtnite miláčikov, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktorí miláčikovia boli ošetrení — ostatných odškrtnite, zostanú naplánovaní. Úlohy sú opakujúce sa povinnosti ako kŕmenie, záchod alebo lieky. Stoja pod Dnes so zaškrtnutím, sériou a poslednými siedmimi dňami ako bodky; Čoskoro ukazuje budúci týždeň bez tých denných. Úloha môže pripomenúť upozornením vo zvolený čas. Pohár otvára úspechy.';
 
   @override
   String get calendarRowOff => 'Kalendár: vypnuté';
@@ -2388,6 +2841,301 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Pripomienka — hodnota, ktorá je v určitý deň na rade';
+
+  @override
+  String get planChooserChore =>
+      'Úloha — niečo, čo sa vracia: kŕmenie, kvapky, záchod';
+
+  @override
+  String get newChore => 'Nová úloha';
+
+  @override
+  String get choreEdit => 'Upraviť úlohu';
+
+  @override
+  String get choreTitleLabel => 'Čo';
+
+  @override
+  String get choreRepeatDaily => 'Denne';
+
+  @override
+  String get choreRepeatEvery => 'Každých…';
+
+  @override
+  String get choreRepeatWeekdays => 'Dni v týždni';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'každých $n dní',
+      few: 'každé $n dni',
+      one: 'každý deň',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'každých $n týždňov',
+      few: 'každé $n týždne',
+      one: 'každý týždeň',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'každých $n mesiacov',
+      few: 'každé $n mesiace',
+      one: 'každý mesiac',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'každých $n rokov',
+      few: 'každé $n roky',
+      one: 'každý rok',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Kedykoľvek počas dňa';
+
+  @override
+  String get chorePause => 'Pozastaviť';
+
+  @override
+  String get chorePaused => 'Pozastavené';
+
+  @override
+  String get choreResume => 'Pokračovať';
+
+  @override
+  String get choreEnd => 'Ukončiť úlohu';
+
+  @override
+  String get choreHistory => 'História';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'hotovo $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'skôr';
+
+  @override
+  String get choreDoneLate => 'neskôr';
+
+  @override
+  String get choreMissed => 'Vynechané';
+
+  @override
+  String get choreStillOpen => 'Ešte otvorené';
+
+  @override
+  String get choreEndConfirm =>
+      'Úloha zmizne zo zoznamu. Čo bolo zaškrtnuté, zostáva v histórii.';
+
+  @override
+  String get todaySection => 'Dnes';
+
+  @override
+  String get upcomingSection => 'Čoskoro';
+
+  @override
+  String get allDoneToday => 'Dnes: všetko hotové';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dní v rade',
+      few: '$n dni v rade',
+      one: '1 deň v rade',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Termín $date';
+  }
+
+  @override
+  String get remindMe => 'Pripomenúť';
+
+  @override
+  String remindNext(Object when) {
+    return 'Ďalšia pripomienka: $when';
+  }
+
+  @override
+  String get remindNone => 'Žiadna pripomienka: nič nie je na rade.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pripomienok naplánovaných v tomto telefóne',
+      few: '$count pripomienky naplánované v tomto telefóne',
+      one: '1 pripomienka naplánovaná v tomto telefóne',
+      zero: 'V tomto telefóne ešte nič naplánované',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Poslať teraz skúšobnú pripomienku';
+
+  @override
+  String get remindLateHint =>
+      'Pripomienky môžu prísť o pár minút neskôr; presný okamih volí telefón.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Bez oprávnenia na upozornenia zostáva pripomienka vypnutá. Povoľ ich v nastaveniach aplikácie v telefóne a skús znova.';
+
+  @override
+  String get batteryHint =>
+      'Ak pripomienky nechodia, povoľ cat(a)log bežať na pozadí v nastaveniach batérie telefónu.';
+
+  @override
+  String get batterySettings => 'Nastavenia batérie';
+
+  @override
+  String get achievementsTitle => 'Úspechy';
+
+  @override
+  String get rankServant => 'Sluha';
+
+  @override
+  String get rankButler => 'Komorník';
+
+  @override
+  String get rankSteward => 'Správca';
+
+  @override
+  String get rankChancellor => 'Kancelár';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Mourovatý';
+
+  @override
+  String get coatPaws => 'Labky';
+
+  @override
+  String get coatRosettes => 'Rozety';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Srsť';
+
+  @override
+  String get coatRandom => 'Pri každom spustení iná';
+
+  @override
+  String get coatSnowLeopard => 'Snežný leopard';
+
+  @override
+  String get coatSiamese => 'Siamské znaky';
+
+  @override
+  String get coatLynx => 'Rys';
+
+  @override
+  String get coatTortoiseshell => 'Korytnačina';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Nová srsť: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Celý mesiac úloh, všetko hotové.';
+
+  @override
+  String get achievementsEmpty => 'Zatiaľ nič. Úlohy poznajú cestu.';
+
+  @override
+  String get achievementMonth => 'Celý mesiac';
+
+  @override
+  String get achievementYear => 'Celý rok';
+
+  @override
+  String get achievementDecade => 'Celé desaťročie';
+
+  @override
+  String get achievementCentury => 'Celé storočie';
+
+  @override
+  String get achievementCenturyHint => 'Obaja budeme veľmi hrdí.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Majster: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Dosiahnuté $times-krát',
+      few: 'Dosiahnuté $times-krát',
+      one: 'Dosiahnuté raz',
+    );
+    return '$_temp0, prvýkrát $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Ďalší pri $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ešte nie';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Úspech: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Čo';
@@ -2549,4 +3297,116 @@ class AppLocalizationsSk extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Zmazať stretnutie pre všetkých $count miláčikov';
   }
+
+  @override
+  String get correctThisValue => 'Opraviť túto hodnotu';
+
+  @override
+  String get removeThisValue => 'Odstrániť túto hodnotu';
+
+  @override
+  String get restoreThisValue => 'Obnoviť túto hodnotu';
+
+  @override
+  String get showRemovedValues => 'Zobraziť odstránené hodnoty';
+
+  @override
+  String get hideRemovedValues => 'Skryť odstránené hodnoty';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Odstránené · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Nahradené hodnotou $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Oprava';
+
+  @override
+  String get restorePickFolder => 'Vybrať priečinok záloh…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Zálohy predchádzajúcej inštalácie sú v Documents/catlog (v starších verziách Downloads/catlog). Vyberte tento priečinok raz; jeho zálohy sa zobrazia tu.';
+
+  @override
+  String get backupsTitle => 'Zálohy';
+
+  @override
+  String get backupsSubtitle => 'Kde sú vaše katalógy v bezpečí';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google zálohuje katalógy tejto aplikácie s vaším účtom, bez fotografií. Po preinštalovaní alebo na novom telefóne sa vrátia samy.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Úplná kópia každého katalógu, vrátane fotografií, sa zapíše do Documents/catlog vždy, keď aplikáciu po zmenách opustíte.';
+
+  @override
+  String get backupsIosSystem =>
+      'Záloha iCloud zahŕňa túto aplikáciu s jej katalógmi a fotografiami, ako každú inú aplikáciu na tomto iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Úplná kópia každého katalógu je v aplikácii Súbory pod cat(a)log. Odtiaľ môže ísť na iCloud Drive, cez AirDrop alebo do iného telefónu.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Úplná kópia každého katalógu, vrátane fotografií, sa zapíše do priečinka Stiahnuté vždy, keď aplikáciu po zmenách opustíte.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Posledná kópia: $date';
+  }
+
+  @override
+  String get backupsNever => 'Zatiaľ nebola zapísaná žiadna kópia.';
+
+  @override
+  String get backupsNow => 'Zálohovať teraz';
+
+  @override
+  String get backupsDone => 'Kópia zapísaná.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Obnovené zo zálohy Google $date. Ak starý telefón stále používa cat(a)log, raz z neho synchronizujte a potom tam aplikáciu odstráňte.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Každú kópiu môže dostávať aj priečinok podľa vášho výberu: taký, ktorý cloudová aplikácia na tomto telefóne synchronizuje (Nextcloud, Syncthing a ďalšie), pamäťová karta, akýkoľvek priečinok z výberu. Kópie končia v catlog-backups vnútri.';
+
+  @override
+  String get backupsFolderPick => 'Kopírovať aj do priečinka…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopírované aj do $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Prestať tam kopírovať';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Upozornenia na tomto telefóne nefungujú: $error';
+  }
+
+  @override
+  String get copyText => 'Kopírovať text';
+
+  @override
+  String get colWhen => 'Kedy';
+
+  @override
+  String get colValue => 'Hodnota';
+
+  @override
+  String get colWho => 'Kto';
 }

@@ -174,6 +174,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get shareAsImage => 'Roinn mar íomhá';
 
   @override
+  String get sortOldestFirst => 'Is sine ar dtús';
+
+  @override
+  String get sortNewestFirst => 'Is nuaí ar dtús';
+
+  @override
+  String get shareAsText => 'Roinn mar théacs';
+
+  @override
   String get shareAsPdf => 'Roinn mar PDF';
 
   @override
@@ -560,13 +569,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Cuir an t-athrú seo ar ceal';
-
-  @override
-  String get revertSubtitle =>
-      'Athchóiríonn sé an luach roimhe mar iontráil nua — coimeádann an stair an dá cheann.';
-
-  @override
   String fieldCleared(String field) {
     return '$field glanta';
   }
@@ -737,7 +739,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Úsáideann an dá ghléas an fillteán céanna (m.sh. i Dropbox nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.';
+      'Úsáideann an dá ghléas an fillteán céanna (m.sh. i Nextcloud nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.';
 
   @override
   String get noFolderChosenYet => 'Níl aon fhillteán roghnaithe fós';
@@ -747,6 +749,18 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get syncFolderNow => 'Sioncrónaigh an fillteán anois';
+
+  @override
+  String folderCatalogHint(Object name) {
+    return 'Istigh ann úsáideann an chatalóg seo an fillteán „$name“, mar sin is féidir le fillteán comhroinnte amháin do chuid catalóg ar fad a iompar.';
+  }
+
+  @override
+  String get useSameFolder => 'Úsáid an fillteán céanna leis na catalóga eile';
+
+  @override
+  String get folderHint =>
+      'Déanfaidh fillteán ar bith a choinníonn dhá ghléas mar a chéile cúis: tiomántán néil, nó Syncthing d’fhillteán a fhanann ar bhur nguthán. Tá Syncthing saor in aisce: suiteáil ar gach guthán é, comhroinn fillteán amháin eatarthu agus roghnaigh an fillteán sin anseo ar gach gléas.';
 
   @override
   String folderSynced(String result) {
@@ -784,6 +798,16 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get conflictBody =>
       'Athraithe in dhá áit ag an am céanna. Roghnaigh cad atá fíor:';
+
+  @override
+  String privateMarker(Object field) {
+    return '$field (príobháideach)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Deir an dá athrú an rud céanna: $value. Níl aon rud le roghnú; glanann Réitigh an marc.';
+  }
 
   @override
   String mergeThisInto(String kind) {
@@ -915,6 +939,96 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get breedSphynx => 'Sphynx';
+
+  @override
+  String get breedAbyssinian => 'Aibisíneach';
+
+  @override
+  String get breedAmericanShorthair => 'Meiriceánach gearrfhionnaidh';
+
+  @override
+  String get breedBalinese => 'Bailíoch';
+
+  @override
+  String get breedBirman => 'Biormach';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmach';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Briotanach fadfhionnaidh';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish Rex';
+
+  @override
+  String get breedDevonRex => 'Devon Rex';
+
+  @override
+  String get breedEgyptianMau => 'Mau Éigipteach';
+
+  @override
+  String get breedExoticShorthair => 'Coimhthíoch gearrfhionnaidh';
+
+  @override
+  String get breedHimalayan => 'Himiléach';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manannach';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oirthearach gearrfhionnaidh';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Gorm Rúiseach';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Fillte Albanach';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk Rex';
+
+  @override
+  String get breedSiberian => 'Sibéarach';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somálach';
+
+  @override
+  String get breedTonkinese => 'Tonkinéiseach';
+
+  @override
+  String get breedTurkishAngora => 'Angóra Turcach';
+
+  @override
+  String get breedTurkishVan => 'Van Turcach';
 
   @override
   String get starterColor => 'Dath';
@@ -1094,7 +1208,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Conas a shroicheann sonraí daoine eile: ceangail go díreach, úsáid fillteán a fheiceann an dá ghléas, nó seol comhad trí theachtaireacht. Is tusa a shocraíonn i gcónaí cad a imíonn — agus osclaítear comhaid .catsync a fhaightear anseo freisin.';
+      'Conas a shroicheann sonraí daoine eile: ceangail go díreach, úsáid fillteán a fheiceann an dá ghléas, nó seol comhad trí theachtaireacht. Is tusa a shocraíonn i gcónaí cad a imíonn — agus osclaítear comhaid .catsync a fhaightear anseo freisin. Síníonn gach catalóg a scríobhann sí lena eochair féin; feiceann comhpháirtithe cód na heochrach in aice le d’ainm. Glactar le chéad eochair comhpháirtí ar iontaoibh ó chomhad agus áirítear í mar dheimhnithe nuair a shioncrónaíonn sibh go pearsanta. Diúltaítear d’iontrálacha faoi ainm aitheanta gan an síniú ceart agus liostaítear iad ar leathanach na teachta.';
 
   @override
   String get helpFields =>
@@ -1106,7 +1220,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Gach athrú a rinneadh riamh, an ceann is nuaí ar dtús: cé a d\'athraigh cad é, cathain agus go dtí cén luach. Is féidir aon iontráil a chur ar ais — scríobhann sé sin iontráil nua, ní scriostar aon rud riamh.';
+      'Gach athrú, an ceann is nuaí ar dtús: cé, cathain agus go dtí cén luach. Tapáil iontráil chun í a cheartú, coinnigh í chun í a bhaint nó a athchóiriú; fanann iontráil fholaithe sa loga agus taispeántar í ar iarratas.';
 
   @override
   String get helpDuplicates =>
@@ -1118,11 +1232,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Cait a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh.';
+      'Cait a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh. Liostáiltear freisin péirí a dtagann a gcuma le chéile in dhá thréith nó níos mó gan aon chontrárthacht; taispeánann na sliseanna cé acu. Cuireann „Ní hé an ceann céanna“ péire i bhfolach ar an nguthán seo go dtí go n-athraíonn cuma ceachtar ainmhí.';
 
   @override
   String get helpMatchesNeutral =>
-      'Peataí a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh peata ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad pheata a oscailt le comparáid a dhéanamh.';
+      'Peataí a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh peata ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad pheata a oscailt le comparáid a dhéanamh. Liostáiltear freisin péirí a dtagann a gcuma le chéile in dhá thréith nó níos mó gan aon chontrárthacht; taispeánann na sliseanna cé acu. Cuireann „Ní hé an ceann céanna“ péire i bhfolach ar an nguthán seo go dtí go n-athraíonn cuma ceachtar ainmhí.';
 
   @override
   String get helpFlier =>
@@ -1412,6 +1526,284 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterWeight => 'Meáchan';
 
   @override
+  String get starterLooks => 'Cuma';
+
+  @override
+  String get looksGroupSize => 'Méid';
+
+  @override
+  String get looksGroupColours => 'Dathanna';
+
+  @override
+  String get looksGroupPattern => 'Patrún';
+
+  @override
+  String get looksGroupFur => 'Fionnadh';
+
+  @override
+  String get looksGroupTail => 'Eireaball';
+
+  @override
+  String get looksGroupEars => 'Cluasa';
+
+  @override
+  String get looksGroupMarks => 'Marcanna';
+
+  @override
+  String get looksGroupCrest => 'Cíor';
+
+  @override
+  String get looksGroupBeak => 'Gob';
+
+  @override
+  String get looksGroupRing => 'Fáinne';
+
+  @override
+  String get looksValueSmall => 'Beag';
+
+  @override
+  String get looksValueMedium => 'Meánach';
+
+  @override
+  String get looksValueLarge => 'Mór';
+
+  @override
+  String get looksValueBlack => 'Dubh';
+
+  @override
+  String get looksValueWhite => 'Bán';
+
+  @override
+  String get looksValueGrey => 'Liath';
+
+  @override
+  String get looksValueBrown => 'Donn';
+
+  @override
+  String get looksValueGinger => 'Rua';
+
+  @override
+  String get looksValueCream => 'Uachtar';
+
+  @override
+  String get looksValueGolden => 'Órga';
+
+  @override
+  String get looksValueTan => 'Buíbhán';
+
+  @override
+  String get looksValueGreen => 'Glas';
+
+  @override
+  String get looksValueBlue => 'Gorm';
+
+  @override
+  String get looksValueYellow => 'Buí';
+
+  @override
+  String get looksValueRed => 'Dearg';
+
+  @override
+  String get looksValueOrange => 'Oráiste';
+
+  @override
+  String get looksValuePink => 'Bándearg';
+
+  @override
+  String get looksValueWhiteBib => 'Bibe bán';
+
+  @override
+  String get looksValueWhitePaws => 'Lapaí bána';
+
+  @override
+  String get looksValueWhiteTailTip => 'Barr eireabaill bán';
+
+  @override
+  String get looksValueBlaze => 'Réalta';
+
+  @override
+  String get looksValueMask => 'Masc';
+
+  @override
+  String get looksValueSpots => 'Spotaí';
+
+  @override
+  String get looksValuePatches => 'Paistí';
+
+  @override
+  String get looksValueStripes => 'Straidhpeanna';
+
+  @override
+  String get looksValueScar => 'Colm';
+
+  @override
+  String get looksValueNotchedEar => 'Cluas eangaithe';
+
+  @override
+  String get looksValueEarTip => 'Barr cluaise';
+
+  @override
+  String get looksValueCollar => 'Coiléar';
+
+  @override
+  String get looksValueShort => 'Gearr';
+
+  @override
+  String get looksValueLong => 'Fada';
+
+  @override
+  String get looksValueHairless => 'Gan fionnadh';
+
+  @override
+  String get looksValueBobtail => 'Eireaball gearr';
+
+  @override
+  String get looksValueNone => 'Gan';
+
+  @override
+  String get looksValueCurled => 'Casta';
+
+  @override
+  String get looksValueUpright => 'Ina seasamh';
+
+  @override
+  String get looksValueFloppy => 'Ar sileadh';
+
+  @override
+  String get looksValueFolded => 'Fillte';
+
+  @override
+  String get looksValueRounded => 'Cruinn';
+
+  @override
+  String get looksValueSolid => 'Aondathach';
+
+  @override
+  String get looksValueTabby => 'Tabaí';
+
+  @override
+  String get looksValueTortoiseshell => 'Toirtís';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dédhathach';
+
+  @override
+  String get looksValueTuxedo => 'Tuxedo';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Spotach';
+
+  @override
+  String get looksValuePatched => 'Paisteach';
+
+  @override
+  String get looksValueTricolour => 'Trídhathach';
+
+  @override
+  String get looksValueSable => 'Sable';
+
+  @override
+  String get looksGroupEyes => 'Súile';
+
+  @override
+  String get looksGroupFeatures => 'Sainghnéithe';
+
+  @override
+  String get looksValueAmber => 'Ómra';
+
+  @override
+  String get looksValueCopper => 'Copair';
+
+  @override
+  String get looksValueOddEyed => 'Súile éagsúla';
+
+  @override
+  String get looksValueChocolate => 'Seacláid';
+
+  @override
+  String get looksValueLilac => 'Liath-chorcra';
+
+  @override
+  String get looksValueSilver => 'Airgead';
+
+  @override
+  String get looksValueSmoke => 'Deatach';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Catach';
+
+  @override
+  String get looksValueWiry => 'Garbh';
+
+  @override
+  String get looksValueKinked => 'Casta';
+
+  @override
+  String get looksValueCropped => 'Bearrtha';
+
+  @override
+  String get looksValueTippedEar => 'Cluas bearrtha';
+
+  @override
+  String get looksValueEarTattoo => 'Tatú cluaise';
+
+  @override
+  String get looksValueMissingEar => 'Cluas ar iarraidh';
+
+  @override
+  String get looksValueMissingEye => 'Súil ar iarraidh';
+
+  @override
+  String get looksValueCloudyEye => 'Súil scamallach';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Cos tosaigh ar iarraidh';
+
+  @override
+  String get looksValueMissingHindLeg => 'Cos deiridh ar iarraidh';
+
+  @override
+  String get looksValueNoTeeth => 'Gan fiacla';
+
+  @override
+  String get looksValueExtraToes => 'Ladhracha breise';
+
+  @override
+  String get rejectMatch => 'Ní hé an ceann céanna';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tréith ag teacht le chéile',
+      many: '$count dtréith ag teacht le chéile',
+      few: '$count thréith ag teacht le chéile',
+      two: '$count thréith ag teacht le chéile',
+      one: '$count tréith ag teacht le chéile',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Réamhshocrú an chórais';
 
   @override
@@ -1492,6 +1884,13 @@ class AppLocalizationsGa extends AppLocalizations {
       'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile';
 
   @override
+  String get cheerToggle => 'Fuaim gártha';
+
+  @override
+  String get cheerSubtitle =>
+      'Gártha gearra leis an confetti, ceann difriúil gach uair';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Coinfití agus gártha nuair a bhogann peata go dtí a bhaile';
 
@@ -1534,8 +1933,63 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Baineann sé den chatalóg seo gach iontráil agus grianghraf a scríobh $name ar an ngléas $device. Coinníonn gléasanna eile a gcóip. Ní féidir é a chealú.';
+  String get yourKey => 'D’eochair';
+
+  @override
+  String get yourTitle => 'Do theideal';
+
+  @override
+  String get titleNone => 'Gan teideal';
+
+  @override
+  String keyLine(Object code) {
+    return 'eochair $code';
+  }
+
+  @override
+  String get keyVerified => 'deimhnithe go pearsanta';
+
+  @override
+  String get keyFromFile => 'ó chomhad, gan deimhniú fós';
+
+  @override
+  String get keyUnsigned => 'gan eochair fós, iontrálacha gan síniú';
+
+  @override
+  String get summaryRefused => 'Diúltaithe';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count iontráil diúltaithe',
+      many: '$count n-iontráil diúltaithe',
+      few: '$count iontráil diúltaithe',
+      two: '$count iontráil diúltaithe',
+      one: '$count iontráil diúltaithe',
+    );
+    return '$_temp0: gan síniú leis an eochair aitheanta do $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Tugann eochair nua $code $name uirthi féin. Fiafraigh den duine sula gcuireann tú muinín inti.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return 'Thairg $name eochair seachas an ceann atá aitheanta anseo. Fanann an ceann aitheanta; níor glacadh leis an gceann nua.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Eochair nua: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Baineann sé gach iontráil agus grianghraf a scríobh $name faoin eochair $key den chatalóg seo. Coinníonn gléasanna eile a gcuid féin. Ní féidir é a chealú.';
   }
 
   @override
@@ -2049,7 +2503,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús.';
+      'Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús. Is í d’eochair an cód a fheiceann comhpháirtithe in aice le d’ainm; fanann sí leis an gcatalóg seo.';
 
   @override
   String get spotHomeCatalog =>
@@ -2360,12 +2814,16 @@ class AppLocalizationsGa extends AppLocalizations {
       'Cas air anseo scáthánú choinní cat(a)log isteach i bhféilire de do rogha.';
 
   @override
+  String get spotAgendaToday =>
+      'Cúraimí an lae inniu: cuir tic nuair atá sé déanta. Taispeánann na poncanna na seacht lá deireanacha.';
+
+  @override
   String get helpAgenda =>
-      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt cat: ticeáil na cait, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na cait ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte.';
+      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt cat: ticeáil na cait, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na cait ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.';
 
   @override
   String get helpAgendaNeutral =>
-      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an peata nó an líon tí. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt peataí: ticeáil na peataí, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na peataí ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte.';
+      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an peata nó an líon tí. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt peataí: ticeáil na peataí, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na peataí ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.';
 
   @override
   String get calendarRowOff => 'Féilire: as';
@@ -2410,6 +2868,317 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get planChooserReminder =>
       'Meabhrúchán — luach a bhíonn dlite lá éigin';
+
+  @override
+  String get planChooserChore =>
+      'Cúram — rud a thagann ar ais: beathú, braonta, bruscar';
+
+  @override
+  String get newChore => 'Cúram nua';
+
+  @override
+  String get choreEdit => 'Cuir cúram in eagar';
+
+  @override
+  String get choreTitleLabel => 'Cad';
+
+  @override
+  String get choreRepeatDaily => 'Gach lá';
+
+  @override
+  String get choreRepeatEvery => 'Gach…';
+
+  @override
+  String get choreRepeatWeekdays => 'Laethanta';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n lá',
+      many: 'gach $n lá',
+      few: 'gach $n lá',
+      two: 'gach $n lá',
+      one: 'gach lá',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n seachtain',
+      many: 'gach $n seachtain',
+      few: 'gach $n seachtaine',
+      two: 'gach $n sheachtain',
+      one: 'gach seachtain',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n mí',
+      many: 'gach $n mí',
+      few: 'gach $n mhí',
+      two: 'gach $n mhí',
+      one: 'gach mí',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n bliain',
+      many: 'gach $n mbliana',
+      few: 'gach $n bliana',
+      two: 'gach $n bhliain',
+      one: 'gach bliain',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Am ar bith den lá';
+
+  @override
+  String get chorePause => 'Cuir ar sos';
+
+  @override
+  String get chorePaused => 'Ar sos';
+
+  @override
+  String get choreResume => 'Atosaigh';
+
+  @override
+  String get choreEnd => 'Cuir deireadh leis an gcúram';
+
+  @override
+  String get choreHistory => 'Stair';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'déanta $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'luath';
+
+  @override
+  String get choreDoneLate => 'déanach';
+
+  @override
+  String get choreMissed => 'Caillte';
+
+  @override
+  String get choreStillOpen => 'Fós oscailte';
+
+  @override
+  String get choreEndConfirm =>
+      'Imíonn an cúram den liosta. Fanann a bhfuil ticeáilte sa stair.';
+
+  @override
+  String get todaySection => 'Inniu';
+
+  @override
+  String get upcomingSection => 'Ag teacht';
+
+  @override
+  String get allDoneToday => 'Inniu: gach rud déanta';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n lá as a chéile',
+      many: '$n lá as a chéile',
+      few: '$n lá as a chéile',
+      two: '$n lá as a chéile',
+      one: '1 lá as a chéile',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Dlite $date';
+  }
+
+  @override
+  String get remindMe => 'Cuir i gcuimhne dom';
+
+  @override
+  String remindNext(Object when) {
+    return 'An chéad mheabhrúchán eile: $when';
+  }
+
+  @override
+  String get remindNone =>
+      'Níl meabhrúchán ar bith beartaithe: níl aon rud le teacht.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count meabhrúchán sceidealta ar an nguthán seo',
+      many: '$count meabhrúchán sceidealta ar an nguthán seo',
+      few: '$count mheabhrúchán sceidealta ar an nguthán seo',
+      two: '$count mheabhrúchán sceidealta ar an nguthán seo',
+      one: '$count meabhrúchán sceidealta ar an nguthán seo',
+      zero: 'Níl aon rud sceidealta ar an nguthán seo fós',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Seol meabhrúchán tástála anois';
+
+  @override
+  String get remindLateHint =>
+      'D’fhéadfadh meabhrúcháin teacht cúpla nóiméad déanach; roghnaíonn an guthán an nóiméad féin.';
+
+  @override
+  String get remindPermissionDenied =>
+      'Níl cead ann d’fhógraí, mar sin fanann an meabhrúchán múchta. Ceadaigh iad i socruithe aip an ghutháin agus bain triail eile as.';
+
+  @override
+  String get batteryHint =>
+      'Mura dtagann meabhrúcháin, lig do cat(a)log rith sa chúlra i socruithe ceallra an ghutháin.';
+
+  @override
+  String get batterySettings => 'Socruithe ceallra';
+
+  @override
+  String get achievementsTitle => 'Éachtaí';
+
+  @override
+  String get rankServant => 'Seirbhíseach';
+
+  @override
+  String get rankButler => 'Buitléir';
+
+  @override
+  String get rankSteward => 'Maor';
+
+  @override
+  String get rankChancellor => 'Seansailéir';
+
+  @override
+  String get rankMinister => 'Aire';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatCheetah => 'Síota';
+
+  @override
+  String get coatTiger => 'Tíogar';
+
+  @override
+  String get coatTabby => 'Tabaí';
+
+  @override
+  String get coatPaws => 'Lapaí';
+
+  @override
+  String get coatRosettes => 'Roiséid';
+
+  @override
+  String get coatZebra => 'Séabra';
+
+  @override
+  String get coatSetting => 'Fionnadh';
+
+  @override
+  String get coatRandom => 'Ceann eile gach uair';
+
+  @override
+  String get coatSnowLeopard => 'Liopard sneachta';
+
+  @override
+  String get coatSiamese => 'Comharthaí Siamacha';
+
+  @override
+  String get coatLynx => 'Lincse';
+
+  @override
+  String get coatTortoiseshell => 'Toirtís';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Fionnadh nua: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Mí iomlán de chúraimí, iad ar fad déanta.';
+
+  @override
+  String get achievementsEmpty =>
+      'Faic go fóill. Tá an bealach ar eolas ag na cúraimí.';
+
+  @override
+  String get achievementMonth => 'Mí iomlán';
+
+  @override
+  String get achievementYear => 'Bliain iomlán';
+
+  @override
+  String get achievementDecade => 'Deich mbliana iomlána';
+
+  @override
+  String get achievementCentury => 'Céad bliain iomlán';
+
+  @override
+  String get achievementCenturyHint => 'Beidh an-bhród orainn beirt.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Máistir $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Bainte amach $times uair',
+      many: 'Bainte amach $times n-uaire',
+      few: 'Bainte amach $times huaire',
+      two: 'Bainte amach $times uair',
+      one: 'Bainte amach uair amháin',
+    );
+    return '$_temp0, den chéad uair $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'An chéad cheann eile ag $n';
+  }
+
+  @override
+  String get achievementLocked => 'Níl fós';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Éacht: $name';
+  }
 
   @override
   String get appointmentTitleLabel => 'Cad';
@@ -2571,4 +3340,116 @@ class AppLocalizationsGa extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Scrios an choinne do na $count peata ar fad';
   }
+
+  @override
+  String get correctThisValue => 'Ceartaigh an luach seo';
+
+  @override
+  String get removeThisValue => 'Bain an luach seo';
+
+  @override
+  String get restoreThisValue => 'Athchóirigh an luach seo';
+
+  @override
+  String get showRemovedValues => 'Taispeáin luachanna a baineadh';
+
+  @override
+  String get hideRemovedValues => 'Folaigh luachanna a baineadh';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Bainte · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Curtha in ionad $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Ceartúchán';
+
+  @override
+  String get restorePickFolder => 'Roghnaigh fillteán na gcúltacaí…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Tá cúltacaí na suiteála roimhe seo in Documents/catlog (Downloads/catlog i leaganacha níos sine). Roghnaigh an fillteán sin uair amháin; liostáiltear a chúltacaí anseo.';
+
+  @override
+  String get backupsTitle => 'Cúltacaí';
+
+  @override
+  String get backupsSubtitle => 'An áit a gcoinnítear do chatalóga slán';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Déanann Google cúltaca de chatalóga an aip seo le do chuntas, gan grianghraif. Tagann siad ar ais uathu féin tar éis athshuiteála nó ar ghuthán nua.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Scríobhtar cóip iomlán de gach catalóg, grianghraif san áireamh, chuig Documents/catlog gach uair a fhágann tú an aip tar éis athruithe.';
+
+  @override
+  String get backupsIosSystem =>
+      'Cuimsíonn Cúltaca iCloud an aip seo lena catalóga agus grianghraif, mar gach aip eile ar an iPhone seo.';
+
+  @override
+  String get backupsIosFiles =>
+      'Tá cóip iomlán de gach catalóg san aip Comhaid faoi cat(a)log. Uaidh sin is féidir í a chur chuig iCloud Drive, trí AirDrop nó chuig guthán eile.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Scríobhtar cóip iomlán de gach catalóg, grianghraif san áireamh, chuig d\'fhillteán Íoslódálacha gach uair a fhágann tú an aip tar éis athruithe.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'An chóip dheireanach: $date';
+  }
+
+  @override
+  String get backupsNever => 'Níor scríobhadh cóip fós.';
+
+  @override
+  String get backupsNow => 'Déan cúltaca anois';
+
+  @override
+  String get backupsDone => 'Cóip scríofa.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Athchóirithe ó chúltaca Google ar $date. Má tá cat(a)log fós ar an seanghuthán, sioncronaigh uair amháin uaidh, ansin bain an aip ansin.';
+  }
+
+  @override
+  String get backupsFolderHint =>
+      'Is féidir le fillteán de do rogha gach cóip a fháil freisin: ceann a choinníonn aip néil sioncronaithe ar an nguthán seo (Nextcloud, Syncthing agus eile), cárta cuimhne, aon fhillteán a thairgeann an roghnóir. Téann na cóipeanna isteach i catlog-backups laistigh de.';
+
+  @override
+  String get backupsFolderPick => 'Cóipeáil chuig fillteán freisin…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Cóipeáilte chuig $name freisin';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Stop ag cóipeáil ansin';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Níl na fógraí ag obair ar an nguthán seo: $error';
+  }
+
+  @override
+  String get copyText => 'Cóipeáil téacs';
+
+  @override
+  String get colWhen => 'Cathain';
+
+  @override
+  String get colValue => 'Luach';
+
+  @override
+  String get colWho => 'Cé';
 }
