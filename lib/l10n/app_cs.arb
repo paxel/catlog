@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Přehled pacienta",
   "vetReportOwner": "Majitel",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Křivka"
+  "vetReportCurves": "Křivka",
+  "posterMenu": "Plakát Pohřešuje se…",
+  "posterHeadline": "POHŘEŠUJE SE",
+  "posterStanding": "Prosím zkontrolujte sklepy, kůlny a garáže. Nehoňte, jen zavolejte.",
+  "posterLastSeen": "Naposledy viděn u",
+  "posterFreeText": "Řádek navíc",
+  "posterQr": "QR kód pro cat(a)log",
+  "posterPhoto": "Fotka"
 }

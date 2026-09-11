@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Prehľad pacienta",
   "vetReportOwner": "Majiteľ",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Krivka"
+  "vetReportCurves": "Krivka",
+  "posterMenu": "Plagát Nezvestný…",
+  "posterHeadline": "NEZVESTNÝ",
+  "posterStanding": "Prosím skontrolujte pivnice, kôlne a garáže. Nenaháňajte, len zavolajte.",
+  "posterLastSeen": "Naposledy videný pri",
+  "posterFreeText": "Riadok navyše",
+  "posterQr": "QR kód pre cat(a)log",
+  "posterPhoto": "Fotka"
 }

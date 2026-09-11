@@ -3367,4 +3367,26 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'نمودار';
+
+  @override
+  String get posterMenu => 'پوستر گمشده…';
+
+  @override
+  String get posterHeadline => 'گمشده';
+
+  @override
+  String get posterStanding =>
+      'لطفاً زیرزمین‌ها، انباری‌ها و گاراژها را بررسی کنید. دنبالش نکنید، فقط تماس بگیرید.';
+
+  @override
+  String get posterLastSeen => 'آخرین بار دیده شده نزدیک';
+
+  @override
+  String get posterFreeText => 'خط اضافه';
+
+  @override
+  String get posterQr => 'کد QR برای cat(a)log';
+
+  @override
+  String get posterPhoto => 'عکس';
 }

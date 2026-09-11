@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Përmbledhje e pacientit",
   "vetReportOwner": "Pronari",
   "vetReportLegend": "Legjenda",
-  "vetReportCurves": "Kurba"
+  "vetReportCurves": "Kurba",
+  "posterMenu": "Poster i humbur…",
+  "posterHeadline": "I HUMBUR",
+  "posterStanding": "Ju lutem kontrolloni bodrumet, kasollet dhe garazhet. Mos e ndiqni, vetëm telefononi.",
+  "posterLastSeen": "Parë për herë të fundit pranë",
+  "posterFreeText": "Rresht shtesë",
+  "posterQr": "Kod QR për cat(a)log",
+  "posterPhoto": "Foto"
 }

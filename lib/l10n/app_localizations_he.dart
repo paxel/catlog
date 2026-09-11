@@ -3425,4 +3425,26 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'עקומה';
+
+  @override
+  String get posterMenu => 'כרזת נעדר…';
+
+  @override
+  String get posterHeadline => 'נעדר';
+
+  @override
+  String get posterStanding =>
+      'אנא בדקו מרתפים, מחסנים ומוסכים. לא לרדוף, רק להתקשר.';
+
+  @override
+  String get posterLastSeen => 'נראה לאחרונה ליד';
+
+  @override
+  String get posterFreeText => 'שורה נוספת';
+
+  @override
+  String get posterQr => 'קוד QR ל-cat(a)log';
+
+  @override
+  String get posterPhoto => 'תמונה';
 }

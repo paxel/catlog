@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Potilasyhteenveto",
   "vetReportOwner": "Omistaja",
   "vetReportLegend": "Selite",
-  "vetReportCurves": "Käyrä"
+  "vetReportCurves": "Käyrä",
+  "posterMenu": "Kadonnut-juliste…",
+  "posterHeadline": "KADONNUT",
+  "posterStanding": "Tarkistathan kellarit, vajat ja autotallit. Älä jahtaa, soita.",
+  "posterLastSeen": "Nähty viimeksi lähellä",
+  "posterFreeText": "Lisärivi",
+  "posterQr": "QR-koodi cat(a)logille",
+  "posterPhoto": "Kuva"
 }

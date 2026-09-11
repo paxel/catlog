@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Rezumatul pacientului",
   "vetReportOwner": "Proprietar",
   "vetReportLegend": "Legendă",
-  "vetReportCurves": "Curbă"
+  "vetReportCurves": "Curbă",
+  "posterMenu": "Afiș dispărut…",
+  "posterHeadline": "DISPĂRUT",
+  "posterStanding": "Vă rugăm să verificați pivnițele, șoproanele și garajele. Nu alergați după el, doar sunați.",
+  "posterLastSeen": "Văzut ultima dată lângă",
+  "posterFreeText": "Rând suplimentar",
+  "posterQr": "Cod QR pentru cat(a)log",
+  "posterPhoto": "Foto"
 }

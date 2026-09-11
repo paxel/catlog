@@ -3430,4 +3430,26 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Kurba';
+
+  @override
+  String get posterMenu => 'Poster i humbur…';
+
+  @override
+  String get posterHeadline => 'I HUMBUR';
+
+  @override
+  String get posterStanding =>
+      'Ju lutem kontrolloni bodrumet, kasollet dhe garazhet. Mos e ndiqni, vetëm telefononi.';
+
+  @override
+  String get posterLastSeen => 'Parë për herë të fundit pranë';
+
+  @override
+  String get posterFreeText => 'Rresht shtesë';
+
+  @override
+  String get posterQr => 'Kod QR për cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
 }

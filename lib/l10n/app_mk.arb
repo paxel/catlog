@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Преглед на пациентот",
   "vetReportOwner": "Сопственик",
   "vetReportLegend": "Легенда",
-  "vetReportCurves": "Крива"
+  "vetReportCurves": "Крива",
+  "posterMenu": "Плакат „Исчезнат“…",
+  "posterHeadline": "ИСЧЕЗНАТ",
+  "posterStanding": "Ве молиме проверете подруми, шупи и гаражи. Не бркајте, само јавете се.",
+  "posterLastSeen": "Последно виден кај",
+  "posterFreeText": "Дополнителен ред",
+  "posterQr": "QR-код за cat(a)log",
+  "posterPhoto": "Фотографија"
 }

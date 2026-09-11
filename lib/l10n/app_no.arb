@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Pasientoversikt",
   "vetReportOwner": "Eier",
   "vetReportLegend": "Tegnforklaring",
-  "vetReportCurves": "Kurve"
+  "vetReportCurves": "Kurve",
+  "posterMenu": "Savnet-plakat…",
+  "posterHeadline": "SAVNET",
+  "posterStanding": "Sjekk gjerne kjellere, skur og garasjer. Ikke jag, bare ring.",
+  "posterLastSeen": "Sist sett ved",
+  "posterFreeText": "Ekstra linje",
+  "posterQr": "QR-kode for cat(a)log",
+  "posterPhoto": "Bilde"
 }

@@ -3434,4 +3434,26 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Curve';
+
+  @override
+  String get posterMenu => 'Vermist-poster…';
+
+  @override
+  String get posterHeadline => 'VERMIST';
+
+  @override
+  String get posterStanding =>
+      'Kijk alstublieft in kelders, schuren en garages. Niet achterna zitten, gewoon bellen.';
+
+  @override
+  String get posterLastSeen => 'Laatst gezien bij';
+
+  @override
+  String get posterFreeText => 'Extra regel';
+
+  @override
+  String get posterQr => 'QR-code voor cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
 }

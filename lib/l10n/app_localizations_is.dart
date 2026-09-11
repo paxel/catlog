@@ -3433,4 +3433,26 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Ferill';
+
+  @override
+  String get posterMenu => 'Týnd-veggspjald…';
+
+  @override
+  String get posterHeadline => 'TÝND';
+
+  @override
+  String get posterStanding =>
+      'Vinsamlegast athugið kjallara, skúra og bílskúra. Ekki elta, bara hringja.';
+
+  @override
+  String get posterLastSeen => 'Síðast séð við';
+
+  @override
+  String get posterFreeText => 'Aukalína';
+
+  @override
+  String get posterQr => 'QR-kóði fyrir cat(a)log';
+
+  @override
+  String get posterPhoto => 'Mynd';
 }

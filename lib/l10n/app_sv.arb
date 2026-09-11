@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Patientöversikt",
   "vetReportOwner": "Ägare",
   "vetReportLegend": "Teckenförklaring",
-  "vetReportCurves": "Kurva"
+  "vetReportCurves": "Kurva",
+  "posterMenu": "Saknad-affisch…",
+  "posterHeadline": "SAKNAD",
+  "posterStanding": "Kolla gärna källare, skjul och garage. Jaga inte, ring bara.",
+  "posterLastSeen": "Senast sedd vid",
+  "posterFreeText": "Extra rad",
+  "posterQr": "QR-kod för cat(a)log",
+  "posterPhoto": "Foto"
 }

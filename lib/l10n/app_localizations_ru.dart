@@ -3449,4 +3449,26 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'График';
+
+  @override
+  String get posterMenu => 'Плакат «Пропал»…';
+
+  @override
+  String get posterHeadline => 'ПРОПАЛ';
+
+  @override
+  String get posterStanding =>
+      'Пожалуйста, проверьте подвалы, сараи и гаражи. Не ловите, просто позвоните.';
+
+  @override
+  String get posterLastSeen => 'Последний раз видели у';
+
+  @override
+  String get posterFreeText => 'Дополнительная строка';
+
+  @override
+  String get posterQr => 'QR-код для cat(a)log';
+
+  @override
+  String get posterPhoto => 'Фото';
 }

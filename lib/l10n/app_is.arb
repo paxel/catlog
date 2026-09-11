@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Yfirlit sjúklings",
   "vetReportOwner": "Eigandi",
   "vetReportLegend": "Skýringar",
-  "vetReportCurves": "Ferill"
+  "vetReportCurves": "Ferill",
+  "posterMenu": "Týnd-veggspjald…",
+  "posterHeadline": "TÝND",
+  "posterStanding": "Vinsamlegast athugið kjallara, skúra og bílskúra. Ekki elta, bara hringja.",
+  "posterLastSeen": "Síðast séð við",
+  "posterFreeText": "Aukalína",
+  "posterQr": "QR-kóði fyrir cat(a)log",
+  "posterPhoto": "Mynd"
 }

@@ -3449,4 +3449,26 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Графік';
+
+  @override
+  String get posterMenu => 'Плакат «Зник»…';
+
+  @override
+  String get posterHeadline => 'ЗНИК';
+
+  @override
+  String get posterStanding =>
+      'Будь ласка, перевірте підвали, сараї та гаражі. Не ловіть, просто зателефонуйте.';
+
+  @override
+  String get posterLastSeen => 'Востаннє бачили біля';
+
+  @override
+  String get posterFreeText => 'Додатковий рядок';
+
+  @override
+  String get posterQr => 'QR-код для cat(a)log';
+
+  @override
+  String get posterPhoto => 'Фото';
 }

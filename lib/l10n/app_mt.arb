@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Sommarju tal-pazjent",
   "vetReportOwner": "Sid",
   "vetReportLegend": "Leġġenda",
-  "vetReportCurves": "Kurva"
+  "vetReportCurves": "Kurva",
+  "posterMenu": "Poster mitluf…",
+  "posterHeadline": "MITLUF",
+  "posterStanding": "Jekk jogħġbok iċċekkja kantini, xkafef u garaxxijiet. Tiġrix warajh, ċempel biss.",
+  "posterLastSeen": "L-aħħar li deher qrib",
+  "posterFreeText": "Linja żejda",
+  "posterQr": "Kodiċi QR għal cat(a)log",
+  "posterPhoto": "Ritratt"
 }

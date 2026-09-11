@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Σύνοψη ασθενούς",
   "vetReportOwner": "Ιδιοκτήτης",
   "vetReportLegend": "Υπόμνημα",
-  "vetReportCurves": "Καμπύλη"
+  "vetReportCurves": "Καμπύλη",
+  "posterMenu": "Αφίσα εξαφάνισης…",
+  "posterHeadline": "ΧΑΘΗΚΕ",
+  "posterStanding": "Παρακαλώ ελέγξτε υπόγεια, αποθήκες και γκαράζ. Μην το κυνηγάτε, απλώς καλέστε.",
+  "posterLastSeen": "Τελευταία φορά κοντά σε",
+  "posterFreeText": "Επιπλέον γραμμή",
+  "posterQr": "Κωδικός QR για το cat(a)log",
+  "posterPhoto": "Φωτογραφία"
 }

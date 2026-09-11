@@ -12,6 +12,7 @@ import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../pdf_fonts.dart';
+import 'missing_poster_screen.dart';
 import '../plus_code.dart';
 import '../share.dart';
 import '../spotlight.dart';
@@ -355,6 +356,13 @@ class _CardScreenState extends State<CardScreen> {
               icon: const Icon(Icons.print),
               tooltip: context.t.print,
               onPressed: _printCard),
+          IconButton(
+              icon: const Icon(Icons.campaign_outlined),
+              tooltip: context.t.posterMenu,
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) =>
+                        MissingPosterScreen(store: store, catId: id),
+                  ))),
         ],
       ),
       body: SingleChildScrollView(

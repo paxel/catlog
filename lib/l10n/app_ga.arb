@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Achoimre othair",
   "vetReportOwner": "Úinéir",
   "vetReportLegend": "Eochair",
-  "vetReportCurves": "Cuar"
+  "vetReportCurves": "Cuar",
+  "posterMenu": "Póstaer ar iarraidh…",
+  "posterHeadline": "AR IARRAIDH",
+  "posterStanding": "Seiceáil siléir, seideanna agus garáistí le do thoil. Ná téigh sa tóir, glaoigh.",
+  "posterLastSeen": "Feicthe go deireanach in aice le",
+  "posterFreeText": "Líne bhreise",
+  "posterQr": "Cód QR do cat(a)log",
+  "posterPhoto": "Grianghraf"
 }

@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Зведення про пацієнта",
   "vetReportOwner": "Власник",
   "vetReportLegend": "Умовні позначення",
-  "vetReportCurves": "Графік"
+  "vetReportCurves": "Графік",
+  "posterMenu": "Плакат «Зник»…",
+  "posterHeadline": "ЗНИК",
+  "posterStanding": "Будь ласка, перевірте підвали, сараї та гаражі. Не ловіть, просто зателефонуйте.",
+  "posterLastSeen": "Востаннє бачили біля",
+  "posterFreeText": "Додатковий рядок",
+  "posterQr": "QR-код для cat(a)log",
+  "posterPhoto": "Фото"
 }

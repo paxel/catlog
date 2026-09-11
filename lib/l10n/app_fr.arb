@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Résumé du patient",
   "vetReportOwner": "Propriétaire",
   "vetReportLegend": "Légende",
-  "vetReportCurves": "Courbe"
+  "vetReportCurves": "Courbe",
+  "posterMenu": "Affiche de disparition…",
+  "posterHeadline": "DISPARU",
+  "posterStanding": "Merci de vérifier caves, abris et garages. Ne pas poursuivre, appelez simplement.",
+  "posterLastSeen": "Vu pour la dernière fois près de",
+  "posterFreeText": "Ligne supplémentaire",
+  "posterQr": "Code QR pour cat(a)log",
+  "posterPhoto": "Photo"
 }

@@ -1154,5 +1154,12 @@
   "vetReportSummary": "خلاصهٔ بیمار",
   "vetReportOwner": "صاحب",
   "vetReportLegend": "راهنما",
-  "vetReportCurves": "نمودار"
+  "vetReportCurves": "نمودار",
+  "posterMenu": "پوستر گمشده…",
+  "posterHeadline": "گمشده",
+  "posterStanding": "لطفاً زیرزمین‌ها، انباری‌ها و گاراژها را بررسی کنید. دنبالش نکنید، فقط تماس بگیرید.",
+  "posterLastSeen": "آخرین بار دیده شده نزدیک",
+  "posterFreeText": "خط اضافه",
+  "posterQr": "کد QR برای cat(a)log",
+  "posterPhoto": "عکس"
 }

@@ -3429,4 +3429,26 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Curve';
+
+  @override
+  String get posterMenu => 'Missing poster…';
+
+  @override
+  String get posterHeadline => 'MISSING';
+
+  @override
+  String get posterStanding =>
+      'Please check cellars, sheds and garages. Do not chase, just call.';
+
+  @override
+  String get posterLastSeen => 'Last seen near';
+
+  @override
+  String get posterFreeText => 'Extra line';
+
+  @override
+  String get posterQr => 'QR code for cat(a)log';
+
+  @override
+  String get posterPhoto => 'Photo';
 }

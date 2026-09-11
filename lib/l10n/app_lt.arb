@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Paciento santrauka",
   "vetReportOwner": "Savininkas",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Kreivė"
+  "vetReportCurves": "Kreivė",
+  "posterMenu": "Dingusio plakatas…",
+  "posterHeadline": "DINGO",
+  "posterStanding": "Prašome patikrinti rūsius, pašiūres ir garažus. Nevaikykite, tiesiog paskambinkite.",
+  "posterLastSeen": "Paskutinį kartą matytas prie",
+  "posterFreeText": "Papildoma eilutė",
+  "posterQr": "QR kodas cat(a)log",
+  "posterPhoto": "Nuotrauka"
 }

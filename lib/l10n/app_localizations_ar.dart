@@ -3463,4 +3463,26 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'المنحنى';
+
+  @override
+  String get posterMenu => 'ملصق مفقود…';
+
+  @override
+  String get posterHeadline => 'مفقود';
+
+  @override
+  String get posterStanding =>
+      'يرجى تفقد الأقبية والسقائف والمرائب. لا تطارده، فقط اتصل.';
+
+  @override
+  String get posterLastSeen => 'شوهد آخر مرة قرب';
+
+  @override
+  String get posterFreeText => 'سطر إضافي';
+
+  @override
+  String get posterQr => 'رمز QR لـ cat(a)log';
+
+  @override
+  String get posterPhoto => 'صورة';
 }

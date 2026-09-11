@@ -1942,5 +1942,12 @@
   "vetReportSummary": "Patient summary",
   "vetReportOwner": "Owner",
   "vetReportLegend": "Legend",
-  "vetReportCurves": "Curve"
+  "vetReportCurves": "Curve",
+  "posterMenu": "Missing poster…",
+  "posterHeadline": "MISSING",
+  "posterStanding": "Please check cellars, sheds and garages. Do not chase, just call.",
+  "posterLastSeen": "Last seen near",
+  "posterFreeText": "Extra line",
+  "posterQr": "QR code for cat(a)log",
+  "posterPhoto": "Photo"
 }

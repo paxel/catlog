@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Сводка о пациенте",
   "vetReportOwner": "Владелец",
   "vetReportLegend": "Обозначения",
-  "vetReportCurves": "График"
+  "vetReportCurves": "График",
+  "posterMenu": "Плакат «Пропал»…",
+  "posterHeadline": "ПРОПАЛ",
+  "posterStanding": "Пожалуйста, проверьте подвалы, сараи и гаражи. Не ловите, просто позвоните.",
+  "posterLastSeen": "Последний раз видели у",
+  "posterFreeText": "Дополнительная строка",
+  "posterQr": "QR-код для cat(a)log",
+  "posterPhoto": "Фото"
 }

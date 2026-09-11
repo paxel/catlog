@@ -3426,4 +3426,26 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Kurva';
+
+  @override
+  String get posterMenu => 'Saknad-affisch…';
+
+  @override
+  String get posterHeadline => 'SAKNAD';
+
+  @override
+  String get posterStanding =>
+      'Kolla gärna källare, skjul och garage. Jaga inte, ring bara.';
+
+  @override
+  String get posterLastSeen => 'Senast sedd vid';
+
+  @override
+  String get posterFreeText => 'Extra rad';
+
+  @override
+  String get posterQr => 'QR-kod för cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
 }

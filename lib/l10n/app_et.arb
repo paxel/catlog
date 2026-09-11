@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Patsiendi kokkuvõte",
   "vetReportOwner": "Omanik",
   "vetReportLegend": "Legend",
-  "vetReportCurves": "Kõver"
+  "vetReportCurves": "Kõver",
+  "posterMenu": "Kadunud-plakat…",
+  "posterHeadline": "KADUNUD",
+  "posterStanding": "Palun vaadake keldritesse, kuuridesse ja garaažidesse. Ärge ajage taga, lihtsalt helistage.",
+  "posterLastSeen": "Viimati nähtud",
+  "posterFreeText": "Lisarida",
+  "posterQr": "QR-kood cat(a)logi jaoks",
+  "posterPhoto": "Foto"
 }

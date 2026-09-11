@@ -3430,4 +3430,26 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Käyrä';
+
+  @override
+  String get posterMenu => 'Kadonnut-juliste…';
+
+  @override
+  String get posterHeadline => 'KADONNUT';
+
+  @override
+  String get posterStanding =>
+      'Tarkistathan kellarit, vajat ja autotallit. Älä jahtaa, soita.';
+
+  @override
+  String get posterLastSeen => 'Nähty viimeksi lähellä';
+
+  @override
+  String get posterFreeText => 'Lisärivi';
+
+  @override
+  String get posterQr => 'QR-koodi cat(a)logille';
+
+  @override
+  String get posterPhoto => 'Kuva';
 }

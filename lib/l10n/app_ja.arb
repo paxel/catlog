@@ -1154,5 +1154,12 @@
   "vetReportSummary": "患者情報",
   "vetReportOwner": "飼い主",
   "vetReportLegend": "凡例",
-  "vetReportCurves": "グラフ"
+  "vetReportCurves": "グラフ",
+  "posterMenu": "迷子ポスター…",
+  "posterHeadline": "迷子",
+  "posterStanding": "地下室・物置・ガレージを確認してください。追いかけずに、お電話ください。",
+  "posterLastSeen": "最後に見た場所",
+  "posterFreeText": "追加の一行",
+  "posterQr": "cat(a)log 用 QR コード",
+  "posterPhoto": "写真"
 }

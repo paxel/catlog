@@ -1154,5 +1154,12 @@
   "vetReportSummary": "סיכום מטופל",
   "vetReportOwner": "בעלים",
   "vetReportLegend": "מקרא",
-  "vetReportCurves": "עקומה"
+  "vetReportCurves": "עקומה",
+  "posterMenu": "כרזת נעדר…",
+  "posterHeadline": "נעדר",
+  "posterStanding": "אנא בדקו מרתפים, מחסנים ומוסכים. לא לרדוף, רק להתקשר.",
+  "posterLastSeen": "נראה לאחרונה ליד",
+  "posterFreeText": "שורה נוספת",
+  "posterQr": "קוד QR ל-cat(a)log",
+  "posterPhoto": "תמונה"
 }

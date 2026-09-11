@@ -3441,4 +3441,26 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Krivulja';
+
+  @override
+  String get posterMenu => 'Plakat Nestao…';
+
+  @override
+  String get posterHeadline => 'NESTAO';
+
+  @override
+  String get posterStanding =>
+      'Molimo provjerite podrume, šupe i garaže. Ne jurite, samo nazovite.';
+
+  @override
+  String get posterLastSeen => 'Zadnji put viđen kod';
+
+  @override
+  String get posterFreeText => 'Dodatni redak';
+
+  @override
+  String get posterQr => 'QR kod za cat(a)log';
+
+  @override
+  String get posterPhoto => 'Fotografija';
 }

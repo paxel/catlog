@@ -3444,4 +3444,26 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Curbă';
+
+  @override
+  String get posterMenu => 'Afiș dispărut…';
+
+  @override
+  String get posterHeadline => 'DISPĂRUT';
+
+  @override
+  String get posterStanding =>
+      'Vă rugăm să verificați pivnițele, șoproanele și garajele. Nu alergați după el, doar sunați.';
+
+  @override
+  String get posterLastSeen => 'Văzut ultima dată lângă';
+
+  @override
+  String get posterFreeText => 'Rând suplimentar';
+
+  @override
+  String get posterQr => 'Cod QR pentru cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
 }

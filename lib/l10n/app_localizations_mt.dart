@@ -3443,4 +3443,26 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Kurva';
+
+  @override
+  String get posterMenu => 'Poster mitluf…';
+
+  @override
+  String get posterHeadline => 'MITLUF';
+
+  @override
+  String get posterStanding =>
+      'Jekk jogħġbok iċċekkja kantini, xkafef u garaxxijiet. Tiġrix warajh, ċempel biss.';
+
+  @override
+  String get posterLastSeen => 'L-aħħar li deher qrib';
+
+  @override
+  String get posterFreeText => 'Linja żejda';
+
+  @override
+  String get posterQr => 'Kodiċi QR għal cat(a)log';
+
+  @override
+  String get posterPhoto => 'Ritratt';
 }

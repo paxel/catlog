@@ -3440,4 +3440,26 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Krivka';
+
+  @override
+  String get posterMenu => 'Plagát Nezvestný…';
+
+  @override
+  String get posterHeadline => 'NEZVESTNÝ';
+
+  @override
+  String get posterStanding =>
+      'Prosím skontrolujte pivnice, kôlne a garáže. Nenaháňajte, len zavolajte.';
+
+  @override
+  String get posterLastSeen => 'Naposledy videný pri';
+
+  @override
+  String get posterFreeText => 'Riadok navyše';
+
+  @override
+  String get posterQr => 'QR kód pre cat(a)log';
+
+  @override
+  String get posterPhoto => 'Fotka';
 }

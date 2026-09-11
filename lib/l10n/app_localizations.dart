@@ -5959,6 +5959,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Curve'**
   String get vetReportCurves;
+
+  /// No description provided for @posterMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing poster…'**
+  String get posterMenu;
+
+  /// No description provided for @posterHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'MISSING'**
+  String get posterHeadline;
+
+  /// No description provided for @posterStanding.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check cellars, sheds and garages. Do not chase, just call.'**
+  String get posterStanding;
+
+  /// No description provided for @posterLastSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'Last seen near'**
+  String get posterLastSeen;
+
+  /// No description provided for @posterFreeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra line'**
+  String get posterFreeText;
+
+  /// No description provided for @posterQr.
+  ///
+  /// In en, this message translates to:
+  /// **'QR code for cat(a)log'**
+  String get posterQr;
+
+  /// No description provided for @posterPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get posterPhoto;
 }
 
 class _AppLocalizationsDelegate

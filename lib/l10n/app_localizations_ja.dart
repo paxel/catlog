@@ -3297,4 +3297,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'グラフ';
+
+  @override
+  String get posterMenu => '迷子ポスター…';
+
+  @override
+  String get posterHeadline => '迷子';
+
+  @override
+  String get posterStanding => '地下室・物置・ガレージを確認してください。追いかけずに、お電話ください。';
+
+  @override
+  String get posterLastSeen => '最後に見た場所';
+
+  @override
+  String get posterFreeText => '追加の一行';
+
+  @override
+  String get posterQr => 'cat(a)log 用 QR コード';
+
+  @override
+  String get posterPhoto => '写真';
 }

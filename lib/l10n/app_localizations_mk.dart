@@ -3431,4 +3431,26 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Крива';
+
+  @override
+  String get posterMenu => 'Плакат „Исчезнат“…';
+
+  @override
+  String get posterHeadline => 'ИСЧЕЗНАТ';
+
+  @override
+  String get posterStanding =>
+      'Ве молиме проверете подруми, шупи и гаражи. Не бркајте, само јавете се.';
+
+  @override
+  String get posterLastSeen => 'Последно виден кај';
+
+  @override
+  String get posterFreeText => 'Дополнителен ред';
+
+  @override
+  String get posterQr => 'QR-код за cat(a)log';
+
+  @override
+  String get posterPhoto => 'Фотографија';
 }

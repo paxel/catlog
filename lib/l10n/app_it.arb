@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Riepilogo del paziente",
   "vetReportOwner": "Proprietario",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Curva"
+  "vetReportCurves": "Curva",
+  "posterMenu": "Manifesto smarrito…",
+  "posterHeadline": "SMARRITO",
+  "posterStanding": "Controllate cantine, capanni e garage. Non inseguitelo, chiamate.",
+  "posterLastSeen": "Visto l'ultima volta vicino a",
+  "posterFreeText": "Riga aggiuntiva",
+  "posterQr": "Codice QR per cat(a)log",
+  "posterPhoto": "Foto"
 }

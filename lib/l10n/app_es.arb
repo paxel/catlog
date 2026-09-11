@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Resumen del paciente",
   "vetReportOwner": "Propietario",
   "vetReportLegend": "Leyenda",
-  "vetReportCurves": "Curva"
+  "vetReportCurves": "Curva",
+  "posterMenu": "Cartel de desaparecido…",
+  "posterHeadline": "DESAPARECIDO",
+  "posterStanding": "Por favor, revisa sótanos, cobertizos y garajes. No lo persigas, solo llama.",
+  "posterLastSeen": "Visto por última vez cerca de",
+  "posterFreeText": "Línea adicional",
+  "posterQr": "Código QR para cat(a)log",
+  "posterPhoto": "Foto"
 }

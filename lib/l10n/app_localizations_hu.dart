@@ -3429,4 +3429,26 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Görbe';
+
+  @override
+  String get posterMenu => 'Eltűnt-plakát…';
+
+  @override
+  String get posterHeadline => 'ELTŰNT';
+
+  @override
+  String get posterStanding =>
+      'Kérjük, nézzenek be a pincékbe, fészerekbe és garázsokba. Ne kergessék, csak hívjanak.';
+
+  @override
+  String get posterLastSeen => 'Utoljára itt látták';
+
+  @override
+  String get posterFreeText => 'Plusz sor';
+
+  @override
+  String get posterQr => 'QR-kód a cat(a)loghoz';
+
+  @override
+  String get posterPhoto => 'Fotó';
 }

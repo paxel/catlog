@@ -3441,4 +3441,26 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Křivka';
+
+  @override
+  String get posterMenu => 'Plakát Pohřešuje se…';
+
+  @override
+  String get posterHeadline => 'POHŘEŠUJE SE';
+
+  @override
+  String get posterStanding =>
+      'Prosím zkontrolujte sklepy, kůlny a garáže. Nehoňte, jen zavolejte.';
+
+  @override
+  String get posterLastSeen => 'Naposledy viděn u';
+
+  @override
+  String get posterFreeText => 'Řádek navíc';
+
+  @override
+  String get posterQr => 'QR kód pro cat(a)log';
+
+  @override
+  String get posterPhoto => 'Fotka';
 }

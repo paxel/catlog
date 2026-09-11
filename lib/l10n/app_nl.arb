@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Patiëntoverzicht",
   "vetReportOwner": "Eigenaar",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Curve"
+  "vetReportCurves": "Curve",
+  "posterMenu": "Vermist-poster…",
+  "posterHeadline": "VERMIST",
+  "posterStanding": "Kijk alstublieft in kelders, schuren en garages. Niet achterna zitten, gewoon bellen.",
+  "posterLastSeen": "Laatst gezien bij",
+  "posterFreeText": "Extra regel",
+  "posterQr": "QR-code voor cat(a)log",
+  "posterPhoto": "Foto"
 }

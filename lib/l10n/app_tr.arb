@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Hasta özeti",
   "vetReportOwner": "Sahibi",
   "vetReportLegend": "Açıklama",
-  "vetReportCurves": "Eğri"
+  "vetReportCurves": "Eğri",
+  "posterMenu": "Kayıp afişi…",
+  "posterHeadline": "KAYIP",
+  "posterStanding": "Lütfen bodrumları, kulübeleri ve garajları kontrol edin. Kovalamayın, sadece arayın.",
+  "posterLastSeen": "Son görüldüğü yer",
+  "posterFreeText": "Ek satır",
+  "posterQr": "cat(a)log için QR kodu",
+  "posterPhoto": "Fotoğraf"
 }

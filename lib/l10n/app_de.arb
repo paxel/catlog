@@ -1160,5 +1160,12 @@
   "vetReportSummary": "Patientenübersicht",
   "vetReportOwner": "Halter",
   "vetReportLegend": "Legende",
-  "vetReportCurves": "Verlauf"
+  "vetReportCurves": "Verlauf",
+  "posterMenu": "Vermisst-Plakat…",
+  "posterHeadline": "VERMISST",
+  "posterStanding": "Bitte in Kellern, Schuppen und Garagen nachsehen. Nicht jagen, einfach anrufen.",
+  "posterLastSeen": "Zuletzt gesehen bei",
+  "posterFreeText": "Zusatzzeile",
+  "posterQr": "QR-Code für cat(a)log",
+  "posterPhoto": "Foto"
 }

@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Povzetek pacienta",
   "vetReportOwner": "Lastnik",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Krivulja"
+  "vetReportCurves": "Krivulja",
+  "posterMenu": "Plakat Pogrešan…",
+  "posterHeadline": "POGREŠAN",
+  "posterStanding": "Prosimo, preverite kleti, lope in garaže. Ne lovite, samo pokličite.",
+  "posterLastSeen": "Nazadnje viden pri",
+  "posterFreeText": "Dodatna vrstica",
+  "posterQr": "Koda QR za cat(a)log",
+  "posterPhoto": "Fotografija"
 }

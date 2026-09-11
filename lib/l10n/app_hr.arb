@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Pregled pacijenta",
   "vetReportOwner": "Vlasnik",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Krivulja"
+  "vetReportCurves": "Krivulja",
+  "posterMenu": "Plakat Nestao…",
+  "posterHeadline": "NESTAO",
+  "posterStanding": "Molimo provjerite podrume, šupe i garaže. Ne jurite, samo nazovite.",
+  "posterLastSeen": "Zadnji put viđen kod",
+  "posterFreeText": "Dodatni redak",
+  "posterQr": "QR kod za cat(a)log",
+  "posterPhoto": "Fotografija"
 }

@@ -3426,4 +3426,26 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Kurve';
+
+  @override
+  String get posterMenu => 'Savnet-plakat…';
+
+  @override
+  String get posterHeadline => 'SAVNET';
+
+  @override
+  String get posterStanding =>
+      'Sjekk gjerne kjellere, skur og garasjer. Ikke jag, bare ring.';
+
+  @override
+  String get posterLastSeen => 'Sist sett ved';
+
+  @override
+  String get posterFreeText => 'Ekstra linje';
+
+  @override
+  String get posterQr => 'QR-kode for cat(a)log';
+
+  @override
+  String get posterPhoto => 'Bilde';
 }

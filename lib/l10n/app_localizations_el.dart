@@ -3440,4 +3440,26 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Καμπύλη';
+
+  @override
+  String get posterMenu => 'Αφίσα εξαφάνισης…';
+
+  @override
+  String get posterHeadline => 'ΧΑΘΗΚΕ';
+
+  @override
+  String get posterStanding =>
+      'Παρακαλώ ελέγξτε υπόγεια, αποθήκες και γκαράζ. Μην το κυνηγάτε, απλώς καλέστε.';
+
+  @override
+  String get posterLastSeen => 'Τελευταία φορά κοντά σε';
+
+  @override
+  String get posterFreeText => 'Επιπλέον γραμμή';
+
+  @override
+  String get posterQr => 'Κωδικός QR για το cat(a)log';
+
+  @override
+  String get posterPhoto => 'Φωτογραφία';
 }

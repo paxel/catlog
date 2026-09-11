@@ -3439,4 +3439,26 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Courbe';
+
+  @override
+  String get posterMenu => 'Affiche de disparition…';
+
+  @override
+  String get posterHeadline => 'DISPARU';
+
+  @override
+  String get posterStanding =>
+      'Merci de vérifier caves, abris et garages. Ne pas poursuivre, appelez simplement.';
+
+  @override
+  String get posterLastSeen => 'Vu pour la dernière fois près de';
+
+  @override
+  String get posterFreeText => 'Ligne supplémentaire';
+
+  @override
+  String get posterQr => 'Code QR pour cat(a)log';
+
+  @override
+  String get posterPhoto => 'Photo';
 }

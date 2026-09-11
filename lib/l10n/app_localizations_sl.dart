@@ -3457,4 +3457,26 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Krivulja';
+
+  @override
+  String get posterMenu => 'Plakat Pogrešan…';
+
+  @override
+  String get posterHeadline => 'POGREŠAN';
+
+  @override
+  String get posterStanding =>
+      'Prosimo, preverite kleti, lope in garaže. Ne lovite, samo pokličite.';
+
+  @override
+  String get posterLastSeen => 'Nazadnje viden pri';
+
+  @override
+  String get posterFreeText => 'Dodatna vrstica';
+
+  @override
+  String get posterQr => 'Koda QR za cat(a)log';
+
+  @override
+  String get posterPhoto => 'Fotografija';
 }

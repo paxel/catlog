@@ -3483,4 +3483,26 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Cuar';
+
+  @override
+  String get posterMenu => 'Póstaer ar iarraidh…';
+
+  @override
+  String get posterHeadline => 'AR IARRAIDH';
+
+  @override
+  String get posterStanding =>
+      'Seiceáil siléir, seideanna agus garáistí le do thoil. Ná téigh sa tóir, glaoigh.';
+
+  @override
+  String get posterLastSeen => 'Feicthe go deireanach in aice le';
+
+  @override
+  String get posterFreeText => 'Líne bhreise';
+
+  @override
+  String get posterQr => 'Cód QR do cat(a)log';
+
+  @override
+  String get posterPhoto => 'Grianghraf';
 }

@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Pacienta kopsavilkums",
   "vetReportOwner": "Īpašnieks",
   "vetReportLegend": "Apzīmējumi",
-  "vetReportCurves": "Līkne"
+  "vetReportCurves": "Līkne",
+  "posterMenu": "Pazudis plakāts…",
+  "posterHeadline": "PAZUDIS",
+  "posterStanding": "Lūdzu, pārbaudiet pagrabus, šķūņus un garāžas. Nedzeniet pakaļ, vienkārši piezvaniet.",
+  "posterLastSeen": "Pēdējo reizi redzēts pie",
+  "posterFreeText": "Papildu rinda",
+  "posterQr": "QR kods cat(a)log",
+  "posterPhoto": "Foto"
 }

@@ -3427,4 +3427,26 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Eğri';
+
+  @override
+  String get posterMenu => 'Kayıp afişi…';
+
+  @override
+  String get posterHeadline => 'KAYIP';
+
+  @override
+  String get posterStanding =>
+      'Lütfen bodrumları, kulübeleri ve garajları kontrol edin. Kovalamayın, sadece arayın.';
+
+  @override
+  String get posterLastSeen => 'Son görüldüğü yer';
+
+  @override
+  String get posterFreeText => 'Ek satır';
+
+  @override
+  String get posterQr => 'cat(a)log için QR kodu';
+
+  @override
+  String get posterPhoto => 'Fotoğraf';
 }

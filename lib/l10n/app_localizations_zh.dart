@@ -3260,4 +3260,25 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get vetReportCurves => '曲线';
+
+  @override
+  String get posterMenu => '寻猫启事…';
+
+  @override
+  String get posterHeadline => '寻猫';
+
+  @override
+  String get posterStanding => '请检查地下室、棚屋和车库。请勿追赶，请来电。';
+
+  @override
+  String get posterLastSeen => '最后出现地点';
+
+  @override
+  String get posterFreeText => '附加一行';
+
+  @override
+  String get posterQr => 'cat(a)log 二维码';
+
+  @override
+  String get posterPhoto => '照片';
 }

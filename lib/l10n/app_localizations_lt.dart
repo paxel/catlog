@@ -3449,4 +3449,26 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Kreivė';
+
+  @override
+  String get posterMenu => 'Dingusio plakatas…';
+
+  @override
+  String get posterHeadline => 'DINGO';
+
+  @override
+  String get posterStanding =>
+      'Prašome patikrinti rūsius, pašiūres ir garažus. Nevaikykite, tiesiog paskambinkite.';
+
+  @override
+  String get posterLastSeen => 'Paskutinį kartą matytas prie';
+
+  @override
+  String get posterFreeText => 'Papildoma eilutė';
+
+  @override
+  String get posterQr => 'QR kodas cat(a)log';
+
+  @override
+  String get posterPhoto => 'Nuotrauka';
 }

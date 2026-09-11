@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Преглед пацијента",
   "vetReportOwner": "Власник",
   "vetReportLegend": "Легенда",
-  "vetReportCurves": "Крива"
+  "vetReportCurves": "Крива",
+  "posterMenu": "Плакат „Нестао“…",
+  "posterHeadline": "НЕСТАО",
+  "posterStanding": "Молимо проверите подруме, шупе и гараже. Не јурите, само позовите.",
+  "posterLastSeen": "Последњи пут виђен код",
+  "posterFreeText": "Додатни ред",
+  "posterQr": "QR код за cat(a)log",
+  "posterPhoto": "Фотографија"
 }

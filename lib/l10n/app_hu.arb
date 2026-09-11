@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Betegösszefoglaló",
   "vetReportOwner": "Gazda",
   "vetReportLegend": "Jelmagyarázat",
-  "vetReportCurves": "Görbe"
+  "vetReportCurves": "Görbe",
+  "posterMenu": "Eltűnt-plakát…",
+  "posterHeadline": "ELTŰNT",
+  "posterStanding": "Kérjük, nézzenek be a pincékbe, fészerekbe és garázsokba. Ne kergessék, csak hívjanak.",
+  "posterLastSeen": "Utoljára itt látták",
+  "posterFreeText": "Plusz sor",
+  "posterQr": "QR-kód a cat(a)loghoz",
+  "posterPhoto": "Fotó"
 }

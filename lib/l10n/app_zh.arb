@@ -1154,5 +1154,12 @@
   "vetReportSummary": "患者摘要",
   "vetReportOwner": "主人",
   "vetReportLegend": "图例",
-  "vetReportCurves": "曲线"
+  "vetReportCurves": "曲线",
+  "posterMenu": "寻猫启事…",
+  "posterHeadline": "寻猫",
+  "posterStanding": "请检查地下室、棚屋和车库。请勿追赶，请来电。",
+  "posterLastSeen": "最后出现地点",
+  "posterFreeText": "附加一行",
+  "posterQr": "cat(a)log 二维码",
+  "posterPhoto": "照片"
 }

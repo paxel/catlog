@@ -1154,5 +1154,12 @@
   "vetReportSummary": "Обзор на пациента",
   "vetReportOwner": "Собственик",
   "vetReportLegend": "Легенда",
-  "vetReportCurves": "Крива"
+  "vetReportCurves": "Крива",
+  "posterMenu": "Плакат „Изгубен“…",
+  "posterHeadline": "ИЗГУБЕН",
+  "posterStanding": "Моля, проверете мазета, бараки и гаражи. Не гонете, просто се обадете.",
+  "posterLastSeen": "Последно видян при",
+  "posterFreeText": "Допълнителен ред",
+  "posterQr": "QR код за cat(a)log",
+  "posterPhoto": "Снимка"
 }

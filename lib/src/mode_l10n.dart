@@ -1963,6 +1963,27 @@ class ModeLocalizations implements AppLocalizations {
   String get plannedSection => base.plannedSection;
 
   @override
+  String get posterFreeText => base.posterFreeText;
+
+  @override
+  String get posterHeadline => base.posterHeadline;
+
+  @override
+  String get posterLastSeen => base.posterLastSeen;
+
+  @override
+  String get posterMenu => base.posterMenu;
+
+  @override
+  String get posterPhoto => base.posterPhoto;
+
+  @override
+  String get posterQr => base.posterQr;
+
+  @override
+  String get posterStanding => base.posterStanding;
+
+  @override
   String get prevPin => base.prevPin;
 
   @override

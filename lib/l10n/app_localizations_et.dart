@@ -3426,4 +3426,26 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get vetReportCurves => 'Kõver';
+
+  @override
+  String get posterMenu => 'Kadunud-plakat…';
+
+  @override
+  String get posterHeadline => 'KADUNUD';
+
+  @override
+  String get posterStanding =>
+      'Palun vaadake keldritesse, kuuridesse ja garaažidesse. Ärge ajage taga, lihtsalt helistage.';
+
+  @override
+  String get posterLastSeen => 'Viimati nähtud';
+
+  @override
+  String get posterFreeText => 'Lisarida';
+
+  @override
+  String get posterQr => 'QR-kood cat(a)logi jaoks';
+
+  @override
+  String get posterPhoto => 'Foto';
 }
