@@ -2,6 +2,14 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.2.4] - 2026-09-11
+
+### Changed
+- A field's or chore's history shares as a PDF and copies as text, instead of sharing a text file.
+
+### Fixed
+- Chore reminders work in the store build: the release build had stripped the notification plugin's inner workings, so the test button did nothing and the switch reported a missing permission; a broken plugin now reports itself instead of posing as a refusal.
+
 ## [1.2.3] - 2026-09-09
 
 ### Added
