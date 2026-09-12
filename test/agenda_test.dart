@@ -144,7 +144,7 @@ void main() {
     // Next month is out of range: the arrow is disabled (no tooltip
     // is offered), and OK keeps today.
     expect(find.byTooltip('Next month'), findsNothing);
-    await tester.tap(find.text('OK'));
+    await tester.tap(find.text('Save').last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();

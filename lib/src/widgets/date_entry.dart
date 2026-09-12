@@ -215,7 +215,7 @@ class _DayDialogState extends State<_DayDialog> {
           onPressed: picked == null
               ? null
               : () => Navigator.of(context).pop(picked.earliest),
-          child: Text(MaterialLocalizations.of(context).okButtonLabel),
+          child: Text(t.save),
         ),
       ],
     );

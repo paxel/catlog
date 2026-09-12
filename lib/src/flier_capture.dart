@@ -1477,7 +1477,7 @@ class _EntityPickerDialogState extends State<_EntityPickerDialog> {
         ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(_choice),
-          child: Text(MaterialLocalizations.of(context).okButtonLabel),
+          child: Text(t.save),
         ),
       ],
     );

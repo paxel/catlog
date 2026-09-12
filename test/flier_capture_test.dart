@@ -418,7 +418,7 @@ void main() {
     await tester.tap(find.text('Existing clowder'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Home'));
-    await tester.tap(find.text('OK'));
+    await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
     expect(find.text('Home'), findsOneWidget);
     await next(tester);
