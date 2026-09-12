@@ -1078,6 +1078,9 @@ class ModeLocalizations implements AppLocalizations {
   String hardDeleteWarningKey(Object name, Object key) => base.hardDeleteWarningKey(name, key);
 
   @override
+  String get helpAchievements => base.helpAchievements;
+
+  @override
   String get helpAgenda => pets ? base.helpAgendaNeutral : base.helpAgenda;
 
   @override
@@ -1088,6 +1091,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get helpArchiveNeutral => base.helpArchiveNeutral;
+
+  @override
+  String get helpBackups => base.helpBackups;
 
   @override
   String get helpCard => pets ? base.helpCardNeutral : base.helpCard;
@@ -1115,6 +1121,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get helpClowderNeutral => base.helpClowderNeutral;
+
+  @override
+  String get helpConflicts => base.helpConflicts;
 
   @override
   String get helpDuplicates => pets ? base.helpDuplicatesNeutral : base.helpDuplicates;
@@ -1147,6 +1156,9 @@ class ModeLocalizations implements AppLocalizations {
   String get helpHomeNeutral => base.helpHomeNeutral;
 
   @override
+  String get helpInPerson => base.helpInPerson;
+
+  @override
   String get helpLooks => base.helpLooks;
 
   @override
@@ -1160,6 +1172,24 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get helpMatchesNeutral => base.helpMatchesNeutral;
+
+  @override
+  String get helpMessenger => base.helpMessenger;
+
+  @override
+  String get helpModeration => base.helpModeration;
+
+  @override
+  String get helpPoster => base.helpPoster;
+
+  @override
+  String get helpRemote => base.helpRemote;
+
+  @override
+  String get helpRestore => base.helpRestore;
+
+  @override
+  String get helpScan => base.helpScan;
 
   @override
   String get helpSettings => base.helpSettings;
@@ -1178,6 +1208,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get helpTitle => base.helpTitle;
+
+  @override
+  String get helpVetReport => base.helpVetReport;
 
   @override
   String get hideLabel => base.hideLabel;

@@ -3571,4 +3571,48 @@ class AppLocalizationsRo extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Tendință: $value pe lună';
   }
+
+  @override
+  String get helpBackups =>
+      'Unde sunt în siguranță cataloagele tale: ce salvează telefonul singur, unde ajung copiile complete, când a fost scrisă ultima, și un buton pentru a scrie una acum. Restaurarea e în Gestionează cataloagele.';
+
+  @override
+  String get helpConflicts =>
+      'Câmpuri pe care două persoane le-au schimbat în același timp, înainte ca dispozitivele lor să se sincronizeze. Fiecare rând arată ambele valori; alege-o pe cea corectă, iar alegerea ajunge pe fiecare dispozitiv.';
+
+  @override
+  String get helpInPerson =>
+      'Sincronizare cu o persoană de lângă tine: un telefon găzduiește, celălalt se alătură scanând codul, iar datele trec prin Wi-Fi, criptate, fără server. Comutatorul privat decide dacă valorile private călătoresc.';
+
+  @override
+  String get helpMessenger =>
+      'Sincronizare ca fișier: acest dispozitiv scrie un pachet cu tot ce știe, îl trimiți prin orice mesagerie sau mail, iar cealaltă parte îl importă. Fotografiile călătoresc înăuntru; valorile private doar dacă spune comutatorul.';
+
+  @override
+  String get helpModeration =>
+      'Persoanele ale căror intrări au ajuns în acest catalog, cu ce au scris. Șterge datele unei persoane pe acest dispozitiv și blochează-i dispozitivul; o blocare listează numele sub care a scris acel dispozitiv.';
+
+  @override
+  String get helpRemote =>
+      'Sincronizare printr-un dosar partajat pentru dispozitive care nu se întâlnesc niciodată: alege o dată același dosar pe fiecare dispozitiv; fiecare sincronizare scrie acolo modificările tale și le citește pe ale celorlalți. Un dosar poartă toate cataloagele, fiecare în subdosarul său.';
+
+  @override
+  String get helpRestore =>
+      'Copiile instalării anterioare, câte un rând pe catalog, bifate. Restaurează le aduce pe fiecare înapoi ca propriul catalog. Pe Android dosarul se acordă o dată prin selector; Alege fișiere adaugă copii ținute în altă parte.';
+
+  @override
+  String get helpScan =>
+      'Scanează codul cat(a)log de pe un afiș sau de pe ecranul altcuiva: pisica și contactul ajung aici fără tastare. Un cod cu un link aduce fișierul din spatele lui.';
+
+  @override
+  String get helpVetReport =>
+      'Ce merge la veterinar: câmpurile și datele pe care le alegi, fiecare rând bifat până îl debifezi, și rezumatul pacientului în față. Partajează ca PDF sau tipărește, ambele în bară.';
+
+  @override
+  String get helpPoster =>
+      'Un afiș pentru stâlp, din fișă: bifează ce merge pe el, adaugă un rând pe care fișa nu îl are, iar pagina se tipărește negru pe alb cu litere citite de peste drum. Codul deschide pisica în alt cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Ce s-a câștigat și doar atât: luni, ani și mai mult de sarcini complete cu numărul lor, un titlu pe sarcină la rangul ei, și blănurile deblocate. Fără bare de progres și nimic de urmărit; recompensele sunt un bonus discret.';
 }

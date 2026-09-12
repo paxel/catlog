@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/widgets.dart' as pw;
 
+import '../help.dart';
 import '../field_labels.dart';
 import '../history_share.dart';
 import '../l10n.dart';
@@ -164,6 +165,7 @@ class _VetReportScreenState extends State<VetReportScreen> {
       appBar: AppBar(
         title: Text(t.vetReportTitle),
         actions: [
+          HelpButton(store: widget.store, screenId: 'vetReport'),
           IconButton(
             icon: const Icon(Icons.picture_as_pdf),
             tooltip: t.shareAsPdf,

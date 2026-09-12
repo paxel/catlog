@@ -3570,4 +3570,48 @@ class AppLocalizationsLv extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Tendence: $value mēnesī';
   }
+
+  @override
+  String get helpBackups =>
+      'Kur jūsu katalogi ir drošībā: ko tālrunis dublē pats, kur nonāk pilnās kopijas, kad ierakstīta pēdējā, un poga, lai ierakstītu tagad. Atjaunošana ir Katalogu pārvaldībā.';
+
+  @override
+  String get helpConflicts =>
+      'Lauki, ko divi cilvēki mainīja vienlaikus, pirms ierīces sinhronizējās. Katra rinda rāda abas vērtības; izvēlieties pareizo, un izvēle sasniedz katru ierīci.';
+
+  @override
+  String get helpInPerson =>
+      'Sinhronizējiet ar blakus esošo cilvēku: viens tālrunis uzņem, otrs pievienojas, noskenējot kodu, un dati pārvietojas pa Wi-Fi, šifrēti, bez servera. Privātuma slēdzis izlemj, vai ceļo privātās vērtības.';
+
+  @override
+  String get helpMessenger =>
+      'Sinhronizācija ar failu: šī ierīce raksta paketi ar visu, ko zina, jūs to nosūtāt ar jebkuru ziņotni vai e-pastu, un otra puse to importē. Fotoattēli ceļo iekšā; privātās vērtības tikai ar slēdža atļauju.';
+
+  @override
+  String get helpModeration =>
+      'Cilvēki, kuru ieraksti sasniedza šo katalogu, ar to, ko viņi rakstīja. Dzēsiet personas datus šajā ierīcē un bloķējiet viņas ierīci; bloķēšana uzskaita vārdus, ar kuriem tā ierīce rakstīja.';
+
+  @override
+  String get helpRemote =>
+      'Sinhronizācija caur koplietotu mapi ierīcēm, kas nekad nesatiekas: vienreiz izvēlieties to pašu mapi katrā ierīcē; katra sinhronizācija tur ieraksta jūsu izmaiņas un lasa citu. Viena mape nes visus katalogus, katru savā apakšmapē.';
+
+  @override
+  String get helpRestore =>
+      'Iepriekšējās instalācijas rezerves kopijas, viena rinda katram katalogam, atzīmētas. Atjaunot atgriež katru kā atsevišķu katalogu. Android ierīcēs mape tiek piešķirta vienreiz caur izvēli; Izvēlēties failus pievieno citur glabātas kopijas.';
+
+  @override
+  String get helpScan =>
+      'Noskenējiet cat(a)log kodu uz plakāta vai cita cilvēka ekrānā: kaķis un tā kontakts nonāk šeit bez rakstīšanas. Kods ar saiti lejupielādē aiz tā esošo failu.';
+
+  @override
+  String get helpVetReport =>
+      'Kas dodas pie veterinārārsta: jūsu izvēlētie lauki un datumi, katra rinda atzīmēta, līdz atceļat atzīmi, un pacienta kopsavilkums priekšā. Kopīgot kā PDF vai drukāt, abi joslā.';
+
+  @override
+  String get helpPoster =>
+      'Plakāts laternas stabam no ieraksta: atzīmējiet, kas uz tā būs, pievienojiet rindu, kuras ierakstā nav, un lapa drukājas melns uz balta ar burtiem, ko lasa no ielas otras puses. Kods atver kaķi citā cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Kas nopelnīts un tikai tas: pilni mēneši, gadi un vairāk uzdevumu ar to skaitu, viens tituls uz uzdevumu tā pakāpē, un atbloķētie kažoki. Nekādu progresa joslu un nekā, ko dzīties; balvas ir kluss bonuss.';
 }

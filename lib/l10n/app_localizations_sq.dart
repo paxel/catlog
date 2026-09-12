@@ -3556,4 +3556,48 @@ class AppLocalizationsSq extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Prirje: $value në muaj';
   }
+
+  @override
+  String get helpBackups =>
+      'Ku ruhen të sigurt katalogët e tu: çfarë ruan telefoni vetë, ku përfundojnë kopjet e plota, kur u shkrua e fundit, dhe një buton për të shkruar një tani. Rikthimi është te Menaxho katalogët.';
+
+  @override
+  String get helpConflicts =>
+      'Fusha që dy persona i ndryshuan njëkohësisht, para se pajisjet e tyre të sinkronizoheshin. Çdo rresht tregon të dy vlerat; zgjidh të saktën dhe zgjedhja arrin në çdo pajisje.';
+
+  @override
+  String get helpInPerson =>
+      'Sinkronizo me një person pranë teje: një telefon pret, tjetri bashkohet duke skanuar kodin, dhe të dhënat kalojnë përmes Wi-Fi, të koduara, pa server. Çelësi privat vendos nëse vlerat private udhëtojnë.';
+
+  @override
+  String get helpMessenger =>
+      'Sinkronizim si skedar: kjo pajisje shkruan një paketë me gjithçka që di, e dërgon me çdo mesazher ose email, dhe pala tjetër e importon. Fotot udhëtojnë brenda; vlerat private vetëm nëse çelësi e lejon.';
+
+  @override
+  String get helpModeration =>
+      'Personat, hyrjet e të cilëve arritën në këtë katalog, me atë që shkruan. Fshi të dhënat e një personi në këtë pajisje dhe blloko pajisjen e tij; një bllokim rendit emrat me të cilët shkroi ajo pajisje.';
+
+  @override
+  String get helpRemote =>
+      'Sinkronizim përmes një dosjeje të përbashkët për pajisje që nuk takohen kurrë: zgjidh një herë të njëjtën dosje në çdo pajisje; çdo sinkronizim shkruan aty ndryshimet e tua dhe lexon të të tjerëve. Një dosje mban të gjithë katalogët, secilin në nëndosjen e vet.';
+
+  @override
+  String get helpRestore =>
+      'Kopjet rezervë të instalimit të mëparshëm, një rresht për katalog, të shënuara. Rikthe e kthen secilën si katalog më vete. Në Android dosja jepet një herë përmes zgjedhësit; Zgjidh skedarë shton kopje të mbajtura gjetkë.';
+
+  @override
+  String get helpScan =>
+      'Skano kodin cat(a)log në një poster ose në ekranin e dikujt tjetër: macja dhe kontakti i saj vijnë këtu pa shtypur. Një kod me lidhje sjell skedarin pas tij.';
+
+  @override
+  String get helpVetReport =>
+      'Çfarë shkon te veterineri: fushat dhe datat që zgjedh, çdo rresht i shënuar derisa ta heqësh, dhe përmbledhja e pacientit në krye. Ndaje si PDF ose printo, të dyja në shirit.';
+
+  @override
+  String get helpPoster =>
+      'Një poster për shtyllën e dritës, nga regjistri: shëno çfarë shkon në të, shto një rresht që regjistri nuk e ka, dhe faqja printohet zezë mbi të bardhë me shkronja që lexohen nga ana tjetër e rrugës. Kodi e hap macen në një cat(a)log tjetër.';
+
+  @override
+  String get helpAchievements =>
+      'Ajo që u fitua dhe vetëm ajo: muaj, vite e më shumë të plota detyrash me numrin e tyre, një titull për detyrë në gradën e vet, dhe gëzofët e zhbllokuar. Pa shirita përparimi dhe asgjë për t\'u ndjekur; shpërblimet janë një bonus i qetë.';
 }

@@ -3553,4 +3553,48 @@ class AppLocalizationsEt extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value kuus';
   }
+
+  @override
+  String get helpBackups =>
+      'Kus su kataloogid on kaitstud: mida telefon ise varundab, kuhu täiskoopiad lähevad, millal viimane kirjutati, ja nupp, et kohe üks kirjutada. Taastamine on kataloogide haldamise all.';
+
+  @override
+  String get helpConflicts =>
+      'Väljad, mida kaks inimest muutsid ühel ajal enne seadmete sünkroonimist. Iga rida näitab mõlemat väärtust; vali õige ja valik jõuab igasse seadmesse.';
+
+  @override
+  String get helpInPerson =>
+      'Sünkrooni kõrval seisva inimesega: üks telefon on võõrustaja, teine liitub koodi skannides ja andmed liiguvad üle Wi-Fi, krüpteeritult, ilma serverita. Privaatsuse lüliti otsustab, kas privaatsed väärtused kaasa lähevad.';
+
+  @override
+  String get helpMessenger =>
+      'Sünkroonimine failina: see seade kirjutab paketi kõigega, mida teab, sa saadad selle mis tahes sõnumirakenduse või meiliga ja teine pool impordib. Fotod reisivad kaasa; privaatsed väärtused ainult lüliti loal.';
+
+  @override
+  String get helpModeration =>
+      'Inimesed, kelle kirjed selle kataloogini jõudsid, koos sellega, mida nad kirjutasid. Kustuta inimese andmed sellest seadmest ja blokeeri tema seade; blokeering loetleb nimed, mille all see seade kirjutas.';
+
+  @override
+  String get helpRemote =>
+      'Sünkroonimine jagatud kausta kaudu seadmetele, mis kunagi ei kohtu: vali sama kaust üks kord igas seadmes; iga sünkroonimine kirjutab sinu muudatused sinna ja loeb teiste omi. Üks kaust kannab kõiki katalooge, igaüks oma alamkaustas.';
+
+  @override
+  String get helpRestore =>
+      'Eelmise paigalduse varukoopiad, üks rida kataloogi kohta, märgitud. Taasta toob igaühe tagasi omaette kataloogina. Androidis antakse kaust üks kord valija kaudu; Vali failid lisab mujal hoitud koopiad.';
+
+  @override
+  String get helpScan =>
+      'Skanni cat(a)logi koodi plakatilt või teise inimese ekraanilt: kass ja tema kontakt jõuavad siia ilma tippimata. Lingiga kood toob taga oleva faili.';
+
+  @override
+  String get helpVetReport =>
+      'Mis läheb loomaarstile: sinu valitud väljad ja kuupäevad, iga rida märgitud, kuni sa märke eemaldad, ja patsiendi kokkuvõte ees. Jaga PDF-ina või prindi, mõlemad ribal.';
+
+  @override
+  String get helpPoster =>
+      'Plakat laternaposti jaoks, kirjest: märgi, mis sinna läheb, lisa rida, mida kirjes pole, ja leht trükitakse must valgel tähtedega, mida loetakse üle tänava. Kood avab kassi teises cat(a)logis.';
+
+  @override
+  String get helpAchievements =>
+      'Mis on teenitud ja ainult see: täiskuud, aastad ja enam toimetusi koos arvuga, üks tiitel toimetuse kohta selle astmel, ja avatud kasukad. Ei edenemisribasid ega midagi tagaajamiseks; tasud on vaikne boonus.';
 }

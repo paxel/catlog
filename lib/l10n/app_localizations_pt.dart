@@ -3556,4 +3556,48 @@ class AppLocalizationsPt extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Tendência: $value por mês';
   }
+
+  @override
+  String get helpBackups =>
+      'Onde os teus catálogos ficam a salvo: o que o telemóvel guarda sozinho, onde ficam as cópias completas, quando a última foi escrita, e um botão para escrever uma agora. Restaurar está em Gerir catálogos.';
+
+  @override
+  String get helpConflicts =>
+      'Campos que duas pessoas alteraram ao mesmo tempo, antes de os seus dispositivos sincronizarem. Cada linha mostra ambos os valores; escolhe o certo, e a escolha chega a todos os dispositivos.';
+
+  @override
+  String get helpInPerson =>
+      'Sincroniza com alguém ao teu lado: um telemóvel aloja, o outro entra ao ler o código, e os dados passam por Wi-Fi, cifrados, sem servidor. O interruptor de privado decide se os valores privados viajam.';
+
+  @override
+  String get helpMessenger =>
+      'Sincronizar como ficheiro: este dispositivo escreve um pacote com tudo o que sabe, envias por qualquer mensageiro ou email, e o outro lado importa-o. As fotos vão dentro; os valores privados só se o interruptor o disser.';
+
+  @override
+  String get helpModeration =>
+      'As pessoas cujas entradas chegaram a este catálogo, com o que escreveram. Apaga os dados de uma pessoa neste dispositivo e bloqueia o dispositivo dela; um bloqueio lista os nomes com que esse dispositivo escreveu.';
+
+  @override
+  String get helpRemote =>
+      'Sincronizar por uma pasta partilhada para dispositivos que nunca se encontram: escolhe uma vez a mesma pasta em cada dispositivo; cada sincronização escreve lá as tuas alterações e lê as dos outros. Uma pasta leva todos os catálogos, cada um na sua subpasta.';
+
+  @override
+  String get helpRestore =>
+      'Cópias da instalação anterior, uma linha por catálogo, marcadas. Restaurar traz cada uma de volta como catálogo próprio. No Android a pasta é concedida uma vez pelo seletor; Escolher ficheiros adiciona cópias guardadas noutro lado.';
+
+  @override
+  String get helpScan =>
+      'Lê o código cat(a)log num cartaz ou no ecrã de outra pessoa: o gato e o seu contacto chegam aqui sem escrever. Um código com ligação vai buscar o ficheiro por trás.';
+
+  @override
+  String get helpVetReport =>
+      'O que vai para o veterinário: os campos e as datas que escolhes, cada linha marcada até a desmarcares, e o resumo do paciente à frente. Partilhar como PDF ou imprimir, ambos na barra.';
+
+  @override
+  String get helpPoster =>
+      'Um cartaz para o poste, a partir da ficha: marca o que vai nele, acrescenta uma linha que a ficha não tem, e a página imprime a preto sobre branco em letras que se leem do outro lado da rua. O código abre o gato noutro cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'O que foi ganho e só isso: meses, anos e mais de tarefas completos com a sua contagem, um título por tarefa no seu grau, e as pelagens desbloqueadas. Sem barras de progresso nem nada a perseguir; as recompensas são um bónus discreto.';
 }

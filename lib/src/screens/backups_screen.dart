@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../help.dart';
 import '../auto_backup.dart';
 import '../l10n.dart';
 import '../sync/saf_folder.dart';
@@ -118,7 +119,10 @@ class _BackupsScreenState extends State<BackupsScreen> {
       _ => (null, t.backupsDesktopFiles),
     };
     return Scaffold(
-      appBar: AppBar(title: Text(t.backupsTitle)),
+      appBar: AppBar(
+        title: Text(t.backupsTitle),
+        actions: [HelpButton(store: widget.store, screenId: 'backups')],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

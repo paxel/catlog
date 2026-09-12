@@ -3568,4 +3568,48 @@ class AppLocalizationsBs extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value mjesečno';
   }
+
+  @override
+  String get helpBackups =>
+      'Gdje su vaši katalozi sigurni: šta telefon sam čuva, gdje završavaju potpune kopije, kada je zapisana zadnja, i dugme za zapis sada. Vraćanje je u Upravljaj katalozima.';
+
+  @override
+  String get helpConflicts =>
+      'Polja koja su dvoje ljudi promijenili istovremeno, prije nego što su se uređaji sinhronizovali. Svaki red prikazuje obje vrijednosti; odaberite pravu i izbor stiže na svaki uređaj.';
+
+  @override
+  String get helpInPerson =>
+      'Sinhronizacija s osobom pored vas: jedan telefon je domaćin, drugi se pridružuje skeniranjem koda, a podaci idu preko Wi-Fi-ja, šifrovani, bez servera. Prekidač za privatno odlučuje da li privatne vrijednosti putuju.';
+
+  @override
+  String get helpMessenger =>
+      'Sinhronizacija kao datoteka: ovaj uređaj piše paket sa svime što zna, šaljete ga preko messengera ili pošte, a druga strana ga uvozi. Fotografije putuju unutra; privatne vrijednosti samo ako prekidač dopusti.';
+
+  @override
+  String get helpModeration =>
+      'Osobe čiji su unosi stigli u ovaj katalog, s onim što su napisale. Izbrišite podatke osobe na ovom uređaju i blokirajte njen uređaj; blokada navodi imena pod kojima je taj uređaj pisao.';
+
+  @override
+  String get helpRemote =>
+      'Sinhronizacija preko dijeljenog foldera za uređaje koji se nikad ne sretnu: jednom odaberite isti folder na svakom uređaju; svaka sinhronizacija tamo zapisuje vaše promjene i čita tuđe. Jedan folder nosi sve kataloge, svaki u vlastitom podfolderu.';
+
+  @override
+  String get helpRestore =>
+      'Sigurnosne kopije prethodne instalacije, po red po katalogu, označene. Vrati vraća svaku kao zaseban katalog. Na Androidu se folder daje jednom kroz odabir; Odaberi datoteke dodaje kopije čuvane drugdje.';
+
+  @override
+  String get helpScan =>
+      'Skenirajte cat(a)log kod s plakata ili s ekrana druge osobe: mačka i njen kontakt stižu ovdje bez kucanja. Kod koji nosi link preuzima datoteku iza njega.';
+
+  @override
+  String get helpVetReport =>
+      'Šta ide veterinaru: odabrana polja i datumi, svaki red označen dok ga ne odznačite, i pregled pacijenta na početku. Podijeli kao PDF ili štampaj, oboje u traci.';
+
+  @override
+  String get helpPoster =>
+      'Plakat za banderu, iz zapisa: označite šta ide na njega, dodajte red koji zapis nema, i stranica se štampa crno na bijelom slovima koja se čitaju s druge strane ulice. Kod otvara mačku u drugom cat(a)logu.';
+
+  @override
+  String get helpAchievements =>
+      'Ono što je zarađeno i samo to: puni mjeseci, godine i više zadataka s njihovim brojem, po jedna titula po zadatku na njenom stepenu, i otključana krzna. Bez traka napretka i bez jurnjave; nagrade su tihi bonus.';
 }

@@ -3565,4 +3565,48 @@ class AppLocalizationsIt extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Tendenza: $value al mese';
   }
+
+  @override
+  String get helpBackups =>
+      'Dove i tuoi cataloghi sono al sicuro: cosa salva il telefono da solo, dove finiscono le copie complete, quando è stata scritta l\'ultima e un pulsante per scriverne una ora. Il ripristino sta in Gestisci cataloghi.';
+
+  @override
+  String get helpConflicts =>
+      'Campi che due persone hanno cambiato contemporaneamente, prima che i loro dispositivi si sincronizzassero. Ogni riga mostra entrambi i valori; scegli quello giusto e la scelta raggiunge ogni dispositivo.';
+
+  @override
+  String get helpInPerson =>
+      'Sincronizza con chi ti sta accanto: un telefono ospita, l\'altro entra scansionando il codice, e i dati passano via Wi-Fi, cifrati, senza server. L\'interruttore privato decide se viaggiano i valori privati.';
+
+  @override
+  String get helpMessenger =>
+      'Sincronizzazione come file: questo dispositivo scrive un pacchetto con tutto ciò che sa, lo invii con qualsiasi messenger o mail, e l\'altra parte lo importa. Le foto viaggiano dentro; i valori privati solo se l\'interruttore lo dice.';
+
+  @override
+  String get helpModeration =>
+      'Le persone le cui voci hanno raggiunto questo catalogo, con ciò che hanno scritto. Elimina i dati di una persona su questo dispositivo e blocca il suo dispositivo; un blocco elenca i nomi con cui quel dispositivo ha scritto.';
+
+  @override
+  String get helpRemote =>
+      'Sincronizzazione tramite una cartella condivisa per dispositivi che non si incontrano mai: scegli una volta la stessa cartella su ogni dispositivo; ogni sincronizzazione vi scrive le tue modifiche e legge quelle degli altri. Una cartella porta tutti i cataloghi, ciascuno nella propria sottocartella.';
+
+  @override
+  String get helpRestore =>
+      'Backup dell\'installazione precedente, una riga per catalogo, spuntati. Ripristina riporta ciascuno come catalogo a sé. Su Android la cartella viene concessa una volta dal selettore; Scegli file aggiunge backup conservati altrove.';
+
+  @override
+  String get helpScan =>
+      'Scansiona il codice cat(a)log su un manifesto o sullo schermo di un altro: il gatto e il suo contatto arrivano qui senza digitare. Un codice con un link scarica il file dietro di esso.';
+
+  @override
+  String get helpVetReport =>
+      'Cosa va dal veterinario: i campi e le date che scegli, ogni riga spuntata finché non la deselezioni, e il riepilogo del paziente in testa. Condividi come PDF o stampa, entrambi nella barra.';
+
+  @override
+  String get helpPoster =>
+      'Un manifesto per il lampione, dalla scheda: spunta cosa ci va, aggiungi una riga che la scheda non ha, e la pagina stampa nero su bianco in lettere leggibili dall\'altro lato della strada. Il codice apre il gatto in un altro cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Ciò che è stato guadagnato e solo quello: mesi, anni e oltre di compiti completi con il loro conto, un titolo per compito al suo grado, e i manti sbloccati. Nessuna barra di progresso e nulla da inseguire; le ricompense sono un bonus silenzioso.';
 }

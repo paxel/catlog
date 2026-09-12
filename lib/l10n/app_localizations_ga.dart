@@ -3610,4 +3610,48 @@ class AppLocalizationsGa extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Treocht: $value sa mhí';
   }
+
+  @override
+  String get helpBackups =>
+      'An áit a gcoinnítear do chatalóga slán: a ndéanann an guthán cúltaca de uaidh féin, cá dtéann na cóipeanna iomlána, cathain a scríobhadh an ceann deireanach, agus cnaipe chun ceann a scríobh anois. Tá an t-athchóiriú faoi Bainistigh catalóga.';
+
+  @override
+  String get helpConflicts =>
+      'Réimsí a d\'athraigh beirt ag an am céanna, sular shioncronaigh a ngléasanna. Taispeánann gach ró an dá luach; roghnaigh an ceann ceart, agus sroicheann an rogha gach gléas.';
+
+  @override
+  String get helpInPerson =>
+      'Sioncronaigh le duine in aice leat: óstálann guthán amháin, téann an ceann eile isteach tríd an gcód a scanadh, agus gluaiseann na sonraí thar Wi-Fi, criptithe, gan freastalaí. Cinneann an lasc phríobháideach an dtaistealaíonn luachanna príobháideacha.';
+
+  @override
+  String get helpMessenger =>
+      'Sioncronaigh mar chomhad: scríobhann an gléas seo beart le gach a bhfuil ar eolas aige, seolann tú é trí theachtaire nó ríomhphost ar bith, agus iompórtálann an taobh eile é. Taistealaíonn grianghraif istigh; luachanna príobháideacha ach amháin má deir an lasc é.';
+
+  @override
+  String get helpModeration =>
+      'Na daoine ar shroich a n-iontrálacha an chatalóg seo, leis an méid a scríobh siad. Scrios sonraí duine ar an ngléas seo agus cuir cosc ar a ghléas; liostaíonn cosc na hainmneacha ar scríobh an gléas sin fúthu.';
+
+  @override
+  String get helpRemote =>
+      'Sioncronaigh trí fhillteán comhroinnte do ghléasanna nach mbuaileann le chéile riamh: roghnaigh an fillteán céanna uair amháin ar gach gléas; scríobhann gach sioncronú d\'athruithe ansin agus léann sé athruithe na ndaoine eile. Iompraíonn fillteán amháin gach catalóg, gach ceann ina fhofhillteán féin.';
+
+  @override
+  String get helpRestore =>
+      'Cúltacaí na suiteála roimhe seo, ró amháin in aghaidh na catalóige, ticeáilte. Tugann Athchóirigh gach ceann ar ais mar chatalóg dá cuid féin. Ar Android deonaítear an fillteán uair amháin tríd an roghnóir; cuireann Roghnaigh comhaid cúltacaí a choinnítear áit ar bith eile leis.';
+
+  @override
+  String get helpScan =>
+      'Scan an cód cat(a)log ar phóstaer nó ar scáileán duine eile: tagann an cat agus a theagmháil anseo gan chlóscríobh. Faigheann cód a iompraíonn nasc an comhad taobh thiar de.';
+
+  @override
+  String get helpVetReport =>
+      'An méid a théann chuig an tréidlia: na réimsí agus na dátaí a roghnaíonn tú, gach ró ticeáilte go dtí go ndíthiceálann tú é, agus an achoimre othair ar barr. Roinn mar PDF nó priontáil, an dá cheann sa bharra.';
+
+  @override
+  String get helpPoster =>
+      'Póstaer don chuaille lampa, ón taifead: cuir tic lena bhfuil le dul air, cuir líne leis nach bhfuil sa taifead, agus priontálann an leathanach dubh ar bhán i litreacha a léitear ó thaobh eile na sráide. Osclaíonn an cód an cat i cat(a)log eile.';
+
+  @override
+  String get helpAchievements =>
+      'An méid a tuilleadh agus sin amháin: míonna, blianta agus níos mó iomlána de chúraimí lena n-uimhir, teideal amháin in aghaidh an chúraim ag a chéim, agus na fionnaidh a díghlasáladh. Gan barraí dul chun cinn agus gan aon rud le fiach; is bónas ciúin iad na luaíochtaí.';
 }

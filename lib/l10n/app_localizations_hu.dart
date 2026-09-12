@@ -3555,4 +3555,48 @@ class AppLocalizationsHu extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value havonta';
   }
+
+  @override
+  String get helpBackups =>
+      'Hol vannak biztonságban a katalógusaid: mit ment a telefon magától, hová kerülnek a teljes másolatok, mikor készült az utolsó, és egy gomb, hogy most készüljön egy. A visszaállítás a Katalógusok kezelése alatt van.';
+
+  @override
+  String get helpConflicts =>
+      'Mezők, amelyeket ketten egyszerre változtattak, mielőtt eszközeik szinkronizáltak volna. Minden sor mindkét értéket mutatja; válaszd a helyeset, és a döntés minden eszközre eljut.';
+
+  @override
+  String get helpInPerson =>
+      'Szinkronizálás a melletted állóval: az egyik telefon fogad, a másik a kód beolvasásával csatlakozik, az adatok Wi-Fi-n mennek, titkosítva, szerver nélkül. A privát kapcsoló dönti el, hogy a privát értékek utaznak-e.';
+
+  @override
+  String get helpMessenger =>
+      'Szinkronizálás fájlként: ez az eszköz csomagot ír mindenből, amit tud, elküldöd bármely üzenetküldővel vagy levélben, a másik oldal importálja. A fotók benne utaznak; a privát értékek csak ha a kapcsoló engedi.';
+
+  @override
+  String get helpModeration =>
+      'Azok, akiknek bejegyzései elérték ezt a katalógust, azzal, amit írtak. Töröld egy személy adatait ezen az eszközön és tiltsd le az eszközét; a tiltás felsorolja a neveket, amelyek alatt az eszköz írt.';
+
+  @override
+  String get helpRemote =>
+      'Szinkronizálás megosztott mappán át olyan eszközöknek, amelyek sosem találkoznak: válaszd ki egyszer ugyanazt a mappát minden eszközön; minden szinkronizálás oda írja a változtatásaidat és olvassa a többiekét. Egy mappa hordozza az összes katalógust, mindegyiket saját almappában.';
+
+  @override
+  String get helpRestore =>
+      'Az előző telepítés mentései, katalógusonként egy sor, bepipálva. A Visszaállítás mindegyiket külön katalógusként hozza vissza. Androidon a mappát egyszer a választó adja meg; a Fájlok kiválasztása máshol tartott mentéseket ad hozzá.';
+
+  @override
+  String get helpScan =>
+      'Olvasd be a cat(a)log kódot egy plakátról vagy valaki képernyőjéről: a macska és az elérhetősége gépelés nélkül kerül ide. Egy linket hordozó kód letölti a mögötte lévő fájlt.';
+
+  @override
+  String get helpVetReport =>
+      'Ami az állatorvoshoz megy: a választott mezők és dátumok, minden sor bepipálva, amíg ki nem veszed, és a betegösszefoglaló elöl. Megosztás PDF-ként vagy nyomtatás, mindkettő a sávban.';
+
+  @override
+  String get helpPoster =>
+      'Plakát a lámpaoszlopra, az adatokból: jelöld, mi kerüljön rá, adj hozzá egy sort, ami az adatokból hiányzik, és az oldal feketén fehéren nyomtatódik, az utca túloldaláról olvasható betűkkel. A kód egy másik cat(a)logban nyitja meg a macskát.';
+
+  @override
+  String get helpAchievements =>
+      'Ami megszerzett, és csak az: teljes hónapok, évek és több teendőből a számukkal, teendőnként egy cím a saját fokán, és a feloldott bundák. Nincs folyamatjelző és nincs mit hajszolni; a jutalmak csendes ráadás.';
 }

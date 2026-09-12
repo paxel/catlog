@@ -1205,5 +1205,16 @@
     "placeholders": {
       "value": {}
     }
-  }
+  },
+  "helpBackups": "Kataloglarının güvende tutulduğu yer: telefonun kendi yedeklediği, tam kopyaların gittiği yer, sonuncusunun ne zaman yazıldığı ve şimdi bir tane yazmak için bir düğme. Geri yükleme Katalogları yönet'te.",
+  "helpConflicts": "İki kişinin, cihazları eşitlenmeden önce aynı anda değiştirdiği alanlar. Her satır iki değeri de gösterir; doğru olanı seçin, seçim her cihaza ulaşır.",
+  "helpInPerson": "Yanınızdaki kişiyle eşitleyin: bir telefon ev sahibi olur, diğeri kodu tarayarak katılır ve veriler Wi-Fi üzerinden şifreli olarak, sunucusuz taşınır. Özel anahtarı, özel değerlerin gidip gitmeyeceğine karar verir.",
+  "helpMessenger": "Dosya olarak eşitleme: bu cihaz bildiği her şeyi bir pakete yazar, herhangi bir mesajlaşma uygulaması veya e-postayla gönderirsiniz, karşı taraf içe aktarır. Fotoğraflar içinde gider; özel değerler yalnızca anahtar izin verirse.",
+  "helpModeration": "Kayıtları bu kataloğa ulaşan kişiler ve yazdıkları. Bir kişinin verisini bu cihazda silin ve cihazını engelleyin; bir engel, o cihazın yazdığı adları listeler.",
+  "helpRemote": "Hiç karşılaşmayan cihazlar için paylaşılan klasörle eşitleme: her cihazda aynı klasörü bir kez seçin; her eşitleme değişikliklerinizi oraya yazar ve diğerlerininkini okur. Tek klasör tüm katalogları taşır, her biri kendi alt klasöründe.",
+  "helpRestore": "Önceki kurulumun yedekleri, katalog başına bir satır, işaretli. Geri Yükle her birini kendi kataloğu olarak geri getirir. Android'de klasör seçici ile bir kez verilir; Dosya seç başka yerde tutulan yedekleri ekler.",
+  "helpScan": "Bir afişteki veya başkasının ekranındaki cat(a)log kodunu tarayın: kedi ve iletişim bilgisi yazmadan buraya gelir. Bağlantı taşıyan bir kod arkasındaki dosyayı getirir.",
+  "helpVetReport": "Veterinere giden: seçtiğiniz alanlar ve tarihler, siz kaldırana kadar her satır işaretli, ve en üstte hasta özeti. PDF olarak paylaşın veya yazdırın, ikisi de çubukta.",
+  "helpPoster": "Elektrik direği için kayıttan bir afiş: üzerine ne gideceğini işaretleyin, kayıtta olmayan bir satır ekleyin, sayfa karşı kaldırımdan okunan harflerle siyah beyaz basılır. Üzerindeki kod kediyi başka bir cat(a)log'da açar.",
+  "helpAchievements": "Kazanılan ve yalnızca o: tam aylar, yıllar ve daha fazlası görevlerden sayılarıyla, görev başına kendi kademesinde bir unvan ve açılan kürkler. İlerleme çubuğu yok, peşinden koşulacak bir şey yok; ödüller sessiz bir armağan."
 }

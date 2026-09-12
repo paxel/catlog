@@ -3559,4 +3559,48 @@ class AppLocalizationsIs extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Þróun: $value á mánuði';
   }
+
+  @override
+  String get helpBackups =>
+      'Hvar skrárnar þínar eru geymdar örugglega: það sem síminn afritar sjálfur, hvar heil afrit lenda, hvenær það síðasta var skrifað, og hnappur til að skrifa eitt núna. Endurheimt er undir Stjórna skrám.';
+
+  @override
+  String get helpConflicts =>
+      'Reitir sem tveir breyttu á sama tíma, áður en tækin þeirra samstilltust. Hver lína sýnir bæði gildin; veldu rétt gildi og valið berst í öll tæki.';
+
+  @override
+  String get helpInPerson =>
+      'Samstilla við manneskju við hlið þér: einn sími hýsir, hinn tengist með því að skanna kóðann og gögnin flytjast dulkóðuð um Wi-Fi, án netþjóns. Einkarofinn ræður hvort einkagildi fylgja með.';
+
+  @override
+  String get helpMessenger =>
+      'Samstilling sem skrá: þetta tæki skrifar pakka með öllu sem það veit, þú sendir hann með hvaða spjallforriti eða tölvupósti sem er og hinn aðilinn flytur hann inn. Myndir fylgja með; einkagildi aðeins ef rofinn leyfir.';
+
+  @override
+  String get helpModeration =>
+      'Fólkið sem færslur þess bárust í þessa skrá, með því sem það skrifaði. Eyddu gögnum einstaklings í þessu tæki og lokaðu á tæki hans; lokun sýnir nöfnin sem tækið skrifaði undir.';
+
+  @override
+  String get helpRemote =>
+      'Samstilling um sameiginlega möppu fyrir tæki sem hittast aldrei: veldu sömu möppu einu sinni á hverju tæki; hver samstilling skrifar breytingar þínar þangað og les hinna. Ein mappa ber allar skrár, hverja í eigin undirmöppu.';
+
+  @override
+  String get helpRestore =>
+      'Afrit fyrri uppsetningar, ein lína á skrá, merkt. Endurheimta færir hverja til baka sem eigin skrá. Á Android er mappan veitt einu sinni gegnum valið; Velja skrár bætir við afritum sem geymd eru annars staðar.';
+
+  @override
+  String get helpScan =>
+      'Skannaðu cat(a)log-kóðann á veggspjaldi eða á skjá annars: kötturinn og tengiliður hans lenda hér án innsláttar. Kóði með tengli sækir skrána á bak við hann.';
+
+  @override
+  String get helpVetReport =>
+      'Það sem fer til dýralæknisins: reitirnir og dagsetningarnar sem þú velur, hver lína merkt þar til þú afmerkir hana, og yfirlit sjúklings fremst. Deila sem PDF eða prenta, hvort tveggja í stikunni.';
+
+  @override
+  String get helpPoster =>
+      'Veggspjald á ljósastaur, úr skránni: merktu við það sem á að fara á það, bættu við línu sem skráin hefur ekki, og síðan prentast svart á hvítu með stöfum sem lesast yfir götuna. Kóðinn opnar köttinn í öðrum cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Það sem var unnið og aðeins það: heilir mánuðir, ár og meira af verkum með fjölda þeirra, einn titill á verk á sínu þrepi, og feldirnir sem opnuðust. Engar framvindustikur og ekkert að elta; verðlaunin eru hljóðlátur bónus.';
 }

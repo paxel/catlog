@@ -3575,4 +3575,48 @@ class AppLocalizationsLt extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Tendencija: $value per mėnesį';
   }
+
+  @override
+  String get helpBackups =>
+      'Kur saugomi jūsų katalogai: ką telefonas saugo pats, kur patenka pilnos kopijos, kada įrašyta paskutinė, ir mygtukas įrašyti dabar. Atkūrimas yra Katalogų tvarkyme.';
+
+  @override
+  String get helpConflicts =>
+      'Laukai, kuriuos du žmonės pakeitė vienu metu, kol jų įrenginiai nesusisinchronizavo. Kiekviena eilutė rodo abi reikšmes; pasirinkite teisingą, ir pasirinkimas pasieks kiekvieną įrenginį.';
+
+  @override
+  String get helpInPerson =>
+      'Sinchronizuokite su šalia stovinčiu žmogumi: vienas telefonas priima, kitas prisijungia nuskaitęs kodą, o duomenys keliauja Wi-Fi ryšiu, užšifruoti, be serverio. Privatumo jungiklis sprendžia, ar keliauja privačios reikšmės.';
+
+  @override
+  String get helpMessenger =>
+      'Sinchronizavimas failu: šis įrenginys įrašo paketą su viskuo, ką žino, nusiunčiate jį per bet kurią programėlę ar paštu, o kita pusė importuoja. Nuotraukos keliauja viduje; privačios reikšmės tik leidus jungikliui.';
+
+  @override
+  String get helpModeration =>
+      'Žmonės, kurių įrašai pasiekė šį katalogą, ir ką jie parašė. Ištrinkite asmens duomenis šiame įrenginyje ir užblokuokite jo įrenginį; blokavimas išvardija vardus, kuriais tas įrenginys rašė.';
+
+  @override
+  String get helpRemote =>
+      'Sinchronizavimas per bendrą aplanką įrenginiams, kurie niekada nesusitinka: vieną kartą pasirinkite tą patį aplanką kiekviename įrenginyje; kiekvienas sinchronizavimas ten įrašo jūsų pakeitimus ir skaito kitų. Vienas aplankas neša visus katalogus, kiekvieną savo poaplankyje.';
+
+  @override
+  String get helpRestore =>
+      'Ankstesnio įdiegimo atsarginės kopijos, po eilutę katalogui, pažymėtos. Atkurti grąžina kiekvieną kaip atskirą katalogą. Android sistemoje aplankas suteikiamas vieną kartą per parinkiklį; Pasirinkti failus prideda kitur laikomas kopijas.';
+
+  @override
+  String get helpScan =>
+      'Nuskaitykite cat(a)log kodą ant plakato ar kito žmogaus ekrane: katė ir jos kontaktas patenka čia be rašymo. Kodas su nuoroda parsiunčia už jo esantį failą.';
+
+  @override
+  String get helpVetReport =>
+      'Kas keliauja veterinarui: jūsų pasirinkti laukai ir datos, kiekviena eilutė pažymėta, kol nepanaikinsite žymos, ir paciento santrauka priekyje. Bendrinti kaip PDF arba spausdinti, abu juostoje.';
+
+  @override
+  String get helpPoster =>
+      'Plakatas ant stulpo iš įrašo: pažymėkite, kas jame bus, pridėkite eilutę, kurios įraše nėra, ir puslapis spausdinamas juodai ant balto raidėmis, skaitomomis iš kitos gatvės pusės. Kodas atveria katę kitame cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Kas uždirbta ir tik tai: pilni mėnesiai, metai ir daugiau užduočių su jų skaičiumi, po vieną titulą užduočiai jos pakopoje ir atrakinti kailiai. Jokių pažangos juostų ir nieko vaikytis; apdovanojimai yra tylus priedas.';
 }

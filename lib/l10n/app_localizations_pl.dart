@@ -3576,4 +3576,48 @@ class AppLocalizationsPl extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value na miesiąc';
   }
+
+  @override
+  String get helpBackups =>
+      'Gdzie twoje katalogi są bezpieczne: co telefon zapisuje sam, gdzie trafiają pełne kopie, kiedy zapisano ostatnią, i przycisk, by zapisać jedną teraz. Przywracanie jest w Zarządzaj katalogami.';
+
+  @override
+  String get helpConflicts =>
+      'Pola zmienione przez dwie osoby w tym samym czasie, zanim ich urządzenia się zsynchronizowały. Każdy wiersz pokazuje obie wartości; wybierz właściwą, a wybór dotrze na każde urządzenie.';
+
+  @override
+  String get helpInPerson =>
+      'Synchronizacja z osobą obok: jeden telefon hostuje, drugi dołącza, skanując kod, a dane płyną przez Wi-Fi, zaszyfrowane, bez serwera. Przełącznik prywatności decyduje, czy prywatne wartości podróżują.';
+
+  @override
+  String get helpMessenger =>
+      'Synchronizacja plikiem: to urządzenie zapisuje pakiet ze wszystkim, co wie, wysyłasz go dowolnym komunikatorem lub mailem, a druga strona go importuje. Zdjęcia jadą w środku; wartości prywatne tylko, gdy przełącznik na to pozwala.';
+
+  @override
+  String get helpModeration =>
+      'Osoby, których wpisy trafiły do tego katalogu, wraz z tym, co napisały. Usuń dane osoby na tym urządzeniu i zablokuj jej urządzenie; blokada wymienia nazwy, pod którymi to urządzenie pisało.';
+
+  @override
+  String get helpRemote =>
+      'Synchronizacja przez wspólny folder dla urządzeń, które nigdy się nie spotykają: wybierz raz ten sam folder na każdym urządzeniu; każda synchronizacja zapisuje tam twoje zmiany i czyta zmiany innych. Jeden folder niesie wszystkie katalogi, każdy w osobnym podfolderze.';
+
+  @override
+  String get helpRestore =>
+      'Kopie poprzedniej instalacji, po jednym wierszu na katalog, zaznaczone. Przywróć odtwarza każdą jako osobny katalog. Na Androidzie folder przyznaje się raz przez wybierak; Wybierz pliki dodaje kopie trzymane gdzie indziej.';
+
+  @override
+  String get helpScan =>
+      'Zeskanuj kod cat(a)log z plakatu lub z ekranu innej osoby: kot i jego kontakt trafiają tutaj bez pisania. Kod z linkiem pobiera stojący za nim plik.';
+
+  @override
+  String get helpVetReport =>
+      'Co idzie do weterynarza: wybrane pola i daty, każdy wiersz zaznaczony, dopóki go nie odznaczysz, i podsumowanie pacjenta na początku. Udostępnij jako PDF lub drukuj, oba w pasku.';
+
+  @override
+  String get helpPoster =>
+      'Plakat na latarnię, z karty: zaznacz, co ma się na nim znaleźć, dodaj linijkę, której karta nie ma, a strona drukuje się czarno na białym literami czytelnymi z drugiej strony ulicy. Kod otwiera kota w innym cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'To, co zdobyte, i tylko to: pełne miesiące, lata i więcej zadań z ich liczbą, jeden tytuł na zadanie na jego stopniu, i odblokowane futra. Bez pasków postępu i bez pogoni; nagrody to cichy bonus.';
 }

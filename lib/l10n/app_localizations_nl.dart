@@ -3560,4 +3560,48 @@ class AppLocalizationsNl extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value per maand';
   }
+
+  @override
+  String get helpBackups =>
+      'Waar je catalogi veilig bewaard worden: wat de telefoon zelf back-upt, waar de volledige kopieën komen, wanneer de laatste is geschreven, en een knop om er nu een te schrijven. Herstellen zit onder Catalogi beheren.';
+
+  @override
+  String get helpConflicts =>
+      'Velden die twee mensen tegelijk wijzigden, voordat hun apparaten synchroniseerden. Elke rij toont beide waarden; kies de juiste en de keuze bereikt elk apparaat.';
+
+  @override
+  String get helpInPerson =>
+      'Synchroniseer met iemand naast je: één telefoon host, de ander sluit aan door de code te scannen, en de gegevens gaan versleuteld over wifi, zonder server. De privé-schakelaar bepaalt of privéwaarden meereizen.';
+
+  @override
+  String get helpMessenger =>
+      'Synchroniseren als bestand: dit apparaat schrijft een bundel met alles wat het weet, je stuurt die via een messenger of mail, en de andere kant importeert hem. Foto\'s reizen mee; privéwaarden alleen als de schakelaar dat zegt.';
+
+  @override
+  String get helpModeration =>
+      'De mensen wier items deze catalogus bereikten, met wat ze schreven. Verwijder iemands gegevens op dit apparaat en blokkeer diens apparaat; een blokkade toont de namen waaronder dat apparaat schreef.';
+
+  @override
+  String get helpRemote =>
+      'Synchroniseren via een gedeelde map voor apparaten die elkaar nooit zien: kies eenmaal dezelfde map op elk apparaat; elke synchronisatie schrijft je wijzigingen daar en leest die van de anderen. Eén map draagt alle catalogi, elk in een eigen submap.';
+
+  @override
+  String get helpRestore =>
+      'Back-ups van de vorige installatie, één rij per catalogus, aangevinkt. Herstellen brengt elke terug als eigen catalogus. Op Android wordt de map eenmaal via de kiezer vrijgegeven; Bestanden kiezen voegt elders bewaarde back-ups toe.';
+
+  @override
+  String get helpScan =>
+      'Scan de cat(a)log-code op een poster of op het scherm van een ander: de kat en het contact komen hier zonder typen. Een code met een link haalt het bestand erachter op.';
+
+  @override
+  String get helpVetReport =>
+      'Wat naar de dierenarts gaat: de velden en data die je kiest, elke rij aangevinkt tot je hem uitvinkt, en het patiëntoverzicht voorop. Delen als pdf of afdrukken, beide in de balk.';
+
+  @override
+  String get helpPoster =>
+      'Een poster voor de lantaarnpaal, uit het dossier: vink aan wat erop komt, voeg een regel toe die het dossier mist, en de pagina drukt zwart op wit in letters die je van de overkant leest. De code opent de kat in een ander cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Wat verdiend is en alleen dat: volle maanden, jaren en meer aan taken met hun aantal, één titel per taak op zijn rang, en de vrijgespeelde vachten. Geen voortgangsbalken en niets om na te jagen; de beloningen zijn een stille bonus.';
 }

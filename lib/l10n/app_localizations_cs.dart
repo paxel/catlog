@@ -3567,4 +3567,48 @@ class AppLocalizationsCs extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value za měsíc';
   }
+
+  @override
+  String get helpBackups =>
+      'Kde jsou vaše katalogy v bezpečí: co telefon zálohuje sám, kam se ukládají úplné kopie, kdy byla zapsána poslední, a tlačítko pro zápis hned teď. Obnovení najdete ve Správě katalogů.';
+
+  @override
+  String get helpConflicts =>
+      'Pole, která dva lidé změnili současně, než se jejich zařízení synchronizovala. Každý řádek ukazuje obě hodnoty; vyberte tu správnou a volba dorazí na každé zařízení.';
+
+  @override
+  String get helpInPerson =>
+      'Synchronizace s někým vedle vás: jeden telefon hostí, druhý se připojí naskenováním kódu a data jdou přes Wi-Fi, šifrovaná, bez serveru. Přepínač soukromé rozhoduje, zda cestují soukromé hodnoty.';
+
+  @override
+  String get helpMessenger =>
+      'Synchronizace souborem: toto zařízení zapíše balík se vším, co ví, pošlete ho přes messenger nebo mail a druhá strana ho importuje. Fotky cestují uvnitř; soukromé hodnoty jen když to přepínač povolí.';
+
+  @override
+  String get helpModeration =>
+      'Lidé, jejichž záznamy dorazily do tohoto katalogu, s tím, co napsali. Smažte data člověka na tomto zařízení a zablokujte jeho zařízení; blokace vypíše jména, pod kterými to zařízení psalo.';
+
+  @override
+  String get helpRemote =>
+      'Synchronizace přes sdílenou složku pro zařízení, která se nikdy nepotkají: jednou vyberte tutéž složku na každém zařízení; každá synchronizace tam zapíše vaše změny a přečte cizí. Jedna složka nese všechny katalogy, každý ve vlastní podsložce.';
+
+  @override
+  String get helpRestore =>
+      'Zálohy předchozí instalace, jeden řádek na katalog, zaškrtnuté. Obnovit vrátí každou jako vlastní katalog. Na Androidu se složka udělí jednou přes výběr; Vybrat soubory přidá zálohy uložené jinde.';
+
+  @override
+  String get helpScan =>
+      'Naskenujte kód cat(a)log na plakátu nebo na obrazovce někoho jiného: kočka a její kontakt sem dorazí bez psaní. Kód s odkazem stáhne soubor za ním.';
+
+  @override
+  String get helpVetReport =>
+      'Co jde k veterináři: vybraná pole a data, každý řádek zaškrtnutý, dokud ho neodškrtnete, a přehled pacienta v čele. Sdílet jako PDF nebo tisknout, obojí v liště.';
+
+  @override
+  String get helpPoster =>
+      'Plakát na lampu ze záznamu: zaškrtněte, co na něj patří, přidejte řádek, který záznam nemá, a stránka se tiskne černě na bílém písmem čitelným z druhé strany ulice. Kód otevře kočku v jiném cat(a)logu.';
+
+  @override
+  String get helpAchievements =>
+      'Co bylo získáno a jen to: celé měsíce, roky a víc úkolů s jejich počtem, jeden titul na úkol na jeho stupni a odemčené srsti. Žádné ukazatele postupu a nic k honění; odměny jsou tichý bonus.';
 }

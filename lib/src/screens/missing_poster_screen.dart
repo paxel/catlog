@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/widgets.dart' as pw;
 
+import '../help.dart';
 import '../field_labels.dart';
 import '../history_share.dart';
 import '../l10n.dart';
@@ -142,6 +143,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
       appBar: AppBar(
         title: Text(t.posterMenu.replaceAll('…', '')),
         actions: [
+          HelpButton(store: widget.store, screenId: 'poster'),
           IconButton(
             icon: const Icon(Icons.picture_as_pdf),
             tooltip: t.shareAsPdf,

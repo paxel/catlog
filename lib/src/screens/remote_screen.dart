@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../help.dart';
 import '../import_summary.dart';
 import '../l10n.dart';
 import '../sync/saf_folder.dart';
@@ -102,7 +103,10 @@ class _RemoteScreenState extends State<RemoteScreen> {
   Widget build(BuildContext context) {
     final t = context.t;
     return Scaffold(
-      appBar: AppBar(title: Text(t.syncChooserRemote)),
+      appBar: AppBar(
+        title: Text(t.syncChooserRemote),
+        actions: [HelpButton(store: widget.store, screenId: 'remote')],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

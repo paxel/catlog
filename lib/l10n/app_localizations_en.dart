@@ -3555,4 +3555,48 @@ class AppLocalizationsEn extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value per month';
   }
+
+  @override
+  String get helpBackups =>
+      'Where your catalogs are kept safe: what the phone backs up by itself, where the full copies land, when the last one was written, and a button to write one now. Restoring lives in Manage catalogs.';
+
+  @override
+  String get helpConflicts =>
+      'Fields two people changed at the same time, before their devices synced. Each row shows both values; pick the right one, and the choice reaches every device.';
+
+  @override
+  String get helpInPerson =>
+      'Sync with a person standing next to you: one phone hosts, the other joins by scanning the code, and the data moves over Wi-Fi, encrypted, without any server. The private switch decides whether private values travel.';
+
+  @override
+  String get helpMessenger =>
+      'Sync as a file: this device writes a bundle with everything it knows, you send it through any messenger or mail, and the other side imports it. Photos travel inside; private values only when the switch says so.';
+
+  @override
+  String get helpModeration =>
+      'The people whose entries reached this catalog, with what they wrote. Delete a person\'s data on this device and ban their device from sending more; a ban lists the names that device wrote under.';
+
+  @override
+  String get helpRemote =>
+      'Sync through a shared folder for devices that never meet: pick one folder once, on every device; each sync writes your changes there and reads the others\'. One folder carries all catalogs, each in a subfolder of its own.';
+
+  @override
+  String get helpRestore =>
+      'Backups of the install before this one, one row per catalog, ticked. Restore brings each back as its own catalog. On Android the folder is granted once through the picker; Pick files adds backups kept anywhere else.';
+
+  @override
+  String get helpScan =>
+      'Scan the cat(a)log code on a poster or on another keeper\'s screen: the cat and its contact land here without typing. A code that carries a link fetches the file behind it.';
+
+  @override
+  String get helpVetReport =>
+      'What goes to the vet: the fields and the dates you choose, every row ticked until you untick it, and the patient summary on top. Share as PDF or print, both in the app bar.';
+
+  @override
+  String get helpPoster =>
+      'A poster for the lamp post, from the record: tick what goes on it, add a line the record lacks, and the page prints black on white in letters read from across the street. The code on it opens the cat in another cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'What was earned and only that: full months, years and more of chores with their count, one title per chore at its rank, and the coats unlocked. No progress bars and nothing to chase; the rewards are a quiet bonus.';
 }

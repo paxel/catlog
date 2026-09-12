@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
+import '../help.dart';
 import '../auto_backup.dart';
 import '../l10n.dart';
 import '../restore_backups.dart';
@@ -139,6 +140,7 @@ class _RestoreScreenState extends State<RestoreScreen> {
       appBar: AppBar(
         title: Text(t.restoreTitle),
         actions: [
+          HelpButton(screenId: 'restore'),
           TextButton(
             onPressed: _restoring ? null : () => widget.onDone(null),
             child: Text(t.introSkip),

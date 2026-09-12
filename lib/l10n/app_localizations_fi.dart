@@ -3556,4 +3556,48 @@ class AppLocalizationsFi extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Suunta: $value kuukaudessa';
   }
+
+  @override
+  String get helpBackups =>
+      'Missä luettelosi ovat turvassa: mitä puhelin varmuuskopioi itse, minne täydet kopiot menevät, milloin viimeisin kirjoitettiin, ja painike kopion kirjoittamiseen nyt. Palautus on kohdassa Hallitse luetteloita.';
+
+  @override
+  String get helpConflicts =>
+      'Kentät, joita kaksi ihmistä muutti yhtä aikaa ennen laitteiden synkronointia. Jokainen rivi näyttää molemmat arvot; valitse oikea, ja valinta leviää jokaiseen laitteeseen.';
+
+  @override
+  String get helpInPerson =>
+      'Synkronoi vieressäsi olevan kanssa: yksi puhelin isännöi, toinen liittyy skannaamalla koodin, ja tiedot siirtyvät Wi-Fin yli salattuna ilman palvelinta. Yksityinen-kytkin päättää, kulkevatko yksityiset arvot mukana.';
+
+  @override
+  String get helpMessenger =>
+      'Synkronointi tiedostona: tämä laite kirjoittaa paketin kaikesta, mitä se tietää, lähetät sen millä tahansa viestisovelluksella tai sähköpostilla, ja toinen puoli tuo sen. Kuvat kulkevat mukana; yksityiset arvot vain kytkimen luvalla.';
+
+  @override
+  String get helpModeration =>
+      'Ihmiset, joiden merkinnät saapuivat tähän luetteloon, ja mitä he kirjoittivat. Poista henkilön tiedot tältä laitteelta ja estä hänen laitteensa; esto luettelee nimet, joilla laite kirjoitti.';
+
+  @override
+  String get helpRemote =>
+      'Synkronointi jaetun kansion kautta laitteille, jotka eivät koskaan kohtaa: valitse sama kansio kerran jokaisella laitteella; jokainen synkronointi kirjoittaa muutoksesi sinne ja lukee muiden. Yksi kansio kantaa kaikki luettelot, kunkin omassa alikansiossaan.';
+
+  @override
+  String get helpRestore =>
+      'Edellisen asennuksen varmuuskopiot, yksi rivi per luettelo, rastitettuina. Palauta tuo jokaisen takaisin omana luettelonaan. Androidilla kansio myönnetään kerran valitsimella; Valitse tiedostot lisää muualle tallennetut kopiot.';
+
+  @override
+  String get helpScan =>
+      'Skannaa cat(a)log-koodi julisteesta tai toisen näytöltä: kissa ja sen yhteystiedot tulevat tänne ilman kirjoittamista. Linkin sisältävä koodi hakee sen takana olevan tiedoston.';
+
+  @override
+  String get helpVetReport =>
+      'Mitä eläinlääkärille lähtee: valitsemasi kentät ja päivät, jokainen rivi rastitettuna kunnes poistat rastin, ja potilasyhteenveto ensimmäisenä. Jaa PDF:nä tai tulosta, molemmat palkissa.';
+
+  @override
+  String get helpPoster =>
+      'Juliste lyhtypylvääseen, tiedoista: rastita mitä siihen tulee, lisää rivi, joka tiedoista puuttuu, ja sivu tulostuu mustaa valkoisella kirjaimin, jotka luetaan kadun toiselta puolelta. Koodi avaa kissan toisessa cat(a)logissa.';
+
+  @override
+  String get helpAchievements =>
+      'Mitä on ansaittu ja vain se: täydet kuukaudet, vuodet ja enemmän askareita lukumäärineen, yksi arvonimi askaretta kohti sen tasolla, ja avatut turkit. Ei edistymispalkkeja eikä mitään jahdattavaa; palkinnot ovat hiljainen bonus.';
 }

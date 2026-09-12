@@ -3566,4 +3566,48 @@ class AppLocalizationsDe extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value pro Monat';
   }
+
+  @override
+  String get helpBackups =>
+      'Wo deine Kataloge gesichert sind: was das Telefon von selbst sichert, wo die vollständigen Kopien landen, wann die letzte geschrieben wurde, und ein Knopf, um jetzt eine zu schreiben. Wiederherstellen findest du unter Kataloge verwalten.';
+
+  @override
+  String get helpConflicts =>
+      'Felder, die zwei Leute gleichzeitig geändert haben, bevor sich ihre Geräte abgeglichen hatten. Jede Zeile zeigt beide Werte; wähle den richtigen, und die Wahl erreicht jedes Gerät.';
+
+  @override
+  String get helpInPerson =>
+      'Abgleich mit jemandem neben dir: ein Telefon ist Gastgeber, das andere tritt per Code-Scan bei, und die Daten wandern verschlüsselt über WLAN, ohne Server. Der Privat-Schalter entscheidet, ob private Werte mitreisen.';
+
+  @override
+  String get helpMessenger =>
+      'Abgleich als Datei: dieses Gerät schreibt ein Bündel mit allem, was es weiß, du schickst es über einen Messenger oder per Mail, und die andere Seite importiert es. Fotos reisen mit; private Werte nur, wenn der Schalter es sagt.';
+
+  @override
+  String get helpModeration =>
+      'Die Personen, deren Einträge diesen Katalog erreicht haben, mit dem, was sie schrieben. Lösche die Daten einer Person auf diesem Gerät und sperre ihr Gerät für weitere Sendungen; eine Sperre nennt die Namen, unter denen das Gerät schrieb.';
+
+  @override
+  String get helpRemote =>
+      'Abgleich über einen gemeinsamen Ordner für Geräte, die sich nie treffen: wähle einmal denselben Ordner auf jedem Gerät; jeder Abgleich schreibt deine Änderungen dorthin und liest die der anderen. Ein Ordner trägt alle Kataloge, jeden in einem eigenen Unterordner.';
+
+  @override
+  String get helpRestore =>
+      'Sicherungen der vorherigen Installation, eine Zeile pro Katalog, angehakt. Wiederherstellen bringt jede als eigenen Katalog zurück. Auf Android wird der Ordner einmal über die Auswahl freigegeben; Dateien wählen fügt Sicherungen von anderswo hinzu.';
+
+  @override
+  String get helpScan =>
+      'Scanne den cat(a)log-Code auf einem Aushang oder auf dem Bildschirm eines anderen: die Katze und ihr Kontakt landen hier ohne Tippen. Ein Code mit Link holt die Datei dahinter.';
+
+  @override
+  String get helpVetReport =>
+      'Was zum Tierarzt geht: die Felder und Daten deiner Wahl, jede Zeile angehakt, bis du sie abwählst, und die Patientenübersicht vorneweg. Als PDF teilen oder drucken, beides in der Leiste oben.';
+
+  @override
+  String get helpPoster =>
+      'Ein Plakat für den Laternenpfahl, aus dem Datensatz: hake an, was drauf soll, ergänze eine Zeile, die der Datensatz nicht hat, und die Seite druckt schwarz auf weiß in Buchstaben, die man von der anderen Straßenseite liest. Der Code darauf öffnet die Katze in einem anderen cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Was verdient wurde und nur das: volle Monate, Jahre und mehr an Aufgaben mit ihrer Zahl, ein Titel pro Aufgabe auf seiner Stufe, und die freigeschalteten Felle. Keine Fortschrittsbalken und nichts zu jagen; die Belohnungen sind ein stiller Bonus.';
 }

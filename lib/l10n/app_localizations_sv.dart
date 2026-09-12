@@ -3553,4 +3553,48 @@ class AppLocalizationsSv extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value per månad';
   }
+
+  @override
+  String get helpBackups =>
+      'Var dina kataloger förvaras säkert: vad telefonen säkerhetskopierar själv, var de fullständiga kopiorna hamnar, när den senaste skrevs, och en knapp för att skriva en nu. Återställning finns under Hantera kataloger.';
+
+  @override
+  String get helpConflicts =>
+      'Fält som två personer ändrade samtidigt, innan deras enheter synkade. Varje rad visar båda värdena; välj rätt, och valet når alla enheter.';
+
+  @override
+  String get helpInPerson =>
+      'Synka med någon bredvid dig: en telefon är värd, den andra ansluter genom att skanna koden, och datan går över Wi-Fi, krypterad, utan server. Privat-reglaget avgör om privata värden följer med.';
+
+  @override
+  String get helpMessenger =>
+      'Synka som fil: den här enheten skriver ett paket med allt den vet, du skickar det via en messenger eller mejl, och andra sidan importerar det. Foton följer med; privata värden bara om reglaget säger det.';
+
+  @override
+  String get helpModeration =>
+      'De personer vars poster nådde den här katalogen, med det de skrev. Radera en persons data på den här enheten och blockera personens enhet; en blockering visar namnen enheten skrev under.';
+
+  @override
+  String get helpRemote =>
+      'Synka via en delad mapp för enheter som aldrig träffas: välj samma mapp en gång på varje enhet; varje synk skriver dina ändringar dit och läser de andras. En mapp bär alla kataloger, var och en i en egen undermapp.';
+
+  @override
+  String get helpRestore =>
+      'Säkerhetskopior från den förra installationen, en rad per katalog, ibockade. Återställ tar tillbaka var och en som egen katalog. På Android ges mappen en gång via väljaren; Välj filer lägger till kopior som finns någon annanstans.';
+
+  @override
+  String get helpScan =>
+      'Skanna cat(a)log-koden på en affisch eller på någon annans skärm: katten och dess kontakt landar här utan att skriva. En kod som bär en länk hämtar filen bakom den.';
+
+  @override
+  String get helpVetReport =>
+      'Det som går till veterinären: de fält och datum du väljer, varje rad ibockad tills du bockar av den, och patientöversikten främst. Dela som PDF eller skriv ut, båda i fältet.';
+
+  @override
+  String get helpPoster =>
+      'En affisch för lyktstolpen, från kortet: bocka för det som ska med, lägg till en rad kortet saknar, och sidan skrivs svart på vitt med bokstäver som läses från andra sidan gatan. Koden öppnar katten i ett annat cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Det som förtjänats och bara det: hela månader, år och mer av sysslor med deras antal, en titel per syssla på dess rang, och de upplåsta pälsarna. Inga förloppsindikatorer och inget att jaga; belöningarna är en tyst bonus.';
 }

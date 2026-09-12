@@ -3554,4 +3554,48 @@ class AppLocalizationsDa extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Tendens: $value pr. måned';
   }
+
+  @override
+  String get helpBackups =>
+      'Hvor dine kataloger er i sikkerhed: hvad telefonen selv sikkerhedskopierer, hvor de fulde kopier lander, hvornår den seneste blev skrevet, og en knap til at skrive en nu. Gendannelse ligger under Administrér kataloger.';
+
+  @override
+  String get helpConflicts =>
+      'Felter, som to personer ændrede samtidig, før deres enheder synkroniserede. Hver række viser begge værdier; vælg den rigtige, og valget når alle enheder.';
+
+  @override
+  String get helpInPerson =>
+      'Synkronisér med en person ved siden af dig: én telefon er vært, den anden kobler sig på ved at scanne koden, og data flyttes over Wi-Fi, krypteret, uden server. Privat-kontakten afgør, om private værdier rejser med.';
+
+  @override
+  String get helpMessenger =>
+      'Synkronisér som fil: denne enhed skriver en pakke med alt, den ved, du sender den via en messenger eller mail, og den anden side importerer den. Fotos rejser med; private værdier kun hvis kontakten siger det.';
+
+  @override
+  String get helpModeration =>
+      'De personer, hvis poster nåede dette katalog, med det de skrev. Slet en persons data på denne enhed og bloker vedkommendes enhed; en blokering viser de navne, enheden skrev under.';
+
+  @override
+  String get helpRemote =>
+      'Synkronisér via en delt mappe for enheder, der aldrig mødes: vælg samme mappe én gang på hver enhed; hver synkronisering skriver dine ændringer dertil og læser de andres. Én mappe bærer alle kataloger, hvert i sin egen undermappe.';
+
+  @override
+  String get helpRestore =>
+      'Backups fra den forrige installation, én række pr. katalog, afkrydset. Gendan bringer hver tilbage som sit eget katalog. På Android gives mappen én gang via vælgeren; Vælg filer tilføjer backups gemt andre steder.';
+
+  @override
+  String get helpScan =>
+      'Scan cat(a)log-koden på en plakat eller på en andens skærm: katten og dens kontakt lander her uden indtastning. En kode med et link henter filen bag den.';
+
+  @override
+  String get helpVetReport =>
+      'Det, der går til dyrlægen: de felter og datoer, du vælger, hver række afkrydset, til du fjerner krydset, og patientoversigten forrest. Del som PDF eller udskriv, begge i bjælken.';
+
+  @override
+  String get helpPoster =>
+      'En plakat til lygtepælen, fra kortet: sæt kryds ved det, der skal på, tilføj en linje, kortet mangler, og siden printer sort på hvidt med bogstaver, der læses fra den anden side af gaden. Koden åbner katten i et andet cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Det, der er optjent, og kun det: hele måneder, år og mere af opgaver med deres antal, én titel pr. opgave på dens trin, og de låste pelse op. Ingen fremskridtsbjælker og intet at jagte; belønningerne er en stille bonus.';
 }

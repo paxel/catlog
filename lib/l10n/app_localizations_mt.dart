@@ -3570,4 +3570,48 @@ class AppLocalizationsMt extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Xejra: $value fix-xahar';
   }
+
+  @override
+  String get helpBackups =>
+      'Fejn jinżammu fis-sod il-katalogi tiegħek: dak li t-telefon jagħmel backup tiegħu waħdu, fejn jispiċċaw il-kopji sħaħ, meta nkitbet l-aħħar waħda, u buttuna biex tikteb waħda issa. Ir-restawr qiegħed taħt Immaniġġja l-katalogi.';
+
+  @override
+  String get helpConflicts =>
+      'Oqsma li żewġ persuni biddlu fl-istess ħin, qabel ma l-apparati tagħhom issinkronizzaw. Kull ringiela turi ż-żewġ valuri; agħżel it-tajjeb, u l-għażla tasal fuq kull apparat.';
+
+  @override
+  String get helpInPerson =>
+      'Issinkronizza ma\' persuna ħdejk: telefon wieħed jospita, l-ieħor jingħaqad billi jiskennja l-kodiċi, u d-data timxi fuq il-Wi-Fi, kriptata, mingħajr server. Is-swiċċ privat jiddeċiedi jekk il-valuri privati jivvjaġġawx.';
+
+  @override
+  String get helpMessenger =>
+      'Issinkronizza bħala fajl: dan l-apparat jikteb pakkett b\'kulma jaf, tibagħtu b\'kull messenger jew email, u n-naħa l-oħra timportah. Ir-ritratti jivvjaġġaw ġewwa; il-valuri privati biss jekk is-swiċċ jgħid hekk.';
+
+  @override
+  String get helpModeration =>
+      'In-nies li l-entrati tagħhom waslu f\'dan il-katalgu, ma\' dak li kitbu. Ħassar id-data ta\' persuna fuq dan l-apparat u imblokka l-apparat tagħha; imblokk jelenka l-ismijiet li dak l-apparat kiteb taħthom.';
+
+  @override
+  String get helpRemote =>
+      'Issinkronizza permezz ta\' folder kondiviż għal apparati li qatt ma jiltaqgħu: agħżel darba l-istess folder fuq kull apparat; kull sinkronizzazzjoni tikteb il-bidliet tiegħek hemm u taqra dawk tal-oħrajn. Folder wieħed iġorr il-katalogi kollha, kull wieħed f\'sottofolder tiegħu.';
+
+  @override
+  String get helpRestore =>
+      'Backups tal-installazzjoni ta\' qabel, ringiela waħda għal kull katalgu, immarkati. Irrestawra jġib lura kull waħda bħala katalgu għalih. Fuq Android il-folder jingħata darba permezz tas-selettur; Agħżel fajls iżid backups miżmuma xi mkien ieħor.';
+
+  @override
+  String get helpScan =>
+      'Iskennja l-kodiċi cat(a)log fuq poster jew fuq l-iskrin ta\' ħaddieħor: il-qattus u l-kuntatt tiegħu jaslu hawn mingħajr ma tittajpja. Kodiċi li jġorr link iġib il-fajl ta\' warajh.';
+
+  @override
+  String get helpVetReport =>
+      'Dak li jmur għand il-veterinarju: l-oqsma u d-dati li tagħżel, kull ringiela mmarkata sakemm tneħħiha, u s-sommarju tal-pazjent fuq quddiem. Aqsam bħala PDF jew ipprintja, it-tnejn fil-bar.';
+
+  @override
+  String get helpPoster =>
+      'Poster għall-arblu tad-dawl, mir-rekord: immarka x\'imur fuqu, żid linja li r-rekord m\'għandux, u l-paġna tipprintja iswed fuq abjad b\'ittri li jinqraw min-naħa l-oħra tat-triq. Il-kodiċi jiftaħ il-qattus f\'cat(a)log ieħor.';
+
+  @override
+  String get helpAchievements =>
+      'Dak li ntrebaħ u dak biss: xhur, snin u aktar sħaħ ta\' xogħlijiet bin-numru tagħhom, titlu wieħed għal kull xogħol fil-grad tiegħu, u l-pil li nfetaħ. L-ebda bar tal-progress u xejn x\'tiġri warajh; il-premjijiet huma bonus kwiet.';
 }

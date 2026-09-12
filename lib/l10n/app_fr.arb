@@ -1205,5 +1205,16 @@
     "placeholders": {
       "value": {}
     }
-  }
+  },
+  "helpBackups": "Où vos catalogues sont à l'abri : ce que le téléphone sauvegarde seul, où vont les copies complètes, quand la dernière a été écrite, et un bouton pour en écrire une maintenant. La restauration se trouve dans Gérer les catalogues.",
+  "helpConflicts": "Champs que deux personnes ont modifiés en même temps, avant que leurs appareils ne se synchronisent. Chaque ligne montre les deux valeurs ; choisissez la bonne, et le choix atteint tous les appareils.",
+  "helpInPerson": "Synchronisation avec une personne à côté de vous : un téléphone héberge, l'autre rejoint en scannant le code, et les données passent par le Wi-Fi, chiffrées, sans serveur. L'interrupteur privé décide si les valeurs privées voyagent.",
+  "helpMessenger": "Synchronisation par fichier : cet appareil écrit un paquet avec tout ce qu'il sait, vous l'envoyez par messagerie ou courriel, et l'autre côté l'importe. Les photos voyagent dedans ; les valeurs privées seulement si l'interrupteur le dit.",
+  "helpModeration": "Les personnes dont les entrées ont atteint ce catalogue, avec ce qu'elles ont écrit. Supprimez les données d'une personne sur cet appareil et bannissez son appareil ; un bannissement liste les noms sous lesquels cet appareil a écrit.",
+  "helpRemote": "Synchronisation par dossier partagé pour des appareils qui ne se rencontrent jamais : choisissez une fois le même dossier sur chaque appareil ; chaque synchronisation y écrit vos changements et lit ceux des autres. Un dossier porte tous les catalogues, chacun dans son sous-dossier.",
+  "helpRestore": "Sauvegardes de l'installation précédente, une ligne par catalogue, cochées. Restaurer ramène chacune comme catalogue à part. Sur Android le dossier est accordé une fois via le sélecteur ; Choisir des fichiers ajoute des sauvegardes gardées ailleurs.",
+  "helpScan": "Scannez le code cat(a)log sur une affiche ou sur l'écran d'une autre personne : le chat et son contact arrivent ici sans saisie. Un code qui porte un lien récupère le fichier derrière.",
+  "helpVetReport": "Ce qui va au vétérinaire : les champs et les dates que vous choisissez, chaque ligne cochée jusqu'à ce que vous la décochiez, et le résumé du patient en tête. Partager en PDF ou imprimer, les deux dans la barre.",
+  "helpPoster": "Une affiche pour le lampadaire, à partir de la fiche : cochez ce qui y figure, ajoutez une ligne que la fiche n'a pas, et la page s'imprime en noir sur blanc, lisible depuis l'autre trottoir. Le code ouvre le chat dans un autre cat(a)log.",
+  "helpAchievements": "Ce qui a été gagné, rien d'autre : mois, années et plus de tâches complets avec leur nombre, un titre par tâche à son rang, et les pelages débloqués. Pas de barres de progression, rien à courir ; les récompenses sont un bonus discret."
 }

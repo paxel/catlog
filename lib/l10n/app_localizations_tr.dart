@@ -3553,4 +3553,48 @@ class AppLocalizationsTr extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Eğilim: ayda $value';
   }
+
+  @override
+  String get helpBackups =>
+      'Kataloglarının güvende tutulduğu yer: telefonun kendi yedeklediği, tam kopyaların gittiği yer, sonuncusunun ne zaman yazıldığı ve şimdi bir tane yazmak için bir düğme. Geri yükleme Katalogları yönet\'te.';
+
+  @override
+  String get helpConflicts =>
+      'İki kişinin, cihazları eşitlenmeden önce aynı anda değiştirdiği alanlar. Her satır iki değeri de gösterir; doğru olanı seçin, seçim her cihaza ulaşır.';
+
+  @override
+  String get helpInPerson =>
+      'Yanınızdaki kişiyle eşitleyin: bir telefon ev sahibi olur, diğeri kodu tarayarak katılır ve veriler Wi-Fi üzerinden şifreli olarak, sunucusuz taşınır. Özel anahtarı, özel değerlerin gidip gitmeyeceğine karar verir.';
+
+  @override
+  String get helpMessenger =>
+      'Dosya olarak eşitleme: bu cihaz bildiği her şeyi bir pakete yazar, herhangi bir mesajlaşma uygulaması veya e-postayla gönderirsiniz, karşı taraf içe aktarır. Fotoğraflar içinde gider; özel değerler yalnızca anahtar izin verirse.';
+
+  @override
+  String get helpModeration =>
+      'Kayıtları bu kataloğa ulaşan kişiler ve yazdıkları. Bir kişinin verisini bu cihazda silin ve cihazını engelleyin; bir engel, o cihazın yazdığı adları listeler.';
+
+  @override
+  String get helpRemote =>
+      'Hiç karşılaşmayan cihazlar için paylaşılan klasörle eşitleme: her cihazda aynı klasörü bir kez seçin; her eşitleme değişikliklerinizi oraya yazar ve diğerlerininkini okur. Tek klasör tüm katalogları taşır, her biri kendi alt klasöründe.';
+
+  @override
+  String get helpRestore =>
+      'Önceki kurulumun yedekleri, katalog başına bir satır, işaretli. Geri Yükle her birini kendi kataloğu olarak geri getirir. Android\'de klasör seçici ile bir kez verilir; Dosya seç başka yerde tutulan yedekleri ekler.';
+
+  @override
+  String get helpScan =>
+      'Bir afişteki veya başkasının ekranındaki cat(a)log kodunu tarayın: kedi ve iletişim bilgisi yazmadan buraya gelir. Bağlantı taşıyan bir kod arkasındaki dosyayı getirir.';
+
+  @override
+  String get helpVetReport =>
+      'Veterinere giden: seçtiğiniz alanlar ve tarihler, siz kaldırana kadar her satır işaretli, ve en üstte hasta özeti. PDF olarak paylaşın veya yazdırın, ikisi de çubukta.';
+
+  @override
+  String get helpPoster =>
+      'Elektrik direği için kayıttan bir afiş: üzerine ne gideceğini işaretleyin, kayıtta olmayan bir satır ekleyin, sayfa karşı kaldırımdan okunan harflerle siyah beyaz basılır. Üzerindeki kod kediyi başka bir cat(a)log\'da açar.';
+
+  @override
+  String get helpAchievements =>
+      'Kazanılan ve yalnızca o: tam aylar, yıllar ve daha fazlası görevlerden sayılarıyla, görev başına kendi kademesinde bir unvan ve açılan kürkler. İlerleme çubuğu yok, peşinden koşulacak bir şey yok; ödüller sessiz bir armağan.';
 }

@@ -11,6 +11,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A home's page shows its chores and appointments right after the cats, before the fields; a cat's page leads with its photos, then its chores, then the fields.
 
 ### Fixed
+- Every page has the help button: backups, conflicts, all three sync pages, moderation, restore, scan, vet report, poster and achievements got their text.
 - The restore page and the strays page keep their actions in the app bar like every other page; strays keep one add button.
 - The day picker confirms with Save like every other dialog.
 - The history pages keep their title on its own line on a phone, like the cat page.

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../help.dart';
+
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 import '../l10n.dart';
@@ -17,7 +20,10 @@ class _ScanScreenState extends State<ScanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.t.scanCode)),
+      appBar: AppBar(
+        title: Text(context.t.scanCode),
+        actions: [HelpButton(screenId: 'scan')],
+      ),
       body: MobileScanner(
         onDetect: (capture) {
           if (_done) return;

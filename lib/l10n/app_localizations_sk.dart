@@ -3566,4 +3566,48 @@ class AppLocalizationsSk extends AppLocalizations {
   String trendPerMonth(Object value) {
     return 'Trend: $value za mesiac';
   }
+
+  @override
+  String get helpBackups =>
+      'Kde sú vaše katalógy v bezpečí: čo telefón zálohuje sám, kam sa ukladajú úplné kópie, kedy bola zapísaná posledná, a tlačidlo na zápis hneď teraz. Obnovenie nájdete v Správe katalógov.';
+
+  @override
+  String get helpConflicts =>
+      'Polia, ktoré dvaja ľudia zmenili súčasne, kým sa ich zariadenia nesynchronizovali. Každý riadok ukazuje obe hodnoty; vyberte tú správnu a voľba sa dostane na každé zariadenie.';
+
+  @override
+  String get helpInPerson =>
+      'Synchronizácia s niekým vedľa vás: jeden telefón hostí, druhý sa pripojí naskenovaním kódu a dáta idú cez Wi-Fi, šifrované, bez servera. Prepínač súkromné rozhoduje, či cestujú súkromné hodnoty.';
+
+  @override
+  String get helpMessenger =>
+      'Synchronizácia súborom: toto zariadenie zapíše balík so všetkým, čo vie, pošlete ho cez messenger alebo mail a druhá strana ho importuje. Fotky cestujú vnútri; súkromné hodnoty len keď to prepínač povolí.';
+
+  @override
+  String get helpModeration =>
+      'Ľudia, ktorých záznamy dorazili do tohto katalógu, s tým, čo napísali. Vymažte dáta človeka na tomto zariadení a zablokujte jeho zariadenie; blokovanie vypíše mená, pod ktorými to zariadenie písalo.';
+
+  @override
+  String get helpRemote =>
+      'Synchronizácia cez zdieľaný priečinok pre zariadenia, ktoré sa nikdy nestretnú: raz vyberte ten istý priečinok na každom zariadení; každá synchronizácia tam zapíše vaše zmeny a prečíta cudzie. Jeden priečinok nesie všetky katalógy, každý vo vlastnom podpriečinku.';
+
+  @override
+  String get helpRestore =>
+      'Zálohy predchádzajúcej inštalácie, jeden riadok na katalóg, zaškrtnuté. Obnoviť vráti každú ako vlastný katalóg. Na Androide sa priečinok udelí raz cez výber; Vybrať súbory pridá zálohy uložené inde.';
+
+  @override
+  String get helpScan =>
+      'Naskenujte kód cat(a)log na plagáte alebo na obrazovke niekoho iného: mačka a jej kontakt sem dorazia bez písania. Kód s odkazom stiahne súbor za ním.';
+
+  @override
+  String get helpVetReport =>
+      'Čo ide k veterinárovi: vybrané polia a dátumy, každý riadok zaškrtnutý, kým ho neodškrtnete, a prehľad pacienta na čele. Zdieľať ako PDF alebo tlačiť, oboje v lište.';
+
+  @override
+  String get helpPoster =>
+      'Plagát na lampu zo záznamu: zaškrtnite, čo naň patrí, pridajte riadok, ktorý záznam nemá, a strana sa tlačí čierno na bielom písmom čitateľným z druhej strany ulice. Kód otvorí mačku v inom cat(a)logu.';
+
+  @override
+  String get helpAchievements =>
+      'Čo bolo získané a len to: celé mesiace, roky a viac úloh s ich počtom, jeden titul na úlohu na jeho stupni a odomknuté srsti. Žiadne ukazovatele pokroku a nič na naháňanie; odmeny sú tichý bonus.';
 }

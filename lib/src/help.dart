@@ -32,15 +32,28 @@ final Map<String, HelpText> helpTexts = {
   'catalogSettings': (t) => t.helpCatalogSettings,
   'agenda': (t) => t.helpAgenda,
   'goBack': (t) => t.helpGoBack,
+  'backups': (t) => t.helpBackups,
+  'conflicts': (t) => t.helpConflicts,
+  'inPerson': (t) => t.helpInPerson,
+  'messenger': (t) => t.helpMessenger,
+  'moderation': (t) => t.helpModeration,
+  'remote': (t) => t.helpRemote,
+  'restore': (t) => t.helpRestore,
+  'scan': (t) => t.helpScan,
+  'vetReport': (t) => t.helpVetReport,
+  'poster': (t) => t.helpPoster,
+  'achievements': (t) => t.helpAchievements,
 };
 
 /// The "?" for an app bar. Shows nothing when the screen has no help
 /// text — better absent than empty.
 class HelpButton extends StatelessWidget {
-  final CatalogStore store;
+  /// Null on pages that stand outside a catalog (restore, scan,
+  /// achievements): help shows, the tips button does not.
+  final CatalogStore? store;
   final String screenId;
 
-  const HelpButton({super.key, required this.store, required this.screenId});
+  const HelpButton({super.key, this.store, required this.screenId});
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +68,13 @@ class HelpButton extends StatelessWidget {
 
 /// Opens the help sheet for a screen.
 Future<void> showHelp(
-    BuildContext context, CatalogStore store, String screenId) async {
+  BuildContext context,
+  CatalogStore? store,
+  String screenId,
+) async {
   final text = helpTexts[screenId];
   if (text == null) return;
-  final hasTips = spotlightManifest.containsKey(screenId);
+  final hasTips = store != null && spotlightManifest.containsKey(screenId);
   await showModalBottomSheet<void>(
     context: context,
     showDragHandle: true,
@@ -68,13 +84,13 @@ Future<void> showHelp(
       return SafeArea(
         child: ConstrainedBox(
           constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height * 0.8),
+            maxHeight: MediaQuery.of(context).size.height * 0.8,
+          ),
           child: ListView(
             shrinkWrap: true,
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
             children: [
-              Text(t.helpTitle,
-                  style: Theme.of(context).textTheme.titleLarge),
+              Text(t.helpTitle, style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 12),
               Text(text(t)),
               if (hasTips) ...[
