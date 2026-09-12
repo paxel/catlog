@@ -36,6 +36,7 @@ import 'photo_edit_screen.dart';
 import 'map_screen.dart';
 import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
+import 'vet_report_screen.dart';
 import 'field_graph_screen.dart';
 import 'field_history_screen.dart';
 import '../widgets/chore_row.dart';
@@ -630,6 +631,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               icon: const Icon(Icons.history),
               tooltip: context.t.timeline,
               onPressed: _openTimeline,
+            ),
+            Spotlight(
+              id: 'cat-report',
+              child: IconButton(
+                icon: const Icon(Icons.picture_as_pdf_outlined),
+                tooltip: context.t.vetReportMenu,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => VetReportScreen(store: store, catId: id),
+                )),
+              ),
             ),
             Spotlight(
               id: 'cat-menu',

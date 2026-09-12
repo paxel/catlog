@@ -7,9 +7,7 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
-import '../spotlight.dart';
 import 'field_history_screen.dart';
-import 'vet_report_screen.dart';
 
 /// The timeline of an entity: every change in date order with Author —
 /// or, when [field] is given, the history of that one Field.
@@ -39,13 +37,6 @@ class _Row {
 }
 
 class _TimelineScreenState extends State<TimelineScreen> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => runSpotlights(context, store, 'timeline'),
-    );
-  }
 
   CatalogStore get store => widget.store;
 
@@ -232,18 +223,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
               setState(() {});
             },
           ),
-          if (widget.entityId.startsWith('cat:'))
-            Spotlight(
-              id: 'timeline-report',
-              child: IconButton(
-                icon: const Icon(Icons.picture_as_pdf_outlined),
-                tooltip: context.t.vetReportMenu,
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) =>
-                      VetReportScreen(store: store, catId: widget.entityId),
-                )),
-              ),
-            ),
           HelpButton(store: store, screenId: 'timeline'),
         ],
       ),

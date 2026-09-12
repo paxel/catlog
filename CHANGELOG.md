@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.3.1] - Unreleased
 
 ### Changed
+- The report for the vet is a button on the cat's page, next to the timeline.
 - The graph's range and line choices fold behind one header.
 - A home's page shows its chores and appointments right after the cats, before the fields; a cat's page leads with its photos, then its chores, then the fields.
 

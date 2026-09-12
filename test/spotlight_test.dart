@@ -10,17 +10,17 @@ void main() {
 
   test('nothing seen: everything due, manifest order', () {
     expect(dueSpotlights('', items).map((i) => i.id),
-        ['cat-edit', 'cat-menu', 'cat-reminder', 'cat-chores']);
+        ['cat-edit', 'cat-menu', 'cat-reminder', 'cat-chores', 'cat-report']);
   });
 
   test('partially seen: only the new item is due', () {
     expect(dueSpotlights('cat-menu', items).map((i) => i.id),
-        ['cat-edit', 'cat-reminder', 'cat-chores']);
+        ['cat-edit', 'cat-reminder', 'cat-chores', 'cat-report']);
   });
 
   test('all seen: nothing due', () {
     expect(
-        dueSpotlights('cat-edit,cat-menu,cat-reminder,cat-chores', items),
+        dueSpotlights('cat-edit,cat-menu,cat-reminder,cat-chores,cat-report', items),
         isEmpty);
   });
 
@@ -30,7 +30,7 @@ void main() {
         for (final item in list) item.id
     ];
     expect(ids, containsAll(['cat-chores', 'looks-chips', 'history-hold',
-        'settings-backups', 'card-poster', 'timeline-report']));
+        'settings-backups', 'card-poster', 'cat-report']));
   });
 
   test('every manifest item id has a unique anchor id', () {

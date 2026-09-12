@@ -56,6 +56,7 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
     SpotlightItem('cat-menu', (t) => t.spotCatMenu),
     SpotlightItem('cat-reminder', (t) => t.spotAddReminderCat),
     SpotlightItem('cat-chores', (t) => t.spotCatChores),
+    SpotlightItem('cat-report', (t) => t.spotTimelineReport),
   ],
   'looks': [
     SpotlightItem('looks-chips', (t) => t.spotLooks),
@@ -66,9 +67,7 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
   'settings': [
     SpotlightItem('settings-backups', (t) => t.spotBackups),
   ],
-  'timeline': [
-    SpotlightItem('timeline-report', (t) => t.spotTimelineReport),
-  ],
+
   'strays': [
     SpotlightItem('strays-flier', (t) => t.spotStraysFlier),
     SpotlightItem('strays-scan', (t) => t.spotStraysScan),
