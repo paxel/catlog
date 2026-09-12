@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "coinnithe siar ag páirtí",
   "titleLabel": "Teideal",
-  "deletedLabel": "Scriosta"
+  "deletedLabel": "Scriosta",
+  "favouriteAdd": "Marcáil mar cheanán",
+  "favouriteRemove": "Bain ó cheanáin"
 }

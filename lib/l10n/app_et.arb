@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "partneri poolt kinni hoitud",
   "titleLabel": "Tiitel",
-  "deletedLabel": "Kustutatud"
+  "deletedLabel": "Kustutatud",
+  "favouriteAdd": "Märgi lemmikuks",
+  "favouriteRemove": "Eemalda lemmikutest"
 }

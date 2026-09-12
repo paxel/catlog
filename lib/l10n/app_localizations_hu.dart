@@ -3485,4 +3485,10 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Törölve';
+
+  @override
+  String get favouriteAdd => 'Kedvencnek jelölés';
+
+  @override
+  String get favouriteRemove => 'Eltávolítás a kedvencekből';
 }

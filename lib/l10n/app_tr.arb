@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "bir ortak tarafından saklandı",
   "titleLabel": "Unvan",
-  "deletedLabel": "Silindi"
+  "deletedLabel": "Silindi",
+  "favouriteAdd": "Favori olarak işaretle",
+  "favouriteRemove": "Favorilerden kaldır"
 }

@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "由伙伴保留",
   "titleLabel": "头衔",
-  "deletedLabel": "已删除"
+  "deletedLabel": "已删除",
+  "favouriteAdd": "标为收藏",
+  "favouriteRemove": "取消收藏"
 }

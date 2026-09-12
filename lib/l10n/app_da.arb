@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "tilbageholdt af en partner",
   "titleLabel": "Titel",
-  "deletedLabel": "Slettet"
+  "deletedLabel": "Slettet",
+  "favouriteAdd": "Markér som favorit",
+  "favouriteRemove": "Fjern fra favoritter"
 }

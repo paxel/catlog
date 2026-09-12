@@ -3513,4 +3513,10 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Izbrisano';
+
+  @override
+  String get favouriteAdd => 'Označi kot priljubljeno';
+
+  @override
+  String get favouriteRemove => 'Odstrani iz priljubljenih';
 }

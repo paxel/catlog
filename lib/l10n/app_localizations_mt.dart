@@ -3499,4 +3499,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Imħassar';
+
+  @override
+  String get favouriteAdd => 'Immarka bħala favorit';
+
+  @override
+  String get favouriteRemove => 'Neħħi mill-favoriti';
 }

@@ -3497,4 +3497,10 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Smazáno';
+
+  @override
+  String get favouriteAdd => 'Označit jako oblíbené';
+
+  @override
+  String get favouriteRemove => 'Odebrat z oblíbených';
 }

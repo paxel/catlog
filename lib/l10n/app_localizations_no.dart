@@ -3482,4 +3482,10 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Slettet';
+
+  @override
+  String get favouriteAdd => 'Merk som favoritt';
+
+  @override
+  String get favouriteRemove => 'Fjern fra favoritter';
 }

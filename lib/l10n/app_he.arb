@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "נשמר על ידי שותף",
   "titleLabel": "תואר",
-  "deletedLabel": "נמחק"
+  "deletedLabel": "נמחק",
+  "favouriteAdd": "סימון כמועדף",
+  "favouriteRemove": "הסרה מהמועדפים"
 }

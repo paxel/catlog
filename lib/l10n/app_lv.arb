@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "partnera aizturēts",
   "titleLabel": "Tituls",
-  "deletedLabel": "Dzēsts"
+  "deletedLabel": "Dzēsts",
+  "favouriteAdd": "Atzīmēt kā izlasi",
+  "favouriteRemove": "Noņemt no izlases"
 }

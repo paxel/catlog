@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "achtergehouden door een partner",
   "titleLabel": "Titel",
-  "deletedLabel": "Verwijderd"
+  "deletedLabel": "Verwijderd",
+  "favouriteAdd": "Als favoriet markeren",
+  "favouriteRemove": "Uit favorieten verwijderen"
 }

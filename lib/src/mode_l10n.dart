@@ -946,6 +946,12 @@ class ModeLocalizations implements AppLocalizations {
   String fatherNotMale(String name) => base.fatherNotMale(name);
 
   @override
+  String get favouriteAdd => base.favouriteAdd;
+
+  @override
+  String get favouriteRemove => base.favouriteRemove;
+
+  @override
   String fieldBackTo(String field, String value) => base.fieldBackTo(field, value);
 
   @override

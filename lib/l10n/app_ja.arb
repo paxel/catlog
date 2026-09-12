@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "パートナーが非公開",
   "titleLabel": "称号",
-  "deletedLabel": "削除済み"
+  "deletedLabel": "削除済み",
+  "favouriteAdd": "お気に入りに追加",
+  "favouriteRemove": "お気に入りから削除"
 }

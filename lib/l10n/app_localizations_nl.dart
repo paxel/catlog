@@ -3490,4 +3490,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Verwijderd';
+
+  @override
+  String get favouriteAdd => 'Als favoriet markeren';
+
+  @override
+  String get favouriteRemove => 'Uit favorieten verwijderen';
 }

@@ -3505,4 +3505,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Видалено';
+
+  @override
+  String get favouriteAdd => 'До обраного';
+
+  @override
+  String get favouriteRemove => 'Прибрати з обраного';
 }

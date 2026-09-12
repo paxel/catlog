@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "задржано од партнера",
   "titleLabel": "Титула",
-  "deletedLabel": "Обрисано"
+  "deletedLabel": "Обрисано",
+  "favouriteAdd": "Означи као омиљено",
+  "favouriteRemove": "Уклони из омиљених"
 }

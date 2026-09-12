@@ -3505,4 +3505,10 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Ištrinta';
+
+  @override
+  String get favouriteAdd => 'Pažymėti kaip mėgstamą';
+
+  @override
+  String get favouriteRemove => 'Pašalinti iš mėgstamų';
 }

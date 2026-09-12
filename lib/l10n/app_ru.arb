@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "скрыто партнёром",
   "titleLabel": "Титул",
-  "deletedLabel": "Удалено"
+  "deletedLabel": "Удалено",
+  "favouriteAdd": "В избранное",
+  "favouriteRemove": "Убрать из избранного"
 }

@@ -3487,4 +3487,10 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Избришано';
+
+  @override
+  String get favouriteAdd => 'Означи како омилено';
+
+  @override
+  String get favouriteRemove => 'Отстрани од омилени';
 }

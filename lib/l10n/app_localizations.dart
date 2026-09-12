@@ -6061,6 +6061,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deleted'**
   String get deletedLabel;
+
+  /// No description provided for @favouriteAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as favourite'**
+  String get favouriteAdd;
+
+  /// No description provided for @favouriteRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favourites'**
+  String get favouriteRemove;
 }
 
 class _AppLocalizationsDelegate

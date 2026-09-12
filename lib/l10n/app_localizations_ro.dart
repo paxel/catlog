@@ -3500,4 +3500,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Șters';
+
+  @override
+  String get favouriteAdd => 'Marchează ca favorit';
+
+  @override
+  String get favouriteRemove => 'Elimină din favorite';
 }

@@ -3496,4 +3496,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Διαγράφηκε';
+
+  @override
+  String get favouriteAdd => 'Σήμανση ως αγαπημένο';
+
+  @override
+  String get favouriteRemove => 'Αφαίρεση από τα αγαπημένα';
 }

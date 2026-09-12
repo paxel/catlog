@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "reținut de un partener",
   "titleLabel": "Titlu",
-  "deletedLabel": "Șters"
+  "deletedLabel": "Șters",
+  "favouriteAdd": "Marchează ca favorit",
+  "favouriteRemove": "Elimină din favorite"
 }

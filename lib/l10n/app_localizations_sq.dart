@@ -3486,4 +3486,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Fshirë';
+
+  @override
+  String get favouriteAdd => 'Shëno si të preferuar';
+
+  @override
+  String get favouriteRemove => 'Hiq nga të preferuarat';
 }

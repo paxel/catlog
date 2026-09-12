@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "haldið eftir af samstarfsaðila",
   "titleLabel": "Titill",
-  "deletedLabel": "Eytt"
+  "deletedLabel": "Eytt",
+  "favouriteAdd": "Merkja sem uppáhald",
+  "favouriteRemove": "Fjarlægja úr uppáhaldi"
 }

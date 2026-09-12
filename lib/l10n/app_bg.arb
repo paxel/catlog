@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "задържано от партньор",
   "titleLabel": "Титла",
-  "deletedLabel": "Изтрито"
+  "deletedLabel": "Изтрито",
+  "favouriteAdd": "Отбележи като любим",
+  "favouriteRemove": "Премахни от любимите"
 }

@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "egy partner visszatartotta",
   "titleLabel": "Cím",
-  "deletedLabel": "Törölve"
+  "deletedLabel": "Törölve",
+  "favouriteAdd": "Kedvencnek jelölés",
+  "favouriteRemove": "Eltávolítás a kedvencekből"
 }

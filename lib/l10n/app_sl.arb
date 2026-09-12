@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "zadržano s strani partnerja",
   "titleLabel": "Naziv",
-  "deletedLabel": "Izbrisano"
+  "deletedLabel": "Izbrisano",
+  "favouriteAdd": "Označi kot priljubljeno",
+  "favouriteRemove": "Odstrani iz priljubljenih"
 }

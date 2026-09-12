@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "توسط یک شریک نگه داشته شده",
   "titleLabel": "عنوان",
-  "deletedLabel": "حذف‌شده"
+  "deletedLabel": "حذف‌شده",
+  "favouriteAdd": "افزودن به علاقه‌مندی‌ها",
+  "favouriteRemove": "حذف از علاقه‌مندی‌ها"
 }

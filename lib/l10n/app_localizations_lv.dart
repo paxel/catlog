@@ -3500,4 +3500,10 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Dzēsts';
+
+  @override
+  String get favouriteAdd => 'Atzīmēt kā izlasi';
+
+  @override
+  String get favouriteRemove => 'Noņemt no izlases';
 }

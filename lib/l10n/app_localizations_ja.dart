@@ -3352,4 +3352,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get deletedLabel => '削除済み';
+
+  @override
+  String get favouriteAdd => 'お気に入りに追加';
+
+  @override
+  String get favouriteRemove => 'お気に入りから削除';
 }

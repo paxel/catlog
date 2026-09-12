@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "mbajtur nga një partner",
   "titleLabel": "Titull",
-  "deletedLabel": "Fshirë"
+  "deletedLabel": "Fshirë",
+  "favouriteAdd": "Shëno si të preferuar",
+  "favouriteRemove": "Hiq nga të preferuarat"
 }

@@ -3482,4 +3482,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Kustutatud';
+
+  @override
+  String get favouriteAdd => 'Märgi lemmikuks';
+
+  @override
+  String get favouriteRemove => 'Eemalda lemmikutest';
 }

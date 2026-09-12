@@ -3495,4 +3495,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Gelöscht';
+
+  @override
+  String get favouriteAdd => 'Als Favorit markieren';
+
+  @override
+  String get favouriteRemove => 'Aus den Favoriten entfernen';
 }

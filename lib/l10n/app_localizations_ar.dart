@@ -3519,4 +3519,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deletedLabel => 'محذوف';
+
+  @override
+  String get favouriteAdd => 'تمييز كمفضّل';
+
+  @override
+  String get favouriteRemove => 'إزالة من المفضّلة';
 }

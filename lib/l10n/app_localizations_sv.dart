@@ -3482,4 +3482,10 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Raderad';
+
+  @override
+  String get favouriteAdd => 'Markera som favorit';
+
+  @override
+  String get favouriteRemove => 'Ta bort från favoriter';
 }

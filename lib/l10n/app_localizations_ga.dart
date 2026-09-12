@@ -3539,4 +3539,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Scriosta';
+
+  @override
+  String get favouriteAdd => 'Marcáil mar cheanán';
+
+  @override
+  String get favouriteRemove => 'Bain ó cheanáin';
 }

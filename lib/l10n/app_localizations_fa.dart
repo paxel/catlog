@@ -3423,4 +3423,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get deletedLabel => 'حذف‌شده';
+
+  @override
+  String get favouriteAdd => 'افزودن به علاقه‌مندی‌ها';
+
+  @override
+  String get favouriteRemove => 'حذف از علاقه‌مندی‌ها';
 }

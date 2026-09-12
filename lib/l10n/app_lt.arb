@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "partnerio nuslėpta",
   "titleLabel": "Titulas",
-  "deletedLabel": "Ištrinta"
+  "deletedLabel": "Ištrinta",
+  "favouriteAdd": "Pažymėti kaip mėgstamą",
+  "favouriteRemove": "Pašalinti iš mėgstamų"
 }

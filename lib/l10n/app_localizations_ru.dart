@@ -3505,4 +3505,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Удалено';
+
+  @override
+  String get favouriteAdd => 'В избранное';
+
+  @override
+  String get favouriteRemove => 'Убрать из избранного';
 }

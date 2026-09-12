@@ -3489,4 +3489,10 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Eytt';
+
+  @override
+  String get favouriteAdd => 'Merkja sem uppáhald';
+
+  @override
+  String get favouriteRemove => 'Fjarlægja úr uppáhaldi';
 }

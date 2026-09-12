@@ -3315,4 +3315,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get deletedLabel => '已删除';
+
+  @override
+  String get favouriteAdd => '标为收藏';
+
+  @override
+  String get favouriteRemove => '取消收藏';
 }

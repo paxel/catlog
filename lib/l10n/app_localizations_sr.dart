@@ -3497,4 +3497,10 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Обрисано';
+
+  @override
+  String get favouriteAdd => 'Означи као омиљено';
+
+  @override
+  String get favouriteRemove => 'Уклони из омиљених';
 }

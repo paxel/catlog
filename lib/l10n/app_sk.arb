@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "zadržané partnerom",
   "titleLabel": "Titul",
-  "deletedLabel": "Vymazané"
+  "deletedLabel": "Vymazané",
+  "favouriteAdd": "Označiť ako obľúbené",
+  "favouriteRemove": "Odstrániť z obľúbených"
 }

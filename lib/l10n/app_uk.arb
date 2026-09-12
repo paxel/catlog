@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "приховано партнером",
   "titleLabel": "Титул",
-  "deletedLabel": "Видалено"
+  "deletedLabel": "Видалено",
+  "favouriteAdd": "До обраного",
+  "favouriteRemove": "Прибрати з обраного"
 }

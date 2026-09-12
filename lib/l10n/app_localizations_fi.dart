@@ -3486,4 +3486,10 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Poistettu';
+
+  @override
+  String get favouriteAdd => 'Merkitse suosikiksi';
+
+  @override
+  String get favouriteRemove => 'Poista suosikeista';
 }

@@ -1969,5 +1969,7 @@
   },
   "withheldByPartner": "kept back by a partner",
   "titleLabel": "Title",
-  "deletedLabel": "Deleted"
+  "deletedLabel": "Deleted",
+  "favouriteAdd": "Mark as favourite",
+  "favouriteRemove": "Remove from favourites"
 }

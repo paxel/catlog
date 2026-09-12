@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "παρακρατήθηκε από συνεργάτη",
   "titleLabel": "Τίτλος",
-  "deletedLabel": "Διαγράφηκε"
+  "deletedLabel": "Διαγράφηκε",
+  "favouriteAdd": "Σήμανση ως αγαπημένο",
+  "favouriteRemove": "Αφαίρεση από τα αγαπημένα"
 }

@@ -220,10 +220,24 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     await _open(_clowderPage(id));
   }
 
+  bool _isFavourite(String id) =>
+      widget.store.localSetting('fav:$id') == 'yes';
+
+  void _toggleFavourite(String id) {
+    widget.store.setLocalSetting('fav:$id', _isFavourite(id) ? 'no' : 'yes');
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Starred homes lead, right after Strays; the rest follow, each
+    // group in name order. The star is this device's.
     final clowders = widget.store.visibleClowders()
-      ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+      ..sort((a, b) {
+        final fa = _isFavourite(a.id), fb = _isFavourite(b.id);
+        if (fa != fb) return fa ? -1 : 1;
+        return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+      });
     return Scaffold(
       appBar: roomyAppBar(
         context,
@@ -375,6 +389,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               final card = _ClowderCard(
                 store: widget.store,
                 clowder: clowder,
+                favourite: _isFavourite(clowder.id),
+                onToggleFavourite: () => _toggleFavourite(clowder.id),
                 selected:
                     widget.selectedPageId == PanePage.clowderId_(clowder.id),
                 onContextMenu: (position) async {
@@ -542,6 +558,10 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
 class _ClowderCard extends StatelessWidget {
   final CatalogStore store;
   final EntityView clowder;
+
+  /// Starred on this device; the star at the bottom end toggles it.
+  final bool favourite;
+  final VoidCallback? onToggleFavourite;
   final VoidCallback onTap;
   final void Function(Offset globalPosition)? onContextMenu;
   final bool selected;
@@ -551,6 +571,8 @@ class _ClowderCard extends StatelessWidget {
       required this.clowder,
       required this.onTap,
       this.onContextMenu,
+      this.favourite = false,
+      this.onToggleFavourite,
       this.selected = false});
 
   /// Background: profile image of the first cat in the clowder that has one.
@@ -656,6 +678,21 @@ class _ClowderCard extends StatelessWidget {
           if (onContextMenu != null)
             const PositionedDirectional(
                 top: 0, end: 0, child: CatEarBadge()),
+          if (onToggleFavourite != null)
+            PositionedDirectional(
+              bottom: 0,
+              end: 0,
+              child: IconButton(
+                icon: Icon(favourite ? Icons.star : Icons.star_border),
+                color: favourite
+                    ? Colors.amber
+                    : (cover != null ? Colors.white : scheme.onSurfaceVariant),
+                tooltip: favourite
+                    ? context.t.favouriteRemove
+                    : context.t.favouriteAdd,
+                onPressed: onToggleFavourite,
+              ),
+            ),
         ]),
         ),
       ),

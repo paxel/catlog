@@ -3496,4 +3496,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get deletedLabel => 'Vymazané';
+
+  @override
+  String get favouriteAdd => 'Označiť ako obľúbené';
+
+  @override
+  String get favouriteRemove => 'Odstrániť z obľúbených';
 }

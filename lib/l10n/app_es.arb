@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "retenido por un socio",
   "titleLabel": "Título",
-  "deletedLabel": "Eliminado"
+  "deletedLabel": "Eliminado",
+  "favouriteAdd": "Marcar como favorito",
+  "favouriteRemove": "Quitar de favoritos"
 }

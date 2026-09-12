@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "miżmum minn sieħeb",
   "titleLabel": "Titlu",
-  "deletedLabel": "Imħassar"
+  "deletedLabel": "Imħassar",
+  "favouriteAdd": "Immarka bħala favorit",
+  "favouriteRemove": "Neħħi mill-favoriti"
 }

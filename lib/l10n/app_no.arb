@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "holdt tilbake av en partner",
   "titleLabel": "Tittel",
-  "deletedLabel": "Slettet"
+  "deletedLabel": "Slettet",
+  "favouriteAdd": "Merk som favoritt",
+  "favouriteRemove": "Fjern fra favoritter"
 }

@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "حجبه شريك",
   "titleLabel": "اللقب",
-  "deletedLabel": "محذوف"
+  "deletedLabel": "محذوف",
+  "favouriteAdd": "تمييز كمفضّل",
+  "favouriteRemove": "إزالة من المفضّلة"
 }

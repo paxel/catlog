@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "kumppanin pidättämä",
   "titleLabel": "Arvonimi",
-  "deletedLabel": "Poistettu"
+  "deletedLabel": "Poistettu",
+  "favouriteAdd": "Merkitse suosikiksi",
+  "favouriteRemove": "Poista suosikeista"
 }

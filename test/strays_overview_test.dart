@@ -66,4 +66,26 @@ void main() {
     expect(tester.getTopLeft(find.text('Zora')).dy,
         lessThan(tester.getTopLeft(find.text('Anton')).dy));
   });
+
+  testWidgets('a starred home moves to the front, after strays', (
+    tester,
+  ) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    store.createClowder('Alpha');
+    final zulu = store.createClowder('Zulu');
+    tester.view.physicalSize = const Size(1200, 2000);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await pump(tester, ClowderListScreen(store: store));
+    expect(tester.getTopLeft(find.text('Alpha')).dy,
+        lessThan(tester.getTopLeft(find.text('Zulu')).dy));
+    await tester.ensureVisible(find.text('Zulu'));
+    await tester.tap(find.byTooltip('Mark as favourite').at(1), warnIfMissed: true);
+    await tester.pumpAndSettle();
+    expect(store.localSetting('fav:$zulu'), 'yes');
+    expect(tester.getTopLeft(find.text('Zulu')).dy,
+        lessThanOrEqualTo(tester.getTopLeft(find.text('Alpha')).dy));
+    expect(find.byTooltip('Remove from favourites'), findsOneWidget);
+  });
 }

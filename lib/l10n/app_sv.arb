@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "undanhållet av en partner",
   "titleLabel": "Titel",
-  "deletedLabel": "Raderad"
+  "deletedLabel": "Raderad",
+  "favouriteAdd": "Markera som favorit",
+  "favouriteRemove": "Ta bort från favoriter"
 }

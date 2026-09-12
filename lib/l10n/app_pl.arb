@@ -1181,5 +1181,7 @@
   },
   "withheldByPartner": "zatrzymane przez partnera",
   "titleLabel": "Tytuł",
-  "deletedLabel": "Usunięte"
+  "deletedLabel": "Usunięte",
+  "favouriteAdd": "Oznacz jako ulubione",
+  "favouriteRemove": "Usuń z ulubionych"
 }

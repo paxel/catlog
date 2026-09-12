@@ -3481,4 +3481,10 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get deletedLabel => 'נמחק';
+
+  @override
+  String get favouriteAdd => 'סימון כמועדף';
+
+  @override
+  String get favouriteRemove => 'הסרה מהמועדפים';
 }
