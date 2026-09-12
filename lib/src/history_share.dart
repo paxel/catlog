@@ -97,3 +97,7 @@ Future<void> copyText(BuildContext context, String text) async {
 /// Hands the PDF to the phone's share sheet under [fileName].
 Future<void> sharePdf(pw.Document doc, String fileName) async =>
     Printing.sharePdf(bytes: await doc.save(), filename: fileName);
+
+/// Hands the PDF to the system print dialog.
+Future<void> printPdf(pw.Document doc) async =>
+    Printing.layoutPdf(onLayout: (_) => doc.save());

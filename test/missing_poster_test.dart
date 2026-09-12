@@ -74,7 +74,7 @@ void main() {
     expect(find.text('Grimmaische Straße 12'), findsOneWidget);
     expect(find.text('+49 30 1'), findsOneWidget);
     await tester.enterText(find.byType(TextField), 'Answers to Miezi');
-    await tester.tap(find.text('Share as PDF'));
+    await tester.tap(find.byTooltip('Share as PDF'));
     await tester.pumpAndSettle();
     expect(shared, isNotNull);
     expect(fileName, 'Miezi MISSING.pdf');

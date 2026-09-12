@@ -21,11 +21,15 @@ class MissingPosterScreen extends StatefulWidget {
   /// Where the PDF goes; the share sheet by default. Tests inject.
   final Future<void> Function(pw.Document doc, String fileName)? share;
 
+  /// The print dialog by default. Tests inject.
+  final Future<void> Function(pw.Document doc)? print;
+
   const MissingPosterScreen({
     super.key,
     required this.store,
     required this.catId,
     this.share,
+    this.print,
   });
 
   @override
@@ -85,7 +89,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     return payload.length > posterQrLimit ? null : payload;
   }
 
-  Future<void> _share() async {
+  Future<(pw.Document, String)?> _build() async {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
     final language = Localizations.localeOf(context).languageCode;
@@ -110,11 +114,22 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     setState(() => _busy = true);
     try {
       final fonts = await pdfFontsFor(language);
-      final doc = missingPosterPdf(content, fonts);
-      await (widget.share ?? sharePdf)(doc, '$name ${t.posterHeadline}.pdf');
+      return (missingPosterPdf(content, fonts), '$name ${t.posterHeadline}.pdf');
     } finally {
       if (mounted) setState(() => _busy = false);
     }
+  }
+
+  Future<void> _share() async {
+    final built = await _build();
+    if (built == null || !mounted) return;
+    await (widget.share ?? sharePdf)(built.$1, built.$2);
+  }
+
+  Future<void> _print() async {
+    final built = await _build();
+    if (built == null || !mounted) return;
+    await (widget.print ?? printPdf)(built.$1);
   }
 
   @override
@@ -123,7 +138,22 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     final locale = Localizations.localeOf(context).toString();
     final hasPhoto = store.profileImage(widget.catId) != null;
     return Scaffold(
-      appBar: AppBar(title: Text(t.posterMenu.replaceAll('…', ''))),
+      // The same two buttons as the card page: share as PDF, print.
+      appBar: AppBar(
+        title: Text(t.posterMenu.replaceAll('…', '')),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.picture_as_pdf),
+            tooltip: t.shareAsPdf,
+            onPressed: _busy ? null : _share,
+          ),
+          IconButton(
+            icon: const Icon(Icons.print),
+            tooltip: t.print,
+            onPressed: _busy ? null : _print,
+          ),
+        ],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
@@ -196,22 +226,6 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
           ),
           const SizedBox(height: 80),
         ],
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: FilledButton.icon(
-            icon: _busy
-                ? const SizedBox(
-                    width: 16,
-                    height: 16,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : const Icon(Icons.picture_as_pdf_outlined),
-            label: Text(t.shareAsPdf),
-            onPressed: _busy ? null : _share,
-          ),
-        ),
       ),
     );
   }

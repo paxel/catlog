@@ -49,7 +49,6 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
   ],
   'card': [
     SpotlightItem('card-chips', (t) => t.spotCardChips),
-    SpotlightItem('card-poster', (t) => t.spotCardPoster),
   ],
   'cat': [
     SpotlightItem('cat-edit', (t) => t.spotCatEdit),
@@ -57,6 +56,7 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
     SpotlightItem('cat-reminder', (t) => t.spotAddReminderCat),
     SpotlightItem('cat-chores', (t) => t.spotCatChores),
     SpotlightItem('cat-report', (t) => t.spotTimelineReport),
+    SpotlightItem('cat-poster', (t) => t.spotCardPoster),
   ],
   'looks': [
     SpotlightItem('looks-chips', (t) => t.spotLooks),

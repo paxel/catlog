@@ -21,11 +21,15 @@ class VetReportScreen extends StatefulWidget {
   /// Where the PDF goes; the share sheet by default. Tests inject.
   final Future<void> Function(pw.Document doc, String fileName)? share;
 
+  /// The print dialog by default. Tests inject.
+  final Future<void> Function(pw.Document doc)? print;
+
   const VetReportScreen({
     super.key,
     required this.store,
     required this.catId,
     this.share,
+    this.print,
   });
 
   @override
@@ -80,7 +84,7 @@ class _VetReportScreenState extends State<VetReportScreen> {
     });
   }
 
-  Future<void> _share() async {
+  Future<pw.Document?> _build() async {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
     final language = Localizations.localeOf(context).languageCode;
@@ -117,7 +121,7 @@ class _VetReportScreenState extends State<VetReportScreen> {
         if (png != null) curves.add((def: def, png: png));
       }
       final fonts = await pdfFontsFor(language);
-      if (!mounted) return;
+      if (!mounted) return null;
       final doc = vetReportPdf(
         t: t,
         store: store,
@@ -129,11 +133,24 @@ class _VetReportScreenState extends State<VetReportScreen> {
         locale: locale,
         fonts: fonts,
       );
-      final name = store.current(widget.catId, Keys.name) ?? t.unnamed;
-      await (widget.share ?? sharePdf)(doc, '$name ${t.vetReportTitle}.pdf');
+      return doc;
     } finally {
       if (mounted) setState(() => _busy = false);
     }
+  }
+
+  Future<void> _share() async {
+    final t = context.t;
+    final doc = await _build();
+    if (doc == null || !mounted) return;
+    final name = store.current(widget.catId, Keys.name) ?? t.unnamed;
+    await (widget.share ?? sharePdf)(doc, '$name ${t.vetReportTitle}.pdf');
+  }
+
+  Future<void> _print() async {
+    final doc = await _build();
+    if (doc == null || !mounted) return;
+    await (widget.print ?? printPdf)(doc);
   }
 
   @override
@@ -143,7 +160,22 @@ class _VetReportScreenState extends State<VetReportScreen> {
     final day = DateFormat.yMd(locale);
     final entries = _entries;
     return Scaffold(
-      appBar: AppBar(title: Text(t.vetReportTitle)),
+      // The same two buttons as the card page: share as PDF, print.
+      appBar: AppBar(
+        title: Text(t.vetReportTitle),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.picture_as_pdf),
+            tooltip: t.shareAsPdf,
+            onPressed: _busy || entries.isEmpty ? null : _share,
+          ),
+          IconButton(
+            icon: const Icon(Icons.print),
+            tooltip: t.print,
+            onPressed: _busy || entries.isEmpty ? null : _print,
+          ),
+        ],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
@@ -225,22 +257,6 @@ class _VetReportScreenState extends State<VetReportScreen> {
             ),
           const SizedBox(height: 80),
         ],
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: FilledButton.icon(
-            icon: _busy
-                ? const SizedBox(
-                    width: 16,
-                    height: 16,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : const Icon(Icons.picture_as_pdf_outlined),
-            label: Text(t.shareAsPdf),
-            onPressed: _busy || entries.isEmpty ? null : _share,
-          ),
-        ),
       ),
     );
   }

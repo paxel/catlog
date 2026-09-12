@@ -62,8 +62,21 @@ PreferredSizeWidget roomyAppBar(BuildContext context,
     return AppBar(title: title, actions: actions);
   }
   final theme = Theme.of(context);
-  return AppBar(
-    actions: actions,
+  // Six buttons and a back arrow overflow a 360dp bar at the default
+  // 48dp each; at 40dp they fit, and the title has its own line anyway.
+  final compact = IconButtonThemeData(
+    style: IconButton.styleFrom(
+      minimumSize: const Size(40, 40),
+      fixedSize: const Size(40, 48),
+      padding: EdgeInsets.zero,
+      visualDensity: VisualDensity.compact,
+    ),
+  );
+  final bar = AppBar(
+    actions: [
+      for (final a in actions ?? const <Widget>[])
+        IconButtonTheme(data: compact, child: a),
+    ],
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(_titleLineHeight),
       child: SizedBox(
@@ -86,4 +99,5 @@ PreferredSizeWidget roomyAppBar(BuildContext context,
       ),
     ),
   );
+  return bar;
 }

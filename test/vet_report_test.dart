@@ -125,7 +125,7 @@ void main() {
     await tester.pump();
     // The curve renders off screen: real async, then let the page settle.
     await tester.runAsync(() async {
-      await tester.tap(find.text('Share as PDF'));
+      await tester.tap(find.byTooltip('Share as PDF'));
       await tester.pump();
       for (var i = 0; i < 300 && shared == null; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 100));
