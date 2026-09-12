@@ -3625,4 +3625,32 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get posterPreview => 'Προεπισκόπηση';
+
+  @override
+  String get syncWatchSwitch => 'Πες μου όταν περιμένουν αλλαγές στον φάκελο';
+
+  @override
+  String get syncAutoSwitch => 'Να συγχωνεύονται μόνες τους';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Αλλαγές από $authors περιμένουν στο $catalog. Πατήστε για συγχρονισμό.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'άλλη συσκευή';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count αλλαγές από $authors συγχωνεύτηκαν',
+      one: '$count αλλαγή από $authors συγχωνεύτηκε',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Εμφάνιση';
 }

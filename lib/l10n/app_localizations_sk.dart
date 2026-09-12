@@ -3623,4 +3623,33 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get posterPreview => 'Náhľad';
+
+  @override
+  String get syncWatchSwitch => 'Povedať mi, keď v priečinku čakajú zmeny';
+
+  @override
+  String get syncAutoSwitch => 'Zlúčiť ich samy';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Zmeny od $authors čakajú v $catalog. Ťuknutím synchronizujete.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'iného zariadenia';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count zmien od $authors zlúčených',
+      few: '$count zmeny od $authors zlúčené',
+      one: '$count zmena od $authors zlúčená',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Zobraziť';
 }

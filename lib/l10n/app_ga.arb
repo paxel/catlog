@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Tá an iomarca ticeáilte do chód amháin. Díthiceáil líne agus tagann an cód ar ais.",
   "posterPhotos": "Grianghraif, suas le dhá cheann",
   "posterFrameHint": "Tarraing agus pinseáil chun an grianghraf a fhrámú.",
-  "posterPreview": "Réamhamharc"
+  "posterPreview": "Réamhamharc",
+  "syncWatchSwitch": "Inis dom nuair a bhíonn athruithe ag fanacht san fhillteán",
+  "syncAutoSwitch": "Cumaisc iad uathu féin",
+  "syncChangesWaiting": "Athruithe ó {authors} ag fanacht in {catalog}. Tapáil chun sioncronú.",
+  "syncAnotherDevice": "gléas eile",
+  "syncMerged": "{count, plural, one{{count} athrú ó {authors} cumaiscthe} two{{count} athrú ó {authors} cumaiscthe} few{{count} athrú ó {authors} cumaiscthe} many{{count} n-athrú ó {authors} cumaiscthe} other{{count} athrú ó {authors} cumaiscthe}}",
+  "syncShow": "Taispeáin"
 }

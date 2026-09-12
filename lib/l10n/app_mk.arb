@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Премногу е означено за еден код. Одозначете ред и кодот се враќа.",
   "posterPhotos": "Фотографии, до две",
   "posterFrameHint": "Влечете и штипнете за да го изберете кадарот.",
-  "posterPreview": "Преглед"
+  "posterPreview": "Преглед",
+  "syncWatchSwitch": "Кажи ми кога чекаат промени во папката",
+  "syncAutoSwitch": "Спојувај ги сами",
+  "syncChangesWaiting": "Промени од {authors} чекаат во {catalog}. Допрете за синхронизација.",
+  "syncAnotherDevice": "друг уред",
+  "syncMerged": "{count, plural, one{{count} промена од {authors} споена} other{{count} промени од {authors} споени}}",
+  "syncShow": "Прикажи"
 }

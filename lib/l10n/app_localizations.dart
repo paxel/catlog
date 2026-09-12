@@ -6265,6 +6265,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Preview'**
   String get posterPreview;
+
+  /// No description provided for @syncWatchSwitch.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell me when changes wait in the folder'**
+  String get syncWatchSwitch;
+
+  /// No description provided for @syncAutoSwitch.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge them on their own'**
+  String get syncAutoSwitch;
+
+  /// No description provided for @syncChangesWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes from {authors} waiting in {catalog}. Tap to sync.'**
+  String syncChangesWaiting(String authors, String catalog);
+
+  /// No description provided for @syncAnotherDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'another device'**
+  String get syncAnotherDevice;
+
+  /// No description provided for @syncMerged.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{{count} change from {authors} merged} other{{count} changes from {authors} merged}}'**
+  String syncMerged(int count, String authors);
+
+  /// No description provided for @syncShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Show'**
+  String get syncShow;
 }
 
 class _AppLocalizationsDelegate

@@ -3612,4 +3612,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get posterPreview => 'Preview';
+
+  @override
+  String get syncWatchSwitch => 'Tell me when changes wait in the folder';
+
+  @override
+  String get syncAutoSwitch => 'Merge them on their own';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Changes from $authors waiting in $catalog. Tap to sync.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'another device';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count changes from $authors merged',
+      one: '$count change from $authors merged',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Show';
 }

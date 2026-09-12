@@ -3634,4 +3634,34 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get posterPreview => 'Podgląd';
+
+  @override
+  String get syncWatchSwitch => 'Powiedz mi, gdy w folderze czekają zmiany';
+
+  @override
+  String get syncAutoSwitch => 'Scalaj je samodzielnie';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Zmiany od $authors czekają w $catalog. Dotknij, aby zsynchronizować.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'innego urządzenia';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count zmiany od $authors scalone',
+      many: '$count zmian od $authors scalonych',
+      few: '$count zmiany od $authors scalone',
+      one: '$count zmiana od $authors scalona',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Pokaż';
 }

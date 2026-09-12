@@ -3628,4 +3628,33 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get posterPreview => 'Preview';
+
+  @override
+  String get syncWatchSwitch =>
+      'Għidli meta jkun hemm bidliet jistennew fil-folder';
+
+  @override
+  String get syncAutoSwitch => 'Għaqqadhom waħidhom';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Bidliet minn $authors jistennew f\'$catalog. Missu biex tissinkronizza.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'apparat ieħor';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bidliet minn $authors magħquda',
+      one: '$count bidla minn $authors magħquda',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Uri';
 }

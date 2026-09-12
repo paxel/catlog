@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Za dużo zaznaczono na jeden kod. Odznacz linię, a kod wróci.",
   "posterPhotos": "Zdjęcia, do dwóch",
   "posterFrameHint": "Przeciągnij i uszczypnij, aby wykadrować zdjęcie.",
-  "posterPreview": "Podgląd"
+  "posterPreview": "Podgląd",
+  "syncWatchSwitch": "Powiedz mi, gdy w folderze czekają zmiany",
+  "syncAutoSwitch": "Scalaj je samodzielnie",
+  "syncChangesWaiting": "Zmiany od {authors} czekają w {catalog}. Dotknij, aby zsynchronizować.",
+  "syncAnotherDevice": "innego urządzenia",
+  "syncMerged": "{count, plural, one{{count} zmiana od {authors} scalona} few{{count} zmiany od {authors} scalone} many{{count} zmian od {authors} scalonych} other{{count} zmiany od {authors} scalone}}",
+  "syncShow": "Pokaż"
 }

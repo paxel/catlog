@@ -3613,4 +3613,32 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get posterPreview => 'Esikatselu';
+
+  @override
+  String get syncWatchSwitch => 'Kerro, kun kansiossa odottaa muutoksia';
+
+  @override
+  String get syncAutoSwitch => 'Yhdistä ne itsestään';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Muutoksia lähettäjältä $authors odottaa kohteessa $catalog. Napauta synkronoidaksesi.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'toinen laite';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count muutosta lähettäjältä $authors yhdistetty',
+      one: '$count muutos lähettäjältä $authors yhdistetty',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Näytä';
 }

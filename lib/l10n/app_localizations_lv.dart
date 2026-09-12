@@ -3627,4 +3627,33 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get posterPreview => 'Priekšskatījums';
+
+  @override
+  String get syncWatchSwitch => 'Pateikt, kad mapē gaida izmaiņas';
+
+  @override
+  String get syncAutoSwitch => 'Apvienot tās pašas';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors izmaiņas gaida katalogā $catalog. Pieskarieties, lai sinhronizētu.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'cita ierīce';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count $authors izmaiņas apvienotas',
+      one: '$count $authors izmaiņa apvienota',
+      zero: '$count $authors izmaiņu apvienotas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Rādīt';
 }

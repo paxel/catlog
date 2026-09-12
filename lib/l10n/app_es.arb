@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Hay demasiado marcado para un solo código. Desmarca una línea y el código vuelve.",
   "posterPhotos": "Fotos, hasta dos",
   "posterFrameHint": "Arrastra y pellizca para encuadrar la foto.",
-  "posterPreview": "Vista previa"
+  "posterPreview": "Vista previa",
+  "syncWatchSwitch": "Avisarme cuando haya cambios esperando en la carpeta",
+  "syncAutoSwitch": "Fusionarlos por su cuenta",
+  "syncChangesWaiting": "Cambios de {authors} esperando en {catalog}. Toca para sincronizar.",
+  "syncAnotherDevice": "otro dispositivo",
+  "syncMerged": "{count, plural, one{{count} cambio de {authors} fusionado} other{{count} cambios de {authors} fusionados}}",
+  "syncShow": "Mostrar"
 }

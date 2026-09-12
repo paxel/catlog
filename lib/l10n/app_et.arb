@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Ühe koodi jaoks on liiga palju märgitud. Eemalda üks märge ja kood tuleb tagasi.",
   "posterPhotos": "Fotod, kuni kaks",
   "posterFrameHint": "Lohista ja pigista, et pilti kadreerida.",
-  "posterPreview": "Eelvaade"
+  "posterPreview": "Eelvaade",
+  "syncWatchSwitch": "Ütle, kui kaustas ootavad muudatused",
+  "syncAutoSwitch": "Ühenda need iseenesest",
+  "syncChangesWaiting": "{authors} muudatused ootavad kataloogis {catalog}. Puuduta sünkroonimiseks.",
+  "syncAnotherDevice": "teine seade",
+  "syncMerged": "{count, plural, one{{count} muudatus ({authors}) ühendatud} other{{count} muudatust ({authors}) ühendatud}}",
+  "syncShow": "Näita"
 }

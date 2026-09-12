@@ -3610,4 +3610,32 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get posterPreview => 'Förhandsvisning';
+
+  @override
+  String get syncWatchSwitch => 'Säg till när ändringar väntar i mappen';
+
+  @override
+  String get syncAutoSwitch => 'Slå ihop dem av sig själva';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Ändringar från $authors väntar i $catalog. Tryck för att synka.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'en annan enhet';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ändringar från $authors sammanslagna',
+      one: '$count ändring från $authors sammanslagen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Visa';
 }

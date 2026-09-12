@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "För mycket är ibockat för en kod. Bocka av en rad så kommer koden tillbaka.",
   "posterPhotos": "Foton, upp till två",
   "posterFrameHint": "Dra och nyp för att välja utsnittet.",
-  "posterPreview": "Förhandsvisning"
+  "posterPreview": "Förhandsvisning",
+  "syncWatchSwitch": "Säg till när ändringar väntar i mappen",
+  "syncAutoSwitch": "Slå ihop dem av sig själva",
+  "syncChangesWaiting": "Ändringar från {authors} väntar i {catalog}. Tryck för att synka.",
+  "syncAnotherDevice": "en annan enhet",
+  "syncMerged": "{count, plural, one{{count} ändring från {authors} sammanslagen} other{{count} ändringar från {authors} sammanslagna}}",
+  "syncShow": "Visa"
 }

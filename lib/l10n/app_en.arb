@@ -2008,5 +2008,31 @@
   "posterQrTooBig": "Too much is ticked for one code. Untick a line and the code comes back.",
   "posterPhotos": "Photos, up to two",
   "posterFrameHint": "Drag and pinch to frame the photo.",
-  "posterPreview": "Preview"
+  "posterPreview": "Preview",
+  "syncWatchSwitch": "Tell me when changes wait in the folder",
+  "syncAutoSwitch": "Merge them on their own",
+  "syncChangesWaiting": "Changes from {authors} waiting in {catalog}. Tap to sync.",
+  "@syncChangesWaiting": {
+    "placeholders": {
+      "authors": {
+        "type": "String"
+      },
+      "catalog": {
+        "type": "String"
+      }
+    }
+  },
+  "syncAnotherDevice": "another device",
+  "syncMerged": "{count, plural, one{{count} change from {authors} merged} other{{count} changes from {authors} merged}}",
+  "@syncMerged": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "authors": {
+        "type": "String"
+      }
+    }
+  },
+  "syncShow": "Show"
 }

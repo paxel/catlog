@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Hemm wisq immarkat għal kodiċi wieħed. Neħħi l-marka minn linja u l-kodiċi jerġa' lura.",
   "posterPhotos": "Ritratti, sa tnejn",
   "posterFrameHint": "Kaxkar u agħfas b'żewġ swaba' biex tinkwadra r-ritratt.",
-  "posterPreview": "Preview"
+  "posterPreview": "Preview",
+  "syncWatchSwitch": "Għidli meta jkun hemm bidliet jistennew fil-folder",
+  "syncAutoSwitch": "Għaqqadhom waħidhom",
+  "syncChangesWaiting": "Bidliet minn {authors} jistennew f'{catalog}. Missu biex tissinkronizza.",
+  "syncAnotherDevice": "apparat ieħor",
+  "syncMerged": "{count, plural, one{{count} bidla minn {authors} magħquda} other{{count} bidliet minn {authors} magħquda}}",
+  "syncShow": "Uri"
 }

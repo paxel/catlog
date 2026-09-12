@@ -3609,4 +3609,32 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get posterPreview => 'Forhåndsvisning';
+
+  @override
+  String get syncWatchSwitch => 'Si fra når endringer venter i mappen';
+
+  @override
+  String get syncAutoSwitch => 'Slå dem sammen av seg selv';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Endringer fra $authors venter i $catalog. Trykk for å synkronisere.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'en annen enhet';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count endringer fra $authors slått sammen',
+      one: '$count endring fra $authors slått sammen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Vis';
 }

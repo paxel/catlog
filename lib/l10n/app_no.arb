@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "For mye er krysset av for én kode. Fjern et kryss, så kommer koden tilbake.",
   "posterPhotos": "Bilder, opptil to",
   "posterFrameHint": "Dra og knip for å velge utsnittet.",
-  "posterPreview": "Forhåndsvisning"
+  "posterPreview": "Forhåndsvisning",
+  "syncWatchSwitch": "Si fra når endringer venter i mappen",
+  "syncAutoSwitch": "Slå dem sammen av seg selv",
+  "syncChangesWaiting": "Endringer fra {authors} venter i {catalog}. Trykk for å synkronisere.",
+  "syncAnotherDevice": "en annen enhet",
+  "syncMerged": "{count, plural, one{{count} endring fra {authors} slått sammen} other{{count} endringer fra {authors} slått sammen}}",
+  "syncShow": "Vis"
 }

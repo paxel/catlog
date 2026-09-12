@@ -3613,4 +3613,32 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get posterPreview => 'Pamje paraprake';
+
+  @override
+  String get syncWatchSwitch => 'Më thuaj kur presin ndryshime në dosje';
+
+  @override
+  String get syncAutoSwitch => 'Bashkoji vetë';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Ndryshime nga $authors presin në $catalog. Prek për të sinkronizuar.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'një pajisje tjetër';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ndryshime nga $authors u bashkuan',
+      one: '$count ndryshim nga $authors u bashkua',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Shfaq';
 }

@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "برای یک کد بیش از حد علامت زده شده. علامت یک خط را بردارید تا کد برگردد.",
   "posterPhotos": "عکس‌ها، حداکثر دو",
   "posterFrameHint": "بکشید و با دو انگشت بزرگ‌نمایی کنید تا کادر عکس را انتخاب کنید.",
-  "posterPreview": "پیش‌نمایش"
+  "posterPreview": "پیش‌نمایش",
+  "syncWatchSwitch": "وقتی تغییراتی در پوشه منتظر است به من بگو",
+  "syncAutoSwitch": "خودشان ادغام شوند",
+  "syncChangesWaiting": "تغییراتی از {authors} در {catalog} منتظر است. برای همگام‌سازی ضربه بزنید.",
+  "syncAnotherDevice": "دستگاهی دیگر",
+  "syncMerged": "{count, plural, one{{count} تغییر از {authors} ادغام شد} other{{count} تغییر از {authors} ادغام شد}}",
+  "syncShow": "نمایش"
 }

@@ -3616,4 +3616,33 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get posterPreview => 'Forskoðun';
+
+  @override
+  String get syncWatchSwitch =>
+      'Láttu mig vita þegar breytingar bíða í möppunni';
+
+  @override
+  String get syncAutoSwitch => 'Sameina þær sjálfkrafa';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Breytingar frá $authors bíða í $catalog. Ýttu til að samstilla.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'öðru tæki';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count breytingar frá $authors sameinaðar',
+      one: '$count breyting frá $authors sameinuð',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Sýna';
 }

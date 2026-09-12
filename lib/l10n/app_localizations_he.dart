@@ -3608,4 +3608,33 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get posterPreview => 'תצוגה מקדימה';
+
+  @override
+  String get syncWatchSwitch => 'ספרו לי כשמחכים שינויים בתיקייה';
+
+  @override
+  String get syncAutoSwitch => 'למזג אותם מעצמם';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'שינויים מאת $authors מחכים ב-$catalog. הקישו לסנכרון.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'מכשיר אחר';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count שינויים מאת $authors מוזגו',
+      two: '$count שינויים מאת $authors מוזגו',
+      one: 'שינוי אחד מאת $authors מוזג',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'הצג';
 }

@@ -3614,4 +3614,32 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get posterPreview => 'Преглед';
+
+  @override
+  String get syncWatchSwitch => 'Кажи ми кога чекаат промени во папката';
+
+  @override
+  String get syncAutoSwitch => 'Спојувај ги сами';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Промени од $authors чекаат во $catalog. Допрете за синхронизација.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'друг уред';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count промени од $authors споени',
+      one: '$count промена од $authors споена',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Прикажи';
 }

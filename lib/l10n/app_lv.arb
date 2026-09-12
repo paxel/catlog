@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Vienam kodam atzīmēts par daudz. Noņemiet vienu atzīmi, un kods atgriezīsies.",
   "posterPhotos": "Fotoattēli, līdz divi",
   "posterFrameHint": "Velciet un savelciet, lai izvēlētos kadru.",
-  "posterPreview": "Priekšskatījums"
+  "posterPreview": "Priekšskatījums",
+  "syncWatchSwitch": "Pateikt, kad mapē gaida izmaiņas",
+  "syncAutoSwitch": "Apvienot tās pašas",
+  "syncChangesWaiting": "{authors} izmaiņas gaida katalogā {catalog}. Pieskarieties, lai sinhronizētu.",
+  "syncAnotherDevice": "cita ierīce",
+  "syncMerged": "{count, plural, zero{{count} {authors} izmaiņu apvienotas} one{{count} {authors} izmaiņa apvienota} other{{count} {authors} izmaiņas apvienotas}}",
+  "syncShow": "Rādīt"
 }

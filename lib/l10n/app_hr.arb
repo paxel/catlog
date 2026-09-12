@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Previše je označeno za jedan kod. Odznačite redak i kod se vraća.",
   "posterPhotos": "Fotografije, do dvije",
   "posterFrameHint": "Povucite i uštipnite da odaberete kadar.",
-  "posterPreview": "Pregled"
+  "posterPreview": "Pregled",
+  "syncWatchSwitch": "Reci mi kad u mapi čekaju promjene",
+  "syncAutoSwitch": "Spoji ih same",
+  "syncChangesWaiting": "Promjene od {authors} čekaju u {catalog}. Dodirnite za sinkronizaciju.",
+  "syncAnotherDevice": "drugog uređaja",
+  "syncMerged": "{count, plural, one{{count} promjena od {authors} spojena} few{{count} promjene od {authors} spojene} other{{count} promjena od {authors} spojeno}}",
+  "syncShow": "Prikaži"
 }

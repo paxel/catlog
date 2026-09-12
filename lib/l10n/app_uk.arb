@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Для одного коду позначено забагато. Зніміть один рядок, і код повернеться.",
   "posterPhotos": "Фото, до двох",
   "posterFrameHint": "Перетягніть і зведіть пальці, щоб вибрати фрагмент.",
-  "posterPreview": "Попередній перегляд"
+  "posterPreview": "Попередній перегляд",
+  "syncWatchSwitch": "Повідомляти, коли в теці чекають зміни",
+  "syncAutoSwitch": "Об’єднувати самостійно",
+  "syncChangesWaiting": "Зміни від {authors} чекають у {catalog}. Торкніться для синхронізації.",
+  "syncAnotherDevice": "іншого пристрою",
+  "syncMerged": "{count, plural, one{{count} зміну від {authors} об’єднано} few{{count} зміни від {authors} об’єднано} many{{count} змін від {authors} об’єднано} other{{count} зміни від {authors} об’єднано}}",
+  "syncShow": "Показати"
 }

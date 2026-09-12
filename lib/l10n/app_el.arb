@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Έχουν τσεκαριστεί πάρα πολλά για έναν κωδικό. Ξετσεκάρετε μια γραμμή και ο κωδικός επιστρέφει.",
   "posterPhotos": "Φωτογραφίες, έως δύο",
   "posterFrameHint": "Σύρετε και τσιμπήστε για να καδράρετε τη φωτογραφία.",
-  "posterPreview": "Προεπισκόπηση"
+  "posterPreview": "Προεπισκόπηση",
+  "syncWatchSwitch": "Πες μου όταν περιμένουν αλλαγές στον φάκελο",
+  "syncAutoSwitch": "Να συγχωνεύονται μόνες τους",
+  "syncChangesWaiting": "Αλλαγές από {authors} περιμένουν στο {catalog}. Πατήστε για συγχρονισμό.",
+  "syncAnotherDevice": "άλλη συσκευή",
+  "syncMerged": "{count, plural, one{{count} αλλαγή από {authors} συγχωνεύτηκε} other{{count} αλλαγές από {authors} συγχωνεύτηκαν}}",
+  "syncShow": "Εμφάνιση"
 }

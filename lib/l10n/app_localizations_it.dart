@@ -3622,4 +3622,33 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get posterPreview => 'Anteprima';
+
+  @override
+  String get syncWatchSwitch =>
+      'Avvisami quando ci sono modifiche in attesa nella cartella';
+
+  @override
+  String get syncAutoSwitch => 'Unirli da soli';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Modifiche di $authors in attesa in $catalog. Tocca per sincronizzare.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'un altro dispositivo';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count modifiche di $authors unite',
+      one: '$count modifica di $authors unita',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Mostra';
 }

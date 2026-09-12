@@ -2716,6 +2716,15 @@ class ModeLocalizations implements AppLocalizations {
   String get sync => base.sync;
 
   @override
+  String get syncAnotherDevice => base.syncAnotherDevice;
+
+  @override
+  String get syncAutoSwitch => base.syncAutoSwitch;
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) => base.syncChangesWaiting(authors, catalog);
+
+  @override
   String get syncChooserInPerson => base.syncChooserInPerson;
 
   @override
@@ -2743,6 +2752,9 @@ class ModeLocalizations implements AppLocalizations {
   String get syncFolderNow => base.syncFolderNow;
 
   @override
+  String syncMerged(int count, String authors) => base.syncMerged(count, authors);
+
+  @override
   String get syncNow => base.syncNow;
 
   @override
@@ -2755,10 +2767,16 @@ class ModeLocalizations implements AppLocalizations {
   String get syncPeerOlder => base.syncPeerOlder;
 
   @override
+  String get syncShow => base.syncShow;
+
+  @override
   String get syncSummaryTitle => base.syncSummaryTitle;
 
   @override
   String get syncUnreachable => base.syncUnreachable;
+
+  @override
+  String get syncWatchSwitch => base.syncWatchSwitch;
 
   @override
   String get syncWrongHost => base.syncWrongHost;

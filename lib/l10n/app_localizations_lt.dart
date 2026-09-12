@@ -3633,4 +3633,34 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get posterPreview => 'Peržiūra';
+
+  @override
+  String get syncWatchSwitch => 'Pranešti, kai aplanke laukia pakeitimai';
+
+  @override
+  String get syncAutoSwitch => 'Sulieti juos savaime';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors pakeitimai laukia kataloge $catalog. Palieskite, kad sinchronizuotumėte.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'kitas įrenginys';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count $authors pakeitimų sulieta',
+      many: '$count $authors pakeitimo sulieta',
+      few: '$count $authors pakeitimai sulieti',
+      one: '$count $authors pakeitimas sulietas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Rodyti';
 }

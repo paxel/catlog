@@ -3611,4 +3611,32 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get posterPreview => 'Преглед';
+
+  @override
+  String get syncWatchSwitch => 'Кажи ми, когато в папката чакат промени';
+
+  @override
+  String get syncAutoSwitch => 'Сливай ги сами';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Промени от $authors чакат в $catalog. Докоснете за синхронизация.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'друго устройство';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count промени от $authors слети',
+      one: '$count промяна от $authors слята',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Покажи';
 }

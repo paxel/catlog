@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Of mikið er merkt fyrir einn kóða. Afmerktu línu og kóðinn kemur aftur.",
   "posterPhotos": "Myndir, allt að tvær",
   "posterFrameHint": "Dragðu og klíptu til að ramma myndina inn.",
-  "posterPreview": "Forskoðun"
+  "posterPreview": "Forskoðun",
+  "syncWatchSwitch": "Láttu mig vita þegar breytingar bíða í möppunni",
+  "syncAutoSwitch": "Sameina þær sjálfkrafa",
+  "syncChangesWaiting": "Breytingar frá {authors} bíða í {catalog}. Ýttu til að samstilla.",
+  "syncAnotherDevice": "öðru tæki",
+  "syncMerged": "{count, plural, one{{count} breyting frá {authors} sameinuð} other{{count} breytingar frá {authors} sameinaðar}}",
+  "syncShow": "Sýna"
 }

@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "1つのコードに入れるには多すぎます。1行チェックを外すとコードが戻ります。",
   "posterPhotos": "写真、2枚まで",
   "posterFrameHint": "ドラッグとピンチで写真の範囲を決めます。",
-  "posterPreview": "プレビュー"
+  "posterPreview": "プレビュー",
+  "syncWatchSwitch": "フォルダに変更が届いたら知らせる",
+  "syncAutoSwitch": "自動的に取り込む",
+  "syncChangesWaiting": "{authors} の変更が {catalog} に届いています。タップして同期。",
+  "syncAnotherDevice": "別の端末",
+  "syncMerged": "{count, plural, other{{authors} の変更 {count} 件を取り込みました}}",
+  "syncShow": "表示"
 }

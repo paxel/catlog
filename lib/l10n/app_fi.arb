@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Yhteen koodiin on rastitettu liikaa. Poista yksi rasti, niin koodi palaa.",
   "posterPhotos": "Kuvat, enintään kaksi",
   "posterFrameHint": "Vedä ja nipistä rajataksesi kuvan.",
-  "posterPreview": "Esikatselu"
+  "posterPreview": "Esikatselu",
+  "syncWatchSwitch": "Kerro, kun kansiossa odottaa muutoksia",
+  "syncAutoSwitch": "Yhdistä ne itsestään",
+  "syncChangesWaiting": "Muutoksia lähettäjältä {authors} odottaa kohteessa {catalog}. Napauta synkronoidaksesi.",
+  "syncAnotherDevice": "toinen laite",
+  "syncMerged": "{count, plural, one{{count} muutos lähettäjältä {authors} yhdistetty} other{{count} muutosta lähettäjältä {authors} yhdistetty}}",
+  "syncShow": "Näytä"
 }

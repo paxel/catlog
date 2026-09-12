@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Er is te veel aangevinkt voor één code. Vink een regel uit en de code komt terug.",
   "posterPhotos": "Foto's, maximaal twee",
   "posterFrameHint": "Sleep en knijp om de foto te kaderen.",
-  "posterPreview": "Voorbeeld"
+  "posterPreview": "Voorbeeld",
+  "syncWatchSwitch": "Zeg het me als er wijzigingen in de map wachten",
+  "syncAutoSwitch": "Ze vanzelf samenvoegen",
+  "syncChangesWaiting": "Wijzigingen van {authors} wachten in {catalog}. Tik om te synchroniseren.",
+  "syncAnotherDevice": "een ander apparaat",
+  "syncMerged": "{count, plural, one{{count} wijziging van {authors} samengevoegd} other{{count} wijzigingen van {authors} samengevoegd}}",
+  "syncShow": "Tonen"
 }

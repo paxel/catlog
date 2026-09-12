@@ -3610,4 +3610,32 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get posterPreview => 'Eelvaade';
+
+  @override
+  String get syncWatchSwitch => 'Ütle, kui kaustas ootavad muudatused';
+
+  @override
+  String get syncAutoSwitch => 'Ühenda need iseenesest';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors muudatused ootavad kataloogis $catalog. Puuduta sünkroonimiseks.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'teine seade';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count muudatust ($authors) ühendatud',
+      one: '$count muudatus ($authors) ühendatud',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Näita';
 }

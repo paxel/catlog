@@ -3617,4 +3617,33 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get posterPreview => 'Voorbeeld';
+
+  @override
+  String get syncWatchSwitch =>
+      'Zeg het me als er wijzigingen in de map wachten';
+
+  @override
+  String get syncAutoSwitch => 'Ze vanzelf samenvoegen';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Wijzigingen van $authors wachten in $catalog. Tik om te synchroniseren.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'een ander apparaat';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count wijzigingen van $authors samengevoegd',
+      one: '$count wijziging van $authors samengevoegd',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Tonen';
 }

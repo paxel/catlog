@@ -5,6 +5,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [1.3.1] - Unreleased
 
+### Added
+- Shared folder sync watches the folder while the app is on screen: a line at the top of every page says whose changes wait, tap syncs; a second switch merges them on their own and reports in one line.
+
 ### Changed
 - The missing poster offers every filled field of the cat and its home as a tick, takes up to two photos that you frame by dragging and pinching, shows the page as it will print, and prints a code per ticked ID (registry link) and location (map link) next to the cat(a)log code.
 - The report for the vet and the missing poster are buttons on the cat's page, next to the timeline; their pages carry the card page's Share as PDF and Print buttons.

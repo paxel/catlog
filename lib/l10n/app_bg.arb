@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Отбелязано е твърде много за един код. Размаркирайте ред и кодът се връща.",
   "posterPhotos": "Снимки, до две",
   "posterFrameHint": "Плъзнете и щипнете, за да изберете кадъра.",
-  "posterPreview": "Преглед"
+  "posterPreview": "Преглед",
+  "syncWatchSwitch": "Кажи ми, когато в папката чакат промени",
+  "syncAutoSwitch": "Сливай ги сами",
+  "syncChangesWaiting": "Промени от {authors} чакат в {catalog}. Докоснете за синхронизация.",
+  "syncAnotherDevice": "друго устройство",
+  "syncMerged": "{count, plural, one{{count} промяна от {authors} слята} other{{count} промени от {authors} слети}}",
+  "syncShow": "Покажи"
 }

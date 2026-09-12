@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "勾选的内容太多，一个二维码放不下。取消一行，二维码就会回来。",
   "posterPhotos": "照片，最多两张",
   "posterFrameHint": "拖动和捏合来选取照片的范围。",
-  "posterPreview": "预览"
+  "posterPreview": "预览",
+  "syncWatchSwitch": "文件夹中有更改等待时告诉我",
+  "syncAutoSwitch": "自动合并",
+  "syncChangesWaiting": "来自 {authors} 的更改在 {catalog} 中等待。点按以同步。",
+  "syncAnotherDevice": "另一台设备",
+  "syncMerged": "{count, plural, other{已合并来自 {authors} 的 {count} 项更改}}",
+  "syncShow": "显示"
 }

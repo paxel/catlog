@@ -3629,4 +3629,33 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get posterPreview => 'Previzualizare';
+
+  @override
+  String get syncWatchSwitch => 'Spune-mi când așteaptă modificări în dosar';
+
+  @override
+  String get syncAutoSwitch => 'Îmbină-le de la sine';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Modificări de la $authors așteaptă în $catalog. Atinge pentru a sincroniza.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'alt dispozitiv';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de modificări de la $authors îmbinate',
+      few: '$count modificări de la $authors îmbinate',
+      one: '$count modificare de la $authors îmbinată',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Arată';
 }

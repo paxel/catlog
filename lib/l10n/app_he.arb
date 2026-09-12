@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "סומן יותר מדי לקוד אחד. בטלו סימון של שורה והקוד יחזור.",
   "posterPhotos": "תמונות, עד שתיים",
   "posterFrameHint": "גררו וצבטו כדי למסגר את התמונה.",
-  "posterPreview": "תצוגה מקדימה"
+  "posterPreview": "תצוגה מקדימה",
+  "syncWatchSwitch": "ספרו לי כשמחכים שינויים בתיקייה",
+  "syncAutoSwitch": "למזג אותם מעצמם",
+  "syncChangesWaiting": "שינויים מאת {authors} מחכים ב-{catalog}. הקישו לסנכרון.",
+  "syncAnotherDevice": "מכשיר אחר",
+  "syncMerged": "{count, plural, one{שינוי אחד מאת {authors} מוזג} two{{count} שינויים מאת {authors} מוזגו} other{{count} שינויים מאת {authors} מוזגו}}",
+  "syncShow": "הצג"
 }

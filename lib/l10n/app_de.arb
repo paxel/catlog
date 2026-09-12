@@ -1226,5 +1226,11 @@
   "posterQrTooBig": "Für einen Code ist zu viel angehakt. Wähle eine Zeile ab, und der Code kommt zurück.",
   "posterPhotos": "Fotos, bis zu zwei",
   "posterFrameHint": "Ziehe und zoome, um den Ausschnitt zu wählen.",
-  "posterPreview": "Vorschau"
+  "posterPreview": "Vorschau",
+  "syncWatchSwitch": "Sag mir, wenn Änderungen im Ordner warten",
+  "syncAutoSwitch": "Von selbst zusammenführen",
+  "syncChangesWaiting": "Änderungen von {authors} warten in {catalog}. Tippen zum Abgleichen.",
+  "syncAnotherDevice": "einem anderen Gerät",
+  "syncMerged": "{count, plural, one{{count} Änderung von {authors} zusammengeführt} other{{count} Änderungen von {authors} zusammengeführt}}",
+  "syncShow": "Anzeigen"
 }

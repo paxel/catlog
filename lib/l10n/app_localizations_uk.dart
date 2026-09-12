@@ -3633,4 +3633,34 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get posterPreview => 'Попередній перегляд';
+
+  @override
+  String get syncWatchSwitch => 'Повідомляти, коли в теці чекають зміни';
+
+  @override
+  String get syncAutoSwitch => 'Об’єднувати самостійно';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Зміни від $authors чекають у $catalog. Торкніться для синхронізації.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'іншого пристрою';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count зміни від $authors об’єднано',
+      many: '$count змін від $authors об’єднано',
+      few: '$count зміни від $authors об’єднано',
+      one: '$count зміну від $authors об’єднано',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Показати';
 }

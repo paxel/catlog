@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Na jeden kód je zaškrtnuté priveľa. Odškrtnite riadok a kód sa vráti.",
   "posterPhotos": "Fotky, najviac dve",
   "posterFrameHint": "Ťahaním a stiahnutím prstov vyberte výrez.",
-  "posterPreview": "Náhľad"
+  "posterPreview": "Náhľad",
+  "syncWatchSwitch": "Povedať mi, keď v priečinku čakajú zmeny",
+  "syncAutoSwitch": "Zlúčiť ich samy",
+  "syncChangesWaiting": "Zmeny od {authors} čakajú v {catalog}. Ťuknutím synchronizujete.",
+  "syncAnotherDevice": "iného zariadenia",
+  "syncMerged": "{count, plural, one{{count} zmena od {authors} zlúčená} few{{count} zmeny od {authors} zlúčené} other{{count} zmien od {authors} zlúčených}}",
+  "syncShow": "Zobraziť"
 }

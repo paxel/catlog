@@ -3612,4 +3612,32 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get posterPreview => 'Előnézet';
+
+  @override
+  String get syncWatchSwitch => 'Szólj, ha változtatások várnak a mappában';
+
+  @override
+  String get syncAutoSwitch => 'Beolvasztás maguktól';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors változtatásai várnak itt: $catalog. Koppints a szinkronizáláshoz.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'egy másik eszköz';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count változtatás beolvasztva ($authors)',
+      one: '$count változtatás beolvasztva ($authors)',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Mutasd';
 }

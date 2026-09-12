@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "المحدد أكثر مما يتسع له رمز واحد. ألغِ تحديد سطر ويعود الرمز.",
   "posterPhotos": "الصور، حتى اثنتين",
   "posterFrameHint": "اسحب وقرّب بإصبعين لتأطير الصورة.",
-  "posterPreview": "معاينة"
+  "posterPreview": "معاينة",
+  "syncWatchSwitch": "أخبرني عندما تنتظر تغييرات في المجلد",
+  "syncAutoSwitch": "ادمجها من تلقاء نفسها",
+  "syncChangesWaiting": "تغييرات من {authors} تنتظر في {catalog}. انقر للمزامنة.",
+  "syncAnotherDevice": "جهاز آخر",
+  "syncMerged": "{count, plural, zero{لم يُدمج أي تغيير من {authors}} one{دُمج تغيير واحد من {authors}} two{دُمج تغييران من {authors}} few{دُمجت {count} تغييرات من {authors}} many{دُمج {count} تغييراً من {authors}} other{دُمج {count} تغيير من {authors}}}",
+  "syncShow": "عرض"
 }

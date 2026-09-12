@@ -3611,4 +3611,32 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get posterPreview => 'Önizleme';
+
+  @override
+  String get syncWatchSwitch => 'Klasörde değişiklikler beklediğinde söyle';
+
+  @override
+  String get syncAutoSwitch => 'Kendiliğinden birleştir';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors kaynaklı değişiklikler $catalog içinde bekliyor. Eşitlemek için dokunun.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'başka bir cihaz';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$authors kaynaklı $count değişiklik birleştirildi',
+      one: '$authors kaynaklı $count değişiklik birleştirildi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Göster';
 }

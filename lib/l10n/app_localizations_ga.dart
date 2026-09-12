@@ -3668,4 +3668,36 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get posterPreview => 'Réamhamharc';
+
+  @override
+  String get syncWatchSwitch =>
+      'Inis dom nuair a bhíonn athruithe ag fanacht san fhillteán';
+
+  @override
+  String get syncAutoSwitch => 'Cumaisc iad uathu féin';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Athruithe ó $authors ag fanacht in $catalog. Tapáil chun sioncronú.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'gléas eile';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count athrú ó $authors cumaiscthe',
+      many: '$count n-athrú ó $authors cumaiscthe',
+      few: '$count athrú ó $authors cumaiscthe',
+      two: '$count athrú ó $authors cumaiscthe',
+      one: '$count athrú ó $authors cumaiscthe',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Taispeáin';
 }

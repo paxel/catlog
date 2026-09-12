@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Tek bir kod için çok fazla şey işaretli. Bir satırın işaretini kaldırın, kod geri gelir.",
   "posterPhotos": "Fotoğraflar, en fazla iki",
   "posterFrameHint": "Fotoğrafı çerçevelemek için sürükleyin ve kıstırın.",
-  "posterPreview": "Önizleme"
+  "posterPreview": "Önizleme",
+  "syncWatchSwitch": "Klasörde değişiklikler beklediğinde söyle",
+  "syncAutoSwitch": "Kendiliğinden birleştir",
+  "syncChangesWaiting": "{authors} kaynaklı değişiklikler {catalog} içinde bekliyor. Eşitlemek için dokunun.",
+  "syncAnotherDevice": "başka bir cihaz",
+  "syncMerged": "{count, plural, one{{authors} kaynaklı {count} değişiklik birleştirildi} other{{authors} kaynaklı {count} değişiklik birleştirildi}}",
+  "syncShow": "Göster"
 }

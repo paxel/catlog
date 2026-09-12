@@ -3640,4 +3640,34 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get posterPreview => 'Predogled';
+
+  @override
+  String get syncWatchSwitch => 'Povej mi, ko v mapi čakajo spremembe';
+
+  @override
+  String get syncAutoSwitch => 'Združi jih same';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Spremembe od $authors čakajo v $catalog. Dotaknite se za sinhronizacijo.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'druge naprave';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count sprememb od $authors združenih',
+      few: '$count spremembe od $authors združene',
+      two: '$count spremembi od $authors združeni',
+      one: '$count sprememba od $authors združena',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Pokaži';
 }

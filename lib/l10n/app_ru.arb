@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Для одного кода отмечено слишком много. Снимите одну строку, и код вернётся.",
   "posterPhotos": "Фото, до двух",
   "posterFrameHint": "Перетащите и сведите пальцы, чтобы выбрать фрагмент.",
-  "posterPreview": "Предпросмотр"
+  "posterPreview": "Предпросмотр",
+  "syncWatchSwitch": "Сообщать, когда в папке ждут изменения",
+  "syncAutoSwitch": "Объединять самостоятельно",
+  "syncChangesWaiting": "Изменения от {authors} ждут в {catalog}. Нажмите для синхронизации.",
+  "syncAnotherDevice": "другого устройства",
+  "syncMerged": "{count, plural, one{{count} изменение от {authors} объединено} few{{count} изменения от {authors} объединены} many{{count} изменений от {authors} объединено} other{{count} изменения от {authors} объединены}}",
+  "syncShow": "Показать"
 }

@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Prea multe bifate pentru un singur cod. Debifează un rând și codul revine.",
   "posterPhotos": "Fotografii, cel mult două",
   "posterFrameHint": "Trage și ciupește pentru a încadra fotografia.",
-  "posterPreview": "Previzualizare"
+  "posterPreview": "Previzualizare",
+  "syncWatchSwitch": "Spune-mi când așteaptă modificări în dosar",
+  "syncAutoSwitch": "Îmbină-le de la sine",
+  "syncChangesWaiting": "Modificări de la {authors} așteaptă în {catalog}. Atinge pentru a sincroniza.",
+  "syncAnotherDevice": "alt dispozitiv",
+  "syncMerged": "{count, plural, one{{count} modificare de la {authors} îmbinată} few{{count} modificări de la {authors} îmbinate} other{{count} de modificări de la {authors} îmbinate}}",
+  "syncShow": "Arată"
 }

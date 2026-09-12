@@ -3432,4 +3432,31 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get posterPreview => '预览';
+
+  @override
+  String get syncWatchSwitch => '文件夹中有更改等待时告诉我';
+
+  @override
+  String get syncAutoSwitch => '自动合并';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '来自 $authors 的更改在 $catalog 中等待。点按以同步。';
+  }
+
+  @override
+  String get syncAnotherDevice => '另一台设备';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '已合并来自 $authors 的 $count 项更改',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => '显示';
 }

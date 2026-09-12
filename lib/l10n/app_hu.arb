@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Túl sok van bepipálva egy kódhoz. Vegyél ki egy pipát, és a kód visszatér.",
   "posterPhotos": "Fotók, legfeljebb kettő",
   "posterFrameHint": "Húzd és csippentsd a kivágás beállításához.",
-  "posterPreview": "Előnézet"
+  "posterPreview": "Előnézet",
+  "syncWatchSwitch": "Szólj, ha változtatások várnak a mappában",
+  "syncAutoSwitch": "Beolvasztás maguktól",
+  "syncChangesWaiting": "{authors} változtatásai várnak itt: {catalog}. Koppints a szinkronizáláshoz.",
+  "syncAnotherDevice": "egy másik eszköz",
+  "syncMerged": "{count, plural, one{{count} változtatás beolvasztva ({authors})} other{{count} változtatás beolvasztva ({authors})}}",
+  "syncShow": "Mutasd"
 }

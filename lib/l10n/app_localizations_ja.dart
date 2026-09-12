@@ -3474,4 +3474,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get posterPreview => 'プレビュー';
+
+  @override
+  String get syncWatchSwitch => 'フォルダに変更が届いたら知らせる';
+
+  @override
+  String get syncAutoSwitch => '自動的に取り込む';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors の変更が $catalog に届いています。タップして同期。';
+  }
+
+  @override
+  String get syncAnotherDevice => '別の端末';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$authors の変更 $count 件を取り込みました',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => '表示';
 }

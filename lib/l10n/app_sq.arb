@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "Është shënuar shumë për një kod të vetëm. Hiq shenjën nga një rresht dhe kodi kthehet.",
   "posterPhotos": "Foto, deri në dy",
   "posterFrameHint": "Tërhiq dhe pickoje për ta kornizuar foton.",
-  "posterPreview": "Pamje paraprake"
+  "posterPreview": "Pamje paraprake",
+  "syncWatchSwitch": "Më thuaj kur presin ndryshime në dosje",
+  "syncAutoSwitch": "Bashkoji vetë",
+  "syncChangesWaiting": "Ndryshime nga {authors} presin në {catalog}. Prek për të sinkronizuar.",
+  "syncAnotherDevice": "një pajisje tjetër",
+  "syncMerged": "{count, plural, one{{count} ndryshim nga {authors} u bashkua} other{{count} ndryshime nga {authors} u bashkuan}}",
+  "syncShow": "Shfaq"
 }

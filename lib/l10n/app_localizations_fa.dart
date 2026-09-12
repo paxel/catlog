@@ -3551,4 +3551,32 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get posterPreview => 'پیش‌نمایش';
+
+  @override
+  String get syncWatchSwitch => 'وقتی تغییراتی در پوشه منتظر است به من بگو';
+
+  @override
+  String get syncAutoSwitch => 'خودشان ادغام شوند';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'تغییراتی از $authors در $catalog منتظر است. برای همگام‌سازی ضربه بزنید.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'دستگاهی دیگر';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تغییر از $authors ادغام شد',
+      one: '$count تغییر از $authors ادغام شد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'نمایش';
 }

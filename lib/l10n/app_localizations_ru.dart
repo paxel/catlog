@@ -3633,4 +3633,34 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get posterPreview => 'Предпросмотр';
+
+  @override
+  String get syncWatchSwitch => 'Сообщать, когда в папке ждут изменения';
+
+  @override
+  String get syncAutoSwitch => 'Объединять самостоятельно';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Изменения от $authors ждут в $catalog. Нажмите для синхронизации.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'другого устройства';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count изменения от $authors объединены',
+      many: '$count изменений от $authors объединено',
+      few: '$count изменения от $authors объединены',
+      one: '$count изменение от $authors объединено',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Показать';
 }

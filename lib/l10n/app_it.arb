@@ -1220,5 +1220,11 @@
   "posterQrTooBig": "C'è troppo spuntato per un solo codice. Togli la spunta a una riga e il codice torna.",
   "posterPhotos": "Foto, fino a due",
   "posterFrameHint": "Trascina e pizzica per inquadrare la foto.",
-  "posterPreview": "Anteprima"
+  "posterPreview": "Anteprima",
+  "syncWatchSwitch": "Avvisami quando ci sono modifiche in attesa nella cartella",
+  "syncAutoSwitch": "Unirli da soli",
+  "syncChangesWaiting": "Modifiche di {authors} in attesa in {catalog}. Tocca per sincronizzare.",
+  "syncAnotherDevice": "un altro dispositivo",
+  "syncMerged": "{count, plural, one{{count} modifica di {authors} unita} other{{count} modifiche di {authors} unite}}",
+  "syncShow": "Mostra"
 }

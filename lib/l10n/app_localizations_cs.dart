@@ -3624,4 +3624,33 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get posterPreview => 'Náhled';
+
+  @override
+  String get syncWatchSwitch => 'Říct mi, když ve složce čekají změny';
+
+  @override
+  String get syncAutoSwitch => 'Sloučit je samy';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Změny od $authors čekají v $catalog. Klepnutím synchronizujete.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'jiného zařízení';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count změn od $authors sloučeno',
+      few: '$count změny od $authors sloučeny',
+      one: '$count změna od $authors sloučena',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Zobrazit';
 }
