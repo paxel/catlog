@@ -1183,5 +1183,8 @@
   "titleLabel": "תואר",
   "deletedLabel": "נמחק",
   "favouriteAdd": "סימון כמועדף",
-  "favouriteRemove": "הסרה מהמועדפים"
+  "favouriteRemove": "הסרה מהמועדפים",
+  "coverPick": "תמונת שער…",
+  "coverHint": "תמונה של המקום: הבית, החצר, נקודת ההאכלה. מוצגת על הכרטיס במקום חתול.",
+  "coverRemove": "הסרת תמונת השער"
 }

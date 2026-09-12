@@ -3487,4 +3487,14 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'הסרה מהמועדפים';
+
+  @override
+  String get coverPick => 'תמונת שער…';
+
+  @override
+  String get coverHint =>
+      'תמונה של המקום: הבית, החצר, נקודת ההאכלה. מוצגת על הכרטיס במקום חתול.';
+
+  @override
+  String get coverRemove => 'הסרת תמונת השער';
 }

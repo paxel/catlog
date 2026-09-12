@@ -1183,5 +1183,8 @@
   "titleLabel": "Unvan",
   "deletedLabel": "Silindi",
   "favouriteAdd": "Favori olarak işaretle",
-  "favouriteRemove": "Favorilerden kaldır"
+  "favouriteRemove": "Favorilerden kaldır",
+  "coverPick": "Kapak resmi…",
+  "coverHint": "Yerin bir resmi: ev, avlu, besleme noktası. Kartta kedi yerine gösterilir.",
+  "coverRemove": "Kapak resmini kaldır"
 }

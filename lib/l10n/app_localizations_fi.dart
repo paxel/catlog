@@ -3492,4 +3492,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Poista suosikeista';
+
+  @override
+  String get coverPick => 'Kansikuva…';
+
+  @override
+  String get coverHint =>
+      'Kuva paikasta: talo, piha, ruokintapaikka. Näytetään kortilla kissan sijaan.';
+
+  @override
+  String get coverRemove => 'Poista kansikuva';
 }

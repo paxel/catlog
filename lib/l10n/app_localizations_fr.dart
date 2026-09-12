@@ -3501,4 +3501,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Retirer des favoris';
+
+  @override
+  String get coverPick => 'Image de couverture…';
+
+  @override
+  String get coverHint =>
+      'Une image du lieu : la maison, la cour, le point de nourrissage. Affichée sur la carte à la place d\'un chat.';
+
+  @override
+  String get coverRemove => 'Retirer l\'image de couverture';
 }

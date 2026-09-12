@@ -8,6 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../layout.dart';
+import '../cover_picture.dart';
 import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
@@ -575,8 +576,10 @@ class _ClowderCard extends StatelessWidget {
       this.onToggleFavourite,
       this.selected = false});
 
-  /// Background: profile image of the first cat in the clowder that has one.
+  /// Background: the home's own cover picture, else the profile image
+  /// of the first cat in the clowder that has one.
   ImageProvider? _cover() {
+    if (coverImage(store, clowder.id) case final own?) return own;
     for (final cat in store.visibleCats(clowderId: clowder.id)) {
       final hash = store.profileImage(cat.id);
       if (hash != null) {
@@ -714,6 +717,7 @@ class _StraysCard extends StatelessWidget {
       {required this.store, required this.onTap, this.selected = false});
 
   ImageProvider? _cover(List<EntityView> strays) {
+    if (coverImage(store, straysEntity) case final own?) return own;
     for (final cat in strays) {
       final hash = store.profileImage(cat.id);
       if (hash != null) {

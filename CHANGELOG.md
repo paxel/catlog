@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.3.0] - Unreleased
 
 ### Added
+- A home, and the strays, can carry a cover picture of the place; the card shows it instead of a cat.
 - A star on a home's card marks it a favourite; favourites come first, right after Strays.
 - A photo shared into the app can become a new cat in a home of your choice, or in a new home; a shared video goes through the frame picker.
 - A report for the vet from a cat's timeline: chosen fields and dates, a patient summary, the entries as a timeline with a colour per field, and a curve per number field, as a PDF.

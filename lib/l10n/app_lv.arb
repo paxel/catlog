@@ -1183,5 +1183,8 @@
   "titleLabel": "Tituls",
   "deletedLabel": "Dzēsts",
   "favouriteAdd": "Atzīmēt kā izlasi",
-  "favouriteRemove": "Noņemt no izlases"
+  "favouriteRemove": "Noņemt no izlases",
+  "coverPick": "Vāka attēls…",
+  "coverHint": "Vietas attēls: māja, pagalms, barošanas vieta. Kartītē kaķa vietā.",
+  "coverRemove": "Noņemt vāka attēlu"
 }

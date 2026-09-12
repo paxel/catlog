@@ -1183,5 +1183,8 @@
   "titleLabel": "Titel",
   "deletedLabel": "Slettet",
   "favouriteAdd": "Markér som favorit",
-  "favouriteRemove": "Fjern fra favoritter"
+  "favouriteRemove": "Fjern fra favoritter",
+  "coverPick": "Forsidebillede…",
+  "coverHint": "Et billede af stedet: huset, gården, foderpladsen. Vises på kortet i stedet for en kat.",
+  "coverRemove": "Fjern forsidebillede"
 }

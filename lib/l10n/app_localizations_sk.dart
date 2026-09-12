@@ -3502,4 +3502,14 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Odstrániť z obľúbených';
+
+  @override
+  String get coverPick => 'Titulný obrázok…';
+
+  @override
+  String get coverHint =>
+      'Obrázok miesta: dom, dvor, kŕmne miesto. Na karte namiesto mačky.';
+
+  @override
+  String get coverRemove => 'Odstrániť titulný obrázok';
 }

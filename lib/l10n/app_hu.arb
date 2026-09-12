@@ -1183,5 +1183,8 @@
   "titleLabel": "Cím",
   "deletedLabel": "Törölve",
   "favouriteAdd": "Kedvencnek jelölés",
-  "favouriteRemove": "Eltávolítás a kedvencekből"
+  "favouriteRemove": "Eltávolítás a kedvencekből",
+  "coverPick": "Borítókép…",
+  "coverHint": "Kép a helyről: a ház, az udvar, az etetőhely. A kártyán macska helyett.",
+  "coverRemove": "Borítókép eltávolítása"
 }

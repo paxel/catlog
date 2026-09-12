@@ -3501,4 +3501,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Aus den Favoriten entfernen';
+
+  @override
+  String get coverPick => 'Titelbild…';
+
+  @override
+  String get coverHint =>
+      'Ein Bild des Ortes: das Haus, der Hof, der Futterplatz. Auf der Karte statt einer Katze gezeigt.';
+
+  @override
+  String get coverRemove => 'Titelbild entfernen';
 }

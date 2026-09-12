@@ -1183,5 +1183,8 @@
   "titleLabel": "Titlu",
   "deletedLabel": "Imħassar",
   "favouriteAdd": "Immarka bħala favorit",
-  "favouriteRemove": "Neħħi mill-favoriti"
+  "favouriteRemove": "Neħħi mill-favoriti",
+  "coverPick": "Stampa tal-qoxra…",
+  "coverHint": "Stampa tal-post: id-dar, il-bitħa, il-post tal-ikel. Fuq il-kard minflok qattus.",
+  "coverRemove": "Neħħi l-istampa tal-qoxra"
 }

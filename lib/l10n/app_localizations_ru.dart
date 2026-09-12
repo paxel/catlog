@@ -3511,4 +3511,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Убрать из избранного';
+
+  @override
+  String get coverPick => 'Обложка…';
+
+  @override
+  String get coverHint =>
+      'Снимок места: дом, двор, место кормления. Показывается на карточке вместо кошки.';
+
+  @override
+  String get coverRemove => 'Убрать обложку';
 }

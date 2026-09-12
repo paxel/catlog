@@ -1971,5 +1971,8 @@
   "titleLabel": "Title",
   "deletedLabel": "Deleted",
   "favouriteAdd": "Mark as favourite",
-  "favouriteRemove": "Remove from favourites"
+  "favouriteRemove": "Remove from favourites",
+  "coverPick": "Cover picture…",
+  "coverHint": "A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.",
+  "coverRemove": "Remove cover picture"
 }

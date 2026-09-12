@@ -3488,4 +3488,14 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Eemalda lemmikutest';
+
+  @override
+  String get coverPick => 'Kaanepilt…';
+
+  @override
+  String get coverHint =>
+      'Pilt kohast: maja, hoov, söötmiskoht. Kaardil kassi asemel.';
+
+  @override
+  String get coverRemove => 'Eemalda kaanepilt';
 }

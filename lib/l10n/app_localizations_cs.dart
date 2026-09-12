@@ -3503,4 +3503,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Odebrat z oblíbených';
+
+  @override
+  String get coverPick => 'Titulní obrázek…';
+
+  @override
+  String get coverHint =>
+      'Obrázek místa: dům, dvůr, krmné místo. Na kartě místo kočky.';
+
+  @override
+  String get coverRemove => 'Odebrat titulní obrázek';
 }

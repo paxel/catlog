@@ -3492,4 +3492,14 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Hiq nga të preferuarat';
+
+  @override
+  String get coverPick => 'Foto kopertine…';
+
+  @override
+  String get coverHint =>
+      'Një foto e vendit: shtëpia, oborri, vendi i ushqimit. Në kartë në vend të një maceje.';
+
+  @override
+  String get coverRemove => 'Hiq foton e kopertinës';
 }

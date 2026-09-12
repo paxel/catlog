@@ -3496,4 +3496,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Uit favorieten verwijderen';
+
+  @override
+  String get coverPick => 'Omslagfoto…';
+
+  @override
+  String get coverHint =>
+      'Een foto van de plek: het huis, de tuin, de voerplek. Op de kaart getoond in plaats van een kat.';
+
+  @override
+  String get coverRemove => 'Omslagfoto verwijderen';
 }

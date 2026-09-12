@@ -3358,4 +3358,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'お気に入りから削除';
+
+  @override
+  String get coverPick => 'カバー写真…';
+
+  @override
+  String get coverHint => '場所の写真: 家、庭、給餌場所。カードに猫の代わりに表示されます。';
+
+  @override
+  String get coverRemove => 'カバー写真を削除';
 }

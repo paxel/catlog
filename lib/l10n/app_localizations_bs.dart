@@ -3504,4 +3504,14 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Ukloni iz omiljenih';
+
+  @override
+  String get coverPick => 'Naslovna slika…';
+
+  @override
+  String get coverHint =>
+      'Slika mjesta: kuća, dvorište, hranilište. Na kartici umjesto mačke.';
+
+  @override
+  String get coverRemove => 'Ukloni naslovnu sliku';
 }

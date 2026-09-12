@@ -1183,5 +1183,8 @@
   "titleLabel": "Arvonimi",
   "deletedLabel": "Poistettu",
   "favouriteAdd": "Merkitse suosikiksi",
-  "favouriteRemove": "Poista suosikeista"
+  "favouriteRemove": "Poista suosikeista",
+  "coverPick": "Kansikuva…",
+  "coverHint": "Kuva paikasta: talo, piha, ruokintapaikka. Näytetään kortilla kissan sijaan.",
+  "coverRemove": "Poista kansikuva"
 }

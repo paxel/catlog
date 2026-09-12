@@ -3502,4 +3502,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Αφαίρεση από τα αγαπημένα';
+
+  @override
+  String get coverPick => 'Εικόνα εξωφύλλου…';
+
+  @override
+  String get coverHint =>
+      'Μια εικόνα του τόπου: το σπίτι, η αυλή, το σημείο ταΐσματος. Στην κάρτα αντί για γάτα.';
+
+  @override
+  String get coverRemove => 'Αφαίρεση εικόνας εξωφύλλου';
 }

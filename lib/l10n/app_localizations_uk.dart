@@ -3511,4 +3511,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Прибрати з обраного';
+
+  @override
+  String get coverPick => 'Обкладинка…';
+
+  @override
+  String get coverHint =>
+      'Знімок місця: будинок, двір, місце годівлі. Показується на картці замість кішки.';
+
+  @override
+  String get coverRemove => 'Прибрати обкладинку';
 }

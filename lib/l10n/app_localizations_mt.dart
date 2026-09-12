@@ -3505,4 +3505,14 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Neħħi mill-favoriti';
+
+  @override
+  String get coverPick => 'Stampa tal-qoxra…';
+
+  @override
+  String get coverHint =>
+      'Stampa tal-post: id-dar, il-bitħa, il-post tal-ikel. Fuq il-kard minflok qattus.';
+
+  @override
+  String get coverRemove => 'Neħħi l-istampa tal-qoxra';
 }

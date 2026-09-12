@@ -1183,5 +1183,8 @@
   "titleLabel": "Tiitel",
   "deletedLabel": "Kustutatud",
   "favouriteAdd": "Märgi lemmikuks",
-  "favouriteRemove": "Eemalda lemmikutest"
+  "favouriteRemove": "Eemalda lemmikutest",
+  "coverPick": "Kaanepilt…",
+  "coverHint": "Pilt kohast: maja, hoov, söötmiskoht. Kaardil kassi asemel.",
+  "coverRemove": "Eemalda kaanepilt"
 }

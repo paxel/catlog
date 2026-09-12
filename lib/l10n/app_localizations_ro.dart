@@ -3506,4 +3506,14 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Elimină din favorite';
+
+  @override
+  String get coverPick => 'Imagine de copertă…';
+
+  @override
+  String get coverHint =>
+      'O imagine a locului: casa, curtea, locul de hrănire. Pe card în locul unei pisici.';
+
+  @override
+  String get coverRemove => 'Elimină imaginea de copertă';
 }

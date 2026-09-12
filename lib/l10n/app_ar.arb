@@ -1183,5 +1183,8 @@
   "titleLabel": "اللقب",
   "deletedLabel": "محذوف",
   "favouriteAdd": "تمييز كمفضّل",
-  "favouriteRemove": "إزالة من المفضّلة"
+  "favouriteRemove": "إزالة من المفضّلة",
+  "coverPick": "صورة الغلاف…",
+  "coverHint": "صورة للمكان: البيت، الفناء، موضع الإطعام. تُعرض على البطاقة بدل قطة.",
+  "coverRemove": "إزالة صورة الغلاف"
 }

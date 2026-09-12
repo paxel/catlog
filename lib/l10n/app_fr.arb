@@ -1183,5 +1183,8 @@
   "titleLabel": "Titre",
   "deletedLabel": "Supprimé",
   "favouriteAdd": "Marquer comme favori",
-  "favouriteRemove": "Retirer des favoris"
+  "favouriteRemove": "Retirer des favoris",
+  "coverPick": "Image de couverture…",
+  "coverHint": "Une image du lieu : la maison, la cour, le point de nourrissage. Affichée sur la carte à la place d'un chat.",
+  "coverRemove": "Retirer l'image de couverture"
 }

@@ -3545,4 +3545,14 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Bain ó cheanáin';
+
+  @override
+  String get coverPick => 'Pictiúr clúdaigh…';
+
+  @override
+  String get coverHint =>
+      'Pictiúr den áit: an teach, an clós, an láthair bheathaithe. Ar an gcárta in ionad cait.';
+
+  @override
+  String get coverRemove => 'Bain an pictiúr clúdaigh';
 }

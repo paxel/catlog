@@ -1183,5 +1183,8 @@
   "titleLabel": "Titolo",
   "deletedLabel": "Eliminato",
   "favouriteAdd": "Segna come preferito",
-  "favouriteRemove": "Rimuovi dai preferiti"
+  "favouriteRemove": "Rimuovi dai preferiti",
+  "coverPick": "Immagine di copertina…",
+  "coverHint": "Un'immagine del luogo: la casa, il cortile, il punto di alimentazione. Mostrata sulla scheda al posto di un gatto.",
+  "coverRemove": "Rimuovi immagine di copertina"
 }

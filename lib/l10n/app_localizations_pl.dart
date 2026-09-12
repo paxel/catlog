@@ -3512,4 +3512,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Usuń z ulubionych';
+
+  @override
+  String get coverPick => 'Zdjęcie okładki…';
+
+  @override
+  String get coverHint =>
+      'Zdjęcie miejsca: dom, podwórko, miejsce karmienia. Pokazywane na karcie zamiast kota.';
+
+  @override
+  String get coverRemove => 'Usuń zdjęcie okładki';
 }

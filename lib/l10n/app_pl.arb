@@ -1183,5 +1183,8 @@
   "titleLabel": "Tytuł",
   "deletedLabel": "Usunięte",
   "favouriteAdd": "Oznacz jako ulubione",
-  "favouriteRemove": "Usuń z ulubionych"
+  "favouriteRemove": "Usuń z ulubionych",
+  "coverPick": "Zdjęcie okładki…",
+  "coverHint": "Zdjęcie miejsca: dom, podwórko, miejsce karmienia. Pokazywane na karcie zamiast kota.",
+  "coverRemove": "Usuń zdjęcie okładki"
 }

@@ -1183,5 +1183,8 @@
   "titleLabel": "Titel",
   "deletedLabel": "Verwijderd",
   "favouriteAdd": "Als favoriet markeren",
-  "favouriteRemove": "Uit favorieten verwijderen"
+  "favouriteRemove": "Uit favorieten verwijderen",
+  "coverPick": "Omslagfoto…",
+  "coverHint": "Een foto van de plek: het huis, de tuin, de voerplek. Op de kaart getoond in plaats van een kat.",
+  "coverRemove": "Omslagfoto verwijderen"
 }

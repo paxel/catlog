@@ -6073,6 +6073,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove from favourites'**
   String get favouriteRemove;
+
+  /// No description provided for @coverPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover picture…'**
+  String get coverPick;
+
+  /// No description provided for @coverHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.'**
+  String get coverHint;
+
+  /// No description provided for @coverRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove cover picture'**
+  String get coverRemove;
 }
 
 class _AppLocalizationsDelegate

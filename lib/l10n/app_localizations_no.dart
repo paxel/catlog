@@ -3488,4 +3488,14 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Fjern fra favoritter';
+
+  @override
+  String get coverPick => 'Forsidebilde…';
+
+  @override
+  String get coverHint =>
+      'Et bilde av stedet: huset, gården, fôringsplassen. Vises på kortet i stedet for en katt.';
+
+  @override
+  String get coverRemove => 'Fjern forsidebilde';
 }

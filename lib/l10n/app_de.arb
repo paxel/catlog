@@ -1189,5 +1189,8 @@
   "titleLabel": "Titel",
   "deletedLabel": "Gelöscht",
   "favouriteAdd": "Als Favorit markieren",
-  "favouriteRemove": "Aus den Favoriten entfernen"
+  "favouriteRemove": "Aus den Favoriten entfernen",
+  "coverPick": "Titelbild…",
+  "coverHint": "Ein Bild des Ortes: das Haus, der Hof, der Futterplatz. Auf der Karte statt einer Katze gezeigt.",
+  "coverRemove": "Titelbild entfernen"
 }

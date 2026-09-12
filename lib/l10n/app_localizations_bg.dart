@@ -3490,4 +3490,14 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Премахни от любимите';
+
+  @override
+  String get coverPick => 'Заглавна снимка…';
+
+  @override
+  String get coverHint =>
+      'Снимка на мястото: къщата, дворът, мястото за хранене. На картата вместо котка.';
+
+  @override
+  String get coverRemove => 'Премахни заглавната снимка';
 }

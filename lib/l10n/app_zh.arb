@@ -1183,5 +1183,8 @@
   "titleLabel": "头衔",
   "deletedLabel": "已删除",
   "favouriteAdd": "标为收藏",
-  "favouriteRemove": "取消收藏"
+  "favouriteRemove": "取消收藏",
+  "coverPick": "封面图片…",
+  "coverHint": "地点的图片：房子、院子、喂食点。在卡片上代替猫显示。",
+  "coverRemove": "移除封面图片"
 }

@@ -3525,4 +3525,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'إزالة من المفضّلة';
+
+  @override
+  String get coverPick => 'صورة الغلاف…';
+
+  @override
+  String get coverHint =>
+      'صورة للمكان: البيت، الفناء، موضع الإطعام. تُعرض على البطاقة بدل قطة.';
+
+  @override
+  String get coverRemove => 'إزالة صورة الغلاف';
 }

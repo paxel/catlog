@@ -1183,5 +1183,8 @@
   "titleLabel": "Tittel",
   "deletedLabel": "Slettet",
   "favouriteAdd": "Merk som favoritt",
-  "favouriteRemove": "Fjern fra favoritter"
+  "favouriteRemove": "Fjern fra favoritter",
+  "coverPick": "Forsidebilde…",
+  "coverHint": "Et bilde av stedet: huset, gården, fôringsplassen. Vises på kortet i stedet for en katt.",
+  "coverRemove": "Fjern forsidebilde"
 }

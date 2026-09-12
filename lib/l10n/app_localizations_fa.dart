@@ -3429,4 +3429,14 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'حذف از علاقه‌مندی‌ها';
+
+  @override
+  String get coverPick => 'تصویر جلد…';
+
+  @override
+  String get coverHint =>
+      'تصویری از مکان: خانه، حیاط، محل غذا دادن. روی کارت به جای گربه نمایش داده می‌شود.';
+
+  @override
+  String get coverRemove => 'حذف تصویر جلد';
 }

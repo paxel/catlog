@@ -3511,4 +3511,14 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Pašalinti iš mėgstamų';
+
+  @override
+  String get coverPick => 'Viršelio nuotrauka…';
+
+  @override
+  String get coverHint =>
+      'Vietos nuotrauka: namas, kiemas, šėrimo vieta. Rodoma kortelėje vietoj katės.';
+
+  @override
+  String get coverRemove => 'Pašalinti viršelio nuotrauką';
 }

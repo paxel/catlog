@@ -1183,5 +1183,8 @@
   "titleLabel": "Titlu",
   "deletedLabel": "Șters",
   "favouriteAdd": "Marchează ca favorit",
-  "favouriteRemove": "Elimină din favorite"
+  "favouriteRemove": "Elimină din favorite",
+  "coverPick": "Imagine de copertă…",
+  "coverHint": "O imagine a locului: casa, curtea, locul de hrănire. Pe card în locul unei pisici.",
+  "coverRemove": "Elimină imaginea de copertă"
 }

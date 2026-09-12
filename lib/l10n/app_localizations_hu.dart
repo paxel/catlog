@@ -3491,4 +3491,14 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Eltávolítás a kedvencekből';
+
+  @override
+  String get coverPick => 'Borítókép…';
+
+  @override
+  String get coverHint =>
+      'Kép a helyről: a ház, az udvar, az etetőhely. A kártyán macska helyett.';
+
+  @override
+  String get coverRemove => 'Borítókép eltávolítása';
 }

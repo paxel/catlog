@@ -718,6 +718,15 @@ class ModeLocalizations implements AppLocalizations {
   String get correctThisValue => base.correctThisValue;
 
   @override
+  String get coverHint => base.coverHint;
+
+  @override
+  String get coverPick => base.coverPick;
+
+  @override
+  String get coverRemove => base.coverRemove;
+
+  @override
   String get crashBody => base.crashBody;
 
   @override

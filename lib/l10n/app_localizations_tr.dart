@@ -3489,4 +3489,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Favorilerden kaldır';
+
+  @override
+  String get coverPick => 'Kapak resmi…';
+
+  @override
+  String get coverHint =>
+      'Yerin bir resmi: ev, avlu, besleme noktası. Kartta kedi yerine gösterilir.';
+
+  @override
+  String get coverRemove => 'Kapak resmini kaldır';
 }

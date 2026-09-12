@@ -1183,5 +1183,8 @@
   "titleLabel": "Título",
   "deletedLabel": "Eliminado",
   "favouriteAdd": "Marcar como favorito",
-  "favouriteRemove": "Quitar de favoritos"
+  "favouriteRemove": "Quitar de favoritos",
+  "coverPick": "Imagen de portada…",
+  "coverHint": "Una imagen del lugar: la casa, el patio, el punto de alimentación. Se muestra en la tarjeta en vez de un gato.",
+  "coverRemove": "Quitar imagen de portada"
 }

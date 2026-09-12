@@ -1183,5 +1183,8 @@
   "titleLabel": "Titull",
   "deletedLabel": "Fshirë",
   "favouriteAdd": "Shëno si të preferuar",
-  "favouriteRemove": "Hiq nga të preferuarat"
+  "favouriteRemove": "Hiq nga të preferuarat",
+  "coverPick": "Foto kopertine…",
+  "coverHint": "Një foto e vendit: shtëpia, oborri, vendi i ushqimit. Në kartë në vend të një maceje.",
+  "coverRemove": "Hiq foton e kopertinës"
 }

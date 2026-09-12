@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../cover_picture.dart';
 import '../move_to_catalog.dart';
 import '../hidden.dart';
 import '../l10n.dart';
@@ -88,6 +89,13 @@ class StraysScreen extends StatelessWidget {
       helpScreenId: 'strays',
       spotlightScreenId: 'strays',
       actions: (context, refresh) => [
+        IconButton(
+          icon: const Icon(Icons.image_outlined),
+          tooltip: context.t.coverPick,
+          onPressed: () async {
+            if (await coverMenu(context, store, straysEntity)) refresh();
+          },
+        ),
         Spotlight(
           id: 'strays-scan',
           child: IconButton(

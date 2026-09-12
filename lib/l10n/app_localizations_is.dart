@@ -3495,4 +3495,14 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Fjarlægja úr uppáhaldi';
+
+  @override
+  String get coverPick => 'Forsíðumynd…';
+
+  @override
+  String get coverHint =>
+      'Mynd af staðnum: húsið, garðurinn, fóðurstaðurinn. Sýnd á spjaldinu í stað kattar.';
+
+  @override
+  String get coverRemove => 'Fjarlægja forsíðumynd';
 }

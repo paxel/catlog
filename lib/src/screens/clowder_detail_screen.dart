@@ -23,6 +23,7 @@ import '../widgets/status_chip.dart';
 import '../registry_lookup.dart';
 import '../spotlight.dart';
 import 'card_screen.dart';
+import '../cover_picture.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_card_screen.dart';
 import 'map_screen.dart';
@@ -425,6 +426,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       },
     );
     final gallery = <Widget>[
+      // The place's own picture leads; in edit mode a row to set it.
+      if (_editing || coverHash(store, id) != null)
+        CoverBanner(
+          store: store,
+          entityId: id,
+          onChanged: () => setState(() {}),
+        ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(children: [

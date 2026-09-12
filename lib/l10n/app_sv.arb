@@ -1183,5 +1183,8 @@
   "titleLabel": "Titel",
   "deletedLabel": "Raderad",
   "favouriteAdd": "Markera som favorit",
-  "favouriteRemove": "Ta bort från favoriter"
+  "favouriteRemove": "Ta bort från favoriter",
+  "coverPick": "Omslagsbild…",
+  "coverHint": "En bild av platsen: huset, gården, matplatsen. Visas på kortet i stället för en katt.",
+  "coverRemove": "Ta bort omslagsbild"
 }

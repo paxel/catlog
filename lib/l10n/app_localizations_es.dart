@@ -3500,4 +3500,14 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Quitar de favoritos';
+
+  @override
+  String get coverPick => 'Imagen de portada…';
+
+  @override
+  String get coverHint =>
+      'Una imagen del lugar: la casa, el patio, el punto de alimentación. Se muestra en la tarjeta en vez de un gato.';
+
+  @override
+  String get coverRemove => 'Quitar imagen de portada';
 }

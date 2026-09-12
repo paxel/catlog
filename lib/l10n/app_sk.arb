@@ -1183,5 +1183,8 @@
   "titleLabel": "Titul",
   "deletedLabel": "Vymazané",
   "favouriteAdd": "Označiť ako obľúbené",
-  "favouriteRemove": "Odstrániť z obľúbených"
+  "favouriteRemove": "Odstrániť z obľúbených",
+  "coverPick": "Titulný obrázok…",
+  "coverHint": "Obrázok miesta: dom, dvor, kŕmne miesto. Na karte namiesto mačky.",
+  "coverRemove": "Odstrániť titulný obrázok"
 }

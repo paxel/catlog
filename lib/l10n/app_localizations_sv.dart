@@ -3488,4 +3488,14 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get favouriteRemove => 'Ta bort från favoriter';
+
+  @override
+  String get coverPick => 'Omslagsbild…';
+
+  @override
+  String get coverHint =>
+      'En bild av platsen: huset, gården, matplatsen. Visas på kortet i stället för en katt.';
+
+  @override
+  String get coverRemove => 'Ta bort omslagsbild';
 }

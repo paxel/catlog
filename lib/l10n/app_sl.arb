@@ -1183,5 +1183,8 @@
   "titleLabel": "Naziv",
   "deletedLabel": "Izbrisano",
   "favouriteAdd": "Označi kot priljubljeno",
-  "favouriteRemove": "Odstrani iz priljubljenih"
+  "favouriteRemove": "Odstrani iz priljubljenih",
+  "coverPick": "Naslovna slika…",
+  "coverHint": "Slika kraja: hiša, dvorišče, krmišče. Na kartici namesto mačke.",
+  "coverRemove": "Odstrani naslovno sliko"
 }
