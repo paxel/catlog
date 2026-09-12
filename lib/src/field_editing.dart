@@ -49,12 +49,17 @@ Future<FieldEdit?> editFieldValue(
 
 /// A stored value as the editor shows it: a Unit Value in the device's
 /// entry unit, everything else as stored.
-String _entryText(FieldDef def, String? current) {
-  if (def.type != FieldType.unitValue || current == null) return current ?? '';
+String _entryText(FieldDef def, String? current, String locale) {
+  if (current == null) return '';
+  if (def.type == FieldType.number) {
+    final n = double.tryParse(current.replaceAll(',', '.'));
+    return n == null ? current : formatNumber(locale, n, 6);
+  }
+  if (def.type != FieldType.unitValue) return current;
   final base = double.tryParse(current);
   if (base == null) return current;
-  return formatDecimal(
-      fromBase(def.unitDimension, unitSystem.value, base), 2);
+  return formatNumber(
+      locale, fromBase(def.unitDimension, unitSystem.value, base), 2);
 }
 
 /// The state behind a [FieldValueInput]: what the user picked or typed,
@@ -66,8 +71,8 @@ class FieldValueController extends ChangeNotifier {
   final TextEditingController text;
   String? _choice;
 
-  FieldValueController(this.def, {String? current})
-    : text = TextEditingController(text: _entryText(def, current)),
+  FieldValueController(this.def, {String? current, String locale = 'en'})
+    : text = TextEditingController(text: _entryText(def, current, locale)),
       _choice = current {
     // For choice fields the text controller holds only off-list values;
     // a current value that IS an option belongs to the radios alone.
@@ -95,9 +100,15 @@ class FieldValueController extends ChangeNotifier {
       case FieldType.date:
       case FieldType.cat:
         return _choice;
+      case FieldType.number:
+        // Typed with the device's decimal mark, stored with a point, so
+        // the graph and every partner read the same number.
+        final v = text.text.trim();
+        if (v.isEmpty) return null;
+        final n = double.tryParse(v.replaceAll(',', '.'));
+        return n == null ? v : formatDecimal(n, 6);
       case FieldType.text:
       case FieldType.location:
-      case FieldType.number:
       case FieldType.id:
       case FieldType.tags:
         final v = text.text.trim();
@@ -341,6 +352,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   late final FieldValueController _value = FieldValueController(
     widget.def,
     current: widget.current,
+    locale: Localizations.localeOf(context).toString(),
   );
   late DateTime _asOf = widget.asOf?.toLocal() ?? DateTime.now();
   late bool _private =

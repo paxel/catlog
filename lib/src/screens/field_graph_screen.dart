@@ -14,6 +14,7 @@ import '../layout.dart';
 import '../share.dart';
 import '../units.dart';
 import '../widgets/date_entry.dart';
+import '../widgets/foldable_chips.dart';
 
 /// One value of a field's history as the graph draws it: the moment and
 /// the number in the device's unit.
@@ -283,7 +284,8 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
       : '';
 
   String _number(double v) {
-    final text = formatDecimal(v, 2);
+    final text =
+        formatNumber(Localizations.localeOf(context).toString(), v, 2);
     final unit = _unit();
     return unit.isEmpty ? text : '$text $unit';
   }
@@ -363,9 +365,13 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
               ),
             ),
           const SizedBox(height: 12),
-          Wrap(
-            spacing: 8,
-            children: [
+          // Range and lines fold away behind one header that names the
+          // choice; the chips were a wall above the curve.
+          FoldableChips(
+            store: store,
+            id: 'graph',
+            title: t.graphLabel,
+            options: [
               for (final (range, label) in [
                 (GraphRange.week, t.rangeWeek),
                 (GraphRange.month, t.rangeMonth),
@@ -373,22 +379,21 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
                 (GraphRange.all, t.rangeAll),
                 (GraphRange.custom, t.rangeCustom),
               ])
-                ChoiceChip(
-                  label: Text(label),
-                  selected: _range == range,
-                  onSelected: (_) => _pick(range),
-                ),
-              FilterChip(
-                label: Text(t.graphSmoothed),
-                selected: _smooth,
-                onSelected: (on) => _toggle(graphSmoothKey, on),
-              ),
-              FilterChip(
-                label: Text(t.graphTrend),
-                selected: _trend,
-                onSelected: (on) => _toggle(graphTrendKey, on),
-              ),
+                (key: 'range:${range.name}', label: label),
+              (key: 'smooth', label: t.graphSmoothed),
+              (key: 'trend', label: t.graphTrend),
             ],
+            selected: {
+              'range:${_range.name}',
+              if (_smooth) 'smooth',
+              if (_trend) 'trend',
+            },
+            onToggle: (key) {
+              if (key == 'smooth') return _toggle(graphSmoothKey, !_smooth);
+              if (key == 'trend') return _toggle(graphTrendKey, !_trend);
+              final range = GraphRange.values.asNameMap()[key.substring(6)];
+              if (range != null) _pick(range);
+            },
           ),
           if (_trend)
             if (trendLine(

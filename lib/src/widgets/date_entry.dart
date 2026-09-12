@@ -40,6 +40,27 @@ class _DateEntryFieldState extends State<DateEntryField> {
   late final TextEditingController _text = TextEditingController(
     text: widget.initial?.iso ?? '',
   );
+  bool _localized = false;
+
+  /// A full day reads in the device's own short format; a partial date
+  /// (a year, a month) keeps the ISO spelling that says how partial it is.
+  String _spell(DateTime day, String locale) => widget.allowPartial
+      ? PartialDate(day.year, day.month, day.day).iso
+      : DateFormat.yMd(locale).format(day);
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_localized || widget.allowPartial) return;
+    _localized = true;
+    final d = widget.initial;
+    if (d != null && d.day != null) {
+      _text.text = _spell(
+        d.earliest,
+        Localizations.localeOf(context).toString(),
+      );
+    }
+  }
 
   @override
   void dispose() {
@@ -108,7 +129,7 @@ class _DateEntryFieldState extends State<DateEntryField> {
       ),
     );
     if (picked == null || !mounted) return;
-    _text.text = PartialDate(picked.year, picked.month, picked.day).iso;
+    _text.text = _spell(picked, Localizations.localeOf(context).toString());
     _changed(_text.text);
   }
 

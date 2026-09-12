@@ -51,6 +51,11 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
     final date = PartialDate.parse(value);
     if (date != null) return formatPartialDate(t.localeName, date);
   }
+  // A number reads with the device's decimal mark.
+  if (def?.type == FieldType.number) {
+    final n = double.tryParse(value.replaceAll(',', '.'));
+    if (n != null) return formatNumber(t.localeName, n, 6);
+  }
   // A Unit Value is stored in the base unit and read in the device's.
   if (def?.type == FieldType.unitValue) {
     return formatUnitValue(
