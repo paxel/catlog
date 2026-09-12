@@ -50,7 +50,9 @@ Future<bool> pickCover(
   CatalogStore store,
   String entityId,
 ) async {
-  final bytes = await pickImageBytes(context);
+  // No crop step: its prompt asks for the animal, and a place is none;
+  // the card crops the picture to its tile anyway.
+  final bytes = await pickImageBytes(context, allowCrop: false);
   if (bytes == null) return false;
   return await setCover(store, entityId, bytes) != null;
 }
