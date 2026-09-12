@@ -574,16 +574,19 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               ),
             // Read mode leads with what one opens a clowder for — the cats;
             // edit mode leads with its purpose — the fields (#46).
+            // Read mode: the cats, then what is due for them, then the
+            // fields; edit mode leads with the fields.
             if (_editing) ...[
               fields,
               const Divider(),
               ...gallery,
+              ..._plannedSection(),
             ] else ...[
               ...gallery,
+              ..._plannedSection(),
               const Divider(),
               fields,
             ],
-            ..._plannedSection(),
             const SizedBox(height: 80),
           ],
         ),

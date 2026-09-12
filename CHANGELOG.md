@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 - The graph's range and line choices fold behind one header.
+- A home's page shows its chores and appointments right after the cats, before the fields.
 
 ### Fixed
 - Dates in the day picker and numbers everywhere follow the device's format: 12.9.2026 and 4,25 in German; a number typed with a comma still graphs.
