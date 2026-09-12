@@ -788,12 +788,12 @@ class _FaceRow extends StatelessWidget {
           padding: const EdgeInsets.only(right: 2),
           child: CatAvatar(store: store, catId: cat.id, size: 26),
         ),
-      Padding(
+      // The number only says what the faces cannot: the rest past five.
+      if (cats.length > shown)
+        Padding(
           padding: const EdgeInsets.only(left: 2),
           child: Text(
-            cats.length > shown
-                ? '+${cats.length - shown}'
-                : '${cats.length}',
+            '+${cats.length - shown}',
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
               color: onLight ? Colors.white : null,
               fontWeight: FontWeight.bold,
@@ -803,6 +803,8 @@ class _FaceRow extends StatelessWidget {
             ),
           ),
         ),
+      // Room at the end for the favourite star.
+      const SizedBox(width: 30),
     ]);
   }
 }
