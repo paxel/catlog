@@ -431,7 +431,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         CoverBanner(
           store: store,
           entityId: id,
-          onChanged: () => setState(() {}),
+          // The picker may outlive the page (Android can rebuild the
+          // activity behind the camera): only a mounted page redraws.
+          onChanged: () {
+            if (mounted) setState(() {});
+          },
         ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

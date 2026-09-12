@@ -112,7 +112,8 @@ class CoverBanner extends StatelessWidget {
   });
 
   Future<void> _menu(BuildContext context) async {
-    if (await coverMenu(context, store, entityId)) onChanged();
+    final changed = await coverMenu(context, store, entityId);
+    if (changed && context.mounted) onChanged();
   }
 
   @override
