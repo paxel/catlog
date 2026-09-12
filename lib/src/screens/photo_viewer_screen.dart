@@ -57,7 +57,7 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
         title: Text('${_current + 1} / ${widget.hashes.length}'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.share),
+            icon: const Icon(Icons.ios_share),
             onPressed: () {
               final bytes = _bytesFor(widget.hashes[_current]);
               if (bytes == null) return;

@@ -11,6 +11,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A home's page shows its chores and appointments right after the cats, before the fields; a cat's page leads with its photos, then its chores, then the fields.
 
 ### Fixed
+- The same action wears the same icon on every page: one PDF icon, one share icon, one copy icon.
 - Rows that react to a hold on the history, chore history and timeline pages wear the cat ear.
 - Dates in the day picker and numbers everywhere follow the device's format: 12.9.2026 and 4,25 in German; a number typed with a comma still graphs.
 - Picking a cover picture no longer crashes when the page was rebuilt behind the camera, and no longer asks to draw a rectangle around the animal.

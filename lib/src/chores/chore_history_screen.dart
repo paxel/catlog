@@ -242,12 +242,12 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.copy_outlined),
+            icon: const Icon(Icons.copy),
             tooltip: t.copyText,
             onPressed: _copy,
           ),
           IconButton(
-            icon: const Icon(Icons.picture_as_pdf_outlined),
+            icon: const Icon(Icons.picture_as_pdf),
             tooltip: t.shareAsPdf,
             onPressed: _sharePdf,
           ),
