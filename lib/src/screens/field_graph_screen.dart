@@ -53,7 +53,10 @@ List<GraphPoint> smoothCurve(
       weight += w;
       sum += w * p.value;
     }
-    out.add((at: DateTime.fromMillisecondsSinceEpoch(t.round()), value: sum / weight));
+    out.add((
+      at: DateTime.fromMillisecondsSinceEpoch(t.round()),
+      value: sum / weight,
+    ));
   }
   return out;
 }
@@ -69,7 +72,9 @@ List<GraphPoint> smoothCurve(
   if (points.length < 2) return null;
   const day = 86400000.0;
   final origin = points.first.at.millisecondsSinceEpoch.toDouble();
-  final xs = [for (final p in points) (p.at.millisecondsSinceEpoch - origin) / day];
+  final xs = [
+    for (final p in points) (p.at.millisecondsSinceEpoch - origin) / day,
+  ];
   final ys = [for (final p in points) p.value];
   final n = xs.length;
   final mx = xs.reduce((a, b) => a + b) / n;
@@ -85,6 +90,7 @@ List<GraphPoint> smoothCurve(
       my + slope * ((d.millisecondsSinceEpoch - origin) / day - mx);
   return (atFrom: at(from), atTo: at(to), perMonth: slope * 30.44);
 }
+
 const graphRangeFromKey = 'graphRange:from';
 const graphRangeToKey = 'graphRange:to';
 
@@ -391,15 +397,15 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
                   to ?? DateTime.now(),
                 )
                 case final fit?)
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Text(
-                t.trendPerMonth(
-                  '${fit.perMonth >= 0 ? '+' : ''}${_number(fit.perMonth)}',
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  t.trendPerMonth(
+                    '${fit.perMonth >= 0 ? '+' : ''}${_number(fit.perMonth)}',
+                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                style: Theme.of(context).textTheme.bodyMedium,
               ),
-            ),
           const SizedBox(height: 12),
           RepaintBoundary(
             key: _pictureKey,
@@ -617,7 +623,8 @@ class GraphPainter extends CustomPainter {
           final b = curve[i].at.millisecondsSinceEpoch;
           if (t <= b) {
             final f = b == a ? 0.0 : (t - a) / (b - a);
-            return curve[i - 1].value + (curve[i].value - curve[i - 1].value) * f;
+            return curve[i - 1].value +
+                (curve[i].value - curve[i - 1].value) * f;
           }
         }
         return curve.last.value;
@@ -625,28 +632,34 @@ class GraphPainter extends CustomPainter {
 
       for (final p in points) {
         final px = x(p.at);
-        canvas.drawLine(Offset(px, y(p.value)), Offset(px, y(curveAt(p.at))), stem);
+        canvas.drawLine(
+          Offset(px, y(p.value)),
+          Offset(px, y(curveAt(p.at))),
+          stem,
+        );
       }
       canvas.drawPath(pathOf(curve), line..strokeWidth = 2.5);
       line.strokeWidth = 2;
     } else {
       canvas.drawPath(pathOf(points), line);
     }
-    if (trend) if (trendLine(points, start, to) case final fit?) {
-      final dash = Paint()
-        ..color = textColor.withValues(alpha: 0.6)
-        ..strokeWidth = 1.5
-        ..style = PaintingStyle.stroke;
-      final a = Offset(x(start), y(fit.atFrom.clamp(lo, hi)));
-      final b = Offset(x(to), y(fit.atTo.clamp(lo, hi)));
-      final total = (b - a).distance;
-      const on = 8.0, off = 5.0;
-      var d = 0.0;
-      while (d < total) {
-        final s0 = a + (b - a) * (d / total);
-        final s1 = a + (b - a) * (math.min(d + on, total) / total);
-        canvas.drawLine(s0, s1, dash);
-        d += on + off;
+    if (trend) {
+      if (trendLine(points, start, to) case final fit?) {
+        final dash = Paint()
+          ..color = textColor.withValues(alpha: 0.6)
+          ..strokeWidth = 1.5
+          ..style = PaintingStyle.stroke;
+        final a = Offset(x(start), y(fit.atFrom.clamp(lo, hi)));
+        final b = Offset(x(to), y(fit.atTo.clamp(lo, hi)));
+        final total = (b - a).distance;
+        const on = 8.0, off = 5.0;
+        var d = 0.0;
+        while (d < total) {
+          final s0 = a + (b - a) * (d / total);
+          final s1 = a + (b - a) * (math.min(d + on, total) / total);
+          canvas.drawLine(s0, s1, dash);
+          d += on + off;
+        }
       }
     }
 
