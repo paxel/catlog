@@ -3428,7 +3428,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get vetReportLegend => 'Legend';
 
   @override
-  String get vetReportCurves => 'Curve';
+  String get vetReportCurves => 'Graph';
 
   @override
   String get posterMenu => 'Missing poster…';
@@ -3531,7 +3531,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'A report for the vet: chosen entries as a timeline, a patient summary, and a curve for every number.';
+      'A report for the vet: the entries you pick as a timeline, a patient summary, and a graph for every number field, weight for one.';
 
   @override
   String get helpHistory =>

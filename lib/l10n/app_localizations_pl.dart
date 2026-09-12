@@ -3552,7 +3552,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Raport dla weterynarza: wybrane wpisy jako oś czasu, podsumowanie pacjenta i wykres dla każdej liczby.';
+      'Raport dla weterynarza: wybrane wpisy jako oś czasu, podsumowanie pacjenta i wykres dla każdego pola liczbowego, na przykład wagi.';
 
   @override
   String get helpHistory =>

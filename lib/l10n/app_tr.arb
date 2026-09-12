@@ -1154,7 +1154,7 @@
   "vetReportSummary": "Hasta özeti",
   "vetReportOwner": "Sahibi",
   "vetReportLegend": "Açıklama",
-  "vetReportCurves": "Eğri",
+  "vetReportCurves": "Grafik",
   "posterMenu": "Kayıp afişi…",
   "posterHeadline": "KAYIP",
   "posterStanding": "Lütfen bodrumları, kulübeleri ve garajları kontrol edin. Kovalamayın, sadece arayın.",
@@ -1194,7 +1194,7 @@
   "spotBackups": "Kataloglarının güvende tutulduğu yer: telefonun yedeklediği, ve seçtiğin bir klasördeki kopya.",
   "spotCardPoster": "Bu kedinin kaydından bir kayıp afişi: fotoğraf, ad, büyük harflerle telefon ve başkalarının taradığı bir kod.",
   "spotCardPosterNeutral": "Bu evcil hayvanın kaydından bir kayıp afişi: fotoğraf, ad, büyük harflerle telefon ve başkalarının taradığı bir kod.",
-  "spotTimelineReport": "Veteriner için rapor: seçilen kayıtlar zaman çizelgesi olarak, bir hasta özeti ve her sayı için bir eğri.",
+  "spotTimelineReport": "Veteriner için rapor: seçtiğiniz kayıtlar zaman çizelgesi olarak, bir hasta özeti ve her sayı alanı için, örneğin kilo için, bir grafik.",
   "helpHistory": "Bir alanın zaman içindeki değerleri, en yenisi önce. Düzeltmek için bir değere dokunun: yenisi yerini alır, eskisi gizlenir. Kaldırmak veya gizli bir değeri geri getirmek için basılı tutun; göz gizli değerleri gösterir. Listeyi metin olarak kopyalayın veya PDF olarak paylaşın.",
   "helpSettings": "Uygulamanın kendi seçenekleri: dil, birimler, kutlamalar ve tezahüratlar, sayfaların arkasındaki kürk, bildirimler ve kataloglarının nerede yedeklendiği. Turlar buradan yeniden oynatılabilir.",
   "helpLooks": "Kedinin görünüşü, çipler halinde: boy, renkler, desen, tüy, kuyruk, kulaklar, işaretler ve kalıcı özellikler. Gördüğünüzü işaretleyin; kayıp bir kediyle iki özellikte uyuşan bir sokak kedisi aday olur."

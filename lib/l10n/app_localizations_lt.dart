@@ -3448,7 +3448,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get vetReportLegend => 'Legenda';
 
   @override
-  String get vetReportCurves => 'Kreivė';
+  String get vetReportCurves => 'Grafikas';
 
   @override
   String get posterMenu => 'Dingusio plakatas…';
@@ -3551,7 +3551,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Ataskaita veterinarui: pasirinkti įrašai kaip laiko juosta, paciento santrauka ir kreivė kiekvienam skaičiui.';
+      'Ataskaita veterinarui: pasirinkti įrašai kaip laiko juosta, paciento santrauka ir grafikas kiekvienam skaičių laukui, pavyzdžiui svoriui.';
 
   @override
   String get helpHistory =>

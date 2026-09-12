@@ -1154,7 +1154,7 @@
   "vetReportSummary": "Resumen del paciente",
   "vetReportOwner": "Propietario",
   "vetReportLegend": "Leyenda",
-  "vetReportCurves": "Curva",
+  "vetReportCurves": "Gráfico",
   "posterMenu": "Cartel de desaparecido…",
   "posterHeadline": "DESAPARECIDO",
   "posterStanding": "Por favor, revisa sótanos, cobertizos y garajes. No lo persigas, solo llama.",
@@ -1194,7 +1194,7 @@
   "spotBackups": "Dónde están a salvo tus catálogos: lo que respalda el teléfono, y una copia en la carpeta que elijas.",
   "spotCardPoster": "Un cartel de desaparecido con la ficha de este gato: foto, nombre, teléfono en letras grandes y un código que otros escanean.",
   "spotCardPosterNeutral": "Un cartel de desaparecido con la ficha de esta mascota: foto, nombre, teléfono en letras grandes y un código que otros escanean.",
-  "spotTimelineReport": "Un informe para el veterinario: entradas elegidas como cronología, un resumen del paciente y una curva por cada número.",
+  "spotTimelineReport": "Un informe para el veterinario: las entradas que elijas como cronología, un resumen del paciente y un gráfico por cada campo numérico, por ejemplo el peso.",
   "helpHistory": "Los valores de un campo a lo largo del tiempo, los más recientes primero. Toca un valor para corregirlo: el nuevo ocupa su lugar y el antiguo se oculta. Mantén pulsado un valor para quitarlo o recuperar uno oculto; el ojo muestra los valores ocultos. Copia la lista como texto o compártela como PDF.",
   "helpSettings": "Las opciones de la app: idioma, unidades, celebraciones y vítores, el pelaje detrás de las páginas, notificaciones y dónde se respaldan tus catálogos. Los recorridos se pueden repetir desde aquí.",
   "helpLooks": "Cómo es el gato, en chips: tamaño, colores, patrón, pelaje, cola, orejas, marcas y rasgos permanentes. Marca lo que ves; un callejero que coincide con un gato desaparecido en dos rasgos pasa a ser candidato."

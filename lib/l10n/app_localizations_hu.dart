@@ -3428,7 +3428,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get vetReportLegend => 'Jelmagyarázat';
 
   @override
-  String get vetReportCurves => 'Görbe';
+  String get vetReportCurves => 'Grafikon';
 
   @override
   String get posterMenu => 'Eltűnt-plakát…';
@@ -3531,7 +3531,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Jelentés az állatorvosnak: a kiválasztott bejegyzések idővonalként, betegösszefoglaló és görbe minden számhoz.';
+      'Jelentés az állatorvosnak: a kiválasztott bejegyzések idővonalként, betegösszefoglaló és grafikon minden számmezőhöz, például a súlyhoz.';
 
   @override
   String get helpHistory =>

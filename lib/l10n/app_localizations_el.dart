@@ -3439,7 +3439,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get vetReportLegend => 'Υπόμνημα';
 
   @override
-  String get vetReportCurves => 'Καμπύλη';
+  String get vetReportCurves => 'Γράφημα';
 
   @override
   String get posterMenu => 'Αφίσα εξαφάνισης…';
@@ -3543,7 +3543,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Αναφορά για τον κτηνίατρο: επιλεγμένες καταχωρίσεις ως χρονολόγιο, σύνοψη ασθενούς και καμπύλη για κάθε αριθμό.';
+      'Αναφορά για τον κτηνίατρο: οι επιλεγμένες καταχωρίσεις ως χρονολόγιο, σύνοψη ασθενούς και γράφημα για κάθε αριθμητικό πεδίο, όπως το βάρος.';
 
   @override
   String get helpHistory =>

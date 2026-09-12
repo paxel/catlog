@@ -3442,7 +3442,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get vetReportLegend => 'Leġġenda';
 
   @override
-  String get vetReportCurves => 'Kurva';
+  String get vetReportCurves => 'Graff';
 
   @override
   String get posterMenu => 'Poster mitluf…';
@@ -3546,7 +3546,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Rapport għall-veterinarju: entrati magħżula bħala linja taż-żmien, sommarju tal-pazjent u kurva għal kull numru.';
+      'Rapport għall-veterinarju: l-entrati li tagħżel bħala linja taż-żmien, sommarju tal-pazjent u graff għal kull qasam numeriku, il-piż pereżempju.';
 
   @override
   String get helpHistory =>

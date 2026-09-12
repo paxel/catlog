@@ -1942,7 +1942,7 @@
   "vetReportSummary": "Patient summary",
   "vetReportOwner": "Owner",
   "vetReportLegend": "Legend",
-  "vetReportCurves": "Curve",
+  "vetReportCurves": "Graph",
   "posterMenu": "Missing poster…",
   "posterHeadline": "MISSING",
   "posterStanding": "Please check cellars, sheds and garages. Do not chase, just call.",
@@ -1982,7 +1982,7 @@
   "spotBackups": "Where your catalogs are kept safe: what the phone backs up, and a copy in a folder of your choice.",
   "spotCardPoster": "A missing poster from this cat's record: photo, name, phone in big letters, and a code other keepers scan.",
   "spotCardPosterNeutral": "A missing poster from this pet's record: photo, name, phone in big letters, and a code other keepers scan.",
-  "spotTimelineReport": "A report for the vet: chosen entries as a timeline, a patient summary, and a curve for every number.",
+  "spotTimelineReport": "A report for the vet: the entries you pick as a timeline, a patient summary, and a graph for every number field, weight for one.",
   "helpHistory": "One field's values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.",
   "helpSettings": "The app's own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.",
   "helpLooks": "What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate."

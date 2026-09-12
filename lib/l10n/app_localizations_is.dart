@@ -3432,7 +3432,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get vetReportLegend => 'Skýringar';
 
   @override
-  String get vetReportCurves => 'Ferill';
+  String get vetReportCurves => 'Línurit';
 
   @override
   String get posterMenu => 'Týnd-veggspjald…';
@@ -3535,7 +3535,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Skýrsla fyrir dýralækninn: valdar færslur sem tímalína, yfirlit sjúklings og ferill fyrir hverja tölu.';
+      'Skýrsla fyrir dýralækninn: valdar færslur sem tímalína, yfirlit sjúklings og línurit fyrir hvern tölureit, til dæmis þyngd.';
 
   @override
   String get helpHistory =>

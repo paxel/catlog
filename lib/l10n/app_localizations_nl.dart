@@ -3433,7 +3433,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get vetReportLegend => 'Legenda';
 
   @override
-  String get vetReportCurves => 'Curve';
+  String get vetReportCurves => 'Grafiek';
 
   @override
   String get posterMenu => 'Vermist-poster…';
@@ -3536,7 +3536,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Een rapport voor de dierenarts: gekozen items als tijdlijn, een patiëntoverzicht en een curve voor elk getal.';
+      'Een rapport voor de dierenarts: de gekozen items als tijdlijn, een patiëntoverzicht en een grafiek voor elk getalveld, bijvoorbeeld het gewicht.';
 
   @override
   String get helpHistory =>

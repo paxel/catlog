@@ -5957,7 +5957,7 @@ abstract class AppLocalizations {
   /// No description provided for @vetReportCurves.
   ///
   /// In en, this message translates to:
-  /// **'Curve'**
+  /// **'Graph'**
   String get vetReportCurves;
 
   /// No description provided for @posterMenu.
@@ -6137,7 +6137,7 @@ abstract class AppLocalizations {
   /// No description provided for @spotTimelineReport.
   ///
   /// In en, this message translates to:
-  /// **'A report for the vet: chosen entries as a timeline, a patient summary, and a curve for every number.'**
+  /// **'A report for the vet: the entries you pick as a timeline, a patient summary, and a graph for every number field, weight for one.'**
   String get spotTimelineReport;
 
   /// No description provided for @helpHistory.

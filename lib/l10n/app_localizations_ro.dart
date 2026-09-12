@@ -3443,7 +3443,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get vetReportLegend => 'Legendă';
 
   @override
-  String get vetReportCurves => 'Curbă';
+  String get vetReportCurves => 'Grafic';
 
   @override
   String get posterMenu => 'Afiș dispărut…';
@@ -3547,7 +3547,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și o curbă pentru fiecare număr.';
+      'Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și un grafic pentru fiecare câmp numeric, greutatea de exemplu.';
 
   @override
   String get helpHistory =>

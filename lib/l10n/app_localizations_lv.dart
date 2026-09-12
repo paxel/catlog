@@ -3443,7 +3443,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get vetReportLegend => 'Apzīmējumi';
 
   @override
-  String get vetReportCurves => 'Līkne';
+  String get vetReportCurves => 'Grafiks';
 
   @override
   String get posterMenu => 'Pazudis plakāts…';
@@ -3546,7 +3546,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Ziņojums veterinārārstam: izvēlētie ieraksti kā laika līnija, pacienta kopsavilkums un līkne katram skaitlim.';
+      'Ziņojums veterinārārstam: izvēlētie ieraksti kā laika līnija, pacienta kopsavilkums un grafiks katram skaitļu laukam, piemēram svaram.';
 
   @override
   String get helpHistory =>

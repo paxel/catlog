@@ -3424,7 +3424,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get vetReportLegend => 'מקרא';
 
   @override
-  String get vetReportCurves => 'עקומה';
+  String get vetReportCurves => 'גרף';
 
   @override
   String get posterMenu => 'כרזת נעדר…';
@@ -3527,7 +3527,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'דוח לווטרינר: רשומות נבחרות כציר זמן, סיכום מטופל ועקומה לכל מספר.';
+      'דוח לווטרינר: הרשומות שבחרתם כציר זמן, סיכום מטופל, וגרף לכל שדה מספרי, למשל משקל.';
 
   @override
   String get helpHistory =>

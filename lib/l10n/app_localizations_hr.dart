@@ -3440,7 +3440,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get vetReportLegend => 'Legenda';
 
   @override
-  String get vetReportCurves => 'Krivulja';
+  String get vetReportCurves => 'Grafikon';
 
   @override
   String get posterMenu => 'Plakat Nestao…';
@@ -3543,7 +3543,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Izvještaj za veterinara: odabrani unosi kao vremenska crta, pregled pacijenta i krivulja za svaki broj.';
+      'Izvještaj za veterinara: odabrani unosi kao vremenska crta, pregled pacijenta i grafikon za svako brojčano polje, na primjer težinu.';
 
   @override
   String get helpHistory =>

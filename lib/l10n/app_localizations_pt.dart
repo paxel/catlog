@@ -3429,7 +3429,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get vetReportLegend => 'Legenda';
 
   @override
-  String get vetReportCurves => 'Curva';
+  String get vetReportCurves => 'Gráfico';
 
   @override
   String get posterMenu => 'Cartaz de desaparecido…';
@@ -3532,7 +3532,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Um relatório para o veterinário: entradas escolhidas como cronologia, um resumo do paciente e uma curva para cada número.';
+      'Um relatório para o veterinário: as entradas escolhidas como cronologia, um resumo do paciente e um gráfico para cada campo numérico, o peso por exemplo.';
 
   @override
   String get helpHistory =>

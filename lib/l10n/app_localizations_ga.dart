@@ -3482,7 +3482,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get vetReportLegend => 'Eochair';
 
   @override
-  String get vetReportCurves => 'Cuar';
+  String get vetReportCurves => 'Graf';
 
   @override
   String get posterMenu => 'Póstaer ar iarraidh…';
@@ -3586,7 +3586,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Tuairisc don tréidlia: iontrálacha roghnaithe mar amlíne, achoimre othair, agus cuar do gach uimhir.';
+      'Tuairisc don tréidlia: na hiontrálacha a roghnaíonn tú mar amlíne, achoimre othair, agus graf do gach réimse uimhreach, an meáchan mar shampla.';
 
   @override
   String get helpHistory =>

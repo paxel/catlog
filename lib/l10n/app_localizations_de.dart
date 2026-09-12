@@ -1490,7 +1490,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get modePets => 'Tiere';
 
   @override
-  String get graphLabel => 'Verlauf';
+  String get graphLabel => 'Diagramm';
 
   @override
   String get fieldHistoryTooltip => 'Verlauf';
@@ -3438,7 +3438,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get vetReportLegend => 'Legende';
 
   @override
-  String get vetReportCurves => 'Verlauf';
+  String get vetReportCurves => 'Diagramm';
 
   @override
   String get posterMenu => 'Vermisst-Plakat…';
@@ -3542,7 +3542,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Ein Bericht für den Tierarzt: gewählte Einträge als Zeitstrahl, eine Patientenübersicht und eine Kurve für jede Zahl.';
+      'Ein Bericht für den Tierarzt: die Einträge deiner Wahl als Zeitstrahl, eine Patientenübersicht und ein Diagramm für jedes Zahlenfeld, zum Beispiel das Gewicht.';
 
   @override
   String get helpHistory =>

@@ -1154,7 +1154,7 @@
   "vetReportSummary": "Sommarju tal-pazjent",
   "vetReportOwner": "Sid",
   "vetReportLegend": "Leġġenda",
-  "vetReportCurves": "Kurva",
+  "vetReportCurves": "Graff",
   "posterMenu": "Poster mitluf…",
   "posterHeadline": "MITLUF",
   "posterStanding": "Jekk jogħġbok iċċekkja kantini, xkafef u garaxxijiet. Tiġrix warajh, ċempel biss.",
@@ -1194,7 +1194,7 @@
   "spotBackups": "Fejn jinżammu fis-sod il-katalogi tiegħek: dak li t-telefon jagħmel backup tiegħu, u kopja f'folder li tagħżel int.",
   "spotCardPoster": "Poster mitluf mir-rekord ta' dan il-qattus: ritratt, isem, telefon b'ittri kbar u kodiċi li ħaddieħor jiskennja.",
   "spotCardPosterNeutral": "Poster mitluf mir-rekord ta' dan il-pet: ritratt, isem, telefon b'ittri kbar u kodiċi li ħaddieħor jiskennja.",
-  "spotTimelineReport": "Rapport għall-veterinarju: entrati magħżula bħala linja taż-żmien, sommarju tal-pazjent u kurva għal kull numru.",
+  "spotTimelineReport": "Rapport għall-veterinarju: l-entrati li tagħżel bħala linja taż-żmien, sommarju tal-pazjent u graff għal kull qasam numeriku, il-piż pereżempju.",
   "helpHistory": "Il-valuri ta' qasam wieħed maż-żmien, l-aktar riċenti l-ewwel. Mess valur biex tikkoreġih: il-ġdid jieħu postu, il-qadim jinħeba. Żomm valur biex tneħħih jew iġġib lura wieħed moħbi; l-għajn turi l-valuri moħbija. Ikkopja l-lista bħala test jew aqsamha bħala PDF.",
   "helpSettings": "L-għażliet tal-app: lingwa, unitajiet, ċelebrazzjonijiet u għajjat, il-pil wara l-paġni, notifiki, u fejn isir il-backup tal-katalogi tiegħek. It-tours jistgħu jerġgħu jintwerew minn hawn.",
   "helpLooks": "Kif jidher il-qattus, bħala chips: daqs, kuluri, disinn, pil, denb, widnejn, marki u fatturi permanenti. Immarka dak li tara; qattus tat-triq li jaqbel ma' qattus mitluf f'żewġ fatturi jsir kandidat."

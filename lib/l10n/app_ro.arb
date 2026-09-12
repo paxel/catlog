@@ -1154,7 +1154,7 @@
   "vetReportSummary": "Rezumatul pacientului",
   "vetReportOwner": "Proprietar",
   "vetReportLegend": "Legendă",
-  "vetReportCurves": "Curbă",
+  "vetReportCurves": "Grafic",
   "posterMenu": "Afiș dispărut…",
   "posterHeadline": "DISPĂRUT",
   "posterStanding": "Vă rugăm să verificați pivnițele, șoproanele și garajele. Nu alergați după el, doar sunați.",
@@ -1194,7 +1194,7 @@
   "spotBackups": "Unde sunt în siguranță cataloagele tale: ce salvează telefonul, și o copie într-un dosar la alegere.",
   "spotCardPoster": "Un afiș dispărut din fișa acestei pisici: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.",
   "spotCardPosterNeutral": "Un afiș dispărut din fișa acestui animal: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.",
-  "spotTimelineReport": "Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și o curbă pentru fiecare număr.",
+  "spotTimelineReport": "Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și un grafic pentru fiecare câmp numeric, greutatea de exemplu.",
   "helpHistory": "Valorile unui câmp în timp, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Ține apăsat o valoare pentru a o elimina sau a readuce una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau partajeaz-o ca PDF.",
   "helpSettings": "Alegerile aplicației: limbă, unități, sărbătoriri și urale, blana din spatele paginilor, notificări și unde sunt salvate cataloagele tale. Tururile pot fi reluate de aici.",
   "helpLooks": "Cum arată pisica, în chipuri: mărime, culori, model, blană, coadă, urechi, semne și trăsături durabile. Bifează ce vezi; un vagabond care se potrivește cu o pisică dispărută în două trăsături devine candidat."

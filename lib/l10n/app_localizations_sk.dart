@@ -3439,7 +3439,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get vetReportLegend => 'Legenda';
 
   @override
-  String get vetReportCurves => 'Krivka';
+  String get vetReportCurves => 'Graf';
 
   @override
   String get posterMenu => 'Plagát Nezvestný…';
@@ -3542,7 +3542,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Správa pre veterinára: vybrané záznamy ako časová os, prehľad pacienta a krivka pre každé číslo.';
+      'Správa pre veterinára: vybrané záznamy ako časová os, prehľad pacienta a graf pre každé číselné pole, napríklad hmotnosť.';
 
   @override
   String get helpHistory =>

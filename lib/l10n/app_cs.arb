@@ -1154,7 +1154,7 @@
   "vetReportSummary": "Přehled pacienta",
   "vetReportOwner": "Majitel",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Křivka",
+  "vetReportCurves": "Graf",
   "posterMenu": "Plakát Pohřešuje se…",
   "posterHeadline": "POHŘEŠUJE SE",
   "posterStanding": "Prosím zkontrolujte sklepy, kůlny a garáže. Nehoňte, jen zavolejte.",
@@ -1194,7 +1194,7 @@
   "spotBackups": "Kde jsou vaše katalogy v bezpečí: co zálohuje telefon, a kopie ve složce podle vašeho výběru.",
   "spotCardPoster": "Plakát Pohřešuje se ze záznamu této kočky: fotka, jméno, telefon velkými písmeny a kód, který ostatní naskenují.",
   "spotCardPosterNeutral": "Plakát Pohřešuje se ze záznamu tohoto zvířete: fotka, jméno, telefon velkými písmeny a kód, který ostatní naskenují.",
-  "spotTimelineReport": "Zpráva pro veterináře: vybrané záznamy jako časová osa, přehled pacienta a křivka pro každé číslo.",
+  "spotTimelineReport": "Zpráva pro veterináře: vybrané záznamy jako časová osa, přehled pacienta a graf pro každé číselné pole, například hmotnost.",
   "helpHistory": "Hodnoty jednoho pole v čase, nejnovější první. Klepnutím hodnotu opravíte: nová nastoupí na její místo, stará se skryje. Podržením hodnotu odeberete nebo skrytou vrátíte; oko zobrazí skryté hodnoty. Seznam zkopírujte jako text nebo sdílejte jako PDF.",
   "helpSettings": "Volby aplikace: jazyk, jednotky, oslavy a jásot, srst za stránkami, oznámení a kde se zálohují vaše katalogy. Odtud lze prohlídky spustit znovu.",
   "helpLooks": "Jak kočka vypadá, jako čipy: velikost, barvy, vzor, srst, ocas, uši, znaky a trvalé rysy. Zaškrtněte, co vidíte; toulavá kočka shodná s pohřešovanou ve dvou rysech se stane kandidátem."

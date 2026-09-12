@@ -3425,7 +3425,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get vetReportLegend => 'Tegnforklaring';
 
   @override
-  String get vetReportCurves => 'Kurve';
+  String get vetReportCurves => 'Graf';
 
   @override
   String get posterMenu => 'Savnet-plakat…';
@@ -3528,7 +3528,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'En rapport til veterinæren: valgte oppføringer som tidslinje, en pasientoversikt og en kurve for hvert tall.';
+      'En rapport til veterinæren: de valgte oppføringene som tidslinje, en pasientoversikt og en graf for hvert tallfelt, for eksempel vekten.';
 
   @override
   String get helpHistory =>

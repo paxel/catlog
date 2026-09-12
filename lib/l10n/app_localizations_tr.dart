@@ -3426,7 +3426,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get vetReportLegend => 'Açıklama';
 
   @override
-  String get vetReportCurves => 'Eğri';
+  String get vetReportCurves => 'Grafik';
 
   @override
   String get posterMenu => 'Kayıp afişi…';
@@ -3529,7 +3529,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Veteriner için rapor: seçilen kayıtlar zaman çizelgesi olarak, bir hasta özeti ve her sayı için bir eğri.';
+      'Veteriner için rapor: seçtiğiniz kayıtlar zaman çizelgesi olarak, bir hasta özeti ve her sayı alanı için, örneğin kilo için, bir grafik.';
 
   @override
   String get helpHistory =>

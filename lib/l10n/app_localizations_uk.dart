@@ -3551,7 +3551,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Звіт для ветеринара: вибрані записи як стрічка, зведення про пацієнта та графік для кожного числа.';
+      'Звіт для ветеринара: вибрані записи як стрічка, зведення про пацієнта та графік для кожного числового поля, наприклад ваги.';
 
   @override
   String get helpHistory =>

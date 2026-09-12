@@ -3427,7 +3427,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get vetReportLegend => 'Signaturforklaring';
 
   @override
-  String get vetReportCurves => 'Kurve';
+  String get vetReportCurves => 'Graf';
 
   @override
   String get posterMenu => 'Savnet-plakat…';
@@ -3530,7 +3530,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'En rapport til dyrlægen: valgte poster som tidslinje, en patientoversigt og en kurve for hvert tal.';
+      'En rapport til dyrlægen: de valgte poster som tidslinje, en patientoversigt og en graf for hvert talfelt, for eksempel vægten.';
 
   @override
   String get helpHistory =>

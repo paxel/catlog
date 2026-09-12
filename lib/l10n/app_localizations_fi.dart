@@ -3429,7 +3429,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get vetReportLegend => 'Selite';
 
   @override
-  String get vetReportCurves => 'Käyrä';
+  String get vetReportCurves => 'Kaavio';
 
   @override
   String get posterMenu => 'Kadonnut-juliste…';
@@ -3532,7 +3532,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Raportti eläinlääkärille: valitut merkinnät aikajanana, potilasyhteenveto ja käyrä jokaiselle luvulle.';
+      'Raportti eläinlääkärille: valitut merkinnät aikajanana, potilasyhteenveto ja kaavio jokaisesta lukukentästä, esimerkiksi painosta.';
 
   @override
   String get helpHistory =>

@@ -1154,7 +1154,7 @@
   "vetReportSummary": "Paciento santrauka",
   "vetReportOwner": "Savininkas",
   "vetReportLegend": "Legenda",
-  "vetReportCurves": "Kreivė",
+  "vetReportCurves": "Grafikas",
   "posterMenu": "Dingusio plakatas…",
   "posterHeadline": "DINGO",
   "posterStanding": "Prašome patikrinti rūsius, pašiūres ir garažus. Nevaikykite, tiesiog paskambinkite.",
@@ -1194,7 +1194,7 @@
   "spotBackups": "Kur saugomi jūsų katalogai: ką telefonas saugo, ir kopija jūsų pasirinktame aplanke.",
   "spotCardPoster": "Dingusio plakatas iš šios katės įrašo: nuotrauka, vardas, telefonas didelėmis raidėmis ir kodas, kurį kiti nuskaito.",
   "spotCardPosterNeutral": "Dingusio plakatas iš šio augintinio įrašo: nuotrauka, vardas, telefonas didelėmis raidėmis ir kodas, kurį kiti nuskaito.",
-  "spotTimelineReport": "Ataskaita veterinarui: pasirinkti įrašai kaip laiko juosta, paciento santrauka ir kreivė kiekvienam skaičiui.",
+  "spotTimelineReport": "Ataskaita veterinarui: pasirinkti įrašai kaip laiko juosta, paciento santrauka ir grafikas kiekvienam skaičių laukui, pavyzdžiui svoriui.",
   "helpHistory": "Vieno lauko reikšmės laike, naujausios pirmos. Palieskite reikšmę, kad pataisytumėte: nauja užima jos vietą, sena paslepiama. Palaikykite reikšmę, kad pašalintumėte ar grąžintumėte paslėptą; akis rodo paslėptas reikšmes. Nukopijuokite sąrašą kaip tekstą arba bendrinkite kaip PDF.",
   "helpSettings": "Programėlės parinktys: kalba, vienetai, šventės ir šūksniai, kailis už puslapių, pranešimai ir kur saugomos jūsų katalogų kopijos. Iš čia galima pakartoti ekskursijas.",
   "helpLooks": "Kaip katė atrodo, lustais: dydis, spalvos, raštas, kailis, uodega, ausys, žymės ir nuolatiniai bruožai. Pažymėkite, ką matote; benamė, sutampanti su dingusia dviem bruožais, tampa kandidate."

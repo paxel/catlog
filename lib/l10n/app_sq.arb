@@ -1154,7 +1154,7 @@
   "vetReportSummary": "Përmbledhje e pacientit",
   "vetReportOwner": "Pronari",
   "vetReportLegend": "Legjenda",
-  "vetReportCurves": "Kurba",
+  "vetReportCurves": "Grafik",
   "posterMenu": "Poster i humbur…",
   "posterHeadline": "I HUMBUR",
   "posterStanding": "Ju lutem kontrolloni bodrumet, kasollet dhe garazhet. Mos e ndiqni, vetëm telefononi.",
@@ -1194,7 +1194,7 @@
   "spotBackups": "Ku ruhen të sigurt katalogët e tu: çfarë ruan telefoni, dhe një kopje në një dosje sipas zgjedhjes.",
   "spotCardPoster": "Një poster i humbur nga regjistri i kësaj maceje: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.",
   "spotCardPosterNeutral": "Një poster i humbur nga regjistri i kësaj kafshe: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.",
-  "spotTimelineReport": "Raport për veterinerin: hyrjet e zgjedhura si vijë kohore, një përmbledhje e pacientit dhe një kurbë për çdo numër.",
+  "spotTimelineReport": "Raport për veterinerin: hyrjet e zgjedhura si vijë kohore, një përmbledhje e pacientit dhe një grafik për çdo fushë numerike, për shembull peshën.",
   "helpHistory": "Vlerat e një fushe përgjatë kohës, më të rejat të parat. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Mbaje shtypur një vlerë për ta hequr ose për të rikthyer një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.",
   "helpSettings": "Zgjedhjet e aplikacionit: gjuha, njësitë, festimet dhe brohoritjet, gëzofi pas faqeve, njoftimet dhe ku ruhen kopjet e katalogëve. Turet mund të përsëriten nga këtu.",
   "helpLooks": "Si duket macja, me çipa: madhësia, ngjyrat, modeli, gëzofi, bishti, veshët, shenjat dhe tiparet e përhershme. Shëno çfarë sheh; një endacak që përputhet me një mace të humbur në dy tipare bëhet kandidat."

@@ -3425,7 +3425,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get vetReportLegend => 'Legend';
 
   @override
-  String get vetReportCurves => 'Kõver';
+  String get vetReportCurves => 'Graafik';
 
   @override
   String get posterMenu => 'Kadunud-plakat…';
@@ -3529,7 +3529,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'Aruanne loomaarstile: valitud kirjed ajajoonena, patsiendi kokkuvõte ja kõver iga arvu kohta.';
+      'Aruanne loomaarstile: valitud kirjed ajajoonena, patsiendi kokkuvõte ja graafik iga arvuvälja kohta, näiteks kaal.';
 
   @override
   String get helpHistory =>

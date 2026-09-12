@@ -3393,7 +3393,8 @@ class AppLocalizationsJa extends AppLocalizations {
       'このペットの記録から迷子ポスターを作成: 写真、名前、大きな文字の電話番号、他の人が読み取るコード。';
 
   @override
-  String get spotTimelineReport => '獣医向けレポート: 選んだ項目をタイムラインで、患者情報と数値ごとのグラフ付き。';
+  String get spotTimelineReport =>
+      '獣医向けレポート: 選んだ項目をタイムラインに、患者情報、そして体重など数値項目ごとのグラフ。';
 
   @override
   String get helpHistory =>

@@ -3469,7 +3469,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'گزارش برای دامپزشک: موارد انتخابی به‌صورت خط زمانی، خلاصهٔ بیمار و نموداری برای هر عدد.';
+      'گزارش برای دامپزشک: موارد انتخابی به‌صورت خط زمانی، خلاصهٔ بیمار و نموداری برای هر فیلد عددی، مثلاً وزن.';
 
   @override
   String get helpHistory =>

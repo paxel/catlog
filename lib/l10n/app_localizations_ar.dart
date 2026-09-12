@@ -3462,7 +3462,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get vetReportLegend => 'مفتاح الرموز';
 
   @override
-  String get vetReportCurves => 'المنحنى';
+  String get vetReportCurves => 'رسم بياني';
 
   @override
   String get posterMenu => 'ملصق مفقود…';
@@ -3565,7 +3565,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotTimelineReport =>
-      'تقرير للطبيب البيطري: الإدخالات المختارة كخط زمني، وملخص للمريض، ومنحنى لكل رقم.';
+      'تقرير للطبيب البيطري: الإدخالات التي تختارها كخط زمني، وملخص للمريض، ورسم بياني لكل حقل رقمي، كالوزن مثلاً.';
 
   @override
   String get helpHistory =>

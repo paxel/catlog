@@ -3259,7 +3259,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get vetReportLegend => '图例';
 
   @override
-  String get vetReportCurves => '曲线';
+  String get vetReportCurves => '图表';
 
   @override
   String get posterMenu => '寻猫启事…';
@@ -3353,7 +3353,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotCardPosterNeutral => '用这只宠物的记录制作寻宠启事：照片、名字、大字号电话，以及他人可扫描的二维码。';
 
   @override
-  String get spotTimelineReport => '兽医报告：所选条目按时间线排列，附患者摘要和每项数值的曲线。';
+  String get spotTimelineReport => '兽医报告：所选条目按时间线排列，附患者摘要，以及每个数值字段（如体重）的图表。';
 
   @override
   String get helpHistory =>
