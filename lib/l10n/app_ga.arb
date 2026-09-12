@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Bain ó cheanáin",
   "coverPick": "Pictiúr clúdaigh…",
   "coverHint": "Pictiúr den áit: an teach, an clós, an láthair bheathaithe. Ar an gcárta in ionad cait.",
-  "coverRemove": "Bain an pictiúr clúdaigh"
+  "coverRemove": "Bain an pictiúr clúdaigh",
+  "skipTour": "Léim thar an réamhrá agus na leideanna ar an suiteáil seo"
 }

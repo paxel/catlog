@@ -3505,4 +3505,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get coverRemove => 'Fjarlægja forsíðumynd';
+
+  @override
+  String get skipTour => 'Sleppa kynningu og ábendingum í þessari uppsetningu';
 }

@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Odstrani iz priljubljenih",
   "coverPick": "Naslovna slika…",
   "coverHint": "Slika kraja: hiša, dvorišče, krmišče. Na kartici namesto mačke.",
-  "coverRemove": "Odstrani naslovno sliko"
+  "coverRemove": "Odstrani naslovno sliko",
+  "skipTour": "Preskoči uvod in namige na tej namestitvi"
 }

@@ -1974,5 +1974,6 @@
   "favouriteRemove": "Remove from favourites",
   "coverPick": "Cover picture…",
   "coverHint": "A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.",
-  "coverRemove": "Remove cover picture"
+  "coverRemove": "Remove cover picture",
+  "skipTour": "Skip the intro and the tips on this install"
 }

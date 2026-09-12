@@ -3521,4 +3521,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get coverRemove => 'Прибрати обкладинку';
+
+  @override
+  String get skipTour => 'Пропустити знайомство та підказки в цій інсталяції';
 }

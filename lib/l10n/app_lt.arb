@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Pašalinti iš mėgstamų",
   "coverPick": "Viršelio nuotrauka…",
   "coverHint": "Vietos nuotrauka: namas, kiemas, šėrimo vieta. Rodoma kortelėje vietoj katės.",
-  "coverRemove": "Pašalinti viršelio nuotrauką"
+  "coverRemove": "Pašalinti viršelio nuotrauką",
+  "skipTour": "Praleisti įvadą ir patarimus šiame įdiegime"
 }

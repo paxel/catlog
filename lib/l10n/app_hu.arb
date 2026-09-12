@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Eltávolítás a kedvencekből",
   "coverPick": "Borítókép…",
   "coverHint": "Kép a helyről: a ház, az udvar, az etetőhely. A kártyán macska helyett.",
-  "coverRemove": "Borítókép eltávolítása"
+  "coverRemove": "Borítókép eltávolítása",
+  "skipTour": "Bevezető és tippek kihagyása ezen a telepítésen"
 }

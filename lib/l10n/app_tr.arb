@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Favorilerden kaldır",
   "coverPick": "Kapak resmi…",
   "coverHint": "Yerin bir resmi: ev, avlu, besleme noktası. Kartta kedi yerine gösterilir.",
-  "coverRemove": "Kapak resmini kaldır"
+  "coverRemove": "Kapak resmini kaldır",
+  "skipTour": "Bu kurulumda tanıtımı ve ipuçlarını atla"
 }

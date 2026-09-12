@@ -1192,5 +1192,6 @@
   "favouriteRemove": "Aus den Favoriten entfernen",
   "coverPick": "Titelbild…",
   "coverHint": "Ein Bild des Ortes: das Haus, der Hof, der Futterplatz. Auf der Karte statt einer Katze gezeigt.",
-  "coverRemove": "Titelbild entfernen"
+  "coverRemove": "Titelbild entfernen",
+  "skipTour": "Einführung und Tipps auf dieser Installation überspringen"
 }

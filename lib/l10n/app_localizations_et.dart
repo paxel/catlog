@@ -3498,4 +3498,8 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get coverRemove => 'Eemalda kaanepilt';
+
+  @override
+  String get skipTour =>
+      'Jäta sissejuhatus ja vihjed selles paigalduses vahele';
 }

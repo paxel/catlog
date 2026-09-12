@@ -105,6 +105,17 @@ class _SpotlightState extends State<Spotlight> {
       KeyedSubtree(key: _key, child: widget.child);
 }
 
+/// Marks every tip on every screen as seen — the tester's tick on the
+/// name page; Settings brings them back.
+void markAllSpotlightsSeen(CatalogStore store) {
+  for (final MapEntry(key: screen, value: items) in spotlightManifest.entries) {
+    store.setLocalSetting(
+      'spot2:$screen',
+      items.map((i) => i.id).join(','),
+    );
+  }
+}
+
 /// Clears all seen-marks so every tour runs again (About → What's new).
 void resetSpotlights(CatalogStore store) {
   for (final screen in spotlightManifest.keys) {

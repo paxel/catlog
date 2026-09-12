@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Odebrat z oblíbených",
   "coverPick": "Titulní obrázek…",
   "coverHint": "Obrázek místa: dům, dvůr, krmné místo. Na kartě místo kočky.",
-  "coverRemove": "Odebrat titulní obrázek"
+  "coverRemove": "Odebrat titulní obrázek",
+  "skipTour": "Přeskočit úvod a tipy v této instalaci"
 }

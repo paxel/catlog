@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Usuń z ulubionych",
   "coverPick": "Zdjęcie okładki…",
   "coverHint": "Zdjęcie miejsca: dom, podwórko, miejsce karmienia. Pokazywane na karcie zamiast kota.",
-  "coverRemove": "Usuń zdjęcie okładki"
+  "coverRemove": "Usuń zdjęcie okładki",
+  "skipTour": "Pomiń wprowadzenie i wskazówki w tej instalacji"
 }

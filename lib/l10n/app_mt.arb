@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Neħħi mill-favoriti",
   "coverPick": "Stampa tal-qoxra…",
   "coverHint": "Stampa tal-post: id-dar, il-bitħa, il-post tal-ikel. Fuq il-kard minflok qattus.",
-  "coverRemove": "Neħħi l-istampa tal-qoxra"
+  "coverRemove": "Neħħi l-istampa tal-qoxra",
+  "skipTour": "Aqbeż l-introduzzjoni u l-ħjiel f'din l-installazzjoni"
 }

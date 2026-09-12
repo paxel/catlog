@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.3.0] - Unreleased
 
 ### Added
+- A tick on the name page skips the intro and every tip on this install; Settings brings them back.
 - A home, and the strays, can carry a cover picture of the place; the card shows it instead of a cat.
 - A star on a home's card marks it a favourite; favourites come first, right after Strays.
 - A photo shared into the app can become a new cat in a home of your choice, or in a new home; a shared video goes through the frame picker.

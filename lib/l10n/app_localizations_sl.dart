@@ -3529,4 +3529,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get coverRemove => 'Odstrani naslovno sliko';
+
+  @override
+  String get skipTour => 'Preskoči uvod in namige na tej namestitvi';
 }

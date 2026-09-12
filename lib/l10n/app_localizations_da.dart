@@ -3500,4 +3500,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get coverRemove => 'Fjern forsidebillede';
+
+  @override
+  String get skipTour => 'Spring introen og tipsene over på denne installation';
 }

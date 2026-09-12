@@ -3501,4 +3501,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get coverRemove => 'Borítókép eltávolítása';
+
+  @override
+  String get skipTour => 'Bevezető és tippek kihagyása ezen a telepítésen';
 }

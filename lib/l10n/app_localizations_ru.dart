@@ -3521,4 +3521,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get coverRemove => 'Убрать обложку';
+
+  @override
+  String get skipTour => 'Пропустить знакомство и подсказки в этой установке';
 }

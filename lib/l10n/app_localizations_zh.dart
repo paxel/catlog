@@ -3330,4 +3330,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get coverRemove => '移除封面图片';
+
+  @override
+  String get skipTour => '在此安装中跳过介绍和提示';
 }

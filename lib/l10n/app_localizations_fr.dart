@@ -3511,4 +3511,8 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get coverRemove => 'Retirer l\'image de couverture';
+
+  @override
+  String get skipTour =>
+      'Passer l\'introduction et les astuces sur cette installation';
 }

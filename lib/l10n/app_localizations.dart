@@ -6091,6 +6091,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove cover picture'**
   String get coverRemove;
+
+  /// No description provided for @skipTour.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip the intro and the tips on this install'**
+  String get skipTour;
 }
 
 class _AppLocalizationsDelegate

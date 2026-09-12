@@ -3515,4 +3515,8 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get coverRemove => 'Neħħi l-istampa tal-qoxra';
+
+  @override
+  String get skipTour =>
+      'Aqbeż l-introduzzjoni u l-ħjiel f\'din l-installazzjoni';
 }

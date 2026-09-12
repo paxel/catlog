@@ -3498,4 +3498,8 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get coverRemove => 'Ta bort omslagsbild';
+
+  @override
+  String get skipTour =>
+      'Hoppa över introt och tipsen på den här installationen';
 }

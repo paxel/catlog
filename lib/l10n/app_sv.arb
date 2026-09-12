@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Ta bort från favoriter",
   "coverPick": "Omslagsbild…",
   "coverHint": "En bild av platsen: huset, gården, matplatsen. Visas på kortet i stället för en katt.",
-  "coverRemove": "Ta bort omslagsbild"
+  "coverRemove": "Ta bort omslagsbild",
+  "skipTour": "Hoppa över introt och tipsen på den här installationen"
 }

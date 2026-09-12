@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Eemalda lemmikutest",
   "coverPick": "Kaanepilt…",
   "coverHint": "Pilt kohast: maja, hoov, söötmiskoht. Kaardil kassi asemel.",
-  "coverRemove": "Eemalda kaanepilt"
+  "coverRemove": "Eemalda kaanepilt",
+  "skipTour": "Jäta sissejuhatus ja vihjed selles paigalduses vahele"
 }

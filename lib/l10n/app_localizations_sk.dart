@@ -3512,4 +3512,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get coverRemove => 'Odstrániť titulný obrázok';
+
+  @override
+  String get skipTour => 'Preskočiť úvod a tipy v tejto inštalácii';
 }

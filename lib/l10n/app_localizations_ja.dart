@@ -3367,4 +3367,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get coverRemove => 'カバー写真を削除';
+
+  @override
+  String get skipTour => 'このインストールでは紹介とヒントを省略する';
 }

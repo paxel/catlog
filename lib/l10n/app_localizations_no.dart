@@ -3498,4 +3498,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get coverRemove => 'Fjern forsidebilde';
+
+  @override
+  String get skipTour => 'Hopp over introen og tipsene på denne installasjonen';
 }

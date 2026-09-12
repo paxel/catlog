@@ -3497,4 +3497,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get coverRemove => 'הסרת תמונת השער';
+
+  @override
+  String get skipTour => 'לדלג על ההקדמה והטיפים בהתקנה זו';
 }

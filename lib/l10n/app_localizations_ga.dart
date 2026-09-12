@@ -3555,4 +3555,8 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get coverRemove => 'Bain an pictiúr clúdaigh';
+
+  @override
+  String get skipTour =>
+      'Léim thar an réamhrá agus na leideanna ar an suiteáil seo';
 }

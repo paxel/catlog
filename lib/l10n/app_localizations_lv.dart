@@ -3516,4 +3516,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get coverRemove => 'Noņemt vāka attēlu';
+
+  @override
+  String get skipTour => 'Izlaist ievadu un padomus šajā instalācijā';
 }

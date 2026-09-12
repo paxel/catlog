@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Poista suosikeista",
   "coverPick": "Kansikuva…",
   "coverHint": "Kuva paikasta: talo, piha, ruokintapaikka. Näytetään kortilla kissan sijaan.",
-  "coverRemove": "Poista kansikuva"
+  "coverRemove": "Poista kansikuva",
+  "skipTour": "Ohita esittely ja vinkit tässä asennuksessa"
 }

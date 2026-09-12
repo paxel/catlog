@@ -3513,4 +3513,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get coverRemove => 'Уклони насловну слику';
+
+  @override
+  String get skipTour => 'Прескочи увод и савете на овој инсталацији';
 }

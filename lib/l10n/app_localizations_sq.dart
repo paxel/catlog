@@ -3502,4 +3502,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get coverRemove => 'Hiq foton e kopertinës';
+
+  @override
+  String get skipTour => 'Kalo hyrjen dhe këshillat në këtë instalim';
 }

@@ -3511,4 +3511,8 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get coverRemove => 'Titelbild entfernen';
+
+  @override
+  String get skipTour =>
+      'Einführung und Tipps auf dieser Installation überspringen';
 }

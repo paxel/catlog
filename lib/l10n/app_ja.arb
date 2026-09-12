@@ -1186,5 +1186,6 @@
   "favouriteRemove": "お気に入りから削除",
   "coverPick": "カバー写真…",
   "coverHint": "場所の写真: 家、庭、給餌場所。カードに猫の代わりに表示されます。",
-  "coverRemove": "カバー写真を削除"
+  "coverRemove": "カバー写真を削除",
+  "skipTour": "このインストールでは紹介とヒントを省略する"
 }

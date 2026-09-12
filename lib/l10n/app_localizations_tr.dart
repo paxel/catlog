@@ -3499,4 +3499,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get coverRemove => 'Kapak resmini kaldır';
+
+  @override
+  String get skipTour => 'Bu kurulumda tanıtımı ve ipuçlarını atla';
 }

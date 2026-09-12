@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Odstrániť z obľúbených",
   "coverPick": "Titulný obrázok…",
   "coverHint": "Obrázok miesta: dom, dvor, kŕmne miesto. Na karte namiesto mačky.",
-  "coverRemove": "Odstrániť titulný obrázok"
+  "coverRemove": "Odstrániť titulný obrázok",
+  "skipTour": "Preskočiť úvod a tipy v tejto inštalácii"
 }

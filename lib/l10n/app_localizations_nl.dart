@@ -3506,4 +3506,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get coverRemove => 'Omslagfoto verwijderen';
+
+  @override
+  String get skipTour => 'Introductie en tips op deze installatie overslaan';
 }

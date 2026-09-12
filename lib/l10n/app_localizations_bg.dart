@@ -3500,4 +3500,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get coverRemove => 'Премахни заглавната снимка';
+
+  @override
+  String get skipTour => 'Пропусни въведението и съветите в тази инсталация';
 }

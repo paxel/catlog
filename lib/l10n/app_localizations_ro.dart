@@ -3516,4 +3516,8 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get coverRemove => 'Elimină imaginea de copertă';
+
+  @override
+  String get skipTour =>
+      'Sari peste introducere și sfaturi pe această instalare';
 }

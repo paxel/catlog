@@ -3502,4 +3502,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get coverRemove => 'Remover imagem de capa';
+
+  @override
+  String get skipTour => 'Saltar a introdução e as dicas nesta instalação';
 }

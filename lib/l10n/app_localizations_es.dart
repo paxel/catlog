@@ -3510,4 +3510,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get coverRemove => 'Quitar imagen de portada';
+
+  @override
+  String get skipTour =>
+      'Saltar la introducción y los consejos en esta instalación';
 }

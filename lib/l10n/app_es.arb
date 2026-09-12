@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Quitar de favoritos",
   "coverPick": "Imagen de portada…",
   "coverHint": "Una imagen del lugar: la casa, el patio, el punto de alimentación. Se muestra en la tarjeta en vez de un gato.",
-  "coverRemove": "Quitar imagen de portada"
+  "coverRemove": "Quitar imagen de portada",
+  "skipTour": "Saltar la introducción y los consejos en esta instalación"
 }

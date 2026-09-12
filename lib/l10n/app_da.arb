@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Fjern fra favoritter",
   "coverPick": "Forsidebillede…",
   "coverHint": "Et billede af stedet: huset, gården, foderpladsen. Vises på kortet i stedet for en kat.",
-  "coverRemove": "Fjern forsidebillede"
+  "coverRemove": "Fjern forsidebillede",
+  "skipTour": "Spring introen og tipsene over på denne installation"
 }

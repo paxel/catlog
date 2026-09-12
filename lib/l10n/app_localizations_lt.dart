@@ -3521,4 +3521,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get coverRemove => 'Pašalinti viršelio nuotrauką';
+
+  @override
+  String get skipTour => 'Praleisti įvadą ir patarimus šiame įdiegime';
 }

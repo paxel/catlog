@@ -3501,4 +3501,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get coverRemove => 'Remove cover picture';
+
+  @override
+  String get skipTour => 'Skip the intro and the tips on this install';
 }

@@ -3513,4 +3513,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get coverRemove => 'Odebrat titulní obrázek';
+
+  @override
+  String get skipTour => 'Přeskočit úvod a tipy v této instalaci';
 }

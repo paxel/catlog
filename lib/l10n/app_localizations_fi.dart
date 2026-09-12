@@ -3502,4 +3502,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get coverRemove => 'Poista kansikuva';
+
+  @override
+  String get skipTour => 'Ohita esittely ja vinkit tässä asennuksessa';
 }

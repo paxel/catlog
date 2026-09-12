@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Retirer des favoris",
   "coverPick": "Image de couverture…",
   "coverHint": "Une image du lieu : la maison, la cour, le point de nourrissage. Affichée sur la carte à la place d'un chat.",
-  "coverRemove": "Retirer l'image de couverture"
+  "coverRemove": "Retirer l'image de couverture",
+  "skipTour": "Passer l'introduction et les astuces sur cette installation"
 }

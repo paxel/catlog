@@ -3439,4 +3439,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get coverRemove => 'حذف تصویر جلد';
+
+  @override
+  String get skipTour => 'رد کردن معرفی و نکته‌ها در این نصب';
 }

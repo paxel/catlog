@@ -3522,4 +3522,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get coverRemove => 'Usuń zdjęcie okładki';
+
+  @override
+  String get skipTour => 'Pomiń wprowadzenie i wskazówki w tej instalacji';
 }

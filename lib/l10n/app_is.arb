@@ -1186,5 +1186,6 @@
   "favouriteRemove": "Fjarlægja úr uppáhaldi",
   "coverPick": "Forsíðumynd…",
   "coverHint": "Mynd af staðnum: húsið, garðurinn, fóðurstaðurinn. Sýnd á spjaldinu í stað kattar.",
-  "coverRemove": "Fjarlægja forsíðumynd"
+  "coverRemove": "Fjarlægja forsíðumynd",
+  "skipTour": "Sleppa kynningu og ábendingum í þessari uppsetningu"
 }

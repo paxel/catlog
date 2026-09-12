@@ -3512,4 +3512,8 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get coverRemove => 'Αφαίρεση εικόνας εξωφύλλου';
+
+  @override
+  String get skipTour =>
+      'Παράλειψη εισαγωγής και συμβουλών σε αυτή την εγκατάσταση';
 }

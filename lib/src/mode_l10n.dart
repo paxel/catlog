@@ -2338,6 +2338,9 @@ class ModeLocalizations implements AppLocalizations {
   String get similarName => base.similarName;
 
   @override
+  String get skipTour => base.skipTour;
+
+  @override
   String get sortLabel => base.sortLabel;
 
   @override

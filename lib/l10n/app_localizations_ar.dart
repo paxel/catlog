@@ -3535,4 +3535,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get coverRemove => 'إزالة صورة الغلاف';
+
+  @override
+  String get skipTour => 'تخطّي المقدمة والنصائح في هذا التثبيت';
 }
