@@ -135,7 +135,27 @@ class _RestoreScreenState extends State<RestoreScreen> {
     final sets = _sets;
     final locale = Localizations.localeOf(context).toString();
     return Scaffold(
-      appBar: AppBar(title: Text(t.restoreTitle)),
+      // Skip and Restore in the app bar, where every page keeps its actions.
+      appBar: AppBar(
+        title: Text(t.restoreTitle),
+        actions: [
+          TextButton(
+            onPressed: _restoring ? null : () => widget.onDone(null),
+            child: Text(t.introSkip),
+          ),
+          IconButton(
+            icon: _restoring
+                ? const SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : const Icon(Icons.restore),
+            tooltip: t.restoreAction,
+            onPressed: _restoring || _selected.isEmpty ? null : _restore,
+          ),
+        ],
+      ),
       body: sets == null
           ? const Center(child: CircularProgressIndicator())
           : ListView(
@@ -194,35 +214,6 @@ class _RestoreScreenState extends State<RestoreScreen> {
                 const SizedBox(height: 80),
               ],
             ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Expanded(
-                child: OutlinedButton(
-                  onPressed: _restoring ? null : () => widget.onDone(null),
-                  child: Text(t.introSkip),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: FilledButton.icon(
-                  icon: _restoring
-                      ? const SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const Icon(Icons.restore),
-                  label: Text(t.restoreAction),
-                  onPressed: _restoring || _selected.isEmpty ? null : _restore,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
