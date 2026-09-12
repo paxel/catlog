@@ -7,6 +7,7 @@ import '../field_labels.dart';
 import '../help.dart';
 import '../history_share.dart';
 import '../l10n.dart';
+import '../widgets/cat_ear.dart';
 import '../spotlight.dart';
 import '../pdf_fonts.dart';
 
@@ -313,41 +314,43 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     ThemeData theme,
     Color muted,
   ) => Card(
-    child: InkWell(
-      onTap: e.voided ? null : () => _correct(e),
-      onLongPress: () => _menu(e),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              valueLabel(t, store, widget.def.key, e.value),
-              style: e.voided
-                  ? theme.textTheme.bodyLarge?.copyWith(
-                      color: muted,
-                      decoration: TextDecoration.lineThrough,
-                    )
-                  : theme.textTheme.bodyLarge,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              '${historyMoment(locale, e.date)} · ${e.author}',
-              style: theme.textTheme.bodySmall,
-            ),
-            if (e.voided)
+    child: WithCatEar(
+      child: InkWell(
+        onTap: e.voided ? null : () => _correct(e),
+        onLongPress: () => _menu(e),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Text(
-                voidedLine(t, store, widget.def.key, e, locale),
-                style: theme.textTheme.bodySmall?.copyWith(color: muted),
-              )
-            else if (store.correctedBy(e) != null)
-              Text(
-                t.entryCorrection,
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.primary,
-                ),
+                valueLabel(t, store, widget.def.key, e.value),
+                style: e.voided
+                    ? theme.textTheme.bodyLarge?.copyWith(
+                        color: muted,
+                        decoration: TextDecoration.lineThrough,
+                      )
+                    : theme.textTheme.bodyLarge,
               ),
-          ],
+              const SizedBox(height: 8),
+              Text(
+                '${historyMoment(locale, e.date)} · ${e.author}',
+                style: theme.textTheme.bodySmall,
+              ),
+              if (e.voided)
+                Text(
+                  voidedLine(t, store, widget.def.key, e, locale),
+                  style: theme.textTheme.bodySmall?.copyWith(color: muted),
+                )
+              else if (store.correctedBy(e) != null)
+                Text(
+                  t.entryCorrection,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     ),
