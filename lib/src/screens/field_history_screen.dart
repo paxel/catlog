@@ -7,6 +7,7 @@ import '../field_labels.dart';
 import '../help.dart';
 import '../history_share.dart';
 import '../l10n.dart';
+import '../layout.dart';
 import '../widgets/cat_ear.dart';
 import '../spotlight.dart';
 import '../pdf_fonts.dart';
@@ -261,7 +262,8 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     final theme = Theme.of(context);
     final muted = theme.colorScheme.onSurfaceVariant;
     return Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         title: Text(t.fieldHistoryOf(fieldDefName(t, widget.def), name)),
         actions: [
           IconButton(

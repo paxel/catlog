@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../field_editing.dart';
 import '../history_share.dart';
 import '../l10n.dart';
+import '../layout.dart';
 import '../widgets/cat_ear.dart';
 import '../pdf_fonts.dart';
 import '../screens/field_history_screen.dart';
@@ -212,7 +213,8 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
     final theme = Theme.of(context);
     final name = store.current(widget.chore.entity, Keys.name) ?? t.unnamed;
     return Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         title: Text('${widget.chore.title} · $name'),
         actions: [
           IconButton(
