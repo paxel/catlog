@@ -6,7 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.3.1] - Unreleased
 
 ### Changed
-- The missing poster offers every filled field of the cat and its home as a tick, and prints a code per ticked ID (registry link) and location (map link) next to the cat(a)log code.
+- The missing poster offers every filled field of the cat and its home as a tick, takes up to two photos that you frame by dragging and pinching, and prints a code per ticked ID (registry link) and location (map link) next to the cat(a)log code.
 - The report for the vet and the missing poster are buttons on the cat's page, next to the timeline; their pages carry the card page's Share as PDF and Print buttons.
 - The graph's range and line choices fold behind one header.
 - A home's page shows its chores and appointments right after the cats, before the fields; a cat's page leads with its photos, then its chores, then the fields.

@@ -6,11 +6,13 @@ import 'package:pdf/widgets.dart' as pw;
 import '../field_labels.dart';
 import '../help.dart';
 import '../hidden.dart';
+import '../image_provider_cache.dart';
 import '../history_share.dart';
 import '../l10n.dart';
 import '../missing_poster.dart';
 import '../pdf_fonts.dart';
 import '../widgets/date_entry.dart';
+import '../widgets/poster_frame.dart';
 import 'card_screen.dart' show cardQrPayload;
 
 /// What the poster says, ticked from the record: every filled field of
@@ -56,12 +58,37 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
   CatalogStore get store => widget.store;
   final _extra = TextEditingController();
   DateTime _since = DateUtils.dateOnly(DateTime.now());
-  bool _photo = true;
   bool _qr = true;
+
+  /// The chosen pictures, hash to the framed part; at most two, the
+  /// profile picture from the start.
+  final _photos = <String, PosterPhoto>{};
+  bool _photosSet = false;
   bool _busy = false;
   Set<String>? _ticked;
 
   String? get _clowder => store.current(widget.catId, Keys.clowder);
+
+  Map<String, PosterPhoto> _pictures() {
+    if (!_photosSet) {
+      _photosSet = true;
+      final hash = store.profileImage(widget.catId);
+      final bytes = hash == null ? null : store.imageBytes(hash);
+      if (hash != null && bytes != null) _photos[hash] = PosterPhoto(bytes);
+    }
+    return _photos;
+  }
+
+  void _togglePhoto(String hash) {
+    final photos = _pictures();
+    if (photos.containsKey(hash)) {
+      photos.remove(hash);
+    } else if (photos.length < 2) {
+      final bytes = store.imageBytes(hash);
+      if (bytes != null) photos[hash] = PosterPhoto(bytes);
+    }
+    setState(() {});
+  }
 
   /// Every filled field of the cat, then of its home.
   List<_Row> _rows() {
@@ -125,8 +152,6 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
       for (final r in rows)
         if (ticks.contains(r.id)) r,
     ];
-    final hash = store.profileImage(widget.catId);
-    final photo = _photo && hash != null ? store.imageBytes(hash) : null;
     String? phone;
     String? looks;
     final lines = <String>[
@@ -156,7 +181,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     return PosterContent(
       headline: t.posterHeadline,
       name: name,
-      photos: [if (photo != null) PosterPhoto(photo)],
+      photos: _pictures().values.toList(),
       lines: lines,
       phone: phone,
       looks: looks,
@@ -194,11 +219,84 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     await (widget.print ?? printPdf)(built.$1);
   }
 
+  /// Thumbnails of the cat's pictures to tick up to two, and a frame
+  /// per ticked picture to drag and pinch.
+  List<Widget> _photoSection(AppLocalizations t) {
+    final images = store.images(widget.catId);
+    if (images.isEmpty) return const [];
+    final photos = _pictures();
+    final chosen = photos.keys.toList();
+    return [
+      Padding(
+        padding: const EdgeInsets.only(top: 8, bottom: 4),
+        child: Text(
+          t.posterPhotos,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+      ),
+      SizedBox(
+        height: 64,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: images.length,
+          separatorBuilder: (_, _) => const SizedBox(width: 8),
+          itemBuilder: (context, i) {
+            final hash = images[i];
+            final photo = imageProviderFor(store, hash);
+            final on = photos.containsKey(hash);
+            return InkWell(
+              onTap: () => _togglePhoto(hash),
+              child: Container(
+                width: 64,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: on
+                        ? Theme.of(context).colorScheme.primary
+                        : Colors.transparent,
+                    width: 3,
+                  ),
+                ),
+                child: photo == null
+                    ? const Icon(Icons.broken_image_outlined)
+                    : Image(image: photo, fit: BoxFit.cover),
+              ),
+            );
+          },
+        ),
+      ),
+      if (chosen.isNotEmpty) ...[
+        const SizedBox(height: 8),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (final (i, hash) in chosen.indexed) ...[
+              if (i > 0) const SizedBox(width: 8),
+              Expanded(
+                child: PosterFrame(
+                  key: ValueKey('frame-$hash'),
+                  bytes: photos[hash]!.bytes,
+                  aspect: posterFrameAspect(chosen.length, i),
+                  onChanged: (p) => photos[hash] = p,
+                ),
+              ),
+            ],
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Text(
+            t.posterFrameHint,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ),
+      ],
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
-    final hasPhoto = store.profileImage(widget.catId) != null;
     final rows = _rows();
     final ticks = _ticks(rows);
     final ticked = [
@@ -241,12 +339,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
               if (picked != null && mounted) setState(() => _since = picked);
             },
           ),
-          CheckboxListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _photo && hasPhoto,
-            onChanged: hasPhoto ? (v) => setState(() => _photo = v!) : null,
-            title: Text(t.posterPhoto),
-          ),
+          ..._photoSection(t),
           for (final r in rows)
             CheckboxListTile(
               contentPadding: EdgeInsets.zero,
