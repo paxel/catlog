@@ -43,6 +43,10 @@ abstract class SyncFolder {
   /// The file's bytes, or null when it is not there.
   Future<Uint8List?> read(String dir, String name);
 
+  /// The files directly in [dir] with their sizes in bytes, in one
+  /// pass: what the folder watch compares between rounds.
+  Future<Map<String, int>> sizes(String dir);
+
   /// Writes [bytes] as [name] in [dir], replacing what was there.
   Future<void> write(String dir, String name, List<int> bytes);
 
@@ -67,6 +71,16 @@ class LocalSyncFolder implements SyncFolder {
     return [
       for (final f in d.listSync().whereType<File>()) f.uri.pathSegments.last
     ];
+  }
+
+  @override
+  Future<Map<String, int>> sizes(String dir) async {
+    final d = _dir(dir);
+    if (!d.existsSync()) return const {};
+    return {
+      for (final f in d.listSync().whereType<File>())
+        f.uri.pathSegments.last: f.lengthSync()
+    };
   }
 
   @override
@@ -103,6 +117,13 @@ class MemorySyncFolder implements SyncFolder {
   @override
   Future<List<String>> list(String dir) async =>
       dirs[dir]?.keys.toList() ?? const [];
+
+  @override
+  Future<Map<String, int>> sizes(String dir) async => {
+        for (final MapEntry(key: name, value: bytes)
+            in (dirs[dir] ?? const {}).entries)
+          name: bytes.length
+      };
 
   @override
   Future<Uint8List?> read(String dir, String name) async => dirs[dir]?[name];

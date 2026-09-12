@@ -46,6 +46,14 @@ class FolderChannel(private val activity: Activity) {
                             ?: emptyList<String>()
                     )
                 }
+                "sizes" -> {
+                    val dir = dir(call, create = false)
+                    val sizes = HashMap<String, Long>()
+                    dir?.listFiles()?.filter { it.isFile }?.forEach { f ->
+                        f.name?.let { sizes[it] = f.length() }
+                    }
+                    result.success(sizes)
+                }
                 "read" -> {
                     val file = dir(call, create = false)?.findFile(name(call))
                     if (file == null || !file.isFile) {
