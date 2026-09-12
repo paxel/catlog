@@ -1163,5 +1163,23 @@
   "posterQr": "QR kodas cat(a)log",
   "posterPhoto": "Nuotrauka",
   "newCatIn": "Nauja katė į…",
-  "newCatInNeutral": "Naujas augintinis į…"
+  "newCatInNeutral": "Naujas augintinis į…",
+  "choreLabel": "Užduotis",
+  "choreTickLabel": "Užduotis atlikta",
+  "choreEnded": "Baigta",
+  "choreRemindAt": "priminimas {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "atlikta {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "partnerio nuslėpta",
+  "titleLabel": "Titulas",
+  "deletedLabel": "Ištrinta"
 }

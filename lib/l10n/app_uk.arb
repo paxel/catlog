@@ -1163,5 +1163,23 @@
   "posterQr": "QR-код для cat(a)log",
   "posterPhoto": "Фото",
   "newCatIn": "Нова кішка в…",
-  "newCatInNeutral": "Новий улюбленець у…"
+  "newCatInNeutral": "Новий улюбленець у…",
+  "choreLabel": "Завдання",
+  "choreTickLabel": "Завдання виконано",
+  "choreEnded": "Завершено",
+  "choreRemindAt": "нагадування {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "виконано {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "приховано партнером",
+  "titleLabel": "Титул",
+  "deletedLabel": "Видалено"
 }

@@ -1163,5 +1163,23 @@
   "posterQr": "Cod QR pentru cat(a)log",
   "posterPhoto": "Foto",
   "newCatIn": "Pisică nouă în…",
-  "newCatInNeutral": "Animal nou în…"
+  "newCatInNeutral": "Animal nou în…",
+  "choreLabel": "Sarcină",
+  "choreTickLabel": "Sarcină făcută",
+  "choreEnded": "Încheiată",
+  "choreRemindAt": "memento {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "făcut pe {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "reținut de un partener",
+  "titleLabel": "Titlu",
+  "deletedLabel": "Șters"
 }

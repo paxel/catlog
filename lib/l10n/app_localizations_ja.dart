@@ -3324,4 +3324,32 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get newCatInNeutral => '新しいペットを追加…';
+
+  @override
+  String get choreLabel => 'お世話';
+
+  @override
+  String get choreTickLabel => 'お世話済み';
+
+  @override
+  String get choreEnded => '終了';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'リマインダー $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return '$date に完了';
+  }
+
+  @override
+  String get withheldByPartner => 'パートナーが非公開';
+
+  @override
+  String get titleLabel => '称号';
+
+  @override
+  String get deletedLabel => '削除済み';
 }

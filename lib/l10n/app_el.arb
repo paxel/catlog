@@ -1163,5 +1163,23 @@
   "posterQr": "Κωδικός QR για το cat(a)log",
   "posterPhoto": "Φωτογραφία",
   "newCatIn": "Νέα γάτα σε…",
-  "newCatInNeutral": "Νέο κατοικίδιο σε…"
+  "newCatInNeutral": "Νέο κατοικίδιο σε…",
+  "choreLabel": "Εργασία",
+  "choreTickLabel": "Εργασία έγινε",
+  "choreEnded": "Ολοκληρώθηκε",
+  "choreRemindAt": "υπενθύμιση {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "έγινε στις {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "παρακρατήθηκε από συνεργάτη",
+  "titleLabel": "Τίτλος",
+  "deletedLabel": "Διαγράφηκε"
 }

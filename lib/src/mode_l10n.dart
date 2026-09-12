@@ -565,6 +565,9 @@ class ModeLocalizations implements AppLocalizations {
   String get choreEndConfirm => base.choreEndConfirm;
 
   @override
+  String get choreEnded => base.choreEnded;
+
+  @override
   String choreEveryDays(int n) => base.choreEveryDays(n);
 
   @override
@@ -580,6 +583,9 @@ class ModeLocalizations implements AppLocalizations {
   String get choreHistory => base.choreHistory;
 
   @override
+  String get choreLabel => base.choreLabel;
+
+  @override
   String get choreMissed => base.choreMissed;
 
   @override
@@ -590,6 +596,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get chorePaused => base.chorePaused;
+
+  @override
+  String choreRemindAt(Object time) => base.choreRemindAt(time);
 
   @override
   String get choreRepeatDaily => base.choreRepeatDaily;
@@ -605,6 +614,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get choreStillOpen => base.choreStillOpen;
+
+  @override
+  String get choreTickLabel => base.choreTickLabel;
 
   @override
   String get choreTitleLabel => base.choreTitleLabel;
@@ -829,6 +841,9 @@ class ModeLocalizations implements AppLocalizations {
   String get deletedDone => base.deletedDone;
 
   @override
+  String get deletedLabel => base.deletedLabel;
+
+  @override
   String get dimension => base.dimension;
 
   @override
@@ -857,6 +872,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get doneLabel => base.doneLabel;
+
+  @override
+  String doneOn(Object date) => base.doneOn(date);
 
   @override
   String get dragOverTheCat => pets ? base.dragOverTheCatNeutral : base.dragOverTheCat;
@@ -2680,6 +2698,9 @@ class ModeLocalizations implements AppLocalizations {
   String timelineOf(String name) => base.timelineOf(name);
 
   @override
+  String get titleLabel => base.titleLabel;
+
+  @override
   String get titleNone => base.titleNone;
 
   @override
@@ -2921,6 +2942,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get whichNumber => base.whichNumber;
+
+  @override
+  String get withheldByPartner => base.withheldByPartner;
 
   @override
   String get writeTheDeveloper => base.writeTheDeveloper;

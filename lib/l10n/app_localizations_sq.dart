@@ -3458,4 +3458,32 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Kafshë e re në…';
+
+  @override
+  String get choreLabel => 'Detyrë';
+
+  @override
+  String get choreTickLabel => 'Detyrë e kryer';
+
+  @override
+  String get choreEnded => 'Përfunduar';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'kujtesë $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'kryer më $date';
+  }
+
+  @override
+  String get withheldByPartner => 'mbajtur nga një partner';
+
+  @override
+  String get titleLabel => 'Titull';
+
+  @override
+  String get deletedLabel => 'Fshirë';
 }

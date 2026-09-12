@@ -1163,5 +1163,23 @@
   "posterQr": "QR-kode til cat(a)log",
   "posterPhoto": "Foto",
   "newCatIn": "Ny kat i…",
-  "newCatInNeutral": "Nyt kæledyr i…"
+  "newCatInNeutral": "Nyt kæledyr i…",
+  "choreLabel": "Opgave",
+  "choreTickLabel": "Opgave udført",
+  "choreEnded": "Afsluttet",
+  "choreRemindAt": "påmindelse {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "udført {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "tilbageholdt af en partner",
+  "titleLabel": "Titel",
+  "deletedLabel": "Slettet"
 }

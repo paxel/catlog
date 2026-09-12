@@ -3467,4 +3467,32 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Nouvel animal dans…';
+
+  @override
+  String get choreLabel => 'Tâche';
+
+  @override
+  String get choreTickLabel => 'Tâche faite';
+
+  @override
+  String get choreEnded => 'Terminée';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'rappel $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'fait le $date';
+  }
+
+  @override
+  String get withheldByPartner => 'retenu par un partenaire';
+
+  @override
+  String get titleLabel => 'Titre';
+
+  @override
+  String get deletedLabel => 'Supprimé';
 }

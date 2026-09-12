@@ -1163,5 +1163,23 @@
   "posterQr": "cat(a)log için QR kodu",
   "posterPhoto": "Fotoğraf",
   "newCatIn": "Şuraya yeni kedi…",
-  "newCatInNeutral": "Şuraya yeni evcil hayvan…"
+  "newCatInNeutral": "Şuraya yeni evcil hayvan…",
+  "choreLabel": "Görev",
+  "choreTickLabel": "Görev yapıldı",
+  "choreEnded": "Sona erdi",
+  "choreRemindAt": "hatırlatma {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "{date} tarihinde yapıldı",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "bir ortak tarafından saklandı",
+  "titleLabel": "Unvan",
+  "deletedLabel": "Silindi"
 }

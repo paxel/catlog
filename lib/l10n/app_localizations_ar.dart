@@ -3491,4 +3491,32 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'حيوان أليف جديد في…';
+
+  @override
+  String get choreLabel => 'مهمة';
+
+  @override
+  String get choreTickLabel => 'أُنجزت المهمة';
+
+  @override
+  String get choreEnded => 'انتهت';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'تذكير $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'أُنجزت في $date';
+  }
+
+  @override
+  String get withheldByPartner => 'حجبه شريك';
+
+  @override
+  String get titleLabel => 'اللقب';
+
+  @override
+  String get deletedLabel => 'محذوف';
 }

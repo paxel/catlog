@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
+import 'value_words.dart';
 import 'units.dart';
 import 'looks_labels.dart';
 import 'plus_code.dart';
@@ -167,6 +168,13 @@ String fieldLabel(AppLocalizations t, CatalogStore store, String key) {
         fieldLabel(t, store, key.substring(Keys.withheldPrefix.length)));
   }
   if (key.startsWith(Keys.appointmentPrefix)) return t.appointmentLabel;
+  if (key.startsWith(Keys.chorePrefix)) {
+    return key.substring(Keys.chorePrefix.length).contains('@')
+        ? t.choreTickLabel
+        : t.choreLabel;
+  }
+  if (key == Keys.personTitle) return t.titleLabel;
+  if (key == Keys.deleted) return t.deletedLabel;
   if (key == Keys.clowder) return t.clowderLabel;
   if (key == Keys.profileImage) return t.labelProfileImage;
   if (key.startsWith(Keys.imagePrefix)) return t.labelPhoto;
@@ -204,6 +212,10 @@ String valueLabel(
   }
   if (key.startsWith(Keys.imagePrefix)) return value;
   if (key == Keys.profileImage) return '·';
+  // Documents and codes speak in the app's words; an unknown document
+  // reads as key and value lines rather than one line of JSON.
+  if (storedValueWords(t, key, value) case final words?) return words;
+  if (documentWords(value) case final lines?) return lines;
   FieldDef? def;
   for (final d in store.fieldDefs()) {
     if (d.key == store.canonicalKey(key)) {

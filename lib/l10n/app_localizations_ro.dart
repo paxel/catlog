@@ -3472,4 +3472,32 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Animal nou în…';
+
+  @override
+  String get choreLabel => 'Sarcină';
+
+  @override
+  String get choreTickLabel => 'Sarcină făcută';
+
+  @override
+  String get choreEnded => 'Încheiată';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'memento $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'făcut pe $date';
+  }
+
+  @override
+  String get withheldByPartner => 'reținut de un partener';
+
+  @override
+  String get titleLabel => 'Titlu';
+
+  @override
+  String get deletedLabel => 'Șters';
 }

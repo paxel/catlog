@@ -3469,4 +3469,32 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Nové zvíře v…';
+
+  @override
+  String get choreLabel => 'Úkol';
+
+  @override
+  String get choreTickLabel => 'Úkol hotov';
+
+  @override
+  String get choreEnded => 'Ukončeno';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'připomínka $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'hotovo $date';
+  }
+
+  @override
+  String get withheldByPartner => 'zadrženo partnerem';
+
+  @override
+  String get titleLabel => 'Titul';
+
+  @override
+  String get deletedLabel => 'Smazáno';
 }

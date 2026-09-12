@@ -1163,5 +1163,23 @@
   "posterQr": "QR-code voor cat(a)log",
   "posterPhoto": "Foto",
   "newCatIn": "Nieuwe kat in…",
-  "newCatInNeutral": "Nieuw huisdier in…"
+  "newCatInNeutral": "Nieuw huisdier in…",
+  "choreLabel": "Taak",
+  "choreTickLabel": "Taak gedaan",
+  "choreEnded": "Beëindigd",
+  "choreRemindAt": "herinnering {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "gedaan op {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "achtergehouden door een partner",
+  "titleLabel": "Titel",
+  "deletedLabel": "Verwijderd"
 }

@@ -1163,5 +1163,23 @@
   "posterQr": "QR-kod för cat(a)log",
   "posterPhoto": "Foto",
   "newCatIn": "Ny katt i…",
-  "newCatInNeutral": "Nytt husdjur i…"
+  "newCatInNeutral": "Nytt husdjur i…",
+  "choreLabel": "Syssla",
+  "choreTickLabel": "Syssla gjord",
+  "choreEnded": "Avslutad",
+  "choreRemindAt": "påminnelse {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "gjord {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "undanhållet av en partner",
+  "titleLabel": "Titel",
+  "deletedLabel": "Raderad"
 }

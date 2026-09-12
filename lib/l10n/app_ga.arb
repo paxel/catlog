@@ -1163,5 +1163,23 @@
   "posterQr": "Cód QR do cat(a)log",
   "posterPhoto": "Grianghraf",
   "newCatIn": "Cat nua i…",
-  "newCatInNeutral": "Peata nua i…"
+  "newCatInNeutral": "Peata nua i…",
+  "choreLabel": "Cúram",
+  "choreTickLabel": "Cúram déanta",
+  "choreEnded": "Críochnaithe",
+  "choreRemindAt": "meabhrúchán {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "déanta ar {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "coinnithe siar ag páirtí",
+  "titleLabel": "Teideal",
+  "deletedLabel": "Scriosta"
 }

@@ -3395,4 +3395,32 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'حیوان خانگی جدید در…';
+
+  @override
+  String get choreLabel => 'کار';
+
+  @override
+  String get choreTickLabel => 'کار انجام شد';
+
+  @override
+  String get choreEnded => 'پایان یافته';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'یادآوری $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'انجام شد در $date';
+  }
+
+  @override
+  String get withheldByPartner => 'توسط یک شریک نگه داشته شده';
+
+  @override
+  String get titleLabel => 'عنوان';
+
+  @override
+  String get deletedLabel => 'حذف‌شده';
 }

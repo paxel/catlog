@@ -3511,4 +3511,32 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Peata nua i…';
+
+  @override
+  String get choreLabel => 'Cúram';
+
+  @override
+  String get choreTickLabel => 'Cúram déanta';
+
+  @override
+  String get choreEnded => 'Críochnaithe';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'meabhrúchán $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'déanta ar $date';
+  }
+
+  @override
+  String get withheldByPartner => 'coinnithe siar ag páirtí';
+
+  @override
+  String get titleLabel => 'Teideal';
+
+  @override
+  String get deletedLabel => 'Scriosta';
 }

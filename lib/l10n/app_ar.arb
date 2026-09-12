@@ -1163,5 +1163,23 @@
   "posterQr": "رمز QR لـ cat(a)log",
   "posterPhoto": "صورة",
   "newCatIn": "قطة جديدة في…",
-  "newCatInNeutral": "حيوان أليف جديد في…"
+  "newCatInNeutral": "حيوان أليف جديد في…",
+  "choreLabel": "مهمة",
+  "choreTickLabel": "أُنجزت المهمة",
+  "choreEnded": "انتهت",
+  "choreRemindAt": "تذكير {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "أُنجزت في {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "حجبه شريك",
+  "titleLabel": "اللقب",
+  "deletedLabel": "محذوف"
 }

@@ -1163,5 +1163,23 @@
   "posterQr": "Kodiċi QR għal cat(a)log",
   "posterPhoto": "Ritratt",
   "newCatIn": "Qattus ġdid fi…",
-  "newCatInNeutral": "Pet ġdid fi…"
+  "newCatInNeutral": "Pet ġdid fi…",
+  "choreLabel": "Xogħol",
+  "choreTickLabel": "Xogħol magħmul",
+  "choreEnded": "Intemm",
+  "choreRemindAt": "tfakkira {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "magħmul fi {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "miżmum minn sieħeb",
+  "titleLabel": "Titlu",
+  "deletedLabel": "Imħassar"
 }

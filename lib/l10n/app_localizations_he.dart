@@ -3453,4 +3453,32 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'חיית מחמד חדשה ב…';
+
+  @override
+  String get choreLabel => 'מטלה';
+
+  @override
+  String get choreTickLabel => 'מטלה בוצעה';
+
+  @override
+  String get choreEnded => 'הסתיים';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'תזכורת $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'בוצע ב-$date';
+  }
+
+  @override
+  String get withheldByPartner => 'נשמר על ידי שותף';
+
+  @override
+  String get titleLabel => 'תואר';
+
+  @override
+  String get deletedLabel => 'נמחק';
 }

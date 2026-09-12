@@ -1163,5 +1163,23 @@
   "posterQr": "QR kods cat(a)log",
   "posterPhoto": "Foto",
   "newCatIn": "Jauns kaķis uz…",
-  "newCatInNeutral": "Jauns mājdzīvnieks uz…"
+  "newCatInNeutral": "Jauns mājdzīvnieks uz…",
+  "choreLabel": "Uzdevums",
+  "choreTickLabel": "Uzdevums izpildīts",
+  "choreEnded": "Beigts",
+  "choreRemindAt": "atgādinājums {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "izpildīts {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "partnera aizturēts",
+  "titleLabel": "Tituls",
+  "deletedLabel": "Dzēsts"
 }

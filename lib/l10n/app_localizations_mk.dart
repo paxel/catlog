@@ -3459,4 +3459,32 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Ново милениче во…';
+
+  @override
+  String get choreLabel => 'Задача';
+
+  @override
+  String get choreTickLabel => 'Задача завршена';
+
+  @override
+  String get choreEnded => 'Завршена';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'потсетник $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'завршено на $date';
+  }
+
+  @override
+  String get withheldByPartner => 'задржано од партнер';
+
+  @override
+  String get titleLabel => 'Титула';
+
+  @override
+  String get deletedLabel => 'Избришано';
 }

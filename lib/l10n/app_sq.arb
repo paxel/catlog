@@ -1163,5 +1163,23 @@
   "posterQr": "Kod QR për cat(a)log",
   "posterPhoto": "Foto",
   "newCatIn": "Mace e re në…",
-  "newCatInNeutral": "Kafshë e re në…"
+  "newCatInNeutral": "Kafshë e re në…",
+  "choreLabel": "Detyrë",
+  "choreTickLabel": "Detyrë e kryer",
+  "choreEnded": "Përfunduar",
+  "choreRemindAt": "kujtesë {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "kryer më {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "mbajtur nga një partner",
+  "titleLabel": "Titull",
+  "deletedLabel": "Fshirë"
 }

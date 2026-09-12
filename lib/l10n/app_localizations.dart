@@ -6013,6 +6013,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'New pet in…'**
   String get newCatInNeutral;
+
+  /// No description provided for @choreLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Chore'**
+  String get choreLabel;
+
+  /// No description provided for @choreTickLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Chore done'**
+  String get choreTickLabel;
+
+  /// No description provided for @choreEnded.
+  ///
+  /// In en, this message translates to:
+  /// **'Ended'**
+  String get choreEnded;
+
+  /// No description provided for @choreRemindAt.
+  ///
+  /// In en, this message translates to:
+  /// **'reminder {time}'**
+  String choreRemindAt(Object time);
+
+  /// No description provided for @doneOn.
+  ///
+  /// In en, this message translates to:
+  /// **'done on {date}'**
+  String doneOn(Object date);
+
+  /// No description provided for @withheldByPartner.
+  ///
+  /// In en, this message translates to:
+  /// **'kept back by a partner'**
+  String get withheldByPartner;
+
+  /// No description provided for @titleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get titleLabel;
+
+  /// No description provided for @deletedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted'**
+  String get deletedLabel;
 }
 
 class _AppLocalizationsDelegate

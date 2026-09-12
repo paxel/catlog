@@ -1163,5 +1163,23 @@
   "posterQr": "QR-kóði fyrir cat(a)log",
   "posterPhoto": "Mynd",
   "newCatIn": "Nýr köttur í…",
-  "newCatInNeutral": "Nýtt gæludýr í…"
+  "newCatInNeutral": "Nýtt gæludýr í…",
+  "choreLabel": "Verk",
+  "choreTickLabel": "Verk lokið",
+  "choreEnded": "Lokið",
+  "choreRemindAt": "áminning {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "lokið {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "haldið eftir af samstarfsaðila",
+  "titleLabel": "Titill",
+  "deletedLabel": "Eytt"
 }

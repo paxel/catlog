@@ -3287,4 +3287,32 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get newCatInNeutral => '新宠物加入…';
+
+  @override
+  String get choreLabel => '事务';
+
+  @override
+  String get choreTickLabel => '事务已完成';
+
+  @override
+  String get choreEnded => '已结束';
+
+  @override
+  String choreRemindAt(Object time) {
+    return '提醒 $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return '于 $date 完成';
+  }
+
+  @override
+  String get withheldByPartner => '由伙伴保留';
+
+  @override
+  String get titleLabel => '头衔';
+
+  @override
+  String get deletedLabel => '已删除';
 }

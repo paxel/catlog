@@ -3471,4 +3471,32 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Pet ġdid fi…';
+
+  @override
+  String get choreLabel => 'Xogħol';
+
+  @override
+  String get choreTickLabel => 'Xogħol magħmul';
+
+  @override
+  String get choreEnded => 'Intemm';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'tfakkira $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'magħmul fi $date';
+  }
+
+  @override
+  String get withheldByPartner => 'miżmum minn sieħeb';
+
+  @override
+  String get titleLabel => 'Titlu';
+
+  @override
+  String get deletedLabel => 'Imħassar';
 }

@@ -3454,4 +3454,32 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Uus lemmik kohta…';
+
+  @override
+  String get choreLabel => 'Toimetus';
+
+  @override
+  String get choreTickLabel => 'Toimetus tehtud';
+
+  @override
+  String get choreEnded => 'Lõpetatud';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'meeldetuletus $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'tehtud $date';
+  }
+
+  @override
+  String get withheldByPartner => 'partneri poolt kinni hoitud';
+
+  @override
+  String get titleLabel => 'Tiitel';
+
+  @override
+  String get deletedLabel => 'Kustutatud';
 }

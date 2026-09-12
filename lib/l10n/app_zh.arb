@@ -1163,5 +1163,23 @@
   "posterQr": "cat(a)log 二维码",
   "posterPhoto": "照片",
   "newCatIn": "新猫加入…",
-  "newCatInNeutral": "新宠物加入…"
+  "newCatInNeutral": "新宠物加入…",
+  "choreLabel": "事务",
+  "choreTickLabel": "事务已完成",
+  "choreEnded": "已结束",
+  "choreRemindAt": "提醒 {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "于 {date} 完成",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "由伙伴保留",
+  "titleLabel": "头衔",
+  "deletedLabel": "已删除"
 }

@@ -3468,4 +3468,32 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Νέο κατοικίδιο σε…';
+
+  @override
+  String get choreLabel => 'Εργασία';
+
+  @override
+  String get choreTickLabel => 'Εργασία έγινε';
+
+  @override
+  String get choreEnded => 'Ολοκληρώθηκε';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'υπενθύμιση $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'έγινε στις $date';
+  }
+
+  @override
+  String get withheldByPartner => 'παρακρατήθηκε από συνεργάτη';
+
+  @override
+  String get titleLabel => 'Τίτλος';
+
+  @override
+  String get deletedLabel => 'Διαγράφηκε';
 }

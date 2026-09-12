@@ -3477,4 +3477,32 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Новый питомец в…';
+
+  @override
+  String get choreLabel => 'Задача';
+
+  @override
+  String get choreTickLabel => 'Задача выполнена';
+
+  @override
+  String get choreEnded => 'Завершена';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'напоминание $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'выполнено $date';
+  }
+
+  @override
+  String get withheldByPartner => 'скрыто партнёром';
+
+  @override
+  String get titleLabel => 'Титул';
+
+  @override
+  String get deletedLabel => 'Удалено';
 }

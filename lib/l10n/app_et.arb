@@ -1163,5 +1163,23 @@
   "posterQr": "QR-kood cat(a)logi jaoks",
   "posterPhoto": "Foto",
   "newCatIn": "Uus kass kohta…",
-  "newCatInNeutral": "Uus lemmik kohta…"
+  "newCatInNeutral": "Uus lemmik kohta…",
+  "choreLabel": "Toimetus",
+  "choreTickLabel": "Toimetus tehtud",
+  "choreEnded": "Lõpetatud",
+  "choreRemindAt": "meeldetuletus {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "tehtud {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "partneri poolt kinni hoitud",
+  "titleLabel": "Tiitel",
+  "deletedLabel": "Kustutatud"
 }

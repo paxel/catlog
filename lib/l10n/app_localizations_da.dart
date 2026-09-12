@@ -3456,4 +3456,32 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Nyt kæledyr i…';
+
+  @override
+  String get choreLabel => 'Opgave';
+
+  @override
+  String get choreTickLabel => 'Opgave udført';
+
+  @override
+  String get choreEnded => 'Afsluttet';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'påmindelse $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'udført $date';
+  }
+
+  @override
+  String get withheldByPartner => 'tilbageholdt af en partner';
+
+  @override
+  String get titleLabel => 'Titel';
+
+  @override
+  String get deletedLabel => 'Slettet';
 }

@@ -1163,5 +1163,23 @@
   "posterQr": "QR-kód a cat(a)loghoz",
   "posterPhoto": "Fotó",
   "newCatIn": "Új macska ide…",
-  "newCatInNeutral": "Új kedvenc ide…"
+  "newCatInNeutral": "Új kedvenc ide…",
+  "choreLabel": "Teendő",
+  "choreTickLabel": "Teendő kész",
+  "choreEnded": "Befejezve",
+  "choreRemindAt": "emlékeztető {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "elvégezve: {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "egy partner visszatartotta",
+  "titleLabel": "Cím",
+  "deletedLabel": "Törölve"
 }

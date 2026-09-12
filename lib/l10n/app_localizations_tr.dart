@@ -3455,4 +3455,32 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Şuraya yeni evcil hayvan…';
+
+  @override
+  String get choreLabel => 'Görev';
+
+  @override
+  String get choreTickLabel => 'Görev yapıldı';
+
+  @override
+  String get choreEnded => 'Sona erdi';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'hatırlatma $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return '$date tarihinde yapıldı';
+  }
+
+  @override
+  String get withheldByPartner => 'bir ortak tarafından saklandı';
+
+  @override
+  String get titleLabel => 'Unvan';
+
+  @override
+  String get deletedLabel => 'Silindi';
 }

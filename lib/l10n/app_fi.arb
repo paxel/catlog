@@ -1163,5 +1163,23 @@
   "posterQr": "QR-koodi cat(a)logille",
   "posterPhoto": "Kuva",
   "newCatIn": "Uusi kissa kohteeseen…",
-  "newCatInNeutral": "Uusi lemmikki kohteeseen…"
+  "newCatInNeutral": "Uusi lemmikki kohteeseen…",
+  "choreLabel": "Askare",
+  "choreTickLabel": "Askare tehty",
+  "choreEnded": "Päättynyt",
+  "choreRemindAt": "muistutus {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "tehty {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "kumppanin pidättämä",
+  "titleLabel": "Arvonimi",
+  "deletedLabel": "Poistettu"
 }

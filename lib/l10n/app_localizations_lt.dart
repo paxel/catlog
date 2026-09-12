@@ -3477,4 +3477,32 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Naujas augintinis į…';
+
+  @override
+  String get choreLabel => 'Užduotis';
+
+  @override
+  String get choreTickLabel => 'Užduotis atlikta';
+
+  @override
+  String get choreEnded => 'Baigta';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'priminimas $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'atlikta $date';
+  }
+
+  @override
+  String get withheldByPartner => 'partnerio nuslėpta';
+
+  @override
+  String get titleLabel => 'Titulas';
+
+  @override
+  String get deletedLabel => 'Ištrinta';
 }

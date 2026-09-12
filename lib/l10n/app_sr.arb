@@ -1163,5 +1163,23 @@
   "posterQr": "QR код за cat(a)log",
   "posterPhoto": "Фотографија",
   "newCatIn": "Нова мачка у…",
-  "newCatInNeutral": "Нови љубимац у…"
+  "newCatInNeutral": "Нови љубимац у…",
+  "choreLabel": "Задатак",
+  "choreTickLabel": "Задатак урађен",
+  "choreEnded": "Завршено",
+  "choreRemindAt": "подсетник {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "урађено {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "задржано од партнера",
+  "titleLabel": "Титула",
+  "deletedLabel": "Обрисано"
 }

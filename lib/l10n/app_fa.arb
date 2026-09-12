@@ -1163,5 +1163,23 @@
   "posterQr": "کد QR برای cat(a)log",
   "posterPhoto": "عکس",
   "newCatIn": "گربهٔ جدید در…",
-  "newCatInNeutral": "حیوان خانگی جدید در…"
+  "newCatInNeutral": "حیوان خانگی جدید در…",
+  "choreLabel": "کار",
+  "choreTickLabel": "کار انجام شد",
+  "choreEnded": "پایان یافته",
+  "choreRemindAt": "یادآوری {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "انجام شد در {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "توسط یک شریک نگه داشته شده",
+  "titleLabel": "عنوان",
+  "deletedLabel": "حذف‌شده"
 }

@@ -1163,5 +1163,23 @@
   "posterQr": "קוד QR ל-cat(a)log",
   "posterPhoto": "תמונה",
   "newCatIn": "חתול חדש ב…",
-  "newCatInNeutral": "חיית מחמד חדשה ב…"
+  "newCatInNeutral": "חיית מחמד חדשה ב…",
+  "choreLabel": "מטלה",
+  "choreTickLabel": "מטלה בוצעה",
+  "choreEnded": "הסתיים",
+  "choreRemindAt": "תזכורת {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "בוצע ב-{date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "נשמר על ידי שותף",
+  "titleLabel": "תואר",
+  "deletedLabel": "נמחק"
 }

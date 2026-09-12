@@ -1163,5 +1163,23 @@
   "posterQr": "QR kód pre cat(a)log",
   "posterPhoto": "Fotka",
   "newCatIn": "Nová mačka v…",
-  "newCatInNeutral": "Nové zviera v…"
+  "newCatInNeutral": "Nové zviera v…",
+  "choreLabel": "Úloha",
+  "choreTickLabel": "Úloha hotová",
+  "choreEnded": "Ukončené",
+  "choreRemindAt": "pripomienka {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "hotové {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "zadržané partnerom",
+  "titleLabel": "Titul",
+  "deletedLabel": "Vymazané"
 }

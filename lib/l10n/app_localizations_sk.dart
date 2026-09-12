@@ -3468,4 +3468,32 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Nové zviera v…';
+
+  @override
+  String get choreLabel => 'Úloha';
+
+  @override
+  String get choreTickLabel => 'Úloha hotová';
+
+  @override
+  String get choreEnded => 'Ukončené';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'pripomienka $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'hotové $date';
+  }
+
+  @override
+  String get withheldByPartner => 'zadržané partnerom';
+
+  @override
+  String get titleLabel => 'Titul';
+
+  @override
+  String get deletedLabel => 'Vymazané';
 }

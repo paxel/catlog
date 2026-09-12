@@ -1169,5 +1169,23 @@
   "posterQr": "QR-Code für cat(a)log",
   "posterPhoto": "Foto",
   "newCatIn": "Neue Katze in…",
-  "newCatInNeutral": "Neues Tier in…"
+  "newCatInNeutral": "Neues Tier in…",
+  "choreLabel": "Aufgabe",
+  "choreTickLabel": "Aufgabe erledigt",
+  "choreEnded": "Beendet",
+  "choreRemindAt": "Erinnerung {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "erledigt am {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "von einem Partner zurückgehalten",
+  "titleLabel": "Titel",
+  "deletedLabel": "Gelöscht"
 }

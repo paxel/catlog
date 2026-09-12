@@ -3472,4 +3472,32 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Jauns mājdzīvnieks uz…';
+
+  @override
+  String get choreLabel => 'Uzdevums';
+
+  @override
+  String get choreTickLabel => 'Uzdevums izpildīts';
+
+  @override
+  String get choreEnded => 'Beigts';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'atgādinājums $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'izpildīts $date';
+  }
+
+  @override
+  String get withheldByPartner => 'partnera aizturēts';
+
+  @override
+  String get titleLabel => 'Tituls';
+
+  @override
+  String get deletedLabel => 'Dzēsts';
 }

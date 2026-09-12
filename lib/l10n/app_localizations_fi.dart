@@ -3458,4 +3458,32 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Uusi lemmikki kohteeseen…';
+
+  @override
+  String get choreLabel => 'Askare';
+
+  @override
+  String get choreTickLabel => 'Askare tehty';
+
+  @override
+  String get choreEnded => 'Päättynyt';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'muistutus $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'tehty $date';
+  }
+
+  @override
+  String get withheldByPartner => 'kumppanin pidättämä';
+
+  @override
+  String get titleLabel => 'Arvonimi';
+
+  @override
+  String get deletedLabel => 'Poistettu';
 }

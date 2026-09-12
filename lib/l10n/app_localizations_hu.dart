@@ -3457,4 +3457,32 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Új kedvenc ide…';
+
+  @override
+  String get choreLabel => 'Teendő';
+
+  @override
+  String get choreTickLabel => 'Teendő kész';
+
+  @override
+  String get choreEnded => 'Befejezve';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'emlékeztető $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'elvégezve: $date';
+  }
+
+  @override
+  String get withheldByPartner => 'egy partner visszatartotta';
+
+  @override
+  String get titleLabel => 'Cím';
+
+  @override
+  String get deletedLabel => 'Törölve';
 }

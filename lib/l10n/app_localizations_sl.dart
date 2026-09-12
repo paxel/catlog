@@ -3485,4 +3485,32 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Nov ljubljenček v…';
+
+  @override
+  String get choreLabel => 'Opravilo';
+
+  @override
+  String get choreTickLabel => 'Opravilo opravljeno';
+
+  @override
+  String get choreEnded => 'Končano';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'opomnik $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'opravljeno $date';
+  }
+
+  @override
+  String get withheldByPartner => 'zadržano s strani partnerja';
+
+  @override
+  String get titleLabel => 'Naziv';
+
+  @override
+  String get deletedLabel => 'Izbrisano';
 }

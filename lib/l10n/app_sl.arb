@@ -1163,5 +1163,23 @@
   "posterQr": "Koda QR za cat(a)log",
   "posterPhoto": "Fotografija",
   "newCatIn": "Nova mačka v…",
-  "newCatInNeutral": "Nov ljubljenček v…"
+  "newCatInNeutral": "Nov ljubljenček v…",
+  "choreLabel": "Opravilo",
+  "choreTickLabel": "Opravilo opravljeno",
+  "choreEnded": "Končano",
+  "choreRemindAt": "opomnik {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "opravljeno {date}",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "zadržano s strani partnerja",
+  "titleLabel": "Naziv",
+  "deletedLabel": "Izbrisano"
 }

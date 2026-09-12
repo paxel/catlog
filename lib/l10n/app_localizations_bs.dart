@@ -3470,4 +3470,32 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Novi ljubimac u…';
+
+  @override
+  String get choreLabel => 'Zadatak';
+
+  @override
+  String get choreTickLabel => 'Zadatak obavljen';
+
+  @override
+  String get choreEnded => 'Završeno';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'podsjetnik $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'obavljeno $date';
+  }
+
+  @override
+  String get withheldByPartner => 'zadržano od partnera';
+
+  @override
+  String get titleLabel => 'Titula';
+
+  @override
+  String get deletedLabel => 'Izbrisano';
 }

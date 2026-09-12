@@ -1163,5 +1163,23 @@
   "posterQr": "cat(a)log 用 QR コード",
   "posterPhoto": "写真",
   "newCatIn": "新しい猫を追加…",
-  "newCatInNeutral": "新しいペットを追加…"
+  "newCatInNeutral": "新しいペットを追加…",
+  "choreLabel": "お世話",
+  "choreTickLabel": "お世話済み",
+  "choreEnded": "終了",
+  "choreRemindAt": "リマインダー {time}",
+  "@choreRemindAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "doneOn": "{date} に完了",
+  "@doneOn": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "withheldByPartner": "パートナーが非公開",
+  "titleLabel": "称号",
+  "deletedLabel": "削除済み"
 }

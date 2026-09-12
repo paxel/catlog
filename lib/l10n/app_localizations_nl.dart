@@ -3462,4 +3462,32 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get newCatInNeutral => 'Nieuw huisdier in…';
+
+  @override
+  String get choreLabel => 'Taak';
+
+  @override
+  String get choreTickLabel => 'Taak gedaan';
+
+  @override
+  String get choreEnded => 'Beëindigd';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'herinnering $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'gedaan op $date';
+  }
+
+  @override
+  String get withheldByPartner => 'achtergehouden door een partner';
+
+  @override
+  String get titleLabel => 'Titel';
+
+  @override
+  String get deletedLabel => 'Verwijderd';
 }
