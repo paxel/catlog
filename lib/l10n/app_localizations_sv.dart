@@ -3502,4 +3502,44 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get skipTour =>
       'Hoppa över introt och tipsen på den här installationen';
+
+  @override
+  String get spotCatChores =>
+      'Återkommande skötsel bor här: matning, medicin, kontroller, var och en med sin påminnelse.';
+
+  @override
+  String get spotLooks =>
+      'Bocka för det du ser. Träffar mot andra kataloger kommer härifrån.';
+
+  @override
+  String get spotHistoryHold =>
+      'Håll ett värde för att rätta eller ta bort det. Inget går förlorat; dolda värden visas på begäran.';
+
+  @override
+  String get spotBackups =>
+      'Var dina kataloger förvaras säkert: vad telefonen säkerhetskopierar, och en kopia i en mapp du väljer.';
+
+  @override
+  String get spotCardPoster =>
+      'En saknad-affisch från den här kattens kort: foto, namn, telefon med stora bokstäver och en kod andra skannar.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'En saknad-affisch från det här husdjurets kort: foto, namn, telefon med stora bokstäver och en kod andra skannar.';
+
+  @override
+  String get spotTimelineReport =>
+      'En rapport till veterinären: valda poster som tidslinje, en patientöversikt och en kurva för varje tal.';
+
+  @override
+  String get helpHistory =>
+      'Ett fälts värden över tid, nyaste först. Tryck på ett värde för att rätta det: det nya tar dess plats, det gamla döljs. Håll ett värde för att ta bort det eller ta tillbaka ett dolt; ögat visar dolda värden. Kopiera listan som text eller dela den som PDF.';
+
+  @override
+  String get helpSettings =>
+      'Appens egna val: språk, enheter, firanden och jubel, pälsen bakom sidorna, aviseringar och var dina kataloger säkerhetskopieras. Rundturerna kan spelas upp igen härifrån.';
+
+  @override
+  String get helpLooks =>
+      'Hur katten ser ut, som chips: storlek, färger, mönster, päls, svans, öron, tecken och bestående drag. Bocka för det du ser; en hemlös som stämmer med en saknad katt på två drag blir kandidat.';
 }

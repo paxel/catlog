@@ -1187,5 +1187,15 @@
   "coverPick": "Imagem de capa…",
   "coverHint": "Uma imagem do lugar: a casa, o quintal, o ponto de alimentação. Mostrada no cartão em vez de um gato.",
   "coverRemove": "Remover imagem de capa",
-  "skipTour": "Saltar a introdução e as dicas nesta instalação"
+  "skipTour": "Saltar a introdução e as dicas nesta instalação",
+  "spotCatChores": "Os cuidados recorrentes vivem aqui: comida, medicamentos, controlos, cada um com o seu lembrete.",
+  "spotLooks": "Marca o que vês. As correspondências com outros catálogos vêm daqui.",
+  "spotHistoryHold": "Mantém premido um valor para o corrigir ou remover. Nada se perde; os valores ocultos mostram-se a pedido.",
+  "spotBackups": "Onde os teus catálogos ficam a salvo: o que o telemóvel guarda, e uma cópia numa pasta à tua escolha.",
+  "spotCardPoster": "Um cartaz de desaparecido a partir da ficha deste gato: foto, nome, telefone em letras grandes e um código que outros leem.",
+  "spotCardPosterNeutral": "Um cartaz de desaparecido a partir da ficha deste animal: foto, nome, telefone em letras grandes e um código que outros leem.",
+  "spotTimelineReport": "Um relatório para o veterinário: entradas escolhidas como cronologia, um resumo do paciente e uma curva para cada número.",
+  "helpHistory": "Os valores de um campo ao longo do tempo, os mais recentes primeiro. Toca num valor para o corrigir: o novo toma o seu lugar, o antigo esconde-se. Mantém premido um valor para o remover ou recuperar um escondido; o olho mostra os valores escondidos. Copia a lista como texto ou partilha-a como PDF.",
+  "helpSettings": "As escolhas da app: idioma, unidades, festejos e vivas, a pelagem atrás das páginas, notificações e onde os teus catálogos são guardados. As visitas podem ser repetidas daqui.",
+  "helpLooks": "Como é o gato, em chips: tamanho, cores, padrão, pelo, cauda, orelhas, marcas e traços permanentes. Marca o que vês; um vadio que coincide com um gato desaparecido em dois traços torna-se candidato."
 }

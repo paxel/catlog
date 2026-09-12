@@ -1132,10 +1132,16 @@ class ModeLocalizations implements AppLocalizations {
   String get helpGoBack => base.helpGoBack;
 
   @override
+  String get helpHistory => base.helpHistory;
+
+  @override
   String get helpHome => pets ? base.helpHomeNeutral : base.helpHome;
 
   @override
   String get helpHomeNeutral => base.helpHomeNeutral;
+
+  @override
+  String get helpLooks => base.helpLooks;
 
   @override
   String get helpMap => pets ? base.helpMapNeutral : base.helpMap;
@@ -1148,6 +1154,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get helpMatchesNeutral => base.helpMatchesNeutral;
+
+  @override
+  String get helpSettings => base.helpSettings;
 
   @override
   String get helpStrays => pets ? base.helpStraysNeutral : base.helpStrays;
@@ -2374,7 +2383,19 @@ class ModeLocalizations implements AppLocalizations {
   String get spotAgendaToday => base.spotAgendaToday;
 
   @override
+  String get spotBackups => base.spotBackups;
+
+  @override
   String get spotCardChips => base.spotCardChips;
+
+  @override
+  String get spotCardPoster => pets ? base.spotCardPosterNeutral : base.spotCardPoster;
+
+  @override
+  String get spotCardPosterNeutral => base.spotCardPosterNeutral;
+
+  @override
+  String get spotCatChores => base.spotCatChores;
 
   @override
   String get spotCatEdit => pets ? base.spotCatEditNeutral : base.spotCatEdit;
@@ -2395,6 +2416,9 @@ class ModeLocalizations implements AppLocalizations {
   String get spotEar => base.spotEar;
 
   @override
+  String get spotHistoryHold => base.spotHistoryHold;
+
+  @override
   String get spotHomeAgenda => base.spotHomeAgenda;
 
   @override
@@ -2411,6 +2435,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get spotHomeSync => base.spotHomeSync;
+
+  @override
+  String get spotLooks => base.spotLooks;
 
   @override
   String get spotMapLayers => pets ? base.spotMapLayersNeutral : base.spotMapLayers;
@@ -2444,6 +2471,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get spotStraysScanNeutral => base.spotStraysScanNeutral;
+
+  @override
+  String get spotTimelineReport => base.spotTimelineReport;
 
   @override
   String get start => base.start;

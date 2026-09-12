@@ -3525,4 +3525,44 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get skipTour => 'Pomiń wprowadzenie i wskazówki w tej instalacji';
+
+  @override
+  String get spotCatChores =>
+      'Powtarzalna opieka mieszka tutaj: karmienie, leki, kontrole, każda z własnym przypomnieniem.';
+
+  @override
+  String get spotLooks =>
+      'Zaznacz, co widzisz. Dopasowania z innymi katalogami biorą się stąd.';
+
+  @override
+  String get spotHistoryHold =>
+      'Przytrzymaj wartość, aby ją poprawić lub usunąć. Nic nie ginie; ukryte wartości pokażesz na żądanie.';
+
+  @override
+  String get spotBackups =>
+      'Gdzie twoje katalogi są bezpieczne: co zapisuje telefon, i kopia w wybranym folderze.';
+
+  @override
+  String get spotCardPoster =>
+      'Plakat zaginięcia z karty tego kota: zdjęcie, imię, telefon dużymi literami i kod, który zeskanują inni.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Plakat zaginięcia z karty tego zwierzęcia: zdjęcie, imię, telefon dużymi literami i kod, który zeskanują inni.';
+
+  @override
+  String get spotTimelineReport =>
+      'Raport dla weterynarza: wybrane wpisy jako oś czasu, podsumowanie pacjenta i wykres dla każdej liczby.';
+
+  @override
+  String get helpHistory =>
+      'Wartości jednego pola w czasie, najnowsze na górze. Dotknij wartości, aby ją poprawić: nowa zajmuje jej miejsce, stara się ukrywa. Przytrzymaj wartość, aby ją usunąć lub przywrócić ukrytą; oko pokazuje ukryte wartości. Skopiuj listę jako tekst lub udostępnij jako PDF.';
+
+  @override
+  String get helpSettings =>
+      'Ustawienia aplikacji: język, jednostki, świętowanie i okrzyki, futro w tle stron, powiadomienia i miejsce zapisu kopii katalogów. Stąd można powtórzyć samouczki.';
+
+  @override
+  String get helpLooks =>
+      'Jak wygląda kot, w postaci chipów: rozmiar, kolory, wzór, sierść, ogon, uszy, znaki i trwałe cechy. Zaznacz, co widzisz; bezdomny zgodny z zaginionym kotem w dwóch cechach staje się kandydatem.';
 }

@@ -4,8 +4,10 @@ import 'package:intl/intl.dart';
 
 import '../field_editing.dart';
 import '../field_labels.dart';
+import '../help.dart';
 import '../history_share.dart';
 import '../l10n.dart';
+import '../spotlight.dart';
 import '../pdf_fonts.dart';
 
 /// The values a field has held, newest first: facts only. Cleared
@@ -117,6 +119,14 @@ class FieldHistoryScreen extends StatefulWidget {
 }
 
 class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => runSpotlights(context, store, 'history'),
+    );
+  }
+
   CatalogStore get store => widget.store;
 
   bool get _oldestFirst => store.localSetting(historyOldestFirstKey) == 'yes';
@@ -159,7 +169,9 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
     final name = store.current(widget.entityId, Keys.name) ?? t.unnamed;
-    final fonts = await pdfFontsFor(Localizations.localeOf(context).languageCode);
+    final fonts = await pdfFontsFor(
+      Localizations.localeOf(context).languageCode,
+    );
     final doc = historyPdf(
       title: name,
       subtitle: fieldDefName(t, widget.def),
@@ -265,6 +277,7 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
             tooltip: _showVoided ? t.hideRemovedValues : t.showRemovedValues,
             onPressed: _flipVoided,
           ),
+          HelpButton(store: store, screenId: 'history'),
           IconButton(
             icon: const Icon(Icons.copy_outlined),
             tooltip: t.copyText,
@@ -280,51 +293,63 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
-          for (final e in _entries)
-            Card(
-              child: InkWell(
-                onTap: e.voided ? null : () => _correct(e),
-                onLongPress: () => _menu(e),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        valueLabel(t, store, widget.def.key, e.value),
-                        style: e.voided
-                            ? theme.textTheme.bodyLarge?.copyWith(
-                                color: muted,
-                                decoration: TextDecoration.lineThrough,
-                              )
-                            : theme.textTheme.bodyLarge,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        '${historyMoment(locale, e.date)} · ${e.author}',
-                        style: theme.textTheme.bodySmall,
-                      ),
-                      if (e.voided)
-                        Text(
-                          voidedLine(t, store, widget.def.key, e, locale),
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: muted,
-                          ),
-                        )
-                      else if (store.correctedBy(e) != null)
-                        Text(
-                          t.entryCorrection,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.primary,
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+          for (final (i, e) in _entries.indexed)
+            if (i == 0)
+              Spotlight(
+                id: 'history-hold',
+                child: _card(e, t, locale, theme, muted),
+              )
+            else
+              _card(e, t, locale, theme, muted),
         ],
       ),
     );
   }
+
+  Widget _card(
+    Entry e,
+    AppLocalizations t,
+    String locale,
+    ThemeData theme,
+    Color muted,
+  ) => Card(
+    child: InkWell(
+      onTap: e.voided ? null : () => _correct(e),
+      onLongPress: () => _menu(e),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              valueLabel(t, store, widget.def.key, e.value),
+              style: e.voided
+                  ? theme.textTheme.bodyLarge?.copyWith(
+                      color: muted,
+                      decoration: TextDecoration.lineThrough,
+                    )
+                  : theme.textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              '${historyMoment(locale, e.date)} · ${e.author}',
+              style: theme.textTheme.bodySmall,
+            ),
+            if (e.voided)
+              Text(
+                voidedLine(t, store, widget.def.key, e, locale),
+                style: theme.textTheme.bodySmall?.copyWith(color: muted),
+              )
+            else if (store.correctedBy(e) != null)
+              Text(
+                t.entryCorrection,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+          ],
+        ),
+      ),
+    ),
+  );
 }

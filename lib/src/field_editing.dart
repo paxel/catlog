@@ -254,6 +254,7 @@ class _FieldValueInputState extends State<FieldValueInput> {
               : widget.store?.current(widget.excludeId!, 'f:species'),
           value: c.text.text.isEmpty ? null : c.text.text,
           onChanged: (v) => setState(() => c.text.text = v ?? ''),
+          store: widget.store,
         );
       case FieldType.text:
         // Remarks holds whole notes (OCR dumps included) — multiline.

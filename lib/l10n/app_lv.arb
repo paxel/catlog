@@ -1187,5 +1187,15 @@
   "coverPick": "Vāka attēls…",
   "coverHint": "Vietas attēls: māja, pagalms, barošanas vieta. Kartītē kaķa vietā.",
   "coverRemove": "Noņemt vāka attēlu",
-  "skipTour": "Izlaist ievadu un padomus šajā instalācijā"
+  "skipTour": "Izlaist ievadu un padomus šajā instalācijā",
+  "spotCatChores": "Regulārā aprūpe dzīvo šeit: barošana, zāles, pārbaudes, katra ar savu atgādinājumu.",
+  "spotLooks": "Atzīmējiet, ko redzat. Sakritības ar citiem katalogiem nāk no šejienes.",
+  "spotHistoryHold": "Turiet vērtību, lai to labotu vai noņemtu. Nekas nepazūd; paslēptās vērtības rāda pēc pieprasījuma.",
+  "spotBackups": "Kur jūsu katalogi ir drošībā: ko tālrunis dublē, un kopija jūsu izvēlētā mapē.",
+  "spotCardPoster": "Pazudis plakāts no šī kaķa ieraksta: foto, vārds, tālrunis lieliem burtiem un kods, ko citi noskenē.",
+  "spotCardPosterNeutral": "Pazudis plakāts no šī mājdzīvnieka ieraksta: foto, vārds, tālrunis lieliem burtiem un kods, ko citi noskenē.",
+  "spotTimelineReport": "Ziņojums veterinārārstam: izvēlētie ieraksti kā laika līnija, pacienta kopsavilkums un līkne katram skaitlim.",
+  "helpHistory": "Viena lauka vērtības laika gaitā, jaunākās pirmās. Pieskarieties vērtībai, lai to labotu: jaunā ieņem tās vietu, vecā tiek paslēpta. Turiet vērtību, lai to noņemtu vai atgrieztu paslēpto; acs rāda paslēptās vērtības. Kopējiet sarakstu kā tekstu vai kopīgojiet kā PDF.",
+  "helpSettings": "Lietotnes izvēles: valoda, vienības, svinības un gaviles, kažoks aiz lapām, paziņojumi un kur tiek dublēti jūsu katalogi. Ekskursijas var atkārtot no šejienes.",
+  "helpLooks": "Kā kaķis izskatās, kā mikroshēmas: izmērs, krāsas, raksts, kažoks, aste, ausis, zīmes un paliekošas iezīmes. Atzīmējiet, ko redzat; klaiņotājs, kas sakrīt ar pazudušu kaķi divās iezīmēs, kļūst par kandidātu."
 }

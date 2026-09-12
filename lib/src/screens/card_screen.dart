@@ -356,13 +356,16 @@ class _CardScreenState extends State<CardScreen> {
               icon: const Icon(Icons.print),
               tooltip: context.t.print,
               onPressed: _printCard),
-          IconButton(
-              icon: const Icon(Icons.campaign_outlined),
-              tooltip: context.t.posterMenu,
-              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) =>
-                        MissingPosterScreen(store: store, catId: id),
-                  ))),
+          Spotlight(
+            id: 'card-poster',
+            child: IconButton(
+                icon: const Icon(Icons.campaign_outlined),
+                tooltip: context.t.posterMenu,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) =>
+                          MissingPosterScreen(store: store, catId: id),
+                    ))),
+          ),
         ],
       ),
       body: SingleChildScrollView(

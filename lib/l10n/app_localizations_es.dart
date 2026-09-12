@@ -3514,4 +3514,44 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get skipTour =>
       'Saltar la introducción y los consejos en esta instalación';
+
+  @override
+  String get spotCatChores =>
+      'Los cuidados recurrentes viven aquí: comida, medicinas, controles, cada uno con su recordatorio.';
+
+  @override
+  String get spotLooks =>
+      'Marca lo que ves. Las coincidencias con otros catálogos salen de esto.';
+
+  @override
+  String get spotHistoryHold =>
+      'Mantén pulsado un valor para corregirlo o quitarlo. Nada se pierde; los valores ocultos se muestran a petición.';
+
+  @override
+  String get spotBackups =>
+      'Dónde están a salvo tus catálogos: lo que respalda el teléfono, y una copia en la carpeta que elijas.';
+
+  @override
+  String get spotCardPoster =>
+      'Un cartel de desaparecido con la ficha de este gato: foto, nombre, teléfono en letras grandes y un código que otros escanean.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Un cartel de desaparecido con la ficha de esta mascota: foto, nombre, teléfono en letras grandes y un código que otros escanean.';
+
+  @override
+  String get spotTimelineReport =>
+      'Un informe para el veterinario: entradas elegidas como cronología, un resumen del paciente y una curva por cada número.';
+
+  @override
+  String get helpHistory =>
+      'Los valores de un campo a lo largo del tiempo, los más recientes primero. Toca un valor para corregirlo: el nuevo ocupa su lugar y el antiguo se oculta. Mantén pulsado un valor para quitarlo o recuperar uno oculto; el ojo muestra los valores ocultos. Copia la lista como texto o compártela como PDF.';
+
+  @override
+  String get helpSettings =>
+      'Las opciones de la app: idioma, unidades, celebraciones y vítores, el pelaje detrás de las páginas, notificaciones y dónde se respaldan tus catálogos. Los recorridos se pueden repetir desde aquí.';
+
+  @override
+  String get helpLooks =>
+      'Cómo es el gato, en chips: tamaño, colores, patrón, pelaje, cola, orejas, marcas y rasgos permanentes. Marca lo que ves; un callejero que coincide con un gato desaparecido en dos rasgos pasa a ser candidato.';
 }

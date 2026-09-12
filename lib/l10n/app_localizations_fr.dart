@@ -3515,4 +3515,44 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get skipTour =>
       'Passer l\'introduction et les astuces sur cette installation';
+
+  @override
+  String get spotCatChores =>
+      'Les soins récurrents vivent ici : repas, médicaments, contrôles, chacun avec son rappel.';
+
+  @override
+  String get spotLooks =>
+      'Cochez ce que vous voyez. Les correspondances avec d\'autres catalogues en découlent.';
+
+  @override
+  String get spotHistoryHold =>
+      'Maintenez une valeur pour la corriger ou la retirer. Rien n\'est perdu ; les valeurs masquées s\'affichent sur demande.';
+
+  @override
+  String get spotBackups =>
+      'Où vos catalogues sont à l\'abri : ce que le téléphone sauvegarde, et une copie dans un dossier de votre choix.';
+
+  @override
+  String get spotCardPoster =>
+      'Une affiche de disparition à partir de la fiche de ce chat : photo, nom, téléphone en grandes lettres, et un code que d\'autres scannent.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Une affiche de disparition à partir de la fiche de cet animal : photo, nom, téléphone en grandes lettres, et un code que d\'autres scannent.';
+
+  @override
+  String get spotTimelineReport =>
+      'Un rapport pour le vétérinaire : les entrées choisies en frise, un résumé du patient et une courbe pour chaque nombre.';
+
+  @override
+  String get helpHistory =>
+      'Les valeurs d\'un champ dans le temps, les plus récentes d\'abord. Touchez une valeur pour la corriger : la nouvelle prend sa place, l\'ancienne se masque. Maintenez une valeur pour la retirer ou rétablir une valeur masquée ; l\'œil affiche les valeurs masquées. Copiez la liste en texte ou partagez-la en PDF.';
+
+  @override
+  String get helpSettings =>
+      'Les choix de l\'application : langue, unités, célébrations et acclamations, le pelage derrière les pages, les notifications, et où vos catalogues sont sauvegardés. Les visites peuvent être rejouées d\'ici.';
+
+  @override
+  String get helpLooks =>
+      'À quoi ressemble le chat, en puces : taille, couleurs, motif, pelage, queue, oreilles, marques et traits durables. Cochez ce que vous voyez ; un errant qui concorde avec un chat disparu sur deux traits devient un candidat.';
 }

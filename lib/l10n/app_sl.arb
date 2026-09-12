@@ -1187,5 +1187,15 @@
   "coverPick": "Naslovna slika…",
   "coverHint": "Slika kraja: hiša, dvorišče, krmišče. Na kartici namesto mačke.",
   "coverRemove": "Odstrani naslovno sliko",
-  "skipTour": "Preskoči uvod in namige na tej namestitvi"
+  "skipTour": "Preskoči uvod in namige na tej namestitvi",
+  "spotCatChores": "Redna nega živi tukaj: hranjenje, zdravila, pregledi, vsaka s svojim opomnikom.",
+  "spotLooks": "Označite, kar vidite. Ujemanja z drugimi katalogi izhajajo od tod.",
+  "spotHistoryHold": "Pridržite vrednost, da jo popravite ali odstranite. Nič se ne izgubi; skrite vrednosti se pokažejo na zahtevo.",
+  "spotBackups": "Kje so vaši katalogi na varnem: kaj telefon varnostno kopira, in kopija v mapi po vaši izbiri.",
+  "spotCardPoster": "Plakat Pogrešan iz zapisa te mačke: fotografija, ime, telefon z velikimi črkami in koda, ki jo drugi skenirajo.",
+  "spotCardPosterNeutral": "Plakat Pogrešan iz zapisa tega ljubljenčka: fotografija, ime, telefon z velikimi črkami in koda, ki jo drugi skenirajo.",
+  "spotTimelineReport": "Poročilo za veterinarja: izbrani vnosi kot časovnica, povzetek pacienta in krivulja za vsako število.",
+  "helpHistory": "Vrednosti enega polja skozi čas, najnovejše prve. Tapnite vrednost, da jo popravite: nova zasede njeno mesto, stara se skrije. Pridržite vrednost, da jo odstranite ali vrnete skrito; oko pokaže skrite vrednosti. Kopirajte seznam kot besedilo ali ga delite kot PDF.",
+  "helpSettings": "Izbire aplikacije: jezik, enote, praznovanja in vzkliki, kožuh za stranmi, obvestila in kje se varnostno kopirajo vaši katalogi. Oglede lahko od tod ponovite.",
+  "helpLooks": "Kako mačka izgleda, kot čipi: velikost, barve, vzorec, kožuh, rep, ušesa, znaki in trajne značilnosti. Označite, kar vidite; potepuh, ki se z pogrešano mačko ujema v dveh značilnostih, postane kandidat."
 }

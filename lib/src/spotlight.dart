@@ -49,11 +49,25 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
   ],
   'card': [
     SpotlightItem('card-chips', (t) => t.spotCardChips),
+    SpotlightItem('card-poster', (t) => t.spotCardPoster),
   ],
   'cat': [
     SpotlightItem('cat-edit', (t) => t.spotCatEdit),
     SpotlightItem('cat-menu', (t) => t.spotCatMenu),
     SpotlightItem('cat-reminder', (t) => t.spotAddReminderCat),
+    SpotlightItem('cat-chores', (t) => t.spotCatChores),
+  ],
+  'looks': [
+    SpotlightItem('looks-chips', (t) => t.spotLooks),
+  ],
+  'history': [
+    SpotlightItem('history-hold', (t) => t.spotHistoryHold),
+  ],
+  'settings': [
+    SpotlightItem('settings-backups', (t) => t.spotBackups),
+  ],
+  'timeline': [
+    SpotlightItem('timeline-report', (t) => t.spotTimelineReport),
   ],
   'strays': [
     SpotlightItem('strays-flier', (t) => t.spotStraysFlier),

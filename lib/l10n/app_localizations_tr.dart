@@ -3502,4 +3502,44 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get skipTour => 'Bu kurulumda tanıtımı ve ipuçlarını atla';
+
+  @override
+  String get spotCatChores =>
+      'Tekrarlayan bakım burada yaşar: besleme, ilaç, kontroller, her biri kendi hatırlatmasıyla.';
+
+  @override
+  String get spotLooks =>
+      'Gördüğünüzü işaretleyin. Diğer kataloglarla eşleşmeler buradan gelir.';
+
+  @override
+  String get spotHistoryHold =>
+      'Düzeltmek veya kaldırmak için bir değeri basılı tutun. Hiçbir şey kaybolmaz; gizli değerler istendiğinde gösterilir.';
+
+  @override
+  String get spotBackups =>
+      'Kataloglarının güvende tutulduğu yer: telefonun yedeklediği, ve seçtiğin bir klasördeki kopya.';
+
+  @override
+  String get spotCardPoster =>
+      'Bu kedinin kaydından bir kayıp afişi: fotoğraf, ad, büyük harflerle telefon ve başkalarının taradığı bir kod.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Bu evcil hayvanın kaydından bir kayıp afişi: fotoğraf, ad, büyük harflerle telefon ve başkalarının taradığı bir kod.';
+
+  @override
+  String get spotTimelineReport =>
+      'Veteriner için rapor: seçilen kayıtlar zaman çizelgesi olarak, bir hasta özeti ve her sayı için bir eğri.';
+
+  @override
+  String get helpHistory =>
+      'Bir alanın zaman içindeki değerleri, en yenisi önce. Düzeltmek için bir değere dokunun: yenisi yerini alır, eskisi gizlenir. Kaldırmak veya gizli bir değeri geri getirmek için basılı tutun; göz gizli değerleri gösterir. Listeyi metin olarak kopyalayın veya PDF olarak paylaşın.';
+
+  @override
+  String get helpSettings =>
+      'Uygulamanın kendi seçenekleri: dil, birimler, kutlamalar ve tezahüratlar, sayfaların arkasındaki kürk, bildirimler ve kataloglarının nerede yedeklendiği. Turlar buradan yeniden oynatılabilir.';
+
+  @override
+  String get helpLooks =>
+      'Kedinin görünüşü, çipler halinde: boy, renkler, desen, tüy, kuyruk, kulaklar, işaretler ve kalıcı özellikler. Gördüğünüzü işaretleyin; kayıp bir kediyle iki özellikte uyuşan bir sokak kedisi aday olur.';
 }

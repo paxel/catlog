@@ -3509,4 +3509,44 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get skipTour => 'Introductie en tips op deze installatie overslaan';
+
+  @override
+  String get spotCatChores =>
+      'Terugkerende zorg woont hier: voeren, medicijnen, controles, elk met een eigen herinnering.';
+
+  @override
+  String get spotLooks =>
+      'Vink aan wat je ziet. Overeenkomsten met andere catalogi komen hieruit.';
+
+  @override
+  String get spotHistoryHold =>
+      'Houd een waarde vast om hem te corrigeren of te verwijderen. Niets gaat verloren; verborgen waarden toon je op verzoek.';
+
+  @override
+  String get spotBackups =>
+      'Waar je catalogi veilig bewaard worden: wat de telefoon back-upt, en een kopie in een map naar keuze.';
+
+  @override
+  String get spotCardPoster =>
+      'Een vermist-poster uit het dossier van deze kat: foto, naam, telefoon in grote letters en een code die anderen scannen.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Een vermist-poster uit het dossier van dit huisdier: foto, naam, telefoon in grote letters en een code die anderen scannen.';
+
+  @override
+  String get spotTimelineReport =>
+      'Een rapport voor de dierenarts: gekozen items als tijdlijn, een patiëntoverzicht en een curve voor elk getal.';
+
+  @override
+  String get helpHistory =>
+      'De waarden van één veld door de tijd, nieuwste eerst. Tik op een waarde om die te corrigeren: de nieuwe neemt zijn plaats in, de oude wordt verborgen. Houd een waarde vast om die te verwijderen of een verborgen waarde terug te halen; het oog toont verborgen waarden. Kopieer de lijst als tekst of deel hem als pdf.';
+
+  @override
+  String get helpSettings =>
+      'De keuzes van de app: taal, eenheden, feestjes en gejuich, de vacht achter de pagina\'s, meldingen en waar je catalogi geback-upt worden. De rondleidingen kun je hier opnieuw starten.';
+
+  @override
+  String get helpLooks =>
+      'Hoe de kat eruitziet, als chips: grootte, kleuren, patroon, vacht, staart, oren, tekening en blijvende kenmerken. Vink aan wat je ziet; een zwerver die in twee kenmerken met een vermiste kat overeenkomt, wordt kandidaat.';
 }

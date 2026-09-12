@@ -10,17 +10,27 @@ void main() {
 
   test('nothing seen: everything due, manifest order', () {
     expect(dueSpotlights('', items).map((i) => i.id),
-        ['cat-edit', 'cat-menu', 'cat-reminder']);
+        ['cat-edit', 'cat-menu', 'cat-reminder', 'cat-chores']);
   });
 
   test('partially seen: only the new item is due', () {
     expect(dueSpotlights('cat-menu', items).map((i) => i.id),
-        ['cat-edit', 'cat-reminder']);
+        ['cat-edit', 'cat-reminder', 'cat-chores']);
   });
 
   test('all seen: nothing due', () {
     expect(
-        dueSpotlights('cat-edit,cat-menu,cat-reminder', items), isEmpty);
+        dueSpotlights('cat-edit,cat-menu,cat-reminder,cat-chores', items),
+        isEmpty);
+  });
+
+  test('the 1.3.0 tips are in the manifest', () {
+    final ids = [
+      for (final list in spotlightManifest.values)
+        for (final item in list) item.id
+    ];
+    expect(ids, containsAll(['cat-chores', 'looks-chips', 'history-hold',
+        'settings-backups', 'card-poster', 'timeline-report']));
   });
 
   test('every manifest item id has a unique anchor id', () {

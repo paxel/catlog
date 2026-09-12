@@ -3501,4 +3501,44 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get skipTour => 'Hopp over introen og tipsene på denne installasjonen';
+
+  @override
+  String get spotCatChores =>
+      'Gjentakende stell bor her: fôring, medisin, sjekker, hver med sin egen påminnelse.';
+
+  @override
+  String get spotLooks =>
+      'Kryss av det du ser. Treff mot andre kataloger kommer herfra.';
+
+  @override
+  String get spotHistoryHold =>
+      'Hold en verdi for å rette eller fjerne den. Ingenting går tapt; skjulte verdier vises på forespørsel.';
+
+  @override
+  String get spotBackups =>
+      'Hvor katalogene dine er trygge: hva telefonen sikkerhetskopierer, og en kopi i en mappe du velger.';
+
+  @override
+  String get spotCardPoster =>
+      'En savnet-plakat fra denne kattens kort: bilde, navn, telefon med store bokstaver og en kode andre skanner.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'En savnet-plakat fra dette kjæledyrets kort: bilde, navn, telefon med store bokstaver og en kode andre skanner.';
+
+  @override
+  String get spotTimelineReport =>
+      'En rapport til veterinæren: valgte oppføringer som tidslinje, en pasientoversikt og en kurve for hvert tall.';
+
+  @override
+  String get helpHistory =>
+      'Ett felts verdier over tid, nyeste først. Trykk på en verdi for å rette den: den nye tar plassen, den gamle skjules. Hold en verdi for å fjerne den eller hente en skjult tilbake; øyet viser skjulte verdier. Kopier listen som tekst eller del den som PDF.';
+
+  @override
+  String get helpSettings =>
+      'Appens egne valg: språk, enheter, feiringer og jubel, pelsen bak sidene, varsler og hvor katalogene dine sikkerhetskopieres. Omvisningene kan spilles av igjen herfra.';
+
+  @override
+  String get helpLooks =>
+      'Hvordan katten ser ut, som brikker: størrelse, farger, mønster, pels, hale, ører, tegninger og varige trekk. Kryss av det du ser; en hjemløs som stemmer med en savnet katt på to trekk blir kandidat.';
 }

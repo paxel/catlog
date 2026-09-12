@@ -249,11 +249,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final today = DateUtils.dateOnly(DateTime.now());
     return [
       const Divider(),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Text(
-          context.t.plannedSection,
-          style: Theme.of(context).textTheme.titleMedium,
+      Spotlight(
+        id: 'cat-chores',
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Text(
+            context.t.plannedSection,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
       ),
       // Its chores: today's occurrence while the chore is due today,

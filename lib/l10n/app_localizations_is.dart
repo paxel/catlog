@@ -3508,4 +3508,44 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get skipTour => 'Sleppa kynningu og ábendingum í þessari uppsetningu';
+
+  @override
+  String get spotCatChores =>
+      'Endurtekin umönnun býr hér: fóðrun, lyf, athuganir, hver með sína áminningu.';
+
+  @override
+  String get spotLooks =>
+      'Merktu við það sem þú sérð. Samsvaranir við aðrar skrár koma héðan.';
+
+  @override
+  String get spotHistoryHold =>
+      'Haltu gildi til að leiðrétta eða fjarlægja það. Ekkert tapast; falin gildi birtast sé þess óskað.';
+
+  @override
+  String get spotBackups =>
+      'Hvar skrárnar þínar eru geymdar örugglega: það sem síminn afritar, og afrit í möppu að eigin vali.';
+
+  @override
+  String get spotCardPoster =>
+      'Týnd-veggspjald úr skrá þessa kattar: mynd, nafn, sími með stórum stöfum og kóði sem aðrir skanna.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Týnd-veggspjald úr skrá þessa gæludýrs: mynd, nafn, sími með stórum stöfum og kóði sem aðrir skanna.';
+
+  @override
+  String get spotTimelineReport =>
+      'Skýrsla fyrir dýralækninn: valdar færslur sem tímalína, yfirlit sjúklings og ferill fyrir hverja tölu.';
+
+  @override
+  String get helpHistory =>
+      'Gildi eins reits yfir tíma, nýjast fyrst. Ýttu á gildi til að leiðrétta það: nýja gildið tekur sætið, það gamla felst. Haltu gildi til að fjarlægja það eða endurheimta falið; augað sýnir falin gildi. Afritaðu listann sem texta eða deildu honum sem PDF.';
+
+  @override
+  String get helpSettings =>
+      'Eigin val forritsins: tungumál, einingar, fagnaðarlæti, feldurinn á bak við síðurnar, tilkynningar og hvar skrárnar þínar eru afritaðar. Kynningarnar má endurspila héðan.';
+
+  @override
+  String get helpLooks =>
+      'Hvernig kötturinn lítur út, sem flögur: stærð, litir, mynstur, feldur, rófa, eyru, merki og varanleg einkenni. Merktu við það sem þú sérð; flækingur sem samsvarar týndum ketti í tveimur einkennum verður frambjóðandi.';
 }

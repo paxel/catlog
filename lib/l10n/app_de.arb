@@ -1193,5 +1193,15 @@
   "coverPick": "Titelbild…",
   "coverHint": "Ein Bild des Ortes: das Haus, der Hof, der Futterplatz. Auf der Karte statt einer Katze gezeigt.",
   "coverRemove": "Titelbild entfernen",
-  "skipTour": "Einführung und Tipps auf dieser Installation überspringen"
+  "skipTour": "Einführung und Tipps auf dieser Installation überspringen",
+  "spotCatChores": "Wiederkehrende Aufgaben wohnen hier: Füttern, Medikamente, Kontrollen, jede mit eigener Erinnerung.",
+  "spotLooks": "Hake an, was du siehst. Treffer mit anderen Katalogen entstehen daraus.",
+  "spotHistoryHold": "Halte einen Wert, um ihn zu korrigieren oder zu entfernen. Nichts geht verloren; ausgeblendete Werte zeigst du auf Wunsch.",
+  "spotBackups": "Wo deine Kataloge gesichert sind: was das Telefon sichert, und eine Kopie in einem Ordner deiner Wahl.",
+  "spotCardPoster": "Ein Vermisst-Plakat aus dem Datensatz dieser Katze: Foto, Name, Telefon in großen Buchstaben und ein Code, den andere scannen.",
+  "spotCardPosterNeutral": "Ein Vermisst-Plakat aus dem Datensatz dieses Tieres: Foto, Name, Telefon in großen Buchstaben und ein Code, den andere scannen.",
+  "spotTimelineReport": "Ein Bericht für den Tierarzt: gewählte Einträge als Zeitstrahl, eine Patientenübersicht und eine Kurve für jede Zahl.",
+  "helpHistory": "Die Werte eines Feldes über die Zeit, neueste zuerst. Tippe einen Wert an, um ihn zu korrigieren: der neue tritt an seine Stelle, der alte wird ausgeblendet. Halte einen Wert, um ihn zu entfernen oder einen ausgeblendeten zurückzuholen; das Auge zeigt ausgeblendete Werte. Kopiere die Liste als Text oder teile sie als PDF.",
+  "helpSettings": "Die Einstellungen der App: Sprache, Einheiten, Feiern und Jubel, das Fell hinter den Seiten, Benachrichtigungen, und wo deine Kataloge gesichert sind. Die Touren lassen sich von hier wiederholen.",
+  "helpLooks": "Wie die Katze aussieht, als Chips: Größe, Farben, Muster, Fell, Schwanz, Ohren, Zeichnungen und bleibende Merkmale. Hake an, was du siehst; ein Streuner, der mit einer vermissten Katze in zwei Merkmalen übereinstimmt, wird Treffer-Kandidat."
 }

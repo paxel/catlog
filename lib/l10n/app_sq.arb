@@ -1187,5 +1187,15 @@
   "coverPick": "Foto kopertine…",
   "coverHint": "Një foto e vendit: shtëpia, oborri, vendi i ushqimit. Në kartë në vend të një maceje.",
   "coverRemove": "Hiq foton e kopertinës",
-  "skipTour": "Kalo hyrjen dhe këshillat në këtë instalim"
+  "skipTour": "Kalo hyrjen dhe këshillat në këtë instalim",
+  "spotCatChores": "Kujdesi i përsëritur jeton këtu: ushqimi, ilaçet, kontrollet, secili me kujtesën e vet.",
+  "spotLooks": "Shëno çfarë sheh. Përputhjet me katalogë të tjerë vijnë nga këtu.",
+  "spotHistoryHold": "Mbaje shtypur një vlerë për ta korrigjuar ose hequr. Asgjë nuk humbet; vlerat e fshehura shfaqen sipas kërkesës.",
+  "spotBackups": "Ku ruhen të sigurt katalogët e tu: çfarë ruan telefoni, dhe një kopje në një dosje sipas zgjedhjes.",
+  "spotCardPoster": "Një poster i humbur nga regjistri i kësaj maceje: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.",
+  "spotCardPosterNeutral": "Një poster i humbur nga regjistri i kësaj kafshe: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.",
+  "spotTimelineReport": "Raport për veterinerin: hyrjet e zgjedhura si vijë kohore, një përmbledhje e pacientit dhe një kurbë për çdo numër.",
+  "helpHistory": "Vlerat e një fushe përgjatë kohës, më të rejat të parat. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Mbaje shtypur një vlerë për ta hequr ose për të rikthyer një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.",
+  "helpSettings": "Zgjedhjet e aplikacionit: gjuha, njësitë, festimet dhe brohoritjet, gëzofi pas faqeve, njoftimet dhe ku ruhen kopjet e katalogëve. Turet mund të përsëriten nga këtu.",
+  "helpLooks": "Si duket macja, me çipa: madhësia, ngjyrat, modeli, gëzofi, bishti, veshët, shenjat dhe tiparet e përhershme. Shëno çfarë sheh; një endacak që përputhet me një mace të humbur në dy tipare bëhet kandidat."
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../celebration.dart';
 import '../event_toasts.dart';
+import '../help.dart';
 import '../l10n.dart';
 import '../fur_background.dart';
 import '../achievements.dart';
@@ -28,6 +29,14 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => runSpotlights(context, widget.store, 'settings'),
+    );
+  }
+
   int get _fullMonths =>
       catalogManager
           ?.achievements()
@@ -89,7 +98,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final t = context.t;
     return Scaffold(
-      appBar: AppBar(title: Text(t.settings)),
+      appBar: AppBar(
+        title: Text(t.settings),
+        actions: [HelpButton(store: widget.store, screenId: 'settings')],
+      ),
       body: ListView(
         children: [
           ListTile(
@@ -141,13 +153,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     manager: catalogManager!, stores: [widget.store]),
               )),
             ),
-          ListTile(
-            leading: const Icon(Icons.backup_outlined),
-            title: Text(t.backupsTitle),
-            subtitle: Text(t.backupsSubtitle),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => BackupsScreen(store: widget.store),
+          Spotlight(
+            id: 'settings-backups',
+            child: ListTile(
+              leading: const Icon(Icons.backup_outlined),
+              title: Text(t.backupsTitle),
+              subtitle: Text(t.backupsSubtitle),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => BackupsScreen(store: widget.store),
+                ),
               ),
             ),
           ),

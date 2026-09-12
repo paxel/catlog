@@ -3502,4 +3502,44 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get skipTour =>
       'Jäta sissejuhatus ja vihjed selles paigalduses vahele';
+
+  @override
+  String get spotCatChores =>
+      'Korduv hool elab siin: söötmine, ravimid, kontrollid, igaühel oma meeldetuletus.';
+
+  @override
+  String get spotLooks =>
+      'Märgi, mida näed. Vasted teiste kataloogidega tulevad siit.';
+
+  @override
+  String get spotHistoryHold =>
+      'Hoia väärtust all, et seda parandada või eemaldada. Midagi ei kao; peidetud väärtused kuvatakse soovi korral.';
+
+  @override
+  String get spotBackups =>
+      'Kus su kataloogid on kaitstud: mida telefon varundab, ja koopia sinu valitud kausta.';
+
+  @override
+  String get spotCardPoster =>
+      'Kadunud-plakat selle kassi kirjest: foto, nimi, telefon suurelt ja kood, mida teised skannivad.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Kadunud-plakat selle lemmiku kirjest: foto, nimi, telefon suurelt ja kood, mida teised skannivad.';
+
+  @override
+  String get spotTimelineReport =>
+      'Aruanne loomaarstile: valitud kirjed ajajoonena, patsiendi kokkuvõte ja kõver iga arvu kohta.';
+
+  @override
+  String get helpHistory =>
+      'Ühe välja väärtused ajas, uusim esimesena. Puuduta väärtust, et seda parandada: uus astub selle asemele, vana peidetakse. Hoia väärtust all, et see eemaldada või peidetu tagasi tuua; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.';
+
+  @override
+  String get helpSettings =>
+      'Rakenduse enda valikud: keel, ühikud, tähistamised ja hõisked, lehtede taga olev kasukas, teavitused ja kuhu su kataloogid varundatakse. Tuure saab siit uuesti käivitada.';
+
+  @override
+  String get helpLooks =>
+      'Milline kass välja näeb, kiipidena: suurus, värvid, muster, karv, saba, kõrvad, märgid ja püsivad tunnused. Märgi, mida näed; hulkur, kes kattub kadunud kassiga kahes tunnuses, saab kandidaadiks.';
 }

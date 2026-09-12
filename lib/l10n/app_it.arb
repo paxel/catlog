@@ -1187,5 +1187,15 @@
   "coverPick": "Immagine di copertina…",
   "coverHint": "Un'immagine del luogo: la casa, il cortile, il punto di alimentazione. Mostrata sulla scheda al posto di un gatto.",
   "coverRemove": "Rimuovi immagine di copertina",
-  "skipTour": "Salta introduzione e suggerimenti su questa installazione"
+  "skipTour": "Salta introduzione e suggerimenti su questa installazione",
+  "spotCatChores": "Le cure ricorrenti vivono qui: cibo, medicine, controlli, ognuna con il suo promemoria.",
+  "spotLooks": "Spunta ciò che vedi. Le corrispondenze con altri cataloghi nascono da qui.",
+  "spotHistoryHold": "Tieni premuto un valore per correggerlo o rimuoverlo. Nulla va perso; i valori nascosti si mostrano su richiesta.",
+  "spotBackups": "Dove i tuoi cataloghi sono al sicuro: ciò che il telefono salva, e una copia in una cartella a tua scelta.",
+  "spotCardPoster": "Un manifesto di smarrimento dalla scheda di questo gatto: foto, nome, telefono a caratteri grandi e un codice che altri scansionano.",
+  "spotCardPosterNeutral": "Un manifesto di smarrimento dalla scheda di questo animale: foto, nome, telefono a caratteri grandi e un codice che altri scansionano.",
+  "spotTimelineReport": "Un rapporto per il veterinario: le voci scelte come sequenza temporale, un riepilogo del paziente e una curva per ogni numero.",
+  "helpHistory": "I valori di un campo nel tempo, i più recenti per primi. Tocca un valore per correggerlo: il nuovo prende il suo posto, il vecchio si nasconde. Tieni premuto un valore per rimuoverlo o ripristinarne uno nascosto; l'occhio mostra i valori nascosti. Copia l'elenco come testo o condividilo come PDF.",
+  "helpSettings": "Le scelte dell'app: lingua, unità, festeggiamenti ed esultanze, il manto dietro le pagine, notifiche, e dove sono salvati i tuoi cataloghi. I tour si possono ripetere da qui.",
+  "helpLooks": "Com'è il gatto, a chip: taglia, colori, disegno, pelo, coda, orecchie, segni e tratti permanenti. Spunta ciò che vedi; un randagio che concorda con un gatto smarrito in due tratti diventa un candidato."
 }

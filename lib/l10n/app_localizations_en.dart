@@ -3504,4 +3504,44 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get skipTour => 'Skip the intro and the tips on this install';
+
+  @override
+  String get spotCatChores =>
+      'Recurring care lives here: feeding, meds, checks, each with its own reminder.';
+
+  @override
+  String get spotLooks =>
+      'Tick what you see. Matches with other catalogs come from these.';
+
+  @override
+  String get spotHistoryHold =>
+      'Hold a value to correct or remove it. Nothing is lost; hidden values show on request.';
+
+  @override
+  String get spotBackups =>
+      'Where your catalogs are kept safe: what the phone backs up, and a copy in a folder of your choice.';
+
+  @override
+  String get spotCardPoster =>
+      'A missing poster from this cat\'s record: photo, name, phone in big letters, and a code other keepers scan.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'A missing poster from this pet\'s record: photo, name, phone in big letters, and a code other keepers scan.';
+
+  @override
+  String get spotTimelineReport =>
+      'A report for the vet: chosen entries as a timeline, a patient summary, and a curve for every number.';
+
+  @override
+  String get helpHistory =>
+      'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.';
+
+  @override
+  String get helpSettings =>
+      'The app\'s own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.';
+
+  @override
+  String get helpLooks =>
+      'What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.';
 }

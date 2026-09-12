@@ -3503,4 +3503,44 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get skipTour => 'Spring introen og tipsene over på denne installation';
+
+  @override
+  String get spotCatChores =>
+      'Tilbagevendende pleje bor her: fodring, medicin, tjek, hver med sin egen påmindelse.';
+
+  @override
+  String get spotLooks =>
+      'Sæt kryds ved det, du ser. Match med andre kataloger kommer herfra.';
+
+  @override
+  String get spotHistoryHold =>
+      'Hold en værdi for at rette eller fjerne den. Intet går tabt; skjulte værdier vises efter ønske.';
+
+  @override
+  String get spotBackups =>
+      'Hvor dine kataloger er i sikkerhed: hvad telefonen sikkerhedskopierer, og en kopi i en mappe efter eget valg.';
+
+  @override
+  String get spotCardPoster =>
+      'En savnet-plakat fra denne kats kort: foto, navn, telefon med store bogstaver og en kode, andre scanner.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'En savnet-plakat fra dette kæledyrs kort: foto, navn, telefon med store bogstaver og en kode, andre scanner.';
+
+  @override
+  String get spotTimelineReport =>
+      'En rapport til dyrlægen: valgte poster som tidslinje, en patientoversigt og en kurve for hvert tal.';
+
+  @override
+  String get helpHistory =>
+      'Et felts værdier over tid, nyeste først. Tryk på en værdi for at rette den: den nye tager dens plads, den gamle skjules. Hold en værdi for at fjerne den eller hente en skjult tilbage; øjet viser skjulte værdier. Kopiér listen som tekst eller del den som PDF.';
+
+  @override
+  String get helpSettings =>
+      'Appens egne valg: sprog, enheder, fejringer og jubel, pelsen bag siderne, notifikationer og hvor dine kataloger sikkerhedskopieres. Rundvisningerne kan afspilles igen herfra.';
+
+  @override
+  String get helpLooks =>
+      'Hvordan katten ser ud, som chips: størrelse, farver, mønster, pels, hale, ører, tegninger og varige kendetegn. Sæt kryds ved det, du ser; en herreløs kat, der stemmer med en savnet på to træk, bliver kandidat.';
 }

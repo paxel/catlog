@@ -1187,5 +1187,15 @@
   "coverPick": "Kaanepilt…",
   "coverHint": "Pilt kohast: maja, hoov, söötmiskoht. Kaardil kassi asemel.",
   "coverRemove": "Eemalda kaanepilt",
-  "skipTour": "Jäta sissejuhatus ja vihjed selles paigalduses vahele"
+  "skipTour": "Jäta sissejuhatus ja vihjed selles paigalduses vahele",
+  "spotCatChores": "Korduv hool elab siin: söötmine, ravimid, kontrollid, igaühel oma meeldetuletus.",
+  "spotLooks": "Märgi, mida näed. Vasted teiste kataloogidega tulevad siit.",
+  "spotHistoryHold": "Hoia väärtust all, et seda parandada või eemaldada. Midagi ei kao; peidetud väärtused kuvatakse soovi korral.",
+  "spotBackups": "Kus su kataloogid on kaitstud: mida telefon varundab, ja koopia sinu valitud kausta.",
+  "spotCardPoster": "Kadunud-plakat selle kassi kirjest: foto, nimi, telefon suurelt ja kood, mida teised skannivad.",
+  "spotCardPosterNeutral": "Kadunud-plakat selle lemmiku kirjest: foto, nimi, telefon suurelt ja kood, mida teised skannivad.",
+  "spotTimelineReport": "Aruanne loomaarstile: valitud kirjed ajajoonena, patsiendi kokkuvõte ja kõver iga arvu kohta.",
+  "helpHistory": "Ühe välja väärtused ajas, uusim esimesena. Puuduta väärtust, et seda parandada: uus astub selle asemele, vana peidetakse. Hoia väärtust all, et see eemaldada või peidetu tagasi tuua; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.",
+  "helpSettings": "Rakenduse enda valikud: keel, ühikud, tähistamised ja hõisked, lehtede taga olev kasukas, teavitused ja kuhu su kataloogid varundatakse. Tuure saab siit uuesti käivitada.",
+  "helpLooks": "Milline kass välja näeb, kiipidena: suurus, värvid, muster, karv, saba, kõrvad, märgid ja püsivad tunnused. Märgi, mida näed; hulkur, kes kattub kadunud kassiga kahes tunnuses, saab kandidaadiks."
 }

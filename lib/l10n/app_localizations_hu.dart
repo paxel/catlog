@@ -3504,4 +3504,44 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get skipTour => 'Bevezető és tippek kihagyása ezen a telepítésen';
+
+  @override
+  String get spotCatChores =>
+      'Az ismétlődő gondozás itt lakik: etetés, gyógyszer, ellenőrzés, mindegyik saját emlékeztetővel.';
+
+  @override
+  String get spotLooks =>
+      'Jelöld, amit látsz. A más katalógusokkal való egyezések ebből erednek.';
+
+  @override
+  String get spotHistoryHold =>
+      'Tartsd nyomva az értéket a javításhoz vagy eltávolításhoz. Semmi nem vész el; a rejtett értékek kérésre láthatók.';
+
+  @override
+  String get spotBackups =>
+      'Hol vannak biztonságban a katalógusaid: mit ment a telefon, és egy másolat az általad választott mappába.';
+
+  @override
+  String get spotCardPoster =>
+      'Eltűnt-plakát ennek a macskának az adataiból: fotó, név, telefon nagy betűkkel és egy kód, amit mások beolvasnak.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Eltűnt-plakát ennek a kedvencnek az adataiból: fotó, név, telefon nagy betűkkel és egy kód, amit mások beolvasnak.';
+
+  @override
+  String get spotTimelineReport =>
+      'Jelentés az állatorvosnak: a kiválasztott bejegyzések idővonalként, betegösszefoglaló és görbe minden számhoz.';
+
+  @override
+  String get helpHistory =>
+      'Egy mező értékei az idő során, a legújabb elöl. Koppints egy értékre a javításhoz: az új a helyére lép, a régi elrejtődik. Tartsd nyomva az értéket az eltávolításhoz vagy egy rejtett visszaállításához; a szem mutatja a rejtett értékeket. Másold a listát szövegként vagy oszd meg PDF-ként.';
+
+  @override
+  String get helpSettings =>
+      'Az app saját beállításai: nyelv, mértékegységek, ünneplés és éljenzés, a bunda az oldalak mögött, értesítések, és hol mentődnek a katalógusaid. A bemutatók innen újra lejátszhatók.';
+
+  @override
+  String get helpLooks =>
+      'Hogy néz ki a macska, chipekként: méret, színek, mintázat, bunda, farok, fülek, jegyek és maradandó jellemzők. Jelöld, amit látsz; egy kóbor, amely két jegyben egyezik egy eltűnt macskával, jelölt lesz.';
 }

@@ -3515,4 +3515,44 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get skipTour =>
       'Einführung und Tipps auf dieser Installation überspringen';
+
+  @override
+  String get spotCatChores =>
+      'Wiederkehrende Aufgaben wohnen hier: Füttern, Medikamente, Kontrollen, jede mit eigener Erinnerung.';
+
+  @override
+  String get spotLooks =>
+      'Hake an, was du siehst. Treffer mit anderen Katalogen entstehen daraus.';
+
+  @override
+  String get spotHistoryHold =>
+      'Halte einen Wert, um ihn zu korrigieren oder zu entfernen. Nichts geht verloren; ausgeblendete Werte zeigst du auf Wunsch.';
+
+  @override
+  String get spotBackups =>
+      'Wo deine Kataloge gesichert sind: was das Telefon sichert, und eine Kopie in einem Ordner deiner Wahl.';
+
+  @override
+  String get spotCardPoster =>
+      'Ein Vermisst-Plakat aus dem Datensatz dieser Katze: Foto, Name, Telefon in großen Buchstaben und ein Code, den andere scannen.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Ein Vermisst-Plakat aus dem Datensatz dieses Tieres: Foto, Name, Telefon in großen Buchstaben und ein Code, den andere scannen.';
+
+  @override
+  String get spotTimelineReport =>
+      'Ein Bericht für den Tierarzt: gewählte Einträge als Zeitstrahl, eine Patientenübersicht und eine Kurve für jede Zahl.';
+
+  @override
+  String get helpHistory =>
+      'Die Werte eines Feldes über die Zeit, neueste zuerst. Tippe einen Wert an, um ihn zu korrigieren: der neue tritt an seine Stelle, der alte wird ausgeblendet. Halte einen Wert, um ihn zu entfernen oder einen ausgeblendeten zurückzuholen; das Auge zeigt ausgeblendete Werte. Kopiere die Liste als Text oder teile sie als PDF.';
+
+  @override
+  String get helpSettings =>
+      'Die Einstellungen der App: Sprache, Einheiten, Feiern und Jubel, das Fell hinter den Seiten, Benachrichtigungen, und wo deine Kataloge gesichert sind. Die Touren lassen sich von hier wiederholen.';
+
+  @override
+  String get helpLooks =>
+      'Wie die Katze aussieht, als Chips: Größe, Farben, Muster, Fell, Schwanz, Ohren, Zeichnungen und bleibende Merkmale. Hake an, was du siehst; ein Streuner, der mit einer vermissten Katze in zwei Merkmalen übereinstimmt, wird Treffer-Kandidat.';
 }

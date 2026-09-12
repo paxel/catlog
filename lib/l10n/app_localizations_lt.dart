@@ -3524,4 +3524,44 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get skipTour => 'Praleisti įvadą ir patarimus šiame įdiegime';
+
+  @override
+  String get spotCatChores =>
+      'Pasikartojanti priežiūra gyvena čia: šėrimas, vaistai, patikros, kiekviena su savo priminimu.';
+
+  @override
+  String get spotLooks =>
+      'Pažymėkite, ką matote. Atitikmenys su kitais katalogais kyla iš čia.';
+
+  @override
+  String get spotHistoryHold =>
+      'Palaikykite reikšmę, kad ją pataisytumėte ar pašalintumėte. Niekas neprarandama; paslėptos reikšmės rodomos paprašius.';
+
+  @override
+  String get spotBackups =>
+      'Kur saugomi jūsų katalogai: ką telefonas saugo, ir kopija jūsų pasirinktame aplanke.';
+
+  @override
+  String get spotCardPoster =>
+      'Dingusio plakatas iš šios katės įrašo: nuotrauka, vardas, telefonas didelėmis raidėmis ir kodas, kurį kiti nuskaito.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Dingusio plakatas iš šio augintinio įrašo: nuotrauka, vardas, telefonas didelėmis raidėmis ir kodas, kurį kiti nuskaito.';
+
+  @override
+  String get spotTimelineReport =>
+      'Ataskaita veterinarui: pasirinkti įrašai kaip laiko juosta, paciento santrauka ir kreivė kiekvienam skaičiui.';
+
+  @override
+  String get helpHistory =>
+      'Vieno lauko reikšmės laike, naujausios pirmos. Palieskite reikšmę, kad pataisytumėte: nauja užima jos vietą, sena paslepiama. Palaikykite reikšmę, kad pašalintumėte ar grąžintumėte paslėptą; akis rodo paslėptas reikšmes. Nukopijuokite sąrašą kaip tekstą arba bendrinkite kaip PDF.';
+
+  @override
+  String get helpSettings =>
+      'Programėlės parinktys: kalba, vienetai, šventės ir šūksniai, kailis už puslapių, pranešimai ir kur saugomos jūsų katalogų kopijos. Iš čia galima pakartoti ekskursijas.';
+
+  @override
+  String get helpLooks =>
+      'Kaip katė atrodo, lustais: dydis, spalvos, raštas, kailis, uodega, ausys, žymės ir nuolatiniai bruožai. Pažymėkite, ką matote; benamė, sutampanti su dingusia dviem bruožais, tampa kandidate.';
 }

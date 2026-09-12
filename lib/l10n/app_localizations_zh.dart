@@ -3333,4 +3333,37 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get skipTour => '在此安装中跳过介绍和提示';
+
+  @override
+  String get spotCatChores => '日常照料在这里：喂食、用药、检查，每项都有自己的提醒。';
+
+  @override
+  String get spotLooks => '勾选你看到的。与其他目录的匹配由此而来。';
+
+  @override
+  String get spotHistoryHold => '长按一个值可修正或移除它。什么都不会丢失；隐藏的值可按需显示。';
+
+  @override
+  String get spotBackups => '您的目录的安全存放位置：手机备份的内容，以及您选择的文件夹中的副本。';
+
+  @override
+  String get spotCardPoster => '用这只猫的记录制作寻猫启事：照片、名字、大字号电话，以及他人可扫描的二维码。';
+
+  @override
+  String get spotCardPosterNeutral => '用这只宠物的记录制作寻宠启事：照片、名字、大字号电话，以及他人可扫描的二维码。';
+
+  @override
+  String get spotTimelineReport => '兽医报告：所选条目按时间线排列，附患者摘要和每项数值的曲线。';
+
+  @override
+  String get helpHistory =>
+      '一个字段随时间的值，最新在前。点按一个值可修正：新值取代它，旧值隐藏。长按可移除或恢复隐藏的值；眼睛图标显示隐藏的值。可复制为文本或以 PDF 分享。';
+
+  @override
+  String get helpSettings =>
+      '应用自身的设置：语言、单位、庆祝与欢呼、页面背景的毛皮、通知，以及目录的备份位置。可在此重新播放引导。';
+
+  @override
+  String get helpLooks =>
+      '猫的外观，以标签表示：体型、颜色、花纹、毛、尾巴、耳朵、斑记和持久特征。勾选你看到的；与失踪猫有两个特征一致的流浪猫会成为候选。';
 }

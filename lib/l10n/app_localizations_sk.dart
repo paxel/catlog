@@ -3515,4 +3515,44 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get skipTour => 'Preskočiť úvod a tipy v tejto inštalácii';
+
+  @override
+  String get spotCatChores =>
+      'Pravidelná starostlivosť býva tu: kŕmenie, lieky, kontroly, každá s vlastnou pripomienkou.';
+
+  @override
+  String get spotLooks =>
+      'Zaškrtnite, čo vidíte. Zhody s inými katalógmi vychádzajú odtiaľto.';
+
+  @override
+  String get spotHistoryHold =>
+      'Podržte hodnotu, aby ste ju opravili alebo odstránili. Nič sa nestratí; skryté hodnoty zobrazíte na požiadanie.';
+
+  @override
+  String get spotBackups =>
+      'Kde sú vaše katalógy v bezpečí: čo zálohuje telefón, a kópia v priečinku podľa vášho výberu.';
+
+  @override
+  String get spotCardPoster =>
+      'Plagát Nezvestný zo záznamu tejto mačky: fotka, meno, telefón veľkými písmenami a kód, ktorý ostatní naskenujú.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Plagát Nezvestný zo záznamu tohto zvieraťa: fotka, meno, telefón veľkými písmenami a kód, ktorý ostatní naskenujú.';
+
+  @override
+  String get spotTimelineReport =>
+      'Správa pre veterinára: vybrané záznamy ako časová os, prehľad pacienta a krivka pre každé číslo.';
+
+  @override
+  String get helpHistory =>
+      'Hodnoty jedného poľa v čase, najnovšie prvé. Ťuknutím hodnotu opravíte: nová nastúpi na jej miesto, stará sa skryje. Podržaním hodnotu odstránite alebo skrytú vrátite; oko zobrazí skryté hodnoty. Zoznam skopírujte ako text alebo zdieľajte ako PDF.';
+
+  @override
+  String get helpSettings =>
+      'Voľby aplikácie: jazyk, jednotky, oslavy a jasot, srsť za stránkami, upozornenia a kde sa zálohujú vaše katalógy. Odtiaľ možno prehliadky spustiť znova.';
+
+  @override
+  String get helpLooks =>
+      'Ako mačka vyzerá, ako čipy: veľkosť, farby, vzor, srsť, chvost, uši, znaky a trvalé črty. Zaškrtnite, čo vidíte; túlavá mačka zhodná s nezvestnou v dvoch črtách sa stane kandidátom.';
 }

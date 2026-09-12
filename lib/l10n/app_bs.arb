@@ -1187,5 +1187,15 @@
   "coverPick": "Naslovna slika…",
   "coverHint": "Slika mjesta: kuća, dvorište, hranilište. Na kartici umjesto mačke.",
   "coverRemove": "Ukloni naslovnu sliku",
-  "skipTour": "Preskoči uvod i savjete na ovoj instalaciji"
+  "skipTour": "Preskoči uvod i savjete na ovoj instalaciji",
+  "spotCatChores": "Redovna njega živi ovdje: hranjenje, lijekovi, provjere, svaka sa svojim podsjetnikom.",
+  "spotLooks": "Označite šta vidite. Podudaranja s drugim katalozima dolaze odavde.",
+  "spotHistoryHold": "Zadržite vrijednost da je ispravite ili uklonite. Ništa se ne gubi; skrivene vrijednosti se prikazuju na zahtjev.",
+  "spotBackups": "Gdje su vaši katalozi sigurni: šta telefon čuva, i kopija u folderu po vašem izboru.",
+  "spotCardPoster": "Plakat Nestao iz zapisa ove mačke: fotografija, ime, telefon velikim slovima i kod koji drugi skeniraju.",
+  "spotCardPosterNeutral": "Plakat Nestao iz zapisa ovog ljubimca: fotografija, ime, telefon velikim slovima i kod koji drugi skeniraju.",
+  "spotTimelineReport": "Izvještaj za veterinara: odabrani unosi kao vremenska linija, pregled pacijenta i kriva za svaki broj.",
+  "helpHistory": "Vrijednosti jednog polja kroz vrijeme, najnovije prve. Dodirnite vrijednost da je ispravite: nova zauzima njeno mjesto, stara se skriva. Zadržite vrijednost da je uklonite ili vratite skrivenu; oko prikazuje skrivene vrijednosti. Kopirajte listu kao tekst ili podijelite kao PDF.",
+  "helpSettings": "Izbori aplikacije: jezik, jedinice, slavlja i klicanje, krzno iza stranica, obavještenja i gdje se čuvaju kopije kataloga. Ture se odavde mogu ponoviti.",
+  "helpLooks": "Kako mačka izgleda, kao čipovi: veličina, boje, uzorak, krzno, rep, uši, oznake i trajne osobine. Označite šta vidite; lutalica koja se podudara s nestalom mačkom u dvije osobine postaje kandidat."
 }

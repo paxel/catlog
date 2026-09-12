@@ -3520,4 +3520,44 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get skipTour =>
       'Sari peste introducere și sfaturi pe această instalare';
+
+  @override
+  String get spotCatChores =>
+      'Îngrijirea recurentă locuiește aici: hrănire, medicamente, controale, fiecare cu propriul memento.';
+
+  @override
+  String get spotLooks =>
+      'Bifează ce vezi. Potrivirile cu alte cataloage vin de aici.';
+
+  @override
+  String get spotHistoryHold =>
+      'Ține apăsat o valoare pentru a o corecta sau elimina. Nimic nu se pierde; valorile ascunse apar la cerere.';
+
+  @override
+  String get spotBackups =>
+      'Unde sunt în siguranță cataloagele tale: ce salvează telefonul, și o copie într-un dosar la alegere.';
+
+  @override
+  String get spotCardPoster =>
+      'Un afiș dispărut din fișa acestei pisici: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Un afiș dispărut din fișa acestui animal: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.';
+
+  @override
+  String get spotTimelineReport =>
+      'Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și o curbă pentru fiecare număr.';
+
+  @override
+  String get helpHistory =>
+      'Valorile unui câmp în timp, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Ține apăsat o valoare pentru a o elimina sau a readuce una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau partajeaz-o ca PDF.';
+
+  @override
+  String get helpSettings =>
+      'Alegerile aplicației: limbă, unități, sărbătoriri și urale, blana din spatele paginilor, notificări și unde sunt salvate cataloagele tale. Tururile pot fi reluate de aici.';
+
+  @override
+  String get helpLooks =>
+      'Cum arată pisica, în chipuri: mărime, culori, model, blană, coadă, urechi, semne și trăsături durabile. Bifează ce vezi; un vagabond care se potrivește cu o pisică dispărută în două trăsături devine candidat.';
 }

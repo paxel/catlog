@@ -3370,4 +3370,40 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get skipTour => 'このインストールでは紹介とヒントを省略する';
+
+  @override
+  String get spotCatChores => '繰り返しのお世話はここ: 食事、薬、チェック。それぞれにリマインダーを付けられます。';
+
+  @override
+  String get spotLooks => '見えたものにチェック。他のカタログとの照合はここから生まれます。';
+
+  @override
+  String get spotHistoryHold =>
+      '値を長押しすると修正または取り消しできます。何も失われず、隠した値は必要なときに表示できます。';
+
+  @override
+  String get spotBackups => 'カタログの保管場所: 端末がバックアップするものと、選んだフォルダへのコピー。';
+
+  @override
+  String get spotCardPoster =>
+      'この猫の記録から迷子ポスターを作成: 写真、名前、大きな文字の電話番号、他の人が読み取るコード。';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'このペットの記録から迷子ポスターを作成: 写真、名前、大きな文字の電話番号、他の人が読み取るコード。';
+
+  @override
+  String get spotTimelineReport => '獣医向けレポート: 選んだ項目をタイムラインで、患者情報と数値ごとのグラフ付き。';
+
+  @override
+  String get helpHistory =>
+      '1つの項目の値の推移を新しい順に表示。値をタップで修正: 新しい値が置き換わり、古い値は隠れます。長押しで取り消し、または隠した値を復元。目のアイコンで隠した値を表示。テキストとしてコピー、PDF として共有できます。';
+
+  @override
+  String get helpSettings =>
+      'アプリの設定: 言語、単位、お祝いと歓声、ページ背景の毛柄、通知、カタログのバックアップ先。ツアーはここから再表示できます。';
+
+  @override
+  String get helpLooks =>
+      '猫の見た目をチップで: サイズ、色、模様、毛、尻尾、耳、しるし、変わらない特徴。見えたものにチェック。迷い猫と2つの特徴が一致する野良猫は候補になります。';
 }

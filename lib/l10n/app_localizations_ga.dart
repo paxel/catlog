@@ -3559,4 +3559,44 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get skipTour =>
       'Léim thar an réamhrá agus na leideanna ar an suiteáil seo';
+
+  @override
+  String get spotCatChores =>
+      'Cónaíonn cúram athfhillteach anseo: beathú, cógais, seiceálacha, gach ceann lena mheabhrúchán féin.';
+
+  @override
+  String get spotLooks =>
+      'Cuir tic le gach a bhfeiceann tú. Is as seo a thagann meaitseálacha le catalóga eile.';
+
+  @override
+  String get spotHistoryHold =>
+      'Coinnigh luach chun é a cheartú nó a bhaint. Ní chailltear aon rud; taispeántar luachanna folaithe ar iarratas.';
+
+  @override
+  String get spotBackups =>
+      'An áit a gcoinnítear do chatalóga slán: a ndéanann an guthán cúltaca de, agus cóip i bhfillteán de do rogha.';
+
+  @override
+  String get spotCardPoster =>
+      'Póstaer ar iarraidh ó thaifead an chait seo: grianghraf, ainm, fón i litreacha móra, agus cód a scanann daoine eile.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Póstaer ar iarraidh ó thaifead an pheata seo: grianghraf, ainm, fón i litreacha móra, agus cód a scanann daoine eile.';
+
+  @override
+  String get spotTimelineReport =>
+      'Tuairisc don tréidlia: iontrálacha roghnaithe mar amlíne, achoimre othair, agus cuar do gach uimhir.';
+
+  @override
+  String get helpHistory =>
+      'Luachanna réimse amháin le himeacht ama, an ceann is nuaí ar dtús. Tapáil luach chun é a cheartú: glacann an ceann nua a áit, folaítear an seancheann. Coinnigh luach chun é a bhaint nó ceann folaithe a thabhairt ar ais; taispeánann an tsúil luachanna folaithe. Cóipeáil an liosta mar théacs nó roinn é mar PDF.';
+
+  @override
+  String get helpSettings =>
+      'Roghanna an aip féin: teanga, aonaid, ceiliúrthaí agus gártha, an fionnadh taobh thiar de na leathanaigh, fógraí, agus cá ndéantar cúltaca de do chatalóga. Is féidir na turais a athsheinm as seo.';
+
+  @override
+  String get helpLooks =>
+      'Cuma an chait, mar shliseanna: méid, dathanna, patrún, fionnadh, eireaball, cluasa, marcanna agus tréithe buana. Cuir tic le gach a bhfeiceann tú; is iarrthóir é cat fáin a réitíonn le cat ar iarraidh in dhá thréith.';
 }

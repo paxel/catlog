@@ -1187,5 +1187,15 @@
   "coverPick": "Forsidebilde…",
   "coverHint": "Et bilde av stedet: huset, gården, fôringsplassen. Vises på kortet i stedet for en katt.",
   "coverRemove": "Fjern forsidebilde",
-  "skipTour": "Hopp over introen og tipsene på denne installasjonen"
+  "skipTour": "Hopp over introen og tipsene på denne installasjonen",
+  "spotCatChores": "Gjentakende stell bor her: fôring, medisin, sjekker, hver med sin egen påminnelse.",
+  "spotLooks": "Kryss av det du ser. Treff mot andre kataloger kommer herfra.",
+  "spotHistoryHold": "Hold en verdi for å rette eller fjerne den. Ingenting går tapt; skjulte verdier vises på forespørsel.",
+  "spotBackups": "Hvor katalogene dine er trygge: hva telefonen sikkerhetskopierer, og en kopi i en mappe du velger.",
+  "spotCardPoster": "En savnet-plakat fra denne kattens kort: bilde, navn, telefon med store bokstaver og en kode andre skanner.",
+  "spotCardPosterNeutral": "En savnet-plakat fra dette kjæledyrets kort: bilde, navn, telefon med store bokstaver og en kode andre skanner.",
+  "spotTimelineReport": "En rapport til veterinæren: valgte oppføringer som tidslinje, en pasientoversikt og en kurve for hvert tall.",
+  "helpHistory": "Ett felts verdier over tid, nyeste først. Trykk på en verdi for å rette den: den nye tar plassen, den gamle skjules. Hold en verdi for å fjerne den eller hente en skjult tilbake; øyet viser skjulte verdier. Kopier listen som tekst eller del den som PDF.",
+  "helpSettings": "Appens egne valg: språk, enheter, feiringer og jubel, pelsen bak sidene, varsler og hvor katalogene dine sikkerhetskopieres. Omvisningene kan spilles av igjen herfra.",
+  "helpLooks": "Hvordan katten ser ut, som brikker: størrelse, farger, mønster, pels, hale, ører, tegninger og varige trekk. Kryss av det du ser; en hjemløs som stemmer med en savnet katt på to trekk blir kandidat."
 }

@@ -3516,4 +3516,44 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get skipTour => 'Přeskočit úvod a tipy v této instalaci';
+
+  @override
+  String get spotCatChores =>
+      'Pravidelná péče bydlí tady: krmení, léky, kontroly, každá s vlastní připomínkou.';
+
+  @override
+  String get spotLooks =>
+      'Zaškrtněte, co vidíte. Shody s jinými katalogy vycházejí odtud.';
+
+  @override
+  String get spotHistoryHold =>
+      'Podržte hodnotu, abyste ji opravili nebo odebrali. Nic se neztratí; skryté hodnoty zobrazíte na požádání.';
+
+  @override
+  String get spotBackups =>
+      'Kde jsou vaše katalogy v bezpečí: co zálohuje telefon, a kopie ve složce podle vašeho výběru.';
+
+  @override
+  String get spotCardPoster =>
+      'Plakát Pohřešuje se ze záznamu této kočky: fotka, jméno, telefon velkými písmeny a kód, který ostatní naskenují.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Plakát Pohřešuje se ze záznamu tohoto zvířete: fotka, jméno, telefon velkými písmeny a kód, který ostatní naskenují.';
+
+  @override
+  String get spotTimelineReport =>
+      'Zpráva pro veterináře: vybrané záznamy jako časová osa, přehled pacienta a křivka pro každé číslo.';
+
+  @override
+  String get helpHistory =>
+      'Hodnoty jednoho pole v čase, nejnovější první. Klepnutím hodnotu opravíte: nová nastoupí na její místo, stará se skryje. Podržením hodnotu odeberete nebo skrytou vrátíte; oko zobrazí skryté hodnoty. Seznam zkopírujte jako text nebo sdílejte jako PDF.';
+
+  @override
+  String get helpSettings =>
+      'Volby aplikace: jazyk, jednotky, oslavy a jásot, srst za stránkami, oznámení a kde se zálohují vaše katalogy. Odtud lze prohlídky spustit znovu.';
+
+  @override
+  String get helpLooks =>
+      'Jak kočka vypadá, jako čipy: velikost, barvy, vzor, srst, ocas, uši, znaky a trvalé rysy. Zaškrtněte, co vidíte; toulavá kočka shodná s pohřešovanou ve dvou rysech se stane kandidátem.';
 }

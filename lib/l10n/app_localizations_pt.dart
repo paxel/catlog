@@ -3505,4 +3505,44 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get skipTour => 'Saltar a introdução e as dicas nesta instalação';
+
+  @override
+  String get spotCatChores =>
+      'Os cuidados recorrentes vivem aqui: comida, medicamentos, controlos, cada um com o seu lembrete.';
+
+  @override
+  String get spotLooks =>
+      'Marca o que vês. As correspondências com outros catálogos vêm daqui.';
+
+  @override
+  String get spotHistoryHold =>
+      'Mantém premido um valor para o corrigir ou remover. Nada se perde; os valores ocultos mostram-se a pedido.';
+
+  @override
+  String get spotBackups =>
+      'Onde os teus catálogos ficam a salvo: o que o telemóvel guarda, e uma cópia numa pasta à tua escolha.';
+
+  @override
+  String get spotCardPoster =>
+      'Um cartaz de desaparecido a partir da ficha deste gato: foto, nome, telefone em letras grandes e um código que outros leem.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Um cartaz de desaparecido a partir da ficha deste animal: foto, nome, telefone em letras grandes e um código que outros leem.';
+
+  @override
+  String get spotTimelineReport =>
+      'Um relatório para o veterinário: entradas escolhidas como cronologia, um resumo do paciente e uma curva para cada número.';
+
+  @override
+  String get helpHistory =>
+      'Os valores de um campo ao longo do tempo, os mais recentes primeiro. Toca num valor para o corrigir: o novo toma o seu lugar, o antigo esconde-se. Mantém premido um valor para o remover ou recuperar um escondido; o olho mostra os valores escondidos. Copia a lista como texto ou partilha-a como PDF.';
+
+  @override
+  String get helpSettings =>
+      'As escolhas da app: idioma, unidades, festejos e vivas, a pelagem atrás das páginas, notificações e onde os teus catálogos são guardados. As visitas podem ser repetidas daqui.';
+
+  @override
+  String get helpLooks =>
+      'Como é o gato, em chips: tamanho, cores, padrão, pelo, cauda, orelhas, marcas e traços permanentes. Marca o que vês; um vadio que coincide com um gato desaparecido em dois traços torna-se candidato.';
 }

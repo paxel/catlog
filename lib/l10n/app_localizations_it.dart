@@ -3514,4 +3514,44 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get skipTour =>
       'Salta introduzione e suggerimenti su questa installazione';
+
+  @override
+  String get spotCatChores =>
+      'Le cure ricorrenti vivono qui: cibo, medicine, controlli, ognuna con il suo promemoria.';
+
+  @override
+  String get spotLooks =>
+      'Spunta ciò che vedi. Le corrispondenze con altri cataloghi nascono da qui.';
+
+  @override
+  String get spotHistoryHold =>
+      'Tieni premuto un valore per correggerlo o rimuoverlo. Nulla va perso; i valori nascosti si mostrano su richiesta.';
+
+  @override
+  String get spotBackups =>
+      'Dove i tuoi cataloghi sono al sicuro: ciò che il telefono salva, e una copia in una cartella a tua scelta.';
+
+  @override
+  String get spotCardPoster =>
+      'Un manifesto di smarrimento dalla scheda di questo gatto: foto, nome, telefono a caratteri grandi e un codice che altri scansionano.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Un manifesto di smarrimento dalla scheda di questo animale: foto, nome, telefono a caratteri grandi e un codice che altri scansionano.';
+
+  @override
+  String get spotTimelineReport =>
+      'Un rapporto per il veterinario: le voci scelte come sequenza temporale, un riepilogo del paziente e una curva per ogni numero.';
+
+  @override
+  String get helpHistory =>
+      'I valori di un campo nel tempo, i più recenti per primi. Tocca un valore per correggerlo: il nuovo prende il suo posto, il vecchio si nasconde. Tieni premuto un valore per rimuoverlo o ripristinarne uno nascosto; l\'occhio mostra i valori nascosti. Copia l\'elenco come testo o condividilo come PDF.';
+
+  @override
+  String get helpSettings =>
+      'Le scelte dell\'app: lingua, unità, festeggiamenti ed esultanze, il manto dietro le pagine, notifiche, e dove sono salvati i tuoi cataloghi. I tour si possono ripetere da qui.';
+
+  @override
+  String get helpLooks =>
+      'Com\'è il gatto, a chip: taglia, colori, disegno, pelo, coda, orecchie, segni e tratti permanenti. Spunta ciò che vedi; un randagio che concorda con un gatto smarrito in due tratti diventa un candidato.';
 }

@@ -3519,4 +3519,44 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get skipTour =>
       'Aqbeż l-introduzzjoni u l-ħjiel f\'din l-installazzjoni';
+
+  @override
+  String get spotCatChores =>
+      'Il-kura rikorrenti tgħix hawn: ikel, mediċini, kontrolli, kull waħda bit-tfakkira tagħha.';
+
+  @override
+  String get spotLooks =>
+      'Immarka dak li tara. Il-qbil ma\' katalogi oħra jiġi minn hawn.';
+
+  @override
+  String get spotHistoryHold =>
+      'Żomm valur biex tikkoreġih jew tneħħih. Xejn ma jintilef; il-valuri moħbija jidhru fuq talba.';
+
+  @override
+  String get spotBackups =>
+      'Fejn jinżammu fis-sod il-katalogi tiegħek: dak li t-telefon jagħmel backup tiegħu, u kopja f\'folder li tagħżel int.';
+
+  @override
+  String get spotCardPoster =>
+      'Poster mitluf mir-rekord ta\' dan il-qattus: ritratt, isem, telefon b\'ittri kbar u kodiċi li ħaddieħor jiskennja.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Poster mitluf mir-rekord ta\' dan il-pet: ritratt, isem, telefon b\'ittri kbar u kodiċi li ħaddieħor jiskennja.';
+
+  @override
+  String get spotTimelineReport =>
+      'Rapport għall-veterinarju: entrati magħżula bħala linja taż-żmien, sommarju tal-pazjent u kurva għal kull numru.';
+
+  @override
+  String get helpHistory =>
+      'Il-valuri ta\' qasam wieħed maż-żmien, l-aktar riċenti l-ewwel. Mess valur biex tikkoreġih: il-ġdid jieħu postu, il-qadim jinħeba. Żomm valur biex tneħħih jew iġġib lura wieħed moħbi; l-għajn turi l-valuri moħbija. Ikkopja l-lista bħala test jew aqsamha bħala PDF.';
+
+  @override
+  String get helpSettings =>
+      'L-għażliet tal-app: lingwa, unitajiet, ċelebrazzjonijiet u għajjat, il-pil wara l-paġni, notifiki, u fejn isir il-backup tal-katalogi tiegħek. It-tours jistgħu jerġgħu jintwerew minn hawn.';
+
+  @override
+  String get helpLooks =>
+      'Kif jidher il-qattus, bħala chips: daqs, kuluri, disinn, pil, denb, widnejn, marki u fatturi permanenti. Immarka dak li tara; qattus tat-triq li jaqbel ma\' qattus mitluf f\'żewġ fatturi jsir kandidat.';
 }

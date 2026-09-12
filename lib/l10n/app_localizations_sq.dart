@@ -3505,4 +3505,44 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get skipTour => 'Kalo hyrjen dhe këshillat në këtë instalim';
+
+  @override
+  String get spotCatChores =>
+      'Kujdesi i përsëritur jeton këtu: ushqimi, ilaçet, kontrollet, secili me kujtesën e vet.';
+
+  @override
+  String get spotLooks =>
+      'Shëno çfarë sheh. Përputhjet me katalogë të tjerë vijnë nga këtu.';
+
+  @override
+  String get spotHistoryHold =>
+      'Mbaje shtypur një vlerë për ta korrigjuar ose hequr. Asgjë nuk humbet; vlerat e fshehura shfaqen sipas kërkesës.';
+
+  @override
+  String get spotBackups =>
+      'Ku ruhen të sigurt katalogët e tu: çfarë ruan telefoni, dhe një kopje në një dosje sipas zgjedhjes.';
+
+  @override
+  String get spotCardPoster =>
+      'Një poster i humbur nga regjistri i kësaj maceje: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Një poster i humbur nga regjistri i kësaj kafshe: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.';
+
+  @override
+  String get spotTimelineReport =>
+      'Raport për veterinerin: hyrjet e zgjedhura si vijë kohore, një përmbledhje e pacientit dhe një kurbë për çdo numër.';
+
+  @override
+  String get helpHistory =>
+      'Vlerat e një fushe përgjatë kohës, më të rejat të parat. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Mbaje shtypur një vlerë për ta hequr ose për të rikthyer një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.';
+
+  @override
+  String get helpSettings =>
+      'Zgjedhjet e aplikacionit: gjuha, njësitë, festimet dhe brohoritjet, gëzofi pas faqeve, njoftimet dhe ku ruhen kopjet e katalogëve. Turet mund të përsëriten nga këtu.';
+
+  @override
+  String get helpLooks =>
+      'Si duket macja, me çipa: madhësia, ngjyrat, modeli, gëzofi, bishti, veshët, shenjat dhe tiparet e përhershme. Shëno çfarë sheh; një endacak që përputhet me një mace të humbur në dy tipare bëhet kandidat.';
 }

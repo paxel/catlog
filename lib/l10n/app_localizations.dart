@@ -6097,6 +6097,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Skip the intro and the tips on this install'**
   String get skipTour;
+
+  /// No description provided for @spotCatChores.
+  ///
+  /// In en, this message translates to:
+  /// **'Recurring care lives here: feeding, meds, checks, each with its own reminder.'**
+  String get spotCatChores;
+
+  /// No description provided for @spotLooks.
+  ///
+  /// In en, this message translates to:
+  /// **'Tick what you see. Matches with other catalogs come from these.'**
+  String get spotLooks;
+
+  /// No description provided for @spotHistoryHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold a value to correct or remove it. Nothing is lost; hidden values show on request.'**
+  String get spotHistoryHold;
+
+  /// No description provided for @spotBackups.
+  ///
+  /// In en, this message translates to:
+  /// **'Where your catalogs are kept safe: what the phone backs up, and a copy in a folder of your choice.'**
+  String get spotBackups;
+
+  /// No description provided for @spotCardPoster.
+  ///
+  /// In en, this message translates to:
+  /// **'A missing poster from this cat\'s record: photo, name, phone in big letters, and a code other keepers scan.'**
+  String get spotCardPoster;
+
+  /// No description provided for @spotCardPosterNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'A missing poster from this pet\'s record: photo, name, phone in big letters, and a code other keepers scan.'**
+  String get spotCardPosterNeutral;
+
+  /// No description provided for @spotTimelineReport.
+  ///
+  /// In en, this message translates to:
+  /// **'A report for the vet: chosen entries as a timeline, a patient summary, and a curve for every number.'**
+  String get spotTimelineReport;
+
+  /// No description provided for @helpHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.'**
+  String get helpHistory;
+
+  /// No description provided for @helpSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'The app\'s own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.'**
+  String get helpSettings;
+
+  /// No description provided for @helpLooks.
+  ///
+  /// In en, this message translates to:
+  /// **'What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.'**
+  String get helpLooks;
 }
 
 class _AppLocalizationsDelegate

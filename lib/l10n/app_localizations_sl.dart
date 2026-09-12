@@ -3532,4 +3532,44 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get skipTour => 'Preskoči uvod in namige na tej namestitvi';
+
+  @override
+  String get spotCatChores =>
+      'Redna nega živi tukaj: hranjenje, zdravila, pregledi, vsaka s svojim opomnikom.';
+
+  @override
+  String get spotLooks =>
+      'Označite, kar vidite. Ujemanja z drugimi katalogi izhajajo od tod.';
+
+  @override
+  String get spotHistoryHold =>
+      'Pridržite vrednost, da jo popravite ali odstranite. Nič se ne izgubi; skrite vrednosti se pokažejo na zahtevo.';
+
+  @override
+  String get spotBackups =>
+      'Kje so vaši katalogi na varnem: kaj telefon varnostno kopira, in kopija v mapi po vaši izbiri.';
+
+  @override
+  String get spotCardPoster =>
+      'Plakat Pogrešan iz zapisa te mačke: fotografija, ime, telefon z velikimi črkami in koda, ki jo drugi skenirajo.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Plakat Pogrešan iz zapisa tega ljubljenčka: fotografija, ime, telefon z velikimi črkami in koda, ki jo drugi skenirajo.';
+
+  @override
+  String get spotTimelineReport =>
+      'Poročilo za veterinarja: izbrani vnosi kot časovnica, povzetek pacienta in krivulja za vsako število.';
+
+  @override
+  String get helpHistory =>
+      'Vrednosti enega polja skozi čas, najnovejše prve. Tapnite vrednost, da jo popravite: nova zasede njeno mesto, stara se skrije. Pridržite vrednost, da jo odstranite ali vrnete skrito; oko pokaže skrite vrednosti. Kopirajte seznam kot besedilo ali ga delite kot PDF.';
+
+  @override
+  String get helpSettings =>
+      'Izbire aplikacije: jezik, enote, praznovanja in vzkliki, kožuh za stranmi, obvestila in kje se varnostno kopirajo vaši katalogi. Oglede lahko od tod ponovite.';
+
+  @override
+  String get helpLooks =>
+      'Kako mačka izgleda, kot čipi: velikost, barve, vzorec, kožuh, rep, ušesa, znaki in trajne značilnosti. Označite, kar vidite; potepuh, ki se z pogrešano mačko ujema v dveh značilnostih, postane kandidat.';
 }

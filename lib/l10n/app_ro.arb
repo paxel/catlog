@@ -1187,5 +1187,15 @@
   "coverPick": "Imagine de copertă…",
   "coverHint": "O imagine a locului: casa, curtea, locul de hrănire. Pe card în locul unei pisici.",
   "coverRemove": "Elimină imaginea de copertă",
-  "skipTour": "Sari peste introducere și sfaturi pe această instalare"
+  "skipTour": "Sari peste introducere și sfaturi pe această instalare",
+  "spotCatChores": "Îngrijirea recurentă locuiește aici: hrănire, medicamente, controale, fiecare cu propriul memento.",
+  "spotLooks": "Bifează ce vezi. Potrivirile cu alte cataloage vin de aici.",
+  "spotHistoryHold": "Ține apăsat o valoare pentru a o corecta sau elimina. Nimic nu se pierde; valorile ascunse apar la cerere.",
+  "spotBackups": "Unde sunt în siguranță cataloagele tale: ce salvează telefonul, și o copie într-un dosar la alegere.",
+  "spotCardPoster": "Un afiș dispărut din fișa acestei pisici: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.",
+  "spotCardPosterNeutral": "Un afiș dispărut din fișa acestui animal: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.",
+  "spotTimelineReport": "Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și o curbă pentru fiecare număr.",
+  "helpHistory": "Valorile unui câmp în timp, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Ține apăsat o valoare pentru a o elimina sau a readuce una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau partajeaz-o ca PDF.",
+  "helpSettings": "Alegerile aplicației: limbă, unități, sărbătoriri și urale, blana din spatele paginilor, notificări și unde sunt salvate cataloagele tale. Tururile pot fi reluate de aici.",
+  "helpLooks": "Cum arată pisica, în chipuri: mărime, culori, model, blană, coadă, urechi, semne și trăsături durabile. Bifează ce vezi; un vagabond care se potrivește cu o pisică dispărută în două trăsături devine candidat."
 }

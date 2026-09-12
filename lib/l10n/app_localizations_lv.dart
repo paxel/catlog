@@ -3519,4 +3519,44 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get skipTour => 'Izlaist ievadu un padomus šajā instalācijā';
+
+  @override
+  String get spotCatChores =>
+      'Regulārā aprūpe dzīvo šeit: barošana, zāles, pārbaudes, katra ar savu atgādinājumu.';
+
+  @override
+  String get spotLooks =>
+      'Atzīmējiet, ko redzat. Sakritības ar citiem katalogiem nāk no šejienes.';
+
+  @override
+  String get spotHistoryHold =>
+      'Turiet vērtību, lai to labotu vai noņemtu. Nekas nepazūd; paslēptās vērtības rāda pēc pieprasījuma.';
+
+  @override
+  String get spotBackups =>
+      'Kur jūsu katalogi ir drošībā: ko tālrunis dublē, un kopija jūsu izvēlētā mapē.';
+
+  @override
+  String get spotCardPoster =>
+      'Pazudis plakāts no šī kaķa ieraksta: foto, vārds, tālrunis lieliem burtiem un kods, ko citi noskenē.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Pazudis plakāts no šī mājdzīvnieka ieraksta: foto, vārds, tālrunis lieliem burtiem un kods, ko citi noskenē.';
+
+  @override
+  String get spotTimelineReport =>
+      'Ziņojums veterinārārstam: izvēlētie ieraksti kā laika līnija, pacienta kopsavilkums un līkne katram skaitlim.';
+
+  @override
+  String get helpHistory =>
+      'Viena lauka vērtības laika gaitā, jaunākās pirmās. Pieskarieties vērtībai, lai to labotu: jaunā ieņem tās vietu, vecā tiek paslēpta. Turiet vērtību, lai to noņemtu vai atgrieztu paslēpto; acs rāda paslēptās vērtības. Kopējiet sarakstu kā tekstu vai kopīgojiet kā PDF.';
+
+  @override
+  String get helpSettings =>
+      'Lietotnes izvēles: valoda, vienības, svinības un gaviles, kažoks aiz lapām, paziņojumi un kur tiek dublēti jūsu katalogi. Ekskursijas var atkārtot no šejienes.';
+
+  @override
+  String get helpLooks =>
+      'Kā kaķis izskatās, kā mikroshēmas: izmērs, krāsas, raksts, kažoks, aste, ausis, zīmes un paliekošas iezīmes. Atzīmējiet, ko redzat; klaiņotājs, kas sakrīt ar pazudušu kaķi divās iezīmēs, kļūst par kandidātu.';
 }

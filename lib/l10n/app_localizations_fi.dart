@@ -3505,4 +3505,44 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get skipTour => 'Ohita esittely ja vinkit tässä asennuksessa';
+
+  @override
+  String get spotCatChores =>
+      'Toistuva hoito asuu täällä: ruokinta, lääkkeet, tarkistukset, kullakin oma muistutus.';
+
+  @override
+  String get spotLooks =>
+      'Rastita mitä näet. Osumat muiden luetteloiden kanssa syntyvät tästä.';
+
+  @override
+  String get spotHistoryHold =>
+      'Pidä arvoa pohjassa korjataksesi tai poistaaksesi sen. Mikään ei katoa; piilotetut arvot näkyvät pyynnöstä.';
+
+  @override
+  String get spotBackups =>
+      'Missä luettelosi ovat turvassa: mitä puhelin varmuuskopioi, ja kopio valitsemaasi kansioon.';
+
+  @override
+  String get spotCardPoster =>
+      'Kadonnut-juliste tämän kissan tiedoista: kuva, nimi, puhelin isolla ja koodi, jonka muut skannaavat.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Kadonnut-juliste tämän lemmikin tiedoista: kuva, nimi, puhelin isolla ja koodi, jonka muut skannaavat.';
+
+  @override
+  String get spotTimelineReport =>
+      'Raportti eläinlääkärille: valitut merkinnät aikajanana, potilasyhteenveto ja käyrä jokaiselle luvulle.';
+
+  @override
+  String get helpHistory =>
+      'Yhden kentän arvot ajan myötä, uusin ensin. Napauta arvoa korjataksesi sen: uusi ottaa sen paikan, vanha piilotetaan. Pidä arvoa pohjassa poistaaksesi sen tai palauttaaksesi piilotetun; silmä näyttää piilotetut arvot. Kopioi luettelo tekstinä tai jaa se PDF:nä.';
+
+  @override
+  String get helpSettings =>
+      'Sovelluksen omat valinnat: kieli, yksiköt, juhlat ja hurraukset, sivujen takana oleva turkki, ilmoitukset ja minne luettelosi varmuuskopioidaan. Kierrokset voi toistaa täältä.';
+
+  @override
+  String get helpLooks =>
+      'Miltä kissa näyttää, sirujen muodossa: koko, värit, kuvio, turkki, häntä, korvat, merkit ja pysyvät piirteet. Rastita mitä näet; kulkukissa, joka vastaa kadonnutta kahdessa piirteessä, nousee ehdokkaaksi.';
 }
