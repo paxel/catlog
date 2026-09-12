@@ -100,6 +100,7 @@ void main() {
     store.append(cat, 'f:chipid', '276098100123456');
     pw.Document? shared;
     String? fileName;
+    var previews = 0;
     tester.view.physicalSize = const Size(500, 1800);
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.reset);
@@ -114,10 +115,21 @@ void main() {
             shared = doc;
             fileName = name;
           },
+          preview: (pdf) async {
+            previews++;
+            return photo;
+          },
         ),
       ),
     );
     await tester.pumpAndSettle();
+    // The preview draws half a second after the page opens, and again
+    // half a second after a tick changes.
+    expect(find.text('Preview'), findsNothing);
+    await tester.pump(const Duration(milliseconds: 600));
+    await tester.pumpAndSettle();
+    expect(find.text('Preview'), findsOneWidget);
+    expect(previews, 1);
     expect(find.text('Grimmaische Straße 12'), findsOneWidget);
     expect(find.text('+49 30 1'), findsOneWidget);
     // Every filled field is a row; ID, address and phone start ticked,
@@ -137,6 +149,9 @@ void main() {
     await tester.tap(find.text('Gender'));
     await tester.pumpAndSettle();
     expect(boxOf('Gender').value, isTrue);
+    await tester.pump(const Duration(milliseconds: 600));
+    await tester.pumpAndSettle();
+    expect(previews, 2);
     await tester.enterText(find.byType(TextField), 'Answers to Miezi');
     await tester.tap(find.byTooltip('Share as PDF'));
     await tester.pumpAndSettle();

@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -30,12 +33,17 @@ class MissingPosterScreen extends StatefulWidget {
   /// The print dialog by default. Tests inject.
   final Future<void> Function(pw.Document doc)? print;
 
+  /// Renders the first page for the preview; the printing plugin by
+  /// default, which tests replace or leave to fail quietly.
+  final Future<Uint8List?> Function(Uint8List pdf) preview;
+
   const MissingPosterScreen({
     super.key,
     required this.store,
     required this.catId,
     this.share,
     this.print,
+    this.preview = rasterFirstPage,
   });
 
   @override
@@ -66,6 +74,56 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
   bool _photosSet = false;
   bool _busy = false;
   Set<String>? _ticked;
+  Uint8List? _previewPng;
+  bool _previewBusy = false;
+  bool _previewDirty = false;
+  Timer? _previewTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _extra.addListener(_schedulePreview);
+    _schedulePreview();
+  }
+
+  /// Every change redraws the preview, half a second after the last one.
+  void _schedulePreview() {
+    _previewTimer?.cancel();
+    _previewTimer = Timer(const Duration(milliseconds: 500), _renderPreview);
+  }
+
+  Future<void> _renderPreview() async {
+    if (!mounted) return;
+    if (_previewBusy) {
+      _previewDirty = true;
+      return;
+    }
+    _previewBusy = true;
+    setState(() {});
+    try {
+      final language = Localizations.localeOf(context).languageCode;
+      final content = _content();
+      final fonts = await pdfFontsFor(language);
+      final pdf = await missingPosterPdf(content, fonts).save();
+      final png = await widget.preview(pdf);
+      if (mounted && png != null) setState(() => _previewPng = png);
+    } catch (_) {
+      // No plugin, no preview: the share and print buttons still work.
+    } finally {
+      _previewBusy = false;
+      if (mounted) setState(() {});
+      if (_previewDirty) {
+        _previewDirty = false;
+        _schedulePreview();
+      }
+    }
+  }
+
+  /// A change of the poster: redraw the page and the preview.
+  void _changed(VoidCallback fn) {
+    setState(fn);
+    _schedulePreview();
+  }
 
   String? get _clowder => store.current(widget.catId, Keys.clowder);
 
@@ -87,7 +145,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
       final bytes = store.imageBytes(hash);
       if (bytes != null) photos[hash] = PosterPhoto(bytes);
     }
-    setState(() {});
+    _changed(() {});
   }
 
   /// Every filled field of the cat, then of its home.
@@ -123,6 +181,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
 
   @override
   void dispose() {
+    _previewTimer?.cancel();
     _extra.dispose();
     super.dispose();
   }
@@ -276,7 +335,10 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
                   key: ValueKey('frame-$hash'),
                   bytes: photos[hash]!.bytes,
                   aspect: posterFrameAspect(chosen.length, i),
-                  onChanged: (p) => photos[hash] = p,
+                  onChanged: (p) {
+                    photos[hash] = p;
+                    _schedulePreview();
+                  },
                 ),
               ),
             ],
@@ -325,6 +387,39 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
+          // The page as it prints, redrawn after every change.
+          if (_previewPng != null) ...[
+            Text(
+              t.posterPreview,
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            const SizedBox(height: 4),
+            Stack(
+              children: [
+                AspectRatio(
+                  aspectRatio: 595 / 842,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Theme.of(context).dividerColor),
+                    ),
+                    child: Image.memory(
+                      _previewPng!,
+                      fit: BoxFit.contain,
+                      gaplessPlayback: true,
+                    ),
+                  ),
+                ),
+                if (_previewBusy)
+                  const Positioned(
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    child: LinearProgressIndicator(),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 8),
+          ],
           ListTile(
             contentPadding: EdgeInsets.zero,
             leading: const Icon(Icons.event),
@@ -336,7 +431,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
                 initial: _since,
                 lastDate: DateTime.now(),
               );
-              if (picked != null && mounted) setState(() => _since = picked);
+              if (picked != null && mounted) _changed(() => _since = picked);
             },
           ),
           ..._photoSection(t),
@@ -344,7 +439,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
             CheckboxListTile(
               contentPadding: EdgeInsets.zero,
               value: ticks.contains(r.id),
-              onChanged: (v) => setState(() {
+              onChanged: (v) => _changed(() {
                 if (v == true) {
                   ticks.add(r.id);
                 } else {
@@ -357,7 +452,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
           CheckboxListTile(
             contentPadding: EdgeInsets.zero,
             value: _qr && qrFits,
-            onChanged: qrFits ? (v) => setState(() => _qr = v!) : null,
+            onChanged: qrFits ? (v) => _changed(() => _qr = v!) : null,
             title: Text(t.posterQr),
             subtitle: qrFits ? null : Text(t.posterQrTooBig),
           ),

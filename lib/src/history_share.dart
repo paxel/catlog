@@ -99,5 +99,14 @@ Future<void> sharePdf(pw.Document doc, String fileName) async =>
     Printing.sharePdf(bytes: await doc.save(), filename: fileName);
 
 /// Hands the PDF to the system print dialog.
+/// The first page of [pdf] as a PNG, for a preview on screen; null
+/// where the printing plugin cannot render (tests, some desktops).
+Future<Uint8List?> rasterFirstPage(Uint8List pdf) async {
+  await for (final page in Printing.raster(pdf, pages: [0], dpi: 96)) {
+    return page.toPng();
+  }
+  return null;
+}
+
 Future<void> printPdf(pw.Document doc) async =>
     Printing.layoutPdf(onLayout: (_) => doc.save());
