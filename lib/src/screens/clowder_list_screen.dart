@@ -651,8 +651,17 @@ class _ClowderCard extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                _FaceRow(store: store, clowderId: clowder.id,
-                    onLight: cover != null),
+                // The faces keep clear of the star at the end and shrink
+                // rather than run under it.
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(end: 40),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: AlignmentDirectional.centerStart,
+                    child: _FaceRow(store: store, clowderId: clowder.id,
+                        onLight: cover != null),
+                  ),
+                ),
               ],
             ),
           ),
@@ -844,8 +853,7 @@ class _FaceRow extends StatelessWidget {
             ),
           ),
         ),
-      // Room at the end for the favourite star.
-      const SizedBox(width: 30),
+
     ]);
   }
 }
