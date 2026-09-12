@@ -3614,4 +3614,18 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Dak li ntrebaħ u dak biss: xhur, snin u aktar sħaħ ta\' xogħlijiet bin-numru tagħhom, titlu wieħed għal kull xogħol fil-grad tiegħu, u l-pil li nfetaħ. L-ebda bar tal-progress u xejn x\'tiġri warajh; il-premjijiet huma bonus kwiet.';
+
+  @override
+  String get posterQrTooBig =>
+      'Hemm wisq immarkat għal kodiċi wieħed. Neħħi l-marka minn linja u l-kodiċi jerġa\' lura.';
+
+  @override
+  String get posterPhotos => 'Ritratti, sa tnejn';
+
+  @override
+  String get posterFrameHint =>
+      'Kaxkar u agħfas b\'żewġ swaba\' biex tinkwadra r-ritratt.';
+
+  @override
+  String get posterPreview => 'Preview';
 }

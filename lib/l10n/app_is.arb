@@ -1216,5 +1216,9 @@
   "helpScan": "Skannaðu cat(a)log-kóðann á veggspjaldi eða á skjá annars: kötturinn og tengiliður hans lenda hér án innsláttar. Kóði með tengli sækir skrána á bak við hann.",
   "helpVetReport": "Það sem fer til dýralæknisins: reitirnir og dagsetningarnar sem þú velur, hver lína merkt þar til þú afmerkir hana, og yfirlit sjúklings fremst. Deila sem PDF eða prenta, hvort tveggja í stikunni.",
   "helpPoster": "Veggspjald á ljósastaur, úr skránni: merktu við það sem á að fara á það, bættu við línu sem skráin hefur ekki, og síðan prentast svart á hvítu með stöfum sem lesast yfir götuna. Kóðinn opnar köttinn í öðrum cat(a)log.",
-  "helpAchievements": "Það sem var unnið og aðeins það: heilir mánuðir, ár og meira af verkum með fjölda þeirra, einn titill á verk á sínu þrepi, og feldirnir sem opnuðust. Engar framvindustikur og ekkert að elta; verðlaunin eru hljóðlátur bónus."
+  "helpAchievements": "Það sem var unnið og aðeins það: heilir mánuðir, ár og meira af verkum með fjölda þeirra, einn titill á verk á sínu þrepi, og feldirnir sem opnuðust. Engar framvindustikur og ekkert að elta; verðlaunin eru hljóðlátur bónus.",
+  "posterQrTooBig": "Of mikið er merkt fyrir einn kóða. Afmerktu línu og kóðinn kemur aftur.",
+  "posterPhotos": "Myndir, allt að tvær",
+  "posterFrameHint": "Dragðu og klíptu til að ramma myndina inn.",
+  "posterPreview": "Forskoðun"
 }

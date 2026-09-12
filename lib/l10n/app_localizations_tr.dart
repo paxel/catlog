@@ -3597,4 +3597,18 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Kazanılan ve yalnızca o: tam aylar, yıllar ve daha fazlası görevlerden sayılarıyla, görev başına kendi kademesinde bir unvan ve açılan kürkler. İlerleme çubuğu yok, peşinden koşulacak bir şey yok; ödüller sessiz bir armağan.';
+
+  @override
+  String get posterQrTooBig =>
+      'Tek bir kod için çok fazla şey işaretli. Bir satırın işaretini kaldırın, kod geri gelir.';
+
+  @override
+  String get posterPhotos => 'Fotoğraflar, en fazla iki';
+
+  @override
+  String get posterFrameHint =>
+      'Fotoğrafı çerçevelemek için sürükleyin ve kıstırın.';
+
+  @override
+  String get posterPreview => 'Önizleme';
 }

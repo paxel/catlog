@@ -3599,4 +3599,17 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Ami megszerzett, és csak az: teljes hónapok, évek és több teendőből a számukkal, teendőnként egy cím a saját fokán, és a feloldott bundák. Nincs folyamatjelző és nincs mit hajszolni; a jutalmak csendes ráadás.';
+
+  @override
+  String get posterQrTooBig =>
+      'Túl sok van bepipálva egy kódhoz. Vegyél ki egy pipát, és a kód visszatér.';
+
+  @override
+  String get posterPhotos => 'Fotók, legfeljebb kettő';
+
+  @override
+  String get posterFrameHint => 'Húzd és csippentsd a kivágás beállításához.';
+
+  @override
+  String get posterPreview => 'Előnézet';
 }

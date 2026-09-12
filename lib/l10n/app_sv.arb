@@ -1216,5 +1216,9 @@
   "helpScan": "Skanna cat(a)log-koden på en affisch eller på någon annans skärm: katten och dess kontakt landar här utan att skriva. En kod som bär en länk hämtar filen bakom den.",
   "helpVetReport": "Det som går till veterinären: de fält och datum du väljer, varje rad ibockad tills du bockar av den, och patientöversikten främst. Dela som PDF eller skriv ut, båda i fältet.",
   "helpPoster": "En affisch för lyktstolpen, från kortet: bocka för det som ska med, lägg till en rad kortet saknar, och sidan skrivs svart på vitt med bokstäver som läses från andra sidan gatan. Koden öppnar katten i ett annat cat(a)log.",
-  "helpAchievements": "Det som förtjänats och bara det: hela månader, år och mer av sysslor med deras antal, en titel per syssla på dess rang, och de upplåsta pälsarna. Inga förloppsindikatorer och inget att jaga; belöningarna är en tyst bonus."
+  "helpAchievements": "Det som förtjänats och bara det: hela månader, år och mer av sysslor med deras antal, en titel per syssla på dess rang, och de upplåsta pälsarna. Inga förloppsindikatorer och inget att jaga; belöningarna är en tyst bonus.",
+  "posterQrTooBig": "För mycket är ibockat för en kod. Bocka av en rad så kommer koden tillbaka.",
+  "posterPhotos": "Foton, upp till två",
+  "posterFrameHint": "Dra och nyp för att välja utsnittet.",
+  "posterPreview": "Förhandsvisning"
 }

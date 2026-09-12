@@ -3,18 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/widgets.dart' as pw;
 
-import '../help.dart';
 import '../field_labels.dart';
+import '../help.dart';
+import '../hidden.dart';
 import '../history_share.dart';
 import '../l10n.dart';
 import '../missing_poster.dart';
 import '../pdf_fonts.dart';
 import '../widgets/date_entry.dart';
+import 'card_screen.dart' show cardQrPayload;
 
-/// What the poster says, ticked from the record: photo, Looks, the day
-/// the cat went missing, the home's address as the place, phone and
-/// email as contact, a QR code for another cat(a)log, and one free
-/// line for what the record lacks.
+/// What the poster says, ticked from the record: every filled field of
+/// the cat and of its home as a "Label: value" line, the day the cat
+/// went missing, one free line, and a code row at the bottom: the
+/// cat(a)log code, a registry link per ticked ID, a map link per ticked
+/// location.
 class MissingPosterScreen extends StatefulWidget {
   final CatalogStore store;
   final String catId;
@@ -37,33 +40,59 @@ class MissingPosterScreen extends StatefulWidget {
   State<MissingPosterScreen> createState() => _MissingPosterScreenState();
 }
 
+/// One tickable line of the record.
+class _Row {
+  /// The entity the value lives on: the cat or its home.
+  final String entity;
+  final FieldDef def;
+  final String value;
+
+  const _Row(this.entity, this.def, this.value);
+
+  String get id => '$entity/${def.key}';
+}
+
 class _MissingPosterScreenState extends State<MissingPosterScreen> {
   CatalogStore get store => widget.store;
   final _extra = TextEditingController();
   DateTime _since = DateUtils.dateOnly(DateTime.now());
   bool _photo = true;
-  bool _looks = true;
-  bool _place = true;
-  bool _phone = true;
-  bool _email = false;
   bool _qr = true;
   bool _busy = false;
+  Set<String>? _ticked;
 
   String? get _clowder => store.current(widget.catId, Keys.clowder);
 
-  String? _home(String slug) {
-    final c = _clowder;
-    if (c == null) return null;
-    final v = store.current(c, Keys.userField(slug));
-    return v == null || v.isEmpty ? null : v;
+  /// Every filled field of the cat, then of its home.
+  List<_Row> _rows() {
+    final rows = <_Row>[];
+    for (final def in store.visibleFieldDefs(scope: FieldScope.cat)) {
+      final v = store.current(widget.catId, def.key);
+      if (v != null && v.isNotEmpty) rows.add(_Row(widget.catId, def, v));
+    }
+    final home = _clowder;
+    if (home != null) {
+      for (final def in store.visibleFieldDefs(scope: FieldScope.clowder)) {
+        final v = store.current(home, def.key);
+        if (v != null && v.isNotEmpty) rows.add(_Row(home, def, v));
+      }
+    }
+    return rows;
   }
 
-  String? get _looksText {
-    final v = store.current(widget.catId, Keys.userField('looks'));
-    return v == null || v.isEmpty
-        ? null
-        : valueLabel(context.t, store, Keys.userField('looks'), v);
-  }
+  /// Ticked from the start: Looks, address, phone, every ID.
+  bool _defaultOn(_Row r) =>
+      r.def.type == FieldType.id ||
+      const {'looks', 'address', 'phone'}.contains(r.def.slug);
+
+  Set<String> _ticks(List<_Row> rows) => _ticked ??= {
+    for (final r in rows)
+      if (_defaultOn(r)) r.id,
+  };
+
+  String _label(_Row r) => fieldDefName(context.t, r.def);
+
+  String _value(_Row r) => valueLabel(context.t, store, r.def.key, r.value);
 
   @override
   void dispose() {
@@ -71,51 +100,83 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     super.dispose();
   }
 
-  /// The public share behind the QR code: the same ticks, photos out.
-  String? _qrPayload() {
-    final fields = <String>{
-      if (_looks) Keys.userField('looks'),
-      if (_place) Keys.userField('address'),
-      if (_phone) Keys.userField('phone'),
-      if (_email) Keys.userField('email'),
-    };
+  /// The public share behind the cat(a)log code: the ticked fields,
+  /// photos out. Null when so much is ticked that the code stops
+  /// scanning.
+  String? _qrPayload(List<_Row> ticked) {
     final payload = encodeShareData(
       catShareBytes(
         store,
         catId: widget.catId,
-        fields: fields,
+        fields: {for (final r in ticked) r.def.key},
         includePhotos: false,
       ),
     );
     return payload.length > posterQrLimit ? null : payload;
   }
 
-  Future<(pw.Document, String)?> _build() async {
+  PosterContent _content() {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
-    final language = Localizations.localeOf(context).languageCode;
     final name = store.current(widget.catId, Keys.name) ?? t.unnamed;
+    final rows = _rows();
+    final ticks = _ticks(rows);
+    final ticked = [
+      for (final r in rows)
+        if (ticks.contains(r.id)) r,
+    ];
     final hash = store.profileImage(widget.catId);
-    final content = PosterContent(
+    final photo = _photo && hash != null ? store.imageBytes(hash) : null;
+    String? phone;
+    String? looks;
+    final lines = <String>[
+      '${t.missingSinceLabel}: ${DateFormat.yMd(locale).format(_since)}',
+    ];
+    final codes = <PosterCode>[];
+    final payload = _qr ? _qrPayload(ticked) : null;
+    if (payload != null) codes.add(PosterCode(payload, t.posterQr));
+    for (final r in ticked) {
+      if (r.def.slug == 'phone') {
+        phone = r.value;
+      } else if (r.def.slug == 'looks') {
+        looks = _value(r);
+      } else {
+        lines.add('${_label(r)}: ${_value(r)}');
+      }
+      if (r.def.type == FieldType.id) {
+        codes.add(
+          PosterCode(cardQrPayload(r.def, r.value), '${_label(r)}: ${r.value}'),
+        );
+      } else if (r.def.type == FieldType.location) {
+        if (CatalogStore.parsePosition(r.value) case final pos?) {
+          codes.add(PosterCode('geo:${pos.$1},${pos.$2}', _label(r)));
+        }
+      }
+    }
+    return PosterContent(
       headline: t.posterHeadline,
       name: name,
-      photo: _photo && hash != null ? store.imageBytes(hash) : null,
-      since: '${t.missingSinceLabel}: ${DateFormat.yMd(locale).format(_since)}',
-      place: _place && _home('address') != null
-          ? '${t.posterLastSeen} ${_home('address')}'
-          : null,
-      phone: _phone ? _home('phone') : null,
-      email: _email ? _home('email') : null,
-      looks: _looks ? _looksText : null,
+      photos: [if (photo != null) PosterPhoto(photo)],
+      lines: lines,
+      phone: phone,
+      looks: looks,
       extra: _extra.text.trim(),
       standing: t.posterStanding,
-      qr: _qr ? _qrPayload() : null,
-      qrCaption: t.posterQr,
+      codes: codes,
     );
+  }
+
+  Future<(pw.Document, String)?> _build() async {
+    final t = context.t;
+    final language = Localizations.localeOf(context).languageCode;
+    final content = _content();
     setState(() => _busy = true);
     try {
       final fonts = await pdfFontsFor(language);
-      return (missingPosterPdf(content, fonts), '$name ${t.posterHeadline}.pdf');
+      return (
+        missingPosterPdf(content, fonts),
+        '${content.name} ${t.posterHeadline}.pdf',
+      );
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -138,6 +199,13 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
     final hasPhoto = store.profileImage(widget.catId) != null;
+    final rows = _rows();
+    final ticks = _ticks(rows);
+    final ticked = [
+      for (final r in rows)
+        if (ticks.contains(r.id)) r,
+    ];
+    final qrFits = _qrPayload(ticked) != null;
     return Scaffold(
       // The same two buttons as the card page: share as PDF, print.
       appBar: AppBar(
@@ -179,47 +247,26 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
             onChanged: hasPhoto ? (v) => setState(() => _photo = v!) : null,
             title: Text(t.posterPhoto),
           ),
+          for (final r in rows)
+            CheckboxListTile(
+              contentPadding: EdgeInsets.zero,
+              value: ticks.contains(r.id),
+              onChanged: (v) => setState(() {
+                if (v == true) {
+                  ticks.add(r.id);
+                } else {
+                  ticks.remove(r.id);
+                }
+              }),
+              title: Text(_label(r)),
+              subtitle: Text(_value(r)),
+            ),
           CheckboxListTile(
             contentPadding: EdgeInsets.zero,
-            value: _looks && _looksText != null,
-            onChanged: _looksText != null
-                ? (v) => setState(() => _looks = v!)
-                : null,
-            title: Text(t.starterLooks),
-            subtitle: _looksText == null ? null : Text(_looksText!),
-          ),
-          CheckboxListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _place && _home('address') != null,
-            onChanged: _home('address') != null
-                ? (v) => setState(() => _place = v!)
-                : null,
-            title: Text(t.posterLastSeen),
-            subtitle: _home('address') == null ? null : Text(_home('address')!),
-          ),
-          CheckboxListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _phone && _home('phone') != null,
-            onChanged: _home('phone') != null
-                ? (v) => setState(() => _phone = v!)
-                : null,
-            title: Text(t.starterPhone),
-            subtitle: _home('phone') == null ? null : Text(_home('phone')!),
-          ),
-          CheckboxListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _email && _home('email') != null,
-            onChanged: _home('email') != null
-                ? (v) => setState(() => _email = v!)
-                : null,
-            title: Text(t.starterEmail),
-            subtitle: _home('email') == null ? null : Text(_home('email')!),
-          ),
-          CheckboxListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _qr,
-            onChanged: (v) => setState(() => _qr = v!),
+            value: _qr && qrFits,
+            onChanged: qrFits ? (v) => setState(() => _qr = v!) : null,
             title: Text(t.posterQr),
+            subtitle: qrFits ? null : Text(t.posterQrTooBig),
           ),
           TextField(
             controller: _extra,

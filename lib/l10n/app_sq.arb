@@ -1216,5 +1216,9 @@
   "helpScan": "Skano kodin cat(a)log në një poster ose në ekranin e dikujt tjetër: macja dhe kontakti i saj vijnë këtu pa shtypur. Një kod me lidhje sjell skedarin pas tij.",
   "helpVetReport": "Çfarë shkon te veterineri: fushat dhe datat që zgjedh, çdo rresht i shënuar derisa ta heqësh, dhe përmbledhja e pacientit në krye. Ndaje si PDF ose printo, të dyja në shirit.",
   "helpPoster": "Një poster për shtyllën e dritës, nga regjistri: shëno çfarë shkon në të, shto një rresht që regjistri nuk e ka, dhe faqja printohet zezë mbi të bardhë me shkronja që lexohen nga ana tjetër e rrugës. Kodi e hap macen në një cat(a)log tjetër.",
-  "helpAchievements": "Ajo që u fitua dhe vetëm ajo: muaj, vite e më shumë të plota detyrash me numrin e tyre, një titull për detyrë në gradën e vet, dhe gëzofët e zhbllokuar. Pa shirita përparimi dhe asgjë për t'u ndjekur; shpërblimet janë një bonus i qetë."
+  "helpAchievements": "Ajo që u fitua dhe vetëm ajo: muaj, vite e më shumë të plota detyrash me numrin e tyre, një titull për detyrë në gradën e vet, dhe gëzofët e zhbllokuar. Pa shirita përparimi dhe asgjë për t'u ndjekur; shpërblimet janë një bonus i qetë.",
+  "posterQrTooBig": "Është shënuar shumë për një kod të vetëm. Hiq shenjën nga një rresht dhe kodi kthehet.",
+  "posterPhotos": "Foto, deri në dy",
+  "posterFrameHint": "Tërhiq dhe pickoje për ta kornizuar foton.",
+  "posterPreview": "Pamje paraprake"
 }

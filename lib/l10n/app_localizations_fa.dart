@@ -3537,4 +3537,18 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get helpAchievements =>
       'فقط آنچه به دست آمده: ماه‌ها، سال‌ها و بیشتر از کارهای کامل با تعدادشان، یک عنوان برای هر کار در رتبهٔ خود، و پوشش‌های باز شده. بدون نوار پیشرفت و بدون چیزی برای دنبال کردن؛ پاداش‌ها یک جایزهٔ آرام هستند.';
+
+  @override
+  String get posterQrTooBig =>
+      'برای یک کد بیش از حد علامت زده شده. علامت یک خط را بردارید تا کد برگردد.';
+
+  @override
+  String get posterPhotos => 'عکس‌ها، حداکثر دو';
+
+  @override
+  String get posterFrameHint =>
+      'بکشید و با دو انگشت بزرگ‌نمایی کنید تا کادر عکس را انتخاب کنید.';
+
+  @override
+  String get posterPreview => 'پیش‌نمایش';
 }

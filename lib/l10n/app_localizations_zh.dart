@@ -3420,4 +3420,16 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get helpAchievements =>
       '只显示已获得的：连续完成事务的整月、整年及更多与其次数，每项事务在其等级的头衔，以及解锁的毛皮。没有进度条，没有需要追逐的东西；奖励只是安静的附赠。';
+
+  @override
+  String get posterQrTooBig => '勾选的内容太多，一个二维码放不下。取消一行，二维码就会回来。';
+
+  @override
+  String get posterPhotos => '照片，最多两张';
+
+  @override
+  String get posterFrameHint => '拖动和捏合来选取照片的范围。';
+
+  @override
+  String get posterPreview => '预览';
 }

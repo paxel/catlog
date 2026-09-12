@@ -1216,5 +1216,9 @@
   "helpScan": "Scan cat(a)log-koden på en plakat eller på en andens skærm: katten og dens kontakt lander her uden indtastning. En kode med et link henter filen bag den.",
   "helpVetReport": "Det, der går til dyrlægen: de felter og datoer, du vælger, hver række afkrydset, til du fjerner krydset, og patientoversigten forrest. Del som PDF eller udskriv, begge i bjælken.",
   "helpPoster": "En plakat til lygtepælen, fra kortet: sæt kryds ved det, der skal på, tilføj en linje, kortet mangler, og siden printer sort på hvidt med bogstaver, der læses fra den anden side af gaden. Koden åbner katten i et andet cat(a)log.",
-  "helpAchievements": "Det, der er optjent, og kun det: hele måneder, år og mere af opgaver med deres antal, én titel pr. opgave på dens trin, og de låste pelse op. Ingen fremskridtsbjælker og intet at jagte; belønningerne er en stille bonus."
+  "helpAchievements": "Det, der er optjent, og kun det: hele måneder, år og mere af opgaver med deres antal, én titel pr. opgave på dens trin, og de låste pelse op. Ingen fremskridtsbjælker og intet at jagte; belønningerne er en stille bonus.",
+  "posterQrTooBig": "Der er sat for mange krydser til én kode. Fjern et kryds, og koden kommer tilbage.",
+  "posterPhotos": "Fotos, op til to",
+  "posterFrameHint": "Træk og knib for at vælge udsnittet.",
+  "posterPreview": "Forhåndsvisning"
 }

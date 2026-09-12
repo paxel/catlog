@@ -3633,4 +3633,17 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get helpAchievements =>
       'ما تحقق فقط: أشهر وسنوات كاملة وأكثر من المهام بعددها، لقب واحد لكل مهمة في رتبتها، والفراء الذي فُتح. لا أشرطة تقدم ولا شيء يُلاحَق؛ المكافآت مكافأة هادئة.';
+
+  @override
+  String get posterQrTooBig =>
+      'المحدد أكثر مما يتسع له رمز واحد. ألغِ تحديد سطر ويعود الرمز.';
+
+  @override
+  String get posterPhotos => 'الصور، حتى اثنتين';
+
+  @override
+  String get posterFrameHint => 'اسحب وقرّب بإصبعين لتأطير الصورة.';
+
+  @override
+  String get posterPreview => 'معاينة';
 }

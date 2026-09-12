@@ -3597,4 +3597,17 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Mis on teenitud ja ainult see: täiskuud, aastad ja enam toimetusi koos arvuga, üks tiitel toimetuse kohta selle astmel, ja avatud kasukad. Ei edenemisribasid ega midagi tagaajamiseks; tasud on vaikne boonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Ühe koodi jaoks on liiga palju märgitud. Eemalda üks märge ja kood tuleb tagasi.';
+
+  @override
+  String get posterPhotos => 'Fotod, kuni kaks';
+
+  @override
+  String get posterFrameHint => 'Lohista ja pigista, et pilti kadreerida.';
+
+  @override
+  String get posterPreview => 'Eelvaade';
 }

@@ -3609,4 +3609,17 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Ciò che è stato guadagnato e solo quello: mesi, anni e oltre di compiti completi con il loro conto, un titolo per compito al suo grado, e i manti sbloccati. Nessuna barra di progresso e nulla da inseguire; le ricompense sono un bonus silenzioso.';
+
+  @override
+  String get posterQrTooBig =>
+      'C\'è troppo spuntato per un solo codice. Togli la spunta a una riga e il codice torna.';
+
+  @override
+  String get posterPhotos => 'Foto, fino a due';
+
+  @override
+  String get posterFrameHint => 'Trascina e pizzica per inquadrare la foto.';
+
+  @override
+  String get posterPreview => 'Anteprima';
 }

@@ -2050,6 +2050,9 @@ class ModeLocalizations implements AppLocalizations {
   String get plannedSection => base.plannedSection;
 
   @override
+  String get posterFrameHint => base.posterFrameHint;
+
+  @override
   String get posterFreeText => base.posterFreeText;
 
   @override
@@ -2065,7 +2068,16 @@ class ModeLocalizations implements AppLocalizations {
   String get posterPhoto => base.posterPhoto;
 
   @override
+  String get posterPhotos => base.posterPhotos;
+
+  @override
+  String get posterPreview => base.posterPreview;
+
+  @override
   String get posterQr => base.posterQr;
+
+  @override
+  String get posterQrTooBig => base.posterQrTooBig;
 
   @override
   String get posterStanding => base.posterStanding;

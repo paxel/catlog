@@ -1216,5 +1216,9 @@
   "helpScan": "Nuskaitykite cat(a)log kodą ant plakato ar kito žmogaus ekrane: katė ir jos kontaktas patenka čia be rašymo. Kodas su nuoroda parsiunčia už jo esantį failą.",
   "helpVetReport": "Kas keliauja veterinarui: jūsų pasirinkti laukai ir datos, kiekviena eilutė pažymėta, kol nepanaikinsite žymos, ir paciento santrauka priekyje. Bendrinti kaip PDF arba spausdinti, abu juostoje.",
   "helpPoster": "Plakatas ant stulpo iš įrašo: pažymėkite, kas jame bus, pridėkite eilutę, kurios įraše nėra, ir puslapis spausdinamas juodai ant balto raidėmis, skaitomomis iš kitos gatvės pusės. Kodas atveria katę kitame cat(a)log.",
-  "helpAchievements": "Kas uždirbta ir tik tai: pilni mėnesiai, metai ir daugiau užduočių su jų skaičiumi, po vieną titulą užduočiai jos pakopoje ir atrakinti kailiai. Jokių pažangos juostų ir nieko vaikytis; apdovanojimai yra tylus priedas."
+  "helpAchievements": "Kas uždirbta ir tik tai: pilni mėnesiai, metai ir daugiau užduočių su jų skaičiumi, po vieną titulą užduočiai jos pakopoje ir atrakinti kailiai. Jokių pažangos juostų ir nieko vaikytis; apdovanojimai yra tylus priedas.",
+  "posterQrTooBig": "Vienam kodui pažymėta per daug. Nuimkite vieną žymą, ir kodas grįš.",
+  "posterPhotos": "Nuotraukos, iki dviejų",
+  "posterFrameHint": "Vilkite ir suspauskite, kad parinktumėte kadrą.",
+  "posterPreview": "Peržiūra"
 }

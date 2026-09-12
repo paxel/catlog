@@ -3595,4 +3595,17 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get helpAchievements =>
       'מה שהושג ורק זה: חודשים, שנים ועוד שלמים של מטלות עם הספירה, תואר אחד למטלה בדרגתו, והפרוות שנפתחו. בלי פסי התקדמות ובלי מה לרדוף; הפרסים הם בונוס שקט.';
+
+  @override
+  String get posterQrTooBig =>
+      'סומן יותר מדי לקוד אחד. בטלו סימון של שורה והקוד יחזור.';
+
+  @override
+  String get posterPhotos => 'תמונות, עד שתיים';
+
+  @override
+  String get posterFrameHint => 'גררו וצבטו כדי למסגר את התמונה.';
+
+  @override
+  String get posterPreview => 'תצוגה מקדימה';
 }

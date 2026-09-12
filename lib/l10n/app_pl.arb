@@ -1216,5 +1216,9 @@
   "helpScan": "Zeskanuj kod cat(a)log z plakatu lub z ekranu innej osoby: kot i jego kontakt trafiają tutaj bez pisania. Kod z linkiem pobiera stojący za nim plik.",
   "helpVetReport": "Co idzie do weterynarza: wybrane pola i daty, każdy wiersz zaznaczony, dopóki go nie odznaczysz, i podsumowanie pacjenta na początku. Udostępnij jako PDF lub drukuj, oba w pasku.",
   "helpPoster": "Plakat na latarnię, z karty: zaznacz, co ma się na nim znaleźć, dodaj linijkę, której karta nie ma, a strona drukuje się czarno na białym literami czytelnymi z drugiej strony ulicy. Kod otwiera kota w innym cat(a)log.",
-  "helpAchievements": "To, co zdobyte, i tylko to: pełne miesiące, lata i więcej zadań z ich liczbą, jeden tytuł na zadanie na jego stopniu, i odblokowane futra. Bez pasków postępu i bez pogoni; nagrody to cichy bonus."
+  "helpAchievements": "To, co zdobyte, i tylko to: pełne miesiące, lata i więcej zadań z ich liczbą, jeden tytuł na zadanie na jego stopniu, i odblokowane futra. Bez pasków postępu i bez pogoni; nagrody to cichy bonus.",
+  "posterQrTooBig": "Za dużo zaznaczono na jeden kod. Odznacz linię, a kod wróci.",
+  "posterPhotos": "Zdjęcia, do dwóch",
+  "posterFrameHint": "Przeciągnij i uszczypnij, aby wykadrować zdjęcie.",
+  "posterPreview": "Podgląd"
 }

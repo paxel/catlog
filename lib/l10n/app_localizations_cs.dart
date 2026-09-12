@@ -3611,4 +3611,17 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Co bylo získáno a jen to: celé měsíce, roky a víc úkolů s jejich počtem, jeden titul na úkol na jeho stupni a odemčené srsti. Žádné ukazatele postupu a nic k honění; odměny jsou tichý bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Na jeden kód je zaškrtnuto příliš. Odškrtněte řádek a kód se vrátí.';
+
+  @override
+  String get posterPhotos => 'Fotky, nejvýše dvě';
+
+  @override
+  String get posterFrameHint => 'Tažením a stažením prstů vyberte výřez.';
+
+  @override
+  String get posterPreview => 'Náhled';
 }

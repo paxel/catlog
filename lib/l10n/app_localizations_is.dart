@@ -3603,4 +3603,17 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Það sem var unnið og aðeins það: heilir mánuðir, ár og meira af verkum með fjölda þeirra, einn titill á verk á sínu þrepi, og feldirnir sem opnuðust. Engar framvindustikur og ekkert að elta; verðlaunin eru hljóðlátur bónus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Of mikið er merkt fyrir einn kóða. Afmerktu línu og kóðinn kemur aftur.';
+
+  @override
+  String get posterPhotos => 'Myndir, allt að tvær';
+
+  @override
+  String get posterFrameHint => 'Dragðu og klíptu til að ramma myndina inn.';
+
+  @override
+  String get posterPreview => 'Forskoðun';
 }

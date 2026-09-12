@@ -3610,4 +3610,17 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Čo bolo získané a len to: celé mesiace, roky a viac úloh s ich počtom, jeden titul na úlohu na jeho stupni a odomknuté srsti. Žiadne ukazovatele pokroku a nič na naháňanie; odmeny sú tichý bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Na jeden kód je zaškrtnuté priveľa. Odškrtnite riadok a kód sa vráti.';
+
+  @override
+  String get posterPhotos => 'Fotky, najviac dve';
+
+  @override
+  String get posterFrameHint => 'Ťahaním a stiahnutím prstov vyberte výrez.';
+
+  @override
+  String get posterPreview => 'Náhľad';
 }

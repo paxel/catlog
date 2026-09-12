@@ -1216,5 +1216,9 @@
   "helpScan": "Scan de cat(a)log-code op een poster of op het scherm van een ander: de kat en het contact komen hier zonder typen. Een code met een link haalt het bestand erachter op.",
   "helpVetReport": "Wat naar de dierenarts gaat: de velden en data die je kiest, elke rij aangevinkt tot je hem uitvinkt, en het patiëntoverzicht voorop. Delen als pdf of afdrukken, beide in de balk.",
   "helpPoster": "Een poster voor de lantaarnpaal, uit het dossier: vink aan wat erop komt, voeg een regel toe die het dossier mist, en de pagina drukt zwart op wit in letters die je van de overkant leest. De code opent de kat in een ander cat(a)log.",
-  "helpAchievements": "Wat verdiend is en alleen dat: volle maanden, jaren en meer aan taken met hun aantal, één titel per taak op zijn rang, en de vrijgespeelde vachten. Geen voortgangsbalken en niets om na te jagen; de beloningen zijn een stille bonus."
+  "helpAchievements": "Wat verdiend is en alleen dat: volle maanden, jaren en meer aan taken met hun aantal, één titel per taak op zijn rang, en de vrijgespeelde vachten. Geen voortgangsbalken en niets om na te jagen; de beloningen zijn een stille bonus.",
+  "posterQrTooBig": "Er is te veel aangevinkt voor één code. Vink een regel uit en de code komt terug.",
+  "posterPhotos": "Foto's, maximaal twee",
+  "posterFrameHint": "Sleep en knijp om de foto te kaderen.",
+  "posterPreview": "Voorbeeld"
 }

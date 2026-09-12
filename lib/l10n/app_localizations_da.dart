@@ -3598,4 +3598,17 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Det, der er optjent, og kun det: hele måneder, år og mere af opgaver med deres antal, én titel pr. opgave på dens trin, og de låste pelse op. Ingen fremskridtsbjælker og intet at jagte; belønningerne er en stille bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Der er sat for mange krydser til én kode. Fjern et kryds, og koden kommer tilbage.';
+
+  @override
+  String get posterPhotos => 'Fotos, op til to';
+
+  @override
+  String get posterFrameHint => 'Træk og knib for at vælge udsnittet.';
+
+  @override
+  String get posterPreview => 'Forhåndsvisning';
 }

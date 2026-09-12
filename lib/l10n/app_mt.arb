@@ -1216,5 +1216,9 @@
   "helpScan": "Iskennja l-kodiċi cat(a)log fuq poster jew fuq l-iskrin ta' ħaddieħor: il-qattus u l-kuntatt tiegħu jaslu hawn mingħajr ma tittajpja. Kodiċi li jġorr link iġib il-fajl ta' warajh.",
   "helpVetReport": "Dak li jmur għand il-veterinarju: l-oqsma u d-dati li tagħżel, kull ringiela mmarkata sakemm tneħħiha, u s-sommarju tal-pazjent fuq quddiem. Aqsam bħala PDF jew ipprintja, it-tnejn fil-bar.",
   "helpPoster": "Poster għall-arblu tad-dawl, mir-rekord: immarka x'imur fuqu, żid linja li r-rekord m'għandux, u l-paġna tipprintja iswed fuq abjad b'ittri li jinqraw min-naħa l-oħra tat-triq. Il-kodiċi jiftaħ il-qattus f'cat(a)log ieħor.",
-  "helpAchievements": "Dak li ntrebaħ u dak biss: xhur, snin u aktar sħaħ ta' xogħlijiet bin-numru tagħhom, titlu wieħed għal kull xogħol fil-grad tiegħu, u l-pil li nfetaħ. L-ebda bar tal-progress u xejn x'tiġri warajh; il-premjijiet huma bonus kwiet."
+  "helpAchievements": "Dak li ntrebaħ u dak biss: xhur, snin u aktar sħaħ ta' xogħlijiet bin-numru tagħhom, titlu wieħed għal kull xogħol fil-grad tiegħu, u l-pil li nfetaħ. L-ebda bar tal-progress u xejn x'tiġri warajh; il-premjijiet huma bonus kwiet.",
+  "posterQrTooBig": "Hemm wisq immarkat għal kodiċi wieħed. Neħħi l-marka minn linja u l-kodiċi jerġa' lura.",
+  "posterPhotos": "Ritratti, sa tnejn",
+  "posterFrameHint": "Kaxkar u agħfas b'żewġ swaba' biex tinkwadra r-ritratt.",
+  "posterPreview": "Preview"
 }

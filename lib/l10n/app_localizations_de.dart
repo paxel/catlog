@@ -3610,4 +3610,17 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Was verdient wurde und nur das: volle Monate, Jahre und mehr an Aufgaben mit ihrer Zahl, ein Titel pro Aufgabe auf seiner Stufe, und die freigeschalteten Felle. Keine Fortschrittsbalken und nichts zu jagen; die Belohnungen sind ein stiller Bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Für einen Code ist zu viel angehakt. Wähle eine Zeile ab, und der Code kommt zurück.';
+
+  @override
+  String get posterPhotos => 'Fotos, bis zu zwei';
+
+  @override
+  String get posterFrameHint => 'Ziehe und zoome, um den Ausschnitt zu wählen.';
+
+  @override
+  String get posterPreview => 'Vorschau';
 }

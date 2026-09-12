@@ -2004,5 +2004,9 @@
   "helpScan": "Scan the cat(a)log code on a poster or on another keeper's screen: the cat and its contact land here without typing. A code that carries a link fetches the file behind it.",
   "helpVetReport": "What goes to the vet: the fields and the dates you choose, every row ticked until you untick it, and the patient summary on top. Share as PDF or print, both in the app bar.",
   "helpPoster": "A poster for the lamp post, from the record: tick what goes on it, add a line the record lacks, and the page prints black on white in letters read from across the street. The code on it opens the cat in another cat(a)log.",
-  "helpAchievements": "What was earned and only that: full months, years and more of chores with their count, one title per chore at its rank, and the coats unlocked. No progress bars and nothing to chase; the rewards are a quiet bonus."
+  "helpAchievements": "What was earned and only that: full months, years and more of chores with their count, one title per chore at its rank, and the coats unlocked. No progress bars and nothing to chase; the rewards are a quiet bonus.",
+  "posterQrTooBig": "Too much is ticked for one code. Untick a line and the code comes back.",
+  "posterPhotos": "Photos, up to two",
+  "posterFrameHint": "Drag and pinch to frame the photo.",
+  "posterPreview": "Preview"
 }

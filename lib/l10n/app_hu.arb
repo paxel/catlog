@@ -1216,5 +1216,9 @@
   "helpScan": "Olvasd be a cat(a)log kódot egy plakátról vagy valaki képernyőjéről: a macska és az elérhetősége gépelés nélkül kerül ide. Egy linket hordozó kód letölti a mögötte lévő fájlt.",
   "helpVetReport": "Ami az állatorvoshoz megy: a választott mezők és dátumok, minden sor bepipálva, amíg ki nem veszed, és a betegösszefoglaló elöl. Megosztás PDF-ként vagy nyomtatás, mindkettő a sávban.",
   "helpPoster": "Plakát a lámpaoszlopra, az adatokból: jelöld, mi kerüljön rá, adj hozzá egy sort, ami az adatokból hiányzik, és az oldal feketén fehéren nyomtatódik, az utca túloldaláról olvasható betűkkel. A kód egy másik cat(a)logban nyitja meg a macskát.",
-  "helpAchievements": "Ami megszerzett, és csak az: teljes hónapok, évek és több teendőből a számukkal, teendőnként egy cím a saját fokán, és a feloldott bundák. Nincs folyamatjelző és nincs mit hajszolni; a jutalmak csendes ráadás."
+  "helpAchievements": "Ami megszerzett, és csak az: teljes hónapok, évek és több teendőből a számukkal, teendőnként egy cím a saját fokán, és a feloldott bundák. Nincs folyamatjelző és nincs mit hajszolni; a jutalmak csendes ráadás.",
+  "posterQrTooBig": "Túl sok van bepipálva egy kódhoz. Vegyél ki egy pipát, és a kód visszatér.",
+  "posterPhotos": "Fotók, legfeljebb kettő",
+  "posterFrameHint": "Húzd és csippentsd a kivágás beállításához.",
+  "posterPreview": "Előnézet"
 }

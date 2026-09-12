@@ -3615,4 +3615,18 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Ce s-a câștigat și doar atât: luni, ani și mai mult de sarcini complete cu numărul lor, un titlu pe sarcină la rangul ei, și blănurile deblocate. Fără bare de progres și nimic de urmărit; recompensele sunt un bonus discret.';
+
+  @override
+  String get posterQrTooBig =>
+      'Prea multe bifate pentru un singur cod. Debifează un rând și codul revine.';
+
+  @override
+  String get posterPhotos => 'Fotografii, cel mult două';
+
+  @override
+  String get posterFrameHint =>
+      'Trage și ciupește pentru a încadra fotografia.';
+
+  @override
+  String get posterPreview => 'Previzualizare';
 }

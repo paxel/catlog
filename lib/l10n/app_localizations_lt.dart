@@ -3619,4 +3619,18 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Kas uždirbta ir tik tai: pilni mėnesiai, metai ir daugiau užduočių su jų skaičiumi, po vieną titulą užduočiai jos pakopoje ir atrakinti kailiai. Jokių pažangos juostų ir nieko vaikytis; apdovanojimai yra tylus priedas.';
+
+  @override
+  String get posterQrTooBig =>
+      'Vienam kodui pažymėta per daug. Nuimkite vieną žymą, ir kodas grįš.';
+
+  @override
+  String get posterPhotos => 'Nuotraukos, iki dviejų';
+
+  @override
+  String get posterFrameHint =>
+      'Vilkite ir suspauskite, kad parinktumėte kadrą.';
+
+  @override
+  String get posterPreview => 'Peržiūra';
 }

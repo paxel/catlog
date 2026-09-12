@@ -1216,5 +1216,9 @@
   "helpScan": "Scannez le code cat(a)log sur une affiche ou sur l'écran d'une autre personne : le chat et son contact arrivent ici sans saisie. Un code qui porte un lien récupère le fichier derrière.",
   "helpVetReport": "Ce qui va au vétérinaire : les champs et les dates que vous choisissez, chaque ligne cochée jusqu'à ce que vous la décochiez, et le résumé du patient en tête. Partager en PDF ou imprimer, les deux dans la barre.",
   "helpPoster": "Une affiche pour le lampadaire, à partir de la fiche : cochez ce qui y figure, ajoutez une ligne que la fiche n'a pas, et la page s'imprime en noir sur blanc, lisible depuis l'autre trottoir. Le code ouvre le chat dans un autre cat(a)log.",
-  "helpAchievements": "Ce qui a été gagné, rien d'autre : mois, années et plus de tâches complets avec leur nombre, un titre par tâche à son rang, et les pelages débloqués. Pas de barres de progression, rien à courir ; les récompenses sont un bonus discret."
+  "helpAchievements": "Ce qui a été gagné, rien d'autre : mois, années et plus de tâches complets avec leur nombre, un titre par tâche à son rang, et les pelages débloqués. Pas de barres de progression, rien à courir ; les récompenses sont un bonus discret.",
+  "posterQrTooBig": "Trop de lignes cochées pour un seul code. Décochez une ligne et le code revient.",
+  "posterPhotos": "Photos, jusqu'à deux",
+  "posterFrameHint": "Glissez et pincez pour cadrer la photo.",
+  "posterPreview": "Aperçu"
 }

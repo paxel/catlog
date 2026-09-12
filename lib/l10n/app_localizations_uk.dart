@@ -3619,4 +3619,18 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Лише зароблене: повні місяці, роки й більше завдань з їхньою кількістю, один титул на завдання на своєму щаблі та відкриті шкурки. Без смуг прогресу й без гонитви; нагороди — тихий бонус.';
+
+  @override
+  String get posterQrTooBig =>
+      'Для одного коду позначено забагато. Зніміть один рядок, і код повернеться.';
+
+  @override
+  String get posterPhotos => 'Фото, до двох';
+
+  @override
+  String get posterFrameHint =>
+      'Перетягніть і зведіть пальці, щоб вибрати фрагмент.';
+
+  @override
+  String get posterPreview => 'Попередній перегляд';
 }

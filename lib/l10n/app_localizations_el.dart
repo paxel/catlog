@@ -3611,4 +3611,18 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Ό,τι κερδήθηκε και μόνο αυτό: πλήρεις μήνες, χρόνια και περισσότερα εργασιών με τον αριθμό τους, ένας τίτλος ανά εργασία στη βαθμίδα της, και οι γούνες που ξεκλειδώθηκαν. Χωρίς μπάρες προόδου και τίποτα να κυνηγήσετε· οι ανταμοιβές είναι ένα ήσυχο μπόνους.';
+
+  @override
+  String get posterQrTooBig =>
+      'Έχουν τσεκαριστεί πάρα πολλά για έναν κωδικό. Ξετσεκάρετε μια γραμμή και ο κωδικός επιστρέφει.';
+
+  @override
+  String get posterPhotos => 'Φωτογραφίες, έως δύο';
+
+  @override
+  String get posterFrameHint =>
+      'Σύρετε και τσιμπήστε για να καδράρετε τη φωτογραφία.';
+
+  @override
+  String get posterPreview => 'Προεπισκόπηση';
 }

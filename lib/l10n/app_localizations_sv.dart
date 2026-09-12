@@ -3597,4 +3597,17 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Det som förtjänats och bara det: hela månader, år och mer av sysslor med deras antal, en titel per syssla på dess rang, och de upplåsta pälsarna. Inga förloppsindikatorer och inget att jaga; belöningarna är en tyst bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'För mycket är ibockat för en kod. Bocka av en rad så kommer koden tillbaka.';
+
+  @override
+  String get posterPhotos => 'Foton, upp till två';
+
+  @override
+  String get posterFrameHint => 'Dra och nyp för att välja utsnittet.';
+
+  @override
+  String get posterPreview => 'Förhandsvisning';
 }

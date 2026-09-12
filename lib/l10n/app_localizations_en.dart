@@ -3599,4 +3599,17 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get helpAchievements =>
       'What was earned and only that: full months, years and more of chores with their count, one title per chore at its rank, and the coats unlocked. No progress bars and nothing to chase; the rewards are a quiet bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Too much is ticked for one code. Untick a line and the code comes back.';
+
+  @override
+  String get posterPhotos => 'Photos, up to two';
+
+  @override
+  String get posterFrameHint => 'Drag and pinch to frame the photo.';
+
+  @override
+  String get posterPreview => 'Preview';
 }

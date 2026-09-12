@@ -6241,6 +6241,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'What was earned and only that: full months, years and more of chores with their count, one title per chore at its rank, and the coats unlocked. No progress bars and nothing to chase; the rewards are a quiet bonus.'**
   String get helpAchievements;
+
+  /// No description provided for @posterQrTooBig.
+  ///
+  /// In en, this message translates to:
+  /// **'Too much is ticked for one code. Untick a line and the code comes back.'**
+  String get posterQrTooBig;
+
+  /// No description provided for @posterPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos, up to two'**
+  String get posterPhotos;
+
+  /// No description provided for @posterFrameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag and pinch to frame the photo.'**
+  String get posterFrameHint;
+
+  /// No description provided for @posterPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get posterPreview;
 }
 
 class _AppLocalizationsDelegate

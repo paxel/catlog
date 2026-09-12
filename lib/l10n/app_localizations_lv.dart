@@ -3614,4 +3614,17 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Kas nopelnīts un tikai tas: pilni mēneši, gadi un vairāk uzdevumu ar to skaitu, viens tituls uz uzdevumu tā pakāpē, un atbloķētie kažoki. Nekādu progresa joslu un nekā, ko dzīties; balvas ir kluss bonuss.';
+
+  @override
+  String get posterQrTooBig =>
+      'Vienam kodam atzīmēts par daudz. Noņemiet vienu atzīmi, un kods atgriezīsies.';
+
+  @override
+  String get posterPhotos => 'Fotoattēli, līdz divi';
+
+  @override
+  String get posterFrameHint => 'Velciet un savelciet, lai izvēlētos kadru.';
+
+  @override
+  String get posterPreview => 'Priekšskatījums';
 }

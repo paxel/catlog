@@ -1216,5 +1216,9 @@
   "helpScan": "Lê o código cat(a)log num cartaz ou no ecrã de outra pessoa: o gato e o seu contacto chegam aqui sem escrever. Um código com ligação vai buscar o ficheiro por trás.",
   "helpVetReport": "O que vai para o veterinário: os campos e as datas que escolhes, cada linha marcada até a desmarcares, e o resumo do paciente à frente. Partilhar como PDF ou imprimir, ambos na barra.",
   "helpPoster": "Um cartaz para o poste, a partir da ficha: marca o que vai nele, acrescenta uma linha que a ficha não tem, e a página imprime a preto sobre branco em letras que se leem do outro lado da rua. O código abre o gato noutro cat(a)log.",
-  "helpAchievements": "O que foi ganho e só isso: meses, anos e mais de tarefas completos com a sua contagem, um título por tarefa no seu grau, e as pelagens desbloqueadas. Sem barras de progresso nem nada a perseguir; as recompensas são um bónus discreto."
+  "helpAchievements": "O que foi ganho e só isso: meses, anos e mais de tarefas completos com a sua contagem, um título por tarefa no seu grau, e as pelagens desbloqueadas. Sem barras de progresso nem nada a perseguir; as recompensas são um bónus discreto.",
+  "posterQrTooBig": "Está demasiado marcado para um só código. Desmarca uma linha e o código volta.",
+  "posterPhotos": "Fotos, até duas",
+  "posterFrameHint": "Arrasta e faz pinça para enquadrar a foto.",
+  "posterPreview": "Pré-visualização"
 }

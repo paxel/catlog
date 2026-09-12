@@ -3610,4 +3610,17 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Ce qui a été gagné, rien d\'autre : mois, années et plus de tâches complets avec leur nombre, un titre par tâche à son rang, et les pelages débloqués. Pas de barres de progression, rien à courir ; les récompenses sont un bonus discret.';
+
+  @override
+  String get posterQrTooBig =>
+      'Trop de lignes cochées pour un seul code. Décochez une ligne et le code revient.';
+
+  @override
+  String get posterPhotos => 'Photos, jusqu\'à deux';
+
+  @override
+  String get posterFrameHint => 'Glissez et pincez pour cadrer la photo.';
+
+  @override
+  String get posterPreview => 'Aperçu';
 }

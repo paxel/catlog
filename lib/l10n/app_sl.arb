@@ -1216,5 +1216,9 @@
   "helpScan": "Skenirajte kodo cat(a)log s plakata ali z zaslona drugega: mačka in njen kontakt prideta sem brez tipkanja. Koda s povezavo prenese datoteko za njo.",
   "helpVetReport": "Kaj gre k veterinarju: izbrana polja in datumi, vsaka vrstica označena, dokler je ne odznačite, in povzetek pacienta spredaj. Deli kot PDF ali natisni, oboje v vrstici.",
   "helpPoster": "Plakat za drog, iz zapisa: označite, kaj gre nanj, dodajte vrstico, ki je zapis nima, in stran se natisne črno na belem s črkami, berljivimi z druge strani ulice. Koda odpre mačko v drugem cat(a)logu.",
-  "helpAchievements": "Kar je bilo zasluženo in samo to: polni meseci, leta in več opravil s številom, en naziv na opravilo na njegovi stopnji, in odklenjeni kožuhi. Brez vrstic napredka in brez lova; nagrade so tih bonus."
+  "helpAchievements": "Kar je bilo zasluženo in samo to: polni meseci, leta in več opravil s številom, en naziv na opravilo na njegovi stopnji, in odklenjeni kožuhi. Brez vrstic napredka in brez lova; nagrade so tih bonus.",
+  "posterQrTooBig": "Za eno kodo je označenega preveč. Odznačite vrstico in koda se vrne.",
+  "posterPhotos": "Fotografije, največ dve",
+  "posterFrameHint": "Povlecite in stisnite, da izberete izrez.",
+  "posterPreview": "Predogled"
 }

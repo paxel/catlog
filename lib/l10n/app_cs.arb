@@ -1216,5 +1216,9 @@
   "helpScan": "Naskenujte kód cat(a)log na plakátu nebo na obrazovce někoho jiného: kočka a její kontakt sem dorazí bez psaní. Kód s odkazem stáhne soubor za ním.",
   "helpVetReport": "Co jde k veterináři: vybraná pole a data, každý řádek zaškrtnutý, dokud ho neodškrtnete, a přehled pacienta v čele. Sdílet jako PDF nebo tisknout, obojí v liště.",
   "helpPoster": "Plakát na lampu ze záznamu: zaškrtněte, co na něj patří, přidejte řádek, který záznam nemá, a stránka se tiskne černě na bílém písmem čitelným z druhé strany ulice. Kód otevře kočku v jiném cat(a)logu.",
-  "helpAchievements": "Co bylo získáno a jen to: celé měsíce, roky a víc úkolů s jejich počtem, jeden titul na úkol na jeho stupni a odemčené srsti. Žádné ukazatele postupu a nic k honění; odměny jsou tichý bonus."
+  "helpAchievements": "Co bylo získáno a jen to: celé měsíce, roky a víc úkolů s jejich počtem, jeden titul na úkol na jeho stupni a odemčené srsti. Žádné ukazatele postupu a nic k honění; odměny jsou tichý bonus.",
+  "posterQrTooBig": "Na jeden kód je zaškrtnuto příliš. Odškrtněte řádek a kód se vrátí.",
+  "posterPhotos": "Fotky, nejvýše dvě",
+  "posterFrameHint": "Tažením a stažením prstů vyberte výřez.",
+  "posterPreview": "Náhled"
 }

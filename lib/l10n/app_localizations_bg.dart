@@ -3598,4 +3598,17 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Спечеленото и само то: пълни месеци, години и повече задачи с броя им, по една титла на задача на нейното стъпало, и отключените козини. Без ленти за напредък и без гонитба; наградите са тих бонус.';
+
+  @override
+  String get posterQrTooBig =>
+      'Отбелязано е твърде много за един код. Размаркирайте ред и кодът се връща.';
+
+  @override
+  String get posterPhotos => 'Снимки, до две';
+
+  @override
+  String get posterFrameHint => 'Плъзнете и щипнете, за да изберете кадъра.';
+
+  @override
+  String get posterPreview => 'Преглед';
 }

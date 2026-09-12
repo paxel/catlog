@@ -1216,5 +1216,9 @@
   "helpScan": "Scan an cód cat(a)log ar phóstaer nó ar scáileán duine eile: tagann an cat agus a theagmháil anseo gan chlóscríobh. Faigheann cód a iompraíonn nasc an comhad taobh thiar de.",
   "helpVetReport": "An méid a théann chuig an tréidlia: na réimsí agus na dátaí a roghnaíonn tú, gach ró ticeáilte go dtí go ndíthiceálann tú é, agus an achoimre othair ar barr. Roinn mar PDF nó priontáil, an dá cheann sa bharra.",
   "helpPoster": "Póstaer don chuaille lampa, ón taifead: cuir tic lena bhfuil le dul air, cuir líne leis nach bhfuil sa taifead, agus priontálann an leathanach dubh ar bhán i litreacha a léitear ó thaobh eile na sráide. Osclaíonn an cód an cat i cat(a)log eile.",
-  "helpAchievements": "An méid a tuilleadh agus sin amháin: míonna, blianta agus níos mó iomlána de chúraimí lena n-uimhir, teideal amháin in aghaidh an chúraim ag a chéim, agus na fionnaidh a díghlasáladh. Gan barraí dul chun cinn agus gan aon rud le fiach; is bónas ciúin iad na luaíochtaí."
+  "helpAchievements": "An méid a tuilleadh agus sin amháin: míonna, blianta agus níos mó iomlána de chúraimí lena n-uimhir, teideal amháin in aghaidh an chúraim ag a chéim, agus na fionnaidh a díghlasáladh. Gan barraí dul chun cinn agus gan aon rud le fiach; is bónas ciúin iad na luaíochtaí.",
+  "posterQrTooBig": "Tá an iomarca ticeáilte do chód amháin. Díthiceáil líne agus tagann an cód ar ais.",
+  "posterPhotos": "Grianghraif, suas le dhá cheann",
+  "posterFrameHint": "Tarraing agus pinseáil chun an grianghraf a fhrámú.",
+  "posterPreview": "Réamhamharc"
 }

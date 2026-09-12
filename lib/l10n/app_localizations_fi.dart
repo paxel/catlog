@@ -3600,4 +3600,17 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Mitä on ansaittu ja vain se: täydet kuukaudet, vuodet ja enemmän askareita lukumäärineen, yksi arvonimi askaretta kohti sen tasolla, ja avatut turkit. Ei edistymispalkkeja eikä mitään jahdattavaa; palkinnot ovat hiljainen bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Yhteen koodiin on rastitettu liikaa. Poista yksi rasti, niin koodi palaa.';
+
+  @override
+  String get posterPhotos => 'Kuvat, enintään kaksi';
+
+  @override
+  String get posterFrameHint => 'Vedä ja nipistä rajataksesi kuvan.';
+
+  @override
+  String get posterPreview => 'Esikatselu';
 }

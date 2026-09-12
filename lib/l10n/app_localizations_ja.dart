@@ -3462,4 +3462,16 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get helpAchievements =>
       '獲得したものだけを表示: お世話を続けた月・年などとその回数、お世話ごとの現在の称号、解放された毛柄。進捗バーはなく、追いかけるものもありません。ご褒美は静かなおまけです。';
+
+  @override
+  String get posterQrTooBig => '1つのコードに入れるには多すぎます。1行チェックを外すとコードが戻ります。';
+
+  @override
+  String get posterPhotos => '写真、2枚まで';
+
+  @override
+  String get posterFrameHint => 'ドラッグとピンチで写真の範囲を決めます。';
+
+  @override
+  String get posterPreview => 'プレビュー';
 }

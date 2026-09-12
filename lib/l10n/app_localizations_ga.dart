@@ -3654,4 +3654,18 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get helpAchievements =>
       'An méid a tuilleadh agus sin amháin: míonna, blianta agus níos mó iomlána de chúraimí lena n-uimhir, teideal amháin in aghaidh an chúraim ag a chéim, agus na fionnaidh a díghlasáladh. Gan barraí dul chun cinn agus gan aon rud le fiach; is bónas ciúin iad na luaíochtaí.';
+
+  @override
+  String get posterQrTooBig =>
+      'Tá an iomarca ticeáilte do chód amháin. Díthiceáil líne agus tagann an cód ar ais.';
+
+  @override
+  String get posterPhotos => 'Grianghraif, suas le dhá cheann';
+
+  @override
+  String get posterFrameHint =>
+      'Tarraing agus pinseáil chun an grianghraf a fhrámú.';
+
+  @override
+  String get posterPreview => 'Réamhamharc';
 }

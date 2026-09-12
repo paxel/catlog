@@ -3604,4 +3604,17 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Wat verdiend is en alleen dat: volle maanden, jaren en meer aan taken met hun aantal, één titel per taak op zijn rang, en de vrijgespeelde vachten. Geen voortgangsbalken en niets om na te jagen; de beloningen zijn een stille bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Er is te veel aangevinkt voor één code. Vink een regel uit en de code komt terug.';
+
+  @override
+  String get posterPhotos => 'Foto\'s, maximaal twee';
+
+  @override
+  String get posterFrameHint => 'Sleep en knijp om de foto te kaderen.';
+
+  @override
+  String get posterPreview => 'Voorbeeld';
 }

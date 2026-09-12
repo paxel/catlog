@@ -3620,4 +3620,18 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get helpAchievements =>
       'To, co zdobyte, i tylko to: pełne miesiące, lata i więcej zadań z ich liczbą, jeden tytuł na zadanie na jego stopniu, i odblokowane futra. Bez pasków postępu i bez pogoni; nagrody to cichy bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Za dużo zaznaczono na jeden kod. Odznacz linię, a kod wróci.';
+
+  @override
+  String get posterPhotos => 'Zdjęcia, do dwóch';
+
+  @override
+  String get posterFrameHint =>
+      'Przeciągnij i uszczypnij, aby wykadrować zdjęcie.';
+
+  @override
+  String get posterPreview => 'Podgląd';
 }

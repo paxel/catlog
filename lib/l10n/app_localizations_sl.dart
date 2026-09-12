@@ -3627,4 +3627,17 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Kar je bilo zasluženo in samo to: polni meseci, leta in več opravil s številom, en naziv na opravilo na njegovi stopnji, in odklenjeni kožuhi. Brez vrstic napredka in brez lova; nagrade so tih bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Za eno kodo je označenega preveč. Odznačite vrstico in koda se vrne.';
+
+  @override
+  String get posterPhotos => 'Fotografije, največ dve';
+
+  @override
+  String get posterFrameHint => 'Povlecite in stisnite, da izberete izrez.';
+
+  @override
+  String get posterPreview => 'Predogled';
 }

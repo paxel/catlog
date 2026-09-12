@@ -1216,5 +1216,9 @@
   "helpScan": "Noskenējiet cat(a)log kodu uz plakāta vai cita cilvēka ekrānā: kaķis un tā kontakts nonāk šeit bez rakstīšanas. Kods ar saiti lejupielādē aiz tā esošo failu.",
   "helpVetReport": "Kas dodas pie veterinārārsta: jūsu izvēlētie lauki un datumi, katra rinda atzīmēta, līdz atceļat atzīmi, un pacienta kopsavilkums priekšā. Kopīgot kā PDF vai drukāt, abi joslā.",
   "helpPoster": "Plakāts laternas stabam no ieraksta: atzīmējiet, kas uz tā būs, pievienojiet rindu, kuras ierakstā nav, un lapa drukājas melns uz balta ar burtiem, ko lasa no ielas otras puses. Kods atver kaķi citā cat(a)log.",
-  "helpAchievements": "Kas nopelnīts un tikai tas: pilni mēneši, gadi un vairāk uzdevumu ar to skaitu, viens tituls uz uzdevumu tā pakāpē, un atbloķētie kažoki. Nekādu progresa joslu un nekā, ko dzīties; balvas ir kluss bonuss."
+  "helpAchievements": "Kas nopelnīts un tikai tas: pilni mēneši, gadi un vairāk uzdevumu ar to skaitu, viens tituls uz uzdevumu tā pakāpē, un atbloķētie kažoki. Nekādu progresa joslu un nekā, ko dzīties; balvas ir kluss bonuss.",
+  "posterQrTooBig": "Vienam kodam atzīmēts par daudz. Noņemiet vienu atzīmi, un kods atgriezīsies.",
+  "posterPhotos": "Fotoattēli, līdz divi",
+  "posterFrameHint": "Velciet un savelciet, lai izvēlētos kadru.",
+  "posterPreview": "Priekšskatījums"
 }

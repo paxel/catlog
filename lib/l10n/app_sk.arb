@@ -1216,5 +1216,9 @@
   "helpScan": "Naskenujte kód cat(a)log na plagáte alebo na obrazovke niekoho iného: mačka a jej kontakt sem dorazia bez písania. Kód s odkazom stiahne súbor za ním.",
   "helpVetReport": "Čo ide k veterinárovi: vybrané polia a dátumy, každý riadok zaškrtnutý, kým ho neodškrtnete, a prehľad pacienta na čele. Zdieľať ako PDF alebo tlačiť, oboje v lište.",
   "helpPoster": "Plagát na lampu zo záznamu: zaškrtnite, čo naň patrí, pridajte riadok, ktorý záznam nemá, a strana sa tlačí čierno na bielom písmom čitateľným z druhej strany ulice. Kód otvorí mačku v inom cat(a)logu.",
-  "helpAchievements": "Čo bolo získané a len to: celé mesiace, roky a viac úloh s ich počtom, jeden titul na úlohu na jeho stupni a odomknuté srsti. Žiadne ukazovatele pokroku a nič na naháňanie; odmeny sú tichý bonus."
+  "helpAchievements": "Čo bolo získané a len to: celé mesiace, roky a viac úloh s ich počtom, jeden titul na úlohu na jeho stupni a odomknuté srsti. Žiadne ukazovatele pokroku a nič na naháňanie; odmeny sú tichý bonus.",
+  "posterQrTooBig": "Na jeden kód je zaškrtnuté priveľa. Odškrtnite riadok a kód sa vráti.",
+  "posterPhotos": "Fotky, najviac dve",
+  "posterFrameHint": "Ťahaním a stiahnutím prstov vyberte výrez.",
+  "posterPreview": "Náhľad"
 }

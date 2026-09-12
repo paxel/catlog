@@ -3596,4 +3596,17 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Det som er opptjent og bare det: hele måneder, år og mer av oppgaver med antallet, én tittel per oppgave på sitt trinn, og pelsene som er låst opp. Ingen fremdriftslinjer og ingenting å jage; belønningene er en stille bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'For mye er krysset av for én kode. Fjern et kryss, så kommer koden tilbake.';
+
+  @override
+  String get posterPhotos => 'Bilder, opptil to';
+
+  @override
+  String get posterFrameHint => 'Dra og knip for å velge utsnittet.';
+
+  @override
+  String get posterPreview => 'Forhåndsvisning';
 }

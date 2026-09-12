@@ -3611,4 +3611,17 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Оно што је зарађено и само то: пуни месеци, године и више задатака са њиховим бројем, по једна титула по задатку на њеном степену, и откључана крзна. Без трака напретка и без јурњаве; награде су тихи бонус.';
+
+  @override
+  String get posterQrTooBig =>
+      'Превише је означено за један код. Одзначите ред и код се враћа.';
+
+  @override
+  String get posterPhotos => 'Фотографије, до две';
+
+  @override
+  String get posterFrameHint => 'Превуците и уштините да изаберете кадар.';
+
+  @override
+  String get posterPreview => 'Преглед';
 }

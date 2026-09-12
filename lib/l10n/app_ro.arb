@@ -1216,5 +1216,9 @@
   "helpScan": "Scanează codul cat(a)log de pe un afiș sau de pe ecranul altcuiva: pisica și contactul ajung aici fără tastare. Un cod cu un link aduce fișierul din spatele lui.",
   "helpVetReport": "Ce merge la veterinar: câmpurile și datele pe care le alegi, fiecare rând bifat până îl debifezi, și rezumatul pacientului în față. Partajează ca PDF sau tipărește, ambele în bară.",
   "helpPoster": "Un afiș pentru stâlp, din fișă: bifează ce merge pe el, adaugă un rând pe care fișa nu îl are, iar pagina se tipărește negru pe alb cu litere citite de peste drum. Codul deschide pisica în alt cat(a)log.",
-  "helpAchievements": "Ce s-a câștigat și doar atât: luni, ani și mai mult de sarcini complete cu numărul lor, un titlu pe sarcină la rangul ei, și blănurile deblocate. Fără bare de progres și nimic de urmărit; recompensele sunt un bonus discret."
+  "helpAchievements": "Ce s-a câștigat și doar atât: luni, ani și mai mult de sarcini complete cu numărul lor, un titlu pe sarcină la rangul ei, și blănurile deblocate. Fără bare de progres și nimic de urmărit; recompensele sunt un bonus discret.",
+  "posterQrTooBig": "Prea multe bifate pentru un singur cod. Debifează un rând și codul revine.",
+  "posterPhotos": "Fotografii, cel mult două",
+  "posterFrameHint": "Trage și ciupește pentru a încadra fotografia.",
+  "posterPreview": "Previzualizare"
 }

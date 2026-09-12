@@ -1216,5 +1216,9 @@
   "helpScan": "Scansiona il codice cat(a)log su un manifesto o sullo schermo di un altro: il gatto e il suo contatto arrivano qui senza digitare. Un codice con un link scarica il file dietro di esso.",
   "helpVetReport": "Cosa va dal veterinario: i campi e le date che scegli, ogni riga spuntata finché non la deselezioni, e il riepilogo del paziente in testa. Condividi come PDF o stampa, entrambi nella barra.",
   "helpPoster": "Un manifesto per il lampione, dalla scheda: spunta cosa ci va, aggiungi una riga che la scheda non ha, e la pagina stampa nero su bianco in lettere leggibili dall'altro lato della strada. Il codice apre il gatto in un altro cat(a)log.",
-  "helpAchievements": "Ciò che è stato guadagnato e solo quello: mesi, anni e oltre di compiti completi con il loro conto, un titolo per compito al suo grado, e i manti sbloccati. Nessuna barra di progresso e nulla da inseguire; le ricompense sono un bonus silenzioso."
+  "helpAchievements": "Ciò che è stato guadagnato e solo quello: mesi, anni e oltre di compiti completi con il loro conto, un titolo per compito al suo grado, e i manti sbloccati. Nessuna barra di progresso e nulla da inseguire; le ricompense sono un bonus silenzioso.",
+  "posterQrTooBig": "C'è troppo spuntato per un solo codice. Togli la spunta a una riga e il codice torna.",
+  "posterPhotos": "Foto, fino a due",
+  "posterFrameHint": "Trascina e pizzica per inquadrare la foto.",
+  "posterPreview": "Anteprima"
 }

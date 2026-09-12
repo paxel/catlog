@@ -1216,5 +1216,9 @@
   "helpScan": "Bir afişteki veya başkasının ekranındaki cat(a)log kodunu tarayın: kedi ve iletişim bilgisi yazmadan buraya gelir. Bağlantı taşıyan bir kod arkasındaki dosyayı getirir.",
   "helpVetReport": "Veterinere giden: seçtiğiniz alanlar ve tarihler, siz kaldırana kadar her satır işaretli, ve en üstte hasta özeti. PDF olarak paylaşın veya yazdırın, ikisi de çubukta.",
   "helpPoster": "Elektrik direği için kayıttan bir afiş: üzerine ne gideceğini işaretleyin, kayıtta olmayan bir satır ekleyin, sayfa karşı kaldırımdan okunan harflerle siyah beyaz basılır. Üzerindeki kod kediyi başka bir cat(a)log'da açar.",
-  "helpAchievements": "Kazanılan ve yalnızca o: tam aylar, yıllar ve daha fazlası görevlerden sayılarıyla, görev başına kendi kademesinde bir unvan ve açılan kürkler. İlerleme çubuğu yok, peşinden koşulacak bir şey yok; ödüller sessiz bir armağan."
+  "helpAchievements": "Kazanılan ve yalnızca o: tam aylar, yıllar ve daha fazlası görevlerden sayılarıyla, görev başına kendi kademesinde bir unvan ve açılan kürkler. İlerleme çubuğu yok, peşinden koşulacak bir şey yok; ödüller sessiz bir armağan.",
+  "posterQrTooBig": "Tek bir kod için çok fazla şey işaretli. Bir satırın işaretini kaldırın, kod geri gelir.",
+  "posterPhotos": "Fotoğraflar, en fazla iki",
+  "posterFrameHint": "Fotoğrafı çerçevelemek için sürükleyin ve kıstırın.",
+  "posterPreview": "Önizleme"
 }

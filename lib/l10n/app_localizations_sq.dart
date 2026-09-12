@@ -3600,4 +3600,17 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get helpAchievements =>
       'Ajo që u fitua dhe vetëm ajo: muaj, vite e më shumë të plota detyrash me numrin e tyre, një titull për detyrë në gradën e vet, dhe gëzofët e zhbllokuar. Pa shirita përparimi dhe asgjë për t\'u ndjekur; shpërblimet janë një bonus i qetë.';
+
+  @override
+  String get posterQrTooBig =>
+      'Është shënuar shumë për një kod të vetëm. Hiq shenjën nga një rresht dhe kodi kthehet.';
+
+  @override
+  String get posterPhotos => 'Foto, deri në dy';
+
+  @override
+  String get posterFrameHint => 'Tërhiq dhe pickoje për ta kornizuar foton.';
+
+  @override
+  String get posterPreview => 'Pamje paraprake';
 }
