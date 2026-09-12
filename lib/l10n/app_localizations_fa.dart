@@ -3482,4 +3482,15 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get helpLooks =>
       'ظاهر گربه به‌صورت چیپ: اندازه، رنگ‌ها، الگو، پوشش، دم، گوش‌ها، نشانه‌ها و ویژگی‌های ماندگار. آنچه می‌بینید را علامت بزنید؛ گربهٔ ولگردی که در دو ویژگی با گربهٔ گمشده مطابقت دارد نامزد می‌شود.';
+
+  @override
+  String get graphSmoothed => 'هموارشده';
+
+  @override
+  String get graphTrend => 'روند';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'روند: $value در ماه';
+  }
 }

@@ -3599,4 +3599,15 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get helpLooks =>
       'Cuma an chait, mar shliseanna: méid, dathanna, patrún, fionnadh, eireaball, cluasa, marcanna agus tréithe buana. Cuir tic le gach a bhfeiceann tú; is iarrthóir é cat fáin a réitíonn le cat ar iarraidh in dhá thréith.';
+
+  @override
+  String get graphSmoothed => 'Mínithe';
+
+  @override
+  String get graphTrend => 'Treocht';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Treocht: $value sa mhí';
+  }
 }

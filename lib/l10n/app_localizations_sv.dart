@@ -3542,4 +3542,15 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get helpLooks =>
       'Hur katten ser ut, som chips: storlek, färger, mönster, päls, svans, öron, tecken och bestående drag. Bocka för det du ser; en hemlös som stämmer med en saknad katt på två drag blir kandidat.';
+
+  @override
+  String get graphSmoothed => 'Utjämnad';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value per månad';
+  }
 }

@@ -3545,4 +3545,15 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get helpLooks =>
       'Si duket macja, me çipa: madhësia, ngjyrat, modeli, gëzofi, bishti, veshët, shenjat dhe tiparet e përhershme. Shëno çfarë sheh; një endacak që përputhet me një mace të humbur në dy tipare bëhet kandidat.';
+
+  @override
+  String get graphSmoothed => 'I lëmuar';
+
+  @override
+  String get graphTrend => 'Prirje';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Prirje: $value në muaj';
+  }
 }

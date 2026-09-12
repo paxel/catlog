@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Un rapport pour le vétérinaire : les entrées choisies en frise, un résumé du patient et un graphique pour chaque champ numérique, le poids par exemple.",
   "helpHistory": "Les valeurs d'un champ dans le temps, les plus récentes d'abord. Touchez une valeur pour la corriger : la nouvelle prend sa place, l'ancienne se masque. Maintenez une valeur pour la retirer ou rétablir une valeur masquée ; l'œil affiche les valeurs masquées. Copiez la liste en texte ou partagez-la en PDF.",
   "helpSettings": "Les choix de l'application : langue, unités, célébrations et acclamations, le pelage derrière les pages, les notifications, et où vos catalogues sont sauvegardés. Les visites peuvent être rejouées d'ici.",
-  "helpLooks": "À quoi ressemble le chat, en puces : taille, couleurs, motif, pelage, queue, oreilles, marques et traits durables. Cochez ce que vous voyez ; un errant qui concorde avec un chat disparu sur deux traits devient un candidat."
+  "helpLooks": "À quoi ressemble le chat, en puces : taille, couleurs, motif, pelage, queue, oreilles, marques et traits durables. Cochez ce que vous voyez ; un errant qui concorde avec un chat disparu sur deux traits devient un candidat.",
+  "graphSmoothed": "Lissé",
+  "graphTrend": "Tendance",
+  "trendPerMonth": "Tendance : {value} par mois",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

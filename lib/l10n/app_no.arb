@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "En rapport til veterinæren: de valgte oppføringene som tidslinje, en pasientoversikt og en graf for hvert tallfelt, for eksempel vekten.",
   "helpHistory": "Ett felts verdier over tid, nyeste først. Trykk på en verdi for å rette den: den nye tar plassen, den gamle skjules. Hold en verdi for å fjerne den eller hente en skjult tilbake; øyet viser skjulte verdier. Kopier listen som tekst eller del den som PDF.",
   "helpSettings": "Appens egne valg: språk, enheter, feiringer og jubel, pelsen bak sidene, varsler og hvor katalogene dine sikkerhetskopieres. Omvisningene kan spilles av igjen herfra.",
-  "helpLooks": "Hvordan katten ser ut, som brikker: størrelse, farger, mønster, pels, hale, ører, tegninger og varige trekk. Kryss av det du ser; en hjemløs som stemmer med en savnet katt på to trekk blir kandidat."
+  "helpLooks": "Hvordan katten ser ut, som brikker: størrelse, farger, mønster, pels, hale, ører, tegninger og varige trekk. Kryss av det du ser; en hjemløs som stemmer med en savnet katt på to trekk blir kandidat.",
+  "graphSmoothed": "Utjevnet",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} per måned",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

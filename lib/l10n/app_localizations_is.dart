@@ -3548,4 +3548,15 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get helpLooks =>
       'Hvernig kötturinn lítur út, sem flögur: stærð, litir, mynstur, feldur, rófa, eyru, merki og varanleg einkenni. Merktu við það sem þú sérð; flækingur sem samsvarar týndum ketti í tveimur einkennum verður frambjóðandi.';
+
+  @override
+  String get graphSmoothed => 'Jafnað';
+
+  @override
+  String get graphTrend => 'Þróun';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Þróun: $value á mánuði';
+  }
 }

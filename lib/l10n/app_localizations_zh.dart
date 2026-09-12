@@ -3366,4 +3366,15 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get helpLooks =>
       '猫的外观，以标签表示：体型、颜色、花纹、毛、尾巴、耳朵、斑记和持久特征。勾选你看到的；与失踪猫有两个特征一致的流浪猫会成为候选。';
+
+  @override
+  String get graphSmoothed => '平滑';
+
+  @override
+  String get graphTrend => '趋势';
+
+  @override
+  String trendPerMonth(Object value) {
+    return '趋势：每月 $value';
+  }
 }

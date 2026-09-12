@@ -3555,4 +3555,15 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get helpLooks =>
       'Ako mačka vyzerá, ako čipy: veľkosť, farby, vzor, srsť, chvost, uši, znaky a trvalé črty. Zaškrtnite, čo vidíte; túlavá mačka zhodná s nezvestnou v dvoch črtách sa stane kandidátom.';
+
+  @override
+  String get graphSmoothed => 'Vyhladený';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value za mesiac';
+  }
 }

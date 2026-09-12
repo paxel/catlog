@@ -3564,4 +3564,15 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get helpLooks =>
       'Как выглядит кошка, чипами: размер, окрас, узор, шерсть, хвост, уши, отметины и постоянные признаки. Отметьте, что видите; бездомная, совпадающая с пропавшей по двум признакам, становится кандидатом.';
+
+  @override
+  String get graphSmoothed => 'Сглаженный';
+
+  @override
+  String get graphTrend => 'Тренд';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Тренд: $value в месяц';
+  }
 }

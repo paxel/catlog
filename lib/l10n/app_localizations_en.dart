@@ -3544,4 +3544,15 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get helpLooks =>
       'What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.';
+
+  @override
+  String get graphSmoothed => 'Smoothed';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value per month';
+  }
 }

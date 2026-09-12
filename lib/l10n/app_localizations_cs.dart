@@ -3556,4 +3556,15 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get helpLooks =>
       'Jak kočka vypadá, jako čipy: velikost, barvy, vzor, srst, ocas, uši, znaky a trvalé rysy. Zaškrtněte, co vidíte; toulavá kočka shodná s pohřešovanou ve dvou rysech se stane kandidátem.';
+
+  @override
+  String get graphSmoothed => 'Vyhlazený';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value za měsíc';
+  }
 }

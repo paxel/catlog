@@ -111,6 +111,8 @@ class _VetReportScreenState extends State<VetReportScreen> {
           DateTime(_to.year, _to.month, _to.day + 1),
           reportColour(i),
           locale,
+          smooth: store.localSetting(graphSmoothKey) == 'yes',
+          trend: store.localSetting(graphTrendKey) == 'yes',
         );
         if (png != null) curves.add((def: def, png: png));
       }

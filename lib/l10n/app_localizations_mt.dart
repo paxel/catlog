@@ -3559,4 +3559,15 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get helpLooks =>
       'Kif jidher il-qattus, bħala chips: daqs, kuluri, disinn, pil, denb, widnejn, marki u fatturi permanenti. Immarka dak li tara; qattus tat-triq li jaqbel ma\' qattus mitluf f\'żewġ fatturi jsir kandidat.';
+
+  @override
+  String get graphSmoothed => 'Imlissen';
+
+  @override
+  String get graphTrend => 'Xejra';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Xejra: $value fix-xahar';
+  }
 }

@@ -1063,6 +1063,12 @@ class ModeLocalizations implements AppLocalizations {
   String get graphLabel => base.graphLabel;
 
   @override
+  String get graphSmoothed => base.graphSmoothed;
+
+  @override
+  String get graphTrend => base.graphTrend;
+
+  @override
   String get hardDeleteAction => base.hardDeleteAction;
 
   @override
@@ -2807,6 +2813,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String traitsAgree(int count) => base.traitsAgree(count);
+
+  @override
+  String trendPerMonth(Object value) => base.trendPerMonth(value);
 
   @override
   String get trustBothWaysNote => base.trustBothWaysNote;

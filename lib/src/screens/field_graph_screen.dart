@@ -23,6 +23,68 @@ typedef GraphPoint = ({DateTime at, double value});
 enum GraphRange { week, month, year, all, custom }
 
 const graphRangeKey = 'graphRange';
+
+/// Remembered per device: the smoothed line and the trend line.
+const graphSmoothKey = 'graphSmooth';
+const graphTrendKey = 'graphTrend';
+
+/// The smoothed line: a Gaussian-weighted average of the readings,
+/// width one twelfth of the shown span, sampled evenly between the
+/// first and the last reading. Irregular readings weigh alike; a
+/// cluster of five weighings in a week does not drag a year's line.
+List<GraphPoint> smoothCurve(
+  List<GraphPoint> points,
+  DateTime from,
+  DateTime to, {
+  int samples = 80,
+}) {
+  if (points.length < 2) return points;
+  final spanMs = math.max(1, to.difference(from).inMilliseconds).toDouble();
+  final sigma = spanMs / 12;
+  final first = points.first.at.millisecondsSinceEpoch.toDouble();
+  final last = points.last.at.millisecondsSinceEpoch.toDouble();
+  final out = <GraphPoint>[];
+  for (var i = 0; i <= samples; i++) {
+    final t = first + (last - first) * i / samples;
+    var weight = 0.0, sum = 0.0;
+    for (final p in points) {
+      final d = (p.at.millisecondsSinceEpoch - t) / sigma;
+      final w = math.exp(-0.5 * d * d);
+      weight += w;
+      sum += w * p.value;
+    }
+    out.add((at: DateTime.fromMillisecondsSinceEpoch(t.round()), value: sum / weight));
+  }
+  return out;
+}
+
+/// The trend: a straight line fitted through the readings (least
+/// squares), as the value at [from], the value at [to], and the change
+/// per month. Null with fewer than two readings or no time span.
+({double atFrom, double atTo, double perMonth})? trendLine(
+  List<GraphPoint> points,
+  DateTime from,
+  DateTime to,
+) {
+  if (points.length < 2) return null;
+  const day = 86400000.0;
+  final origin = points.first.at.millisecondsSinceEpoch.toDouble();
+  final xs = [for (final p in points) (p.at.millisecondsSinceEpoch - origin) / day];
+  final ys = [for (final p in points) p.value];
+  final n = xs.length;
+  final mx = xs.reduce((a, b) => a + b) / n;
+  final my = ys.reduce((a, b) => a + b) / n;
+  var sxx = 0.0, sxy = 0.0;
+  for (var i = 0; i < n; i++) {
+    sxx += (xs[i] - mx) * (xs[i] - mx);
+    sxy += (xs[i] - mx) * (ys[i] - my);
+  }
+  if (sxx == 0) return null;
+  final slope = sxy / sxx;
+  double at(DateTime d) =>
+      my + slope * ((d.millisecondsSinceEpoch - origin) / day - mx);
+  return (atFrom: at(from), atTo: at(to), perMonth: slope * 30.44);
+}
 const graphRangeFromKey = 'graphRange:from';
 const graphRangeToKey = 'graphRange:to';
 
@@ -171,6 +233,14 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
     ),
   };
 
+  bool get _smooth => store.localSetting(graphSmoothKey) == 'yes';
+  bool get _trend => store.localSetting(graphTrendKey) == 'yes';
+
+  void _toggle(String key, bool on) {
+    store.setLocalSetting(key, on ? 'yes' : 'no');
+    setState(() {});
+  }
+
   /// A day kept on this device under [key], or null.
   DateTime? _storedDay(String key) =>
       DateTime.tryParse(store.localSetting(key) ?? '');
@@ -302,8 +372,34 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
                   selected: _range == range,
                   onSelected: (_) => _pick(range),
                 ),
+              FilterChip(
+                label: Text(t.graphSmoothed),
+                selected: _smooth,
+                onSelected: (on) => _toggle(graphSmoothKey, on),
+              ),
+              FilterChip(
+                label: Text(t.graphTrend),
+                selected: _trend,
+                onSelected: (on) => _toggle(graphTrendKey, on),
+              ),
             ],
           ),
+          if (_trend)
+            if (trendLine(
+                  shown,
+                  from ?? (shown.isEmpty ? DateTime.now() : shown.first.at),
+                  to ?? DateTime.now(),
+                )
+                case final fit?)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                t.trendPerMonth(
+                  '${fit.perMonth >= 0 ? '+' : ''}${_number(fit.perMonth)}',
+                ),
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ),
           const SizedBox(height: 12),
           RepaintBoundary(
             key: _pictureKey,
@@ -334,6 +430,8 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
                         tickColor: Theme.of(context).colorScheme.tertiary,
                         format: _number,
                         dateFormat: (d) => DateFormat.MMMd(locale).format(d),
+                        smooth: _smooth,
+                        trend: _trend,
                       ),
                     ),
                   ),
@@ -369,6 +467,13 @@ class GraphPainter extends CustomPainter {
   final String Function(double) format;
   final String Function(DateTime) dateFormat;
 
+  /// The smoothed line instead of the reading-to-reading line; the
+  /// readings stay as dots with a thin stem to the line.
+  final bool smooth;
+
+  /// A dashed straight line fitted through the readings.
+  final bool trend;
+
   GraphPainter({
     required this.points,
     required this.from,
@@ -379,6 +484,8 @@ class GraphPainter extends CustomPainter {
     required this.tickColor,
     required this.format,
     required this.dateFormat,
+    this.smooth = false,
+    this.trend = false,
   });
 
   TextPainter _text(String s, double size) => TextPainter(
@@ -483,18 +590,72 @@ class GraphPainter extends CustomPainter {
       ..color = lineColor
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
-    final path = Path();
-    for (var i = 0; i < points.length; i++) {
-      final o = Offset(x(points[i].at), y(points[i].value));
-      if (i == 0) {
-        path.moveTo(o.dx, o.dy);
-      } else {
-        path.lineTo(o.dx, o.dy);
+    Path pathOf(List<GraphPoint> pts) {
+      final path = Path();
+      for (var i = 0; i < pts.length; i++) {
+        final o = Offset(x(pts[i].at), y(pts[i].value));
+        if (i == 0) {
+          path.moveTo(o.dx, o.dy);
+        } else {
+          path.lineTo(o.dx, o.dy);
+        }
+      }
+      return path;
+    }
+
+    if (smooth && points.length >= 2) {
+      // The smooth line carries the shape; each reading hangs on it by
+      // a thin stem, so the scatter stays visible without the zigzag.
+      final curve = smoothCurve(points, start, to);
+      final stem = Paint()
+        ..color = lineColor.withValues(alpha: 0.45)
+        ..strokeWidth = 1;
+      double curveAt(DateTime at) {
+        final t = at.millisecondsSinceEpoch;
+        for (var i = 1; i < curve.length; i++) {
+          final a = curve[i - 1].at.millisecondsSinceEpoch;
+          final b = curve[i].at.millisecondsSinceEpoch;
+          if (t <= b) {
+            final f = b == a ? 0.0 : (t - a) / (b - a);
+            return curve[i - 1].value + (curve[i].value - curve[i - 1].value) * f;
+          }
+        }
+        return curve.last.value;
+      }
+
+      for (final p in points) {
+        final px = x(p.at);
+        canvas.drawLine(Offset(px, y(p.value)), Offset(px, y(curveAt(p.at))), stem);
+      }
+      canvas.drawPath(pathOf(curve), line..strokeWidth = 2.5);
+      line.strokeWidth = 2;
+    } else {
+      canvas.drawPath(pathOf(points), line);
+    }
+    if (trend) if (trendLine(points, start, to) case final fit?) {
+      final dash = Paint()
+        ..color = textColor.withValues(alpha: 0.6)
+        ..strokeWidth = 1.5
+        ..style = PaintingStyle.stroke;
+      final a = Offset(x(start), y(fit.atFrom.clamp(lo, hi)));
+      final b = Offset(x(to), y(fit.atTo.clamp(lo, hi)));
+      final total = (b - a).distance;
+      const on = 8.0, off = 5.0;
+      var d = 0.0;
+      while (d < total) {
+        final s0 = a + (b - a) * (d / total);
+        final s1 = a + (b - a) * (math.min(d + on, total) / total);
+        canvas.drawLine(s0, s1, dash);
+        d += on + off;
       }
     }
-    canvas.drawPath(path, line);
 
     final dot = Paint()..color = lineColor;
+    if (smooth) {
+      for (final p in points) {
+        canvas.drawCircle(Offset(x(p.at), y(p.value)), 2.5, dot);
+      }
+    }
     void label(GraphPoint p, {required bool above}) {
       final o = Offset(x(p.at), y(p.value));
       canvas.drawCircle(o, 4, dot);

@@ -3546,4 +3546,15 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get helpLooks =>
       'Како изгледа мачката, како чипови: големина, бои, шара, крзно, опашка, уши, ознаки и трајни особини. Означете што гледате; скитник што се совпаѓа со исчезната мачка во две особини станува кандидат.';
+
+  @override
+  String get graphSmoothed => 'Измазнет';
+
+  @override
+  String get graphTrend => 'Тренд';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Тренд: $value месечно';
+  }
 }

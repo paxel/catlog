@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Jelentés az állatorvosnak: a kiválasztott bejegyzések idővonalként, betegösszefoglaló és grafikon minden számmezőhöz, például a súlyhoz.",
   "helpHistory": "Egy mező értékei az idő során, a legújabb elöl. Koppints egy értékre a javításhoz: az új a helyére lép, a régi elrejtődik. Tartsd nyomva az értéket az eltávolításhoz vagy egy rejtett visszaállításához; a szem mutatja a rejtett értékeket. Másold a listát szövegként vagy oszd meg PDF-ként.",
   "helpSettings": "Az app saját beállításai: nyelv, mértékegységek, ünneplés és éljenzés, a bunda az oldalak mögött, értesítések, és hol mentődnek a katalógusaid. A bemutatók innen újra lejátszhatók.",
-  "helpLooks": "Hogy néz ki a macska, chipekként: méret, színek, mintázat, bunda, farok, fülek, jegyek és maradandó jellemzők. Jelöld, amit látsz; egy kóbor, amely két jegyben egyezik egy eltűnt macskával, jelölt lesz."
+  "helpLooks": "Hogy néz ki a macska, chipekként: méret, színek, mintázat, bunda, farok, fülek, jegyek és maradandó jellemzők. Jelöld, amit látsz; egy kóbor, amely két jegyben egyezik egy eltűnt macskával, jelölt lesz.",
+  "graphSmoothed": "Simított",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} havonta",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

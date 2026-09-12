@@ -3555,4 +3555,15 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get helpLooks =>
       'Wie die Katze aussieht, als Chips: Größe, Farben, Muster, Fell, Schwanz, Ohren, Zeichnungen und bleibende Merkmale. Hake an, was du siehst; ein Streuner, der mit einer vermissten Katze in zwei Merkmalen übereinstimmt, wird Treffer-Kandidat.';
+
+  @override
+  String get graphSmoothed => 'Geglättet';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value pro Monat';
+  }
 }

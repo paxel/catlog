@@ -3545,4 +3545,15 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get helpLooks =>
       'Miltä kissa näyttää, sirujen muodossa: koko, värit, kuvio, turkki, häntä, korvat, merkit ja pysyvät piirteet. Rastita mitä näet; kulkukissa, joka vastaa kadonnutta kahdessa piirteessä, nousee ehdokkaaksi.';
+
+  @override
+  String get graphSmoothed => 'Tasoitettu';
+
+  @override
+  String get graphTrend => 'Suunta';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Suunta: $value kuukaudessa';
+  }
 }

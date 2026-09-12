@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Een rapport voor de dierenarts: de gekozen items als tijdlijn, een patiëntoverzicht en een grafiek voor elk getalveld, bijvoorbeeld het gewicht.",
   "helpHistory": "De waarden van één veld door de tijd, nieuwste eerst. Tik op een waarde om die te corrigeren: de nieuwe neemt zijn plaats in, de oude wordt verborgen. Houd een waarde vast om die te verwijderen of een verborgen waarde terug te halen; het oog toont verborgen waarden. Kopieer de lijst als tekst of deel hem als pdf.",
   "helpSettings": "De keuzes van de app: taal, eenheden, feestjes en gejuich, de vacht achter de pagina's, meldingen en waar je catalogi geback-upt worden. De rondleidingen kun je hier opnieuw starten.",
-  "helpLooks": "Hoe de kat eruitziet, als chips: grootte, kleuren, patroon, vacht, staart, oren, tekening en blijvende kenmerken. Vink aan wat je ziet; een zwerver die in twee kenmerken met een vermiste kat overeenkomt, wordt kandidaat."
+  "helpLooks": "Hoe de kat eruitziet, als chips: grootte, kleuren, patroon, vacht, staart, oren, tekening en blijvende kenmerken. Vink aan wat je ziet; een zwerver die in twee kenmerken met een vermiste kat overeenkomt, wordt kandidaat.",
+  "graphSmoothed": "Afgevlakt",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} per maand",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

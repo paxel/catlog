@@ -3555,4 +3555,15 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get helpLooks =>
       'À quoi ressemble le chat, en puces : taille, couleurs, motif, pelage, queue, oreilles, marques et traits durables. Cochez ce que vous voyez ; un errant qui concorde avec un chat disparu sur deux traits devient un candidat.';
+
+  @override
+  String get graphSmoothed => 'Lissé';
+
+  @override
+  String get graphTrend => 'Tendance';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendance : $value par mois';
+  }
 }

@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Aruanne loomaarstile: valitud kirjed ajajoonena, patsiendi kokkuvõte ja graafik iga arvuvälja kohta, näiteks kaal.",
   "helpHistory": "Ühe välja väärtused ajas, uusim esimesena. Puuduta väärtust, et seda parandada: uus astub selle asemele, vana peidetakse. Hoia väärtust all, et see eemaldada või peidetu tagasi tuua; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.",
   "helpSettings": "Rakenduse enda valikud: keel, ühikud, tähistamised ja hõisked, lehtede taga olev kasukas, teavitused ja kuhu su kataloogid varundatakse. Tuure saab siit uuesti käivitada.",
-  "helpLooks": "Milline kass välja näeb, kiipidena: suurus, värvid, muster, karv, saba, kõrvad, märgid ja püsivad tunnused. Märgi, mida näed; hulkur, kes kattub kadunud kassiga kahes tunnuses, saab kandidaadiks."
+  "helpLooks": "Milline kass välja näeb, kiipidena: suurus, värvid, muster, karv, saba, kõrvad, märgid ja püsivad tunnused. Märgi, mida näed; hulkur, kes kattub kadunud kassiga kahes tunnuses, saab kandidaadiks.",
+  "graphSmoothed": "Silutud",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} kuus",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

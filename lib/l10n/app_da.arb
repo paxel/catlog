@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "En rapport til dyrlægen: de valgte poster som tidslinje, en patientoversigt og en graf for hvert talfelt, for eksempel vægten.",
   "helpHistory": "Et felts værdier over tid, nyeste først. Tryk på en værdi for at rette den: den nye tager dens plads, den gamle skjules. Hold en værdi for at fjerne den eller hente en skjult tilbage; øjet viser skjulte værdier. Kopiér listen som tekst eller del den som PDF.",
   "helpSettings": "Appens egne valg: sprog, enheder, fejringer og jubel, pelsen bag siderne, notifikationer og hvor dine kataloger sikkerhedskopieres. Rundvisningerne kan afspilles igen herfra.",
-  "helpLooks": "Hvordan katten ser ud, som chips: størrelse, farver, mønster, pels, hale, ører, tegninger og varige kendetegn. Sæt kryds ved det, du ser; en herreløs kat, der stemmer med en savnet på to træk, bliver kandidat."
+  "helpLooks": "Hvordan katten ser ud, som chips: størrelse, farver, mønster, pels, hale, ører, tegninger og varige kendetegn. Sæt kryds ved det, du ser; en herreløs kat, der stemmer med en savnet på to træk, bliver kandidat.",
+  "graphSmoothed": "Udjævnet",
+  "graphTrend": "Tendens",
+  "trendPerMonth": "Tendens: {value} pr. måned",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

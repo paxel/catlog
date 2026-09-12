@@ -3578,4 +3578,15 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get helpLooks =>
       'شكل القطة على هيئة رقائق: الحجم، الألوان، النمط، الفراء، الذيل، الأذنان، العلامات والسمات الدائمة. ضع علامة على ما تراه؛ القطة الضالة التي تتفق مع قطة مفقودة في سمتين تصبح مرشحة.';
+
+  @override
+  String get graphSmoothed => 'ممهَّد';
+
+  @override
+  String get graphTrend => 'الاتجاه';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'الاتجاه: $value شهرياً';
+  }
 }

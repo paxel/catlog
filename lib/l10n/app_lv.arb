@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Ziņojums veterinārārstam: izvēlētie ieraksti kā laika līnija, pacienta kopsavilkums un grafiks katram skaitļu laukam, piemēram svaram.",
   "helpHistory": "Viena lauka vērtības laika gaitā, jaunākās pirmās. Pieskarieties vērtībai, lai to labotu: jaunā ieņem tās vietu, vecā tiek paslēpta. Turiet vērtību, lai to noņemtu vai atgrieztu paslēpto; acs rāda paslēptās vērtības. Kopējiet sarakstu kā tekstu vai kopīgojiet kā PDF.",
   "helpSettings": "Lietotnes izvēles: valoda, vienības, svinības un gaviles, kažoks aiz lapām, paziņojumi un kur tiek dublēti jūsu katalogi. Ekskursijas var atkārtot no šejienes.",
-  "helpLooks": "Kā kaķis izskatās, kā mikroshēmas: izmērs, krāsas, raksts, kažoks, aste, ausis, zīmes un paliekošas iezīmes. Atzīmējiet, ko redzat; klaiņotājs, kas sakrīt ar pazudušu kaķi divās iezīmēs, kļūst par kandidātu."
+  "helpLooks": "Kā kaķis izskatās, kā mikroshēmas: izmērs, krāsas, raksts, kažoks, aste, ausis, zīmes un paliekošas iezīmes. Atzīmējiet, ko redzat; klaiņotājs, kas sakrīt ar pazudušu kaķi divās iezīmēs, kļūst par kandidātu.",
+  "graphSmoothed": "Izlīdzināts",
+  "graphTrend": "Tendence",
+  "trendPerMonth": "Tendence: {value} mēnesī",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

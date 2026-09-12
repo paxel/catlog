@@ -3407,4 +3407,15 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get helpLooks =>
       '猫の見た目をチップで: サイズ、色、模様、毛、尻尾、耳、しるし、変わらない特徴。見えたものにチェック。迷い猫と2つの特徴が一致する野良猫は候補になります。';
+
+  @override
+  String get graphSmoothed => '平滑化';
+
+  @override
+  String get graphTrend => '傾向';
+
+  @override
+  String trendPerMonth(Object value) {
+    return '傾向: 月あたり $value';
+  }
 }

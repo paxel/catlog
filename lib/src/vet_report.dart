@@ -71,8 +71,10 @@ Future<Uint8List?> curvePng(
   DateTime from,
   DateTime to,
   int colour,
-  String locale,
-) async {
+  String locale, {
+  bool smooth = false,
+  bool trend = false,
+}) async {
   if (points.length < 2) return null;
   const size = Size(1200, 640);
   final recorder = ui.PictureRecorder();
@@ -89,6 +91,8 @@ Future<Uint8List?> curvePng(
     format: (v) =>
         v == v.roundToDouble() ? v.toInt().toString() : v.toStringAsFixed(1),
     dateFormat: (d) => DateFormat.MMMd(locale).format(d),
+    smooth: smooth,
+    trend: trend,
   ).paint(canvas, size);
   final image = await recorder.endRecording().toImage(
     size.width.toInt(),

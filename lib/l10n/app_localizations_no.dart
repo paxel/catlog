@@ -3541,4 +3541,15 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get helpLooks =>
       'Hvordan katten ser ut, som brikker: størrelse, farger, mønster, pels, hale, ører, tegninger og varige trekk. Kryss av det du ser; en hjemløs som stemmer med en savnet katt på to trekk blir kandidat.';
+
+  @override
+  String get graphSmoothed => 'Utjevnet';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value per måned';
+  }
 }

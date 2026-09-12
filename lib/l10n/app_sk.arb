@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Správa pre veterinára: vybrané záznamy ako časová os, prehľad pacienta a graf pre každé číselné pole, napríklad hmotnosť.",
   "helpHistory": "Hodnoty jedného poľa v čase, najnovšie prvé. Ťuknutím hodnotu opravíte: nová nastúpi na jej miesto, stará sa skryje. Podržaním hodnotu odstránite alebo skrytú vrátite; oko zobrazí skryté hodnoty. Zoznam skopírujte ako text alebo zdieľajte ako PDF.",
   "helpSettings": "Voľby aplikácie: jazyk, jednotky, oslavy a jasot, srsť za stránkami, upozornenia a kde sa zálohujú vaše katalógy. Odtiaľ možno prehliadky spustiť znova.",
-  "helpLooks": "Ako mačka vyzerá, ako čipy: veľkosť, farby, vzor, srsť, chvost, uši, znaky a trvalé črty. Zaškrtnite, čo vidíte; túlavá mačka zhodná s nezvestnou v dvoch črtách sa stane kandidátom."
+  "helpLooks": "Ako mačka vyzerá, ako čipy: veľkosť, farby, vzor, srsť, chvost, uši, znaky a trvalé črty. Zaškrtnite, čo vidíte; túlavá mačka zhodná s nezvestnou v dvoch črtách sa stane kandidátom.",
+  "graphSmoothed": "Vyhladený",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} za mesiac",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

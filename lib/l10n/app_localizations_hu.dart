@@ -3544,4 +3544,15 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get helpLooks =>
       'Hogy néz ki a macska, chipekként: méret, színek, mintázat, bunda, farok, fülek, jegyek és maradandó jellemzők. Jelöld, amit látsz; egy kóbor, amely két jegyben egyezik egy eltűnt macskával, jelölt lesz.';
+
+  @override
+  String get graphSmoothed => 'Simított';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value havonta';
+  }
 }

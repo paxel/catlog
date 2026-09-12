@@ -3559,4 +3559,15 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get helpLooks =>
       'Kā kaķis izskatās, kā mikroshēmas: izmērs, krāsas, raksts, kažoks, aste, ausis, zīmes un paliekošas iezīmes. Atzīmējiet, ko redzat; klaiņotājs, kas sakrīt ar pazudušu kaķi divās iezīmēs, kļūst par kandidātu.';
+
+  @override
+  String get graphSmoothed => 'Izlīdzināts';
+
+  @override
+  String get graphTrend => 'Tendence';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendence: $value mēnesī';
+  }
 }

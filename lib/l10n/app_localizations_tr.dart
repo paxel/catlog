@@ -3542,4 +3542,15 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get helpLooks =>
       'Kedinin görünüşü, çipler halinde: boy, renkler, desen, tüy, kuyruk, kulaklar, işaretler ve kalıcı özellikler. Gördüğünüzü işaretleyin; kayıp bir kediyle iki özellikte uyuşan bir sokak kedisi aday olur.';
+
+  @override
+  String get graphSmoothed => 'Yumuşatılmış';
+
+  @override
+  String get graphTrend => 'Eğilim';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Eğilim: ayda $value';
+  }
 }

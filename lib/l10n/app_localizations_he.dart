@@ -3540,4 +3540,15 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get helpLooks =>
       'איך החתול נראה, בצ\'יפים: גודל, צבעים, דוגמה, פרווה, זנב, אוזניים, סימנים ותכונות קבועות. סמנו את מה שאתם רואים; חתול רחוב שתואם לחתול נעדר בשתי תכונות הופך למועמד.';
+
+  @override
+  String get graphSmoothed => 'מוחלק';
+
+  @override
+  String get graphTrend => 'מגמה';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'מגמה: $value לחודש';
+  }
 }

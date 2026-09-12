@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și un grafic pentru fiecare câmp numeric, greutatea de exemplu.",
   "helpHistory": "Valorile unui câmp în timp, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Ține apăsat o valoare pentru a o elimina sau a readuce una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau partajeaz-o ca PDF.",
   "helpSettings": "Alegerile aplicației: limbă, unități, sărbătoriri și urale, blana din spatele paginilor, notificări și unde sunt salvate cataloagele tale. Tururile pot fi reluate de aici.",
-  "helpLooks": "Cum arată pisica, în chipuri: mărime, culori, model, blană, coadă, urechi, semne și trăsături durabile. Bifează ce vezi; un vagabond care se potrivește cu o pisică dispărută în două trăsături devine candidat."
+  "helpLooks": "Cum arată pisica, în chipuri: mărime, culori, model, blană, coadă, urechi, semne și trăsături durabile. Bifează ce vezi; un vagabond care se potrivește cu o pisică dispărută în două trăsături devine candidat.",
+  "graphSmoothed": "Netezit",
+  "graphTrend": "Tendință",
+  "trendPerMonth": "Tendință: {value} pe lună",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

@@ -3542,4 +3542,15 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get helpLooks =>
       'Milline kass välja näeb, kiipidena: suurus, värvid, muster, karv, saba, kõrvad, märgid ja püsivad tunnused. Märgi, mida näed; hulkur, kes kattub kadunud kassiga kahes tunnuses, saab kandidaadiks.';
+
+  @override
+  String get graphSmoothed => 'Silutud';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value kuus';
+  }
 }

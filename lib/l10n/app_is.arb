@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Skýrsla fyrir dýralækninn: valdar færslur sem tímalína, yfirlit sjúklings og línurit fyrir hvern tölureit, til dæmis þyngd.",
   "helpHistory": "Gildi eins reits yfir tíma, nýjast fyrst. Ýttu á gildi til að leiðrétta það: nýja gildið tekur sætið, það gamla felst. Haltu gildi til að fjarlægja það eða endurheimta falið; augað sýnir falin gildi. Afritaðu listann sem texta eða deildu honum sem PDF.",
   "helpSettings": "Eigin val forritsins: tungumál, einingar, fagnaðarlæti, feldurinn á bak við síðurnar, tilkynningar og hvar skrárnar þínar eru afritaðar. Kynningarnar má endurspila héðan.",
-  "helpLooks": "Hvernig kötturinn lítur út, sem flögur: stærð, litir, mynstur, feldur, rófa, eyru, merki og varanleg einkenni. Merktu við það sem þú sérð; flækingur sem samsvarar týndum ketti í tveimur einkennum verður frambjóðandi."
+  "helpLooks": "Hvernig kötturinn lítur út, sem flögur: stærð, litir, mynstur, feldur, rófa, eyru, merki og varanleg einkenni. Merktu við það sem þú sérð; flækingur sem samsvarar týndum ketti í tveimur einkennum verður frambjóðandi.",
+  "graphSmoothed": "Jafnað",
+  "graphTrend": "Þróun",
+  "trendPerMonth": "Þróun: {value} á mánuði",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

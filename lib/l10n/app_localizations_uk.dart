@@ -3564,4 +3564,15 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get helpLooks =>
       'Як виглядає кішка, чипами: розмір, забарвлення, візерунок, хутро, хвіст, вуха, мітки й сталі ознаки. Позначте, що бачите; безпритульна, що збігається зі зниклою за двома ознаками, стає кандидатом.';
+
+  @override
+  String get graphSmoothed => 'Згладжений';
+
+  @override
+  String get graphTrend => 'Тренд';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Тренд: $value на місяць';
+  }
 }

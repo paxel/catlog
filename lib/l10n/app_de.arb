@@ -1203,5 +1203,13 @@
   "spotTimelineReport": "Ein Bericht für den Tierarzt: die Einträge deiner Wahl als Zeitstrahl, eine Patientenübersicht und ein Diagramm für jedes Zahlenfeld, zum Beispiel das Gewicht.",
   "helpHistory": "Die Werte eines Feldes über die Zeit, neueste zuerst. Tippe einen Wert an, um ihn zu korrigieren: der neue tritt an seine Stelle, der alte wird ausgeblendet. Halte einen Wert, um ihn zu entfernen oder einen ausgeblendeten zurückzuholen; das Auge zeigt ausgeblendete Werte. Kopiere die Liste als Text oder teile sie als PDF.",
   "helpSettings": "Die Einstellungen der App: Sprache, Einheiten, Feiern und Jubel, das Fell hinter den Seiten, Benachrichtigungen, und wo deine Kataloge gesichert sind. Die Touren lassen sich von hier wiederholen.",
-  "helpLooks": "Wie die Katze aussieht, als Chips: Größe, Farben, Muster, Fell, Schwanz, Ohren, Zeichnungen und bleibende Merkmale. Hake an, was du siehst; ein Streuner, der mit einer vermissten Katze in zwei Merkmalen übereinstimmt, wird Treffer-Kandidat."
+  "helpLooks": "Wie die Katze aussieht, als Chips: Größe, Farben, Muster, Fell, Schwanz, Ohren, Zeichnungen und bleibende Merkmale. Hake an, was du siehst; ein Streuner, der mit einer vermissten Katze in zwei Merkmalen übereinstimmt, wird Treffer-Kandidat.",
+  "graphSmoothed": "Geglättet",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} pro Monat",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Izvještaj za veterinara: odabrani unosi kao vremenska crta, pregled pacijenta i grafikon za svako brojčano polje, na primjer težinu.",
   "helpHistory": "Vrijednosti jednog polja kroz vrijeme, najnovije prve. Dodirnite vrijednost da je ispravite: nova zauzima njezino mjesto, stara se skriva. Zadržite vrijednost da je uklonite ili vratite skrivenu; oko prikazuje skrivene vrijednosti. Kopirajte popis kao tekst ili podijelite kao PDF.",
   "helpSettings": "Izbori aplikacije: jezik, jedinice, slavlja i klicanje, krzno iza stranica, obavijesti i gdje se spremaju kopije kataloga. Ture se odavde mogu ponoviti.",
-  "helpLooks": "Kako mačka izgleda, kao čipovi: veličina, boje, uzorak, krzno, rep, uši, oznake i trajne osobine. Označite što vidite; lutalica koja se podudara s nestalom mačkom u dvije osobine postaje kandidat."
+  "helpLooks": "Kako mačka izgleda, kao čipovi: veličina, boje, uzorak, krzno, rep, uši, oznake i trajne osobine. Označite što vidite; lutalica koja se podudara s nestalom mačkom u dvije osobine postaje kandidat.",
+  "graphSmoothed": "Izglađen",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} mjesečno",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

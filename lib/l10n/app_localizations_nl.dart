@@ -3549,4 +3549,15 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get helpLooks =>
       'Hoe de kat eruitziet, als chips: grootte, kleuren, patroon, vacht, staart, oren, tekening en blijvende kenmerken. Vink aan wat je ziet; een zwerver die in twee kenmerken met een vermiste kat overeenkomt, wordt kandidaat.';
+
+  @override
+  String get graphSmoothed => 'Afgevlakt';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value per maand';
+  }
 }

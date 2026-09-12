@@ -6157,6 +6157,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.'**
   String get helpLooks;
+
+  /// No description provided for @graphSmoothed.
+  ///
+  /// In en, this message translates to:
+  /// **'Smoothed'**
+  String get graphSmoothed;
+
+  /// No description provided for @graphTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Trend'**
+  String get graphTrend;
+
+  /// No description provided for @trendPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Trend: {value} per month'**
+  String trendPerMonth(Object value);
 }
 
 class _AppLocalizationsDelegate

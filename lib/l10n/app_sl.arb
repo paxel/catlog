@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Poročilo za veterinarja: izbrani vnosi kot časovnica, povzetek pacienta in graf za vsako številsko polje, na primer težo.",
   "helpHistory": "Vrednosti enega polja skozi čas, najnovejše prve. Tapnite vrednost, da jo popravite: nova zasede njeno mesto, stara se skrije. Pridržite vrednost, da jo odstranite ali vrnete skrito; oko pokaže skrite vrednosti. Kopirajte seznam kot besedilo ali ga delite kot PDF.",
   "helpSettings": "Izbire aplikacije: jezik, enote, praznovanja in vzkliki, kožuh za stranmi, obvestila in kje se varnostno kopirajo vaši katalogi. Oglede lahko od tod ponovite.",
-  "helpLooks": "Kako mačka izgleda, kot čipi: velikost, barve, vzorec, kožuh, rep, ušesa, znaki in trajne značilnosti. Označite, kar vidite; potepuh, ki se z pogrešano mačko ujema v dveh značilnostih, postane kandidat."
+  "helpLooks": "Kako mačka izgleda, kot čipi: velikost, barve, vzorec, kožuh, rep, ušesa, znaki in trajne značilnosti. Označite, kar vidite; potepuh, ki se z pogrešano mačko ujema v dveh značilnostih, postane kandidat.",
+  "graphSmoothed": "Zglajen",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} na mesec",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

@@ -3565,4 +3565,15 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get helpLooks =>
       'Jak wygląda kot, w postaci chipów: rozmiar, kolory, wzór, sierść, ogon, uszy, znaki i trwałe cechy. Zaznacz, co widzisz; bezdomny zgodny z zaginionym kotem w dwóch cechach staje się kandydatem.';
+
+  @override
+  String get graphSmoothed => 'Wygładzony';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value na miesiąc';
+  }
 }

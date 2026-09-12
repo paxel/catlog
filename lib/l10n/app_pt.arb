@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Um relatório para o veterinário: as entradas escolhidas como cronologia, um resumo do paciente e um gráfico para cada campo numérico, o peso por exemplo.",
   "helpHistory": "Os valores de um campo ao longo do tempo, os mais recentes primeiro. Toca num valor para o corrigir: o novo toma o seu lugar, o antigo esconde-se. Mantém premido um valor para o remover ou recuperar um escondido; o olho mostra os valores escondidos. Copia a lista como texto ou partilha-a como PDF.",
   "helpSettings": "As escolhas da app: idioma, unidades, festejos e vivas, a pelagem atrás das páginas, notificações e onde os teus catálogos são guardados. As visitas podem ser repetidas daqui.",
-  "helpLooks": "Como é o gato, em chips: tamanho, cores, padrão, pelo, cauda, orelhas, marcas e traços permanentes. Marca o que vês; um vadio que coincide com um gato desaparecido em dois traços torna-se candidato."
+  "helpLooks": "Como é o gato, em chips: tamanho, cores, padrão, pelo, cauda, orelhas, marcas e traços permanentes. Marca o que vês; um vadio que coincide com um gato desaparecido em dois traços torna-se candidato.",
+  "graphSmoothed": "Suavizado",
+  "graphTrend": "Tendência",
+  "trendPerMonth": "Tendência: {value} por mês",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

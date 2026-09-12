@@ -3560,4 +3560,15 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get helpLooks =>
       'Cum arată pisica, în chipuri: mărime, culori, model, blană, coadă, urechi, semne și trăsături durabile. Bifează ce vezi; un vagabond care se potrivește cu o pisică dispărută în două trăsături devine candidat.';
+
+  @override
+  String get graphSmoothed => 'Netezit';
+
+  @override
+  String get graphTrend => 'Tendință';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendință: $value pe lună';
+  }
 }

@@ -3545,4 +3545,15 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get helpLooks =>
       'Como é o gato, em chips: tamanho, cores, padrão, pelo, cauda, orelhas, marcas e traços permanentes. Marca o que vês; um vadio que coincide com um gato desaparecido em dois traços torna-se candidato.';
+
+  @override
+  String get graphSmoothed => 'Suavizado';
+
+  @override
+  String get graphTrend => 'Tendência';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendência: $value por mês';
+  }
 }

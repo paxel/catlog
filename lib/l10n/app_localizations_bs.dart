@@ -3557,4 +3557,15 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get helpLooks =>
       'Kako mačka izgleda, kao čipovi: veličina, boje, uzorak, krzno, rep, uši, oznake i trajne osobine. Označite šta vidite; lutalica koja se podudara s nestalom mačkom u dvije osobine postaje kandidat.';
+
+  @override
+  String get graphSmoothed => 'Izglađen';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value mjesečno';
+  }
 }

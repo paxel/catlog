@@ -1985,5 +1985,13 @@
   "spotTimelineReport": "A report for the vet: the entries you pick as a timeline, a patient summary, and a graph for every number field, weight for one.",
   "helpHistory": "One field's values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.",
   "helpSettings": "The app's own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.",
-  "helpLooks": "What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate."
+  "helpLooks": "What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.",
+  "graphSmoothed": "Smoothed",
+  "graphTrend": "Trend",
+  "trendPerMonth": "Trend: {value} per month",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

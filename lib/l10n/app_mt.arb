@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Rapport għall-veterinarju: l-entrati li tagħżel bħala linja taż-żmien, sommarju tal-pazjent u graff għal kull qasam numeriku, il-piż pereżempju.",
   "helpHistory": "Il-valuri ta' qasam wieħed maż-żmien, l-aktar riċenti l-ewwel. Mess valur biex tikkoreġih: il-ġdid jieħu postu, il-qadim jinħeba. Żomm valur biex tneħħih jew iġġib lura wieħed moħbi; l-għajn turi l-valuri moħbija. Ikkopja l-lista bħala test jew aqsamha bħala PDF.",
   "helpSettings": "L-għażliet tal-app: lingwa, unitajiet, ċelebrazzjonijiet u għajjat, il-pil wara l-paġni, notifiki, u fejn isir il-backup tal-katalogi tiegħek. It-tours jistgħu jerġgħu jintwerew minn hawn.",
-  "helpLooks": "Kif jidher il-qattus, bħala chips: daqs, kuluri, disinn, pil, denb, widnejn, marki u fatturi permanenti. Immarka dak li tara; qattus tat-triq li jaqbel ma' qattus mitluf f'żewġ fatturi jsir kandidat."
+  "helpLooks": "Kif jidher il-qattus, bħala chips: daqs, kuluri, disinn, pil, denb, widnejn, marki u fatturi permanenti. Immarka dak li tara; qattus tat-triq li jaqbel ma' qattus mitluf f'żewġ fatturi jsir kandidat.",
+  "graphSmoothed": "Imlissen",
+  "graphTrend": "Xejra",
+  "trendPerMonth": "Xejra: {value} fix-xahar",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

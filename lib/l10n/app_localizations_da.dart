@@ -3543,4 +3543,15 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get helpLooks =>
       'Hvordan katten ser ud, som chips: størrelse, farver, mønster, pels, hale, ører, tegninger og varige kendetegn. Sæt kryds ved det, du ser; en herreløs kat, der stemmer med en savnet på to træk, bliver kandidat.';
+
+  @override
+  String get graphSmoothed => 'Udjævnet';
+
+  @override
+  String get graphTrend => 'Tendens';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendens: $value pr. måned';
+  }
 }

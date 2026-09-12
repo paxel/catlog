@@ -3543,4 +3543,15 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get helpLooks =>
       'Как изглежда котката, като чипове: размер, цветове, шарка, козина, опашка, уши, белези и трайни черти. Отбележете какво виждате; бездомна, съвпадаща с изгубена котка по две черти, става кандидат.';
+
+  @override
+  String get graphSmoothed => 'Изгладен';
+
+  @override
+  String get graphTrend => 'Тенденция';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Тенденция: $value на месец';
+  }
 }

@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Raportti eläinlääkärille: valitut merkinnät aikajanana, potilasyhteenveto ja kaavio jokaisesta lukukentästä, esimerkiksi painosta.",
   "helpHistory": "Yhden kentän arvot ajan myötä, uusin ensin. Napauta arvoa korjataksesi sen: uusi ottaa sen paikan, vanha piilotetaan. Pidä arvoa pohjassa poistaaksesi sen tai palauttaaksesi piilotetun; silmä näyttää piilotetut arvot. Kopioi luettelo tekstinä tai jaa se PDF:nä.",
   "helpSettings": "Sovelluksen omat valinnat: kieli, yksiköt, juhlat ja hurraukset, sivujen takana oleva turkki, ilmoitukset ja minne luettelosi varmuuskopioidaan. Kierrokset voi toistaa täältä.",
-  "helpLooks": "Miltä kissa näyttää, sirujen muodossa: koko, värit, kuvio, turkki, häntä, korvat, merkit ja pysyvät piirteet. Rastita mitä näet; kulkukissa, joka vastaa kadonnutta kahdessa piirteessä, nousee ehdokkaaksi."
+  "helpLooks": "Miltä kissa näyttää, sirujen muodossa: koko, värit, kuvio, turkki, häntä, korvat, merkit ja pysyvät piirteet. Rastita mitä näet; kulkukissa, joka vastaa kadonnutta kahdessa piirteessä, nousee ehdokkaaksi.",
+  "graphSmoothed": "Tasoitettu",
+  "graphTrend": "Suunta",
+  "trendPerMonth": "Suunta: {value} kuukaudessa",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

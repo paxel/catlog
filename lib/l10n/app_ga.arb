@@ -1197,5 +1197,13 @@
   "spotTimelineReport": "Tuairisc don tréidlia: na hiontrálacha a roghnaíonn tú mar amlíne, achoimre othair, agus graf do gach réimse uimhreach, an meáchan mar shampla.",
   "helpHistory": "Luachanna réimse amháin le himeacht ama, an ceann is nuaí ar dtús. Tapáil luach chun é a cheartú: glacann an ceann nua a áit, folaítear an seancheann. Coinnigh luach chun é a bhaint nó ceann folaithe a thabhairt ar ais; taispeánann an tsúil luachanna folaithe. Cóipeáil an liosta mar théacs nó roinn é mar PDF.",
   "helpSettings": "Roghanna an aip féin: teanga, aonaid, ceiliúrthaí agus gártha, an fionnadh taobh thiar de na leathanaigh, fógraí, agus cá ndéantar cúltaca de do chatalóga. Is féidir na turais a athsheinm as seo.",
-  "helpLooks": "Cuma an chait, mar shliseanna: méid, dathanna, patrún, fionnadh, eireaball, cluasa, marcanna agus tréithe buana. Cuir tic le gach a bhfeiceann tú; is iarrthóir é cat fáin a réitíonn le cat ar iarraidh in dhá thréith."
+  "helpLooks": "Cuma an chait, mar shliseanna: méid, dathanna, patrún, fionnadh, eireaball, cluasa, marcanna agus tréithe buana. Cuir tic le gach a bhfeiceann tú; is iarrthóir é cat fáin a réitíonn le cat ar iarraidh in dhá thréith.",
+  "graphSmoothed": "Mínithe",
+  "graphTrend": "Treocht",
+  "trendPerMonth": "Treocht: {value} sa mhí",
+  "@trendPerMonth": {
+    "placeholders": {
+      "value": {}
+    }
+  }
 }

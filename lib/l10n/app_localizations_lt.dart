@@ -3564,4 +3564,15 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get helpLooks =>
       'Kaip katė atrodo, lustais: dydis, spalvos, raštas, kailis, uodega, ausys, žymės ir nuolatiniai bruožai. Pažymėkite, ką matote; benamė, sutampanti su dingusia dviem bruožais, tampa kandidate.';
+
+  @override
+  String get graphSmoothed => 'Išlygintas';
+
+  @override
+  String get graphTrend => 'Tendencija';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendencija: $value per mėnesį';
+  }
 }

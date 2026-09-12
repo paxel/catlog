@@ -3556,4 +3556,15 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get helpLooks =>
       'Πώς μοιάζει η γάτα, σε τσιπ: μέγεθος, χρώματα, μοτίβο, τρίχωμα, ουρά, αυτιά, σημάδια και μόνιμα χαρακτηριστικά. Τσεκάρετε ό,τι βλέπετε· ένα αδέσποτο που συμφωνεί με μια χαμένη γάτα σε δύο χαρακτηριστικά γίνεται υποψήφιο.';
+
+  @override
+  String get graphSmoothed => 'Εξομαλυμένο';
+
+  @override
+  String get graphTrend => 'Τάση';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Τάση: $value ανά μήνα';
+  }
 }
