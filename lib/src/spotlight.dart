@@ -193,7 +193,22 @@ Future<void> runSpotlights(
   for (final item in due) {
     if (!context.mounted) return;
     final key = _anchors[item.id];
-    final box = key?.currentContext?.findRenderObject() as RenderBox?;
+    final anchor = key?.currentContext;
+    if (anchor == null || !anchor.mounted) continue;
+    // An anchor below the fold is brought on screen first; a tip that
+    // points at nothing visible teaches nothing.
+    try {
+      await Scrollable.ensureVisible(
+        anchor,
+        alignment: 0.5,
+        duration: const Duration(milliseconds: 200),
+      );
+      await WidgetsBinding.instance.endOfFrame;
+    } catch (_) {
+      // Not inside a scroll view: it is where it is.
+    }
+    if (!context.mounted || !anchor.mounted) return;
+    final box = anchor.findRenderObject() as RenderBox?;
     if (box == null || !box.attached) continue;
     final rect = box.localToGlobal(Offset.zero) & box.size;
     // Mark before showing: even an aborted tour never nags again.
@@ -243,11 +258,17 @@ const tipGap = 16.0;
   final left =
       (target.center.dx - width / 2).clamp(tipMargin, rightmost).toDouble();
   final below = target.bottom < screen.height / 2;
+  // A target at or past the edge would push the card off the screen;
+  // the card stays inside, buttons included, whatever the target does.
   return (
     left: left,
     width: width,
-    top: below ? target.bottom + tipGap : null,
-    bottom: below ? null : screen.height - target.top + tipGap,
+    top: below
+        ? math.max(tipMargin, target.bottom + tipGap)
+        : null,
+    bottom: below
+        ? null
+        : math.max(tipMargin, screen.height - target.top + tipGap),
   );
 }
 

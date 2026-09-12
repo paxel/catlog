@@ -45,6 +45,14 @@ void main() {
     const phone = Size(360, 800);
     const tablet = Size(1024, 768);
 
+    test('a target past the bottom edge still leaves the card on screen', () {
+      const screen = Size(400, 800);
+      final p = tipPlacement(const Rect.fromLTWH(0, 900, 100, 40), screen);
+      expect(p.bottom, greaterThanOrEqualTo(tipMargin));
+      final q = tipPlacement(const Rect.fromLTWH(0, -80, 100, 40), screen);
+      expect(q.top, greaterThanOrEqualTo(tipMargin));
+    });
+
     test('on a phone the tip spans the width, as it always did', () {
       final p = tipPlacement(const Rect.fromLTWH(8, 8, 48, 48), phone);
       expect(p.left, tipMargin);
