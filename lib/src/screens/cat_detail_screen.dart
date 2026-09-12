@@ -514,6 +514,78 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final profile = store.profileImage(id);
     final defs = store.visibleFieldDefs(scope: FieldScope.cat);
     final clowderId = store.current(id, Keys.clowder);
+    final photosBlock = <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Text(
+                context.t.photos,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(8),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 160,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+              ),
+              itemCount: images.length,
+              itemBuilder: (context, i) {
+                final hash = images[i];
+                final photo = imageProviderFor(store, hash);
+                // Tap = quick action (view full-size), long-press = menu —
+                // the app-wide gesture convention.
+                return GestureDetector(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => PhotoViewerScreen(
+                        store: store,
+                        hashes: images,
+                        initialIndex: i,
+                        name: store.current(id, Keys.name) ?? 'cat',
+                      ),
+                    ),
+                  ),
+                  onLongPress: () => _imageMenu(hash),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      if (photo != null)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          // Decode at grid-tile size, not full resolution.
+                          child: Image(
+                            image: ResizeImage(photo, width: 480),
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      else
+                        // The entry is here, the bytes are not (a sync
+                        // that never fetched them): say so instead of
+                        // leaving a hole with a badge on it.
+                        MissingPhoto(),
+                      if (hash == profile)
+                        const Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: EdgeInsets.all(4),
+                            child: Icon(Icons.star, color: Colors.amber),
+                          ),
+                        ),
+                      // Top start, because the profile star owns the end.
+                      const PositionedDirectional(
+                        top: 0,
+                        start: 0,
+                        child: CatEarBadge(atStart: true),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+    ];
     return PopScope(
       // Back leaves edit mode before it leaves the page.
       canPop: !_editing,
@@ -627,6 +699,12 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         ),
         body: ListView(
           children: [
+            // Read mode: the photos first, then what is due, then the rest;
+            // edit mode keeps the fields on top and the photos last.
+            if (!_editing) ...[
+              ...photosBlock,
+              ..._plannedSection(),
+            ],
             if (isDeceased(store, id))
               Padding(
                 padding: const EdgeInsets.only(left: 16, top: 8),
@@ -699,7 +777,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 if (created && mounted) setState(() {});
               },
             ),
-            ..._plannedSection(),
+            if (_editing) ..._plannedSection(),
             if (_hasFamily()) ...[
               const Divider(),
               Padding(
@@ -714,77 +792,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               ),
               ..._familyRows(),
             ],
-            const Divider(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Text(
-                context.t.photos,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.all(8),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 160,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-              ),
-              itemCount: images.length,
-              itemBuilder: (context, i) {
-                final hash = images[i];
-                final photo = imageProviderFor(store, hash);
-                // Tap = quick action (view full-size), long-press = menu —
-                // the app-wide gesture convention.
-                return GestureDetector(
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => PhotoViewerScreen(
-                        store: store,
-                        hashes: images,
-                        initialIndex: i,
-                        name: store.current(id, Keys.name) ?? 'cat',
-                      ),
-                    ),
-                  ),
-                  onLongPress: () => _imageMenu(hash),
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      if (photo != null)
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          // Decode at grid-tile size, not full resolution.
-                          child: Image(
-                            image: ResizeImage(photo, width: 480),
-                            fit: BoxFit.cover,
-                          ),
-                        )
-                      else
-                        // The entry is here, the bytes are not (a sync
-                        // that never fetched them): say so instead of
-                        // leaving a hole with a badge on it.
-                        MissingPhoto(),
-                      if (hash == profile)
-                        const Align(
-                          alignment: Alignment.topRight,
-                          child: Padding(
-                            padding: EdgeInsets.all(4),
-                            child: Icon(Icons.star, color: Colors.amber),
-                          ),
-                        ),
-                      // Top start, because the profile star owns the end.
-                      const PositionedDirectional(
-                        top: 0,
-                        start: 0,
-                        child: CatEarBadge(atStart: true),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+            if (_editing) ...[
+              const Divider(),
+              ...photosBlock,
+            ],
             if (_adding case (final done, final total))
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
