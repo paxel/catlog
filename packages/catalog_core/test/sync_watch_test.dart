@@ -60,6 +60,13 @@ void main() {
     expect(news.authors, {'ben'});
   });
 
+  test('the shared folder carries a .nomedia marker for Android', () async {
+    await folderSyncIn(a, folder, catalog: 'farm');
+    expect(await folder.read('', '.nomedia'), isNotNull);
+    expect(await foreignFileSizes(folder, b.deviceId, catalog: 'farm'),
+        isNot(contains('/.nomedia')));
+  });
+
   test('sizes come per catalog subfolder too', () async {
     a.createCat('Miezi');
     await folderSyncIn(a, folder, catalog: 'farm');
