@@ -266,10 +266,6 @@ pw.Document vetReportPdf({
               ],
             ),
           ),
-      pw.SizedBox(height: 18),
-      pw.Text(t.vetReportLegend, style: small),
-      pw.SizedBox(height: 4),
-      legend(),
     ];
   }
 
@@ -361,7 +357,12 @@ pw.Document vetReportPdf({
           summary ? t.timeline : '$name · ${t.timeline}',
           style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold),
         ),
-        if (!summary) ...[pw.SizedBox(height: 4), legend()],
+        // The legend explains the timeline's colours, so it sits with
+        // the timeline, not a page away on the patient sheet.
+        pw.SizedBox(height: 6),
+        pw.Text(t.vetReportLegend, style: small),
+        pw.SizedBox(height: 2),
+        legend(),
         if (!fonts.complete) ...[
           pw.SizedBox(height: 4),
           pw.Text(
