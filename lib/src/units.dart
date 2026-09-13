@@ -41,3 +41,14 @@ String formatUnitValue(String locale, Dimension d, String? stored) {
   ).format(p.amount);
   return '$number ${p.unit}';
 }
+
+/// A plain number for [locale]: the device's decimal mark, at most
+/// [decimals] decimals, no trailing zeros — "4,25" in German, "4.25"
+/// in English, "4" for a whole number.
+String formatNumber(String locale, double value, int decimals) {
+  final f = NumberFormat.decimalPattern(locale)
+    ..minimumFractionDigits = 0
+    ..maximumFractionDigits = decimals;
+  final text = f.format(value);
+  return text == '-0' ? '0' : text;
+}

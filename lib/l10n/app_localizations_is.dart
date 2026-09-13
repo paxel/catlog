@@ -3402,4 +3402,247 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get colWho => 'Hver';
+
+  @override
+  String get pdfFontMissing =>
+      'Leturgerðin fyrir þetta tungumál er ekki enn í símanum; sumir stafir prentast sem kassar. Tengstu netinu einu sinni og búðu PDF-skjalið til aftur.';
+
+  @override
+  String get vetReportTitle => 'Skýrsla fyrir dýralækninn';
+
+  @override
+  String get vetReportMenu => 'Skýrsla fyrir dýralækninn…';
+
+  @override
+  String get vetReportFields => 'Reitir';
+
+  @override
+  String get vetReportFrom => 'Frá';
+
+  @override
+  String get vetReportTo => 'Til';
+
+  @override
+  String get vetReportSummary => 'Yfirlit sjúklings';
+
+  @override
+  String get vetReportOwner => 'Eigandi';
+
+  @override
+  String get vetReportLegend => 'Skýringar';
+
+  @override
+  String get vetReportCurves => 'Línurit';
+
+  @override
+  String get posterMenu => 'Týnd-veggspjald…';
+
+  @override
+  String get posterHeadline => 'TÝND';
+
+  @override
+  String get posterStanding =>
+      'Vinsamlegast athugið kjallara, skúra og bílskúra. Ekki elta, bara hringja.';
+
+  @override
+  String get posterLastSeen => 'Síðast séð við';
+
+  @override
+  String get posterFreeText => 'Aukalína';
+
+  @override
+  String get posterQr => 'QR-kóði fyrir cat(a)log';
+
+  @override
+  String get posterPhoto => 'Mynd';
+
+  @override
+  String get newCatIn => 'Nýr köttur í…';
+
+  @override
+  String get newCatInNeutral => 'Nýtt gæludýr í…';
+
+  @override
+  String get choreLabel => 'Verk';
+
+  @override
+  String get choreTickLabel => 'Verk lokið';
+
+  @override
+  String get choreEnded => 'Lokið';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'áminning $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'lokið $date';
+  }
+
+  @override
+  String get withheldByPartner => 'haldið eftir af samstarfsaðila';
+
+  @override
+  String get titleLabel => 'Titill';
+
+  @override
+  String get deletedLabel => 'Eytt';
+
+  @override
+  String get favouriteAdd => 'Merkja sem uppáhald';
+
+  @override
+  String get favouriteRemove => 'Fjarlægja úr uppáhaldi';
+
+  @override
+  String get coverPick => 'Forsíðumynd…';
+
+  @override
+  String get coverHint =>
+      'Mynd af staðnum: húsið, garðurinn, fóðurstaðurinn. Sýnd á spjaldinu í stað kattar.';
+
+  @override
+  String get coverRemove => 'Fjarlægja forsíðumynd';
+
+  @override
+  String get skipTour => 'Sleppa kynningu og ábendingum í þessari uppsetningu';
+
+  @override
+  String get spotCatChores =>
+      'Endurtekin umönnun býr hér: fóðrun, lyf, athuganir, hver með sína áminningu.';
+
+  @override
+  String get spotLooks =>
+      'Merktu við það sem þú sérð. Samsvaranir við aðrar skrár koma héðan.';
+
+  @override
+  String get spotHistoryHold =>
+      'Haltu gildi til að leiðrétta eða fjarlægja það. Ekkert tapast; falin gildi birtast sé þess óskað.';
+
+  @override
+  String get spotBackups =>
+      'Hvar skrárnar þínar eru geymdar örugglega: það sem síminn afritar, og afrit í möppu að eigin vali.';
+
+  @override
+  String get spotCardPoster =>
+      'Týnd-veggspjald úr skrá þessa kattar: mynd, nafn, sími með stórum stöfum og kóði sem aðrir skanna.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Týnd-veggspjald úr skrá þessa gæludýrs: mynd, nafn, sími með stórum stöfum og kóði sem aðrir skanna.';
+
+  @override
+  String get spotTimelineReport =>
+      'Skýrsla fyrir dýralækninn: valdar færslur sem tímalína, yfirlit sjúklings og línurit fyrir hvern tölureit, til dæmis þyngd.';
+
+  @override
+  String get helpHistory =>
+      'Gildi eins reits yfir tíma, nýjast fyrst. Ýttu á gildi til að leiðrétta það: nýja gildið tekur sætið, það gamla felst. Haltu gildi til að fjarlægja það eða endurheimta falið; augað sýnir falin gildi. Afritaðu listann sem texta eða deildu honum sem PDF.';
+
+  @override
+  String get helpSettings =>
+      'Eigin val forritsins: tungumál, einingar, fagnaðarlæti, feldurinn á bak við síðurnar, tilkynningar og hvar skrárnar þínar eru afritaðar. Kynningarnar má endurspila héðan.';
+
+  @override
+  String get helpLooks =>
+      'Hvernig kötturinn lítur út, sem flögur: stærð, litir, mynstur, feldur, rófa, eyru, merki og varanleg einkenni. Merktu við það sem þú sérð; flækingur sem samsvarar týndum ketti í tveimur einkennum verður frambjóðandi.';
+
+  @override
+  String get graphSmoothed => 'Jafnað';
+
+  @override
+  String get graphTrend => 'Þróun';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Þróun: $value á mánuði';
+  }
+
+  @override
+  String get helpBackups =>
+      'Hvar skrárnar þínar eru geymdar örugglega: það sem síminn afritar sjálfur, hvar heil afrit lenda, hvenær það síðasta var skrifað, og hnappur til að skrifa eitt núna. Endurheimt er undir Stjórna skrám.';
+
+  @override
+  String get helpConflicts =>
+      'Reitir sem tveir breyttu á sama tíma, áður en tækin þeirra samstilltust. Hver lína sýnir bæði gildin; veldu rétt gildi og valið berst í öll tæki.';
+
+  @override
+  String get helpInPerson =>
+      'Samstilla við manneskju við hlið þér: einn sími hýsir, hinn tengist með því að skanna kóðann og gögnin flytjast dulkóðuð um Wi-Fi, án netþjóns. Einkarofinn ræður hvort einkagildi fylgja með.';
+
+  @override
+  String get helpMessenger =>
+      'Samstilling sem skrá: þetta tæki skrifar pakka með öllu sem það veit, þú sendir hann með hvaða spjallforriti eða tölvupósti sem er og hinn aðilinn flytur hann inn. Myndir fylgja með; einkagildi aðeins ef rofinn leyfir.';
+
+  @override
+  String get helpModeration =>
+      'Fólkið sem færslur þess bárust í þessa skrá, með því sem það skrifaði. Eyddu gögnum einstaklings í þessu tæki og lokaðu á tæki hans; lokun sýnir nöfnin sem tækið skrifaði undir.';
+
+  @override
+  String get helpRemote =>
+      'Samstilling um sameiginlega möppu fyrir tæki sem hittast aldrei: veldu sömu möppu einu sinni á hverju tæki; hver samstilling skrifar breytingar þínar þangað og les hinna. Ein mappa ber allar skrár, hverja í eigin undirmöppu.';
+
+  @override
+  String get helpRestore =>
+      'Afrit fyrri uppsetningar, ein lína á skrá, merkt. Endurheimta færir hverja til baka sem eigin skrá. Á Android er mappan veitt einu sinni gegnum valið; Velja skrár bætir við afritum sem geymd eru annars staðar.';
+
+  @override
+  String get helpScan =>
+      'Skannaðu cat(a)log-kóðann á veggspjaldi eða á skjá annars: kötturinn og tengiliður hans lenda hér án innsláttar. Kóði með tengli sækir skrána á bak við hann.';
+
+  @override
+  String get helpVetReport =>
+      'Það sem fer til dýralæknisins: reitirnir og dagsetningarnar sem þú velur, hver lína merkt þar til þú afmerkir hana, og yfirlit sjúklings fremst. Deila sem PDF eða prenta, hvort tveggja í stikunni.';
+
+  @override
+  String get helpPoster =>
+      'Veggspjald á ljósastaur, úr skránni: merktu við það sem á að fara á það, bættu við línu sem skráin hefur ekki, og síðan prentast svart á hvítu með stöfum sem lesast yfir götuna. Kóðinn opnar köttinn í öðrum cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Það sem var unnið og aðeins það: heilir mánuðir, ár og meira af verkum með fjölda þeirra, einn titill á verk á sínu þrepi, og feldirnir sem opnuðust. Engar framvindustikur og ekkert að elta; verðlaunin eru hljóðlátur bónus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Of mikið er merkt fyrir einn kóða. Afmerktu línu og kóðinn kemur aftur.';
+
+  @override
+  String get posterPhotos => 'Myndir, allt að tvær';
+
+  @override
+  String get posterFrameHint => 'Dragðu og klíptu til að ramma myndina inn.';
+
+  @override
+  String get posterPreview => 'Forskoðun';
+
+  @override
+  String get syncWatchSwitch =>
+      'Láttu mig vita þegar breytingar bíða í möppunni';
+
+  @override
+  String get syncAutoSwitch => 'Sameina þær sjálfkrafa';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Breytingar frá $authors bíða í $catalog. Ýttu til að samstilla.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'öðru tæki';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count breytingar frá $authors sameinaðar',
+      one: '$count breyting frá $authors sameinuð',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Sýna';
 }

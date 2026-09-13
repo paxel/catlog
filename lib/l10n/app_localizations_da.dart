@@ -3397,4 +3397,246 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get colWho => 'Hvem';
+
+  @override
+  String get pdfFontMissing =>
+      'Skrifttypen til dette sprog er ikke på telefonen endnu; nogle bogstaver bliver til firkanter. Gå på internettet én gang og lav PDF\'en igen.';
+
+  @override
+  String get vetReportTitle => 'Rapport til dyrlægen';
+
+  @override
+  String get vetReportMenu => 'Rapport til dyrlægen…';
+
+  @override
+  String get vetReportFields => 'Felter';
+
+  @override
+  String get vetReportFrom => 'Fra';
+
+  @override
+  String get vetReportTo => 'Til';
+
+  @override
+  String get vetReportSummary => 'Patientoversigt';
+
+  @override
+  String get vetReportOwner => 'Ejer';
+
+  @override
+  String get vetReportLegend => 'Signaturforklaring';
+
+  @override
+  String get vetReportCurves => 'Graf';
+
+  @override
+  String get posterMenu => 'Savnet-plakat…';
+
+  @override
+  String get posterHeadline => 'SAVNET';
+
+  @override
+  String get posterStanding =>
+      'Tjek venligst kældre, skure og garager. Jag ikke, ring bare.';
+
+  @override
+  String get posterLastSeen => 'Sidst set ved';
+
+  @override
+  String get posterFreeText => 'Ekstra linje';
+
+  @override
+  String get posterQr => 'QR-kode til cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Ny kat i…';
+
+  @override
+  String get newCatInNeutral => 'Nyt kæledyr i…';
+
+  @override
+  String get choreLabel => 'Opgave';
+
+  @override
+  String get choreTickLabel => 'Opgave udført';
+
+  @override
+  String get choreEnded => 'Afsluttet';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'påmindelse $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'udført $date';
+  }
+
+  @override
+  String get withheldByPartner => 'tilbageholdt af en partner';
+
+  @override
+  String get titleLabel => 'Titel';
+
+  @override
+  String get deletedLabel => 'Slettet';
+
+  @override
+  String get favouriteAdd => 'Markér som favorit';
+
+  @override
+  String get favouriteRemove => 'Fjern fra favoritter';
+
+  @override
+  String get coverPick => 'Forsidebillede…';
+
+  @override
+  String get coverHint =>
+      'Et billede af stedet: huset, gården, foderpladsen. Vises på kortet i stedet for en kat.';
+
+  @override
+  String get coverRemove => 'Fjern forsidebillede';
+
+  @override
+  String get skipTour => 'Spring introen og tipsene over på denne installation';
+
+  @override
+  String get spotCatChores =>
+      'Tilbagevendende pleje bor her: fodring, medicin, tjek, hver med sin egen påmindelse.';
+
+  @override
+  String get spotLooks =>
+      'Sæt kryds ved det, du ser. Match med andre kataloger kommer herfra.';
+
+  @override
+  String get spotHistoryHold =>
+      'Hold en værdi for at rette eller fjerne den. Intet går tabt; skjulte værdier vises efter ønske.';
+
+  @override
+  String get spotBackups =>
+      'Hvor dine kataloger er i sikkerhed: hvad telefonen sikkerhedskopierer, og en kopi i en mappe efter eget valg.';
+
+  @override
+  String get spotCardPoster =>
+      'En savnet-plakat fra denne kats kort: foto, navn, telefon med store bogstaver og en kode, andre scanner.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'En savnet-plakat fra dette kæledyrs kort: foto, navn, telefon med store bogstaver og en kode, andre scanner.';
+
+  @override
+  String get spotTimelineReport =>
+      'En rapport til dyrlægen: de valgte poster som tidslinje, en patientoversigt og en graf for hvert talfelt, for eksempel vægten.';
+
+  @override
+  String get helpHistory =>
+      'Et felts værdier over tid, nyeste først. Tryk på en værdi for at rette den: den nye tager dens plads, den gamle skjules. Hold en værdi for at fjerne den eller hente en skjult tilbage; øjet viser skjulte værdier. Kopiér listen som tekst eller del den som PDF.';
+
+  @override
+  String get helpSettings =>
+      'Appens egne valg: sprog, enheder, fejringer og jubel, pelsen bag siderne, notifikationer og hvor dine kataloger sikkerhedskopieres. Rundvisningerne kan afspilles igen herfra.';
+
+  @override
+  String get helpLooks =>
+      'Hvordan katten ser ud, som chips: størrelse, farver, mønster, pels, hale, ører, tegninger og varige kendetegn. Sæt kryds ved det, du ser; en herreløs kat, der stemmer med en savnet på to træk, bliver kandidat.';
+
+  @override
+  String get graphSmoothed => 'Udjævnet';
+
+  @override
+  String get graphTrend => 'Tendens';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendens: $value pr. måned';
+  }
+
+  @override
+  String get helpBackups =>
+      'Hvor dine kataloger er i sikkerhed: hvad telefonen selv sikkerhedskopierer, hvor de fulde kopier lander, hvornår den seneste blev skrevet, og en knap til at skrive en nu. Gendannelse ligger under Administrér kataloger.';
+
+  @override
+  String get helpConflicts =>
+      'Felter, som to personer ændrede samtidig, før deres enheder synkroniserede. Hver række viser begge værdier; vælg den rigtige, og valget når alle enheder.';
+
+  @override
+  String get helpInPerson =>
+      'Synkronisér med en person ved siden af dig: én telefon er vært, den anden kobler sig på ved at scanne koden, og data flyttes over Wi-Fi, krypteret, uden server. Privat-kontakten afgør, om private værdier rejser med.';
+
+  @override
+  String get helpMessenger =>
+      'Synkronisér som fil: denne enhed skriver en pakke med alt, den ved, du sender den via en messenger eller mail, og den anden side importerer den. Fotos rejser med; private værdier kun hvis kontakten siger det.';
+
+  @override
+  String get helpModeration =>
+      'De personer, hvis poster nåede dette katalog, med det de skrev. Slet en persons data på denne enhed og bloker vedkommendes enhed; en blokering viser de navne, enheden skrev under.';
+
+  @override
+  String get helpRemote =>
+      'Synkronisér via en delt mappe for enheder, der aldrig mødes: vælg samme mappe én gang på hver enhed; hver synkronisering skriver dine ændringer dertil og læser de andres. Én mappe bærer alle kataloger, hvert i sin egen undermappe.';
+
+  @override
+  String get helpRestore =>
+      'Backups fra den forrige installation, én række pr. katalog, afkrydset. Gendan bringer hver tilbage som sit eget katalog. På Android gives mappen én gang via vælgeren; Vælg filer tilføjer backups gemt andre steder.';
+
+  @override
+  String get helpScan =>
+      'Scan cat(a)log-koden på en plakat eller på en andens skærm: katten og dens kontakt lander her uden indtastning. En kode med et link henter filen bag den.';
+
+  @override
+  String get helpVetReport =>
+      'Det, der går til dyrlægen: de felter og datoer, du vælger, hver række afkrydset, til du fjerner krydset, og patientoversigten forrest. Del som PDF eller udskriv, begge i bjælken.';
+
+  @override
+  String get helpPoster =>
+      'En plakat til lygtepælen, fra kortet: sæt kryds ved det, der skal på, tilføj en linje, kortet mangler, og siden printer sort på hvidt med bogstaver, der læses fra den anden side af gaden. Koden åbner katten i et andet cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Det, der er optjent, og kun det: hele måneder, år og mere af opgaver med deres antal, én titel pr. opgave på dens trin, og de låste pelse op. Ingen fremskridtsbjælker og intet at jagte; belønningerne er en stille bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Der er sat for mange krydser til én kode. Fjern et kryds, og koden kommer tilbage.';
+
+  @override
+  String get posterPhotos => 'Fotos, op til to';
+
+  @override
+  String get posterFrameHint => 'Træk og knib for at vælge udsnittet.';
+
+  @override
+  String get posterPreview => 'Forhåndsvisning';
+
+  @override
+  String get syncWatchSwitch => 'Sig til, når ændringer venter i mappen';
+
+  @override
+  String get syncAutoSwitch => 'Flet dem ind af sig selv';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Ændringer fra $authors venter i $catalog. Tryk for at synkronisere.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'en anden enhed';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ændringer fra $authors flettet ind',
+      one: '$count ændring fra $authors flettet ind',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Vis';
 }

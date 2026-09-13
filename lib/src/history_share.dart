@@ -19,8 +19,10 @@ pw.Document historyPdf({
   required String whenHeader,
   required String valueHeader,
   required String whoHeader,
+  pw.ThemeData? theme,
+  String? warning,
 }) {
-  final doc = pw.Document(title: '$title — cat(a)log');
+  final doc = pw.Document(title: '$title — cat(a)log', theme: theme);
   final hasNotes = lines.any((l) => l.note.isNotEmpty);
   doc.addPage(
     pw.MultiPage(
@@ -35,6 +37,13 @@ pw.Document historyPdf({
           subtitle,
           style: const pw.TextStyle(fontSize: 11, color: PdfColors.grey700),
         ),
+        if (warning != null) ...[
+          pw.SizedBox(height: 6),
+          pw.Text(
+            warning,
+            style: const pw.TextStyle(fontSize: 9, color: PdfColors.red800),
+          ),
+        ],
         pw.SizedBox(height: 14),
         pw.TableHelper.fromTextArray(
           headers: [whenHeader, valueHeader, whoHeader, if (hasNotes) ''],
@@ -88,3 +97,16 @@ Future<void> copyText(BuildContext context, String text) async {
 /// Hands the PDF to the phone's share sheet under [fileName].
 Future<void> sharePdf(pw.Document doc, String fileName) async =>
     Printing.sharePdf(bytes: await doc.save(), filename: fileName);
+
+/// Hands the PDF to the system print dialog.
+/// The first page of [pdf] as a PNG, for a preview on screen; null
+/// where the printing plugin cannot render (tests, some desktops).
+Future<Uint8List?> rasterFirstPage(Uint8List pdf) async {
+  await for (final page in Printing.raster(pdf, pages: [0], dpi: 96)) {
+    return page.toPng();
+  }
+  return null;
+}
+
+Future<void> printPdf(pw.Document doc) async =>
+    Printing.layoutPdf(onLayout: (_) => doc.save());

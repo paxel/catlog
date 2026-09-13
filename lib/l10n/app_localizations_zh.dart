@@ -3230,4 +3230,233 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get colWho => '谁';
+
+  @override
+  String get pdfFontMissing => '此语言的字体尚未在手机上，部分文字会显示为方框。请连接一次互联网后重新生成 PDF。';
+
+  @override
+  String get vetReportTitle => '兽医报告';
+
+  @override
+  String get vetReportMenu => '兽医报告…';
+
+  @override
+  String get vetReportFields => '字段';
+
+  @override
+  String get vetReportFrom => '从';
+
+  @override
+  String get vetReportTo => '到';
+
+  @override
+  String get vetReportSummary => '患者摘要';
+
+  @override
+  String get vetReportOwner => '主人';
+
+  @override
+  String get vetReportLegend => '图例';
+
+  @override
+  String get vetReportCurves => '图表';
+
+  @override
+  String get posterMenu => '寻猫启事…';
+
+  @override
+  String get posterHeadline => '寻猫';
+
+  @override
+  String get posterStanding => '请检查地下室、棚屋和车库。请勿追赶，请来电。';
+
+  @override
+  String get posterLastSeen => '最后出现地点';
+
+  @override
+  String get posterFreeText => '附加一行';
+
+  @override
+  String get posterQr => 'cat(a)log 二维码';
+
+  @override
+  String get posterPhoto => '照片';
+
+  @override
+  String get newCatIn => '新猫加入…';
+
+  @override
+  String get newCatInNeutral => '新宠物加入…';
+
+  @override
+  String get choreLabel => '事务';
+
+  @override
+  String get choreTickLabel => '事务已完成';
+
+  @override
+  String get choreEnded => '已结束';
+
+  @override
+  String choreRemindAt(Object time) {
+    return '提醒 $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return '于 $date 完成';
+  }
+
+  @override
+  String get withheldByPartner => '由伙伴保留';
+
+  @override
+  String get titleLabel => '头衔';
+
+  @override
+  String get deletedLabel => '已删除';
+
+  @override
+  String get favouriteAdd => '标为收藏';
+
+  @override
+  String get favouriteRemove => '取消收藏';
+
+  @override
+  String get coverPick => '封面图片…';
+
+  @override
+  String get coverHint => '地点的图片：房子、院子、喂食点。在卡片上代替猫显示。';
+
+  @override
+  String get coverRemove => '移除封面图片';
+
+  @override
+  String get skipTour => '在此安装中跳过介绍和提示';
+
+  @override
+  String get spotCatChores => '日常照料在这里：喂食、用药、检查，每项都有自己的提醒。';
+
+  @override
+  String get spotLooks => '勾选你看到的。与其他目录的匹配由此而来。';
+
+  @override
+  String get spotHistoryHold => '长按一个值可修正或移除它。什么都不会丢失；隐藏的值可按需显示。';
+
+  @override
+  String get spotBackups => '您的目录的安全存放位置：手机备份的内容，以及您选择的文件夹中的副本。';
+
+  @override
+  String get spotCardPoster => '用这只猫的记录制作寻猫启事：照片、名字、大字号电话，以及他人可扫描的二维码。';
+
+  @override
+  String get spotCardPosterNeutral => '用这只宠物的记录制作寻宠启事：照片、名字、大字号电话，以及他人可扫描的二维码。';
+
+  @override
+  String get spotTimelineReport => '兽医报告：所选条目按时间线排列，附患者摘要，以及每个数值字段（如体重）的图表。';
+
+  @override
+  String get helpHistory =>
+      '一个字段随时间的值，最新在前。点按一个值可修正：新值取代它，旧值隐藏。长按可移除或恢复隐藏的值；眼睛图标显示隐藏的值。可复制为文本或以 PDF 分享。';
+
+  @override
+  String get helpSettings =>
+      '应用自身的设置：语言、单位、庆祝与欢呼、页面背景的毛皮、通知，以及目录的备份位置。可在此重新播放引导。';
+
+  @override
+  String get helpLooks =>
+      '猫的外观，以标签表示：体型、颜色、花纹、毛、尾巴、耳朵、斑记和持久特征。勾选你看到的；与失踪猫有两个特征一致的流浪猫会成为候选。';
+
+  @override
+  String get graphSmoothed => '平滑';
+
+  @override
+  String get graphTrend => '趋势';
+
+  @override
+  String trendPerMonth(Object value) {
+    return '趋势：每月 $value';
+  }
+
+  @override
+  String get helpBackups =>
+      '您的目录的安全存放位置：手机自动备份的内容、完整副本的位置、最近一次副本的时间，以及立即备份的按钮。恢复在“管理目录”中。';
+
+  @override
+  String get helpConflicts => '两人在设备同步前同时更改的字段。每行显示两个值；选出正确的一个，选择会传到每台设备。';
+
+  @override
+  String get helpInPerson =>
+      '与身边的人同步：一部手机作为主机，另一部扫描二维码加入，数据通过 Wi-Fi 加密传输，没有服务器。“私密”开关决定私密值是否传输。';
+
+  @override
+  String get helpMessenger =>
+      '以文件同步：本设备把已知的一切写成一个包，你通过任意聊天软件或邮件发送，对方导入。照片随包传输；私密值仅在开关允许时传输。';
+
+  @override
+  String get helpModeration =>
+      '其记录到达此目录的人，以及他们写的内容。可在本设备上删除某人的数据并封禁其设备；封禁会列出该设备使用过的名字。';
+
+  @override
+  String get helpRemote =>
+      '通过共享文件夹同步从不见面的设备：在每台设备上选择一次同一个文件夹；每次同步把你的更改写入并读取他人的更改。一个文件夹承载所有目录，各在自己的子文件夹中。';
+
+  @override
+  String get helpRestore =>
+      '上一次安装的备份，每个目录一行，已勾选。恢复会把每个作为独立目录带回。Android 上通过选择器授权一次文件夹；“选择文件”可添加保存在别处的备份。';
+
+  @override
+  String get helpScan =>
+      '扫描海报上或他人屏幕上的 cat(a)log 二维码：猫及其联系方式无需输入即可到达这里。带链接的二维码会获取其后的文件。';
+
+  @override
+  String get helpVetReport =>
+      '给兽医的内容：你选择的字段和日期，每行都勾选直到你取消，以及最前面的患者摘要。以 PDF 分享或打印，两者都在顶栏。';
+
+  @override
+  String get helpPoster =>
+      '用记录制作贴在灯柱上的海报：勾选要放的内容，添加记录中没有的一行，页面以黑白大字打印，隔街可读。二维码在另一个 cat(a)log 中打开这只猫。';
+
+  @override
+  String get helpAchievements =>
+      '只显示已获得的：连续完成事务的整月、整年及更多与其次数，每项事务在其等级的头衔，以及解锁的毛皮。没有进度条，没有需要追逐的东西；奖励只是安静的附赠。';
+
+  @override
+  String get posterQrTooBig => '勾选的内容太多，一个二维码放不下。取消一行，二维码就会回来。';
+
+  @override
+  String get posterPhotos => '照片，最多两张';
+
+  @override
+  String get posterFrameHint => '拖动和捏合来选取照片的范围。';
+
+  @override
+  String get posterPreview => '预览';
+
+  @override
+  String get syncWatchSwitch => '文件夹中有更改等待时告诉我';
+
+  @override
+  String get syncAutoSwitch => '自动合并';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '来自 $authors 的更改在 $catalog 中等待。点按以同步。';
+  }
+
+  @override
+  String get syncAnotherDevice => '另一台设备';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '已合并来自 $authors 的 $count 项更改',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => '显示';
 }

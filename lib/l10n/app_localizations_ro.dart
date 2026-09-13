@@ -3413,4 +3413,249 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get colWho => 'Cine';
+
+  @override
+  String get pdfFontMissing =>
+      'Fontul pentru această limbă nu e încă pe telefon; unele litere se tipăresc ca pătrate. Conectează-te o dată la internet și refă PDF-ul.';
+
+  @override
+  String get vetReportTitle => 'Raport pentru veterinar';
+
+  @override
+  String get vetReportMenu => 'Raport pentru veterinar…';
+
+  @override
+  String get vetReportFields => 'Câmpuri';
+
+  @override
+  String get vetReportFrom => 'De la';
+
+  @override
+  String get vetReportTo => 'Până la';
+
+  @override
+  String get vetReportSummary => 'Rezumatul pacientului';
+
+  @override
+  String get vetReportOwner => 'Proprietar';
+
+  @override
+  String get vetReportLegend => 'Legendă';
+
+  @override
+  String get vetReportCurves => 'Grafic';
+
+  @override
+  String get posterMenu => 'Afiș dispărut…';
+
+  @override
+  String get posterHeadline => 'DISPĂRUT';
+
+  @override
+  String get posterStanding =>
+      'Vă rugăm să verificați pivnițele, șoproanele și garajele. Nu alergați după el, doar sunați.';
+
+  @override
+  String get posterLastSeen => 'Văzut ultima dată lângă';
+
+  @override
+  String get posterFreeText => 'Rând suplimentar';
+
+  @override
+  String get posterQr => 'Cod QR pentru cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Pisică nouă în…';
+
+  @override
+  String get newCatInNeutral => 'Animal nou în…';
+
+  @override
+  String get choreLabel => 'Sarcină';
+
+  @override
+  String get choreTickLabel => 'Sarcină făcută';
+
+  @override
+  String get choreEnded => 'Încheiată';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'memento $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'făcut pe $date';
+  }
+
+  @override
+  String get withheldByPartner => 'reținut de un partener';
+
+  @override
+  String get titleLabel => 'Titlu';
+
+  @override
+  String get deletedLabel => 'Șters';
+
+  @override
+  String get favouriteAdd => 'Marchează ca favorit';
+
+  @override
+  String get favouriteRemove => 'Elimină din favorite';
+
+  @override
+  String get coverPick => 'Imagine de copertă…';
+
+  @override
+  String get coverHint =>
+      'O imagine a locului: casa, curtea, locul de hrănire. Pe card în locul unei pisici.';
+
+  @override
+  String get coverRemove => 'Elimină imaginea de copertă';
+
+  @override
+  String get skipTour =>
+      'Sari peste introducere și sfaturi pe această instalare';
+
+  @override
+  String get spotCatChores =>
+      'Îngrijirea recurentă locuiește aici: hrănire, medicamente, controale, fiecare cu propriul memento.';
+
+  @override
+  String get spotLooks =>
+      'Bifează ce vezi. Potrivirile cu alte cataloage vin de aici.';
+
+  @override
+  String get spotHistoryHold =>
+      'Ține apăsat o valoare pentru a o corecta sau elimina. Nimic nu se pierde; valorile ascunse apar la cerere.';
+
+  @override
+  String get spotBackups =>
+      'Unde sunt în siguranță cataloagele tale: ce salvează telefonul, și o copie într-un dosar la alegere.';
+
+  @override
+  String get spotCardPoster =>
+      'Un afiș dispărut din fișa acestei pisici: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Un afiș dispărut din fișa acestui animal: foto, nume, telefon cu litere mari și un cod pe care alții îl scanează.';
+
+  @override
+  String get spotTimelineReport =>
+      'Un raport pentru veterinar: intrările alese ca linie a timpului, un rezumat al pacientului și un grafic pentru fiecare câmp numeric, greutatea de exemplu.';
+
+  @override
+  String get helpHistory =>
+      'Valorile unui câmp în timp, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Ține apăsat o valoare pentru a o elimina sau a readuce una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau partajeaz-o ca PDF.';
+
+  @override
+  String get helpSettings =>
+      'Alegerile aplicației: limbă, unități, sărbătoriri și urale, blana din spatele paginilor, notificări și unde sunt salvate cataloagele tale. Tururile pot fi reluate de aici.';
+
+  @override
+  String get helpLooks =>
+      'Cum arată pisica, în chipuri: mărime, culori, model, blană, coadă, urechi, semne și trăsături durabile. Bifează ce vezi; un vagabond care se potrivește cu o pisică dispărută în două trăsături devine candidat.';
+
+  @override
+  String get graphSmoothed => 'Netezit';
+
+  @override
+  String get graphTrend => 'Tendință';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendință: $value pe lună';
+  }
+
+  @override
+  String get helpBackups =>
+      'Unde sunt în siguranță cataloagele tale: ce salvează telefonul singur, unde ajung copiile complete, când a fost scrisă ultima, și un buton pentru a scrie una acum. Restaurarea e în Gestionează cataloagele.';
+
+  @override
+  String get helpConflicts =>
+      'Câmpuri pe care două persoane le-au schimbat în același timp, înainte ca dispozitivele lor să se sincronizeze. Fiecare rând arată ambele valori; alege-o pe cea corectă, iar alegerea ajunge pe fiecare dispozitiv.';
+
+  @override
+  String get helpInPerson =>
+      'Sincronizare cu o persoană de lângă tine: un telefon găzduiește, celălalt se alătură scanând codul, iar datele trec prin Wi-Fi, criptate, fără server. Comutatorul privat decide dacă valorile private călătoresc.';
+
+  @override
+  String get helpMessenger =>
+      'Sincronizare ca fișier: acest dispozitiv scrie un pachet cu tot ce știe, îl trimiți prin orice mesagerie sau mail, iar cealaltă parte îl importă. Fotografiile călătoresc înăuntru; valorile private doar dacă spune comutatorul.';
+
+  @override
+  String get helpModeration =>
+      'Persoanele ale căror intrări au ajuns în acest catalog, cu ce au scris. Șterge datele unei persoane pe acest dispozitiv și blochează-i dispozitivul; o blocare listează numele sub care a scris acel dispozitiv.';
+
+  @override
+  String get helpRemote =>
+      'Sincronizare printr-un dosar partajat pentru dispozitive care nu se întâlnesc niciodată: alege o dată același dosar pe fiecare dispozitiv; fiecare sincronizare scrie acolo modificările tale și le citește pe ale celorlalți. Un dosar poartă toate cataloagele, fiecare în subdosarul său.';
+
+  @override
+  String get helpRestore =>
+      'Copiile instalării anterioare, câte un rând pe catalog, bifate. Restaurează le aduce pe fiecare înapoi ca propriul catalog. Pe Android dosarul se acordă o dată prin selector; Alege fișiere adaugă copii ținute în altă parte.';
+
+  @override
+  String get helpScan =>
+      'Scanează codul cat(a)log de pe un afiș sau de pe ecranul altcuiva: pisica și contactul ajung aici fără tastare. Un cod cu un link aduce fișierul din spatele lui.';
+
+  @override
+  String get helpVetReport =>
+      'Ce merge la veterinar: câmpurile și datele pe care le alegi, fiecare rând bifat până îl debifezi, și rezumatul pacientului în față. Partajează ca PDF sau tipărește, ambele în bară.';
+
+  @override
+  String get helpPoster =>
+      'Un afiș pentru stâlp, din fișă: bifează ce merge pe el, adaugă un rând pe care fișa nu îl are, iar pagina se tipărește negru pe alb cu litere citite de peste drum. Codul deschide pisica în alt cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Ce s-a câștigat și doar atât: luni, ani și mai mult de sarcini complete cu numărul lor, un titlu pe sarcină la rangul ei, și blănurile deblocate. Fără bare de progres și nimic de urmărit; recompensele sunt un bonus discret.';
+
+  @override
+  String get posterQrTooBig =>
+      'Prea multe bifate pentru un singur cod. Debifează un rând și codul revine.';
+
+  @override
+  String get posterPhotos => 'Fotografii, cel mult două';
+
+  @override
+  String get posterFrameHint =>
+      'Trage și ciupește pentru a încadra fotografia.';
+
+  @override
+  String get posterPreview => 'Previzualizare';
+
+  @override
+  String get syncWatchSwitch => 'Spune-mi când așteaptă modificări în dosar';
+
+  @override
+  String get syncAutoSwitch => 'Îmbină-le de la sine';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Modificări de la $authors așteaptă în $catalog. Atinge pentru a sincroniza.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'alt dispozitiv';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de modificări de la $authors îmbinate',
+      few: '$count modificări de la $authors îmbinate',
+      one: '$count modificare de la $authors îmbinată',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Arată';
 }

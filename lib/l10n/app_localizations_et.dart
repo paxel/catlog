@@ -3395,4 +3395,247 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get colWho => 'Kes';
+
+  @override
+  String get pdfFontMissing =>
+      'Selle keele font pole veel telefonis; osa tähti trükitakse kastidena. Ühenda korraks internetti ja tee PDF uuesti.';
+
+  @override
+  String get vetReportTitle => 'Aruanne loomaarstile';
+
+  @override
+  String get vetReportMenu => 'Aruanne loomaarstile…';
+
+  @override
+  String get vetReportFields => 'Väljad';
+
+  @override
+  String get vetReportFrom => 'Alates';
+
+  @override
+  String get vetReportTo => 'Kuni';
+
+  @override
+  String get vetReportSummary => 'Patsiendi kokkuvõte';
+
+  @override
+  String get vetReportOwner => 'Omanik';
+
+  @override
+  String get vetReportLegend => 'Legend';
+
+  @override
+  String get vetReportCurves => 'Graafik';
+
+  @override
+  String get posterMenu => 'Kadunud-plakat…';
+
+  @override
+  String get posterHeadline => 'KADUNUD';
+
+  @override
+  String get posterStanding =>
+      'Palun vaadake keldritesse, kuuridesse ja garaažidesse. Ärge ajage taga, lihtsalt helistage.';
+
+  @override
+  String get posterLastSeen => 'Viimati nähtud';
+
+  @override
+  String get posterFreeText => 'Lisarida';
+
+  @override
+  String get posterQr => 'QR-kood cat(a)logi jaoks';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Uus kass kohta…';
+
+  @override
+  String get newCatInNeutral => 'Uus lemmik kohta…';
+
+  @override
+  String get choreLabel => 'Toimetus';
+
+  @override
+  String get choreTickLabel => 'Toimetus tehtud';
+
+  @override
+  String get choreEnded => 'Lõpetatud';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'meeldetuletus $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'tehtud $date';
+  }
+
+  @override
+  String get withheldByPartner => 'partneri poolt kinni hoitud';
+
+  @override
+  String get titleLabel => 'Tiitel';
+
+  @override
+  String get deletedLabel => 'Kustutatud';
+
+  @override
+  String get favouriteAdd => 'Märgi lemmikuks';
+
+  @override
+  String get favouriteRemove => 'Eemalda lemmikutest';
+
+  @override
+  String get coverPick => 'Kaanepilt…';
+
+  @override
+  String get coverHint =>
+      'Pilt kohast: maja, hoov, söötmiskoht. Kaardil kassi asemel.';
+
+  @override
+  String get coverRemove => 'Eemalda kaanepilt';
+
+  @override
+  String get skipTour =>
+      'Jäta sissejuhatus ja vihjed selles paigalduses vahele';
+
+  @override
+  String get spotCatChores =>
+      'Korduv hool elab siin: söötmine, ravimid, kontrollid, igaühel oma meeldetuletus.';
+
+  @override
+  String get spotLooks =>
+      'Märgi, mida näed. Vasted teiste kataloogidega tulevad siit.';
+
+  @override
+  String get spotHistoryHold =>
+      'Hoia väärtust all, et seda parandada või eemaldada. Midagi ei kao; peidetud väärtused kuvatakse soovi korral.';
+
+  @override
+  String get spotBackups =>
+      'Kus su kataloogid on kaitstud: mida telefon varundab, ja koopia sinu valitud kausta.';
+
+  @override
+  String get spotCardPoster =>
+      'Kadunud-plakat selle kassi kirjest: foto, nimi, telefon suurelt ja kood, mida teised skannivad.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Kadunud-plakat selle lemmiku kirjest: foto, nimi, telefon suurelt ja kood, mida teised skannivad.';
+
+  @override
+  String get spotTimelineReport =>
+      'Aruanne loomaarstile: valitud kirjed ajajoonena, patsiendi kokkuvõte ja graafik iga arvuvälja kohta, näiteks kaal.';
+
+  @override
+  String get helpHistory =>
+      'Ühe välja väärtused ajas, uusim esimesena. Puuduta väärtust, et seda parandada: uus astub selle asemele, vana peidetakse. Hoia väärtust all, et see eemaldada või peidetu tagasi tuua; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.';
+
+  @override
+  String get helpSettings =>
+      'Rakenduse enda valikud: keel, ühikud, tähistamised ja hõisked, lehtede taga olev kasukas, teavitused ja kuhu su kataloogid varundatakse. Tuure saab siit uuesti käivitada.';
+
+  @override
+  String get helpLooks =>
+      'Milline kass välja näeb, kiipidena: suurus, värvid, muster, karv, saba, kõrvad, märgid ja püsivad tunnused. Märgi, mida näed; hulkur, kes kattub kadunud kassiga kahes tunnuses, saab kandidaadiks.';
+
+  @override
+  String get graphSmoothed => 'Silutud';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value kuus';
+  }
+
+  @override
+  String get helpBackups =>
+      'Kus su kataloogid on kaitstud: mida telefon ise varundab, kuhu täiskoopiad lähevad, millal viimane kirjutati, ja nupp, et kohe üks kirjutada. Taastamine on kataloogide haldamise all.';
+
+  @override
+  String get helpConflicts =>
+      'Väljad, mida kaks inimest muutsid ühel ajal enne seadmete sünkroonimist. Iga rida näitab mõlemat väärtust; vali õige ja valik jõuab igasse seadmesse.';
+
+  @override
+  String get helpInPerson =>
+      'Sünkrooni kõrval seisva inimesega: üks telefon on võõrustaja, teine liitub koodi skannides ja andmed liiguvad üle Wi-Fi, krüpteeritult, ilma serverita. Privaatsuse lüliti otsustab, kas privaatsed väärtused kaasa lähevad.';
+
+  @override
+  String get helpMessenger =>
+      'Sünkroonimine failina: see seade kirjutab paketi kõigega, mida teab, sa saadad selle mis tahes sõnumirakenduse või meiliga ja teine pool impordib. Fotod reisivad kaasa; privaatsed väärtused ainult lüliti loal.';
+
+  @override
+  String get helpModeration =>
+      'Inimesed, kelle kirjed selle kataloogini jõudsid, koos sellega, mida nad kirjutasid. Kustuta inimese andmed sellest seadmest ja blokeeri tema seade; blokeering loetleb nimed, mille all see seade kirjutas.';
+
+  @override
+  String get helpRemote =>
+      'Sünkroonimine jagatud kausta kaudu seadmetele, mis kunagi ei kohtu: vali sama kaust üks kord igas seadmes; iga sünkroonimine kirjutab sinu muudatused sinna ja loeb teiste omi. Üks kaust kannab kõiki katalooge, igaüks oma alamkaustas.';
+
+  @override
+  String get helpRestore =>
+      'Eelmise paigalduse varukoopiad, üks rida kataloogi kohta, märgitud. Taasta toob igaühe tagasi omaette kataloogina. Androidis antakse kaust üks kord valija kaudu; Vali failid lisab mujal hoitud koopiad.';
+
+  @override
+  String get helpScan =>
+      'Skanni cat(a)logi koodi plakatilt või teise inimese ekraanilt: kass ja tema kontakt jõuavad siia ilma tippimata. Lingiga kood toob taga oleva faili.';
+
+  @override
+  String get helpVetReport =>
+      'Mis läheb loomaarstile: sinu valitud väljad ja kuupäevad, iga rida märgitud, kuni sa märke eemaldad, ja patsiendi kokkuvõte ees. Jaga PDF-ina või prindi, mõlemad ribal.';
+
+  @override
+  String get helpPoster =>
+      'Plakat laternaposti jaoks, kirjest: märgi, mis sinna läheb, lisa rida, mida kirjes pole, ja leht trükitakse must valgel tähtedega, mida loetakse üle tänava. Kood avab kassi teises cat(a)logis.';
+
+  @override
+  String get helpAchievements =>
+      'Mis on teenitud ja ainult see: täiskuud, aastad ja enam toimetusi koos arvuga, üks tiitel toimetuse kohta selle astmel, ja avatud kasukad. Ei edenemisribasid ega midagi tagaajamiseks; tasud on vaikne boonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Ühe koodi jaoks on liiga palju märgitud. Eemalda üks märge ja kood tuleb tagasi.';
+
+  @override
+  String get posterPhotos => 'Fotod, kuni kaks';
+
+  @override
+  String get posterFrameHint => 'Lohista ja pigista, et pilti kadreerida.';
+
+  @override
+  String get posterPreview => 'Eelvaade';
+
+  @override
+  String get syncWatchSwitch => 'Ütle, kui kaustas ootavad muudatused';
+
+  @override
+  String get syncAutoSwitch => 'Ühenda need iseenesest';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors muudatused ootavad kataloogis $catalog. Puuduta sünkroonimiseks.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'teine seade';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count muudatust ($authors) ühendatud',
+      one: '$count muudatus ($authors) ühendatud',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Näita';
 }

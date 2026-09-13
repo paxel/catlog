@@ -4,9 +4,12 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../exclusive.dart';
+import '../help.dart';
 import '../import_summary.dart';
 import '../l10n.dart';
 import '../sync/saf_folder.dart';
+import '../sync/sync_watch.dart';
 
 /// "Remote": sync through a shared folder (Nextcloud, Syncthing, a USB
 /// stick) for devices that never meet.
@@ -21,7 +24,8 @@ class RemoteScreen extends StatefulWidget {
 
 class _RemoteScreenState extends State<RemoteScreen> {
   String? _lastResult;
-  bool _includePrivate = false;
+  late bool _includePrivate =
+      widget.store.localSetting(syncPrivateKey) == '1';
 
   /// What the folder row shows: a path as it is, a granted tree by
   /// its folder name.
@@ -53,6 +57,10 @@ class _RemoteScreenState extends State<RemoteScreen> {
   void _use(String folder) {
     widget.store.setLocalSetting('syncFolder', folder);
     widget.store.setLocalSetting('syncFolderLast', folder);
+    // A chosen folder is watched from now on; the switch below turns
+    // it off.
+    widget.store.setLocalSetting(syncWatchKey, '1');
+    widget.store.setLocalSetting(syncSizesKey, '{}');
     _folderLabel = null;
     _describeFolder();
     setState(() {});
@@ -67,7 +75,12 @@ class _RemoteScreenState extends State<RemoteScreen> {
     if (chosen != null && mounted && widget.store.isOpen) _use(chosen);
   }
 
-  Future<void> _sync() async {
+  /// One folder sync at a time: the watcher's own merge and this
+  /// button share the key.
+  Future<void> _sync() => runExclusive<void>('folderSync', _syncNow,
+      context: context);
+
+  Future<void> _syncNow() async {
     final t = context.t;
     final folder = widget.store.localSetting('syncFolder')!;
     try {
@@ -89,6 +102,7 @@ class _RemoteScreenState extends State<RemoteScreen> {
         await showImportSummary(context, widget.store, result.applied,
             undo: point, report: result.report);
       }
+      await recordSyncSizes(widget.store);
       if (!mounted) return;
       setState(() => _lastResult = t.folderSynced('$result'));
     } on FileSystemException {
@@ -102,7 +116,10 @@ class _RemoteScreenState extends State<RemoteScreen> {
   Widget build(BuildContext context) {
     final t = context.t;
     return Scaffold(
-      appBar: AppBar(title: Text(t.syncChooserRemote)),
+      appBar: AppBar(
+        title: Text(t.syncChooserRemote),
+        actions: [HelpButton(store: widget.store, screenId: 'remote')],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -110,7 +127,10 @@ class _RemoteScreenState extends State<RemoteScreen> {
           const SizedBox(height: 12),
           SwitchListTile(
             value: _includePrivate,
-            onChanged: (v) => setState(() => _includePrivate = v),
+            onChanged: (v) {
+              widget.store.setLocalSetting(syncPrivateKey, v ? '1' : '0');
+              setState(() => _includePrivate = v);
+            },
             secondary: Icon(
                 _includePrivate ? Icons.lock_open : Icons.lock_outline),
             title: Text(t.includePrivate),
@@ -141,6 +161,28 @@ class _RemoteScreenState extends State<RemoteScreen> {
               onPressed: () => _use(_lastFolder!),
               child: Text(t.useSameFolder),
             ),
+          if (widget.store.localSetting('syncFolder') != null) ...[
+            const SizedBox(height: 8),
+            // Poll mode: a line at the top of every page while changes
+            // wait. Auto mode under it: the merge runs on its own.
+            SwitchListTile(
+              value: syncWatchOn(widget.store),
+              onChanged: (v) => setState(() =>
+                  widget.store.setLocalSetting(syncWatchKey, v ? '1' : '0')),
+              secondary: const Icon(Icons.notifications_outlined),
+              title: Text(t.syncWatchSwitch),
+              contentPadding: EdgeInsets.zero,
+            ),
+            if (syncWatchOn(widget.store))
+              SwitchListTile(
+                value: syncAutoOn(widget.store),
+                onChanged: (v) => setState(() =>
+                    widget.store.setLocalSetting(syncAutoKey, v ? '1' : '0')),
+                secondary: const Icon(Icons.merge_type),
+                title: Text(t.syncAutoSwitch),
+                contentPadding: EdgeInsets.zero,
+              ),
+          ],
           const SizedBox(height: 8),
           Text(t.folderHint, style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 8),

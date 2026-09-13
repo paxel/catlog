@@ -3398,4 +3398,246 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get colWho => 'Who';
+
+  @override
+  String get pdfFontMissing =>
+      'The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again.';
+
+  @override
+  String get vetReportTitle => 'Report for the vet';
+
+  @override
+  String get vetReportMenu => 'Report for the vet…';
+
+  @override
+  String get vetReportFields => 'Fields';
+
+  @override
+  String get vetReportFrom => 'From';
+
+  @override
+  String get vetReportTo => 'To';
+
+  @override
+  String get vetReportSummary => 'Patient summary';
+
+  @override
+  String get vetReportOwner => 'Owner';
+
+  @override
+  String get vetReportLegend => 'Legend';
+
+  @override
+  String get vetReportCurves => 'Graph';
+
+  @override
+  String get posterMenu => 'Missing poster…';
+
+  @override
+  String get posterHeadline => 'MISSING';
+
+  @override
+  String get posterStanding =>
+      'Please check cellars, sheds and garages. Do not chase, just call.';
+
+  @override
+  String get posterLastSeen => 'Last seen near';
+
+  @override
+  String get posterFreeText => 'Extra line';
+
+  @override
+  String get posterQr => 'QR code for cat(a)log';
+
+  @override
+  String get posterPhoto => 'Photo';
+
+  @override
+  String get newCatIn => 'New cat in…';
+
+  @override
+  String get newCatInNeutral => 'New pet in…';
+
+  @override
+  String get choreLabel => 'Chore';
+
+  @override
+  String get choreTickLabel => 'Chore done';
+
+  @override
+  String get choreEnded => 'Ended';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'reminder $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'done on $date';
+  }
+
+  @override
+  String get withheldByPartner => 'kept back by a partner';
+
+  @override
+  String get titleLabel => 'Title';
+
+  @override
+  String get deletedLabel => 'Deleted';
+
+  @override
+  String get favouriteAdd => 'Mark as favourite';
+
+  @override
+  String get favouriteRemove => 'Remove from favourites';
+
+  @override
+  String get coverPick => 'Cover picture…';
+
+  @override
+  String get coverHint =>
+      'A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.';
+
+  @override
+  String get coverRemove => 'Remove cover picture';
+
+  @override
+  String get skipTour => 'Skip the intro and the tips on this install';
+
+  @override
+  String get spotCatChores =>
+      'Recurring care lives here: feeding, meds, checks, each with its own reminder.';
+
+  @override
+  String get spotLooks =>
+      'Tick what you see. Matches with other catalogs come from these.';
+
+  @override
+  String get spotHistoryHold =>
+      'Hold a value to correct or remove it. Nothing is lost; hidden values show on request.';
+
+  @override
+  String get spotBackups =>
+      'Where your catalogs are kept safe: what the phone backs up, and a copy in a folder of your choice.';
+
+  @override
+  String get spotCardPoster =>
+      'A missing poster from this cat\'s record: photo, name, phone in big letters, and a code other keepers scan.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'A missing poster from this pet\'s record: photo, name, phone in big letters, and a code other keepers scan.';
+
+  @override
+  String get spotTimelineReport =>
+      'A report for the vet: the entries you pick as a timeline, a patient summary, and a graph for every number field, weight for one.';
+
+  @override
+  String get helpHistory =>
+      'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.';
+
+  @override
+  String get helpSettings =>
+      'The app\'s own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.';
+
+  @override
+  String get helpLooks =>
+      'What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.';
+
+  @override
+  String get graphSmoothed => 'Smoothed';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value per month';
+  }
+
+  @override
+  String get helpBackups =>
+      'Where your catalogs are kept safe: what the phone backs up by itself, where the full copies land, when the last one was written, and a button to write one now. Restoring lives in Manage catalogs.';
+
+  @override
+  String get helpConflicts =>
+      'Fields two people changed at the same time, before their devices synced. Each row shows both values; pick the right one, and the choice reaches every device.';
+
+  @override
+  String get helpInPerson =>
+      'Sync with a person standing next to you: one phone hosts, the other joins by scanning the code, and the data moves over Wi-Fi, encrypted, without any server. The private switch decides whether private values travel.';
+
+  @override
+  String get helpMessenger =>
+      'Sync as a file: this device writes a bundle with everything it knows, you send it through any messenger or mail, and the other side imports it. Photos travel inside; private values only when the switch says so.';
+
+  @override
+  String get helpModeration =>
+      'The people whose entries reached this catalog, with what they wrote. Delete a person\'s data on this device and ban their device from sending more; a ban lists the names that device wrote under.';
+
+  @override
+  String get helpRemote =>
+      'Sync through a shared folder for devices that never meet: pick one folder once, on every device; each sync writes your changes there and reads the others\'. One folder carries all catalogs, each in a subfolder of its own.';
+
+  @override
+  String get helpRestore =>
+      'Backups of the install before this one, one row per catalog, ticked. Restore brings each back as its own catalog. On Android the folder is granted once through the picker; Pick files adds backups kept anywhere else.';
+
+  @override
+  String get helpScan =>
+      'Scan the cat(a)log code on a poster or on another keeper\'s screen: the cat and its contact land here without typing. A code that carries a link fetches the file behind it.';
+
+  @override
+  String get helpVetReport =>
+      'What goes to the vet: the fields and the dates you choose, every row ticked until you untick it, and the patient summary on top. Share as PDF or print, both in the app bar.';
+
+  @override
+  String get helpPoster =>
+      'A poster for the lamp post, from the record: tick what goes on it, add a line the record lacks, and the page prints black on white in letters read from across the street. The code on it opens the cat in another cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'What was earned and only that: full months, years and more of chores with their count, one title per chore at its rank, and the coats unlocked. No progress bars and nothing to chase; the rewards are a quiet bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Too much is ticked for one code. Untick a line and the code comes back.';
+
+  @override
+  String get posterPhotos => 'Photos, up to two';
+
+  @override
+  String get posterFrameHint => 'Drag and pinch to frame the photo.';
+
+  @override
+  String get posterPreview => 'Preview';
+
+  @override
+  String get syncWatchSwitch => 'Tell me when changes wait in the folder';
+
+  @override
+  String get syncAutoSwitch => 'Merge them on their own';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Changes from $authors waiting in $catalog. Tap to sync.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'another device';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count changes from $authors merged',
+      one: '$count change from $authors merged',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Show';
 }

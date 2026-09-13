@@ -3418,4 +3418,249 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get colWho => 'Хто';
+
+  @override
+  String get pdfFontMissing =>
+      'Шрифт для цієї мови ще не на телефоні; частина літер друкується квадратами. Один раз підключіться до інтернету та створіть PDF знову.';
+
+  @override
+  String get vetReportTitle => 'Звіт для ветеринара';
+
+  @override
+  String get vetReportMenu => 'Звіт для ветеринара…';
+
+  @override
+  String get vetReportFields => 'Поля';
+
+  @override
+  String get vetReportFrom => 'Від';
+
+  @override
+  String get vetReportTo => 'До';
+
+  @override
+  String get vetReportSummary => 'Зведення про пацієнта';
+
+  @override
+  String get vetReportOwner => 'Власник';
+
+  @override
+  String get vetReportLegend => 'Умовні позначення';
+
+  @override
+  String get vetReportCurves => 'Графік';
+
+  @override
+  String get posterMenu => 'Плакат «Зник»…';
+
+  @override
+  String get posterHeadline => 'ЗНИК';
+
+  @override
+  String get posterStanding =>
+      'Будь ласка, перевірте підвали, сараї та гаражі. Не ловіть, просто зателефонуйте.';
+
+  @override
+  String get posterLastSeen => 'Востаннє бачили біля';
+
+  @override
+  String get posterFreeText => 'Додатковий рядок';
+
+  @override
+  String get posterQr => 'QR-код для cat(a)log';
+
+  @override
+  String get posterPhoto => 'Фото';
+
+  @override
+  String get newCatIn => 'Нова кішка в…';
+
+  @override
+  String get newCatInNeutral => 'Новий улюбленець у…';
+
+  @override
+  String get choreLabel => 'Завдання';
+
+  @override
+  String get choreTickLabel => 'Завдання виконано';
+
+  @override
+  String get choreEnded => 'Завершено';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'нагадування $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'виконано $date';
+  }
+
+  @override
+  String get withheldByPartner => 'приховано партнером';
+
+  @override
+  String get titleLabel => 'Титул';
+
+  @override
+  String get deletedLabel => 'Видалено';
+
+  @override
+  String get favouriteAdd => 'До обраного';
+
+  @override
+  String get favouriteRemove => 'Прибрати з обраного';
+
+  @override
+  String get coverPick => 'Обкладинка…';
+
+  @override
+  String get coverHint =>
+      'Знімок місця: будинок, двір, місце годівлі. Показується на картці замість кішки.';
+
+  @override
+  String get coverRemove => 'Прибрати обкладинку';
+
+  @override
+  String get skipTour => 'Пропустити знайомство та підказки в цій інсталяції';
+
+  @override
+  String get spotCatChores =>
+      'Регулярний догляд живе тут: годування, ліки, перевірки, у кожного своє нагадування.';
+
+  @override
+  String get spotLooks =>
+      'Позначте, що бачите. Збіги з іншими каталогами походять звідси.';
+
+  @override
+  String get spotHistoryHold =>
+      'Утримуйте значення, щоб виправити або прибрати його. Нічого не губиться; приховані значення показуються на запит.';
+
+  @override
+  String get spotBackups =>
+      'Де зберігаються копії ваших каталогів: що зберігає телефон, і копія в теці на ваш вибір.';
+
+  @override
+  String get spotCardPoster =>
+      'Плакат «Зник» із запису цієї кішки: фото, ім\'я, телефон великими літерами й код, який сканують інші.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Плакат «Зник» із запису цього улюбленця: фото, ім\'я, телефон великими літерами й код, який сканують інші.';
+
+  @override
+  String get spotTimelineReport =>
+      'Звіт для ветеринара: вибрані записи як стрічка, зведення про пацієнта та графік для кожного числового поля, наприклад ваги.';
+
+  @override
+  String get helpHistory =>
+      'Значення одного поля в часі, найновіші зверху. Торкніться значення, щоб виправити: нове займає його місце, старе ховається. Утримуйте значення, щоб прибрати його або повернути приховане; око показує приховані. Скопіюйте список як текст або поділіться як PDF.';
+
+  @override
+  String get helpSettings =>
+      'Налаштування застосунку: мова, одиниці, свята й вигуки, хутро за сторінками, сповіщення та де зберігаються копії каталогів. Звідси можна повторити тури.';
+
+  @override
+  String get helpLooks =>
+      'Як виглядає кішка, чипами: розмір, забарвлення, візерунок, хутро, хвіст, вуха, мітки й сталі ознаки. Позначте, що бачите; безпритульна, що збігається зі зниклою за двома ознаками, стає кандидатом.';
+
+  @override
+  String get graphSmoothed => 'Згладжений';
+
+  @override
+  String get graphTrend => 'Тренд';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Тренд: $value на місяць';
+  }
+
+  @override
+  String get helpBackups =>
+      'Де зберігаються копії ваших каталогів: що телефон зберігає сам, куди лягають повні копії, коли записано останню, і кнопка, щоб записати зараз. Відновлення — у розділі Керування каталогами.';
+
+  @override
+  String get helpConflicts =>
+      'Поля, які двоє людей змінили одночасно до синхронізації пристроїв. Кожен рядок показує обидва значення; виберіть правильне, і вибір дійде до кожного пристрою.';
+
+  @override
+  String get helpInPerson =>
+      'Синхронізація з людиною поруч: один телефон приймає, інший приєднується за кодом, дані йдуть через Wi-Fi, зашифровано, без сервера. Перемикач «приватно» вирішує, чи їдуть приватні значення.';
+
+  @override
+  String get helpMessenger =>
+      'Синхронізація файлом: цей пристрій пише пакет з усім, що знає, ви надсилаєте його через месенджер або пошту, а інша сторона імпортує. Фото їдуть усередині; приватні значення лише за перемикачем.';
+
+  @override
+  String get helpModeration =>
+      'Люди, чиї записи потрапили в цей каталог, і що вони написали. Видаліть дані людини на цьому пристрої й заблокуйте її пристрій; блокування перелічує імена, під якими він писав.';
+
+  @override
+  String get helpRemote =>
+      'Синхронізація через спільну теку для пристроїв, що ніколи не зустрічаються: один раз виберіть ту саму теку на кожному пристрої; кожна синхронізація пише туди ваші зміни й читає чужі. Одна тека несе всі каталоги, кожен у власній підтеці.';
+
+  @override
+  String get helpRestore =>
+      'Резервні копії попередньої інсталяції, по рядку на каталог, позначені. Відновити повертає кожну як окремий каталог. На Android теку надають один раз через вибір; Вибрати файли додає копії, збережені деінде.';
+
+  @override
+  String get helpScan =>
+      'Відскануйте код cat(a)log на плакаті або на екрані іншої людини: кішка та контакт потраплять сюди без введення. Код із посиланням завантажує файл за ним.';
+
+  @override
+  String get helpVetReport =>
+      'Що йде ветеринару: вибрані поля й дати, кожен рядок позначений, поки ви його не знімете, і зведення про пацієнта попереду. Поділитися як PDF або надрукувати, обидві кнопки в панелі.';
+
+  @override
+  String get helpPoster =>
+      'Плакат на ліхтарний стовп із запису: позначте, що на ньому буде, додайте рядок, якого немає в записі, і сторінка друкується чорним по білому літерами, які читають з іншого боку вулиці. Код відкриває кішку в іншому cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Лише зароблене: повні місяці, роки й більше завдань з їхньою кількістю, один титул на завдання на своєму щаблі та відкриті шкурки. Без смуг прогресу й без гонитви; нагороди — тихий бонус.';
+
+  @override
+  String get posterQrTooBig =>
+      'Для одного коду позначено забагато. Зніміть один рядок, і код повернеться.';
+
+  @override
+  String get posterPhotos => 'Фото, до двох';
+
+  @override
+  String get posterFrameHint =>
+      'Перетягніть і зведіть пальці, щоб вибрати фрагмент.';
+
+  @override
+  String get posterPreview => 'Попередній перегляд';
+
+  @override
+  String get syncWatchSwitch => 'Повідомляти, коли в теці чекають зміни';
+
+  @override
+  String get syncAutoSwitch => 'Об’єднувати самостійно';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Зміни від $authors чекають у $catalog. Торкніться для синхронізації.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'іншого пристрою';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count зміни від $authors об’єднано',
+      many: '$count змін від $authors об’єднано',
+      few: '$count зміни від $authors об’єднано',
+      one: '$count зміну від $authors об’єднано',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Показати';
 }

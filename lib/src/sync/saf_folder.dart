@@ -66,6 +66,15 @@ class SafSyncFolder implements SyncFolder {
   }
 
   @override
+  Future<Map<String, int>> sizes(String dir) async {
+    final raw = await _call<Map<Object?, Object?>>('sizes', _args(dir));
+    return {
+      for (final MapEntry(key: name, value: size) in (raw ?? const {}).entries)
+        if (name is String && size is int) name: size,
+    };
+  }
+
+  @override
   Future<Uint8List?> read(String dir, String name) =>
       _call<Uint8List>('read', _args(dir, name));
 

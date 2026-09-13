@@ -8,6 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../layout.dart';
+import '../cover_picture.dart';
 import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
@@ -220,10 +221,24 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     await _open(_clowderPage(id));
   }
 
+  bool _isFavourite(String id) =>
+      widget.store.localSetting('fav:$id') == 'yes';
+
+  void _toggleFavourite(String id) {
+    widget.store.setLocalSetting('fav:$id', _isFavourite(id) ? 'no' : 'yes');
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Starred homes lead, right after Strays; the rest follow, each
+    // group in name order. The star is this device's.
     final clowders = widget.store.visibleClowders()
-      ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+      ..sort((a, b) {
+        final fa = _isFavourite(a.id), fb = _isFavourite(b.id);
+        if (fa != fb) return fa ? -1 : 1;
+        return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+      });
     return Scaffold(
       appBar: roomyAppBar(
         context,
@@ -375,6 +390,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               final card = _ClowderCard(
                 store: widget.store,
                 clowder: clowder,
+                favourite: _isFavourite(clowder.id),
+                onToggleFavourite: () => _toggleFavourite(clowder.id),
                 selected:
                     widget.selectedPageId == PanePage.clowderId_(clowder.id),
                 onContextMenu: (position) async {
@@ -542,6 +559,10 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
 class _ClowderCard extends StatelessWidget {
   final CatalogStore store;
   final EntityView clowder;
+
+  /// Starred on this device; the star at the bottom end toggles it.
+  final bool favourite;
+  final VoidCallback? onToggleFavourite;
   final VoidCallback onTap;
   final void Function(Offset globalPosition)? onContextMenu;
   final bool selected;
@@ -551,10 +572,14 @@ class _ClowderCard extends StatelessWidget {
       required this.clowder,
       required this.onTap,
       this.onContextMenu,
+      this.favourite = false,
+      this.onToggleFavourite,
       this.selected = false});
 
-  /// Background: profile image of the first cat in the clowder that has one.
+  /// Background: the home's own cover picture, else the profile image
+  /// of the first cat in the clowder that has one.
   ImageProvider? _cover() {
+    if (coverImage(store, clowder.id) case final own?) return own;
     for (final cat in store.visibleCats(clowderId: clowder.id)) {
       final hash = store.profileImage(cat.id);
       if (hash != null) {
@@ -626,8 +651,17 @@ class _ClowderCard extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                _FaceRow(store: store, clowderId: clowder.id,
-                    onLight: cover != null),
+                // The faces keep clear of the star at the end and shrink
+                // rather than run under it.
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(end: 40),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: AlignmentDirectional.centerStart,
+                    child: _FaceRow(store: store, clowderId: clowder.id,
+                        onLight: cover != null),
+                  ),
+                ),
               ],
             ),
           ),
@@ -656,6 +690,21 @@ class _ClowderCard extends StatelessWidget {
           if (onContextMenu != null)
             const PositionedDirectional(
                 top: 0, end: 0, child: CatEarBadge()),
+          if (onToggleFavourite != null)
+            PositionedDirectional(
+              bottom: 0,
+              end: 0,
+              child: IconButton(
+                icon: Icon(favourite ? Icons.star : Icons.star_border),
+                color: favourite
+                    ? Colors.amber
+                    : (cover != null ? Colors.white : scheme.onSurfaceVariant),
+                tooltip: favourite
+                    ? context.t.favouriteRemove
+                    : context.t.favouriteAdd,
+                onPressed: onToggleFavourite,
+              ),
+            ),
         ]),
         ),
       ),
@@ -677,6 +726,7 @@ class _StraysCard extends StatelessWidget {
       {required this.store, required this.onTap, this.selected = false});
 
   ImageProvider? _cover(List<EntityView> strays) {
+    if (coverImage(store, straysEntity) case final own?) return own;
     for (final cat in strays) {
       final hash = store.profileImage(cat.id);
       if (hash != null) {
@@ -788,12 +838,12 @@ class _FaceRow extends StatelessWidget {
           padding: const EdgeInsets.only(right: 2),
           child: CatAvatar(store: store, catId: cat.id, size: 26),
         ),
-      Padding(
+      // The number only says what the faces cannot: the rest past five.
+      if (cats.length > shown)
+        Padding(
           padding: const EdgeInsets.only(left: 2),
           child: Text(
-            cats.length > shown
-                ? '+${cats.length - shown}'
-                : '${cats.length}',
+            '+${cats.length - shown}',
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
               color: onLight ? Colors.white : null,
               fontWeight: FontWeight.bold,
@@ -803,6 +853,7 @@ class _FaceRow extends StatelessWidget {
             ),
           ),
         ),
+
     ]);
   }
 }

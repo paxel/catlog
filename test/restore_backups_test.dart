@@ -160,7 +160,7 @@ void main() {
     // Lyon stays out.
     await tester.tap(find.text('Lyon'));
     await tester.pump();
-    await tester.tap(find.text('Restore'));
+    await tester.tap(find.byTooltip('Restore'));
     await tester.pumpAndSettle();
 
     expect(done, 1);
@@ -218,7 +218,7 @@ void main() {
     await tester.tap(find.text('Choose backup folder…'));
     await tester.pumpAndSettle();
     expect(find.text('Paris'), findsOneWidget);
-    await tester.tap(find.text('Restore'));
+    await tester.tap(find.byTooltip('Restore'));
     await tester.pumpAndSettle();
     expect(catalogs.catalogs().map((c) => c.name), ['Berlin', 'Paris']);
   });

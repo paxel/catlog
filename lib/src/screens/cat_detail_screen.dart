@@ -36,6 +36,8 @@ import 'photo_edit_screen.dart';
 import 'map_screen.dart';
 import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
+import 'missing_poster_screen.dart';
+import 'vet_report_screen.dart';
 import 'field_graph_screen.dart';
 import 'field_history_screen.dart';
 import '../widgets/chore_row.dart';
@@ -249,11 +251,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final today = DateUtils.dateOnly(DateTime.now());
     return [
       const Divider(),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Text(
-          context.t.plannedSection,
-          style: Theme.of(context).textTheme.titleMedium,
+      Spotlight(
+        id: 'cat-chores',
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Text(
+            context.t.plannedSection,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
       ),
       // Its chores: today's occurrence while the chore is due today,
@@ -511,203 +516,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final profile = store.profileImage(id);
     final defs = store.visibleFieldDefs(scope: FieldScope.cat);
     final clowderId = store.current(id, Keys.clowder);
-    return PopScope(
-      // Back leaves edit mode before it leaves the page.
-      canPop: !_editing,
-      onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) setState(() => _editing = false);
-      },
-      child: Scaffold(
-        appBar: roomyAppBar(
-          context,
-          // Renaming lives in edit mode: the title becomes tappable there.
-          title: _editing
-              ? InkWell(onTap: _rename, child: Text(name))
-              : Text(name),
-          actions: [
-            HelpButton(store: store, screenId: 'cat'),
-            IconButton(
-              icon: const Icon(Icons.badge_outlined),
-              tooltip: context.t.card,
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => CardScreen(store: store, catId: id),
-                ),
-              ),
-            ),
-            Spotlight(
-              id: 'cat-reminder',
-              child: IconButton(
-                icon: const Icon(Icons.alarm_add),
-                tooltip: context.t.addReminder,
-                onPressed: _addReminder,
-              ),
-            ),
-            Spotlight(
-              id: 'cat-edit',
-              child: IconButton(
-                icon: Icon(_editing ? Icons.check : Icons.edit),
-                tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
-                onPressed: () => setState(() => _editing = !_editing),
-              ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.history),
-              tooltip: context.t.timeline,
-              onPressed: _openTimeline,
-            ),
-            Spotlight(
-              id: 'cat-menu',
-              child: PopupMenuButton<String>(
-                onSelected: (v) {
-                  if (v == 'delete') _deleteCat();
-                  if (v == 'moveCatalog') _moveToCatalog();
-                  if (v == 'merge') _mergeCat();
-                  if (v == 'seen') _seenHere();
-                  if (v == 'flier') _addFlier();
-                  if (v == 'share') {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) =>
-                            SharePubliclyScreen(store: store, catId: id),
-                      ),
-                    );
-                  }
-                  if (v == 'hide') {
-                    final wasHidden = store.isHidden(id);
-                    store.setHidden(id, !wasHidden);
-                    if (wasHidden || showHidden.value) {
-                      setState(() {});
-                    } else {
-                      Navigator.of(context).pop();
-                    }
-                  }
-                },
-                itemBuilder: (context) => [
-                  if (canMoveBetweenCatalogs)
-                    PopupMenuItem(
-                      value: 'moveCatalog',
-                      child: Text(context.t.moveToCatalog),
-                    ),
-                  PopupMenuItem(
-                    value: 'seen',
-                    child: Text(context.t.seenHereNow),
-                  ),
-                  PopupMenuItem(
-                    value: 'flier',
-                    child: Text(context.t.addFlier),
-                  ),
-                  PopupMenuItem(
-                    value: 'share',
-                    child: Text(context.t.sharePublicly),
-                  ),
-                  PopupMenuItem(
-                    value: 'hide',
-                    child: Text(
-                      store.isHidden(id)
-                          ? context.t.unhideLabel
-                          : context.t.hideLabel,
-                    ),
-                  ),
-                  PopupMenuItem(
-                    value: 'merge',
-                    child: Text(context.t.mergeInto),
-                  ),
-                  PopupMenuItem(
-                    value: 'delete',
-                    child: Text(context.t.deleteCat),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-        body: ListView(
-          children: [
-            if (isDeceased(store, id))
-              Padding(
-                padding: const EdgeInsets.only(left: 16, top: 8),
-                child: Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Chip(
-                    label: Text(
-                      '${context.t.starterDeceased} · ${store.current(id, 'f:deceased')}',
-                    ),
-                    visualDensity: VisualDensity.compact,
-                  ),
-                ),
-              ),
-            WithCatEar(
-              child: ListTile(
-                leading: Icon(clowderId == null ? Icons.explore : Icons.home),
-                title: Text(context.t.clowderLabel),
-                subtitle: Text(
-                  clowderId == null
-                      ? context.t.strayNoClowder
-                      : store.current(clowderId, Keys.name) ??
-                            context.t.unnamed,
-                ),
-                trailing: _editing
-                    ? const Icon(Icons.drive_file_move_outline)
-                    : null,
-                onTap: _editing ? _move : null,
-                onLongPress: () => _openTimeline(field: Keys.clowder),
-              ),
-            ),
-            const Divider(),
-            FieldList(
-              store: store,
-              entityId: id,
-              defs: defs,
-              editing: _editing,
-              onEdit: _editField,
-              onConflict: (def) async {
-                await showConflictDialog(context, store, id, def.key);
-                if (!mounted) return;
-                setState(() {});
-              },
-              onHistory: (def) => _openTimeline(field: def.key),
-              onShowMap: _showOnMap,
-              onLookup: (def, value) => openLookup(context, def, value),
-      onGraph: (def) => Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) =>
-            FieldGraphScreen(store: store, entityId: id, def: def),
-      )),
-      onValueHistory: (def) => Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) =>
-            FieldHistoryScreen(store: store, entityId: id, def: def),
-      )),
-              // Long-press in read mode: jump into edit mode with the
-              // field's editor open — fix what you just spotted (#46).
-              onReadLongPress: (def) {
-                setState(() => _editing = true);
-                _editField(def);
-              },
-              onAddField: () async {
-                final created = await showNewFieldDialog(
-                  context,
-                  store,
-                  initialScope: FieldScope.cat,
-                );
-                if (created && mounted) setState(() {});
-              },
-            ),
-            ..._plannedSection(),
-            if (_hasFamily()) ...[
-              const Divider(),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                child: Text(
-                  context.t.familySection,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ),
-              ..._familyRows(),
-            ],
-            const Divider(),
+    final photosBlock = <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Text(
@@ -778,6 +587,237 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 );
               },
             ),
+    ];
+    return PopScope(
+      // Back leaves edit mode before it leaves the page.
+      canPop: !_editing,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) setState(() => _editing = false);
+      },
+      child: Scaffold(
+        appBar: roomyAppBar(
+          context,
+          // Renaming lives in edit mode: the title becomes tappable there.
+          title: _editing
+              ? InkWell(onTap: _rename, child: Text(name))
+              : Text(name),
+          actions: [
+            HelpButton(store: store, screenId: 'cat'),
+            IconButton(
+              icon: const Icon(Icons.badge_outlined),
+              tooltip: context.t.card,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => CardScreen(store: store, catId: id),
+                ),
+              ),
+            ),
+            Spotlight(
+              id: 'cat-reminder',
+              child: IconButton(
+                icon: const Icon(Icons.alarm_add),
+                tooltip: context.t.addReminder,
+                onPressed: _addReminder,
+              ),
+            ),
+            Spotlight(
+              id: 'cat-edit',
+              child: IconButton(
+                icon: Icon(_editing ? Icons.check : Icons.edit),
+                tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
+                onPressed: () => setState(() => _editing = !_editing),
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.history),
+              tooltip: context.t.timeline,
+              onPressed: _openTimeline,
+            ),
+            Spotlight(
+              id: 'cat-report',
+              child: IconButton(
+                icon: const Icon(Icons.medical_information_outlined),
+                tooltip: context.t.vetReportMenu,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => VetReportScreen(store: store, catId: id),
+                )),
+              ),
+            ),
+            Spotlight(
+              id: 'cat-poster',
+              child: IconButton(
+                icon: const Icon(Icons.campaign_outlined),
+                tooltip: context.t.posterMenu,
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => MissingPosterScreen(store: store, catId: id),
+                )),
+              ),
+            ),
+            Spotlight(
+              id: 'cat-menu',
+              child: PopupMenuButton<String>(
+                onSelected: (v) {
+                  if (v == 'delete') _deleteCat();
+                  if (v == 'moveCatalog') _moveToCatalog();
+                  if (v == 'merge') _mergeCat();
+                  if (v == 'seen') _seenHere();
+                  if (v == 'flier') _addFlier();
+                  if (v == 'share') {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            SharePubliclyScreen(store: store, catId: id),
+                      ),
+                    );
+                  }
+                  if (v == 'hide') {
+                    final wasHidden = store.isHidden(id);
+                    store.setHidden(id, !wasHidden);
+                    if (wasHidden || showHidden.value) {
+                      setState(() {});
+                    } else {
+                      Navigator.of(context).pop();
+                    }
+                  }
+                },
+                itemBuilder: (context) => [
+                  if (canMoveBetweenCatalogs)
+                    PopupMenuItem(
+                      value: 'moveCatalog',
+                      child: Text(context.t.moveToCatalog),
+                    ),
+                  PopupMenuItem(
+                    value: 'seen',
+                    child: Text(context.t.seenHereNow),
+                  ),
+                  PopupMenuItem(
+                    value: 'flier',
+                    child: Text(context.t.addFlier),
+                  ),
+                  PopupMenuItem(
+                    value: 'share',
+                    child: Text(context.t.sharePublicly),
+                  ),
+                  PopupMenuItem(
+                    value: 'hide',
+                    child: Text(
+                      store.isHidden(id)
+                          ? context.t.unhideLabel
+                          : context.t.hideLabel,
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: 'merge',
+                    child: Text(context.t.mergeInto),
+                  ),
+                  PopupMenuItem(
+                    value: 'delete',
+                    child: Text(context.t.deleteCat),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        body: ListView(
+          children: [
+            // Read mode: the photos first, then what is due, then the rest;
+            // edit mode keeps the fields on top and the photos last.
+            if (!_editing) ...[
+              ...photosBlock,
+              ..._plannedSection(),
+            ],
+            if (isDeceased(store, id))
+              Padding(
+                padding: const EdgeInsets.only(left: 16, top: 8),
+                child: Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Chip(
+                    label: Text(
+                      '${context.t.starterDeceased} · ${store.current(id, 'f:deceased')}',
+                    ),
+                    visualDensity: VisualDensity.compact,
+                  ),
+                ),
+              ),
+            WithCatEar(
+              child: ListTile(
+                leading: Icon(clowderId == null ? Icons.explore : Icons.home),
+                title: Text(context.t.clowderLabel),
+                subtitle: Text(
+                  clowderId == null
+                      ? context.t.strayNoClowder
+                      : store.current(clowderId, Keys.name) ??
+                            context.t.unnamed,
+                ),
+                trailing: _editing
+                    ? const Icon(Icons.drive_file_move_outline)
+                    : null,
+                onTap: _editing ? _move : null,
+                onLongPress: () => _openTimeline(field: Keys.clowder),
+              ),
+            ),
+            const Divider(),
+            FieldList(
+              store: store,
+              entityId: id,
+              defs: defs,
+              editing: _editing,
+              onEdit: _editField,
+              onConflict: (def) async {
+                await showConflictDialog(context, store, id, def.key);
+                if (!mounted) return;
+                setState(() {});
+              },
+              // A correction or removal there shows here on return.
+              onHistory: (def) async {
+                await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) =>
+                      FieldHistoryScreen(store: store, entityId: id, def: def),
+                ));
+                if (mounted) setState(() {});
+              },
+              onShowMap: _showOnMap,
+              onLookup: (def, value) => openLookup(context, def, value),
+      onGraph: (def) => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            FieldGraphScreen(store: store, entityId: id, def: def),
+      )),
+      onValueHistory: (def) => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            FieldHistoryScreen(store: store, entityId: id, def: def),
+      )),
+              // Long-press in read mode: this one field's editor, the page
+              // stays as it is — fix what you just spotted (#46), nothing more.
+              onReadLongPress: _editField,
+              onAddField: () async {
+                final created = await showNewFieldDialog(
+                  context,
+                  store,
+                  initialScope: FieldScope.cat,
+                );
+                if (created && mounted) setState(() {});
+              },
+            ),
+            if (_editing) ..._plannedSection(),
+            if (_hasFamily()) ...[
+              const Divider(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: Text(
+                  context.t.familySection,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+              ..._familyRows(),
+            ],
+            if (_editing) ...[
+              const Divider(),
+              ...photosBlock,
+            ],
             if (_adding case (final done, final total))
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),

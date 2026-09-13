@@ -5,6 +5,9 @@ import 'package:intl/intl.dart';
 import '../field_editing.dart';
 import '../history_share.dart';
 import '../l10n.dart';
+import '../layout.dart';
+import '../widgets/cat_ear.dart';
+import '../pdf_fonts.dart';
 import '../screens/field_history_screen.dart';
 import '../widgets/date_entry.dart';
 
@@ -48,8 +51,11 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
   Entry? _voidedTick(ChoreLogRow r) {
     if (r.tick != null) return null;
     return store
-        .fieldHistory(_entity, Keys.choreTick(widget.chore.id, dayKey(r.due)),
-            includeVoided: true)
+        .fieldHistory(
+          _entity,
+          Keys.choreTick(widget.chore.id, dayKey(r.due)),
+          includeVoided: true,
+        )
         .where((e) => e.voided && e.value != null)
         .firstOrNull;
   }
@@ -100,7 +106,12 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
     if (!mounted) return;
     if (time != null) {
       moment = DateTime(
-          moment.year, moment.month, moment.day, time.hour, time.minute);
+        moment.year,
+        moment.month,
+        moment.day,
+        time.hour,
+        time.minute,
+      );
     }
     store.correctEntry(tick.seq, dayKey(dayOf(moment)), date: moment);
     setState(() {});
@@ -175,6 +186,9 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
   Future<void> _sharePdf() async {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
+    final fonts = await pdfFontsFor(
+      Localizations.localeOf(context).languageCode,
+    );
     final doc = historyPdf(
       title: widget.chore.title,
       subtitle: _name,
@@ -182,9 +196,15 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
       whenHeader: t.colWhen,
       valueHeader: t.colValue,
       whoHeader: t.colWho,
+      theme: fonts.theme,
+      warning: fonts.complete ? null : t.pdfFontMissing,
     );
     await sharePdf(doc, '$_name ${widget.chore.title}.pdf');
   }
+
+  /// The ear only where a hold does something: a done day, or a removed
+  /// tick to restore.
+  Widget _earIf(bool holds, Widget row) => holds ? WithCatEar(child: row) : row;
 
   @override
   Widget build(BuildContext context) {
@@ -193,7 +213,8 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
     final theme = Theme.of(context);
     final name = store.current(widget.chore.entity, Keys.name) ?? t.unnamed;
     return Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         title: Text('${widget.chore.title} · $name'),
         actions: [
           IconButton(
@@ -223,12 +244,12 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.copy_outlined),
+            icon: const Icon(Icons.copy),
             tooltip: t.copyText,
             onPressed: _copy,
           ),
           IconButton(
-            icon: const Icon(Icons.picture_as_pdf_outlined),
+            icon: const Icon(Icons.picture_as_pdf),
             tooltip: t.shareAsPdf,
             onPressed: _sharePdf,
           ),
@@ -237,26 +258,29 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
       body: ListView(
         children: [
           for (final r in _rows)
-            ListTile(
-              onLongPress: () => _menu(r),
-              leading: Icon(
-                switch (r.state) {
-                  ChoreDay.done => Icons.check_circle,
-                  ChoreDay.missed => Icons.cancel_outlined,
-                  _ => Icons.radio_button_unchecked,
-                },
-                color: switch (r.state) {
-                  ChoreDay.done => Colors.green,
-                  ChoreDay.missed => theme.colorScheme.error,
-                  _ => null,
-                },
+            _earIf(
+              r.tick != null || _voidedTick(r) != null,
+              ListTile(
+                onLongPress: () => _menu(r),
+                leading: Icon(
+                  switch (r.state) {
+                    ChoreDay.done => Icons.check_circle,
+                    ChoreDay.missed => Icons.cancel_outlined,
+                    _ => Icons.radio_button_unchecked,
+                  },
+                  color: switch (r.state) {
+                    ChoreDay.done => Colors.green,
+                    ChoreDay.missed => theme.colorScheme.error,
+                    _ => null,
+                  },
+                ),
+                title: Text(DateFormat.yMEd(locale).format(r.due)),
+                subtitle: Text(switch (_voidedText(t, locale, r)) {
+                  final gone? => '${_line(t, locale, r)}\n$gone',
+                  null => _line(t, locale, r),
+                }),
+                isThreeLine: _voidedText(t, locale, r) != null,
               ),
-              title: Text(DateFormat.yMEd(locale).format(r.due)),
-              subtitle: Text(switch (_voidedText(t, locale, r)) {
-                final gone? => '${_line(t, locale, r)}\n$gone',
-                null => _line(t, locale, r),
-              }),
-              isThreeLine: _voidedText(t, locale, r) != null,
             ),
         ],
       ),

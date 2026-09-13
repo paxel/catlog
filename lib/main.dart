@@ -10,7 +10,10 @@ import 'package:window_manager/window_manager.dart';
 
 import 'src/auto_backup.dart';
 import 'src/crash_guard.dart';
+import 'src/import_summary.dart';
 import 'src/incoming_file.dart';
+import 'src/sync/sync_watch.dart';
+import 'src/sync/sync_watch_line.dart';
 import 'src/stray_cam.dart';
 import 'src/hidden.dart';
 import 'src/fur_background.dart';
@@ -29,6 +32,7 @@ import 'src/units.dart';
 import 'src/pet_mode.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
+final messengerKey = GlobalKey<ScaffoldMessengerState>();
 
 /// The catalog everything writes to right now. A file or photo shared
 /// into the app lands in the catalog on screen, not in the one that
@@ -162,6 +166,41 @@ class _CatlogAppState extends State<CatlogApp>
   /// opens another, so it lives in state rather than in the widget.
   late CatalogStore _store = widget.store;
 
+  /// Watches the shared folder while the app is on screen (#watch).
+  late SyncWatcher _watcher = _watcherFor(widget.store);
+
+  SyncWatcher _watcherFor(CatalogStore store) =>
+      SyncWatcher(store)..onMerged = _merged;
+
+  /// After a merge the watcher ran: the summary when something needs a
+  /// look, else one line with a way to the summary.
+  void _merged(FolderSyncResult result, Moment? undo, bool fromTap) {
+    final context = navigatorKey.currentContext;
+    if (context == null || !context.mounted) return;
+    // The keeper's own tap gets what the Sync button gives: the summary.
+    if (needsAttention(result.report) ||
+        (fromTap && result.applied.isNotEmpty)) {
+      showImportSummary(context, _store, result.applied,
+          undo: undo, report: result.report);
+      return;
+    }
+    if (result.applied.isEmpty) return;
+    final t = context.t;
+    final authors = {
+      for (final e in result.applied)
+        if (e.author != seedAuthor) e.author
+    };
+    messengerKey.currentState?.showSnackBar(SnackBar(
+      content: Text(t.syncMerged(result.applied.length,
+          authors.isEmpty ? t.syncAnotherDevice : authors.join(', '))),
+      action: SnackBarAction(
+        label: t.syncShow,
+        onPressed: () => showImportSummary(context, _store, result.applied,
+            undo: undo, report: result.report),
+      ),
+    ));
+  }
+
   /// Switches the app to another catalog: the new one becomes what
   /// everything writes to, and the app returns to the list.
   ///
@@ -182,6 +221,8 @@ class _CatlogAppState extends State<CatlogApp>
     manager.active = to;
     setState(() => _store = next);
     activeStore = next;
+    _watcher.dispose();
+    _watcher = _watcherFor(next)..start();
     clearImageProviders();
     refreshPetMode(next);
     if (unwind) {
@@ -231,6 +272,7 @@ class _CatlogAppState extends State<CatlogApp>
     // The words change with the mode; the whole tree reads them anew.
     petMode.addListener(_rebuild);
     WidgetsBinding.instance.addObserver(this);
+    _watcher.start();
     if (_isDesktop) windowManager.addListener(this);
     if (widget.diedLastRun) {
       WidgetsBinding.instance
@@ -277,6 +319,7 @@ class _CatlogAppState extends State<CatlogApp>
     petMode.removeListener(_rebuild);
     if (_isDesktop) windowManager.removeListener(this);
     WidgetsBinding.instance.removeObserver(this);
+    _watcher.dispose();
     super.dispose();
   }
 
@@ -304,6 +347,13 @@ class _CatlogAppState extends State<CatlogApp>
     if (state == AppLifecycleState.resumed) {
       markRunning();
       _refreshReminders();
+      // On screen again: the folder may have moved on. Off screen the
+      // rounds stop; nothing runs behind other apps.
+      _watcher.start();
+    }
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.hidden) {
+      _watcher.stop();
     }
   }
 
@@ -313,6 +363,7 @@ class _CatlogAppState extends State<CatlogApp>
       valueListenable: localeOverride,
       builder: (context, locale, _) => MaterialApp(
         navigatorKey: navigatorKey,
+        scaffoldMessengerKey: messengerKey,
         // The fur ground follows each page's own scroll position.
         navigatorObservers: [furScroll],
         title: 'cat(a)log',
@@ -347,7 +398,10 @@ class _CatlogAppState extends State<CatlogApp>
             const SingleActivator(LogicalKeyboardKey.escape): () =>
                 navigatorKey.currentState?.maybePop(),
           },
-          child: child ?? const SizedBox.shrink(),
+          child: SyncWatchLine(
+            watcher: _watcher,
+            child: child ?? const SizedBox.shrink(),
+          ),
           ),
           ),
         ),

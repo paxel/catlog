@@ -112,9 +112,10 @@ class MainActivity : FlutterActivity() {
         }
     }
 
-    /// Images shared INTO the app (Immich, Signal, browser, …): copy
-    /// each content URI into the cache and hand the paths to Dart, which
-    /// asks the user which cat they belong to. Queued for cold starts.
+    /// Images and videos shared INTO the app (Immich, Signal, browser, …):
+    /// copy each content URI into the cache and hand the paths to Dart,
+    /// which asks the user which cat they belong to. Queued for cold
+    /// starts.
     private fun handleShareIntent(intent: Intent) {
         val uris: List<Uri> = when (intent.action) {
             Intent.ACTION_SEND ->
@@ -131,7 +132,11 @@ class MainActivity : FlutterActivity() {
         val paths = mutableListOf<String>()
         for ((i, uri) in uris.withIndex()) {
             try {
-                val target = File(cacheDir, "shared-${System.currentTimeMillis()}-$i.img")
+                // A video keeps its kind in the name: Dart runs the frame
+                // picker over it instead of treating it as one photo.
+                val mime = contentResolver.getType(uri) ?: intent.type ?: ""
+                val kind = if (mime.startsWith("video/")) "video" else "img"
+                val target = File(cacheDir, "shared-${System.currentTimeMillis()}-$i.$kind")
                 contentResolver.openInputStream(uri)!!.use { input ->
                     target.outputStream().use { input.copyTo(it) }
                 }

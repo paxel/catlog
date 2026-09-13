@@ -3336,4 +3336,247 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get colWho => 'چه کسی';
+
+  @override
+  String get pdfFontMissing =>
+      'قلم این زبان هنوز روی گوشی نیست؛ برخی حروف به‌صورت مربع چاپ می‌شوند. یک بار به اینترنت وصل شوید و PDF را دوباره بسازید.';
+
+  @override
+  String get vetReportTitle => 'گزارش برای دامپزشک';
+
+  @override
+  String get vetReportMenu => 'گزارش برای دامپزشک…';
+
+  @override
+  String get vetReportFields => 'فیلدها';
+
+  @override
+  String get vetReportFrom => 'از';
+
+  @override
+  String get vetReportTo => 'تا';
+
+  @override
+  String get vetReportSummary => 'خلاصهٔ بیمار';
+
+  @override
+  String get vetReportOwner => 'صاحب';
+
+  @override
+  String get vetReportLegend => 'راهنما';
+
+  @override
+  String get vetReportCurves => 'نمودار';
+
+  @override
+  String get posterMenu => 'پوستر گمشده…';
+
+  @override
+  String get posterHeadline => 'گمشده';
+
+  @override
+  String get posterStanding =>
+      'لطفاً زیرزمین‌ها، انباری‌ها و گاراژها را بررسی کنید. دنبالش نکنید، فقط تماس بگیرید.';
+
+  @override
+  String get posterLastSeen => 'آخرین بار دیده شده نزدیک';
+
+  @override
+  String get posterFreeText => 'خط اضافه';
+
+  @override
+  String get posterQr => 'کد QR برای cat(a)log';
+
+  @override
+  String get posterPhoto => 'عکس';
+
+  @override
+  String get newCatIn => 'گربهٔ جدید در…';
+
+  @override
+  String get newCatInNeutral => 'حیوان خانگی جدید در…';
+
+  @override
+  String get choreLabel => 'کار';
+
+  @override
+  String get choreTickLabel => 'کار انجام شد';
+
+  @override
+  String get choreEnded => 'پایان یافته';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'یادآوری $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'انجام شد در $date';
+  }
+
+  @override
+  String get withheldByPartner => 'توسط یک شریک نگه داشته شده';
+
+  @override
+  String get titleLabel => 'عنوان';
+
+  @override
+  String get deletedLabel => 'حذف‌شده';
+
+  @override
+  String get favouriteAdd => 'افزودن به علاقه‌مندی‌ها';
+
+  @override
+  String get favouriteRemove => 'حذف از علاقه‌مندی‌ها';
+
+  @override
+  String get coverPick => 'تصویر جلد…';
+
+  @override
+  String get coverHint =>
+      'تصویری از مکان: خانه، حیاط، محل غذا دادن. روی کارت به جای گربه نمایش داده می‌شود.';
+
+  @override
+  String get coverRemove => 'حذف تصویر جلد';
+
+  @override
+  String get skipTour => 'رد کردن معرفی و نکته‌ها در این نصب';
+
+  @override
+  String get spotCatChores =>
+      'مراقبت‌های تکراری اینجا زندگی می‌کنند: غذا، دارو، بررسی‌ها، هر کدام با یادآوری خودش.';
+
+  @override
+  String get spotLooks =>
+      'آنچه می‌بینید را علامت بزنید. تطابق با فهرست‌های دیگر از اینجا می‌آید.';
+
+  @override
+  String get spotHistoryHold =>
+      'برای اصلاح یا حذف یک مقدار آن را نگه دارید. چیزی از دست نمی‌رود؛ مقادیر پنهان در صورت درخواست نمایش داده می‌شوند.';
+
+  @override
+  String get spotBackups =>
+      'جایی که فهرست‌های شما ایمن نگه داشته می‌شوند: آنچه گوشی پشتیبان می‌گیرد، و یک نسخه در پوشهٔ دلخواه شما.';
+
+  @override
+  String get spotCardPoster =>
+      'پوستر گمشده از پروندهٔ این گربه: عکس، نام، تلفن با حروف بزرگ و کدی که دیگران اسکن می‌کنند.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'پوستر گمشده از پروندهٔ این حیوان خانگی: عکس، نام، تلفن با حروف بزرگ و کدی که دیگران اسکن می‌کنند.';
+
+  @override
+  String get spotTimelineReport =>
+      'گزارش برای دامپزشک: موارد انتخابی به‌صورت خط زمانی، خلاصهٔ بیمار و نموداری برای هر فیلد عددی، مثلاً وزن.';
+
+  @override
+  String get helpHistory =>
+      'مقادیر یک فیلد در طول زمان، جدیدترین اول. برای اصلاح روی یک مقدار بزنید: مقدار جدید جای آن را می‌گیرد و قدیمی پنهان می‌شود. برای حذف یا بازگرداندن مقدار پنهان، آن را نگه دارید؛ چشم مقادیر پنهان را نشان می‌دهد. فهرست را به‌صورت متن کپی یا به‌صورت PDF به اشتراک بگذارید.';
+
+  @override
+  String get helpSettings =>
+      'گزینه‌های خود برنامه: زبان، واحدها، جشن‌ها و هورا، پوشش پشت صفحه‌ها، اعلان‌ها و محل پشتیبان‌گیری فهرست‌ها. راهنماها را می‌توان از اینجا دوباره پخش کرد.';
+
+  @override
+  String get helpLooks =>
+      'ظاهر گربه به‌صورت چیپ: اندازه، رنگ‌ها، الگو، پوشش، دم، گوش‌ها، نشانه‌ها و ویژگی‌های ماندگار. آنچه می‌بینید را علامت بزنید؛ گربهٔ ولگردی که در دو ویژگی با گربهٔ گمشده مطابقت دارد نامزد می‌شود.';
+
+  @override
+  String get graphSmoothed => 'هموارشده';
+
+  @override
+  String get graphTrend => 'روند';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'روند: $value در ماه';
+  }
+
+  @override
+  String get helpBackups =>
+      'جایی که فهرست‌های شما ایمن نگه داشته می‌شوند: آنچه گوشی خودش پشتیبان می‌گیرد، جای نسخه‌های کامل، زمان آخرین نسخه، و دکمه‌ای برای نوشتن یک نسخه اکنون. بازیابی در مدیریت فهرست‌ها است.';
+
+  @override
+  String get helpConflicts =>
+      'فیلدهایی که دو نفر هم‌زمان تغییر داده‌اند، پیش از همگام‌سازی دستگاه‌هایشان. هر ردیف هر دو مقدار را نشان می‌دهد؛ درست را انتخاب کنید و انتخاب به همهٔ دستگاه‌ها می‌رسد.';
+
+  @override
+  String get helpInPerson =>
+      'با فردی کنار خودتان همگام شوید: یک گوشی میزبان است، دیگری با اسکن کد می‌پیوندد و داده‌ها رمزگذاری‌شده از طریق Wi-Fi و بدون سرور منتقل می‌شوند. کلید خصوصی تعیین می‌کند مقادیر خصوصی منتقل شوند یا نه.';
+
+  @override
+  String get helpMessenger =>
+      'همگام‌سازی به‌صورت فایل: این دستگاه بسته‌ای از هر آنچه می‌داند می‌نویسد، آن را با هر پیام‌رسان یا ایمیل می‌فرستید و طرف مقابل وارد می‌کند. عکس‌ها داخل آن می‌روند؛ مقادیر خصوصی فقط اگر کلید اجازه دهد.';
+
+  @override
+  String get helpModeration =>
+      'افرادی که مواردشان به این فهرست رسیده، همراه با آنچه نوشته‌اند. داده‌های یک نفر را روی این دستگاه حذف کنید و دستگاهش را مسدود کنید؛ مسدودسازی نام‌هایی را که آن دستگاه با آن‌ها نوشته فهرست می‌کند.';
+
+  @override
+  String get helpRemote =>
+      'همگام‌سازی از طریق پوشهٔ مشترک برای دستگاه‌هایی که هرگز همدیگر را نمی‌بینند: یک بار همان پوشه را در هر دستگاه انتخاب کنید؛ هر همگام‌سازی تغییرات شما را آنجا می‌نویسد و تغییرات دیگران را می‌خواند. یک پوشه همهٔ فهرست‌ها را در زیرپوشه‌های جداگانه حمل می‌کند.';
+
+  @override
+  String get helpRestore =>
+      'پشتیبان‌های نصب قبلی، یک ردیف برای هر فهرست، علامت‌خورده. بازیابی هر یک را به‌عنوان فهرست جداگانه برمی‌گرداند. در اندروید پوشه یک بار از طریق انتخابگر داده می‌شود؛ انتخاب فایل‌ها پشتیبان‌های ذخیره‌شده در جای دیگر را می‌افزاید.';
+
+  @override
+  String get helpScan =>
+      'کد cat(a)log را روی پوستر یا صفحهٔ فرد دیگری اسکن کنید: گربه و تماسش بدون تایپ اینجا می‌آیند. کدی که پیوند دارد فایل پشت آن را می‌گیرد.';
+
+  @override
+  String get helpVetReport =>
+      'آنچه به دامپزشک می‌رود: فیلدها و تاریخ‌های انتخابی، هر ردیف علامت‌خورده تا وقتی که آن را بردارید، و خلاصهٔ بیمار در بالا. اشتراک به‌صورت PDF یا چاپ، هر دو در نوار.';
+
+  @override
+  String get helpPoster =>
+      'پوستری برای تیر چراغ برق، از پرونده: آنچه باید روی آن باشد را علامت بزنید، خطی که پرونده ندارد اضافه کنید، و صفحه سیاه روی سفید با حروفی چاپ می‌شود که از آن سوی خیابان خوانده شود. کد، گربه را در یک cat(a)log دیگر باز می‌کند.';
+
+  @override
+  String get helpAchievements =>
+      'فقط آنچه به دست آمده: ماه‌ها، سال‌ها و بیشتر از کارهای کامل با تعدادشان، یک عنوان برای هر کار در رتبهٔ خود، و پوشش‌های باز شده. بدون نوار پیشرفت و بدون چیزی برای دنبال کردن؛ پاداش‌ها یک جایزهٔ آرام هستند.';
+
+  @override
+  String get posterQrTooBig =>
+      'برای یک کد بیش از حد علامت زده شده. علامت یک خط را بردارید تا کد برگردد.';
+
+  @override
+  String get posterPhotos => 'عکس‌ها، حداکثر دو';
+
+  @override
+  String get posterFrameHint =>
+      'بکشید و با دو انگشت بزرگ‌نمایی کنید تا کادر عکس را انتخاب کنید.';
+
+  @override
+  String get posterPreview => 'پیش‌نمایش';
+
+  @override
+  String get syncWatchSwitch => 'وقتی تغییراتی در پوشه منتظر است به من بگو';
+
+  @override
+  String get syncAutoSwitch => 'خودشان ادغام شوند';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'تغییراتی از $authors در $catalog منتظر است. برای همگام‌سازی ضربه بزنید.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'دستگاهی دیگر';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تغییر از $authors ادغام شد',
+      one: '$count تغییر از $authors ادغام شد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'نمایش';
 }

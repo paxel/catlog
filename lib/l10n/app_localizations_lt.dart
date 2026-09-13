@@ -3418,4 +3418,249 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get colWho => 'Kas';
+
+  @override
+  String get pdfFontMissing =>
+      'Šios kalbos šriftas dar nėra telefone; kai kurios raidės spausdinamos kaip langeliai. Kartą prisijunkite prie interneto ir sukurkite PDF iš naujo.';
+
+  @override
+  String get vetReportTitle => 'Ataskaita veterinarui';
+
+  @override
+  String get vetReportMenu => 'Ataskaita veterinarui…';
+
+  @override
+  String get vetReportFields => 'Laukai';
+
+  @override
+  String get vetReportFrom => 'Nuo';
+
+  @override
+  String get vetReportTo => 'Iki';
+
+  @override
+  String get vetReportSummary => 'Paciento santrauka';
+
+  @override
+  String get vetReportOwner => 'Savininkas';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Grafikas';
+
+  @override
+  String get posterMenu => 'Dingusio plakatas…';
+
+  @override
+  String get posterHeadline => 'DINGO';
+
+  @override
+  String get posterStanding =>
+      'Prašome patikrinti rūsius, pašiūres ir garažus. Nevaikykite, tiesiog paskambinkite.';
+
+  @override
+  String get posterLastSeen => 'Paskutinį kartą matytas prie';
+
+  @override
+  String get posterFreeText => 'Papildoma eilutė';
+
+  @override
+  String get posterQr => 'QR kodas cat(a)log';
+
+  @override
+  String get posterPhoto => 'Nuotrauka';
+
+  @override
+  String get newCatIn => 'Nauja katė į…';
+
+  @override
+  String get newCatInNeutral => 'Naujas augintinis į…';
+
+  @override
+  String get choreLabel => 'Užduotis';
+
+  @override
+  String get choreTickLabel => 'Užduotis atlikta';
+
+  @override
+  String get choreEnded => 'Baigta';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'priminimas $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'atlikta $date';
+  }
+
+  @override
+  String get withheldByPartner => 'partnerio nuslėpta';
+
+  @override
+  String get titleLabel => 'Titulas';
+
+  @override
+  String get deletedLabel => 'Ištrinta';
+
+  @override
+  String get favouriteAdd => 'Pažymėti kaip mėgstamą';
+
+  @override
+  String get favouriteRemove => 'Pašalinti iš mėgstamų';
+
+  @override
+  String get coverPick => 'Viršelio nuotrauka…';
+
+  @override
+  String get coverHint =>
+      'Vietos nuotrauka: namas, kiemas, šėrimo vieta. Rodoma kortelėje vietoj katės.';
+
+  @override
+  String get coverRemove => 'Pašalinti viršelio nuotrauką';
+
+  @override
+  String get skipTour => 'Praleisti įvadą ir patarimus šiame įdiegime';
+
+  @override
+  String get spotCatChores =>
+      'Pasikartojanti priežiūra gyvena čia: šėrimas, vaistai, patikros, kiekviena su savo priminimu.';
+
+  @override
+  String get spotLooks =>
+      'Pažymėkite, ką matote. Atitikmenys su kitais katalogais kyla iš čia.';
+
+  @override
+  String get spotHistoryHold =>
+      'Palaikykite reikšmę, kad ją pataisytumėte ar pašalintumėte. Niekas neprarandama; paslėptos reikšmės rodomos paprašius.';
+
+  @override
+  String get spotBackups =>
+      'Kur saugomi jūsų katalogai: ką telefonas saugo, ir kopija jūsų pasirinktame aplanke.';
+
+  @override
+  String get spotCardPoster =>
+      'Dingusio plakatas iš šios katės įrašo: nuotrauka, vardas, telefonas didelėmis raidėmis ir kodas, kurį kiti nuskaito.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Dingusio plakatas iš šio augintinio įrašo: nuotrauka, vardas, telefonas didelėmis raidėmis ir kodas, kurį kiti nuskaito.';
+
+  @override
+  String get spotTimelineReport =>
+      'Ataskaita veterinarui: pasirinkti įrašai kaip laiko juosta, paciento santrauka ir grafikas kiekvienam skaičių laukui, pavyzdžiui svoriui.';
+
+  @override
+  String get helpHistory =>
+      'Vieno lauko reikšmės laike, naujausios pirmos. Palieskite reikšmę, kad pataisytumėte: nauja užima jos vietą, sena paslepiama. Palaikykite reikšmę, kad pašalintumėte ar grąžintumėte paslėptą; akis rodo paslėptas reikšmes. Nukopijuokite sąrašą kaip tekstą arba bendrinkite kaip PDF.';
+
+  @override
+  String get helpSettings =>
+      'Programėlės parinktys: kalba, vienetai, šventės ir šūksniai, kailis už puslapių, pranešimai ir kur saugomos jūsų katalogų kopijos. Iš čia galima pakartoti ekskursijas.';
+
+  @override
+  String get helpLooks =>
+      'Kaip katė atrodo, lustais: dydis, spalvos, raštas, kailis, uodega, ausys, žymės ir nuolatiniai bruožai. Pažymėkite, ką matote; benamė, sutampanti su dingusia dviem bruožais, tampa kandidate.';
+
+  @override
+  String get graphSmoothed => 'Išlygintas';
+
+  @override
+  String get graphTrend => 'Tendencija';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendencija: $value per mėnesį';
+  }
+
+  @override
+  String get helpBackups =>
+      'Kur saugomi jūsų katalogai: ką telefonas saugo pats, kur patenka pilnos kopijos, kada įrašyta paskutinė, ir mygtukas įrašyti dabar. Atkūrimas yra Katalogų tvarkyme.';
+
+  @override
+  String get helpConflicts =>
+      'Laukai, kuriuos du žmonės pakeitė vienu metu, kol jų įrenginiai nesusisinchronizavo. Kiekviena eilutė rodo abi reikšmes; pasirinkite teisingą, ir pasirinkimas pasieks kiekvieną įrenginį.';
+
+  @override
+  String get helpInPerson =>
+      'Sinchronizuokite su šalia stovinčiu žmogumi: vienas telefonas priima, kitas prisijungia nuskaitęs kodą, o duomenys keliauja Wi-Fi ryšiu, užšifruoti, be serverio. Privatumo jungiklis sprendžia, ar keliauja privačios reikšmės.';
+
+  @override
+  String get helpMessenger =>
+      'Sinchronizavimas failu: šis įrenginys įrašo paketą su viskuo, ką žino, nusiunčiate jį per bet kurią programėlę ar paštu, o kita pusė importuoja. Nuotraukos keliauja viduje; privačios reikšmės tik leidus jungikliui.';
+
+  @override
+  String get helpModeration =>
+      'Žmonės, kurių įrašai pasiekė šį katalogą, ir ką jie parašė. Ištrinkite asmens duomenis šiame įrenginyje ir užblokuokite jo įrenginį; blokavimas išvardija vardus, kuriais tas įrenginys rašė.';
+
+  @override
+  String get helpRemote =>
+      'Sinchronizavimas per bendrą aplanką įrenginiams, kurie niekada nesusitinka: vieną kartą pasirinkite tą patį aplanką kiekviename įrenginyje; kiekvienas sinchronizavimas ten įrašo jūsų pakeitimus ir skaito kitų. Vienas aplankas neša visus katalogus, kiekvieną savo poaplankyje.';
+
+  @override
+  String get helpRestore =>
+      'Ankstesnio įdiegimo atsarginės kopijos, po eilutę katalogui, pažymėtos. Atkurti grąžina kiekvieną kaip atskirą katalogą. Android sistemoje aplankas suteikiamas vieną kartą per parinkiklį; Pasirinkti failus prideda kitur laikomas kopijas.';
+
+  @override
+  String get helpScan =>
+      'Nuskaitykite cat(a)log kodą ant plakato ar kito žmogaus ekrane: katė ir jos kontaktas patenka čia be rašymo. Kodas su nuoroda parsiunčia už jo esantį failą.';
+
+  @override
+  String get helpVetReport =>
+      'Kas keliauja veterinarui: jūsų pasirinkti laukai ir datos, kiekviena eilutė pažymėta, kol nepanaikinsite žymos, ir paciento santrauka priekyje. Bendrinti kaip PDF arba spausdinti, abu juostoje.';
+
+  @override
+  String get helpPoster =>
+      'Plakatas ant stulpo iš įrašo: pažymėkite, kas jame bus, pridėkite eilutę, kurios įraše nėra, ir puslapis spausdinamas juodai ant balto raidėmis, skaitomomis iš kitos gatvės pusės. Kodas atveria katę kitame cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Kas uždirbta ir tik tai: pilni mėnesiai, metai ir daugiau užduočių su jų skaičiumi, po vieną titulą užduočiai jos pakopoje ir atrakinti kailiai. Jokių pažangos juostų ir nieko vaikytis; apdovanojimai yra tylus priedas.';
+
+  @override
+  String get posterQrTooBig =>
+      'Vienam kodui pažymėta per daug. Nuimkite vieną žymą, ir kodas grįš.';
+
+  @override
+  String get posterPhotos => 'Nuotraukos, iki dviejų';
+
+  @override
+  String get posterFrameHint =>
+      'Vilkite ir suspauskite, kad parinktumėte kadrą.';
+
+  @override
+  String get posterPreview => 'Peržiūra';
+
+  @override
+  String get syncWatchSwitch => 'Pranešti, kai aplanke laukia pakeitimai';
+
+  @override
+  String get syncAutoSwitch => 'Sulieti juos savaime';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors pakeitimai laukia kataloge $catalog. Palieskite, kad sinchronizuotumėte.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'kitas įrenginys';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count $authors pakeitimų sulieta',
+      many: '$count $authors pakeitimo sulieta',
+      few: '$count $authors pakeitimai sulieti',
+      one: '$count $authors pakeitimas sulietas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Rodyti';
 }

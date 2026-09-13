@@ -3266,4 +3266,239 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get colWho => '担当';
+
+  @override
+  String get pdfFontMissing =>
+      'この言語のフォントがまだ端末にありません。一部の文字が四角で表示されます。一度インターネットに接続してから PDF を作り直してください。';
+
+  @override
+  String get vetReportTitle => '獣医向けレポート';
+
+  @override
+  String get vetReportMenu => '獣医向けレポート…';
+
+  @override
+  String get vetReportFields => '項目';
+
+  @override
+  String get vetReportFrom => '開始';
+
+  @override
+  String get vetReportTo => '終了';
+
+  @override
+  String get vetReportSummary => '患者情報';
+
+  @override
+  String get vetReportOwner => '飼い主';
+
+  @override
+  String get vetReportLegend => '凡例';
+
+  @override
+  String get vetReportCurves => 'グラフ';
+
+  @override
+  String get posterMenu => '迷子ポスター…';
+
+  @override
+  String get posterHeadline => '迷子';
+
+  @override
+  String get posterStanding => '地下室・物置・ガレージを確認してください。追いかけずに、お電話ください。';
+
+  @override
+  String get posterLastSeen => '最後に見た場所';
+
+  @override
+  String get posterFreeText => '追加の一行';
+
+  @override
+  String get posterQr => 'cat(a)log 用 QR コード';
+
+  @override
+  String get posterPhoto => '写真';
+
+  @override
+  String get newCatIn => '新しい猫を追加…';
+
+  @override
+  String get newCatInNeutral => '新しいペットを追加…';
+
+  @override
+  String get choreLabel => 'お世話';
+
+  @override
+  String get choreTickLabel => 'お世話済み';
+
+  @override
+  String get choreEnded => '終了';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'リマインダー $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return '$date に完了';
+  }
+
+  @override
+  String get withheldByPartner => 'パートナーが非公開';
+
+  @override
+  String get titleLabel => '称号';
+
+  @override
+  String get deletedLabel => '削除済み';
+
+  @override
+  String get favouriteAdd => 'お気に入りに追加';
+
+  @override
+  String get favouriteRemove => 'お気に入りから削除';
+
+  @override
+  String get coverPick => 'カバー写真…';
+
+  @override
+  String get coverHint => '場所の写真: 家、庭、給餌場所。カードに猫の代わりに表示されます。';
+
+  @override
+  String get coverRemove => 'カバー写真を削除';
+
+  @override
+  String get skipTour => 'このインストールでは紹介とヒントを省略する';
+
+  @override
+  String get spotCatChores => '繰り返しのお世話はここ: 食事、薬、チェック。それぞれにリマインダーを付けられます。';
+
+  @override
+  String get spotLooks => '見えたものにチェック。他のカタログとの照合はここから生まれます。';
+
+  @override
+  String get spotHistoryHold =>
+      '値を長押しすると修正または取り消しできます。何も失われず、隠した値は必要なときに表示できます。';
+
+  @override
+  String get spotBackups => 'カタログの保管場所: 端末がバックアップするものと、選んだフォルダへのコピー。';
+
+  @override
+  String get spotCardPoster =>
+      'この猫の記録から迷子ポスターを作成: 写真、名前、大きな文字の電話番号、他の人が読み取るコード。';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'このペットの記録から迷子ポスターを作成: 写真、名前、大きな文字の電話番号、他の人が読み取るコード。';
+
+  @override
+  String get spotTimelineReport =>
+      '獣医向けレポート: 選んだ項目をタイムラインに、患者情報、そして体重など数値項目ごとのグラフ。';
+
+  @override
+  String get helpHistory =>
+      '1つの項目の値の推移を新しい順に表示。値をタップで修正: 新しい値が置き換わり、古い値は隠れます。長押しで取り消し、または隠した値を復元。目のアイコンで隠した値を表示。テキストとしてコピー、PDF として共有できます。';
+
+  @override
+  String get helpSettings =>
+      'アプリの設定: 言語、単位、お祝いと歓声、ページ背景の毛柄、通知、カタログのバックアップ先。ツアーはここから再表示できます。';
+
+  @override
+  String get helpLooks =>
+      '猫の見た目をチップで: サイズ、色、模様、毛、尻尾、耳、しるし、変わらない特徴。見えたものにチェック。迷い猫と2つの特徴が一致する野良猫は候補になります。';
+
+  @override
+  String get graphSmoothed => '平滑化';
+
+  @override
+  String get graphTrend => '傾向';
+
+  @override
+  String trendPerMonth(Object value) {
+    return '傾向: 月あたり $value';
+  }
+
+  @override
+  String get helpBackups =>
+      'カタログの保管場所: 端末が自動でバックアップするもの、完全なコピーの保存先、最後のコピーの日時、今すぐコピーを作るボタン。復元は「カタログの管理」にあります。';
+
+  @override
+  String get helpConflicts =>
+      '端末が同期する前に、2人が同時に変更した項目。各行に両方の値が表示されます。正しい方を選ぶと、その選択がすべての端末に届きます。';
+
+  @override
+  String get helpInPerson =>
+      '隣にいる人と同期: 一方の端末がホストになり、もう一方がコードを読み取って参加し、データはサーバーなしで Wi-Fi 経由で暗号化して送られます。非公開スイッチで非公開の値を送るか決めます。';
+
+  @override
+  String get helpMessenger =>
+      'ファイルで同期: この端末が知っているすべてを1つのファイルに書き出し、メッセンジャーやメールで送り、相手側が取り込みます。写真も含まれ、非公開の値はスイッチが許す場合のみ含まれます。';
+
+  @override
+  String get helpModeration =>
+      'このカタログに記録を送った人たちと、その内容。この端末上でその人のデータを削除し、その端末からの送信を禁止できます。禁止にはその端末が使った名前が一覧されます。';
+
+  @override
+  String get helpRemote =>
+      '会うことのない端末同士は共有フォルダで同期: 各端末で同じフォルダを一度選ぶと、同期のたびに自分の変更を書き込み、他の人の変更を読み込みます。1つのフォルダにすべてのカタログが、それぞれのサブフォルダで入ります。';
+
+  @override
+  String get helpRestore =>
+      '前回インストール時のバックアップを、カタログごとに1行、チェック付きで表示。復元すると各々が独立したカタログとして戻ります。Android ではフォルダの許可を選択画面で一度与えます。「ファイルを選択」で他の場所のバックアップを追加できます。';
+
+  @override
+  String get helpScan =>
+      'ポスターや他の人の画面の cat(a)log コードを読み取ると、猫と連絡先が入力なしでここに入ります。リンク付きのコードはその先のファイルを取得します。';
+
+  @override
+  String get helpVetReport =>
+      '獣医に渡す内容: 選んだ項目と期間、外すまでチェックされた各行、先頭の患者情報。PDF で共有または印刷、どちらもバーにあります。';
+
+  @override
+  String get helpPoster =>
+      '街灯に貼るポスターを記録から作成: 載せる項目にチェックし、記録にない一行を追加すると、通りの向こうから読める文字で白黒印刷されます。コードは別の cat(a)log でその猫を開きます。';
+
+  @override
+  String get helpAchievements =>
+      '獲得したものだけを表示: お世話を続けた月・年などとその回数、お世話ごとの現在の称号、解放された毛柄。進捗バーはなく、追いかけるものもありません。ご褒美は静かなおまけです。';
+
+  @override
+  String get posterQrTooBig => '1つのコードに入れるには多すぎます。1行チェックを外すとコードが戻ります。';
+
+  @override
+  String get posterPhotos => '写真、2枚まで';
+
+  @override
+  String get posterFrameHint => 'ドラッグとピンチで写真の範囲を決めます。';
+
+  @override
+  String get posterPreview => 'プレビュー';
+
+  @override
+  String get syncWatchSwitch => 'フォルダに変更が届いたら知らせる';
+
+  @override
+  String get syncAutoSwitch => '自動的に取り込む';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors の変更が $catalog に届いています。タップして同期。';
+  }
+
+  @override
+  String get syncAnotherDevice => '別の端末';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$authors の変更 $count 件を取り込みました',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => '表示';
 }

@@ -80,4 +80,78 @@ void main() {
     await tester.pumpAndSettle();
     expect(store.images(store.cats().single.id), isEmpty);
   });
+
+  testWidgets('the chooser makes a new cat in a chosen or a new home', (
+    tester,
+  ) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final barn = store.createClowder('Barn');
+    String? picked;
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Builder(
+          builder: (context) => TextButton(
+            onPressed: () async =>
+                picked = await chooseIncomingTarget(context, store),
+            child: const Text('go'),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('go'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('New cat in…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Barn'));
+    await tester.pumpAndSettle();
+    expect(picked, isNotNull);
+    expect(store.current(picked!, Keys.clowder), barn);
+
+    await tester.tap(find.text('go'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('New cat in…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('New clowder'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Shed');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    final shed = store.clowders().firstWhere((c) => c.name == 'Shed');
+    expect(store.current(picked!, Keys.clowder), shed.id);
+  });
+
+  testWidgets('a shared video runs the frame picker and keeps its frames', (
+    tester,
+  ) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final cat = store.createCat('Miezi');
+    final dir = Directory.systemTemp.createTempSync('catlog-video');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final video = File('${dir.path}/clip.video')..writeAsBytesSync([0, 1, 2]);
+    final navigator = GlobalKey<NavigatorState>();
+    await tester.pumpWidget(MaterialApp(
+      navigatorKey: navigator,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const Scaffold(body: SizedBox()),
+    ));
+    Uint8List jpeg(int shade) => Uint8List.fromList(
+        img.encodeJpg(img.Image(width: 40, height: 40)..clear(img.ColorRgb8(shade, 0, 0))));
+    await tester.runAsync(() => handleSharedImages(
+          navigator,
+          store,
+          [video.path],
+          chooseTarget: (_, _) async => cat,
+          extractFrames: (_, path) async {
+            expect(path, video.path);
+            return [jpeg(10), jpeg(200)];
+          },
+        ));
+    await tester.pumpAndSettle();
+    expect(store.images(cat).length, 2);
+  });
 }

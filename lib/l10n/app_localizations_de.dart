@@ -1490,7 +1490,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get modePets => 'Tiere';
 
   @override
-  String get graphLabel => 'Verlauf';
+  String get graphLabel => 'Diagramm';
 
   @override
   String get fieldHistoryTooltip => 'Verlauf';
@@ -3408,4 +3408,247 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get colWho => 'Wer';
+
+  @override
+  String get pdfFontMissing =>
+      'Die Schrift für diese Sprache ist noch nicht auf dem Telefon; manche Buchstaben erscheinen als Kästchen. Einmal ins Internet gehen und das PDF erneut erstellen.';
+
+  @override
+  String get vetReportTitle => 'Bericht für den Tierarzt';
+
+  @override
+  String get vetReportMenu => 'Bericht für den Tierarzt…';
+
+  @override
+  String get vetReportFields => 'Felder';
+
+  @override
+  String get vetReportFrom => 'Von';
+
+  @override
+  String get vetReportTo => 'Bis';
+
+  @override
+  String get vetReportSummary => 'Patientenübersicht';
+
+  @override
+  String get vetReportOwner => 'Halter';
+
+  @override
+  String get vetReportLegend => 'Legende';
+
+  @override
+  String get vetReportCurves => 'Diagramm';
+
+  @override
+  String get posterMenu => 'Vermisst-Plakat…';
+
+  @override
+  String get posterHeadline => 'VERMISST';
+
+  @override
+  String get posterStanding =>
+      'Bitte in Kellern, Schuppen und Garagen nachsehen. Nicht jagen, einfach anrufen.';
+
+  @override
+  String get posterLastSeen => 'Zuletzt gesehen bei';
+
+  @override
+  String get posterFreeText => 'Zusatzzeile';
+
+  @override
+  String get posterQr => 'QR-Code für cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Neue Katze in…';
+
+  @override
+  String get newCatInNeutral => 'Neues Tier in…';
+
+  @override
+  String get choreLabel => 'Aufgabe';
+
+  @override
+  String get choreTickLabel => 'Aufgabe erledigt';
+
+  @override
+  String get choreEnded => 'Beendet';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'Erinnerung $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'erledigt am $date';
+  }
+
+  @override
+  String get withheldByPartner => 'von einem Partner zurückgehalten';
+
+  @override
+  String get titleLabel => 'Titel';
+
+  @override
+  String get deletedLabel => 'Gelöscht';
+
+  @override
+  String get favouriteAdd => 'Als Favorit markieren';
+
+  @override
+  String get favouriteRemove => 'Aus den Favoriten entfernen';
+
+  @override
+  String get coverPick => 'Titelbild…';
+
+  @override
+  String get coverHint =>
+      'Ein Bild des Ortes: das Haus, der Hof, der Futterplatz. Auf der Karte statt einer Katze gezeigt.';
+
+  @override
+  String get coverRemove => 'Titelbild entfernen';
+
+  @override
+  String get skipTour =>
+      'Einführung und Tipps auf dieser Installation überspringen';
+
+  @override
+  String get spotCatChores =>
+      'Wiederkehrende Aufgaben wohnen hier: Füttern, Medikamente, Kontrollen, jede mit eigener Erinnerung.';
+
+  @override
+  String get spotLooks =>
+      'Hake an, was du siehst. Treffer mit anderen Katalogen entstehen daraus.';
+
+  @override
+  String get spotHistoryHold =>
+      'Halte einen Wert, um ihn zu korrigieren oder zu entfernen. Nichts geht verloren; ausgeblendete Werte zeigst du auf Wunsch.';
+
+  @override
+  String get spotBackups =>
+      'Wo deine Kataloge gesichert sind: was das Telefon sichert, und eine Kopie in einem Ordner deiner Wahl.';
+
+  @override
+  String get spotCardPoster =>
+      'Ein Vermisst-Plakat aus dem Datensatz dieser Katze: Foto, Name, Telefon in großen Buchstaben und ein Code, den andere scannen.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Ein Vermisst-Plakat aus dem Datensatz dieses Tieres: Foto, Name, Telefon in großen Buchstaben und ein Code, den andere scannen.';
+
+  @override
+  String get spotTimelineReport =>
+      'Ein Bericht für den Tierarzt: die Einträge deiner Wahl als Zeitstrahl, eine Patientenübersicht und ein Diagramm für jedes Zahlenfeld, zum Beispiel das Gewicht.';
+
+  @override
+  String get helpHistory =>
+      'Die Werte eines Feldes über die Zeit, neueste zuerst. Tippe einen Wert an, um ihn zu korrigieren: der neue tritt an seine Stelle, der alte wird ausgeblendet. Halte einen Wert, um ihn zu entfernen oder einen ausgeblendeten zurückzuholen; das Auge zeigt ausgeblendete Werte. Kopiere die Liste als Text oder teile sie als PDF.';
+
+  @override
+  String get helpSettings =>
+      'Die Einstellungen der App: Sprache, Einheiten, Feiern und Jubel, das Fell hinter den Seiten, Benachrichtigungen, und wo deine Kataloge gesichert sind. Die Touren lassen sich von hier wiederholen.';
+
+  @override
+  String get helpLooks =>
+      'Wie die Katze aussieht, als Chips: Größe, Farben, Muster, Fell, Schwanz, Ohren, Zeichnungen und bleibende Merkmale. Hake an, was du siehst; ein Streuner, der mit einer vermissten Katze in zwei Merkmalen übereinstimmt, wird Treffer-Kandidat.';
+
+  @override
+  String get graphSmoothed => 'Geglättet';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value pro Monat';
+  }
+
+  @override
+  String get helpBackups =>
+      'Wo deine Kataloge gesichert sind: was das Telefon von selbst sichert, wo die vollständigen Kopien landen, wann die letzte geschrieben wurde, und ein Knopf, um jetzt eine zu schreiben. Wiederherstellen findest du unter Kataloge verwalten.';
+
+  @override
+  String get helpConflicts =>
+      'Felder, die zwei Leute gleichzeitig geändert haben, bevor sich ihre Geräte abgeglichen hatten. Jede Zeile zeigt beide Werte; wähle den richtigen, und die Wahl erreicht jedes Gerät.';
+
+  @override
+  String get helpInPerson =>
+      'Abgleich mit jemandem neben dir: ein Telefon ist Gastgeber, das andere tritt per Code-Scan bei, und die Daten wandern verschlüsselt über WLAN, ohne Server. Der Privat-Schalter entscheidet, ob private Werte mitreisen.';
+
+  @override
+  String get helpMessenger =>
+      'Abgleich als Datei: dieses Gerät schreibt ein Bündel mit allem, was es weiß, du schickst es über einen Messenger oder per Mail, und die andere Seite importiert es. Fotos reisen mit; private Werte nur, wenn der Schalter es sagt.';
+
+  @override
+  String get helpModeration =>
+      'Die Personen, deren Einträge diesen Katalog erreicht haben, mit dem, was sie schrieben. Lösche die Daten einer Person auf diesem Gerät und sperre ihr Gerät für weitere Sendungen; eine Sperre nennt die Namen, unter denen das Gerät schrieb.';
+
+  @override
+  String get helpRemote =>
+      'Abgleich über einen gemeinsamen Ordner für Geräte, die sich nie treffen: wähle einmal denselben Ordner auf jedem Gerät; jeder Abgleich schreibt deine Änderungen dorthin und liest die der anderen. Ein Ordner trägt alle Kataloge, jeden in einem eigenen Unterordner.';
+
+  @override
+  String get helpRestore =>
+      'Sicherungen der vorherigen Installation, eine Zeile pro Katalog, angehakt. Wiederherstellen bringt jede als eigenen Katalog zurück. Auf Android wird der Ordner einmal über die Auswahl freigegeben; Dateien wählen fügt Sicherungen von anderswo hinzu.';
+
+  @override
+  String get helpScan =>
+      'Scanne den cat(a)log-Code auf einem Aushang oder auf dem Bildschirm eines anderen: die Katze und ihr Kontakt landen hier ohne Tippen. Ein Code mit Link holt die Datei dahinter.';
+
+  @override
+  String get helpVetReport =>
+      'Was zum Tierarzt geht: die Felder und Daten deiner Wahl, jede Zeile angehakt, bis du sie abwählst, und die Patientenübersicht vorneweg. Als PDF teilen oder drucken, beides in der Leiste oben.';
+
+  @override
+  String get helpPoster =>
+      'Ein Plakat für den Laternenpfahl, aus dem Datensatz: hake an, was drauf soll, ergänze eine Zeile, die der Datensatz nicht hat, und die Seite druckt schwarz auf weiß in Buchstaben, die man von der anderen Straßenseite liest. Der Code darauf öffnet die Katze in einem anderen cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Was verdient wurde und nur das: volle Monate, Jahre und mehr an Aufgaben mit ihrer Zahl, ein Titel pro Aufgabe auf seiner Stufe, und die freigeschalteten Felle. Keine Fortschrittsbalken und nichts zu jagen; die Belohnungen sind ein stiller Bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Für einen Code ist zu viel angehakt. Wähle eine Zeile ab, und der Code kommt zurück.';
+
+  @override
+  String get posterPhotos => 'Fotos, bis zu zwei';
+
+  @override
+  String get posterFrameHint => 'Ziehe und zoome, um den Ausschnitt zu wählen.';
+
+  @override
+  String get posterPreview => 'Vorschau';
+
+  @override
+  String get syncWatchSwitch => 'Sag mir, wenn Änderungen im Ordner warten';
+
+  @override
+  String get syncAutoSwitch => 'Von selbst zusammenführen';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Änderungen von $authors warten in $catalog. Tippen zum Abgleichen.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'einem anderen Gerät';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Änderungen von $authors zusammengeführt',
+      one: '$count Änderung von $authors zusammengeführt',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Anzeigen';
 }

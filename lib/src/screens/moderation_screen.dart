@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n.dart';
+import '../help.dart';
 import '../titles.dart';
 
 /// Moderation (ADR-0006): per-author hard delete behind one plain
@@ -102,7 +103,10 @@ class _ModerationScreenState extends State<ModerationScreen> {
     final rows = store.authorsOverview();
     final bans = store.bans();
     return Scaffold(
-      appBar: AppBar(title: Text(t.moderationTitle)),
+      appBar: AppBar(
+        title: Text(t.moderationTitle),
+        actions: [HelpButton(store: widget.store, screenId: 'moderation')],
+      ),
       body: ListView(children: [
         Padding(
           padding: const EdgeInsets.all(16),

@@ -103,7 +103,10 @@ void main() {
     expect(find.textContaining('+0.25 kg since'), findsOneWidget);
     expect(find.byKey(const ValueKey('field-graph')), findsOneWidget);
 
-    // A range chip narrows the curve and is remembered.
+    // The chips fold behind their header; open it, then a range chip
+    // narrows the curve and is remembered.
+    await tester.tap(find.text('Graph').first);
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Week'));
     await tester.pumpAndSettle();
     expect(store.localSetting(graphRangeKey), 'week');

@@ -10,17 +10,27 @@ void main() {
 
   test('nothing seen: everything due, manifest order', () {
     expect(dueSpotlights('', items).map((i) => i.id),
-        ['cat-edit', 'cat-menu', 'cat-reminder']);
+        ['cat-edit', 'cat-menu', 'cat-reminder', 'cat-chores', 'cat-report', 'cat-poster']);
   });
 
   test('partially seen: only the new item is due', () {
     expect(dueSpotlights('cat-menu', items).map((i) => i.id),
-        ['cat-edit', 'cat-reminder']);
+        ['cat-edit', 'cat-reminder', 'cat-chores', 'cat-report', 'cat-poster']);
   });
 
   test('all seen: nothing due', () {
     expect(
-        dueSpotlights('cat-edit,cat-menu,cat-reminder', items), isEmpty);
+        dueSpotlights('cat-edit,cat-menu,cat-reminder,cat-chores,cat-report,cat-poster', items),
+        isEmpty);
+  });
+
+  test('the 1.3.0 tips are in the manifest', () {
+    final ids = [
+      for (final list in spotlightManifest.values)
+        for (final item in list) item.id
+    ];
+    expect(ids, containsAll(['cat-chores', 'looks-chips', 'history-hold',
+        'settings-backups', 'cat-poster', 'cat-report']));
   });
 
   test('every manifest item id has a unique anchor id', () {
@@ -34,6 +44,14 @@ void main() {
   group('tip placement', () {
     const phone = Size(360, 800);
     const tablet = Size(1024, 768);
+
+    test('a target past the bottom edge still leaves the card on screen', () {
+      const screen = Size(400, 800);
+      final p = tipPlacement(const Rect.fromLTWH(0, 900, 100, 40), screen);
+      expect(p.bottom, greaterThanOrEqualTo(tipMargin));
+      final q = tipPlacement(const Rect.fromLTWH(0, -80, 100, 40), screen);
+      expect(q.top, greaterThanOrEqualTo(tipMargin));
+    });
 
     test('on a phone the tip spans the width, as it always did', () {
       final p = tipPlacement(const Rect.fromLTWH(8, 8, 48, 48), phone);

@@ -23,6 +23,7 @@ import '../widgets/status_chip.dart';
 import '../registry_lookup.dart';
 import '../spotlight.dart';
 import 'card_screen.dart';
+import '../cover_picture.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_card_screen.dart';
 import 'map_screen.dart';
@@ -397,7 +398,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         await Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) =>
-                TimelineScreen(store: store, entityId: id, field: def.key),
+                FieldHistoryScreen(store: store, entityId: id, def: def),
           ),
         );
         // Reverts happen on the timeline — the page must show them.
@@ -412,12 +413,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       locateNote: _locateNote,
       locating: _locating,
       onLookup: (def, value) => openLookup(context, def, value),
-      // Long-press in read mode: jump into edit mode with the field's
-      // editor open — fix what you just spotted (#46).
-      onReadLongPress: (def) {
-        setState(() => _editing = true);
-        _editField(def);
-      },
+      // Long-press in read mode: this one field's editor, the page
+      // stays as it is — fix what you just spotted (#46), nothing more.
+      onReadLongPress: _editField,
       onAddField: () async {
         final created = await showNewFieldDialog(
           context,
@@ -428,6 +426,17 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       },
     );
     final gallery = <Widget>[
+      // The place's own picture leads; in edit mode a row to set it.
+      if (_editing || coverHash(store, id) != null)
+        CoverBanner(
+          store: store,
+          entityId: id,
+          // The picker may outlive the page (Android can rebuild the
+          // activity behind the camera): only a mounted page redraws.
+          onChanged: () {
+            if (mounted) setState(() {});
+          },
+        ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(children: [
@@ -465,10 +474,19 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       child: Scaffold(
         appBar: roomyAppBar(
           context,
-          // Renaming lives in edit mode: the title becomes tappable there.
+          // Renaming: a tap on the title in edit mode; in read mode the
+          // title wears the ear and a hold opens the same dialog.
           title: _editing
               ? InkWell(onTap: _rename, child: Text(name))
-              : Text(name),
+              : WithCatEar(
+                  child: GestureDetector(
+                    onLongPress: _rename,
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.only(end: 14),
+                      child: Text(name),
+                    ),
+                  ),
+                ),
           actions: [
             HelpButton(store: store, screenId: 'clowder'),
             IconButton(
@@ -556,16 +574,19 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               ),
             // Read mode leads with what one opens a clowder for — the cats;
             // edit mode leads with its purpose — the fields (#46).
+            // Read mode: the cats, then what is due for them, then the
+            // fields; edit mode leads with the fields.
             if (_editing) ...[
               fields,
               const Divider(),
               ...gallery,
+              ..._plannedSection(),
             ] else ...[
               ...gallery,
+              ..._plannedSection(),
               const Divider(),
               fields,
             ],
-            ..._plannedSection(),
             const SizedBox(height: 80),
           ],
         ),

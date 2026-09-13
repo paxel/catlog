@@ -40,12 +40,12 @@ void main() {
 
   /// The title sits on its own line when it starts below every button.
   bool titleIsOnItsOwnLine(WidgetTester tester, Finder title) {
-    final buttons = tester
-        .widgetList(find.byType(IconButton))
-        .isEmpty
+    // The app bar's own buttons: cards below carry buttons of their own.
+    final inBar = find.descendant(
+        of: find.byType(AppBar), matching: find.byType(IconButton));
+    final buttons = tester.widgetList(inBar).isEmpty
         ? <Rect>[]
-        : find
-            .byType(IconButton)
+        : inBar
             .evaluate()
             .map((e) => tester.getRect(find.byWidget(e.widget)))
             .toList();

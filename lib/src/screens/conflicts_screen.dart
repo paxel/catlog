@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../help.dart';
 import '../conflict_dialog.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
@@ -35,7 +36,10 @@ class _ConflictsScreenState extends State<ConflictsScreen> {
   Widget build(BuildContext context) {
     final t = context.t;
     return Scaffold(
-      appBar: AppBar(title: Text(t.summaryConflicts)),
+      appBar: AppBar(
+        title: Text(t.summaryConflicts),
+        actions: [HelpButton(store: widget.store, screenId: 'conflicts')],
+      ),
       body: ListView(
         children: [
           Padding(

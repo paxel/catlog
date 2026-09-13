@@ -3394,4 +3394,247 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get colWho => 'מי';
+
+  @override
+  String get pdfFontMissing =>
+      'הגופן לשפה זו עדיין לא בטלפון; חלק מהאותיות מודפסות כריבועים. יש להתחבר פעם אחת לאינטרנט וליצור את ה-PDF מחדש.';
+
+  @override
+  String get vetReportTitle => 'דוח לווטרינר';
+
+  @override
+  String get vetReportMenu => 'דוח לווטרינר…';
+
+  @override
+  String get vetReportFields => 'שדות';
+
+  @override
+  String get vetReportFrom => 'מ־';
+
+  @override
+  String get vetReportTo => 'עד';
+
+  @override
+  String get vetReportSummary => 'סיכום מטופל';
+
+  @override
+  String get vetReportOwner => 'בעלים';
+
+  @override
+  String get vetReportLegend => 'מקרא';
+
+  @override
+  String get vetReportCurves => 'גרף';
+
+  @override
+  String get posterMenu => 'כרזת נעדר…';
+
+  @override
+  String get posterHeadline => 'נעדר';
+
+  @override
+  String get posterStanding =>
+      'אנא בדקו מרתפים, מחסנים ומוסכים. לא לרדוף, רק להתקשר.';
+
+  @override
+  String get posterLastSeen => 'נראה לאחרונה ליד';
+
+  @override
+  String get posterFreeText => 'שורה נוספת';
+
+  @override
+  String get posterQr => 'קוד QR ל-cat(a)log';
+
+  @override
+  String get posterPhoto => 'תמונה';
+
+  @override
+  String get newCatIn => 'חתול חדש ב…';
+
+  @override
+  String get newCatInNeutral => 'חיית מחמד חדשה ב…';
+
+  @override
+  String get choreLabel => 'מטלה';
+
+  @override
+  String get choreTickLabel => 'מטלה בוצעה';
+
+  @override
+  String get choreEnded => 'הסתיים';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'תזכורת $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'בוצע ב-$date';
+  }
+
+  @override
+  String get withheldByPartner => 'נשמר על ידי שותף';
+
+  @override
+  String get titleLabel => 'תואר';
+
+  @override
+  String get deletedLabel => 'נמחק';
+
+  @override
+  String get favouriteAdd => 'סימון כמועדף';
+
+  @override
+  String get favouriteRemove => 'הסרה מהמועדפים';
+
+  @override
+  String get coverPick => 'תמונת שער…';
+
+  @override
+  String get coverHint =>
+      'תמונה של המקום: הבית, החצר, נקודת ההאכלה. מוצגת על הכרטיס במקום חתול.';
+
+  @override
+  String get coverRemove => 'הסרת תמונת השער';
+
+  @override
+  String get skipTour => 'לדלג על ההקדמה והטיפים בהתקנה זו';
+
+  @override
+  String get spotCatChores =>
+      'טיפול חוזר גר כאן: האכלה, תרופות, בדיקות, לכל אחד תזכורת משלו.';
+
+  @override
+  String get spotLooks =>
+      'סמנו את מה שאתם רואים. התאמות עם קטלוגים אחרים נובעות מכאן.';
+
+  @override
+  String get spotHistoryHold =>
+      'לחיצה ארוכה על ערך מתקנת או מסירה אותו. שום דבר לא אובד; ערכים מוסתרים מוצגים לפי בקשה.';
+
+  @override
+  String get spotBackups =>
+      'היכן הקטלוגים שלך נשמרים: מה הטלפון מגבה, ועותק בתיקייה לבחירתך.';
+
+  @override
+  String get spotCardPoster =>
+      'כרזת נעדר מהרשומה של החתול הזה: תמונה, שם, טלפון באותיות גדולות, וקוד שאחרים סורקים.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'כרזת נעדר מהרשומה של חיית המחמד הזו: תמונה, שם, טלפון באותיות גדולות, וקוד שאחרים סורקים.';
+
+  @override
+  String get spotTimelineReport =>
+      'דוח לווטרינר: הרשומות שבחרתם כציר זמן, סיכום מטופל, וגרף לכל שדה מספרי, למשל משקל.';
+
+  @override
+  String get helpHistory =>
+      'הערכים של שדה אחד לאורך זמן, החדש ראשון. הקשה על ערך מתקנת אותו: החדש תופס את מקומו, הישן מוסתר. לחיצה ארוכה מסירה ערך או משחזרת ערך מוסתר; העין מציגה ערכים מוסתרים. אפשר להעתיק את הרשימה כטקסט או לשתף כ-PDF.';
+
+  @override
+  String get helpSettings =>
+      'הבחירות של האפליקציה: שפה, יחידות, חגיגות ותרועות, הפרווה מאחורי הדפים, התראות, והיכן הקטלוגים מגובים. אפשר להפעיל את הסיורים מחדש מכאן.';
+
+  @override
+  String get helpLooks =>
+      'איך החתול נראה, בצ\'יפים: גודל, צבעים, דוגמה, פרווה, זנב, אוזניים, סימנים ותכונות קבועות. סמנו את מה שאתם רואים; חתול רחוב שתואם לחתול נעדר בשתי תכונות הופך למועמד.';
+
+  @override
+  String get graphSmoothed => 'מוחלק';
+
+  @override
+  String get graphTrend => 'מגמה';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'מגמה: $value לחודש';
+  }
+
+  @override
+  String get helpBackups =>
+      'היכן הקטלוגים שלך נשמרים: מה הטלפון מגבה מעצמו, לאן העותקים המלאים הולכים, מתי נכתב האחרון, וכפתור לכתוב אחד עכשיו. השחזור נמצא בניהול קטלוגים.';
+
+  @override
+  String get helpConflicts =>
+      'שדות ששני אנשים שינו בו-זמנית, לפני שהמכשירים שלהם סונכרנו. כל שורה מציגה את שני הערכים; בחרו את הנכון, והבחירה מגיעה לכל מכשיר.';
+
+  @override
+  String get helpInPerson =>
+      'סנכרון עם אדם שעומד לידך: טלפון אחד מארח, השני מצטרף בסריקת הקוד, והנתונים עוברים ב-Wi-Fi, מוצפנים, בלי שרת. מתג הפרטי קובע אם ערכים פרטיים עוברים.';
+
+  @override
+  String get helpMessenger =>
+      'סנכרון כקובץ: המכשיר הזה כותב חבילה עם כל מה שהוא יודע, שולחים אותה בכל מסנג\'ר או מייל, והצד השני מייבא אותה. תמונות נוסעות בפנים; ערכים פרטיים רק אם המתג מאפשר.';
+
+  @override
+  String get helpModeration =>
+      'האנשים שהרשומות שלהם הגיעו לקטלוג הזה, עם מה שכתבו. מחקו נתונים של אדם במכשיר הזה וחסמו את המכשיר שלו; חסימה מציגה את השמות שהמכשיר כתב תחתיהם.';
+
+  @override
+  String get helpRemote =>
+      'סנכרון דרך תיקייה משותפת למכשירים שלעולם לא נפגשים: בוחרים פעם אחת את אותה תיקייה בכל מכשיר; כל סנכרון כותב לשם את השינויים שלך וקורא את של האחרים. תיקייה אחת נושאת את כל הקטלוגים, כל אחד בתת-תיקייה משלו.';
+
+  @override
+  String get helpRestore =>
+      'גיבויים של ההתקנה הקודמת, שורה לכל קטלוג, מסומנים. שחזור מחזיר כל אחד כקטלוג משלו. באנדרואיד התיקייה ניתנת פעם אחת דרך הבורר; בחירת קבצים מוסיפה גיבויים שנשמרו במקום אחר.';
+
+  @override
+  String get helpScan =>
+      'סרקו את קוד cat(a)log על כרזה או על מסך של אדם אחר: החתול ואיש הקשר שלו נוחתים כאן בלי הקלדה. קוד שנושא קישור מביא את הקובץ שמאחוריו.';
+
+  @override
+  String get helpVetReport =>
+      'מה הולך לווטרינר: השדות והתאריכים שבחרתם, כל שורה מסומנת עד שתבטלו, וסיכום המטופל בראש. שיתוף כ-PDF או הדפסה, שניהם בסרגל.';
+
+  @override
+  String get helpPoster =>
+      'כרזה לעמוד התאורה, מהרשומה: סמנו מה יופיע עליה, הוסיפו שורה שחסרה ברשומה, והדף מודפס שחור על לבן באותיות שנקראות מהצד השני של הרחוב. הקוד פותח את החתול ב-cat(a)log אחר.';
+
+  @override
+  String get helpAchievements =>
+      'מה שהושג ורק זה: חודשים, שנים ועוד שלמים של מטלות עם הספירה, תואר אחד למטלה בדרגתו, והפרוות שנפתחו. בלי פסי התקדמות ובלי מה לרדוף; הפרסים הם בונוס שקט.';
+
+  @override
+  String get posterQrTooBig =>
+      'סומן יותר מדי לקוד אחד. בטלו סימון של שורה והקוד יחזור.';
+
+  @override
+  String get posterPhotos => 'תמונות, עד שתיים';
+
+  @override
+  String get posterFrameHint => 'גררו וצבטו כדי למסגר את התמונה.';
+
+  @override
+  String get posterPreview => 'תצוגה מקדימה';
+
+  @override
+  String get syncWatchSwitch => 'ספרו לי כשמחכים שינויים בתיקייה';
+
+  @override
+  String get syncAutoSwitch => 'למזג אותם מעצמם';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'שינויים מאת $authors מחכים ב-$catalog. הקישו לסנכרון.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'מכשיר אחר';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count שינויים מאת $authors מוזגו',
+      two: '$count שינויים מאת $authors מוזגו',
+      one: 'שינוי אחד מאת $authors מוזג',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'הצג';
 }

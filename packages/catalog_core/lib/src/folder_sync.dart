@@ -43,6 +43,10 @@ abstract class SyncFolder {
   /// The file's bytes, or null when it is not there.
   Future<Uint8List?> read(String dir, String name);
 
+  /// The files directly in [dir] with their sizes in bytes, in one
+  /// pass: what the folder watch compares between rounds.
+  Future<Map<String, int>> sizes(String dir);
+
   /// Writes [bytes] as [name] in [dir], replacing what was there.
   Future<void> write(String dir, String name, List<int> bytes);
 
@@ -67,6 +71,16 @@ class LocalSyncFolder implements SyncFolder {
     return [
       for (final f in d.listSync().whereType<File>()) f.uri.pathSegments.last
     ];
+  }
+
+  @override
+  Future<Map<String, int>> sizes(String dir) async {
+    final d = _dir(dir);
+    if (!d.existsSync()) return const {};
+    return {
+      for (final f in d.listSync().whereType<File>())
+        f.uri.pathSegments.last: f.lengthSync()
+    };
   }
 
   @override
@@ -103,6 +117,13 @@ class MemorySyncFolder implements SyncFolder {
   @override
   Future<List<String>> list(String dir) async =>
       dirs[dir]?.keys.toList() ?? const [];
+
+  @override
+  Future<Map<String, int>> sizes(String dir) async => {
+        for (final MapEntry(key: name, value: bytes)
+            in (dirs[dir] ?? const {}).entries)
+          name: bytes.length
+      };
 
   @override
   Future<Uint8List?> read(String dir, String name) async => dirs[dir]?[name];
@@ -155,6 +176,18 @@ Future<FolderSyncResult> folderSync(CatalogStore store, String folderPath,
     folderSyncIn(store, LocalSyncFolder(folderPath),
         includePrivate: includePrivate, catalog: catalog);
 
+/// Android's media scanner shows every picture it finds on shared
+/// storage in the phone's gallery, the photo blobs of the shared
+/// folder included. An empty `.nomedia` in the folder's root hides it
+/// and everything below from the scanner; other systems ignore the
+/// file. Written once, on the first sync that finds it missing.
+Future<void> hideFromGallery(SyncFolder folder) async {
+  await folder.ensure('');
+  if (await folder.read('', '.nomedia') == null) {
+    await folder.write('', '.nomedia', const []);
+  }
+}
+
 /// The same sync through any [SyncFolder].
 Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     {bool includePrivate = false, String? catalog}) async {
@@ -164,6 +197,7 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   String own(String dir) =>
       catalog == null ? dir : (dir.isEmpty ? catalog : '$catalog/$dir');
   final readDirs = catalog == null ? [''] : [catalog, ''];
+  await hideFromGallery(folder);
   await folder.ensure(own(''));
   await folder.ensure(own('blobs'));
   await folder.ensure(own('keys'));

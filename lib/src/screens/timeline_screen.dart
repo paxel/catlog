@@ -7,6 +7,7 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
+import '../widgets/cat_ear.dart';
 import 'field_history_screen.dart';
 
 /// The timeline of an entity: every change in date order with Author —
@@ -37,6 +38,7 @@ class _Row {
 }
 
 class _TimelineScreenState extends State<TimelineScreen> {
+
   CatalogStore get store => widget.store;
 
   String _clowderName(String? id) => id == null
@@ -232,7 +234,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
           final e = row.entry;
           final correctable = CatalogStore.isCorrectable(e.field);
           final muted = Theme.of(context).colorScheme.onSurfaceVariant;
-          return ListTile(
+          final tile = ListTile(
             leading: Icon(row.icon, color: e.voided ? muted : null),
             title: Text(
               row.title,
@@ -251,6 +253,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 : null,
             onLongPress: correctable ? () => _entryMenu(e) : null,
           );
+          return correctable ? WithCatEar(child: tile) : tile;
         },
       ),
     );

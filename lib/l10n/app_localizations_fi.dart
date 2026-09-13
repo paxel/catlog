@@ -3399,4 +3399,246 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get colWho => 'Kuka';
+
+  @override
+  String get pdfFontMissing =>
+      'Tämän kielen fontti ei ole vielä puhelimessa; osa kirjaimista tulostuu laatikoina. Yhdistä kerran internetiin ja tee PDF uudelleen.';
+
+  @override
+  String get vetReportTitle => 'Raportti eläinlääkärille';
+
+  @override
+  String get vetReportMenu => 'Raportti eläinlääkärille…';
+
+  @override
+  String get vetReportFields => 'Kentät';
+
+  @override
+  String get vetReportFrom => 'Alkaen';
+
+  @override
+  String get vetReportTo => 'Asti';
+
+  @override
+  String get vetReportSummary => 'Potilasyhteenveto';
+
+  @override
+  String get vetReportOwner => 'Omistaja';
+
+  @override
+  String get vetReportLegend => 'Selite';
+
+  @override
+  String get vetReportCurves => 'Kaavio';
+
+  @override
+  String get posterMenu => 'Kadonnut-juliste…';
+
+  @override
+  String get posterHeadline => 'KADONNUT';
+
+  @override
+  String get posterStanding =>
+      'Tarkistathan kellarit, vajat ja autotallit. Älä jahtaa, soita.';
+
+  @override
+  String get posterLastSeen => 'Nähty viimeksi lähellä';
+
+  @override
+  String get posterFreeText => 'Lisärivi';
+
+  @override
+  String get posterQr => 'QR-koodi cat(a)logille';
+
+  @override
+  String get posterPhoto => 'Kuva';
+
+  @override
+  String get newCatIn => 'Uusi kissa kohteeseen…';
+
+  @override
+  String get newCatInNeutral => 'Uusi lemmikki kohteeseen…';
+
+  @override
+  String get choreLabel => 'Askare';
+
+  @override
+  String get choreTickLabel => 'Askare tehty';
+
+  @override
+  String get choreEnded => 'Päättynyt';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'muistutus $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'tehty $date';
+  }
+
+  @override
+  String get withheldByPartner => 'kumppanin pidättämä';
+
+  @override
+  String get titleLabel => 'Arvonimi';
+
+  @override
+  String get deletedLabel => 'Poistettu';
+
+  @override
+  String get favouriteAdd => 'Merkitse suosikiksi';
+
+  @override
+  String get favouriteRemove => 'Poista suosikeista';
+
+  @override
+  String get coverPick => 'Kansikuva…';
+
+  @override
+  String get coverHint =>
+      'Kuva paikasta: talo, piha, ruokintapaikka. Näytetään kortilla kissan sijaan.';
+
+  @override
+  String get coverRemove => 'Poista kansikuva';
+
+  @override
+  String get skipTour => 'Ohita esittely ja vinkit tässä asennuksessa';
+
+  @override
+  String get spotCatChores =>
+      'Toistuva hoito asuu täällä: ruokinta, lääkkeet, tarkistukset, kullakin oma muistutus.';
+
+  @override
+  String get spotLooks =>
+      'Rastita mitä näet. Osumat muiden luetteloiden kanssa syntyvät tästä.';
+
+  @override
+  String get spotHistoryHold =>
+      'Pidä arvoa pohjassa korjataksesi tai poistaaksesi sen. Mikään ei katoa; piilotetut arvot näkyvät pyynnöstä.';
+
+  @override
+  String get spotBackups =>
+      'Missä luettelosi ovat turvassa: mitä puhelin varmuuskopioi, ja kopio valitsemaasi kansioon.';
+
+  @override
+  String get spotCardPoster =>
+      'Kadonnut-juliste tämän kissan tiedoista: kuva, nimi, puhelin isolla ja koodi, jonka muut skannaavat.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Kadonnut-juliste tämän lemmikin tiedoista: kuva, nimi, puhelin isolla ja koodi, jonka muut skannaavat.';
+
+  @override
+  String get spotTimelineReport =>
+      'Raportti eläinlääkärille: valitut merkinnät aikajanana, potilasyhteenveto ja kaavio jokaisesta lukukentästä, esimerkiksi painosta.';
+
+  @override
+  String get helpHistory =>
+      'Yhden kentän arvot ajan myötä, uusin ensin. Napauta arvoa korjataksesi sen: uusi ottaa sen paikan, vanha piilotetaan. Pidä arvoa pohjassa poistaaksesi sen tai palauttaaksesi piilotetun; silmä näyttää piilotetut arvot. Kopioi luettelo tekstinä tai jaa se PDF:nä.';
+
+  @override
+  String get helpSettings =>
+      'Sovelluksen omat valinnat: kieli, yksiköt, juhlat ja hurraukset, sivujen takana oleva turkki, ilmoitukset ja minne luettelosi varmuuskopioidaan. Kierrokset voi toistaa täältä.';
+
+  @override
+  String get helpLooks =>
+      'Miltä kissa näyttää, sirujen muodossa: koko, värit, kuvio, turkki, häntä, korvat, merkit ja pysyvät piirteet. Rastita mitä näet; kulkukissa, joka vastaa kadonnutta kahdessa piirteessä, nousee ehdokkaaksi.';
+
+  @override
+  String get graphSmoothed => 'Tasoitettu';
+
+  @override
+  String get graphTrend => 'Suunta';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Suunta: $value kuukaudessa';
+  }
+
+  @override
+  String get helpBackups =>
+      'Missä luettelosi ovat turvassa: mitä puhelin varmuuskopioi itse, minne täydet kopiot menevät, milloin viimeisin kirjoitettiin, ja painike kopion kirjoittamiseen nyt. Palautus on kohdassa Hallitse luetteloita.';
+
+  @override
+  String get helpConflicts =>
+      'Kentät, joita kaksi ihmistä muutti yhtä aikaa ennen laitteiden synkronointia. Jokainen rivi näyttää molemmat arvot; valitse oikea, ja valinta leviää jokaiseen laitteeseen.';
+
+  @override
+  String get helpInPerson =>
+      'Synkronoi vieressäsi olevan kanssa: yksi puhelin isännöi, toinen liittyy skannaamalla koodin, ja tiedot siirtyvät Wi-Fin yli salattuna ilman palvelinta. Yksityinen-kytkin päättää, kulkevatko yksityiset arvot mukana.';
+
+  @override
+  String get helpMessenger =>
+      'Synkronointi tiedostona: tämä laite kirjoittaa paketin kaikesta, mitä se tietää, lähetät sen millä tahansa viestisovelluksella tai sähköpostilla, ja toinen puoli tuo sen. Kuvat kulkevat mukana; yksityiset arvot vain kytkimen luvalla.';
+
+  @override
+  String get helpModeration =>
+      'Ihmiset, joiden merkinnät saapuivat tähän luetteloon, ja mitä he kirjoittivat. Poista henkilön tiedot tältä laitteelta ja estä hänen laitteensa; esto luettelee nimet, joilla laite kirjoitti.';
+
+  @override
+  String get helpRemote =>
+      'Synkronointi jaetun kansion kautta laitteille, jotka eivät koskaan kohtaa: valitse sama kansio kerran jokaisella laitteella; jokainen synkronointi kirjoittaa muutoksesi sinne ja lukee muiden. Yksi kansio kantaa kaikki luettelot, kunkin omassa alikansiossaan.';
+
+  @override
+  String get helpRestore =>
+      'Edellisen asennuksen varmuuskopiot, yksi rivi per luettelo, rastitettuina. Palauta tuo jokaisen takaisin omana luettelonaan. Androidilla kansio myönnetään kerran valitsimella; Valitse tiedostot lisää muualle tallennetut kopiot.';
+
+  @override
+  String get helpScan =>
+      'Skannaa cat(a)log-koodi julisteesta tai toisen näytöltä: kissa ja sen yhteystiedot tulevat tänne ilman kirjoittamista. Linkin sisältävä koodi hakee sen takana olevan tiedoston.';
+
+  @override
+  String get helpVetReport =>
+      'Mitä eläinlääkärille lähtee: valitsemasi kentät ja päivät, jokainen rivi rastitettuna kunnes poistat rastin, ja potilasyhteenveto ensimmäisenä. Jaa PDF:nä tai tulosta, molemmat palkissa.';
+
+  @override
+  String get helpPoster =>
+      'Juliste lyhtypylvääseen, tiedoista: rastita mitä siihen tulee, lisää rivi, joka tiedoista puuttuu, ja sivu tulostuu mustaa valkoisella kirjaimin, jotka luetaan kadun toiselta puolelta. Koodi avaa kissan toisessa cat(a)logissa.';
+
+  @override
+  String get helpAchievements =>
+      'Mitä on ansaittu ja vain se: täydet kuukaudet, vuodet ja enemmän askareita lukumäärineen, yksi arvonimi askaretta kohti sen tasolla, ja avatut turkit. Ei edistymispalkkeja eikä mitään jahdattavaa; palkinnot ovat hiljainen bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Yhteen koodiin on rastitettu liikaa. Poista yksi rasti, niin koodi palaa.';
+
+  @override
+  String get posterPhotos => 'Kuvat, enintään kaksi';
+
+  @override
+  String get posterFrameHint => 'Vedä ja nipistä rajataksesi kuvan.';
+
+  @override
+  String get posterPreview => 'Esikatselu';
+
+  @override
+  String get syncWatchSwitch => 'Kerro, kun kansiossa odottaa muutoksia';
+
+  @override
+  String get syncAutoSwitch => 'Yhdistä ne itsestään';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Muutoksia lähettäjältä $authors odottaa kohteessa $catalog. Napauta synkronoidaksesi.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'toinen laite';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count muutosta lähettäjältä $authors yhdistetty',
+      one: '$count muutos lähettäjältä $authors yhdistetty',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Näytä';
 }

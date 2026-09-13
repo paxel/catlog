@@ -3396,4 +3396,247 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get colWho => 'Kim';
+
+  @override
+  String get pdfFontMissing =>
+      'Bu dilin yazı tipi henüz telefonda yok; bazı harfler kutu olarak basılır. Bir kez internete bağlanıp PDF\'i yeniden oluşturun.';
+
+  @override
+  String get vetReportTitle => 'Veteriner için rapor';
+
+  @override
+  String get vetReportMenu => 'Veteriner için rapor…';
+
+  @override
+  String get vetReportFields => 'Alanlar';
+
+  @override
+  String get vetReportFrom => 'Başlangıç';
+
+  @override
+  String get vetReportTo => 'Bitiş';
+
+  @override
+  String get vetReportSummary => 'Hasta özeti';
+
+  @override
+  String get vetReportOwner => 'Sahibi';
+
+  @override
+  String get vetReportLegend => 'Açıklama';
+
+  @override
+  String get vetReportCurves => 'Grafik';
+
+  @override
+  String get posterMenu => 'Kayıp afişi…';
+
+  @override
+  String get posterHeadline => 'KAYIP';
+
+  @override
+  String get posterStanding =>
+      'Lütfen bodrumları, kulübeleri ve garajları kontrol edin. Kovalamayın, sadece arayın.';
+
+  @override
+  String get posterLastSeen => 'Son görüldüğü yer';
+
+  @override
+  String get posterFreeText => 'Ek satır';
+
+  @override
+  String get posterQr => 'cat(a)log için QR kodu';
+
+  @override
+  String get posterPhoto => 'Fotoğraf';
+
+  @override
+  String get newCatIn => 'Şuraya yeni kedi…';
+
+  @override
+  String get newCatInNeutral => 'Şuraya yeni evcil hayvan…';
+
+  @override
+  String get choreLabel => 'Görev';
+
+  @override
+  String get choreTickLabel => 'Görev yapıldı';
+
+  @override
+  String get choreEnded => 'Sona erdi';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'hatırlatma $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return '$date tarihinde yapıldı';
+  }
+
+  @override
+  String get withheldByPartner => 'bir ortak tarafından saklandı';
+
+  @override
+  String get titleLabel => 'Unvan';
+
+  @override
+  String get deletedLabel => 'Silindi';
+
+  @override
+  String get favouriteAdd => 'Favori olarak işaretle';
+
+  @override
+  String get favouriteRemove => 'Favorilerden kaldır';
+
+  @override
+  String get coverPick => 'Kapak resmi…';
+
+  @override
+  String get coverHint =>
+      'Yerin bir resmi: ev, avlu, besleme noktası. Kartta kedi yerine gösterilir.';
+
+  @override
+  String get coverRemove => 'Kapak resmini kaldır';
+
+  @override
+  String get skipTour => 'Bu kurulumda tanıtımı ve ipuçlarını atla';
+
+  @override
+  String get spotCatChores =>
+      'Tekrarlayan bakım burada yaşar: besleme, ilaç, kontroller, her biri kendi hatırlatmasıyla.';
+
+  @override
+  String get spotLooks =>
+      'Gördüğünüzü işaretleyin. Diğer kataloglarla eşleşmeler buradan gelir.';
+
+  @override
+  String get spotHistoryHold =>
+      'Düzeltmek veya kaldırmak için bir değeri basılı tutun. Hiçbir şey kaybolmaz; gizli değerler istendiğinde gösterilir.';
+
+  @override
+  String get spotBackups =>
+      'Kataloglarının güvende tutulduğu yer: telefonun yedeklediği, ve seçtiğin bir klasördeki kopya.';
+
+  @override
+  String get spotCardPoster =>
+      'Bu kedinin kaydından bir kayıp afişi: fotoğraf, ad, büyük harflerle telefon ve başkalarının taradığı bir kod.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Bu evcil hayvanın kaydından bir kayıp afişi: fotoğraf, ad, büyük harflerle telefon ve başkalarının taradığı bir kod.';
+
+  @override
+  String get spotTimelineReport =>
+      'Veteriner için rapor: seçtiğiniz kayıtlar zaman çizelgesi olarak, bir hasta özeti ve her sayı alanı için, örneğin kilo için, bir grafik.';
+
+  @override
+  String get helpHistory =>
+      'Bir alanın zaman içindeki değerleri, en yenisi önce. Düzeltmek için bir değere dokunun: yenisi yerini alır, eskisi gizlenir. Kaldırmak veya gizli bir değeri geri getirmek için basılı tutun; göz gizli değerleri gösterir. Listeyi metin olarak kopyalayın veya PDF olarak paylaşın.';
+
+  @override
+  String get helpSettings =>
+      'Uygulamanın kendi seçenekleri: dil, birimler, kutlamalar ve tezahüratlar, sayfaların arkasındaki kürk, bildirimler ve kataloglarının nerede yedeklendiği. Turlar buradan yeniden oynatılabilir.';
+
+  @override
+  String get helpLooks =>
+      'Kedinin görünüşü, çipler halinde: boy, renkler, desen, tüy, kuyruk, kulaklar, işaretler ve kalıcı özellikler. Gördüğünüzü işaretleyin; kayıp bir kediyle iki özellikte uyuşan bir sokak kedisi aday olur.';
+
+  @override
+  String get graphSmoothed => 'Yumuşatılmış';
+
+  @override
+  String get graphTrend => 'Eğilim';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Eğilim: ayda $value';
+  }
+
+  @override
+  String get helpBackups =>
+      'Kataloglarının güvende tutulduğu yer: telefonun kendi yedeklediği, tam kopyaların gittiği yer, sonuncusunun ne zaman yazıldığı ve şimdi bir tane yazmak için bir düğme. Geri yükleme Katalogları yönet\'te.';
+
+  @override
+  String get helpConflicts =>
+      'İki kişinin, cihazları eşitlenmeden önce aynı anda değiştirdiği alanlar. Her satır iki değeri de gösterir; doğru olanı seçin, seçim her cihaza ulaşır.';
+
+  @override
+  String get helpInPerson =>
+      'Yanınızdaki kişiyle eşitleyin: bir telefon ev sahibi olur, diğeri kodu tarayarak katılır ve veriler Wi-Fi üzerinden şifreli olarak, sunucusuz taşınır. Özel anahtarı, özel değerlerin gidip gitmeyeceğine karar verir.';
+
+  @override
+  String get helpMessenger =>
+      'Dosya olarak eşitleme: bu cihaz bildiği her şeyi bir pakete yazar, herhangi bir mesajlaşma uygulaması veya e-postayla gönderirsiniz, karşı taraf içe aktarır. Fotoğraflar içinde gider; özel değerler yalnızca anahtar izin verirse.';
+
+  @override
+  String get helpModeration =>
+      'Kayıtları bu kataloğa ulaşan kişiler ve yazdıkları. Bir kişinin verisini bu cihazda silin ve cihazını engelleyin; bir engel, o cihazın yazdığı adları listeler.';
+
+  @override
+  String get helpRemote =>
+      'Hiç karşılaşmayan cihazlar için paylaşılan klasörle eşitleme: her cihazda aynı klasörü bir kez seçin; her eşitleme değişikliklerinizi oraya yazar ve diğerlerininkini okur. Tek klasör tüm katalogları taşır, her biri kendi alt klasöründe.';
+
+  @override
+  String get helpRestore =>
+      'Önceki kurulumun yedekleri, katalog başına bir satır, işaretli. Geri Yükle her birini kendi kataloğu olarak geri getirir. Android\'de klasör seçici ile bir kez verilir; Dosya seç başka yerde tutulan yedekleri ekler.';
+
+  @override
+  String get helpScan =>
+      'Bir afişteki veya başkasının ekranındaki cat(a)log kodunu tarayın: kedi ve iletişim bilgisi yazmadan buraya gelir. Bağlantı taşıyan bir kod arkasındaki dosyayı getirir.';
+
+  @override
+  String get helpVetReport =>
+      'Veterinere giden: seçtiğiniz alanlar ve tarihler, siz kaldırana kadar her satır işaretli, ve en üstte hasta özeti. PDF olarak paylaşın veya yazdırın, ikisi de çubukta.';
+
+  @override
+  String get helpPoster =>
+      'Elektrik direği için kayıttan bir afiş: üzerine ne gideceğini işaretleyin, kayıtta olmayan bir satır ekleyin, sayfa karşı kaldırımdan okunan harflerle siyah beyaz basılır. Üzerindeki kod kediyi başka bir cat(a)log\'da açar.';
+
+  @override
+  String get helpAchievements =>
+      'Kazanılan ve yalnızca o: tam aylar, yıllar ve daha fazlası görevlerden sayılarıyla, görev başına kendi kademesinde bir unvan ve açılan kürkler. İlerleme çubuğu yok, peşinden koşulacak bir şey yok; ödüller sessiz bir armağan.';
+
+  @override
+  String get posterQrTooBig =>
+      'Tek bir kod için çok fazla şey işaretli. Bir satırın işaretini kaldırın, kod geri gelir.';
+
+  @override
+  String get posterPhotos => 'Fotoğraflar, en fazla iki';
+
+  @override
+  String get posterFrameHint =>
+      'Fotoğrafı çerçevelemek için sürükleyin ve kıstırın.';
+
+  @override
+  String get posterPreview => 'Önizleme';
+
+  @override
+  String get syncWatchSwitch => 'Klasörde değişiklikler beklediğinde söyle';
+
+  @override
+  String get syncAutoSwitch => 'Kendiliğinden birleştir';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors kaynaklı değişiklikler $catalog içinde bekliyor. Eşitlemek için dokunun.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'başka bir cihaz';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$authors kaynaklı $count değişiklik birleştirildi',
+      one: '$authors kaynaklı $count değişiklik birleştirildi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Göster';
 }

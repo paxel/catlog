@@ -54,7 +54,20 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
     SpotlightItem('cat-edit', (t) => t.spotCatEdit),
     SpotlightItem('cat-menu', (t) => t.spotCatMenu),
     SpotlightItem('cat-reminder', (t) => t.spotAddReminderCat),
+    SpotlightItem('cat-chores', (t) => t.spotCatChores),
+    SpotlightItem('cat-report', (t) => t.spotTimelineReport),
+    SpotlightItem('cat-poster', (t) => t.spotCardPoster),
   ],
+  'looks': [
+    SpotlightItem('looks-chips', (t) => t.spotLooks),
+  ],
+  'history': [
+    SpotlightItem('history-hold', (t) => t.spotHistoryHold),
+  ],
+  'settings': [
+    SpotlightItem('settings-backups', (t) => t.spotBackups),
+  ],
+
   'strays': [
     SpotlightItem('strays-flier', (t) => t.spotStraysFlier),
     SpotlightItem('strays-scan', (t) => t.spotStraysScan),
@@ -103,6 +116,17 @@ class _SpotlightState extends State<Spotlight> {
   @override
   Widget build(BuildContext context) =>
       KeyedSubtree(key: _key, child: widget.child);
+}
+
+/// Marks every tip on every screen as seen — the tester's tick on the
+/// name page; Settings brings them back.
+void markAllSpotlightsSeen(CatalogStore store) {
+  for (final MapEntry(key: screen, value: items) in spotlightManifest.entries) {
+    store.setLocalSetting(
+      'spot2:$screen',
+      items.map((i) => i.id).join(','),
+    );
+  }
 }
 
 /// Clears all seen-marks so every tour runs again (About → What's new).
@@ -168,7 +192,22 @@ Future<void> runSpotlights(
   for (final item in due) {
     if (!context.mounted) return;
     final key = _anchors[item.id];
-    final box = key?.currentContext?.findRenderObject() as RenderBox?;
+    final anchor = key?.currentContext;
+    if (anchor == null || !anchor.mounted) continue;
+    // An anchor below the fold is brought on screen first; a tip that
+    // points at nothing visible teaches nothing.
+    try {
+      await Scrollable.ensureVisible(
+        anchor,
+        alignment: 0.5,
+        duration: const Duration(milliseconds: 200),
+      );
+      await WidgetsBinding.instance.endOfFrame;
+    } catch (_) {
+      // Not inside a scroll view: it is where it is.
+    }
+    if (!context.mounted || !anchor.mounted) return;
+    final box = anchor.findRenderObject() as RenderBox?;
     if (box == null || !box.attached) continue;
     final rect = box.localToGlobal(Offset.zero) & box.size;
     // Mark before showing: even an aborted tour never nags again.
@@ -218,11 +257,17 @@ const tipGap = 16.0;
   final left =
       (target.center.dx - width / 2).clamp(tipMargin, rightmost).toDouble();
   final below = target.bottom < screen.height / 2;
+  // A target at or past the edge would push the card off the screen;
+  // the card stays inside, buttons included, whatever the target does.
   return (
     left: left,
     width: width,
-    top: below ? target.bottom + tipGap : null,
-    bottom: below ? null : screen.height - target.top + tipGap,
+    top: below
+        ? math.max(tipMargin, target.bottom + tipGap)
+        : null,
+    bottom: below
+        ? null
+        : math.max(tipMargin, screen.height - target.top + tipGap),
   );
 }
 

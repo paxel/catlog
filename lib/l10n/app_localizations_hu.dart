@@ -3398,4 +3398,246 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get colWho => 'Ki';
+
+  @override
+  String get pdfFontMissing =>
+      'Ennek a nyelvnek a betűtípusa még nincs a telefonon; egyes betűk négyzetként jelennek meg. Csatlakozz egyszer az internethez, és készítsd el újra a PDF-et.';
+
+  @override
+  String get vetReportTitle => 'Jelentés az állatorvosnak';
+
+  @override
+  String get vetReportMenu => 'Jelentés az állatorvosnak…';
+
+  @override
+  String get vetReportFields => 'Mezők';
+
+  @override
+  String get vetReportFrom => 'Ettől';
+
+  @override
+  String get vetReportTo => 'Eddig';
+
+  @override
+  String get vetReportSummary => 'Betegösszefoglaló';
+
+  @override
+  String get vetReportOwner => 'Gazda';
+
+  @override
+  String get vetReportLegend => 'Jelmagyarázat';
+
+  @override
+  String get vetReportCurves => 'Grafikon';
+
+  @override
+  String get posterMenu => 'Eltűnt-plakát…';
+
+  @override
+  String get posterHeadline => 'ELTŰNT';
+
+  @override
+  String get posterStanding =>
+      'Kérjük, nézzenek be a pincékbe, fészerekbe és garázsokba. Ne kergessék, csak hívjanak.';
+
+  @override
+  String get posterLastSeen => 'Utoljára itt látták';
+
+  @override
+  String get posterFreeText => 'Plusz sor';
+
+  @override
+  String get posterQr => 'QR-kód a cat(a)loghoz';
+
+  @override
+  String get posterPhoto => 'Fotó';
+
+  @override
+  String get newCatIn => 'Új macska ide…';
+
+  @override
+  String get newCatInNeutral => 'Új kedvenc ide…';
+
+  @override
+  String get choreLabel => 'Teendő';
+
+  @override
+  String get choreTickLabel => 'Teendő kész';
+
+  @override
+  String get choreEnded => 'Befejezve';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'emlékeztető $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'elvégezve: $date';
+  }
+
+  @override
+  String get withheldByPartner => 'egy partner visszatartotta';
+
+  @override
+  String get titleLabel => 'Cím';
+
+  @override
+  String get deletedLabel => 'Törölve';
+
+  @override
+  String get favouriteAdd => 'Kedvencnek jelölés';
+
+  @override
+  String get favouriteRemove => 'Eltávolítás a kedvencekből';
+
+  @override
+  String get coverPick => 'Borítókép…';
+
+  @override
+  String get coverHint =>
+      'Kép a helyről: a ház, az udvar, az etetőhely. A kártyán macska helyett.';
+
+  @override
+  String get coverRemove => 'Borítókép eltávolítása';
+
+  @override
+  String get skipTour => 'Bevezető és tippek kihagyása ezen a telepítésen';
+
+  @override
+  String get spotCatChores =>
+      'Az ismétlődő gondozás itt lakik: etetés, gyógyszer, ellenőrzés, mindegyik saját emlékeztetővel.';
+
+  @override
+  String get spotLooks =>
+      'Jelöld, amit látsz. A más katalógusokkal való egyezések ebből erednek.';
+
+  @override
+  String get spotHistoryHold =>
+      'Tartsd nyomva az értéket a javításhoz vagy eltávolításhoz. Semmi nem vész el; a rejtett értékek kérésre láthatók.';
+
+  @override
+  String get spotBackups =>
+      'Hol vannak biztonságban a katalógusaid: mit ment a telefon, és egy másolat az általad választott mappába.';
+
+  @override
+  String get spotCardPoster =>
+      'Eltűnt-plakát ennek a macskának az adataiból: fotó, név, telefon nagy betűkkel és egy kód, amit mások beolvasnak.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Eltűnt-plakát ennek a kedvencnek az adataiból: fotó, név, telefon nagy betűkkel és egy kód, amit mások beolvasnak.';
+
+  @override
+  String get spotTimelineReport =>
+      'Jelentés az állatorvosnak: a kiválasztott bejegyzések idővonalként, betegösszefoglaló és grafikon minden számmezőhöz, például a súlyhoz.';
+
+  @override
+  String get helpHistory =>
+      'Egy mező értékei az idő során, a legújabb elöl. Koppints egy értékre a javításhoz: az új a helyére lép, a régi elrejtődik. Tartsd nyomva az értéket az eltávolításhoz vagy egy rejtett visszaállításához; a szem mutatja a rejtett értékeket. Másold a listát szövegként vagy oszd meg PDF-ként.';
+
+  @override
+  String get helpSettings =>
+      'Az app saját beállításai: nyelv, mértékegységek, ünneplés és éljenzés, a bunda az oldalak mögött, értesítések, és hol mentődnek a katalógusaid. A bemutatók innen újra lejátszhatók.';
+
+  @override
+  String get helpLooks =>
+      'Hogy néz ki a macska, chipekként: méret, színek, mintázat, bunda, farok, fülek, jegyek és maradandó jellemzők. Jelöld, amit látsz; egy kóbor, amely két jegyben egyezik egy eltűnt macskával, jelölt lesz.';
+
+  @override
+  String get graphSmoothed => 'Simított';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value havonta';
+  }
+
+  @override
+  String get helpBackups =>
+      'Hol vannak biztonságban a katalógusaid: mit ment a telefon magától, hová kerülnek a teljes másolatok, mikor készült az utolsó, és egy gomb, hogy most készüljön egy. A visszaállítás a Katalógusok kezelése alatt van.';
+
+  @override
+  String get helpConflicts =>
+      'Mezők, amelyeket ketten egyszerre változtattak, mielőtt eszközeik szinkronizáltak volna. Minden sor mindkét értéket mutatja; válaszd a helyeset, és a döntés minden eszközre eljut.';
+
+  @override
+  String get helpInPerson =>
+      'Szinkronizálás a melletted állóval: az egyik telefon fogad, a másik a kód beolvasásával csatlakozik, az adatok Wi-Fi-n mennek, titkosítva, szerver nélkül. A privát kapcsoló dönti el, hogy a privát értékek utaznak-e.';
+
+  @override
+  String get helpMessenger =>
+      'Szinkronizálás fájlként: ez az eszköz csomagot ír mindenből, amit tud, elküldöd bármely üzenetküldővel vagy levélben, a másik oldal importálja. A fotók benne utaznak; a privát értékek csak ha a kapcsoló engedi.';
+
+  @override
+  String get helpModeration =>
+      'Azok, akiknek bejegyzései elérték ezt a katalógust, azzal, amit írtak. Töröld egy személy adatait ezen az eszközön és tiltsd le az eszközét; a tiltás felsorolja a neveket, amelyek alatt az eszköz írt.';
+
+  @override
+  String get helpRemote =>
+      'Szinkronizálás megosztott mappán át olyan eszközöknek, amelyek sosem találkoznak: válaszd ki egyszer ugyanazt a mappát minden eszközön; minden szinkronizálás oda írja a változtatásaidat és olvassa a többiekét. Egy mappa hordozza az összes katalógust, mindegyiket saját almappában.';
+
+  @override
+  String get helpRestore =>
+      'Az előző telepítés mentései, katalógusonként egy sor, bepipálva. A Visszaállítás mindegyiket külön katalógusként hozza vissza. Androidon a mappát egyszer a választó adja meg; a Fájlok kiválasztása máshol tartott mentéseket ad hozzá.';
+
+  @override
+  String get helpScan =>
+      'Olvasd be a cat(a)log kódot egy plakátról vagy valaki képernyőjéről: a macska és az elérhetősége gépelés nélkül kerül ide. Egy linket hordozó kód letölti a mögötte lévő fájlt.';
+
+  @override
+  String get helpVetReport =>
+      'Ami az állatorvoshoz megy: a választott mezők és dátumok, minden sor bepipálva, amíg ki nem veszed, és a betegösszefoglaló elöl. Megosztás PDF-ként vagy nyomtatás, mindkettő a sávban.';
+
+  @override
+  String get helpPoster =>
+      'Plakát a lámpaoszlopra, az adatokból: jelöld, mi kerüljön rá, adj hozzá egy sort, ami az adatokból hiányzik, és az oldal feketén fehéren nyomtatódik, az utca túloldaláról olvasható betűkkel. A kód egy másik cat(a)logban nyitja meg a macskát.';
+
+  @override
+  String get helpAchievements =>
+      'Ami megszerzett, és csak az: teljes hónapok, évek és több teendőből a számukkal, teendőnként egy cím a saját fokán, és a feloldott bundák. Nincs folyamatjelző és nincs mit hajszolni; a jutalmak csendes ráadás.';
+
+  @override
+  String get posterQrTooBig =>
+      'Túl sok van bepipálva egy kódhoz. Vegyél ki egy pipát, és a kód visszatér.';
+
+  @override
+  String get posterPhotos => 'Fotók, legfeljebb kettő';
+
+  @override
+  String get posterFrameHint => 'Húzd és csippentsd a kivágás beállításához.';
+
+  @override
+  String get posterPreview => 'Előnézet';
+
+  @override
+  String get syncWatchSwitch => 'Szólj, ha változtatások várnak a mappában';
+
+  @override
+  String get syncAutoSwitch => 'Beolvasztás maguktól';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors változtatásai várnak itt: $catalog. Koppints a szinkronizáláshoz.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'egy másik eszköz';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count változtatás beolvasztva ($authors)',
+      one: '$count változtatás beolvasztva ($authors)',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Mutasd';
 }

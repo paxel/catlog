@@ -5899,6 +5899,408 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Who'**
   String get colWho;
+
+  /// No description provided for @pdfFontMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'The font for this language is not on the phone yet; some letters print as boxes. Connect to the internet once and make the PDF again.'**
+  String get pdfFontMissing;
+
+  /// No description provided for @vetReportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report for the vet'**
+  String get vetReportTitle;
+
+  /// No description provided for @vetReportMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Report for the vet…'**
+  String get vetReportMenu;
+
+  /// No description provided for @vetReportFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Fields'**
+  String get vetReportFields;
+
+  /// No description provided for @vetReportFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get vetReportFrom;
+
+  /// No description provided for @vetReportTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get vetReportTo;
+
+  /// No description provided for @vetReportSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Patient summary'**
+  String get vetReportSummary;
+
+  /// No description provided for @vetReportOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get vetReportOwner;
+
+  /// No description provided for @vetReportLegend.
+  ///
+  /// In en, this message translates to:
+  /// **'Legend'**
+  String get vetReportLegend;
+
+  /// No description provided for @vetReportCurves.
+  ///
+  /// In en, this message translates to:
+  /// **'Graph'**
+  String get vetReportCurves;
+
+  /// No description provided for @posterMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing poster…'**
+  String get posterMenu;
+
+  /// No description provided for @posterHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'MISSING'**
+  String get posterHeadline;
+
+  /// No description provided for @posterStanding.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check cellars, sheds and garages. Do not chase, just call.'**
+  String get posterStanding;
+
+  /// No description provided for @posterLastSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'Last seen near'**
+  String get posterLastSeen;
+
+  /// No description provided for @posterFreeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra line'**
+  String get posterFreeText;
+
+  /// No description provided for @posterQr.
+  ///
+  /// In en, this message translates to:
+  /// **'QR code for cat(a)log'**
+  String get posterQr;
+
+  /// No description provided for @posterPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get posterPhoto;
+
+  /// No description provided for @newCatIn.
+  ///
+  /// In en, this message translates to:
+  /// **'New cat in…'**
+  String get newCatIn;
+
+  /// No description provided for @newCatInNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'New pet in…'**
+  String get newCatInNeutral;
+
+  /// No description provided for @choreLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Chore'**
+  String get choreLabel;
+
+  /// No description provided for @choreTickLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Chore done'**
+  String get choreTickLabel;
+
+  /// No description provided for @choreEnded.
+  ///
+  /// In en, this message translates to:
+  /// **'Ended'**
+  String get choreEnded;
+
+  /// No description provided for @choreRemindAt.
+  ///
+  /// In en, this message translates to:
+  /// **'reminder {time}'**
+  String choreRemindAt(Object time);
+
+  /// No description provided for @doneOn.
+  ///
+  /// In en, this message translates to:
+  /// **'done on {date}'**
+  String doneOn(Object date);
+
+  /// No description provided for @withheldByPartner.
+  ///
+  /// In en, this message translates to:
+  /// **'kept back by a partner'**
+  String get withheldByPartner;
+
+  /// No description provided for @titleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get titleLabel;
+
+  /// No description provided for @deletedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted'**
+  String get deletedLabel;
+
+  /// No description provided for @favouriteAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as favourite'**
+  String get favouriteAdd;
+
+  /// No description provided for @favouriteRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favourites'**
+  String get favouriteRemove;
+
+  /// No description provided for @coverPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover picture…'**
+  String get coverPick;
+
+  /// No description provided for @coverHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.'**
+  String get coverHint;
+
+  /// No description provided for @coverRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove cover picture'**
+  String get coverRemove;
+
+  /// No description provided for @skipTour.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip the intro and the tips on this install'**
+  String get skipTour;
+
+  /// No description provided for @spotCatChores.
+  ///
+  /// In en, this message translates to:
+  /// **'Recurring care lives here: feeding, meds, checks, each with its own reminder.'**
+  String get spotCatChores;
+
+  /// No description provided for @spotLooks.
+  ///
+  /// In en, this message translates to:
+  /// **'Tick what you see. Matches with other catalogs come from these.'**
+  String get spotLooks;
+
+  /// No description provided for @spotHistoryHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold a value to correct or remove it. Nothing is lost; hidden values show on request.'**
+  String get spotHistoryHold;
+
+  /// No description provided for @spotBackups.
+  ///
+  /// In en, this message translates to:
+  /// **'Where your catalogs are kept safe: what the phone backs up, and a copy in a folder of your choice.'**
+  String get spotBackups;
+
+  /// No description provided for @spotCardPoster.
+  ///
+  /// In en, this message translates to:
+  /// **'A missing poster from this cat\'s record: photo, name, phone in big letters, and a code other keepers scan.'**
+  String get spotCardPoster;
+
+  /// No description provided for @spotCardPosterNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'A missing poster from this pet\'s record: photo, name, phone in big letters, and a code other keepers scan.'**
+  String get spotCardPosterNeutral;
+
+  /// No description provided for @spotTimelineReport.
+  ///
+  /// In en, this message translates to:
+  /// **'A report for the vet: the entries you pick as a timeline, a patient summary, and a graph for every number field, weight for one.'**
+  String get spotTimelineReport;
+
+  /// No description provided for @helpHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.'**
+  String get helpHistory;
+
+  /// No description provided for @helpSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'The app\'s own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.'**
+  String get helpSettings;
+
+  /// No description provided for @helpLooks.
+  ///
+  /// In en, this message translates to:
+  /// **'What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.'**
+  String get helpLooks;
+
+  /// No description provided for @graphSmoothed.
+  ///
+  /// In en, this message translates to:
+  /// **'Smoothed'**
+  String get graphSmoothed;
+
+  /// No description provided for @graphTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Trend'**
+  String get graphTrend;
+
+  /// No description provided for @trendPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Trend: {value} per month'**
+  String trendPerMonth(Object value);
+
+  /// No description provided for @helpBackups.
+  ///
+  /// In en, this message translates to:
+  /// **'Where your catalogs are kept safe: what the phone backs up by itself, where the full copies land, when the last one was written, and a button to write one now. Restoring lives in Manage catalogs.'**
+  String get helpBackups;
+
+  /// No description provided for @helpConflicts.
+  ///
+  /// In en, this message translates to:
+  /// **'Fields two people changed at the same time, before their devices synced. Each row shows both values; pick the right one, and the choice reaches every device.'**
+  String get helpConflicts;
+
+  /// No description provided for @helpInPerson.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync with a person standing next to you: one phone hosts, the other joins by scanning the code, and the data moves over Wi-Fi, encrypted, without any server. The private switch decides whether private values travel.'**
+  String get helpInPerson;
+
+  /// No description provided for @helpMessenger.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync as a file: this device writes a bundle with everything it knows, you send it through any messenger or mail, and the other side imports it. Photos travel inside; private values only when the switch says so.'**
+  String get helpMessenger;
+
+  /// No description provided for @helpModeration.
+  ///
+  /// In en, this message translates to:
+  /// **'The people whose entries reached this catalog, with what they wrote. Delete a person\'s data on this device and ban their device from sending more; a ban lists the names that device wrote under.'**
+  String get helpModeration;
+
+  /// No description provided for @helpRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync through a shared folder for devices that never meet: pick one folder once, on every device; each sync writes your changes there and reads the others\'. One folder carries all catalogs, each in a subfolder of its own.'**
+  String get helpRemote;
+
+  /// No description provided for @helpRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Backups of the install before this one, one row per catalog, ticked. Restore brings each back as its own catalog. On Android the folder is granted once through the picker; Pick files adds backups kept anywhere else.'**
+  String get helpRestore;
+
+  /// No description provided for @helpScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan the cat(a)log code on a poster or on another keeper\'s screen: the cat and its contact land here without typing. A code that carries a link fetches the file behind it.'**
+  String get helpScan;
+
+  /// No description provided for @helpVetReport.
+  ///
+  /// In en, this message translates to:
+  /// **'What goes to the vet: the fields and the dates you choose, every row ticked until you untick it, and the patient summary on top. Share as PDF or print, both in the app bar.'**
+  String get helpVetReport;
+
+  /// No description provided for @helpPoster.
+  ///
+  /// In en, this message translates to:
+  /// **'A poster for the lamp post, from the record: tick what goes on it, add a line the record lacks, and the page prints black on white in letters read from across the street. The code on it opens the cat in another cat(a)log.'**
+  String get helpPoster;
+
+  /// No description provided for @helpAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'What was earned and only that: full months, years and more of chores with their count, one title per chore at its rank, and the coats unlocked. No progress bars and nothing to chase; the rewards are a quiet bonus.'**
+  String get helpAchievements;
+
+  /// No description provided for @posterQrTooBig.
+  ///
+  /// In en, this message translates to:
+  /// **'Too much is ticked for one code. Untick a line and the code comes back.'**
+  String get posterQrTooBig;
+
+  /// No description provided for @posterPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos, up to two'**
+  String get posterPhotos;
+
+  /// No description provided for @posterFrameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag and pinch to frame the photo.'**
+  String get posterFrameHint;
+
+  /// No description provided for @posterPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get posterPreview;
+
+  /// No description provided for @syncWatchSwitch.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell me when changes wait in the folder'**
+  String get syncWatchSwitch;
+
+  /// No description provided for @syncAutoSwitch.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge them on their own'**
+  String get syncAutoSwitch;
+
+  /// No description provided for @syncChangesWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes from {authors} waiting in {catalog}. Tap to sync.'**
+  String syncChangesWaiting(String authors, String catalog);
+
+  /// No description provided for @syncAnotherDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'another device'**
+  String get syncAnotherDevice;
+
+  /// No description provided for @syncMerged.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{{count} change from {authors} merged} other{{count} changes from {authors} merged}}'**
+  String syncMerged(int count, String authors);
+
+  /// No description provided for @syncShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Show'**
+  String get syncShow;
 }
 
 class _AppLocalizationsDelegate

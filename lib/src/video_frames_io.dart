@@ -32,8 +32,14 @@ Future<List<Uint8List>?> _pickVideoFrames(BuildContext context,
   }
   final video = await ImagePicker().pickVideo(source: source);
   if (video == null || !context.mounted) return null;
+  return framesFromVideoFile(context, video.path);
+}
 
-  final controller = VideoPlayerController.file(File(video.path));
+/// Runs the frame picker over a video already on disk — picked, filmed,
+/// or shared in. Returns the kept frames as JPEG bytes.
+Future<List<Uint8List>?> framesFromVideoFile(
+    BuildContext context, String path) async {
+  final controller = VideoPlayerController.file(File(path));
   Duration duration;
   try {
     await controller.initialize();
@@ -48,14 +54,14 @@ Future<List<Uint8List>?> _pickVideoFrames(BuildContext context,
       duration: duration,
       // Preview size while picking; photo size only for what is kept.
       extractFrame: (ms) => VideoThumbnail.thumbnailData(
-        video: video.path,
+        video: path,
         timeMs: ms,
         imageFormat: ImageFormat.JPEG,
         quality: 85,
         maxWidth: 1024,
       ),
       extractFull: (ms) => VideoThumbnail.thumbnailData(
-        video: video.path,
+        video: path,
         timeMs: ms,
         imageFormat: ImageFormat.JPEG,
         quality: 90,

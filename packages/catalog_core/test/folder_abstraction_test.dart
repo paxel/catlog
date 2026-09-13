@@ -97,7 +97,7 @@ void main() {
     await folderSyncIn(bob, folder, catalog: 'leipzig');
     expect(bob.cats().map((c) => c.name), ['Miezi']);
     // Nothing is written at the root any more.
-    expect(folder.dirs['']?.keys ?? const [], isEmpty);
+    expect(folder.dirs['']?.keys ?? const [], ['.nomedia']);
   });
 
   test('a partner from before writes at the root and is still read', () async {

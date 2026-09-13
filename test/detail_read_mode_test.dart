@@ -98,8 +98,9 @@ void main() {
     expect(find.text('female'), findsWidgets);
     await tester.tap(find.text('Cancel'));
     await tester.pumpAndSettle();
-    // …and the page is now in edit mode.
-    expect(find.text('Breed'), findsOneWidget);
+    // …and the page stays in read mode: no empty fields, no pencils.
+    expect(find.text('Breed'), findsNothing);
+    expect(find.byIcon(Icons.edit_outlined), findsNothing);
   });
 
   testWidgets('photo long-press menu works in read mode', (tester) async {
@@ -202,7 +203,7 @@ void main() {
     expect(find.byTooltip('Done'), findsOneWidget);
   });
 
-  testWidgets('a removal on the timeline shows after returning',
+  testWidgets('a removal on the history page shows after returning',
       (tester) async {
     store.append(cat, Keys.userField('gender'), 'male');
     await pump(tester);
@@ -213,8 +214,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.longPress(find.text('Gender'));
     await tester.pumpAndSettle();
-    // Timeline entry -> long press -> remove.
-    await tester.longPress(find.textContaining('Gender: male'));
+    // The field's history page: hold the value, remove it.
+    await tester.longPress(find.text('male'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Remove this value'));
     await tester.pumpAndSettle();
@@ -247,5 +248,39 @@ void main() {
     await tester.tap(find.text('Color'));
     await tester.pumpAndSettle();
     expect(find.byType(AlertDialog), findsOneWidget);
+  });
+
+  testWidgets('in edit mode a filled field holds to its history, an empty one holds nothing',
+      (tester) async {
+    tester.view.physicalSize = const Size(1000, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await pump(tester);
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    await tester.longPress(find.text('Breed'));
+    await tester.pumpAndSettle();
+    expect(find.byTooltip('Oldest first'), findsNothing);
+    await tester.longPress(find.text('Gender'));
+    await tester.pumpAndSettle();
+    expect(find.byTooltip('Oldest first'), findsOneWidget);
+  });
+
+  testWidgets('a hold on the home title renames it in read mode',
+      (tester) async {
+    final home = store.createClowder('Home');
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: ClowderDetailScreen(store: store, clowderId: home),
+    ));
+    await tester.pumpAndSettle();
+    await tester.longPress(find.text('Home'));
+    await tester.pumpAndSettle();
+    expect(find.text('Rename clowder'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'Barn');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    expect(store.current(home, Keys.name), 'Barn');
   });
 }

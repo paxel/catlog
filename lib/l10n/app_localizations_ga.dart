@@ -3452,4 +3452,252 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get colWho => 'Cé';
+
+  @override
+  String get pdfFontMissing =>
+      'Níl an cló don teanga seo ar an nguthán fós; priontáiltear roinnt litreacha mar bhoscaí. Ceangail leis an idirlíon uair amháin agus déan an PDF arís.';
+
+  @override
+  String get vetReportTitle => 'Tuairisc don tréidlia';
+
+  @override
+  String get vetReportMenu => 'Tuairisc don tréidlia…';
+
+  @override
+  String get vetReportFields => 'Réimsí';
+
+  @override
+  String get vetReportFrom => 'Ó';
+
+  @override
+  String get vetReportTo => 'Go';
+
+  @override
+  String get vetReportSummary => 'Achoimre othair';
+
+  @override
+  String get vetReportOwner => 'Úinéir';
+
+  @override
+  String get vetReportLegend => 'Eochair';
+
+  @override
+  String get vetReportCurves => 'Graf';
+
+  @override
+  String get posterMenu => 'Póstaer ar iarraidh…';
+
+  @override
+  String get posterHeadline => 'AR IARRAIDH';
+
+  @override
+  String get posterStanding =>
+      'Seiceáil siléir, seideanna agus garáistí le do thoil. Ná téigh sa tóir, glaoigh.';
+
+  @override
+  String get posterLastSeen => 'Feicthe go deireanach in aice le';
+
+  @override
+  String get posterFreeText => 'Líne bhreise';
+
+  @override
+  String get posterQr => 'Cód QR do cat(a)log';
+
+  @override
+  String get posterPhoto => 'Grianghraf';
+
+  @override
+  String get newCatIn => 'Cat nua i…';
+
+  @override
+  String get newCatInNeutral => 'Peata nua i…';
+
+  @override
+  String get choreLabel => 'Cúram';
+
+  @override
+  String get choreTickLabel => 'Cúram déanta';
+
+  @override
+  String get choreEnded => 'Críochnaithe';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'meabhrúchán $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'déanta ar $date';
+  }
+
+  @override
+  String get withheldByPartner => 'coinnithe siar ag páirtí';
+
+  @override
+  String get titleLabel => 'Teideal';
+
+  @override
+  String get deletedLabel => 'Scriosta';
+
+  @override
+  String get favouriteAdd => 'Marcáil mar cheanán';
+
+  @override
+  String get favouriteRemove => 'Bain ó cheanáin';
+
+  @override
+  String get coverPick => 'Pictiúr clúdaigh…';
+
+  @override
+  String get coverHint =>
+      'Pictiúr den áit: an teach, an clós, an láthair bheathaithe. Ar an gcárta in ionad cait.';
+
+  @override
+  String get coverRemove => 'Bain an pictiúr clúdaigh';
+
+  @override
+  String get skipTour =>
+      'Léim thar an réamhrá agus na leideanna ar an suiteáil seo';
+
+  @override
+  String get spotCatChores =>
+      'Cónaíonn cúram athfhillteach anseo: beathú, cógais, seiceálacha, gach ceann lena mheabhrúchán féin.';
+
+  @override
+  String get spotLooks =>
+      'Cuir tic le gach a bhfeiceann tú. Is as seo a thagann meaitseálacha le catalóga eile.';
+
+  @override
+  String get spotHistoryHold =>
+      'Coinnigh luach chun é a cheartú nó a bhaint. Ní chailltear aon rud; taispeántar luachanna folaithe ar iarratas.';
+
+  @override
+  String get spotBackups =>
+      'An áit a gcoinnítear do chatalóga slán: a ndéanann an guthán cúltaca de, agus cóip i bhfillteán de do rogha.';
+
+  @override
+  String get spotCardPoster =>
+      'Póstaer ar iarraidh ó thaifead an chait seo: grianghraf, ainm, fón i litreacha móra, agus cód a scanann daoine eile.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Póstaer ar iarraidh ó thaifead an pheata seo: grianghraf, ainm, fón i litreacha móra, agus cód a scanann daoine eile.';
+
+  @override
+  String get spotTimelineReport =>
+      'Tuairisc don tréidlia: na hiontrálacha a roghnaíonn tú mar amlíne, achoimre othair, agus graf do gach réimse uimhreach, an meáchan mar shampla.';
+
+  @override
+  String get helpHistory =>
+      'Luachanna réimse amháin le himeacht ama, an ceann is nuaí ar dtús. Tapáil luach chun é a cheartú: glacann an ceann nua a áit, folaítear an seancheann. Coinnigh luach chun é a bhaint nó ceann folaithe a thabhairt ar ais; taispeánann an tsúil luachanna folaithe. Cóipeáil an liosta mar théacs nó roinn é mar PDF.';
+
+  @override
+  String get helpSettings =>
+      'Roghanna an aip féin: teanga, aonaid, ceiliúrthaí agus gártha, an fionnadh taobh thiar de na leathanaigh, fógraí, agus cá ndéantar cúltaca de do chatalóga. Is féidir na turais a athsheinm as seo.';
+
+  @override
+  String get helpLooks =>
+      'Cuma an chait, mar shliseanna: méid, dathanna, patrún, fionnadh, eireaball, cluasa, marcanna agus tréithe buana. Cuir tic le gach a bhfeiceann tú; is iarrthóir é cat fáin a réitíonn le cat ar iarraidh in dhá thréith.';
+
+  @override
+  String get graphSmoothed => 'Mínithe';
+
+  @override
+  String get graphTrend => 'Treocht';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Treocht: $value sa mhí';
+  }
+
+  @override
+  String get helpBackups =>
+      'An áit a gcoinnítear do chatalóga slán: a ndéanann an guthán cúltaca de uaidh féin, cá dtéann na cóipeanna iomlána, cathain a scríobhadh an ceann deireanach, agus cnaipe chun ceann a scríobh anois. Tá an t-athchóiriú faoi Bainistigh catalóga.';
+
+  @override
+  String get helpConflicts =>
+      'Réimsí a d\'athraigh beirt ag an am céanna, sular shioncronaigh a ngléasanna. Taispeánann gach ró an dá luach; roghnaigh an ceann ceart, agus sroicheann an rogha gach gléas.';
+
+  @override
+  String get helpInPerson =>
+      'Sioncronaigh le duine in aice leat: óstálann guthán amháin, téann an ceann eile isteach tríd an gcód a scanadh, agus gluaiseann na sonraí thar Wi-Fi, criptithe, gan freastalaí. Cinneann an lasc phríobháideach an dtaistealaíonn luachanna príobháideacha.';
+
+  @override
+  String get helpMessenger =>
+      'Sioncronaigh mar chomhad: scríobhann an gléas seo beart le gach a bhfuil ar eolas aige, seolann tú é trí theachtaire nó ríomhphost ar bith, agus iompórtálann an taobh eile é. Taistealaíonn grianghraif istigh; luachanna príobháideacha ach amháin má deir an lasc é.';
+
+  @override
+  String get helpModeration =>
+      'Na daoine ar shroich a n-iontrálacha an chatalóg seo, leis an méid a scríobh siad. Scrios sonraí duine ar an ngléas seo agus cuir cosc ar a ghléas; liostaíonn cosc na hainmneacha ar scríobh an gléas sin fúthu.';
+
+  @override
+  String get helpRemote =>
+      'Sioncronaigh trí fhillteán comhroinnte do ghléasanna nach mbuaileann le chéile riamh: roghnaigh an fillteán céanna uair amháin ar gach gléas; scríobhann gach sioncronú d\'athruithe ansin agus léann sé athruithe na ndaoine eile. Iompraíonn fillteán amháin gach catalóg, gach ceann ina fhofhillteán féin.';
+
+  @override
+  String get helpRestore =>
+      'Cúltacaí na suiteála roimhe seo, ró amháin in aghaidh na catalóige, ticeáilte. Tugann Athchóirigh gach ceann ar ais mar chatalóg dá cuid féin. Ar Android deonaítear an fillteán uair amháin tríd an roghnóir; cuireann Roghnaigh comhaid cúltacaí a choinnítear áit ar bith eile leis.';
+
+  @override
+  String get helpScan =>
+      'Scan an cód cat(a)log ar phóstaer nó ar scáileán duine eile: tagann an cat agus a theagmháil anseo gan chlóscríobh. Faigheann cód a iompraíonn nasc an comhad taobh thiar de.';
+
+  @override
+  String get helpVetReport =>
+      'An méid a théann chuig an tréidlia: na réimsí agus na dátaí a roghnaíonn tú, gach ró ticeáilte go dtí go ndíthiceálann tú é, agus an achoimre othair ar barr. Roinn mar PDF nó priontáil, an dá cheann sa bharra.';
+
+  @override
+  String get helpPoster =>
+      'Póstaer don chuaille lampa, ón taifead: cuir tic lena bhfuil le dul air, cuir líne leis nach bhfuil sa taifead, agus priontálann an leathanach dubh ar bhán i litreacha a léitear ó thaobh eile na sráide. Osclaíonn an cód an cat i cat(a)log eile.';
+
+  @override
+  String get helpAchievements =>
+      'An méid a tuilleadh agus sin amháin: míonna, blianta agus níos mó iomlána de chúraimí lena n-uimhir, teideal amháin in aghaidh an chúraim ag a chéim, agus na fionnaidh a díghlasáladh. Gan barraí dul chun cinn agus gan aon rud le fiach; is bónas ciúin iad na luaíochtaí.';
+
+  @override
+  String get posterQrTooBig =>
+      'Tá an iomarca ticeáilte do chód amháin. Díthiceáil líne agus tagann an cód ar ais.';
+
+  @override
+  String get posterPhotos => 'Grianghraif, suas le dhá cheann';
+
+  @override
+  String get posterFrameHint =>
+      'Tarraing agus pinseáil chun an grianghraf a fhrámú.';
+
+  @override
+  String get posterPreview => 'Réamhamharc';
+
+  @override
+  String get syncWatchSwitch =>
+      'Inis dom nuair a bhíonn athruithe ag fanacht san fhillteán';
+
+  @override
+  String get syncAutoSwitch => 'Cumaisc iad uathu féin';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Athruithe ó $authors ag fanacht in $catalog. Tapáil chun sioncronú.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'gléas eile';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count athrú ó $authors cumaiscthe',
+      many: '$count n-athrú ó $authors cumaiscthe',
+      few: '$count athrú ó $authors cumaiscthe',
+      two: '$count athrú ó $authors cumaiscthe',
+      one: '$count athrú ó $authors cumaiscthe',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Taispeáin';
 }

@@ -3432,4 +3432,250 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get colWho => 'من';
+
+  @override
+  String get pdfFontMissing =>
+      'خط هذه اللغة ليس على الهاتف بعد؛ تُطبع بعض الحروف كمربعات. اتصل بالإنترنت مرة واحدة ثم أنشئ ملف PDF من جديد.';
+
+  @override
+  String get vetReportTitle => 'تقرير للطبيب البيطري';
+
+  @override
+  String get vetReportMenu => 'تقرير للطبيب البيطري…';
+
+  @override
+  String get vetReportFields => 'الحقول';
+
+  @override
+  String get vetReportFrom => 'من';
+
+  @override
+  String get vetReportTo => 'إلى';
+
+  @override
+  String get vetReportSummary => 'ملخص المريض';
+
+  @override
+  String get vetReportOwner => 'المالك';
+
+  @override
+  String get vetReportLegend => 'مفتاح الرموز';
+
+  @override
+  String get vetReportCurves => 'رسم بياني';
+
+  @override
+  String get posterMenu => 'ملصق مفقود…';
+
+  @override
+  String get posterHeadline => 'مفقود';
+
+  @override
+  String get posterStanding =>
+      'يرجى تفقد الأقبية والسقائف والمرائب. لا تطارده، فقط اتصل.';
+
+  @override
+  String get posterLastSeen => 'شوهد آخر مرة قرب';
+
+  @override
+  String get posterFreeText => 'سطر إضافي';
+
+  @override
+  String get posterQr => 'رمز QR لـ cat(a)log';
+
+  @override
+  String get posterPhoto => 'صورة';
+
+  @override
+  String get newCatIn => 'قطة جديدة في…';
+
+  @override
+  String get newCatInNeutral => 'حيوان أليف جديد في…';
+
+  @override
+  String get choreLabel => 'مهمة';
+
+  @override
+  String get choreTickLabel => 'أُنجزت المهمة';
+
+  @override
+  String get choreEnded => 'انتهت';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'تذكير $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'أُنجزت في $date';
+  }
+
+  @override
+  String get withheldByPartner => 'حجبه شريك';
+
+  @override
+  String get titleLabel => 'اللقب';
+
+  @override
+  String get deletedLabel => 'محذوف';
+
+  @override
+  String get favouriteAdd => 'تمييز كمفضّل';
+
+  @override
+  String get favouriteRemove => 'إزالة من المفضّلة';
+
+  @override
+  String get coverPick => 'صورة الغلاف…';
+
+  @override
+  String get coverHint =>
+      'صورة للمكان: البيت، الفناء، موضع الإطعام. تُعرض على البطاقة بدل قطة.';
+
+  @override
+  String get coverRemove => 'إزالة صورة الغلاف';
+
+  @override
+  String get skipTour => 'تخطّي المقدمة والنصائح في هذا التثبيت';
+
+  @override
+  String get spotCatChores =>
+      'الرعاية المتكررة تسكن هنا: الإطعام، الأدوية، الفحوصات، لكل منها تذكيرها.';
+
+  @override
+  String get spotLooks =>
+      'ضع علامة على ما تراه. التطابقات مع الفهارس الأخرى تأتي من هنا.';
+
+  @override
+  String get spotHistoryHold =>
+      'اضغط مطولاً على قيمة لتصحيحها أو إزالتها. لا يضيع شيء؛ تظهر القيم المخفية عند الطلب.';
+
+  @override
+  String get spotBackups =>
+      'أين تُحفظ فهارسك بأمان: ما ينسخه الهاتف احتياطياً، ونسخة في مجلد من اختيارك.';
+
+  @override
+  String get spotCardPoster =>
+      'ملصق مفقود من سجل هذه القطة: صورة، اسم، هاتف بحروف كبيرة، ورمز يمسحه الآخرون.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'ملصق مفقود من سجل هذا الحيوان الأليف: صورة، اسم، هاتف بحروف كبيرة، ورمز يمسحه الآخرون.';
+
+  @override
+  String get spotTimelineReport =>
+      'تقرير للطبيب البيطري: الإدخالات التي تختارها كخط زمني، وملخص للمريض، ورسم بياني لكل حقل رقمي، كالوزن مثلاً.';
+
+  @override
+  String get helpHistory =>
+      'قيم حقل واحد عبر الزمن، الأحدث أولاً. انقر على قيمة لتصحيحها: تحل الجديدة محلها وتُخفى القديمة. اضغط مطولاً على قيمة لإزالتها أو لإعادة قيمة مخفية؛ تُظهر العين القيم المخفية. انسخ القائمة كنص أو شاركها كملف PDF.';
+
+  @override
+  String get helpSettings =>
+      'خيارات التطبيق: اللغة، الوحدات، الاحتفالات والهتافات، الفراء خلف الصفحات، الإشعارات، وأين تُنسخ فهارسك احتياطياً. يمكن إعادة الجولات من هنا.';
+
+  @override
+  String get helpLooks =>
+      'شكل القطة على هيئة رقائق: الحجم، الألوان، النمط، الفراء، الذيل، الأذنان، العلامات والسمات الدائمة. ضع علامة على ما تراه؛ القطة الضالة التي تتفق مع قطة مفقودة في سمتين تصبح مرشحة.';
+
+  @override
+  String get graphSmoothed => 'ممهَّد';
+
+  @override
+  String get graphTrend => 'الاتجاه';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'الاتجاه: $value شهرياً';
+  }
+
+  @override
+  String get helpBackups =>
+      'أين تُحفظ فهارسك بأمان: ما ينسخه الهاتف احتياطياً بنفسه، وأين تُحفظ النسخ الكاملة، ومتى كُتبت الأخيرة، وزر لكتابة نسخة الآن. الاستعادة في إدارة الفهارس.';
+
+  @override
+  String get helpConflicts =>
+      'حقول غيّرها شخصان في الوقت نفسه قبل أن تتزامن أجهزتهما. يعرض كل صف القيمتين؛ اختر الصحيحة، ويصل الاختيار إلى كل جهاز.';
+
+  @override
+  String get helpInPerson =>
+      'زامن مع شخص بجانبك: هاتف يستضيف والآخر ينضم بمسح الرمز، وتنتقل البيانات عبر Wi-Fi مشفّرة من دون خادم. مفتاح الخصوصية يقرر ما إذا كانت القيم الخاصة تنتقل.';
+
+  @override
+  String get helpMessenger =>
+      'المزامنة كملف: يكتب هذا الجهاز حزمة بكل ما يعرفه، ترسلها عبر أي تطبيق مراسلة أو بريد، والطرف الآخر يستوردها. الصور تنتقل داخلها؛ القيم الخاصة فقط إذا سمح المفتاح.';
+
+  @override
+  String get helpModeration =>
+      'الأشخاص الذين وصلت إدخالاتهم إلى هذا الفهرس، مع ما كتبوه. احذف بيانات شخص على هذا الجهاز واحظر جهازه؛ يعرض الحظر الأسماء التي كتب بها ذلك الجهاز.';
+
+  @override
+  String get helpRemote =>
+      'المزامنة عبر مجلد مشترك للأجهزة التي لا تلتقي أبداً: اختر المجلد نفسه مرة واحدة على كل جهاز؛ تكتب كل مزامنة تغييراتك هناك وتقرأ تغييرات الآخرين. مجلد واحد يحمل كل الفهارس، كل منها في مجلد فرعي خاص.';
+
+  @override
+  String get helpRestore =>
+      'نسخ احتياطية للتثبيت السابق، صف لكل فهرس، محددة. الاستعادة تعيد كل واحدة كفهرس مستقل. على أندرويد يُمنح المجلد مرة واحدة عبر المنتقي؛ اختيار الملفات يضيف نسخاً محفوظة في أي مكان آخر.';
+
+  @override
+  String get helpScan =>
+      'امسح رمز cat(a)log على ملصق أو على شاشة شخص آخر: تصل القطة وجهة اتصالها إلى هنا من دون كتابة. الرمز الذي يحمل رابطاً يجلب الملف خلفه.';
+
+  @override
+  String get helpVetReport =>
+      'ما يذهب إلى الطبيب البيطري: الحقول والتواريخ التي تختارها، كل صف محدد حتى تلغي تحديده، وملخص المريض في المقدمة. شارك كملف PDF أو اطبع، كلاهما في الشريط.';
+
+  @override
+  String get helpPoster =>
+      'ملصق لعمود الإنارة من السجل: حدد ما يظهر عليه، أضف سطراً لا يحويه السجل، وتُطبع الصفحة بالأسود على الأبيض بحروف تُقرأ من الجهة الأخرى من الشارع. الرمز يفتح القطة في cat(a)log آخر.';
+
+  @override
+  String get helpAchievements =>
+      'ما تحقق فقط: أشهر وسنوات كاملة وأكثر من المهام بعددها، لقب واحد لكل مهمة في رتبتها، والفراء الذي فُتح. لا أشرطة تقدم ولا شيء يُلاحَق؛ المكافآت مكافأة هادئة.';
+
+  @override
+  String get posterQrTooBig =>
+      'المحدد أكثر مما يتسع له رمز واحد. ألغِ تحديد سطر ويعود الرمز.';
+
+  @override
+  String get posterPhotos => 'الصور، حتى اثنتين';
+
+  @override
+  String get posterFrameHint => 'اسحب وقرّب بإصبعين لتأطير الصورة.';
+
+  @override
+  String get posterPreview => 'معاينة';
+
+  @override
+  String get syncWatchSwitch => 'أخبرني عندما تنتظر تغييرات في المجلد';
+
+  @override
+  String get syncAutoSwitch => 'ادمجها من تلقاء نفسها';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'تغييرات من $authors تنتظر في $catalog. انقر للمزامنة.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'جهاز آخر';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'دُمج $count تغيير من $authors',
+      many: 'دُمج $count تغييراً من $authors',
+      few: 'دُمجت $count تغييرات من $authors',
+      two: 'دُمج تغييران من $authors',
+      one: 'دُمج تغيير واحد من $authors',
+      zero: 'لم يُدمج أي تغيير من $authors',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'عرض';
 }

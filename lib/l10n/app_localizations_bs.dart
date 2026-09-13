@@ -3411,4 +3411,247 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get colWho => 'Ko';
+
+  @override
+  String get pdfFontMissing =>
+      'Font za ovaj jezik još nije na telefonu; neka slova se štampaju kao kvadratići. Povežite se jednom na internet i ponovo napravite PDF.';
+
+  @override
+  String get vetReportTitle => 'Izvještaj za veterinara';
+
+  @override
+  String get vetReportMenu => 'Izvještaj za veterinara…';
+
+  @override
+  String get vetReportFields => 'Polja';
+
+  @override
+  String get vetReportFrom => 'Od';
+
+  @override
+  String get vetReportTo => 'Do';
+
+  @override
+  String get vetReportSummary => 'Pregled pacijenta';
+
+  @override
+  String get vetReportOwner => 'Vlasnik';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Grafikon';
+
+  @override
+  String get posterMenu => 'Plakat Nestao…';
+
+  @override
+  String get posterHeadline => 'NESTAO';
+
+  @override
+  String get posterStanding =>
+      'Molimo provjerite podrume, šupe i garaže. Ne jurite, samo nazovite.';
+
+  @override
+  String get posterLastSeen => 'Zadnji put viđen kod';
+
+  @override
+  String get posterFreeText => 'Dodatni red';
+
+  @override
+  String get posterQr => 'QR kod za cat(a)log';
+
+  @override
+  String get posterPhoto => 'Fotografija';
+
+  @override
+  String get newCatIn => 'Nova mačka u…';
+
+  @override
+  String get newCatInNeutral => 'Novi ljubimac u…';
+
+  @override
+  String get choreLabel => 'Zadatak';
+
+  @override
+  String get choreTickLabel => 'Zadatak obavljen';
+
+  @override
+  String get choreEnded => 'Završeno';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'podsjetnik $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'obavljeno $date';
+  }
+
+  @override
+  String get withheldByPartner => 'zadržano od partnera';
+
+  @override
+  String get titleLabel => 'Titula';
+
+  @override
+  String get deletedLabel => 'Izbrisano';
+
+  @override
+  String get favouriteAdd => 'Označi kao omiljeno';
+
+  @override
+  String get favouriteRemove => 'Ukloni iz omiljenih';
+
+  @override
+  String get coverPick => 'Naslovna slika…';
+
+  @override
+  String get coverHint =>
+      'Slika mjesta: kuća, dvorište, hranilište. Na kartici umjesto mačke.';
+
+  @override
+  String get coverRemove => 'Ukloni naslovnu sliku';
+
+  @override
+  String get skipTour => 'Preskoči uvod i savjete na ovoj instalaciji';
+
+  @override
+  String get spotCatChores =>
+      'Redovna njega živi ovdje: hranjenje, lijekovi, provjere, svaka sa svojim podsjetnikom.';
+
+  @override
+  String get spotLooks =>
+      'Označite šta vidite. Podudaranja s drugim katalozima dolaze odavde.';
+
+  @override
+  String get spotHistoryHold =>
+      'Zadržite vrijednost da je ispravite ili uklonite. Ništa se ne gubi; skrivene vrijednosti se prikazuju na zahtjev.';
+
+  @override
+  String get spotBackups =>
+      'Gdje su vaši katalozi sigurni: šta telefon čuva, i kopija u folderu po vašem izboru.';
+
+  @override
+  String get spotCardPoster =>
+      'Plakat Nestao iz zapisa ove mačke: fotografija, ime, telefon velikim slovima i kod koji drugi skeniraju.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Plakat Nestao iz zapisa ovog ljubimca: fotografija, ime, telefon velikim slovima i kod koji drugi skeniraju.';
+
+  @override
+  String get spotTimelineReport =>
+      'Izvještaj za veterinara: odabrani unosi kao vremenska linija, pregled pacijenta i grafikon za svako brojčano polje, na primjer težinu.';
+
+  @override
+  String get helpHistory =>
+      'Vrijednosti jednog polja kroz vrijeme, najnovije prve. Dodirnite vrijednost da je ispravite: nova zauzima njeno mjesto, stara se skriva. Zadržite vrijednost da je uklonite ili vratite skrivenu; oko prikazuje skrivene vrijednosti. Kopirajte listu kao tekst ili podijelite kao PDF.';
+
+  @override
+  String get helpSettings =>
+      'Izbori aplikacije: jezik, jedinice, slavlja i klicanje, krzno iza stranica, obavještenja i gdje se čuvaju kopije kataloga. Ture se odavde mogu ponoviti.';
+
+  @override
+  String get helpLooks =>
+      'Kako mačka izgleda, kao čipovi: veličina, boje, uzorak, krzno, rep, uši, oznake i trajne osobine. Označite šta vidite; lutalica koja se podudara s nestalom mačkom u dvije osobine postaje kandidat.';
+
+  @override
+  String get graphSmoothed => 'Izglađen';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value mjesečno';
+  }
+
+  @override
+  String get helpBackups =>
+      'Gdje su vaši katalozi sigurni: šta telefon sam čuva, gdje završavaju potpune kopije, kada je zapisana zadnja, i dugme za zapis sada. Vraćanje je u Upravljaj katalozima.';
+
+  @override
+  String get helpConflicts =>
+      'Polja koja su dvoje ljudi promijenili istovremeno, prije nego što su se uređaji sinhronizovali. Svaki red prikazuje obje vrijednosti; odaberite pravu i izbor stiže na svaki uređaj.';
+
+  @override
+  String get helpInPerson =>
+      'Sinhronizacija s osobom pored vas: jedan telefon je domaćin, drugi se pridružuje skeniranjem koda, a podaci idu preko Wi-Fi-ja, šifrovani, bez servera. Prekidač za privatno odlučuje da li privatne vrijednosti putuju.';
+
+  @override
+  String get helpMessenger =>
+      'Sinhronizacija kao datoteka: ovaj uređaj piše paket sa svime što zna, šaljete ga preko messengera ili pošte, a druga strana ga uvozi. Fotografije putuju unutra; privatne vrijednosti samo ako prekidač dopusti.';
+
+  @override
+  String get helpModeration =>
+      'Osobe čiji su unosi stigli u ovaj katalog, s onim što su napisale. Izbrišite podatke osobe na ovom uređaju i blokirajte njen uređaj; blokada navodi imena pod kojima je taj uređaj pisao.';
+
+  @override
+  String get helpRemote =>
+      'Sinhronizacija preko dijeljenog foldera za uređaje koji se nikad ne sretnu: jednom odaberite isti folder na svakom uređaju; svaka sinhronizacija tamo zapisuje vaše promjene i čita tuđe. Jedan folder nosi sve kataloge, svaki u vlastitom podfolderu.';
+
+  @override
+  String get helpRestore =>
+      'Sigurnosne kopije prethodne instalacije, po red po katalogu, označene. Vrati vraća svaku kao zaseban katalog. Na Androidu se folder daje jednom kroz odabir; Odaberi datoteke dodaje kopije čuvane drugdje.';
+
+  @override
+  String get helpScan =>
+      'Skenirajte cat(a)log kod s plakata ili s ekrana druge osobe: mačka i njen kontakt stižu ovdje bez kucanja. Kod koji nosi link preuzima datoteku iza njega.';
+
+  @override
+  String get helpVetReport =>
+      'Šta ide veterinaru: odabrana polja i datumi, svaki red označen dok ga ne odznačite, i pregled pacijenta na početku. Podijeli kao PDF ili štampaj, oboje u traci.';
+
+  @override
+  String get helpPoster =>
+      'Plakat za banderu, iz zapisa: označite šta ide na njega, dodajte red koji zapis nema, i stranica se štampa crno na bijelom slovima koja se čitaju s druge strane ulice. Kod otvara mačku u drugom cat(a)logu.';
+
+  @override
+  String get helpAchievements =>
+      'Ono što je zarađeno i samo to: puni mjeseci, godine i više zadataka s njihovim brojem, po jedna titula po zadatku na njenom stepenu, i otključana krzna. Bez traka napretka i bez jurnjave; nagrade su tihi bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Previše je označeno za jedan kod. Odznačite red i kod se vraća.';
+
+  @override
+  String get posterPhotos => 'Fotografije, do dvije';
+
+  @override
+  String get posterFrameHint => 'Povucite i uštinite da odaberete kadar.';
+
+  @override
+  String get posterPreview => 'Pregled';
+
+  @override
+  String get syncWatchSwitch => 'Reci mi kad u folderu čekaju promjene';
+
+  @override
+  String get syncAutoSwitch => 'Spoji ih same';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Promjene od $authors čekaju u $catalog. Dodirnite za sinhronizaciju.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'drugog uređaja';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count promjena od $authors spojeno',
+      few: '$count promjene od $authors spojene',
+      one: '$count promjena od $authors spojena',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Prikaži';
 }

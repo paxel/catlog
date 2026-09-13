@@ -3413,4 +3413,247 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get colWho => 'Kas';
+
+  @override
+  String get pdfFontMissing =>
+      'Šīs valodas fonts vēl nav tālrunī; daži burti tiek drukāti kā kastītes. Vienreiz pieslēdzieties internetam un izveidojiet PDF vēlreiz.';
+
+  @override
+  String get vetReportTitle => 'Ziņojums veterinārārstam';
+
+  @override
+  String get vetReportMenu => 'Ziņojums veterinārārstam…';
+
+  @override
+  String get vetReportFields => 'Lauki';
+
+  @override
+  String get vetReportFrom => 'No';
+
+  @override
+  String get vetReportTo => 'Līdz';
+
+  @override
+  String get vetReportSummary => 'Pacienta kopsavilkums';
+
+  @override
+  String get vetReportOwner => 'Īpašnieks';
+
+  @override
+  String get vetReportLegend => 'Apzīmējumi';
+
+  @override
+  String get vetReportCurves => 'Grafiks';
+
+  @override
+  String get posterMenu => 'Pazudis plakāts…';
+
+  @override
+  String get posterHeadline => 'PAZUDIS';
+
+  @override
+  String get posterStanding =>
+      'Lūdzu, pārbaudiet pagrabus, šķūņus un garāžas. Nedzeniet pakaļ, vienkārši piezvaniet.';
+
+  @override
+  String get posterLastSeen => 'Pēdējo reizi redzēts pie';
+
+  @override
+  String get posterFreeText => 'Papildu rinda';
+
+  @override
+  String get posterQr => 'QR kods cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Jauns kaķis uz…';
+
+  @override
+  String get newCatInNeutral => 'Jauns mājdzīvnieks uz…';
+
+  @override
+  String get choreLabel => 'Uzdevums';
+
+  @override
+  String get choreTickLabel => 'Uzdevums izpildīts';
+
+  @override
+  String get choreEnded => 'Beigts';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'atgādinājums $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'izpildīts $date';
+  }
+
+  @override
+  String get withheldByPartner => 'partnera aizturēts';
+
+  @override
+  String get titleLabel => 'Tituls';
+
+  @override
+  String get deletedLabel => 'Dzēsts';
+
+  @override
+  String get favouriteAdd => 'Atzīmēt kā izlasi';
+
+  @override
+  String get favouriteRemove => 'Noņemt no izlases';
+
+  @override
+  String get coverPick => 'Vāka attēls…';
+
+  @override
+  String get coverHint =>
+      'Vietas attēls: māja, pagalms, barošanas vieta. Kartītē kaķa vietā.';
+
+  @override
+  String get coverRemove => 'Noņemt vāka attēlu';
+
+  @override
+  String get skipTour => 'Izlaist ievadu un padomus šajā instalācijā';
+
+  @override
+  String get spotCatChores =>
+      'Regulārā aprūpe dzīvo šeit: barošana, zāles, pārbaudes, katra ar savu atgādinājumu.';
+
+  @override
+  String get spotLooks =>
+      'Atzīmējiet, ko redzat. Sakritības ar citiem katalogiem nāk no šejienes.';
+
+  @override
+  String get spotHistoryHold =>
+      'Turiet vērtību, lai to labotu vai noņemtu. Nekas nepazūd; paslēptās vērtības rāda pēc pieprasījuma.';
+
+  @override
+  String get spotBackups =>
+      'Kur jūsu katalogi ir drošībā: ko tālrunis dublē, un kopija jūsu izvēlētā mapē.';
+
+  @override
+  String get spotCardPoster =>
+      'Pazudis plakāts no šī kaķa ieraksta: foto, vārds, tālrunis lieliem burtiem un kods, ko citi noskenē.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Pazudis plakāts no šī mājdzīvnieka ieraksta: foto, vārds, tālrunis lieliem burtiem un kods, ko citi noskenē.';
+
+  @override
+  String get spotTimelineReport =>
+      'Ziņojums veterinārārstam: izvēlētie ieraksti kā laika līnija, pacienta kopsavilkums un grafiks katram skaitļu laukam, piemēram svaram.';
+
+  @override
+  String get helpHistory =>
+      'Viena lauka vērtības laika gaitā, jaunākās pirmās. Pieskarieties vērtībai, lai to labotu: jaunā ieņem tās vietu, vecā tiek paslēpta. Turiet vērtību, lai to noņemtu vai atgrieztu paslēpto; acs rāda paslēptās vērtības. Kopējiet sarakstu kā tekstu vai kopīgojiet kā PDF.';
+
+  @override
+  String get helpSettings =>
+      'Lietotnes izvēles: valoda, vienības, svinības un gaviles, kažoks aiz lapām, paziņojumi un kur tiek dublēti jūsu katalogi. Ekskursijas var atkārtot no šejienes.';
+
+  @override
+  String get helpLooks =>
+      'Kā kaķis izskatās, kā mikroshēmas: izmērs, krāsas, raksts, kažoks, aste, ausis, zīmes un paliekošas iezīmes. Atzīmējiet, ko redzat; klaiņotājs, kas sakrīt ar pazudušu kaķi divās iezīmēs, kļūst par kandidātu.';
+
+  @override
+  String get graphSmoothed => 'Izlīdzināts';
+
+  @override
+  String get graphTrend => 'Tendence';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Tendence: $value mēnesī';
+  }
+
+  @override
+  String get helpBackups =>
+      'Kur jūsu katalogi ir drošībā: ko tālrunis dublē pats, kur nonāk pilnās kopijas, kad ierakstīta pēdējā, un poga, lai ierakstītu tagad. Atjaunošana ir Katalogu pārvaldībā.';
+
+  @override
+  String get helpConflicts =>
+      'Lauki, ko divi cilvēki mainīja vienlaikus, pirms ierīces sinhronizējās. Katra rinda rāda abas vērtības; izvēlieties pareizo, un izvēle sasniedz katru ierīci.';
+
+  @override
+  String get helpInPerson =>
+      'Sinhronizējiet ar blakus esošo cilvēku: viens tālrunis uzņem, otrs pievienojas, noskenējot kodu, un dati pārvietojas pa Wi-Fi, šifrēti, bez servera. Privātuma slēdzis izlemj, vai ceļo privātās vērtības.';
+
+  @override
+  String get helpMessenger =>
+      'Sinhronizācija ar failu: šī ierīce raksta paketi ar visu, ko zina, jūs to nosūtāt ar jebkuru ziņotni vai e-pastu, un otra puse to importē. Fotoattēli ceļo iekšā; privātās vērtības tikai ar slēdža atļauju.';
+
+  @override
+  String get helpModeration =>
+      'Cilvēki, kuru ieraksti sasniedza šo katalogu, ar to, ko viņi rakstīja. Dzēsiet personas datus šajā ierīcē un bloķējiet viņas ierīci; bloķēšana uzskaita vārdus, ar kuriem tā ierīce rakstīja.';
+
+  @override
+  String get helpRemote =>
+      'Sinhronizācija caur koplietotu mapi ierīcēm, kas nekad nesatiekas: vienreiz izvēlieties to pašu mapi katrā ierīcē; katra sinhronizācija tur ieraksta jūsu izmaiņas un lasa citu. Viena mape nes visus katalogus, katru savā apakšmapē.';
+
+  @override
+  String get helpRestore =>
+      'Iepriekšējās instalācijas rezerves kopijas, viena rinda katram katalogam, atzīmētas. Atjaunot atgriež katru kā atsevišķu katalogu. Android ierīcēs mape tiek piešķirta vienreiz caur izvēli; Izvēlēties failus pievieno citur glabātas kopijas.';
+
+  @override
+  String get helpScan =>
+      'Noskenējiet cat(a)log kodu uz plakāta vai cita cilvēka ekrānā: kaķis un tā kontakts nonāk šeit bez rakstīšanas. Kods ar saiti lejupielādē aiz tā esošo failu.';
+
+  @override
+  String get helpVetReport =>
+      'Kas dodas pie veterinārārsta: jūsu izvēlētie lauki un datumi, katra rinda atzīmēta, līdz atceļat atzīmi, un pacienta kopsavilkums priekšā. Kopīgot kā PDF vai drukāt, abi joslā.';
+
+  @override
+  String get helpPoster =>
+      'Plakāts laternas stabam no ieraksta: atzīmējiet, kas uz tā būs, pievienojiet rindu, kuras ierakstā nav, un lapa drukājas melns uz balta ar burtiem, ko lasa no ielas otras puses. Kods atver kaķi citā cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Kas nopelnīts un tikai tas: pilni mēneši, gadi un vairāk uzdevumu ar to skaitu, viens tituls uz uzdevumu tā pakāpē, un atbloķētie kažoki. Nekādu progresa joslu un nekā, ko dzīties; balvas ir kluss bonuss.';
+
+  @override
+  String get posterQrTooBig =>
+      'Vienam kodam atzīmēts par daudz. Noņemiet vienu atzīmi, un kods atgriezīsies.';
+
+  @override
+  String get posterPhotos => 'Fotoattēli, līdz divi';
+
+  @override
+  String get posterFrameHint => 'Velciet un savelciet, lai izvēlētos kadru.';
+
+  @override
+  String get posterPreview => 'Priekšskatījums';
+
+  @override
+  String get syncWatchSwitch => 'Pateikt, kad mapē gaida izmaiņas';
+
+  @override
+  String get syncAutoSwitch => 'Apvienot tās pašas';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return '$authors izmaiņas gaida katalogā $catalog. Pieskarieties, lai sinhronizētu.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'cita ierīce';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count $authors izmaiņas apvienotas',
+      one: '$count $authors izmaiņa apvienota',
+      zero: '$count $authors izmaiņu apvienotas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Rādīt';
 }

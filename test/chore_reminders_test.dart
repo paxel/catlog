@@ -273,9 +273,17 @@ void main() {
       await tester.tap(find.text('Save'));
       await tester.pumpAndSettle();
       expect(saved!.remind, isTrue);
-      // The picker opened at the current time.
+      // The picker opened at the current time; the minute may have
+      // ticked over while the test ran, so either reading passes.
       final now = TimeOfDay.now();
-      expect(saved!.remindAt, (hour: now.hour, minute: now.minute));
+      final earlier = now.replacing(minute: (now.minute + 59) % 60,
+          hour: now.minute == 0 ? (now.hour + 23) % 24 : now.hour);
+      expect(
+          saved!.remindAt,
+          anyOf(
+            (hour: now.hour, minute: now.minute),
+            (hour: earlier.hour, minute: earlier.minute),
+          ));
       expect(store.choresOf(cat).single.remind, isTrue);
     });
   });

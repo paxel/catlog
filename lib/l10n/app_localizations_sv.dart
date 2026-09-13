@@ -3395,4 +3395,247 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get colWho => 'Vem';
+
+  @override
+  String get pdfFontMissing =>
+      'Typsnittet för det här språket finns inte på telefonen än; vissa bokstäver blir rutor. Anslut till internet en gång och gör om PDF:en.';
+
+  @override
+  String get vetReportTitle => 'Rapport till veterinären';
+
+  @override
+  String get vetReportMenu => 'Rapport till veterinären…';
+
+  @override
+  String get vetReportFields => 'Fält';
+
+  @override
+  String get vetReportFrom => 'Från';
+
+  @override
+  String get vetReportTo => 'Till';
+
+  @override
+  String get vetReportSummary => 'Patientöversikt';
+
+  @override
+  String get vetReportOwner => 'Ägare';
+
+  @override
+  String get vetReportLegend => 'Teckenförklaring';
+
+  @override
+  String get vetReportCurves => 'Graf';
+
+  @override
+  String get posterMenu => 'Saknad-affisch…';
+
+  @override
+  String get posterHeadline => 'SAKNAD';
+
+  @override
+  String get posterStanding =>
+      'Kolla gärna källare, skjul och garage. Jaga inte, ring bara.';
+
+  @override
+  String get posterLastSeen => 'Senast sedd vid';
+
+  @override
+  String get posterFreeText => 'Extra rad';
+
+  @override
+  String get posterQr => 'QR-kod för cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Ny katt i…';
+
+  @override
+  String get newCatInNeutral => 'Nytt husdjur i…';
+
+  @override
+  String get choreLabel => 'Syssla';
+
+  @override
+  String get choreTickLabel => 'Syssla gjord';
+
+  @override
+  String get choreEnded => 'Avslutad';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'påminnelse $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'gjord $date';
+  }
+
+  @override
+  String get withheldByPartner => 'undanhållet av en partner';
+
+  @override
+  String get titleLabel => 'Titel';
+
+  @override
+  String get deletedLabel => 'Raderad';
+
+  @override
+  String get favouriteAdd => 'Markera som favorit';
+
+  @override
+  String get favouriteRemove => 'Ta bort från favoriter';
+
+  @override
+  String get coverPick => 'Omslagsbild…';
+
+  @override
+  String get coverHint =>
+      'En bild av platsen: huset, gården, matplatsen. Visas på kortet i stället för en katt.';
+
+  @override
+  String get coverRemove => 'Ta bort omslagsbild';
+
+  @override
+  String get skipTour =>
+      'Hoppa över introt och tipsen på den här installationen';
+
+  @override
+  String get spotCatChores =>
+      'Återkommande skötsel bor här: matning, medicin, kontroller, var och en med sin påminnelse.';
+
+  @override
+  String get spotLooks =>
+      'Bocka för det du ser. Träffar mot andra kataloger kommer härifrån.';
+
+  @override
+  String get spotHistoryHold =>
+      'Håll ett värde för att rätta eller ta bort det. Inget går förlorat; dolda värden visas på begäran.';
+
+  @override
+  String get spotBackups =>
+      'Var dina kataloger förvaras säkert: vad telefonen säkerhetskopierar, och en kopia i en mapp du väljer.';
+
+  @override
+  String get spotCardPoster =>
+      'En saknad-affisch från den här kattens kort: foto, namn, telefon med stora bokstäver och en kod andra skannar.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'En saknad-affisch från det här husdjurets kort: foto, namn, telefon med stora bokstäver och en kod andra skannar.';
+
+  @override
+  String get spotTimelineReport =>
+      'En rapport till veterinären: de valda posterna som tidslinje, en patientöversikt och en graf för varje talfält, till exempel vikten.';
+
+  @override
+  String get helpHistory =>
+      'Ett fälts värden över tid, nyaste först. Tryck på ett värde för att rätta det: det nya tar dess plats, det gamla döljs. Håll ett värde för att ta bort det eller ta tillbaka ett dolt; ögat visar dolda värden. Kopiera listan som text eller dela den som PDF.';
+
+  @override
+  String get helpSettings =>
+      'Appens egna val: språk, enheter, firanden och jubel, pälsen bakom sidorna, aviseringar och var dina kataloger säkerhetskopieras. Rundturerna kan spelas upp igen härifrån.';
+
+  @override
+  String get helpLooks =>
+      'Hur katten ser ut, som chips: storlek, färger, mönster, päls, svans, öron, tecken och bestående drag. Bocka för det du ser; en hemlös som stämmer med en saknad katt på två drag blir kandidat.';
+
+  @override
+  String get graphSmoothed => 'Utjämnad';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value per månad';
+  }
+
+  @override
+  String get helpBackups =>
+      'Var dina kataloger förvaras säkert: vad telefonen säkerhetskopierar själv, var de fullständiga kopiorna hamnar, när den senaste skrevs, och en knapp för att skriva en nu. Återställning finns under Hantera kataloger.';
+
+  @override
+  String get helpConflicts =>
+      'Fält som två personer ändrade samtidigt, innan deras enheter synkade. Varje rad visar båda värdena; välj rätt, och valet når alla enheter.';
+
+  @override
+  String get helpInPerson =>
+      'Synka med någon bredvid dig: en telefon är värd, den andra ansluter genom att skanna koden, och datan går över Wi-Fi, krypterad, utan server. Privat-reglaget avgör om privata värden följer med.';
+
+  @override
+  String get helpMessenger =>
+      'Synka som fil: den här enheten skriver ett paket med allt den vet, du skickar det via en messenger eller mejl, och andra sidan importerar det. Foton följer med; privata värden bara om reglaget säger det.';
+
+  @override
+  String get helpModeration =>
+      'De personer vars poster nådde den här katalogen, med det de skrev. Radera en persons data på den här enheten och blockera personens enhet; en blockering visar namnen enheten skrev under.';
+
+  @override
+  String get helpRemote =>
+      'Synka via en delad mapp för enheter som aldrig träffas: välj samma mapp en gång på varje enhet; varje synk skriver dina ändringar dit och läser de andras. En mapp bär alla kataloger, var och en i en egen undermapp.';
+
+  @override
+  String get helpRestore =>
+      'Säkerhetskopior från den förra installationen, en rad per katalog, ibockade. Återställ tar tillbaka var och en som egen katalog. På Android ges mappen en gång via väljaren; Välj filer lägger till kopior som finns någon annanstans.';
+
+  @override
+  String get helpScan =>
+      'Skanna cat(a)log-koden på en affisch eller på någon annans skärm: katten och dess kontakt landar här utan att skriva. En kod som bär en länk hämtar filen bakom den.';
+
+  @override
+  String get helpVetReport =>
+      'Det som går till veterinären: de fält och datum du väljer, varje rad ibockad tills du bockar av den, och patientöversikten främst. Dela som PDF eller skriv ut, båda i fältet.';
+
+  @override
+  String get helpPoster =>
+      'En affisch för lyktstolpen, från kortet: bocka för det som ska med, lägg till en rad kortet saknar, och sidan skrivs svart på vitt med bokstäver som läses från andra sidan gatan. Koden öppnar katten i ett annat cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Det som förtjänats och bara det: hela månader, år och mer av sysslor med deras antal, en titel per syssla på dess rang, och de upplåsta pälsarna. Inga förloppsindikatorer och inget att jaga; belöningarna är en tyst bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'För mycket är ibockat för en kod. Bocka av en rad så kommer koden tillbaka.';
+
+  @override
+  String get posterPhotos => 'Foton, upp till två';
+
+  @override
+  String get posterFrameHint => 'Dra och nyp för att välja utsnittet.';
+
+  @override
+  String get posterPreview => 'Förhandsvisning';
+
+  @override
+  String get syncWatchSwitch => 'Säg till när ändringar väntar i mappen';
+
+  @override
+  String get syncAutoSwitch => 'Slå ihop dem av sig själva';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Ändringar från $authors väntar i $catalog. Tryck för att synka.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'en annan enhet';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ändringar från $authors sammanslagna',
+      one: '$count ändring från $authors sammanslagen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Visa';
 }

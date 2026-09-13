@@ -3410,4 +3410,247 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get colWho => 'Kdo';
+
+  @override
+  String get pdfFontMissing =>
+      'Písmo pro tento jazyk ještě není v telefonu; některá písmena se tisknou jako čtverečky. Jednou se připojte k internetu a PDF vytvořte znovu.';
+
+  @override
+  String get vetReportTitle => 'Zpráva pro veterináře';
+
+  @override
+  String get vetReportMenu => 'Zpráva pro veterináře…';
+
+  @override
+  String get vetReportFields => 'Pole';
+
+  @override
+  String get vetReportFrom => 'Od';
+
+  @override
+  String get vetReportTo => 'Do';
+
+  @override
+  String get vetReportSummary => 'Přehled pacienta';
+
+  @override
+  String get vetReportOwner => 'Majitel';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Graf';
+
+  @override
+  String get posterMenu => 'Plakát Pohřešuje se…';
+
+  @override
+  String get posterHeadline => 'POHŘEŠUJE SE';
+
+  @override
+  String get posterStanding =>
+      'Prosím zkontrolujte sklepy, kůlny a garáže. Nehoňte, jen zavolejte.';
+
+  @override
+  String get posterLastSeen => 'Naposledy viděn u';
+
+  @override
+  String get posterFreeText => 'Řádek navíc';
+
+  @override
+  String get posterQr => 'QR kód pro cat(a)log';
+
+  @override
+  String get posterPhoto => 'Fotka';
+
+  @override
+  String get newCatIn => 'Nová kočka v…';
+
+  @override
+  String get newCatInNeutral => 'Nové zvíře v…';
+
+  @override
+  String get choreLabel => 'Úkol';
+
+  @override
+  String get choreTickLabel => 'Úkol hotov';
+
+  @override
+  String get choreEnded => 'Ukončeno';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'připomínka $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'hotovo $date';
+  }
+
+  @override
+  String get withheldByPartner => 'zadrženo partnerem';
+
+  @override
+  String get titleLabel => 'Titul';
+
+  @override
+  String get deletedLabel => 'Smazáno';
+
+  @override
+  String get favouriteAdd => 'Označit jako oblíbené';
+
+  @override
+  String get favouriteRemove => 'Odebrat z oblíbených';
+
+  @override
+  String get coverPick => 'Titulní obrázek…';
+
+  @override
+  String get coverHint =>
+      'Obrázek místa: dům, dvůr, krmné místo. Na kartě místo kočky.';
+
+  @override
+  String get coverRemove => 'Odebrat titulní obrázek';
+
+  @override
+  String get skipTour => 'Přeskočit úvod a tipy v této instalaci';
+
+  @override
+  String get spotCatChores =>
+      'Pravidelná péče bydlí tady: krmení, léky, kontroly, každá s vlastní připomínkou.';
+
+  @override
+  String get spotLooks =>
+      'Zaškrtněte, co vidíte. Shody s jinými katalogy vycházejí odtud.';
+
+  @override
+  String get spotHistoryHold =>
+      'Podržte hodnotu, abyste ji opravili nebo odebrali. Nic se neztratí; skryté hodnoty zobrazíte na požádání.';
+
+  @override
+  String get spotBackups =>
+      'Kde jsou vaše katalogy v bezpečí: co zálohuje telefon, a kopie ve složce podle vašeho výběru.';
+
+  @override
+  String get spotCardPoster =>
+      'Plakát Pohřešuje se ze záznamu této kočky: fotka, jméno, telefon velkými písmeny a kód, který ostatní naskenují.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Plakát Pohřešuje se ze záznamu tohoto zvířete: fotka, jméno, telefon velkými písmeny a kód, který ostatní naskenují.';
+
+  @override
+  String get spotTimelineReport =>
+      'Zpráva pro veterináře: vybrané záznamy jako časová osa, přehled pacienta a graf pro každé číselné pole, například hmotnost.';
+
+  @override
+  String get helpHistory =>
+      'Hodnoty jednoho pole v čase, nejnovější první. Klepnutím hodnotu opravíte: nová nastoupí na její místo, stará se skryje. Podržením hodnotu odeberete nebo skrytou vrátíte; oko zobrazí skryté hodnoty. Seznam zkopírujte jako text nebo sdílejte jako PDF.';
+
+  @override
+  String get helpSettings =>
+      'Volby aplikace: jazyk, jednotky, oslavy a jásot, srst za stránkami, oznámení a kde se zálohují vaše katalogy. Odtud lze prohlídky spustit znovu.';
+
+  @override
+  String get helpLooks =>
+      'Jak kočka vypadá, jako čipy: velikost, barvy, vzor, srst, ocas, uši, znaky a trvalé rysy. Zaškrtněte, co vidíte; toulavá kočka shodná s pohřešovanou ve dvou rysech se stane kandidátem.';
+
+  @override
+  String get graphSmoothed => 'Vyhlazený';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value za měsíc';
+  }
+
+  @override
+  String get helpBackups =>
+      'Kde jsou vaše katalogy v bezpečí: co telefon zálohuje sám, kam se ukládají úplné kopie, kdy byla zapsána poslední, a tlačítko pro zápis hned teď. Obnovení najdete ve Správě katalogů.';
+
+  @override
+  String get helpConflicts =>
+      'Pole, která dva lidé změnili současně, než se jejich zařízení synchronizovala. Každý řádek ukazuje obě hodnoty; vyberte tu správnou a volba dorazí na každé zařízení.';
+
+  @override
+  String get helpInPerson =>
+      'Synchronizace s někým vedle vás: jeden telefon hostí, druhý se připojí naskenováním kódu a data jdou přes Wi-Fi, šifrovaná, bez serveru. Přepínač soukromé rozhoduje, zda cestují soukromé hodnoty.';
+
+  @override
+  String get helpMessenger =>
+      'Synchronizace souborem: toto zařízení zapíše balík se vším, co ví, pošlete ho přes messenger nebo mail a druhá strana ho importuje. Fotky cestují uvnitř; soukromé hodnoty jen když to přepínač povolí.';
+
+  @override
+  String get helpModeration =>
+      'Lidé, jejichž záznamy dorazily do tohoto katalogu, s tím, co napsali. Smažte data člověka na tomto zařízení a zablokujte jeho zařízení; blokace vypíše jména, pod kterými to zařízení psalo.';
+
+  @override
+  String get helpRemote =>
+      'Synchronizace přes sdílenou složku pro zařízení, která se nikdy nepotkají: jednou vyberte tutéž složku na každém zařízení; každá synchronizace tam zapíše vaše změny a přečte cizí. Jedna složka nese všechny katalogy, každý ve vlastní podsložce.';
+
+  @override
+  String get helpRestore =>
+      'Zálohy předchozí instalace, jeden řádek na katalog, zaškrtnuté. Obnovit vrátí každou jako vlastní katalog. Na Androidu se složka udělí jednou přes výběr; Vybrat soubory přidá zálohy uložené jinde.';
+
+  @override
+  String get helpScan =>
+      'Naskenujte kód cat(a)log na plakátu nebo na obrazovce někoho jiného: kočka a její kontakt sem dorazí bez psaní. Kód s odkazem stáhne soubor za ním.';
+
+  @override
+  String get helpVetReport =>
+      'Co jde k veterináři: vybraná pole a data, každý řádek zaškrtnutý, dokud ho neodškrtnete, a přehled pacienta v čele. Sdílet jako PDF nebo tisknout, obojí v liště.';
+
+  @override
+  String get helpPoster =>
+      'Plakát na lampu ze záznamu: zaškrtněte, co na něj patří, přidejte řádek, který záznam nemá, a stránka se tiskne černě na bílém písmem čitelným z druhé strany ulice. Kód otevře kočku v jiném cat(a)logu.';
+
+  @override
+  String get helpAchievements =>
+      'Co bylo získáno a jen to: celé měsíce, roky a víc úkolů s jejich počtem, jeden titul na úkol na jeho stupni a odemčené srsti. Žádné ukazatele postupu a nic k honění; odměny jsou tichý bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Na jeden kód je zaškrtnuto příliš. Odškrtněte řádek a kód se vrátí.';
+
+  @override
+  String get posterPhotos => 'Fotky, nejvýše dvě';
+
+  @override
+  String get posterFrameHint => 'Tažením a stažením prstů vyberte výřez.';
+
+  @override
+  String get posterPreview => 'Náhled';
+
+  @override
+  String get syncWatchSwitch => 'Říct mi, když ve složce čekají změny';
+
+  @override
+  String get syncAutoSwitch => 'Sloučit je samy';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Změny od $authors čekají v $catalog. Klepnutím synchronizujete.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'jiného zařízení';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count změn od $authors sloučeno',
+      few: '$count změny od $authors sloučeny',
+      one: '$count změna od $authors sloučena',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Zobrazit';
 }

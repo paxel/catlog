@@ -3409,4 +3409,248 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get colWho => 'Ποιος';
+
+  @override
+  String get pdfFontMissing =>
+      'Η γραμματοσειρά αυτής της γλώσσας δεν είναι ακόμη στο τηλέφωνο· κάποια γράμματα τυπώνονται ως κουτάκια. Συνδεθείτε μία φορά στο διαδίκτυο και φτιάξτε ξανά το PDF.';
+
+  @override
+  String get vetReportTitle => 'Αναφορά για τον κτηνίατρο';
+
+  @override
+  String get vetReportMenu => 'Αναφορά για τον κτηνίατρο…';
+
+  @override
+  String get vetReportFields => 'Πεδία';
+
+  @override
+  String get vetReportFrom => 'Από';
+
+  @override
+  String get vetReportTo => 'Έως';
+
+  @override
+  String get vetReportSummary => 'Σύνοψη ασθενούς';
+
+  @override
+  String get vetReportOwner => 'Ιδιοκτήτης';
+
+  @override
+  String get vetReportLegend => 'Υπόμνημα';
+
+  @override
+  String get vetReportCurves => 'Γράφημα';
+
+  @override
+  String get posterMenu => 'Αφίσα εξαφάνισης…';
+
+  @override
+  String get posterHeadline => 'ΧΑΘΗΚΕ';
+
+  @override
+  String get posterStanding =>
+      'Παρακαλώ ελέγξτε υπόγεια, αποθήκες και γκαράζ. Μην το κυνηγάτε, απλώς καλέστε.';
+
+  @override
+  String get posterLastSeen => 'Τελευταία φορά κοντά σε';
+
+  @override
+  String get posterFreeText => 'Επιπλέον γραμμή';
+
+  @override
+  String get posterQr => 'Κωδικός QR για το cat(a)log';
+
+  @override
+  String get posterPhoto => 'Φωτογραφία';
+
+  @override
+  String get newCatIn => 'Νέα γάτα σε…';
+
+  @override
+  String get newCatInNeutral => 'Νέο κατοικίδιο σε…';
+
+  @override
+  String get choreLabel => 'Εργασία';
+
+  @override
+  String get choreTickLabel => 'Εργασία έγινε';
+
+  @override
+  String get choreEnded => 'Ολοκληρώθηκε';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'υπενθύμιση $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'έγινε στις $date';
+  }
+
+  @override
+  String get withheldByPartner => 'παρακρατήθηκε από συνεργάτη';
+
+  @override
+  String get titleLabel => 'Τίτλος';
+
+  @override
+  String get deletedLabel => 'Διαγράφηκε';
+
+  @override
+  String get favouriteAdd => 'Σήμανση ως αγαπημένο';
+
+  @override
+  String get favouriteRemove => 'Αφαίρεση από τα αγαπημένα';
+
+  @override
+  String get coverPick => 'Εικόνα εξωφύλλου…';
+
+  @override
+  String get coverHint =>
+      'Μια εικόνα του τόπου: το σπίτι, η αυλή, το σημείο ταΐσματος. Στην κάρτα αντί για γάτα.';
+
+  @override
+  String get coverRemove => 'Αφαίρεση εικόνας εξωφύλλου';
+
+  @override
+  String get skipTour =>
+      'Παράλειψη εισαγωγής και συμβουλών σε αυτή την εγκατάσταση';
+
+  @override
+  String get spotCatChores =>
+      'Η επαναλαμβανόμενη φροντίδα ζει εδώ: τάισμα, φάρμακα, έλεγχοι, το καθένα με δική του υπενθύμιση.';
+
+  @override
+  String get spotLooks =>
+      'Τσεκάρετε ό,τι βλέπετε. Οι αντιστοιχίες με άλλους καταλόγους προκύπτουν από εδώ.';
+
+  @override
+  String get spotHistoryHold =>
+      'Κρατήστε μια τιμή για να τη διορθώσετε ή να την αφαιρέσετε. Τίποτα δεν χάνεται· οι κρυφές τιμές εμφανίζονται κατόπιν αιτήματος.';
+
+  @override
+  String get spotBackups =>
+      'Πού φυλάσσονται με ασφάλεια οι κατάλογοί σας: τι αποθηκεύει το τηλέφωνο, και ένα αντίγραφο σε φάκελο της επιλογής σας.';
+
+  @override
+  String get spotCardPoster =>
+      'Αφίσα εξαφάνισης από την καρτέλα αυτής της γάτας: φωτογραφία, όνομα, τηλέφωνο με μεγάλα γράμματα και κωδικός που σαρώνουν άλλοι.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Αφίσα εξαφάνισης από την καρτέλα αυτού του κατοικιδίου: φωτογραφία, όνομα, τηλέφωνο με μεγάλα γράμματα και κωδικός που σαρώνουν άλλοι.';
+
+  @override
+  String get spotTimelineReport =>
+      'Αναφορά για τον κτηνίατρο: οι επιλεγμένες καταχωρίσεις ως χρονολόγιο, σύνοψη ασθενούς και γράφημα για κάθε αριθμητικό πεδίο, όπως το βάρος.';
+
+  @override
+  String get helpHistory =>
+      'Οι τιμές ενός πεδίου στον χρόνο, οι νεότερες πρώτα. Πατήστε μια τιμή για να τη διορθώσετε: η νέα παίρνει τη θέση της, η παλιά κρύβεται. Κρατήστε μια τιμή για να την αφαιρέσετε ή να επαναφέρετε μια κρυφή· το μάτι δείχνει τις κρυφές τιμές. Αντιγράψτε τη λίστα ως κείμενο ή μοιραστείτε την ως PDF.';
+
+  @override
+  String get helpSettings =>
+      'Οι επιλογές της εφαρμογής: γλώσσα, μονάδες, γιορτές και επευφημίες, η γούνα πίσω από τις σελίδες, ειδοποιήσεις, και πού αποθηκεύονται τα αντίγραφα των καταλόγων σας. Οι περιηγήσεις επαναλαμβάνονται από εδώ.';
+
+  @override
+  String get helpLooks =>
+      'Πώς μοιάζει η γάτα, σε τσιπ: μέγεθος, χρώματα, μοτίβο, τρίχωμα, ουρά, αυτιά, σημάδια και μόνιμα χαρακτηριστικά. Τσεκάρετε ό,τι βλέπετε· ένα αδέσποτο που συμφωνεί με μια χαμένη γάτα σε δύο χαρακτηριστικά γίνεται υποψήφιο.';
+
+  @override
+  String get graphSmoothed => 'Εξομαλυμένο';
+
+  @override
+  String get graphTrend => 'Τάση';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Τάση: $value ανά μήνα';
+  }
+
+  @override
+  String get helpBackups =>
+      'Πού φυλάσσονται με ασφάλεια οι κατάλογοί σας: τι αποθηκεύει το τηλέφωνο μόνο του, πού καταλήγουν τα πλήρη αντίγραφα, πότε γράφτηκε το τελευταίο, και ένα κουμπί για να γραφτεί ένα τώρα. Η επαναφορά βρίσκεται στη Διαχείριση καταλόγων.';
+
+  @override
+  String get helpConflicts =>
+      'Πεδία που δύο άτομα άλλαξαν ταυτόχρονα, πριν συγχρονιστούν οι συσκευές τους. Κάθε γραμμή δείχνει και τις δύο τιμές· διαλέξτε τη σωστή, και η επιλογή φτάνει σε κάθε συσκευή.';
+
+  @override
+  String get helpInPerson =>
+      'Συγχρονισμός με κάποιον δίπλα σας: ένα τηλέφωνο φιλοξενεί, το άλλο συνδέεται σαρώνοντας τον κωδικό, και τα δεδομένα περνούν μέσω Wi-Fi, κρυπτογραφημένα, χωρίς διακομιστή. Ο διακόπτης ιδιωτικού αποφασίζει αν ταξιδεύουν οι ιδιωτικές τιμές.';
+
+  @override
+  String get helpMessenger =>
+      'Συγχρονισμός ως αρχείο: αυτή η συσκευή γράφει ένα πακέτο με ό,τι ξέρει, το στέλνετε με οποιοδήποτε messenger ή email, και η άλλη πλευρά το εισάγει. Οι φωτογραφίες ταξιδεύουν μέσα· οι ιδιωτικές τιμές μόνο αν το πει ο διακόπτης.';
+
+  @override
+  String get helpModeration =>
+      'Τα άτομα των οποίων οι καταχωρίσεις έφτασαν σε αυτόν τον κατάλογο, με όσα έγραψαν. Διαγράψτε τα δεδομένα ενός ατόμου σε αυτή τη συσκευή και αποκλείστε τη συσκευή του· ο αποκλεισμός δείχνει τα ονόματα με τα οποία έγραψε η συσκευή.';
+
+  @override
+  String get helpRemote =>
+      'Συγχρονισμός μέσω κοινού φακέλου για συσκευές που δεν συναντιούνται ποτέ: επιλέξτε μία φορά τον ίδιο φάκελο σε κάθε συσκευή· κάθε συγχρονισμός γράφει εκεί τις αλλαγές σας και διαβάζει των άλλων. Ένας φάκελος μεταφέρει όλους τους καταλόγους, καθέναν σε δικό του υποφάκελο.';
+
+  @override
+  String get helpRestore =>
+      'Αντίγραφα της προηγούμενης εγκατάστασης, μία γραμμή ανά κατάλογο, τσεκαρισμένα. Η επαναφορά επαναφέρει το καθένα ως δικό του κατάλογο. Στο Android ο φάκελος παραχωρείται μία φορά μέσω του επιλογέα· η Επιλογή αρχείων προσθέτει αντίγραφα που φυλάσσονται αλλού.';
+
+  @override
+  String get helpScan =>
+      'Σαρώστε τον κωδικό cat(a)log σε μια αφίσα ή στην οθόνη κάποιου άλλου: η γάτα και η επαφή της έρχονται εδώ χωρίς πληκτρολόγηση. Ένας κωδικός με σύνδεσμο φέρνει το αρχείο πίσω του.';
+
+  @override
+  String get helpVetReport =>
+      'Τι πάει στον κτηνίατρο: τα πεδία και οι ημερομηνίες που επιλέγετε, κάθε γραμμή τσεκαρισμένη μέχρι να την ξετσεκάρετε, και η σύνοψη ασθενούς μπροστά. Κοινοποίηση ως PDF ή εκτύπωση, και τα δύο στη γραμμή.';
+
+  @override
+  String get helpPoster =>
+      'Μια αφίσα για τον στύλο, από την καρτέλα: τσεκάρετε τι θα μπει, προσθέστε μια γραμμή που λείπει, και η σελίδα τυπώνεται μαύρο σε λευκό με γράμματα που διαβάζονται από απέναντι. Ο κωδικός ανοίγει τη γάτα σε άλλο cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Ό,τι κερδήθηκε και μόνο αυτό: πλήρεις μήνες, χρόνια και περισσότερα εργασιών με τον αριθμό τους, ένας τίτλος ανά εργασία στη βαθμίδα της, και οι γούνες που ξεκλειδώθηκαν. Χωρίς μπάρες προόδου και τίποτα να κυνηγήσετε· οι ανταμοιβές είναι ένα ήσυχο μπόνους.';
+
+  @override
+  String get posterQrTooBig =>
+      'Έχουν τσεκαριστεί πάρα πολλά για έναν κωδικό. Ξετσεκάρετε μια γραμμή και ο κωδικός επιστρέφει.';
+
+  @override
+  String get posterPhotos => 'Φωτογραφίες, έως δύο';
+
+  @override
+  String get posterFrameHint =>
+      'Σύρετε και τσιμπήστε για να καδράρετε τη φωτογραφία.';
+
+  @override
+  String get posterPreview => 'Προεπισκόπηση';
+
+  @override
+  String get syncWatchSwitch => 'Πες μου όταν περιμένουν αλλαγές στον φάκελο';
+
+  @override
+  String get syncAutoSwitch => 'Να συγχωνεύονται μόνες τους';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Αλλαγές από $authors περιμένουν στο $catalog. Πατήστε για συγχρονισμό.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'άλλη συσκευή';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count αλλαγές από $authors συγχωνεύτηκαν',
+      one: '$count αλλαγή από $authors συγχωνεύτηκε',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Εμφάνιση';
 }

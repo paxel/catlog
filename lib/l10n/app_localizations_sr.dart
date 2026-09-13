@@ -3410,4 +3410,247 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get colWho => 'Ко';
+
+  @override
+  String get pdfFontMissing =>
+      'Фонт за овај језик још није на телефону; нека слова се штампају као квадратићи. Повежите се једном на интернет и поново направите PDF.';
+
+  @override
+  String get vetReportTitle => 'Извештај за ветеринара';
+
+  @override
+  String get vetReportMenu => 'Извештај за ветеринара…';
+
+  @override
+  String get vetReportFields => 'Поља';
+
+  @override
+  String get vetReportFrom => 'Од';
+
+  @override
+  String get vetReportTo => 'До';
+
+  @override
+  String get vetReportSummary => 'Преглед пацијента';
+
+  @override
+  String get vetReportOwner => 'Власник';
+
+  @override
+  String get vetReportLegend => 'Легенда';
+
+  @override
+  String get vetReportCurves => 'Графикон';
+
+  @override
+  String get posterMenu => 'Плакат „Нестао“…';
+
+  @override
+  String get posterHeadline => 'НЕСТАО';
+
+  @override
+  String get posterStanding =>
+      'Молимо проверите подруме, шупе и гараже. Не јурите, само позовите.';
+
+  @override
+  String get posterLastSeen => 'Последњи пут виђен код';
+
+  @override
+  String get posterFreeText => 'Додатни ред';
+
+  @override
+  String get posterQr => 'QR код за cat(a)log';
+
+  @override
+  String get posterPhoto => 'Фотографија';
+
+  @override
+  String get newCatIn => 'Нова мачка у…';
+
+  @override
+  String get newCatInNeutral => 'Нови љубимац у…';
+
+  @override
+  String get choreLabel => 'Задатак';
+
+  @override
+  String get choreTickLabel => 'Задатак урађен';
+
+  @override
+  String get choreEnded => 'Завршено';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'подсетник $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'урађено $date';
+  }
+
+  @override
+  String get withheldByPartner => 'задржано од партнера';
+
+  @override
+  String get titleLabel => 'Титула';
+
+  @override
+  String get deletedLabel => 'Обрисано';
+
+  @override
+  String get favouriteAdd => 'Означи као омиљено';
+
+  @override
+  String get favouriteRemove => 'Уклони из омиљених';
+
+  @override
+  String get coverPick => 'Насловна слика…';
+
+  @override
+  String get coverHint =>
+      'Слика места: кућа, двориште, хранилиште. На картици уместо мачке.';
+
+  @override
+  String get coverRemove => 'Уклони насловну слику';
+
+  @override
+  String get skipTour => 'Прескочи увод и савете на овој инсталацији';
+
+  @override
+  String get spotCatChores =>
+      'Редовна нега живи овде: храњење, лекови, провере, свака са својим подсетником.';
+
+  @override
+  String get spotLooks =>
+      'Означите шта видите. Подударања са другим каталозима потичу одавде.';
+
+  @override
+  String get spotHistoryHold =>
+      'Задржите вредност да је исправите или уклоните. Ништа се не губи; скривене вредности се приказују на захтев.';
+
+  @override
+  String get spotBackups =>
+      'Где су ваши каталози на сигурном: шта телефон чува, и копија у фасцикли по вашем избору.';
+
+  @override
+  String get spotCardPoster =>
+      'Плакат „Нестао“ из записа ове мачке: фотографија, име, телефон великим словима и код који други скенирају.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Плакат „Нестао“ из записа овог љубимца: фотографија, име, телефон великим словима и код који други скенирају.';
+
+  @override
+  String get spotTimelineReport =>
+      'Извештај за ветеринара: изабрани уноси као временска линија, преглед пацијента и графикон за свако бројчано поље, на пример тежину.';
+
+  @override
+  String get helpHistory =>
+      'Вредности једног поља кроз време, најновије прве. Додирните вредност да је исправите: нова заузима њено место, стара се скрива. Задржите вредност да је уклоните или вратите скривену; око приказује скривене вредности. Копирајте листу као текст или поделите као PDF.';
+
+  @override
+  String get helpSettings =>
+      'Избори апликације: језик, јединице, прославе и клицање, крзно иза страница, обавештења и где се чувају копије каталога. Туре се одавде могу поновити.';
+
+  @override
+  String get helpLooks =>
+      'Како мачка изгледа, као чипови: величина, боје, шара, крзно, реп, уши, ознаке и трајне особине. Означите шта видите; луталица која се поклапа са несталом мачком у две особине постаје кандидат.';
+
+  @override
+  String get graphSmoothed => 'Углађен';
+
+  @override
+  String get graphTrend => 'Тренд';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Тренд: $value месечно';
+  }
+
+  @override
+  String get helpBackups =>
+      'Где су ваши каталози на сигурном: шта телефон сам чува, где завршавају потпуне копије, када је уписана последња, и дугме за упис сада. Враћање је у Управљај каталозима.';
+
+  @override
+  String get helpConflicts =>
+      'Поља која су двоје људи променили истовремено, пре него што су се уређаји синхронизовали. Сваки ред приказује обе вредности; изаберите праву и избор стиже на сваки уређај.';
+
+  @override
+  String get helpInPerson =>
+      'Синхронизација са особом поред вас: један телефон је домаћин, други се придружује скенирањем кода, а подаци иду преко Wi-Fi-ја, шифровани, без сервера. Прекидач за приватно одлучује да ли приватне вредности путују.';
+
+  @override
+  String get helpMessenger =>
+      'Синхронизација као датотека: овај уређај пише пакет са свим што зна, шаљете га преко месинџера или поште, а друга страна га увози. Фотографије путују унутра; приватне вредности само ако прекидач дозволи.';
+
+  @override
+  String get helpModeration =>
+      'Особе чији су уноси стигли у овај каталог, са оним што су написале. Обришите податке особе на овом уређају и блокирајте њен уређај; блокада наводи имена под којима је тај уређај писао.';
+
+  @override
+  String get helpRemote =>
+      'Синхронизација преко дељене фасцикле за уређаје који се никад не сретну: једном изаберите исту фасциклу на сваком уређају; свака синхронизација тамо уписује ваше измене и чита туђе. Једна фасцикла носи све каталоге, сваки у својој подфасцикли.';
+
+  @override
+  String get helpRestore =>
+      'Резервне копије претходне инсталације, по ред по каталогу, означене. Врати враћа сваку као засебан каталог. На Android-у се фасцикла даје једном кроз избор; Изабери датотеке додаје копије чуване другде.';
+
+  @override
+  String get helpScan =>
+      'Скенирајте cat(a)log код са плаката или са екрана друге особе: мачка и њен контакт стижу овде без куцања. Код који носи везу преузима датотеку иза њега.';
+
+  @override
+  String get helpVetReport =>
+      'Шта иде ветеринару: изабрана поља и датуми, сваки ред означен док га не одзначите, и преглед пацијента напред. Подели као PDF или штампај, оба у траци.';
+
+  @override
+  String get helpPoster =>
+      'Плакат за бандеру, из записа: означите шта иде на њега, додајте ред који запис нема, и страна се штампа црно на белом словима која се читају с друге стране улице. Код отвара мачку у другом cat(a)log-у.';
+
+  @override
+  String get helpAchievements =>
+      'Оно што је зарађено и само то: пуни месеци, године и више задатака са њиховим бројем, по једна титула по задатку на њеном степену, и откључана крзна. Без трака напретка и без јурњаве; награде су тихи бонус.';
+
+  @override
+  String get posterQrTooBig =>
+      'Превише је означено за један код. Одзначите ред и код се враћа.';
+
+  @override
+  String get posterPhotos => 'Фотографије, до две';
+
+  @override
+  String get posterFrameHint => 'Превуците и уштините да изаберете кадар.';
+
+  @override
+  String get posterPreview => 'Преглед';
+
+  @override
+  String get syncWatchSwitch => 'Реци ми када у фасцикли чекају измене';
+
+  @override
+  String get syncAutoSwitch => 'Спој их саме';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Измене од $authors чекају у $catalog. Додирните за синхронизацију.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'другог уређаја';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count измена од $authors спојено',
+      few: '$count измене од $authors спојене',
+      one: '$count измена од $authors спојена',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Прикажи';
 }

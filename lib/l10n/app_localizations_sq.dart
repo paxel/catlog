@@ -3399,4 +3399,246 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get colWho => 'Kush';
+
+  @override
+  String get pdfFontMissing =>
+      'Fonti për këtë gjuhë nuk është ende në telefon; disa shkronja printohen si kuti. Lidhu një herë me internetin dhe krijo PDF-në përsëri.';
+
+  @override
+  String get vetReportTitle => 'Raport për veterinerin';
+
+  @override
+  String get vetReportMenu => 'Raport për veterinerin…';
+
+  @override
+  String get vetReportFields => 'Fushat';
+
+  @override
+  String get vetReportFrom => 'Nga';
+
+  @override
+  String get vetReportTo => 'Deri';
+
+  @override
+  String get vetReportSummary => 'Përmbledhje e pacientit';
+
+  @override
+  String get vetReportOwner => 'Pronari';
+
+  @override
+  String get vetReportLegend => 'Legjenda';
+
+  @override
+  String get vetReportCurves => 'Grafik';
+
+  @override
+  String get posterMenu => 'Poster i humbur…';
+
+  @override
+  String get posterHeadline => 'I HUMBUR';
+
+  @override
+  String get posterStanding =>
+      'Ju lutem kontrolloni bodrumet, kasollet dhe garazhet. Mos e ndiqni, vetëm telefononi.';
+
+  @override
+  String get posterLastSeen => 'Parë për herë të fundit pranë';
+
+  @override
+  String get posterFreeText => 'Rresht shtesë';
+
+  @override
+  String get posterQr => 'Kod QR për cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Mace e re në…';
+
+  @override
+  String get newCatInNeutral => 'Kafshë e re në…';
+
+  @override
+  String get choreLabel => 'Detyrë';
+
+  @override
+  String get choreTickLabel => 'Detyrë e kryer';
+
+  @override
+  String get choreEnded => 'Përfunduar';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'kujtesë $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'kryer më $date';
+  }
+
+  @override
+  String get withheldByPartner => 'mbajtur nga një partner';
+
+  @override
+  String get titleLabel => 'Titull';
+
+  @override
+  String get deletedLabel => 'Fshirë';
+
+  @override
+  String get favouriteAdd => 'Shëno si të preferuar';
+
+  @override
+  String get favouriteRemove => 'Hiq nga të preferuarat';
+
+  @override
+  String get coverPick => 'Foto kopertine…';
+
+  @override
+  String get coverHint =>
+      'Një foto e vendit: shtëpia, oborri, vendi i ushqimit. Në kartë në vend të një maceje.';
+
+  @override
+  String get coverRemove => 'Hiq foton e kopertinës';
+
+  @override
+  String get skipTour => 'Kalo hyrjen dhe këshillat në këtë instalim';
+
+  @override
+  String get spotCatChores =>
+      'Kujdesi i përsëritur jeton këtu: ushqimi, ilaçet, kontrollet, secili me kujtesën e vet.';
+
+  @override
+  String get spotLooks =>
+      'Shëno çfarë sheh. Përputhjet me katalogë të tjerë vijnë nga këtu.';
+
+  @override
+  String get spotHistoryHold =>
+      'Mbaje shtypur një vlerë për ta korrigjuar ose hequr. Asgjë nuk humbet; vlerat e fshehura shfaqen sipas kërkesës.';
+
+  @override
+  String get spotBackups =>
+      'Ku ruhen të sigurt katalogët e tu: çfarë ruan telefoni, dhe një kopje në një dosje sipas zgjedhjes.';
+
+  @override
+  String get spotCardPoster =>
+      'Një poster i humbur nga regjistri i kësaj maceje: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Një poster i humbur nga regjistri i kësaj kafshe: foto, emër, telefon me shkronja të mëdha dhe një kod që të tjerët e skanojnë.';
+
+  @override
+  String get spotTimelineReport =>
+      'Raport për veterinerin: hyrjet e zgjedhura si vijë kohore, një përmbledhje e pacientit dhe një grafik për çdo fushë numerike, për shembull peshën.';
+
+  @override
+  String get helpHistory =>
+      'Vlerat e një fushe përgjatë kohës, më të rejat të parat. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Mbaje shtypur një vlerë për ta hequr ose për të rikthyer një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.';
+
+  @override
+  String get helpSettings =>
+      'Zgjedhjet e aplikacionit: gjuha, njësitë, festimet dhe brohoritjet, gëzofi pas faqeve, njoftimet dhe ku ruhen kopjet e katalogëve. Turet mund të përsëriten nga këtu.';
+
+  @override
+  String get helpLooks =>
+      'Si duket macja, me çipa: madhësia, ngjyrat, modeli, gëzofi, bishti, veshët, shenjat dhe tiparet e përhershme. Shëno çfarë sheh; një endacak që përputhet me një mace të humbur në dy tipare bëhet kandidat.';
+
+  @override
+  String get graphSmoothed => 'I lëmuar';
+
+  @override
+  String get graphTrend => 'Prirje';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Prirje: $value në muaj';
+  }
+
+  @override
+  String get helpBackups =>
+      'Ku ruhen të sigurt katalogët e tu: çfarë ruan telefoni vetë, ku përfundojnë kopjet e plota, kur u shkrua e fundit, dhe një buton për të shkruar një tani. Rikthimi është te Menaxho katalogët.';
+
+  @override
+  String get helpConflicts =>
+      'Fusha që dy persona i ndryshuan njëkohësisht, para se pajisjet e tyre të sinkronizoheshin. Çdo rresht tregon të dy vlerat; zgjidh të saktën dhe zgjedhja arrin në çdo pajisje.';
+
+  @override
+  String get helpInPerson =>
+      'Sinkronizo me një person pranë teje: një telefon pret, tjetri bashkohet duke skanuar kodin, dhe të dhënat kalojnë përmes Wi-Fi, të koduara, pa server. Çelësi privat vendos nëse vlerat private udhëtojnë.';
+
+  @override
+  String get helpMessenger =>
+      'Sinkronizim si skedar: kjo pajisje shkruan një paketë me gjithçka që di, e dërgon me çdo mesazher ose email, dhe pala tjetër e importon. Fotot udhëtojnë brenda; vlerat private vetëm nëse çelësi e lejon.';
+
+  @override
+  String get helpModeration =>
+      'Personat, hyrjet e të cilëve arritën në këtë katalog, me atë që shkruan. Fshi të dhënat e një personi në këtë pajisje dhe blloko pajisjen e tij; një bllokim rendit emrat me të cilët shkroi ajo pajisje.';
+
+  @override
+  String get helpRemote =>
+      'Sinkronizim përmes një dosjeje të përbashkët për pajisje që nuk takohen kurrë: zgjidh një herë të njëjtën dosje në çdo pajisje; çdo sinkronizim shkruan aty ndryshimet e tua dhe lexon të të tjerëve. Një dosje mban të gjithë katalogët, secilin në nëndosjen e vet.';
+
+  @override
+  String get helpRestore =>
+      'Kopjet rezervë të instalimit të mëparshëm, një rresht për katalog, të shënuara. Rikthe e kthen secilën si katalog më vete. Në Android dosja jepet një herë përmes zgjedhësit; Zgjidh skedarë shton kopje të mbajtura gjetkë.';
+
+  @override
+  String get helpScan =>
+      'Skano kodin cat(a)log në një poster ose në ekranin e dikujt tjetër: macja dhe kontakti i saj vijnë këtu pa shtypur. Një kod me lidhje sjell skedarin pas tij.';
+
+  @override
+  String get helpVetReport =>
+      'Çfarë shkon te veterineri: fushat dhe datat që zgjedh, çdo rresht i shënuar derisa ta heqësh, dhe përmbledhja e pacientit në krye. Ndaje si PDF ose printo, të dyja në shirit.';
+
+  @override
+  String get helpPoster =>
+      'Një poster për shtyllën e dritës, nga regjistri: shëno çfarë shkon në të, shto një rresht që regjistri nuk e ka, dhe faqja printohet zezë mbi të bardhë me shkronja që lexohen nga ana tjetër e rrugës. Kodi e hap macen në një cat(a)log tjetër.';
+
+  @override
+  String get helpAchievements =>
+      'Ajo që u fitua dhe vetëm ajo: muaj, vite e më shumë të plota detyrash me numrin e tyre, një titull për detyrë në gradën e vet, dhe gëzofët e zhbllokuar. Pa shirita përparimi dhe asgjë për t\'u ndjekur; shpërblimet janë një bonus i qetë.';
+
+  @override
+  String get posterQrTooBig =>
+      'Është shënuar shumë për një kod të vetëm. Hiq shenjën nga një rresht dhe kodi kthehet.';
+
+  @override
+  String get posterPhotos => 'Foto, deri në dy';
+
+  @override
+  String get posterFrameHint => 'Tërhiq dhe pickoje për ta kornizuar foton.';
+
+  @override
+  String get posterPreview => 'Pamje paraprake';
+
+  @override
+  String get syncWatchSwitch => 'Më thuaj kur presin ndryshime në dosje';
+
+  @override
+  String get syncAutoSwitch => 'Bashkoji vetë';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Ndryshime nga $authors presin në $catalog. Prek për të sinkronizuar.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'një pajisje tjetër';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ndryshime nga $authors u bashkuan',
+      one: '$count ndryshim nga $authors u bashkua',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Shfaq';
 }

@@ -3419,4 +3419,249 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get colWho => 'Kto';
+
+  @override
+  String get pdfFontMissing =>
+      'Czcionka dla tego języka nie jest jeszcze na telefonie; niektóre litery drukują się jako kwadraty. Połącz się raz z internetem i utwórz PDF ponownie.';
+
+  @override
+  String get vetReportTitle => 'Raport dla weterynarza';
+
+  @override
+  String get vetReportMenu => 'Raport dla weterynarza…';
+
+  @override
+  String get vetReportFields => 'Pola';
+
+  @override
+  String get vetReportFrom => 'Od';
+
+  @override
+  String get vetReportTo => 'Do';
+
+  @override
+  String get vetReportSummary => 'Podsumowanie pacjenta';
+
+  @override
+  String get vetReportOwner => 'Właściciel';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Wykres';
+
+  @override
+  String get posterMenu => 'Plakat zaginięcia…';
+
+  @override
+  String get posterHeadline => 'ZAGINĄŁ';
+
+  @override
+  String get posterStanding =>
+      'Prosimy sprawdzić piwnice, szopy i garaże. Nie gonić, tylko zadzwonić.';
+
+  @override
+  String get posterLastSeen => 'Ostatnio widziany przy';
+
+  @override
+  String get posterFreeText => 'Dodatkowa linia';
+
+  @override
+  String get posterQr => 'Kod QR dla cat(a)log';
+
+  @override
+  String get posterPhoto => 'Zdjęcie';
+
+  @override
+  String get newCatIn => 'Nowy kot w…';
+
+  @override
+  String get newCatInNeutral => 'Nowe zwierzę w…';
+
+  @override
+  String get choreLabel => 'Zadanie';
+
+  @override
+  String get choreTickLabel => 'Zadanie wykonane';
+
+  @override
+  String get choreEnded => 'Zakończone';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'przypomnienie $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'wykonane $date';
+  }
+
+  @override
+  String get withheldByPartner => 'zatrzymane przez partnera';
+
+  @override
+  String get titleLabel => 'Tytuł';
+
+  @override
+  String get deletedLabel => 'Usunięte';
+
+  @override
+  String get favouriteAdd => 'Oznacz jako ulubione';
+
+  @override
+  String get favouriteRemove => 'Usuń z ulubionych';
+
+  @override
+  String get coverPick => 'Zdjęcie okładki…';
+
+  @override
+  String get coverHint =>
+      'Zdjęcie miejsca: dom, podwórko, miejsce karmienia. Pokazywane na karcie zamiast kota.';
+
+  @override
+  String get coverRemove => 'Usuń zdjęcie okładki';
+
+  @override
+  String get skipTour => 'Pomiń wprowadzenie i wskazówki w tej instalacji';
+
+  @override
+  String get spotCatChores =>
+      'Powtarzalna opieka mieszka tutaj: karmienie, leki, kontrole, każda z własnym przypomnieniem.';
+
+  @override
+  String get spotLooks =>
+      'Zaznacz, co widzisz. Dopasowania z innymi katalogami biorą się stąd.';
+
+  @override
+  String get spotHistoryHold =>
+      'Przytrzymaj wartość, aby ją poprawić lub usunąć. Nic nie ginie; ukryte wartości pokażesz na żądanie.';
+
+  @override
+  String get spotBackups =>
+      'Gdzie twoje katalogi są bezpieczne: co zapisuje telefon, i kopia w wybranym folderze.';
+
+  @override
+  String get spotCardPoster =>
+      'Plakat zaginięcia z karty tego kota: zdjęcie, imię, telefon dużymi literami i kod, który zeskanują inni.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Plakat zaginięcia z karty tego zwierzęcia: zdjęcie, imię, telefon dużymi literami i kod, który zeskanują inni.';
+
+  @override
+  String get spotTimelineReport =>
+      'Raport dla weterynarza: wybrane wpisy jako oś czasu, podsumowanie pacjenta i wykres dla każdego pola liczbowego, na przykład wagi.';
+
+  @override
+  String get helpHistory =>
+      'Wartości jednego pola w czasie, najnowsze na górze. Dotknij wartości, aby ją poprawić: nowa zajmuje jej miejsce, stara się ukrywa. Przytrzymaj wartość, aby ją usunąć lub przywrócić ukrytą; oko pokazuje ukryte wartości. Skopiuj listę jako tekst lub udostępnij jako PDF.';
+
+  @override
+  String get helpSettings =>
+      'Ustawienia aplikacji: język, jednostki, świętowanie i okrzyki, futro w tle stron, powiadomienia i miejsce zapisu kopii katalogów. Stąd można powtórzyć samouczki.';
+
+  @override
+  String get helpLooks =>
+      'Jak wygląda kot, w postaci chipów: rozmiar, kolory, wzór, sierść, ogon, uszy, znaki i trwałe cechy. Zaznacz, co widzisz; bezdomny zgodny z zaginionym kotem w dwóch cechach staje się kandydatem.';
+
+  @override
+  String get graphSmoothed => 'Wygładzony';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value na miesiąc';
+  }
+
+  @override
+  String get helpBackups =>
+      'Gdzie twoje katalogi są bezpieczne: co telefon zapisuje sam, gdzie trafiają pełne kopie, kiedy zapisano ostatnią, i przycisk, by zapisać jedną teraz. Przywracanie jest w Zarządzaj katalogami.';
+
+  @override
+  String get helpConflicts =>
+      'Pola zmienione przez dwie osoby w tym samym czasie, zanim ich urządzenia się zsynchronizowały. Każdy wiersz pokazuje obie wartości; wybierz właściwą, a wybór dotrze na każde urządzenie.';
+
+  @override
+  String get helpInPerson =>
+      'Synchronizacja z osobą obok: jeden telefon hostuje, drugi dołącza, skanując kod, a dane płyną przez Wi-Fi, zaszyfrowane, bez serwera. Przełącznik prywatności decyduje, czy prywatne wartości podróżują.';
+
+  @override
+  String get helpMessenger =>
+      'Synchronizacja plikiem: to urządzenie zapisuje pakiet ze wszystkim, co wie, wysyłasz go dowolnym komunikatorem lub mailem, a druga strona go importuje. Zdjęcia jadą w środku; wartości prywatne tylko, gdy przełącznik na to pozwala.';
+
+  @override
+  String get helpModeration =>
+      'Osoby, których wpisy trafiły do tego katalogu, wraz z tym, co napisały. Usuń dane osoby na tym urządzeniu i zablokuj jej urządzenie; blokada wymienia nazwy, pod którymi to urządzenie pisało.';
+
+  @override
+  String get helpRemote =>
+      'Synchronizacja przez wspólny folder dla urządzeń, które nigdy się nie spotykają: wybierz raz ten sam folder na każdym urządzeniu; każda synchronizacja zapisuje tam twoje zmiany i czyta zmiany innych. Jeden folder niesie wszystkie katalogi, każdy w osobnym podfolderze.';
+
+  @override
+  String get helpRestore =>
+      'Kopie poprzedniej instalacji, po jednym wierszu na katalog, zaznaczone. Przywróć odtwarza każdą jako osobny katalog. Na Androidzie folder przyznaje się raz przez wybierak; Wybierz pliki dodaje kopie trzymane gdzie indziej.';
+
+  @override
+  String get helpScan =>
+      'Zeskanuj kod cat(a)log z plakatu lub z ekranu innej osoby: kot i jego kontakt trafiają tutaj bez pisania. Kod z linkiem pobiera stojący za nim plik.';
+
+  @override
+  String get helpVetReport =>
+      'Co idzie do weterynarza: wybrane pola i daty, każdy wiersz zaznaczony, dopóki go nie odznaczysz, i podsumowanie pacjenta na początku. Udostępnij jako PDF lub drukuj, oba w pasku.';
+
+  @override
+  String get helpPoster =>
+      'Plakat na latarnię, z karty: zaznacz, co ma się na nim znaleźć, dodaj linijkę, której karta nie ma, a strona drukuje się czarno na białym literami czytelnymi z drugiej strony ulicy. Kod otwiera kota w innym cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'To, co zdobyte, i tylko to: pełne miesiące, lata i więcej zadań z ich liczbą, jeden tytuł na zadanie na jego stopniu, i odblokowane futra. Bez pasków postępu i bez pogoni; nagrody to cichy bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Za dużo zaznaczono na jeden kod. Odznacz linię, a kod wróci.';
+
+  @override
+  String get posterPhotos => 'Zdjęcia, do dwóch';
+
+  @override
+  String get posterFrameHint =>
+      'Przeciągnij i uszczypnij, aby wykadrować zdjęcie.';
+
+  @override
+  String get posterPreview => 'Podgląd';
+
+  @override
+  String get syncWatchSwitch => 'Powiedz mi, gdy w folderze czekają zmiany';
+
+  @override
+  String get syncAutoSwitch => 'Scalaj je samodzielnie';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Zmiany od $authors czekają w $catalog. Dotknij, aby zsynchronizować.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'innego urządzenia';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count zmiany od $authors scalone',
+      many: '$count zmian od $authors scalonych',
+      few: '$count zmiany od $authors scalone',
+      one: '$count zmiana od $authors scalona',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Pokaż';
 }

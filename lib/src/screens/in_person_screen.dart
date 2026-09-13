@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../help.dart';
 import '../import_summary.dart';
 import '../sync/hotspot.dart';
 import '../l10n.dart';
@@ -380,7 +381,10 @@ class _InPersonScreenState extends State<InPersonScreen> {
     final iosOffline = Platform.isIOS && onNet == false;
     final canHost = onNet != false;
     return Scaffold(
-      appBar: AppBar(title: Text(t.syncChooserInPerson)),
+      appBar: AppBar(
+        title: Text(t.syncChooserInPerson),
+        actions: [HelpButton(store: widget.store, screenId: 'inPerson')],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

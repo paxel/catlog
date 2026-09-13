@@ -3403,4 +3403,247 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get colWho => 'Wie';
+
+  @override
+  String get pdfFontMissing =>
+      'Het lettertype voor deze taal staat nog niet op de telefoon; sommige letters worden vakjes. Maak één keer verbinding met internet en maak de pdf opnieuw.';
+
+  @override
+  String get vetReportTitle => 'Rapport voor de dierenarts';
+
+  @override
+  String get vetReportMenu => 'Rapport voor de dierenarts…';
+
+  @override
+  String get vetReportFields => 'Velden';
+
+  @override
+  String get vetReportFrom => 'Van';
+
+  @override
+  String get vetReportTo => 'Tot';
+
+  @override
+  String get vetReportSummary => 'Patiëntoverzicht';
+
+  @override
+  String get vetReportOwner => 'Eigenaar';
+
+  @override
+  String get vetReportLegend => 'Legenda';
+
+  @override
+  String get vetReportCurves => 'Grafiek';
+
+  @override
+  String get posterMenu => 'Vermist-poster…';
+
+  @override
+  String get posterHeadline => 'VERMIST';
+
+  @override
+  String get posterStanding =>
+      'Kijk alstublieft in kelders, schuren en garages. Niet achterna zitten, gewoon bellen.';
+
+  @override
+  String get posterLastSeen => 'Laatst gezien bij';
+
+  @override
+  String get posterFreeText => 'Extra regel';
+
+  @override
+  String get posterQr => 'QR-code voor cat(a)log';
+
+  @override
+  String get posterPhoto => 'Foto';
+
+  @override
+  String get newCatIn => 'Nieuwe kat in…';
+
+  @override
+  String get newCatInNeutral => 'Nieuw huisdier in…';
+
+  @override
+  String get choreLabel => 'Taak';
+
+  @override
+  String get choreTickLabel => 'Taak gedaan';
+
+  @override
+  String get choreEnded => 'Beëindigd';
+
+  @override
+  String choreRemindAt(Object time) {
+    return 'herinnering $time';
+  }
+
+  @override
+  String doneOn(Object date) {
+    return 'gedaan op $date';
+  }
+
+  @override
+  String get withheldByPartner => 'achtergehouden door een partner';
+
+  @override
+  String get titleLabel => 'Titel';
+
+  @override
+  String get deletedLabel => 'Verwijderd';
+
+  @override
+  String get favouriteAdd => 'Als favoriet markeren';
+
+  @override
+  String get favouriteRemove => 'Uit favorieten verwijderen';
+
+  @override
+  String get coverPick => 'Omslagfoto…';
+
+  @override
+  String get coverHint =>
+      'Een foto van de plek: het huis, de tuin, de voerplek. Op de kaart getoond in plaats van een kat.';
+
+  @override
+  String get coverRemove => 'Omslagfoto verwijderen';
+
+  @override
+  String get skipTour => 'Introductie en tips op deze installatie overslaan';
+
+  @override
+  String get spotCatChores =>
+      'Terugkerende zorg woont hier: voeren, medicijnen, controles, elk met een eigen herinnering.';
+
+  @override
+  String get spotLooks =>
+      'Vink aan wat je ziet. Overeenkomsten met andere catalogi komen hieruit.';
+
+  @override
+  String get spotHistoryHold =>
+      'Houd een waarde vast om hem te corrigeren of te verwijderen. Niets gaat verloren; verborgen waarden toon je op verzoek.';
+
+  @override
+  String get spotBackups =>
+      'Waar je catalogi veilig bewaard worden: wat de telefoon back-upt, en een kopie in een map naar keuze.';
+
+  @override
+  String get spotCardPoster =>
+      'Een vermist-poster uit het dossier van deze kat: foto, naam, telefoon in grote letters en een code die anderen scannen.';
+
+  @override
+  String get spotCardPosterNeutral =>
+      'Een vermist-poster uit het dossier van dit huisdier: foto, naam, telefoon in grote letters en een code die anderen scannen.';
+
+  @override
+  String get spotTimelineReport =>
+      'Een rapport voor de dierenarts: de gekozen items als tijdlijn, een patiëntoverzicht en een grafiek voor elk getalveld, bijvoorbeeld het gewicht.';
+
+  @override
+  String get helpHistory =>
+      'De waarden van één veld door de tijd, nieuwste eerst. Tik op een waarde om die te corrigeren: de nieuwe neemt zijn plaats in, de oude wordt verborgen. Houd een waarde vast om die te verwijderen of een verborgen waarde terug te halen; het oog toont verborgen waarden. Kopieer de lijst als tekst of deel hem als pdf.';
+
+  @override
+  String get helpSettings =>
+      'De keuzes van de app: taal, eenheden, feestjes en gejuich, de vacht achter de pagina\'s, meldingen en waar je catalogi geback-upt worden. De rondleidingen kun je hier opnieuw starten.';
+
+  @override
+  String get helpLooks =>
+      'Hoe de kat eruitziet, als chips: grootte, kleuren, patroon, vacht, staart, oren, tekening en blijvende kenmerken. Vink aan wat je ziet; een zwerver die in twee kenmerken met een vermiste kat overeenkomt, wordt kandidaat.';
+
+  @override
+  String get graphSmoothed => 'Afgevlakt';
+
+  @override
+  String get graphTrend => 'Trend';
+
+  @override
+  String trendPerMonth(Object value) {
+    return 'Trend: $value per maand';
+  }
+
+  @override
+  String get helpBackups =>
+      'Waar je catalogi veilig bewaard worden: wat de telefoon zelf back-upt, waar de volledige kopieën komen, wanneer de laatste is geschreven, en een knop om er nu een te schrijven. Herstellen zit onder Catalogi beheren.';
+
+  @override
+  String get helpConflicts =>
+      'Velden die twee mensen tegelijk wijzigden, voordat hun apparaten synchroniseerden. Elke rij toont beide waarden; kies de juiste en de keuze bereikt elk apparaat.';
+
+  @override
+  String get helpInPerson =>
+      'Synchroniseer met iemand naast je: één telefoon host, de ander sluit aan door de code te scannen, en de gegevens gaan versleuteld over wifi, zonder server. De privé-schakelaar bepaalt of privéwaarden meereizen.';
+
+  @override
+  String get helpMessenger =>
+      'Synchroniseren als bestand: dit apparaat schrijft een bundel met alles wat het weet, je stuurt die via een messenger of mail, en de andere kant importeert hem. Foto\'s reizen mee; privéwaarden alleen als de schakelaar dat zegt.';
+
+  @override
+  String get helpModeration =>
+      'De mensen wier items deze catalogus bereikten, met wat ze schreven. Verwijder iemands gegevens op dit apparaat en blokkeer diens apparaat; een blokkade toont de namen waaronder dat apparaat schreef.';
+
+  @override
+  String get helpRemote =>
+      'Synchroniseren via een gedeelde map voor apparaten die elkaar nooit zien: kies eenmaal dezelfde map op elk apparaat; elke synchronisatie schrijft je wijzigingen daar en leest die van de anderen. Eén map draagt alle catalogi, elk in een eigen submap.';
+
+  @override
+  String get helpRestore =>
+      'Back-ups van de vorige installatie, één rij per catalogus, aangevinkt. Herstellen brengt elke terug als eigen catalogus. Op Android wordt de map eenmaal via de kiezer vrijgegeven; Bestanden kiezen voegt elders bewaarde back-ups toe.';
+
+  @override
+  String get helpScan =>
+      'Scan de cat(a)log-code op een poster of op het scherm van een ander: de kat en het contact komen hier zonder typen. Een code met een link haalt het bestand erachter op.';
+
+  @override
+  String get helpVetReport =>
+      'Wat naar de dierenarts gaat: de velden en data die je kiest, elke rij aangevinkt tot je hem uitvinkt, en het patiëntoverzicht voorop. Delen als pdf of afdrukken, beide in de balk.';
+
+  @override
+  String get helpPoster =>
+      'Een poster voor de lantaarnpaal, uit het dossier: vink aan wat erop komt, voeg een regel toe die het dossier mist, en de pagina drukt zwart op wit in letters die je van de overkant leest. De code opent de kat in een ander cat(a)log.';
+
+  @override
+  String get helpAchievements =>
+      'Wat verdiend is en alleen dat: volle maanden, jaren en meer aan taken met hun aantal, één titel per taak op zijn rang, en de vrijgespeelde vachten. Geen voortgangsbalken en niets om na te jagen; de beloningen zijn een stille bonus.';
+
+  @override
+  String get posterQrTooBig =>
+      'Er is te veel aangevinkt voor één code. Vink een regel uit en de code komt terug.';
+
+  @override
+  String get posterPhotos => 'Foto\'s, maximaal twee';
+
+  @override
+  String get posterFrameHint => 'Sleep en knijp om de foto te kaderen.';
+
+  @override
+  String get posterPreview => 'Voorbeeld';
+
+  @override
+  String get syncWatchSwitch =>
+      'Zeg het me als er wijzigingen in de map wachten';
+
+  @override
+  String get syncAutoSwitch => 'Ze vanzelf samenvoegen';
+
+  @override
+  String syncChangesWaiting(String authors, String catalog) {
+    return 'Wijzigingen van $authors wachten in $catalog. Tik om te synchroniseren.';
+  }
+
+  @override
+  String get syncAnotherDevice => 'een ander apparaat';
+
+  @override
+  String syncMerged(int count, String authors) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count wijzigingen van $authors samengevoegd',
+      one: '$count wijziging van $authors samengevoegd',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncShow => 'Tonen';
 }

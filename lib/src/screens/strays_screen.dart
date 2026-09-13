@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../cover_picture.dart';
 import '../move_to_catalog.dart';
 import '../hidden.dart';
 import '../l10n.dart';
@@ -89,6 +90,51 @@ class StraysScreen extends StatelessWidget {
       spotlightScreenId: 'strays',
       actions: (context, refresh) => [
         Spotlight(
+          id: 'strays-flier',
+          child: IconButton(
+            icon: const Icon(Icons.assignment_outlined),
+            tooltip: context.t.captureFlier,
+            onPressed: () async {
+              final catId = await Navigator.of(context).push<String>(
+                MaterialPageRoute(
+                  builder: (_) => FlierCaptureScreen(store: store),
+                ),
+              );
+              if (!context.mounted) return;
+              await _openNew(context, catId, refresh);
+            },
+          ),
+        ),
+        // Tap films nothing: a photo; hold for the film mode (#41).
+        GestureDetector(
+          onLongPress: () async {
+            final catId = await strayCamVideo(context, store);
+            if (!context.mounted) return;
+            await _openNew(context, catId, refresh, startEditing: true);
+          },
+          child: WithCatEar(
+            child: IconButton(
+              icon: const BusyIcon(
+                keys: {'strayCam', 'imagePicker'},
+                icon: Icons.photo_camera,
+              ),
+              tooltip: context.t.strayCam,
+              onPressed: () async {
+                final catId = await strayCam(context, store);
+                if (!context.mounted) return;
+                await _openNew(context, catId, refresh, startEditing: true);
+              },
+            ),
+          ),
+        ),
+        IconButton(
+          icon: const Icon(Icons.image_outlined),
+          tooltip: context.t.coverPick,
+          onPressed: () async {
+            if (await coverMenu(context, store, straysEntity)) refresh();
+          },
+        ),
+        Spotlight(
           id: 'strays-scan',
           child: IconButton(
             icon: const Icon(Icons.qr_code_scanner),
@@ -121,47 +167,6 @@ class StraysScreen extends StatelessWidget {
       floatingActionButton: (context, refresh) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Spotlight(
-            id: 'strays-flier',
-            child: FloatingActionButton.extended(
-              heroTag: 'flier',
-              onPressed: () async {
-                final catId = await Navigator.of(context).push<String>(
-                  MaterialPageRoute(
-                    builder: (_) => FlierCaptureScreen(store: store),
-                  ),
-                );
-                if (!context.mounted) return;
-                await _openNew(context, catId, refresh);
-              },
-              icon: const Icon(Icons.assignment_outlined),
-              label: Text(context.t.captureFlier),
-            ),
-          ),
-          const SizedBox(height: 12),
-          GestureDetector(
-            onLongPress: () async {
-              final catId = await strayCamVideo(context, store);
-              if (!context.mounted) return;
-              await _openNew(context, catId, refresh, startEditing: true);
-            },
-            child: WithCatEar(
-              child: FloatingActionButton.extended(
-                heroTag: 'strayCam',
-                onPressed: () async {
-                  final catId = await strayCam(context, store);
-                  if (!context.mounted) return;
-                  await _openNew(context, catId, refresh, startEditing: true);
-                },
-                icon: const BusyIcon(
-                  keys: {'strayCam', 'imagePicker'},
-                  icon: Icons.photo_camera,
-                ),
-                label: Text(context.t.strayCam),
-              ),
-            ),
-          ),
-          const SizedBox(height: 12),
           FloatingActionButton.extended(
             heroTag: 'addStray',
             onPressed: () => _addStray(context, refresh),

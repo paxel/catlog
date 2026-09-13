@@ -2,6 +2,57 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.3.1] - 2026-09-12
+
+### Added
+- Shared folder sync watches the folder while the app is on screen: a line at the top of every page says whose changes wait, tap syncs; a second switch merges them on their own and reports in one line.
+
+### Changed
+- The missing poster offers every filled field of the cat and its home as a tick, takes up to two photos that you frame by dragging and pinching, shows the page as it will print, and prints a code per ticked ID (registry link) and location (map link) next to the cat(a)log code.
+- The report for the vet and the missing poster are buttons on the cat's page, next to the timeline; their pages carry the card page's Share as PDF and Print buttons.
+- The graph's range and line choices fold behind one header.
+- A home's page shows its chores and appointments right after the cats, before the fields; a cat's page leads with its photos, then its chores, then the fields.
+
+### Fixed
+- Every page has the help button: backups, conflicts, all three sync pages, moderation, restore, scan, vet report, poster and achievements got their text.
+- The restore page and the strays page keep their actions in the app bar like every other page; strays keep one add button.
+- The day picker confirms with Save like every other dialog.
+- The history pages keep their title on its own line on a phone, like the cat page.
+- The same action wears the same icon on every page: one PDF icon, one share icon, one copy icon.
+- Rows that react to a hold on the history, chore history and timeline pages wear the cat ear.
+- Dates in the day picker and numbers everywhere follow the device's format: 12.9.2026 and 4,25 in German; a number typed with a comma still graphs.
+- Picking a cover picture no longer crashes when the page was rebuilt behind the camera, and no longer asks to draw a rectangle around the animal.
+- A tip whose spot lies below the fold scrolls it into view first; the card stays on the screen with its buttons.
+- A home's faces keep clear of the favourite star.
+
+## [1.3.0] - 2026-09-12
+
+### Added
+- The graph can show a smoothed line with each reading hanging on it, and a dashed trend line with the change per month; both remembered, both in the vet report.
+- Six new tips, shown once: chores on a cat's page, Looks after a capture, holding a value in a history, the Backups row, the poster and the report buttons.
+- A tick on the name page skips the intro and every tip on this install; Settings brings them back.
+- A home, and the strays, can carry a cover picture of the place; the card shows it instead of a cat.
+- A star on a home's card marks it a favourite; favourites come first, right after Strays.
+- A photo shared into the app can become a new cat in a home of your choice, or in a new home; a shared video goes through the frame picker.
+- A report for the vet from a cat's timeline: chosen fields and dates, a patient summary, the entries as a timeline with a colour per field, and a curve per number field, as a PDF.
+- A missing poster from the card page: photo, the name in letters for the street, missing since, the home's address, phone in a black band, Looks and a standing text, and a QR code another cat(a)log reads.
+
+### Changed
+- A home's card shows a number only past five faces.
+- Chores, ticks, titles and privacy marks read as words in the history and the timeline instead of raw data.
+- A home's title wears the ear: hold it to rename; in edit mode a tap on the title renames as before.
+- Holding a field in read mode opens that one value's editor and leaves the page in read mode.
+- Holding a field in edit mode opens its history page; a field without a value has no ear and nothing to hold.
+- PDFs print Greek and Cyrillic letters; Arabic, Hebrew, Farsi, Japanese and Chinese get their font fetched once when first needed.
+
+## [1.2.4] - 2026-09-11
+
+### Changed
+- A field's or chore's history shares as a PDF and copies as text, instead of sharing a text file.
+
+### Fixed
+- Chore reminders work in the store build: the release build had stripped the notification plugin's inner workings, so the test button did nothing and the switch reported a missing permission; a broken plugin now reports itself instead of posing as a refusal.
+
 ## [1.2.3] - 2026-09-09
 
 ### Added

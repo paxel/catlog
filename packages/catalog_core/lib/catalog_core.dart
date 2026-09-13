@@ -29,3 +29,4 @@ export 'src/savepoints.dart';
 export 'src/signing.dart';
 export 'src/sqlite_compat.dart';
 export 'src/store.dart';
+export 'src/sync_watch.dart';
