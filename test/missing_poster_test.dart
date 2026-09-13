@@ -3,6 +3,7 @@ import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/missing_poster.dart';
 import 'package:catlog/src/pdf_fonts.dart';
 import 'package:catlog/src/screens/missing_poster_screen.dart';
+import 'package:catlog/src/widgets/poster_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
@@ -85,6 +86,40 @@ void main() {
   test('two frames share the row, one takes it', () {
     expect(posterFrameAspect(1, 0), greaterThan(posterFrameAspect(2, 0)));
     expect(posterFrameAspect(2, 0), posterFrameAspect(2, 1));
+  });
+
+  testWidgets('a gallery picture joins the poster at full size', (
+    tester,
+  ) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final cat = store.createCat('Miezi');
+    PosterContent? built;
+    tester.view.physicalSize = const Size(500, 1800);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MissingPosterScreen(
+          store: store,
+          catId: cat,
+          pickPhoto: (_) async => photo,
+          preview: (_) async => null,
+          share: (doc, name) async {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(PosterFrame), findsNothing);
+    await tester.tap(find.byTooltip('Choose from gallery'));
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 200)),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(PosterFrame), findsOneWidget);
+    expect(built, isNull);
   });
 
   testWidgets('the page ticks the record and shares the poster', (

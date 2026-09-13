@@ -9,6 +9,7 @@ import 'package:pdf/widgets.dart' as pw;
 import '../field_labels.dart';
 import '../help.dart';
 import '../hidden.dart';
+import '../image_import.dart';
 import '../image_provider_cache.dart';
 import '../history_share.dart';
 import '../l10n.dart';
@@ -37,6 +38,11 @@ class MissingPosterScreen extends StatefulWidget {
   /// default, which tests replace or leave to fail quietly.
   final Future<Uint8List?> Function(Uint8List pdf) preview;
 
+  /// Takes a picture from the gallery at full size for the poster only:
+  /// the catalog's stored pictures are shrunk and the face crops are
+  /// cut from those, too small for a lamp post. Tests inject.
+  final Future<Uint8List?> Function(BuildContext context)? pickPhoto;
+
   const MissingPosterScreen({
     super.key,
     required this.store,
@@ -44,6 +50,7 @@ class MissingPosterScreen extends StatefulWidget {
     this.share,
     this.print,
     this.preview = rasterFirstPage,
+    this.pickPhoto,
   });
 
   @override
@@ -75,6 +82,9 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
   bool _busy = false;
   Set<String>? _ticked;
   Uint8List? _previewPng;
+
+  /// A finger on a frame: the page must not scroll under the pinch.
+  int _fingersOnFrames = 0;
   bool _previewBusy = false;
   bool _previewDirty = false;
   Timer? _previewTimer;
@@ -137,12 +147,27 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
     return _photos;
   }
 
+  /// Pictures brought in from the gallery, kept only for this poster.
+  final _external = <String, Uint8List>{};
+
+  Future<void> _addExternal() async {
+    final pick = widget.pickPhoto ?? (c) => pickImageBytes(c, allowCrop: false);
+    final bytes = await pick(context);
+    if (bytes == null || !mounted) return;
+    final key = 'gallery:${_external.length}';
+    _external[key] = bytes;
+    final photos = _pictures();
+    if (photos.length >= 2) photos.remove(photos.keys.first);
+    photos[key] = PosterPhoto(bytes);
+    _changed(() {});
+  }
+
   void _togglePhoto(String hash) {
     final photos = _pictures();
     if (photos.containsKey(hash)) {
       photos.remove(hash);
     } else if (photos.length < 2) {
-      final bytes = store.imageBytes(hash);
+      final bytes = _external[hash] ?? store.imageBytes(hash);
       if (bytes != null) photos[hash] = PosterPhoto(bytes);
     }
     _changed(() {});
@@ -281,8 +306,7 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
   /// Thumbnails of the cat's pictures to tick up to two, and a frame
   /// per ticked picture to drag and pinch.
   List<Widget> _photoSection(AppLocalizations t) {
-    final images = store.images(widget.catId);
-    if (images.isEmpty) return const [];
+    final images = [...store.images(widget.catId), ..._external.keys];
     final photos = _pictures();
     final chosen = photos.keys.toList();
     return [
@@ -297,11 +321,25 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
         height: 64,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemCount: images.length,
+          itemCount: images.length + 1,
           separatorBuilder: (_, _) => const SizedBox(width: 8),
           itemBuilder: (context, i) {
-            final hash = images[i];
-            final photo = imageProviderFor(store, hash);
+            // The first tile brings a full-size picture from the gallery.
+            if (i == 0) {
+              return SizedBox(
+                width: 64,
+                child: IconButton.outlined(
+                  icon: const Icon(Icons.photo_library_outlined),
+                  tooltip: t.chooseFromGallery,
+                  onPressed: _addExternal,
+                ),
+              );
+            }
+            final hash = images[i - 1];
+            final external = _external[hash];
+            final ImageProvider? photo = external == null
+                ? imageProviderFor(store, hash)
+                : MemoryImage(external);
             final on = photos.containsKey(hash);
             return InkWell(
               onTap: () => _togglePhoto(hash),
@@ -325,24 +363,29 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
       ),
       if (chosen.isNotEmpty) ...[
         const SizedBox(height: 8),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (final (i, hash) in chosen.indexed) ...[
-              if (i > 0) const SizedBox(width: 8),
-              Expanded(
-                child: PosterFrame(
-                  key: ValueKey('frame-$hash'),
-                  bytes: photos[hash]!.bytes,
-                  aspect: posterFrameAspect(chosen.length, i),
-                  onChanged: (p) {
-                    photos[hash] = p;
-                    _schedulePreview();
-                  },
+        Listener(
+          onPointerDown: (_) => setState(() => _fingersOnFrames++),
+          onPointerUp: (_) => setState(() => _fingersOnFrames--),
+          onPointerCancel: (_) => setState(() => _fingersOnFrames--),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (final (i, hash) in chosen.indexed) ...[
+                if (i > 0) const SizedBox(width: 8),
+                Expanded(
+                  child: PosterFrame(
+                    key: ValueKey('frame-$hash'),
+                    bytes: photos[hash]!.bytes,
+                    aspect: posterFrameAspect(chosen.length, i),
+                    onChanged: (p) {
+                      photos[hash] = p;
+                      _schedulePreview();
+                    },
+                  ),
                 ),
-              ),
+              ],
             ],
-          ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 4),
@@ -386,6 +429,9 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
       ),
       body: ListView(
         padding: const EdgeInsets.all(12),
+        physics: _fingersOnFrames > 0
+            ? const NeverScrollableScrollPhysics()
+            : null,
         children: [
           // The page as it prints, redrawn after every change.
           if (_previewPng != null) ...[
