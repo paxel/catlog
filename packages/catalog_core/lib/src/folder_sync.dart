@@ -20,6 +20,10 @@ class FolderSyncResult {
   /// since it added them.
   final int blobsMissing;
 
+  /// One line per photo that could not be fetched this round and why:
+  /// the reason a keeper can read off the result, instead of a count.
+  final List<String> blobProblems;
+
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
@@ -27,13 +31,17 @@ class FolderSyncResult {
   final ImportReport report;
 
   FolderSyncResult(this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut,
-      {this.blobsMissing = 0, this.applied = const [], ImportReport? report})
+      {this.blobsMissing = 0,
+      this.blobProblems = const [],
+      this.applied = const [],
+      ImportReport? report})
       : report = report ?? ImportReport();
 
   @override
   String toString() => '$entriesIn entries + $blobsIn photos in, '
       '$entriesOut entries + $blobsOut photos out'
-      '${blobsMissing > 0 ? ', $blobsMissing photos not in the folder yet' : ''}';
+      '${blobsMissing > 0 ? ', $blobsMissing photos not in the folder yet' : ''}'
+      '${blobProblems.isEmpty ? '' : '\n${blobProblems.join('\n')}'}';
 }
 
 /// The shared folder as the sync sees it: a `catlog-sync` root with
@@ -200,7 +208,7 @@ Future<void> hideFromGallery(SyncFolder folder) async {
 /// entry files, so a round can end with entries in and photos still on
 /// the way. Returns how many came in.
 Future<int> fetchMissingBlobs(CatalogStore store, SyncFolder folder,
-    {String? catalog, Set<String>? blobNames}) async {
+    {String? catalog, Set<String>? blobNames, List<String>? problems}) async {
   final blobDir = catalog == null ? 'blobs' : '$catalog/blobs';
   final missing = store.missingBlobs();
   if (missing.isEmpty) return 0;
@@ -210,16 +218,32 @@ Future<int> fetchMissingBlobs(CatalogStore store, SyncFolder folder,
       catalog == null ? const <String>{} : (await folder.list('blobs')).toSet();
   var blobsIn = 0;
   for (final hash in missing) {
+    final short = hash.substring(0, 8);
     final here = names.contains('$hash.jpg');
-    if (!here && !legacyBlobs.contains('$hash.jpg')) continue;
+    if (!here && !legacyBlobs.contains('$hash.jpg')) {
+      problems?.add('$short not listed in $blobDir (${names.length} files)');
+      continue;
+    }
     try {
       final bytes = await folder.read(here ? blobDir : 'blobs', '$hash.jpg');
-      if (bytes == null) continue;
+      if (bytes == null) {
+        problems?.add('$short listed but read gave nothing');
+        continue;
+      }
+      if (CatalogStore.imageTooLarge(bytes)) {
+        problems?.add('$short too large (${bytes.length} bytes)');
+        continue;
+      }
       store.putBlob(hash, bytes);
+      if (store.imageBytes(hash) == null) {
+        problems?.add('$short read ${bytes.length} bytes, not kept');
+        continue;
+      }
       blobsIn++;
-    } catch (_) {
+    } catch (e) {
       // Truncated by a cloud client mid-upload: not this photo, not
-      // this time.
+      // this time. The reason travels to the result line.
+      problems?.add('$short $e');
     }
   }
   return blobsIn;
@@ -362,8 +386,9 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   var blobsOut = 0;
   final blobDir = own('blobs');
   final blobNames = (await folder.list(blobDir)).toSet();
+  final blobProblems = <String>[];
   final blobsIn = await fetchMissingBlobs(store, folder,
-      catalog: catalog, blobNames: blobNames);
+      catalog: catalog, blobNames: blobNames, problems: blobProblems);
   final live = <String>{};
   for (final entity in [...store.cats(), ...store.clowders()]) {
     for (final hash in store.images(entity.id)) {
@@ -394,6 +419,7 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
 
   return FolderSyncResult(entriesIn, entriesOut, blobsIn, blobsOut,
       blobsMissing: store.missingBlobs().length,
+      blobProblems: blobProblems,
       applied: applied,
       report: report);
 }

@@ -9,7 +9,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Achievements open from the home page's menu instead of a button on the agenda.
 
 ### Fixed
-- Photo files that reach the shared folder after the entries are fetched by the next round of the folder watch, without a tap; the sync result says how many photos are not in the folder yet.
+- Photo files that reach the shared folder after the entries are fetched by the next round of the folder watch, without a tap; the sync result says how many photos are not in the folder yet, and why each one that is there could not be taken.
 - The line at the top says "Syncing with the folder…" with a progress bar while a tapped sync runs, instead of staying silent until it is done.
 - A chore's master achievement says how often the chore was done instead of "reached" with the tick count.
 - The help button is the first button in the app bar on the history and timeline pages too.
