@@ -2,6 +2,15 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.3.2] - 2026-09-13
+
+### Fixed
+- Photos shared through a folder on Android no longer show up in the phone's gallery.
+
+### Changed
+- The vet report's colour legend sits above the timeline instead of at the end of the patient sheet.
+- The missing poster takes pictures straight from the gallery at full size, next to the cat's stored ones; the page holds still while you pinch a frame.
+
 ## [1.3.1] - 2026-09-12
 
 ### Added
