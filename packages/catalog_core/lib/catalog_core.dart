@@ -24,6 +24,7 @@ export 'src/transfer.dart';
 export 'src/units.dart';
 export 'src/pair_code.dart';
 export 'src/partial_date.dart';
+export 'src/photo_privacy.dart';
 export 'src/registry.dart';
 export 'src/savepoints.dart';
 export 'src/signing.dart';

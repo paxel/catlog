@@ -1,4 +1,6 @@
 import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -232,6 +234,17 @@ Future<int> fetchMissingBlobs(CatalogStore store, SyncFolder folder,
       }
       if (CatalogStore.imageTooLarge(bytes)) {
         problems?.add('$short too large (${bytes.length} bytes)');
+        continue;
+      }
+      final actual = sha256.convert(bytes).toString();
+      if (actual != hash) {
+        // The reason a keeper can read: what came back instead.
+        final head = bytes
+            .take(4)
+            .map((b) => b.toRadixString(16).padLeft(2, '0'))
+            .join();
+        problems
+            ?.add('$short read ${bytes.length} bytes, sha $actual head $head');
         continue;
       }
       store.putBlob(hash, bytes);

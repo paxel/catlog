@@ -77,8 +77,18 @@ class _RemoteScreenState extends State<RemoteScreen> {
 
   /// One folder sync at a time: the watcher's own merge and this
   /// button share the key.
-  Future<void> _sync() => runExclusive<void>('folderSync', _syncNow,
-      context: context);
+  bool _busy = false;
+
+  /// One folder sync at a time, and the page shows it running: the
+  /// button greys out, a bar moves, the words say what happens.
+  Future<void> _sync() async {
+    setState(() => _busy = true);
+    try {
+      await runExclusive<void>('folderSync', _syncNow, context: context);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
 
   Future<void> _syncNow() async {
     final t = context.t;
@@ -187,12 +197,18 @@ class _RemoteScreenState extends State<RemoteScreen> {
           Text(t.folderHint, style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 8),
           FilledButton.icon(
-            onPressed: widget.store.localSetting('syncFolder') == null
+            onPressed: widget.store.localSetting('syncFolder') == null || _busy
                 ? null
                 : _sync,
             icon: const Icon(Icons.folder_copy_outlined),
             label: Text(t.syncFolderNow),
           ),
+          if (_busy) ...[
+            const SizedBox(height: 12),
+            const LinearProgressIndicator(),
+            const SizedBox(height: 6),
+            Text(t.syncRunning),
+          ],
           if (_lastResult != null) ...[
             const SizedBox(height: 12),
             Text(_lastResult!),

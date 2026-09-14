@@ -54,6 +54,11 @@ android {
     }
 
     buildTypes {
+        // A debug build installs beside the store app, own data, so a
+        // phone with a live catalog can run a diagnosis build.
+        debug {
+            applicationIdSuffix = ".debug"
+        }
         release {
             signingConfig = if (keystoreProperties.isNotEmpty()) {
                 signingConfigs.getByName("release")
