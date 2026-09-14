@@ -1,9 +1,15 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/sync/sync_watch.dart';
 import 'package:catlog/src/sync/sync_watch_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as img;
+
+Uint8List jpeg(int w, int h) =>
+    Uint8List.fromList(img.encodeJpg(img.Image(width: w, height: h)));
 
 /// The folder watch in the app: the first round only takes the measure,
 /// a later round with news raises the line (poll mode) or merges (auto
@@ -74,6 +80,27 @@ void main() {
     expect(merged, isNotNull);
     expect(watcher.pending, isNull);
     expect(ben.searchCats('Miezi'), hasLength(1));
+    watcher.dispose();
+  });
+
+  test('a round fetches photo files that landed after the entries', () async {
+    final watcher = watcherFor(ben);
+    final cat = anna.createCat('Miezi');
+    anna.addImage(cat, CatalogStore.compressImage(jpeg(30, 30)));
+    await folderSyncIn(anna, folder, catalog: catalogFolderName('Farm'));
+    final blobs = folder.dirs['${catalogFolderName('Farm')}/blobs']!;
+    final held = Map.of(blobs);
+    blobs.clear();
+    await folderSyncIn(ben, folder, catalog: catalogFolderName('Farm'));
+    await recordSyncSizes(ben, folderOf: (_) => folder);
+    expect(ben.missingBlobs(), hasLength(1));
+    await watcher.check();
+    expect(ben.missingBlobs(), hasLength(1));
+    blobs.addAll(held);
+    await watcher.check(); // nothing grew, the photo comes anyway
+    expect(ben.missingBlobs(), isEmpty);
+    expect(watcher.photosArrived, isTrue);
+    expect(watcher.pending, isNull);
     watcher.dispose();
   });
 

@@ -15,6 +15,11 @@ class FolderSyncResult {
   final int blobsIn;
   final int blobsOut;
 
+  /// Photos the entries name that no device has put in the folder yet:
+  /// the cloud client still copying, or a device that never synced
+  /// since it added them.
+  final int blobsMissing;
+
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
@@ -22,12 +27,13 @@ class FolderSyncResult {
   final ImportReport report;
 
   FolderSyncResult(this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut,
-      {this.applied = const [], ImportReport? report})
+      {this.blobsMissing = 0, this.applied = const [], ImportReport? report})
       : report = report ?? ImportReport();
 
   @override
   String toString() => '$entriesIn entries + $blobsIn photos in, '
-      '$entriesOut entries + $blobsOut photos out';
+      '$entriesOut entries + $blobsOut photos out'
+      '${blobsMissing > 0 ? ', $blobsMissing photos not in the folder yet' : ''}';
 }
 
 /// The shared folder as the sync sees it: a `catlog-sync` root with
@@ -188,6 +194,37 @@ Future<void> hideFromGallery(SyncFolder folder) async {
   }
 }
 
+/// Fetches the photos the entries name and this store lacks, as far as
+/// the folder has them. Part of every sync round, and run on its own
+/// by the folder watch: a cloud client copies photo files after the
+/// entry files, so a round can end with entries in and photos still on
+/// the way. Returns how many came in.
+Future<int> fetchMissingBlobs(CatalogStore store, SyncFolder folder,
+    {String? catalog, Set<String>? blobNames}) async {
+  final blobDir = catalog == null ? 'blobs' : '$catalog/blobs';
+  final missing = store.missingBlobs();
+  if (missing.isEmpty) return 0;
+  final names = blobNames ?? (await folder.list(blobDir)).toSet();
+  // Partners from before keep their photos at the root.
+  final legacyBlobs =
+      catalog == null ? const <String>{} : (await folder.list('blobs')).toSet();
+  var blobsIn = 0;
+  for (final hash in missing) {
+    final here = names.contains('$hash.jpg');
+    if (!here && !legacyBlobs.contains('$hash.jpg')) continue;
+    try {
+      final bytes = await folder.read(here ? blobDir : 'blobs', '$hash.jpg');
+      if (bytes == null) continue;
+      store.putBlob(hash, bytes);
+      blobsIn++;
+    } catch (_) {
+      // Truncated by a cloud client mid-upload: not this photo, not
+      // this time.
+    }
+  }
+  return blobsIn;
+}
+
 /// The same sync through any [SyncFolder].
 Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     {bool includePrivate = false, String? catalog}) async {
@@ -322,25 +359,11 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
       all.length > previousLines ? all.length - previousLines : 0;
 
   // ---- blobs: fetch missing, publish local ones, clean dead ones
-  var blobsIn = 0, blobsOut = 0;
+  var blobsOut = 0;
   final blobDir = own('blobs');
   final blobNames = (await folder.list(blobDir)).toSet();
-  // Partners from before keep their photos at the root.
-  final legacyBlobs =
-      catalog == null ? const <String>{} : (await folder.list('blobs')).toSet();
-  for (final hash in store.missingBlobs()) {
-    final here = blobNames.contains('$hash.jpg');
-    if (!here && !legacyBlobs.contains('$hash.jpg')) continue;
-    try {
-      final bytes = await folder.read(here ? blobDir : 'blobs', '$hash.jpg');
-      if (bytes == null) continue;
-      store.putBlob(hash, bytes);
-      blobsIn++;
-    } catch (_) {
-      // Truncated by a cloud client mid-upload: not this photo, not
-      // this time.
-    }
-  }
+  final blobsIn = await fetchMissingBlobs(store, folder,
+      catalog: catalog, blobNames: blobNames);
   final live = <String>{};
   for (final entity in [...store.cats(), ...store.clowders()]) {
     for (final hash in store.images(entity.id)) {
@@ -370,7 +393,9 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   }
 
   return FolderSyncResult(entriesIn, entriesOut, blobsIn, blobsOut,
-      applied: applied, report: report);
+      blobsMissing: store.missingBlobs().length,
+      applied: applied,
+      report: report);
 }
 
 /// True when this store has seen a deletion marker for [hash] and no

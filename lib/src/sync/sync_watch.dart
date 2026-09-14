@@ -80,6 +80,10 @@ class SyncWatcher extends ChangeNotifier {
   /// is not followed by nothing for a minute.
   bool merging = false;
 
+  /// Photo files fetched on their own in a round; the pages redraw on
+  /// their next build.
+  bool photosArrived = false;
+
   SyncWatcher(this.store, {SyncFolder? Function(CatalogStore)? folderOf})
     : folderOf = folderOf ?? syncFolderOf;
 
@@ -132,6 +136,17 @@ class SyncWatcher extends ChangeNotifier {
         catalog: catalogDirOf(store),
       );
       if (!store.isOpen) return;
+      // Photo files land after the entry files: fetch what is there
+      // now, no decision needed, the entries were taken already.
+      if (store.missingBlobs().isNotEmpty) {
+        final got = await fetchMissingBlobs(
+          store,
+          folder,
+          catalog: catalogDirOf(store),
+        );
+        if (!store.isOpen) return;
+        if (got > 0) photosArrived = true;
+      }
       if (before == null) {
         // No baseline yet: the first round only takes the measure, so a
         // fresh device is not told about files it is about to import.
