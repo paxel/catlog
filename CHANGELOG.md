@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.3.3] - Unreleased
 
 ### Changed
+- The line about waiting changes can be swiped away or closed with its X; it comes back when more arrives.
 - Achievements open from the home page's menu instead of a button on the agenda.
 
 ### Fixed

@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} измена од {authors} спојена} few{{count} измене од {authors} спојене} other{{count} измена од {authors} спојено}}",
   "syncShow": "Прикажи",
   "achievementDone": "{times, plural, one{Урађено {times} пут} few{Урађено {times} пута} other{Урађено {times} пута}}, први пут {date}",
-  "syncRunning": "Синхронизација са фасциклом…"
+  "syncRunning": "Синхронизација са фасциклом…",
+  "syncDismiss": "Не сада"
 }

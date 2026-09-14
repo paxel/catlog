@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} bidla minn {authors} magħquda} other{{count} bidliet minn {authors} magħquda}}",
   "syncShow": "Uri",
   "achievementDone": "{times, plural, one{Magħmul darba} other{Magħmul {times} darbiet}}, l-ewwel darba fi {date}",
-  "syncRunning": "Qed jissinkronizza mal-folder…"
+  "syncRunning": "Qed jissinkronizza mal-folder…",
+  "syncDismiss": "Mhux issa"
 }

@@ -3667,4 +3667,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get syncRunning => 'Συγχρονισμός με τον φάκελο…';
+
+  @override
+  String get syncDismiss => 'Όχι τώρα';
 }

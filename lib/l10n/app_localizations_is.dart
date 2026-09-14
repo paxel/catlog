@@ -3659,4 +3659,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get syncRunning => 'Samstilli við möppuna…';
+
+  @override
+  String get syncDismiss => 'Ekki núna';
 }

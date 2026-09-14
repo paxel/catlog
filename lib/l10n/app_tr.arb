@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{authors} kaynaklı {count} değişiklik birleştirildi} other{{authors} kaynaklı {count} değişiklik birleştirildi}}",
   "syncShow": "Göster",
   "achievementDone": "{times, plural, one{{times} kez yapıldı} other{{times} kez yapıldı}}, ilki {date}",
-  "syncRunning": "Klasörle eşitleniyor…"
+  "syncRunning": "Klasörle eşitleniyor…",
+  "syncDismiss": "Şimdi değil"
 }

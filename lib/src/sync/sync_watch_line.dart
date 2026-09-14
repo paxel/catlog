@@ -30,33 +30,54 @@ class SyncWatchLine extends StatelessWidget {
                   : pending.authors.join(', '),
               catalog,
             );
+      // The line goes with a swipe or the X; the folder keeps the
+      // changes for a later tap, and the line returns when more arrives.
       return Column(
         children: [
-          Material(
-            color: scheme.primaryContainer,
-            child: InkWell(
-              onTap: merging ? null : () => watcher.merge(fromTap: true),
-              child: SafeArea(
-                bottom: false,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 10,
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.folder_copy_outlined,
-                        color: scheme.onPrimaryContainer,
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          text,
-                          style: TextStyle(color: scheme.onPrimaryContainer),
+          Dismissible(
+            key: const ValueKey('sync-watch-line'),
+            direction: merging
+                ? DismissDirection.none
+                : DismissDirection.horizontal,
+            onDismissed: (_) => watcher.dismiss(),
+            child: Material(
+              color: scheme.primaryContainer,
+              child: InkWell(
+                onTap: merging ? null : () => watcher.merge(fromTap: true),
+                child: SafeArea(
+                  bottom: false,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 10,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.folder_copy_outlined,
+                          color: scheme.onPrimaryContainer,
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            text,
+                            style: TextStyle(color: scheme.onPrimaryContainer),
+                          ),
+                        ),
+                        if (!merging)
+                          // No tooltip: this line sits above the
+                          // navigator, where a tooltip has no overlay.
+                          Semantics(
+                            label: t.syncDismiss,
+                            button: true,
+                            child: IconButton(
+                              icon: const Icon(Icons.close),
+                              color: scheme.onPrimaryContainer,
+                              onPressed: watcher.dismiss,
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               ),

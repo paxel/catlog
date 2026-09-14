@@ -3660,4 +3660,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synchroniseren met de map…';
+
+  @override
+  String get syncDismiss => 'Niet nu';
 }

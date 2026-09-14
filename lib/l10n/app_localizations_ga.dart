@@ -3717,4 +3717,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get syncRunning => 'Ag sioncronú leis an bhfillteán…';
+
+  @override
+  String get syncDismiss => 'Ní anois';
 }

@@ -3655,4 +3655,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get syncRunning => 'Duke u sinkronizuar me dosjen…';
+
+  @override
+  String get syncDismiss => 'Jo tani';
 }

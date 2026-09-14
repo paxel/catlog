@@ -3472,4 +3472,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get syncRunning => '正在与文件夹同步…';
+
+  @override
+  String get syncDismiss => '暂不';
 }

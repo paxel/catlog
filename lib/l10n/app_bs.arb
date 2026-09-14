@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} promjena od {authors} spojena} few{{count} promjene od {authors} spojene} other{{count} promjena od {authors} spojeno}}",
   "syncShow": "Prikaži",
   "achievementDone": "{times, plural, one{Urađeno {times} put} few{Urađeno {times} puta} other{Urađeno {times} puta}}, prvi put {date}",
-  "syncRunning": "Sinhronizacija s folderom…"
+  "syncRunning": "Sinhronizacija s folderom…",
+  "syncDismiss": "Ne sada"
 }

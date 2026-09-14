@@ -3671,4 +3671,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get syncRunning => 'Sinhronizē ar mapi…';
+
+  @override
+  String get syncDismiss => 'Ne tagad';
 }

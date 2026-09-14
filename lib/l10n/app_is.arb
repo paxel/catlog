@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} breyting frá {authors} sameinuð} other{{count} breytingar frá {authors} sameinaðar}}",
   "syncShow": "Sýna",
   "achievementDone": "{times, plural, one{Gert einu sinni} other{Gert {times} sinnum}}, fyrst {date}",
-  "syncRunning": "Samstilli við möppuna…"
+  "syncRunning": "Samstilli við möppuna…",
+  "syncDismiss": "Ekki núna"
 }

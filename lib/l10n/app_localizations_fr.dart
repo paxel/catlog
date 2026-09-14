@@ -3666,4 +3666,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synchronisation avec le dossier…';
+
+  @override
+  String get syncDismiss => 'Pas maintenant';
 }

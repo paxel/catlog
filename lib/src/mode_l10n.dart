@@ -2749,6 +2749,9 @@ class ModeLocalizations implements AppLocalizations {
   String get syncDeclined => base.syncDeclined;
 
   @override
+  String get syncDismiss => base.syncDismiss;
+
+  @override
   String syncFailed(String error) => base.syncFailed(error);
 
   @override

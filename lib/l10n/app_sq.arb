@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} ndryshim nga {authors} u bashkua} other{{count} ndryshime nga {authors} u bashkuan}}",
   "syncShow": "Shfaq",
   "achievementDone": "{times, plural, one{Bërë një herë} other{Bërë {times} herë}}, herën e parë më {date}",
-  "syncRunning": "Duke u sinkronizuar me dosjen…"
+  "syncRunning": "Duke u sinkronizuar me dosjen…",
+  "syncDismiss": "Jo tani"
 }

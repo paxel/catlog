@@ -3653,4 +3653,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get syncRunning => 'Синхронизиране с папката…';
+
+  @override
+  String get syncDismiss => 'Не сега';
 }

@@ -3680,4 +3680,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synchronizacja z folderem…';
+
+  @override
+  String get syncDismiss => 'Nie teraz';
 }

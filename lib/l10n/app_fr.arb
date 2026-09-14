@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} changement de {authors} fusionné} other{{count} changements de {authors} fusionnés}}",
   "syncShow": "Afficher",
   "achievementDone": "{times, plural, one{Fait une fois} other{Fait {times} fois}}, la première le {date}",
-  "syncRunning": "Synchronisation avec le dossier…"
+  "syncRunning": "Synchronisation avec le dossier…",
+  "syncDismiss": "Pas maintenant"
 }

@@ -3514,4 +3514,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get syncRunning => 'フォルダと同期中…';
+
+  @override
+  String get syncDismiss => '今はしない';
 }

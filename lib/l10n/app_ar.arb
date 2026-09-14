@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, zero{لم يُدمج أي تغيير من {authors}} one{دُمج تغيير واحد من {authors}} two{دُمج تغييران من {authors}} few{دُمجت {count} تغييرات من {authors}} many{دُمج {count} تغييراً من {authors}} other{دُمج {count} تغيير من {authors}}}",
   "syncShow": "عرض",
   "achievementDone": "{times, plural, zero{لم يُنجز} one{أُنجز مرة} two{أُنجز مرتين} few{أُنجز {times} مرات} many{أُنجز {times} مرة} other{أُنجز {times} مرة}}، أول مرة في {date}",
-  "syncRunning": "جارٍ المزامنة مع المجلد…"
+  "syncRunning": "جارٍ المزامنة مع المجلد…",
+  "syncDismiss": "ليس الآن"
 }

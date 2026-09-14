@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} изменение от {authors} объединено} few{{count} изменения от {authors} объединены} many{{count} изменений от {authors} объединено} other{{count} изменения от {authors} объединены}}",
   "syncShow": "Показать",
   "achievementDone": "{times, plural, one{Сделано {times} раз} few{Сделано {times} раза} many{Сделано {times} раз} other{Сделано {times} раза}}, впервые {date}",
-  "syncRunning": "Синхронизация с папкой…"
+  "syncRunning": "Синхронизация с папкой…",
+  "syncDismiss": "Не сейчас"
 }

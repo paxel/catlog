@@ -3669,4 +3669,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get syncRunning => 'Sinhronizacija s folderom…';
+
+  @override
+  String get syncDismiss => 'Ne sada';
 }

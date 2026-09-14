@@ -3656,4 +3656,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get syncRunning => 'Синхронизација со папката…';
+
+  @override
+  String get syncDismiss => 'Не сега';
 }

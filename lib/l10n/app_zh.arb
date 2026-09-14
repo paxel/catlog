@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, other{已合并来自 {authors} 的 {count} 项更改}}",
   "syncShow": "显示",
   "achievementDone": "{times, plural, other{已完成 {times} 次}}，首次 {date}",
-  "syncRunning": "正在与文件夹同步…"
+  "syncRunning": "正在与文件夹同步…",
+  "syncDismiss": "暂不"
 }

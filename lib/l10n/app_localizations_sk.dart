@@ -3667,4 +3667,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synchronizácia s priečinkom…';
+
+  @override
+  String get syncDismiss => 'Teraz nie';
 }

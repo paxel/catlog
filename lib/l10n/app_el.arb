@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} αλλαγή από {authors} συγχωνεύτηκε} other{{count} αλλαγές από {authors} συγχωνεύτηκαν}}",
   "syncShow": "Εμφάνιση",
   "achievementDone": "{times, plural, one{Έγινε μία φορά} other{Έγινε {times} φορές}}, πρώτη φορά στις {date}",
-  "syncRunning": "Συγχρονισμός με τον φάκελο…"
+  "syncRunning": "Συγχρονισμός με τον φάκελο…",
+  "syncDismiss": "Όχι τώρα"
 }

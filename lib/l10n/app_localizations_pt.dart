@@ -3656,4 +3656,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get syncRunning => 'A sincronizar com a pasta…';
+
+  @override
+  String get syncDismiss => 'Agora não';
 }

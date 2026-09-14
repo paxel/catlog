@@ -3668,4 +3668,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synchronizace se složkou…';
+
+  @override
+  String get syncDismiss => 'Teď ne';
 }

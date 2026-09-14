@@ -2046,5 +2046,6 @@
       }
     }
   },
-  "syncRunning": "Syncing with the folder…"
+  "syncRunning": "Syncing with the folder…",
+  "syncDismiss": "Not now"
 }

@@ -3652,4 +3652,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synkar med mappen…';
+
+  @override
+  String get syncDismiss => 'Inte nu';
 }

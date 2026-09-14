@@ -3654,4 +3654,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get syncRunning => 'Syncing with the folder…';
+
+  @override
+  String get syncDismiss => 'Not now';
 }

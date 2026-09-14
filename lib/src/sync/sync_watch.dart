@@ -84,6 +84,19 @@ class SyncWatcher extends ChangeNotifier {
   /// their next build.
   bool photosArrived = false;
 
+  /// The folder as it was when the keeper waved the line away: the
+  /// line stays away until a file grows past this.
+  Map<String, int>? _dismissedAt;
+  Map<String, int>? _lastSizes;
+
+  /// "Not now": the line goes, the changes stay in the folder, and the
+  /// line comes back when more arrives.
+  void dismiss() {
+    _dismissedAt = _lastSizes;
+    pending = null;
+    notifyListeners();
+  }
+
   SyncWatcher(this.store, {SyncFolder? Function(CatalogStore)? folderOf})
     : folderOf = folderOf ?? syncFolderOf;
 
@@ -153,11 +166,16 @@ class SyncWatcher extends ChangeNotifier {
         store.setLocalSetting(syncSizesKey, jsonEncode(after));
         return;
       }
+      _lastSizes = after;
       final grown = grownFiles(before, after);
       if (grown.isEmpty) {
         _clear();
         return;
       }
+      // Waved away and nothing new since: keep quiet.
+      final dismissed = _dismissedAt;
+      if (dismissed != null && grownFiles(dismissed, after).isEmpty) return;
+      _dismissedAt = null;
       final unseen = await unseenChanges(store, folder, grown);
       if (!store.isOpen) return;
       if (unseen.isEmpty) {

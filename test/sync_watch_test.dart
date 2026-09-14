@@ -83,6 +83,24 @@ void main() {
     watcher.dispose();
   });
 
+  test('not now hides the line until more arrives', () async {
+    final watcher = watcherFor(ben);
+    await watcher.check();
+    anna.createCat('Miezi');
+    await folderSyncIn(anna, folder, catalog: catalogFolderName('Farm'));
+    await watcher.check();
+    expect(watcher.pending, isNotNull);
+    watcher.dismiss();
+    expect(watcher.pending, isNull);
+    await watcher.check(); // nothing new: stays away
+    expect(watcher.pending, isNull);
+    anna.createCat('Wanderer');
+    await folderSyncIn(anna, folder, catalog: catalogFolderName('Farm'));
+    await watcher.check(); // more arrived: back
+    expect(watcher.pending, isNotNull);
+    watcher.dispose();
+  });
+
   test('a round fetches photo files that landed after the entries', () async {
     final watcher = watcherFor(ben);
     final cat = anna.createCat('Miezi');
@@ -143,6 +161,17 @@ void main() {
       find.text('Changes from Anna waiting in Farm. Tap to sync.'),
       findsOneWidget,
     );
+    // The X waves it away without a sync; the changes stay unmerged.
+    await tester.tap(find.byIcon(Icons.close));
+    await tester.pump();
+    expect(watcher.pending, isNull);
+    expect(find.textContaining('Anna'), findsNothing);
+    expect(ben.searchCats('Miezi'), isEmpty);
+    // More arrives: the line is back, and a tap merges.
+    anna.createCat('Wanderer');
+    await folderSyncIn(anna, folder, catalog: catalogFolderName('Farm'));
+    await watcher.check();
+    await tester.pump();
     await tester.tap(find.textContaining('Anna'));
     await tester.pumpAndSettle();
     expect(find.textContaining('Anna'), findsNothing);

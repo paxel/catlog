@@ -3652,4 +3652,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get syncRunning => 'Sünkroonimine kaustaga…';
+
+  @override
+  String get syncDismiss => 'Mitte praegu';
 }

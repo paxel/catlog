@@ -3652,4 +3652,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get syncRunning => 'מסנכרן עם התיקייה…';
+
+  @override
+  String get syncDismiss => 'לא עכשיו';
 }

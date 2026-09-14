@@ -3653,4 +3653,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get syncRunning => 'Klasörle eşitleniyor…';
+
+  @override
+  String get syncDismiss => 'Şimdi değil';
 }

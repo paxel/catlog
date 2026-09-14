@@ -6313,6 +6313,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Syncing with the folder…'**
   String get syncRunning;
+
+  /// No description provided for @syncDismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get syncDismiss;
 }
 
 class _AppLocalizationsDelegate

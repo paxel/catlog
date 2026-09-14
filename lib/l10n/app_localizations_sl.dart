@@ -3686,4 +3686,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get syncRunning => 'Sinhronizacija z mapo…';
+
+  @override
+  String get syncDismiss => 'Ne zdaj';
 }

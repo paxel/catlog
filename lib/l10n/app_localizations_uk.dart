@@ -3679,4 +3679,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get syncRunning => 'Синхронізація з текою…';
+
+  @override
+  String get syncDismiss => 'Не зараз';
 }

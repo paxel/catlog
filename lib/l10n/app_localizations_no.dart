@@ -3651,4 +3651,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synkroniserer med mappen…';
+
+  @override
+  String get syncDismiss => 'Ikke nå';
 }

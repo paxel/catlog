@@ -3668,4 +3668,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get syncRunning => 'Синхронизација са фасциклом…';
+
+  @override
+  String get syncDismiss => 'Не сада';
 }

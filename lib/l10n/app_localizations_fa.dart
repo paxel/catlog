@@ -3593,4 +3593,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get syncRunning => 'در حال همگام‌سازی با پوشه…';
+
+  @override
+  String get syncDismiss => 'الان نه';
 }

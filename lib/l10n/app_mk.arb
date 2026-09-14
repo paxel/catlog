@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} промена од {authors} споена} other{{count} промени од {authors} споени}}",
   "syncShow": "Прикажи",
   "achievementDone": "{times, plural, one{Направено еднаш} other{Направено {times} пати}}, првпат на {date}",
-  "syncRunning": "Синхронизација со папката…"
+  "syncRunning": "Синхронизација со папката…",
+  "syncDismiss": "Не сега"
 }

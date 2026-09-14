@@ -3679,4 +3679,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get syncRunning => 'Sinchronizuojama su aplanku…';
+
+  @override
+  String get syncDismiss => 'Ne dabar';
 }

@@ -3671,4 +3671,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get syncRunning => 'Qed jissinkronizza mal-folder…';
+
+  @override
+  String get syncDismiss => 'Mhux issa';
 }

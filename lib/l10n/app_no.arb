@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} endring fra {authors} slått sammen} other{{count} endringer fra {authors} slått sammen}}",
   "syncShow": "Vis",
   "achievementDone": "{times, plural, one{Gjort én gang} other{Gjort {times} ganger}}, første gang {date}",
-  "syncRunning": "Synkroniserer med mappen…"
+  "syncRunning": "Synkroniserer med mappen…",
+  "syncDismiss": "Ikke nå"
 }

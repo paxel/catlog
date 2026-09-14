@@ -3655,4 +3655,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get syncRunning => 'Synkronoidaan kansion kanssa…';
+
+  @override
+  String get syncDismiss => 'Ei nyt';
 }

@@ -3654,4 +3654,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get syncRunning => 'Szinkronizálás a mappával…';
+
+  @override
+  String get syncDismiss => 'Most nem';
 }

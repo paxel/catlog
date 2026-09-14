@@ -1234,5 +1234,6 @@
   "syncMerged": "{count, plural, one{{count} Änderung von {authors} zusammengeführt} other{{count} Änderungen von {authors} zusammengeführt}}",
   "syncShow": "Anzeigen",
   "achievementDone": "{times, plural, one{Einmal erledigt} other{{times} Mal erledigt}}, zuerst am {date}",
-  "syncRunning": "Abgleich mit dem Ordner läuft…"
+  "syncRunning": "Abgleich mit dem Ordner läuft…",
+  "syncDismiss": "Jetzt nicht"
 }

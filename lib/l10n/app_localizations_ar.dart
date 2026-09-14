@@ -3696,4 +3696,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get syncRunning => 'جارٍ المزامنة مع المجلد…';
+
+  @override
+  String get syncDismiss => 'ليس الآن';
 }

@@ -3668,4 +3668,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get syncRunning => 'Sinkronizacija s mapom…';
+
+  @override
+  String get syncDismiss => 'Ne sada';
 }

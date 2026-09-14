@@ -3679,4 +3679,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get syncRunning => 'Синхронизация с папкой…';
+
+  @override
+  String get syncDismiss => 'Не сейчас';
 }

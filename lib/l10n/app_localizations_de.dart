@@ -3665,4 +3665,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get syncRunning => 'Abgleich mit dem Ordner läuft…';
+
+  @override
+  String get syncDismiss => 'Jetzt nicht';
 }

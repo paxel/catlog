@@ -1228,5 +1228,6 @@
   "syncMerged": "{count, plural, one{{count} modificare de la {authors} îmbinată} few{{count} modificări de la {authors} îmbinate} other{{count} de modificări de la {authors} îmbinate}}",
   "syncShow": "Arată",
   "achievementDone": "{times, plural, one{Făcut o dată} few{Făcut de {times} ori} other{Făcut de {times} de ori}}, prima dată pe {date}",
-  "syncRunning": "Se sincronizează cu dosarul…"
+  "syncRunning": "Se sincronizează cu dosarul…",
+  "syncDismiss": "Nu acum"
 }
