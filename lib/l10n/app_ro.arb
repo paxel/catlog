@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Modificări de la {authors} așteaptă în {catalog}. Atinge pentru a sincroniza.",
   "syncAnotherDevice": "alt dispozitiv",
   "syncMerged": "{count, plural, one{{count} modificare de la {authors} îmbinată} few{{count} modificări de la {authors} îmbinate} other{{count} de modificări de la {authors} îmbinate}}",
-  "syncShow": "Arată"
+  "syncShow": "Arată",
+  "achievementDone": "{times, plural, one{Făcut o dată} few{Făcut de {times} ori} other{Făcut de {times} de ori}}, prima dată pe {date}"
 }

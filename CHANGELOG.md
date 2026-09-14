@@ -3,14 +3,14 @@
 All notable changes to cat(a)log are documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [SemVer](https://semver.org/).
 
-## [1.3.2] - Unreleased
-
-### Fixed
-- Photos shared through a folder on Android no longer show up in the phone's gallery.
+## [1.3.3] - Unreleased
 
 ### Changed
-- The vet report's colour legend sits above the timeline instead of at the end of the patient sheet.
-- The missing poster takes pictures straight from the gallery at full size, next to the cat's stored ones; the page holds still while you pinch a frame.
+- Achievements open from the home page's menu instead of a button on the agenda.
+
+### Fixed
+- A chore's master achievement says how often the chore was done instead of "reached" with the tick count.
+- The help button is the first button in the app bar on the history and timeline pages too.
 
 ---
 

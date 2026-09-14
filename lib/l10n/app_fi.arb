@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Muutoksia lähettäjältä {authors} odottaa kohteessa {catalog}. Napauta synkronoidaksesi.",
   "syncAnotherDevice": "toinen laite",
   "syncMerged": "{count, plural, one{{count} muutos lähettäjältä {authors} yhdistetty} other{{count} muutosta lähettäjältä {authors} yhdistetty}}",
-  "syncShow": "Näytä"
+  "syncShow": "Näytä",
+  "achievementDone": "{times, plural, one{Tehty kerran} other{Tehty {times} kertaa}}, ensimmäisen kerran {date}"
 }

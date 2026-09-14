@@ -3637,4 +3637,16 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get syncShow => 'הצג';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'נעשה $times פעמים',
+      two: 'נעשה פעמיים',
+      one: 'נעשה פעם אחת',
+    );
+    return '$_temp0, לראשונה ב-$date';
+  }
 }

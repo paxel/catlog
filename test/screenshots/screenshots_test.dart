@@ -12,14 +12,12 @@ import 'dart:ui' as ui;
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/achievements.dart';
-import 'package:catlog/src/screens/achievements_screen.dart';
 import 'package:catlog/src/screens/card_screen.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_list_screen.dart';
 import 'package:catlog/src/map/cached_tiles.dart';
 import 'package:catlog/src/screens/map_screen.dart';
-import 'package:catlog/src/screens/match_candidates_screen.dart';
 import 'package:catlog/src/screens/strays_screen.dart';
 import 'package:catlog/src/screens/timeline_screen.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +29,11 @@ import 'package:catlog/src/screens/field_graph_screen.dart';
 import 'package:catlog/src/screens/agenda_screen.dart';
 import 'package:catlog/src/fur_background.dart';
 import 'package:catlog/src/pet_mode.dart';
+import 'package:catlog/src/cover_picture.dart';
+import 'package:catlog/src/screens/missing_poster_screen.dart';
+import 'package:catlog/src/screens/vet_report_screen.dart';
+import 'package:catlog/src/sync/sync_watch.dart';
+import 'package:catlog/src/sync/sync_watch_line.dart';
 
 Future<void> _loadRealFonts() async {
   final root = Platform.environment['FLUTTER_ROOT']!;
@@ -448,68 +451,6 @@ CatalogStore _demoStore() {
   return store;
 }
 
-/// A second catalog in pet mode: a household with a dog and a rabbit.
-CatalogStore _petStore() {
-  final store = CatalogStore.inMemory();
-  store.author = 'Alex';
-  setPetMode(store, true);
-  final home = store.createClowder('Meadow Lane 3', date: _ago(98));
-  store.append(home, 'f:responsible', 'Jonas', date: _ago(98));
-  final rex = store.createCat(
-    'Rex',
-    clowderId: home,
-    date: _ago(98),
-    species: 'dog',
-  );
-  store.append(rex, 'f:breed', 'Beagle', date: _ago(98));
-  store.append(rex, 'f:gender', 'male', date: _ago(98));
-  store.append(rex, 'f:birthdate', '2021-04-12', date: _ago(98));
-  store.append(rex, 'f:weight', '11200', date: _ago(98));
-  store.append(rex, 'f:weight', '11600', date: _ago(40));
-  store.append(
-    rex,
-    'f:looks',
-    'size=medium; colours=brown,white,black; pattern=tricolour; fur=short; ears=floppy',
-    date: _ago(98),
-  );
-  final hoppel = store.createCat(
-    'Hoppel',
-    clowderId: home,
-    date: _ago(98),
-    species: 'rabbit',
-  );
-  store.append(hoppel, 'f:weight', '1850', date: _ago(98));
-  store.append(hoppel, 'f:gender', 'female', date: _ago(98));
-  store.append(
-    hoppel,
-    'f:looks',
-    'size=small; colours=grey,white; fur=long; ears=floppy',
-    date: _ago(98),
-  );
-  final kiwi = store.createCat(
-    'Kiwi',
-    clowderId: home,
-    date: _ago(60),
-    species: 'bird',
-  );
-  store.append(
-    kiwi,
-    'f:looks',
-    'size=small; colours=green,yellow; crest=no; beak=grey; ring=yes',
-    date: _ago(60),
-  );
-  store.createChore(
-    Chore(
-      id: '',
-      entity: rex,
-      title: 'Walk',
-      schedule: const ChoreSchedule.daily(),
-      time: (hour: 7, minute: 30),
-      start: _ago(30),
-    ),
-  );
-  return store;
-}
 
 void main() {
   setUpAll(() async {
@@ -527,10 +468,10 @@ void main() {
     '06-map': FurPattern.tabby,
     '07-graph': FurPattern.cheetah,
     '08-agenda': FurPattern.zebra,
-    '09-pets': FurPattern.paws,
-    '10-strays': FurPattern.tabby,
-    '11-matches': FurPattern.rosettes,
-    '12-achievements': FurPattern.zebra,
+    '09-poster': FurPattern.paws,
+    '10-report': FurPattern.rosettes,
+    '11-sync': FurPattern.tabby,
+    '12-strays': FurPattern.zebra,
   };
 
   Future<void> shoot(
@@ -602,10 +543,41 @@ void main() {
     addTearDown(manager.close);
     recordLadders(manager, ladders(gatherStats([store], _today)), _ago(1));
 
-    final pets = _petStore();
-    addTearDown(pets.close);
-    final meadow = pets.clowders().single.id;
     final weight = store.fieldDefs().firstWhere((d) => d.slug == 'weight');
+    // 1.3.x on the pages: a cover picture and a star on the home, the
+    // strays' place, the smoothed line with its trend on the graph.
+    await tester.runAsync(() async {
+      await setCover(store, home, _photo(4));
+      await setCover(store, straysEntity, _photo(5));
+    });
+    store.setLocalSetting('fav:$home', 'yes');
+    store.setLocalSetting(graphSmoothKey, 'yes');
+    store.setLocalSetting(graphTrendKey, 'yes');
+    store.setLocalSetting(catalogNameKey, 'Foster homes');
+    // The folder line, as it looks when Marta's changes wait.
+    final watcher = SyncWatcher(store, folderOf: (_) => MemorySyncFolder())
+      ..pending = const UnseenChanges(3, {'Marta'});
+    addTearDown(watcher.dispose);
+    // The poster's preview: the printing plugin is not there in a test,
+    // pdftoppm is.
+    Future<Uint8List?> preview(Uint8List pdf) async {
+      final dir = Directory.systemTemp.createTempSync('poster');
+      try {
+        final file = File('${dir.path}/poster.pdf')..writeAsBytesSync(pdf);
+        await Process.run('pdftoppm', [
+          '-png',
+          '-r',
+          '150',
+          '-singlefile',
+          file.path,
+          '${dir.path}/poster',
+        ]);
+        final png = File('${dir.path}/poster.png');
+        return png.existsSync() ? png.readAsBytesSync() : null;
+      } finally {
+        dir.deleteSync(recursive: true);
+      }
+    }
 
     // Map with REAL pre-downloaded OSM tiles (test/screenshots/tiles,
     // fetched once by the tile script) — no network in tests.
@@ -621,11 +593,14 @@ void main() {
       '07-graph': () =>
           FieldGraphScreen(store: store, entityId: miezi, def: weight),
       '08-agenda': () => AgendaScreen(store: store, manager: manager),
-      '09-pets': () => ClowderDetailScreen(store: pets, clowderId: meadow),
-      '10-strays': () => StraysScreen(store: store),
-      '11-matches': () => MatchCandidatesScreen(store: store),
-      '12-achievements': () =>
-          AchievementsScreen(manager: manager, stores: [store]),
+      '09-poster': () =>
+          MissingPosterScreen(store: store, catId: miezi, preview: preview),
+      '10-report': () => VetReportScreen(store: store, catId: miezi),
+      '11-sync': () => SyncWatchLine(
+        watcher: watcher,
+        child: ClowderListScreen(store: store),
+      ),
+      '12-strays': () => StraysScreen(store: store),
     };
 
     // The docs set, then the store sets: Apple 6.9" iPhone (1320×2868
@@ -639,7 +614,6 @@ void main() {
     const play = Size(1080, 1920);
     const tablet = Size(1440, 2560);
     for (final entry in shots.entries) {
-      petMode.value = entry.key == '09-pets';
       await shoot(tester, entry.value(), entry.key);
       await shoot(
         tester,

@@ -3639,4 +3639,15 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get syncShow => 'Покажи';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Направено $times пъти',
+      one: 'Направено веднъж',
+    );
+    return '$_temp0, за първи път на $date';
+  }
 }

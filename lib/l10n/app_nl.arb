@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Wijzigingen van {authors} wachten in {catalog}. Tik om te synchroniseren.",
   "syncAnotherDevice": "een ander apparaat",
   "syncMerged": "{count, plural, one{{count} wijziging van {authors} samengevoegd} other{{count} wijzigingen van {authors} samengevoegd}}",
-  "syncShow": "Tonen"
+  "syncShow": "Tonen",
+  "achievementDone": "{times, plural, one{Eén keer gedaan} other{{times} keer gedaan}}, de eerste op {date}"
 }

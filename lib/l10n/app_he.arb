@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "שינויים מאת {authors} מחכים ב-{catalog}. הקישו לסנכרון.",
   "syncAnotherDevice": "מכשיר אחר",
   "syncMerged": "{count, plural, one{שינוי אחד מאת {authors} מוזג} two{{count} שינויים מאת {authors} מוזגו} other{{count} שינויים מאת {authors} מוזגו}}",
-  "syncShow": "הצג"
+  "syncShow": "הצג",
+  "achievementDone": "{times, plural, one{נעשה פעם אחת} two{נעשה פעמיים} other{נעשה {times} פעמים}}, לראשונה ב-{date}"
 }

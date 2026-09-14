@@ -27,7 +27,6 @@ import '../widgets/fold_section.dart';
 import '../chores/chore_feedback.dart';
 import '../chores/chore_reminders.dart';
 import '../move_to_catalog.dart';
-import 'achievements_screen.dart';
 
 /// The agenda auto-opens once per app run when something is due within
 /// [agendaAutoOpenWindow]; this remembers that it already did.
@@ -309,14 +308,6 @@ class _AgendaScreenState extends State<AgendaScreen> {
   String _reminderBody(Chore c) =>
       store.current(c.entity, Keys.name) ?? context.t.unnamed;
 
-  void _openAchievements() {
-    final manager = widget.manager ?? catalogManager;
-    if (manager == null) return;
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => AchievementsScreen(manager: manager, stores: [store]),
-    ));
-  }
-
   Widget _header(String text) => Padding(
         padding: const EdgeInsets.fromLTRB(8, 12, 8, 4),
         child: Text(text, style: Theme.of(context).textTheme.titleSmall),
@@ -336,12 +327,6 @@ class _AgendaScreenState extends State<AgendaScreen> {
         title: Text(t.agenda),
         actions: [
           HelpButton(store: store, screenId: 'agenda'),
-          if ((widget.manager ?? catalogManager) != null)
-            IconButton(
-              icon: const Icon(Icons.emoji_events_outlined),
-              tooltip: t.achievementsTitle,
-              onPressed: _openAchievements,
-            ),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'ics') _exportIcs();

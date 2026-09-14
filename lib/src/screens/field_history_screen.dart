@@ -266,6 +266,7 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
         context,
         title: Text(t.fieldHistoryOf(fieldDefName(t, widget.def), name)),
         actions: [
+          HelpButton(store: store, screenId: 'history'),
           IconButton(
             icon: Icon(
               _oldestFirst ? Icons.arrow_upward : Icons.arrow_downward,
@@ -280,7 +281,6 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
             tooltip: _showVoided ? t.hideRemovedValues : t.showRemovedValues,
             onPressed: _flipVoided,
           ),
-          HelpButton(store: store, screenId: 'history'),
           IconButton(
             icon: const Icon(Icons.copy),
             tooltip: t.copyText,

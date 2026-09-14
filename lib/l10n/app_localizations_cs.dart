@@ -3653,4 +3653,16 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get syncShow => 'Zobrazit';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Hotovo ${times}krát',
+      few: 'Hotovo ${times}krát',
+      one: 'Hotovo jednou',
+    );
+    return '$_temp0, poprvé $date';
+  }
 }

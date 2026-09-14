@@ -3641,4 +3641,15 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get syncShow => 'Shfaq';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Bërë $times herë',
+      one: 'Bërë një herë',
+    );
+    return '$_temp0, herën e parë më $date';
+  }
 }

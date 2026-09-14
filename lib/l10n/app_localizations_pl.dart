@@ -3664,4 +3664,17 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get syncShow => 'Pokaż';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Zrobione $times razy',
+      many: 'Zrobione $times razy',
+      few: 'Zrobione $times razy',
+      one: 'Zrobione raz',
+    );
+    return '$_temp0, pierwszy raz $date';
+  }
 }

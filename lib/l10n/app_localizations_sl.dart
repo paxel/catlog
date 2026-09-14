@@ -3670,4 +3670,17 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get syncShow => 'Pokaži';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Opravljeno $times-krat',
+      few: 'Opravljeno $times-krat',
+      two: 'Opravljeno $times-krat',
+      one: 'Opravljeno $times-krat',
+    );
+    return '$_temp0, prvič $date';
+  }
 }

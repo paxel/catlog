@@ -3654,4 +3654,16 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get syncShow => 'Prikaži';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Urađeno $times puta',
+      few: 'Urađeno $times puta',
+      one: 'Urađeno $times put',
+    );
+    return '$_temp0, prvi put $date';
+  }
 }

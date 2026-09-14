@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Bidliet minn {authors} jistennew f'{catalog}. Missu biex tissinkronizza.",
   "syncAnotherDevice": "apparat ieħor",
   "syncMerged": "{count, plural, one{{count} bidla minn {authors} magħquda} other{{count} bidliet minn {authors} magħquda}}",
-  "syncShow": "Uri"
+  "syncShow": "Uri",
+  "achievementDone": "{times, plural, one{Magħmul darba} other{Magħmul {times} darbiet}}, l-ewwel darba fi {date}"
 }

@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "{authors} kaynaklı değişiklikler {catalog} içinde bekliyor. Eşitlemek için dokunun.",
   "syncAnotherDevice": "başka bir cihaz",
   "syncMerged": "{count, plural, one{{authors} kaynaklı {count} değişiklik birleştirildi} other{{authors} kaynaklı {count} değişiklik birleştirildi}}",
-  "syncShow": "Göster"
+  "syncShow": "Göster",
+  "achievementDone": "{times, plural, one{{times} kez yapıldı} other{{times} kez yapıldı}}, ilki {date}"
 }

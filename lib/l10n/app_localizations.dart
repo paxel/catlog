@@ -6301,6 +6301,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show'**
   String get syncShow;
+
+  /// No description provided for @achievementDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{times, plural, one{Done once} other{Done {times} times}}, first on {date}'**
+  String achievementDone(int times, String date);
 }
 
 class _AppLocalizationsDelegate

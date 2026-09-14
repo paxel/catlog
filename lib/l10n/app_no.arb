@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Endringer fra {authors} venter i {catalog}. Trykk for å synkronisere.",
   "syncAnotherDevice": "en annen enhet",
   "syncMerged": "{count, plural, one{{count} endring fra {authors} slått sammen} other{{count} endringer fra {authors} slått sammen}}",
-  "syncShow": "Vis"
+  "syncShow": "Vis",
+  "achievementDone": "{times, plural, one{Gjort én gang} other{Gjort {times} ganger}}, første gang {date}"
 }

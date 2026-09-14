@@ -3657,4 +3657,15 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get syncShow => 'Uri';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Magħmul $times darbiet',
+      one: 'Magħmul darba',
+    );
+    return '$_temp0, l-ewwel darba fi $date';
+  }
 }

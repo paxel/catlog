@@ -70,7 +70,10 @@ class AchievementsScreen extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.workspace_premium_outlined),
               title: Text(titleWithChore(t, rankFor(s.tier)!, s.title!)),
-              subtitle: Text(t.achievementReached(s.times, since(s))),
+              // A master ladder counts ticks, not stretches: "done". No
+              // next rung here; the page lists what was earned, nothing
+              // to chase.
+              subtitle: Text(t.achievementDone(s.times, since(s))),
             ),
           for (final coat in coats)
             ListTile(

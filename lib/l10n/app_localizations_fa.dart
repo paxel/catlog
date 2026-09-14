@@ -3579,4 +3579,15 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get syncShow => 'نمایش';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times بار انجام شد',
+      one: '$times بار انجام شد',
+    );
+    return '$_temp0، اولین بار $date';
+  }
 }
