@@ -3645,4 +3645,15 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get syncShow => 'Sýna';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Gert $times sinnum',
+      one: 'Gert einu sinni',
+    );
+    return '$_temp0, fyrst $date';
+  }
 }

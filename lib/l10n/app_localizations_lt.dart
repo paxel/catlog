@@ -3663,4 +3663,17 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get syncShow => 'Rodyti';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Atlikta $times kartų',
+      many: 'Atlikta $times karto',
+      few: 'Atlikta $times kartus',
+      one: 'Atlikta $times kartą',
+    );
+    return '$_temp0, pirmą kartą $date';
+  }
 }

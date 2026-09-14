@@ -3501,4 +3501,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get syncShow => '表示';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times 回完了',
+    );
+    return '$_temp0、初回 $date';
+  }
 }

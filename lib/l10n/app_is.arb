@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Breytingar frá {authors} bíða í {catalog}. Ýttu til að samstilla.",
   "syncAnotherDevice": "öðru tæki",
   "syncMerged": "{count, plural, one{{count} breyting frá {authors} sameinuð} other{{count} breytingar frá {authors} sameinaðar}}",
-  "syncShow": "Sýna"
+  "syncShow": "Sýna",
+  "achievementDone": "{times, plural, one{Gert einu sinni} other{Gert {times} sinnum}}, fyrst {date}"
 }

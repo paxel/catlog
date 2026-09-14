@@ -3639,4 +3639,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get syncShow => 'Göster';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times kez yapıldı',
+      one: '$times kez yapıldı',
+    );
+    return '$_temp0, ilki $date';
+  }
 }

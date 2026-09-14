@@ -3656,4 +3656,16 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get syncShow => 'Rādīt';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Izdarīts $times reizes',
+      one: 'Izdarīts $times reizi',
+      zero: 'Izdarīts $times reižu',
+    );
+    return '$_temp0, pirmoreiz $date';
+  }
 }

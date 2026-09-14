@@ -3459,4 +3459,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get syncShow => '显示';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '已完成 $times 次',
+    );
+    return '$_temp0，首次 $date';
+  }
 }

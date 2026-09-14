@@ -3652,4 +3652,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get syncShow => 'Afficher';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Fait $times fois',
+      one: 'Fait une fois',
+    );
+    return '$_temp0, la première le $date';
+  }
 }

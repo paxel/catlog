@@ -20,6 +20,7 @@ import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import '../field_labels.dart';
 import 'about_screen.dart';
+import 'achievements_screen.dart';
 import 'conflicts_screen.dart';
 import 'settings_screen.dart';
 import 'agenda_screen.dart';
@@ -314,6 +315,12 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                     id: 'duplicates',
                     build: (_) => DuplicatesScreen(store: widget.store)));
               }
+              if (v == 'achievements' && catalogManager != null) {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => AchievementsScreen(
+                      manager: catalogManager!, stores: [widget.store]),
+                ));
+              }
               if (v == 'settings') _openSettings();
               if (v == 'conflicts') _openConflicts();
               if (v == 'hidden') {
@@ -346,6 +353,12 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                     value: 'conflicts',
                     child: Text(context.t
                         .conflictsMenu(widget.store.conflicts().length))),
+              // Achievements are a main item: what the chores earned,
+              // reachable without a chore page (Patrick, 2026-09-14).
+              if (catalogManager != null)
+                PopupMenuItem(
+                    value: 'achievements',
+                    child: Text(context.t.achievementsTitle)),
               PopupMenuItem(
                   value: 'settings', child: Text(context.t.settings)),
               PopupMenuItem(

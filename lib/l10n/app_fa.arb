@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "تغییراتی از {authors} در {catalog} منتظر است. برای همگام‌سازی ضربه بزنید.",
   "syncAnotherDevice": "دستگاهی دیگر",
   "syncMerged": "{count, plural, one{{count} تغییر از {authors} ادغام شد} other{{count} تغییر از {authors} ادغام شد}}",
-  "syncShow": "نمایش"
+  "syncShow": "نمایش",
+  "achievementDone": "{times, plural, one{{times} بار انجام شد} other{{times} بار انجام شد}}، اولین بار {date}"
 }

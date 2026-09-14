@@ -3638,4 +3638,15 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get syncShow => 'Visa';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Gjort $times gånger',
+      one: 'Gjort en gång',
+    );
+    return '$_temp0, första gången $date';
+  }
 }

@@ -3638,4 +3638,15 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get syncShow => 'Näita';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Tehtud $times korda',
+      one: 'Tehtud üks kord',
+    );
+    return '$_temp0, esimest korda $date';
+  }
 }

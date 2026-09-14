@@ -3653,4 +3653,15 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get syncShow => 'Εμφάνιση';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Έγινε $times φορές',
+      one: 'Έγινε μία φορά',
+    );
+    return '$_temp0, πρώτη φορά στις $date';
+  }
 }

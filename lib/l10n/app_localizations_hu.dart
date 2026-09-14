@@ -3640,4 +3640,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get syncShow => 'Mutasd';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times-szor megcsinálva',
+      one: 'Egyszer megcsinálva',
+    );
+    return '$_temp0, először $date';
+  }
 }

@@ -3639,4 +3639,15 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get syncShow => 'Vis';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Gjort $times gange',
+      one: 'Gjort én gang',
+    );
+    return '$_temp0, første gang $date';
+  }
 }

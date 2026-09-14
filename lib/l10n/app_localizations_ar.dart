@@ -3678,4 +3678,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get syncShow => 'عرض';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'أُنجز $times مرة',
+      many: 'أُنجز $times مرة',
+      few: 'أُنجز $times مرات',
+      two: 'أُنجز مرتين',
+      one: 'أُنجز مرة',
+      zero: 'لم يُنجز',
+    );
+    return '$_temp0، أول مرة في $date';
+  }
 }

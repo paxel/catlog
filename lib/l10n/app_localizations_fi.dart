@@ -3641,4 +3641,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get syncShow => 'Näytä';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Tehty $times kertaa',
+      one: 'Tehty kerran',
+    );
+    return '$_temp0, ensimmäisen kerran $date';
+  }
 }

@@ -2034,5 +2034,16 @@
       }
     }
   },
-  "syncShow": "Show"
+  "syncShow": "Show",
+  "achievementDone": "{times, plural, one{Done once} other{Done {times} times}}, first on {date}",
+  "@achievementDone": {
+    "placeholders": {
+      "times": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  }
 }

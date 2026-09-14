@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Промени от {authors} чакат в {catalog}. Докоснете за синхронизация.",
   "syncAnotherDevice": "друго устройство",
   "syncMerged": "{count, plural, one{{count} промяна от {authors} слята} other{{count} промени от {authors} слети}}",
-  "syncShow": "Покажи"
+  "syncShow": "Покажи",
+  "achievementDone": "{times, plural, one{Направено веднъж} other{Направено {times} пъти}}, за първи път на {date}"
 }

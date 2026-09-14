@@ -194,7 +194,6 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.byIcon(Icons.emoji_events_outlined), findsOneWidget);
     await tester.tap(find.byType(Checkbox));
     await tester.pumpAndSettle();
     expect(find.textContaining('Servant (Feed)'), findsOneWidget);

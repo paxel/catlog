@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "来自 {authors} 的更改在 {catalog} 中等待。点按以同步。",
   "syncAnotherDevice": "另一台设备",
   "syncMerged": "{count, plural, other{已合并来自 {authors} 的 {count} 项更改}}",
-  "syncShow": "显示"
+  "syncShow": "显示",
+  "achievementDone": "{times, plural, other{已完成 {times} 次}}，首次 {date}"
 }

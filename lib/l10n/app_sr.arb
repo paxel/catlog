@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Измене од {authors} чекају у {catalog}. Додирните за синхронизацију.",
   "syncAnotherDevice": "другог уређаја",
   "syncMerged": "{count, plural, one{{count} измена од {authors} спојена} few{{count} измене од {authors} спојене} other{{count} измена од {authors} спојено}}",
-  "syncShow": "Прикажи"
+  "syncShow": "Прикажи",
+  "achievementDone": "{times, plural, one{Урађено {times} пут} few{Урађено {times} пута} other{Урађено {times} пута}}, први пут {date}"
 }

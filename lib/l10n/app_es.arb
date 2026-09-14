@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "Cambios de {authors} esperando en {catalog}. Toca para sincronizar.",
   "syncAnotherDevice": "otro dispositivo",
   "syncMerged": "{count, plural, one{{count} cambio de {authors} fusionado} other{{count} cambios de {authors} fusionados}}",
-  "syncShow": "Mostrar"
+  "syncShow": "Mostrar",
+  "achievementDone": "{times, plural, one{Hecho una vez} other{Hecho {times} veces}}, la primera el {date}"
 }

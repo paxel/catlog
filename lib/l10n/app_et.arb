@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "{authors} muudatused ootavad kataloogis {catalog}. Puuduta sünkroonimiseks.",
   "syncAnotherDevice": "teine seade",
   "syncMerged": "{count, plural, one{{count} muudatus ({authors}) ühendatud} other{{count} muudatust ({authors}) ühendatud}}",
-  "syncShow": "Näita"
+  "syncShow": "Näita",
+  "achievementDone": "{times, plural, one{Tehtud üks kord} other{Tehtud {times} korda}}, esimest korda {date}"
 }

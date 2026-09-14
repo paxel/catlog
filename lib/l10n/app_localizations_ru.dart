@@ -3663,4 +3663,17 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get syncShow => 'Показать';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Сделано $times раза',
+      many: 'Сделано $times раз',
+      few: 'Сделано $times раза',
+      one: 'Сделано $times раз',
+    );
+    return '$_temp0, впервые $date';
+  }
 }

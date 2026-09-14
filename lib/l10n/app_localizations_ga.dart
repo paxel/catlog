@@ -3700,4 +3700,18 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get syncShow => 'Taispeáin';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Déanta $times uair',
+      many: 'Déanta $times n-uaire',
+      few: 'Déanta $times huaire',
+      two: 'Déanta $times uair',
+      one: 'Déanta uair amháin',
+    );
+    return '$_temp0, den chéad uair ar $date';
+  }
 }

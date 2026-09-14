@@ -3658,4 +3658,16 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get syncShow => 'Arată';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Făcut de $times de ori',
+      few: 'Făcut de $times ori',
+      one: 'Făcut o dată',
+    );
+    return '$_temp0, prima dată pe $date';
+  }
 }

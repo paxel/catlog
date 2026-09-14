@@ -1226,5 +1226,6 @@
   "syncChangesWaiting": "{authors} izmaiņas gaida katalogā {catalog}. Pieskarieties, lai sinhronizētu.",
   "syncAnotherDevice": "cita ierīce",
   "syncMerged": "{count, plural, zero{{count} {authors} izmaiņu apvienotas} one{{count} {authors} izmaiņa apvienota} other{{count} {authors} izmaiņas apvienotas}}",
-  "syncShow": "Rādīt"
+  "syncShow": "Rādīt",
+  "achievementDone": "{times, plural, zero{Izdarīts {times} reižu} one{Izdarīts {times} reizi} other{Izdarīts {times} reizes}}, pirmoreiz {date}"
 }

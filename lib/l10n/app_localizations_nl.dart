@@ -3646,4 +3646,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get syncShow => 'Tonen';
+
+  @override
+  String achievementDone(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times keer gedaan',
+      one: 'Eén keer gedaan',
+    );
+    return '$_temp0, de eerste op $date';
+  }
 }
