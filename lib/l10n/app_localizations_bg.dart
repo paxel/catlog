@@ -3650,4 +3650,7 @@ class AppLocalizationsBg extends AppLocalizations {
     );
     return '$_temp0, за първи път на $date';
   }
+
+  @override
+  String get syncRunning => 'Синхронизиране с папката…';
 }

@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "iného zariadenia",
   "syncMerged": "{count, plural, one{{count} zmena od {authors} zlúčená} few{{count} zmeny od {authors} zlúčené} other{{count} zmien od {authors} zlúčených}}",
   "syncShow": "Zobraziť",
-  "achievementDone": "{times, plural, one{Hotovo raz} few{Hotovo {times}-krát} other{Hotovo {times}-krát}}, prvýkrát {date}"
+  "achievementDone": "{times, plural, one{Hotovo raz} few{Hotovo {times}-krát} other{Hotovo {times}-krát}}, prvýkrát {date}",
+  "syncRunning": "Synchronizácia s priečinkom…"
 }

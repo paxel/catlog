@@ -3714,4 +3714,7 @@ class AppLocalizationsGa extends AppLocalizations {
     );
     return '$_temp0, den chéad uair ar $date';
   }
+
+  @override
+  String get syncRunning => 'Ag sioncronú leis an bhfillteán…';
 }

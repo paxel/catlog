@@ -2770,6 +2770,9 @@ class ModeLocalizations implements AppLocalizations {
   String get syncPeerOlder => base.syncPeerOlder;
 
   @override
+  String get syncRunning => base.syncRunning;
+
+  @override
   String get syncShow => base.syncShow;
 
   @override

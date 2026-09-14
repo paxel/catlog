@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "öðru tæki",
   "syncMerged": "{count, plural, one{{count} breyting frá {authors} sameinuð} other{{count} breytingar frá {authors} sameinaðar}}",
   "syncShow": "Sýna",
-  "achievementDone": "{times, plural, one{Gert einu sinni} other{Gert {times} sinnum}}, fyrst {date}"
+  "achievementDone": "{times, plural, one{Gert einu sinni} other{Gert {times} sinnum}}, fyrst {date}",
+  "syncRunning": "Samstilli við möppuna…"
 }

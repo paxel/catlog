@@ -3668,4 +3668,7 @@ class AppLocalizationsMt extends AppLocalizations {
     );
     return '$_temp0, l-ewwel darba fi $date';
   }
+
+  @override
+  String get syncRunning => 'Qed jissinkronizza mal-folder…';
 }

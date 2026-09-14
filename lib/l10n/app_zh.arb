@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "另一台设备",
   "syncMerged": "{count, plural, other{已合并来自 {authors} 的 {count} 项更改}}",
   "syncShow": "显示",
-  "achievementDone": "{times, plural, other{已完成 {times} 次}}，首次 {date}"
+  "achievementDone": "{times, plural, other{已完成 {times} 次}}，首次 {date}",
+  "syncRunning": "正在与文件夹同步…"
 }

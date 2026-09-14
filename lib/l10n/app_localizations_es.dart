@@ -3662,4 +3662,7 @@ class AppLocalizationsEs extends AppLocalizations {
     );
     return '$_temp0, la primera el $date';
   }
+
+  @override
+  String get syncRunning => 'Sincronizando con la carpeta…';
 }

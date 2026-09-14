@@ -3670,4 +3670,7 @@ class AppLocalizationsRo extends AppLocalizations {
     );
     return '$_temp0, prima dată pe $date';
   }
+
+  @override
+  String get syncRunning => 'Se sincronizează cu dosarul…';
 }

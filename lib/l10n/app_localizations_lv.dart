@@ -3668,4 +3668,7 @@ class AppLocalizationsLv extends AppLocalizations {
     );
     return '$_temp0, pirmoreiz $date';
   }
+
+  @override
+  String get syncRunning => 'Sinhronizē ar mapi…';
 }

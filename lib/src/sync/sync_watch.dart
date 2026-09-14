@@ -76,6 +76,10 @@ class SyncWatcher extends ChangeNotifier {
   /// What waits in the folder (poll mode), null when nothing does.
   UnseenChanges? pending;
 
+  /// A merge is running: the line shows it, so a tap on a big folder
+  /// is not followed by nothing for a minute.
+  bool merging = false;
+
   SyncWatcher(this.store, {SyncFolder? Function(CatalogStore)? folderOf})
     : folderOf = folderOf ?? syncFolderOf;
 
@@ -166,6 +170,18 @@ class SyncWatcher extends ChangeNotifier {
   Future<FolderSyncResult?> merge({bool fromTap = false}) async {
     final folder = folderOf(store);
     if (folder == null || !store.isOpen) return null;
+    merging = true;
+    pending = null;
+    notifyListeners();
+    try {
+      return await _merge(folder, fromTap);
+    } finally {
+      merging = false;
+      if (store.isOpen) notifyListeners();
+    }
+  }
+
+  Future<FolderSyncResult?> _merge(SyncFolder folder, bool fromTap) {
     return runExclusive<FolderSyncResult>('folderSync', () async {
       final before = store.currentSeq();
       final result = await folderSyncIn(
@@ -183,8 +199,6 @@ class SyncWatcher extends ChangeNotifier {
         label: store.localSetting('syncFolder'),
       );
       await recordSyncSizes(store, folderOf: (s) => folder);
-      pending = null;
-      notifyListeners();
       onMerged?.call(result, point, fromTap);
       return result;
     });

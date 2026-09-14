@@ -3662,4 +3662,7 @@ class AppLocalizationsDe extends AppLocalizations {
     );
     return '$_temp0, zuerst am $date';
   }
+
+  @override
+  String get syncRunning => 'Abgleich mit dem Ordner läuft…';
 }

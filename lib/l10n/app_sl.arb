@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "druge naprave",
   "syncMerged": "{count, plural, one{{count} sprememba od {authors} združena} two{{count} spremembi od {authors} združeni} few{{count} spremembe od {authors} združene} other{{count} sprememb od {authors} združenih}}",
   "syncShow": "Pokaži",
-  "achievementDone": "{times, plural, one{Opravljeno {times}-krat} two{Opravljeno {times}-krat} few{Opravljeno {times}-krat} other{Opravljeno {times}-krat}}, prvič {date}"
+  "achievementDone": "{times, plural, one{Opravljeno {times}-krat} two{Opravljeno {times}-krat} few{Opravljeno {times}-krat} other{Opravljeno {times}-krat}}, prvič {date}",
+  "syncRunning": "Sinhronizacija z mapo…"
 }

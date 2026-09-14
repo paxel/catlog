@@ -3649,4 +3649,7 @@ class AppLocalizationsEt extends AppLocalizations {
     );
     return '$_temp0, esimest korda $date';
   }
+
+  @override
+  String get syncRunning => 'Sünkroonimine kaustaga…';
 }

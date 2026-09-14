@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "outro dispositivo",
   "syncMerged": "{count, plural, one{{count} alteração de {authors} junta} other{{count} alterações de {authors} juntas}}",
   "syncShow": "Mostrar",
-  "achievementDone": "{times, plural, one{Feito uma vez} other{Feito {times} vezes}}, a primeira em {date}"
+  "achievementDone": "{times, plural, one{Feito uma vez} other{Feito {times} vezes}}, a primeira em {date}",
+  "syncRunning": "A sincronizar com a pasta…"
 }

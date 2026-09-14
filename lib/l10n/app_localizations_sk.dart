@@ -3664,4 +3664,7 @@ class AppLocalizationsSk extends AppLocalizations {
     );
     return '$_temp0, prvýkrát $date';
   }
+
+  @override
+  String get syncRunning => 'Synchronizácia s priečinkom…';
 }

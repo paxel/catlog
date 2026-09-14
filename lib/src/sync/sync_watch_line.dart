@@ -17,19 +17,25 @@ class SyncWatchLine extends StatelessWidget {
     listenable: watcher,
     builder: (context, _) {
       final pending = watcher.pending;
-      if (pending == null) return child;
+      final merging = watcher.merging;
+      if (pending == null && !merging) return child;
       final t = context.t;
       final scheme = Theme.of(context).colorScheme;
-      final authors = pending.authors.isEmpty
-          ? t.syncAnotherDevice
-          : pending.authors.join(', ');
       final catalog = watcher.store.localSetting(catalogNameKey) ?? t.appTitle;
+      final text = merging
+          ? t.syncRunning
+          : t.syncChangesWaiting(
+              pending!.authors.isEmpty
+                  ? t.syncAnotherDevice
+                  : pending.authors.join(', '),
+              catalog,
+            );
       return Column(
         children: [
           Material(
             color: scheme.primaryContainer,
             child: InkWell(
-              onTap: () => watcher.merge(fromTap: true),
+              onTap: merging ? null : () => watcher.merge(fromTap: true),
               child: SafeArea(
                 bottom: false,
                 child: Padding(
@@ -46,7 +52,7 @@ class SyncWatchLine extends StatelessWidget {
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
-                          t.syncChangesWaiting(authors, catalog),
+                          text,
                           style: TextStyle(color: scheme.onPrimaryContainer),
                         ),
                       ),
@@ -56,6 +62,7 @@ class SyncWatchLine extends StatelessWidget {
               ),
             ),
           ),
+          if (merging) const LinearProgressIndicator(minHeight: 3),
           // The line took the status bar's height; the page below must
           // not pad for it again.
           Expanded(

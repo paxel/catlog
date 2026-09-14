@@ -3656,4 +3656,7 @@ class AppLocalizationsIs extends AppLocalizations {
     );
     return '$_temp0, fyrst $date';
   }
+
+  @override
+  String get syncRunning => 'Samstilli við möppuna…';
 }

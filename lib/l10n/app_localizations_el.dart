@@ -3664,4 +3664,7 @@ class AppLocalizationsEl extends AppLocalizations {
     );
     return '$_temp0, πρώτη φορά στις $date';
   }
+
+  @override
+  String get syncRunning => 'Συγχρονισμός με τον φάκελο…';
 }

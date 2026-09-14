@@ -3663,4 +3663,7 @@ class AppLocalizationsFr extends AppLocalizations {
     );
     return '$_temp0, la première le $date';
   }
+
+  @override
+  String get syncRunning => 'Synchronisation avec le dossier…';
 }

@@ -3665,4 +3665,7 @@ class AppLocalizationsHr extends AppLocalizations {
     );
     return '$_temp0, prvi put $date';
   }
+
+  @override
+  String get syncRunning => 'Sinkronizacija s mapom…';
 }

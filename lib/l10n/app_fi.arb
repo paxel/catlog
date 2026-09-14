@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "toinen laite",
   "syncMerged": "{count, plural, one{{count} muutos lähettäjältä {authors} yhdistetty} other{{count} muutosta lähettäjältä {authors} yhdistetty}}",
   "syncShow": "Näytä",
-  "achievementDone": "{times, plural, one{Tehty kerran} other{Tehty {times} kertaa}}, ensimmäisen kerran {date}"
+  "achievementDone": "{times, plural, one{Tehty kerran} other{Tehty {times} kertaa}}, ensimmäisen kerran {date}",
+  "syncRunning": "Synkronoidaan kansion kanssa…"
 }

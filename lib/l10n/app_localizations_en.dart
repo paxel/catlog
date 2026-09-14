@@ -3651,4 +3651,7 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0, first on $date';
   }
+
+  @override
+  String get syncRunning => 'Syncing with the folder…';
 }

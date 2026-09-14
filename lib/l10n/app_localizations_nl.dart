@@ -3657,4 +3657,7 @@ class AppLocalizationsNl extends AppLocalizations {
     );
     return '$_temp0, de eerste op $date';
   }
+
+  @override
+  String get syncRunning => 'Synchroniseren met de map…';
 }

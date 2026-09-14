@@ -3665,4 +3665,7 @@ class AppLocalizationsSr extends AppLocalizations {
     );
     return '$_temp0, први пут $date';
   }
+
+  @override
+  String get syncRunning => 'Синхронизација са фасциклом…';
 }

@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "en anden enhed",
   "syncMerged": "{count, plural, one{{count} ændring fra {authors} flettet ind} other{{count} ændringer fra {authors} flettet ind}}",
   "syncShow": "Vis",
-  "achievementDone": "{times, plural, one{Gjort én gang} other{Gjort {times} gange}}, første gang {date}"
+  "achievementDone": "{times, plural, one{Gjort én gang} other{Gjort {times} gange}}, første gang {date}",
+  "syncRunning": "Synkroniserer med mappen…"
 }

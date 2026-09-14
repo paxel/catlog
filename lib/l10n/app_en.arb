@@ -2045,5 +2045,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "syncRunning": "Syncing with the folder…"
 }

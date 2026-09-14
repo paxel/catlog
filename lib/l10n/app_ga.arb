@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "gléas eile",
   "syncMerged": "{count, plural, one{{count} athrú ó {authors} cumaiscthe} two{{count} athrú ó {authors} cumaiscthe} few{{count} athrú ó {authors} cumaiscthe} many{{count} n-athrú ó {authors} cumaiscthe} other{{count} athrú ó {authors} cumaiscthe}}",
   "syncShow": "Taispeáin",
-  "achievementDone": "{times, plural, one{Déanta uair amháin} two{Déanta {times} uair} few{Déanta {times} huaire} many{Déanta {times} n-uaire} other{Déanta {times} uair}}, den chéad uair ar {date}"
+  "achievementDone": "{times, plural, one{Déanta uair amháin} two{Déanta {times} uair} few{Déanta {times} huaire} many{Déanta {times} n-uaire} other{Déanta {times} uair}}, den chéad uair ar {date}",
+  "syncRunning": "Ag sioncronú leis an bhfillteán…"
 }

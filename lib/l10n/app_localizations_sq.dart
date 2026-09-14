@@ -3652,4 +3652,7 @@ class AppLocalizationsSq extends AppLocalizations {
     );
     return '$_temp0, herën e parë më $date';
   }
+
+  @override
+  String get syncRunning => 'Duke u sinkronizuar me dosjen…';
 }

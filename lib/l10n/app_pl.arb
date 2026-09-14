@@ -1227,5 +1227,6 @@
   "syncAnotherDevice": "innego urządzenia",
   "syncMerged": "{count, plural, one{{count} zmiana od {authors} scalona} few{{count} zmiany od {authors} scalone} many{{count} zmian od {authors} scalonych} other{{count} zmiany od {authors} scalone}}",
   "syncShow": "Pokaż",
-  "achievementDone": "{times, plural, one{Zrobione raz} few{Zrobione {times} razy} many{Zrobione {times} razy} other{Zrobione {times} razy}}, pierwszy raz {date}"
+  "achievementDone": "{times, plural, one{Zrobione raz} few{Zrobione {times} razy} many{Zrobione {times} razy} other{Zrobione {times} razy}}, pierwszy raz {date}",
+  "syncRunning": "Synchronizacja z folderem…"
 }

@@ -3653,4 +3653,7 @@ class AppLocalizationsPt extends AppLocalizations {
     );
     return '$_temp0, a primeira em $date';
   }
+
+  @override
+  String get syncRunning => 'A sincronizar com a pasta…';
 }

@@ -3649,4 +3649,7 @@ class AppLocalizationsSv extends AppLocalizations {
     );
     return '$_temp0, första gången $date';
   }
+
+  @override
+  String get syncRunning => 'Synkar med mappen…';
 }

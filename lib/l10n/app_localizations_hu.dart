@@ -3651,4 +3651,7 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0, először $date';
   }
+
+  @override
+  String get syncRunning => 'Szinkronizálás a mappával…';
 }

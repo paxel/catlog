@@ -3693,4 +3693,7 @@ class AppLocalizationsAr extends AppLocalizations {
     );
     return '$_temp0، أول مرة في $date';
   }
+
+  @override
+  String get syncRunning => 'جارٍ المزامنة مع المجلد…';
 }
