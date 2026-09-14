@@ -211,6 +211,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
             : context.t.fieldHistoryOf(
                 fieldLabel(context.t, store, widget.field!), name)),
         actions: [
+          HelpButton(store: store, screenId: 'timeline'),
           IconButton(
             icon: Icon(_showVoided
                 ? Icons.visibility_off_outlined
@@ -224,7 +225,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
               setState(() {});
             },
           ),
-          HelpButton(store: store, screenId: 'timeline'),
         ],
       ),
       body: ListView.builder(
