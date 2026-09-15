@@ -103,10 +103,11 @@ void main() {
       final mine = rows.firstWhere((e) => e.entity == cat && e.field == 'name');
       // A go-back file: the same rows, applied again, are a no-op.
       expect(a.applyEntries(rows), isEmpty);
-      // The same row with another name: refused, not even as a no-op.
+      // The same row with another name: a held number is not looked at,
+      // so it is neither refused nor applied; the name stands.
       final report = ImportReport();
       a.applyEntries([forged(mine, value: 'Mauzi')], report: report);
-      expect(report.refusedCount, 1);
+      expect(report.refusedCount, 0);
       expect(a.current(cat, 'name'), 'Miezi');
     });
   });
@@ -153,8 +154,10 @@ void main() {
         recorded: DateTime.now(),
       );
       final report = ImportReport();
+      // The row under a new number is refused; the one under a held
+      // number is not looked at, held rows cannot be replaced.
       b.applyEntries([forgedRow, forged(real, value: 'x')], report: report);
-      expect(report.refused[('anna', a.deviceId)], 2);
+      expect(report.refused[('anna', a.deviceId)], 1);
       expect(b.current(cat, 'name'), 'Miezi');
       expect(b.versionVector()[a.deviceId], vector,
           reason: 'a refusal must not make real rows unreachable');
@@ -174,7 +177,8 @@ void main() {
       final stripped = Entry(
         seq: -1,
         device: real.device,
-        dseq: real.dseq,
+        // A new number: a held one would not be looked at.
+        dseq: real.dseq + 1,
         entity: real.entity,
         field: real.field,
         value: 'x',

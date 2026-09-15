@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
-
 import 'package:crypto/crypto.dart';
 import 'package:image/image.dart' as img;
 import 'package:sqlite3/sqlite3.dart';
@@ -192,8 +191,8 @@ class CatalogStore {
   /// the signing key live here, never in the shared settings: both
   /// belong to this catalog alone.
   String? _rawSetting(String key) {
-    final rows = _db
-        .select('SELECT value FROM local_settings WHERE key = ?', [key]);
+    final rows =
+        _db.select('SELECT value FROM local_settings WHERE key = ?', [key]);
     return rows.isEmpty ? null : rows.first['value'] as String;
   }
 
@@ -350,8 +349,15 @@ class CatalogStore {
 
   /// The signature of one own row, as [append] and the re-stampers
   /// write it.
-  String _sign(String device, int dseq, String entity, String field,
-          String? value, String dateIso, String author, String recordedIso,
+  String _sign(
+          String device,
+          int dseq,
+          String entity,
+          String field,
+          String? value,
+          String dateIso,
+          String author,
+          String recordedIso,
           bool reminder) =>
       signingKey.sign(entryBytes(
           device: device,
@@ -381,10 +387,11 @@ class CatalogStore {
         author,
         recordedIso,
         reminder ? 1 : 0,
-        _sign(device, dseq, entity, field, value, dateIso, author,
-            recordedIso, reminder),
+        _sign(device, dseq, entity, field, value, dateIso, author, recordedIso,
+            reminder),
       ],
     );
+    if (field == Keys.mergedInto) _mergeTargetsCache = null;
     _noteVoid(field);
   }
 
@@ -410,8 +417,7 @@ class CatalogStore {
     final target = _voidTarget(field);
     if (target == null) return;
     final rows = _db.select(
-        'SELECT value FROM entries WHERE field = ? $_latest LIMIT 1',
-        [field]);
+        'SELECT value FROM entries WHERE field = ? $_latest LIMIT 1', [field]);
     final live = rows.isNotEmpty && rows.first['value'] != null;
     if (live) {
       _db.execute('INSERT OR REPLACE INTO voids (device, dseq) VALUES (?, ?)',
@@ -453,8 +459,7 @@ class CatalogStore {
 
   /// Repairs rows written with 3-digit fractions (idempotent).
   void _normalizeTimestamps() {
-    _db.execute(
-        "UPDATE entries SET date = substr(date, 1, 23) || '000Z' "
+    _db.execute("UPDATE entries SET date = substr(date, 1, 23) || '000Z' "
         'WHERE length(date) = 24');
     _db.execute(
         "UPDATE entries SET recorded = substr(recorded, 1, 23) || '000Z' "
@@ -470,10 +475,11 @@ class CatalogStore {
         .map((r) => r['name'] as String)
         .toSet();
     if (cols.contains('device')) return;
-    _db.execute("ALTER TABLE entries ADD COLUMN device TEXT NOT NULL DEFAULT ''");
-    _db.execute('ALTER TABLE entries ADD COLUMN dseq INTEGER NOT NULL DEFAULT 0');
     _db.execute(
-        'UPDATE entries SET device = ?, dseq = seq', [deviceId]);
+        "ALTER TABLE entries ADD COLUMN device TEXT NOT NULL DEFAULT ''");
+    _db.execute(
+        'ALTER TABLE entries ADD COLUMN dseq INTEGER NOT NULL DEFAULT 0');
+    _db.execute('UPDATE entries SET device = ?, dseq = seq', [deviceId]);
   }
 
   /// Adds the reminder flag (#74) to a pre-1.0.0 database; existing
@@ -527,8 +533,8 @@ class CatalogStore {
     // its name has been copied across.
     final name = shared?.get('author');
     if (name != null && name.isNotEmpty) return name;
-    final rows =
-        _db.select('SELECT value FROM local_settings WHERE key = ?', ['author']);
+    final rows = _db
+        .select('SELECT value FROM local_settings WHERE key = ?', ['author']);
     return rows.isEmpty ? null : rows.first['value'] as String;
   }
 
@@ -627,10 +633,7 @@ class CatalogStore {
   List<(String, String)> allLocalSettings() => [
         for (final r in _db.select(
             "SELECT key, value FROM local_settings WHERE key LIKE 'u:%'"))
-          (
-            (r['key'] as String).substring('u:'.length),
-            r['value'] as String
-          )
+          ((r['key'] as String).substring('u:'.length), r['value'] as String)
       ];
 
   void removeLocalSetting(String key) {
@@ -654,9 +657,9 @@ class CatalogStore {
 
   /// Authors and devices with their entry counts, for the moderation UI.
   List<({String author, String device, int count})> authorsOverview() => [
-        for (final r in _db.select(
-            'SELECT author, device, COUNT(*) AS n FROM entries '
-            'GROUP BY author, device ORDER BY author, device'))
+        for (final r
+            in _db.select('SELECT author, device, COUNT(*) AS n FROM entries '
+                'GROUP BY author, device ORDER BY author, device'))
           (
             author: r['author'] as String,
             device: r['device'] as String,
@@ -669,8 +672,7 @@ class CatalogStore {
   /// exception (ADR-0006): for abusive or illegal material only.
   /// Returns the blob hashes that were removed, so callers can ban them.
   List<String> hardDeleteAuthor(String author, {String? device}) {
-    final where =
-        device == null ? 'author = ?' : 'author = ? AND device = ?';
+    final where = device == null ? 'author = ?' : 'author = ? AND device = ?';
     final args = device == null ? [author] : [author, device];
     final touched = <String>{
       for (final r in _db.select(
@@ -710,8 +712,8 @@ class CatalogStore {
 
   /// All ban entries as (kind, value) — kind is author/device/blob.
   List<(String, String)> bans() => [
-        for (final r in _db.select(
-            "SELECT key FROM local_settings WHERE key LIKE 'u:ban:%'"))
+        for (final r in _db
+            .select("SELECT key FROM local_settings WHERE key LIKE 'u:ban:%'"))
           (
             (r['key'] as String).split(':')[2],
             (r['key'] as String).split(':').sublist(3).join(':')
@@ -735,8 +737,7 @@ class CatalogStore {
   }
 
   Map<String, int> _discardedVector() => {
-        for (final r in _db.select(
-            "SELECT key, value FROM local_settings "
+        for (final r in _db.select("SELECT key, value FROM local_settings "
             "WHERE key LIKE 'u:banvector:%'"))
           (r['key'] as String).substring('u:banvector:'.length):
               int.tryParse(r['value'] as String) ?? 0
@@ -768,8 +769,8 @@ class CatalogStore {
     final now = DateTime.now().toUtc();
     final device = deviceId;
     final next = _nextDseq(device);
-    _insertOwn(device, next, entity, field, value, _iso(date ?? now), by,
-        _iso(now),
+    _insertOwn(
+        device, next, entity, field, value, _iso(date ?? now), by, _iso(now),
         reminder: reminder);
     // A value written while this entity (or its field) is private needs
     // its public trace right away, or a partner sees an empty slot
@@ -823,7 +824,17 @@ class CatalogStore {
 
   /// Raw loser → survivor map from the latest $mergedInto entries.
   /// Built with plain SQL — never through the alias-aware readers.
+  /// Merges are rare and read on every resolve: the map is kept until
+  /// a merge entry lands or entries are removed.
+  Map<String, String>? _mergeTargetsCache;
+
   Map<String, String> _mergeTargets() {
+    final cached = _mergeTargetsCache;
+    if (cached != null) return cached;
+    return _mergeTargetsCache = _readMergeTargets();
+  }
+
+  Map<String, String> _readMergeTargets() {
     final rows = _db.select(
       'SELECT * FROM entries WHERE field = ? $_latest',
       [Keys.mergedInto],
@@ -948,8 +959,7 @@ class CatalogStore {
     final seen = <String>{};
     return [
       for (final e in rows)
-        if (seen.add(
-            '${e.entity} ${e.field} ${e.value} '
+        if (seen.add('${e.entity} ${e.field} ${e.value} '
             '${_iso(e.date)} ${e.author} ${_iso(e.recorded)}'))
           e
     ];
@@ -962,15 +972,13 @@ class CatalogStore {
       {bool includeVoided = false}) {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
     final keys = _keysFor(field);
-    return _dedupe(_db
-        .select(
-          'SELECT entries.*, $_voidedColumn FROM entries '
-          'WHERE entity IN (${_placeholders(entities.length)}) '
-          'AND field IN (${_placeholders(keys.length)}) '
-          '${includeVoided ? '' : _live} $_latest',
-          [...entities, ...keys],
-        )
-        .map(_entry));
+    return _dedupe(_db.select(
+      'SELECT entries.*, $_voidedColumn FROM entries '
+      'WHERE entity IN (${_placeholders(entities.length)}) '
+      'AND field IN (${_placeholders(keys.length)}) '
+      '${includeVoided ? '' : _live} $_latest',
+      [...entities, ...keys],
+    ).map(_entry));
   }
 
   bool isDeleted(String entity) => current(entity, Keys.deleted) == 'true';
@@ -980,9 +988,8 @@ class CatalogStore {
   /// format, so exports and sync stay compatible with 0.3.x peers.
   /// Practically monotonic — even a cancelled plan is a flagged row —
   /// flipping back only when going back removes the flagged entries.
-  bool hasReminders() => _db
-      .select('SELECT 1 FROM entries WHERE reminder = 1 LIMIT 1')
-      .isNotEmpty;
+  bool hasReminders() =>
+      _db.select('SELECT 1 FROM entries WHERE reminder = 1 LIMIT 1').isNotEmpty;
 
   /// The live plans (#74): for every (entity, field) pair whose newest
   /// entry — by APPEND order — is reminder-flagged with a value, one
@@ -1173,8 +1180,7 @@ class CatalogStore {
   }
 
   /// All Clowders, creation order.
-  List<EntityView> clowders() =>
-      _entitiesOf(Kinds.clowder).map(_view).toList();
+  List<EntityView> clowders() => _entitiesOf(Kinds.clowder).map(_view).toList();
 
   // ------------------------------------------------------------------ cats
 
@@ -1427,9 +1433,8 @@ class CatalogStore {
     // background, including printed cards.
     const segments = 90;
     for (var pass = 0; pass < 2; pass++) {
-      final color = pass == 0
-          ? img.ColorRgb8(255, 255, 255)
-          : img.ColorRgb8(230, 90, 40);
+      final color =
+          pass == 0 ? img.ColorRgb8(255, 255, 255) : img.ColorRgb8(230, 90, 40);
       final t = pass == 0 ? thickness + 4 : thickness;
       for (var i = 0; i < segments; i++) {
         final a1 = 2 * pi * i / segments;
@@ -1521,8 +1526,8 @@ class CatalogStore {
   /// re-uses a number after a delete and an old mark keeps meaning the
   /// same moment.
   int currentSeq() =>
-      _db.select('SELECT COALESCE(MAX(seq), 0) AS n FROM entries')
-          .first['n'] as int;
+      _db.select('SELECT COALESCE(MAX(seq), 0) AS n FROM entries').first['n']
+          as int;
 
   /// Records a moment. [seq] defaults to now; callers that only know
   /// afterwards whether anything happened pass the mark they took
@@ -1544,9 +1549,9 @@ class CatalogStore {
   /// Every recorded moment, newest first.
   List<({int id, int seq, String cause, String? label, DateTime at})>
       moments() => [
-            for (final r in _db.select(
-                'SELECT id, seq, cause, label, at FROM moments '
-                'ORDER BY seq DESC, id DESC'))
+            for (final r
+                in _db.select('SELECT id, seq, cause, label, at FROM moments '
+                    'ORDER BY seq DESC, id DESC'))
               (
                 id: r['id'] as int,
                 seq: r['seq'] as int,
@@ -1563,9 +1568,8 @@ class CatalogStore {
   /// included, nothing filtered. Going back has to be able to put the
   /// catalog back exactly as it was.
   List<Entry> entriesAfter(int seq) => [
-        for (final r
-            in _db.select('SELECT * FROM entries WHERE seq > ? ORDER BY seq',
-                [seq]))
+        for (final r in _db
+            .select('SELECT * FROM entries WHERE seq > ? ORDER BY seq', [seq]))
           _entry(r)
       ];
 
@@ -1583,7 +1587,9 @@ class CatalogStore {
           [seq, '${Keys.imagePrefix}%']))
         (r['field'] as String).substring(Keys.imagePrefix.length)
     };
-    _removeEntries('seq > ?', [seq], also: [
+    _removeEntries('seq > ?', [
+      seq
+    ], also: [
       ('DELETE FROM moments WHERE seq > ?', [seq])
     ]);
     for (final hash in touched) {
@@ -1606,6 +1612,7 @@ class CatalogStore {
     _db.execute('BEGIN');
     try {
       _db.execute('DELETE FROM entries WHERE $where', args);
+      _mergeTargetsCache = null;
       for (final (sql, sqlArgs) in also) {
         _db.execute(sql, sqlArgs);
       }
@@ -1627,8 +1634,8 @@ class CatalogStore {
   /// so peers stop re-offering banned material.
   Map<String, int> versionVector() {
     final vector = {
-      for (final r in _db.select(
-          'SELECT device, MAX(dseq) AS m FROM entries GROUP BY device'))
+      for (final r in _db
+          .select('SELECT device, MAX(dseq) AS m FROM entries GROUP BY device'))
         r['device'] as String: r['m'] as int
     };
     for (final e in _discardedVector().entries) {
@@ -1652,21 +1659,22 @@ class CatalogStore {
   /// numbers for good, and `applyEntries` ignores what it already holds.
   List<Entry> entriesSince(Map<String, int> vector,
       {bool includePrivate = false}) {
-    final all = _db
-        .select('SELECT * FROM entries ORDER BY device, dseq')
-        .map(_entry);
+    final all =
+        _db.select('SELECT * FROM entries ORDER BY device, dseq').map(_entry);
     final result = <Entry>[];
+    // Privacy is per field, not per entry: one lookup per field.
+    final privateOf = <(String, String), bool>{};
     for (final e in all) {
       final fresh = e.dseq > (vector[e.device] ?? 0);
-      final private = _isPrivateValue(e);
+      final private =
+          privateOf.putIfAbsent((e.entity, e.field), () => _isPrivateValue(e));
       if (includePrivate) {
         if (fresh || private) result.add(e);
         continue;
       }
       if (!fresh) continue;
       // Which values are private is nobody else's business either.
-      if (e.field == Keys.private ||
-          e.field.startsWith(Keys.privatePrefix)) {
+      if (e.field == Keys.private || e.field.startsWith(Keys.privatePrefix)) {
         continue;
       }
       if (!private) result.add(e);
@@ -1674,8 +1682,7 @@ class CatalogStore {
     return result;
   }
 
-  bool _isPrivateValue(Entry e) =>
-      isFieldPrivate(e.entity, e.field);
+  bool _isPrivateValue(Entry e) => isFieldPrivate(e.entity, e.field);
 
   /// True when this entity's value for [field] stays home.
   ///
@@ -1703,6 +1710,12 @@ class CatalogStore {
   }
 
   /// True when a partner knows a value exists here but was not given it.
+  /// True when any withheld marker was ever received: the cheap gate
+  /// before [isWithheld] is asked per field.
+  bool hasWithheld() => _db.select(
+      'SELECT 1 FROM entries WHERE field LIKE ? LIMIT 1',
+      ['${Keys.withheldPrefix}%']).isNotEmpty;
+
   bool isWithheld(String id, String field) {
     final key = canonicalKey(field);
     final entity = resolveEntity(id);
@@ -1714,7 +1727,7 @@ class CatalogStore {
   /// under fresh numbers, because peers moved past the originals while
   /// they were withheld.
   void setFieldPrivate(String id, String field, bool private,
-      {DateTime? date}) =>
+          {DateTime? date}) =>
       _setFieldPrivate(id, field, private, date: date, reassert: !private);
 
   void _setFieldPrivate(String id, String field, bool private,
@@ -1796,7 +1809,8 @@ class CatalogStore {
       // A definition's mark covers that field everywhere, so the values
       // need no marks of their own — only the public trace that says a
       // value is there, on every entity that has one.
-      final field = canonicalKey('f:${canonical.substring('fielddef:'.length)}');
+      final field =
+          canonicalKey('f:${canonical.substring('fielddef:'.length)}');
       for (final entity in entitiesWithValueFor(field)) {
         if (current(entity, Keys.withheld(field)) == (private ? 'yes' : 'no')) {
           continue;
@@ -1839,8 +1853,7 @@ class CatalogStore {
 
   void _reassertGroup(String canonical) {
     final entities = _group(canonical);
-    var where =
-        'entity IN (${_placeholders(entities.length)})';
+    var where = 'entity IN (${_placeholders(entities.length)})';
     final args = <Object?>[...entities];
     if (canonical.startsWith('fielddef:')) {
       final keys = _keysFor('f:${canonical.substring('fielddef:'.length)}');
@@ -1887,117 +1900,139 @@ class CatalogStore {
       String? verifiedDevice,
       ImportReport? report}) {
     return transaction(() {
-    if (keys != null) {
-      final authors = <String, Set<String>>{};
+      if (keys != null) {
+        final authors = <String, Set<String>>{};
+        for (final e in entries) {
+          authors.putIfAbsent(e.device, () => {}).add(e.author);
+        }
+        learnKeys(keys,
+            verifiedDevice: verifiedDevice,
+            report: report ?? ImportReport(),
+            authors: authors);
+      }
+      // Every device file carries the whole catalog, so most of what a
+      // round brings is here already. What is here by (device, number)
+      // gets no signature check, no lookup, no insert. An exact set, not
+      // the vector's maximum: a private value arrives late under a number
+      // the vector is long past, and a go-back re-import brings numbers
+      // back on purpose. Retroactive changes are entries with new
+      // numbers, never a rewrite.
+      final devices = {for (final e in entries) e.device};
+      final held = <String, Set<int>>{};
+      for (final r in _db.select(
+          'SELECT device, dseq FROM entries WHERE device IN '
+          '(${_placeholders(devices.length)})',
+          devices.toList())) {
+        held.putIfAbsent(r['device'] as String, () => {}).add(r['dseq'] as int);
+      }
+      entries = [
+        for (final e in entries)
+          if (!(held[e.device]?.contains(e.dseq) ?? false)) e
+      ];
+      if (entries.isEmpty) return const [];
+      // Snapshot the pre-import winner of every field this batch touches.
+      final touched = <(String, String)>{
+        for (final e in entries) (e.entity, e.field)
+      };
+      final pre = <(String, String), Entry?>{};
+      if (senderVector != null) {
+        for (final t in touched) {
+          // reminder = 0: a plan must not pose as the pre-import winner,
+          // or a fact arriving over it would flag a bogus conflict.
+          final rows = _db.select(
+            'SELECT * FROM entries WHERE entity = ? AND field = ? '
+            'AND reminder = 0 $_live $_latest LIMIT 1',
+            [t.$1, t.$2],
+          );
+          pre[t] = rows.isEmpty ? null : _entry(rows.first);
+        }
+      }
+      final imported = <Entry>[];
+      final self = deviceId;
+      final ownMax = versionVector()[self] ?? 0;
+      final own = ownKeyRecord;
+      final pinned = <String, KeyRecord?>{};
       for (final e in entries) {
-        authors.putIfAbsent(e.device, () => {}).add(e.author);
-      }
-      learnKeys(keys,
-          verifiedDevice: verifiedDevice,
-          report: report ?? ImportReport(),
-          authors: authors);
-    }
-    // Snapshot the pre-import winner of every field this batch touches.
-    final touched = <(String, String)>{
-      for (final e in entries) (e.entity, e.field)
-    };
-    final pre = <(String, String), Entry?>{};
-    if (senderVector != null) {
-      for (final t in touched) {
-        // reminder = 0: a plan must not pose as the pre-import winner,
-        // or a fact arriving over it would flag a bogus conflict.
-        final rows = _db.select(
-          'SELECT * FROM entries WHERE entity = ? AND field = ? '
-          'AND reminder = 0 $_live $_latest LIMIT 1',
-          [t.$1, t.$2],
-        );
-        pre[t] = rows.isEmpty ? null : _entry(rows.first);
-      }
-    }
-    final imported = <Entry>[];
-    final self = deviceId;
-    final ownMax = versionVector()[self] ?? 0;
-    final own = ownKeyRecord;
-    final pinned = <String, KeyRecord?>{};
-    for (final e in entries) {
-      // Rows under this device's own id come back only from its own
-      // go-back files, and those never reach past the counter. One
-      // beyond it is forged — applied, it would let partners' version
-      // vectors skip this device's real, not yet synced entries for
-      // good.
-      if (e.device == self && e.dseq > ownMax) continue;
-      // A person record is its own device's to write: anything else
-      // claiming it is dropped, whatever key it carries.
-      if (e.entity.startsWith(Keys.personPrefix) &&
-          e.entity != Keys.person(e.device)) {
-        continue;
-      }
-      if (_isBannedEntry(e)) {
-        _recordDiscarded(e.device, e.dseq);
-        continue;
-      }
-      final key = e.device == self
-          ? own
-          : pinned.putIfAbsent(e.device, () => pinnedKey(e.device)?.record);
-      if (key != null && !_signed(e, key)) {
-        report?.refused.update((e.author, e.device), (n) => n + 1,
-            ifAbsent: () => 1);
-        continue;
-      }
-      _db.execute(
-        'INSERT OR IGNORE INTO entries '
-        '(device, dseq, entity, field, value, date, author, recorded, reminder, sig) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-        [
-          e.device,
-          e.dseq,
-          e.entity,
-          e.field,
-          e.value,
-          _iso(e.date),
-          e.author,
-          _iso(e.recorded),
-          e.reminder ? 1 : 0,
-          e.sig,
-        ],
-      );
-      if (_db.updatedRows > 0) imported.add(e);
-    }
-    for (final e in imported) {
-      _noteVoid(e.field);
-    }
-    // Propagated image deletions: drop bytes with no live reference left.
-    for (final e in imported) {
-      if (e.field.startsWith(Keys.imagePrefix) && e.value == 'deleted') {
-        final hash = e.field.substring(Keys.imagePrefix.length);
-        if (!_imageReferenced(hash)) _blobs.remove(hash);
-      }
-    }
-    // Concurrent-edit detection (see doc comment above). The flag is an
-    // ordinary entry — it syncs, so every device shows the badge, and a
-    // resolution on any device clears it everywhere.
-    if (senderVector != null) {
-      for (final e in imported) {
-        if (!isConflictable(e.field)) continue;
-        final before = pre[(e.entity, e.field)];
-        if (before == null) continue; // field was new here
-        if (e.value == before.value) continue; // same value, no fight
-        final senderSawIt =
-            (senderVector[before.device] ?? 0) >= before.dseq;
-        if (senderSawIt) continue;
-        // Two devices grew a choice field's list at once — every
-        // upgrade does that: no fight to settle, both lists merge.
-        if (_isOptionList(e.field)) {
-          _mergeOptionLists(e.entity, e.field, before.value, e.value);
+        // Rows under this device's own id come back only from its own
+        // go-back files, and those never reach past the counter. One
+        // beyond it is forged — applied, it would let partners' version
+        // vectors skip this device's real, not yet synced entries for
+        // good.
+        if (e.device == self && e.dseq > ownMax) continue;
+        // A person record is its own device's to write: anything else
+        // claiming it is dropped, whatever key it carries.
+        if (e.entity.startsWith(Keys.personPrefix) &&
+            e.entity != Keys.person(e.device)) {
           continue;
         }
-        if (!hasConflict(e.entity, e.field)) {
-          append(e.entity, Keys.conflict(e.field), 'open',
-              as: author ?? 'cat(a)log');
+        if (_isBannedEntry(e)) {
+          _recordDiscarded(e.device, e.dseq);
+          continue;
+        }
+        final key = e.device == self
+            ? own
+            : pinned.putIfAbsent(e.device, () => pinnedKey(e.device)?.record);
+        if (key != null && !_signed(e, key)) {
+          report?.refused
+              .update((e.author, e.device), (n) => n + 1, ifAbsent: () => 1);
+          continue;
+        }
+        _db.execute(
+          'INSERT OR IGNORE INTO entries '
+          '(device, dseq, entity, field, value, date, author, recorded, reminder, sig) '
+          'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+          [
+            e.device,
+            e.dseq,
+            e.entity,
+            e.field,
+            e.value,
+            _iso(e.date),
+            e.author,
+            _iso(e.recorded),
+            e.reminder ? 1 : 0,
+            e.sig,
+          ],
+        );
+        if (_db.updatedRows > 0) imported.add(e);
+      }
+      if (imported.any((e) => e.field == Keys.mergedInto)) {
+        _mergeTargetsCache = null;
+      }
+      for (final e in imported) {
+        _noteVoid(e.field);
+      }
+      // Propagated image deletions: drop bytes with no live reference left.
+      for (final e in imported) {
+        if (e.field.startsWith(Keys.imagePrefix) && e.value == 'deleted') {
+          final hash = e.field.substring(Keys.imagePrefix.length);
+          if (!_imageReferenced(hash)) _blobs.remove(hash);
         }
       }
-    }
-    return imported;
+      // Concurrent-edit detection (see doc comment above). The flag is an
+      // ordinary entry — it syncs, so every device shows the badge, and a
+      // resolution on any device clears it everywhere.
+      if (senderVector != null) {
+        for (final e in imported) {
+          if (!isConflictable(e.field)) continue;
+          final before = pre[(e.entity, e.field)];
+          if (before == null) continue; // field was new here
+          if (e.value == before.value) continue; // same value, no fight
+          final senderSawIt = (senderVector[before.device] ?? 0) >= before.dseq;
+          if (senderSawIt) continue;
+          // Two devices grew a choice field's list at once — every
+          // upgrade does that: no fight to settle, both lists merge.
+          if (_isOptionList(e.field)) {
+            _mergeOptionLists(e.entity, e.field, before.value, e.value);
+            continue;
+          }
+          if (!hasConflict(e.entity, e.field)) {
+            append(e.entity, Keys.conflict(e.field), 'open',
+                as: author ?? 'cat(a)log');
+          }
+        }
+      }
+      return imported;
     });
   }
 
@@ -2012,7 +2047,11 @@ class CatalogStore {
     List<String> split(String? v) =>
         (v ?? '').split('\n').where((o) => o.isNotEmpty).toList();
     final mine = split(ours);
-    final merged = [...mine, for (final o in split(theirs)) if (!mine.contains(o)) o];
+    final merged = [
+      ...mine,
+      for (final o in split(theirs))
+        if (!mine.contains(o)) o
+    ];
     if (merged.remove('mixed')) merged.add('mixed');
     final now = split(current(entity, field));
     if (merged.length == now.length &&
@@ -2082,47 +2121,47 @@ class CatalogStore {
   void _merge(String loserId, String survivorId, String prefix, DateTime? date,
       {bool reassert = true}) {
     return transaction(() {
-    if (!loserId.startsWith(prefix) || !survivorId.startsWith(prefix)) {
-      throw ArgumentError('Merge partners must both be ${prefix}entities');
-    }
-    if (loserId == survivorId) {
-      throw ArgumentError('Cannot merge an entity into itself');
-    }
-    if (resolveEntity(survivorId) == loserId ||
-        _mergeTargets().containsKey(loserId)) {
-      throw ArgumentError('Merge would create a cycle or re-merge a loser');
-    }
-    if (reassert) {
-      // Survivor-wins: re-assert survivor values that the loser's newer
-      // entries would otherwise override in the combined projection.
-      final survivorFields = currentFields(survivorId);
-      final loserFields = currentFields(loserId);
-      // Snapshot the pair's live plans first: a fact re-assertion below
-      // is a newer append and would retire a plan on the same field
-      // (#74) — those plans are re-asserted afterwards, so they stay
-      // the newest append.
-      final pairPlans = [
-        for (final r in activeReminders())
-          if (resolveEntity(r.entity) == resolveEntity(survivorId) ||
-              resolveEntity(r.entity) == loserId)
-            r
-      ];
-      final reasserted = <String>{};
-      for (final key in survivorFields.keys) {
-        if (key == Keys.type || key == Keys.deleted) continue;
-        if (key.startsWith(Keys.imagePrefix)) continue;
-        if (!loserFields.containsKey(key)) continue;
-        if (loserFields[key] == survivorFields[key]) continue;
-        append(survivorId, key, survivorFields[key], date: date);
-        reasserted.add(key);
+      if (!loserId.startsWith(prefix) || !survivorId.startsWith(prefix)) {
+        throw ArgumentError('Merge partners must both be ${prefix}entities');
       }
-      for (final r in pairPlans) {
-        if (!reasserted.contains(r.field)) continue;
-        append(survivorId, r.field, r.value,
-            date: r.entry.date, reminder: true);
+      if (loserId == survivorId) {
+        throw ArgumentError('Cannot merge an entity into itself');
       }
-    }
-    append(loserId, Keys.mergedInto, survivorId, date: date);
+      if (resolveEntity(survivorId) == loserId ||
+          _mergeTargets().containsKey(loserId)) {
+        throw ArgumentError('Merge would create a cycle or re-merge a loser');
+      }
+      if (reassert) {
+        // Survivor-wins: re-assert survivor values that the loser's newer
+        // entries would otherwise override in the combined projection.
+        final survivorFields = currentFields(survivorId);
+        final loserFields = currentFields(loserId);
+        // Snapshot the pair's live plans first: a fact re-assertion below
+        // is a newer append and would retire a plan on the same field
+        // (#74) — those plans are re-asserted afterwards, so they stay
+        // the newest append.
+        final pairPlans = [
+          for (final r in activeReminders())
+            if (resolveEntity(r.entity) == resolveEntity(survivorId) ||
+                resolveEntity(r.entity) == loserId)
+              r
+        ];
+        final reasserted = <String>{};
+        for (final key in survivorFields.keys) {
+          if (key == Keys.type || key == Keys.deleted) continue;
+          if (key.startsWith(Keys.imagePrefix)) continue;
+          if (!loserFields.containsKey(key)) continue;
+          if (loserFields[key] == survivorFields[key]) continue;
+          append(survivorId, key, survivorFields[key], date: date);
+          reasserted.add(key);
+        }
+        for (final r in pairPlans) {
+          if (!reasserted.contains(r.field)) continue;
+          append(survivorId, r.field, r.value,
+              date: r.entry.date, reminder: true);
+        }
+      }
+      append(loserId, Keys.mergedInto, survivorId, date: date);
     });
   }
 
@@ -2145,10 +2184,12 @@ class CatalogStore {
     };
     // SQLite caps bound variables; two per entry, in slices.
     for (var i = 0; i < rows.length; i += 400) {
-      final slice = rows.sublist(i, i + 400 > rows.length ? rows.length : i + 400);
+      final slice =
+          rows.sublist(i, i + 400 > rows.length ? rows.length : i + 400);
       _removeEntries(
-          List.filled(slice.length, '(device = ? AND dseq = ?)').join(' OR '),
-          [for (final e in slice) ...[e.device, e.dseq]]);
+          List.filled(slice.length, '(device = ? AND dseq = ?)').join(' OR '), [
+        for (final e in slice) ...[e.device, e.dseq]
+      ]);
     }
     for (final e in rows) {
       if (isCorrectable(e.field) && hasConflict(e.entity, e.field)) {
@@ -2288,8 +2329,8 @@ class CatalogStore {
       'SELECT DISTINCT entity FROM entries WHERE field = ?',
       [Keys.image(hash)],
     );
-    return rows.any((r) =>
-        current(r['entity'] as String, Keys.image(hash)) == 'added');
+    return rows.any(
+        (r) => current(r['entity'] as String, Keys.image(hash)) == 'added');
   }
 
   /// Deletes one photo of a Cat: a marker entry propagates the deletion
@@ -2535,8 +2576,7 @@ class CatalogStore {
       }
       // Chip IDs are transponder numbers — the Card shows them scannable.
       if (f.type == FieldType.id) {
-        append(id, Keys.fieldIdDisplay, IdDisplay.barcode.name,
-            as: seedAuthor);
+        append(id, Keys.fieldIdDisplay, IdDisplay.barcode.name, as: seedAuthor);
       }
       if (f.type == FieldType.unitValue) {
         append(id, Keys.fieldDimension, starterDimensions[f.slug]!.name,

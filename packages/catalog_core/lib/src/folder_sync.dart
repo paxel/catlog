@@ -355,14 +355,20 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     // would otherwise be undone by the next folder sync. The delta is
     // what the other transport does; here it has to be taken.
     final mine = store.versionVector();
+    // A value this device only ever received as withheld sits below
+    // the watermark for good; without this it could never arrive,
+    // however often the writer shares with private included. The
+    // question costs queries, so it is asked once per field, and not
+    // at all when nothing here was ever withheld.
+    final anyWithheld = store.hasWithheld();
+    final withheld = <(String, String), bool>{};
+    bool withheldHere(Entry e) =>
+        anyWithheld &&
+        withheld.putIfAbsent(
+            (e.entity, e.field), () => store.isWithheld(e.entity, e.field));
     final fresh = [
       for (final e in foreign)
-        // A value this device only ever received as withheld sits below
-        // the watermark for good; without this it could never arrive,
-        // however often the writer shares with private included.
-        if (e.dseq > (mine[e.device] ?? 0) ||
-            store.isWithheld(e.entity, e.field))
-          e
+        if (e.dseq > (mine[e.device] ?? 0) || withheldHere(e)) e
     ];
     final imported =
         store.applyEntries(fresh, senderVector: writerVector, report: report);
