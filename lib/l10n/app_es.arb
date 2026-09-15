@@ -1229,5 +1229,7 @@
   "syncShow": "Mostrar",
   "achievementDone": "{times, plural, one{Hecho una vez} other{Hecho {times} veces}}, la primera el {date}",
   "syncRunning": "Sincronizando con la carpeta…",
-  "syncDismiss": "Ahora no"
+  "syncDismiss": "Ahora no",
+  "flierHidden": "{count, plural, one{{count} línea apartada} other{{count} líneas apartadas}}",
+  "undo": "Deshacer"
 }

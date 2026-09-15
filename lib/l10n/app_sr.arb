@@ -1229,5 +1229,7 @@
   "syncShow": "Прикажи",
   "achievementDone": "{times, plural, one{Урађено {times} пут} few{Урађено {times} пута} other{Урађено {times} пута}}, први пут {date}",
   "syncRunning": "Синхронизација са фасциклом…",
-  "syncDismiss": "Не сада"
+  "syncDismiss": "Не сада",
+  "flierHidden": "{count, plural, one{{count} ред одложен} few{{count} реда одложена} other{{count} редова одложено}}",
+  "undo": "Опозови"
 }

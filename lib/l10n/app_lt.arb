@@ -1229,5 +1229,7 @@
   "syncShow": "Rodyti",
   "achievementDone": "{times, plural, one{Atlikta {times} kartą} few{Atlikta {times} kartus} many{Atlikta {times} karto} other{Atlikta {times} kartų}}, pirmą kartą {date}",
   "syncRunning": "Sinchronizuojama su aplanku…",
-  "syncDismiss": "Ne dabar"
+  "syncDismiss": "Ne dabar",
+  "flierHidden": "{count, plural, one{{count} eilutė atidėta} few{{count} eilutės atidėtos} many{{count} eilutės atidėta} other{{count} eilučių atidėta}}",
+  "undo": "Atšaukti"
 }

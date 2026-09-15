@@ -3670,4 +3670,19 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Teraz nie';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count riadkov odložených',
+      few: '$count riadky odložené',
+      one: '$count riadok odložený',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Späť';
 }

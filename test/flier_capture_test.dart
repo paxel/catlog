@@ -69,6 +69,11 @@ void main() {
     List<FlierLine> lines = const [],
     FlierCodes codes = FlierCodes.none,
   }) async {
+    // The text step is one card per line now: a tall view keeps every
+    // card laid out for the finders.
+    tester.view.physicalSize = const Size(800, 2400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
     await tester.pumpWidget(
       MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,

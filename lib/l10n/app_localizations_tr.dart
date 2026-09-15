@@ -3656,4 +3656,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Şimdi değil';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count satır kenara alındı',
+      one: '$count satır kenara alındı',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Geri al';
 }

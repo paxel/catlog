@@ -1229,5 +1229,7 @@
   "syncShow": "Näytä",
   "achievementDone": "{times, plural, one{Tehty kerran} other{Tehty {times} kertaa}}, ensimmäisen kerran {date}",
   "syncRunning": "Synkronoidaan kansion kanssa…",
-  "syncDismiss": "Ei nyt"
+  "syncDismiss": "Ei nyt",
+  "flierHidden": "{count, plural, one{{count} rivi siirretty syrjään} other{{count} riviä siirretty syrjään}}",
+  "undo": "Kumoa"
 }

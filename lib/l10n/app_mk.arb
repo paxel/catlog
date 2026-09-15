@@ -1229,5 +1229,7 @@
   "syncShow": "Прикажи",
   "achievementDone": "{times, plural, one{Направено еднаш} other{Направено {times} пати}}, првпат на {date}",
   "syncRunning": "Синхронизација со папката…",
-  "syncDismiss": "Не сега"
+  "syncDismiss": "Не сега",
+  "flierHidden": "{count, plural, one{{count} ред тргнат настрана} other{{count} реда тргнати настрана}}",
+  "undo": "Врати"
 }

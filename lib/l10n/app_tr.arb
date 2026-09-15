@@ -1229,5 +1229,7 @@
   "syncShow": "Göster",
   "achievementDone": "{times, plural, one{{times} kez yapıldı} other{{times} kez yapıldı}}, ilki {date}",
   "syncRunning": "Klasörle eşitleniyor…",
-  "syncDismiss": "Şimdi değil"
+  "syncDismiss": "Şimdi değil",
+  "flierHidden": "{count, plural, one{{count} satır kenara alındı} other{{count} satır kenara alındı}}",
+  "undo": "Geri al"
 }

@@ -1229,5 +1229,7 @@
   "syncShow": "Mutasd",
   "achievementDone": "{times, plural, one{Egyszer megcsinálva} other{{times}-szor megcsinálva}}, először {date}",
   "syncRunning": "Szinkronizálás a mappával…",
-  "syncDismiss": "Most nem"
+  "syncDismiss": "Most nem",
+  "flierHidden": "{count, plural, one{{count} sor félretéve} other{{count} sor félretéve}}",
+  "undo": "Visszavonás"
 }

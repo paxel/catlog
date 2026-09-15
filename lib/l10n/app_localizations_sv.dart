@@ -3655,4 +3655,18 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Inte nu';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rader lagda åt sidan',
+      one: '$count rad lagd åt sidan',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Ångra';
 }

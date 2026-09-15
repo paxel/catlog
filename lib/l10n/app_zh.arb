@@ -1229,5 +1229,7 @@
   "syncShow": "显示",
   "achievementDone": "{times, plural, other{已完成 {times} 次}}，首次 {date}",
   "syncRunning": "正在与文件夹同步…",
-  "syncDismiss": "暂不"
+  "syncDismiss": "暂不",
+  "flierHidden": "{count, plural, other{已搁置 {count} 行}}",
+  "undo": "撤销"
 }

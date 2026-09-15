@@ -994,6 +994,9 @@ class ModeLocalizations implements AppLocalizations {
   String get finishUntickHintNeutral => base.finishUntickHintNeutral;
 
   @override
+  String flierHidden(int count) => base.flierHidden(count);
+
+  @override
   String get flierLayoutUnknown => base.flierLayoutUnknown;
 
   @override
@@ -2909,6 +2912,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get unbanAction => base.unbanAction;
+
+  @override
+  String get undo => base.undo;
 
   @override
   String undoImportBody(int count) => base.undoImportBody(count);

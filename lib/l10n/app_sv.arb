@@ -1229,5 +1229,7 @@
   "syncShow": "Visa",
   "achievementDone": "{times, plural, one{Gjort en gång} other{Gjort {times} gånger}}, första gången {date}",
   "syncRunning": "Synkar med mappen…",
-  "syncDismiss": "Inte nu"
+  "syncDismiss": "Inte nu",
+  "flierHidden": "{count, plural, one{{count} rad lagd åt sidan} other{{count} rader lagda åt sidan}}",
+  "undo": "Ångra"
 }

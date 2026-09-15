@@ -3517,4 +3517,17 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get syncDismiss => '今はしない';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 行を脇に置きました',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => '元に戻す';
 }

@@ -1229,5 +1229,7 @@
   "syncShow": "Pokaż",
   "achievementDone": "{times, plural, one{Zrobione raz} few{Zrobione {times} razy} many{Zrobione {times} razy} other{Zrobione {times} razy}}, pierwszy raz {date}",
   "syncRunning": "Synchronizacja z folderem…",
-  "syncDismiss": "Nie teraz"
+  "syncDismiss": "Nie teraz",
+  "flierHidden": "{count, plural, one{{count} wiersz odłożony} few{{count} wiersze odłożone} many{{count} wierszy odłożonych} other{{count} wiersza odłożonego}}",
+  "undo": "Cofnij"
 }

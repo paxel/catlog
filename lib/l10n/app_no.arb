@@ -1229,5 +1229,7 @@
   "syncShow": "Vis",
   "achievementDone": "{times, plural, one{Gjort én gang} other{Gjort {times} ganger}}, første gang {date}",
   "syncRunning": "Synkroniserer med mappen…",
-  "syncDismiss": "Ikke nå"
+  "syncDismiss": "Ikke nå",
+  "flierHidden": "{count, plural, one{{count} linje lagt til side} other{{count} linjer lagt til side}}",
+  "undo": "Angre"
 }

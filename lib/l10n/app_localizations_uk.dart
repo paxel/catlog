@@ -3682,4 +3682,20 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Не зараз';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count рядка відкладено',
+      many: '$count рядків відкладено',
+      few: '$count рядки відкладено',
+      one: '$count рядок відкладено',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Скасувати';
 }

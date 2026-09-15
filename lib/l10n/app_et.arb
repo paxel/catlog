@@ -1229,5 +1229,7 @@
   "syncShow": "Näita",
   "achievementDone": "{times, plural, one{Tehtud üks kord} other{Tehtud {times} korda}}, esimest korda {date}",
   "syncRunning": "Sünkroonimine kaustaga…",
-  "syncDismiss": "Mitte praegu"
+  "syncDismiss": "Mitte praegu",
+  "flierHidden": "{count, plural, one{{count} rida kõrvale pandud} other{{count} rida kõrvale pandud}}",
+  "undo": "Võta tagasi"
 }

@@ -3662,4 +3662,18 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Ekki núna';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count línur lagðar til hliðar',
+      one: '$count lína lögð til hliðar',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Afturkalla';
 }

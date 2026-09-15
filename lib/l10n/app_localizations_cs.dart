@@ -3671,4 +3671,19 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Teď ne';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count řádků odloženo',
+      few: '$count řádky odloženy',
+      one: '$count řádek odložen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Zpět';
 }

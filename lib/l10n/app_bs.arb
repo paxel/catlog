@@ -1229,5 +1229,7 @@
   "syncShow": "Prikaži",
   "achievementDone": "{times, plural, one{Urađeno {times} put} few{Urađeno {times} puta} other{Urađeno {times} puta}}, prvi put {date}",
   "syncRunning": "Sinhronizacija s folderom…",
-  "syncDismiss": "Ne sada"
+  "syncDismiss": "Ne sada",
+  "flierHidden": "{count, plural, one{{count} red odložen} few{{count} reda odložena} other{{count} redova odloženo}}",
+  "undo": "Poništi"
 }

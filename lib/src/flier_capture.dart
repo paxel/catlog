@@ -183,6 +183,25 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// Codes the user unticked on the Flier text page.
   final _rejectedCodes = <String>{};
 
+  /// Lines closed with the X or a swipe, with the target they had, so
+  /// Undo puts the last one back where it was.
+  final _hidden = <(FlierEntry, String)>[];
+
+  void _hideLine(FlierEntry entry) {
+    setState(() {
+      _hidden.add((entry, entry.target));
+      entry.target = FlierTarget.drop;
+    });
+  }
+
+  void _undoHide() {
+    if (_hidden.isEmpty) return;
+    setState(() {
+      final (entry, target) = _hidden.removeLast();
+      entry.target = target;
+    });
+  }
+
   /// Catalog Fields the poster filled (gender, breed, …), editable on
   /// the Cat page.
   final _fieldInputs = <String, FieldValueController>{};
@@ -190,8 +209,9 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// What the poster's animal looks like (1.2.0), as the stored line;
   /// and its species, asked in a pets catalog, a cat otherwise.
   String? _looks;
-  late String _species =
-      petMode.value ? (store.localSetting(lastSpeciesKey) ?? 'cat') : 'cat';
+  late String _species = petMode.value
+      ? (store.localSetting(lastSpeciesKey) ?? 'cat')
+      : 'cat';
 
   /// Registry numbers the poster carried.
   final _registryHits = <FlierRegistryHit>[];
@@ -487,10 +507,11 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   Future<void> _scanCode() async {
     final value = await runExclusive(
       'scan',
-      () => (widget.scan ??
+      () =>
+          (widget.scan ??
           (BuildContext c) => Navigator.of(c).push<String>(
-                MaterialPageRoute(builder: (_) => const ScanScreen()),
-              ))(context),
+            MaterialPageRoute(builder: (_) => const ScanScreen()),
+          ))(context),
       context: context,
     );
     if (value != null && value.isNotEmpty && mounted) {
@@ -619,130 +640,130 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         : _name.text.trim();
     // Every fact of the poster lands, or none does.
     store.transaction(() {
-    // The owner: the picked clowder, or a new one for a new cat (#84).
-    // A new clowder's facts are dated to the flier; on an existing one
-    // they are recorded now, or an older value would keep winning.
-    String? clowderId = _existingClowder;
-    final when = _existingClowder == null ? _missingSince : null;
-    if (_hasClowderTarget) {
-      final ownerName = _owner.text.trim();
-      if (clowderId == null) {
-        // Owner clowder first: public flier data, no Private marker. A
-        // nameless owner is named after the cat, so the card isn't
-        // barren.
-        clowderId = store.createClowder(
-          ownerName.isEmpty ? t.ownerOfCat(catName) : ownerName,
-          date: _missingSince,
-        );
-        store.append(
-          clowderId,
-          Keys.userField('status'),
-          'owner',
-          date: _missingSince,
-        );
-      }
-      if (_address.text.trim().isNotEmpty) {
-        store.append(
-          clowderId,
-          Keys.userField('address'),
-          _address.text.trim(),
-          date: when,
-        );
-      }
-      if (_addressPosition case final pos?) {
-        store.recordPosition(clowderId, pos.$1, pos.$2, date: when);
-      }
-      if (ownerName.isNotEmpty) {
-        store.append(
-          clowderId,
-          Keys.userField('responsible'),
-          ownerName,
-          date: when,
-        );
-      }
-      // Contact details go into their own fields; the flier text stays
-      // in remarks as the source it came from.
-      if (_phone.text.trim().isNotEmpty) {
-        store.append(
-          clowderId,
-          Keys.userField('phone'),
-          _phone.text.trim(),
-          date: when,
-        );
-      }
-      if (_email.text.trim().isNotEmpty) {
-        store.append(
-          clowderId,
-          Keys.userField('email'),
-          _email.text.trim(),
-          date: when,
-        );
-      }
-      if (_remarks.text.trim().isNotEmpty) {
-        final existing = _existingClowder == null
-            ? ''
-            : store.current(clowderId, Keys.userField('remarks')) ?? '';
-        store.append(
-          clowderId,
-          Keys.userField('remarks'),
-          existing.isEmpty
-              ? _remarks.text.trim()
-              : '$existing\n${_remarks.text.trim()}',
-          date: when,
-        );
-      }
-      for (final input in _clowderInputs.values) {
-        if (input.value case final value?) {
-          store.append(clowderId, input.def.key, value, date: when);
+      // The owner: the picked clowder, or a new one for a new cat (#84).
+      // A new clowder's facts are dated to the flier; on an existing one
+      // they are recorded now, or an older value would keep winning.
+      String? clowderId = _existingClowder;
+      final when = _existingClowder == null ? _missingSince : null;
+      if (_hasClowderTarget) {
+        final ownerName = _owner.text.trim();
+        if (clowderId == null) {
+          // Owner clowder first: public flier data, no Private marker. A
+          // nameless owner is named after the cat, so the card isn't
+          // barren.
+          clowderId = store.createClowder(
+            ownerName.isEmpty ? t.ownerOfCat(catName) : ownerName,
+            date: _missingSince,
+          );
+          store.append(
+            clowderId,
+            Keys.userField('status'),
+            'owner',
+            date: _missingSince,
+          );
+        }
+        if (_address.text.trim().isNotEmpty) {
+          store.append(
+            clowderId,
+            Keys.userField('address'),
+            _address.text.trim(),
+            date: when,
+          );
+        }
+        if (_addressPosition case final pos?) {
+          store.recordPosition(clowderId, pos.$1, pos.$2, date: when);
+        }
+        if (ownerName.isNotEmpty) {
+          store.append(
+            clowderId,
+            Keys.userField('responsible'),
+            ownerName,
+            date: when,
+          );
+        }
+        // Contact details go into their own fields; the flier text stays
+        // in remarks as the source it came from.
+        if (_phone.text.trim().isNotEmpty) {
+          store.append(
+            clowderId,
+            Keys.userField('phone'),
+            _phone.text.trim(),
+            date: when,
+          );
+        }
+        if (_email.text.trim().isNotEmpty) {
+          store.append(
+            clowderId,
+            Keys.userField('email'),
+            _email.text.trim(),
+            date: when,
+          );
+        }
+        if (_remarks.text.trim().isNotEmpty) {
+          final existing = _existingClowder == null
+              ? ''
+              : store.current(clowderId, Keys.userField('remarks')) ?? '';
+          store.append(
+            clowderId,
+            Keys.userField('remarks'),
+            existing.isEmpty
+                ? _remarks.text.trim()
+                : '$existing\n${_remarks.text.trim()}',
+            date: when,
+          );
+        }
+        for (final input in _clowderInputs.values) {
+          if (input.value case final value?) {
+            store.append(clowderId, input.def.key, value, date: when);
+          }
         }
       }
-    }
-    if (_newCat) {
-      // The cat lived with its owner until the flier's date — plain
-      // Move semantics keep the history reconstructable after a Merge.
-      catId = store.createCat(
-        catName,
-        clowderId: clowderId,
-        date: _missingSince,
-        species: _species,
-      );
-      if (_looks case final looks?) {
-        store.append(catId, Keys.userField('looks'), looks);
+      if (_newCat) {
+        // The cat lived with its owner until the flier's date — plain
+        // Move semantics keep the history reconstructable after a Merge.
+        catId = store.createCat(
+          catName,
+          clowderId: clowderId,
+          date: _missingSince,
+          species: _species,
+        );
+        if (_looks case final looks?) {
+          store.append(catId, Keys.userField('looks'), looks);
+        }
+        store.moveCat(catId, null, date: _missingSince);
+      } else {
+        catId = _existingCat!;
+        if (clowderId != null) {
+          // Known cat, known household: it lived there and went stray on
+          // the flier's date.
+          store.moveCat(catId, clowderId);
+          store.moveCat(catId, null);
+        }
       }
-      store.moveCat(catId, null, date: _missingSince);
-    } else {
-      catId = _existingCat!;
-      if (clowderId != null) {
-        // Known cat, known household: it lived there and went stray on
-        // the flier's date.
-        store.moveCat(catId, clowderId);
-        store.moveCat(catId, null);
+      if (_position case final pos?) {
+        store.recordPosition(catId, pos.$1, pos.$2, kind: PositionKind.flier);
       }
-    }
-    if (_position case final pos?) {
-      store.recordPosition(catId, pos.$1, pos.$2, kind: PositionKind.flier);
-    }
-    if (_chip.text.trim().isNotEmpty) {
-      store.append(catId, Keys.userField('chipid'), _chip.text.trim());
-    }
-    for (final input in _fieldInputs.values) {
-      if (input.value case final value?) {
-        store.append(catId, input.def.key, value);
-        if (input.def.slug == 'breed') store.learnBreed(catId, value);
+      if (_chip.text.trim().isNotEmpty) {
+        store.append(catId, Keys.userField('chipid'), _chip.text.trim());
       }
-    }
-    for (final hit in _registryHits) {
-      if (hit.take) _storeRegistryHit(catId, hit);
-    }
-    final remarks = _remarks.text.trim();
-    if (remarks.isNotEmpty) {
-      final existing = store.current(catId, Keys.userField('remarks')) ?? '';
-      store.append(
-        catId,
-        Keys.userField('remarks'),
-        existing.isEmpty ? remarks : '$existing\n$remarks',
-      );
-    }
+      for (final input in _fieldInputs.values) {
+        if (input.value case final value?) {
+          store.append(catId, input.def.key, value);
+          if (input.def.slug == 'breed') store.learnBreed(catId, value);
+        }
+      }
+      for (final hit in _registryHits) {
+        if (hit.take) _storeRegistryHit(catId, hit);
+      }
+      final remarks = _remarks.text.trim();
+      if (remarks.isNotEmpty) {
+        final existing = store.current(catId, Keys.userField('remarks')) ?? '';
+        store.append(
+          catId,
+          Keys.userField('remarks'),
+          existing.isEmpty ? remarks : '$existing\n$remarks',
+        );
+      }
     });
     // The full flier photo is provenance; the cropped portrait becomes
     // the face.
@@ -769,8 +790,12 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
 
   Widget _flierThumb() => ClipRRect(
     borderRadius: BorderRadius.circular(12),
-    child: Image.memory(_photo!,
-        height: 160, cacheHeight: 480, fit: BoxFit.contain),
+    child: Image.memory(
+      _photo!,
+      height: 160,
+      cacheHeight: 480,
+      fit: BoxFit.contain,
+    ),
   );
 
   /// The targets a line can be sent to: the wizard's own inputs and
@@ -907,11 +932,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
                 }
               }),
               title: Text(t.useCode),
-              subtitle: Text(
-                code,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-              ),
+              subtitle: Text(code),
             ),
         ],
         const Divider(),
@@ -924,27 +945,92 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
                 : t.flierRecognized(reading.template!.name),
             style: Theme.of(context).textTheme.bodySmall,
           ),
-          for (final entry in reading.entries)
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              title: Text(entry.value),
-              subtitle: switch ((entry.label, _overwriteHint(t, entry.target))) {
-                (null, null) => null,
-                (final label?, null) => Text(label),
-                (null, final hint?) => Text(hint),
-                (final label?, final hint?) => Text('$label\n$hint'),
-              },
-              isThreeLine: entry.label != null &&
-                  _overwriteHint(t, entry.target) != null,
-              trailing: DropdownButton<String>(
-                value: known.contains(entry.target)
-                    ? entry.target
-                    : FlierTarget.remarks,
-                items: items,
-                onChanged: (v) =>
-                    setState(() => entry.target = v ?? entry.target),
-              ),
+          // What was put aside, and the way back, above the cards where
+          // the eye is.
+          if (_hidden.isNotEmpty)
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    t.flierHidden(_hidden.length),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+                TextButton(onPressed: _undoHide, child: Text(t.undo)),
+              ],
             ),
+          // One card per line the poster gave: the text as wide as the
+          // page, wrapped, the target under it. The X or a swipe puts a
+          // line aside; Undo brings the last one back.
+          for (final entry in reading.entries)
+            if (!_hidden.any((h) => identical(h.$1, entry)))
+              Dismissible(
+                key: ObjectKey(entry),
+                onDismissed: (_) => _hideLine(entry),
+                child: Card(
+                  margin: const EdgeInsets.symmetric(vertical: 6),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 4, 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 8),
+                                child: Text(
+                                  entry.value,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium,
+                                ),
+                              ),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.close),
+                              tooltip: t.targetDrop,
+                              onPressed: () => _hideLine(entry),
+                            ),
+                          ],
+                        ),
+                        if (entry.label != null)
+                          Text(
+                            entry.label!,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        if (_overwriteHint(t, entry.target) case final hint?)
+                          Text(
+                            hint,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        const SizedBox(height: 8),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 12),
+                          child: DropdownButtonFormField<String>(
+                            initialValue: known.contains(entry.target)
+                                ? entry.target
+                                : FlierTarget.remarks,
+                            isExpanded: true,
+                            decoration: const InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 8,
+                              ),
+                            ),
+                            items: items,
+                            onChanged: (v) => setState(
+                              () => entry.target = v ?? entry.target,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
         ],
         if (reading == null)
           TextField(
@@ -1144,8 +1230,12 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       if (_portrait case final portrait?)
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
-          child: Image.memory(portrait,
-              height: 220, cacheHeight: 660, fit: BoxFit.contain),
+          child: Image.memory(
+            portrait,
+            height: 220,
+            cacheHeight: 660,
+            fit: BoxFit.contain,
+          ),
         )
       else
         _flierThumb(),
@@ -1172,20 +1262,41 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           value: hit.take,
           onChanged: (on) => setState(() => hit.take = on ?? hit.take),
           title: Text('${hit.serviceName}: ${hit.value}'),
-          subtitle: Text(
-            buildLookupUrl(hit.template, hit.value),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
+          subtitle: Text(buildLookupUrl(hit.template, hit.value)),
         ),
       for (final url in _unknownLinks)
-        ListTile(
-          leading: const Icon(Icons.link),
-          title: Text(url, maxLines: 2, overflow: TextOverflow.ellipsis),
-          subtitle: Text(t.unknownServiceHint),
-          trailing: TextButton(
-            onPressed: () => _learnLink(url),
-            child: Text(t.rememberService),
+        // The whole link, wrapped: the question below is about it.
+        Card(
+          margin: const EdgeInsets.symmetric(vertical: 6),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 12, top: 2),
+                      child: Icon(Icons.link),
+                    ),
+                    Expanded(child: SelectableText(url)),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  t.unknownServiceHint,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: TextButton(
+                    onPressed: () => _learnLink(url),
+                    child: Text(t.rememberService),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
     ],
@@ -1345,34 +1456,44 @@ class _LearnServiceDialogState extends State<_LearnServiceDialog> {
     final t = context.t;
     return AlertDialog(
       title: Text(t.rememberService),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            t.rememberServiceHint,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          TextField(
-            controller: _name,
-            decoration: InputDecoration(labelText: t.name),
-          ),
-          const SizedBox(height: 12),
-          if (widget.candidates.isEmpty)
-            Text(t.noIdInLink)
-          else
-            DropdownButtonFormField<String>(
-              initialValue: _value,
-              decoration: InputDecoration(labelText: t.whichNumber),
-              items: [
-                for (final c in widget.candidates)
-                  DropdownMenuItem(
-                    value: c.value,
-                    child: Text('${c.where}: ${c.value}'),
-                  ),
-              ],
-              onChanged: (v) => setState(() => _value = v ?? _value),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // The link in full: the questions below are about its parts.
+            SelectableText(
+              widget.url,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
-        ],
+            const SizedBox(height: 8),
+            Text(
+              t.rememberServiceHint,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            TextField(
+              controller: _name,
+              decoration: InputDecoration(labelText: t.name),
+            ),
+            const SizedBox(height: 12),
+            if (widget.candidates.isEmpty)
+              Text(t.noIdInLink)
+            else
+              DropdownButtonFormField<String>(
+                isExpanded: true,
+                initialValue: _value,
+                decoration: InputDecoration(labelText: t.whichNumber),
+                items: [
+                  for (final c in widget.candidates)
+                    DropdownMenuItem(
+                      value: c.value,
+                      child: Text('${c.where}: ${c.value}'),
+                    ),
+                ],
+                onChanged: (v) => setState(() => _value = v ?? _value),
+              ),
+          ],
+        ),
       ),
       actions: [
         TextButton(

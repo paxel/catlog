@@ -2047,5 +2047,14 @@
     }
   },
   "syncRunning": "Syncing with the folder…",
-  "syncDismiss": "Not now"
+  "syncDismiss": "Not now",
+  "flierHidden": "{count, plural, one{{count} line put aside} other{{count} lines put aside}}",
+  "@flierHidden": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "undo": "Undo"
 }

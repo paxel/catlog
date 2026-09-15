@@ -3658,4 +3658,18 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Jo tani';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rreshta të lënë mënjanë',
+      one: '$count rresht i lënë mënjanë',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Zhbëj';
 }

@@ -1229,5 +1229,7 @@
   "syncShow": "Показать",
   "achievementDone": "{times, plural, one{Сделано {times} раз} few{Сделано {times} раза} many{Сделано {times} раз} other{Сделано {times} раза}}, впервые {date}",
   "syncRunning": "Синхронизация с папкой…",
-  "syncDismiss": "Не сейчас"
+  "syncDismiss": "Не сейчас",
+  "flierHidden": "{count, plural, one{{count} строка отложена} few{{count} строки отложены} many{{count} строк отложено} other{{count} строки отложено}}",
+  "undo": "Отменить"
 }

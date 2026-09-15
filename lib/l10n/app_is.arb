@@ -1229,5 +1229,7 @@
   "syncShow": "Sýna",
   "achievementDone": "{times, plural, one{Gert einu sinni} other{Gert {times} sinnum}}, fyrst {date}",
   "syncRunning": "Samstilli við möppuna…",
-  "syncDismiss": "Ekki núna"
+  "syncDismiss": "Ekki núna",
+  "flierHidden": "{count, plural, one{{count} lína lögð til hliðar} other{{count} línur lagðar til hliðar}}",
+  "undo": "Afturkalla"
 }

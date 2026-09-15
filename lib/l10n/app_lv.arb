@@ -1229,5 +1229,7 @@
   "syncShow": "Rādīt",
   "achievementDone": "{times, plural, zero{Izdarīts {times} reižu} one{Izdarīts {times} reizi} other{Izdarīts {times} reizes}}, pirmoreiz {date}",
   "syncRunning": "Sinhronizē ar mapi…",
-  "syncDismiss": "Ne tagad"
+  "syncDismiss": "Ne tagad",
+  "flierHidden": "{count, plural, zero{{count} rindu nolikts malā} one{{count} rinda nolikta malā} other{{count} rindas noliktas malā}}",
+  "undo": "Atsaukt"
 }

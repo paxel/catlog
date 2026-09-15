@@ -3659,4 +3659,18 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Не сега';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count реда тргнати настрана',
+      one: '$count ред тргнат настрана',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Врати';
 }

@@ -1229,5 +1229,7 @@
   "syncShow": "عرض",
   "achievementDone": "{times, plural, zero{لم يُنجز} one{أُنجز مرة} two{أُنجز مرتين} few{أُنجز {times} مرات} many{أُنجز {times} مرة} other{أُنجز {times} مرة}}، أول مرة في {date}",
   "syncRunning": "جارٍ المزامنة مع المجلد…",
-  "syncDismiss": "ليس الآن"
+  "syncDismiss": "ليس الآن",
+  "flierHidden": "{count, plural, zero{لا أسطر مؤجلة} one{سطر واحد مؤجل} two{سطران مؤجلان} few{{count} أسطر مؤجلة} many{{count} سطراً مؤجلاً} other{{count} سطر مؤجل}}",
+  "undo": "تراجع"
 }

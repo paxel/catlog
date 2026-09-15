@@ -3720,4 +3720,21 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Ní anois';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count líne curtha i leataobh',
+      many: '$count líne curtha i leataobh',
+      few: '$count líne curtha i leataobh',
+      two: '$count líne curtha i leataobh',
+      one: '$count líne curtha i leataobh',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Cealaigh';
 }

@@ -3658,4 +3658,18 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Ei nyt';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count riviä siirretty syrjään',
+      one: '$count rivi siirretty syrjään',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Kumoa';
 }

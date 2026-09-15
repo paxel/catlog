@@ -3655,4 +3655,18 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Mitte praegu';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rida kõrvale pandud',
+      one: '$count rida kõrvale pandud',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Võta tagasi';
 }

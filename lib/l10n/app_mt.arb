@@ -1229,5 +1229,7 @@
   "syncShow": "Uri",
   "achievementDone": "{times, plural, one{Magħmul darba} other{Magħmul {times} darbiet}}, l-ewwel darba fi {date}",
   "syncRunning": "Qed jissinkronizza mal-folder…",
-  "syncDismiss": "Mhux issa"
+  "syncDismiss": "Mhux issa",
+  "flierHidden": "{count, plural, one{{count} linja mwarrba} other{{count} linji mwarrbin}}",
+  "undo": "Ħassar"
 }

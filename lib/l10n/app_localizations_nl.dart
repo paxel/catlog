@@ -3663,4 +3663,18 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Niet nu';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count regels opzijgezet',
+      one: '$count regel opzijgezet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Ongedaan maken';
 }

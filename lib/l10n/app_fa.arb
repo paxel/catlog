@@ -1229,5 +1229,7 @@
   "syncShow": "نمایش",
   "achievementDone": "{times, plural, one{{times} بار انجام شد} other{{times} بار انجام شد}}، اولین بار {date}",
   "syncRunning": "در حال همگام‌سازی با پوشه…",
-  "syncDismiss": "الان نه"
+  "syncDismiss": "الان نه",
+  "flierHidden": "{count, plural, one{{count} خط کنار گذاشته شد} other{{count} خط کنار گذاشته شد}}",
+  "undo": "واگرد"
 }

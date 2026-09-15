@@ -1229,5 +1229,7 @@
   "syncShow": "הצג",
   "achievementDone": "{times, plural, one{נעשה פעם אחת} two{נעשה פעמיים} other{נעשה {times} פעמים}}, לראשונה ב-{date}",
   "syncRunning": "מסנכרן עם התיקייה…",
-  "syncDismiss": "לא עכשיו"
+  "syncDismiss": "לא עכשיו",
+  "flierHidden": "{count, plural, one{שורה אחת הונחה בצד} two{{count} שורות הונחו בצד} other{{count} שורות הונחו בצד}}",
+  "undo": "בטל"
 }

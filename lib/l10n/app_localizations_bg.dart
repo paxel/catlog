@@ -3656,4 +3656,18 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Не сега';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count реда отложени',
+      one: '$count ред отложен',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Отмени';
 }

@@ -1235,5 +1235,7 @@
   "syncShow": "Anzeigen",
   "achievementDone": "{times, plural, one{Einmal erledigt} other{{times} Mal erledigt}}, zuerst am {date}",
   "syncRunning": "Abgleich mit dem Ordner läuft…",
-  "syncDismiss": "Jetzt nicht"
+  "syncDismiss": "Jetzt nicht",
+  "flierHidden": "{count, plural, one{{count} Zeile beiseitegelegt} other{{count} Zeilen beiseitegelegt}}",
+  "undo": "Rückgängig"
 }

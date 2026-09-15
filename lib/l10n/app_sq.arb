@@ -1229,5 +1229,7 @@
   "syncShow": "Shfaq",
   "achievementDone": "{times, plural, one{Bërë një herë} other{Bërë {times} herë}}, herën e parë më {date}",
   "syncRunning": "Duke u sinkronizuar me dosjen…",
-  "syncDismiss": "Jo tani"
+  "syncDismiss": "Jo tani",
+  "flierHidden": "{count, plural, one{{count} rresht i lënë mënjanë} other{{count} rreshta të lënë mënjanë}}",
+  "undo": "Zhbëj"
 }

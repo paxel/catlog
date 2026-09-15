@@ -3699,4 +3699,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get syncDismiss => 'ليس الآن';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سطر مؤجل',
+      many: '$count سطراً مؤجلاً',
+      few: '$count أسطر مؤجلة',
+      two: 'سطران مؤجلان',
+      one: 'سطر واحد مؤجل',
+      zero: 'لا أسطر مؤجلة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'تراجع';
 }

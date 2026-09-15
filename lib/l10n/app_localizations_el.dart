@@ -3670,4 +3670,18 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Όχι τώρα';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count γραμμές στην άκρη',
+      one: '$count γραμμή στην άκρη',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Αναίρεση';
 }

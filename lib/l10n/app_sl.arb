@@ -1229,5 +1229,7 @@
   "syncShow": "Pokaži",
   "achievementDone": "{times, plural, one{Opravljeno {times}-krat} two{Opravljeno {times}-krat} few{Opravljeno {times}-krat} other{Opravljeno {times}-krat}}, prvič {date}",
   "syncRunning": "Sinhronizacija z mapo…",
-  "syncDismiss": "Ne zdaj"
+  "syncDismiss": "Ne zdaj",
+  "flierHidden": "{count, plural, one{{count} vrstica odložena} two{{count} vrstici odloženi} few{{count} vrstice odložene} other{{count} vrstic odloženih}}",
+  "undo": "Razveljavi"
 }

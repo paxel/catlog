@@ -6319,6 +6319,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not now'**
   String get syncDismiss;
+
+  /// No description provided for @flierHidden.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{{count} line put aside} other{{count} lines put aside}}'**
+  String flierHidden(int count);
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undo;
 }
 
 class _AppLocalizationsDelegate

@@ -3655,4 +3655,19 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get syncDismiss => 'לא עכשיו';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count שורות הונחו בצד',
+      two: '$count שורות הונחו בצד',
+      one: 'שורה אחת הונחה בצד',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'בטל';
 }

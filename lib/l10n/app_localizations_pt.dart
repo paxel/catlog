@@ -3659,4 +3659,18 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Agora não';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count linhas postas de lado',
+      one: '$count linha posta de lado',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Anular';
 }

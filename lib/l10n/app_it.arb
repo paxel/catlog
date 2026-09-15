@@ -1229,5 +1229,7 @@
   "syncShow": "Mostra",
   "achievementDone": "{times, plural, one{Fatto una volta} other{Fatto {times} volte}}, la prima il {date}",
   "syncRunning": "Sincronizzazione con la cartella…",
-  "syncDismiss": "Non ora"
+  "syncDismiss": "Non ora",
+  "flierHidden": "{count, plural, one{{count} riga messa da parte} other{{count} righe messe da parte}}",
+  "undo": "Annulla"
 }

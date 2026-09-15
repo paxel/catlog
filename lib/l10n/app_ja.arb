@@ -1229,5 +1229,7 @@
   "syncShow": "表示",
   "achievementDone": "{times, plural, other{{times} 回完了}}、初回 {date}",
   "syncRunning": "フォルダと同期中…",
-  "syncDismiss": "今はしない"
+  "syncDismiss": "今はしない",
+  "flierHidden": "{count, plural, other{{count} 行を脇に置きました}}",
+  "undo": "元に戻す"
 }

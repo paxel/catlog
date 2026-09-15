@@ -1229,5 +1229,7 @@
   "syncShow": "Zobrazit",
   "achievementDone": "{times, plural, one{Hotovo jednou} few{Hotovo {times}krát} other{Hotovo {times}krát}}, poprvé {date}",
   "syncRunning": "Synchronizace se složkou…",
-  "syncDismiss": "Teď ne"
+  "syncDismiss": "Teď ne",
+  "flierHidden": "{count, plural, one{{count} řádek odložen} few{{count} řádky odloženy} other{{count} řádků odloženo}}",
+  "undo": "Zpět"
 }

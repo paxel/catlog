@@ -1229,5 +1229,7 @@
   "syncShow": "Mostrar",
   "achievementDone": "{times, plural, one{Feito uma vez} other{Feito {times} vezes}}, a primeira em {date}",
   "syncRunning": "A sincronizar com a pasta…",
-  "syncDismiss": "Agora não"
+  "syncDismiss": "Agora não",
+  "flierHidden": "{count, plural, one{{count} linha posta de lado} other{{count} linhas postas de lado}}",
+  "undo": "Anular"
 }

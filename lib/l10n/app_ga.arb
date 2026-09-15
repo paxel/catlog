@@ -1229,5 +1229,7 @@
   "syncShow": "Taispeáin",
   "achievementDone": "{times, plural, one{Déanta uair amháin} two{Déanta {times} uair} few{Déanta {times} huaire} many{Déanta {times} n-uaire} other{Déanta {times} uair}}, den chéad uair ar {date}",
   "syncRunning": "Ag sioncronú leis an bhfillteán…",
-  "syncDismiss": "Ní anois"
+  "syncDismiss": "Ní anois",
+  "flierHidden": "{count, plural, one{{count} líne curtha i leataobh} two{{count} líne curtha i leataobh} few{{count} líne curtha i leataobh} many{{count} líne curtha i leataobh} other{{count} líne curtha i leataobh}}",
+  "undo": "Cealaigh"
 }

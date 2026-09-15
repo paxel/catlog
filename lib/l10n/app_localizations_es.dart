@@ -3668,4 +3668,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Ahora no';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count líneas apartadas',
+      one: '$count línea apartada',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Deshacer';
 }

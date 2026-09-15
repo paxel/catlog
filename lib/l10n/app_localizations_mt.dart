@@ -3674,4 +3674,18 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Mhux issa';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count linji mwarrbin',
+      one: '$count linja mwarrba',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Ħassar';
 }

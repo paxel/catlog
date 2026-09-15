@@ -3676,4 +3676,19 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Nu acum';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de rânduri puse deoparte',
+      few: '$count rânduri puse deoparte',
+      one: '$count rând pus deoparte',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Anulează';
 }

@@ -3682,4 +3682,20 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Ne dabar';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count eilučių atidėta',
+      many: '$count eilutės atidėta',
+      few: '$count eilutės atidėtos',
+      one: '$count eilutė atidėta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Atšaukti';
 }

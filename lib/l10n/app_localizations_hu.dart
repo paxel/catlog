@@ -3657,4 +3657,18 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get syncDismiss => 'Most nem';
+
+  @override
+  String flierHidden(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count sor félretéve',
+      one: '$count sor félretéve',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get undo => 'Visszavonás';
 }

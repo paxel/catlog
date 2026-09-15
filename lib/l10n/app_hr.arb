@@ -1229,5 +1229,7 @@
   "syncShow": "Prikaži",
   "achievementDone": "{times, plural, one{Obavljeno {times} put} few{Obavljeno {times} puta} other{Obavljeno {times} puta}}, prvi put {date}",
   "syncRunning": "Sinkronizacija s mapom…",
-  "syncDismiss": "Ne sada"
+  "syncDismiss": "Ne sada",
+  "flierHidden": "{count, plural, one{{count} redak odložen} few{{count} retka odložena} other{{count} redaka odloženo}}",
+  "undo": "Poništi"
 }
