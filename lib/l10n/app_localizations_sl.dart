@@ -3683,4 +3683,10 @@ class AppLocalizationsSl extends AppLocalizations {
     );
     return '$_temp0, prvič $date';
   }
+
+  @override
+  String get syncRunning => 'Sinhronizacija z mapo…';
+
+  @override
+  String get syncDismiss => 'Ne zdaj';
 }

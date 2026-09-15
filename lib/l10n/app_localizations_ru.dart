@@ -3676,4 +3676,10 @@ class AppLocalizationsRu extends AppLocalizations {
     );
     return '$_temp0, впервые $date';
   }
+
+  @override
+  String get syncRunning => 'Синхронизация с папкой…';
+
+  @override
+  String get syncDismiss => 'Не сейчас';
 }

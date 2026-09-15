@@ -76,6 +76,27 @@ class SyncWatcher extends ChangeNotifier {
   /// What waits in the folder (poll mode), null when nothing does.
   UnseenChanges? pending;
 
+  /// A merge is running: the line shows it, so a tap on a big folder
+  /// is not followed by nothing for a minute.
+  bool merging = false;
+
+  /// Photo files fetched on their own in a round; the pages redraw on
+  /// their next build.
+  bool photosArrived = false;
+
+  /// The folder as it was when the keeper waved the line away: the
+  /// line stays away until a file grows past this.
+  Map<String, int>? _dismissedAt;
+  Map<String, int>? _lastSizes;
+
+  /// "Not now": the line goes, the changes stay in the folder, and the
+  /// line comes back when more arrives.
+  void dismiss() {
+    _dismissedAt = _lastSizes;
+    pending = null;
+    notifyListeners();
+  }
+
   SyncWatcher(this.store, {SyncFolder? Function(CatalogStore)? folderOf})
     : folderOf = folderOf ?? syncFolderOf;
 
@@ -128,17 +149,33 @@ class SyncWatcher extends ChangeNotifier {
         catalog: catalogDirOf(store),
       );
       if (!store.isOpen) return;
+      // Photo files land after the entry files: fetch what is there
+      // now, no decision needed, the entries were taken already.
+      if (store.missingBlobs().isNotEmpty) {
+        final got = await fetchMissingBlobs(
+          store,
+          folder,
+          catalog: catalogDirOf(store),
+        );
+        if (!store.isOpen) return;
+        if (got > 0) photosArrived = true;
+      }
       if (before == null) {
         // No baseline yet: the first round only takes the measure, so a
         // fresh device is not told about files it is about to import.
         store.setLocalSetting(syncSizesKey, jsonEncode(after));
         return;
       }
+      _lastSizes = after;
       final grown = grownFiles(before, after);
       if (grown.isEmpty) {
         _clear();
         return;
       }
+      // Waved away and nothing new since: keep quiet.
+      final dismissed = _dismissedAt;
+      if (dismissed != null && grownFiles(dismissed, after).isEmpty) return;
+      _dismissedAt = null;
       final unseen = await unseenChanges(store, folder, grown);
       if (!store.isOpen) return;
       if (unseen.isEmpty) {
@@ -166,6 +203,18 @@ class SyncWatcher extends ChangeNotifier {
   Future<FolderSyncResult?> merge({bool fromTap = false}) async {
     final folder = folderOf(store);
     if (folder == null || !store.isOpen) return null;
+    merging = true;
+    pending = null;
+    notifyListeners();
+    try {
+      return await _merge(folder, fromTap);
+    } finally {
+      merging = false;
+      if (store.isOpen) notifyListeners();
+    }
+  }
+
+  Future<FolderSyncResult?> _merge(SyncFolder folder, bool fromTap) {
     return runExclusive<FolderSyncResult>('folderSync', () async {
       final before = store.currentSeq();
       final result = await folderSyncIn(
@@ -183,8 +232,6 @@ class SyncWatcher extends ChangeNotifier {
         label: store.localSetting('syncFolder'),
       );
       await recordSyncSizes(store, folderOf: (s) => folder);
-      pending = null;
-      notifyListeners();
       onMerged?.call(result, point, fromTap);
       return result;
     });

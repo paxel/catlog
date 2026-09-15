@@ -172,6 +172,17 @@ class _CatlogAppState extends State<CatlogApp>
   SyncWatcher _watcherFor(CatalogStore store) =>
       SyncWatcher(store)..onMerged = _merged;
 
+  /// Photos stored with camera metadata are rewritten without it once
+  /// per catalog (photo_privacy.dart); a later import may bring more.
+  void _stripPhotos(CatalogStore store) {
+    if (!store.isOpen) return;
+    try {
+      stripPhotoLocations(store);
+    } catch (_) {
+      // A photo that will not rewrite stays as it is; the rest did.
+    }
+  }
+
   /// After a merge the watcher ran: the summary when something needs a
   /// look, else one line with a way to the summary.
   void _merged(FolderSyncResult result, Moment? undo, bool fromTap) {
@@ -222,6 +233,7 @@ class _CatlogAppState extends State<CatlogApp>
     setState(() => _store = next);
     activeStore = next;
     _watcher.dispose();
+    _stripPhotos(next);
     _watcher = _watcherFor(next)..start();
     clearImageProviders();
     refreshPetMode(next);
@@ -272,6 +284,7 @@ class _CatlogAppState extends State<CatlogApp>
     // The words change with the mode; the whole tree reads them anew.
     petMode.addListener(_rebuild);
     WidgetsBinding.instance.addObserver(this);
+    _stripPhotos(_store);
     _watcher.start();
     if (_isDesktop) windowManager.addListener(this);
     if (widget.diedLastRun) {

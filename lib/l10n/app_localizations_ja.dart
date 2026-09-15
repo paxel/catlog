@@ -3511,4 +3511,10 @@ class AppLocalizationsJa extends AppLocalizations {
     );
     return '$_temp0、初回 $date';
   }
+
+  @override
+  String get syncRunning => 'フォルダと同期中…';
+
+  @override
+  String get syncDismiss => '今はしない';
 }

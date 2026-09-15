@@ -10,6 +10,7 @@ import 'package:sqlite3/sqlite3.dart';
 
 import 'breeds.dart';
 import 'entry.dart';
+import 'photo_privacy.dart';
 import 'fields.dart';
 import 'registry.dart';
 import 'signing.dart';
@@ -1377,7 +1378,10 @@ class CatalogStore {
         interpolation: img.Interpolation.average,
       );
     }
-    return Uint8List.fromList(img.encodeJpg(decoded, quality: 85));
+    // No metadata: no location leaves the phone, and nothing for
+    // Android to blank on a partner's read (photo_privacy.dart).
+    return stripJpegMetadata(
+        Uint8List.fromList(img.encodeJpg(decoded, quality: 85)));
   }
 
   /// Pure function: cuts a fractional rectangle (0..1 coordinates) out
@@ -1442,7 +1446,10 @@ class CatalogStore {
         );
       }
     }
-    return Uint8List.fromList(img.encodeJpg(decoded, quality: 85));
+    // No metadata: no location leaves the phone, and nothing for
+    // Android to blank on a partner's read (photo_privacy.dart).
+    return stripJpegMetadata(
+        Uint8List.fromList(img.encodeJpg(decoded, quality: 85)));
   }
 
   /// Stores an already-compressed JPEG for a Cat, content-addressed by

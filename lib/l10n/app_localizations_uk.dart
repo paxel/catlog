@@ -3676,4 +3676,10 @@ class AppLocalizationsUk extends AppLocalizations {
     );
     return '$_temp0, уперше $date';
   }
+
+  @override
+  String get syncRunning => 'Синхронізація з текою…';
+
+  @override
+  String get syncDismiss => 'Не зараз';
 }

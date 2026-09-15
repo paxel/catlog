@@ -3677,4 +3677,10 @@ class AppLocalizationsPl extends AppLocalizations {
     );
     return '$_temp0, pierwszy raz $date';
   }
+
+  @override
+  String get syncRunning => 'Synchronizacja z folderem…';
+
+  @override
+  String get syncDismiss => 'Nie teraz';
 }

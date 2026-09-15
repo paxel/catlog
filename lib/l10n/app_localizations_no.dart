@@ -3648,4 +3648,10 @@ class AppLocalizationsNo extends AppLocalizations {
     );
     return '$_temp0, første gang $date';
   }
+
+  @override
+  String get syncRunning => 'Synkroniserer med mappen…';
+
+  @override
+  String get syncDismiss => 'Ikke nå';
 }

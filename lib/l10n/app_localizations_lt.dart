@@ -3676,4 +3676,10 @@ class AppLocalizationsLt extends AppLocalizations {
     );
     return '$_temp0, pirmą kartą $date';
   }
+
+  @override
+  String get syncRunning => 'Sinchronizuojama su aplanku…';
+
+  @override
+  String get syncDismiss => 'Ne dabar';
 }

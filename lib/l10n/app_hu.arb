@@ -1227,5 +1227,7 @@
   "syncAnotherDevice": "egy másik eszköz",
   "syncMerged": "{count, plural, one{{count} változtatás beolvasztva ({authors})} other{{count} változtatás beolvasztva ({authors})}}",
   "syncShow": "Mutasd",
-  "achievementDone": "{times, plural, one{Egyszer megcsinálva} other{{times}-szor megcsinálva}}, először {date}"
+  "achievementDone": "{times, plural, one{Egyszer megcsinálva} other{{times}-szor megcsinálva}}, először {date}",
+  "syncRunning": "Szinkronizálás a mappával…",
+  "syncDismiss": "Most nem"
 }

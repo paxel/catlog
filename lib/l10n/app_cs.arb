@@ -1227,5 +1227,7 @@
   "syncAnotherDevice": "jiného zařízení",
   "syncMerged": "{count, plural, one{{count} změna od {authors} sloučena} few{{count} změny od {authors} sloučeny} other{{count} změn od {authors} sloučeno}}",
   "syncShow": "Zobrazit",
-  "achievementDone": "{times, plural, one{Hotovo jednou} few{Hotovo {times}krát} other{Hotovo {times}krát}}, poprvé {date}"
+  "achievementDone": "{times, plural, one{Hotovo jednou} few{Hotovo {times}krát} other{Hotovo {times}krát}}, poprvé {date}",
+  "syncRunning": "Synchronizace se složkou…",
+  "syncDismiss": "Teď ne"
 }

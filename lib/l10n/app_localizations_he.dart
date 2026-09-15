@@ -3649,4 +3649,10 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return '$_temp0, לראשונה ב-$date';
   }
+
+  @override
+  String get syncRunning => 'מסנכרן עם התיקייה…';
+
+  @override
+  String get syncDismiss => 'לא עכשיו';
 }

@@ -3665,4 +3665,10 @@ class AppLocalizationsCs extends AppLocalizations {
     );
     return '$_temp0, poprvé $date';
   }
+
+  @override
+  String get syncRunning => 'Synchronizace se složkou…';
+
+  @override
+  String get syncDismiss => 'Teď ne';
 }

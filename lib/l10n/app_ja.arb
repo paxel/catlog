@@ -1227,5 +1227,7 @@
   "syncAnotherDevice": "別の端末",
   "syncMerged": "{count, plural, other{{authors} の変更 {count} 件を取り込みました}}",
   "syncShow": "表示",
-  "achievementDone": "{times, plural, other{{times} 回完了}}、初回 {date}"
+  "achievementDone": "{times, plural, other{{times} 回完了}}、初回 {date}",
+  "syncRunning": "フォルダと同期中…",
+  "syncDismiss": "今はしない"
 }

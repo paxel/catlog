@@ -1227,5 +1227,7 @@
   "syncAnotherDevice": "kitas įrenginys",
   "syncMerged": "{count, plural, one{{count} {authors} pakeitimas sulietas} few{{count} {authors} pakeitimai sulieti} many{{count} {authors} pakeitimo sulieta} other{{count} {authors} pakeitimų sulieta}}",
   "syncShow": "Rodyti",
-  "achievementDone": "{times, plural, one{Atlikta {times} kartą} few{Atlikta {times} kartus} many{Atlikta {times} karto} other{Atlikta {times} kartų}}, pirmą kartą {date}"
+  "achievementDone": "{times, plural, one{Atlikta {times} kartą} few{Atlikta {times} kartus} many{Atlikta {times} karto} other{Atlikta {times} kartų}}, pirmą kartą {date}",
+  "syncRunning": "Sinchronizuojama su aplanku…",
+  "syncDismiss": "Ne dabar"
 }

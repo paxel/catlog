@@ -3652,4 +3652,10 @@ class AppLocalizationsFi extends AppLocalizations {
     );
     return '$_temp0, ensimmäisen kerran $date';
   }
+
+  @override
+  String get syncRunning => 'Synkronoidaan kansion kanssa…';
+
+  @override
+  String get syncDismiss => 'Ei nyt';
 }

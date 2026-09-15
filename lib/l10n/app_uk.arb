@@ -1227,5 +1227,7 @@
   "syncAnotherDevice": "іншого пристрою",
   "syncMerged": "{count, plural, one{{count} зміну від {authors} об’єднано} few{{count} зміни від {authors} об’єднано} many{{count} змін від {authors} об’єднано} other{{count} зміни від {authors} об’єднано}}",
   "syncShow": "Показати",
-  "achievementDone": "{times, plural, one{Зроблено {times} раз} few{Зроблено {times} рази} many{Зроблено {times} разів} other{Зроблено {times} разу}}, уперше {date}"
+  "achievementDone": "{times, plural, one{Зроблено {times} раз} few{Зроблено {times} рази} many{Зроблено {times} разів} other{Зроблено {times} разу}}, уперше {date}",
+  "syncRunning": "Синхронізація з текою…",
+  "syncDismiss": "Не зараз"
 }

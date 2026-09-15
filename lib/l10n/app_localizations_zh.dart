@@ -3469,4 +3469,10 @@ class AppLocalizationsZh extends AppLocalizations {
     );
     return '$_temp0，首次 $date';
   }
+
+  @override
+  String get syncRunning => '正在与文件夹同步…';
+
+  @override
+  String get syncDismiss => '暂不';
 }

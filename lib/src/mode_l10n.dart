@@ -2749,6 +2749,9 @@ class ModeLocalizations implements AppLocalizations {
   String get syncDeclined => base.syncDeclined;
 
   @override
+  String get syncDismiss => base.syncDismiss;
+
+  @override
   String syncFailed(String error) => base.syncFailed(error);
 
   @override
@@ -2768,6 +2771,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get syncPeerOlder => base.syncPeerOlder;
+
+  @override
+  String get syncRunning => base.syncRunning;
 
   @override
   String get syncShow => base.syncShow;

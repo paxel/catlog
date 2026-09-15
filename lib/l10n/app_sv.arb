@@ -1227,5 +1227,7 @@
   "syncAnotherDevice": "en annan enhet",
   "syncMerged": "{count, plural, one{{count} ändring från {authors} sammanslagen} other{{count} ändringar från {authors} sammanslagna}}",
   "syncShow": "Visa",
-  "achievementDone": "{times, plural, one{Gjort en gång} other{Gjort {times} gånger}}, första gången {date}"
+  "achievementDone": "{times, plural, one{Gjort en gång} other{Gjort {times} gånger}}, första gången {date}",
+  "syncRunning": "Synkar med mappen…",
+  "syncDismiss": "Inte nu"
 }

@@ -3590,4 +3590,10 @@ class AppLocalizationsFa extends AppLocalizations {
     );
     return '$_temp0، اولین بار $date';
   }
+
+  @override
+  String get syncRunning => 'در حال همگام‌سازی با پوشه…';
+
+  @override
+  String get syncDismiss => 'الان نه';
 }

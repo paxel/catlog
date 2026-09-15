@@ -1,5 +1,11 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
+import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
+
+Uint8List jpeg(int w, int h) =>
+    Uint8List.fromList(img.encodeJpg(img.Image(width: w, height: h)));
 
 /// The folder watch: sizes tell which files grew, the grown files tell
 /// what is new, and a file that only grew by absorbing your own entries
@@ -65,6 +71,25 @@ void main() {
     expect(await folder.read('', '.nomedia'), isNotNull);
     expect(await foreignFileSizes(folder, b.deviceId, catalog: 'farm'),
         isNot(contains('/.nomedia')));
+  });
+
+  test('photo files that land after the entries are fetched on their own',
+      () async {
+    final cat = a.createCat('Miezi');
+    a.addImage(cat, CatalogStore.compressImage(jpeg(30, 30)));
+    await folderSyncIn(a, folder, catalog: 'farm');
+    // The cloud client has not copied the photo yet.
+    final blobs = folder.dirs['farm/blobs']!;
+    final held = Map.of(blobs);
+    blobs.clear();
+    final r = await folderSyncIn(b, folder, catalog: 'farm');
+    expect(r.blobsIn, 0);
+    expect(r.blobsMissing, 1);
+    expect('$r', contains('1 photos not in the folder yet'));
+    expect(await fetchMissingBlobs(b, folder, catalog: 'farm'), 0);
+    blobs.addAll(held);
+    expect(await fetchMissingBlobs(b, folder, catalog: 'farm'), 1);
+    expect(b.missingBlobs(), isEmpty);
   });
 
   test('sizes come per catalog subfolder too', () async {

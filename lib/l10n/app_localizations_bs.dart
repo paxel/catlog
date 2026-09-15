@@ -3666,4 +3666,10 @@ class AppLocalizationsBs extends AppLocalizations {
     );
     return '$_temp0, prvi put $date';
   }
+
+  @override
+  String get syncRunning => 'Sinhronizacija s folderom…';
+
+  @override
+  String get syncDismiss => 'Ne sada';
 }

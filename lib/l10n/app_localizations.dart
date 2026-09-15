@@ -6307,6 +6307,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{times, plural, one{Done once} other{Done {times} times}}, first on {date}'**
   String achievementDone(int times, String date);
+
+  /// No description provided for @syncRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing with the folder…'**
+  String get syncRunning;
+
+  /// No description provided for @syncDismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get syncDismiss;
 }
 
 class _AppLocalizationsDelegate

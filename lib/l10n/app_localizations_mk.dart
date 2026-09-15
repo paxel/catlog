@@ -3653,4 +3653,10 @@ class AppLocalizationsMk extends AppLocalizations {
     );
     return '$_temp0, првпат на $date';
   }
+
+  @override
+  String get syncRunning => 'Синхронизација со папката…';
+
+  @override
+  String get syncDismiss => 'Не сега';
 }

@@ -2,6 +2,15 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.3.3] - 2026-09-14
+
+### Changed
+- Achievements open from the home page's menu instead of a button on the agenda.
+
+### Fixed
+- A chore's master achievement says how often the chore was done instead of "reached" with the tick count.
+- The help button is the first button in the app bar on the history and timeline pages too.
+
 ## [1.3.2] - 2026-09-13
 
 ### Fixed

@@ -3650,4 +3650,10 @@ class AppLocalizationsTr extends AppLocalizations {
     );
     return '$_temp0, ilki $date';
   }
+
+  @override
+  String get syncRunning => 'Klasörle eşitleniyor…';
+
+  @override
+  String get syncDismiss => 'Şimdi değil';
 }
