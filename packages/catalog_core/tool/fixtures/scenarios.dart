@@ -25,8 +25,23 @@ class Scenario {
   /// client that copies photos after entries looks like.
   final bool later;
 
+  /// Whether the writer shares its private values, in the folder and
+  /// the bundle.
+  final bool includePrivate;
+
+  /// Whether the second round's folder is written with private values.
+  final bool laterIncludePrivate;
+
+  /// Whether the bundle carries private values; the folder's switch
+  /// unless set.
+  final bool? bundleIncludePrivate;
+
   const Scenario(this.name, this.about, this.build,
-      {this.tamper, this.later = false});
+      {this.tamper,
+      this.later = false,
+      this.includePrivate = false,
+      this.laterIncludePrivate = false,
+      this.bundleIncludePrivate});
 }
 
 /// The written files, open for editing by a scenario's tamper step.
@@ -363,6 +378,58 @@ final scenarios = <Scenario>[
           w.strays().length == 1 && w.cats(clowderId: theirHome).length == 1);
       assert(w.current(together, Keys.name) == 'Together');
     },
+  ),
+  Scenario(
+    'private-values',
+    'A Clowder with a private phone number, a Cat marked Private as a '
+        'whole, a Private field definition, a private photo: what '
+        'identifies them travels, the values and the photo stay home, '
+        'each leaves its withheld trace.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      w.append(home, 'f:phone', '+49 341 000');
+      w.append(home, 'f:address', 'Katzenweg 3');
+      w.setFieldPrivate(home, 'f:phone', true);
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:color', 'black');
+      w.append(miezi, 'f:remarks', 'bites the vet');
+      final hash = w.addImage(miezi, photo(18, 18));
+      w.setPrivate(miezi, true);
+      w.setFieldPrivate(miezi, Keys.image(hash), true);
+      final tom = cat(w, 2, 'Tom', clowderId: home);
+      w.append(tom, 'f:chipid', '276098100123456');
+      w.setPrivate('fielddef:chipid', true);
+    },
+  ),
+  Scenario(
+    'private-included',
+    'The same private values shared with the switch on: everything '
+        'travels, markers included.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      w.append(home, 'f:phone', '+49 341 000');
+      w.setFieldPrivate(home, 'f:phone', true);
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:color', 'black');
+      w.setPrivate(miezi, true);
+      w.setPrivate(miezi, false);
+      w.append(miezi, 'f:remarks', 'unmarked again, re-asserted');
+    },
+    includePrivate: true,
+  ),
+  Scenario(
+    'withheld-later',
+    'A value received as withheld sits below the version vector; a later '
+        'round with private included carries it anyway.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      w.append(home, 'f:phone', '+49 341 000');
+      w.setFieldPrivate(home, 'f:phone', true);
+      cat(w, 1, 'Miezi', clowderId: home);
+    },
+    later: true,
+    laterIncludePrivate: true,
+    bundleIncludePrivate: true,
   ),
   Scenario(
     'photo-missing',

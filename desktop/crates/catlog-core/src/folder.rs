@@ -90,10 +90,30 @@ impl Catalog {
                     continue;
                 };
                 let mine = self.version_vector()?;
-                let fresh: Vec<Entry> = foreign
-                    .into_iter()
-                    .filter(|e| e.dseq > mine.get(&e.device).copied().unwrap_or(0))
-                    .collect();
+                // A value this device only ever received as withheld sits
+                // below the watermark for good; without this it could never
+                // arrive, however often the writer shares with private
+                // included.
+                let any_withheld = self.has_withheld()?;
+                let mut withheld: HashMap<(String, String), bool> = HashMap::new();
+                let mut fresh: Vec<Entry> = Vec::new();
+                for e in foreign {
+                    let unseen = e.dseq > mine.get(&e.device).copied().unwrap_or(0);
+                    let held_back = any_withheld && {
+                        let key = (e.entity.clone(), e.field.clone());
+                        match withheld.get(&key) {
+                            Some(w) => *w,
+                            None => {
+                                let w = self.is_withheld(&e.entity, &e.field)?;
+                                withheld.insert(key, w);
+                                w
+                            }
+                        }
+                    };
+                    if unseen || held_back {
+                        fresh.push(e);
+                    }
+                }
                 let imported = self.apply_entries_with(fresh, None, None, &mut result.report)?;
                 result.entries_in += imported.len();
                 result.applied.extend(imported);

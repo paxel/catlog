@@ -847,6 +847,329 @@ impl Catalog {
         Ok(())
     }
 
+    /// True when the entity carries a Private marker.
+    pub fn is_private(&self, id: &str) -> Result<bool> {
+        let entity = self.resolve_entity(id)?;
+        Ok(self.current(&entity, keys::PRIVATE)?.as_deref() == Some("yes"))
+    }
+
+    /// Every field this entity carries a value for, private or not.
+    pub fn value_fields(&self, id: &str) -> Result<Vec<String>> {
+        let entity = self.resolve_entity(id)?;
+        let group = self.group(&entity)?;
+        let sql = format!(
+            "SELECT DISTINCT field FROM entries WHERE entity IN ({}) ORDER BY field",
+            placeholders(group.len())
+        );
+        let mut stmt = self.db.prepare(&sql)?;
+        let fields: Vec<String> = stmt
+            .query_map(params_from_iter(group.iter()), |r| r.get(0))?
+            .collect::<std::result::Result<_, _>>()?;
+        Ok(fields
+            .into_iter()
+            .filter(|f| !keys::is_structural(f))
+            .collect())
+    }
+
+    /// Canonical ids of every entity that holds a value for `field`.
+    pub fn entities_with_value_for(&self, field: &str) -> Result<Vec<String>> {
+        let keys = self.keys_for(field)?;
+        let sql = format!(
+            "SELECT DISTINCT entity FROM entries WHERE field IN ({}) ORDER BY entity",
+            placeholders(keys.len())
+        );
+        let mut stmt = self.db.prepare(&sql)?;
+        let ids: Vec<String> = stmt
+            .query_map(params_from_iter(keys.iter()), |r| r.get(0))?
+            .collect::<std::result::Result<_, _>>()?;
+        let mut out: Vec<String> = Vec::new();
+        for id in ids {
+            let canonical = self.resolve_entity(&id)?;
+            if !out.contains(&canonical) {
+                out.push(canonical);
+            }
+        }
+        Ok(out)
+    }
+
+    /// Marks or unmarks an entity (Cat, Clowder, field definition)
+    /// Private: every value it has now, and every value it gets while
+    /// the switch is on. Unmarking re-asserts the entity's whole history
+    /// under fresh numbers, so partners past the withheld originals
+    /// receive it.
+    pub fn set_private(&mut self, id: &str, private: bool) -> Result<()> {
+        let canonical = self.resolve_entity(id)?;
+        let flag = if private { "yes" } else { "no" };
+        self.append(&canonical, keys::PRIVATE, Some(flag))?;
+        if self.current(&canonical, keys::TYPE)?.as_deref() == Some(keys::KIND_FIELD_DEF) {
+            // A definition's mark covers that field everywhere: only the
+            // public trace that says a value is there, on every entity
+            // that has one.
+            let field = self.canonical_key(&format!("f:{}", &canonical["fielddef:".len()..]))?;
+            for entity in self.entities_with_value_for(&field)? {
+                if self.current(&entity, &keys::withheld(&field))?.as_deref() == Some(flag) {
+                    continue;
+                }
+                self.append(&entity, &keys::withheld(&field), Some(flag))?;
+            }
+        } else {
+            for field in self.value_fields(&canonical)? {
+                if self
+                    .current(&canonical, &keys::private_field(&field))?
+                    .as_deref()
+                    == Some(flag)
+                {
+                    continue;
+                }
+                self.append(&canonical, &keys::private_field(&field), Some(flag))?;
+                self.append(&canonical, &keys::withheld(&field), Some(flag))?;
+            }
+        }
+        if !private {
+            self.reassert_group(&canonical)?;
+        }
+        Ok(())
+    }
+
+    fn reassert_group(&mut self, canonical: &str) -> Result<()> {
+        let entities = self.group(canonical)?;
+        let mut sql = format!(
+            "SELECT * FROM entries WHERE (entity IN ({})",
+            placeholders(entities.len())
+        );
+        let mut args: Vec<String> = entities.clone();
+        if let Some(slug) = canonical.strip_prefix("fielddef:") {
+            let keys = self.keys_for(&format!("f:{slug}"))?;
+            sql.push_str(&format!(" OR field IN ({})", placeholders(keys.len())));
+            args.extend(keys);
+        }
+        sql.push_str(&format!(
+            ") AND field != ?{} {LIVE} ORDER BY device, dseq",
+            args.len() + 1
+        ));
+        args.push(keys::PRIVATE.to_string());
+        let refs: Vec<&dyn rusqlite::ToSql> =
+            args.iter().map(|s| s as &dyn rusqlite::ToSql).collect();
+        let rows = self.select(&sql, &refs)?;
+        let device = self.device_id();
+        let first = self.next_dseq(&device)?;
+        for (next, e) in (first..).zip(rows) {
+            self.insert_own(
+                &device,
+                next,
+                &e.entity,
+                &e.field,
+                e.value.as_deref(),
+                &e.date,
+                &e.author,
+                &e.recorded,
+                false,
+            )?;
+        }
+        Ok(())
+    }
+
+    /// True when any withheld marker was ever received: the cheap gate
+    /// before [`Catalog::is_withheld`] is asked per field.
+    pub fn has_withheld(&self) -> Result<bool> {
+        Ok(self
+            .db
+            .query_row(
+                "SELECT 1 FROM entries WHERE field LIKE ?1 LIMIT 1",
+                [format!("{}%", keys::WITHHELD_PREFIX)],
+                |_| Ok(()),
+            )
+            .optional()?
+            .is_some())
+    }
+
+    /// True when a partner knows a value exists here but was not given it.
+    pub fn is_withheld(&self, id: &str, field: &str) -> Result<bool> {
+        let key = self.canonical_key(field)?;
+        let entity = self.resolve_entity(id)?;
+        Ok(
+            self.current(&entity, &keys::withheld(&key))?.as_deref() == Some("yes")
+                && self.current(&entity, &key)?.is_none(),
+        )
+    }
+
+    // ------------------------------------------- hidden (display filter)
+
+    /// Hidden is a per-device display filter: hidden Cats, Clowders and
+    /// field definitions keep syncing unchanged, they are only not shown.
+    pub fn is_hidden(&self, id: &str) -> Result<bool> {
+        let entity = self.resolve_entity(id)?;
+        Ok(self.local_setting(&format!("hidden:{entity}")).as_deref() == Some("1"))
+    }
+
+    pub fn set_hidden(&self, id: &str, hidden: bool) -> Result<()> {
+        let key = format!("hidden:{}", self.resolve_entity(id)?);
+        if hidden {
+            self.set_local_setting(&key, "1")
+        } else {
+            self.remove_local_setting(&key)
+        }
+    }
+
+    /// Canonical ids currently hidden on this device.
+    pub fn hidden_ids(&self) -> Result<Vec<String>> {
+        let mut stmt = self.db.prepare(
+            "SELECT key FROM local_settings WHERE key LIKE 'u:hidden:%' AND value = '1' ORDER BY key",
+        )?;
+        let keys: Vec<String> = stmt
+            .query_map([], |r| r.get(0))?
+            .collect::<std::result::Result<_, _>>()?;
+        Ok(keys
+            .into_iter()
+            .map(|k| k["u:hidden:".len()..].to_string())
+            .collect())
+    }
+
+    // -------------------------------- moderation (ADR 0006, local only)
+
+    /// The local ban list: banned material is received and discarded on
+    /// every transport; sync bookkeeping still advances. Never synced.
+    pub fn ban(
+        &self,
+        author: Option<&str>,
+        device: Option<&str>,
+        blob: Option<&str>,
+    ) -> Result<()> {
+        if let Some(a) = author {
+            self.set_local_setting(&format!("ban:author:{a}"), "1")?;
+        }
+        if let Some(d) = device {
+            self.set_local_setting(&format!("ban:device:{d}"), "1")?;
+        }
+        if let Some(b) = blob {
+            self.set_local_setting(&format!("ban:blob:{b}"), "1")?;
+        }
+        Ok(())
+    }
+
+    pub fn unban(
+        &self,
+        author: Option<&str>,
+        device: Option<&str>,
+        blob: Option<&str>,
+    ) -> Result<()> {
+        if let Some(a) = author {
+            self.remove_local_setting(&format!("ban:author:{a}"))?;
+        }
+        if let Some(d) = device {
+            self.remove_local_setting(&format!("ban:device:{d}"))?;
+        }
+        if let Some(b) = blob {
+            self.remove_local_setting(&format!("ban:blob:{b}"))?;
+        }
+        Ok(())
+    }
+
+    /// All ban entries as (kind, value); kind is author, device or blob.
+    pub fn bans(&self) -> Result<Vec<(String, String)>> {
+        let mut stmt = self
+            .db
+            .prepare("SELECT key FROM local_settings WHERE key LIKE 'u:ban:%' ORDER BY key")?;
+        let keys: Vec<String> = stmt
+            .query_map([], |r| r.get(0))?
+            .collect::<std::result::Result<_, _>>()?;
+        Ok(keys
+            .iter()
+            .filter_map(|k| {
+                let rest = k.strip_prefix("u:ban:")?;
+                let (kind, value) = rest.split_once(':')?;
+                Some((kind.to_string(), value.to_string()))
+            })
+            .collect())
+    }
+
+    /// Physically deletes every entry (and orphaned photo bytes) of one
+    /// author, optionally narrowed to one device. The append-only
+    /// exception (ADR 0006): for abusive or illegal material only.
+    /// Returns the blob hashes that were removed, so callers can ban them.
+    pub fn hard_delete_author(
+        &mut self,
+        author: &str,
+        device: Option<&str>,
+    ) -> Result<Vec<String>> {
+        let (where_sql, args): (String, Vec<String>) = match device {
+            Some(d) => (
+                "author = ?1 AND device = ?2".into(),
+                vec![author.into(), d.into()],
+            ),
+            None => ("author = ?1".into(), vec![author.into()]),
+        };
+        let like = format!("{}%", keys::IMAGE_PREFIX);
+        let sql = format!(
+            "SELECT DISTINCT field FROM entries WHERE {where_sql} AND field LIKE ?{}",
+            args.len() + 1
+        );
+        let mut touched_args = args.clone();
+        touched_args.push(like);
+        let mut stmt = self.db.prepare(&sql)?;
+        let touched: Vec<String> = stmt
+            .query_map(params_from_iter(touched_args.iter()), |r| r.get(0))?
+            .collect::<std::result::Result<_, _>>()?;
+        drop(stmt);
+        self.remove_entries(&where_sql, &args, &[])?;
+        let mut removed = Vec::new();
+        for field in touched {
+            let hash = field[keys::IMAGE_PREFIX.len()..].to_string();
+            if !self.image_referenced(&hash)? && self.image_bytes(&hash).is_some() {
+                self.remove_blob(&hash)?;
+                removed.push(hash);
+            }
+        }
+        Ok(removed)
+    }
+
+    /// Physically removes the entries matching `where_sql` and keeps
+    /// their numbers claimed, in one transaction (ADR 0008).
+    pub(crate) fn remove_entries(
+        &mut self,
+        where_sql: &str,
+        args: &[String],
+        also: &[(&str, &[&dyn rusqlite::ToSql])],
+    ) -> Result<()> {
+        let removed: Vec<(String, i64)> = {
+            let sql =
+                format!("SELECT device, MAX(dseq) FROM entries WHERE {where_sql} GROUP BY device");
+            let mut stmt = self.db.prepare(&sql)?;
+            let rows = stmt.query_map(params_from_iter(args.iter()), |r| {
+                Ok((r.get(0)?, r.get(1)?))
+            })?;
+            rows.collect::<std::result::Result<_, _>>()?
+        };
+        let tx = self.db.transaction()?;
+        tx.execute(
+            &format!("DELETE FROM entries WHERE {where_sql}"),
+            params_from_iter(args.iter()),
+        )?;
+        for (sql, sql_args) in also {
+            tx.execute(sql, *sql_args)?;
+        }
+        for (device, max) in &removed {
+            let key = format!("u:banvector:{device}");
+            let current: i64 = tx
+                .query_row(
+                    "SELECT value FROM local_settings WHERE key = ?1",
+                    [&key],
+                    |r| r.get::<_, String>(0),
+                )
+                .optional()?
+                .and_then(|v| v.parse().ok())
+                .unwrap_or(0);
+            if *max > current {
+                tx.execute(
+                    "INSERT OR REPLACE INTO local_settings (key, value) VALUES (?1, ?2)",
+                    params![key, max.to_string()],
+                )?;
+            }
+        }
+        tx.commit()?;
+        self.rebuild_voids()
+    }
+
     /// True when this entity's value for `field` stays home: the
     /// per-value marker decides, and a Private field definition covers
     /// that field on every entity.
@@ -2367,6 +2690,187 @@ mod tests {
             c.timeline("cat:a", true).unwrap().len() > c.timeline("cat:a", false).unwrap().len()
         );
         assert!(c.entry_by_id("nobody", 1).unwrap().is_none());
+    }
+
+    #[test]
+    fn an_entity_marked_private_withholds_every_value_and_reasserts_on_unmark() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        c.create_clowder("clowder:h", "Home").unwrap();
+        c.append("clowder:h", "f:phone", Some("555")).unwrap();
+        c.append("clowder:h", "f:address", Some("Katzenweg"))
+            .unwrap();
+        c.set_private("clowder:h", true).unwrap();
+        assert!(c.is_private("clowder:h").unwrap());
+        assert_eq!(
+            c.value_fields("clowder:h").unwrap(),
+            vec!["f:address", "f:phone"]
+        );
+        let public = c.entries_since(&BTreeMap::new(), false).unwrap();
+        assert!(
+            public
+                .iter()
+                .all(|e| e.field != "f:phone" && e.field != "f:address")
+        );
+        assert!(
+            public
+                .iter()
+                .any(|e| e.field == keys::NAME && e.entity == "clowder:h")
+        );
+        // The entity mark is a shortcut for marking what it carries now;
+        // a value added later is its own decision, as on the phones.
+        c.append("clowder:h", "f:email", Some("a@b")).unwrap();
+        assert!(!c.is_field_private("clowder:h", "f:email").unwrap());
+        assert!(c.has_withheld().unwrap());
+        assert!(
+            !c.is_withheld("clowder:h", "f:phone").unwrap(),
+            "we hold the value"
+        );
+        let before = c.all_entries().unwrap().len();
+        c.set_private("clowder:h", false).unwrap();
+        assert!(!c.is_private("clowder:h").unwrap());
+        assert!(c.all_entries().unwrap().len() > before + 4);
+        assert!(
+            c.entries_since(&BTreeMap::new(), false)
+                .unwrap()
+                .iter()
+                .any(|e| e.field == "f:phone")
+        );
+        // A Private field definition traces every entity's value.
+        c.create_clowder("clowder:k", "Other").unwrap();
+        c.append("clowder:k", "f:phone", Some("777")).unwrap();
+        c.set_private("fielddef:phone", true).unwrap();
+        assert!(c.is_field_private("clowder:k", "f:phone").unwrap());
+        assert_eq!(
+            c.current("clowder:k", &keys::withheld("f:phone"))
+                .unwrap()
+                .as_deref(),
+            Some("yes")
+        );
+        assert_eq!(c.entities_with_value_for("f:phone").unwrap().len(), 2);
+        c.set_private("fielddef:phone", false).unwrap();
+        assert!(!c.is_field_private("clowder:k", "f:phone").unwrap());
+        assert_eq!(
+            c.current("clowder:k", &keys::withheld("f:phone"))
+                .unwrap()
+                .as_deref(),
+            Some("no")
+        );
+    }
+
+    #[test]
+    fn a_withheld_value_arrives_later_and_hidden_stays_home() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        c.apply_entries(vec![
+            entry(
+                "w",
+                1,
+                "clowder:h",
+                keys::TYPE,
+                Some("clowder"),
+                "2026-01-01T10:00:01Z",
+            ),
+            entry(
+                "w",
+                2,
+                "clowder:h",
+                &keys::withheld("f:phone"),
+                Some("yes"),
+                "2026-01-01T10:00:02Z",
+            ),
+        ])
+        .unwrap();
+        assert!(c.is_withheld("clowder:h", "f:phone").unwrap());
+        c.apply_entries(vec![entry(
+            "w",
+            3,
+            "clowder:h",
+            "f:phone",
+            Some("555"),
+            "2026-01-01T10:00:03Z",
+        )])
+        .unwrap();
+        assert!(!c.is_withheld("clowder:h", "f:phone").unwrap());
+        c.set_hidden("clowder:h", true).unwrap();
+        assert!(c.is_hidden("clowder:h").unwrap());
+        assert_eq!(c.hidden_ids().unwrap(), vec!["clowder:h"]);
+        assert!(
+            c.entries_since(&BTreeMap::new(), true)
+                .unwrap()
+                .iter()
+                .all(|e| !e.field.contains("hidden"))
+        );
+        c.set_hidden("clowder:h", false).unwrap();
+        assert!(c.hidden_ids().unwrap().is_empty());
+    }
+
+    #[test]
+    fn bans_and_hard_delete_are_local_and_keep_numbers_claimed() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        let hash = hex::encode(Sha256::digest(b"bad photo"));
+        c.put_blob(&hash, b"bad photo").unwrap();
+        c.apply_entries(vec![
+            entry(
+                "w",
+                1,
+                "cat:x",
+                keys::TYPE,
+                Some("cat"),
+                "2026-01-01T10:00:01Z",
+            ),
+            entry(
+                "w",
+                2,
+                "cat:x",
+                &keys::image(&hash),
+                Some("added"),
+                "2026-01-01T10:00:02Z",
+            ),
+        ])
+        .unwrap();
+        c.ban(Some("Ada"), Some("w"), Some(&hash)).unwrap();
+        assert_eq!(c.bans().unwrap().len(), 3);
+        c.unban(Some("Ada"), None, None).unwrap();
+        assert_eq!(
+            c.bans().unwrap(),
+            vec![
+                ("blob".to_string(), hash.clone()),
+                ("device".to_string(), "w".to_string())
+            ]
+        );
+        // A banned photo is dropped on receive.
+        c.remove_blob(&hash).unwrap();
+        c.put_blob(&hash, b"bad photo").unwrap();
+        assert!(c.image_bytes(&hash).is_none());
+        c.unban(None, Some("w"), Some(&hash)).unwrap();
+        c.put_blob(&hash, b"bad photo").unwrap();
+        let removed = c.hard_delete_author("Ada", Some("w")).unwrap();
+        assert_eq!(removed, vec![hash.clone()]);
+        assert!(c.all_entries().unwrap().iter().all(|e| e.device != "w"));
+        assert_eq!(c.version_vector().unwrap()["w"], 2, "numbers stay claimed");
+        assert!(c.image_bytes(&hash).is_none());
+        // The claim stops the rows coming back.
+        let again = c
+            .apply_entries(vec![entry(
+                "w",
+                1,
+                "cat:x",
+                keys::TYPE,
+                Some("cat"),
+                "2026-01-01T10:00:01Z",
+            )])
+            .unwrap();
+        assert_eq!(
+            again.len(),
+            1,
+            "a held row under a claimed number is still taken by number"
+        );
+        assert!(c.hard_delete_author("nobody", None).unwrap().is_empty());
     }
 
     #[test]

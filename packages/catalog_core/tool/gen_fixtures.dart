@@ -76,11 +76,20 @@ Future<void> main(List<String> args) async {
           Directory('${work.path}/writer')..createSync(), 'writer', 'Ada');
       scenario.build(writer);
       final folderDir = Directory('${out.path}/folder')..createSync();
-      await folderSync(writer, folderDir.path);
+      await folderSync(writer, folderDir.path,
+          includePrivate: scenario.includePrivate);
       final bundlePath = '${out.path}/bundle.catsync';
-      writeBundle(writer, bundlePath);
+      writeBundle(writer, bundlePath,
+          includePrivate:
+              scenario.bundleIncludePrivate ?? scenario.includePrivate);
       final laterDir = Directory('${out.path}/folder-later');
-      if (scenario.later) _copyTree(folderDir, laterDir);
+      if (scenario.later) {
+        if (scenario.laterIncludePrivate) {
+          await folderSync(writer, laterDir.path, includePrivate: true);
+        } else {
+          _copyTree(folderDir, laterDir);
+        }
+      }
       _applyTamper(scenario, writer, folderDir, bundlePath);
       _fixZipTimes(bundlePath);
 
