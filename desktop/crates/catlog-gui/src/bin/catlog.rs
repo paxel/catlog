@@ -48,6 +48,9 @@ fn main() {
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_title(catlog_core::APP_NAME)
+            // The app id the launcher entry's StartupWMClass names, so the
+            // taskbar shows the icon on Wayland.
+            .with_app_id(catlog_gui::settings::APP_ID)
             .with_inner_size(app.window_size()),
         ..Default::default()
     };

@@ -26,8 +26,8 @@ cd packages/catalog_core && dart test
 # app analysis and widget tests
 flutter analyze --fatal-infos && flutter test
 
-# run the desktop app
-flutter run -d linux
+# the Rust desktop app (see desktop/README.md for its gates)
+cd desktop && cargo run --bin catlog
 
 # regenerate the README screenshots (demo catalog, real fonts)
 flutter test test/screenshots --run-skipped
@@ -42,14 +42,22 @@ the data.
 
 ## Releases
 
-Tag-driven, mirroring the dedup-rs pipeline: `git tag v0.1.0 && git push
---tags` (or the Actions "Run workflow" button) runs the full gate, checks
-the tag against the pubspec version, builds signed Android APKs, Linux
-tar.gz (x86_64 + arm64), a Windows zip, and unsigned macOS dmgs (both
-arches), creates the GitHub Release with the CHANGELOG section as notes,
-and pushes the Homebrew cask (macOS app), the Homebrew formula (Linux
-tarballs, both arches), and the Scoop manifest to `paxel/homebrew-tap`
-and `paxel/scoop-bucket`.
+Tag-driven, mirroring the dedup-rs pipeline: `git tag v2.0.0 && git push
+--tags` (or the Actions "Run workflow" button with publish ticked) runs the
+full gate, checks the tag against the pubspec and the Cargo versions, builds
+signed Android APKs, the Rust desktop for Linux (tar.gz, .deb and AppImage,
+x86_64 + arm64), a Windows zip, and unsigned macOS dmgs (both arches),
+creates the GitHub Release with the CHANGELOG section as notes, and pushes
+the Homebrew cask (macOS app), the Homebrew formula (Linux tarballs) and the
+Scoop manifest to `paxel/homebrew-tap` and `paxel/scoop-bucket`. The
+templates and packing scripts live under `desktop/packaging/`.
+
+A dry run is the same button with publish left off: every artifact is
+built and uploaded to the workflow run, nothing is released or pushed:
+
+```sh
+gh workflow run release.yml --ref release/2.0.0 -f tag=v2.0.0 -f publish=false
+```
 
 Required repository secrets: `ANDROID_KEYSTORE_BASE64`,
 `ANDROID_KEYSTORE_PASSWORD`, `CHANNEL_PAT`, and (for TestFlight) the six

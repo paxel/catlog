@@ -4,13 +4,20 @@
 # means one run counter, so version codes from internal and release
 # builds can never collide (#39).
 #
-#   gate           — full Linux gate, tags only (analyze fatal-infos, all tests)
+#   gate           — full Linux gate, tags only (analyze fatal-infos, all tests,
+#                    the Rust desktop's tests, tag = pubspec = Cargo versions)
 #   build-android  — signed per-ABI + universal APKs
-#   build-linux    — bundle tar.gz per arch (x86_64 + arm64)
-#   build-windows  — zip with catlog.exe + runtime
-#   build-macos    — unsigned catlog.app in a .dmg, per arch
+#   build-linux    — Rust desktop: tar.gz, .deb and AppImage per arch
+#   build-windows  — Rust desktop: zip with catlog.exe
+#   build-macos    — Rust desktop: unsigned catlog.app in a .dmg, per arch
+#   channels       — Homebrew cask + formula and Scoop manifest rendered from
+#                    the artifacts; pushed to the tap and the bucket when publishing
 #   release        — GitHub Release, notes = the CHANGELOG section for the tag
-#   channels       — Homebrew cask + Scoop manifest pushed to the tap/bucket
+#
+# Publishing (Play, F-Droid, the Release, the tap and the bucket) happens
+# on a tag, or on a manual dispatch that says publish=true. A dispatch
+# without it is the dry run: every artifact is built and uploaded, nothing
+# leaves GitHub.
 #
 # One-time setup (repository secrets):
 #   ANDROID_KEYSTORE_BASE64 / ANDROID_KEYSTORE_PASSWORD — upload keystore
@@ -30,9 +37,15 @@ on:
       tag:
         description: "Release tag (e.g. v0.1.0)"
         required: true
+      publish:
+        description: "Publish (release, Play, F-Droid, tap, bucket); off = dry run"
+        type: boolean
+        default: false
 
 env:
   RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
+  # Every publishing step asks this; the artifacts are built regardless.
+  PUBLISH: ${{ github.ref_type == 'tag' || github.event.inputs.publish == 'true' }}
 
 jobs:
   gate:
@@ -47,11 +60,13 @@ jobs:
           cache: true
       - name: Install sqlite3 for pure-Dart core tests
         run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
-      - name: Tag matches the pubspec version
+      - name: Tag, pubspec version and Cargo version agree
         run: |
           ver=$(grep -m1 '^version:' pubspec.yaml | sed -E 's/version: *//; s/\+.*//')
+          cargo_ver=$(grep -m1 '^version = ' desktop/Cargo.toml | sed -E 's/version = "(.*)"/\1/')
           tag=${RELEASE_TAG#v}
           [ "$ver" = "$tag" ] || { echo "tag v$tag != pubspec version $ver" >&2; exit 1; }
+          [ "$cargo_ver" = "$tag" ] || { echo "tag v$tag != Cargo version $cargo_ver" >&2; exit 1; }
       - name: Core — analyze and test
         working-directory: packages/catalog_core
         run: |
@@ -63,6 +78,20 @@ jobs:
           flutter pub get
           flutter analyze --fatal-infos
           flutter test
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: desktop
+      - name: Desktop build dependencies
+        run: sudo apt-get install -y --no-install-recommends libasound2-dev pkg-config
+      - name: Desktop — format, lint and test
+        working-directory: desktop
+        run: |
+          cargo fmt --check
+          cargo clippy --workspace --all-targets --locked -- -D warnings
+          cargo test --workspace --locked
 
   # Runs on every branch push AND every tag — the gate blocks the
   # release-only jobs, not the internal-testing bundle.
@@ -125,7 +154,7 @@ jobs:
       # `status: completed` is the whole point: `draft` parks the release
       # in the Console and waits for a human to press Start rollout.
       - name: Publish to Google Play
-        if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
+        if: env.PUBLISH == 'true'
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
@@ -139,7 +168,7 @@ jobs:
           status: completed
 
   build-linux:
-    name: Linux bundle (${{ matrix.arch }})
+    name: Linux desktop (${{ matrix.arch }})
     needs: gate
     strategy:
       matrix:
@@ -151,59 +180,51 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v5
-      - name: Install Linux desktop build dependencies
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: desktop
+      - name: Build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev \
-            libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
-      # No packaged Flutter SDK exists for linux-arm64; a stable-branch
-      # clone bootstraps the right Dart SDK on both architectures.
-      - name: Install Flutter from git (works on arm64)
-        run: |
-          git clone --depth 1 -b stable https://github.com/flutter/flutter "$HOME/flutter"
-          echo "$HOME/flutter/bin" >> "$GITHUB_PATH"
-      - run: flutter pub get
-      - run: flutter build linux --release
-      - name: Pack
+          sudo apt-get install -y --no-install-recommends libasound2-dev pkg-config curl
+      - name: Build
+        working-directory: desktop
+        run: cargo build --release --locked --bin catlog
+      - name: Pack tar.gz, .deb and AppImage
         run: |
           v="${RELEASE_TAG#v}"
-          mkdir -p dist
-          bundle=$(ls -d build/linux/*/release/bundle | head -1)
-          cp packaging/linux/catlog.desktop packaging/linux/catlog-mime.xml \
-            packaging/linux/install-icon.sh "$bundle/"
-          cp assets/icon/icon.png assets/icon/icon.svg "$bundle/"
-          tar -C "$bundle" -czf "dist/catlog-$v-linux-${{ matrix.arch }}.tar.gz" .
+          desktop/packaging/linux/pack.sh "$v" "${{ matrix.arch }}" desktop/target/release/catlog dist
       - uses: actions/upload-artifact@v6
         with:
           name: linux-${{ matrix.arch }}
           path: dist/*
 
   build-windows:
-    name: Windows bundle
+    name: Windows desktop
     needs: gate
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: subosito/flutter-action@v2
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
         with:
-          channel: stable
-          cache: true
-      - run: flutter pub get
-      - run: flutter build windows --release
+          workspaces: desktop
+      - name: Build
+        working-directory: desktop
+        run: cargo build --release --locked --bin catlog
       - name: Pack
         shell: pwsh
         run: |
           $v = $env:RELEASE_TAG.TrimStart("v")
-          New-Item -ItemType Directory -Force dist | Out-Null
-          Compress-Archive -Path build\windows\x64\runner\Release\*, LICENSE-APACHE, LICENSE-MIT `
-                           -DestinationPath "dist/catlog-$v-windows-x86_64.zip"
+          desktop\packaging\windows\pack.ps1 -Version $v -Binary desktop\target\release\catlog.exe -Dist dist
       - uses: actions/upload-artifact@v6
         with:
           name: windows
           path: dist/*
 
   build-macos:
-    name: macOS app (${{ matrix.arch }})
+    name: macOS desktop (${{ matrix.arch }})
     needs: gate
     strategy:
       matrix:
@@ -217,20 +238,17 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v5
-      - uses: subosito/flutter-action@v2
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
         with:
-          channel: stable
-          cache: true
-      - run: flutter pub get
-      - run: flutter build macos --release
+          workspaces: desktop
+      - name: Build
+        working-directory: desktop
+        run: cargo build --release --locked --bin catlog
       - name: App bundle into dmg (unsigned)
         run: |
           v="${RELEASE_TAG#v}"
-          mkdir -p dist dmgroot
-          cp -R build/macos/Build/Products/Release/catlog.app dmgroot/
-          ln -s /Applications dmgroot/Applications
-          hdiutil create -volname "cat(a)log" -srcfolder dmgroot -ov -format UDZO \
-            "dist/catlog-$v-macos-${{ matrix.arch }}.dmg"
+          desktop/packaging/macos/pack.sh "$v" "${{ matrix.arch }}" desktop/target/release/catlog dist
       - uses: actions/upload-artifact@v6
         with:
           name: macos-${{ matrix.arch }}
@@ -239,6 +257,7 @@ jobs:
   fdroid:
     name: F-Droid repo
     needs: [gate, build-android]
+    if: github.ref_type == 'tag' || github.event.inputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
       # Channel-repo pattern like Homebrew/Scoop: the index and APK live
@@ -286,6 +305,7 @@ jobs:
   release:
     name: GitHub Release
     needs: [gate, build-android, build-linux, build-windows, build-macos]
+    if: github.ref_type == 'tag' || github.event.inputs.publish == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -321,7 +341,7 @@ jobs:
 
   channels:
     name: Homebrew tap + Scoop bucket
-    needs: release
+    needs: [gate, build-linux, build-windows, build-macos]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -329,23 +349,14 @@ jobs:
         with:
           path: dist
           merge-multiple: true
-      - name: Render cask and manifest from the templates
-        run: |
-          ver=${RELEASE_TAG#v}
-          sha() { sha256sum "dist/$1" | cut -d' ' -f1; }
-          mkdir -p out
-          sed -e "s/{{VERSION}}/$ver/g" \
-              -e "s/{{SHA_MACOS_ARM64}}/$(sha catlog-$ver-macos-arm64.dmg)/" \
-              -e "s/{{SHA_MACOS_X86_64}}/$(sha catlog-$ver-macos-x86_64.dmg)/" \
-              packaging/homebrew/catlog.rb.tmpl > out/catlog-cask.rb
-          sed -e "s/{{VERSION}}/$ver/g" \
-              -e "s/{{SHA_LINUX_ARM64}}/$(sha catlog-$ver-linux-arm64.tar.gz)/" \
-              -e "s/{{SHA_LINUX_X86_64}}/$(sha catlog-$ver-linux-x86_64.tar.gz)/" \
-              packaging/homebrew/catlog-linux.rb.tmpl > out/catlog-formula.rb
-          sed -e "s/{{VERSION}}/$ver/g" \
-              -e "s/{{SHA_WINDOWS_X86_64}}/$(sha catlog-$ver-windows-x86_64.zip)/" \
-              packaging/scoop/catlog.json.tmpl > out/catlog.json
+      - name: Render cask, formula and manifest from the templates
+        run: desktop/packaging/render-channels.sh "${RELEASE_TAG#v}" dist out
+      - uses: actions/upload-artifact@v6
+        with:
+          name: channels
+          path: out/*
       - name: Push to the tap
+        if: env.PUBLISH == 'true'
         env:
           GH_TOKEN: ${{ secrets.CHANNEL_PAT }}
         run: |
@@ -360,6 +371,7 @@ jobs:
           git -C tap commit -m "catlog $ver"
           git -C tap push
       - name: Push to the bucket
+        if: env.PUBLISH == 'true'
         env:
           GH_TOKEN: ${{ secrets.CHANNEL_PAT }}
         run: |

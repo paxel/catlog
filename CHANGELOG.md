@@ -3,7 +3,13 @@
 All notable changes to cat(a)log are documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [SemVer](https://semver.org/).
 
-## [1.4.0] - Unreleased
+## [2.0.0] - Unreleased
+
+### Added
+- The desktop app is new, written in Rust: a master-detail window with a menu bar over the same Catalogs, shared folders and `.catsync` bundles the phones use. Clowders, Cats and Strays with their Fields, photos with crop and mark, chores with the agenda and desktop reminders, appointments and Vet Runs, the map with sightings and stray areas, the sync pages with the watch line and the conflicts page, duplicates with Merge and Transfer, Moments with going back, automatic backups with restore, archiving, the authors page with bans, the Card, the missing poster with its QR code and the report for the vet as PDFs, flier capture from an image file, achievements with the cheers, tips, help and settings. Linux ships as tar.gz, .deb and AppImage, Windows as a zip through Scoop, macOS as a dmg through the Homebrew cask.
+
+### Removed
+- The Flutter desktop targets. Their data stays where it was; the new app keeps its own data under the same app id in a `v2` folder.
 
 ### Added
 - Duplicate in a chore's editor: pick the cat or home the copy is for and a new editor opens with the same title, schedule, time and reminder, over the original, so every kitten gets its feeding with one pick and one Save each.
