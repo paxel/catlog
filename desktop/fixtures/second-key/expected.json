@@ -1252,5 +1252,15 @@
     "changedKeys": [
       "65b60673d6ed884bf01c2c222d82ada0"
     ]
+  },
+  "sync": {
+    "entriesIn": 92,
+    "blobsIn": 0,
+    "blobsMissing": 0,
+    "blobProblems": []
+  },
+  "bundle": {
+    "entriesIn": 92,
+    "blobsIn": 0
   }
 }

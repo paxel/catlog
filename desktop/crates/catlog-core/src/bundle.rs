@@ -36,6 +36,16 @@ pub struct BundleResult {
     pub report: ImportReport,
 }
 
+impl BundleResult {
+    /// The import as the fixture corpus records it.
+    pub fn to_json(&self) -> serde_json::Value {
+        serde_json::json!({
+            "entriesIn": self.entries_in,
+            "blobsIn": self.blobs_in,
+        })
+    }
+}
+
 impl Catalog {
     /// Writes the bundle zip: this Catalog's full knowledge plus the
     /// photos in use. Private values and the photos among them stay out

@@ -1263,5 +1263,15 @@
     ],
     "impostors": [],
     "changedKeys": []
+  },
+  "sync": {
+    "entriesIn": 93,
+    "blobsIn": 0,
+    "blobsMissing": 0,
+    "blobProblems": []
+  },
+  "bundle": {
+    "entriesIn": 93,
+    "blobsIn": 0
   }
 }

@@ -1518,5 +1518,15 @@
     ],
     "impostors": [],
     "changedKeys": []
+  },
+  "sync": {
+    "entriesIn": 112,
+    "blobsIn": 3,
+    "blobsMissing": 0,
+    "blobProblems": []
+  },
+  "bundle": {
+    "entriesIn": 112,
+    "blobsIn": 3
   }
 }

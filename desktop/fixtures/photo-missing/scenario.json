@@ -1,0 +1,6 @@
+{
+  "name": "photo-missing",
+  "about": "A photo the entries name is in neither the folder nor the bundle: the entry lands, the photo counts as missing, the round says which one.",
+  "writer": "65b60673d6ed884bf01c2c222d82ada0",
+  "writerEntries": 93
+}

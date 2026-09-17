@@ -21,13 +21,32 @@ fn fixtures() -> Vec<PathBuf> {
 
 /// `expected.json` with the two reports moved out, so the state compares
 /// on its own.
-fn expected(dir: &Path) -> (serde_json::Value, serde_json::Value, serde_json::Value) {
+struct Expected {
+    state: serde_json::Value,
+    report: serde_json::Value,
+    bundle_report: serde_json::Value,
+    sync: serde_json::Value,
+    sync_later: Option<serde_json::Value>,
+    bundle: serde_json::Value,
+}
+
+fn expected(dir: &Path) -> Expected {
     let text = std::fs::read_to_string(dir.join("expected.json")).expect("expected.json");
     let mut value: serde_json::Value = serde_json::from_str(&text).expect("valid expected.json");
     let object = value.as_object_mut().expect("an object");
     let report = object.remove("report").expect("report");
     let bundle_report = object.remove("bundleReport").expect("bundleReport");
-    (value, report, bundle_report)
+    let sync = object.remove("sync").expect("sync");
+    let sync_later = object.remove("syncLater");
+    let bundle = object.remove("bundle").expect("bundle");
+    Expected {
+        state: value,
+        report,
+        bundle_report,
+        sync,
+        sync_later,
+        bundle,
+    }
 }
 
 fn assert_same(
@@ -67,14 +86,22 @@ fn every_scenario_imports_from_its_folder() {
         let tmp = tempfile::tempdir().unwrap();
         let mut catalog = Catalog::open(tmp.path()).unwrap();
         let result = catalog.import_folder(&dir.join("folder"), None).unwrap();
-        assert!(
-            result.blob_problems.is_empty(),
-            "{name}: {:?}",
-            result.blob_problems
+        let expected = expected(&dir);
+        assert_same(&name, "folder round", &result.to_json(), &expected.sync);
+        assert_same(
+            &name,
+            "folder report",
+            &result.report.to_json(),
+            &expected.report,
         );
-        let (state, report, _) = expected(&dir);
-        assert_same(&name, "folder", &catalog.dump().unwrap(), &state);
-        assert_same(&name, "folder report", &result.report.to_json(), &report);
+        // A second folder, for photos that arrive after the entries.
+        if let Some(later) = &expected.sync_later {
+            let result = catalog
+                .import_folder(&dir.join("folder-later"), None)
+                .unwrap();
+            assert_same(&name, "later round", &result.to_json(), later);
+        }
+        assert_same(&name, "folder", &catalog.dump().unwrap(), &expected.state);
     }
 }
 
@@ -85,8 +112,14 @@ fn every_scenario_imports_from_its_bundle() {
         let tmp = tempfile::tempdir().unwrap();
         let mut catalog = Catalog::open(tmp.path()).unwrap();
         let result = catalog.import_bundle(&dir.join("bundle.catsync")).unwrap();
-        let (state, _, report) = expected(&dir);
-        assert_same(&name, "bundle", &catalog.dump().unwrap(), &state);
-        assert_same(&name, "bundle report", &result.report.to_json(), &report);
+        let expected = expected(&dir);
+        assert_same(&name, "bundle import", &result.to_json(), &expected.bundle);
+        assert_same(
+            &name,
+            "bundle report",
+            &result.report.to_json(),
+            &expected.bundle_report,
+        );
+        assert_same(&name, "bundle", &catalog.dump().unwrap(), &expected.state);
     }
 }

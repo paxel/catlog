@@ -79,6 +79,8 @@ Future<void> main(List<String> args) async {
       await folderSync(writer, folderDir.path);
       final bundlePath = '${out.path}/bundle.catsync';
       writeBundle(writer, bundlePath);
+      final laterDir = Directory('${out.path}/folder-later');
+      if (scenario.later) _copyTree(folderDir, laterDir);
       _applyTamper(scenario, writer, folderDir, bundlePath);
       _fixZipTimes(bundlePath);
 
@@ -88,6 +90,9 @@ Future<void> main(List<String> args) async {
           'Reader');
       final folderResult =
           await folderSyncIn(folderReader, memoryCopy(folderDir));
+      final laterResult = scenario.later
+          ? await folderSyncIn(folderReader, memoryCopy(laterDir))
+          : null;
       final viaFolder = dumpState(folderReader);
 
       final bundleReader = _catalog(
@@ -101,6 +106,7 @@ Future<void> main(List<String> args) async {
       if (folderJson != _json(viaBundle)) {
         File('${out.path}/expected-bundle.json')
             .writeAsStringSync(_json(viaBundle));
+        File('${out.path}/expected-folder.json').writeAsStringSync(folderJson);
         stderr.writeln('${scenario.name}: folder and bundle readers disagree');
         exit(1);
       }
@@ -108,6 +114,9 @@ Future<void> main(List<String> args) async {
         ...viaFolder,
         'report': reportJson(folderResult.report),
         'bundleReport': reportJson(bundleResult.report),
+        'sync': syncJson(folderResult),
+        if (laterResult != null) 'syncLater': syncJson(laterResult),
+        'bundle': bundleJson(bundleResult),
       }));
       File('${out.path}/scenario.json').writeAsStringSync(_json({
         'name': scenario.name,
@@ -164,6 +173,15 @@ void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
     File('$root/keys/$name')
         .writeAsStringSync(jsonEncode([for (final k in records) k.toJson()]));
   }
+  for (final hash in [...t.removedBlobs, ...t.removedFolderBlobs]) {
+    File('$root/blobs/$hash.jpg').deleteSync();
+  }
+  for (final hash in t.corruptedFolderBlobs) {
+    File('$root/blobs/$hash.jpg').writeAsBytesSync(photo(9, 9));
+  }
+  for (final MapEntry(key: name, value: bytes) in t.strayBlobs.entries) {
+    File('$root/blobs/$name').writeAsBytesSync(bytes);
+  }
   _rewriteZip(bundlePath, (name, bytes) {
     if (name.startsWith('entries')) {
       return utf8.encode(t.bundleLines.map(jsonEncode).join('\n'));
@@ -173,8 +191,23 @@ void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
         for (final k in [...ownKeys, ...t.extraBundleKeys]) k.toJson()
       ]));
     }
+    if (name.startsWith('blobs/') &&
+        t.removedBlobs.contains(name.substring(6, name.length - 4))) {
+      return null;
+    }
     return bytes;
+  }, extra: {
+    for (final MapEntry(key: name, value: bytes) in t.strayBlobs.entries)
+      'blobs/$name': bytes
   });
+}
+
+void _copyTree(Directory from, Directory to) {
+  for (final f in from.listSync(recursive: true).whereType<File>()) {
+    final target = File('${to.path}/${f.path.substring(from.path.length + 1)}');
+    target.parent.createSync(recursive: true);
+    f.copySync(target.path);
+  }
 }
 
 /// Rewrites a zip with every file stamped at the same fixed time: the
@@ -183,15 +216,22 @@ void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
 void _fixZipTimes(String path) => _rewriteZip(path, (_, bytes) => bytes);
 
 void _rewriteZip(
-    String path, List<int> Function(String name, List<int> bytes) edit) {
+    String path, List<int>? Function(String name, List<int> bytes) edit,
+    {Map<String, List<int>> extra = const {}}) {
   final archive = ZipDecoder().decodeBytes(File(path).readAsBytesSync());
   final fixed = Archive();
   for (final f in archive.files) {
     final bytes = edit(f.name, f.content as List<int>);
+    if (bytes == null) continue;
     final copy = ArchiveFile(f.name, bytes.length, bytes)
       ..compress = f.compress
       ..lastModTime = 0;
     fixed.addFile(copy);
+  }
+  for (final MapEntry(key: name, value: bytes) in extra.entries) {
+    fixed.addFile(ArchiveFile(name, bytes.length, bytes)
+      ..compress = false
+      ..lastModTime = 0);
   }
   final bytes = ZipEncoder().encode(fixed);
   File(path).writeAsBytesSync(bytes!);

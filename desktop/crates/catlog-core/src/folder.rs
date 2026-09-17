@@ -31,6 +31,18 @@ pub struct FolderImport {
     pub report: ImportReport,
 }
 
+impl FolderImport {
+    /// The round as the fixture corpus records it.
+    pub fn to_json(&self) -> serde_json::Value {
+        serde_json::json!({
+            "entriesIn": self.entries_in,
+            "blobsIn": self.blobs_in,
+            "blobsMissing": self.blobs_missing,
+            "blobProblems": self.blob_problems,
+        })
+    }
+}
+
 /// The subfolder the sync lives in under the folder a keeper picked.
 pub const SYNC_DIR: &str = "catlog-sync";
 
@@ -87,13 +99,15 @@ impl Catalog {
                 result.applied.extend(imported);
             }
         }
-        let blob_dir = match catalog {
-            Some(c) => root.join(c).join("blobs"),
-            None => root.join("blobs"),
+        let blob_name = match catalog {
+            Some(c) => format!("{c}/blobs"),
+            None => "blobs".to_string(),
         };
+        let blob_dir = root.join(&blob_name);
         let legacy = root.join("blobs");
         result.blobs_in =
-            self.fetch_missing_blobs(&blob_dir, &legacy, &mut result.blob_problems)?;
+            self.fetch_missing_blobs(&blob_dir, &blob_name, &legacy, &mut result.blob_problems)?;
+        result.blob_problems.sort();
         result.blobs_missing = self.missing_blobs()?.len();
         Ok(result)
     }
@@ -189,6 +203,7 @@ impl Catalog {
     fn fetch_missing_blobs(
         &self,
         blob_dir: &Path,
+        blob_name: &str,
         legacy: &Path,
         problems: &mut Vec<String>,
     ) -> Result<usize> {
@@ -212,8 +227,7 @@ impl Catalog {
                 legacy
             } else {
                 problems.push(format!(
-                    "{short} not listed in {} ({} files)",
-                    blob_dir.display(),
+                    "{short} not listed in {blob_name} ({} files)",
                     names.len()
                 ));
                 continue;
@@ -225,6 +239,10 @@ impl Catalog {
                     continue;
                 }
             };
+            if crate::photo::image_too_large(&bytes) {
+                problems.push(format!("{short} too large ({} bytes)", bytes.len()));
+                continue;
+            }
             let actual = hex::encode(Sha256::digest(&bytes));
             if actual != hash {
                 let head = hex::encode(&bytes[..bytes.len().min(4)]);

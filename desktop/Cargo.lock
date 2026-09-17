@@ -609,6 +609,7 @@ dependencies = [
  "ed25519-dalek",
  "getrandom 0.3.4",
  "hex",
+ "image",
  "rusqlite",
  "serde",
  "serde_json",
@@ -1865,6 +1866,8 @@ dependencies = [
  "num-traits",
  "png",
  "tiff",
+ "zune-core",
+ "zune-jpeg",
 ]
 
 [[package]]

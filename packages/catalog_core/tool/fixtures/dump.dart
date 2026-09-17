@@ -84,3 +84,17 @@ Map<String, dynamic> _entity(CatalogStore store, String id) {
   }
   return out;
 }
+
+/// One folder round as the corpus records it.
+Map<String, dynamic> syncJson(FolderSyncResult r) => {
+      'entriesIn': r.entriesIn,
+      'blobsIn': r.blobsIn,
+      'blobsMissing': r.blobsMissing,
+      'blobProblems': [...r.blobProblems]..sort(),
+    };
+
+/// One bundle import as the corpus records it.
+Map<String, dynamic> bundleJson(BundleResult r) => {
+      'entriesIn': r.entriesIn,
+      'blobsIn': r.blobsIn,
+    };

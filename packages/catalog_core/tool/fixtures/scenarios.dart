@@ -20,7 +20,13 @@ class Scenario {
   /// readers then see is what a hostile or old partner would send.
   final void Function(Tamper t)? tamper;
 
-  const Scenario(this.name, this.about, this.build, {this.tamper});
+  /// When set, the untampered folder is kept as `folder-later/` and the
+  /// readers run a second round on it after the first: what a cloud
+  /// client that copies photos after entries looks like.
+  final bool later;
+
+  const Scenario(this.name, this.about, this.build,
+      {this.tamper, this.later = false});
 }
 
 /// The written files, open for editing by a scenario's tamper step.
@@ -43,6 +49,30 @@ class Tamper {
   /// When set, the writer's own key record is republished with this
   /// `since`, in the folder and the bundle.
   int? sinceOverride;
+
+  /// Photo hashes removed from the folder and the bundle.
+  final Set<String> removedBlobs = {};
+
+  /// Photo hashes removed from the folder only: still on their way
+  /// there, already inside the bundle.
+  final Set<String> removedFolderBlobs = {};
+
+  /// Photo hashes whose folder file is replaced by other bytes; the
+  /// bundle keeps the real ones (a phone refuses to import a bundle
+  /// with a wrong photo, so that case is the folder's alone).
+  final Set<String> corruptedFolderBlobs = {};
+
+  /// Extra photo files, by name, in the folder and the bundle: what no
+  /// entry names.
+  final Map<String, List<int>> strayBlobs = {};
+
+  /// The photo hashes the writer's lines name as added.
+  List<String> get imageHashes => [
+        for (final l in folderLines)
+          if ((l['field'] as String).startsWith(Keys.imagePrefix) &&
+              l['value'] == 'added')
+            (l['field'] as String).substring(Keys.imagePrefix.length)
+      ];
 
   Tamper(this.writer, this.folderLines, this.bundleLines);
 
@@ -161,6 +191,66 @@ final scenarios = <Scenario>[
         return r;
       });
       t.sinceOverride = (colour['dseq'] as int) + 1;
+    },
+  ),
+  Scenario(
+    'photo-missing',
+    'A photo the entries name is in neither the folder nor the bundle: '
+        'the entry lands, the photo counts as missing, the round says '
+        'which one.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.addImage(miezi, photo(20, 20));
+    },
+    tamper: (t) => t.removedBlobs.addAll(t.imageHashes),
+  ),
+  Scenario(
+    'photo-late',
+    'The photo is still on its way in the first round and there in the '
+        'second: the second round fetches it without a tap.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.addImage(miezi, photo(20, 20));
+    },
+    tamper: (t) => t.removedFolderBlobs.addAll(t.imageHashes),
+    later: true,
+  ),
+  Scenario(
+    'photo-unknown',
+    'A photo file no entry names sits in the folder and the bundle: '
+        'ignored, never stored.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      cat(w, 1, 'Miezi', clowderId: home);
+    },
+    tamper: (t) => t.strayBlobs['${'e' * 64}.jpg'] = photo(10, 10),
+  ),
+  Scenario(
+    'photo-corrupt',
+    'The folder\'s copy of a photo does not match its name: not taken, '
+        'the reason names the bytes that came back; the next round finds '
+        'the real one, as the bundle carried it all along.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.addImage(miezi, photo(20, 20));
+    },
+    tamper: (t) => t.corruptedFolderBlobs.addAll(t.imageHashes),
+    later: true,
+  ),
+  Scenario(
+    'photo-deleted',
+    'A photo added and then deleted by the writer: the marker travels, '
+        'the bytes do not, the profile picture falls back to the next one.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      final first = w.addImage(miezi, photo(20, 20));
+      w.addImage(miezi, photo(21, 21));
+      w.setProfileImage(miezi, first);
+      w.deleteImage(miezi, first);
     },
   ),
   Scenario(

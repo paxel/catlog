@@ -15,6 +15,7 @@ mod entry;
 mod error;
 mod folder;
 pub mod keys;
+pub mod photo;
 pub mod signing;
 
 pub use bundle::BundleResult;

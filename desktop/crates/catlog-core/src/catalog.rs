@@ -756,6 +756,58 @@ impl Catalog {
         Ok(result)
     }
 
+    /// Marks or unmarks one value private. Unmarking re-asserts the value
+    /// under fresh numbers, because partners moved past the originals
+    /// while they were withheld.
+    pub fn set_field_private(&mut self, id: &str, field: &str, private: bool) -> Result<()> {
+        if keys::is_structural(field) {
+            return Err(Error::Invalid(format!(
+                "{field} identifies the entity and is never private"
+            )));
+        }
+        let entity = self.resolve_entity(id)?;
+        let flag = if private { "yes" } else { "no" };
+        self.append(&entity, &keys::private_field(field), Some(flag))?;
+        self.append(&entity, &keys::withheld(field), Some(flag))?;
+        if !private {
+            self.reassert_field(&entity, field)?;
+        }
+        Ok(())
+    }
+
+    /// Re-asserts one field's history under fresh numbers of this
+    /// device, so a value that was withheld while private reaches
+    /// partners whose version vectors already moved past the originals.
+    fn reassert_field(&mut self, canonical: &str, field: &str) -> Result<()> {
+        let entities = self.group(canonical)?;
+        let sql = format!(
+            "SELECT * FROM entries WHERE entity IN ({}) AND field = ?{} {LIVE} ORDER BY device, dseq",
+            placeholders(entities.len()),
+            entities.len() + 1
+        );
+        let mut args: Vec<&dyn rusqlite::ToSql> =
+            entities.iter().map(|s| s as &dyn rusqlite::ToSql).collect();
+        let field_owned = field.to_string();
+        args.push(&field_owned);
+        let rows = self.select(&sql, &args)?;
+        let device = self.device_id();
+        let first = self.next_dseq(&device)?;
+        for (next, e) in (first..).zip(rows) {
+            self.insert_own(
+                &device,
+                next,
+                &e.entity,
+                &e.field,
+                e.value.as_deref(),
+                &e.date,
+                &e.author,
+                &e.recorded,
+                false,
+            )?;
+        }
+        Ok(())
+    }
+
     /// True when this entity's value for `field` stays home: the
     /// per-value marker decides, and a Private field definition covers
     /// that field on every entity.
@@ -1175,6 +1227,10 @@ impl Catalog {
 
     /// Stores a photo received from a partner; verifies the content hash.
     pub fn put_blob(&self, hash: &str, bytes: &[u8]) -> Result<()> {
+        // A photo nobody could decode within bounds is not stored.
+        if crate::photo::image_too_large(bytes) {
+            return Ok(());
+        }
         if hex::encode(Sha256::digest(bytes)) != hash {
             return Err(Error::HashMismatch(hash.to_string()));
         }
@@ -1927,6 +1983,24 @@ mod tests {
             .unwrap();
         assert!(report.is_empty());
         assert_eq!(b.verifies_entry(&plain).unwrap(), None);
+    }
+
+    #[test]
+    fn unmarking_a_private_value_reasserts_it_under_fresh_numbers() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        c.create_clowder("clowder:h", "Home").unwrap();
+        c.append("clowder:h", "f:phone", Some("555")).unwrap();
+        c.set_field_private("clowder:h", "f:phone", true).unwrap();
+        assert!(c.is_field_private("clowder:h", "f:phone").unwrap());
+        let before = c.all_entries().unwrap().len();
+        c.set_field_private("clowder:h", "f:phone", false).unwrap();
+        assert!(!c.is_field_private("clowder:h", "f:phone").unwrap());
+        let after = c.all_entries().unwrap();
+        assert_eq!(after.len(), before + 3);
+        assert_eq!(after.last().unwrap().field, "f:phone");
+        assert!(c.set_field_private("clowder:h", keys::NAME, true).is_err());
     }
 
     #[test]
