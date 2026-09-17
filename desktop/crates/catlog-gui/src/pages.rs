@@ -53,6 +53,8 @@ pub enum PageAction {
     MergeInto(String),
     /// Open a document page for this Cat.
     Document(DocKind, String),
+    /// A new Cat, in this Clowder or as a Stray.
+    NewCat(Option<String>),
 }
 
 /// The pages' own state: the unit system values are read in.
@@ -102,6 +104,9 @@ impl Pages {
         egui::ScrollArea::vertical().show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.heading(Self::name_of(store, t, id));
+                if ui.button(t.new_cat()).clicked() {
+                    action = PageAction::NewCat(Some(id.to_string()));
+                }
                 ui.menu_button(t.actions_menu(), |ui| {
                     if ui.button(t.merge_this_into(t.kind_clowder())).clicked() {
                         action = PageAction::MergeInto(id.to_string());
@@ -308,7 +313,12 @@ impl Pages {
     ) -> PageAction {
         let mut action = PageAction::None;
         egui::ScrollArea::vertical().show(ui, |ui| {
-            ui.heading(t.strays());
+            ui.horizontal(|ui| {
+                ui.heading(t.strays());
+                if ui.button(t.new_cat()).clicked() {
+                    action = PageAction::NewCat(None);
+                }
+            });
             let strays = store.strays().unwrap_or_default();
             if strays.is_empty() {
                 ui.label(t.no_strays_right_now());

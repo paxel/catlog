@@ -19,6 +19,7 @@ pub mod editor;
 pub mod history;
 pub mod home;
 pub mod housekeeping;
+pub mod icon;
 pub mod l10n;
 pub mod labels;
 pub mod map;

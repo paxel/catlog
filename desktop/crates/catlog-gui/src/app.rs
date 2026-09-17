@@ -84,13 +84,15 @@ pub const LICENCES: &str = concat!(
 const WATCH_EVERY: Duration = Duration::from_secs(5 * 60);
 
 /// Which dialog is up, and what its answer means.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 enum Asking {
     Nothing,
     NewClowder,
     NewCatalog,
     RenameCatalog,
     NameMoment,
+    /// A new Cat in this Clowder, or a Stray.
+    NewCat(Option<String>),
 }
 
 pub struct App {
@@ -157,6 +159,7 @@ pub struct App {
     /// A report from a run that went down, until it is sent.
     pub crash_report: Option<String>,
     pub help_open: bool,
+    icon: Option<egui::TextureHandle>,
     /// Opens a link in the browser or the mail program.
     pub open_url: Box<dyn FnMut(&str)>,
     /// Text recognition; the ocrs engine outside tests.
@@ -289,6 +292,7 @@ impl App {
             ladders: Vec::new(),
             crash_report: crate::crash::last_crash(root),
             help_open: false,
+            icon: None,
             open_url: Box::new(|url| {
                 if let Err(e) = open::that_detached(url) {
                     eprintln!("catlog: open: {e}");
@@ -874,6 +878,10 @@ impl App {
                 self.home.selection = Selection::Document;
                 self.history_of = None;
             }
+            PageAction::NewCat(clowder) => {
+                self.asking = Asking::NewCat(clowder);
+                self.dialog.ask(t.new_cat(), t.name(), t.create(), "");
+            }
             PageAction::MergeInto(id) => {
                 let kind = if id.starts_with("clowder:") {
                     MergeKind::Clowder
@@ -1105,7 +1113,7 @@ impl App {
         let Some(value) = self.dialog.show(ctx, t.cancel()) else {
             return;
         };
-        match self.asking {
+        match self.asking.clone() {
             Asking::Nothing => {}
             Asking::NameMoment => {
                 if let Err(e) =
@@ -1113,6 +1121,34 @@ impl App {
                         .add_moment(catlog_core::moments::cause::MANUAL, Some(&value), None)
                 {
                     self.notice = Some(e.to_string());
+                }
+            }
+            Asking::NewCat(clowder) => {
+                let id = format!("cat:{}", new_uuid());
+                let species = if self
+                    .store
+                    .current(
+                        crate::settings_page::PET_MODE_ENTITY,
+                        crate::settings_page::PET_MODE_FIELD,
+                    )
+                    .ok()
+                    .flatten()
+                    .as_deref()
+                    == Some("pets")
+                {
+                    ""
+                } else {
+                    "cat"
+                };
+                match self
+                    .store
+                    .create_cat(&id, &value, clowder.as_deref(), species)
+                {
+                    Ok(()) => {
+                        self.home.selection = Selection::Cat(id);
+                        self.history_of = None;
+                    }
+                    Err(e) => self.notice = Some(e.to_string()),
                 }
             }
             Asking::NewClowder => {
@@ -1899,8 +1935,17 @@ impl App {
         }
     }
 
+    /// The app icon as a texture, loaded once.
+    fn icon_texture(&mut self, ctx: &Context) -> Option<egui::TextureHandle> {
+        if self.icon.is_none() {
+            self.icon = crate::icon::texture(ctx, 128);
+        }
+        self.icon.clone()
+    }
+
     fn show_about(&mut self, ctx: &Context) {
         let t = self.t;
+        self.icon_texture(ctx);
         let mut open = self.about_open;
         let mut links: Vec<String> = Vec::new();
         egui::Window::new(t.about_and_feedback())
@@ -1908,6 +1953,11 @@ impl App {
             .collapsible(false)
             .resizable(false)
             .show(ctx, |ui| {
+                if let Some(icon) = self.icon.clone() {
+                    ui.add(
+                        egui::Image::from_texture(&icon).fit_to_exact_size(egui::Vec2::splat(64.0)),
+                    );
+                }
                 ui.label(format!("{} {}", t.app_title(), catlog_core::VERSION));
                 ui.label(t.about_tagline());
                 ui.add_space(6.0);
@@ -2177,7 +2227,13 @@ impl App {
         let t = self.t;
         egui::CentralPanel::default().show(ui, |ui| {
             ui.vertical_centered(|ui| {
-                ui.add_space(60.0);
+                ui.add_space(40.0);
+                if let Some(icon) = self.icon_texture(ui.ctx()) {
+                    ui.add(
+                        egui::Image::from_texture(&icon).fit_to_exact_size(egui::Vec2::splat(96.0)),
+                    );
+                    ui.add_space(12.0);
+                }
                 ui.heading(t.welcome_title());
                 ui.add_space(12.0);
                 ui.label(t.welcome_body());
@@ -4851,5 +4907,57 @@ mod tests {
                 .as_deref(),
             Some("servant|Feed")
         );
+    }
+
+    #[test]
+    fn a_new_cat_comes_from_the_clowder_page_and_a_stray_from_the_strays_page() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_by_label("New cat").click();
+        h.run();
+        assert!(h.state().dialog.open);
+        h.state_mut().dialog.value = "Pixel".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        let Selection::Cat(cat) = h.state().selection().clone() else {
+            panic!("the new cat's page opens");
+        };
+        let store = h.state().store();
+        assert_eq!(
+            store.current(&cat, keys::NAME).unwrap().as_deref(),
+            Some("Pixel")
+        );
+        assert_eq!(
+            store.current(&cat, keys::CLOWDER).unwrap().as_deref(),
+            Some("clowder:00000000-0000-4000-8000-000000000001")
+        );
+        assert_eq!(
+            store.current(&cat, "f:species").unwrap().as_deref(),
+            Some("cat")
+        );
+        h.get_by_label_contains("Strays  (1)").click();
+        h.run();
+        h.get_by_label("New cat").click();
+        h.run();
+        h.state_mut().dialog.value = "Roamer".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        let Selection::Cat(stray) = h.state().selection().clone() else {
+            panic!("the stray's page opens");
+        };
+        assert!(
+            h.state()
+                .store()
+                .strays()
+                .unwrap()
+                .iter()
+                .any(|c| c.id == stray)
+        );
+        assert_eq!(h.state().store().cats(None).unwrap().len(), 5);
     }
 }

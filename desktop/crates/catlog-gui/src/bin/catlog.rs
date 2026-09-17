@@ -51,6 +51,7 @@ fn main() {
             // The app id the launcher entry's StartupWMClass names, so the
             // taskbar shows the icon on Wayland.
             .with_app_id(catlog_gui::settings::APP_ID)
+            .with_icon(catlog_gui::icon::window_icon())
             .with_inner_size(app.window_size()),
         ..Default::default()
     };
