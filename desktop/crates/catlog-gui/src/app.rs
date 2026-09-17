@@ -24,6 +24,10 @@ use crate::duplicates_page::{DuplicatesAction, show_duplicates};
 use crate::editor::{EditTarget, FieldEditor, apply_edit};
 use crate::history::{HistoryAction, HistoryPage};
 use crate::home::{HomeAction, HomePane, Selection};
+use crate::housekeeping::{
+    HouseAction, Housekeeping, key_code, show_archive, show_backups, show_moderation, show_moments,
+    show_restore,
+};
 use crate::l10n::{self, L10n};
 use crate::map::MapView;
 use crate::map_page::{MapPage, MapPageAction};
@@ -69,6 +73,7 @@ enum Asking {
     NewClowder,
     NewCatalog,
     RenameCatalog,
+    NameMoment,
 }
 
 pub struct App {
@@ -120,6 +125,13 @@ pub struct App {
     ending_chore: Option<catlog_core::chores::Chore>,
     pub notifier: Box<dyn Notifier>,
     pub merge_dialog: MergeDialog,
+    pub house: Housekeeping,
+    /// Where backups are written; the Downloads folder outside tests.
+    pub backups_dir: PathBuf,
+    restore_sets: Vec<catlog_core::backup::BackupSet>,
+    going_back: Option<catlog_core::moments::Moment>,
+    archiving: Option<Vec<String>>,
+    hard_deleting: Option<(String, String)>,
     pub transfer_dialog: TransferDialog,
     /// The wall clock, replaceable in tests.
     pub now: Box<dyn Fn() -> chrono::NaiveDateTime>,
@@ -217,6 +229,12 @@ impl App {
             ending_chore: None,
             notifier: Box::new(DesktopNotifier),
             merge_dialog: MergeDialog::default(),
+            house: Housekeeping::default(),
+            backups_dir: crate::settings::backups_dir(),
+            restore_sets: Vec::new(),
+            going_back: None,
+            archiving: None,
+            hard_deleting: None,
             transfer_dialog: TransferDialog::default(),
             now: Box::new(|| chrono::Local::now().naive_local()),
             last_reminder_check: chrono::Local::now().naive_local(),
@@ -344,6 +362,7 @@ impl App {
         if let Some(author) = &self.settings.settings.author {
             store.set_author(author)?;
         }
+        let _ = self.store.auto_backup(&self.backups_dir, false);
         self.store = store;
         self.manager.set_active(id)?;
         self.home.selection = Selection::None;
@@ -629,6 +648,27 @@ impl App {
                         AgendaAction::OpenEntity(id) => page_action = PageAction::OpenCat(id),
                     }
                 }
+                Selection::Moments => {
+                    let action = show_moments(ui, &self.store, &t, &mut self.house);
+                    self.act_house(action);
+                }
+                Selection::Archive => {
+                    let today = self.pages.today;
+                    let action = show_archive(ui, &self.store, &t, &mut self.house, today);
+                    self.act_house(action);
+                }
+                Selection::Backups => {
+                    let action = show_backups(ui, &self.store, &t, &self.backups_dir);
+                    self.act_house(action);
+                }
+                Selection::Restore => {
+                    let action = show_restore(ui, &t, &self.restore_sets, &mut self.house);
+                    self.act_house(action);
+                }
+                Selection::Moderation => {
+                    let action = show_moderation(ui, &self.store, &t, &mut self.house);
+                    self.act_house(action);
+                }
                 Selection::Duplicates => match show_duplicates(ui, &self.store, &t) {
                     DuplicatesAction::None => {}
                     DuplicatesAction::Merge(a, b, kind) => {
@@ -838,10 +878,22 @@ impl App {
                     self.notice = Some(e.to_string());
                 }
             }
+            if let Some(moment) = self.going_back.take() {
+                self.go_back(&moment);
+            }
+            if let Some(ids) = self.archiving.take() {
+                self.archive(&ids);
+            }
+            if let Some((author, device)) = self.hard_deleting.take() {
+                self.hard_delete(&author, &device);
+            }
         }
         if !self.confirm.open {
             self.deleting_photo = None;
             self.ending_chore = None;
+            self.going_back = None;
+            self.archiving = None;
+            self.hard_deleting = None;
         }
         match self.viewer.show(ui.ctx(), &self.store, &t, &mut self.faces) {
             ViewerAction::None => {}
@@ -932,6 +984,14 @@ impl App {
         };
         match self.asking {
             Asking::Nothing => {}
+            Asking::NameMoment => {
+                if let Err(e) =
+                    self.store
+                        .add_moment(catlog_core::moments::cause::MANUAL, Some(&value), None)
+                {
+                    self.notice = Some(e.to_string());
+                }
+            }
             Asking::NewClowder => {
                 let id = format!("clowder:{}", new_uuid());
                 match self.store.create_clowder(&id, &value) {
@@ -1044,6 +1104,33 @@ impl App {
                         ui.separator();
                         if ui.button(t.new_clowder()).clicked() {
                             self.act(HomeAction::NewClowder);
+                            ui.close();
+                        }
+                        ui.separator();
+                        if ui.button(t.go_back_title()).clicked() {
+                            self.home.selection = Selection::Moments;
+                            self.history_of = None;
+                            ui.close();
+                        }
+                        if ui.button(t.archive_title()).clicked() {
+                            self.home.selection = Selection::Archive;
+                            self.history_of = None;
+                            ui.close();
+                        }
+                        if ui.button(t.backups_title()).clicked() {
+                            self.home.selection = Selection::Backups;
+                            self.history_of = None;
+                            ui.close();
+                        }
+                        if ui.button(t.restore_backups_menu()).clicked() {
+                            self.refresh_restore_sets();
+                            self.home.selection = Selection::Restore;
+                            self.history_of = None;
+                            ui.close();
+                        }
+                        if ui.button(t.moderation_title()).clicked() {
+                            self.home.selection = Selection::Moderation;
+                            self.history_of = None;
                             ui.close();
                         }
                         ui.separator();
@@ -1208,6 +1295,206 @@ impl App {
                 .unwrap_or_default();
             self.notifier.notify(&r.title, &name);
         }
+    }
+
+    fn act_house(&mut self, action: HouseAction) {
+        let t = self.t;
+        match action {
+            HouseAction::None => {}
+            HouseAction::NameMoment => {
+                self.asking = Asking::NameMoment;
+                self.dialog
+                    .ask(t.name_this_moment(), t.name(), t.save(), "");
+            }
+            HouseAction::GoBack(moment) => {
+                let count = self
+                    .store
+                    .entries_after(moment.seq)
+                    .map(|e| e.len())
+                    .unwrap_or(0);
+                self.going_back = Some(moment);
+                self.confirm.ask(
+                    t.go_back_title(),
+                    &t.go_back_body(count as i64),
+                    t.go_back_to_here(),
+                );
+            }
+            HouseAction::Archive(ids) => {
+                let names: Vec<String> = ids
+                    .iter()
+                    .map(|id| {
+                        self.store
+                            .current(id, keys::NAME)
+                            .ok()
+                            .flatten()
+                            .unwrap_or_else(|| t.unnamed().to_string())
+                    })
+                    .collect();
+                self.confirm.ask(
+                    &t.archive_confirm_title(ids.len() as i64),
+                    &t.archive_confirm_body(&names.join(", ")),
+                    t.archive_action(),
+                );
+                self.archiving = Some(ids);
+            }
+            HouseAction::BackupNow => {
+                self.notice = Some(match self.store.auto_backup(&self.backups_dir, true) {
+                    Ok(Some(path)) => path.to_string_lossy().into_owned(),
+                    Ok(None) => t.backups_never().to_string(),
+                    Err(e) => t.last_backup_failed(&e.to_string()),
+                });
+            }
+            HouseAction::PickBackupFolder => {
+                if let Some(folder) = (self.pick_folder)(t.backups_folder_pick())
+                    && let Err(e) = self.store.set_local_setting(
+                        catlog_core::backup::BACKUP_FOLDER_KEY,
+                        &folder.to_string_lossy(),
+                    )
+                {
+                    self.notice = Some(e.to_string());
+                }
+            }
+            HouseAction::RemoveBackupFolder => {
+                if let Err(e) = self
+                    .store
+                    .remove_local_setting(catlog_core::backup::BACKUP_FOLDER_KEY)
+                {
+                    self.notice = Some(e.to_string());
+                }
+            }
+            HouseAction::Restore(indexes) => {
+                let mut count = 0;
+                for i in indexes {
+                    let Some(set) = self.restore_sets.get(i).cloned() else {
+                        continue;
+                    };
+                    match catlog_core::backup::restore_backup_set(&mut self.manager, &set) {
+                        Ok(_) => count += 1,
+                        Err(e) => self.notice = Some(e.to_string()),
+                    }
+                }
+                if count > 0 || self.notice.is_none() {
+                    self.notice = Some(t.restore_done(count));
+                }
+                self.house.restore_chosen.clear();
+            }
+            HouseAction::PickRestoreFiles => {
+                let picked = (self.pick_files)(t.restore_pick_files());
+                self.house.restore_files.extend(picked);
+                self.refresh_restore_sets();
+            }
+            HouseAction::HardDelete(author, device) => {
+                self.confirm.ask(
+                    t.hard_delete_action(),
+                    &t.hard_delete_warning_key(&author, &key_code(&self.store, &device)),
+                    t.delete(),
+                );
+                self.hard_deleting = Some((author, device));
+            }
+            HouseAction::Unban(kind, value) => {
+                let result = match kind.as_str() {
+                    "author" => self.store.unban(Some(&value), None, None),
+                    "device" => self.store.unban(None, Some(&value), None),
+                    _ => self.store.unban(None, None, Some(&value)),
+                };
+                if let Err(e) = result {
+                    self.notice = Some(e.to_string());
+                }
+            }
+            HouseAction::RemoveTrust(device) => {
+                if let Err(e) = self.store.remove_local_setting(&format!("trust:{device}")) {
+                    self.notice = Some(e.to_string());
+                }
+            }
+        }
+    }
+
+    /// The backup sets in the backups folder and among the picked files.
+    fn refresh_restore_sets(&mut self) {
+        let mut files: Vec<PathBuf> = std::fs::read_dir(&self.backups_dir)
+            .map(|d| {
+                d.flatten()
+                    .map(|e| e.path())
+                    .filter(|p| p.is_file())
+                    .collect()
+            })
+            .unwrap_or_default();
+        files.extend(self.house.restore_files.iter().cloned());
+        self.restore_sets = catlog_core::backup::find_backups(&files);
+    }
+
+    /// Returns the Catalog to `moment`; what goes is kept in a file in
+    /// the backups folder first.
+    fn go_back(&mut self, moment: &catlog_core::moments::Moment) {
+        let t = self.t;
+        let stamp = (self.now)().format("%Y%m%d-%H%M%S");
+        let keep_at = self
+            .backups_dir
+            .join(format!("catlog-undone-{stamp}.catsync"));
+        if let Err(e) = std::fs::create_dir_all(&self.backups_dir) {
+            self.notice = Some(t.go_back_file_failed(&e.to_string()));
+            return;
+        }
+        match self.store.revert_to(moment, &keep_at) {
+            Ok(()) => {
+                self.notice = Some(t.undone_import(&keep_at.to_string_lossy()));
+                self.faces = FaceCache::default();
+                self.home.selection = Selection::None;
+            }
+            Err(e) => self.notice = Some(t.go_back_file_failed(&e.to_string())),
+        }
+    }
+
+    /// Writes the archive where the keeper says, then deletes here.
+    fn archive(&mut self, ids: &[String]) {
+        let t = self.t;
+        let Some(path) = (self.save_file)(t.archive_title(), "catlog-archive.catsync") else {
+            self.notice = Some(t.archive_not_saved().to_string());
+            return;
+        };
+        let result = self
+            .store
+            .add_moment(catlog_core::moments::cause::ARCHIVE, None, None)
+            .and_then(|_| self.store.write_archive(&path, ids))
+            .and_then(|()| self.store.delete_archived(ids));
+        self.notice = Some(match result {
+            Ok(()) => t.archive_done(ids.len() as i64),
+            Err(e) => t.archive_failed(&e.to_string()),
+        });
+        self.house.archive_chosen.clear();
+        self.faces = FaceCache::default();
+    }
+
+    /// Deletes everything by `author` under `device`, bans the photos
+    /// that went and, when asked, the device.
+    fn hard_delete(&mut self, author: &str, device: &str) {
+        let t = self.t;
+        let result = self
+            .store
+            .add_moment(catlog_core::moments::cause::HARD_DELETE, Some(author), None)
+            .and_then(|_| self.store.hard_delete_author(author, Some(device)));
+        match result {
+            Ok(blobs) => {
+                for hash in &blobs {
+                    let _ = self.store.ban(None, None, Some(hash));
+                }
+                if self.house.also_ban {
+                    let _ = self.store.ban(None, Some(device), None);
+                    let _ = self
+                        .store
+                        .set_local_setting(&format!("bannedAs:{device}"), author);
+                }
+                self.notice = Some(t.deleted_done().to_string());
+                self.faces = FaceCache::default();
+            }
+            Err(e) => self.notice = Some(e.to_string()),
+        }
+    }
+
+    /// What happens when the window closes: a backup when something
+    /// changed since the last one.
+    pub fn on_exit(&mut self) {
+        let _ = self.store.auto_backup(&self.backups_dir, false);
     }
 
     /// Moves `ids` into the Catalog `target`.
@@ -3050,5 +3337,228 @@ mod tests {
         assert_eq!(h.state().store().clowders().unwrap().len(), 1);
         assert_eq!(h.state().store().cats(None).unwrap().len(), 1);
         h.get_by_label("Foster Home");
+    }
+
+    fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label(label).click_accesskit();
+        h.run();
+    }
+
+    #[test]
+    fn moments_are_named_and_the_catalog_goes_back_to_one() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.backups_dir = dir.path().join("downloads");
+        fixed_day(&mut app, 2026, 3, 10, 9);
+        let mut h = harness(app);
+        h.run();
+        open_catalog_menu_item(&mut h, "Go back");
+        assert_eq!(*h.state().selection(), Selection::Moments);
+        h.get_by_label("Name this moment").click();
+        h.run();
+        h.state_mut().dialog.value = "Before the fair".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        h.get_by_label_contains("Before the fair · ");
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:remarks", Some("later"))
+            .unwrap();
+        h.run();
+        h.get_all_by_label("Go back to here")
+            .next()
+            .unwrap()
+            .click();
+        h.run();
+        assert!(h.state().confirm.open);
+        h.get_by_label_contains("1 change(s)");
+        h.get_all_by_label("Go back to here")
+            .last()
+            .unwrap()
+            .click();
+        h.run();
+        assert!(!h.state().confirm.open);
+        h.get_by_label_contains("Undone. The file is in ");
+        assert_eq!(h.state().store().current(miezi, "f:remarks").unwrap(), None);
+        let kept: Vec<_> = std::fs::read_dir(dir.path().join("downloads"))
+            .unwrap()
+            .flatten()
+            .collect();
+        assert_eq!(kept.len(), 1);
+        assert!(
+            kept[0]
+                .file_name()
+                .to_string_lossy()
+                .starts_with("catlog-undone-")
+        );
+    }
+
+    #[test]
+    fn old_records_are_archived_into_a_file_and_deleted() {
+        let dir = tempfile::tempdir().unwrap();
+        let archive = dir.path().join("archive.catsync");
+        let mut app = seeded(dir.path());
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        app.store_mut()
+            .append(tom, "f:deceased", Some("2026-01-05"))
+            .unwrap();
+        fixed_day(&mut app, 2030, 1, 1, 9);
+        let hand = archive.clone();
+        app.save_file = Box::new(move |_, _| Some(hand.clone()));
+        let mut h = harness(app);
+        h.run();
+        open_catalog_menu_item(&mut h, "Archive");
+        assert_eq!(*h.state().selection(), Selection::Archive);
+        h.get_by_label_contains("Deceased cats and empty clowders");
+        h.get_by_label("Tom").click();
+        h.run();
+        h.get_by_label("Archive 1 entries").click();
+        h.run();
+        assert!(h.state().confirm.open);
+        h.get_by_label("Archive 1 entries?");
+        h.get_all_by_label("Archive").last().unwrap().click();
+        h.run();
+        h.get_by_label("1 entries archived and deleted");
+        assert!(archive.is_file());
+        assert!(h.state().store().is_deleted(tom).unwrap());
+        assert!(
+            h.query_by_label("Tom").is_none(),
+            "archived, no candidate anymore"
+        );
+        // Without a file nothing is deleted.
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:deceased", Some("2026-01-05"))
+            .unwrap();
+        h.state_mut().save_file = Box::new(|_, _| None);
+        h.run();
+        h.get_by_label("Miezi").click();
+        h.run();
+        h.get_by_label("Archive 1 entries").click();
+        h.run();
+        h.get_all_by_label("Archive").last().unwrap().click();
+        h.run();
+        h.get_by_label("Nothing was deleted: the archive was not saved anywhere.");
+        assert!(!h.state().store().is_deleted(miezi).unwrap());
+    }
+
+    #[test]
+    fn backups_are_written_on_demand_and_come_back_as_catalogs() {
+        let dir = tempfile::tempdir().unwrap();
+        let downloads = dir.path().join("downloads");
+        let cloud = dir.path().join("cloud");
+        std::fs::create_dir_all(&cloud).unwrap();
+        let mut app = seeded(dir.path());
+        app.backups_dir = downloads.clone();
+        let hand = cloud.clone();
+        app.pick_folder = Box::new(move |_| Some(hand.clone()));
+        let mut h = harness(app);
+        h.run();
+        open_catalog_menu_item(&mut h, "Backups");
+        h.get_by_label("No copy written yet.");
+        h.get_by_label("Also copy to a folder…").click();
+        h.run();
+        h.get_by_label_contains("Also copied to ");
+        h.get_by_label("Back up now").click();
+        h.run();
+        let backup = downloads.join("catlog-clowders.catsync");
+        assert!(backup.is_file());
+        assert!(
+            cloud
+                .join("catlog-backups")
+                .join("catlog-clowders.catsync")
+                .is_file()
+        );
+        h.get_by_label_contains("Last copy: ");
+        h.get_by_label("Stop copying there").click();
+        h.run();
+        h.get_by_label("Also copy to a folder…");
+        // Leaving the app writes one when something changed.
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:remarks", Some("bye"))
+            .unwrap();
+        let before = std::fs::metadata(&backup).unwrap().len();
+        h.state_mut().on_exit();
+        assert_ne!(std::fs::metadata(&backup).unwrap().len(), before);
+        // Restore: the set is listed, ticked and becomes a catalog.
+        open_catalog_menu_item(&mut h, "Restore backups…");
+        assert_eq!(*h.state().selection(), Selection::Restore);
+        // The pane heading says "Clowders" too; the set's box comes last.
+        h.get_all_by_label("Clowders").last().unwrap().click();
+        h.run();
+        h.get_by_label_contains("1 file, newest ");
+        h.get_by_label("Restore").click();
+        h.run();
+        h.get_by_label("1 catalog restored.");
+        assert_eq!(h.state().manager().catalogs().len(), 2);
+        assert!(
+            h.state()
+                .manager()
+                .catalogs()
+                .iter()
+                .any(|c| c.name == "Clowders (2)")
+        );
+        // Picked files join the list.
+        let other = dir.path().join("catlog-elsewhere.catsync");
+        std::fs::copy(&backup, &other).unwrap();
+        let hand = other.clone();
+        h.state_mut().pick_files = Box::new(move |_| vec![hand.clone()]);
+        h.get_by_label("Pick files…").click();
+        h.run();
+        h.get_by_label("Elsewhere");
+    }
+
+    #[test]
+    fn the_moderation_page_deletes_an_author_and_bans_the_device() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_catalog_menu_item(&mut h, "Authors & bans");
+        assert_eq!(*h.state().selection(), Selection::Moderation);
+        h.get_by_label("Who wrote into this catalog");
+        let rows = h.state().store().authors_overview().unwrap();
+        let me = h.state().store().device_id();
+        let (author, device, _) = rows.iter().find(|r| r.1 != me).unwrap().clone();
+        assert_eq!(author, "Ada");
+        h.get_by_label_contains("Ada · key ");
+        h.get_by_label("Also ban — never accept their data again")
+            .click();
+        h.run();
+        // Rows sort by author and device: Ada's foreign device comes first.
+        h.get_all_by_label("Delete everything by this author")
+            .next()
+            .unwrap()
+            .click();
+        h.run();
+        assert!(h.state().confirm.open);
+        h.get_by_label_contains("This cannot be undone.");
+        h.get_all_by_label("Delete").last().unwrap().click();
+        h.run();
+        h.get_by_label("Deleted.");
+        let left = h.state().store().authors_overview().unwrap();
+        assert!(!left.iter().any(|r| r.0 == author && r.1 == device));
+        assert!(
+            h.state().store().cats(None).unwrap().is_empty(),
+            "the fixture's cats were theirs"
+        );
+        h.get_by_label("Bans");
+        let bans = h.state().store().bans().unwrap();
+        assert!(bans.iter().any(|(k, v)| k == "device" && *v == device));
+        assert!(
+            bans.iter().any(|(k, _)| k == "blob"),
+            "their photos are banned too"
+        );
+        // Blob bans list first; the device row comes last.
+        h.get_all_by_label("Remove ban").last().unwrap().click();
+        h.run();
+        let bans = h.state().store().bans().unwrap();
+        assert!(!bans.iter().any(|(k, v)| k == "device" && *v == device));
     }
 }

@@ -57,6 +57,13 @@ impl SettingsFile {
 
 /// The app's data directory: the platform's data home under the app id,
 /// in a `v2` sub-layout the Flutter desktop build never touches.
+/// Where backups go: the Downloads folder, or the data dir without one.
+pub fn backups_dir() -> PathBuf {
+    directories::UserDirs::new()
+        .and_then(|u| u.download_dir().map(Path::to_path_buf))
+        .unwrap_or_else(|| data_dir().join("backups"))
+}
+
 pub fn data_dir() -> PathBuf {
     directories::BaseDirs::new()
         .map(|d| d.data_dir().join(APP_ID).join("v2"))

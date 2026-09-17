@@ -9,6 +9,8 @@
 
 pub mod agenda;
 pub mod appointments;
+pub mod archive;
+pub mod backup;
 mod bundle;
 mod catalog;
 pub mod catalogs;

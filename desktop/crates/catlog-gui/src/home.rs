@@ -22,6 +22,11 @@ pub enum Selection {
     Conflicts,
     Agenda,
     Duplicates,
+    Moments,
+    Archive,
+    Backups,
+    Restore,
+    Moderation,
 }
 
 /// What the keeper did on the home pane this frame.

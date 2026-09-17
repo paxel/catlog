@@ -12,6 +12,9 @@ struct Native {
 impl eframe::App for Native {
     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
         App::install_theme(ui.ctx());
+        if ui.ctx().input(|i| i.viewport().close_requested()) {
+            self.app.on_exit();
+        }
         self.app.show(ui);
         if self.app.take_request() == Request::Quit {
             ui.ctx().send_viewport_cmd(egui::ViewportCommand::Close);

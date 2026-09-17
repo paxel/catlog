@@ -464,6 +464,27 @@ impl Catalog {
         self.raw_set(&format!("u:{key}"), value)
     }
 
+    /// Every local setting whose key starts with `prefix`, as (rest of
+    /// the key, value).
+    pub fn local_settings_by_prefix(&self, prefix: &str) -> Result<Vec<(String, String)>> {
+        let full = format!("u:{prefix}");
+        let mut stmt = self
+            .db
+            .prepare("SELECT key, value FROM local_settings WHERE key LIKE ?1 ORDER BY key")?;
+        let like = format!("{}%", full.replace('%', "\\%").replace('_', "\\_"));
+        let rows = stmt.query_map([like], |r| {
+            Ok((r.get::<_, String>(0)?, r.get::<_, String>(1)?))
+        })?;
+        let mut out = Vec::new();
+        for row in rows {
+            let (key, value) = row?;
+            if let Some(rest) = key.strip_prefix(&full) {
+                out.push((rest.to_string(), value));
+            }
+        }
+        Ok(out)
+    }
+
     pub fn remove_local_setting(&self, key: &str) -> Result<()> {
         self.db.execute(
             "DELETE FROM local_settings WHERE key = ?1",

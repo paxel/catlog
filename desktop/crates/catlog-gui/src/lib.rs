@@ -15,6 +15,7 @@ pub mod duplicates_page;
 pub mod editor;
 pub mod history;
 pub mod home;
+pub mod housekeeping;
 pub mod l10n;
 pub mod labels;
 pub mod map;
