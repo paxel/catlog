@@ -117,7 +117,118 @@ pub fn compress_image(bytes: &[u8]) -> Result<Vec<u8>> {
     Ok(strip_jpeg_metadata(&out))
 }
 
+/// Cuts a fractional rectangle (0..1 coordinates) out of a photo: the
+/// Crop operation. The result is a new JPEG; the original stays.
+pub fn crop_image(bytes: &[u8], x: f64, y: f64, w: f64, h: f64) -> Result<Vec<u8>> {
+    let decoded = decode(bytes)?;
+    let (width, height) = (decoded.width(), decoded.height());
+    let px = (x.clamp(0.0, 1.0) * width as f64).round() as u32;
+    let py = (y.clamp(0.0, 1.0) * height as f64).round() as u32;
+    let pw = (w.clamp(0.0, 1.0) * width as f64).round() as u32;
+    let ph = (h.clamp(0.0, 1.0) * height as f64).round() as u32;
+    if pw < 8 || ph < 8 {
+        return Err(Error::Invalid("Crop rectangle too small".into()));
+    }
+    let px = px.min(width - 1);
+    let py = py.min(height - 1);
+    let cropped = decoded.crop_imm(
+        px,
+        py,
+        pw.min(width - px).max(1),
+        ph.min(height - py).max(1),
+    );
+    encode(&cropped)
+}
+
+/// Bakes a highlight ellipse into a copy of a photo: the Mark operation.
+/// Centre and radii are 0..1 fractions of the picture. A white casing
+/// under an orange stroke keeps the mark visible on any background.
+pub fn mark_image(bytes: &[u8], cx: f64, cy: f64, rx: f64, ry: f64) -> Result<Vec<u8>> {
+    let mut decoded = decode(bytes)?.to_rgb8();
+    let (width, height) = (decoded.width(), decoded.height());
+    let centre = (cx * width as f64, cy * height as f64);
+    let radius = ((rx * width as f64).abs(), (ry * height as f64).abs());
+    if radius.0 < 4.0 || radius.1 < 4.0 {
+        return Err(Error::Invalid("Mark ellipse too small".into()));
+    }
+    let thickness = (width.max(height) / 150 + 3) as f64;
+    const SEGMENTS: usize = 90;
+    for (color, t) in [
+        (image::Rgb([255, 255, 255]), thickness + 4.0),
+        (image::Rgb([230, 90, 40]), thickness),
+    ] {
+        for i in 0..SEGMENTS {
+            let a1 = std::f64::consts::TAU * i as f64 / SEGMENTS as f64;
+            let a2 = std::f64::consts::TAU * (i + 1) as f64 / SEGMENTS as f64;
+            let p1 = (
+                centre.0 + radius.0 * a1.cos(),
+                centre.1 + radius.1 * a1.sin(),
+            );
+            let p2 = (
+                centre.0 + radius.0 * a2.cos(),
+                centre.1 + radius.1 * a2.sin(),
+            );
+            thick_line(&mut decoded, p1, p2, t, color);
+        }
+    }
+    encode(&DynamicImage::ImageRgb8(decoded))
+}
+
+fn decode(bytes: &[u8]) -> Result<DynamicImage> {
+    image::load_from_memory(bytes)
+        .map_err(|e| Error::Invalid(format!("Not a decodable image: {e}")))
+}
+
+/// JPEG at quality 85 with no metadata, as every stored photo is.
+fn encode(img: &DynamicImage) -> Result<Vec<u8>> {
+    let mut out = Vec::new();
+    let encoder = JpegEncoder::new_with_quality(&mut out, 85);
+    img.to_rgb8()
+        .write_with_encoder(encoder)
+        .map_err(|e| Error::Invalid(format!("JPEG: {e}")))?;
+    Ok(strip_jpeg_metadata(&out))
+}
+
+/// A line of the given thickness: a disc stamped along it.
+fn thick_line(
+    img: &mut image::RgbImage,
+    from: (f64, f64),
+    to: (f64, f64),
+    thickness: f64,
+    color: image::Rgb<u8>,
+) {
+    let (dx, dy) = (to.0 - from.0, to.1 - from.1);
+    let steps = (dx.abs().max(dy.abs()).ceil() as usize).max(1);
+    let r = thickness / 2.0;
+    for s in 0..=steps {
+        let f = s as f64 / steps as f64;
+        let (x, y) = (from.0 + dx * f, from.1 + dy * f);
+        let (x0, x1) = ((x - r).floor() as i64, (x + r).ceil() as i64);
+        let (y0, y1) = ((y - r).floor() as i64, (y + r).ceil() as i64);
+        for py in y0..=y1 {
+            for px in x0..=x1 {
+                let inside = (px as f64 + 0.5 - x).powi(2) + (py as f64 + 0.5 - y).powi(2) <= r * r;
+                if inside
+                    && px >= 0
+                    && py >= 0
+                    && (px as u32) < img.width()
+                    && (py as u32) < img.height()
+                {
+                    img.put_pixel(px as u32, py as u32, color);
+                }
+            }
+        }
+    }
+}
+
 impl Catalog {
+    /// Compresses a raw picture as the phone does and stores it as a new
+    /// photo of the entity. Returns the content hash.
+    pub fn add_photo(&mut self, entity: &str, raw: &[u8]) -> Result<String> {
+        let jpeg = compress_image(raw)?;
+        self.add_image(entity, &jpeg)
+    }
+
     /// Rewrites every stored photo that still carries metadata: the
     /// stripped bytes become a new photo under their own hash, the old
     /// one is marked deleted, a profile picture follows. Returns how many
@@ -271,5 +382,51 @@ mod tests {
         let hash = hex::encode(Sha256::digest(&huge));
         c.put_blob(&hash, &huge).unwrap();
         assert!(c.image_bytes(&hash).is_none());
+    }
+
+    #[test]
+    fn crop_applies_the_fractional_rectangle_and_refuses_slivers() {
+        let source = compress_image(&png(400, 200)).unwrap();
+        let cropped = crop_image(&source, 0.25, 0.25, 0.5, 0.5).unwrap();
+        let decoded = image::load_from_memory(&cropped).unwrap();
+        assert_eq!((decoded.width(), decoded.height()), (200, 100));
+        assert!(!has_jpeg_metadata(&cropped));
+        // Clamped at the edge rather than failing.
+        let edge = crop_image(&source, 0.9, 0.9, 0.5, 0.5).unwrap();
+        let decoded = image::load_from_memory(&edge).unwrap();
+        assert_eq!((decoded.width(), decoded.height()), (40, 20));
+        assert!(crop_image(&source, 0.5, 0.5, 0.001, 0.001).is_err());
+        assert!(crop_image(b"junk", 0.0, 0.0, 1.0, 1.0).is_err());
+    }
+
+    #[test]
+    fn mark_bakes_visible_pixels_into_a_copy() {
+        let source = compress_image(&png(300, 300)).unwrap();
+        let marked = mark_image(&source, 0.5, 0.5, 0.25, 0.15).unwrap();
+        assert_ne!(marked, source);
+        let decoded = image::load_from_memory(&marked).unwrap().to_rgb8();
+        assert_eq!((decoded.width(), decoded.height()), (300, 300));
+        // A pixel on the ellipse's rightmost point is strongly orange.
+        let p = decoded.get_pixel(150 + 75 - 1, 150);
+        assert!(p[0] > 150, "orange stroke, got {p:?}");
+        // The centre is untouched.
+        assert_eq!(decoded.get_pixel(150, 150)[0], 0);
+        assert!(mark_image(&source, 0.5, 0.5, 0.001, 0.001).is_err());
+        assert!(mark_image(b"junk", 0.5, 0.5, 0.2, 0.2).is_err());
+    }
+
+    #[test]
+    fn a_raw_picture_is_compressed_on_its_way_into_the_catalog() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut store = Catalog::open(dir.path()).unwrap();
+        store.set_author("Ada").unwrap();
+        store.create_cat("cat:a", "Miezi", None, "cat").unwrap();
+        let hash = store
+            .add_photo("cat:a", &with_exif(&compress_image(&png(20, 10)).unwrap()))
+            .unwrap();
+        let stored = store.image_bytes(&hash).unwrap();
+        assert!(!has_jpeg_metadata(&stored));
+        assert_eq!(store.images("cat:a").unwrap(), vec![hash]);
+        assert!(store.add_photo("cat:a", b"junk").is_err());
     }
 }

@@ -125,3 +125,56 @@ mod tests {
         );
     }
 }
+
+/// A dialog asking one yes-or-no question before something that cannot
+/// be undone.
+#[derive(Debug, Default)]
+pub struct ConfirmDialog {
+    pub open: bool,
+    pub title: String,
+    pub body: String,
+    pub confirm: String,
+    id: u64,
+}
+
+impl ConfirmDialog {
+    /// Opens the dialog.
+    pub fn ask(&mut self, title: &str, body: &str, confirm: &str) {
+        self.open = true;
+        self.title = title.to_string();
+        self.body = body.to_string();
+        self.confirm = confirm.to_string();
+        self.id += 1;
+    }
+
+    /// Draws the dialog; true once on confirm. Escape cancels.
+    pub fn show(&mut self, ctx: &Context, cancel: &str) -> bool {
+        if !self.open {
+            return false;
+        }
+        let mut confirmed = false;
+        let mut close = false;
+        egui::Window::new(&self.title)
+            .id(egui::Id::new(("confirm-dialog", self.id)))
+            .collapsible(false)
+            .resizable(false)
+            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
+            .show(ctx, |ui| {
+                ui.set_max_width(360.0);
+                ui.label(&self.body);
+                let escape = ui.input(|i| i.key_pressed(Key::Escape));
+                ui.horizontal(|ui| {
+                    if ui.button(&self.confirm).clicked() {
+                        confirmed = true;
+                    }
+                    if ui.button(cancel).clicked() || escape {
+                        close = true;
+                    }
+                });
+            });
+        if confirmed || close {
+            self.open = false;
+        }
+        confirmed
+    }
+}

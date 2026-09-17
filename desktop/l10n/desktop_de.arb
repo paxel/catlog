@@ -18,5 +18,10 @@
   "searchPlaceHint": "Adresse, Stadt oder Land",
   "actionsMenu": "Aktionen",
   "showOnMap": "Auf der Karte zeigen",
-  "trailOff": "Spur ausblenden"
+  "trailOff": "Spur ausblenden",
+  "close": "Schließen",
+  "nextPhoto": "Weiter",
+  "previousPhoto": "Zurück",
+  "savePhotoAs": "Foto speichern unter…",
+  "dropPhotosHint": "Bilddateien hier ablegen, um sie als Fotos hinzuzufügen"
 }

@@ -8,10 +8,10 @@ use std::sync::Arc;
 use catlog_core::entities::PositionKind;
 use catlog_core::geocode::Geocoder;
 use catlog_core::tiles::TileCache;
-use catlog_core::{Catalog, CatalogManager};
+use catlog_core::{Catalog, CatalogManager, keys};
 use egui::{Context, ThemePreference, Ui};
 
-use crate::dialogs::NameDialog;
+use crate::dialogs::{ConfirmDialog, NameDialog};
 use crate::editor::{EditTarget, FieldEditor, apply_edit};
 use crate::history::{HistoryAction, HistoryPage};
 use crate::home::{HomeAction, HomePane, Selection};
@@ -21,6 +21,7 @@ use crate::map_page::{MapPage, MapPageAction};
 use crate::move_dialog::MoveDialog;
 use crate::new_field::NewFieldDialog;
 use crate::pages::{PageAction, Pages};
+use crate::photos::{EditMode, PhotoEditor, PhotoViewer, ViewerAction};
 use crate::picker::PositionPicker;
 use crate::settings::{AppSettings, SettingsFile};
 use crate::textures::FaceCache;
@@ -37,6 +38,11 @@ pub const DEFAULT_WINDOW_SIZE: [f32; 2] = [1200.0, 800.0];
 
 /// The list pane's width when nothing was remembered.
 pub const DEFAULT_PANE_WIDTH: f32 = 320.0;
+
+/// Asks the keeper for files: the dialog's title in, the chosen paths out.
+pub type FilePicker = Box<dyn FnMut(&str) -> Vec<PathBuf>>;
+/// Asks the keeper where to save: title and suggested name in, the path out.
+pub type FileSaver = Box<dyn FnMut(&str, &str) -> Option<PathBuf>>;
 
 /// Which dialog is up, and what its answer means.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -68,6 +74,15 @@ pub struct App {
     pane_width: f32,
     faces: FaceCache,
     dialog: NameDialog,
+    pub confirm: ConfirmDialog,
+    /// The photo the confirm dialog is about: Cat and hash.
+    deleting_photo: Option<(String, String)>,
+    pub viewer: PhotoViewer,
+    pub photo_editor: PhotoEditor,
+    /// Asks the keeper for image files; the system dialog outside tests.
+    pub pick_files: FilePicker,
+    /// Asks the keeper where to save a file; the system dialog outside tests.
+    pub save_file: FileSaver,
     asking: Asking,
     /// The name typed on the intro page.
     intro_name: String,
@@ -127,6 +142,23 @@ impl App {
             mover: MoveDialog::default(),
             faces: FaceCache::default(),
             dialog: NameDialog::default(),
+            confirm: ConfirmDialog::default(),
+            deleting_photo: None,
+            viewer: PhotoViewer::default(),
+            photo_editor: PhotoEditor::default(),
+            pick_files: Box::new(|title| {
+                rfd::FileDialog::new()
+                    .set_title(title)
+                    .add_filter("JPEG, PNG", &["jpg", "jpeg", "png"])
+                    .pick_files()
+                    .unwrap_or_default()
+            }),
+            save_file: Box::new(|title, name| {
+                rfd::FileDialog::new()
+                    .set_title(title)
+                    .set_file_name(name)
+                    .save_file()
+            }),
             asking: Asking::Nothing,
             request: Request::None,
             about_open: false,
@@ -174,6 +206,35 @@ impl App {
     }
 
     /// Shows a Field's history on an entity in the detail pane.
+    /// Reads every path as a picture and stores it on the Cat, compressed
+    /// and stripped as the phone does; the notice says how many landed
+    /// or what went wrong with the first that did not.
+    pub fn add_photos(&mut self, cat: &str, paths: &[PathBuf]) {
+        let t = self.t;
+        let mut added = 0usize;
+        for path in paths {
+            let result = std::fs::read(path)
+                .map_err(|e| e.to_string())
+                .and_then(|raw| self.store.add_photo(cat, &raw).map_err(|e| e.to_string()));
+            match result {
+                Ok(_) => added += 1,
+                Err(e) => {
+                    self.notice = Some(format!("{}: {e}", path.display()));
+                    return;
+                }
+            }
+        }
+        if added > 0 {
+            let name = self
+                .store
+                .current(cat, keys::NAME)
+                .ok()
+                .flatten()
+                .unwrap_or_default();
+            self.notice = Some(t.photos_added_to(&added.to_string(), &name));
+        }
+    }
+
     pub fn open_history(&mut self, entity: &str, slug: &str) {
         self.history_of = Some((entity.to_string(), slug.to_string()));
     }
@@ -273,6 +334,10 @@ impl App {
             if let Some(notice) = &self.notice {
                 ui.colored_label(ui.visuals().error_fg_color, notice);
             }
+            let hovering = ui.input(|i| !i.raw.hovered_files.is_empty());
+            if hovering && matches!(self.home.selection, Selection::Cat(_)) {
+                ui.colored_label(ui.visuals().selection.bg_fill, t.drop_photos_hint());
+            }
             if let Some((entity, slug)) = self.history_of.clone() {
                 if let Ok(Some(def)) = self.store.field_def(&slug) {
                     match self.history.show(ui, &self.store, &t, &entity, &def) {
@@ -369,6 +434,82 @@ impl App {
                 self.map_page.focus(&self.store, &id);
                 self.home.selection = Selection::Map;
             }
+            PageAction::AddPhoto(cat) => {
+                let paths = (self.pick_files)(t.add_photo());
+                self.add_photos(&cat, &paths);
+            }
+            PageAction::ViewPhoto(cat, hash) => {
+                let hashes = self.store.images(&cat).unwrap_or_default();
+                self.viewer.open_at(hashes, &hash);
+            }
+            PageAction::SetProfile(cat, hash) => {
+                if let Err(e) = self.store.set_profile_image(&cat, &hash) {
+                    self.notice = Some(e.to_string());
+                }
+            }
+            PageAction::CropPhoto(cat, hash) => {
+                self.photo_editor
+                    .ask(&self.store, EditMode::Crop, &cat, &hash);
+            }
+            PageAction::MarkPhoto(cat, hash) => {
+                self.photo_editor
+                    .ask(&self.store, EditMode::Mark, &cat, &hash);
+            }
+            PageAction::DeletePhoto(cat, hash) => {
+                self.deleting_photo = Some((cat, hash));
+                self.confirm
+                    .ask(t.delete_photo_title(), t.delete_photo_body(), t.delete());
+            }
+        }
+        // Files dropped on a Cat's page become its photos.
+        let dropped: Vec<PathBuf> = ui.input(|i| {
+            i.raw
+                .dropped_files
+                .iter()
+                .filter_map(|f| f.path.clone())
+                .collect()
+        });
+        if !dropped.is_empty()
+            && let Selection::Cat(cat) = self.home.selection.clone()
+        {
+            self.add_photos(&cat, &dropped);
+        }
+        if self.confirm.show(ui.ctx(), t.cancel())
+            && let Some((cat, hash)) = self.deleting_photo.take()
+        {
+            match self.store.delete_image(&cat, &hash) {
+                Ok(()) => {
+                    self.faces.forget(&hash);
+                    self.notice = Some(t.photo_removed().to_string());
+                }
+                Err(e) => self.notice = Some(e.to_string()),
+            }
+        }
+        if !self.confirm.open {
+            self.deleting_photo = None;
+        }
+        match self.viewer.show(ui.ctx(), &self.store, &t, &mut self.faces) {
+            ViewerAction::None => {}
+            ViewerAction::Save(hash) => {
+                let name = format!("{}-{}.jpg", self.title(), self.viewer.index + 1);
+                if let Some(path) = (self.save_file)(t.save_photo_as(), &name)
+                    && let Some(bytes) = self.store.image_bytes(&hash)
+                    && let Err(e) = std::fs::write(&path, bytes)
+                {
+                    self.notice = Some(e.to_string());
+                }
+            }
+        }
+        match self
+            .photo_editor
+            .show(ui.ctx(), &self.store, &t, &mut self.faces)
+        {
+            None => {}
+            Some(Ok((cat, bytes))) => match self.store.add_image(&cat, &bytes) {
+                Ok(_) => self.notice = Some(t.photo_added().to_string()),
+                Err(e) => self.notice = Some(e.to_string()),
+            },
+            Some(Err(e)) => self.notice = Some(e),
         }
         if self.editor.wants_picker {
             self.editor.wants_picker = false;
@@ -1361,5 +1502,206 @@ mod tests {
         h.get_by_label("Foster Home");
         assert_eq!(new_uuid().len(), 36);
         assert_eq!(catalogs_root(Path::new("/x")), Path::new("/x"));
+    }
+
+    /// A PNG file on disk to add as a photo.
+    fn picture_file(dir: &std::path::Path, name: &str, w: u32, h: u32) -> PathBuf {
+        let img = image::DynamicImage::new_rgb8(w, h);
+        let mut out = Vec::new();
+        img.write_to(&mut std::io::Cursor::new(&mut out), image::ImageFormat::Png)
+            .unwrap();
+        let path = dir.join(name);
+        std::fs::write(&path, out).unwrap();
+        path
+    }
+
+    #[test]
+    fn photos_come_from_the_file_dialog_and_from_dropped_files() {
+        let dir = tempfile::tempdir().unwrap();
+        let picked = picture_file(dir.path(), "picked.png", 30, 20);
+        let dropped = picture_file(dir.path(), "dropped.png", 20, 30);
+        let mut app = seeded(dir.path());
+        let hand = picked.clone();
+        app.pick_files = Box::new(move |_| vec![hand.clone()]);
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        assert_eq!(h.state().store().images(miezi).unwrap().len(), 2);
+        h.get_by_label("Add photo").click();
+        h.run();
+        assert_eq!(h.state().store().images(miezi).unwrap().len(), 3);
+        h.get_by_label("1 photo(s) added to Miezi");
+        // A file dropped on the page lands too; a junk file is refused
+        // with its name in the notice.
+        h.input_mut().dropped_files.push(egui::DroppedFile {
+            path: Some(dropped),
+            ..Default::default()
+        });
+        h.run();
+        assert_eq!(h.state().store().images(miezi).unwrap().len(), 4);
+        let junk = dir.path().join("junk.png");
+        std::fs::write(&junk, b"not a picture").unwrap();
+        h.input_mut().dropped_files.push(egui::DroppedFile {
+            path: Some(junk),
+            ..Default::default()
+        });
+        h.run();
+        assert_eq!(h.state().store().images(miezi).unwrap().len(), 4);
+        h.get_by_label_contains("junk.png");
+        // Every stored photo is a stripped JPEG.
+        for hash in h.state().store().images(miezi).unwrap() {
+            let bytes = h.state().store().image_bytes(&hash).unwrap();
+            assert!(bytes.starts_with(&[0xFF, 0xD8]));
+            assert!(!catlog_core::photo::has_jpeg_metadata(&bytes));
+        }
+    }
+
+    #[test]
+    fn the_photo_menu_sets_the_profile_crops_marks_and_deletes() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let images = h.state().store().images(miezi).unwrap();
+        assert_eq!(images.len(), 2);
+        assert_eq!(
+            h.state().store().profile_image(miezi).unwrap().as_deref(),
+            Some(images[1].as_str())
+        );
+        // The first photo becomes the Profile Image.
+        h.get_by_label("Photos 1").click_secondary();
+        h.step();
+        h.get_by_label("Set as profile image").click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state().store().profile_image(miezi).unwrap().as_deref(),
+            Some(images[0].as_str())
+        );
+        // Crop: the editor opens, a selection is dragged, the verb adds a
+        // new photo and the original stays.
+        h.get_by_label("Photos 1").click_secondary();
+        h.step();
+        h.get_by_label("Crop…").click_accesskit();
+        h.run();
+        assert!(h.state().photo_editor.open);
+        assert_eq!(h.state().photo_editor.mode, Some(EditMode::Crop));
+        h.get_by_label("Drag a rectangle around the cat");
+        h.state_mut().photo_editor.selection =
+            Some((egui::Vec2::new(0.1, 0.1), egui::Vec2::new(0.9, 0.9)));
+        h.run();
+        h.get_by_label("Crop").click();
+        h.run();
+        assert!(!h.state().photo_editor.open);
+        assert_eq!(h.state().store().images(miezi).unwrap().len(), 3);
+        h.get_by_label("Photo added");
+        // Mark: the ellipse is baked into a fourth photo.
+        h.get_by_label("Photos 1").click_secondary();
+        h.step();
+        h.get_by_label("Mark…").click_accesskit();
+        h.run();
+        assert_eq!(h.state().photo_editor.mode, Some(EditMode::Mark));
+        h.get_by_label("Drag an ellipse over the cat");
+        h.state_mut().photo_editor.selection =
+            Some((egui::Vec2::new(0.2, 0.2), egui::Vec2::new(0.8, 0.8)));
+        h.run();
+        h.get_by_label("Done").click();
+        h.run();
+        assert_eq!(h.state().store().images(miezi).unwrap().len(), 4);
+        // A sliver refuses with a message and the editor stays open.
+        h.get_by_label("Photos 1").click_secondary();
+        h.step();
+        h.get_by_label("Crop…").click_accesskit();
+        h.run();
+        h.state_mut().photo_editor.selection =
+            Some((egui::Vec2::new(0.5, 0.5), egui::Vec2::new(0.501, 0.501)));
+        h.run();
+        h.get_by_label("Crop").click();
+        h.run();
+        assert!(h.state().photo_editor.open);
+        h.get_by_label("Cancel").click();
+        h.run();
+        assert!(!h.state().photo_editor.open);
+        // Delete asks once; Cancel keeps, Delete removes photo and bytes.
+        h.get_by_label("Photos 4").click_secondary();
+        h.step();
+        h.get_by_label("Delete photo").click_accesskit();
+        h.run();
+        assert!(h.state().confirm.open);
+        h.get_by_label("Cancel").click();
+        h.run();
+        assert_eq!(h.state().store().images(miezi).unwrap().len(), 4);
+        h.get_by_label("Photos 4").click_secondary();
+        h.step();
+        h.get_by_label("Delete photo").click_accesskit();
+        h.run();
+        h.get_by_label("Delete").click();
+        h.run();
+        let left = h.state().store().images(miezi).unwrap();
+        assert_eq!(left.len(), 3);
+        h.get_by_label("Photo removed");
+        // The dragged selection works through the pointer too.
+        h.get_by_label("Photos 1").click_secondary();
+        h.step();
+        h.get_by_label("Crop…").click_accesskit();
+        h.run();
+        h.drag_at(egui::pos2(200.0, 200.0));
+        h.step();
+        h.hover_at(egui::pos2(500.0, 500.0));
+        h.step();
+        h.drop_at(egui::pos2(500.0, 500.0));
+        h.run();
+        assert!(h.state().photo_editor.rect().is_some(), "a drag selects");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(!h.state().photo_editor.open);
+    }
+
+    #[test]
+    fn the_viewer_walks_the_photos_and_saves_one_to_a_file() {
+        let dir = tempfile::tempdir().unwrap();
+        let target = dir.path().join("saved.jpg");
+        let mut app = seeded(dir.path());
+        let hand = target.clone();
+        app.save_file = Box::new(move |_, _| Some(hand.clone()));
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label("Photos 2").click();
+        h.run();
+        assert!(h.state().viewer.open);
+        h.get_by_label("2 / 2");
+        h.get_by_label("Next").click();
+        h.run();
+        h.get_by_label("1 / 2");
+        h.key_press(egui::Key::ArrowLeft);
+        h.run();
+        h.get_by_label("2 / 2");
+        h.get_by_label("Save photo as…").click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let images = h.state().store().images(miezi).unwrap();
+        assert_eq!(
+            std::fs::read(&target).unwrap(),
+            h.state().store().image_bytes(&images[1]).unwrap()
+        );
+        h.get_by_label("Close").click();
+        h.run();
+        assert!(!h.state().viewer.open);
+        h.get_by_label("Photos 1").click();
+        h.run();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(!h.state().viewer.open);
     }
 }

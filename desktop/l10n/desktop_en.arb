@@ -18,5 +18,10 @@
   "searchPlaceHint": "Address, city or country",
   "actionsMenu": "Actions",
   "showOnMap": "Show on map",
-  "trailOff": "Hide trail"
+  "trailOff": "Hide trail",
+  "close": "Close",
+  "nextPhoto": "Next",
+  "previousPhoto": "Previous",
+  "savePhotoAs": "Save photo as…",
+  "dropPhotosHint": "Drop image files here to add them as photos"
 }

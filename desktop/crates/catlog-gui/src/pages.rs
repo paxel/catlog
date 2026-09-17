@@ -31,6 +31,18 @@ pub enum PageAction {
     Sighting(String),
     /// Show this entity on the map.
     ShowOnMap(String),
+    /// Add photos from files to this Cat.
+    AddPhoto(String),
+    /// View this Cat's photo full size.
+    ViewPhoto(String, String),
+    /// Make this photo the Cat's Profile Image.
+    SetProfile(String, String),
+    /// Crop a new photo out of this one.
+    CropPhoto(String, String),
+    /// Ring the Cat in a copy of this photo.
+    MarkPhoto(String, String),
+    /// Delete this photo, after one confirmation.
+    DeletePhoto(String, String),
 }
 
 /// The pages' own state: the unit system values are read in.
@@ -164,22 +176,63 @@ impl Pages {
             let images = store.images(id).unwrap_or_default();
             let profile = store.profile_image(id).ok().flatten();
             ui.add_space(8.0);
-            ui.strong(format!("{} ({})", t.photos(), images.len()));
+            ui.horizontal(|ui| {
+                ui.strong(format!("{} ({})", t.photos(), images.len()));
+                if ui.button(t.add_photo()).clicked() {
+                    action = PageAction::AddPhoto(id.to_string());
+                }
+            });
             ui.horizontal_wrapped(|ui| {
-                for hash in &images {
-                    if let Some(texture) = faces.face(ui.ctx(), store, hash) {
-                        let image = egui::Image::from_texture(&texture)
-                            .fit_to_exact_size(Vec2::splat(96.0));
-                        let response = ui.add(image);
-                        if profile.as_deref() == Some(hash.as_str()) {
-                            ui.painter().rect_stroke(
-                                response.rect,
-                                4.0,
-                                egui::Stroke::new(2.0, ui.visuals().selection.bg_fill),
-                                egui::StrokeKind::Outside,
-                            );
-                        }
+                for (i, hash) in images.iter().enumerate() {
+                    let Some(texture) = faces.face(ui.ctx(), store, hash) else {
+                        continue;
+                    };
+                    let image = egui::Image::from_texture(&texture)
+                        .fit_to_exact_size(Vec2::splat(96.0))
+                        .sense(egui::Sense::click());
+                    let response = ui.add(image);
+                    let label = format!("{} {}", t.photos(), i + 1);
+                    response.widget_info(|| {
+                        egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &label)
+                    });
+                    let is_profile = profile.as_deref() == Some(hash.as_str());
+                    if is_profile {
+                        ui.painter().rect_stroke(
+                            response.rect,
+                            4.0,
+                            egui::Stroke::new(2.0, ui.visuals().selection.bg_fill),
+                            egui::StrokeKind::Outside,
+                        );
                     }
+                    if response.clicked() {
+                        action = PageAction::ViewPhoto(id.to_string(), hash.clone());
+                    }
+                    response.context_menu(|ui| {
+                        let profile_label = if is_profile {
+                            t.this_is_profile_image()
+                        } else {
+                            t.set_as_profile_image()
+                        };
+                        if ui
+                            .add_enabled(!is_profile, egui::Button::new(profile_label))
+                            .clicked()
+                        {
+                            action = PageAction::SetProfile(id.to_string(), hash.clone());
+                            ui.close();
+                        }
+                        if ui.button(t.crop_photo()).clicked() {
+                            action = PageAction::CropPhoto(id.to_string(), hash.clone());
+                            ui.close();
+                        }
+                        if ui.button(t.mark_photo()).clicked() {
+                            action = PageAction::MarkPhoto(id.to_string(), hash.clone());
+                            ui.close();
+                        }
+                        if ui.button(t.delete_photo()).clicked() {
+                            action = PageAction::DeletePhoto(id.to_string(), hash.clone());
+                            ui.close();
+                        }
+                    });
                 }
             });
             self.show_chores(ui, store, t, id);

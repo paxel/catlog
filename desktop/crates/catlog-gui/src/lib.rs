@@ -17,6 +17,7 @@ pub mod map_page;
 pub mod move_dialog;
 pub mod new_field;
 pub mod pages;
+pub mod photos;
 pub mod picker;
 pub mod settings;
 pub mod textures;
