@@ -3,6 +3,8 @@
 //! picture (`packages/catalog_core/tool/fixtures/dump.dart`); the two
 //! must agree for every scenario.
 
+use std::collections::BTreeMap;
+
 use serde_json::{Map, Value, json};
 
 use crate::Result;
@@ -65,6 +67,28 @@ impl Catalog {
             .filter(|e| e.device != me)
             .map(|e| serde_json::to_value(e.wire()))
             .collect::<std::result::Result<_, _>>()?;
+        // Every change, per entity and field, with corrections marked.
+        let mut histories = Map::new();
+        for (id, _) in &entities {
+            let mut per_field: BTreeMap<String, Vec<Value>> = BTreeMap::new();
+            for e in self.timeline(id, true)? {
+                if e.device == me {
+                    continue;
+                }
+                per_field
+                    .entry(self.canonical_key(&e.field)?)
+                    .or_default()
+                    .push(json!({
+                        "device": e.device,
+                        "dseq": e.dseq,
+                        "value": e.value,
+                        "date": crate::entry::dart_iso(&e.date),
+                        "author": e.author,
+                        "voided": e.voided,
+                    }));
+            }
+            histories.insert(id.clone(), json!(per_field));
+        }
         let keys: Vec<Value> = self
             .pinned_keys()?
             .iter()
@@ -81,6 +105,7 @@ impl Catalog {
             "vector": vector,
             "entities": entities,
             "blobs": blobs,
+            "histories": histories,
             "keys": keys,
             "entries": entries,
         }))

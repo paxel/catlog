@@ -13,17 +13,23 @@ pub mod corpus;
 mod dump;
 mod entry;
 mod error;
+pub mod fields;
 mod folder;
 pub mod keys;
+pub mod partial_date;
 pub mod photo;
 pub mod signing;
+pub mod units;
 
 pub use bundle::BundleResult;
 pub use catalog::{Catalog, Clock, EntityView};
 pub use entry::{Entry, dart_iso, iso};
 pub use error::Error;
+pub use fields::{FieldDef, FieldScope, FieldType, IdDisplay};
 pub use folder::FolderImport;
+pub use partial_date::PartialDate;
 pub use signing::{ImportReport, KeyRecord, KeyTrust, PinnedKey, SigningKey};
+pub use units::{Dimension, UnitSystem};
 
 /// The version the desktop app reports, taken from the crate.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");

@@ -32,6 +32,25 @@ const LATEST: &str = "ORDER BY date DESC, recorded DESC, author DESC, device DES
 const LIVE: &str = "AND NOT EXISTS (SELECT 1 FROM voids \
     WHERE voids.device = entries.device AND voids.dseq = entries.dseq)";
 
+/// SQL column: whether the row is voided, for reads that keep hidden
+/// rows and mark them.
+const VOIDED_COLUMN: &str = "EXISTS (SELECT 1 FROM voids \
+    WHERE voids.device = entries.device AND voids.dseq = entries.dseq) AS voided";
+
+/// Collapses re-asserted copies (identical fact, different device/dseq)
+/// so unmark-private and merge re-assertions never double diary rows.
+fn dedupe(rows: Vec<Entry>) -> Vec<Entry> {
+    let mut seen = HashSet::new();
+    rows.into_iter()
+        .filter(|e| {
+            seen.insert(format!(
+                "{} {} {:?} {} {} {}",
+                e.entity, e.field, e.value, e.date, e.author, e.recorded
+            ))
+        })
+        .collect()
+}
+
 /// Where a Catalog reads the wall clock for what it records.
 pub type Clock = Box<dyn Fn() -> chrono::DateTime<chrono::Utc> + Send>;
 
@@ -104,6 +123,8 @@ impl Catalog {
         catalog.ensure_device_id()?;
         catalog.rebuild_voids()?;
         catalog.ensure_signing_key()?;
+        let mut catalog = catalog;
+        catalog.seed_starter_fields()?;
         Ok(catalog)
     }
 
@@ -650,6 +671,24 @@ impl Catalog {
         Ok(())
     }
 
+    /// Appends a row the store seeds itself, under the seed author.
+    pub(crate) fn append_seed(&mut self, entity: &str, field: &str, value: &str) -> Result<()> {
+        let now = self.now();
+        let device = self.device_id();
+        let next = self.next_dseq(&device)?;
+        self.insert_own(
+            &device,
+            next,
+            entity,
+            field,
+            Some(value),
+            &now,
+            crate::SEED_AUTHOR,
+            &now,
+            false,
+        )
+    }
+
     /// Creates a Clowder under `id` (`clowder:<uuid>`).
     pub fn create_clowder(&mut self, id: &str, name: &str) -> Result<()> {
         self.append(id, keys::TYPE, Some(keys::KIND_CLOWDER))?;
@@ -1112,6 +1151,203 @@ impl Catalog {
                 .or_insert(e.value);
         }
         Ok(result)
+    }
+
+    /// Every entry of an entity (merged-in losers included), newest
+    /// effective date first. Corrected and removed rows stay out unless
+    /// `include_voided`, which brings them marked.
+    pub fn timeline(&self, entity: &str, include_voided: bool) -> Result<Vec<Entry>> {
+        let entities = self.entities_for(entity)?;
+        let sql = format!(
+            "SELECT entries.*, {VOIDED_COLUMN} FROM entries WHERE entity IN ({}) {} {LATEST}",
+            placeholders(entities.len()),
+            if include_voided { "" } else { LIVE }
+        );
+        let args: Vec<&dyn rusqlite::ToSql> =
+            entities.iter().map(|s| s as &dyn rusqlite::ToSql).collect();
+        Ok(dedupe(self.select_marked(&sql, &args)?))
+    }
+
+    /// Every entry of one field of an entity, newest effective date first.
+    pub fn field_history(
+        &self,
+        entity: &str,
+        field: &str,
+        include_voided: bool,
+    ) -> Result<Vec<Entry>> {
+        let entities = self.entities_for(entity)?;
+        let keys = self.keys_for(field)?;
+        let sql = format!(
+            "SELECT entries.*, {VOIDED_COLUMN} FROM entries WHERE entity IN ({}) AND field IN ({}) {} {LATEST}",
+            placeholders(entities.len()),
+            placeholders(keys.len()),
+            if include_voided { "" } else { LIVE }
+        );
+        let args: Vec<&dyn rusqlite::ToSql> = entities
+            .iter()
+            .map(|s| s as &dyn rusqlite::ToSql)
+            .chain(keys.iter().map(|s| s as &dyn rusqlite::ToSql))
+            .collect();
+        Ok(dedupe(self.select_marked(&sql, &args)?))
+    }
+
+    fn select_marked(&self, sql: &str, args: &[&dyn rusqlite::ToSql]) -> Result<Vec<Entry>> {
+        let mut stmt = self.db.prepare(sql)?;
+        let rows = stmt.query_map(args, |r| {
+            let mut e = Self::row(r)?;
+            e.voided = r.get::<_, i64>("voided")? != 0;
+            Ok(e)
+        })?;
+        Ok(rows.collect::<std::result::Result<_, _>>()?)
+    }
+
+    /// One row by its local handle, marked when voided.
+    pub fn entry_by_seq(&self, seq: i64) -> Result<Option<Entry>> {
+        Ok(self
+            .select_marked(
+                &format!("SELECT entries.*, {VOIDED_COLUMN} FROM entries WHERE seq = ?1"),
+                &[&seq],
+            )?
+            .into_iter()
+            .next())
+    }
+
+    /// One row by its wire identity, marked when voided.
+    pub fn entry_by_id(&self, device: &str, dseq: i64) -> Result<Option<Entry>> {
+        Ok(self
+            .select_marked(
+                &format!(
+                    "SELECT entries.*, {VOIDED_COLUMN} FROM entries WHERE device = ?1 AND dseq = ?2"
+                ),
+                &[&device, &dseq],
+            )?
+            .into_iter()
+            .next())
+    }
+
+    /// The marker that voids or restored `entry`: who did it, when, and
+    /// what replaced it (its value). None when never touched.
+    pub fn void_marker(&self, entry: &Entry) -> Result<Option<Entry>> {
+        self.marker(&entry.device, entry.dseq)
+    }
+
+    fn marker(&self, device: &str, dseq: i64) -> Result<Option<Entry>> {
+        Ok(self
+            .select(
+                &format!("SELECT * FROM entries WHERE field = ?1 {LATEST} LIMIT 1"),
+                &[&keys::voided(device, dseq)],
+            )?
+            .into_iter()
+            .next())
+    }
+
+    /// The entry `entry` was corrected into, if its marker names one
+    /// that is still here.
+    pub fn replacement_of(&self, entry: &Entry) -> Result<Option<Entry>> {
+        let Some(marker) = self.void_marker(entry)? else {
+            return Ok(None);
+        };
+        let Some(value) = marker.value.filter(|v| v != keys::VOID_REMOVED) else {
+            return Ok(None);
+        };
+        match void_target(&format!("{}{value}", keys::VOID_PREFIX)) {
+            Some((device, dseq)) => self.entry_by_id(&device, dseq),
+            None => Ok(None),
+        }
+    }
+
+    /// The entry `entry` replaced, if it is a correction whose marker is
+    /// still live.
+    pub fn corrected_by(&self, entry: &Entry) -> Result<Option<Entry>> {
+        let rows = self.select(
+            &format!("SELECT * FROM entries WHERE field LIKE ?1 AND value = ?2 {LATEST}"),
+            &[&format!("{}%", keys::VOID_PREFIX), &entry.id()],
+        )?;
+        for r in rows {
+            let Some((device, dseq)) = void_target(&r.field) else {
+                continue;
+            };
+            if self.marker(&device, dseq)?.and_then(|m| m.value) != Some(entry.id()) {
+                continue;
+            }
+            return self.entry_by_id(&device, dseq);
+        }
+        Ok(None)
+    }
+
+    fn correctable(&self, seq: i64) -> Result<Entry> {
+        let entry = self
+            .entry_by_seq(seq)?
+            .ok_or_else(|| Error::Invalid(format!("No entry with seq {seq}")))?;
+        if !keys::is_correctable(&entry.field) {
+            return Err(Error::Invalid(format!(
+                "Field {} cannot be corrected",
+                entry.field
+            )));
+        }
+        Ok(entry)
+    }
+
+    fn set_void(&mut self, entry: &Entry, value: Option<&str>) -> Result<()> {
+        self.append(
+            &entry.entity,
+            &keys::voided(&entry.device, entry.dseq),
+            value,
+        )
+    }
+
+    /// Takes one entry back: a marker hides it from the current value,
+    /// the history and the graph; the row stays and [`Catalog::restore_entry`]
+    /// brings it back. Taking back a correction also restores what it
+    /// had replaced.
+    pub fn remove_entry(&mut self, seq: i64) -> Result<()> {
+        let entry = self.correctable(seq)?;
+        let original = self.corrected_by(&entry)?;
+        self.set_void(&entry, Some(keys::VOID_REMOVED))?;
+        if let Some(original) = original {
+            self.set_void(&original, None)?;
+        }
+        Ok(())
+    }
+
+    /// Replaces one entry with `value` as of `date` (the entry's own
+    /// date by default): the new entry is written, the old one hidden
+    /// and its marker names the new one. Returns the new entry.
+    pub fn correct_entry(
+        &mut self,
+        seq: i64,
+        value: Option<&str>,
+        date: Option<&str>,
+    ) -> Result<Entry> {
+        let entry = self.correctable(seq)?;
+        let device = self.device_id();
+        let next = self.next_dseq(&device)?;
+        self.append_at(
+            &entry.entity,
+            &entry.field,
+            value,
+            Some(date.unwrap_or(&entry.date)),
+            false,
+        )?;
+        let fresh = self
+            .entry_by_id(&device, next)?
+            .ok_or_else(|| Error::Invalid("the correction did not land".into()))?;
+        self.set_void(&entry, Some(&fresh.id()))?;
+        Ok(fresh)
+    }
+
+    /// Brings a removed or corrected entry back. A correction that had
+    /// replaced it is taken back in turn.
+    pub fn restore_entry(&mut self, seq: i64) -> Result<()> {
+        let entry = self.correctable(seq)?;
+        let replacement = self.replacement_of(&entry)?;
+        self.set_void(&entry, None)?;
+        if let Some(replacement) = replacement
+            && !replacement.voided
+        {
+            self.set_void(&replacement, Some(keys::VOID_REMOVED))?;
+        }
+        Ok(())
     }
 
     pub fn is_deleted(&self, entity: &str) -> Result<bool> {
@@ -1695,7 +1931,12 @@ mod tests {
             ])
             .unwrap();
         assert!(refused.is_empty());
-        assert!(c.all_entries().unwrap().is_empty());
+        assert!(
+            c.all_entries()
+                .unwrap()
+                .iter()
+                .all(|e| e.author == crate::SEED_AUTHOR)
+        );
     }
 
     fn fixed_clock() -> Clock {
@@ -1717,15 +1958,20 @@ mod tests {
         ));
         c.set_author("Ada").unwrap();
         c.set_clock(fixed_clock());
+        let seeded = c.all_entries().unwrap().len();
         c.create_clowder("clowder:h", "Home").unwrap();
         c.create_cat("cat:a", "Miezi", Some("clowder:h"), "cat")
             .unwrap();
         c.move_cat("cat:a", None).unwrap();
         let rows = c.all_entries().unwrap();
-        assert_eq!(rows.len(), 7);
-        assert_eq!(rows[0].date, "2026-01-01T10:00:00.000000Z");
-        assert_eq!(rows[6].dseq, 7);
-        assert!(rows.iter().all(|e| e.device == "me" && e.author == "Ada"));
+        assert_eq!(rows.len(), seeded + 7);
+        assert_eq!(rows[seeded].date, "2026-01-01T10:00:00.000000Z");
+        assert_eq!(rows[seeded + 6].dseq, seeded as i64 + 7);
+        assert!(
+            rows[seeded..]
+                .iter()
+                .all(|e| e.device == "me" && e.author == "Ada")
+        );
         assert!(c.cats(Some("clowder:h")).unwrap().is_empty());
         assert_eq!(c.cats(None).unwrap()[0].name, "Miezi");
         c.append_at(
@@ -1743,7 +1989,10 @@ mod tests {
         let mut c = Catalog::open_with_device(dir.path(), "other").unwrap();
         assert_eq!(c.device_id(), "me");
         c.append("cat:a", "f:color", Some("black")).unwrap();
-        assert_eq!(c.all_entries().unwrap().last().unwrap().dseq, 9);
+        assert_eq!(
+            c.all_entries().unwrap().last().unwrap().dseq,
+            seeded as i64 + 9
+        );
     }
 
     #[test]
@@ -1968,7 +2217,7 @@ mod tests {
             .map(|k| k.record.device.clone())
             .collect();
         assert!(devices.contains(&a.device_id()) && devices.contains(&b.device_id()));
-        assert_eq!(b.authors_overview().unwrap().len(), 4);
+        assert_eq!(b.authors_overview().unwrap().len(), 9);
         // A device without a key is taken as unsigned.
         let mut report = ImportReport::default();
         let plain = entry(
@@ -2001,6 +2250,98 @@ mod tests {
         assert_eq!(after.len(), before + 3);
         assert_eq!(after.last().unwrap().field, "f:phone");
         assert!(c.set_field_private("clowder:h", keys::NAME, true).is_err());
+    }
+
+    #[test]
+    fn histories_keep_every_change_and_corrections_hide_rows() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        c.set_clock(fixed_clock());
+        c.create_cat("cat:a", "Miezi", None, "cat").unwrap();
+        c.append_at(
+            "cat:a",
+            "f:color",
+            Some("black"),
+            Some("2026-01-01T00:00:00Z"),
+            false,
+        )
+        .unwrap();
+        c.append_at(
+            "cat:a",
+            "f:color",
+            Some("white"),
+            Some("2026-02-01T00:00:00Z"),
+            false,
+        )
+        .unwrap();
+        let history = c.field_history("cat:a", "f:color", false).unwrap();
+        assert_eq!(history.len(), 2);
+        assert_eq!(history[0].value.as_deref(), Some("white"));
+        let white_seq = history[0].seq;
+        let black_seq = history[1].seq;
+        // A correction replaces the row and names the replacement.
+        let fresh = c.correct_entry(white_seq, Some("grey"), None).unwrap();
+        assert_eq!(
+            c.current("cat:a", "f:color").unwrap().as_deref(),
+            Some("grey")
+        );
+        assert_eq!(c.field_history("cat:a", "f:color", false).unwrap().len(), 2);
+        let all = c.field_history("cat:a", "f:color", true).unwrap();
+        assert_eq!(all.len(), 3);
+        let white = c.entry_by_seq(white_seq).unwrap().unwrap();
+        assert!(white.voided);
+        assert_eq!(c.replacement_of(&white).unwrap().unwrap().id(), fresh.id());
+        assert_eq!(c.corrected_by(&fresh).unwrap().unwrap().seq, white_seq);
+        assert_eq!(
+            c.void_marker(&white).unwrap().unwrap().value,
+            Some(fresh.id())
+        );
+        // Restoring the original takes the correction back.
+        c.restore_entry(white_seq).unwrap();
+        assert_eq!(
+            c.current("cat:a", "f:color").unwrap().as_deref(),
+            Some("white")
+        );
+        assert!(c.entry_by_seq(fresh.seq).unwrap().unwrap().voided);
+        // Removing a row falls back to the one before; removing a
+        // correction restores what it replaced.
+        c.remove_entry(white_seq).unwrap();
+        assert_eq!(
+            c.current("cat:a", "f:color").unwrap().as_deref(),
+            Some("black")
+        );
+        c.restore_entry(white_seq).unwrap();
+        let fresh = c
+            .correct_entry(white_seq, Some("cream"), Some("2026-03-01T00:00:00Z"))
+            .unwrap();
+        c.remove_entry(fresh.seq).unwrap();
+        assert_eq!(
+            c.current("cat:a", "f:color").unwrap().as_deref(),
+            Some("white")
+        );
+        assert!(
+            c.corrected_by(&c.entry_by_seq(black_seq).unwrap().unwrap())
+                .unwrap()
+                .is_none()
+        );
+        assert!(
+            c.replacement_of(&c.entry_by_seq(black_seq).unwrap().unwrap())
+                .unwrap()
+                .is_none()
+        );
+        assert!(c.remove_entry(9999).is_err());
+        let type_row = c
+            .timeline("cat:a", false)
+            .unwrap()
+            .into_iter()
+            .find(|e| e.field == keys::TYPE)
+            .unwrap();
+        assert!(c.remove_entry(type_row.seq).is_err());
+        assert!(
+            c.timeline("cat:a", true).unwrap().len() > c.timeline("cat:a", false).unwrap().len()
+        );
+        assert!(c.entry_by_id("nobody", 1).unwrap().is_none());
     }
 
     #[test]

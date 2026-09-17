@@ -37,6 +37,23 @@ Map<String, dynamic> dumpState(CatalogStore store) {
       if (store.imageBytes(hash) != null) blobs.add(hash);
     }
   }
+  // Every change, per entity and field, with corrections marked.
+  final histories = SplayTreeMap<String, dynamic>();
+  for (final id in entities.keys) {
+    final perField = SplayTreeMap<String, List<dynamic>>();
+    for (final e in store.timeline(id, includeVoided: true)) {
+      if (e.device == self) continue;
+      perField.putIfAbsent(store.canonicalKey(e.field), () => []).add({
+        'device': e.device,
+        'dseq': e.dseq,
+        'value': e.value,
+        'date': e.date.toIso8601String(),
+        'author': e.author,
+        'voided': e.voided,
+      });
+    }
+    histories[id] = perField;
+  }
   final keys = [
     for (final k
         in store.pinnedKeys()
@@ -52,6 +69,7 @@ Map<String, dynamic> dumpState(CatalogStore store) {
     'vector': vector,
     'entities': entities,
     'blobs': blobs.toList(),
+    'histories': histories,
     'keys': keys,
     'entries': entries,
   };

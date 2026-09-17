@@ -194,6 +194,99 @@ final scenarios = <Scenario>[
     },
   ),
   Scenario(
+    'fields-all',
+    'A definition of every Field type with its options, display and '
+        'lookup, and a value of each on a Cat and a Clowder: text, yes/no, '
+        'a partial date, a number, a choice, a location with a flier '
+        'position, a cat reference, an ID, a unit value in grams, Looks '
+        'tags. One value cleared again, one set on a starter field.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      final tom = cat(w, 2, 'Tom', clowderId: home);
+      final mood = w.defineField('Mood', FieldType.choice,
+          scope: FieldScope.cat, options: ['calm', 'wild']);
+      w.setFieldOptions(mood, ['calm', 'wild', 'sleepy']);
+      w.renameField(mood, 'Temper');
+      final registry = w.defineField('Vet Registry', FieldType.id,
+          scope: FieldScope.cat,
+          idDisplay: IdDisplay.qr,
+          lookupUrl: 'https://vet.example/{value}');
+      w.setFieldLookupUrl(registry, 'https://registry.example/id/{value}');
+      w.defineField('Indoor', FieldType.yesNo, scope: FieldScope.both);
+      w.defineField('Visits', FieldType.number, scope: FieldScope.both);
+      w.defineField('Height', FieldType.unitValue,
+          scope: FieldScope.cat, dimension: Dimension.length);
+      w.defineField('Notes', FieldType.text, scope: FieldScope.clowder);
+      w.append(miezi, 'f:temper', 'sleepy');
+      w.append(miezi, 'f:vet-registry', 'DE-123 456');
+      w.append(miezi, 'f:indoor', 'yes');
+      w.append(miezi, 'f:visits', '3');
+      w.append(miezi, 'f:height', '24.5');
+      w.append(miezi, 'f:weight', '4250');
+      w.append(miezi, 'f:birthdate', '2021-05');
+      w.append(miezi, 'f:chipid', '276098100123456');
+      w.append(miezi, 'f:looks', 'size=medium; colours=black,white; fur=short');
+      w.append(miezi, 'f:mother', catId(2));
+      w.recordPosition(miezi, 51.34, 12.37);
+      w.recordPosition(miezi, 51.35, 12.38, kind: PositionKind.flier);
+      w.append(tom, 'f:color', 'ginger');
+      w.append(tom, 'f:color', null);
+      w.append(home, 'f:indoor', 'no');
+      w.append(home, 'f:visits', '12');
+      w.append(home, 'f:notes', 'Ring twice.');
+      w.append(home, 'f:phone', '+49 341 000');
+    },
+  ),
+  Scenario(
+    'history-reverts',
+    'One Field changed four times, one change backdated, one corrected '
+        'into another value, one taken back and one restored: the current '
+        'value follows the effective dates, the history shows every row '
+        'and marks the hidden ones.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:weight', '3000', date: DateTime.utc(2026, 1, 5));
+      w.append(miezi, 'f:weight', '3200', date: DateTime.utc(2026, 1, 20));
+      w.append(miezi, 'f:weight', '3100', date: DateTime.utc(2026, 1, 12));
+      w.append(miezi, 'f:weight', '3500', date: DateTime.utc(2026, 2, 1));
+      final rows = w.fieldHistory(miezi, 'f:weight');
+      final wrong = rows.firstWhere((e) => e.value == '3200');
+      w.correctEntry(wrong.seq, '3250');
+      final last = rows.firstWhere((e) => e.value == '3500');
+      w.removeEntry(last.seq);
+      final early = rows.firstWhere((e) => e.value == '3000');
+      w.removeEntry(early.seq);
+      w.restoreEntry(early.seq);
+      w.append(miezi, 'f:remarks', 'shy');
+      w.append(miezi, 'f:remarks', 'shy but curious');
+    },
+  ),
+  Scenario(
+    'species-pet',
+    'A Catalog in Pet Mode with a dog, a rabbit and a cat: species '
+        'preset values, a breed typed for the dog that the Breed field '
+        'learns for dogs only, a deceased date, a per-species option list.',
+    (w) {
+      w.append('catalog:mode', 'mode', 'pets');
+      final home = clowder(w, 1, 'Household');
+      final rex = cat(w, 1, 'Rex', clowderId: home, species: 'dog');
+      w.append(rex, 'f:breed', 'Mutt');
+      w.learnBreed(rex, 'Mutt');
+      w.append(rex, 'f:breed', 'Beagle');
+      w.learnBreed(rex, 'Beagle');
+      final bunny = cat(w, 2, 'Bunny', clowderId: home, species: 'rabbit');
+      w.append(bunny, 'f:breed', 'Lionhead');
+      w.learnBreed(bunny, 'Lionhead');
+      final miezi = cat(w, 3, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:breed', 'Ragdoll');
+      w.learnBreed(miezi, 'Ragdoll');
+      w.append(miezi, 'f:deceased', '2026-02-14');
+      w.addFieldOption('fielddef:breed', 'rabbit', 'Angora');
+    },
+  ),
+  Scenario(
     'photo-missing',
     'A photo the entries name is in neither the folder nor the bundle: '
         'the entry lands, the photo counts as missing, the round says '

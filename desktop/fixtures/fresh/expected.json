@@ -261,6 +261,1178 @@
     "d0b0454c661ee86497abced574c21fd11e51d28723c9db8a5d7203054cf0653a",
     "f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78"
   ],
+  "histories": {
+    "cat:00000000-0000-4000-8000-000000000001": {
+      "$image:ca4e7d62b4f4175ffd92261dd3d8e98cec00712a23bab1fc09d42c8387f14e06": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 101,
+          "value": "added",
+          "date": "2026-01-01T10:01:41.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "$image:f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 102,
+          "value": "added",
+          "date": "2026-01-01T10:01:42.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "$profile": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 103,
+          "value": "f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78",
+          "date": "2026-01-01T10:01:43.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 95,
+          "value": "cat",
+          "date": "2026-01-01T10:01:35.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "clowder": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 98,
+          "value": "clowder:00000000-0000-4000-8000-000000000001",
+          "date": "2026-01-01T10:01:38.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:color": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 100,
+          "value": "tabby",
+          "date": "2026-01-01T10:01:40.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:gender": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 99,
+          "value": "female",
+          "date": "2026-01-01T10:01:39.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:species": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 97,
+          "value": "cat",
+          "date": "2026-01-01T10:01:37.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 96,
+          "value": "Miezi",
+          "date": "2026-01-01T10:01:36.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ]
+    },
+    "cat:00000000-0000-4000-8000-000000000002": {
+      "$image:d0b0454c661ee86497abced574c21fd11e51d28723c9db8a5d7203054cf0653a": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 109,
+          "value": "added",
+          "date": "2026-01-01T10:01:49.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 104,
+          "value": "cat",
+          "date": "2026-01-01T10:01:44.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "clowder": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 107,
+          "value": "clowder:00000000-0000-4000-8000-000000000002",
+          "date": "2026-01-01T10:01:47.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:gender": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 108,
+          "value": "male",
+          "date": "2026-01-01T10:01:48.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:species": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 106,
+          "value": "cat",
+          "date": "2026-01-01T10:01:46.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 105,
+          "value": "Tom",
+          "date": "2026-01-01T10:01:45.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ]
+    },
+    "cat:00000000-0000-4000-8000-000000000003": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 110,
+          "value": "cat",
+          "date": "2026-01-01T10:01:50.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:species": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 112,
+          "value": "cat",
+          "date": "2026-01-01T10:01:52.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 111,
+          "value": "Wanderer",
+          "date": "2026-01-01T10:01:51.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ]
+    },
+    "clowder:00000000-0000-4000-8000-000000000001": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 87,
+          "value": "clowder",
+          "date": "2026-01-01T10:01:27.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:address": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 89,
+          "value": "Katzenweg 3, Leipzig",
+          "date": "2026-01-01T10:01:29.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:responsible": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 91,
+          "value": "Ada",
+          "date": "2026-01-01T10:01:31.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:status": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 90,
+          "value": "foster",
+          "date": "2026-01-01T10:01:30.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 88,
+          "value": "Foster Home",
+          "date": "2026-01-01T10:01:28.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ]
+    },
+    "clowder:00000000-0000-4000-8000-000000000002": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 92,
+          "value": "clowder",
+          "date": "2026-01-01T10:01:32.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:status": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 94,
+          "value": "barn",
+          "date": "2026-01-01T10:01:34.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 93,
+          "value": "Barn",
+          "date": "2026-01-01T10:01:33.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:address": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 63,
+          "value": "fielddef",
+          "date": "2026-01-01T10:01:03.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 64,
+          "value": "Address",
+          "date": "2026-01-01T10:01:04.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 66,
+          "value": "clowder",
+          "date": "2026-01-01T10:01:06.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 65,
+          "value": "text",
+          "date": "2026-01-01T10:01:05.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:birthdate": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 28,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:28.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 29,
+          "value": "Birth date",
+          "date": "2026-01-01T10:00:29.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 31,
+          "value": "cat",
+          "date": "2026-01-01T10:00:31.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 30,
+          "value": "date",
+          "date": "2026-01-01T10:00:30.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:breed": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 10,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:10.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 11,
+          "value": "Breed",
+          "date": "2026-01-01T10:00:11.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "options": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 14,
+          "value": "European Shorthair\nMaine Coon\nBritish Shorthair\nNorwegian Forest Cat\nRagdoll\nSiamese\nPersian\nBengal\nSphynx\nAbyssinian\nAmerican Shorthair\nBalinese\nBirman\nBombay\nBurmese\nBurmilla\nBritish Longhair\nChartreux\nCornish Rex\nDevon Rex\nEgyptian Mau\nExotic Shorthair\nHimalayan\nKorat\nManx\nMunchkin\nOcicat\nOriental Shorthair\nRagamuffin\nRussian Blue\nSavannah\nScottish Fold\nSelkirk Rex\nSiberian\nSnowshoe\nSomali\nTonkinese\nTurkish Angora\nTurkish Van\nmixed",
+          "date": "2026-01-01T10:00:14.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 13,
+          "value": "cat",
+          "date": "2026-01-01T10:00:13.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 12,
+          "value": "choice",
+          "date": "2026-01-01T10:00:12.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:chipid": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 15,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:15.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "iddisplay": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 19,
+          "value": "barcode",
+          "date": "2026-01-01T10:00:19.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 16,
+          "value": "Chip ID",
+          "date": "2026-01-01T10:00:16.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 18,
+          "value": "cat",
+          "date": "2026-01-01T10:00:18.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 17,
+          "value": "id",
+          "date": "2026-01-01T10:00:17.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:color": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 6,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:06.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 7,
+          "value": "Color",
+          "date": "2026-01-01T10:00:07.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 9,
+          "value": "cat",
+          "date": "2026-01-01T10:00:09.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 8,
+          "value": "text",
+          "date": "2026-01-01T10:00:08.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:deceased": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 32,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:32.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 33,
+          "value": "Deceased",
+          "date": "2026-01-01T10:00:33.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 35,
+          "value": "cat",
+          "date": "2026-01-01T10:00:35.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 34,
+          "value": "date",
+          "date": "2026-01-01T10:00:34.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:email": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 71,
+          "value": "fielddef",
+          "date": "2026-01-01T10:01:11.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 72,
+          "value": "Email",
+          "date": "2026-01-01T10:01:12.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 74,
+          "value": "clowder",
+          "date": "2026-01-01T10:01:14.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 73,
+          "value": "text",
+          "date": "2026-01-01T10:01:13.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:father": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 54,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:54.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 55,
+          "value": "Father",
+          "date": "2026-01-01T10:00:55.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 57,
+          "value": "cat",
+          "date": "2026-01-01T10:00:57.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 56,
+          "value": "cat",
+          "date": "2026-01-01T10:00:56.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:gender": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 1,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:01.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 2,
+          "value": "Gender",
+          "date": "2026-01-01T10:00:02.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "options": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 5,
+          "value": "female\nmale\nunknown",
+          "date": "2026-01-01T10:00:05.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 4,
+          "value": "cat",
+          "date": "2026-01-01T10:00:04.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 3,
+          "value": "choice",
+          "date": "2026-01-01T10:00:03.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:looks": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 46,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:46.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 47,
+          "value": "Looks",
+          "date": "2026-01-01T10:00:47.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 49,
+          "value": "cat",
+          "date": "2026-01-01T10:00:49.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 48,
+          "value": "tags",
+          "date": "2026-01-01T10:00:48.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:mother": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 50,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:50.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 51,
+          "value": "Mother",
+          "date": "2026-01-01T10:00:51.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 53,
+          "value": "cat",
+          "date": "2026-01-01T10:00:53.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 52,
+          "value": "cat",
+          "date": "2026-01-01T10:00:52.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:neutered": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 20,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:20.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 21,
+          "value": "Neutered",
+          "date": "2026-01-01T10:00:21.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 23,
+          "value": "cat",
+          "date": "2026-01-01T10:00:23.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 22,
+          "value": "yesNo",
+          "date": "2026-01-01T10:00:22.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:phone": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 75,
+          "value": "fielddef",
+          "date": "2026-01-01T10:01:15.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 76,
+          "value": "Phone",
+          "date": "2026-01-01T10:01:16.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 78,
+          "value": "clowder",
+          "date": "2026-01-01T10:01:18.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 77,
+          "value": "text",
+          "date": "2026-01-01T10:01:17.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:position": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 79,
+          "value": "fielddef",
+          "date": "2026-01-01T10:01:19.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 80,
+          "value": "Position",
+          "date": "2026-01-01T10:01:20.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 82,
+          "value": "both",
+          "date": "2026-01-01T10:01:22.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 81,
+          "value": "location",
+          "date": "2026-01-01T10:01:21.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:pregnant": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 24,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:24.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 25,
+          "value": "Pregnant",
+          "date": "2026-01-01T10:00:25.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 27,
+          "value": "cat",
+          "date": "2026-01-01T10:00:27.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 26,
+          "value": "yesNo",
+          "date": "2026-01-01T10:00:26.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:remarks": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 83,
+          "value": "fielddef",
+          "date": "2026-01-01T10:01:23.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 84,
+          "value": "Remarks",
+          "date": "2026-01-01T10:01:24.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 86,
+          "value": "both",
+          "date": "2026-01-01T10:01:26.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 85,
+          "value": "text",
+          "date": "2026-01-01T10:01:25.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:responsible": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 67,
+          "value": "fielddef",
+          "date": "2026-01-01T10:01:07.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 68,
+          "value": "Responsible person",
+          "date": "2026-01-01T10:01:08.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 70,
+          "value": "clowder",
+          "date": "2026-01-01T10:01:10.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 69,
+          "value": "text",
+          "date": "2026-01-01T10:01:09.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:species": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 36,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:36.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 37,
+          "value": "Species",
+          "date": "2026-01-01T10:00:37.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "options": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 40,
+          "value": "cat\ndog\nrabbit\nguinea pig\nhamster\nbird\nhorse\ntortoise\nferret",
+          "date": "2026-01-01T10:00:40.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 39,
+          "value": "cat",
+          "date": "2026-01-01T10:00:39.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 38,
+          "value": "choice",
+          "date": "2026-01-01T10:00:38.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:status": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 58,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:58.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 59,
+          "value": "Status",
+          "date": "2026-01-01T10:00:59.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "options": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 62,
+          "value": "foster\nforever-home\nclinic\nshelter\nbarn\nowner",
+          "date": "2026-01-01T10:01:02.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 61,
+          "value": "clowder",
+          "date": "2026-01-01T10:01:01.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 60,
+          "value": "choice",
+          "date": "2026-01-01T10:01:00.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    },
+    "fielddef:weight": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 41,
+          "value": "fielddef",
+          "date": "2026-01-01T10:00:41.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "dimension": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 45,
+          "value": "weight",
+          "date": "2026-01-01T10:00:45.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 42,
+          "value": "Weight",
+          "date": "2026-01-01T10:00:42.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "scope": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 44,
+          "value": "cat",
+          "date": "2026-01-01T10:00:44.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 43,
+          "value": "unitValue",
+          "date": "2026-01-01T10:00:43.000Z",
+          "author": "cat(a)log",
+          "voided": false
+        }
+      ]
+    }
+  },
   "keys": [
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",

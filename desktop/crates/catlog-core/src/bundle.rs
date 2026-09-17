@@ -188,6 +188,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut a = Catalog::open_with_device(&dir.path().join("a"), "aaaa").unwrap();
         a.set_author("Ada").unwrap();
+        let seeded = a.all_entries().unwrap().len();
         a.create_cat("cat:m", "Miezi", None, "cat").unwrap();
         let photo = a.add_image("cat:m", b"jpeg bytes").unwrap();
         let path = dir.path().join("a.catsync");
@@ -202,7 +203,7 @@ mod tests {
 
         let mut b = Catalog::open_with_device(&dir.path().join("b"), "bbbb").unwrap();
         let r = b.import_bundle(&path).unwrap();
-        assert_eq!((r.entries_in, r.blobs_in), (4, 1));
+        assert_eq!((r.entries_in, r.blobs_in), (seeded + 4, 1));
         assert_eq!(r.report.new_keys[0].record.device, "aaaa");
         assert!(b.import_bundle(&path).unwrap().report.is_empty());
         assert_eq!(b.image_bytes(&photo).as_deref(), Some(&b"jpeg bytes"[..]));

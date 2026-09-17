@@ -329,12 +329,16 @@ mod tests {
         let share = dir.path().join("share");
         let mut a = Catalog::open_with_device(&dir.path().join("a"), "aaaa").unwrap();
         a.set_author("Ada").unwrap();
+        let seeded = a.all_entries().unwrap().len();
         a.create_clowder("clowder:h", "Home").unwrap();
         a.create_cat("cat:m", "Miezi", Some("clowder:h"), "cat")
             .unwrap();
         let photo = a.add_image("cat:m", b"jpeg bytes").unwrap();
         let r = a.sync_folder(&share, Some("leipzig"), false).unwrap();
-        assert_eq!((r.entries_out, r.blobs_out, r.entries_in), (7, 1, 0));
+        assert_eq!(
+            (r.entries_out, r.blobs_out, r.entries_in),
+            (seeded + 7, 1, 0)
+        );
         let sync = share.join(SYNC_DIR);
         assert!(sync.join(".nomedia").exists());
         assert!(sync.join("leipzig").join("aaaa.jsonl").exists());
@@ -350,7 +354,10 @@ mod tests {
         b.set_author("Bea").unwrap();
         b.create_cat("cat:w", "Wanderer", None, "cat").unwrap();
         let r = b.sync_folder(&share, Some("leipzig"), false).unwrap();
-        assert_eq!((r.entries_in, r.blobs_in, r.entries_out), (7, 1, 10));
+        assert_eq!(
+            (r.entries_in, r.blobs_in, r.entries_out),
+            (seeded + 7, 1, 2 * seeded + 10)
+        );
         assert_eq!(r.report.new_keys[0].record.device, "aaaa");
         assert!(b.pinned_key("aaaa").is_some());
         assert_eq!(b.cats(None).unwrap().len(), 2);
@@ -367,7 +374,7 @@ mod tests {
         )
         .unwrap();
         let r = a.sync_folder(&share, Some("leipzig"), false).unwrap();
-        assert_eq!((r.entries_in, r.entries_out), (3, 11));
+        assert_eq!((r.entries_in, r.entries_out), (seeded + 3, 2 * seeded + 11));
         assert_eq!(r.report.new_keys[0].record.device, "bbbb");
         // A forged line in b's file is refused by a now that b's key is pinned.
         let own = sync.join("leipzig").join("bbbb.jsonl");

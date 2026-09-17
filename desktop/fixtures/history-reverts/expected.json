@@ -1,21 +1,23 @@
 {
   "vector": {
-    "65b60673d6ed884bf01c2c222d82ada0": 93
+    "65b60673d6ed884bf01c2c222d82ada0": 103
   },
   "entities": {
     "cat:00000000-0000-4000-8000-000000000001": {
       "kind": "cat",
       "fields": {
-        "$image:60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c": "added",
         "$type": "cat",
+        "$void:65b60673d6ed884bf01c2c222d82ada0:93": null,
+        "$void:65b60673d6ed884bf01c2c222d82ada0:94": "65b60673d6ed884bf01c2c222d82ada0:97",
+        "$void:65b60673d6ed884bf01c2c222d82ada0:96": "removed",
         "clowder": "clowder:00000000-0000-4000-8000-000000000001",
+        "f:remarks": "shy but curious",
         "f:species": "cat",
+        "f:weight": "3250",
         "name": "Miezi"
       },
-      "images": [
-        "60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c"
-      ],
-      "profile": "60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c"
+      "images": [],
+      "profile": null
     },
     "clowder:00000000-0000-4000-8000-000000000001": {
       "kind": "clowder",
@@ -216,22 +218,50 @@
   "blobs": [],
   "histories": {
     "cat:00000000-0000-4000-8000-000000000001": {
-      "$image:60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c": [
-        {
-          "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 93,
-          "value": "added",
-          "date": "2026-01-01T10:01:33.000Z",
-          "author": "Ada",
-          "voided": false
-        }
-      ],
       "$type": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 89,
           "value": "cat",
           "date": "2026-01-01T10:01:29.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "$void:65b60673d6ed884bf01c2c222d82ada0:93": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 101,
+          "value": null,
+          "date": "2026-01-01T10:01:41.000Z",
+          "author": "Ada",
+          "voided": false
+        },
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 100,
+          "value": "removed",
+          "date": "2026-01-01T10:01:40.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "$void:65b60673d6ed884bf01c2c222d82ada0:94": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 98,
+          "value": "65b60673d6ed884bf01c2c222d82ada0:97",
+          "date": "2026-01-01T10:01:38.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "$void:65b60673d6ed884bf01c2c222d82ada0:96": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 99,
+          "value": "removed",
+          "date": "2026-01-01T10:01:39.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -246,12 +276,72 @@
           "voided": false
         }
       ],
+      "f:remarks": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 103,
+          "value": "shy but curious",
+          "date": "2026-01-01T10:01:43.000Z",
+          "author": "Ada",
+          "voided": false
+        },
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 102,
+          "value": "shy",
+          "date": "2026-01-01T10:01:42.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
       "f:species": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 91,
           "value": "cat",
           "date": "2026-01-01T10:01:31.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:weight": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 96,
+          "value": "3500",
+          "date": "2026-02-01T00:00:00.000Z",
+          "author": "Ada",
+          "voided": true
+        },
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 97,
+          "value": "3250",
+          "date": "2026-01-20T00:00:00.000Z",
+          "author": "Ada",
+          "voided": false
+        },
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 94,
+          "value": "3200",
+          "date": "2026-01-20T00:00:00.000Z",
+          "author": "Ada",
+          "voided": true
+        },
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 95,
+          "value": "3100",
+          "date": "2026-01-12T00:00:00.000Z",
+          "author": "Ada",
+          "voided": false
+        },
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 93,
+          "value": "3000",
+          "date": "2026-01-05T00:00:00.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -2215,12 +2305,122 @@
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 93,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$image:60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c",
-      "value": "added",
-      "date": "2026-01-01T10:01:33.000Z",
+      "field": "f:weight",
+      "value": "3000",
+      "date": "2026-01-05T00:00:00.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:33.000Z",
-      "sig": "RdkmdGxvX1iAC5siZcLo8cV1yoXbPqj1L6jYdwV3f9UD64DfuFtHd3toRT3ZiML3m75gJ2FiuIAdvfRWYucsBA=="
+      "sig": "wa7nuaTO54D4ixIn3G9CjHN4YW9caeLIfkFV/4cOrE1J/te+bm1P50vZJci1cV9ACd6ZFIu3la4umGh+pg1mAw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 94,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:weight",
+      "value": "3200",
+      "date": "2026-01-20T00:00:00.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:34.000Z",
+      "sig": "jZVfKATf4qQVZGnFco9ORQ6NeOR8eMh/JMLfe5hss03cCArCx0MaqqHrRpm2jT2cLt3lUUxihD3BVqmPKi9SBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 95,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:weight",
+      "value": "3100",
+      "date": "2026-01-12T00:00:00.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:35.000Z",
+      "sig": "JFJGmNOQ2DZbQ9ZG882s4nnwJtcFsV0fdc8WjCN3y8HNwOOsFFtepH5knFrngYnZn7IZ0+ur2wuvjjSZgrCCDQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 96,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:weight",
+      "value": "3500",
+      "date": "2026-02-01T00:00:00.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:36.000Z",
+      "sig": "ferfezV9ydTt8816URssBdOj8uxYZS1XuXajUr2GE1rdaGD83z5A8T8txvfAUH07Cb99z53MwEitdgntFTQrCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 97,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:weight",
+      "value": "3250",
+      "date": "2026-01-20T00:00:00.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:37.000Z",
+      "sig": "nFWOC3C/B37bYoGAN4r4unZTNpsPw2GSqS+vekJKXXeLBHqNhJcxfY6TsoxLwCV6xx5EBeCIOYzoxycPe1pQDA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 98,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$void:65b60673d6ed884bf01c2c222d82ada0:94",
+      "value": "65b60673d6ed884bf01c2c222d82ada0:97",
+      "date": "2026-01-01T10:01:38.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:38.000Z",
+      "sig": "S8KIdmeaePYn3UXLpcc3xhHlN03LW6nsU48zdfxJfRRa9RAzaC7p2T1hq+og7jNVi1qhTXEI8HJOahp2/1AACA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 99,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$void:65b60673d6ed884bf01c2c222d82ada0:96",
+      "value": "removed",
+      "date": "2026-01-01T10:01:39.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:39.000Z",
+      "sig": "hiSPgITo34n4AH1tumtQxmb16dZm2GIYLu1tdGj8I4wgHvxgGdgPEaCyzz7VkzhjYsQ8SXouwzbgFvwTPPBWBg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 100,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$void:65b60673d6ed884bf01c2c222d82ada0:93",
+      "value": "removed",
+      "date": "2026-01-01T10:01:40.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:40.000Z",
+      "sig": "hGgIgJwWI8mkHtWwnWmvvogo4IuP6tC8eelYF8GGGksySK/QQ5TohXCjPC/HqMQhf8U1ahh5V9x9zVfqX0rHCw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 101,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$void:65b60673d6ed884bf01c2c222d82ada0:93",
+      "value": null,
+      "date": "2026-01-01T10:01:41.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:41.000Z",
+      "sig": "2HJ30zxOyVo7N4H/TiFiFOZNpA4OXAU/zgLRIVILQcDt4RC48IZdfqX9jGTWrG1kAHt/ef50OiXv5zRJOJk0DA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 102,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:remarks",
+      "value": "shy",
+      "date": "2026-01-01T10:01:42.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:42.000Z",
+      "sig": "95jbNmEZaYZGU60kH6rJhzkYzi8gBt7qdcW2Ys4rPeVsON/M5/CCEBZoIuLjLsVZA0yCs3WQNTXLKQBwWF4LAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 103,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:remarks",
+      "value": "shy but curious",
+      "date": "2026-01-01T10:01:43.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:43.000Z",
+      "sig": "Zd595RquRY+HVMsu8TF+JXCNalIviRm3cfGlfhQPeufrDXIgBWJh1MU3VoE6wXdU1yZFwbDL5xK8ktPsoNn/BQ=="
     }
   ],
   "report": {
@@ -2240,15 +2440,13 @@
     "changedKeys": []
   },
   "sync": {
-    "entriesIn": 93,
+    "entriesIn": 103,
     "blobsIn": 0,
-    "blobsMissing": 1,
-    "blobProblems": [
-      "60c155f9 not listed in blobs (0 files)"
-    ]
+    "blobsMissing": 0,
+    "blobProblems": []
   },
   "bundle": {
-    "entriesIn": 93,
+    "entriesIn": 103,
     "blobsIn": 0
   }
 }

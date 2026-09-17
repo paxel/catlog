@@ -1,0 +1,6 @@
+{
+  "name": "fields-all",
+  "about": "A definition of every Field type with its options, display and lookup, and a value of each on a Cat and a Clowder: text, yes/no, a partial date, a number, a choice, a location with a flier position, a cat reference, an ID, a unit value in grams, Looks tags. One value cleared again, one set on a starter field.",
+  "writer": "65b60673d6ed884bf01c2c222d82ada0",
+  "writerEntries": 145
+}

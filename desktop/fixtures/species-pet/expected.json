@@ -1,27 +1,50 @@
 {
   "vector": {
-    "65b60673d6ed884bf01c2c222d82ada0": 93
+    "65b60673d6ed884bf01c2c222d82ada0": 108
   },
   "entities": {
     "cat:00000000-0000-4000-8000-000000000001": {
       "kind": "cat",
       "fields": {
-        "$image:60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c": "added",
         "$type": "cat",
         "clowder": "clowder:00000000-0000-4000-8000-000000000001",
+        "f:breed": "Beagle",
+        "f:species": "dog",
+        "name": "Rex"
+      },
+      "images": [],
+      "profile": null
+    },
+    "cat:00000000-0000-4000-8000-000000000002": {
+      "kind": "cat",
+      "fields": {
+        "$type": "cat",
+        "clowder": "clowder:00000000-0000-4000-8000-000000000001",
+        "f:breed": "Lionhead",
+        "f:species": "rabbit",
+        "name": "Bunny"
+      },
+      "images": [],
+      "profile": null
+    },
+    "cat:00000000-0000-4000-8000-000000000003": {
+      "kind": "cat",
+      "fields": {
+        "$type": "cat",
+        "clowder": "clowder:00000000-0000-4000-8000-000000000001",
+        "f:breed": "Ragdoll",
+        "f:deceased": "2026-02-14",
         "f:species": "cat",
         "name": "Miezi"
       },
-      "images": [
-        "60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c"
-      ],
-      "profile": "60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c"
+      "images": [],
+      "profile": null
     },
     "clowder:00000000-0000-4000-8000-000000000001": {
       "kind": "clowder",
       "fields": {
         "$type": "clowder",
-        "name": "Foster Home"
+        "name": "Household"
       },
       "images": [],
       "profile": null
@@ -50,6 +73,8 @@
         "$type": "fielddef",
         "name": "Breed",
         "options": "European Shorthair\nMaine Coon\nBritish Shorthair\nNorwegian Forest Cat\nRagdoll\nSiamese\nPersian\nBengal\nSphynx\nAbyssinian\nAmerican Shorthair\nBalinese\nBirman\nBombay\nBurmese\nBurmilla\nBritish Longhair\nChartreux\nCornish Rex\nDevon Rex\nEgyptian Mau\nExotic Shorthair\nHimalayan\nKorat\nManx\nMunchkin\nOcicat\nOriental Shorthair\nRagamuffin\nRussian Blue\nSavannah\nScottish Fold\nSelkirk Rex\nSiberian\nSnowshoe\nSomali\nTonkinese\nTurkish Angora\nTurkish Van\nmixed",
+        "options:dog": "Mutt",
+        "options:rabbit": "Angora",
         "scope": "cat",
         "type": "choice"
       }
@@ -216,22 +241,12 @@
   "blobs": [],
   "histories": {
     "cat:00000000-0000-4000-8000-000000000001": {
-      "$image:60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c": [
-        {
-          "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 93,
-          "value": "added",
-          "date": "2026-01-01T10:01:33.000Z",
-          "author": "Ada",
-          "voided": false
-        }
-      ],
       "$type": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 89,
+          "dseq": 90,
           "value": "cat",
-          "date": "2026-01-01T10:01:29.000Z",
+          "date": "2026-01-01T10:01:30.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -239,9 +254,27 @@
       "clowder": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 92,
+          "dseq": 93,
           "value": "clowder:00000000-0000-4000-8000-000000000001",
-          "date": "2026-01-01T10:01:32.000Z",
+          "date": "2026-01-01T10:01:33.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:breed": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 96,
+          "value": "Beagle",
+          "date": "2026-01-01T10:01:36.000Z",
+          "author": "Ada",
+          "voided": false
+        },
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 94,
+          "value": "Mutt",
+          "date": "2026-01-01T10:01:34.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -249,9 +282,9 @@
       "f:species": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 91,
-          "value": "cat",
-          "date": "2026-01-01T10:01:31.000Z",
+          "dseq": 92,
+          "value": "dog",
+          "date": "2026-01-01T10:01:32.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -259,9 +292,123 @@
       "name": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 90,
+          "dseq": 91,
+          "value": "Rex",
+          "date": "2026-01-01T10:01:31.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ]
+    },
+    "cat:00000000-0000-4000-8000-000000000002": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 97,
+          "value": "cat",
+          "date": "2026-01-01T10:01:37.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "clowder": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 100,
+          "value": "clowder:00000000-0000-4000-8000-000000000001",
+          "date": "2026-01-01T10:01:40.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:breed": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 101,
+          "value": "Lionhead",
+          "date": "2026-01-01T10:01:41.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:species": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 99,
+          "value": "rabbit",
+          "date": "2026-01-01T10:01:39.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 98,
+          "value": "Bunny",
+          "date": "2026-01-01T10:01:38.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ]
+    },
+    "cat:00000000-0000-4000-8000-000000000003": {
+      "$type": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 102,
+          "value": "cat",
+          "date": "2026-01-01T10:01:42.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "clowder": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 105,
+          "value": "clowder:00000000-0000-4000-8000-000000000001",
+          "date": "2026-01-01T10:01:45.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:breed": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 106,
+          "value": "Ragdoll",
+          "date": "2026-01-01T10:01:46.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:deceased": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 107,
+          "value": "2026-02-14",
+          "date": "2026-01-01T10:01:47.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "f:species": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 104,
+          "value": "cat",
+          "date": "2026-01-01T10:01:44.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "name": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 103,
           "value": "Miezi",
-          "date": "2026-01-01T10:01:30.000Z",
+          "date": "2026-01-01T10:01:43.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -271,9 +418,9 @@
       "$type": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 87,
+          "dseq": 88,
           "value": "clowder",
-          "date": "2026-01-01T10:01:27.000Z",
+          "date": "2026-01-01T10:01:28.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -281,9 +428,9 @@
       "name": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 88,
-          "value": "Foster Home",
-          "date": "2026-01-01T10:01:28.000Z",
+          "dseq": 89,
+          "value": "Household",
+          "date": "2026-01-01T10:01:29.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -401,6 +548,26 @@
           "value": "European Shorthair\nMaine Coon\nBritish Shorthair\nNorwegian Forest Cat\nRagdoll\nSiamese\nPersian\nBengal\nSphynx\nAbyssinian\nAmerican Shorthair\nBalinese\nBirman\nBombay\nBurmese\nBurmilla\nBritish Longhair\nChartreux\nCornish Rex\nDevon Rex\nEgyptian Mau\nExotic Shorthair\nHimalayan\nKorat\nManx\nMunchkin\nOcicat\nOriental Shorthair\nRagamuffin\nRussian Blue\nSavannah\nScottish Fold\nSelkirk Rex\nSiberian\nSnowshoe\nSomali\nTonkinese\nTurkish Angora\nTurkish Van\nmixed",
           "date": "2026-01-01T10:00:14.000Z",
           "author": "cat(a)log",
+          "voided": false
+        }
+      ],
+      "options:dog": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 95,
+          "value": "Mutt",
+          "date": "2026-01-01T10:01:35.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
+      "options:rabbit": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 108,
+          "value": "Angora",
+          "date": "2026-01-01T10:01:48.000Z",
+          "author": "Ada",
           "voided": false
         }
       ],
@@ -2148,79 +2315,244 @@
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 87,
-      "entity": "clowder:00000000-0000-4000-8000-000000000001",
-      "field": "$type",
-      "value": "clowder",
+      "entity": "catalog:mode",
+      "field": "mode",
+      "value": "pets",
       "date": "2026-01-01T10:01:27.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:27.000Z",
-      "sig": "8gWjEjRgrDAzougHO3eKTFFCl/cMzO8ESy0OYO88jtx1FH+8QpJ45cIOLr8GVma1vW9Jp5+zS9oR0Gd3x97lCA=="
+      "sig": "7GaA6RFKlfxLT+G1+jII7hEaWLG5DvqBqEu4ezxuhWUF3rbmu0GvzbkhsHXdi2mw70tIltu9VIKjdnaySgpuBg=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 88,
       "entity": "clowder:00000000-0000-4000-8000-000000000001",
-      "field": "name",
-      "value": "Foster Home",
+      "field": "$type",
+      "value": "clowder",
       "date": "2026-01-01T10:01:28.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:28.000Z",
-      "sig": "a/Vgja7ag2+kuYUj7g6iA31qQ85JB3wgERXRMCbAvNAfSRzcd+J0qbm77B1iovln8Z5n5E7+D2+/pQixZycmBQ=="
+      "sig": "1IuyqeenUV0W1N7QAV5dKwDG65tXYsXJMCDr+KkWejIh/suFvNnO1tvVf0FZnHT5x3dAUUU2eird/xhFEYnLCw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 89,
-      "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$type",
-      "value": "cat",
+      "entity": "clowder:00000000-0000-4000-8000-000000000001",
+      "field": "name",
+      "value": "Household",
       "date": "2026-01-01T10:01:29.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:29.000Z",
-      "sig": "DlzSJVZM/RJibenuSBinZnUWuhvvDB3r6PEFkD7UQi/WsF7OF+i9wAImmJQ/yigfuISGPRNXo2dp4Q6BianwCQ=="
+      "sig": "Burl/7vZRAJyPaLCgH51JBBhXeuzq3HlcF7rFYp2RdYcmSezAEyK1bbNROmzTYxCrPNr10kIrmjzPr0Ljp+rBg=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 90,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "name",
-      "value": "Miezi",
+      "field": "$type",
+      "value": "cat",
       "date": "2026-01-01T10:01:30.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:30.000Z",
-      "sig": "tdgwyVqWHZ9236QBJGFI0W6LrlrOIv0mPbMjYTlule38sl5RGQYEgVHYI+TUMCCqJg0AsBcGT7w1wQrkKzy2Dw=="
+      "sig": "tdE2Q6Rb46899JHeigt0/4neU4s4rL1c7KiQqPVYECcUhWcukle54h61B/G0OOPKjKzGSEnBtHGt1MD3+ZEpDQ=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 91,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "f:species",
-      "value": "cat",
+      "field": "name",
+      "value": "Rex",
       "date": "2026-01-01T10:01:31.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:31.000Z",
-      "sig": "Z4FaUAtwXTi1wsm7HJIYEKEUxY/TZ6loQKKG1ufbbaYLWYL0KzulWeHIvw4qnwJYeYWpStuc2iIlc+MxgqdlDA=="
+      "sig": "Nk5Yd5SxV+XRTnz5YbP8KkJvlT7ND/5asZgJOdJKmICjfTL7Uta2d4YHHD/ZRjC6LZiDycR99CkCj4g8vKt4AA=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 92,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "clowder",
-      "value": "clowder:00000000-0000-4000-8000-000000000001",
+      "field": "f:species",
+      "value": "dog",
       "date": "2026-01-01T10:01:32.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:32.000Z",
-      "sig": "ZEkU7lVcxatAMV84G3kiL5CA5NE9uyYib0VL9avUmGp9NxQEHJEcWntBm/coEabanN+h2+I9XLcM9ChlmVC0AA=="
+      "sig": "29mlptrMpJDIfsKUxhUNVz+r+FzUJx/+lchuN37mjdlIsAyR0nTNLvkUMQvDCJB+Rsy3RBwAQPzvM9OPSB5zDA=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 93,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$image:60c155f9c0a250bca67f2c298a5cb28d3d6817179fc8b6d2fd09ae8ab7d97f7c",
-      "value": "added",
+      "field": "clowder",
+      "value": "clowder:00000000-0000-4000-8000-000000000001",
       "date": "2026-01-01T10:01:33.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:33.000Z",
-      "sig": "RdkmdGxvX1iAC5siZcLo8cV1yoXbPqj1L6jYdwV3f9UD64DfuFtHd3toRT3ZiML3m75gJ2FiuIAdvfRWYucsBA=="
+      "sig": "5uY4tyAv6W5YW1+UHlLsBJCsMeqRu5R8EkmqKRFp0zWmghdb6k/NEE6XA1jdv+NJ70OjZN8MhFuCzrCIthrUCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 94,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:breed",
+      "value": "Mutt",
+      "date": "2026-01-01T10:01:34.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:34.000Z",
+      "sig": "PiHdQSERW/gmyNHUyqYgDN2DtDvvA8h/uxS1dYyJrrI2299lzSYmIojnEBvfHuqRntuvDDdp2QGnatLStrAUBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 95,
+      "entity": "fielddef:breed",
+      "field": "options:dog",
+      "value": "Mutt",
+      "date": "2026-01-01T10:01:35.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:35.000Z",
+      "sig": "qCu/NLgGvbhR+PzW/E8j0xBYDoOKhW2lJcQpA1/qy6yz0AysMX7npLz7FyK+SavICgHUHbwv0eUnBl+Io6T3Aw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 96,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:breed",
+      "value": "Beagle",
+      "date": "2026-01-01T10:01:36.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:36.000Z",
+      "sig": "ehcV20IBl8qI8ajOfkzlUfSNcSwEC0D/w1J8RenfpQG5fuDMIFK+D39X0japyoBP25O5IgS/QbcoX0WjNlaoAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 97,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "$type",
+      "value": "cat",
+      "date": "2026-01-01T10:01:37.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:37.000Z",
+      "sig": "ATKtC4bkg/qmxnnI1WNk+n4HS3oJGREbi4+LHI3iV6e4pB7wSMycQBGelTiwQihAvceBpaho+Qdl/F2ytaKICA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 98,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "name",
+      "value": "Bunny",
+      "date": "2026-01-01T10:01:38.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:38.000Z",
+      "sig": "9dirGgwOnRgTsFAXTApA5W2Vzj99ipB910jcUth9Jvq1vAzFlaoeWxFubVUmLJPkaZ31pfRTani+eIPs74L4CA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 99,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "f:species",
+      "value": "rabbit",
+      "date": "2026-01-01T10:01:39.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:39.000Z",
+      "sig": "y6YcwmNhmYnpPKIHBJ/eruiSr+ZBVCx+Jh3BOiiyKemId/kaRitzsvF0CnXd4h/WjXI4zRBTSEwBVqAQKfNMDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 100,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "clowder",
+      "value": "clowder:00000000-0000-4000-8000-000000000001",
+      "date": "2026-01-01T10:01:40.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:40.000Z",
+      "sig": "8PjiKMOdTF9FFo+z/D5jZSnEVSKI+XB3hwYi7N/07a3tSwePx+yLa+v3UY13L1L9KHn6UERaQYc6RQNELBqpCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 101,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "f:breed",
+      "value": "Lionhead",
+      "date": "2026-01-01T10:01:41.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:41.000Z",
+      "sig": "KZp0cI9j2TBeNqVUARKuBwXCGUvElG+AdKqm7Ty3cFNQAaBM7bhGwWlGGcE5hFjq0S3B6W/mzuqF67nN+LDWAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 102,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "$type",
+      "value": "cat",
+      "date": "2026-01-01T10:01:42.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:42.000Z",
+      "sig": "7O7sIIi3j0rwEum3YNZx+QMyv3wADFphMZjuyrWJqszmeHR/9jF/9u0eMRgY+pYtrbp6XPOrAWL4KXEuplQSDQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 103,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "name",
+      "value": "Miezi",
+      "date": "2026-01-01T10:01:43.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:43.000Z",
+      "sig": "nZ59ijosqktC9BSdN3+1XJ6pONSbtIGateQB16e/2fhehRkBwBTtF4xuvvn7ywTHl4/60aW3dL3Y42AGCl3mDQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 104,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "f:species",
+      "value": "cat",
+      "date": "2026-01-01T10:01:44.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:44.000Z",
+      "sig": "KNDPzIHtXSqKPRTr7uZ2OV8daWux9b72pSrAczQ4qYJDIhQBJBMSqRbbRVRXgiqqEFBW9sWc8/oyoXxSiC4gCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 105,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "clowder",
+      "value": "clowder:00000000-0000-4000-8000-000000000001",
+      "date": "2026-01-01T10:01:45.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:45.000Z",
+      "sig": "hPIPBRapbM7YHIoshbWZLqksVSPsHo5oo1PbpgrKMrWSbb+3UcnSKzBuEuGu+eHakltdXoLMlGGLXlZ9QXiWBg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 106,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "f:breed",
+      "value": "Ragdoll",
+      "date": "2026-01-01T10:01:46.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:46.000Z",
+      "sig": "e3JqXJAi83a+uR30EKbsA0WgaV+TgON4PALS+4q96rlw0WbrsMQgGyQmvjRhi+fnb3PWzm/3PRk8oBhJccIBDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 107,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "f:deceased",
+      "value": "2026-02-14",
+      "date": "2026-01-01T10:01:47.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:47.000Z",
+      "sig": "NwwXqprLdvjgAwEcFrgMf24OnA6ZGCWaVfUxTXDshi6rJo4tGbrbFLxsG3chay2QFsIJn8lMJnL87NDNoGAgAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 108,
+      "entity": "fielddef:breed",
+      "field": "options:rabbit",
+      "value": "Angora",
+      "date": "2026-01-01T10:01:48.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:48.000Z",
+      "sig": "wCa1Ef8ygAPmRleSlXRPbZ7/KXcP6K8vyM43M7XGNw6kOm/SFPCqN/LRg8SuwahrcDZJ9k245Wxte7GfPSj9Bg=="
     }
   ],
   "report": {
@@ -2240,15 +2572,13 @@
     "changedKeys": []
   },
   "sync": {
-    "entriesIn": 93,
+    "entriesIn": 108,
     "blobsIn": 0,
-    "blobsMissing": 1,
-    "blobProblems": [
-      "60c155f9 not listed in blobs (0 files)"
-    ]
+    "blobsMissing": 0,
+    "blobProblems": []
   },
   "bundle": {
-    "entriesIn": 93,
+    "entriesIn": 108,
     "blobsIn": 0
   }
 }
