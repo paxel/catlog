@@ -34,6 +34,8 @@ pub struct BundleResult {
     pub applied: Vec<Entry>,
     /// Refused rows and the keys met.
     pub report: ImportReport,
+    /// Fields with unresolved concurrent edits after this import.
+    pub conflicts: Vec<(String, String)>,
 }
 
 impl BundleResult {
@@ -42,6 +44,7 @@ impl BundleResult {
         serde_json::json!({
             "entriesIn": self.entries_in,
             "blobsIn": self.blobs_in,
+            "conflicts": self.conflicts.iter().map(|(e, f)| vec![e.clone(), f.clone()]).collect::<Vec<_>>(),
         })
     }
 }
@@ -52,6 +55,25 @@ impl Catalog {
     /// unless `include_private`.
     pub fn write_bundle(&self, path: &Path, include_private: bool) -> Result<()> {
         let entries = self.entries_since(&BTreeMap::new(), include_private)?;
+        let hashes = self.live_images(include_private)?;
+        self.write_zip(path, &entries, &hashes)
+    }
+
+    /// Writes a bundle of exactly `entries` plus the photos they mention.
+    /// Used by going back: the rows keep their original (device, dseq),
+    /// so the file comes home exact.
+    pub fn write_entries_bundle(&self, path: &Path, entries: &[Entry]) -> Result<()> {
+        let mut seen = std::collections::HashSet::new();
+        let hashes: Vec<String> = entries
+            .iter()
+            .filter_map(|e| e.field.strip_prefix(crate::keys::IMAGE_PREFIX))
+            .filter(|h| seen.insert(h.to_string()))
+            .map(String::from)
+            .collect();
+        self.write_zip(path, entries, &hashes)
+    }
+
+    fn write_zip(&self, path: &Path, entries: &[Entry], hashes: &[String]) -> Result<()> {
         let mut jsonl = String::new();
         for (i, e) in entries.iter().enumerate() {
             if i > 0 {
@@ -60,7 +82,6 @@ impl Catalog {
             jsonl.push_str(&serde_json::to_string(&e.wire())?);
         }
         let flagged = entries.iter().any(|e| e.reminder);
-        let hashes = self.live_images(include_private)?;
         let file = std::fs::File::create(path).map_err(|e| Error::io(path, e))?;
         let mut zip = zip::ZipWriter::new(file);
         let deflated = SimpleFileOptions::default()
@@ -87,7 +108,7 @@ impl Catalog {
         zip.write_all(serde_json::to_string(&self.key_records()?)?.as_bytes())
             .map_err(|e| Error::io(path, e))?;
         for hash in hashes {
-            let Some(bytes) = self.image_bytes(&hash) else {
+            let Some(bytes) = self.image_bytes(hash) else {
                 continue;
             };
             zip.start_file(format!("blobs/{hash}.jpg"), stored)?;
@@ -144,7 +165,8 @@ impl Catalog {
             }
         }
         let mut report = ImportReport::default();
-        let applied = self.apply_entries_with(entries, Some(&keys), None, &mut report)?;
+        let writer_vector = crate::folder::writer_vector(&entries);
+        let applied = self.apply_entries_from(entries, &writer_vector, Some(&keys), &mut report)?;
         let mut blobs_in = 0;
         for (hash, index) in blobs {
             if !self.knows_image(&hash)? || self.image_bytes(&hash).is_some() {
@@ -157,11 +179,13 @@ impl Catalog {
                 blobs_in += 1;
             }
         }
+        let conflicts = self.conflicts()?;
         Ok(BundleResult {
             entries_in: applied.len(),
             blobs_in,
             applied,
             report,
+            conflicts,
         })
     }
 }

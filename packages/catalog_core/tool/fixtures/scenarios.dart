@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -66,6 +67,26 @@ class Tamper {
 
   /// Extra records appended to the bundle's `keys.json`.
   final List<KeyRecord> extraBundleKeys = [];
+
+  /// Other devices' files for the folder root, by file name: what a
+  /// partner on another phone would have written. The bundle, being
+  /// the writer's alone, does not carry them.
+  final Map<String, List<Map<String, dynamic>>> extraDeviceFiles = {};
+
+  /// An unsigned row from a device without a key, the way a phone from
+  /// before signing writes one.
+  static Map<String, dynamic> oldRow(String device, int dseq, String entity,
+          String field, String? value, String author, String date) =>
+      {
+        'device': device,
+        'dseq': dseq,
+        'entity': entity,
+        'field': field,
+        'value': value,
+        'date': date,
+        'author': author,
+        'recorded': date,
+      };
 
   /// When set, the writer's own key record is republished with this
   /// `since`, in the folder and the bundle.
@@ -438,6 +459,71 @@ final scenarios = <Scenario>[
     later: true,
     laterIncludePrivate: true,
     bundleIncludePrivate: true,
+    separateBundleState: true,
+  ),
+  Scenario(
+    'moments',
+    'The writer marks a moment, changes a value, adds a Cat with a photo, '
+        'goes back to the moment and writes on: the removed rows are gone '
+        'from its file, their numbers stay claimed, the rows after the '
+        'return carry higher numbers.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:color', 'black');
+      final id = w.addMoment(cause: MomentCause.manual, label: 'before');
+      final point = momentsOf(w).firstWhere((m) => m.id == id);
+      w.append(miezi, 'f:color', 'white');
+      final mausi = cat(w, 2, 'Mausi', clowderId: home);
+      w.addImage(mausi, photo(22, 22));
+      final keep = '${Directory.systemTemp.path}/catlog-fixture-goback.catsync';
+      revertTo(w, point, keepAt: keep);
+      File(keep).deleteSync();
+      w.append(miezi, 'f:remarks', 'after going back');
+    },
+  ),
+  Scenario(
+    'conflict',
+    'A partner on another phone changed the same name at the same time, '
+        'knowing the writer\'s rows only up to before the writer\'s own '
+        'change: the field is flagged as a conflict after the folder '
+        'round; the bundle, the writer\'s alone, raises none.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, Keys.name, 'Minka');
+    },
+    tamper: (t) {
+      final before = t.folderLines.where((l) => l['value'] != 'Minka').toList();
+      t.extraDeviceFiles['partner-phone.jsonl'] = [
+        ...before,
+        Tamper.oldRow('partner-phone', 1, catId(1), Keys.name, 'Mimi',
+            'Partner', '2026-01-02T12:00:00.000000Z'),
+      ];
+    },
+    separateBundleState: true,
+  ),
+  Scenario(
+    'two-formats',
+    'The writer\'s file carries a plan and so wears the `.jsonl2` name; '
+        'next to it a phone from before writes a plain `.jsonl` without '
+        'signatures or a key: both are read, the old one as unsigned.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:remarks', 'vet on Monday',
+          date: DateTime.utc(2027, 3, 1), reminder: true);
+    },
+    tamper: (t) {
+      t.extraDeviceFiles['old-phone.jsonl'] = [
+        Tamper.oldRow('old-phone', 1, 'cat:old', Keys.type, 'cat', 'carla',
+            '2026-01-01T00:00:00.000000Z'),
+        Tamper.oldRow('old-phone', 2, 'cat:old', Keys.name, 'Oldie', 'carla',
+            '2026-01-01T00:00:00.000000Z'),
+        Tamper.oldRow('old-phone', 3, 'cat:old', 'f:species', 'cat', 'carla',
+            '2026-01-01T00:00:00.000000Z'),
+      ];
+    },
     separateBundleState: true,
   ),
   Scenario(

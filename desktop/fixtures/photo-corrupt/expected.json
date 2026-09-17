@@ -2247,16 +2247,19 @@
     "blobsMissing": 1,
     "blobProblems": [
       "60c155f9 read 618 bytes, sha 169015b5f8debfac50d3c6d952635bfbf3d5908f7077fceebf8c768b9a413d8c head ffd8ffe0"
-    ]
+    ],
+    "conflicts": []
   },
   "syncLater": {
     "entriesIn": 0,
     "blobsIn": 1,
     "blobsMissing": 0,
-    "blobProblems": []
+    "blobProblems": [],
+    "conflicts": []
   },
   "bundle": {
     "entriesIn": 93,
-    "blobsIn": 1
+    "blobsIn": 1,
+    "conflicts": []
   }
 }

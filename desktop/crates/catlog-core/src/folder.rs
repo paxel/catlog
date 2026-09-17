@@ -29,6 +29,20 @@ pub struct FolderImport {
     pub applied: Vec<Entry>,
     /// Refused rows and the keys met.
     pub report: ImportReport,
+    /// Fields with unresolved concurrent edits after this round.
+    pub conflicts: Vec<(String, String)>,
+}
+
+/// The vector a writer's file states: the highest number per device in it.
+pub(crate) fn writer_vector(entries: &[Entry]) -> HashMap<String, i64> {
+    let mut vector: HashMap<String, i64> = HashMap::new();
+    for e in entries {
+        let slot = vector.entry(e.device.clone()).or_insert(0);
+        if e.dseq > *slot {
+            *slot = e.dseq;
+        }
+    }
+    vector
 }
 
 impl FolderImport {
@@ -39,6 +53,7 @@ impl FolderImport {
             "blobsIn": self.blobs_in,
             "blobsMissing": self.blobs_missing,
             "blobProblems": self.blob_problems,
+            "conflicts": self.conflicts.iter().map(|(e, f)| vec![e.clone(), f.clone()]).collect::<Vec<_>>(),
         })
     }
 }
@@ -89,6 +104,7 @@ impl Catalog {
                 let Some(foreign) = parse_lines(&text) else {
                     continue;
                 };
+                let writer_vector = writer_vector(&foreign);
                 let mine = self.version_vector()?;
                 // A value this device only ever received as withheld sits
                 // below the watermark for good; without this it could never
@@ -114,7 +130,10 @@ impl Catalog {
                         fresh.push(e);
                     }
                 }
-                let imported = self.apply_entries_with(fresh, None, None, &mut result.report)?;
+                // The writer's knowledge is exactly what its file contains:
+                // that vector is the causal context for conflict detection.
+                let imported =
+                    self.apply_entries_from(fresh, &writer_vector, None, &mut result.report)?;
                 result.entries_in += imported.len();
                 result.applied.extend(imported);
             }
@@ -129,6 +148,7 @@ impl Catalog {
             self.fetch_missing_blobs(&blob_dir, &blob_name, &legacy, &mut result.blob_problems)?;
         result.blob_problems.sort();
         result.blobs_missing = self.missing_blobs()?.len();
+        result.conflicts = self.conflicts()?;
         Ok(result)
     }
 

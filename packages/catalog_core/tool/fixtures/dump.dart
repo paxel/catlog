@@ -104,15 +104,22 @@ Map<String, dynamic> _entity(CatalogStore store, String id) {
 }
 
 /// One folder round as the corpus records it.
-Map<String, dynamic> syncJson(FolderSyncResult r) => {
+Map<String, dynamic> syncJson(FolderSyncResult r, CatalogStore store) => {
       'entriesIn': r.entriesIn,
       'blobsIn': r.blobsIn,
       'blobsMissing': r.blobsMissing,
       'blobProblems': [...r.blobProblems]..sort(),
+      'conflicts': _conflicts(store),
     };
 
 /// One bundle import as the corpus records it.
-Map<String, dynamic> bundleJson(BundleResult r) => {
+Map<String, dynamic> bundleJson(BundleResult r, CatalogStore store) => {
       'entriesIn': r.entriesIn,
       'blobsIn': r.blobsIn,
+      'conflicts': _conflicts(store),
     };
+
+/// Open conflicts as (entity, field) pairs, sorted.
+List<List<String>> _conflicts(CatalogStore store) => [
+      for (final (entity, field) in store.conflicts()) [entity, field]
+    ]..sort((a, b) => a.join().compareTo(b.join()));

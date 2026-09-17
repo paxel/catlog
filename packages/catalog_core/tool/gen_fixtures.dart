@@ -126,9 +126,10 @@ Future<void> main(List<String> args) async {
         ...viaFolder,
         'report': reportJson(folderResult.report),
         'bundleReport': reportJson(bundleResult.report),
-        'sync': syncJson(folderResult),
-        if (laterResult != null) 'syncLater': syncJson(laterResult),
-        'bundle': bundleJson(bundleResult),
+        'sync': syncJson(folderResult, folderReader),
+        if (laterResult != null)
+          'syncLater': syncJson(laterResult, folderReader),
+        'bundle': bundleJson(bundleResult, bundleReader),
       }));
       File('${out.path}/scenario.json').writeAsStringSync(_json({
         'name': scenario.name,
@@ -160,7 +161,10 @@ void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
   final tamper = scenario.tamper;
   if (tamper == null) return;
   final root = '${folderDir.path}/catlog-sync';
-  final ownFile = File('$root/${writer.deviceId}.jsonl');
+  // A writer with a plan wears the `.jsonl2` name.
+  final flagged = File('$root/${writer.deviceId}.jsonl2');
+  final ownFile =
+      flagged.existsSync() ? flagged : File('$root/${writer.deviceId}.jsonl');
   List<Map<String, dynamic>> decode(String text) => [
         for (final line in const LineSplitter().convert(text))
           if (line.trim().isNotEmpty)
@@ -184,6 +188,9 @@ void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
   for (final MapEntry(key: name, value: records) in t.extraKeyFiles.entries) {
     File('$root/keys/$name')
         .writeAsStringSync(jsonEncode([for (final k in records) k.toJson()]));
+  }
+  for (final MapEntry(key: name, value: lines) in t.extraDeviceFiles.entries) {
+    File('$root/$name').writeAsStringSync(lines.map(jsonEncode).join('\n'));
   }
   for (final hash in [...t.removedBlobs, ...t.removedFolderBlobs]) {
     File('$root/blobs/$hash.jpg').deleteSync();

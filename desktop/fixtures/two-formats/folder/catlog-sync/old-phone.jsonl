@@ -1,0 +1,3 @@
+{"device":"old-phone","dseq":1,"entity":"cat:old","field":"$type","value":"cat","date":"2026-01-01T00:00:00.000000Z","author":"carla","recorded":"2026-01-01T00:00:00.000000Z"}
+{"device":"old-phone","dseq":2,"entity":"cat:old","field":"name","value":"Oldie","date":"2026-01-01T00:00:00.000000Z","author":"carla","recorded":"2026-01-01T00:00:00.000000Z"}
+{"device":"old-phone","dseq":3,"entity":"cat:old","field":"f:species","value":"cat","date":"2026-01-01T00:00:00.000000Z","author":"carla","recorded":"2026-01-01T00:00:00.000000Z"}

@@ -174,6 +174,22 @@ impl Catalog {
 
     // ------------------------------------------------------------ settings
 
+    pub(crate) fn db(&self) -> &Connection {
+        &self.db
+    }
+
+    pub(crate) fn now_iso(&self) -> String {
+        self.now()
+    }
+
+    pub(crate) fn select_raw(
+        &self,
+        sql: &str,
+        args: &[&dyn rusqlite::ToSql],
+    ) -> Result<Vec<Entry>> {
+        self.select(sql, args)
+    }
+
     fn raw_setting(&self, key: &str) -> Result<Option<String>> {
         Ok(self
             .db
@@ -1231,6 +1247,161 @@ impl Catalog {
         self.apply_entries_with(entries, None, None, &mut ImportReport::default())
     }
 
+    /// [`Catalog::apply_entries`] with the sender's version vector, which
+    /// enables conflict detection: if the sender had not seen our current
+    /// entry for a field it changed, the edits were concurrent, and the
+    /// field is flagged when the values differ.
+    pub fn apply_entries_from(
+        &mut self,
+        entries: Vec<Entry>,
+        sender_vector: &HashMap<String, i64>,
+        keys: Option<&[KeyRecord]>,
+        report: &mut ImportReport,
+    ) -> Result<Vec<Entry>> {
+        let touched: Vec<(String, String)> = {
+            let mut seen = HashSet::new();
+            entries
+                .iter()
+                .filter(|e| seen.insert((e.entity.clone(), e.field.clone())))
+                .map(|e| (e.entity.clone(), e.field.clone()))
+                .collect()
+        };
+        // Snapshot the pre-import winner of every field this batch
+        // touches; a plan must not pose as the pre-import winner.
+        let mut pre: HashMap<(String, String), Entry> = HashMap::new();
+        for (entity, field) in &touched {
+            let rows = self.select(
+                &format!(
+                    "SELECT * FROM entries WHERE entity = ?1 AND field = ?2 AND reminder = 0 {LIVE} {LATEST} LIMIT 1"
+                ),
+                &[entity, field],
+            )?;
+            if let Some(row) = rows.into_iter().next() {
+                pre.insert((entity.clone(), field.clone()), row);
+            }
+        }
+        let imported = self.apply_entries_with(entries, keys, None, report)?;
+        let author = self
+            .author()
+            .unwrap_or_else(|| crate::SEED_AUTHOR.to_string());
+        for e in &imported {
+            if !keys::is_conflictable(&e.field) {
+                continue;
+            }
+            let Some(before) = pre.get(&(e.entity.clone(), e.field.clone())) else {
+                continue;
+            };
+            if e.value == before.value {
+                continue;
+            }
+            let sender_saw_it =
+                sender_vector.get(&before.device).copied().unwrap_or(0) >= before.dseq;
+            if sender_saw_it {
+                continue;
+            }
+            // Two devices grew a choice field's list at once: no fight to
+            // settle, both lists merge.
+            if e.field == keys::FIELD_OPTIONS || e.field.starts_with(keys::FIELD_OPTIONS_PREFIX) {
+                self.merge_option_lists(
+                    &e.entity,
+                    &e.field,
+                    before.value.as_deref(),
+                    e.value.as_deref(),
+                    &author,
+                )?;
+                continue;
+            }
+            if !self.has_conflict(&e.entity, &e.field)? {
+                self.append_as(&e.entity, &keys::conflict(&e.field), Some("open"), &author)?;
+            }
+        }
+        Ok(imported)
+    }
+
+    /// The union of two option lists as the new current value: ours in
+    /// its order, then what theirs adds, `mixed` kept last. Written only
+    /// when the union differs from what wins now.
+    fn merge_option_lists(
+        &mut self,
+        entity: &str,
+        field: &str,
+        ours: Option<&str>,
+        theirs: Option<&str>,
+        author: &str,
+    ) -> Result<()> {
+        let split = |v: Option<&str>| -> Vec<String> {
+            v.unwrap_or_default()
+                .split('\n')
+                .filter(|o| !o.is_empty())
+                .map(String::from)
+                .collect()
+        };
+        let mine = split(ours);
+        let mut merged = mine.clone();
+        for o in split(theirs) {
+            if !mine.contains(&o) {
+                merged.push(o);
+            }
+        }
+        if let Some(i) = merged.iter().position(|o| o == "mixed") {
+            merged.remove(i);
+            merged.push("mixed".to_string());
+        }
+        let now = split(self.current(entity, field)?.as_deref());
+        if merged == now {
+            return Ok(());
+        }
+        self.append_as(entity, field, Some(&merged.join("\n")), author)
+    }
+
+    /// Appends a row under an explicit author: the conflict flags the
+    /// import writes carry the keeper's name, or the seed author's.
+    fn append_as(
+        &mut self,
+        entity: &str,
+        field: &str,
+        value: Option<&str>,
+        author: &str,
+    ) -> Result<()> {
+        let now = self.now();
+        let device = self.device_id();
+        let next = self.next_dseq(&device)?;
+        self.insert_own(
+            &device, next, entity, field, value, &now, author, &now, false,
+        )
+    }
+
+    /// Fields with unresolved concurrent edits, as (entity, field) pairs.
+    pub fn conflicts(&self) -> Result<Vec<(String, String)>> {
+        let mut stmt = self.db.prepare(
+            "SELECT DISTINCT entity, field FROM entries WHERE field LIKE ?1 ORDER BY entity, field",
+        )?;
+        let rows: Vec<(String, String)> = stmt
+            .query_map([format!("{}%", keys::CONFLICT_PREFIX)], |r| {
+                Ok((r.get(0)?, r.get(1)?))
+            })?
+            .collect::<std::result::Result<_, _>>()?;
+        let mut out = Vec::new();
+        for (entity, field) in rows {
+            let inner = field[keys::CONFLICT_PREFIX.len()..].to_string();
+            if self.current(&entity, &field)?.as_deref() == Some("open")
+                && keys::is_conflictable(&inner)
+            {
+                out.push((entity, inner));
+            }
+        }
+        Ok(out)
+    }
+
+    pub fn has_conflict(&self, entity: &str, field: &str) -> Result<bool> {
+        Ok(self.current(entity, &keys::conflict(field))?.as_deref() == Some("open"))
+    }
+
+    /// Clears a conflict flag. The resolution syncs like any entry.
+    pub fn resolve_conflict(&mut self, entity: &str, field: &str) -> Result<()> {
+        self.append(entity, &keys::conflict(field), Some("resolved"))
+    }
+
     /// [`Catalog::apply_entries`] with the key records the payload
     /// carried, learned first, and a report of what was refused. Every
     /// entry from a device whose key is pinned, this Catalog's own
@@ -1833,7 +2004,7 @@ impl Catalog {
         Ok(())
     }
 
-    fn remove_blob(&self, hash: &str) -> Result<()> {
+    pub(crate) fn remove_blob(&self, hash: &str) -> Result<()> {
         if let Some(path) = self.blob_path(hash)
             && path.exists()
         {
@@ -1855,7 +2026,7 @@ impl Catalog {
             .is_some())
     }
 
-    fn image_referenced(&self, hash: &str) -> Result<bool> {
+    pub(crate) fn image_referenced(&self, hash: &str) -> Result<bool> {
         let field = keys::image(hash);
         let mut stmt = self
             .db
@@ -2871,6 +3042,87 @@ mod tests {
             "a held row under a claimed number is still taken by number"
         );
         assert!(c.hard_delete_author("nobody", None).unwrap().is_empty());
+    }
+
+    #[test]
+    fn concurrent_edits_raise_a_conflict_and_option_lists_merge() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut a = Catalog::open_with_device(&dir.path().join("a"), "aa").unwrap();
+        a.set_author("anna").unwrap();
+        let mut b = Catalog::open_with_device(&dir.path().join("b"), "bb").unwrap();
+        b.set_author("bob").unwrap();
+        a.create_cat("cat:m", "Miezi", None, "cat").unwrap();
+        a.append("cat:m", "f:color", Some("black")).unwrap();
+        let av = a
+            .version_vector()
+            .unwrap()
+            .into_iter()
+            .collect::<HashMap<_, _>>();
+        b.apply_entries_from(
+            a.entries_since(&BTreeMap::new(), false).unwrap(),
+            &av,
+            None,
+            &mut ImportReport::default(),
+        )
+        .unwrap();
+        // Both change the colour without seeing each other.
+        a.append("cat:m", "f:color", Some("white")).unwrap();
+        b.append("cat:m", "f:color", Some("grey")).unwrap();
+        let bv = b
+            .version_vector()
+            .unwrap()
+            .into_iter()
+            .collect::<HashMap<_, _>>();
+        let rows = b
+            .entries_since(&a.version_vector().unwrap(), false)
+            .unwrap();
+        a.apply_entries_from(rows, &bv, None, &mut ImportReport::default())
+            .unwrap();
+        assert_eq!(
+            a.conflicts().unwrap(),
+            vec![("cat:m".to_string(), "f:color".to_string())]
+        );
+        assert!(a.has_conflict("cat:m", "f:color").unwrap());
+        // The same value from both sides is no fight; a seen change neither.
+        let av = a
+            .version_vector()
+            .unwrap()
+            .into_iter()
+            .collect::<HashMap<_, _>>();
+        b.apply_entries_from(
+            a.entries_since(&b.version_vector().unwrap(), false)
+                .unwrap(),
+            &av,
+            None,
+            &mut ImportReport::default(),
+        )
+        .unwrap();
+        assert_eq!(b.conflicts().unwrap().len(), 1, "the flag travelled");
+        a.resolve_conflict("cat:m", "f:color").unwrap();
+        assert!(a.conflicts().unwrap().is_empty());
+        // Two devices grew the breed list at once: both lists merge.
+        a.set_field_options("fielddef:breed", &["Maine Coon", "mixed"])
+            .unwrap();
+        b.set_field_options("fielddef:breed", &["Ragdoll", "mixed"])
+            .unwrap();
+        let bv = b
+            .version_vector()
+            .unwrap()
+            .into_iter()
+            .collect::<HashMap<_, _>>();
+        a.apply_entries_from(
+            b.entries_since(&a.version_vector().unwrap(), false)
+                .unwrap(),
+            &bv,
+            None,
+            &mut ImportReport::default(),
+        )
+        .unwrap();
+        assert_eq!(
+            a.field_def("breed").unwrap().unwrap().options,
+            vec!["Maine Coon", "Ragdoll", "mixed"]
+        );
+        assert!(a.conflicts().unwrap().is_empty());
     }
 
     #[test]

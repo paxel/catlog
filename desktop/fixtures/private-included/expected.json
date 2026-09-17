@@ -2677,10 +2677,12 @@
     "entriesIn": 120,
     "blobsIn": 0,
     "blobsMissing": 0,
-    "blobProblems": []
+    "blobProblems": [],
+    "conflicts": []
   },
   "bundle": {
     "entriesIn": 120,
-    "blobsIn": 0
+    "blobsIn": 0,
+    "conflicts": []
   }
 }

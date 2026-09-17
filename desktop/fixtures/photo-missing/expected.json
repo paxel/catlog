@@ -2245,10 +2245,12 @@
     "blobsMissing": 1,
     "blobProblems": [
       "60c155f9 not listed in blobs (0 files)"
-    ]
+    ],
+    "conflicts": []
   },
   "bundle": {
     "entriesIn": 93,
-    "blobsIn": 0
+    "blobsIn": 0,
+    "conflicts": []
   }
 }

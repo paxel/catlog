@@ -2263,16 +2263,19 @@
     "entriesIn": 93,
     "blobsIn": 0,
     "blobsMissing": 0,
-    "blobProblems": []
+    "blobProblems": [],
+    "conflicts": []
   },
   "syncLater": {
     "entriesIn": 1,
     "blobsIn": 0,
     "blobsMissing": 0,
-    "blobProblems": []
+    "blobProblems": [],
+    "conflicts": []
   },
   "bundle": {
     "entriesIn": 95,
-    "blobsIn": 0
+    "blobsIn": 0,
+    "conflicts": []
   }
 }
