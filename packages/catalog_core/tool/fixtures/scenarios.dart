@@ -287,6 +287,84 @@ final scenarios = <Scenario>[
     },
   ),
   Scenario(
+    'moves',
+    'A Cat moves between two Clowders, leaves as a Stray with a sighting '
+        'and a flier position, is adopted into a forever home; a Clowder '
+        'is deleted and its Cat falls out as a Stray; a deleted Cat and a '
+        'restored one.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final barn = clowder(w, 2, 'Barn');
+      final forever = clowder(w, 3, 'Forever Home');
+      w.append(forever, 'f:status', 'forever-home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.moveCat(miezi, barn, date: DateTime.utc(2026, 1, 10));
+      w.moveCat(miezi, null, date: DateTime.utc(2026, 1, 20));
+      w.recordPosition(miezi, 51.34, 12.37, date: DateTime.utc(2026, 1, 21));
+      w.recordPosition(miezi, 51.35, 12.38,
+          kind: PositionKind.flier, date: DateTime.utc(2026, 1, 22));
+      w.moveCat(miezi, forever, date: DateTime.utc(2026, 2, 1));
+      final tom = cat(w, 2, 'Tom', clowderId: barn);
+      w.deleteClowder(barn, date: DateTime.utc(2026, 2, 5));
+      final gone = cat(w, 3, 'Gone', clowderId: home);
+      w.addImage(gone, photo(12, 12));
+      w.deleteCat(gone, date: DateTime.utc(2026, 2, 6));
+      final back = cat(w, 4, 'Back', clowderId: home);
+      w.deleteCat(back, date: DateTime.utc(2026, 2, 7));
+      w.restoreEntity(back, date: DateTime.utc(2026, 2, 8));
+      assert(w.current(tom, Keys.clowder) == null);
+    },
+  ),
+  Scenario(
+    'merge',
+    'Two records of one Cat merged with the survivor\'s values winning '
+        'and the loser\'s filling gaps and its photo joining; two Clowders '
+        'merged with membership following; two Field definitions merged '
+        'with a value under the loser\'s key; a plan on the pair '
+        're-asserted.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final home2 = clowder(w, 2, 'Foster Home (dup)');
+      w.append(home2, 'f:address', 'Katzenweg 3');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      final dup = cat(w, 2, 'Mietzi', clowderId: home2);
+      w.append(miezi, 'f:color', 'black');
+      w.append(dup, 'f:color', 'white');
+      w.append(dup, 'f:remarks', 'from the duplicate');
+      w.addImage(dup, photo(14, 14));
+      w.append(miezi, 'f:remarks', 'vet on Monday',
+          date: DateTime.utc(2027, 3, 1), reminder: true);
+      w.mergeCat(dup, miezi, date: DateTime.utc(2026, 3, 1));
+      w.mergeClowder(home2, home, date: DateTime.utc(2026, 3, 2));
+      final colour =
+          w.defineField('Colour', FieldType.text, scope: FieldScope.cat);
+      w.append(miezi, 'f:colour', 'under the old key');
+      w.mergeField(colour, 'fielddef:color', date: DateTime.utc(2026, 3, 3));
+    },
+  ),
+  Scenario(
+    'transfer',
+    'A Cat with a photo and a custom Field, and a Clowder with its Cat, '
+        'transferred in from another Catalog: every row re-stamped under '
+        'the writer, authors and dates kept, the Cat without its Clowder '
+        'arriving as a Stray.',
+    (w) {
+      final source = CatalogStore.inMemory()..author = 'Bea';
+      final theirHome = clowder(source, 5, 'Their Home');
+      final alone = cat(source, 5, 'Alone', clowderId: theirHome);
+      source.addImage(alone, photo(16, 16));
+      source.defineField('Mood', FieldType.text, scope: FieldScope.cat);
+      source.append(alone, 'f:mood', 'calm');
+      final together = cat(source, 6, 'Together', clowderId: theirHome);
+      transferEntities(source, w, {alone});
+      transferEntities(source, w, {theirHome});
+      source.close();
+      assert(
+          w.strays().length == 1 && w.cats(clowderId: theirHome).length == 1);
+      assert(w.current(together, Keys.name) == 'Together');
+    },
+  ),
+  Scenario(
     'photo-missing',
     'A photo the entries name is in neither the folder nor the bundle: '
         'the entry lands, the photo counts as missing, the round says '

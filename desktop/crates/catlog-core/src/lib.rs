@@ -11,6 +11,7 @@ mod bundle;
 mod catalog;
 pub mod corpus;
 mod dump;
+pub mod entities;
 mod entry;
 mod error;
 pub mod fields;
@@ -23,6 +24,9 @@ pub mod units;
 
 pub use bundle::BundleResult;
 pub use catalog::{Catalog, Clock, EntityView};
+pub use entities::{
+    ActiveReminder, ClowderEvent, Family, PositionKind, TransferResult, transfer_entities,
+};
 pub use entry::{Entry, dart_iso, iso};
 pub use error::Error;
 pub use fields::{FieldDef, FieldScope, FieldType, IdDisplay};

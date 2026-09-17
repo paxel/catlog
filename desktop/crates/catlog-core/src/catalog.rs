@@ -591,7 +591,7 @@ impl Catalog {
 
     /// The next sequence number for `device`: one above the high-water
     /// mark, removed and discarded rows included (ADR 0008).
-    fn next_dseq(&self, device: &str) -> Result<i64> {
+    pub(crate) fn next_dseq(&self, device: &str) -> Result<i64> {
         let highest: i64 = self.db.query_row(
             "SELECT COALESCE(MAX(dseq), 0) FROM entries WHERE device = ?1",
             [device],
@@ -606,7 +606,7 @@ impl Catalog {
 
     /// Writes one row under this Catalog's own device.
     #[allow(clippy::too_many_arguments)]
-    fn insert_own(
+    pub(crate) fn insert_own(
         &self,
         device: &str,
         dseq: i64,
@@ -1045,6 +1045,31 @@ impl Catalog {
             }
         }
         Ok(map)
+    }
+
+    /// The losers of every merge so far.
+    pub(crate) fn merge_losers(&self) -> Result<HashSet<String>> {
+        Ok(self.merge_targets()?.into_keys().collect())
+    }
+
+    /// Every entity that ever carried `field`.
+    pub(crate) fn entities_with_field(&self, field: &str) -> Result<Vec<String>> {
+        let mut stmt = self
+            .db
+            .prepare("SELECT DISTINCT entity FROM entries WHERE field = ?1 ORDER BY entity")?;
+        let ids = stmt.query_map([field], |r| r.get(0))?;
+        Ok(ids.collect::<std::result::Result<_, _>>()?)
+    }
+
+    /// Every live row, newest by append order first: what retires a plan.
+    pub(crate) fn select_live_by_append(&self) -> Result<Vec<Entry>> {
+        self.select(
+            &format!(
+                "SELECT * FROM entries WHERE 1 {LIVE} \
+                 ORDER BY recorded DESC, author DESC, device DESC, dseq DESC"
+            ),
+            &[],
+        )
     }
 
     /// Canonical id: follows the merge chain (cycle-safe).
