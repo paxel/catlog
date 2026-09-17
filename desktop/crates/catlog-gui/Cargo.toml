@@ -1,0 +1,22 @@
+[package]
+name = "catlog-gui"
+description = "The cat(a)log desktop app: an egui shell over catlog-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "catlog_gui"
+
+[[bin]]
+name = "catlog"
+path = "src/bin/catlog.rs"
+
+[dependencies]
+catlog-core = { path = "../catlog-core", version = "2.0.0" }
+eframe = "0.35"
+egui = "0.35"
+
+[dev-dependencies]
+egui_kittest = { version = "0.35", features = ["wgpu", "snapshot"] }

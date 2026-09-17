@@ -29,6 +29,36 @@ jobs:
           flutter analyze --fatal-infos
           flutter test
 
+  desktop:
+    name: Desktop (Rust)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy, llvm-tools-preview
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: desktop
+      - name: System dependencies (software Vulkan for the render tests)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            mesa-vulkan-drivers libvulkan1 pkg-config
+      - run: cargo fmt --check
+      - run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - run: cargo test --workspace --locked
+      - name: Render tests (headless wgpu)
+        run: cargo test -p catlog-gui --test render --locked -- --ignored
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-llvm-cov
+      - name: Coverage per crate, 80% floor
+        run: tool/coverage.sh
+
   apk:
     name: Android APK
     runs-on: ubuntu-latest

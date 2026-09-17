@@ -1,0 +1,19 @@
+[package]
+name = "catlog-core"
+description = "Core of the cat(a)log desktop app: the Catalog store, entries, signing, folder sync and bundles"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "catlog_core"
+
+[dependencies]
+rusqlite = { version = "0.38", features = ["bundled"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+
+[dev-dependencies]
+tempfile = "3.10"
