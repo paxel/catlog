@@ -12,6 +12,7 @@ pub mod chores;
 pub mod codes;
 pub mod conflicts;
 pub mod crash;
+pub mod dashboard;
 pub mod dialogs;
 pub mod documents_page;
 pub mod duplicates_page;
@@ -40,7 +41,9 @@ pub mod sync_page;
 pub mod textures;
 pub mod theme;
 pub mod tips;
+pub mod views;
 
 pub use app::{App, DEFAULT_PANE_WIDTH, DEFAULT_WINDOW_SIZE, Request, catalogs_root};
 pub use home::Selection;
 pub use settings::{AppSettings, SettingsFile, data_dir};
+pub use views::{Modal, View};

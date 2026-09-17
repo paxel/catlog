@@ -99,67 +99,64 @@ impl PositionPicker {
         }
         let mut result = None;
         let mut close = false;
-        egui::Window::new(t.pick_on_map())
-            .id(egui::Id::new(("position-picker", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.horizontal(|ui| {
-                    let edit = ui.add(
-                        egui::TextEdit::singleline(&mut self.query)
-                            .desired_width(320.0)
-                            .hint_text(t.search_place_hint()),
-                    );
-                    let submitted = edit.lost_focus() && ui.input(|i| i.key_pressed(Key::Enter));
-                    if ui.button(t.search()).clicked() || submitted {
-                        self.search();
-                    }
-                });
-                if let Some(e) = &self.error {
-                    ui.colored_label(ui.visuals().error_fg_color, e);
+        let modal = egui::Modal::new(egui::Id::new(("position-picker", self.id))).show(ctx, |ui| {
+            ui.heading(t.pick_on_map());
+            ui.horizontal(|ui| {
+                let edit = ui.add(
+                    egui::TextEdit::singleline(&mut self.query)
+                        .desired_width(320.0)
+                        .hint_text(t.search_place_hint()),
+                );
+                let submitted = edit.lost_focus() && ui.input(|i| i.key_pressed(Key::Enter));
+                if ui.button(t.search()).clicked() || submitted {
+                    self.search();
                 }
-                let mut jump: Option<GeoHit> = None;
-                for hit in self.hits.iter().take(5) {
-                    if ui.link(&hit.name).clicked() {
-                        jump = Some(hit.clone());
-                    }
-                }
-                if let Some(hit) = jump {
-                    self.jump_to(&hit);
-                }
-                let pins: Vec<Pin> = self
-                    .picked
-                    .map(|(lat, lon)| Pin {
-                        id: "picked".into(),
-                        lat,
-                        lon,
-                        label: String::new(),
-                        highlighted: true,
-                        place: false,
-                    })
-                    .into_iter()
-                    .collect();
-                if let MapAction::Click(lat, lon) =
-                    self.map.show(ui, Vec2::new(640.0, 420.0), &pins, &[], &[])
-                {
-                    self.picked = Some((lat, lon));
-                }
-                let escape = ui.input(|i| i.key_pressed(Key::Escape));
-                ui.horizontal(|ui| {
-                    let ready = self.picked.is_some();
-                    if ui.add_enabled(ready, egui::Button::new(t.ok())).clicked()
-                        && let Some((lat, lon)) = self.picked
-                    {
-                        result = Some(format!("{lat},{lon}"));
-                    }
-                    if ui.button(t.cancel()).clicked() || escape {
-                        close = true;
-                    }
-                });
             });
-        if result.is_some() || close {
+            if let Some(e) = &self.error {
+                ui.colored_label(ui.visuals().error_fg_color, e);
+            }
+            let mut jump: Option<GeoHit> = None;
+            for hit in self.hits.iter().take(5) {
+                if ui.link(&hit.name).clicked() {
+                    jump = Some(hit.clone());
+                }
+            }
+            if let Some(hit) = jump {
+                self.jump_to(&hit);
+            }
+            let pins: Vec<Pin> = self
+                .picked
+                .map(|(lat, lon)| Pin {
+                    id: "picked".into(),
+                    lat,
+                    lon,
+                    label: String::new(),
+                    highlighted: true,
+                    place: false,
+                })
+                .into_iter()
+                .collect();
+            if let MapAction::Click(lat, lon) =
+                self.map.show(ui, Vec2::new(640.0, 420.0), &pins, &[], &[])
+            {
+                self.picked = Some((lat, lon));
+            }
+            let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            ui.horizontal(|ui| {
+                let ready = self.picked.is_some();
+                if ui.add_enabled(ready, egui::Button::new(t.ok())).clicked()
+                    && let Some((lat, lon)) = self.picked
+                {
+                    result = Some(format!("{lat},{lon}"));
+                }
+                if ui.button(t.cancel()).clicked() || escape {
+                    close = true;
+                }
+            });
+        });
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         result
     }

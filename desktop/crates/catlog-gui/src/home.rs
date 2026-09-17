@@ -9,7 +9,8 @@ use egui::{Ui, Vec2};
 use crate::l10n::L10n;
 use crate::textures::FaceCache;
 
-/// What is selected in the list pane.
+/// What lies on the desk: a Clowder or a Cat page, the Strays, or
+/// nothing yet. The views and the modals live beside it.
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub enum Selection {
     #[default]
@@ -17,22 +18,6 @@ pub enum Selection {
     Strays,
     Clowder(String),
     Cat(String),
-    Map,
-    Sync,
-    Conflicts,
-    Agenda,
-    Duplicates,
-    Moments,
-    Archive,
-    Backups,
-    Restore,
-    Moderation,
-    /// A document page for a Cat.
-    Document,
-    /// The flier capture page.
-    Capture,
-    Settings,
-    Achievements,
 }
 
 /// What the keeper did on the home pane this frame.

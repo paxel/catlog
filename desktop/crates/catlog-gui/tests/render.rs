@@ -7,7 +7,7 @@
 //! ```
 
 use catlog_core::tiles::{TileCache, TileId, TileSource};
-use catlog_gui::{App, Selection, SettingsFile};
+use catlog_gui::{App, Modal, Selection, SettingsFile, View};
 use std::sync::Arc;
 
 /// Tiles that never come from the network: one flat grey square each.
@@ -129,7 +129,7 @@ fn render_history_page() {
 #[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
 fn render_map() {
     render_with("render_map", true, Some("moves"), |app| {
-        app.select(Selection::Map);
+        app.open_view(View::Map);
     });
 }
 
@@ -137,6 +137,6 @@ fn render_map() {
 #[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
 fn render_sync_page() {
     render_with("render_sync_page", true, Some("fresh"), |app| {
-        app.select(Selection::Sync);
+        app.open_modal(Modal::Sync);
     });
 }

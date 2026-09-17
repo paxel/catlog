@@ -36,38 +36,36 @@ impl NameDialog {
         }
         let mut result = None;
         let mut close = false;
-        egui::Window::new(&self.title)
-            .id(egui::Id::new(("name-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.label(&self.label);
-                let edit = ui.add(egui::TextEdit::singleline(&mut self.value).desired_width(320.0));
-                if !edit.has_focus() && self.error.is_none() && self.value.is_empty() {
-                    edit.request_focus();
+        let modal = egui::Modal::new(egui::Id::new(("name-dialog", self.id))).show(ctx, |ui| {
+            ui.heading(&self.title);
+            ui.label(&self.label);
+            let edit = ui.add(egui::TextEdit::singleline(&mut self.value).desired_width(320.0));
+            if !edit.has_focus() && self.error.is_none() && self.value.is_empty() {
+                edit.request_focus();
+            }
+            if let Some(e) = &self.error {
+                ui.colored_label(ui.visuals().error_fg_color, e);
+            }
+            let enter = edit.lost_focus() && ui.input(|i| i.key_pressed(Key::Enter));
+            let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            ui.horizontal(|ui| {
+                let ready = !self.value.trim().is_empty();
+                if ui
+                    .add_enabled(ready, egui::Button::new(&self.confirm))
+                    .clicked()
+                    || (enter && ready)
+                {
+                    result = Some(self.value.trim().to_string());
                 }
-                if let Some(e) = &self.error {
-                    ui.colored_label(ui.visuals().error_fg_color, e);
+                if crate::icons::button(ui, crate::icons::CLOSE, cancel).clicked() || escape {
+                    close = true;
                 }
-                let enter = edit.lost_focus() && ui.input(|i| i.key_pressed(Key::Enter));
-                let escape = ui.input(|i| i.key_pressed(Key::Escape));
-                ui.horizontal(|ui| {
-                    let ready = !self.value.trim().is_empty();
-                    if ui
-                        .add_enabled(ready, egui::Button::new(&self.confirm))
-                        .clicked()
-                        || (enter && ready)
-                    {
-                        result = Some(self.value.trim().to_string());
-                    }
-                    if crate::icons::button(ui, crate::icons::CLOSE, cancel).clicked() || escape {
-                        close = true;
-                    }
-                });
             });
-        if result.is_some() || close {
+        });
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            // One more frame lets the modal underneath become the top one.
+            ctx.request_repaint();
         }
         result
     }
@@ -154,26 +152,23 @@ impl ConfirmDialog {
         }
         let mut confirmed = false;
         let mut close = false;
-        egui::Window::new(&self.title)
-            .id(egui::Id::new(("confirm-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.set_max_width(360.0);
-                ui.label(&self.body);
-                let escape = ui.input(|i| i.key_pressed(Key::Escape));
-                ui.horizontal(|ui| {
-                    if crate::icons::button(ui, crate::icons::CHECK, &self.confirm).clicked() {
-                        confirmed = true;
-                    }
-                    if crate::icons::button(ui, crate::icons::CLOSE, cancel).clicked() || escape {
-                        close = true;
-                    }
-                });
+        let modal = egui::Modal::new(egui::Id::new(("confirm-dialog", self.id))).show(ctx, |ui| {
+            ui.set_max_width(360.0);
+            ui.heading(&self.title);
+            ui.label(&self.body);
+            let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            ui.horizontal(|ui| {
+                if crate::icons::button(ui, crate::icons::CHECK, &self.confirm).clicked() {
+                    confirmed = true;
+                }
+                if crate::icons::button(ui, crate::icons::CLOSE, cancel).clicked() || escape {
+                    close = true;
+                }
             });
-        if confirmed || close {
+        });
+        if confirmed || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         confirmed
     }

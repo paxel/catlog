@@ -58,5 +58,39 @@
   "helpMenu": "Help for this page",
   "restartHint": "Close this to go on; the report stays until it is sent.",
   "yourKeyLine": "Your key: {code}",
-  "licencesRust": "Rust crates"
+  "licencesRust": "Rust crates",
+  "viewHome": "Home",
+  "viewVet": "Vet",
+  "clowdersCount": "{count} clowders",
+  "@clowdersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "straysCount": "{count} strays",
+  "@straysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missingCount": "{count} missing",
+  "@missingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dashboardDue": "Due today",
+  "dashboardNothingDue": "Nothing due today",
+  "dashboardRecent": "Recent changes",
+  "dashboardNoChanges": "No changes yet",
+  "dashboardLastViewed": "Last viewed",
+  "dashboardNothingViewed": "Open a cat or a clowder and it shows up here",
+  "vetPlaceholder": "Runs and appointments across all cats land here",
+  "closeLabel": "Close"
 }

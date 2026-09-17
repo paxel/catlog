@@ -102,9 +102,11 @@ pub fn visuals(p: Palette) -> Visuals {
             expansion: 1.0,
             ..pill(p.peach, p.ink, p.orange)
         },
+        // Pressed: peach with ink, as egui reads strong text from the
+        // active state and paper would vanish on cream.
         active: WidgetVisuals {
             expansion: 0.5,
-            ..pill(p.orange, p.paper, p.orange)
+            ..pill(p.peach, p.ink, p.orange)
         },
         open: pill(p.peach, p.ink, p.orange),
     };
@@ -207,7 +209,12 @@ mod tests {
             "per-state text colours stay readable"
         );
         assert_eq!(style.visuals.widgets.hovered.fg_stroke.color, PALETTE.ink);
-        assert_eq!(style.visuals.widgets.active.bg_fill, PALETTE.orange);
+        assert_eq!(style.visuals.widgets.active.bg_stroke.color, PALETTE.orange);
+        assert_eq!(
+            style.visuals.strong_text_color(),
+            PALETTE.ink,
+            "section headings stay readable"
+        );
         assert_eq!(style.visuals.error_fg_color, PALETTE.red);
         let set = FontSet::bundled().unwrap();
         let fonts = fonts(&set);

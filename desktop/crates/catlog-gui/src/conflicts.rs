@@ -116,51 +116,50 @@ impl ConflictDialog {
         let mut resolved = false;
         let mut close = false;
         let title = t.conflict_on(&field_label(t, store, &self.field));
-        egui::Window::new(title)
-            .id(egui::Id::new(("conflict-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.set_max_width(420.0);
-                if self.same() {
-                    let value = self.candidates.first().and_then(|e| e.value.as_deref());
-                    ui.label(t.conflict_same(&value_label(t, store, &self.field, value, units)));
-                } else {
-                    ui.label(t.conflict_body());
-                    for e in &self.candidates {
-                        let day = e
-                            .date
-                            .get(..10)
-                            .and_then(|d| d.parse::<chrono::NaiveDate>().ok())
-                            .map(|d| format_day(t.locale(), d))
-                            .unwrap_or_else(|| e.date.clone());
-                        let label = format!(
-                            "{}   ({day} · {})",
-                            value_label(t, store, &self.field, e.value.as_deref(), units),
-                            e.author
-                        );
-                        ui.radio_value(&mut self.chosen, Some(e.seq), label);
-                    }
+        let modal = egui::Modal::new(egui::Id::new(("conflict-dialog", self.id))).show(ctx, |ui| {
+            ui.set_max_width(420.0);
+            ui.heading(title);
+            if self.same() {
+                let value = self.candidates.first().and_then(|e| e.value.as_deref());
+                ui.label(t.conflict_same(&value_label(t, store, &self.field, value, units)));
+            } else {
+                ui.label(t.conflict_body());
+                for e in &self.candidates {
+                    let day = e
+                        .date
+                        .get(..10)
+                        .and_then(|d| d.parse::<chrono::NaiveDate>().ok())
+                        .map(|d| format_day(t.locale(), d))
+                        .unwrap_or_else(|| e.date.clone());
+                    let label = format!(
+                        "{}   ({day} · {})",
+                        value_label(t, store, &self.field, e.value.as_deref(), units),
+                        e.author
+                    );
+                    ui.radio_value(&mut self.chosen, Some(e.seq), label);
                 }
-                let escape = ui.input(|i| i.key_pressed(egui::Key::Escape));
-                ui.horizontal(|ui| {
-                    if ui.button(t.resolve()).clicked() {
-                        resolved = true;
-                    }
-                    if ui.button(t.cancel()).clicked() || escape {
-                        close = true;
-                    }
-                });
+            }
+            let escape = ui.input(|i| i.key_pressed(egui::Key::Escape));
+            ui.horizontal(|ui| {
+                if ui.button(t.resolve()).clicked() {
+                    resolved = true;
+                }
+                if ui.button(t.cancel()).clicked() || escape {
+                    close = true;
+                }
             });
+        });
         if resolved {
             if let Err(e) = self.resolve(store) {
                 eprintln!("catlog: {e}");
             }
             self.open = false;
         }
-        if close {
+        if close || modal.should_close() {
             self.open = false;
+        }
+        if !self.open {
+            ctx.request_repaint();
         }
         resolved
     }

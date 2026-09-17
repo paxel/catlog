@@ -5,6 +5,7 @@ use catlog_core::Catalog;
 
 use crate::home::Selection;
 use crate::l10n::L10n;
+use crate::views::{Modal, View};
 
 /// One tip: its id and its text.
 pub struct Tip {
@@ -12,10 +13,29 @@ pub struct Tip {
     pub text: fn(&L10n) -> &'static str,
 }
 
+/// The screen the phone's tips are keyed by: a modal first, then what
+/// lies on the desk, then the view.
+fn screen_of(view: View, modal: Option<Modal>, selection: &Selection) -> &'static str {
+    match (modal, view, selection) {
+        (Some(Modal::Document), _, _) => "card",
+        (Some(Modal::Backups), _, _) => "settings",
+        (Some(_), _, _) | (None, View::Vet, _) => "",
+        (None, View::Map, _) => "map",
+        (None, View::Agenda, _) => "agenda",
+        (None, View::Cats | View::Clowders, Selection::Cat(_)) => "cat",
+        (None, View::Cats | View::Clowders, Selection::Strays) => "strays",
+        (None, View::Home | View::Cats | View::Clowders, _) => "home",
+    }
+}
+
 /// The tips per page, in the phone's order.
-pub fn tips_for(selection: &Selection) -> (&'static str, Vec<Tip>) {
-    match selection {
-        Selection::None | Selection::Clowder(_) => (
+pub fn tips_for(
+    view: View,
+    modal: Option<Modal>,
+    selection: &Selection,
+) -> (&'static str, Vec<Tip>) {
+    match screen_of(view, modal, selection) {
+        "home" => (
             "home",
             vec![
                 Tip {
@@ -40,7 +60,7 @@ pub fn tips_for(selection: &Selection) -> (&'static str, Vec<Tip>) {
                 },
             ],
         ),
-        Selection::Agenda => (
+        "agenda" => (
             "agenda",
             vec![
                 Tip {
@@ -53,7 +73,7 @@ pub fn tips_for(selection: &Selection) -> (&'static str, Vec<Tip>) {
                 },
             ],
         ),
-        Selection::Map => (
+        "map" => (
             "map",
             vec![
                 Tip {
@@ -66,7 +86,7 @@ pub fn tips_for(selection: &Selection) -> (&'static str, Vec<Tip>) {
                 },
             ],
         ),
-        Selection::Cat(_) => (
+        "cat" => (
             "cat",
             vec![
                 Tip {
@@ -95,21 +115,21 @@ pub fn tips_for(selection: &Selection) -> (&'static str, Vec<Tip>) {
                 },
             ],
         ),
-        Selection::Document => (
+        "card" => (
             "card",
             vec![Tip {
                 id: "card-chips",
                 text: |t| t.spot_card_chips(),
             }],
         ),
-        Selection::Backups => (
+        "settings" => (
             "settings",
             vec![Tip {
                 id: "settings-backups",
                 text: |t| t.spot_backups(),
             }],
         ),
-        Selection::Strays => (
+        "strays" => (
             "strays",
             vec![Tip {
                 id: "strays-flier",
@@ -126,8 +146,13 @@ fn key(screen: &str) -> String {
 }
 
 /// The next tip the keeper has not seen on this page.
-pub fn due_tip(store: &Catalog, selection: &Selection) -> Option<(&'static str, Tip)> {
-    let (screen, tips) = tips_for(selection);
+pub fn due_tip(
+    store: &Catalog,
+    view: View,
+    modal: Option<Modal>,
+    selection: &Selection,
+) -> Option<(&'static str, Tip)> {
+    let (screen, tips) = tips_for(view, modal, selection);
     if screen.is_empty() {
         return None;
     }
@@ -156,7 +181,8 @@ pub fn mark_seen(store: &Catalog, screen: &str, id: &str) {
 /// Marks every tip seen, for a keeper who knows their way around.
 pub fn mark_all_seen(store: &Catalog) {
     for screen in ["home", "agenda", "map", "cat", "card", "settings", "strays"] {
-        let (_, tips) = tips_for(&selection_for(screen));
+        let (view, modal, selection) = screen_for(screen);
+        let (_, tips) = tips_for(view, modal, &selection);
         let ids: Vec<&str> = tips.iter().map(|t| t.id).collect();
         let _ = store.set_local_setting(&key(screen), &ids.join(","));
     }
@@ -169,39 +195,43 @@ pub fn reset(store: &Catalog) {
     }
 }
 
-fn selection_for(screen: &str) -> Selection {
+fn screen_for(screen: &str) -> (View, Option<Modal>, Selection) {
     match screen {
-        "agenda" => Selection::Agenda,
-        "map" => Selection::Map,
-        "cat" => Selection::Cat(String::new()),
-        "card" => Selection::Document,
-        "settings" => Selection::Backups,
-        "strays" => Selection::Strays,
-        _ => Selection::None,
+        "agenda" => (View::Agenda, None, Selection::None),
+        "map" => (View::Map, None, Selection::None),
+        "cat" => (View::Cats, None, Selection::Cat(String::new())),
+        "card" => (View::Home, Some(Modal::Document), Selection::None),
+        "settings" => (View::Home, Some(Modal::Backups), Selection::None),
+        "strays" => (View::Clowders, None, Selection::Strays),
+        _ => (View::Home, None, Selection::None),
     }
 }
 
-/// The help text for a page.
-pub fn help_for(t: &L10n, selection: &Selection) -> &'static str {
-    match selection {
-        Selection::None => t.help_home(),
-        Selection::Strays => t.help_strays(),
-        Selection::Clowder(_) => t.help_clowder(),
-        Selection::Cat(_) => t.help_cat(),
-        Selection::Map => t.help_map(),
-        Selection::Sync => t.help_remote(),
-        Selection::Conflicts => t.help_conflicts(),
-        Selection::Agenda => t.help_agenda(),
-        Selection::Duplicates => t.help_duplicates(),
-        Selection::Moments => t.help_go_back(),
-        Selection::Archive => t.help_archive(),
-        Selection::Backups => t.help_backups(),
-        Selection::Restore => t.help_restore(),
-        Selection::Moderation => t.help_moderation(),
-        Selection::Document => t.help_card(),
-        Selection::Capture => t.help_flier(),
-        Selection::Settings => t.help_settings(),
-        Selection::Achievements => t.help_achievements(),
+/// The help text for what is shown: the modal, else the desk, else
+/// the view.
+pub fn help_for(t: &L10n, view: View, modal: Option<Modal>, selection: &Selection) -> &'static str {
+    match modal {
+        Some(Modal::Sync) => return t.help_remote(),
+        Some(Modal::Conflicts) => return t.help_conflicts(),
+        Some(Modal::Duplicates) => return t.help_duplicates(),
+        Some(Modal::Moments) => return t.help_go_back(),
+        Some(Modal::Archive) => return t.help_archive(),
+        Some(Modal::Backups) => return t.help_backups(),
+        Some(Modal::Restore) => return t.help_restore(),
+        Some(Modal::Moderation) => return t.help_moderation(),
+        Some(Modal::Document) => return t.help_card(),
+        Some(Modal::Capture) => return t.help_flier(),
+        Some(Modal::Settings) => return t.help_settings(),
+        Some(Modal::Achievements) => return t.help_achievements(),
+        Some(Modal::Help) | Some(Modal::About) | None => {}
+    }
+    match (view, selection) {
+        (View::Map, _) => t.help_map(),
+        (View::Agenda | View::Vet, _) => t.help_agenda(),
+        (View::Cats | View::Clowders, Selection::Strays) => t.help_strays(),
+        (View::Cats | View::Clowders, Selection::Clowder(_)) => t.help_clowder(),
+        (View::Cats | View::Clowders, Selection::Cat(_)) => t.help_cat(),
+        (View::Home, _) | (View::Cats | View::Clowders, Selection::None) => t.help_home(),
     }
 }
 
@@ -215,26 +245,37 @@ mod tests {
         let store = Catalog::open(dir.path()).unwrap();
         let t = L10n::new("en");
         let cat = Selection::Cat("cat:a".into());
-        let (screen, first) = due_tip(&store, &cat).unwrap();
+        let due = |store: &Catalog, s: &Selection| due_tip(store, View::Cats, None, s);
+        let (screen, first) = due(&store, &cat).unwrap();
         assert_eq!((screen, first.id), ("cat", "cat-edit"));
         assert!(!(first.text)(&t).is_empty());
         mark_seen(&store, screen, first.id);
-        let (_, second) = due_tip(&store, &cat).unwrap();
+        let (_, second) = due(&store, &cat).unwrap();
         assert_eq!(second.id, "cat-menu");
         mark_all_seen(&store);
-        assert!(due_tip(&store, &cat).is_none());
-        assert!(due_tip(&store, &Selection::None).is_none());
-        assert!(due_tip(&store, &Selection::Sync).is_none(), "no tips there");
+        assert!(due(&store, &cat).is_none());
+        assert!(due(&store, &Selection::None).is_none());
+        assert!(
+            due_tip(&store, View::Home, Some(Modal::Sync), &Selection::None).is_none(),
+            "no tips there"
+        );
         reset(&store);
-        assert_eq!(due_tip(&store, &cat).unwrap().1.id, "cat-edit");
-        assert_eq!(due_tip(&store, &Selection::Map).unwrap().1.id, "map-search");
-        for s in [
-            Selection::None,
-            Selection::Sync,
-            Selection::Capture,
-            Selection::Achievements,
+        assert_eq!(due(&store, &cat).unwrap().1.id, "cat-edit");
+        assert_eq!(
+            due_tip(&store, View::Map, None, &Selection::None)
+                .unwrap()
+                .1
+                .id,
+            "map-search"
+        );
+        for (view, modal) in [
+            (View::Home, None),
+            (View::Vet, None),
+            (View::Home, Some(Modal::Sync)),
+            (View::Home, Some(Modal::Capture)),
+            (View::Home, Some(Modal::Achievements)),
         ] {
-            assert!(!help_for(&t, &s).is_empty());
+            assert!(!help_for(&t, view, modal, &Selection::None).is_empty());
         }
     }
 }

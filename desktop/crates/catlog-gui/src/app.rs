@@ -23,6 +23,7 @@ use crate::appointments::{AppointmentDialog, FinishDialog};
 use crate::capture_page::{CaptureAction, CapturePage};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::conflicts::{ConflictDialog, show_conflicts};
+use crate::dashboard::{self, DashboardAction};
 use crate::dialogs::{ConfirmDialog, NameDialog};
 use crate::documents_page::{DocAction, DocKind, DocumentPage, card_png};
 use crate::duplicates_page::{DuplicatesAction, show_duplicates};
@@ -51,6 +52,7 @@ use crate::summary::{ArrivalSummary, SummaryAction};
 use crate::sync_page::{SyncAction, SyncPage};
 use crate::textures::FaceCache;
 use crate::tips;
+use crate::views::{self, Modal, View};
 
 /// What the keeper asked the shell to do; the launcher acts on it.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -159,7 +161,12 @@ pub struct App {
     ladders: Vec<LadderState>,
     /// A report from a run that went down, until it is sent.
     pub crash_report: Option<String>,
-    pub help_open: bool,
+    /// The view in the bar.
+    pub view: View,
+    /// What is open over the desk.
+    pub modal: Option<Modal>,
+    /// The selection as last remembered for the dashboard.
+    shown: Selection,
     icon: Option<egui::TextureHandle>,
     fonts_installed: Option<String>,
     /// Opens a link in the browser or the mail program.
@@ -190,7 +197,6 @@ pub struct App {
     intro_name: String,
     intro_skip_tips: bool,
     request: Request,
-    about_open: bool,
     /// What went wrong last, shown in the detail pane until the next action.
     notice: Option<String>,
 }
@@ -293,7 +299,9 @@ impl App {
             last_cheer: None,
             ladders: Vec::new(),
             crash_report: crate::crash::last_crash(root),
-            help_open: false,
+            view: View::Home,
+            modal: None,
+            shown: Selection::None,
             icon: None,
             fonts_installed: None,
             open_url: Box::new(|url| {
@@ -321,7 +329,6 @@ impl App {
             last_reminder_check: chrono::Local::now().naive_local(),
             asking: Asking::Nothing,
             request: Request::None,
-            about_open: false,
             notice: None,
         };
         app.apply_units();
@@ -363,8 +370,55 @@ impl App {
 
     /// Shows a page in the detail pane, as a click in the list would.
     pub fn select(&mut self, selection: Selection) {
-        self.home.selection = selection;
+        match selection {
+            Selection::Cat(id) | Selection::Clowder(id) => self.open_record(id),
+            other => {
+                self.home.selection = other;
+                self.history_of = None;
+            }
+        }
+    }
+
+    pub fn view(&self) -> View {
+        self.view
+    }
+
+    pub fn modal(&self) -> Option<Modal> {
+        self.modal
+    }
+
+    /// Switches the bar to `view`; Cats and Clowders keep what lies on
+    /// the desk.
+    pub fn open_view(&mut self, view: View) {
+        self.view = view;
+        self.notice = None;
         self.history_of = None;
+    }
+
+    /// Opens `modal` over the desk.
+    pub fn open_modal(&mut self, modal: Modal) {
+        self.modal = Some(modal);
+        self.notice = None;
+    }
+
+    /// Shows a Cat's or a Clowder's page on the desk, in the Cats or
+    /// the Clowders view, whichever is open or fits.
+    pub fn open_record(&mut self, id: String) {
+        let is_clowder = id.starts_with("clowder:");
+        if !matches!(self.view, View::Cats | View::Clowders) {
+            self.view = if is_clowder {
+                View::Clowders
+            } else {
+                View::Cats
+            };
+        }
+        self.home.selection = if is_clowder {
+            Selection::Clowder(id)
+        } else {
+            Selection::Cat(id)
+        };
+        self.history_of = None;
+        self.modal = None;
     }
 
     /// Shows a Field's history on an entity in the detail pane.
@@ -548,8 +602,7 @@ impl App {
     pub fn open_bundle_file(&mut self, path: &Path) {
         let t = self.t;
         let label = path.file_name().map(|n| n.to_string_lossy().into_owned());
-        self.home.selection = Selection::Sync;
-        self.history_of = None;
+        self.modal = Some(Modal::Sync);
         match self
             .store
             .import_with_moment(path, "import", label.as_deref())
@@ -630,21 +683,34 @@ impl App {
         let t = self.t;
         self.show_watch_line(ui);
         self.show_tip(ui);
-        let mut action = HomeAction::None;
-        // The pane opens at the remembered width; egui keeps the width
-        // between frames, and a drag that ends is what gets remembered.
-        let pane = egui::Panel::left("list-pane")
-            .resizable(true)
-            .min_size(200.0)
-            .default_size(self.pane_width)
+        egui::Panel::top("view-bar")
+            .show_separator_line(true)
             .show(ui, |ui| {
-                action = self.home.show(ui, &self.store, &t, &mut self.faces);
+                if let Some(view) = views::show_bar(ui, &t, self.view) {
+                    self.open_view(view);
+                }
             });
-        let shown = pane.response.rect.width();
-        let released = ui.input(|i| i.pointer.primary_released());
-        if released && shown > 0.0 && Some(shown) != self.settings.settings.pane_width {
-            self.settings.settings.pane_width = Some(shown);
-            let _ = self.settings.save();
+        let mut action = HomeAction::None;
+        if matches!(self.view, View::Cats | View::Clowders) {
+            // The pane opens at the remembered width; egui keeps the width
+            // between frames, and a drag that ends is what gets remembered.
+            let pane = egui::Panel::left("list-pane")
+                .resizable(true)
+                .min_size(200.0)
+                .default_size(self.pane_width)
+                .show(ui, |ui| {
+                    action = if self.view == View::Clowders {
+                        self.home.show(ui, &self.store, &t, &mut self.faces)
+                    } else {
+                        self.show_cat_list(ui)
+                    };
+                });
+            let shown = pane.response.rect.width();
+            let released = ui.input(|i| i.pointer.primary_released());
+            if released && shown > 0.0 && Some(shown) != self.settings.settings.pane_width {
+                self.settings.settings.pane_width = Some(shown);
+                let _ = self.settings.save();
+            }
         }
         self.act(action);
         let mut page_action = PageAction::None;
@@ -656,81 +722,41 @@ impl App {
             if hovering && matches!(self.home.selection, Selection::Cat(_)) {
                 ui.colored_label(ui.visuals().selection.bg_fill, t.drop_photos_hint());
             }
-            if let Some((entity, slug)) = self.history_of.clone() {
-                if let Ok(Some(def)) = self.store.field_def(&slug) {
-                    match self.history.show(ui, &self.store, &t, &entity, &def) {
-                        HistoryAction::None => {}
-                        HistoryAction::Back => self.history_of = None,
-                        HistoryAction::Correct(seq) => {
-                            if let Ok(Some(e)) = self.store.entry_by_seq(seq) {
-                                self.editor.ask(
-                                    &self.store,
-                                    &def,
-                                    &entity,
-                                    e.value.as_deref(),
-                                    EditTarget::Correct(seq),
-                                    Some(&e.date),
-                                    t.locale(),
-                                );
-                            }
+            match self.view {
+                View::Home => {
+                    let today = self.pages.today;
+                    let units = self.pages.units;
+                    match dashboard::show_dashboard(
+                        ui,
+                        &self.store,
+                        &t,
+                        &mut self.faces,
+                        today,
+                        units,
+                    ) {
+                        DashboardAction::None => {}
+                        DashboardAction::OpenCats | DashboardAction::OpenMissing => {
+                            self.open_view(View::Cats);
                         }
-                        HistoryAction::Remove(seq) => {
-                            if let Err(e) = self.store.remove_entry(seq) {
-                                self.notice = Some(e.to_string());
-                            }
+                        DashboardAction::OpenClowders => self.open_view(View::Clowders),
+                        DashboardAction::OpenStrays => {
+                            self.open_view(View::Clowders);
+                            self.home.selection = Selection::Strays;
                         }
-                        HistoryAction::Restore(seq) => {
-                            if let Err(e) = self.store.restore_entry(seq) {
-                                self.notice = Some(e.to_string());
-                            }
+                        DashboardAction::OpenCat(id) | DashboardAction::OpenClowder(id) => {
+                            page_action = PageAction::OpenCat(id);
                         }
-                    }
-                } else {
-                    self.history_of = None;
-                }
-                return;
-            }
-            match self.home.selection.clone() {
-                Selection::None => {
-                    ui.label(t.select_clowder_hint());
-                }
-                Selection::Strays => {
-                    page_action = self.pages.show_strays(ui, &self.store, &t, &mut self.faces);
-                }
-                Selection::Clowder(id) => {
-                    page_action =
-                        self.pages
-                            .show_clowder(ui, &self.store, &t, &mut self.faces, &id);
-                }
-                Selection::Cat(id) => {
-                    page_action = self
-                        .pages
-                        .show_cat(ui, &self.store, &t, &mut self.faces, &id);
-                }
-                Selection::Sync => match self.sync_page.show(ui, &self.store, &t) {
-                    SyncAction::None => {}
-                    SyncAction::ChooseFolder => {
-                        if let Some(folder) = (self.pick_folder)(t.shared_folder())
-                            && let Err(e) = self.store.choose_sync_folder(&folder)
-                        {
-                            self.notice = Some(e.to_string());
+                        DashboardAction::Chore(a) => page_action = PageAction::Chore(a),
+                        DashboardAction::Appointment(a) => {
+                            page_action = PageAction::Appointment(a);
                         }
                     }
-                    SyncAction::UseLastFolder(last) => {
-                        if let Err(e) = self.store.choose_sync_folder(Path::new(&last)) {
-                            self.notice = Some(e.to_string());
-                        }
-                    }
-                    SyncAction::SyncNow => {}
-                    SyncAction::ExportBundle => self.export_bundle(),
-                    SyncAction::ImportBundle => {
-                        let picked = (self.pick_files)(t.import_bundle());
-                        if let Some(path) = picked.first() {
-                            self.open_bundle_file(path);
-                        }
-                    }
-                },
-                Selection::Agenda => {
+                }
+                View::Vet => {
+                    ui.heading(t.view_vet());
+                    ui.label(t.vet_placeholder());
+                }
+                View::Agenda => {
                     let today = self.pages.today;
                     match show_agenda(ui, &self.store, &t, today) {
                         AgendaAction::None => {}
@@ -752,77 +778,7 @@ impl App {
                         AgendaAction::OpenEntity(id) => page_action = PageAction::OpenCat(id),
                     }
                 }
-                Selection::Settings => {
-                    let locale = self.t.locale();
-                    let code = crate::housekeeping::key_code(&self.store, &self.store.device_id());
-                    let action = self.settings_page.show(
-                        ui,
-                        &self.store,
-                        &self.manager,
-                        &t,
-                        locale,
-                        &code,
-                        &self.ladders,
-                    );
-                    if let Err(e) = self.settings_page.apply_pending(&mut self.store) {
-                        self.notice = Some(e.to_string());
-                    }
-                    self.act_settings(action);
-                }
-                Selection::Achievements => {
-                    show_achievements(ui, &self.manager, &t, &self.ladders);
-                }
-                Selection::Capture => {
-                    self.poll_recognition();
-                    let busy = self.recognizing.is_some();
-                    let action = self.capture.show(ui, &self.store, &t, busy);
-                    self.act_capture(action);
-                }
-                Selection::Document => {
-                    let complete = self.fonts().complete;
-                    let action = self.document.show(ui, &self.store, &t, complete);
-                    self.act_document(action);
-                }
-                Selection::Moments => {
-                    let action = show_moments(ui, &self.store, &t, &mut self.house);
-                    self.act_house(action);
-                }
-                Selection::Archive => {
-                    let today = self.pages.today;
-                    let action = show_archive(ui, &self.store, &t, &mut self.house, today);
-                    self.act_house(action);
-                }
-                Selection::Backups => {
-                    let action = show_backups(ui, &self.store, &t, &self.backups_dir);
-                    self.act_house(action);
-                }
-                Selection::Restore => {
-                    let action = show_restore(ui, &t, &self.restore_sets, &mut self.house);
-                    self.act_house(action);
-                }
-                Selection::Moderation => {
-                    let action = show_moderation(ui, &self.store, &t, &mut self.house);
-                    self.act_house(action);
-                }
-                Selection::Duplicates => match show_duplicates(ui, &self.store, &t) {
-                    DuplicatesAction::None => {}
-                    DuplicatesAction::Merge(a, b, kind) => {
-                        self.merge_dialog.ask_pair(&self.store, &t, &a, &b, kind);
-                    }
-                    DuplicatesAction::Reject(a, b) => {
-                        if let Err(e) = self.store.reject_looks_match(&a, &b) {
-                            self.notice = Some(e.to_string());
-                        }
-                    }
-                },
-                Selection::Conflicts => {
-                    if let Some((entity, field)) =
-                        show_conflicts(ui, &self.store, &t, self.pages.units)
-                    {
-                        self.conflict.ask(&self.store, &entity, &field);
-                    }
-                }
-                Selection::Map => match self.map_page.show(ui, &self.store, &t) {
+                View::Map => match self.map_page.show(ui, &self.store, &t) {
                     MapPageAction::None => {}
                     MapPageAction::OpenCat(id) => page_action = PageAction::OpenCat(id),
                     MapPageAction::OpenClowder(id) => page_action = PageAction::OpenClowder(id),
@@ -835,12 +791,69 @@ impl App {
                         }
                     }
                 },
+                View::Cats | View::Clowders => {
+                    if let Some((entity, slug)) = self.history_of.clone() {
+                        if let Ok(Some(def)) = self.store.field_def(&slug) {
+                            match self.history.show(ui, &self.store, &t, &entity, &def) {
+                                HistoryAction::None => {}
+                                HistoryAction::Back => self.history_of = None,
+                                HistoryAction::Correct(seq) => {
+                                    if let Ok(Some(e)) = self.store.entry_by_seq(seq) {
+                                        self.editor.ask(
+                                            &self.store,
+                                            &def,
+                                            &entity,
+                                            e.value.as_deref(),
+                                            EditTarget::Correct(seq),
+                                            Some(&e.date),
+                                            t.locale(),
+                                        );
+                                    }
+                                }
+                                HistoryAction::Remove(seq) => {
+                                    if let Err(e) = self.store.remove_entry(seq) {
+                                        self.notice = Some(e.to_string());
+                                    }
+                                }
+                                HistoryAction::Restore(seq) => {
+                                    if let Err(e) = self.store.restore_entry(seq) {
+                                        self.notice = Some(e.to_string());
+                                    }
+                                }
+                            }
+                        } else {
+                            self.history_of = None;
+                        }
+                        return;
+                    }
+                    match self.home.selection.clone() {
+                        Selection::None => {
+                            ui.label(t.select_clowder_hint());
+                        }
+                        Selection::Strays => {
+                            page_action =
+                                self.pages.show_strays(ui, &self.store, &t, &mut self.faces);
+                        }
+                        Selection::Clowder(id) => {
+                            page_action =
+                                self.pages
+                                    .show_clowder(ui, &self.store, &t, &mut self.faces, &id);
+                        }
+                        Selection::Cat(id) => {
+                            page_action =
+                                self.pages
+                                    .show_cat(ui, &self.store, &t, &mut self.faces, &id);
+                        }
+                    }
+                }
             }
         });
+        // The modal comes before the dialogs it may open, so a dialog
+        // lies on top of it.
+        self.show_modal(ui.ctx());
         match page_action {
             PageAction::None => {}
-            PageAction::OpenCat(id) => self.home.selection = Selection::Cat(id),
-            PageAction::OpenClowder(id) => self.home.selection = Selection::Clowder(id),
+            PageAction::OpenCat(id) | PageAction::OpenClowder(id) => self.open_record(id),
             PageAction::ToggleHidden(id) => self.act(HomeAction::ToggleHidden(id)),
             PageAction::Edit(entity, slug) => {
                 if let Ok(Some(def)) = self.store.field_def(&slug) {
@@ -865,7 +878,7 @@ impl App {
             }
             PageAction::ShowOnMap(id) => {
                 self.map_page.focus(&self.store, &id);
-                self.home.selection = Selection::Map;
+                self.open_view(View::Map);
             }
             PageAction::AddPhoto(cat) => {
                 let paths = (self.pick_files)(t.add_photo());
@@ -897,8 +910,7 @@ impl App {
             PageAction::Document(kind, cat) => {
                 self.document
                     .open(&self.store, kind, &cat, self.pages.today);
-                self.home.selection = Selection::Document;
-                self.history_of = None;
+                self.open_modal(Modal::Document);
             }
             PageAction::NewCat(clowder) => {
                 self.asking = Asking::NewCat(clowder);
@@ -943,11 +955,9 @@ impl App {
                 Ok(()) => {
                     self.faces = FaceCache::default();
                     // The page of the merged-away record is gone: show the survivor.
-                    self.home.selection = match kind {
-                        MergeKind::Cat => Selection::Cat(survivor),
-                        MergeKind::Clowder => Selection::Clowder(survivor),
-                        MergeKind::Field => self.home.selection.clone(),
-                    };
+                    if kind != MergeKind::Field {
+                        self.open_record(survivor);
+                    }
                 }
                 Err(e) => self.notice = Some(e.to_string()),
             }
@@ -989,18 +999,8 @@ impl App {
                 }
                 self.faces = FaceCache::default();
             }
-            SummaryAction::OpenConflicts => {
-                self.home.selection = Selection::Conflicts;
-                self.history_of = None;
-            }
-            SummaryAction::OpenEntity(id) => {
-                self.home.selection = if id.starts_with("clowder:") {
-                    Selection::Clowder(id)
-                } else {
-                    Selection::Cat(id)
-                };
-                self.history_of = None;
-            }
+            SummaryAction::OpenConflicts => self.open_modal(Modal::Conflicts),
+            SummaryAction::OpenEntity(id) => self.open_record(id),
         }
         self.conflict
             .show(ui.ctx(), &mut self.store, &t, self.pages.units);
@@ -1095,12 +1095,7 @@ impl App {
         }
         self.new_field.show(ui.ctx(), &mut self.store, &t);
         self.show_dialog(ui.ctx());
-        if self.about_open {
-            self.show_about(ui.ctx());
-        }
-        if self.help_open {
-            self.show_help(ui.ctx());
-        }
+        self.remember_shown();
         self.show_crash_screen(ui.ctx());
     }
 
@@ -1166,17 +1161,14 @@ impl App {
                     .store
                     .create_cat(&id, &value, clowder.as_deref(), species)
                 {
-                    Ok(()) => {
-                        self.home.selection = Selection::Cat(id);
-                        self.history_of = None;
-                    }
+                    Ok(()) => self.open_record(id),
                     Err(e) => self.notice = Some(e.to_string()),
                 }
             }
             Asking::NewClowder => {
                 let id = format!("clowder:{}", new_uuid());
                 match self.store.create_clowder(&id, &value) {
-                    Ok(()) => self.home.selection = Selection::Clowder(id),
+                    Ok(()) => self.open_record(id),
                     Err(e) => self.notice = Some(e.to_string()),
                 }
             }
@@ -1218,16 +1210,6 @@ impl App {
                         }
                     });
                     ui.menu_button(t.menu_view(), |ui| {
-                        if icons::button(ui, icons::CALENDAR_MONTH_OUTLINED, t.agenda()).clicked() {
-                            self.home.selection = Selection::Agenda;
-                            self.history_of = None;
-                            ui.close();
-                        }
-                        if icons::button(ui, icons::MAP_OUTLINED, t.map()).clicked() {
-                            self.home.selection = Selection::Map;
-                            self.history_of = None;
-                            ui.close();
-                        }
                         if ui
                             .checkbox(&mut self.home.show_hidden, t.show_hidden_label())
                             .changed()
@@ -1296,33 +1278,28 @@ impl App {
                         }
                         ui.separator();
                         if icons::button(ui, icons::HISTORY, t.go_back_title()).clicked() {
-                            self.home.selection = Selection::Moments;
-                            self.history_of = None;
+                            self.open_modal(Modal::Moments);
                             ui.close();
                         }
                         if icons::button(ui, icons::INVENTORY_2_OUTLINED, t.archive_title())
                             .clicked()
                         {
-                            self.home.selection = Selection::Archive;
-                            self.history_of = None;
+                            self.open_modal(Modal::Archive);
                             ui.close();
                         }
                         if icons::button(ui, icons::SAVE_OUTLINED, t.backups_title()).clicked() {
-                            self.home.selection = Selection::Backups;
-                            self.history_of = None;
+                            self.open_modal(Modal::Backups);
                             ui.close();
                         }
                         if icons::button(ui, icons::RESTORE, t.restore_backups_menu()).clicked() {
                             self.refresh_restore_sets();
-                            self.home.selection = Selection::Restore;
-                            self.history_of = None;
+                            self.open_modal(Modal::Restore);
                             ui.close();
                         }
                         if icons::button(ui, icons::PERSON_OFF_OUTLINED, t.moderation_title())
                             .clicked()
                         {
-                            self.home.selection = Selection::Moderation;
-                            self.history_of = None;
+                            self.open_modal(Modal::Moderation);
                             ui.close();
                         }
                         ui.separator();
@@ -1330,13 +1307,11 @@ impl App {
                             .clicked()
                         {
                             self.capture.start(self.pages.today);
-                            self.home.selection = Selection::Capture;
-                            self.history_of = None;
+                            self.open_modal(Modal::Capture);
                             ui.close();
                         }
                         if icons::button(ui, icons::JOIN_INNER, t.find_duplicates()).clicked() {
-                            self.home.selection = Selection::Duplicates;
-                            self.history_of = None;
+                            self.open_modal(Modal::Duplicates);
                             ui.close();
                         }
                         if ui
@@ -1352,8 +1327,7 @@ impl App {
                             ui.close();
                         }
                         if icons::button(ui, icons::SYNC, t.sync_menu()).clicked() {
-                            self.home.selection = Selection::Sync;
-                            self.history_of = None;
+                            self.open_modal(Modal::Sync);
                             ui.close();
                         }
                         let conflicts = self.store.conflicts().map(|c| c.len()).unwrap_or(0);
@@ -1364,26 +1338,24 @@ impl App {
                             )
                             .clicked()
                         {
-                            self.home.selection = Selection::Conflicts;
-                            self.history_of = None;
+                            self.open_modal(Modal::Conflicts);
                             ui.close();
                         }
                     });
                     ui.menu_button(t.menu_help(), |ui| {
                         if icons::button(ui, icons::HELP_OUTLINE, t.help_menu()).clicked() {
-                            self.help_open = true;
+                            self.open_modal(Modal::Help);
                             ui.close();
                         }
                         if icons::button(ui, icons::EMOJI_EVENTS, t.achievements_title()).clicked()
                         {
                             self.refresh_ladders();
-                            self.home.selection = Selection::Achievements;
-                            self.history_of = None;
+                            self.open_modal(Modal::Achievements);
                             ui.close();
                         }
                         if icons::button(ui, icons::INFO_OUTLINE, t.about_and_feedback()).clicked()
                         {
-                            self.about_open = true;
+                            self.open_modal(Modal::About);
                             ui.close();
                         }
                     });
@@ -1636,7 +1608,7 @@ impl App {
                     Ok(made) => {
                         self.capture.open = false;
                         self.faces = FaceCache::default();
-                        self.home.selection = Selection::Cat(made.cat);
+                        self.open_record(made.cat);
                     }
                     Err(e) => {
                         self.capture.draft = draft;
@@ -1981,16 +1953,13 @@ impl App {
         self.icon.clone()
     }
 
-    fn show_about(&mut self, ctx: &Context) {
+    fn show_about(&mut self, ui: &mut Ui) {
         let t = self.t;
-        self.icon_texture(ctx);
-        let mut open = self.about_open;
+        self.icon_texture(ui.ctx());
         let mut links: Vec<String> = Vec::new();
-        egui::Window::new(t.about_and_feedback())
-            .open(&mut open)
-            .collapsible(false)
-            .resizable(false)
-            .show(ctx, |ui| {
+        ui.heading(t.about_and_feedback());
+        {
+            {
                 if let Some(icon) = self.icon.clone() {
                     ui.add(
                         egui::Image::from_texture(&icon).fit_to_exact_size(egui::Vec2::splat(64.0)),
@@ -2024,26 +1993,157 @@ impl App {
                             ui.label(LICENCES);
                         });
                 });
-            });
+            }
+        }
         for url in links {
             (self.open_url)(&url);
         }
-        self.about_open = open;
     }
 
-    /// The help window for the page shown.
-    fn show_help(&mut self, ctx: &Context) {
+    /// The help text for what is shown.
+    fn show_help(&mut self, ui: &mut Ui) {
         let t = self.t;
-        let mut open = self.help_open;
-        let text = tips::help_for(&t, &self.home.selection);
-        egui::Window::new(t.help_title())
-            .open(&mut open)
-            .collapsible(false)
-            .default_width(420.0)
-            .show(ctx, |ui| {
-                ui.label(text);
-            });
-        self.help_open = open;
+        let text = tips::help_for(&t, self.view, self.modal, &self.home.selection);
+        ui.heading(t.help_title());
+        ui.set_max_width(420.0);
+        ui.label(text);
+    }
+
+    /// Remembers the Cat or Clowder on the desk for the dashboard.
+    fn remember_shown(&mut self) {
+        if self.home.selection == self.shown {
+            return;
+        }
+        self.shown = self.home.selection.clone();
+        if let Selection::Cat(id) | Selection::Clowder(id) = &self.shown {
+            dashboard::remember(&self.store, id);
+        }
+    }
+
+    /// The Cats view's list until its table lands: every Cat by name.
+    fn show_cat_list(&mut self, ui: &mut Ui) -> HomeAction {
+        let t = self.t;
+        ui.set_min_width(ui.available_width());
+        ui.heading(t.cats());
+        let mut action = HomeAction::None;
+        egui::ScrollArea::vertical().show(ui, |ui| {
+            for cat in self.store.cats(None).unwrap_or_default() {
+                let selected = self.home.selection == Selection::Cat(cat.id.clone());
+                if ui.selectable_label(selected, &cat.name).clicked() {
+                    self.home.selection = Selection::Cat(cat.id);
+                    action = HomeAction::Open(self.home.selection.clone());
+                }
+            }
+        });
+        action
+    }
+
+    /// The modal over the desk, when one is open.
+    fn show_modal(&mut self, ctx: &Context) {
+        let Some(modal) = self.modal else {
+            return;
+        };
+        let t = self.t;
+        let id = format!("{modal:?}");
+        let (_, close) = views::show_modal(ctx, &id, t.close_label(), |ui| match modal {
+            Modal::Help => self.show_help(ui),
+            Modal::About => self.show_about(ui),
+            Modal::Sync => match self.sync_page.show(ui, &self.store, &t) {
+                SyncAction::None => {}
+                SyncAction::ChooseFolder => {
+                    if let Some(folder) = (self.pick_folder)(t.shared_folder())
+                        && let Err(e) = self.store.choose_sync_folder(&folder)
+                    {
+                        self.notice = Some(e.to_string());
+                    }
+                }
+                SyncAction::UseLastFolder(last) => {
+                    if let Err(e) = self.store.choose_sync_folder(Path::new(&last)) {
+                        self.notice = Some(e.to_string());
+                    }
+                }
+                SyncAction::SyncNow => {}
+                SyncAction::ExportBundle => self.export_bundle(),
+                SyncAction::ImportBundle => {
+                    let picked = (self.pick_files)(t.import_bundle());
+                    if let Some(path) = picked.first() {
+                        self.open_bundle_file(path);
+                    }
+                }
+            },
+            Modal::Settings => {
+                let locale = self.t.locale();
+                let code = crate::housekeeping::key_code(&self.store, &self.store.device_id());
+                let action = self.settings_page.show(
+                    ui,
+                    &self.store,
+                    &self.manager,
+                    &t,
+                    locale,
+                    &code,
+                    &self.ladders,
+                );
+                if let Err(e) = self.settings_page.apply_pending(&mut self.store) {
+                    self.notice = Some(e.to_string());
+                }
+                self.act_settings(action);
+            }
+            Modal::Achievements => {
+                show_achievements(ui, &self.manager, &t, &self.ladders);
+            }
+            Modal::Capture => {
+                self.poll_recognition();
+                let busy = self.recognizing.is_some();
+                let action = self.capture.show(ui, &self.store, &t, busy);
+                self.act_capture(action);
+            }
+            Modal::Document => {
+                let complete = self.fonts().complete;
+                let action = self.document.show(ui, &self.store, &t, complete);
+                self.act_document(action);
+            }
+            Modal::Moments => {
+                let action = show_moments(ui, &self.store, &t, &mut self.house);
+                self.act_house(action);
+            }
+            Modal::Archive => {
+                let today = self.pages.today;
+                let action = show_archive(ui, &self.store, &t, &mut self.house, today);
+                self.act_house(action);
+            }
+            Modal::Backups => {
+                let action = show_backups(ui, &self.store, &t, &self.backups_dir);
+                self.act_house(action);
+            }
+            Modal::Restore => {
+                let action = show_restore(ui, &t, &self.restore_sets, &mut self.house);
+                self.act_house(action);
+            }
+            Modal::Moderation => {
+                let action = show_moderation(ui, &self.store, &t, &mut self.house);
+                self.act_house(action);
+            }
+            Modal::Duplicates => match show_duplicates(ui, &self.store, &t) {
+                DuplicatesAction::None => {}
+                DuplicatesAction::Merge(a, b, kind) => {
+                    self.merge_dialog.ask_pair(&self.store, &t, &a, &b, kind);
+                }
+                DuplicatesAction::Reject(a, b) => {
+                    if let Err(e) = self.store.reject_looks_match(&a, &b) {
+                        self.notice = Some(e.to_string());
+                    }
+                }
+            },
+            Modal::Conflicts => {
+                if let Some((entity, field)) = show_conflicts(ui, &self.store, &t, self.pages.units)
+                {
+                    self.conflict.ask(&self.store, &entity, &field);
+                }
+            }
+        });
+        if close {
+            self.modal = None;
+        }
     }
 
     /// The friendly screen after a run that went down.
@@ -2083,7 +2183,9 @@ impl App {
     /// The tip due on this page, once.
     fn show_tip(&mut self, ui: &mut Ui) {
         let t = self.t;
-        let Some((screen, tip)) = tips::due_tip(&self.store, &self.home.selection) else {
+        let Some((screen, tip)) =
+            tips::due_tip(&self.store, self.view, self.modal, &self.home.selection)
+        else {
             return;
         };
         let mut done = false;
@@ -2106,8 +2208,7 @@ impl App {
         self.refresh_ladders();
         self.settings_page
             .open(self.settings.settings.author.as_deref());
-        self.home.selection = Selection::Settings;
-        self.history_of = None;
+        self.open_modal(Modal::Settings);
     }
 
     fn refresh_ladders(&mut self) {
@@ -2166,12 +2267,10 @@ impl App {
                 );
                 self.deleting_catalog = true;
             }
-            SettingsAction::OpenBackups => {
-                self.home.selection = Selection::Backups;
-            }
+            SettingsAction::OpenBackups => self.open_modal(Modal::Backups),
             SettingsAction::OpenAchievements => {
                 self.refresh_ladders();
-                self.home.selection = Selection::Achievements;
+                self.open_modal(Modal::Achievements);
             }
         }
     }
@@ -2375,6 +2474,25 @@ mod tests {
         app
     }
 
+    /// Clicks a view in the bar, which comes before any heading of the
+    /// same name.
+    fn open_view(h: &mut Harness<'static, App>, label: &str) {
+        h.get_all_by_label(label).next().unwrap().click();
+        h.run();
+    }
+
+    /// Opens the Clowders view and clicks the pane row named `label`.
+    fn open_row(h: &mut Harness<'static, App>, label: &str) {
+        open_view(h, "Clowders");
+        // The pane row comes before the page heading of the same name.
+        if label.starts_with("Strays") {
+            h.get_by_label_contains(label).click();
+        } else {
+            h.get_all_by_label(label).next().unwrap().click();
+        }
+        h.run();
+    }
+
     fn harness(app: App) -> Harness<'static, App> {
         Harness::builder()
             .with_size(egui::vec2(1440.0, 900.0))
@@ -2404,7 +2522,19 @@ mod tests {
                 let node = h.get_by_label(label);
                 assert!(node.rect().max.y < 60.0, "{label} sits in the menu bar");
             }
-            let list = h.get_by_label(t.clowders()).rect();
+            // The bar under the menu names the six views; Home is open.
+            for view in View::ALL {
+                let node = h.get_all_by_label(view.label(&t)).next().unwrap();
+                assert!(
+                    node.rect().max.y < 110.0,
+                    "{} sits in the bar",
+                    view.label(&t)
+                );
+            }
+            assert_eq!(h.state().view(), View::Home);
+            h.get_by_label(t.dashboard_due());
+            open_view(&mut h, t.clowders());
+            let list = h.get_all_by_label(t.clowders()).last().unwrap().rect();
             let hint = h.get_by_label(t.select_clowder_hint()).rect();
             assert!(
                 list.max.x <= DEFAULT_PANE_WIDTH + 2.0,
@@ -2510,6 +2640,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
+        open_view(&mut h, "Clowders");
         h.get_by_label_contains("Strays  (1)");
         let home = h.get_by_label("Foster Home").rect();
         let barn = h.get_by_label("Barn").rect();
@@ -2526,8 +2657,7 @@ mod tests {
             h.get_all_by_label("Barn").count() >= 2,
             "the detail pane shows it"
         );
-        h.get_by_label_contains("Strays  (1)").click();
-        h.run();
+        open_row(&mut h, "Strays");
         assert_eq!(*h.state().selection(), Selection::Strays);
         // The star moves a Clowder to the front and back.
         h.get_all_by_label("Mark as favourite")
@@ -2558,8 +2688,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_by_label("Cats (1)");
         h.get_by_label("Katzenweg 3, Leipzig");
         h.get_by_label(L10n::new("en").status_foster());
@@ -2603,16 +2732,14 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        h.get_by_label_contains("Strays  (1)").click();
-        h.run();
+        open_row(&mut h, "Strays");
         h.get_by_label("Wanderer").click();
         h.run();
         assert!(matches!(h.state().selection(), Selection::Cat(_)));
         h.get_by_label(L10n::new("en").stray_no_clowder());
         // Down from the Strays row lands on the first Clowder, also
         // right after a click left the focus on the row.
-        h.get_by_label_contains("Strays  (1)").click();
-        h.run();
+        open_row(&mut h, "Strays");
         h.key_press(egui::Key::ArrowDown);
         h.run();
         assert_eq!(
@@ -2644,8 +2771,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "chores"));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         assert!(
             h.query_by_label_contains("Worming").is_none(),
             "an ended chore is not listed"
@@ -2661,8 +2787,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         h.get_by_label("4.25 kg");
@@ -2696,8 +2821,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         // The Visits row's menu: edit, then history.
@@ -2766,8 +2890,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "history-reverts"));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         h.get_by_label_contains(" kg").click_secondary();
@@ -2807,8 +2930,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         h.get_by_label("DE-123 456");
@@ -2820,11 +2942,9 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "moves"));
         h.run();
-        h.get_by_label("View").click();
-        h.step();
         h.get_by_label("Map").click();
         h.run_steps(3);
-        assert_eq!(*h.state().selection(), Selection::Map);
+        assert_eq!(h.state().view(), View::Map);
         let pins = MapPage::pins(h.state().store(), None, &std::collections::HashSet::new());
         assert_eq!(
             pins.iter().map(|p| p.label.as_str()).collect::<Vec<_>>(),
@@ -2863,8 +2983,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         // The Location row's editor offers the map.
@@ -2920,7 +3039,7 @@ mod tests {
         h.step();
         h.get_by_label("Show on map").click();
         h.run_steps(3);
-        assert_eq!(*h.state().selection(), Selection::Map);
+        assert_eq!(h.state().view(), View::Map);
     }
 
     #[test]
@@ -2928,8 +3047,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         h.get_by_label("Actions").click();
@@ -2982,6 +3100,7 @@ mod tests {
         h.step();
         h.get_by_label("Show hidden").click();
         h.run();
+        open_view(&mut h, "Clowders");
         h.get_by_label("Barn");
         h.state_mut().act(HomeAction::ToggleHidden(
             "clowder:00000000-0000-4000-8000-000000000002".into(),
@@ -3010,6 +3129,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(app(dir.path(), "en", true));
         h.run();
+        open_view(&mut h, "Clowders");
         h.get_by_label("New clowder").click();
         h.run();
         h.state_mut().dialog.value = "Barn".into();
@@ -3043,6 +3163,7 @@ mod tests {
         h.run();
         assert_eq!(h.state().title(), "Leipzig");
         assert_eq!(h.state().manager().catalogs().len(), 2);
+        open_view(&mut h, "Clowders");
         h.get_by_label("No clowders yet. A clowder is a place where cats live — your foster home, an adopter's flat. Create the first one below.");
         // Rename the open one.
         h.get_by_label("Catalog").click();
@@ -3087,8 +3208,7 @@ mod tests {
         app.pick_files = Box::new(move |_| vec![hand.clone()]);
         let mut h = harness(app);
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -3127,8 +3247,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -3235,8 +3354,7 @@ mod tests {
         app.save_file = Box::new(move |_, _| Some(hand.clone()));
         let mut h = harness(app);
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         h.get_by_label("Photos 2").click();
@@ -3296,7 +3414,7 @@ mod tests {
         let mut h = harness(ada);
         h.run();
         open_sync_page(&mut h);
-        assert_eq!(*h.state().selection(), Selection::Sync);
+        assert_eq!(h.state().modal(), Some(Modal::Sync));
         h.get_by_label("No folder chosen yet");
         h.get_by_label("Choose…").click();
         h.run();
@@ -3339,7 +3457,7 @@ mod tests {
         b.get_by_label("What arrived");
         b.get_by_label("New");
         b.get_all_by_label("Miezi").next().unwrap();
-        b.get_by_label("Close").click();
+        b.get_all_by_label("Close").last().unwrap().click();
         b.run();
         assert!(!b.state().summary.open);
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -3367,6 +3485,9 @@ mod tests {
         b.run();
         assert!(b.state().watch_pending.is_some());
         b.get_by_label("Changes from Ada waiting in Clowders. Tap to sync.");
+        // The Sync modal still lies over the desk; Escape puts it away.
+        b.key_press(egui::Key::Escape);
+        b.run();
         b.get_by_label("Not now").click();
         b.run();
         assert!(b.state().watch_pending.is_none());
@@ -3388,7 +3509,8 @@ mod tests {
         b.run();
         assert!(b.state().watch_pending.is_none());
         b.get_by_label("Updated");
-        b.get_by_label_contains("purrs a lot");
+        // The dashboard's recent changes carry the remark as well.
+        b.get_all_by_label_contains("purrs a lot").next().unwrap();
         // Reject puts it back.
         b.get_by_label("Reject").click();
         b.run();
@@ -3466,7 +3588,7 @@ mod tests {
         b.run();
         b.get_by_label_contains("Bundle imported: ");
         b.get_by_label("What arrived");
-        b.get_by_label("Close").click();
+        b.get_all_by_label("Close").last().unwrap().click();
         b.run();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         assert_eq!(
@@ -3494,7 +3616,7 @@ mod tests {
             ..Default::default()
         });
         carol.run();
-        assert_eq!(*carol.state().selection(), Selection::Sync);
+        assert_eq!(carol.state().modal(), Some(Modal::Sync));
         carol.get_by_label("What arrived");
         assert_eq!(
             carol
@@ -3520,7 +3642,7 @@ mod tests {
         h.get_by_label(format!("Conflicts ({})", conflicts.len()).as_str())
             .click_accesskit();
         h.run();
-        assert_eq!(*h.state().selection(), Selection::Conflicts);
+        assert_eq!(h.state().modal(), Some(Modal::Conflicts));
         h.get_by_label("Conflicts to resolve");
         h.get_by_label("Changed in two places at once. Pick what is true:");
         let name = h
@@ -3595,8 +3717,7 @@ mod tests {
         fixed_day(&mut app, 2026, 3, 10, 7);
         let mut h = harness(app);
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -3657,11 +3778,9 @@ mod tests {
             "Feed twice"
         );
         // The agenda lists it under today, all done.
-        h.get_by_label("View").click();
-        h.step();
-        h.get_by_label("Agenda").click_accesskit();
+        h.get_by_label("Agenda").click();
         h.run();
-        assert_eq!(*h.state().selection(), Selection::Agenda);
+        assert_eq!(h.state().view(), View::Agenda);
         h.get_by_label("Today: all done");
         h.get_by_label_contains("Feed twice");
         // End it after one confirmation: gone from the lists.
@@ -3696,8 +3815,7 @@ mod tests {
         app.save_file = Box::new(move |_, _| Some(hand.clone()));
         let mut h = harness(app);
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -3724,9 +3842,7 @@ mod tests {
         h.get_by_label_contains("Neutering · 2 cats");
         // The agenda shows the run once with both names, and the
         // calendar file carries it with its alarm.
-        h.get_by_label("View").click();
-        h.step();
-        h.get_by_label("Agenda").click_accesskit();
+        h.get_by_label("Agenda").click();
         h.run();
         h.get_by_label_contains("Neutering · 2 cats");
         h.get_by_label_contains("Miezi, Tom");
@@ -3894,7 +4010,7 @@ mod tests {
         h.step();
         h.get_by_label("Find duplicates").click_accesskit();
         h.run();
-        assert_eq!(*h.state().selection(), Selection::Duplicates);
+        assert_eq!(h.state().modal(), Some(Modal::Duplicates));
         h.get_by_label("Miezi · miezi  (cat)");
         h.get_by_label("Name");
         h.get_by_label("Tom · miezi  (cat)");
@@ -3935,8 +4051,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         h.get_by_label("Actions").click();
@@ -3959,8 +4074,7 @@ mod tests {
         assert_eq!(*h.state().selection(), Selection::Cat(tom.into()));
         assert_eq!(h.state().store().cats(None).unwrap().len(), 2);
         // The Clowder page offers the same.
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_by_label("Actions").click();
         h.step();
         h.get_by_label("Merge this clowder into…").click_accesskit();
@@ -4027,7 +4141,164 @@ mod tests {
         h.run();
         assert_eq!(h.state().store().clowders().unwrap().len(), 1);
         assert_eq!(h.state().store().cats(None).unwrap().len(), 1);
+        h.get_all_by_label("Foster Home").next().unwrap();
+    }
+
+    #[test]
+    fn the_bar_reaches_every_view_by_click_and_by_key() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        assert_eq!(h.state().view(), View::Home);
+        h.get_by_label("3 cats");
+        open_view(&mut h, "Cats");
+        assert_eq!(h.state().view(), View::Cats);
+        // The Cats view lists every cat until its table lands.
+        h.get_all_by_label("Tom").next().unwrap().click();
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Cat("cat:00000000-0000-4000-8000-000000000002".into())
+        );
+        open_view(&mut h, "Vet");
+        h.get_by_label("Runs and appointments across all cats land here");
+        // Ctrl+4 is the Map, Ctrl+1 Home; the desk keeps its cat.
+        h.key_press_modifiers(egui::Modifiers::COMMAND, egui::Key::Num4);
+        h.run();
+        assert_eq!(h.state().view(), View::Map);
+        h.key_press_modifiers(egui::Modifiers::COMMAND, egui::Key::Num1);
+        h.run();
+        assert_eq!(h.state().view(), View::Home);
+        open_view(&mut h, "Clowders");
         h.get_by_label("Foster Home");
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Cat("cat:00000000-0000-4000-8000-000000000002".into())
+        );
+    }
+
+    #[test]
+    fn the_dashboard_ticks_a_chore_finishes_an_appointment_and_remembers_the_last_cat() {
+        use catlog_core::appointments::{Appointment, AppointmentAlert};
+        use catlog_core::chores::{Chore, ChoreRepeat, ChoreSchedule, ChoreUnit};
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 7);
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let feed = Chore {
+            id: String::new(),
+            entity: miezi.into(),
+            title: "Feed".into(),
+            schedule: ChoreSchedule {
+                repeat: ChoreRepeat::Daily,
+                every: 1,
+                unit: ChoreUnit::Days,
+                weekdays: Vec::new(),
+            },
+            time: None,
+            start: chrono::NaiveDate::from_ymd_opt(2026, 3, 1).unwrap(),
+            paused: false,
+            ended: false,
+            remind: false,
+            remind_at: None,
+            extra: Default::default(),
+        };
+        let feed = app.store_mut().create_chore("c-feed", &feed).unwrap();
+        let visit = Appointment {
+            id: String::new(),
+            entity: miezi.into(),
+            date: chrono::NaiveDate::from_ymd_opt(2026, 3, 10).unwrap(),
+            time: None,
+            title: "Neutering".into(),
+            notes: String::new(),
+            linked_field: Some("f:remarks".into()),
+            linked_value: Some("neutered".into()),
+            alert: AppointmentAlert::None,
+            done: false,
+            group: None,
+            extra: Default::default(),
+        };
+        app.store_mut()
+            .create_appointment("a-neuter", &visit)
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Due today");
+        h.get_by_label_contains("Feed · Daily");
+        h.get_by_label_contains("Neutering");
+        // The tick from Home counts like the one on the cat's page.
+        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.run();
+        assert_eq!(h.state().store().chore_ticks(&feed).unwrap().len(), 1);
+        // Finish writes the linked value.
+        h.get_by_label("Finish").click();
+        h.run();
+        assert!(h.state().finish_dialog.open);
+        h.get_all_by_label("Finish").last().unwrap().click();
+        h.run();
+        assert!(!h.state().finish_dialog.open);
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:remarks")
+                .unwrap()
+                .as_deref(),
+            Some("neutered")
+        );
+        // The change shows up under recent changes; its name opens the cat.
+        h.get_by_label("Recent changes");
+        h.get_all_by_label_contains("Remarks: neutered")
+            .next()
+            .unwrap();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        assert_eq!(h.state().view(), View::Cats);
+        assert_eq!(*h.state().selection(), Selection::Cat(miezi.into()));
+        // Back on Home the cat is remembered as last viewed, per catalog.
+        open_view(&mut h, "Home");
+        h.get_by_label("Last viewed");
+        assert_eq!(
+            h.state()
+                .store()
+                .local_setting(crate::dashboard::LAST_CAT)
+                .as_deref(),
+            Some(miezi)
+        );
+        h.get_by_role_and_label(egui::accesskit::Role::Button, "Miezi")
+            .click();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Cat(miezi.into()));
+    }
+
+    #[test]
+    fn a_modal_lies_over_the_desk_and_escape_closes_its_dialog_first() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_catalog_menu_item(&mut h, "Go back");
+        assert_eq!(h.state().modal(), Some(Modal::Moments));
+        // The desk stays underneath.
+        h.get_by_label("Due today");
+        h.get_by_label("Name this moment").click();
+        h.run();
+        assert!(h.state().dialog.open);
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(!h.state().dialog.open, "the dialog goes first");
+        assert_eq!(h.state().modal(), Some(Modal::Moments));
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert_eq!(h.state().modal(), None);
+        // The close button in the corner does the same.
+        open_catalog_menu_item(&mut h, "Go back");
+        h.get_by_label("Close").click();
+        h.run();
+        assert_eq!(h.state().modal(), None);
+        // Help names what is shown: the desk, then the modal.
+        open_view(&mut h, "Map");
+        h.state_mut().open_modal(Modal::Help);
+        h.run();
+        h.get_by_label_contains(L10n::new("en").help_map());
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {
@@ -4046,7 +4317,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_catalog_menu_item(&mut h, "Go back");
-        assert_eq!(*h.state().selection(), Selection::Moments);
+        assert_eq!(h.state().modal(), Some(Modal::Moments));
         h.get_by_label("Name this moment").click();
         h.run();
         h.state_mut().dialog.value = "Before the fair".into();
@@ -4103,9 +4374,11 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_catalog_menu_item(&mut h, "Archive");
-        assert_eq!(*h.state().selection(), Selection::Archive);
+        assert_eq!(h.state().modal(), Some(Modal::Archive));
         h.get_by_label_contains("Deceased cats and empty clowders");
-        h.get_by_label("Tom").click();
+        // The dashboard behind the modal names Tom too.
+        let toms = h.get_all_by_label("Tom").count();
+        h.get_all_by_label("Tom").last().unwrap().click();
         h.run();
         h.get_by_label("Archive 1 entries").click();
         h.run();
@@ -4116,8 +4389,9 @@ mod tests {
         h.get_by_label("1 entries archived and deleted");
         assert!(archive.is_file());
         assert!(h.state().store().is_deleted(tom).unwrap());
-        assert!(
-            h.query_by_label("Tom").is_none(),
+        assert_eq!(
+            h.get_all_by_label("Tom").count(),
+            toms - 1,
             "archived, no candidate anymore"
         );
         // Without a file nothing is deleted.
@@ -4128,7 +4402,7 @@ mod tests {
             .unwrap();
         h.state_mut().save_file = Box::new(|_, _| None);
         h.run();
-        h.get_by_label("Miezi").click();
+        h.get_all_by_label("Miezi").last().unwrap().click();
         h.run();
         h.get_by_label("Archive 1 entries").click();
         h.run();
@@ -4179,8 +4453,11 @@ mod tests {
         h.state_mut().on_exit();
         assert_ne!(std::fs::metadata(&backup).unwrap().len(), before);
         // Restore: the set is listed, ticked and becomes a catalog.
+        // The modal blocks the menu until it closes.
+        h.key_press(egui::Key::Escape);
+        h.run();
         open_catalog_menu_item(&mut h, "Restore backups…");
-        assert_eq!(*h.state().selection(), Selection::Restore);
+        assert_eq!(h.state().modal(), Some(Modal::Restore));
         // The pane heading says "Clowders" too; the set's box comes last.
         h.get_all_by_label("Clowders").last().unwrap().click();
         h.run();
@@ -4212,7 +4489,7 @@ mod tests {
         let mut h = harness(seeded(dir.path()));
         h.run();
         open_catalog_menu_item(&mut h, "Authors & bans");
-        assert_eq!(*h.state().selection(), Selection::Moderation);
+        assert_eq!(h.state().modal(), Some(Modal::Moderation));
         h.get_by_label("Who wrote into this catalog");
         let rows = h.state().store().authors_overview().unwrap();
         let me = h.state().store().device_id();
@@ -4262,8 +4539,7 @@ mod tests {
     }
 
     fn open_cat_document(h: &mut Harness<'static, App>, item: &str) {
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         h.get_by_label("Actions").click();
@@ -4290,7 +4566,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_cat_document(&mut h, "Card");
-        assert_eq!(*h.state().selection(), Selection::Document);
+        assert_eq!(h.state().modal(), Some(Modal::Document));
         assert_eq!(h.state().document.kind, Some(DocKind::Card));
         h.get_by_label("Card — Miezi");
         h.get_by_label("What goes on the card");
@@ -4467,7 +4743,7 @@ mod tests {
             let (document, store) = (&mut app.document, &app.store);
             document.open(store, DocKind::Card, miezi, today);
         }
-        h.state_mut().home.selection = Selection::Document;
+        h.state_mut().modal = Some(Modal::Document);
         h.run();
         h.get_by_label_contains("Noto Sans");
         assert!(h.state_mut().document_pdf().is_some());
@@ -4508,7 +4784,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_catalog_menu_item(&mut h, "Capture flier");
-        assert_eq!(*h.state().selection(), Selection::Capture);
+        assert_eq!(h.state().modal(), Some(Modal::Capture));
         h.get_by_label("Open image…").click();
         wait_for_recognition(&mut h);
         h.get_by_label("TASSO poster recognized. Check below which field each line goes to.");
@@ -4689,7 +4965,7 @@ mod tests {
         h.step();
         h.get_by_label("Settings").click_accesskit();
         h.run();
-        assert_eq!(*h.state().selection(), Selection::Settings);
+        assert_eq!(h.state().modal(), Some(Modal::Settings));
         assert_eq!(h.state().settings_page.author, "Ada");
         // Units: the second combo (language, units, title) offers three.
         let combo = |h: &Harness<'static, App>, n: usize| {
@@ -4759,6 +5035,9 @@ mod tests {
         h.run();
         h.get_by_label("This is the catalog you are in. Switch to another one, then delete it.");
         // With a second one it goes, after a backup, and the other opens.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert_eq!(h.state().modal(), None);
         h.get_by_label("Catalog").click();
         h.step();
         h.get_by_label("New catalog").click();
@@ -4805,8 +5084,7 @@ mod tests {
             h.query_by_label_contains("This is the catalog you are in")
                 .is_none()
         );
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         // The Cat page's first tip.
@@ -4816,16 +5094,16 @@ mod tests {
         h.step();
         h.get_by_label("Help for this page").click_accesskit();
         h.run();
-        assert!(h.state().help_open);
+        assert_eq!(h.state().modal(), Some(Modal::Help));
         h.get_by_label_contains("Everything about this cat");
-        h.state_mut().help_open = false;
+        h.state_mut().modal = None;
         h.run();
         // About: the links open outside.
         h.get_by_label("Help").click();
         h.step();
         h.get_by_label("About & feedback").click_accesskit();
         h.run();
-        assert!(h.state().about_open);
+        assert_eq!(h.state().modal(), Some(Modal::About));
         h.get_by_label("Source code").click();
         h.run();
         h.get_by_label("Write the developer").click();
@@ -4906,8 +5184,7 @@ mod tests {
         }
         let mut h = harness(app);
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         // The tenth tick: the day is done and the servant's rank reached.
@@ -4926,7 +5203,7 @@ mod tests {
         h.step();
         h.get_by_label("Achievements").click_accesskit();
         h.run();
-        assert_eq!(*h.state().selection(), Selection::Achievements);
+        assert_eq!(h.state().modal(), Some(Modal::Achievements));
         h.get_by_label("Servant (Feed)");
         h.get_by_label_contains("Done 10 times, first on ");
         // The title can be worn.
@@ -4957,8 +5234,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        h.get_by_label("Foster Home").click();
-        h.run();
+        open_row(&mut h, "Foster Home");
         h.get_by_label("New cat").click();
         h.run();
         assert!(h.state().dialog.open);
@@ -4982,8 +5258,7 @@ mod tests {
             store.current(&cat, "f:species").unwrap().as_deref(),
             Some("cat")
         );
-        h.get_by_label_contains("Strays  (1)").click();
-        h.run();
+        open_row(&mut h, "Strays");
         h.get_by_label("New cat").click();
         h.run();
         h.state_mut().dialog.value = "Roamer".into();

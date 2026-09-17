@@ -136,48 +136,45 @@ impl MergeDialog {
         } else {
             t.merge_into().to_string()
         };
-        egui::Window::new(title)
-            .id(egui::Id::new(("merge-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.set_max_width(420.0);
-                if self.confirming {
-                    ui.label(t.merge_body(&survivor_name));
-                    ui.horizontal(|ui| {
-                        if ui.button(t.merge()).clicked()
-                            && let Some((loser, survivor)) = self.decision()
-                        {
-                            result = Some((loser, survivor, kind));
-                        }
-                        if ui.button(t.cancel()).clicked() {
-                            close = true;
-                        }
-                    });
-                } else {
-                    egui::ScrollArea::vertical()
-                        .max_height(300.0)
-                        .show(ui, |ui| {
-                            for (id, name) in &self.candidates {
-                                ui.radio_value(&mut self.survivor, Some(id.clone()), name.as_str());
-                            }
-                        });
-                    ui.horizontal(|ui| {
-                        if ui
-                            .add_enabled(self.survivor.is_some(), egui::Button::new(t.merge_into()))
-                            .clicked()
-                        {
-                            self.confirming = true;
-                        }
-                        if ui.button(t.cancel()).clicked() {
-                            close = true;
+        let modal = egui::Modal::new(egui::Id::new(("merge-dialog", self.id))).show(ctx, |ui| {
+            ui.set_max_width(420.0);
+            ui.heading(title);
+            if self.confirming {
+                ui.label(t.merge_body(&survivor_name));
+                ui.horizontal(|ui| {
+                    if ui.button(t.merge()).clicked()
+                        && let Some((loser, survivor)) = self.decision()
+                    {
+                        result = Some((loser, survivor, kind));
+                    }
+                    if ui.button(t.cancel()).clicked() {
+                        close = true;
+                    }
+                });
+            } else {
+                egui::ScrollArea::vertical()
+                    .max_height(300.0)
+                    .show(ui, |ui| {
+                        for (id, name) in &self.candidates {
+                            ui.radio_value(&mut self.survivor, Some(id.clone()), name.as_str());
                         }
                     });
-                }
-            });
-        if result.is_some() || close {
+                ui.horizontal(|ui| {
+                    if ui
+                        .add_enabled(self.survivor.is_some(), egui::Button::new(t.merge_into()))
+                        .clicked()
+                    {
+                        self.confirming = true;
+                    }
+                    if ui.button(t.cancel()).clicked() {
+                        close = true;
+                    }
+                });
+            }
+        });
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         result
     }
@@ -250,47 +247,44 @@ impl TransferDialog {
         }
         let mut result = None;
         let mut close = false;
-        egui::Window::new(t.move_to_catalog())
-            .id(egui::Id::new(("transfer-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.set_max_width(420.0);
-                ui.strong(t.menu_catalog());
-                for (id, name) in &self.targets {
-                    ui.radio_value(&mut self.target, Some(id.clone()), name.as_str());
-                }
-                ui.add_space(6.0);
-                ui.strong(t.choose_what_to_move());
-                egui::ScrollArea::vertical()
-                    .max_height(240.0)
-                    .show(ui, |ui| {
-                        for (_, name, is_clowder, on) in &mut self.options {
-                            let label = if *is_clowder {
-                                format!("{name} ({})", t.kind_clowder())
-                            } else {
-                                format!("{name} ({})", t.stray())
-                            };
-                            ui.checkbox(on, label);
-                        }
-                    });
-                ui.horizontal(|ui| {
-                    let ready = self.target.is_some() && !self.chosen().is_empty();
-                    if ui
-                        .add_enabled(ready, egui::Button::new(t.move_to_catalog()))
-                        .clicked()
-                        && let Some(target) = self.target.clone()
-                    {
-                        result = Some((target, self.chosen()));
-                    }
-                    if ui.button(t.cancel()).clicked() {
-                        close = true;
+        let modal = egui::Modal::new(egui::Id::new(("transfer-dialog", self.id))).show(ctx, |ui| {
+            ui.set_max_width(420.0);
+            ui.heading(t.move_to_catalog());
+            ui.strong(t.menu_catalog());
+            for (id, name) in &self.targets {
+                ui.radio_value(&mut self.target, Some(id.clone()), name.as_str());
+            }
+            ui.add_space(6.0);
+            ui.strong(t.choose_what_to_move());
+            egui::ScrollArea::vertical()
+                .max_height(240.0)
+                .show(ui, |ui| {
+                    for (_, name, is_clowder, on) in &mut self.options {
+                        let label = if *is_clowder {
+                            format!("{name} ({})", t.kind_clowder())
+                        } else {
+                            format!("{name} ({})", t.stray())
+                        };
+                        ui.checkbox(on, label);
                     }
                 });
+            ui.horizontal(|ui| {
+                let ready = self.target.is_some() && !self.chosen().is_empty();
+                if ui
+                    .add_enabled(ready, egui::Button::new(t.move_to_catalog()))
+                    .clicked()
+                    && let Some(target) = self.target.clone()
+                {
+                    result = Some((target, self.chosen()));
+                }
+                if ui.button(t.cancel()).clicked() {
+                    close = true;
+                }
             });
-        if result.is_some() || close {
+        });
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         result
     }

@@ -58,5 +58,39 @@
   "helpMenu": "Hilfe zu dieser Seite",
   "restartHint": "Schließen, um weiterzumachen; der Bericht bleibt, bis er gesendet ist.",
   "yourKeyLine": "Dein Schlüssel: {code}",
-  "licencesRust": "Rust-Bibliotheken"
+  "licencesRust": "Rust-Bibliotheken",
+  "viewHome": "Start",
+  "viewVet": "Tierarzt",
+  "clowdersCount": "{count} Kolonien",
+  "@clowdersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "straysCount": "{count} Streuner",
+  "@straysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missingCount": "{count} vermisst",
+  "@missingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dashboardDue": "Heute fällig",
+  "dashboardNothingDue": "Heute ist nichts fällig",
+  "dashboardRecent": "Letzte Änderungen",
+  "dashboardNoChanges": "Noch keine Änderungen",
+  "dashboardLastViewed": "Zuletzt angesehen",
+  "dashboardNothingViewed": "Öffne eine Katze oder eine Kolonie, dann erscheint sie hier",
+  "vetPlaceholder": "Tierarzt-Termine aller Katzen landen hier",
+  "closeLabel": "Schließen"
 }
