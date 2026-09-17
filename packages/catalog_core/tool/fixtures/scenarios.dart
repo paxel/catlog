@@ -527,6 +527,63 @@ final scenarios = <Scenario>[
     separateBundleState: true,
   ),
   Scenario(
+    'chores',
+    'A daily chore with ticks, one taken back; an every-two-weeks chore '
+        'paused and then ended; an Appointment finished with a value into '
+        'a Field; a Vet Run over two Cats moved as a whole, one member '
+        'finished, one deleted; a plan with the reminder flag.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      final tom = cat(w, 2, 'Tom', clowderId: home);
+      final drops = w.createChore(Chore(
+          id: '',
+          entity: miezi,
+          title: 'Drops',
+          schedule: const ChoreSchedule.daily(),
+          time: (hour: 8, minute: 0),
+          start: DateTime(2026, 1, 1),
+          remind: true,
+          remindAt: (hour: 7, minute: 30)));
+      w.tickChore(drops, DateTime(2026, 1, 1), doneOn: DateTime(2026, 1, 1));
+      w.tickChore(drops, DateTime(2026, 1, 2), doneOn: DateTime(2026, 1, 3));
+      w.untickChore(drops, DateTime(2026, 1, 2));
+      final worm = w.createChore(Chore(
+          id: '',
+          entity: home,
+          title: 'Worming',
+          schedule: const ChoreSchedule.every(2, ChoreUnit.weeks),
+          start: DateTime(2026, 1, 5)));
+      w.updateChore(worm.copyWith(paused: true));
+      w.updateChore(worm.copyWith(paused: false, ended: true));
+      final shots = w.createAppointment(Appointment(
+          id: '',
+          entity: miezi,
+          date: DateTime(2026, 3, 10),
+          time: (hour: 9, minute: 30),
+          title: 'Shots',
+          linkedField: 'f:neutered',
+          linkedValue: 'yes'));
+      w.finishAppointment(shots, notes: 'all good');
+      final run = w.createAppointments(
+          Appointment(
+              id: '',
+              entity: miezi,
+              date: DateTime(2026, 4, 1),
+              title: 'Check-up',
+              notes: 'both together',
+              alert: AppointmentAlert.hourBefore),
+          [miezi, tom]);
+      w.updateAppointmentGroup(run.first.copyWith(date: DateTime(2026, 4, 3)));
+      final members = w.groupOf(run.first);
+      w.finishAppointments(members.where((m) => m.entity == miezi),
+          notes: 'done for Miezi');
+      w.deleteAppointment(members.firstWhere((m) => m.entity == tom));
+      w.append(tom, 'f:remarks', 'vet on Monday',
+          date: DateTime.utc(2027, 5, 1), reminder: true);
+    },
+  ),
+  Scenario(
     'photo-missing',
     'A photo the entries name is in neither the folder nor the bundle: '
         'the entry lands, the photo counts as missing, the round says '

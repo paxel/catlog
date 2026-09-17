@@ -7,8 +7,10 @@
 //! down. Nothing in here knows about a window: the GUI crate draws, this
 //! crate owns the data.
 
+pub mod appointments;
 mod bundle;
 mod catalog;
+pub mod chores;
 pub mod corpus;
 mod dump;
 pub mod entities;
@@ -23,8 +25,10 @@ pub mod photo;
 pub mod signing;
 pub mod units;
 
+pub use appointments::{Appointment, AppointmentAlert};
 pub use bundle::BundleResult;
 pub use catalog::{Catalog, Clock, EntityView};
+pub use chores::{Chore, ChoreDay, ChoreRepeat, ChoreSchedule, ChoreUnit, Hhmm};
 pub use entities::{
     ActiveReminder, ClowderEvent, Family, PositionKind, TransferResult, transfer_entities,
 };
