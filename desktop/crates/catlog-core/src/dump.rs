@@ -65,10 +65,23 @@ impl Catalog {
             .filter(|e| e.device != me)
             .map(|e| serde_json::to_value(e.wire()))
             .collect::<std::result::Result<_, _>>()?;
+        let keys: Vec<Value> = self
+            .pinned_keys()?
+            .iter()
+            .map(|k| {
+                json!({
+                    "device": k.record.device,
+                    "key": k.record.public_key_base64,
+                    "since": k.record.since,
+                    "trust": k.trust,
+                })
+            })
+            .collect();
         Ok(json!({
             "vector": vector,
             "entities": entities,
             "blobs": blobs,
+            "keys": keys,
             "entries": entries,
         }))
     }

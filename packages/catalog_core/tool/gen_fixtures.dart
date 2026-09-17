@@ -79,20 +79,22 @@ Future<void> main(List<String> args) async {
       await folderSync(writer, folderDir.path);
       final bundlePath = '${out.path}/bundle.catsync';
       writeBundle(writer, bundlePath);
+      _applyTamper(scenario, writer, folderDir, bundlePath);
       _fixZipTimes(bundlePath);
 
       final folderReader = _catalog(
           Directory('${work.path}/folder-reader')..createSync(),
           'folderReader',
           'Reader');
-      await folderSyncIn(folderReader, memoryCopy(folderDir));
+      final folderResult =
+          await folderSyncIn(folderReader, memoryCopy(folderDir));
       final viaFolder = dumpState(folderReader);
 
       final bundleReader = _catalog(
           Directory('${work.path}/bundle-reader')..createSync(),
           'bundleReader',
           'Reader');
-      importBundle(bundleReader, bundlePath);
+      final bundleResult = importBundle(bundleReader, bundlePath);
       final viaBundle = dumpState(bundleReader);
 
       final folderJson = _json(viaFolder);
@@ -102,7 +104,11 @@ Future<void> main(List<String> args) async {
         stderr.writeln('${scenario.name}: folder and bundle readers disagree');
         exit(1);
       }
-      File('${out.path}/expected.json').writeAsStringSync(folderJson);
+      File('${out.path}/expected.json').writeAsStringSync(_json({
+        ...viaFolder,
+        'report': reportJson(folderResult.report),
+        'bundleReport': reportJson(bundleResult.report),
+      }));
       File('${out.path}/scenario.json').writeAsStringSync(_json({
         'name': scenario.name,
         'about': scenario.about,
@@ -127,14 +133,62 @@ Future<void> main(List<String> args) async {
 String _json(Object value) =>
     '${const JsonEncoder.withIndent('  ').convert(value)}\n';
 
+/// Runs the scenario's tamper step over the written folder and bundle.
+void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
+    String bundlePath) {
+  final tamper = scenario.tamper;
+  if (tamper == null) return;
+  final root = '${folderDir.path}/catlog-sync';
+  final ownFile = File('$root/${writer.deviceId}.jsonl');
+  List<Map<String, dynamic>> decode(String text) => [
+        for (final line in const LineSplitter().convert(text))
+          if (line.trim().isNotEmpty)
+            (jsonDecode(line) as Map).cast<String, dynamic>()
+      ];
+  final archive = ZipDecoder().decodeBytes(File(bundlePath).readAsBytesSync());
+  final entriesFile =
+      archive.files.firstWhere((f) => f.name.startsWith('entries'));
+  final t = Tamper(writer.deviceId, decode(ownFile.readAsStringSync()),
+      decode(utf8.decode(entriesFile.content as List<int>)));
+  tamper(t);
+  ownFile.writeAsStringSync(t.folderLines.map(jsonEncode).join('\n'));
+  final ownKeys = [
+    if (t.sinceOverride case final since?)
+      KeyRecord.make(writer.signingKey, writer.deviceId, since)
+    else
+      writer.ownKeyRecord
+  ];
+  File('$root/keys/${writer.deviceId}.json')
+      .writeAsStringSync(jsonEncode([for (final k in ownKeys) k.toJson()]));
+  for (final MapEntry(key: name, value: records) in t.extraKeyFiles.entries) {
+    File('$root/keys/$name')
+        .writeAsStringSync(jsonEncode([for (final k in records) k.toJson()]));
+  }
+  _rewriteZip(bundlePath, (name, bytes) {
+    if (name.startsWith('entries')) {
+      return utf8.encode(t.bundleLines.map(jsonEncode).join('\n'));
+    }
+    if (name == keysFile) {
+      return utf8.encode(jsonEncode([
+        for (final k in [...ownKeys, ...t.extraBundleKeys]) k.toJson()
+      ]));
+    }
+    return bytes;
+  });
+}
+
 /// Rewrites a zip with every file stamped at the same fixed time: the
 /// bundle writer stamps the wall clock, which would change the bytes on
 /// every run without changing the bundle.
-void _fixZipTimes(String path) {
+void _fixZipTimes(String path) => _rewriteZip(path, (_, bytes) => bytes);
+
+void _rewriteZip(
+    String path, List<int> Function(String name, List<int> bytes) edit) {
   final archive = ZipDecoder().decodeBytes(File(path).readAsBytesSync());
   final fixed = Archive();
   for (final f in archive.files) {
-    final copy = ArchiveFile(f.name, f.size, f.content)
+    final bytes = edit(f.name, f.content as List<int>);
+    final copy = ArchiveFile(f.name, bytes.length, bytes)
       ..compress = f.compress
       ..lastModTime = 0;
     fixed.addFile(copy);

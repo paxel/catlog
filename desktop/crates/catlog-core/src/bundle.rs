@@ -14,6 +14,10 @@ use crate::catalog::Catalog;
 use crate::entry::Entry;
 use crate::error::Error;
 use crate::folder::parse_lines;
+use crate::signing::{ImportReport, KeyRecord, parse_keys};
+
+/// The key list inside a bundle.
+pub const KEYS_FILE: &str = "keys.json";
 
 /// The bundle format this build writes and the highest it reads.
 pub const BUNDLE_FORMAT: u32 = 2;
@@ -28,6 +32,8 @@ pub struct BundleResult {
     pub entries_in: usize,
     pub blobs_in: usize,
     pub applied: Vec<Entry>,
+    /// Refused rows and the keys met.
+    pub report: ImportReport,
 }
 
 impl Catalog {
@@ -65,6 +71,11 @@ impl Catalog {
         }
         zip.write_all(jsonl.as_bytes())
             .map_err(|e| Error::io(path, e))?;
+        // The keys the entries were signed with; a reader from before
+        // ignores the file, as it ignores the signatures.
+        zip.start_file(KEYS_FILE, deflated)?;
+        zip.write_all(serde_json::to_string(&self.key_records()?)?.as_bytes())
+            .map_err(|e| Error::io(path, e))?;
         for hash in hashes {
             let Some(bytes) = self.image_bytes(&hash) else {
                 continue;
@@ -82,6 +93,7 @@ impl Catalog {
         let file = std::fs::File::open(path).map_err(|e| Error::io(path, e))?;
         let mut archive = zip::ZipArchive::new(file)?;
         let mut entries: Vec<Entry> = Vec::new();
+        let mut keys: Vec<KeyRecord> = Vec::new();
         let mut blobs: HashMap<String, usize> = HashMap::new();
         for i in 0..archive.len() {
             let mut f = archive.by_index(i)?;
@@ -105,6 +117,11 @@ impl Catalog {
                 {
                     return Err(Error::UnsupportedBundleFormat(declared));
                 }
+            } else if name == KEYS_FILE {
+                let mut text = String::new();
+                f.read_to_string(&mut text)
+                    .map_err(|e| Error::io(path, e))?;
+                keys = parse_keys(&text);
             } else if name == "entries2.jsonl" || name == "entries.jsonl" {
                 let mut text = String::new();
                 f.read_to_string(&mut text)
@@ -116,7 +133,8 @@ impl Catalog {
                 blobs.insert(hash.to_string(), i);
             }
         }
-        let applied = self.apply_entries(entries)?;
+        let mut report = ImportReport::default();
+        let applied = self.apply_entries_with(entries, Some(&keys), None, &mut report)?;
         let mut blobs_in = 0;
         for (hash, index) in blobs {
             if !self.knows_image(&hash)? || self.image_bytes(&hash).is_some() {
@@ -133,6 +151,7 @@ impl Catalog {
             entries_in: applied.len(),
             blobs_in,
             applied,
+            report,
         })
     }
 }
@@ -168,11 +187,14 @@ mod tests {
             z.file_names().map(String::from).collect()
         };
         assert!(names.contains(&"entries.jsonl".to_string()));
+        assert!(names.contains(&KEYS_FILE.to_string()));
         assert!(!names.contains(&"format".to_string()));
 
         let mut b = Catalog::open_with_device(&dir.path().join("b"), "bbbb").unwrap();
         let r = b.import_bundle(&path).unwrap();
         assert_eq!((r.entries_in, r.blobs_in), (4, 1));
+        assert_eq!(r.report.new_keys[0].record.device, "aaaa");
+        assert!(b.import_bundle(&path).unwrap().report.is_empty());
         assert_eq!(b.image_bytes(&photo).as_deref(), Some(&b"jpeg bytes"[..]));
         assert_eq!(b.import_bundle(&path).unwrap().entries_in, 0);
 

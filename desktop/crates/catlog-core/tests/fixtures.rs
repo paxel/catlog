@@ -19,9 +19,15 @@ fn fixtures() -> Vec<PathBuf> {
     dirs
 }
 
-fn expected(dir: &Path) -> serde_json::Value {
+/// `expected.json` with the two reports moved out, so the state compares
+/// on its own.
+fn expected(dir: &Path) -> (serde_json::Value, serde_json::Value, serde_json::Value) {
     let text = std::fs::read_to_string(dir.join("expected.json")).expect("expected.json");
-    serde_json::from_str(&text).expect("valid expected.json")
+    let mut value: serde_json::Value = serde_json::from_str(&text).expect("valid expected.json");
+    let object = value.as_object_mut().expect("an object");
+    let report = object.remove("report").expect("report");
+    let bundle_report = object.remove("bundleReport").expect("bundleReport");
+    (value, report, bundle_report)
 }
 
 fn assert_same(
@@ -66,7 +72,9 @@ fn every_scenario_imports_from_its_folder() {
             "{name}: {:?}",
             result.blob_problems
         );
-        assert_same(&name, "folder", &catalog.dump().unwrap(), &expected(&dir));
+        let (state, report, _) = expected(&dir);
+        assert_same(&name, "folder", &catalog.dump().unwrap(), &state);
+        assert_same(&name, "folder report", &result.report.to_json(), &report);
     }
 }
 
@@ -76,7 +84,9 @@ fn every_scenario_imports_from_its_bundle() {
         let name = dir.file_name().unwrap().to_string_lossy().into_owned();
         let tmp = tempfile::tempdir().unwrap();
         let mut catalog = Catalog::open(tmp.path()).unwrap();
-        catalog.import_bundle(&dir.join("bundle.catsync")).unwrap();
-        assert_same(&name, "bundle", &catalog.dump().unwrap(), &expected(&dir));
+        let result = catalog.import_bundle(&dir.join("bundle.catsync")).unwrap();
+        let (state, _, report) = expected(&dir);
+        assert_same(&name, "bundle", &catalog.dump().unwrap(), &state);
+        assert_same(&name, "bundle report", &result.report.to_json(), &report);
     }
 }

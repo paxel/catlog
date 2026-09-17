@@ -15,8 +15,60 @@ class Scenario {
   /// the same on every run.
   final void Function(CatalogStore writer) build;
 
-  const Scenario(this.name, this.about, this.build);
+  /// Edits the written folder and bundle after the writer published
+  /// them: forged lines, stripped signatures, a second key. What the
+  /// readers then see is what a hostile or old partner would send.
+  final void Function(Tamper t)? tamper;
+
+  const Scenario(this.name, this.about, this.build, {this.tamper});
 }
+
+/// The written files, open for editing by a scenario's tamper step.
+class Tamper {
+  /// The writer's device id.
+  final String writer;
+
+  /// Lines of the writer's folder file, decoded; written back as edited.
+  final List<Map<String, dynamic>> folderLines;
+
+  /// Lines of the bundle's entries file, decoded; written back as edited.
+  final List<Map<String, dynamic>> bundleLines;
+
+  /// Extra key files for the folder's `keys/` directory, by file name.
+  final Map<String, List<KeyRecord>> extraKeyFiles = {};
+
+  /// Extra records appended to the bundle's `keys.json`.
+  final List<KeyRecord> extraBundleKeys = [];
+
+  /// When set, the writer's own key record is republished with this
+  /// `since`, in the folder and the bundle.
+  int? sinceOverride;
+
+  Tamper(this.writer, this.folderLines, this.bundleLines);
+
+  /// The last line the writer wrote, in both files.
+  Map<String, dynamic> get last => folderLines.last;
+
+  /// Appends a line to both files: [edit] applied to a copy of [last].
+  void forgeAfterLast(
+      Map<String, dynamic> Function(Map<String, dynamic>) edit) {
+    final row = {...last, 'dseq': last['dseq'] + 1};
+    folderLines.add(edit({...row}));
+    bundleLines.add(edit({...row}));
+  }
+
+  /// Applies [edit] to the line with [dseq] in both files.
+  void editLine(int dseq, void Function(Map<String, dynamic>) edit) {
+    for (final lines in [folderLines, bundleLines]) {
+      edit(lines.firstWhere((l) => l['dseq'] == dseq));
+    }
+  }
+}
+
+/// A key that is nobody's: made from a fixed seed, so the corpus stays
+/// the same.
+final intruderKey =
+    SigningKey.fromSeed(Uint8List.fromList(List.generate(32, (i) => 77 + i)));
 
 /// A small JPEG the way the store keeps one; different sizes give
 /// different hashes.
@@ -72,6 +124,58 @@ final scenarios = <Scenario>[
       w.addImage(tom, photo(24, 24));
       cat(w, 3, 'Wanderer');
       assert(first != second);
+    },
+  ),
+  Scenario(
+    'forged-line',
+    'The writer\'s file carries one extra line under a new number with '
+        'another value and a copied signature: refused, the value before '
+        'it stands, the version vector does not move past it.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:color', 'tabby');
+    },
+    tamper: (t) => t.forgeAfterLast((row) => {...row, 'value': 'forged'}),
+  ),
+  Scenario(
+    'unsigned-rows',
+    'Rows without a signature: one below the key\'s first signed number '
+        'passes as from before the key, one at a new number above it is '
+        'refused.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      final miezi = cat(w, 1, 'Miezi', clowderId: home);
+      w.append(miezi, 'f:color', 'tabby');
+    },
+    tamper: (t) {
+      // The key record says signing began at 1, so a stripped row at a
+      // held number is not looked at, and a stripped row at a new number
+      // is refused. The writer's key list is rewritten to start at the
+      // number of the colour row, so the stripped colour row still passes.
+      final colour = t.folderLines.lastWhere((l) => l['field'] == 'f:color');
+      t.editLine(colour['dseq'] as int, (l) => l.remove('sig'));
+      t.forgeAfterLast((row) {
+        final r = {...row, 'value': 'unsigned'};
+        r.remove('sig');
+        return r;
+      });
+      t.sinceOverride = (colour['dseq'] as int) + 1;
+    },
+  ),
+  Scenario(
+    'second-key',
+    'A second, different key claiming the writer\'s device arrives next to '
+        'the pinned one, in a key file of its own and appended to the '
+        'bundle\'s list: ignored and reported, the first key stands.',
+    (w) {
+      final home = clowder(w, 1, 'Foster Home');
+      cat(w, 1, 'Miezi', clowderId: home);
+    },
+    tamper: (t) {
+      final record = KeyRecord.make(intruderKey, t.writer, 1);
+      t.extraKeyFiles['intruder.json'] = [record];
+      t.extraBundleKeys.add(record);
     },
   ),
 ];

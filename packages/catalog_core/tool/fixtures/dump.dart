@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:convert';
 
 import 'package:catalog_core/catalog_core.dart';
 
@@ -36,13 +37,39 @@ Map<String, dynamic> dumpState(CatalogStore store) {
       if (store.imageBytes(hash) != null) blobs.add(hash);
     }
   }
+  final keys = [
+    for (final k
+        in store.pinnedKeys()
+          ..sort((a, b) => a.record.device.compareTo(b.record.device)))
+      {
+        'device': k.record.device,
+        'key': base64.encode(k.record.publicKey),
+        'since': k.record.since,
+        'trust': k.trust.name,
+      }
+  ];
   return {
     'vector': vector,
     'entities': entities,
     'blobs': blobs.toList(),
+    'keys': keys,
     'entries': entries,
   };
 }
+
+/// What an import reported, as the corpus records it.
+Map<String, dynamic> reportJson(ImportReport report) => {
+      'refused': SplayTreeMap<String, int>.from({
+        for (final MapEntry(key: (author, device), value: n)
+            in report.refused.entries)
+          '$author@$device': n
+      }),
+      'newKeys': [for (final k in report.newKeys) k.record.device]..sort(),
+      'impostors': [
+        for (final (name, device) in report.impostors) [name, device]
+      ]..sort((a, b) => a.join().compareTo(b.join())),
+      'changedKeys': [...report.changedKeys]..sort(),
+    };
 
 Map<String, dynamic> _entity(CatalogStore store, String id) {
   final fields = SplayTreeMap<String, dynamic>.from(store.currentFields(id));

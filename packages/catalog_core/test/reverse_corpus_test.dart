@@ -39,18 +39,31 @@ void main() {
 
     test('$name: what the desktop wrote into the folder reads back', () async {
       final reader = CatalogStore.inMemory()..author = 'Reader';
-      await folderSyncIn(reader, memoryCopy(Directory('${dir.path}/folder')));
-      expect(_canon(dumpState(reader)), expected);
+      final result = await folderSyncIn(
+          reader, memoryCopy(Directory('${dir.path}/folder')));
+      expect(result.report.refusedCount, 0);
+      expect(_canon(_withoutPinnedWriter(dumpState(reader))), expected);
       reader.close();
     });
 
     test('$name: the bundle the desktop wrote reads back', () {
       final reader = CatalogStore.inMemory()..author = 'Reader';
-      importBundle(reader, '${dir.path}/bundle.catsync');
-      expect(_canon(dumpState(reader)), expected);
+      final result = importBundle(reader, '${dir.path}/bundle.catsync');
+      expect(result.report.refusedCount, 0);
+      expect(_canon(_withoutPinnedWriter(dumpState(reader))), expected);
       reader.close();
     });
   }
+}
+
+/// The reader pinned the writer's key; the writer's own view of itself
+/// has none. The key must be there, on trust, and then leaves the
+/// comparison.
+Map<String, dynamic> _withoutPinnedWriter(Map<String, dynamic> dump) {
+  final keys = dump['keys'] as List;
+  expect(keys, hasLength(1));
+  expect((keys.single as Map)['trust'], 'tofu');
+  return {...dump, 'keys': const []};
 }
 
 /// JSON with every map's keys sorted, so two dumps compare as text.

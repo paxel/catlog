@@ -16,8 +16,15 @@ pub struct Scenario {
     pub build: fn(&mut Catalog) -> Result<()>,
 }
 
-/// The writer's device id in every scenario: sixteen bytes of `0xa5`.
-pub const WRITER_DEVICE: &str = "a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5";
+/// The writer's key seed in every scenario; its device id follows from it.
+pub const WRITER_SEED: [u8; 32] = [0xa5; 32];
+
+/// The writer's device id in every scenario, derived from [`WRITER_SEED`].
+pub fn writer_device() -> String {
+    crate::signing::device_id_from_key(
+        &crate::signing::SigningKey::from_seed(WRITER_SEED).public_key(),
+    )
+}
 
 /// A clock that starts at 2026-01-01 10:00 UTC and moves one second per
 /// read, like the Dart generator's.
@@ -85,7 +92,7 @@ pub fn write_all(root: &Path) -> Result<()> {
         }
         std::fs::create_dir_all(&out).map_err(|e| crate::Error::io(&out, e))?;
         let work = out.join("writer");
-        let mut writer = Catalog::open_with_device(&work, WRITER_DEVICE)?;
+        let mut writer = Catalog::open_with_seed(&work, WRITER_SEED)?;
         writer.set_author("Rusty")?;
         writer.set_clock(fixed_clock());
         (scenario.build)(&mut writer)?;
@@ -116,27 +123,23 @@ mod tests {
             )
             .unwrap();
             assert_eq!(
-                expected["vector"][WRITER_DEVICE],
+                expected["vector"][writer_device()],
                 serde_json::json!(expected["entries"].as_array().unwrap().len())
             );
             let mut via_folder = Catalog::open(&dir.path().join("rf")).unwrap();
-            via_folder.import_folder(&out.join("folder"), None).unwrap();
-            assert_eq!(
-                via_folder.dump().unwrap(),
-                expected,
-                "{} via folder",
-                scenario.name
-            );
+            let r = via_folder.import_folder(&out.join("folder"), None).unwrap();
+            assert_eq!(r.report.new_keys[0].record.device, writer_device());
+            // The reader pinned the writer's key; the writer's own view has none.
+            let mut mine = via_folder.dump().unwrap();
+            mine["keys"] = serde_json::json!([]);
+            assert_eq!(mine, expected, "{} via folder", scenario.name);
             let mut via_bundle = Catalog::open(&dir.path().join("rb")).unwrap();
             via_bundle
                 .import_bundle(&out.join("bundle.catsync"))
                 .unwrap();
-            assert_eq!(
-                via_bundle.dump().unwrap(),
-                expected,
-                "{} via bundle",
-                scenario.name
-            );
+            let mut mine = via_bundle.dump().unwrap();
+            mine["keys"] = serde_json::json!([]);
+            assert_eq!(mine, expected, "{} via bundle", scenario.name);
         }
     }
 }

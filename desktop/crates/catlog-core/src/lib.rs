@@ -15,12 +15,14 @@ mod entry;
 mod error;
 mod folder;
 pub mod keys;
+pub mod signing;
 
 pub use bundle::BundleResult;
 pub use catalog::{Catalog, Clock, EntityView};
 pub use entry::{Entry, dart_iso, iso};
 pub use error::Error;
 pub use folder::FolderImport;
+pub use signing::{ImportReport, KeyRecord, KeyTrust, PinnedKey, SigningKey};
 
 /// The version the desktop app reports, taken from the crate.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");

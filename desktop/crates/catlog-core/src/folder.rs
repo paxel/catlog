@@ -3,7 +3,7 @@
 //! Every partner's file is imported read-only; photos the entries name
 //! are fetched as far as the folder has them.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 use std::path::{Path, PathBuf};
 
 use sha2::{Digest, Sha256};
@@ -12,6 +12,7 @@ use crate::Result;
 use crate::catalog::Catalog;
 use crate::entry::Entry;
 use crate::error::Error;
+use crate::signing::{ImportReport, KeyRecord, parse_keys};
 
 /// The outcome of one folder round, for the summary line.
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
@@ -26,6 +27,8 @@ pub struct FolderImport {
     pub blob_problems: Vec<String>,
     /// The entries actually new to this store.
     pub applied: Vec<Entry>,
+    /// Refused rows and the keys met.
+    pub report: ImportReport,
 }
 
 /// The subfolder the sync lives in under the folder a keeper picked.
@@ -44,6 +47,22 @@ impl Catalog {
         read_dirs.push(root.clone());
         let me = self.device_id();
         let mut result = FolderImport::default();
+        // Keys first: every device publishes the keys it holds under
+        // `keys/<deviceId>.json`; what the others published is learned
+        // before their entries are judged.
+        let mut foreign_keys: Vec<KeyRecord> = Vec::new();
+        for dir in &read_dirs {
+            let key_dir = dir.join("keys");
+            for name in list_files(&key_dir)? {
+                if !name.ends_with(".json") || name == format!("{me}.json") {
+                    continue;
+                }
+                if let Ok(text) = std::fs::read_to_string(key_dir.join(&name)) {
+                    foreign_keys.extend(parse_keys(&text));
+                }
+            }
+        }
+        self.learn_keys(&foreign_keys, None, &mut result.report, &HashMap::new())?;
         for dir in &read_dirs {
             for name in list_files(dir)? {
                 if !(name.ends_with(".jsonl") || name.ends_with(".jsonl2")) {
@@ -63,7 +82,7 @@ impl Catalog {
                     .into_iter()
                     .filter(|e| e.dseq > mine.get(&e.device).copied().unwrap_or(0))
                     .collect();
-                let imported = self.apply_entries(fresh)?;
+                let imported = self.apply_entries_with(fresh, None, None, &mut result.report)?;
                 result.entries_in += imported.len();
                 result.applied.extend(imported);
             }
@@ -106,9 +125,16 @@ impl Catalog {
         }
         let mut result = self.import_folder(folder, catalog)?;
 
+        // Own keys, rewritten only when they changed.
+        let me = self.device_id();
+        let own_keys = serde_json::to_string(&self.key_records()?)?;
+        let keys_path = own_root.join("keys").join(format!("{me}.json"));
+        if std::fs::read_to_string(&keys_path).ok().as_deref() != Some(&own_keys) {
+            write_atomically(&keys_path, own_keys.as_bytes())?;
+        }
+
         // Own file: full knowledge. Without a flagged entry the payload is
         // byte-identical to the old format and keeps the `.jsonl` name.
-        let me = self.device_id();
         let all = self.entries_since(&BTreeMap::new(), include_private)?;
         let flagged = all.iter().any(|e| e.reminder);
         let own_name = format!("{me}.jsonl{}", if flagged { "2" } else { "" });
@@ -294,6 +320,7 @@ mod tests {
         let sync = share.join(SYNC_DIR);
         assert!(sync.join(".nomedia").exists());
         assert!(sync.join("leipzig").join("aaaa.jsonl").exists());
+        assert!(sync.join("leipzig").join("keys").join("aaaa.json").exists());
         assert!(
             sync.join("leipzig")
                 .join("blobs")
@@ -306,6 +333,8 @@ mod tests {
         b.create_cat("cat:w", "Wanderer", None, "cat").unwrap();
         let r = b.sync_folder(&share, Some("leipzig"), false).unwrap();
         assert_eq!((r.entries_in, r.blobs_in, r.entries_out), (7, 1, 10));
+        assert_eq!(r.report.new_keys[0].record.device, "aaaa");
+        assert!(b.pinned_key("aaaa").is_some());
         assert_eq!(b.cats(None).unwrap().len(), 2);
         assert_eq!(b.image_bytes(&photo).as_deref(), Some(&b"jpeg bytes"[..]));
 
@@ -321,6 +350,26 @@ mod tests {
         .unwrap();
         let r = a.sync_folder(&share, Some("leipzig"), false).unwrap();
         assert_eq!((r.entries_in, r.entries_out), (3, 11));
+        assert_eq!(r.report.new_keys[0].record.device, "bbbb");
+        // A forged line in b's file is refused by a now that b's key is pinned.
+        let own = sync.join("leipzig").join("bbbb.jsonl");
+        let mut lines: Vec<String> = std::fs::read_to_string(&own)
+            .unwrap()
+            .lines()
+            .map(String::from)
+            .collect();
+        let last: serde_json::Value = serde_json::from_str(lines.last().unwrap()).unwrap();
+        let mut forged = last.clone();
+        forged["dseq"] = serde_json::json!(last["dseq"].as_i64().unwrap() + 1);
+        forged["value"] = serde_json::json!("x");
+        lines.push(forged.to_string());
+        std::fs::write(&own, lines.join("\n")).unwrap();
+        let r = a.sync_folder(&share, Some("leipzig"), false).unwrap();
+        assert_eq!(r.entries_in, 0);
+        assert_eq!(
+            r.report.refused[&("Bea".to_string(), "bbbb".to_string())],
+            1
+        );
         assert!(sync.join("leipzig").join("aaaa.jsonl2").exists());
         assert!(!sync.join("leipzig").join("aaaa.jsonl").exists());
         assert_eq!(a.cats(None).unwrap().len(), 2);

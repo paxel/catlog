@@ -12,6 +12,10 @@ use crate::Result;
 use crate::entry::Entry;
 use crate::error::Error;
 use crate::keys;
+use crate::signing::{
+    ImportReport, KeyRecord, KeyTrust, PinnedKey, SigningKey, device_id_from_key, entry_bytes,
+    verify_signature,
+};
 
 /// A Cat or Clowder as list rows want it: id plus current name.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -99,7 +103,26 @@ impl Catalog {
         };
         catalog.ensure_device_id()?;
         catalog.rebuild_voids()?;
+        catalog.ensure_signing_key()?;
         Ok(catalog)
+    }
+
+    /// Opens a Catalog whose signing key, and with it its device id, is
+    /// fixed instead of random: the fixture corpus and tests need a
+    /// reproducible log. An existing Catalog keeps what it has.
+    pub fn open_with_seed(dir: &Path, seed: [u8; 32]) -> Result<Catalog> {
+        let key = SigningKey::from_seed(seed);
+        std::fs::create_dir_all(dir).map_err(|e| Error::io(dir, e))?;
+        let db = Connection::open(dir.join("catalog.db"))?;
+        db.execute_batch(
+            "CREATE TABLE IF NOT EXISTS local_settings (key TEXT PRIMARY KEY, value TEXT NOT NULL)",
+        )?;
+        db.execute(
+            "INSERT OR IGNORE INTO local_settings (key, value) VALUES ('device', ?1), ('signseed', ?2), ('signsince', '1')",
+            params![device_id_from_key(&key.public_key()), key.seed_hex()],
+        )?;
+        drop(db);
+        Self::open(dir)
     }
 
     /// Opens a Catalog whose device id is fixed instead of random: the
@@ -149,14 +172,242 @@ impl Catalog {
         Ok(())
     }
 
+    /// A new Catalog's device id is derived from its signing key, made
+    /// here and now; a Catalog from before keeps its id and gets its key
+    /// in [`Catalog::ensure_signing_key`].
     fn ensure_device_id(&self) -> Result<()> {
         if self.raw_setting("device")?.is_some() {
             return Ok(());
         }
-        let mut bytes = [0u8; 16];
-        getrandom::fill(&mut bytes)
-            .map_err(|e| Error::Invalid(format!("no randomness for a device id: {e}")))?;
-        self.raw_set("device", &hex::encode(bytes))
+        let key = SigningKey::generate()?;
+        self.raw_set("device", &device_id_from_key(&key.public_key()))?;
+        self.raw_set("signseed", &key.seed_hex())?;
+        self.raw_set("signsince", "1")
+    }
+
+    /// A Catalog that existed before signing: its key starts with the
+    /// next entry it writes, everything before passes as unsigned.
+    fn ensure_signing_key(&self) -> Result<()> {
+        if self.raw_setting("signseed")?.is_some() {
+            return Ok(());
+        }
+        let key = SigningKey::generate()?;
+        let since = self
+            .version_vector()?
+            .get(&self.device_id())
+            .copied()
+            .unwrap_or(0)
+            + 1;
+        self.raw_set("signseed", &key.seed_hex())?;
+        self.raw_set("signsince", &since.to_string())
+    }
+
+    /// This Catalog's signing key.
+    pub fn signing_key(&self) -> Result<SigningKey> {
+        let hex = self
+            .raw_setting("signseed")?
+            .ok_or_else(|| Error::Invalid("no signing key".into()))?;
+        let bytes = hex::decode(hex).map_err(|e| Error::Invalid(format!("signing key: {e}")))?;
+        let seed: [u8; 32] = bytes
+            .try_into()
+            .map_err(|_| Error::Invalid("signing key has the wrong size".into()))?;
+        Ok(SigningKey::from_seed(seed))
+    }
+
+    /// The first own dseq that carries a signature.
+    pub fn signing_since(&self) -> i64 {
+        self.raw_setting("signsince")
+            .ok()
+            .flatten()
+            .and_then(|v| v.parse().ok())
+            .unwrap_or(1)
+    }
+
+    /// The key as it travels to partners, signed by itself.
+    pub fn own_key_record(&self) -> Result<KeyRecord> {
+        Ok(KeyRecord::make(
+            &self.signing_key()?,
+            &self.device_id(),
+            self.signing_since(),
+        ))
+    }
+
+    /// The short key code people see next to this Catalog's author name.
+    pub fn key_code(&self) -> Result<String> {
+        Ok(self.signing_key()?.code())
+    }
+
+    // ------------------------------------------------------- partner keys
+
+    /// The key pinned for a partner's device, if one was ever met.
+    pub fn pinned_key(&self, device: &str) -> Option<PinnedKey> {
+        let raw = self.local_setting(&format!("key:{device}"))?;
+        serde_json::from_str(&raw).ok()
+    }
+
+    /// Every partner key this Catalog holds, by device.
+    pub fn pinned_keys(&self) -> Result<Vec<PinnedKey>> {
+        let mut stmt = self
+            .db
+            .prepare("SELECT value FROM local_settings WHERE key LIKE 'u:key:%' ORDER BY key")?;
+        let raws: Vec<String> = stmt
+            .query_map([], |r| r.get(0))?
+            .collect::<std::result::Result<_, _>>()?;
+        Ok(raws
+            .iter()
+            .filter_map(|raw| serde_json::from_str(raw).ok())
+            .collect())
+    }
+
+    fn pin(&self, record: &KeyRecord, trust: KeyTrust) -> Result<()> {
+        let pinned = PinnedKey {
+            record: record.clone(),
+            trust,
+        };
+        self.set_local_setting(
+            &format!("key:{}", record.device),
+            &serde_json::to_string(&pinned)?,
+        )
+    }
+
+    /// Forgets a partner's key: the next file from that device is
+    /// trusted on first use again.
+    pub fn unpin_key(&self, device: &str) -> Result<()> {
+        self.remove_local_setting(&format!("key:{device}"))
+    }
+
+    /// The keys to send along with the entries: this Catalog's own and
+    /// every one it holds.
+    pub fn key_records(&self) -> Result<Vec<KeyRecord>> {
+        let mut records = vec![self.own_key_record()?];
+        records.extend(self.pinned_keys()?.into_iter().map(|k| k.record));
+        Ok(records)
+    }
+
+    /// Takes in the keys a payload carried. The first key seen for a
+    /// device is pinned on trust; only the key of `verified_device` is
+    /// pinned as verified. A record that does not sign itself is ignored;
+    /// a second, different key for a pinned device is refused and
+    /// reported. `authors` are the names the same payload writes under
+    /// each new device, for the impostor warning.
+    pub fn learn_keys(
+        &self,
+        keys: &[KeyRecord],
+        verified_device: Option<&str>,
+        report: &mut ImportReport,
+        authors: &HashMap<String, HashSet<String>>,
+    ) -> Result<()> {
+        let me = self.device_id();
+        for record in keys {
+            if record.device == me || !record.self_signed() {
+                continue;
+            }
+            let verified = Some(record.device.as_str()) == verified_device;
+            match self.pinned_key(&record.device) {
+                None => {
+                    let trust = if verified {
+                        KeyTrust::Verified
+                    } else {
+                        KeyTrust::Tofu
+                    };
+                    self.pin(record, trust)?;
+                    report.new_keys.push(PinnedKey {
+                        record: record.clone(),
+                        trust,
+                    });
+                    if let Some(names) = authors.get(&record.device) {
+                        let mut names: Vec<&String> = names.iter().collect();
+                        names.sort();
+                        for name in names {
+                            if self.name_known_elsewhere(name, &record.device)? {
+                                report.impostors.push((name.clone(), record.device.clone()));
+                            }
+                        }
+                    }
+                }
+                Some(existing) if existing.record.public_key() != record.public_key() => {
+                    if !report.changed_keys.contains(&record.device) {
+                        report.changed_keys.push(record.device.clone());
+                    }
+                }
+                Some(existing) if verified && existing.trust == KeyTrust::Tofu => {
+                    self.pin(&existing.record, KeyTrust::Verified)?;
+                }
+                Some(_) => {}
+            }
+        }
+        Ok(())
+    }
+
+    /// Whether `name` is this Catalog's own author or writes under a
+    /// device whose key is pinned, other than `device`.
+    fn name_known_elsewhere(&self, name: &str, device: &str) -> Result<bool> {
+        if name == crate::SEED_AUTHOR {
+            return Ok(false);
+        }
+        if self.author().as_deref() == Some(name) {
+            return Ok(true);
+        }
+        let me = self.device_id();
+        for (author, dev, _) in self.authors_overview()? {
+            if author != name || dev == device {
+                continue;
+            }
+            if dev == me || self.pinned_key(&dev).is_some() {
+                return Ok(true);
+            }
+        }
+        Ok(false)
+    }
+
+    /// Authors and devices with their entry counts.
+    pub fn authors_overview(&self) -> Result<Vec<(String, String, i64)>> {
+        let mut stmt = self.db.prepare(
+            "SELECT author, device, COUNT(*) FROM entries GROUP BY author, device ORDER BY author, device",
+        )?;
+        let rows = stmt.query_map([], |r| Ok((r.get(0)?, r.get(1)?, r.get(2)?)))?;
+        Ok(rows.collect::<std::result::Result<_, _>>()?)
+    }
+
+    /// Whether `e` passes under `key`: signed and valid, or older than
+    /// the key's first signed row.
+    fn signed(e: &Entry, key: &KeyRecord) -> bool {
+        if e.sig.is_none() {
+            return e.dseq < key.since;
+        }
+        verify_signature(
+            &key.public_key(),
+            &entry_bytes(
+                &e.device,
+                e.dseq,
+                &e.entity,
+                &e.field,
+                e.value.as_deref(),
+                &e.date,
+                &e.author,
+                &e.recorded,
+                e.reminder,
+            ),
+            e.sig.as_deref(),
+        )
+    }
+
+    /// Whether a row in this Catalog verifies under the key its device
+    /// holds here. None when no key is known for the device or the row
+    /// is older than the key.
+    pub fn verifies_entry(&self, e: &Entry) -> Result<Option<bool>> {
+        let key = if e.device == self.device_id() {
+            self.own_key_record()?
+        } else {
+            match self.pinned_key(&e.device) {
+                Some(k) => k.record,
+                None => return Ok(None),
+            }
+        };
+        if e.sig.is_none() && e.dseq < key.since {
+            return Ok(None);
+        }
+        Ok(Some(Self::signed(e, &key)))
     }
 
     /// This Catalog's stable device id (ADR 0002); created once.
@@ -346,10 +597,13 @@ impl Catalog {
         recorded: &str,
         reminder: bool,
     ) -> Result<()> {
+        let sig = self.signing_key()?.sign(&entry_bytes(
+            device, dseq, entity, field, value, date, author, recorded, reminder,
+        ));
         self.db.execute(
             "INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded, reminder, sig) \
-             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, NULL)",
-            params![device, dseq, entity, field, value, date, author, recorded, reminder as i64],
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
+            params![device, dseq, entity, field, value, date, author, recorded, reminder as i64, sig],
         )?;
         self.note_void(field)
     }
@@ -560,6 +814,43 @@ impl Catalog {
     /// Imports foreign entries idempotently: (device, dseq) already held
     /// are ignored. Returns the entries that were actually new.
     pub fn apply_entries(&mut self, entries: Vec<Entry>) -> Result<Vec<Entry>> {
+        self.apply_entries_with(entries, None, None, &mut ImportReport::default())
+    }
+
+    /// [`Catalog::apply_entries`] with the key records the payload
+    /// carried, learned first, and a report of what was refused. Every
+    /// entry from a device whose key is pinned, this Catalog's own
+    /// included, must carry a valid signature unless it is older than
+    /// the key's `since`. Refused rows never move the version vector.
+    pub fn apply_entries_with(
+        &mut self,
+        entries: Vec<Entry>,
+        keys: Option<&[KeyRecord]>,
+        verified_device: Option<&str>,
+        report: &mut ImportReport,
+    ) -> Result<Vec<Entry>> {
+        if let Some(keys) = keys {
+            let mut authors: HashMap<String, HashSet<String>> = HashMap::new();
+            for e in &entries {
+                authors
+                    .entry(e.device.clone())
+                    .or_default()
+                    .insert(e.author.clone());
+            }
+            self.learn_keys(keys, verified_device, report, &authors)?;
+        }
+        let own = self.own_key_record()?;
+        let mut pinned: HashMap<String, Option<KeyRecord>> = HashMap::new();
+        for e in &entries {
+            if !pinned.contains_key(&e.device) {
+                let key = if e.device == own.device {
+                    Some(own.clone())
+                } else {
+                    self.pinned_key(&e.device).map(|k| k.record)
+                };
+                pinned.insert(e.device.clone(), key);
+            }
+        }
         let tx = self.db.transaction()?;
         let devices: HashSet<&str> = entries.iter().map(|e| e.device.as_str()).collect();
         let mut held: HashMap<String, HashSet<i64>> = HashMap::new();
@@ -604,6 +895,15 @@ impl Catalog {
                 }
                 if is_banned_in(&tx, &e)? {
                     discarded.push((e.device.clone(), e.dseq));
+                    continue;
+                }
+                if let Some(Some(key)) = pinned.get(&e.device)
+                    && !Self::signed(&e, key)
+                {
+                    *report
+                        .refused
+                        .entry((e.author.clone(), e.device.clone()))
+                        .or_insert(0) += 1;
                     continue;
                 }
                 let n = insert.execute(params![
@@ -1453,6 +1753,180 @@ mod tests {
             .unwrap();
         assert!(c.is_field_private("clowder:h", "f:secret").unwrap());
         assert!(!c.is_field_private("fielddef:secret", keys::NAME).unwrap());
+    }
+
+    fn seeded(dir: &Path, seed: u8, author: &str) -> Catalog {
+        let c = Catalog::open_with_seed(dir, [seed; 32]).unwrap();
+        c.set_author(author).unwrap();
+        c
+    }
+
+    fn send(from: &Catalog, to: &mut Catalog, verified: bool) -> ImportReport {
+        let mut report = ImportReport::default();
+        let rows = from
+            .entries_since(&to.version_vector().unwrap(), false)
+            .unwrap();
+        let keys = from.key_records().unwrap();
+        let verified_device = verified.then(|| from.device_id());
+        to.apply_entries_with(rows, Some(&keys), verified_device.as_deref(), &mut report)
+            .unwrap();
+        report
+    }
+
+    #[test]
+    fn a_new_catalog_derives_its_device_id_from_its_key_and_signs_every_row() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut a = seeded(&dir.path().join("a"), 1, "anna");
+        assert_eq!(
+            a.device_id(),
+            device_id_from_key(&a.signing_key().unwrap().public_key())
+        );
+        assert_eq!(a.signing_since(), 1);
+        assert!(a.own_key_record().unwrap().self_signed());
+        assert_eq!(a.key_code().unwrap().len(), 9);
+        a.create_cat("cat:m", "Miezi", None, "cat").unwrap();
+        for e in a.all_entries().unwrap() {
+            assert_eq!(a.verifies_entry(&e).unwrap(), Some(true), "{e:?}");
+        }
+        let mut forged = a.all_entries().unwrap().remove(1);
+        forged.value = Some("Mauzi".into());
+        assert_eq!(a.verifies_entry(&forged).unwrap(), Some(false));
+        // A Catalog from before signing gets a key that starts after
+        // its existing rows.
+        let old = Catalog::open_with_device(&dir.path().join("old"), "old-phone").unwrap();
+        assert_eq!(old.signing_since(), 1);
+        assert_ne!(
+            old.device_id(),
+            device_id_from_key(&old.signing_key().unwrap().public_key())
+        );
+    }
+
+    #[test]
+    fn partner_keys_pin_on_first_use_and_forged_rows_are_refused() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut a = seeded(&dir.path().join("a"), 1, "anna");
+        let mut b = seeded(&dir.path().join("b"), 2, "bob");
+        a.create_cat("cat:m", "Miezi", None, "cat").unwrap();
+        let report = send(&a, &mut b, false);
+        assert_eq!(report.new_keys.len(), 1);
+        assert_eq!(report.new_keys[0].trust, KeyTrust::Tofu);
+        assert_eq!(
+            b.pinned_key(&a.device_id()).unwrap().record.code(),
+            a.key_code().unwrap()
+        );
+        assert_eq!(b.cats(None).unwrap()[0].name, "Miezi");
+        assert_eq!(b.key_records().unwrap().len(), 2);
+        // An in-person session makes the key verified.
+        send(&a, &mut b, true);
+        assert_eq!(
+            b.pinned_key(&a.device_id()).unwrap().trust,
+            KeyTrust::Verified
+        );
+        // A forged row under a new number is refused, the vector untouched.
+        let vector = b.version_vector().unwrap()[&a.device_id()];
+        let mut forged = a.all_entries().unwrap().last().unwrap().clone();
+        forged.dseq += 5;
+        forged.value = Some("Mauzi".into());
+        let mut report = ImportReport::default();
+        b.apply_entries_with(vec![forged.clone()], None, None, &mut report)
+            .unwrap();
+        assert_eq!(report.refused[&("anna".to_string(), a.device_id())], 1);
+        assert_eq!(b.version_vector().unwrap()[&a.device_id()], vector);
+        // An unsigned row above the key's since is refused too; below it
+        // passes once the key says it started later.
+        forged.sig = None;
+        let mut report = ImportReport::default();
+        b.apply_entries_with(vec![forged.clone()], None, None, &mut report)
+            .unwrap();
+        assert_eq!(report.refused_count(), 1);
+        let late = KeyRecord::make(&a.signing_key().unwrap(), &a.device_id(), forged.dseq + 10);
+        b.unpin_key(&a.device_id()).unwrap();
+        b.learn_keys(&[late], None, &mut ImportReport::default(), &HashMap::new())
+            .unwrap();
+        let mut report = ImportReport::default();
+        let applied = b
+            .apply_entries_with(vec![forged], None, None, &mut report)
+            .unwrap();
+        assert_eq!((applied.len(), report.refused_count()), (1, 0));
+        // The real rows still arrive, offered from the start: the row
+        // applied as unsigned above sits past their numbers.
+        a.append("cat:m", keys::NAME, Some("Minka")).unwrap();
+        let rows = a.entries_since(&BTreeMap::new(), false).unwrap();
+        b.apply_entries_with(rows, None, None, &mut ImportReport::default())
+            .unwrap();
+        assert_eq!(
+            b.current("cat:m", keys::NAME).unwrap().as_deref(),
+            Some("Minka")
+        );
+    }
+
+    #[test]
+    fn second_keys_are_refused_impostors_reported_and_keys_travel_on() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut a = seeded(&dir.path().join("a"), 1, "anna");
+        let mut b = seeded(&dir.path().join("b"), 2, "bob");
+        a.create_cat("cat:m", "Miezi", None, "cat").unwrap();
+        send(&a, &mut b, false);
+        let other = SigningKey::from_seed([9u8; 32]);
+        let mut report = ImportReport::default();
+        b.learn_keys(
+            &[KeyRecord::make(&other, &a.device_id(), 1)],
+            None,
+            &mut report,
+            &HashMap::new(),
+        )
+        .unwrap();
+        assert_eq!(report.changed_keys, vec![a.device_id()]);
+        assert_eq!(
+            b.pinned_key(&a.device_id()).unwrap().record.code(),
+            a.key_code().unwrap()
+        );
+        // A record that does not sign itself is ignored.
+        let mut fake = KeyRecord::make(&other, "someone", 1);
+        fake.signature = "x".into();
+        b.learn_keys(&[fake], None, &mut ImportReport::default(), &HashMap::new())
+            .unwrap();
+        assert!(b.pinned_key("someone").is_none());
+        // A third Catalog calling itself anna, and one calling itself bob.
+        let mut c = seeded(&dir.path().join("c"), 3, "anna");
+        c.create_cat("cat:z", "Mauzi", None, "cat").unwrap();
+        assert_eq!(
+            send(&c, &mut b, false).impostors,
+            vec![("anna".to_string(), c.device_id())]
+        );
+        let mut d = seeded(&dir.path().join("d"), 4, "bob");
+        d.create_cat("cat:y", "Mimi", None, "cat").unwrap();
+        assert_eq!(
+            send(&d, &mut b, false).impostors,
+            vec![("bob".to_string(), d.device_id())]
+        );
+        let mut e = seeded(&dir.path().join("e"), 5, "erik");
+        e.create_cat("cat:x", "Momo", None, "cat").unwrap();
+        assert!(send(&e, &mut b, false).impostors.is_empty());
+        // Keys travel on: a partner's partner gets the key too.
+        let mut f = seeded(&dir.path().join("f"), 6, "fay");
+        let report = send(&b, &mut f, false);
+        let devices: Vec<String> = report
+            .new_keys
+            .iter()
+            .map(|k| k.record.device.clone())
+            .collect();
+        assert!(devices.contains(&a.device_id()) && devices.contains(&b.device_id()));
+        assert_eq!(b.authors_overview().unwrap().len(), 4);
+        // A device without a key is taken as unsigned.
+        let mut report = ImportReport::default();
+        let plain = entry(
+            "old-phone",
+            1,
+            "cat:o",
+            keys::NAME,
+            Some("Oldie"),
+            "2026-01-01T00:00:00Z",
+        );
+        b.apply_entries_with(vec![plain.clone()], None, None, &mut report)
+            .unwrap();
+        assert!(report.is_empty());
+        assert_eq!(b.verifies_entry(&plain).unwrap(), None);
     }
 
     #[test]
