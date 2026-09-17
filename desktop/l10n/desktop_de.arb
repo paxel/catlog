@@ -92,5 +92,11 @@
   "dashboardLastViewed": "Zuletzt angesehen",
   "dashboardNothingViewed": "Öffne eine Katze oder eine Kolonie, dann erscheint sie hier",
   "vetPlaceholder": "Tierarzt-Termine aller Katzen landen hier",
-  "closeLabel": "Schließen"
+  "closeLabel": "Schließen",
+  "columnsButton": "Spalten",
+  "filterMissing": "Vermisst",
+  "statusHome": "Zuhause",
+  "columnLastChange": "Letzte Änderung",
+  "columnFace": "Gesicht",
+  "columnStatus": "Status"
 }

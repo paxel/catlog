@@ -21,6 +21,7 @@ use egui::{Context, Ui};
 use crate::agenda::{AgendaAction, AppointmentAction, ics_events, show_agenda};
 use crate::appointments::{AppointmentDialog, FinishDialog};
 use crate::capture_page::{CaptureAction, CapturePage};
+use crate::cats_table::{CatsTable, TableAction};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::conflicts::{ConflictDialog, show_conflicts};
 use crate::dashboard::{self, DashboardAction};
@@ -104,6 +105,8 @@ pub struct App {
     manager: CatalogManager,
     store: Catalog,
     home: HomePane,
+    /// The Cats view's table.
+    pub cats: CatsTable,
     pages: Pages,
     editor: FieldEditor,
     new_field: NewFieldDialog,
@@ -245,6 +248,7 @@ impl App {
             manager,
             store,
             home: HomePane::default(),
+            cats: CatsTable::default(),
             pages: Pages::default(),
             editor: FieldEditor::closed(),
             new_field: NewFieldDialog::default(),
@@ -691,7 +695,7 @@ impl App {
                 }
             });
         let mut action = HomeAction::None;
-        if matches!(self.view, View::Cats | View::Clowders) {
+        if self.view == View::Clowders {
             // The pane opens at the remembered width; egui keeps the width
             // between frames, and a drag that ends is what gets remembered.
             let pane = egui::Panel::left("list-pane")
@@ -699,11 +703,7 @@ impl App {
                 .min_size(200.0)
                 .default_size(self.pane_width)
                 .show(ui, |ui| {
-                    action = if self.view == View::Clowders {
-                        self.home.show(ui, &self.store, &t, &mut self.faces)
-                    } else {
-                        self.show_cat_list(ui)
-                    };
+                    action = self.home.show(ui, &self.store, &t, &mut self.faces);
                 });
             let shown = pane.response.rect.width();
             let released = ui.input(|i| i.pointer.primary_released());
@@ -714,6 +714,16 @@ impl App {
         }
         self.act(action);
         let mut page_action = PageAction::None;
+        // In the Cats view an open Cat's page sits beside the table.
+        if self.view == View::Cats && matches!(self.home.selection, Selection::Cat(_)) {
+            egui::Panel::right("cat-pane")
+                .resizable(true)
+                .min_size(280.0)
+                .default_size(480.0)
+                .show(ui, |ui| {
+                    page_action = self.show_desk_page(ui);
+                });
+        }
         egui::CentralPanel::default().show(ui, |ui| {
             if let Some(notice) = &self.notice {
                 ui.colored_label(ui.visuals().error_fg_color, notice);
@@ -791,60 +801,31 @@ impl App {
                         }
                     }
                 },
-                View::Cats | View::Clowders => {
-                    if let Some((entity, slug)) = self.history_of.clone() {
-                        if let Ok(Some(def)) = self.store.field_def(&slug) {
-                            match self.history.show(ui, &self.store, &t, &entity, &def) {
-                                HistoryAction::None => {}
-                                HistoryAction::Back => self.history_of = None,
-                                HistoryAction::Correct(seq) => {
-                                    if let Ok(Some(e)) = self.store.entry_by_seq(seq) {
-                                        self.editor.ask(
-                                            &self.store,
-                                            &def,
-                                            &entity,
-                                            e.value.as_deref(),
-                                            EditTarget::Correct(seq),
-                                            Some(&e.date),
-                                            t.locale(),
-                                        );
-                                    }
-                                }
-                                HistoryAction::Remove(seq) => {
-                                    if let Err(e) = self.store.remove_entry(seq) {
-                                        self.notice = Some(e.to_string());
-                                    }
-                                }
-                                HistoryAction::Restore(seq) => {
-                                    if let Err(e) = self.store.restore_entry(seq) {
-                                        self.notice = Some(e.to_string());
-                                    }
-                                }
-                            }
-                        } else {
-                            self.history_of = None;
+                View::Cats => {
+                    let today = self.pages.today;
+                    let units = self.pages.units;
+                    let show_hidden = self.home.show_hidden;
+                    match self.cats.show(
+                        ui,
+                        &self.store,
+                        &t,
+                        &mut self.faces,
+                        today,
+                        units,
+                        show_hidden,
+                    ) {
+                        TableAction::None => {}
+                        TableAction::Open(id) => page_action = PageAction::OpenCat(id),
+                        TableAction::NewCat => page_action = PageAction::NewCat(None),
+                        TableAction::CaptureFlier => {
+                            self.capture.start(today);
+                            self.open_modal(Modal::Capture);
                         }
-                        return;
+                        TableAction::ToggleHidden(id) => page_action = PageAction::ToggleHidden(id),
                     }
-                    match self.home.selection.clone() {
-                        Selection::None => {
-                            ui.label(t.select_clowder_hint());
-                        }
-                        Selection::Strays => {
-                            page_action =
-                                self.pages.show_strays(ui, &self.store, &t, &mut self.faces);
-                        }
-                        Selection::Clowder(id) => {
-                            page_action =
-                                self.pages
-                                    .show_clowder(ui, &self.store, &t, &mut self.faces, &id);
-                        }
-                        Selection::Cat(id) => {
-                            page_action =
-                                self.pages
-                                    .show_cat(ui, &self.store, &t, &mut self.faces, &id);
-                        }
-                    }
+                }
+                View::Clowders => {
+                    page_action = self.show_desk_page(ui);
                 }
             }
         });
@@ -2020,22 +2001,64 @@ impl App {
         }
     }
 
-    /// The Cats view's list until its table lands: every Cat by name.
-    fn show_cat_list(&mut self, ui: &mut Ui) -> HomeAction {
+    /// What lies on the desk: a Clowder or Cat page, the Strays, a
+    /// Field's history, or the hint to pick something.
+    fn show_desk_page(&mut self, ui: &mut Ui) -> PageAction {
         let t = self.t;
-        ui.set_min_width(ui.available_width());
-        ui.heading(t.cats());
-        let mut action = HomeAction::None;
-        egui::ScrollArea::vertical().show(ui, |ui| {
-            for cat in self.store.cats(None).unwrap_or_default() {
-                let selected = self.home.selection == Selection::Cat(cat.id.clone());
-                if ui.selectable_label(selected, &cat.name).clicked() {
-                    self.home.selection = Selection::Cat(cat.id);
-                    action = HomeAction::Open(self.home.selection.clone());
+        let mut page_action = PageAction::None;
+        if let Some((entity, slug)) = self.history_of.clone() {
+            if let Ok(Some(def)) = self.store.field_def(&slug) {
+                match self.history.show(ui, &self.store, &t, &entity, &def) {
+                    HistoryAction::None => {}
+                    HistoryAction::Back => self.history_of = None,
+                    HistoryAction::Correct(seq) => {
+                        if let Ok(Some(e)) = self.store.entry_by_seq(seq) {
+                            self.editor.ask(
+                                &self.store,
+                                &def,
+                                &entity,
+                                e.value.as_deref(),
+                                EditTarget::Correct(seq),
+                                Some(&e.date),
+                                t.locale(),
+                            );
+                        }
+                    }
+                    HistoryAction::Remove(seq) => {
+                        if let Err(e) = self.store.remove_entry(seq) {
+                            self.notice = Some(e.to_string());
+                        }
+                    }
+                    HistoryAction::Restore(seq) => {
+                        if let Err(e) = self.store.restore_entry(seq) {
+                            self.notice = Some(e.to_string());
+                        }
+                    }
                 }
+            } else {
+                self.history_of = None;
             }
-        });
-        action
+            return page_action;
+        }
+        match self.home.selection.clone() {
+            Selection::None => {
+                ui.label(t.select_clowder_hint());
+            }
+            Selection::Strays => {
+                page_action = self.pages.show_strays(ui, &self.store, &t, &mut self.faces);
+            }
+            Selection::Clowder(id) => {
+                page_action = self
+                    .pages
+                    .show_clowder(ui, &self.store, &t, &mut self.faces, &id);
+            }
+            Selection::Cat(id) => {
+                page_action = self
+                    .pages
+                    .show_cat(ui, &self.store, &t, &mut self.faces, &id);
+            }
+        }
+        page_action
     }
 
     /// The modal over the desk, when one is open.
@@ -4153,13 +4176,22 @@ mod tests {
         h.get_by_label("3 cats");
         open_view(&mut h, "Cats");
         assert_eq!(h.state().view(), View::Cats);
-        // The Cats view lists every cat until its table lands.
+        // A click selects a row; Enter opens the cat beside the table.
         h.get_all_by_label("Tom").next().unwrap().click();
+        h.run();
+        assert!(
+            h.state()
+                .cats
+                .selected
+                .contains("cat:00000000-0000-4000-8000-000000000002")
+        );
+        h.key_press(egui::Key::Enter);
         h.run();
         assert_eq!(
             *h.state().selection(),
             Selection::Cat("cat:00000000-0000-4000-8000-000000000002".into())
         );
+        h.get_by_label("Actions");
         open_view(&mut h, "Vet");
         h.get_by_label("Runs and appointments across all cats land here");
         // Ctrl+4 is the Map, Ctrl+1 Home; the desk keeps its cat.
@@ -4299,6 +4331,180 @@ mod tests {
         h.state_mut().open_modal(Modal::Help);
         h.run();
         h.get_by_label_contains(L10n::new("en").help_map());
+    }
+
+    #[test]
+    fn the_cats_table_sorts_searches_filters_and_keeps_its_columns() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let wanderer = "cat:00000000-0000-4000-8000-000000000003";
+        let mut seeded_app = seeded(dir.path());
+        seeded_app
+            .store_mut()
+            .append(tom, "f:birthdate", Some("2020-05-01"))
+            .unwrap();
+        seeded_app
+            .store_mut()
+            .append(miezi, "f:birthdate", Some("2024-01-15"))
+            .unwrap();
+        fixed_day(&mut seeded_app, 2026, 3, 10, 7);
+        let mut h = harness(seeded_app);
+        h.run();
+        open_view(&mut h, "Cats");
+        // The default columns, and the rows in creation order.
+        for label in [
+            "Name",
+            "Clowder",
+            "Status",
+            "Species",
+            "Gender",
+            "Age",
+            "Last change",
+        ] {
+            h.get_all_by_label(label).next().unwrap();
+        }
+        assert_eq!(h.state().cats.order(), [miezi, tom, wanderer]);
+        h.get_by_label("Stray");
+        h.get_all_by_label("At home").next().unwrap();
+        h.get_by_label("5 years 10 months");
+        // A header click sorts, a second one turns it around, a third lets go.
+        h.get_by_label("Age").click();
+        h.run();
+        assert_eq!(
+            h.state().cats.order(),
+            [miezi, tom, wanderer],
+            "youngest first"
+        );
+        h.get_by_label("Age").click();
+        h.run();
+        assert_eq!(
+            h.state().cats.order(),
+            [wanderer, tom, miezi],
+            "turned around, no birth date first"
+        );
+        h.get_by_label("Age").click();
+        h.run();
+        assert_eq!(h.state().cats.order(), [miezi, tom, wanderer]);
+        h.get_by_label("Name").click();
+        h.run();
+        h.get_by_label("Name").click();
+        h.run();
+        assert_eq!(h.state().cats.order(), [wanderer, tom, miezi]);
+        // The search box narrows by name, chip and what the columns show.
+        h.state_mut().cats.query = "wand".into();
+        h.run();
+        assert_eq!(h.state().cats.order(), [wanderer]);
+        h.state_mut().cats.query = "female".into();
+        h.run();
+        assert_eq!(h.state().cats.order(), [miezi]);
+        h.state_mut().cats.query.clear();
+        h.run();
+        // The filters: strays, then missing.
+        h.get_by_label("Strays").click();
+        h.run();
+        assert_eq!(h.state().cats.order(), [wanderer]);
+        h.get_by_label("Strays").click();
+        h.run();
+        h.get_by_label("Missing").click();
+        h.run();
+        assert!(h.state().cats.order().is_empty());
+        h.get_by_label("Missing").click();
+        h.run();
+        assert_eq!(h.state().cats.order().len(), 3);
+        // The column chooser adds Color and drops Age, saved per Catalog.
+        h.get_by_label("Columns").click();
+        h.step();
+        h.get_all_by_label("Color")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        h.get_all_by_label("Age").last().unwrap().click_accesskit();
+        h.run();
+        let saved = h
+            .state()
+            .store()
+            .local_setting(crate::cats_table::COLUMNS_KEY)
+            .unwrap();
+        assert!(
+            saved.contains("f:color") && !saved.contains("age"),
+            "{saved}"
+        );
+        h.get_by_label("tabby");
+        drop(h);
+        let mut h = harness(app(dir.path(), "en", true));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_by_label("tabby");
+        assert!(h.query_by_label("5 years 10 months").is_none());
+    }
+
+    #[test]
+    fn the_cats_table_selects_with_ctrl_and_shift_walks_with_keys_and_opens_with_enter() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let wanderer = "cat:00000000-0000-4000-8000-000000000003";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        assert_eq!(h.state().cats.selected_in_order(), [miezi]);
+        h.get_all_by_label("Wanderer")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::SHIFT);
+        h.run();
+        assert_eq!(h.state().cats.selected_in_order(), [miezi, tom, wanderer]);
+        h.get_all_by_label("Tom")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::COMMAND);
+        h.run();
+        assert_eq!(h.state().cats.selected_in_order(), [miezi, wanderer]);
+        h.get_all_by_label("Tom").next().unwrap().click();
+        h.run();
+        assert_eq!(h.state().cats.selected_in_order(), [tom]);
+        // Arrows walk, Shift+arrow grows the range, Enter opens.
+        h.key_press(egui::Key::ArrowDown);
+        h.run();
+        assert_eq!(h.state().cats.selected_in_order(), [wanderer]);
+        h.key_press(egui::Key::ArrowUp);
+        h.run();
+        h.key_press_modifiers(egui::Modifiers::SHIFT, egui::Key::ArrowUp);
+        h.run();
+        assert_eq!(h.state().cats.selected_in_order(), [miezi, tom]);
+        h.key_press(egui::Key::ArrowDown);
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Cat(tom.into()));
+        h.get_by_label("Actions");
+        assert_eq!(
+            h.state().view(),
+            View::Cats,
+            "the page opens beside the table"
+        );
+        // The row menu hides; the toolbar reaches the flier capture and a new cat.
+        h.get_all_by_label("Wanderer")
+            .next()
+            .unwrap()
+            .click_secondary();
+        h.step();
+        h.get_by_label("Hide on this device").click_accesskit();
+        h.run();
+        assert!(h.state().store().is_hidden(wanderer).unwrap());
+        assert_eq!(h.state().cats.order().len(), 2);
+        h.get_by_label("Capture flier").click();
+        h.run();
+        assert_eq!(h.state().modal(), Some(Modal::Capture));
+        h.key_press(egui::Key::Escape);
+        h.run();
+        h.get_by_label("New cat").click();
+        h.run();
+        assert!(h.state().dialog.open);
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {

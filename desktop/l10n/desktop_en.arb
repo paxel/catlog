@@ -92,5 +92,11 @@
   "dashboardLastViewed": "Last viewed",
   "dashboardNothingViewed": "Open a cat or a clowder and it shows up here",
   "vetPlaceholder": "Runs and appointments across all cats land here",
-  "closeLabel": "Close"
+  "closeLabel": "Close",
+  "columnsButton": "Columns",
+  "filterMissing": "Missing",
+  "statusHome": "At home",
+  "columnLastChange": "Last change",
+  "columnFace": "Face",
+  "columnStatus": "Status"
 }

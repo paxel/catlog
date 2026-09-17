@@ -631,6 +631,16 @@ impl Catalog {
         Ok(rows.collect::<std::result::Result<_, _>>()?)
     }
 
+    /// When each entity was last written to: the newest `recorded`
+    /// stamp per entity, for a "last change" column.
+    pub fn last_recorded(&self) -> Result<BTreeMap<String, String>> {
+        let mut stmt = self
+            .db
+            .prepare("SELECT entity, MAX(recorded) FROM entries GROUP BY entity")?;
+        let rows = stmt.query_map([], |r| Ok((r.get::<_, String>(0)?, r.get::<_, String>(1)?)))?;
+        Ok(rows.collect::<std::result::Result<_, _>>()?)
+    }
+
     /// Every entry, ordered (device, dseq): the store's full knowledge.
     pub fn all_entries(&self) -> Result<Vec<Entry>> {
         self.select("SELECT * FROM entries ORDER BY device, dseq", &[])
@@ -2481,6 +2491,27 @@ mod tests {
         )])
         .unwrap();
         assert_eq!(c.missing_blobs().unwrap(), vec![hash]);
+    }
+
+    #[test]
+    fn last_recorded_names_the_newest_stamp_per_entity() {
+        let (_dir, mut c) = catalog();
+        c.apply_entries(vec![
+            entry("w", 1, "cat:a", "name", Some("A"), "2026-01-01T10:00:01Z"),
+            entry(
+                "w",
+                2,
+                "cat:a",
+                "f:color",
+                Some("red"),
+                "2026-02-01T10:00:01Z",
+            ),
+            entry("w", 3, "cat:b", "name", Some("B"), "2026-01-15T10:00:01Z"),
+        ])
+        .unwrap();
+        let last = c.last_recorded().unwrap();
+        assert!(last["cat:a"].starts_with("2026-02-01T10:00:01"));
+        assert!(last["cat:b"].starts_with("2026-01-15T10:00:01"));
     }
 
     #[test]

@@ -140,3 +140,14 @@ fn render_sync_page() {
         app.open_modal(Modal::Sync);
     });
 }
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_cats_table() {
+    render_with("render_cats_table", true, Some("fresh"), |app| {
+        app.open_view(View::Cats);
+        app.select(Selection::Cat(
+            "cat:00000000-0000-4000-8000-000000000002".into(),
+        ));
+    });
+}
