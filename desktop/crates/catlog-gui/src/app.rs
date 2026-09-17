@@ -181,8 +181,10 @@ pub struct App {
     shown: Selection,
     /// Counts the view switches, so each one fades in anew.
     view_opened: u32,
-    /// Counts the modals and histories opened, for the same reason.
+    /// Counts the modals opened, for the same reason; and the histories
+    /// apart, so a history over a page leaves the page as it is.
     modal_opened: u32,
+    history_opened: u32,
     icon: Option<egui::TextureHandle>,
     fonts_installed: Option<String>,
     /// Opens a link in the browser or the mail program.
@@ -324,6 +326,7 @@ impl App {
             shown: Selection::None,
             view_opened: 0,
             modal_opened: 0,
+            history_opened: 0,
             icon: None,
             fonts_installed: None,
             open_url: Box::new(|url| {
@@ -1980,7 +1983,7 @@ impl App {
             }
             PageAction::History(entity, slug) => {
                 self.history_of = Some((entity, slug));
-                self.modal_opened += 1;
+                self.history_opened += 1;
             }
             PageAction::NewField(scope) => self.new_field.ask(scope),
             PageAction::Move(cat) => self.mover.ask(&self.store, &cat),
@@ -2303,7 +2306,7 @@ impl App {
             return;
         }
         let t = self.t;
-        let id = format!("History#{}", self.modal_opened);
+        let id = format!("History#{}", self.history_opened);
         let (page_action, close) =
             views::show_modal(ctx, &id, t.close_label(), |ui| self.show_history(ui));
         if close {
