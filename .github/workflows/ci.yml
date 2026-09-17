@@ -23,6 +23,11 @@ jobs:
           dart pub get
           dart analyze --fatal-infos
           dart test
+      - name: Core — the fixture corpus the desktop core is tested against is current
+        working-directory: packages/catalog_core
+        run: |
+          dart run tool/gen_fixtures.dart ../../desktop/fixtures
+          git diff --exit-code -- ../../desktop/fixtures
       - name: App — analyze and test
         run: |
           flutter pub get

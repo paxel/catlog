@@ -1,0 +1,1498 @@
+{
+  "vector": {
+    "65b60673d6ed884bf01c2c222d82ada0": 112
+  },
+  "entities": {
+    "cat:00000000-0000-4000-8000-000000000001": {
+      "kind": "cat",
+      "fields": {
+        "$image:ca4e7d62b4f4175ffd92261dd3d8e98cec00712a23bab1fc09d42c8387f14e06": "added",
+        "$image:f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78": "added",
+        "$profile": "f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78",
+        "$type": "cat",
+        "clowder": "clowder:00000000-0000-4000-8000-000000000001",
+        "f:color": "tabby",
+        "f:gender": "female",
+        "f:species": "cat",
+        "name": "Miezi"
+      },
+      "images": [
+        "ca4e7d62b4f4175ffd92261dd3d8e98cec00712a23bab1fc09d42c8387f14e06",
+        "f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78"
+      ],
+      "profile": "f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78"
+    },
+    "cat:00000000-0000-4000-8000-000000000002": {
+      "kind": "cat",
+      "fields": {
+        "$image:d0b0454c661ee86497abced574c21fd11e51d28723c9db8a5d7203054cf0653a": "added",
+        "$type": "cat",
+        "clowder": "clowder:00000000-0000-4000-8000-000000000002",
+        "f:gender": "male",
+        "f:species": "cat",
+        "name": "Tom"
+      },
+      "images": [
+        "d0b0454c661ee86497abced574c21fd11e51d28723c9db8a5d7203054cf0653a"
+      ],
+      "profile": "d0b0454c661ee86497abced574c21fd11e51d28723c9db8a5d7203054cf0653a"
+    },
+    "cat:00000000-0000-4000-8000-000000000003": {
+      "kind": "cat",
+      "fields": {
+        "$type": "cat",
+        "f:species": "cat",
+        "name": "Wanderer"
+      },
+      "images": [],
+      "profile": null
+    },
+    "clowder:00000000-0000-4000-8000-000000000001": {
+      "kind": "clowder",
+      "fields": {
+        "$type": "clowder",
+        "f:address": "Katzenweg 3, Leipzig",
+        "f:responsible": "Ada",
+        "f:status": "foster",
+        "name": "Foster Home"
+      },
+      "images": [],
+      "profile": null
+    },
+    "clowder:00000000-0000-4000-8000-000000000002": {
+      "kind": "clowder",
+      "fields": {
+        "$type": "clowder",
+        "f:status": "barn",
+        "name": "Barn"
+      },
+      "images": [],
+      "profile": null
+    },
+    "fielddef:address": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Address",
+        "scope": "clowder",
+        "type": "text"
+      }
+    },
+    "fielddef:birthdate": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Birth date",
+        "scope": "cat",
+        "type": "date"
+      }
+    },
+    "fielddef:breed": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Breed",
+        "options": "European Shorthair\nMaine Coon\nBritish Shorthair\nNorwegian Forest Cat\nRagdoll\nSiamese\nPersian\nBengal\nSphynx\nAbyssinian\nAmerican Shorthair\nBalinese\nBirman\nBombay\nBurmese\nBurmilla\nBritish Longhair\nChartreux\nCornish Rex\nDevon Rex\nEgyptian Mau\nExotic Shorthair\nHimalayan\nKorat\nManx\nMunchkin\nOcicat\nOriental Shorthair\nRagamuffin\nRussian Blue\nSavannah\nScottish Fold\nSelkirk Rex\nSiberian\nSnowshoe\nSomali\nTonkinese\nTurkish Angora\nTurkish Van\nmixed",
+        "scope": "cat",
+        "type": "choice"
+      }
+    },
+    "fielddef:chipid": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "iddisplay": "barcode",
+        "name": "Chip ID",
+        "scope": "cat",
+        "type": "id"
+      }
+    },
+    "fielddef:color": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Color",
+        "scope": "cat",
+        "type": "text"
+      }
+    },
+    "fielddef:deceased": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Deceased",
+        "scope": "cat",
+        "type": "date"
+      }
+    },
+    "fielddef:email": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Email",
+        "scope": "clowder",
+        "type": "text"
+      }
+    },
+    "fielddef:father": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Father",
+        "scope": "cat",
+        "type": "cat"
+      }
+    },
+    "fielddef:gender": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Gender",
+        "options": "female\nmale\nunknown",
+        "scope": "cat",
+        "type": "choice"
+      }
+    },
+    "fielddef:looks": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Looks",
+        "scope": "cat",
+        "type": "tags"
+      }
+    },
+    "fielddef:mother": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Mother",
+        "scope": "cat",
+        "type": "cat"
+      }
+    },
+    "fielddef:neutered": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Neutered",
+        "scope": "cat",
+        "type": "yesNo"
+      }
+    },
+    "fielddef:phone": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Phone",
+        "scope": "clowder",
+        "type": "text"
+      }
+    },
+    "fielddef:position": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Position",
+        "scope": "both",
+        "type": "location"
+      }
+    },
+    "fielddef:pregnant": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Pregnant",
+        "scope": "cat",
+        "type": "yesNo"
+      }
+    },
+    "fielddef:remarks": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Remarks",
+        "scope": "both",
+        "type": "text"
+      }
+    },
+    "fielddef:responsible": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Responsible person",
+        "scope": "clowder",
+        "type": "text"
+      }
+    },
+    "fielddef:species": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Species",
+        "options": "cat\ndog\nrabbit\nguinea pig\nhamster\nbird\nhorse\ntortoise\nferret",
+        "scope": "cat",
+        "type": "choice"
+      }
+    },
+    "fielddef:status": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "name": "Status",
+        "options": "foster\nforever-home\nclinic\nshelter\nbarn\nowner",
+        "scope": "clowder",
+        "type": "choice"
+      }
+    },
+    "fielddef:weight": {
+      "kind": "fielddef",
+      "fields": {
+        "$type": "fielddef",
+        "dimension": "weight",
+        "name": "Weight",
+        "scope": "cat",
+        "type": "unitValue"
+      }
+    }
+  },
+  "blobs": [
+    "ca4e7d62b4f4175ffd92261dd3d8e98cec00712a23bab1fc09d42c8387f14e06",
+    "d0b0454c661ee86497abced574c21fd11e51d28723c9db8a5d7203054cf0653a",
+    "f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78"
+  ],
+  "entries": [
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 1,
+      "entity": "fielddef:gender",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:01.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:01.000Z",
+      "sig": "d88Da0IHcNNTrNYmIJs5e/OEhHlD4a7cFxW4kMLWaMu80ZakdfEJuCoFE+KukWgC+BpV0W398lL92OgeFtreDA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 2,
+      "entity": "fielddef:gender",
+      "field": "name",
+      "value": "Gender",
+      "date": "2026-01-01T10:00:02.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:02.000Z",
+      "sig": "waUljOM0y+abSaTLyrze4StfHMi+LR//AZJgDFRaT2z1tRXIeKmiltwO4jmaFzkC+OUcpRcOPEaQvSpHsmj4Dw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 3,
+      "entity": "fielddef:gender",
+      "field": "type",
+      "value": "choice",
+      "date": "2026-01-01T10:00:03.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:03.000Z",
+      "sig": "3jBH5CHdhcD0z8X+uAb2kKlo2Inguvo1MWSmzyeCXhH0OXIoncAJW+ngTP7AgFC94RVrwUdJHAD1YlrHqzHcBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 4,
+      "entity": "fielddef:gender",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:04.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:04.000Z",
+      "sig": "EWWtHKjS4VacmfAaCN36/ZfMEIKjuwvjypFc11/12D212tnT+qGM5P3UhJcGHz0EV0WRYcT+FePbsMWwv4RrCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 5,
+      "entity": "fielddef:gender",
+      "field": "options",
+      "value": "female\nmale\nunknown",
+      "date": "2026-01-01T10:00:05.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:05.000Z",
+      "sig": "NGd7MvDIhmdFN++nLne59lprpac9QVEI3PbOaMQDp5qeRuhyGK3J9gDaTXVoHqQZibHV+Sl7E3dGbeODZHNcBw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 6,
+      "entity": "fielddef:color",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:06.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:06.000Z",
+      "sig": "PY9ERYeoBEwHTs4HN6BaMknnbcSkWRzBj07oy3sFE1vqlgb7KphOzk/DbDPsLgkZAoMyU7S0MHd6ggAeYD+RDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 7,
+      "entity": "fielddef:color",
+      "field": "name",
+      "value": "Color",
+      "date": "2026-01-01T10:00:07.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:07.000Z",
+      "sig": "ccHwGsI+DFeJMDpVakiG4B85kT5/Wo1Lm5xLIzxiux4qyoRweLSOMOonrraqSL0mRursCwFDdVmxRhPTROvRDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 8,
+      "entity": "fielddef:color",
+      "field": "type",
+      "value": "text",
+      "date": "2026-01-01T10:00:08.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:08.000Z",
+      "sig": "4VNrXrqHBzoEDl6d5hoRcQFvrTBVHLId9Ho1l+tDkKB1LGMJilV2UUR8Hk2xZ/fRekeMeIFk1HahXzKGluldAQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 9,
+      "entity": "fielddef:color",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:09.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:09.000Z",
+      "sig": "T/dATTWupfPTAEIxh9wsfb8OXQYWRF3JC9lLdkOV032fv3E57ikwG1TX/T1OcXCF0Pmq1FDp/spFw1m6iH7lDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 10,
+      "entity": "fielddef:breed",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:10.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:10.000Z",
+      "sig": "uw5TNAsPPM943ZwuMejSD+hi5/kjjU6cdNkXxXkeRpOz1Bl3UvIaRa4NtXmo/Y7ZrncDopI5DNRv9cgD9G+FDA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 11,
+      "entity": "fielddef:breed",
+      "field": "name",
+      "value": "Breed",
+      "date": "2026-01-01T10:00:11.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:11.000Z",
+      "sig": "sglBxf7Yx3Hp4LWk/zuhLwXMvFGifVcp+VwwijmULOzo0A8VcUK5Grxk3vM9Q5IOYvMQCgfT/CcmFJIXDm7YCg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 12,
+      "entity": "fielddef:breed",
+      "field": "type",
+      "value": "choice",
+      "date": "2026-01-01T10:00:12.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:12.000Z",
+      "sig": "9VLy9TOXzTQrcf8Qz9MDLwWXOR+Eo1gsqGja7toc4rJ21sCxGVw8y3X9Xy4/q38ZrH7qja+fVJBN9VsrkB5gAQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 13,
+      "entity": "fielddef:breed",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:13.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:13.000Z",
+      "sig": "lk3ME7hbBoPNfLJdgXOHnPY4mnn3gJHXTi+3uVnIbJMdZQ3YRcU9WBvgrE6N6OEU6QqhFLNnpJSW5TnjV1eHBw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 14,
+      "entity": "fielddef:breed",
+      "field": "options",
+      "value": "European Shorthair\nMaine Coon\nBritish Shorthair\nNorwegian Forest Cat\nRagdoll\nSiamese\nPersian\nBengal\nSphynx\nAbyssinian\nAmerican Shorthair\nBalinese\nBirman\nBombay\nBurmese\nBurmilla\nBritish Longhair\nChartreux\nCornish Rex\nDevon Rex\nEgyptian Mau\nExotic Shorthair\nHimalayan\nKorat\nManx\nMunchkin\nOcicat\nOriental Shorthair\nRagamuffin\nRussian Blue\nSavannah\nScottish Fold\nSelkirk Rex\nSiberian\nSnowshoe\nSomali\nTonkinese\nTurkish Angora\nTurkish Van\nmixed",
+      "date": "2026-01-01T10:00:14.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:14.000Z",
+      "sig": "90G8KStGG8TdbBmWK7nZyT5gIj/rwr2ff01w+2YrJimCjgWY4RMreiIxwcjS7uMVSA65t1Cnfd+w/SFKnsixCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 15,
+      "entity": "fielddef:chipid",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:15.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:15.000Z",
+      "sig": "uhHjbYnSJ9CHxfdVS6VQdqBdtPP03MSlxfU+m3laqsPrurg2KaqgYUZW20OrYn3+O4qptABf6A4H3t0bwCKyDA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 16,
+      "entity": "fielddef:chipid",
+      "field": "name",
+      "value": "Chip ID",
+      "date": "2026-01-01T10:00:16.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:16.000Z",
+      "sig": "Um1J9+4IXBxKhnqgN3wVzqVpSflACRSBQtzhu4coTP+XYte/LBs8Uso6v0p1YA1j8BOUtSG7uucpwi0ivvqbDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 17,
+      "entity": "fielddef:chipid",
+      "field": "type",
+      "value": "id",
+      "date": "2026-01-01T10:00:17.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:17.000Z",
+      "sig": "AkFlW8yZzp6+GQd3IvPw0jtglnT8s70G6tR8M/7Ocy/jLxW61vH0tOz/VljYIpsmPPLIlqjMmiYf/QHCN1AcCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 18,
+      "entity": "fielddef:chipid",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:18.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:18.000Z",
+      "sig": "9o83yJvQGtGM5hY/Ca/cJq2KqL3USf7nS44s1nE4jGzsmBFSsIJ6ZoFKxisg+x8VNvYfcnJzlNyt5FCYnVEQAw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 19,
+      "entity": "fielddef:chipid",
+      "field": "iddisplay",
+      "value": "barcode",
+      "date": "2026-01-01T10:00:19.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:19.000Z",
+      "sig": "IN4DsUXDxjHT32MRzFa6d4a8+h8EpcGpMOH9A9vri/4Rj6RwCGxhBq0waXBeQEVcoFUPrV64m0RcFIMMFVIPAw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 20,
+      "entity": "fielddef:neutered",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:20.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:20.000Z",
+      "sig": "+Hx/HrCa+JrwOYa8aIxEMpezr5KUVDniLyUBj84DajnDFTlxkBuud7cuwhuCiqpfJ64u74E0rqXvvNJjGOnZDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 21,
+      "entity": "fielddef:neutered",
+      "field": "name",
+      "value": "Neutered",
+      "date": "2026-01-01T10:00:21.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:21.000Z",
+      "sig": "9e+3Z8f5JweNCqS61mdLDOMAFEe6xrp7zPHWy0SYYT6QHxUQ95vWcKjdTffax4uOfZSrzwfCcCHFrPtpRN5QDQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 22,
+      "entity": "fielddef:neutered",
+      "field": "type",
+      "value": "yesNo",
+      "date": "2026-01-01T10:00:22.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:22.000Z",
+      "sig": "joIUYlBSC6md/lcQ7S4kSkababXg19+zZwnhE6Wtn/m3YYuKjvt33AZekPFsGiYs6jip1o+3CgTMFCpNojadBw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 23,
+      "entity": "fielddef:neutered",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:23.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:23.000Z",
+      "sig": "gCUYPlKrMQySgDdHR8vFvJDuS3Pe3SeOYJcCxVePFvieE0ccHi0p7/Sk6uuGLhMJLlep70JxaXRtWs+/HmLFAw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 24,
+      "entity": "fielddef:pregnant",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:24.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:24.000Z",
+      "sig": "bJGk449QurXiyxndahSifMuJ++V4pQyOCouZT3mLm+NXqPIT084ecpAPuU2rDksYdiDHyof3y/6h2+tldRirCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 25,
+      "entity": "fielddef:pregnant",
+      "field": "name",
+      "value": "Pregnant",
+      "date": "2026-01-01T10:00:25.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:25.000Z",
+      "sig": "fXc/xouPRJnO1Ga1of4pk9MUlXnlw38J12TGFojVoS35PntDWxuaz+APV8k+HAA/cM492fY8MxzRYqwtX3GQBA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 26,
+      "entity": "fielddef:pregnant",
+      "field": "type",
+      "value": "yesNo",
+      "date": "2026-01-01T10:00:26.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:26.000Z",
+      "sig": "mxkNX1SWRD8BcDjt/cEBbzbq7Ogzxd0CR5bDWx9qYcF2xNbgeE0V/9VXeKl63iHJfJXJdWtLaJDt2lWsCC/iDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 27,
+      "entity": "fielddef:pregnant",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:27.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:27.000Z",
+      "sig": "zTIFDVVwVcOUcyYYC1lnykVr4aMsXOvHgyFrOv0a9eeEUjGG97aVHJef4qScYUCBKVtRysSp08nfyc0qcX6yCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 28,
+      "entity": "fielddef:birthdate",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:28.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:28.000Z",
+      "sig": "PVBbqIn5vVh3yPF6i9cyNVN6Vui+TdEDtgzchIpAoFW88clVzDoYCStYFymlOo2SSHqaKdU+hy19QDnPr0OSCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 29,
+      "entity": "fielddef:birthdate",
+      "field": "name",
+      "value": "Birth date",
+      "date": "2026-01-01T10:00:29.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:29.000Z",
+      "sig": "oJ2F6XyCHrpZO3eNUJ2oLOi14TG2ZgerAAiXsyeEfXl94rYnib/+mDx9pUAERf+GKJ+fFxNd1NhsrzUE0dWcBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 30,
+      "entity": "fielddef:birthdate",
+      "field": "type",
+      "value": "date",
+      "date": "2026-01-01T10:00:30.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:30.000Z",
+      "sig": "3uo0zIFuqk3LqV+GYgvl+gQpyEHx3NclofJww0aaaZlb0PxkLJSA/wbNY3/fZV9k182kZkKJNFcM8bWbyFxiBA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 31,
+      "entity": "fielddef:birthdate",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:31.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:31.000Z",
+      "sig": "YS3gUxN7OMMEjqN3k/yw3J08I7Wu/YmFbHki+fNibPM5bIAJZ4msp5iToUQI77hlyLigOqotWTPBNZqJZWBBAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 32,
+      "entity": "fielddef:deceased",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:32.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:32.000Z",
+      "sig": "nmF2fI7rzz+ak/haaYz2wgVIHMj2p5sfsZYrwWF3JemV3FSRbc5rEyMffqT4TBBQ5ncj5YI+uhZATvZJBCWgBA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 33,
+      "entity": "fielddef:deceased",
+      "field": "name",
+      "value": "Deceased",
+      "date": "2026-01-01T10:00:33.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:33.000Z",
+      "sig": "KpByeSh/Qs9XjsANaddQk5aWykBjWMR5oJ+tjCXkXinv3AbRLrBIhqEJ/Ur0wj2ucoKMYnk8JWG6ZloDdUWfDQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 34,
+      "entity": "fielddef:deceased",
+      "field": "type",
+      "value": "date",
+      "date": "2026-01-01T10:00:34.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:34.000Z",
+      "sig": "9nHDKuajEN1FAj0cS0QRVZNedJyVJy0GRDwvIkIWnvm6fRa2t4ly1FA5q3xavaEeGWI4ihz5RYEAF+XcnOXQCw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 35,
+      "entity": "fielddef:deceased",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:35.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:35.000Z",
+      "sig": "Vw1JupLkjcfB01Y47A1pPXkaTgYKghG5sHZEJwhjrvM0QtkRz2U9ii4QPElUbb6EZqR6edSGJmchNmUmxie+CA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 36,
+      "entity": "fielddef:species",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:36.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:36.000Z",
+      "sig": "sgvjCeBl7S/5wXWRe/7gqReJVF0APONeUqZ/6lFuTe4JFngWZEJZJ3wAxba9Hb4hwt5AH7Vxbz9q8TMLVxlzCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 37,
+      "entity": "fielddef:species",
+      "field": "name",
+      "value": "Species",
+      "date": "2026-01-01T10:00:37.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:37.000Z",
+      "sig": "pjvtCaR9GAoGwd3A5+S1rCgfvyI40IvgvzLBep2Pr1qJHw1Z9ppQhl6gJlEQur4ZRNU5zGqCuIuZAmwn3QS/Ag=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 38,
+      "entity": "fielddef:species",
+      "field": "type",
+      "value": "choice",
+      "date": "2026-01-01T10:00:38.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:38.000Z",
+      "sig": "0UQui8D6fKYkMnBy/4A5baYz1VdXGwl9nRnYXgvhscPGMRLCjwBIm5UtdALoipubBJ+FNCAXOnlqVHvKuziTBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 39,
+      "entity": "fielddef:species",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:39.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:39.000Z",
+      "sig": "A4Kh+Wm9LcmLYG8re04V6MDlkOXEXk+U16V3+MP4/wZhPDdcfPWolMRlKW4mqvPnjNqOSbav1oaS1//trsfGAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 40,
+      "entity": "fielddef:species",
+      "field": "options",
+      "value": "cat\ndog\nrabbit\nguinea pig\nhamster\nbird\nhorse\ntortoise\nferret",
+      "date": "2026-01-01T10:00:40.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:40.000Z",
+      "sig": "lhkVKrNGVHsEDxBl/zsJH49a9yGxKLbK31hFS9EVep5kbRHbKxdJefTAndShWl1KmQtC4gOBrmVu5I2x21IlCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 41,
+      "entity": "fielddef:weight",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:41.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:41.000Z",
+      "sig": "O3pUfMJbvGjsJhJG1/k+YMoQbwUSA4jrsGhUH1UcehTfYRtwJ48MFYoGKKHCoOKgLrqYvmdNcnnpq4eRnl9tCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 42,
+      "entity": "fielddef:weight",
+      "field": "name",
+      "value": "Weight",
+      "date": "2026-01-01T10:00:42.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:42.000Z",
+      "sig": "u2iT/TMoeK72z7T9KmJSzzAMl3IFFavAGX+qAfDVlSf2VckJOqJZy028SNR+O1dKHjaQA6FFOlfrZGlR7RRDBA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 43,
+      "entity": "fielddef:weight",
+      "field": "type",
+      "value": "unitValue",
+      "date": "2026-01-01T10:00:43.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:43.000Z",
+      "sig": "MTtM1PkbwuvLlS5q6zC1uXyKRV84lVX0ZOBgkkVPHEV5q1yh+sJRIwnCYsCmaoghWsbUE/+JFk9DUzIwrJe/Cw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 44,
+      "entity": "fielddef:weight",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:44.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:44.000Z",
+      "sig": "IihmkjyG65lMTqEJX2dflkteDyidKoeJh43OFBKnLBRiDEDjhLZP/uVv8OlelUedBVWQvInQqXnzV5QjNVtrBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 45,
+      "entity": "fielddef:weight",
+      "field": "dimension",
+      "value": "weight",
+      "date": "2026-01-01T10:00:45.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:45.000Z",
+      "sig": "DrZyJ1Ajp1Ofzn9wHU4b/yvJ6hmit92g4tDqeQq4WttAJPeh0tTaqnebq9pY0MNQGvFAlbZhOTMDIRy6D3LsDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 46,
+      "entity": "fielddef:looks",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:46.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:46.000Z",
+      "sig": "+ekPU1SYJ2LUJMO+nBDoYJvtS01zoh5ji4YheB5keoYvK5BrtybmksNoUmOv7syCoztyQ6Xk2wQPcrbXcVGhAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 47,
+      "entity": "fielddef:looks",
+      "field": "name",
+      "value": "Looks",
+      "date": "2026-01-01T10:00:47.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:47.000Z",
+      "sig": "Mx0PTrvEMDwOoKktwOJtHRYCVeLXlwh+/yn81mcwRwl/OEKw6eBgjfMoQfkgyag6i+gQGf3P5DCoXN7nDFc0Aw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 48,
+      "entity": "fielddef:looks",
+      "field": "type",
+      "value": "tags",
+      "date": "2026-01-01T10:00:48.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:48.000Z",
+      "sig": "6SsI0qS1ic58KtgZZ4Tb6KuZDdq0almU7PK9KR10T37Lk74pOqlodYoxXhHu1WoHvkSZue8aADf2/+/Re2vgCw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 49,
+      "entity": "fielddef:looks",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:49.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:49.000Z",
+      "sig": "TUfbhn+ZLEo/+wjJQ2EjTxEaRbk5QyMehD6//i4A6CGNjHp13Dix7meLZlwbj6MiQ64oaiLb1FcB2D3iuIfpDA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 50,
+      "entity": "fielddef:mother",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:50.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:50.000Z",
+      "sig": "z/iDBb4SnWGH60EuzfFnRQzK2q0C7qZ58a112B3IrwpQQSIbrcqJVgYbxaQZOtpkE+2gs55/Hx942CqeGF2BAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 51,
+      "entity": "fielddef:mother",
+      "field": "name",
+      "value": "Mother",
+      "date": "2026-01-01T10:00:51.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:51.000Z",
+      "sig": "fJm2h5Ifs/e2gJkJ94iMoGS2Pk7RGSsQreljirUma3dEGUFWE6nhFanofXvGN7z+uklyq9JFgrh1DNDEJectAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 52,
+      "entity": "fielddef:mother",
+      "field": "type",
+      "value": "cat",
+      "date": "2026-01-01T10:00:52.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:52.000Z",
+      "sig": "7ZVh70yQZ/QzY2bIMoRsk86mZgpiJbdBxBvLKd7/QEXRjP8CkLw4+CrVmebNjnNGz7Gv9G7DOzBfhzzgfTJ2Cw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 53,
+      "entity": "fielddef:mother",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:53.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:53.000Z",
+      "sig": "ypUVNcbBhglMhSjKWMo96+a2cHIyabcu8oIV7eIDCiTrv4EBcGK80GpdwGk7pDA4UOeNzYhAHtAOYah4MH8kDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 54,
+      "entity": "fielddef:father",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:54.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:54.000Z",
+      "sig": "H7t+geiH68RYZkxX1ciA+J4m7BUXC7u/Ez6rcGkzPV8cA2IK5vKIIfoyRViSB1U3Y3Mhda99aA4prCoyDxloBg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 55,
+      "entity": "fielddef:father",
+      "field": "name",
+      "value": "Father",
+      "date": "2026-01-01T10:00:55.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:55.000Z",
+      "sig": "MP2WgwjoWcwHOsrNGIsl+sgbsj2C5bMgiv8xU+MamrWgcnJnHmKPAn/dR8IAP61zuB6lZkvjm5PtJmIhUa62Ag=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 56,
+      "entity": "fielddef:father",
+      "field": "type",
+      "value": "cat",
+      "date": "2026-01-01T10:00:56.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:56.000Z",
+      "sig": "TfHGH+UlSYG9Z64+d3h0a/tiFnMtVFGJ/us5WLr942WFG4sHRh1unaSwl6dv+UCAoPH285coEORccPsh3y3IAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 57,
+      "entity": "fielddef:father",
+      "field": "scope",
+      "value": "cat",
+      "date": "2026-01-01T10:00:57.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:57.000Z",
+      "sig": "LwJbZ4NE4tQcq08d+E36i46sEt7OKWG5v/lyJjBTXQFeLVmnTVRg52cZgJVkFx5NaPiJdWBjYECxShmY0OPmDQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 58,
+      "entity": "fielddef:status",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:00:58.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:58.000Z",
+      "sig": "Xh9oNAajTn2u2XDddI/AC1bBGQ/jc1LHCjOjilijt0f0ztdOk5B874TBC5+SZmGduYLMWEha9ygTr58UL/+0Cw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 59,
+      "entity": "fielddef:status",
+      "field": "name",
+      "value": "Status",
+      "date": "2026-01-01T10:00:59.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:00:59.000Z",
+      "sig": "nfwTKMJ4Idj62nVSBii6WBaCjkXMqvW4G7rSzGTMIRqo2kkqTNSelBxRWv264dBFXvp94YkYzpnOaZA/PZcIBg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 60,
+      "entity": "fielddef:status",
+      "field": "type",
+      "value": "choice",
+      "date": "2026-01-01T10:01:00.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:00.000Z",
+      "sig": "+k+Q8jZqZYMBcVqztV7Zygax8ghNtzkambz2POdtZ0Vx115kXviCJBOg/b1a6sHri8NyDVdIgM3WbYkIt7+eAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 61,
+      "entity": "fielddef:status",
+      "field": "scope",
+      "value": "clowder",
+      "date": "2026-01-01T10:01:01.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:01.000Z",
+      "sig": "bLBwXtj49oTIW6++1b+DmhT/sYrRLxZC/vpEyAJRcsaq4LNb9b8xkec7GVx1SclekY76ErIu8VTbLkXJsJQeCg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 62,
+      "entity": "fielddef:status",
+      "field": "options",
+      "value": "foster\nforever-home\nclinic\nshelter\nbarn\nowner",
+      "date": "2026-01-01T10:01:02.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:02.000Z",
+      "sig": "kXcOtKyngwxEB5EJzMTc2EaehTPDTBqYxlizLhP018V0diCZQ2TtT3KsLbvSjgKM6BwEwS+eCZ+q1zAyAVzSBw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 63,
+      "entity": "fielddef:address",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:01:03.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:03.000Z",
+      "sig": "bXHDFvQGvKx3eevYsicicR4izCj0fiBqmjzcBRG8JWDzT01R3rQEgNfaK0fXpWaZtMEaBC8F15wA1RjDZfprCg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 64,
+      "entity": "fielddef:address",
+      "field": "name",
+      "value": "Address",
+      "date": "2026-01-01T10:01:04.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:04.000Z",
+      "sig": "2mFXaWIJ8kCu6eNSQaiw3sw8o0kIqnd1jsDv2pcX5p/Gi66fl+1swV5B/IE1STDCqQjgbuJWMqYxiP3B0CMzCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 65,
+      "entity": "fielddef:address",
+      "field": "type",
+      "value": "text",
+      "date": "2026-01-01T10:01:05.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:05.000Z",
+      "sig": "XI+LrLmZHpvJXLfSVxZtI1IKb6j0aXTMksgC6oQrK2feWRaFHWLfI7NT0Ssw6vTS3gBh3bDqGqbvUooRwGj8CQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 66,
+      "entity": "fielddef:address",
+      "field": "scope",
+      "value": "clowder",
+      "date": "2026-01-01T10:01:06.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:06.000Z",
+      "sig": "B+bfaZW+xP6TNqYo0rM6fwelGRe2CbG2EkvIiVeuPRrpukOxmGW2w6ZUV6wXj5U5z3xxx36u+ZvH2Rv//bG6Ag=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 67,
+      "entity": "fielddef:responsible",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:01:07.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:07.000Z",
+      "sig": "sFVxaZgGj+QYg+L9lA5DWxnfQ6ANZfocrGCn1bKE4hWBT3GBcMaQ4QW/urWxRn99erx6KUYpUERhPsPOcbu6Dw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 68,
+      "entity": "fielddef:responsible",
+      "field": "name",
+      "value": "Responsible person",
+      "date": "2026-01-01T10:01:08.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:08.000Z",
+      "sig": "DWsaayujX7qBO6UHqviEXFocpnAkDhvbjbTsXEqLsx1hzGCf9a90faWyn5964dsZ33jTjihcGIS+tAlRzsFqAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 69,
+      "entity": "fielddef:responsible",
+      "field": "type",
+      "value": "text",
+      "date": "2026-01-01T10:01:09.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:09.000Z",
+      "sig": "1Dv4pUy622An2XPccr73RRAPaMayBsJZgT89Lu+8wzucccEIBPqueFUwnardNd/OafaAMp3O9AaU4ArpeEtuCg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 70,
+      "entity": "fielddef:responsible",
+      "field": "scope",
+      "value": "clowder",
+      "date": "2026-01-01T10:01:10.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:10.000Z",
+      "sig": "KxuzgxoysHD83+PcBN2/bBuiBtJbngqqyuIx6MBsY+pOk9sq8iZsBWsqAsQRqwFdatfYwflxAcYYb9BaL+BdCw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 71,
+      "entity": "fielddef:email",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:01:11.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:11.000Z",
+      "sig": "h/42jh/0fHQSrbaPCGY267m8hPNJ8qUHLjDbNkbnhpIrqwpJxP0UI6z8z2mwnjBoEVqHyEtam0x7BILVQ+UJCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 72,
+      "entity": "fielddef:email",
+      "field": "name",
+      "value": "Email",
+      "date": "2026-01-01T10:01:12.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:12.000Z",
+      "sig": "H5+4sq3KJvIEd6bViDBLayJPmKp799sL1ctt0S/HFrIIvPzm/gv2tm1CklxAcQxPkq/yAZQB/xpN3qE5E8GLAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 73,
+      "entity": "fielddef:email",
+      "field": "type",
+      "value": "text",
+      "date": "2026-01-01T10:01:13.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:13.000Z",
+      "sig": "37bDScypxDEHyj7HNZnSRV/JtcWUp1D2wJ77lzdjOHZ9kwbGE2aXmRq8QndKZ0lFsP+RifMNExO/g//uG0daAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 74,
+      "entity": "fielddef:email",
+      "field": "scope",
+      "value": "clowder",
+      "date": "2026-01-01T10:01:14.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:14.000Z",
+      "sig": "55Q6mOvJRAqaYY42WPiJsloyRO9Xa5vqzTRK2FV7UuphLemJmQ1iDbJnlOVsI1hhb4p3sopJNjylISu9qr+VAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 75,
+      "entity": "fielddef:phone",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:01:15.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:15.000Z",
+      "sig": "kADKnh469JTsDvF5DLkp3KQwkkQ8DrDpsx+aapAouUjErzxvjnIB2GVyRY+eAcJ1AMizR3QF7rcTPTj9XJgkAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 76,
+      "entity": "fielddef:phone",
+      "field": "name",
+      "value": "Phone",
+      "date": "2026-01-01T10:01:16.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:16.000Z",
+      "sig": "bPwl6Z2Czc7Dhjn+s6pzRy0jFkKjGRRtXzIgoiUcvQh2ihrc9C0BylXYs9jRfDPt/3d78BuuA6oqwOwNC9mWAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 77,
+      "entity": "fielddef:phone",
+      "field": "type",
+      "value": "text",
+      "date": "2026-01-01T10:01:17.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:17.000Z",
+      "sig": "r2bQ+Uvm+5GMrfCR1ohj8dGG0nVNlcjgQP+NTbFmKaITKqYbD2MQiaLQT9OaDql/6Q91639q/Io5J/m8dw0gDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 78,
+      "entity": "fielddef:phone",
+      "field": "scope",
+      "value": "clowder",
+      "date": "2026-01-01T10:01:18.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:18.000Z",
+      "sig": "1fh3Lkw/EOqFwNwwcoR48ydIJEI6XL11w81qXy8cbI5pBpPR6ZIs+Eaq7yDbvLpOXpCoahp1Q4Pir0w4Da6yBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 79,
+      "entity": "fielddef:position",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:01:19.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:19.000Z",
+      "sig": "A8zj/BcrG3/BReMq62KwQekof12j+viP888gXJvnXgYYIuoyLUroR649Jv1sDcKDvO/zmoTGoTF9j0UK8d7DAw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 80,
+      "entity": "fielddef:position",
+      "field": "name",
+      "value": "Position",
+      "date": "2026-01-01T10:01:20.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:20.000Z",
+      "sig": "ZCK8x+wXE5wIlI+owarX3gatvGO0XfhYg0Xei4PtnTB5KnN4SdCj2PmP4iHLeQfqZQk3M47w91q56X1Eow50AQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 81,
+      "entity": "fielddef:position",
+      "field": "type",
+      "value": "location",
+      "date": "2026-01-01T10:01:21.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:21.000Z",
+      "sig": "gBy07tNz+SkH3HV/j2x4a7JHCaRFFvN7r0mDuRzBIPAxEbLtaWN0wlhOS6uN0tzm3hbd16/Gm1TG/PGKPRuIDQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 82,
+      "entity": "fielddef:position",
+      "field": "scope",
+      "value": "both",
+      "date": "2026-01-01T10:01:22.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:22.000Z",
+      "sig": "S0GXAhAAr4ujEjjtdV8HlXEmHYWnKhCwEZwOLL3GwfmPXzVLBaSFC4V3sF+8G+6dKT4P+AZDEduSDJtbhihgDg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 83,
+      "entity": "fielddef:remarks",
+      "field": "$type",
+      "value": "fielddef",
+      "date": "2026-01-01T10:01:23.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:23.000Z",
+      "sig": "NU5NR9zEN9lSZobvCfD8lncZv+FneX+JrU9uvNZ+fWSz96QawBXLiNmhtOs4MCRiP3EeHb7iIOwfK/69NAxqBA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 84,
+      "entity": "fielddef:remarks",
+      "field": "name",
+      "value": "Remarks",
+      "date": "2026-01-01T10:01:24.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:24.000Z",
+      "sig": "w77qpSEIjzcSVDQWhQy+P0G7kSQG43PuMPq9TStqp/YFfBwf3OzsPC9VR3Bkr76BVmXNKB9RlV1430MrArkBDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 85,
+      "entity": "fielddef:remarks",
+      "field": "type",
+      "value": "text",
+      "date": "2026-01-01T10:01:25.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:25.000Z",
+      "sig": "2i2YIdGfam2DXWRXyTlVQQw7XwW6oiq319hcvYYBUI8rvDB3+LXkf9ZzJKqcuJ7IMAZ3RZvMs3TwSB0R1YpaAQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 86,
+      "entity": "fielddef:remarks",
+      "field": "scope",
+      "value": "both",
+      "date": "2026-01-01T10:01:26.000Z",
+      "author": "cat(a)log",
+      "recorded": "2026-01-01T10:01:26.000Z",
+      "sig": "GKxOc46M0NYAg1DHwgbQiJzK2UzjERGwNnDA18/of8/HCNjEyWR58Y6RPFIGNCV4bPl4HddV1FHTxkZhlYDrCw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 87,
+      "entity": "clowder:00000000-0000-4000-8000-000000000001",
+      "field": "$type",
+      "value": "clowder",
+      "date": "2026-01-01T10:01:27.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:27.000Z",
+      "sig": "8gWjEjRgrDAzougHO3eKTFFCl/cMzO8ESy0OYO88jtx1FH+8QpJ45cIOLr8GVma1vW9Jp5+zS9oR0Gd3x97lCA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 88,
+      "entity": "clowder:00000000-0000-4000-8000-000000000001",
+      "field": "name",
+      "value": "Foster Home",
+      "date": "2026-01-01T10:01:28.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:28.000Z",
+      "sig": "a/Vgja7ag2+kuYUj7g6iA31qQ85JB3wgERXRMCbAvNAfSRzcd+J0qbm77B1iovln8Z5n5E7+D2+/pQixZycmBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 89,
+      "entity": "clowder:00000000-0000-4000-8000-000000000001",
+      "field": "f:address",
+      "value": "Katzenweg 3, Leipzig",
+      "date": "2026-01-01T10:01:29.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:29.000Z",
+      "sig": "rJXEVT5CnzwegW5Whqqt8KTq7HMBNijdnV5eEcTzuzDPQVMLq7YfdMDt8N9QYPyVA6457CLej3uKb2vEbEBoDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 90,
+      "entity": "clowder:00000000-0000-4000-8000-000000000001",
+      "field": "f:status",
+      "value": "foster",
+      "date": "2026-01-01T10:01:30.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:30.000Z",
+      "sig": "MzSUPfLnKVwGRCWiGgi2Kpuc66cR9mTIMAiM+3voZZerdwhOoxCeiO/kirZvsAELuwZ5pWz4CVuiSO+46dXWCw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 91,
+      "entity": "clowder:00000000-0000-4000-8000-000000000001",
+      "field": "f:responsible",
+      "value": "Ada",
+      "date": "2026-01-01T10:01:31.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:31.000Z",
+      "sig": "31OIThuBsfYUJ9Lgky3kbxwd/JaLiDaO5GbpyIDPos1k9XgLsXsJLSel9HLz9OyavZfu7jzT2MJEveAkpJoqBA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 92,
+      "entity": "clowder:00000000-0000-4000-8000-000000000002",
+      "field": "$type",
+      "value": "clowder",
+      "date": "2026-01-01T10:01:32.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:32.000Z",
+      "sig": "M7hbodv6dQ0B4JmvhEUx3AjxTyEYWGnqAs7mzWuxfNBiQncLGprQjXMDd4rwn/4sBiX2Gagg1glOTwGvP6Q2Cw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 93,
+      "entity": "clowder:00000000-0000-4000-8000-000000000002",
+      "field": "name",
+      "value": "Barn",
+      "date": "2026-01-01T10:01:33.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:33.000Z",
+      "sig": "CAeSzGY1phUZMOtC7cLosnVxtabY3VtgeNBJl/w4Uta9gdAq5g/7GJtBxbVRafXacJq3ihYNZ1VDHq0tX1pNBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 94,
+      "entity": "clowder:00000000-0000-4000-8000-000000000002",
+      "field": "f:status",
+      "value": "barn",
+      "date": "2026-01-01T10:01:34.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:34.000Z",
+      "sig": "i5XvVsyxdCEWyuFAI3JwxAWXCAsmp/5jD10X7KazVVoyJxi36p8Rzb5UzaxVgQlXQsdqPti8CwCQN2hvbU0KDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 95,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$type",
+      "value": "cat",
+      "date": "2026-01-01T10:01:35.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:35.000Z",
+      "sig": "WMUbUZjFlwpkqFUgY7GQHyziLPH2HucYuriaza4kxUz3DNKdcj4hiZTS9vtxXxYR2YJXvSubm3ewylZBKDc7CA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 96,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "name",
+      "value": "Miezi",
+      "date": "2026-01-01T10:01:36.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:36.000Z",
+      "sig": "rPjBdHq2sE1bJLVif55UJbF7E3s/F/APnZD53g0rjwYwW6KQ8nlAkS5xwChlJQ45/iQKk1vAFwgMx9ysOX9eBw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 97,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:species",
+      "value": "cat",
+      "date": "2026-01-01T10:01:37.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:37.000Z",
+      "sig": "1gGdDx+EnrANlNm9P6b68//qFCktb9fNZ8Q82Rbk77r0+3aZzGD3Xz4buzxvVA7eBfkr72U0zgJUSbk4K9nXBQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 98,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "clowder",
+      "value": "clowder:00000000-0000-4000-8000-000000000001",
+      "date": "2026-01-01T10:01:38.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:38.000Z",
+      "sig": "hQSRg5b6L+DMbQ5HRtY2hEE1hpDB5S/hVlsvWI301ezU70ETu7xHqswM89pfrE+mHRsG0hn3WnXuh94mKQ5hCg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 99,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:gender",
+      "value": "female",
+      "date": "2026-01-01T10:01:39.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:39.000Z",
+      "sig": "JruCrDOMN9lWZpo1H5b9zsvdpqDPnmfVu7bnmrzqweSCi4C6lKIiz3TrR6J0dzvTQqrjtv4zqNkkujo/jxZnAw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 100,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "f:color",
+      "value": "tabby",
+      "date": "2026-01-01T10:01:40.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:40.000Z",
+      "sig": "1b5mWbQvJy8EAyYkjqOezTn8J5B6WgulvzXArO/cq3M1tQbD1xuwVlAN8jVEjny76Xh/5s9kEBmKh8hqf7imDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 101,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$image:ca4e7d62b4f4175ffd92261dd3d8e98cec00712a23bab1fc09d42c8387f14e06",
+      "value": "added",
+      "date": "2026-01-01T10:01:41.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:41.000Z",
+      "sig": "HwNSQMwbDNrdPHZpNhwHNohFezlQBGcZLL01J2f4JRJF4OCW7oSovfsJjKGbkiKGBGkby6yKNF16vbzgWRCvAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 102,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$image:f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78",
+      "value": "added",
+      "date": "2026-01-01T10:01:42.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:42.000Z",
+      "sig": "Hjf6ch1WlmSwc8XlNBAaEnZnYt18jSlZm46Gwvb5+jMe2g/A5BCbTSaxrP7HqvT+sqlrHaJv3hebAL7l8GXxDA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 103,
+      "entity": "cat:00000000-0000-4000-8000-000000000001",
+      "field": "$profile",
+      "value": "f060cf3b4ddaec6fc1753e2b1f81dde70493308d8b78444b1327d31142c5db78",
+      "date": "2026-01-01T10:01:43.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:43.000Z",
+      "sig": "rOHgbUAn47r/YIrLArKxn5FwMKUBQxh+pYZaDCUiQExJ916M+xnMs/hTud7KUcXzrbzoFl3ZaNtx68Id1YMGCg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 104,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "$type",
+      "value": "cat",
+      "date": "2026-01-01T10:01:44.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:44.000Z",
+      "sig": "Aj+bQ//3qdOvwdtrWxXQrdgrFdqiyx3h+DnOfG4KBZziC8W4fPkAR6PVfWsVbvaQ3/Ik7n5hJYUhC/UjFFazDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 105,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "name",
+      "value": "Tom",
+      "date": "2026-01-01T10:01:45.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:45.000Z",
+      "sig": "uWIWlsTLj3IbEg1PRjBZ/3sj2WkJ7edcOpJZvUrTaftZk12tE5keAggT+kf34P1LPDr1mGAQE8VL1XGOon23CQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 106,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "f:species",
+      "value": "cat",
+      "date": "2026-01-01T10:01:46.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:46.000Z",
+      "sig": "tDpHdlX2MG+D3tkc/hJOXhG+XPrWqcaXJtg/69Tz3CxuICe4HxfTR9s12Raww8ixkSaucbzeKRdS5yAecdvtCQ=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 107,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "clowder",
+      "value": "clowder:00000000-0000-4000-8000-000000000002",
+      "date": "2026-01-01T10:01:47.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:47.000Z",
+      "sig": "xTOtJSPDg5vOOhfy0Xg6cgvuLczDGAH9yQV9AOCqgk9dB6V6ubQExPNbC8k6mJtyWopCHNLSIrV5yTRcgIZ7Bg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 108,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "f:gender",
+      "value": "male",
+      "date": "2026-01-01T10:01:48.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:48.000Z",
+      "sig": "AlaNe27BNseJ9vfK6l+Q3ZVemStHTXEX9KzxYUlYtisOLwUtakLTXhTURMFOygzfb1hhx78mQpT+MIY+m4nDDw=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 109,
+      "entity": "cat:00000000-0000-4000-8000-000000000002",
+      "field": "$image:d0b0454c661ee86497abced574c21fd11e51d28723c9db8a5d7203054cf0653a",
+      "value": "added",
+      "date": "2026-01-01T10:01:49.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:49.000Z",
+      "sig": "ZxE4hpH4ebx9KWv4QSpaqUC8y2/KxStziRep+yhttSXmNTE/Bb6vtV0CAQpDkTW1hN2UUABOpgDS2KzLciMSAg=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 110,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "$type",
+      "value": "cat",
+      "date": "2026-01-01T10:01:50.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:50.000Z",
+      "sig": "OLJ98+B2TfI6mVz9Hhq6NI4HB8eFLAa4wv7wSN2VtOw3M5nwGOlpUOJV3umrsAqwT5yx0/doVfKs2TjtXjSpAA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 111,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "name",
+      "value": "Wanderer",
+      "date": "2026-01-01T10:01:51.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:51.000Z",
+      "sig": "/rMzYg9YJheT+QkO+Db36HKrAJAyZJwvYO3PsOkmXNCsBg81iiZEwthvamTC+f7gyrfOLqZ4ASQe5FznZpqWDA=="
+    },
+    {
+      "device": "65b60673d6ed884bf01c2c222d82ada0",
+      "dseq": 112,
+      "entity": "cat:00000000-0000-4000-8000-000000000003",
+      "field": "f:species",
+      "value": "cat",
+      "date": "2026-01-01T10:01:52.000Z",
+      "author": "Ada",
+      "recorded": "2026-01-01T10:01:52.000Z",
+      "sig": "SG/fGXOzWwBXZKLocGSWIvw2lIcFofEvhNlSnHF3cHyd6aORfFf3gePKYBqm5Mpfb9YQtgfSuU5haI1KBedLAg=="
+    }
+  ]
+}

@@ -115,6 +115,11 @@ class CatalogStore {
 
   CatalogStore._(this._db, this._blobs);
 
+  /// Where the store reads the wall clock for [Entry.recorded] and for
+  /// moments. Tools that need a reproducible log — the fixture corpus
+  /// the desktop core is tested against — swap it for a fixed clock.
+  static DateTime Function() clock = DateTime.now;
+
   /// Opens an on-disk catalog, creating it if needed. Image blobs go to an
   /// `images` directory next to the database file.
   factory CatalogStore.open(String path) => _init(
@@ -766,7 +771,7 @@ class CatalogStore {
       {DateTime? date, String? as, bool reminder = false}) {
     final by = as ?? author;
     if (by == null) throw StateError('No author configured');
-    final now = DateTime.now().toUtc();
+    final now = clock().toUtc();
     final device = deviceId;
     final next = _nextDseq(device);
     _insertOwn(
@@ -1541,7 +1546,7 @@ class CatalogStore {
     final mark = seq == null || seq > now ? now : seq;
     _db.execute(
       'INSERT INTO moments (seq, cause, label, at) VALUES (?, ?, ?, ?)',
-      [mark, cause, label, _iso(at ?? DateTime.now())],
+      [mark, cause, label, _iso(at ?? clock())],
     );
     return _db.lastInsertRowId;
   }
