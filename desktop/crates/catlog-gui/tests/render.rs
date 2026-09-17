@@ -30,7 +30,7 @@ fn render(name: &str, intro_seen: bool) {
                 App::install_theme(ui.ctx());
                 app.show(ui);
             },
-            App::new(file),
+            App::open(file, &dir.path().join("data")).expect("app"),
         );
     harness.run();
     let image = harness.render().expect("wgpu render");

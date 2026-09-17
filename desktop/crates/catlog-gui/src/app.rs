@@ -1,11 +1,17 @@
-//! The shell: a menu bar, a list pane on the left and a detail pane on
-//! the right, the intro on first start. Everything the window shows
+//! The shell: a menu bar, the home pane on the left and a detail pane
+//! on the right, the intro on first start. Everything the window shows
 //! passes through [`App::show`], which the kittest harness drives.
 
+use std::path::{Path, PathBuf};
+
+use catlog_core::{Catalog, CatalogManager};
 use egui::{Context, ThemePreference, Ui};
 
+use crate::dialogs::NameDialog;
+use crate::home::{HomeAction, HomePane, Selection};
 use crate::l10n::{self, L10n};
 use crate::settings::{AppSettings, SettingsFile};
+use crate::textures::FaceCache;
 
 /// What the keeper asked the shell to do; the launcher acts on it.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -20,29 +26,60 @@ pub const DEFAULT_WINDOW_SIZE: [f32; 2] = [1200.0, 800.0];
 /// The list pane's width when nothing was remembered.
 pub const DEFAULT_PANE_WIDTH: f32 = 320.0;
 
+/// Which dialog is up, and what its answer means.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Asking {
+    Nothing,
+    NewClowder,
+    NewCatalog,
+    RenameCatalog,
+}
+
 pub struct App {
     settings: SettingsFile,
     t: L10n,
+    manager: CatalogManager,
+    store: Catalog,
+    home: HomePane,
+    faces: FaceCache,
+    dialog: NameDialog,
+    asking: Asking,
     /// The name typed on the intro page.
     intro_name: String,
     intro_skip_tips: bool,
     request: Request,
     about_open: bool,
+    /// What went wrong last, shown in the detail pane until the next action.
+    notice: Option<String>,
 }
 
 impl App {
-    /// The app over the settings in `settings`, its language from them
-    /// or the system.
-    pub fn new(settings: SettingsFile) -> App {
+    /// The app over the settings in `settings` and the Catalogs under
+    /// `root`, its language from the settings or the system.
+    pub fn open(settings: SettingsFile, root: &Path) -> catlog_core::Result<App> {
         let locale = Self::locale_of(&settings.settings);
-        App {
-            t: L10n::new(&locale),
+        let t = L10n::new(&locale);
+        let manager = CatalogManager::open(root, t.clowders())?;
+        let mut store = manager.open_store(manager.active())?;
+        if let Some(author) = &settings.settings.author {
+            store.set_author(author)?;
+        }
+        let _ = store.strip_photo_locations();
+        Ok(App {
+            t,
             intro_name: settings.settings.author.clone().unwrap_or_default(),
             intro_skip_tips: false,
             settings,
+            manager,
+            store,
+            home: HomePane::default(),
+            faces: FaceCache::default(),
+            dialog: NameDialog::default(),
+            asking: Asking::Nothing,
             request: Request::None,
             about_open: false,
-        }
+            notice: None,
+        })
     }
 
     fn locale_of(settings: &AppSettings) -> String {
@@ -59,6 +96,28 @@ impl App {
     /// The strings in the current language.
     pub fn t(&self) -> &L10n {
         &self.t
+    }
+
+    /// The open Catalog.
+    pub fn store(&self) -> &Catalog {
+        &self.store
+    }
+
+    pub fn store_mut(&mut self) -> &mut Catalog {
+        &mut self.store
+    }
+
+    pub fn manager(&self) -> &CatalogManager {
+        &self.manager
+    }
+
+    pub fn selection(&self) -> &Selection {
+        &self.home.selection
+    }
+
+    /// The window title: the open Catalog's name.
+    pub fn title(&self) -> String {
+        self.manager.active().name.clone()
     }
 
     /// What the keeper asked for since the last frame, cleared on read.
@@ -78,7 +137,7 @@ impl App {
 
     /// Remembers the window size on the way out.
     pub fn remember_window(&mut self, size: [f32; 2]) {
-        if size[0] > 200.0 && size[1] > 200.0 {
+        if size[0] > 200.0 && size[1] > 200.0 && self.settings.settings.window != Some(size) {
             self.settings.settings.window = Some(size);
             let _ = self.settings.save();
         }
@@ -91,17 +150,34 @@ impl App {
         let _ = self.settings.save();
     }
 
+    /// Opens another Catalog of this device.
+    pub fn switch_catalog(&mut self, id: &str) -> catlog_core::Result<()> {
+        let Some(info) = self.manager.by_id(id).cloned() else {
+            return Ok(());
+        };
+        let store = self.manager.open_store(&info)?;
+        if let Some(author) = &self.settings.settings.author {
+            store.set_author(author)?;
+        }
+        self.store = store;
+        self.manager.set_active(id)?;
+        self.home.selection = Selection::None;
+        self.faces = FaceCache::default();
+        Ok(())
+    }
+
     fn finish_intro(&mut self) {
         let name = self.intro_name.trim().to_string();
         if name.is_empty() {
             return;
         }
-        self.settings.settings.author = Some(name);
+        self.settings.settings.author = Some(name.clone());
         self.settings.settings.intro_seen = true;
         if self.intro_skip_tips {
             self.settings.settings.tips_seen = vec!["all".into()];
         }
         let _ = self.settings.save();
+        let _ = self.store.set_author(&name);
     }
 
     /// Draws the whole window into `ui`.
@@ -116,23 +192,102 @@ impl App {
             .settings
             .pane_width
             .unwrap_or(DEFAULT_PANE_WIDTH);
+        let t = self.t;
+        let mut action = HomeAction::None;
         let pane = egui::Panel::left("list-pane")
             .resizable(true)
             .default_size(width)
             .min_size(200.0)
             .show(ui, |ui| {
-                ui.heading(self.t.clowders());
-                ui.label(self.t.no_clowders_yet());
+                action = self.home.show(ui, &self.store, &t, &mut self.faces);
             });
         let new_width = pane.response.rect.width();
-        if (new_width - width).abs() > 0.5 && pane.response.rect.width() > 0.0 {
+        if (new_width - width).abs() > 0.5 && new_width > 0.0 {
             self.settings.settings.pane_width = Some(new_width);
         }
+        self.act(action);
         egui::CentralPanel::default().show(ui, |ui| {
-            ui.label(self.t.select_clowder_hint());
+            if let Some(notice) = &self.notice {
+                ui.colored_label(ui.visuals().error_fg_color, notice);
+            }
+            match &self.home.selection {
+                Selection::None => {
+                    ui.label(t.select_clowder_hint());
+                }
+                Selection::Strays => {
+                    ui.heading(t.strays());
+                }
+                Selection::Clowder(id) => {
+                    let name = self
+                        .store
+                        .current(id, catlog_core::keys::NAME)
+                        .ok()
+                        .flatten()
+                        .unwrap_or_default();
+                    ui.heading(name);
+                }
+            }
         });
+        self.show_dialog(ui.ctx());
         if self.about_open {
             self.show_about(ui.ctx());
+        }
+    }
+
+    fn act(&mut self, action: HomeAction) {
+        let t = self.t;
+        match action {
+            HomeAction::None => {}
+            HomeAction::Open(_) => self.notice = None,
+            HomeAction::ToggleFavourite(id) => {
+                let key = format!("fav:{id}");
+                let now = self.store.local_setting(&key).as_deref() == Some("yes");
+                let _ = self
+                    .store
+                    .set_local_setting(&key, if now { "no" } else { "yes" });
+            }
+            HomeAction::ToggleHidden(id) => {
+                let now = self.store.is_hidden(&id).unwrap_or(false);
+                let _ = self.store.set_hidden(&id, !now);
+            }
+            HomeAction::NewClowder => {
+                self.asking = Asking::NewClowder;
+                self.dialog.ask(t.new_clowder(), t.name(), t.create(), "");
+            }
+        }
+    }
+
+    fn show_dialog(&mut self, ctx: &Context) {
+        let t = self.t;
+        let Some(value) = self.dialog.show(ctx, t.cancel()) else {
+            return;
+        };
+        match self.asking {
+            Asking::Nothing => {}
+            Asking::NewClowder => {
+                let id = format!("clowder:{}", new_uuid());
+                match self.store.create_clowder(&id, &value) {
+                    Ok(()) => self.home.selection = Selection::Clowder(id),
+                    Err(e) => self.notice = Some(e.to_string()),
+                }
+            }
+            Asking::NewCatalog => match self.manager.create(&value) {
+                Ok(info) => {
+                    if let Err(e) = self.switch_catalog(&info.id) {
+                        self.notice = Some(e.to_string());
+                    }
+                }
+                Err(_) => self.dialog.refuse(t.catalog_name_taken(&value)),
+            },
+            Asking::RenameCatalog => {
+                let id = self.manager.active().id.clone();
+                if self.manager.rename(&id, &value).is_err() {
+                    self.dialog.refuse(t.catalog_name_taken(&value));
+                }
+            }
+        }
+        if !self.dialog.open {
+            self.asking = Asking::Nothing;
         }
     }
 
@@ -151,6 +306,12 @@ impl App {
                         ui.add_enabled(false, egui::Button::new(t.rename()));
                     });
                     ui.menu_button(t.menu_view(), |ui| {
+                        if ui
+                            .checkbox(&mut self.home.show_hidden, t.show_hidden_label())
+                            .changed()
+                        {
+                            ui.close();
+                        }
                         ui.menu_button(t.language(), |ui| {
                             let mut chosen: Option<&'static str> = None;
                             for locale in l10n::LOCALES {
@@ -168,7 +329,45 @@ impl App {
                         });
                     });
                     ui.menu_button(t.menu_catalog(), |ui| {
-                        ui.add_enabled(false, egui::Button::new(t.new_clowder()));
+                        let active = self.manager.active().id.clone();
+                        let mut switch: Option<String> = None;
+                        for info in self.manager.catalogs() {
+                            if ui.selectable_label(info.id == active, &info.name).clicked() {
+                                switch = Some(info.id.clone());
+                            }
+                        }
+                        if let Some(id) = switch
+                            && let Err(e) = self.switch_catalog(&id)
+                        {
+                            self.notice = Some(e.to_string());
+                        }
+                        ui.separator();
+                        if ui.button(t.new_catalog()).clicked() {
+                            self.asking = Asking::NewCatalog;
+                            self.dialog.ask(
+                                t.new_catalog(),
+                                t.catalog_name_label(),
+                                t.create(),
+                                "",
+                            );
+                            ui.close();
+                        }
+                        if ui.button(t.rename_catalog()).clicked() {
+                            let current = self.manager.active().name.clone();
+                            self.asking = Asking::RenameCatalog;
+                            self.dialog.ask(
+                                t.rename_catalog(),
+                                t.catalog_name_label(),
+                                t.rename(),
+                                &current,
+                            );
+                            ui.close();
+                        }
+                        ui.separator();
+                        if ui.button(t.new_clowder()).clicked() {
+                            self.act(HomeAction::NewClowder);
+                            ui.close();
+                        }
                     });
                     ui.menu_button(t.menu_help(), |ui| {
                         if ui.button(t.about_and_feedback()).clicked() {
@@ -219,6 +418,28 @@ impl App {
     }
 }
 
+/// A fresh v4 UUID for a new entity, as the phones make them.
+pub fn new_uuid() -> String {
+    let mut b = [0u8; 16];
+    let _ = getrandom::fill(&mut b);
+    b[6] = (b[6] & 0x0f) | 0x40;
+    b[8] = (b[8] & 0x3f) | 0x80;
+    let h = hex::encode(b);
+    format!(
+        "{}-{}-{}-{}-{}",
+        &h[..8],
+        &h[8..12],
+        &h[12..16],
+        &h[16..20],
+        &h[20..]
+    )
+}
+
+/// Where the Catalogs of this device live.
+pub fn catalogs_root(data_dir: &Path) -> PathBuf {
+    data_dir.to_path_buf()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -230,7 +451,15 @@ mod tests {
         file.settings.locale = Some(locale.into());
         file.settings.intro_seen = intro_seen;
         file.settings.author = intro_seen.then(|| "Ada".to_string());
-        App::new(file)
+        App::open(file, &dir.join("data")).unwrap()
+    }
+
+    /// The app over the `fresh` fixture: two Clowders, three Cats, photos.
+    fn seeded(dir: &std::path::Path) -> App {
+        let mut app = app(dir, "en", true);
+        let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../fixtures/fresh/folder");
+        app.store_mut().import_folder(&fixture, None).unwrap();
+        app
     }
 
     fn harness(app: App) -> Harness<'static, App> {
@@ -252,7 +481,6 @@ mod tests {
             let mut h = harness(app(dir.path(), locale, true));
             h.run();
             let t = L10n::new(locale);
-            let clowders = t.clowders();
             for label in [
                 t.menu_file(),
                 t.menu_edit(),
@@ -263,7 +491,7 @@ mod tests {
                 let node = h.get_by_label(label);
                 assert!(node.rect().max.y < 60.0, "{label} sits in the menu bar");
             }
-            let list = h.get_by_label(clowders).rect();
+            let list = h.get_by_label(t.clowders()).rect();
             let hint = h.get_by_label(t.select_clowder_hint()).rect();
             assert!(
                 list.max.x <= DEFAULT_PANE_WIDTH + 2.0,
@@ -273,7 +501,9 @@ mod tests {
                 hint.min.x >= DEFAULT_PANE_WIDTH - 2.0,
                 "the detail pane sits right of it"
             );
+            h.get_by_label(t.no_clowders_yet());
             assert_eq!(h.state().t().locale(), locale);
+            assert_eq!(h.state().title(), t.clowders());
         }
     }
 
@@ -301,6 +531,7 @@ mod tests {
             SettingsFile::load(dir.path()).settings.author.as_deref(),
             Some("Ada")
         );
+        assert_eq!(h.state().store().author().as_deref(), Some("Ada"));
     }
 
     #[test]
@@ -356,7 +587,144 @@ mod tests {
     fn the_language_follows_the_system_when_none_is_chosen() {
         let dir = tempfile::tempdir().unwrap();
         let file = SettingsFile::load(dir.path());
-        let app = App::new(file);
+        let app = App::open(file, &dir.path().join("data")).unwrap();
         assert!(l10n::LOCALES.contains(&app.t().locale()));
+        assert_eq!(app.manager().catalogs().len(), 1);
+    }
+
+    #[test]
+    fn the_home_pane_lists_strays_and_clowders_with_faces_and_opens_them() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label_contains("Strays  (1)");
+        let home = h.get_by_label("Foster Home").rect();
+        let barn = h.get_by_label("Barn").rect();
+        assert!(home.min.y < barn.min.y, "creation order");
+        assert!(home.max.x < DEFAULT_PANE_WIDTH);
+        assert!(!h.state().faces.is_empty(), "the faces were loaded");
+        h.get_by_label("Barn").click();
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000002".into())
+        );
+        assert_eq!(
+            h.get_all_by_label("Barn").count(),
+            2,
+            "the detail pane shows it"
+        );
+        h.get_by_label_contains("Strays  (1)").click();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Strays);
+        // The star moves a Clowder to the front and back.
+        h.get_all_by_label("☆").nth(1).unwrap().click();
+        h.run();
+        let home = h.get_by_label("Foster Home").rect();
+        let barn = h.get_by_label("Barn").rect();
+        assert!(barn.min.y < home.min.y, "the favourite leads");
+        h.get_by_label("★").click();
+        h.run();
+        let home = h.get_by_label("Foster Home").rect();
+        let barn = h.get_by_label("Barn").rect();
+        assert!(home.min.y < barn.min.y);
+    }
+
+    #[test]
+    fn the_row_menu_hides_and_the_view_menu_shows_hidden_again() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.state_mut().act(HomeAction::ToggleHidden(
+            "clowder:00000000-0000-4000-8000-000000000002".into(),
+        ));
+        h.run();
+        assert!(h.query_by_label("Barn").is_none(), "hidden on this device");
+        h.get_by_label("View").click();
+        h.step();
+        h.get_by_label("Show hidden").click();
+        h.run();
+        h.get_by_label("Barn");
+        h.state_mut().act(HomeAction::ToggleHidden(
+            "clowder:00000000-0000-4000-8000-000000000002".into(),
+        ));
+        h.run();
+        assert!(
+            !h.state()
+                .store()
+                .is_hidden("clowder:00000000-0000-4000-8000-000000000002")
+                .unwrap()
+        );
+        h.state_mut().act(HomeAction::ToggleFavourite(
+            "clowder:00000000-0000-4000-8000-000000000001".into(),
+        ));
+        assert_eq!(
+            h.state()
+                .store()
+                .local_setting("fav:clowder:00000000-0000-4000-8000-000000000001")
+                .as_deref(),
+            Some("yes")
+        );
+    }
+
+    #[test]
+    fn a_new_clowder_comes_from_the_dialog_and_is_selected() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(app(dir.path(), "en", true));
+        h.run();
+        h.get_by_label("New clowder").click();
+        h.run();
+        h.state_mut().dialog.value = "Barn".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert_eq!(h.state().store().clowders().unwrap()[0].name, "Barn");
+        assert!(matches!(h.state().selection(), Selection::Clowder(_)));
+        assert!(h.query_by_label("Pick a clowder on the left").is_none());
+        assert_eq!(h.get_all_by_label("Barn").count(), 2);
+    }
+
+    #[test]
+    fn catalogs_are_created_renamed_and_switched_from_the_menu() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Clowders".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert!(h.state().dialog.open, "a taken name is refused");
+        h.get_by_label_contains("already exists");
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert_eq!(h.state().title(), "Leipzig");
+        assert_eq!(h.state().manager().catalogs().len(), 2);
+        h.get_by_label("No clowders yet. A clowder is a place where cats live — your foster home, an adopter's flat. Create the first one below.");
+        // Rename the open one.
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("Rename catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig Nord".into();
+        h.run();
+        h.get_by_label("Rename").click();
+        h.run();
+        assert_eq!(h.state().title(), "Leipzig Nord");
+        // Switch back to the first, which still holds its Clowders.
+        h.get_by_label("Catalog").click();
+        h.step();
+        // The pane heading says "Clowders" too; the menu entry comes last.
+        h.get_all_by_label("Clowders").last().unwrap().click();
+        h.run();
+        assert_eq!(h.state().title(), "Clowders");
+        h.get_by_label("Foster Home");
+        assert_eq!(new_uuid().len(), 36);
+        assert_eq!(catalogs_root(Path::new("/x")), Path::new("/x"));
     }
 }

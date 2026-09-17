@@ -10,6 +10,7 @@
 pub mod appointments;
 mod bundle;
 mod catalog;
+pub mod catalogs;
 pub mod chores;
 pub mod corpus;
 mod dump;
@@ -28,6 +29,7 @@ pub mod units;
 pub use appointments::{Appointment, AppointmentAlert};
 pub use bundle::BundleResult;
 pub use catalog::{Catalog, Clock, EntityView};
+pub use catalogs::{CATALOG_NAME_KEY, CatalogInfo, CatalogManager};
 pub use chores::{Chore, ChoreDay, ChoreRepeat, ChoreSchedule, ChoreUnit, Hhmm};
 pub use entities::{
     ActiveReminder, ClowderEvent, Family, PositionKind, TransferResult, transfer_entities,

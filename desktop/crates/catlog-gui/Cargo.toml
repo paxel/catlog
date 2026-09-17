@@ -24,6 +24,9 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 directories = "6"
 sys-locale = "0.3"
+getrandom = "0.3"
+hex = "0.4"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
 
 [build-dependencies]
 catlog-l10n = { path = "../catlog-l10n", version = "2.0.0" }

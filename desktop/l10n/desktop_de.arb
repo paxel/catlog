@@ -6,5 +6,6 @@
   "menuCatalog": "Katalog",
   "menuHelp": "Hilfe",
   "quit": "Beenden",
-  "introSkipTips": "Auch die Tipps überspringen, ich kenne mich aus"
+  "introSkipTips": "Auch die Tipps überspringen, ich kenne mich aus",
+  "renameCatalog": "Katalog umbenennen"
 }

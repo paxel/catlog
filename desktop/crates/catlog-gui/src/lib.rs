@@ -5,8 +5,12 @@
 //! harness can drive it.
 
 pub mod app;
+pub mod dialogs;
+pub mod home;
 pub mod l10n;
 pub mod settings;
+pub mod textures;
 
-pub use app::{App, DEFAULT_PANE_WIDTH, DEFAULT_WINDOW_SIZE, Request};
+pub use app::{App, DEFAULT_PANE_WIDTH, DEFAULT_WINDOW_SIZE, Request, catalogs_root};
+pub use home::Selection;
 pub use settings::{AppSettings, SettingsFile, data_dir};

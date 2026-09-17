@@ -4,22 +4,38 @@
 
 use catlog_gui::{App, Request, SettingsFile};
 
-struct Native(App);
+struct Native {
+    app: App,
+    title: String,
+}
 
 impl eframe::App for Native {
     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
         App::install_theme(ui.ctx());
-        self.0.show(ui);
-        if self.0.take_request() == Request::Quit {
+        self.app.show(ui);
+        if self.app.take_request() == Request::Quit {
             ui.ctx().send_viewport_cmd(egui::ViewportCommand::Close);
         }
+        let title = format!("{} – {}", self.app.title(), catlog_core::APP_NAME);
+        if title != self.title {
+            ui.ctx()
+                .send_viewport_cmd(egui::ViewportCommand::Title(title.clone()));
+            self.title = title;
+        }
         let size = ui.ctx().viewport_rect().size();
-        self.0.remember_window([size.x, size.y]);
+        self.app.remember_window([size.x, size.y]);
     }
 }
 
 fn main() {
-    let app = App::new(SettingsFile::load(&catlog_gui::data_dir()));
+    let data = catlog_gui::data_dir();
+    let app = match App::open(SettingsFile::load(&data), &catlog_gui::catalogs_root(&data)) {
+        Ok(app) => app,
+        Err(e) => {
+            eprintln!("catlog: {e}");
+            std::process::exit(1);
+        }
+    };
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_title(catlog_core::APP_NAME)
@@ -29,7 +45,12 @@ fn main() {
     let result = eframe::run_native(
         catlog_core::APP_NAME,
         options,
-        Box::new(|_cc| Ok(Box::new(Native(app)))),
+        Box::new(|_cc| {
+            Ok(Box::new(Native {
+                app,
+                title: String::new(),
+            }))
+        }),
     );
     if let Err(e) = result {
         eprintln!("catlog: {e}");

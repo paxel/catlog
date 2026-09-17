@@ -6,5 +6,6 @@
   "menuCatalog": "Catalog",
   "menuHelp": "Help",
   "quit": "Quit",
-  "introSkipTips": "Skip the tips too, I know my way around"
+  "introSkipTips": "Skip the tips too, I know my way around",
+  "renameCatalog": "Rename catalog"
 }
