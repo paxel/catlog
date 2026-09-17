@@ -7,6 +7,7 @@
 //! down. Nothing in here knows about a window: the GUI crate draws, this
 //! crate owns the data.
 
+pub mod achievements;
 pub mod agenda;
 pub mod appointments;
 pub mod archive;

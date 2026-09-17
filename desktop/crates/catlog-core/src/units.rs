@@ -54,6 +54,28 @@ pub enum UnitSystem {
     Imperial,
 }
 
+/// The local setting the unit choice lives under: `metric`, `imperial`
+/// or nothing for the region's.
+pub const UNITS_SETTING: &str = "units";
+
+impl UnitSystem {
+    /// The system for a setting and a region: the setting when it says,
+    /// else imperial in the three countries that still measure so.
+    pub fn for_setting(setting: Option<&str>, country: Option<&str>) -> UnitSystem {
+        match setting {
+            Some("metric") => UnitSystem::Metric,
+            Some("imperial") => UnitSystem::Imperial,
+            _ => {
+                if matches!(country, Some("US" | "LR" | "MM")) {
+                    UnitSystem::Imperial
+                } else {
+                    UnitSystem::Metric
+                }
+            }
+        }
+    }
+}
+
 const G_PER_LB: f64 = 453.59237;
 const CM_PER_IN: f64 = 2.54;
 const ML_PER_FL_OZ: f64 = 29.5735295625;
@@ -232,5 +254,30 @@ mod tests {
         assert_eq!(format_base(Dimension::Weight, UnitSystem::Metric, None), "");
         assert_eq!(format_decimal(-0.01, 1), "0");
         assert_eq!(format_decimal(4.10, 2), "4.1");
+    }
+
+    #[test]
+    fn the_unit_system_follows_the_setting_then_the_region() {
+        assert_eq!(
+            UnitSystem::for_setting(Some("metric"), Some("US")),
+            UnitSystem::Metric
+        );
+        assert_eq!(
+            UnitSystem::for_setting(Some("imperial"), Some("DE")),
+            UnitSystem::Imperial
+        );
+        assert_eq!(
+            UnitSystem::for_setting(None, Some("US")),
+            UnitSystem::Imperial
+        );
+        assert_eq!(
+            UnitSystem::for_setting(Some("auto"), Some("LR")),
+            UnitSystem::Imperial
+        );
+        assert_eq!(
+            UnitSystem::for_setting(None, Some("DE")),
+            UnitSystem::Metric
+        );
+        assert_eq!(UnitSystem::for_setting(None, None), UnitSystem::Metric);
     }
 }

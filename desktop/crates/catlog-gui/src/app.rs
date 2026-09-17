@@ -7,6 +7,7 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
+use catlog_core::achievements::{LadderState, ladders};
 use catlog_core::entities::PositionKind;
 use catlog_core::flier::{HttpModels, Ocr, OcrsEngine};
 use catlog_core::fonts::{FontSet, FontSource, HttpFonts};
@@ -43,9 +44,12 @@ use crate::pages::{PageAction, Pages};
 use crate::photos::{EditMode, PhotoEditor, PhotoViewer, ViewerAction};
 use crate::picker::PositionPicker;
 use crate::settings::{AppSettings, SettingsFile};
+use crate::settings_page::{SettingsAction, SettingsPage, ladder_name, show_achievements};
+use crate::sounds::{Sounder, Speakers, pick_cheer};
 use crate::summary::{ArrivalSummary, SummaryAction};
 use crate::sync_page::{SyncAction, SyncPage};
 use crate::textures::FaceCache;
+use crate::tips;
 
 /// What the keeper asked the shell to do; the launcher acts on it.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -68,6 +72,13 @@ pub type FileSaver = Box<dyn FnMut(&str, &str) -> Option<PathBuf>>;
 pub type FolderPicker = Box<dyn FnMut(&str) -> Option<PathBuf>>;
 /// Hands a file to the system, which opens it in the viewer.
 pub type FileOpener = Box<dyn FnMut(&Path)>;
+
+/// The third-party notices shown under About.
+pub const LICENCES: &str = concat!(
+    include_str!("../../../THIRD-PARTY.md"),
+    "\n\n",
+    include_str!("../../../../assets/sounds/LICENSES.md")
+);
 
 /// How often the shared folder is looked at while the app runs.
 const WATCH_EVERY: Duration = Duration::from_secs(5 * 60);
@@ -135,6 +146,19 @@ pub struct App {
     pub document: DocumentPage,
     pub capture: CapturePage,
     geocoder: Arc<dyn Geocoder>,
+    pub settings_page: SettingsPage,
+    /// The machine's country code, for the units.
+    pub region: Option<String>,
+    pub sounder: Box<dyn Sounder>,
+    last_cheer: Option<&'static str>,
+    /// The ladders as last computed, for the Achievements page and the
+    /// title choice.
+    ladders: Vec<LadderState>,
+    /// A report from a run that went down, until it is sent.
+    pub crash_report: Option<String>,
+    pub help_open: bool,
+    /// Opens a link in the browser or the mail program.
+    pub open_url: Box<dyn FnMut(&str)>,
     /// Text recognition; the ocrs engine outside tests.
     pub ocr: Arc<dyn Ocr>,
     /// A recognition running on its thread, and its answer.
@@ -150,6 +174,7 @@ pub struct App {
     going_back: Option<catlog_core::moments::Moment>,
     archiving: Option<Vec<String>>,
     hard_deleting: Option<(String, String)>,
+    deleting_catalog: bool,
     pub transfer_dialog: TransferDialog,
     /// The wall clock, replaceable in tests.
     pub now: Box<dyn Fn() -> chrono::NaiveDateTime>,
@@ -170,12 +195,18 @@ impl App {
     /// `root`, its language from the settings or the system.
     pub fn open(settings: SettingsFile, root: &Path) -> catlog_core::Result<App> {
         let tiles = TileCache::open(&root.join("tiles"), Box::new(catlog_core::tiles::OsmTiles))?;
-        Self::open_with(
+        let mut app = Self::open_with(
             settings,
             root,
             Arc::new(tiles),
             Arc::new(catlog_core::geocode::Nominatim),
-        )
+        )?;
+        // The region decides the units when nothing was chosen; tests
+        // stay metric whatever the machine says.
+        app.region = sys_locale::get_locale()
+            .and_then(|l| l.split(['-', '_']).nth(1).map(|c| c.to_uppercase()));
+        app.apply_units();
+        Ok(app)
     }
 
     /// [`App::open`] with the map's sources handed in: tests use
@@ -194,7 +225,7 @@ impl App {
             store.set_author(author)?;
         }
         let _ = store.strip_photo_locations();
-        Ok(App {
+        let mut app = App {
             t,
             pane_width: settings.settings.pane_width.unwrap_or(DEFAULT_PANE_WIDTH),
             intro_name: settings.settings.author.clone().unwrap_or_default(),
@@ -251,6 +282,18 @@ impl App {
             house: Housekeeping::default(),
             document: DocumentPage::default(),
             capture: CapturePage::default(),
+            settings_page: SettingsPage::default(),
+            region: None,
+            sounder: Box::new(Speakers),
+            last_cheer: None,
+            ladders: Vec::new(),
+            crash_report: crate::crash::last_crash(root),
+            help_open: false,
+            open_url: Box::new(|url| {
+                if let Err(e) = open::that_detached(url) {
+                    eprintln!("catlog: open: {e}");
+                }
+            }),
             ocr: Arc::new(OcrsEngine::new(&root.join("ocr"), Box::new(HttpModels))),
             recognizing: None,
             fonts: None,
@@ -265,6 +308,7 @@ impl App {
             going_back: None,
             archiving: None,
             hard_deleting: None,
+            deleting_catalog: false,
             transfer_dialog: TransferDialog::default(),
             now: Box::new(|| chrono::Local::now().naive_local()),
             last_reminder_check: chrono::Local::now().naive_local(),
@@ -272,7 +316,9 @@ impl App {
             request: Request::None,
             about_open: false,
             notice: None,
-        })
+        };
+        app.apply_units();
+        Ok(app)
     }
 
     fn locale_of(settings: &AppSettings) -> String {
@@ -530,6 +576,7 @@ impl App {
         self.settings.settings.intro_seen = true;
         if self.intro_skip_tips {
             self.settings.settings.tips_seen = vec!["all".into()];
+            tips::mark_all_seen(&self.store);
         }
         let _ = self.settings.save();
         let _ = self.store.set_author(&name);
@@ -556,6 +603,7 @@ impl App {
         self.show_menu_bar(ui);
         let t = self.t;
         self.show_watch_line(ui);
+        self.show_tip(ui);
         let mut action = HomeAction::None;
         // The pane opens at the remembered width; egui keeps the width
         // between frames, and a drag that ends is what gets remembered.
@@ -677,6 +725,26 @@ impl App {
                         AgendaAction::ExportIcs => self.export_ics(),
                         AgendaAction::OpenEntity(id) => page_action = PageAction::OpenCat(id),
                     }
+                }
+                Selection::Settings => {
+                    let locale = self.t.locale();
+                    let code = crate::housekeeping::key_code(&self.store, &self.store.device_id());
+                    let action = self.settings_page.show(
+                        ui,
+                        &self.store,
+                        &self.manager,
+                        &t,
+                        locale,
+                        &code,
+                        &self.ladders,
+                    );
+                    if let Err(e) = self.settings_page.apply_pending(&mut self.store) {
+                        self.notice = Some(e.to_string());
+                    }
+                    self.act_settings(action);
+                }
+                Selection::Achievements => {
+                    show_achievements(ui, &self.manager, &t, &self.ladders);
                 }
                 Selection::Capture => {
                     self.poll_recognition();
@@ -934,6 +1002,9 @@ impl App {
             if let Some((author, device)) = self.hard_deleting.take() {
                 self.hard_delete(&author, &device);
             }
+            if std::mem::take(&mut self.deleting_catalog) {
+                self.delete_active_catalog();
+            }
         }
         if !self.confirm.open {
             self.deleting_photo = None;
@@ -941,6 +1012,7 @@ impl App {
             self.going_back = None;
             self.archiving = None;
             self.hard_deleting = None;
+            self.deleting_catalog = false;
         }
         match self.viewer.show(ui.ctx(), &self.store, &t, &mut self.faces) {
             ViewerAction::None => {}
@@ -996,6 +1068,10 @@ impl App {
         if self.about_open {
             self.show_about(ui.ctx());
         }
+        if self.help_open {
+            self.show_help(ui.ctx());
+        }
+        self.show_crash_screen(ui.ctx());
     }
 
     fn act(&mut self, action: HomeAction) {
@@ -1078,7 +1154,10 @@ impl App {
                         }
                     });
                     ui.menu_button(t.menu_edit(), |ui| {
-                        ui.add_enabled(false, egui::Button::new(t.rename()));
+                        if ui.button(t.settings()).clicked() {
+                            self.open_settings();
+                            ui.close();
+                        }
                     });
                     ui.menu_button(t.menu_view(), |ui| {
                         if ui.button(t.agenda()).clicked() {
@@ -1223,8 +1302,19 @@ impl App {
                         }
                     });
                     ui.menu_button(t.menu_help(), |ui| {
+                        if ui.button(t.help_menu()).clicked() {
+                            self.help_open = true;
+                            ui.close();
+                        }
+                        if ui.button(t.achievements_title()).clicked() {
+                            self.refresh_ladders();
+                            self.home.selection = Selection::Achievements;
+                            self.history_of = None;
+                            ui.close();
+                        }
                         if ui.button(t.about_and_feedback()).clicked() {
                             self.about_open = true;
+                            ui.close();
                         }
                     });
                 });
@@ -1238,11 +1328,15 @@ impl App {
             ChoreAction::None => Ok(()),
             ChoreAction::Toggle(chore) => {
                 let ticks = self.store.chore_ticks(&chore).unwrap_or_default();
-                if ticks.contains_key(&today) {
+                let result = if ticks.contains_key(&today) {
                     self.store.untick_chore(&chore, today)
                 } else {
                     self.store.tick_chore(&chore, today, today)
+                };
+                if result.is_ok() && !ticks.contains_key(&today) {
+                    self.celebrate_ticks();
                 }
+                result
             }
             ChoreAction::Edit(chore) => {
                 let entity = chore.entity.clone();
@@ -1808,6 +1902,7 @@ impl App {
     fn show_about(&mut self, ctx: &Context) {
         let t = self.t;
         let mut open = self.about_open;
+        let mut links: Vec<String> = Vec::new();
         egui::Window::new(t.about_and_feedback())
             .open(&mut open)
             .collapsible(false)
@@ -1815,8 +1910,267 @@ impl App {
             .show(ctx, |ui| {
                 ui.label(format!("{} {}", t.app_title(), catlog_core::VERSION));
                 ui.label(t.about_tagline());
+                ui.add_space(6.0);
+                if ui.link(t.source_code()).clicked() {
+                    links.push("https://github.com/paxel/catlog".to_string());
+                }
+                if ui.link(t.report_problem_or_idea()).clicked() {
+                    links.push("https://github.com/paxel/catlog/issues".to_string());
+                }
+                if ui.link(t.write_the_developer()).clicked() {
+                    links.push(format!(
+                        "mailto:{}?subject=cat(a)log%20feedback",
+                        crate::crash::CRASH_MAIL
+                    ));
+                }
+                if ui.link(t.buy_coffee()).clicked() {
+                    links.push("https://ko-fi.com/paxel7".to_string());
+                }
+                ui.label(egui::RichText::new(t.coffee_subtitle()).weak());
+                ui.label(egui::RichText::new(t.machine_translated()).weak());
+                ui.add_space(6.0);
+                ui.collapsing(t.open_source_licenses(), |ui| {
+                    egui::ScrollArea::vertical()
+                        .max_height(240.0)
+                        .show(ui, |ui| {
+                            ui.label(LICENCES);
+                        });
+                });
             });
+        for url in links {
+            (self.open_url)(&url);
+        }
         self.about_open = open;
+    }
+
+    /// The help window for the page shown.
+    fn show_help(&mut self, ctx: &Context) {
+        let t = self.t;
+        let mut open = self.help_open;
+        let text = tips::help_for(&t, &self.home.selection);
+        egui::Window::new(t.help_title())
+            .open(&mut open)
+            .collapsible(false)
+            .default_width(420.0)
+            .show(ctx, |ui| {
+                ui.label(text);
+            });
+        self.help_open = open;
+    }
+
+    /// The friendly screen after a run that went down.
+    fn show_crash_screen(&mut self, ctx: &Context) {
+        let t = self.t;
+        let Some(report) = self.crash_report.clone() else {
+            return;
+        };
+        let mut send = false;
+        let mut restart = false;
+        egui::Modal::new(egui::Id::new("crash-screen")).show(ctx, |ui| {
+            ui.set_width(480.0);
+            ui.heading(t.crash_title());
+            ui.label(t.crash_body());
+            ui.label(egui::RichText::new(t.restart_hint()).weak());
+            ui.horizontal(|ui| {
+                if ui.button(t.crash_send_report()).clicked() {
+                    send = true;
+                }
+                if ui.button(t.crash_restart()).clicked() {
+                    restart = true;
+                }
+            });
+        });
+        if send {
+            let url = crate::crash::mail_url(&report);
+            (self.open_url)(&url);
+            crate::crash::clear(self.manager.root());
+            self.crash_report = None;
+        }
+        if restart {
+            // The report stays on disk until it is sent.
+            self.crash_report = None;
+        }
+    }
+
+    /// The tip due on this page, once.
+    fn show_tip(&mut self, ui: &mut Ui) {
+        let t = self.t;
+        let Some((screen, tip)) = tips::due_tip(&self.store, &self.home.selection) else {
+            return;
+        };
+        let mut done = false;
+        egui::Panel::top("tip-line")
+            .show_separator_line(true)
+            .show(ui, |ui| {
+                ui.horizontal(|ui| {
+                    ui.label((tip.text)(&t));
+                    if ui.button(t.spot_done()).clicked() {
+                        done = true;
+                    }
+                });
+            });
+        if done {
+            tips::mark_seen(&self.store, screen, tip.id);
+        }
+    }
+
+    pub fn open_settings(&mut self) {
+        self.refresh_ladders();
+        self.settings_page
+            .open(self.settings.settings.author.as_deref());
+        self.home.selection = Selection::Settings;
+        self.history_of = None;
+    }
+
+    fn refresh_ladders(&mut self) {
+        let today = self.pages.today;
+        self.ladders = self
+            .store
+            .chore_stats(today)
+            .map(|s| ladders(&s))
+            .unwrap_or_default();
+    }
+
+    fn act_settings(&mut self, action: SettingsAction) {
+        let t = self.t;
+        match action {
+            SettingsAction::None => {}
+            SettingsAction::Author(name) => {
+                self.settings.settings.author = Some(name.clone());
+                let _ = self.settings.save();
+                let _ = self.store.set_author(&name);
+            }
+            SettingsAction::Locale(locale) => self.set_locale(locale),
+            SettingsAction::Units(choice) => {
+                let result = match choice {
+                    Some(v) => self
+                        .store
+                        .set_local_setting(catlog_core::units::UNITS_SETTING, v),
+                    None => self
+                        .store
+                        .remove_local_setting(catlog_core::units::UNITS_SETTING),
+                };
+                if let Err(e) = result {
+                    self.notice = Some(e.to_string());
+                }
+                self.apply_units();
+            }
+            SettingsAction::ResetTips => {
+                tips::reset(&self.store);
+                self.notice = Some(t.spot_replay_done().to_string());
+            }
+            SettingsAction::RenameCatalog => {
+                let current = self.manager.active().name.clone();
+                self.asking = Asking::RenameCatalog;
+                self.dialog.ask(
+                    t.rename_catalog(),
+                    t.catalog_name_label(),
+                    t.rename(),
+                    &current,
+                );
+            }
+            SettingsAction::DeleteCatalog => {
+                let name = self.manager.active().name.clone();
+                self.confirm.ask(
+                    t.delete_catalog(),
+                    &t.delete_catalog_body(&name),
+                    t.delete(),
+                );
+                self.deleting_catalog = true;
+            }
+            SettingsAction::OpenBackups => {
+                self.home.selection = Selection::Backups;
+            }
+            SettingsAction::OpenAchievements => {
+                self.refresh_ladders();
+                self.home.selection = Selection::Achievements;
+            }
+        }
+    }
+
+    /// The unit system from the setting and the language's region.
+    pub fn apply_units(&mut self) {
+        let setting = self.store.local_setting(catlog_core::units::UNITS_SETTING);
+        self.pages.units =
+            catlog_core::units::UnitSystem::for_setting(setting.as_deref(), self.region.as_deref());
+    }
+
+    /// Deletes the active Catalog after a backup: the phone's rule that
+    /// the one you stand in cannot go stays.
+    fn delete_active_catalog(&mut self) {
+        let t = self.t;
+        let active = self.manager.active().clone();
+        if self.manager.catalogs().len() < 2 {
+            self.notice = Some(t.switch_before_deleting().to_string());
+            return;
+        }
+        let saved = match self.store.auto_backup(&self.backups_dir, true) {
+            Ok(Some(path)) => path,
+            Ok(None) => self.backups_dir.clone(),
+            Err(e) => {
+                self.notice = Some(t.catalog_export_failed(&e.to_string()));
+                return;
+            }
+        };
+        let other = self
+            .manager
+            .catalogs()
+            .iter()
+            .find(|c| c.id != active.id)
+            .map(|c| c.id.clone());
+        let Some(other) = other else {
+            return;
+        };
+        if let Err(e) = self.switch_catalog(&other) {
+            self.notice = Some(e.to_string());
+            return;
+        }
+        match self.manager.delete(&active.id) {
+            Ok(()) => self.notice = Some(t.catalog_deleted(&active.name, &saved.to_string_lossy())),
+            Err(e) => self.notice = Some(e.to_string()),
+        }
+    }
+
+    /// After a tick: a cheer when the day's chores are all done, the
+    /// ladders recorded, a cheer and a word for each one climbed.
+    fn celebrate_ticks(&mut self) {
+        let t = self.t;
+        let today = self.pages.today;
+        let mut cheer = false;
+        if let Ok(agenda) = self.store.chores_agenda(today)
+            && agenda.all_done_today(&self.store)
+            && self.store.local_setting("choresCelebrated").as_deref() != Some(&today.to_string())
+        {
+            let _ = self
+                .store
+                .set_local_setting("choresCelebrated", &today.to_string());
+            cheer = true;
+        }
+        self.refresh_ladders();
+        let now = (self.now)().and_utc().to_rfc3339();
+        if let Ok(climbed) = self.manager.record_ladders(&self.ladders, &now)
+            && !climbed.is_empty()
+        {
+            cheer = true;
+            let names: Vec<String> = climbed.iter().map(|s| ladder_name(&t, s)).collect();
+            self.notice = Some(t.achievement_unlocked(&names.join(", ")));
+        }
+        if cheer
+            && self
+                .store
+                .local_setting(crate::settings_page::CELEBRATIONS)
+                .as_deref()
+                != Some("off")
+            && self
+                .store
+                .local_setting(crate::settings_page::CHEER)
+                .as_deref()
+                != Some("off")
+        {
+            let (name, wav) = pick_cheer(self.last_cheer);
+            self.last_cheer = Some(name);
+            self.sounder.play(wav);
+        }
     }
 
     fn show_intro(&mut self, ui: &mut Ui) {
@@ -4216,5 +4570,286 @@ mod tests {
             Some("Owner of Minka")
         );
         assert_eq!(store.images(&cat).unwrap().len(), 1);
+    }
+
+    fn recorded_urls(app: &mut App) -> std::sync::Arc<std::sync::Mutex<Vec<String>>> {
+        let urls = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        let hand = urls.clone();
+        app.open_url = Box::new(move |u| hand.lock().unwrap().push(u.to_string()));
+        urls
+    }
+
+    #[test]
+    fn the_settings_page_changes_units_cheers_tips_mode_and_deletes_a_catalog() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.backups_dir = dir.path().join("downloads");
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Edit").click();
+        h.step();
+        h.get_by_label("Settings").click_accesskit();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Settings);
+        assert_eq!(h.state().settings_page.author, "Ada");
+        // Units: the second combo (language, units, title) offers three.
+        let combo = |h: &Harness<'static, App>, n: usize| {
+            h.get_all_by_role(egui::accesskit::Role::ComboBox)
+                .nth(n)
+                .expect("a combo")
+                .click()
+        };
+        combo(&h, 1);
+        h.step();
+        h.get_by_label("Metric (kg, cm, ml, °C)").click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state().store().local_setting("units").as_deref(),
+            Some("metric")
+        );
+        assert_eq!(
+            h.state().pages.units,
+            catlog_core::units::UnitSystem::Metric
+        );
+        // The popup may still be up from the pick: a click then closes it.
+        h.run();
+        combo(&h, 1);
+        h.step();
+        if h.query_by_label("Imperial (lb, in, fl oz, °F)").is_none() {
+            combo(&h, 1);
+            h.step();
+        }
+        h.get_by_label("Imperial (lb, in, fl oz, °F)")
+            .click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state().pages.units,
+            catlog_core::units::UnitSystem::Imperial
+        );
+        // Cheers off, tips again.
+        h.get_by_label("Cheer sound").click();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .local_setting("celebrationSound")
+                .as_deref(),
+            Some("off")
+        );
+        h.get_by_label("Show tips again").click();
+        h.run();
+        h.get_by_label("The highlights will show again");
+        // The Catalog holds pets now.
+        h.get_by_label("Pets").click();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current("catalog:mode", "mode")
+                .unwrap()
+                .as_deref(),
+            Some("pets")
+        );
+        h.get_by_label_contains("Your key");
+        h.get_by_label_contains("Database ");
+        // The last catalog cannot go.
+        h.get_by_label("Delete catalog").click_accesskit();
+        h.run();
+        assert!(h.state().confirm.open);
+        h.get_all_by_label("Delete").last().unwrap().click();
+        h.run();
+        h.get_by_label("This is the catalog you are in. Switch to another one, then delete it.");
+        // With a second one it goes, after a backup, and the other opens.
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert_eq!(h.state().title(), "Leipzig");
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_all_by_label("Clowders").last().unwrap().click();
+        h.run();
+        h.state_mut().open_settings();
+        h.run();
+        h.get_by_label("Delete catalog").click_accesskit();
+        h.run();
+        h.get_all_by_label("Delete").last().unwrap().click();
+        h.run();
+        h.get_by_label_contains("Clowders deleted. The file is in ");
+        assert_eq!(h.state().title(), "Leipzig");
+        assert_eq!(h.state().manager().catalogs().len(), 1);
+        assert!(
+            dir.path()
+                .join("downloads")
+                .join("catlog-clowders.catsync")
+                .is_file()
+        );
+    }
+
+    #[test]
+    fn tips_show_once_help_opens_and_about_links_out() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let urls = recorded_urls(&mut app);
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label(
+            "This is the catalog you are in. Tap the name to switch, or to make another one.",
+        );
+        h.get_by_label("Got it").click();
+        h.run();
+        assert!(
+            h.query_by_label_contains("This is the catalog you are in")
+                .is_none()
+        );
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        // The Cat page's first tip.
+        h.get_by_label(L10n::new("en").spot_cat_edit());
+        // Help for the page.
+        h.get_by_label("Help").click();
+        h.step();
+        h.get_by_label("Help for this page").click_accesskit();
+        h.run();
+        assert!(h.state().help_open);
+        h.get_by_label_contains("Everything about this cat");
+        h.state_mut().help_open = false;
+        h.run();
+        // About: the links open outside.
+        h.get_by_label("Help").click();
+        h.step();
+        h.get_by_label("About & feedback").click_accesskit();
+        h.run();
+        assert!(h.state().about_open);
+        h.get_by_label("Source code").click();
+        h.run();
+        h.get_by_label("Write the developer").click();
+        h.run();
+        let opened = urls.lock().unwrap().clone();
+        assert_eq!(opened[0], "https://github.com/paxel/catlog");
+        assert!(opened[1].starts_with("mailto:taum@tuta.io"));
+        h.get_by_label("Open-source licenses").click();
+        h.run();
+        h.get_by_label_contains("Noto Sans");
+    }
+
+    #[test]
+    fn a_crash_report_shows_the_friendly_screen_and_is_kept_until_sent() {
+        let dir = tempfile::tempdir().unwrap();
+        let root = dir.path().join("data");
+        std::fs::create_dir_all(&root).unwrap();
+        crate::crash::record(&root, "panicked at 'boom'", "0: catlog_gui::app");
+        let mut first = app(dir.path(), "en", true);
+        let urls = recorded_urls(&mut first);
+        assert!(first.crash_report.is_some());
+        let mut h = harness(first);
+        h.run();
+        h.get_by_label("That should not have happened");
+        h.get_by_label("Restart the app").click();
+        h.run();
+        assert!(h.state().crash_report.is_none());
+        assert!(crate::crash::last_crash(&root).is_some(), "kept until sent");
+        // Next start: still there; sending clears it.
+        let mut again = app(dir.path(), "en", true);
+        let urls2 = recorded_urls(&mut again);
+        let mut h = harness(again);
+        h.run();
+        h.get_by_label("Send report to the developer").click();
+        h.run();
+        assert!(crate::crash::last_crash(&root).is_none());
+        let sent = urls2.lock().unwrap().clone();
+        assert_eq!(sent.len(), 1);
+        assert!(
+            sent[0].starts_with("mailto:taum@tuta.io?subject=cat%28a%29log%20crash%20report&body=")
+        );
+        assert!(sent[0].contains("boom"));
+        assert!(urls.lock().unwrap().is_empty());
+    }
+
+    #[test]
+    fn chores_done_cheer_once_and_ladders_are_recorded_and_shown() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 9);
+        let played = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        app.sounder = Box::new(crate::sounds::RecordingSounder {
+            played: played.clone(),
+        });
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let feed = app
+            .store_mut()
+            .create_chore(
+                "c1",
+                &catlog_core::chores::Chore {
+                    id: String::new(),
+                    entity: miezi.into(),
+                    title: "Feed".into(),
+                    schedule: catlog_core::chores::ChoreSchedule::daily(),
+                    time: None,
+                    start: chrono::NaiveDate::from_ymd_opt(2026, 3, 1).unwrap(),
+                    paused: false,
+                    ended: false,
+                    remind: false,
+                    remind_at: None,
+                    extra: Default::default(),
+                },
+            )
+            .unwrap();
+        for d in 1..=9 {
+            let day = chrono::NaiveDate::from_ymd_opt(2026, 3, d).unwrap();
+            app.store_mut().tick_chore(&feed, day, day).unwrap();
+        }
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        // The tenth tick: the day is done and the servant's rank reached.
+        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.run();
+        assert_eq!(played.lock().unwrap().len(), 1, "one cheer");
+        h.get_by_label("Achievement: Servant (Feed)");
+        assert_eq!(h.state().manager().achievements().len(), 1);
+        // Untick and tick again: no second cheer today, nothing new climbed.
+        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.run();
+        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.run();
+        assert_eq!(played.lock().unwrap().len(), 1);
+        h.get_by_label("Help").click();
+        h.step();
+        h.get_by_label("Achievements").click_accesskit();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Achievements);
+        h.get_by_label("Servant (Feed)");
+        h.get_by_label_contains("Done 10 times, first on ");
+        // The title can be worn.
+        h.state_mut().open_settings();
+        h.run();
+        h.get_all_by_role(egui::accesskit::Role::ComboBox)
+            .nth(2)
+            .expect("the title combo")
+            .click();
+        h.step();
+        h.get_all_by_label("Servant (Feed)")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .person_title(&h.state().store().device_id())
+                .unwrap()
+                .as_deref(),
+            Some("servant|Feed")
+        );
     }
 }

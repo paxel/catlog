@@ -34,6 +34,8 @@ pub struct CatalogInfo {
 struct Registry {
     catalogs: Vec<CatalogInfo>,
     active: Option<String>,
+    #[serde(default)]
+    achievements: Vec<crate::achievements::Achievement>,
 }
 
 pub struct CatalogManager {
@@ -65,6 +67,34 @@ impl CatalogManager {
         let path = self.root.join("registry.json");
         let text = serde_json::to_string_pretty(&self.registry)?;
         std::fs::write(&path, text).map_err(|e| Error::io(&path, e))
+    }
+
+    /// The keeper's achievements, by ladder id.
+    pub fn achievements(&self) -> &[crate::achievements::Achievement] {
+        &self.registry.achievements
+    }
+
+    /// Records a ladder's state; the first time stays, the last moves.
+    pub fn record_achievement(&mut self, id: &str, tier: i64, times: i64, at: &str) -> Result<()> {
+        match self.registry.achievements.iter_mut().find(|a| a.id == id) {
+            Some(a) => {
+                a.tier = tier;
+                a.times = times;
+                a.last = at.to_string();
+            }
+            None => self
+                .registry
+                .achievements
+                .push(crate::achievements::Achievement {
+                    id: id.to_string(),
+                    tier,
+                    times,
+                    first: at.to_string(),
+                    last: at.to_string(),
+                }),
+        }
+        self.registry.achievements.sort_by(|a, b| a.id.cmp(&b.id));
+        self.save()
     }
 
     pub fn root(&self) -> &Path {

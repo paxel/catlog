@@ -33,6 +33,8 @@ pub const APPOINTMENT_PREFIX: &str = "$appt:";
 pub const CHORE_PREFIX: &str = "$chore:";
 /// A person's own record: `person:<device>`.
 pub const PERSON_PREFIX: &str = "person:";
+/// The title a person wears, `rank|chore`, on their own record.
+pub const PERSON_TITLE: &str = "title";
 
 /// Field-definition properties.
 pub const FIELD_TYPE: &str = "type";

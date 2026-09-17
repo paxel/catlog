@@ -31,6 +31,8 @@ pub enum Selection {
     Document,
     /// The flier capture page.
     Capture,
+    Settings,
+    Achievements,
 }
 
 /// What the keeper did on the home pane this frame.

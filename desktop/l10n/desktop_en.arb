@@ -54,5 +54,9 @@
   "fontsIncomplete": "The fonts for this language could not be fetched; the page is set in Noto Sans.",
   "openImage": "Open image…",
   "flierLines": "Lines from the poster",
-  "recognizing": "Reading the poster…"
+  "recognizing": "Reading the poster…",
+  "helpMenu": "Help for this page",
+  "restartHint": "Close this to go on; the report stays until it is sent.",
+  "yourKeyLine": "Your key: {code}",
+  "licencesRust": "Rust crates"
 }

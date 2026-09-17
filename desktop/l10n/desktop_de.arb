@@ -54,5 +54,9 @@
   "fontsIncomplete": "Die Schriften für diese Sprache konnten nicht geladen werden; die Seite ist in Noto Sans gesetzt.",
   "openImage": "Bild öffnen…",
   "flierLines": "Zeilen vom Plakat",
-  "recognizing": "Plakat wird gelesen…"
+  "recognizing": "Plakat wird gelesen…",
+  "helpMenu": "Hilfe zu dieser Seite",
+  "restartHint": "Schließen, um weiterzumachen; der Bericht bleibt, bis er gesendet ist.",
+  "yourKeyLine": "Dein Schlüssel: {code}",
+  "licencesRust": "Rust-Bibliotheken"
 }

@@ -17,6 +17,14 @@ use crate::signing::{
     verify_signature,
 };
 
+/// What a Catalog costs on disk.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct StorageUsage {
+    pub db_bytes: u64,
+    pub photo_bytes: u64,
+    pub photo_count: u64,
+}
+
 /// A Cat or Clowder as list rows want it: id plus current name.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EntityView {
@@ -464,6 +472,44 @@ impl Catalog {
             .ok()
             .flatten()
             .unwrap_or_default()
+    }
+
+    /// The title a device's person wears, `rank|chore`.
+    pub fn person_title(&self, device: &str) -> Result<Option<String>> {
+        self.current(&keys::person(device), keys::PERSON_TITLE)
+    }
+
+    /// Sets this device's own title, or takes it off.
+    pub fn set_own_title(&mut self, title: Option<&str>) -> Result<()> {
+        let me = self.device_id();
+        self.append(&keys::person(&me), keys::PERSON_TITLE, title)
+    }
+
+    /// What this Catalog costs on disk: database bytes, photo bytes and
+    /// the photo count.
+    pub fn storage_usage(&self) -> StorageUsage {
+        let db_bytes = ["catalog.db", "catalog.db-wal"]
+            .iter()
+            .filter_map(|n| std::fs::metadata(self.images.with_file_name(n)).ok())
+            .map(|m| m.len())
+            .sum();
+        let mut photo_bytes = 0;
+        let mut photo_count = 0;
+        if let Ok(read) = std::fs::read_dir(&self.images) {
+            for entry in read.flatten() {
+                if let Ok(m) = entry.metadata()
+                    && m.is_file()
+                {
+                    photo_bytes += m.len();
+                    photo_count += 1;
+                }
+            }
+        }
+        StorageUsage {
+            db_bytes,
+            photo_bytes,
+            photo_count,
+        }
     }
 
     /// Device-local, never-synced key/value setting.

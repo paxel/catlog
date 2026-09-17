@@ -32,6 +32,7 @@ impl eframe::App for Native {
 
 fn main() {
     let data = catlog_gui::data_dir();
+    catlog_gui::crash::install(&catlog_gui::catalogs_root(&data));
     let mut app = match App::open(SettingsFile::load(&data), &catlog_gui::catalogs_root(&data)) {
         Ok(app) => app,
         Err(e) => {
