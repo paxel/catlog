@@ -630,17 +630,17 @@ mod tests {
         let every = ChoreSchedule::every(2, ChoreUnit::Weeks);
         assert_eq!(
             every.to_json().to_string(),
-            r#"{"every":2,"repeat":"everyDays","unit":"weeks"}"#
+            r#"{"repeat":"everyDays","every":2,"unit":"weeks"}"#
         );
         let days = ChoreSchedule::every(3, ChoreUnit::Days);
         assert_eq!(
             days.to_json().to_string(),
-            r#"{"every":3,"repeat":"everyDays"}"#
+            r#"{"repeat":"everyDays","every":3}"#
         );
         let week = ChoreSchedule::weekdays(vec![5, 1, 1]);
         assert_eq!(
             week.to_json().to_string(),
-            r#"{"days":[1,5],"repeat":"weekdays"}"#
+            r#"{"repeat":"weekdays","days":[1,5]}"#
         );
         for s in [&daily, &every, &days, &week] {
             assert_eq!(&ChoreSchedule::from_json(&s.to_json()), s);

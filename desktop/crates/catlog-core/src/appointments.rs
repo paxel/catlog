@@ -359,7 +359,7 @@ mod tests {
         let json = a.to_json().to_string();
         assert_eq!(
             json,
-            r#"{"alert":"dayBefore","date":"2026-03-10","field":"f:neutered","time":"09:30","title":"Shots","value":"yes"}"#
+            r#"{"date":"2026-03-10","time":"09:30","title":"Shots","field":"f:neutered","value":"yes","alert":"dayBefore"}"#
         );
         let back = Appointment::from_json("x", "cat:a", Some(&json)).unwrap();
         assert_eq!(
