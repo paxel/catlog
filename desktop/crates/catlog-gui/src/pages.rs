@@ -8,6 +8,8 @@ use catlog_core::units::UnitSystem;
 use catlog_core::{Catalog, EntityView, Entry, keys};
 use egui::{Ui, Vec2};
 
+use crate::agenda::{AppointmentAction, appointment_card};
+use crate::chores::{ChoreAction, chore_row};
 use crate::l10n::L10n;
 use crate::labels::{field_def_name, field_label, field_value_display, format_day, value_label};
 use crate::textures::FaceCache;
@@ -43,24 +45,33 @@ pub enum PageAction {
     MarkPhoto(String, String),
     /// Delete this photo, after one confirmation.
     DeletePhoto(String, String),
+    Chore(ChoreAction),
+    NewAppointment(String),
+    Appointment(AppointmentAction),
 }
 
 /// The pages' own state: the unit system values are read in.
 pub struct Pages {
     pub units: UnitSystem,
+    /// The day the pages count from.
+    pub today: chrono::NaiveDate,
 }
 
 impl Default for Pages {
     fn default() -> Self {
         Pages {
             units: UnitSystem::Metric,
+            today: chrono::Local::now().date_naive(),
         }
     }
 }
 
 impl Pages {
     pub fn new(units: UnitSystem) -> Pages {
-        Pages { units }
+        Pages {
+            units,
+            today: chrono::Local::now().date_naive(),
+        }
     }
 
     /// The name shown for an entity, or the word for an unnamed one.
@@ -104,8 +115,12 @@ impl Pages {
                     action = a;
                 }
             }
-            self.show_chores(ui, store, t, id);
-            self.show_appointments(ui, store, t, id);
+            if let Some(a) = self.show_chores(ui, store, t, id) {
+                action = a;
+            }
+            if let Some(a) = self.show_appointments(ui, store, t, id) {
+                action = a;
+            }
             let fields = self.show_fields(ui, store, t, id, FieldScope::Clowder);
             if fields != PageAction::None {
                 action = fields;
@@ -235,8 +250,12 @@ impl Pages {
                     });
                 }
             });
-            self.show_chores(ui, store, t, id);
-            self.show_appointments(ui, store, t, id);
+            if let Some(a) = self.show_chores(ui, store, t, id) {
+                action = a;
+            }
+            if let Some(a) = self.show_appointments(ui, store, t, id) {
+                action = a;
+            }
             let fields = self.show_fields(ui, store, t, id, FieldScope::Cat);
             if fields != PageAction::None {
                 action = fields;
@@ -420,32 +439,54 @@ impl Pages {
         .inner
     }
 
-    fn show_chores(&mut self, ui: &mut Ui, store: &Catalog, t: &L10n, id: &str) {
+    fn show_chores(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        id: &str,
+    ) -> Option<PageAction> {
+        let mut action = None;
         let chores = store.chores_of(id, false).unwrap_or_default();
-        if chores.is_empty() {
-            return;
-        }
         ui.add_space(8.0);
-        ui.strong(t.chores_section());
+        ui.horizontal(|ui| {
+            ui.strong(t.chores_section());
+            if ui.button(t.new_chore()).clicked() {
+                action = Some(PageAction::Chore(ChoreAction::New(id.to_string())));
+            }
+        });
         for chore in &chores {
-            ui.label(crate::labels::chore_words(t, chore));
+            let a = chore_row(ui, store, t, chore, self.today);
+            if a != ChoreAction::None {
+                action = Some(PageAction::Chore(a));
+            }
         }
+        action
     }
 
-    fn show_appointments(&mut self, ui: &mut Ui, store: &Catalog, t: &L10n, id: &str) {
+    fn show_appointments(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        id: &str,
+    ) -> Option<PageAction> {
+        let mut action = None;
         let appointments = store.appointments_of(id, false).unwrap_or_default();
-        if appointments.is_empty() {
-            return;
-        }
         ui.add_space(8.0);
-        ui.strong(t.planned_section());
+        ui.horizontal(|ui| {
+            ui.strong(t.planned_section());
+            if ui.button(t.add_appointment()).clicked() {
+                action = Some(PageAction::NewAppointment(id.to_string()));
+            }
+        });
         for a in &appointments {
-            let when = match a.time {
-                Some(time) => format!("{} {}", format_day(t.locale(), a.date), time.text()),
-                None => format_day(t.locale(), a.date),
-            };
-            ui.label(format!("{when} · {}", a.title));
+            let group = store.group_of(a).unwrap_or_else(|_| vec![a.clone()]);
+            if let Some(act) = appointment_card(ui, store, t, &group, group.len() > 1) {
+                action = Some(PageAction::Appointment(act));
+            }
         }
+        action
     }
 
     fn show_family(

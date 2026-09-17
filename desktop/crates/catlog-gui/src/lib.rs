@@ -4,7 +4,10 @@
 //! everything that can be tested headless lives here so the kittest
 //! harness can drive it.
 
+pub mod agenda;
 pub mod app;
+pub mod appointments;
+pub mod chores;
 pub mod codes;
 pub mod conflicts;
 pub mod dialogs;
@@ -17,6 +20,7 @@ pub mod map;
 pub mod map_page;
 pub mod move_dialog;
 pub mod new_field;
+pub mod notify;
 pub mod pages;
 pub mod photos;
 pub mod picker;

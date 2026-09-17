@@ -29,5 +29,20 @@
   "exportBundle": "Sync-Bündel exportieren…",
   "newKeyPinned": "Neuer Partnerschlüssel gemerkt: {code}",
   "noneLabel": "Keine",
-  "bundleWritten": "Bündel geschrieben nach {path}"
+  "bundleWritten": "Bündel geschrieben nach {path}",
+  "unitDays": "Tage",
+  "unitWeeks": "Wochen",
+  "unitMonths": "Monate",
+  "unitYears": "Jahre",
+  "chorePending": "Offen",
+  "choreUpcoming": "Steht an",
+  "choreNotDue": "Nicht fällig",
+  "choreDoneState": "Erledigt",
+  "everyLabel": "Alle",
+  "weekdaysLabel": "Wochentage",
+  "remindAtLabel": "Erinnern um",
+  "chores": "Aufgaben",
+  "newAppointment": "Neuer Termin",
+  "ticksLabel": "Häkchen",
+  "dateLabel": "Datum"
 }

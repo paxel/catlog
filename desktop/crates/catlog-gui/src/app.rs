@@ -15,6 +15,9 @@ use catlog_core::tiles::TileCache;
 use catlog_core::{Catalog, CatalogManager, keys};
 use egui::{Context, ThemePreference, Ui};
 
+use crate::agenda::{AgendaAction, AppointmentAction, ics_events, show_agenda};
+use crate::appointments::{AppointmentDialog, FinishDialog};
+use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::conflicts::{ConflictDialog, show_conflicts};
 use crate::dialogs::{ConfirmDialog, NameDialog};
 use crate::editor::{EditTarget, FieldEditor, apply_edit};
@@ -25,6 +28,7 @@ use crate::map::MapView;
 use crate::map_page::{MapPage, MapPageAction};
 use crate::move_dialog::MoveDialog;
 use crate::new_field::NewFieldDialog;
+use crate::notify::{DesktopNotifier, Notifier};
 use crate::pages::{PageAction, Pages};
 use crate::photos::{EditMode, PhotoEditor, PhotoViewer, ViewerAction};
 use crate::picker::PositionPicker;
@@ -106,6 +110,17 @@ pub struct App {
     watch_sizes: BTreeMap<String, u64>,
     last_check: Instant,
     was_focused: bool,
+    pub chore_dialog: ChoreDialog,
+    pub chore_history: ChoreHistory,
+    pub appointment_dialog: AppointmentDialog,
+    pub finish_dialog: FinishDialog,
+    /// The chore the confirm dialog is about to end.
+    ending_chore: Option<catlog_core::chores::Chore>,
+    pub notifier: Box<dyn Notifier>,
+    /// The wall clock, replaceable in tests.
+    pub now: Box<dyn Fn() -> chrono::NaiveDateTime>,
+    /// Reminders sound once: the moment the last check ran.
+    last_reminder_check: chrono::NaiveDateTime,
     asking: Asking,
     /// The name typed on the intro page.
     intro_name: String,
@@ -191,6 +206,14 @@ impl App {
             watch_sizes: BTreeMap::new(),
             last_check: Instant::now(),
             was_focused: false,
+            chore_dialog: ChoreDialog::default(),
+            chore_history: ChoreHistory::default(),
+            appointment_dialog: AppointmentDialog::default(),
+            finish_dialog: FinishDialog::default(),
+            ending_chore: None,
+            notifier: Box::new(DesktopNotifier),
+            now: Box::new(|| chrono::Local::now().naive_local()),
+            last_reminder_check: chrono::Local::now().naive_local(),
             asking: Asking::Nothing,
             request: Request::None,
             about_open: false,
@@ -472,6 +495,8 @@ impl App {
             self.check_folder();
         }
         self.was_focused = focused;
+        self.pages.today = (self.now)().date();
+        self.fire_reminders();
         ui.ctx().request_repaint_after(Duration::from_secs(60));
         self.show_menu_bar(ui);
         let t = self.t;
@@ -576,6 +601,28 @@ impl App {
                         }
                     }
                 },
+                Selection::Agenda => {
+                    let today = self.pages.today;
+                    match show_agenda(ui, &self.store, &t, today) {
+                        AgendaAction::None => {}
+                        AgendaAction::Chore(a) => page_action = PageAction::Chore(a),
+                        AgendaAction::Appointment(a) => page_action = PageAction::Appointment(a),
+                        AgendaAction::NewAppointment => {
+                            // On the agenda a new appointment starts from the
+                            // first Cat; the dialog lets others come along.
+                            if let Some(first) = self
+                                .store
+                                .cats(None)
+                                .ok()
+                                .and_then(|c| c.into_iter().next())
+                            {
+                                page_action = PageAction::NewAppointment(first.id);
+                            }
+                        }
+                        AgendaAction::ExportIcs => self.export_ics(),
+                        AgendaAction::OpenEntity(id) => page_action = PageAction::OpenCat(id),
+                    }
+                }
                 Selection::Conflicts => {
                     if let Some((entity, field)) =
                         show_conflicts(ui, &self.store, &t, self.pages.units)
@@ -654,7 +701,31 @@ impl App {
                 self.confirm
                     .ask(t.delete_photo_title(), t.delete_photo_body(), t.delete());
             }
+            PageAction::Chore(action) => self.act_chore(action),
+            PageAction::NewAppointment(entity) => {
+                self.appointment_dialog
+                    .ask(&self.store, &entity, None, self.pages.today);
+            }
+            PageAction::Appointment(AppointmentAction::Finish(a)) => {
+                self.finish_dialog.ask(&self.store, &a);
+            }
+            PageAction::Appointment(AppointmentAction::Edit(a)) => {
+                let entity = a.entity.clone();
+                self.appointment_dialog
+                    .ask(&self.store, &entity, Some(a), self.pages.today);
+            }
+            PageAction::Appointment(AppointmentAction::Delete(a, whole_run)) => {
+                let result = if whole_run {
+                    self.store.delete_appointment_group(&a)
+                } else {
+                    self.store.delete_appointment(&a)
+                };
+                if let Err(e) = result {
+                    self.notice = Some(e.to_string());
+                }
+            }
         }
+        self.show_chore_dialogs(ui.ctx());
         // A dropped bundle is imported; other files dropped on a Cat's
         // page become its photos.
         let dropped: Vec<PathBuf> = ui.input(|i| {
@@ -704,19 +775,29 @@ impl App {
         }
         self.conflict
             .show(ui.ctx(), &mut self.store, &t, self.pages.units);
-        if self.confirm.show(ui.ctx(), t.cancel())
-            && let Some((cat, hash)) = self.deleting_photo.take()
-        {
-            match self.store.delete_image(&cat, &hash) {
-                Ok(()) => {
-                    self.faces.forget(&hash);
-                    self.notice = Some(t.photo_removed().to_string());
+        if self.confirm.show(ui.ctx(), t.cancel()) {
+            if let Some((cat, hash)) = self.deleting_photo.take() {
+                match self.store.delete_image(&cat, &hash) {
+                    Ok(()) => {
+                        self.faces.forget(&hash);
+                        self.notice = Some(t.photo_removed().to_string());
+                    }
+                    Err(e) => self.notice = Some(e.to_string()),
                 }
-                Err(e) => self.notice = Some(e.to_string()),
+            }
+            if let Some(chore) = self.ending_chore.take() {
+                let ended = catlog_core::chores::Chore {
+                    ended: true,
+                    ..chore
+                };
+                if let Err(e) = self.store.update_chore(&ended) {
+                    self.notice = Some(e.to_string());
+                }
             }
         }
         if !self.confirm.open {
             self.deleting_photo = None;
+            self.ending_chore = None;
         }
         match self.viewer.show(ui.ctx(), &self.store, &t, &mut self.faces) {
             ViewerAction::None => {}
@@ -849,6 +930,11 @@ impl App {
                         ui.add_enabled(false, egui::Button::new(t.rename()));
                     });
                     ui.menu_button(t.menu_view(), |ui| {
+                        if ui.button(t.agenda()).clicked() {
+                            self.home.selection = Selection::Agenda;
+                            self.history_of = None;
+                            ui.close();
+                        }
                         if ui.button(t.map()).clicked() {
                             self.home.selection = Selection::Map;
                             self.history_of = None;
@@ -942,6 +1028,139 @@ impl App {
                     });
                 });
             });
+    }
+
+    fn act_chore(&mut self, action: ChoreAction) {
+        let t = self.t;
+        let today = self.pages.today;
+        let result = match action {
+            ChoreAction::None => Ok(()),
+            ChoreAction::Toggle(chore) => {
+                let ticks = self.store.chore_ticks(&chore).unwrap_or_default();
+                if ticks.contains_key(&today) {
+                    self.store.untick_chore(&chore, today)
+                } else {
+                    self.store.tick_chore(&chore, today, today)
+                }
+            }
+            ChoreAction::Edit(chore) => {
+                let entity = chore.entity.clone();
+                self.chore_dialog.ask(&entity, Some(chore), today);
+                Ok(())
+            }
+            ChoreAction::New(entity) => {
+                self.chore_dialog.ask(&entity, None, today);
+                Ok(())
+            }
+            ChoreAction::PauseResume(chore) => {
+                let paused = !chore.paused;
+                self.store
+                    .update_chore(&catlog_core::chores::Chore { paused, ..chore })
+            }
+            ChoreAction::End(chore) => {
+                self.ending_chore = Some(chore);
+                self.confirm
+                    .ask(t.chore_end(), t.chore_end_confirm(), t.chore_end());
+                Ok(())
+            }
+            ChoreAction::History(chore) => {
+                self.chore_history.open_for(&self.store, chore, today);
+                Ok(())
+            }
+        };
+        if let Err(e) = result {
+            self.notice = Some(e.to_string());
+        }
+    }
+
+    /// The chore and appointment dialogs, and what they save.
+    fn show_chore_dialogs(&mut self, ctx: &Context) {
+        let t = self.t;
+        if let Some(chore) = self.chore_dialog.show(ctx, &t) {
+            let result = if chore.id.is_empty() {
+                self.store.create_chore(&new_uuid(), &chore).map(|_| ())
+            } else {
+                self.store.update_chore(&chore)
+            };
+            if let Err(e) = result {
+                self.notice = Some(e.to_string());
+            }
+        }
+        self.chore_history.show(ctx, &self.store, &t);
+        if let Some(draft) = self.appointment_dialog.show(ctx, &self.store, &t) {
+            let newcomers = self.appointment_dialog.newcomers();
+            let result = if draft.id.is_empty() {
+                let own = new_uuid();
+                let mut members: Vec<(String, String)> = vec![(draft.entity.clone(), own)];
+                for id in &newcomers {
+                    members.push((id.clone(), new_uuid()));
+                }
+                let borrowed: Vec<(&str, &str)> = members
+                    .iter()
+                    .map(|(e, i)| (e.as_str(), i.as_str()))
+                    .collect();
+                self.store
+                    .create_appointments(&draft, &borrowed, &new_uuid())
+                    .map(|_| ())
+            } else {
+                self.store.update_appointment_group(&draft).and_then(|()| {
+                    if newcomers.is_empty() {
+                        return Ok(());
+                    }
+                    let ids: Vec<(String, String)> =
+                        newcomers.iter().map(|e| (e.clone(), new_uuid())).collect();
+                    let borrowed: Vec<(&str, &str)> =
+                        ids.iter().map(|(e, i)| (e.as_str(), i.as_str())).collect();
+                    self.store
+                        .add_to_appointment_group(&draft, &borrowed, &new_uuid())
+                        .map(|_| ())
+                })
+            };
+            if let Err(e) = result {
+                self.notice = Some(e.to_string());
+            }
+        }
+        if let Some((treated, notes)) = self.finish_dialog.show(ctx, &t)
+            && let Err(e) = self.store.finish_appointments(&treated, Some(&notes))
+        {
+            self.notice = Some(e.to_string());
+        }
+    }
+
+    /// Sounds every reminder whose moment passed since the last check.
+    pub fn fire_reminders(&mut self) {
+        let now = (self.now)();
+        let since = self.last_reminder_check;
+        if now <= since {
+            return;
+        }
+        self.last_reminder_check = now;
+        let Ok(planned) = self.store.planned_reminders(since) else {
+            return;
+        };
+        for r in planned.into_iter().filter(|r| r.at <= now) {
+            let name = self
+                .store
+                .current(&r.entity, keys::NAME)
+                .ok()
+                .flatten()
+                .unwrap_or_default();
+            self.notifier.notify(&r.title, &name);
+        }
+    }
+
+    /// Writes the calendar file where the keeper says.
+    fn export_ics(&mut self) {
+        let t = self.t;
+        let Some(path) = (self.save_file)(t.export_ics(), "catlog.ics") else {
+            return;
+        };
+        let events = ics_events(&self.store, &t);
+        let text = catlog_core::ics::write_ics(&events, chrono::Utc::now());
+        self.notice = Some(match std::fs::write(&path, text) {
+            Ok(()) => t.ics_saved_to(&path.to_string_lossy()),
+            Err(e) => e.to_string(),
+        });
     }
 
     /// The line under the menu bar while a partner's changes wait.
@@ -1378,7 +1597,7 @@ mod tests {
         h.run();
         h.get_by_label_contains("Drops · ");
         assert!(
-            h.query_by_label("Planned").is_none(),
+            h.query_by_label("Finish").is_none(),
             "a finished visit is no plan"
         );
         h.get_by_label(L10n::new("en").value_yes());
@@ -2299,5 +2518,281 @@ mod tests {
                 conflicts.len() - 1
             );
         }
+    }
+
+    fn fixed_day(app: &mut App, y: i32, m: u32, d: u32, h: u32) {
+        let at = chrono::NaiveDate::from_ymd_opt(y, m, d)
+            .unwrap()
+            .and_hms_opt(h, 0, 0)
+            .unwrap();
+        app.now = Box::new(move || at);
+        app.last_reminder_check = at;
+    }
+
+    #[test]
+    fn chores_are_made_ticked_paused_ended_and_read_on_the_agenda() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 7);
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        // A new daily chore with a reminder.
+        h.get_by_label("New chore").click();
+        h.run();
+        assert!(h.state().chore_dialog.open);
+        h.get_by_label("Save").click();
+        h.run();
+        assert!(h.state().chore_dialog.open, "no title, no chore");
+        h.state_mut().chore_dialog.title = "Feed".into();
+        h.state_mut().chore_dialog.time = "08:00".into();
+        h.state_mut().chore_dialog.remind = true;
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let chores = h.state().store().chores_of(miezi, false).unwrap();
+        assert_eq!(chores.len(), 1);
+        assert_eq!(chores[0].title, "Feed");
+        assert!(chores[0].remind);
+        h.get_by_label_contains("Feed · Daily · 08:00");
+        // Tick today from the row; the streak reads one day.
+        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.run();
+        let ticks = h.state().store().chore_ticks(&chores[0]).unwrap();
+        assert_eq!(ticks.len(), 1);
+        h.get_by_label_contains("1 day in a row");
+        // The menu: history, pause, edit, end.
+        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.step();
+        h.get_by_label("History").click_accesskit();
+        h.run();
+        assert!(h.state().chore_history.open);
+        h.get_by_label_contains("Feed · Miezi");
+        h.state_mut().chore_history.open = false;
+        h.run();
+        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.step();
+        h.get_by_label("Pause").click_accesskit();
+        h.run();
+        assert!(h.state().store().chores_of(miezi, false).unwrap()[0].paused);
+        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.step();
+        h.get_by_label("Resume").click_accesskit();
+        h.run();
+        assert!(!h.state().store().chores_of(miezi, false).unwrap()[0].paused);
+        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.step();
+        h.get_by_label("Edit chore").click_accesskit();
+        h.run();
+        assert_eq!(h.state().chore_dialog.title, "Feed");
+        h.state_mut().chore_dialog.title = "Feed twice".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        assert_eq!(
+            h.state().store().chores_of(miezi, false).unwrap()[0].title,
+            "Feed twice"
+        );
+        // The agenda lists it under today, all done.
+        h.get_by_label("View").click();
+        h.step();
+        h.get_by_label("Agenda").click_accesskit();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Agenda);
+        h.get_by_label("Today: all done");
+        h.get_by_label_contains("Feed twice");
+        // End it after one confirmation: gone from the lists.
+        h.get_by_label_contains("Feed twice").click_secondary();
+        h.step();
+        h.get_by_label("End chore").click_accesskit();
+        h.run();
+        assert!(h.state().confirm.open);
+        h.get_all_by_label("End chore").last().unwrap().click();
+        h.run();
+        assert!(
+            h.state()
+                .store()
+                .chores_of(miezi, false)
+                .unwrap()
+                .is_empty()
+        );
+        assert_eq!(h.state().store().chores_of(miezi, true).unwrap().len(), 1);
+    }
+
+    #[test]
+    fn a_vet_run_is_planned_finished_with_a_value_and_reminders_sound() {
+        let dir = tempfile::tempdir().unwrap();
+        let ics = dir.path().join("agenda.ics");
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 7);
+        let shown = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        app.notifier = Box::new(crate::notify::RecordingNotifier {
+            shown: shown.clone(),
+        });
+        let hand = ics.clone();
+        app.save_file = Box::new(move |_, _| Some(hand.clone()));
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        h.get_by_label("Add appointment").click();
+        h.run();
+        assert!(h.state().appointment_dialog.open);
+        h.state_mut().appointment_dialog.title = "Neutering".into();
+        h.state_mut().appointment_dialog.date = "2026-03-11".into();
+        h.state_mut().appointment_dialog.time = "14:30".into();
+        h.state_mut().appointment_dialog.alert =
+            Some(catlog_core::appointments::AppointmentAlert::HourBefore);
+        h.state_mut().appointment_dialog.linked_field = Some("f:remarks".into());
+        h.state_mut().appointment_dialog.linked_value = "neutered".into();
+        h.run();
+        // Tom comes along: a run of two.
+        h.get_all_by_label("Tom").last().unwrap().click();
+        h.run();
+        assert_eq!(h.state().appointment_dialog.newcomers().len(), 1);
+        h.get_by_label("Save").click();
+        h.run();
+        let mine = h.state().store().appointments_of(miezi, false).unwrap();
+        assert_eq!(mine.len(), 1);
+        assert_eq!(h.state().store().group_of(&mine[0]).unwrap().len(), 2);
+        h.get_by_label_contains("Neutering · 2 cats");
+        // The agenda shows the run once with both names, and the
+        // calendar file carries it with its alarm.
+        h.get_by_label("View").click();
+        h.step();
+        h.get_by_label("Agenda").click_accesskit();
+        h.run();
+        h.get_by_label_contains("Neutering · 2 cats");
+        h.get_by_label_contains("Miezi, Tom");
+        h.get_by_label("Export calendar file").click();
+        h.run();
+        let text = std::fs::read_to_string(&ics).unwrap();
+        assert!(text.contains("SUMMARY:Neutering — 2 cats\r\n"));
+        assert!(text.contains("TRIGGER:-PT60M\r\n"));
+        h.get_by_label_contains("Calendar file saved under ");
+        // An hour before: the reminder sounds once.
+        let at = chrono::NaiveDate::from_ymd_opt(2026, 3, 11)
+            .unwrap()
+            .and_hms_opt(13, 31, 0)
+            .unwrap();
+        h.state_mut().now = Box::new(move || at);
+        h.run();
+        h.run();
+        assert_eq!(
+            *shown.lock().unwrap(),
+            vec![("Neutering".to_string(), "Miezi".to_string())]
+        );
+        // Finish: Tom was not treated; Miezi's linked field is written.
+        h.get_by_label("Finish").click();
+        h.run();
+        assert!(h.state().finish_dialog.open);
+        h.state_mut().finish_dialog.notes = "went well".into();
+        h.run();
+        h.get_all_by_label("Tom").last().unwrap().click();
+        h.run();
+        h.get_all_by_label("Finish").last().unwrap().click();
+        h.run();
+        assert!(!h.state().finish_dialog.open);
+        assert!(
+            h.state()
+                .store()
+                .appointments_of(miezi, false)
+                .unwrap()
+                .is_empty()
+        );
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:remarks")
+                .unwrap()
+                .as_deref(),
+            Some("neutered")
+        );
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        assert_eq!(
+            h.state().store().appointments_of(tom, false).unwrap().len(),
+            1,
+            "Tom stays planned"
+        );
+        // Edit Tom's leftover, then delete it.
+        h.get_by_label_contains("Neutering").click_secondary();
+        h.step();
+        h.get_by_label("Edit appointment").click_accesskit();
+        h.run();
+        assert_eq!(h.state().appointment_dialog.title, "Neutering");
+        h.state_mut().appointment_dialog.title = "Check-up".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        assert_eq!(
+            h.state().store().appointments_of(tom, false).unwrap()[0].title,
+            "Check-up"
+        );
+        h.get_by_label_contains("Check-up").click_secondary();
+        h.step();
+        h.get_by_label("Delete appointment").click_accesskit();
+        h.run();
+        assert!(
+            h.state()
+                .store()
+                .appointments_of(tom, false)
+                .unwrap()
+                .is_empty()
+        );
+        h.get_by_label("No appointments planned. Plan new ones here with the plus, or on a cat's or clowder's page.");
+    }
+
+    #[test]
+    fn reminders_sound_once_when_their_moment_passes() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 7);
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut feed = catlog_core::chores::Chore {
+            id: String::new(),
+            entity: miezi.into(),
+            title: "Feed".into(),
+            schedule: catlog_core::chores::ChoreSchedule::daily(),
+            time: Some(catlog_core::chores::Hhmm { hour: 8, minute: 0 }),
+            start: chrono::NaiveDate::from_ymd_opt(2026, 3, 1).unwrap(),
+            paused: false,
+            ended: false,
+            remind: true,
+            remind_at: None,
+            extra: Default::default(),
+        };
+        feed.remind_at = Some(catlog_core::chores::Hhmm { hour: 8, minute: 0 });
+        app.store_mut().create_chore("c1", &feed).unwrap();
+        let shown = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        app.notifier = Box::new(crate::notify::RecordingNotifier {
+            shown: shown.clone(),
+        });
+        let mut h = harness(app);
+        h.run();
+        assert!(shown.lock().unwrap().is_empty(), "nothing due at seven");
+        let at = chrono::NaiveDate::from_ymd_opt(2026, 3, 10)
+            .unwrap()
+            .and_hms_opt(8, 5, 0)
+            .unwrap();
+        h.state_mut().now = Box::new(move || at);
+        h.run();
+        assert_eq!(
+            *shown.lock().unwrap(),
+            vec![("Feed".to_string(), "Miezi".to_string())]
+        );
+        h.run();
+        assert_eq!(shown.lock().unwrap().len(), 1, "sounds once");
+        // The next day at the same time: again.
+        let next = at + chrono::Duration::days(1);
+        h.state_mut().now = Box::new(move || next);
+        h.run();
+        assert_eq!(shown.lock().unwrap().len(), 2);
     }
 }

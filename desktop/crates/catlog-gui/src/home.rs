@@ -20,6 +20,7 @@ pub enum Selection {
     Map,
     Sync,
     Conflicts,
+    Agenda,
 }
 
 /// What the keeper did on the home pane this frame.

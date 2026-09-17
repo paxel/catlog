@@ -29,5 +29,20 @@
   "exportBundle": "Export sync bundle…",
   "newKeyPinned": "New partner key pinned: {code}",
   "noneLabel": "None",
-  "bundleWritten": "Bundle written to {path}"
+  "bundleWritten": "Bundle written to {path}",
+  "unitDays": "days",
+  "unitWeeks": "weeks",
+  "unitMonths": "months",
+  "unitYears": "years",
+  "chorePending": "Pending",
+  "choreUpcoming": "Upcoming",
+  "choreNotDue": "Not due",
+  "choreDoneState": "Done",
+  "everyLabel": "Every",
+  "weekdaysLabel": "Weekdays",
+  "remindAtLabel": "Remind at",
+  "chores": "Chores",
+  "newAppointment": "New appointment",
+  "ticksLabel": "Ticks",
+  "dateLabel": "Date"
 }

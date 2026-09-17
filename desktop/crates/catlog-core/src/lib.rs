@@ -7,6 +7,7 @@
 //! down. Nothing in here knows about a window: the GUI crate draws, this
 //! crate owns the data.
 
+pub mod agenda;
 pub mod appointments;
 mod bundle;
 mod catalog;
@@ -22,6 +23,7 @@ mod folder;
 pub mod geo;
 pub mod geocode;
 pub mod graph;
+pub mod ics;
 pub mod keys;
 pub mod looks;
 pub mod moments;

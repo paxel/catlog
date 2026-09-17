@@ -30,6 +30,7 @@ qrcode = { version = "0.14", default-features = false }
 barcoders = { version = "2", default-features = false }
 hex = "0.4"
 rfd = "0.17"
+notify-rust = "4"
 image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
 
 [build-dependencies]
