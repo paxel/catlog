@@ -66,6 +66,8 @@ fn snapshot(name: &str, prepare: impl FnOnce(&mut App)) {
         .and_hms_opt(9, 0, 0)
         .expect("a time");
     app.now = Box::new(move || at);
+    // The tips are the phone's words; they stay out of the picture.
+    catlog_gui::tips::mark_all_seen(app.store());
     prepare(&mut app);
     let mut harness = Harness::builder()
         .with_size(egui::vec2(1440.0, 900.0))

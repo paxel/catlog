@@ -50,3 +50,8 @@ app.*.map.json
 
 # Rust desktop
 desktop/target/
+
+# Leftovers of a failed or updated snapshot run
+desktop/crates/catlog-gui/tests/snapshots/*.new.png
+desktop/crates/catlog-gui/tests/snapshots/*.diff.png
+desktop/crates/catlog-gui/tests/snapshots/*.old.png

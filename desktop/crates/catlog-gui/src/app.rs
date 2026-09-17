@@ -181,6 +181,8 @@ pub struct App {
     shown: Selection,
     /// Counts the view switches, so each one fades in anew.
     view_opened: u32,
+    /// Counts the modals and histories opened, for the same reason.
+    modal_opened: u32,
     icon: Option<egui::TextureHandle>,
     fonts_installed: Option<String>,
     /// Opens a link in the browser or the mail program.
@@ -321,6 +323,7 @@ impl App {
             modal: None,
             shown: Selection::None,
             view_opened: 0,
+            modal_opened: 0,
             icon: None,
             fonts_installed: None,
             open_url: Box::new(|url| {
@@ -417,9 +420,10 @@ impl App {
         self.history_of = None;
     }
 
-    /// Opens `modal` over the desk.
+    /// Opens `modal` over the desk; it fades in.
     pub fn open_modal(&mut self, modal: Modal) {
         self.modal = Some(modal);
+        self.modal_opened += 1;
         self.notice = None;
     }
 
@@ -1974,7 +1978,10 @@ impl App {
                     );
                 }
             }
-            PageAction::History(entity, slug) => self.history_of = Some((entity, slug)),
+            PageAction::History(entity, slug) => {
+                self.history_of = Some((entity, slug));
+                self.modal_opened += 1;
+            }
             PageAction::NewField(scope) => self.new_field.ask(scope),
             PageAction::Move(cat) => self.mover.ask(&self.store, &cat),
             PageAction::Sighting(cat) => {
@@ -2167,9 +2174,10 @@ impl App {
             return;
         };
         let t = self.t;
+        // The opening is part of the name, so each one fades in anew.
         let id = match &modal {
-            Modal::Page(_) => "Page".to_string(),
-            other => format!("{other:?}"),
+            Modal::Page(_) => format!("Page#{}", self.modal_opened),
+            other => format!("{other:?}#{}", self.modal_opened),
         };
         let mut page_action = PageAction::None;
         let (_, close) = views::show_modal(ctx, &id, t.close_label(), |ui| match modal {
@@ -2295,8 +2303,9 @@ impl App {
             return;
         }
         let t = self.t;
+        let id = format!("History#{}", self.modal_opened);
         let (page_action, close) =
-            views::show_modal(ctx, "History", t.close_label(), |ui| self.show_history(ui));
+            views::show_modal(ctx, &id, t.close_label(), |ui| self.show_history(ui));
         if close {
             self.history_of = None;
         }
@@ -5045,6 +5054,31 @@ mod tests {
         assert_eq!(h.state().modal(), Some(Modal::Document));
         assert_eq!(h.state().document.kind, Some(DocKind::VetReport));
         assert_eq!(h.state().document.cat, miezi);
+    }
+
+    #[test]
+    fn with_eye_candy_on_the_views_modals_and_cards_fade_and_the_app_settles() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.settings.settings.eye_candy = true;
+        let mut h = harness(app);
+        h.run();
+        assert_eq!(crate::motion::duration(&h.ctx), crate::motion::DEFAULT);
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Tom").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(h.state().desk.open.len(), 1);
+        h.state_mut().open_modal(Modal::Sync);
+        h.run();
+        h.get_by_label("Shared folder");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        h.state_mut().open_modal(Modal::Sync);
+        h.run();
+        assert_eq!(h.state().modal(), Some(Modal::Sync));
+        assert!(h.state().settings.settings.eye_candy);
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {
