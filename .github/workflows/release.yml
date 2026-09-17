@@ -10,9 +10,11 @@
 #   build-linux    — Rust desktop: tar.gz, .deb and AppImage per arch
 #   build-windows  — Rust desktop: zip with catlog.exe
 #   build-macos    — Rust desktop: unsigned catlog.app in a .dmg, per arch
-#   channels       — Homebrew cask + formula and Scoop manifest rendered from
-#                    the artifacts; pushed to the tap and the bucket when publishing
+#   render-channels — Homebrew cask + formula and Scoop manifest rendered from
+#                    the artifacts, uploaded as an artifact on every run
 #   release        — GitHub Release, notes = the CHANGELOG section for the tag
+#   channels       — the rendered files pushed to the tap and the bucket, after
+#                    the Release, when publishing
 #
 # Publishing (Play, F-Droid, the Release, the tap and the bucket) happens
 # on a tag, or on a manual dispatch that says publish=true. A dispatch
@@ -339,8 +341,8 @@ jobs:
               dist/*
           fi
 
-  channels:
-    name: Homebrew tap + Scoop bucket
+  render-channels:
+    name: Render cask, formula and manifest
     needs: [gate, build-linux, build-windows, build-macos]
     runs-on: ubuntu-latest
     steps:
@@ -349,14 +351,26 @@ jobs:
         with:
           path: dist
           merge-multiple: true
-      - name: Render cask, formula and manifest from the templates
+      - name: Render from the templates with the artifacts' checksums
         run: desktop/packaging/render-channels.sh "${RELEASE_TAG#v}" dist out
       - uses: actions/upload-artifact@v6
         with:
           name: channels
           path: out/*
+
+  # Only after the Release exists: the cask and the manifest point at its
+  # assets, so nothing may be pushed before they are there.
+  channels:
+    name: Homebrew tap + Scoop bucket
+    needs: [release, render-channels]
+    if: github.ref_type == 'tag' || github.event.inputs.publish == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: channels
+          path: out
       - name: Push to the tap
-        if: env.PUBLISH == 'true'
         env:
           GH_TOKEN: ${{ secrets.CHANNEL_PAT }}
         run: |
@@ -371,7 +385,6 @@ jobs:
           git -C tap commit -m "catlog $ver"
           git -C tap push
       - name: Push to the bucket
-        if: env.PUBLISH == 'true'
         env:
           GH_TOKEN: ${{ secrets.CHANNEL_PAT }}
         run: |

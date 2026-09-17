@@ -21,7 +21,8 @@ chmod 0755 "$app/Contents/MacOS/catlog"
 # The icon: an iconset from the 1024 px PNG.
 iconset="$stage/catlog.iconset"
 mkdir -p "$iconset"
-for size in 16 32 64 128 256 512; do
+# The ten names iconutil accepts: five sizes, each with its @2x twin.
+for size in 16 32 128 256 512; do
   sips -z $size $size "$icons/icon.png" --out "$iconset/icon_${size}x${size}.png" >/dev/null
   double=$((size * 2))
   sips -z $double $double "$icons/icon.png" --out "$iconset/icon_${size}x${size}@2x.png" >/dev/null
