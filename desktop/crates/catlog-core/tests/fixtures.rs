@@ -120,6 +120,12 @@ fn every_scenario_imports_from_its_bundle() {
             &result.report.to_json(),
             &expected.bundle_report,
         );
-        assert_same(&name, "bundle", &catalog.dump().unwrap(), &expected.state);
+        // Where the transports legitimately differ, the bundle reader's
+        // state is recorded on its own.
+        let state = match std::fs::read_to_string(dir.join("expected-bundle.json")) {
+            Ok(text) => serde_json::from_str(&text).expect("valid expected-bundle.json"),
+            Err(_) => expected.state,
+        };
+        assert_same(&name, "bundle", &catalog.dump().unwrap(), &state);
     }
 }
