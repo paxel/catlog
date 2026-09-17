@@ -64,6 +64,8 @@ pub struct Desk {
     raise: Option<String>,
     /// The desk as last drawn, so new cards land where there is room.
     desk_size: Vec2,
+    /// Counts the openings, so a card laid down again fades in again.
+    opened: u32,
 }
 
 impl Desk {
@@ -111,6 +113,7 @@ impl Desk {
                 let _ = store.set_local_setting(&pos_key(id), &format!("{},{}", pos.x, pos.y));
             }
             self.raise = Some(id.clone());
+            self.opened += 1;
         }
         self.save_open(store);
     }
@@ -243,15 +246,19 @@ impl Desk {
             // The card keeps its place relative to the desk; a drag moves
             // it and the end of the drag is what gets remembered. The
             // first frame constrains by the default size, so it is told.
+            // A card just laid down fades in and slides the last bit up.
+            let fade = crate::motion::fade_in(&ctx, ("card", id.as_str(), self.opened));
+            let slide = Vec2::new(0.0, (1.0 - fade) * 16.0);
             let area = egui::Area::new(area_id)
                 .movable(true)
                 .constrain_to(desk)
                 .default_size(Vec2::new(CARD_WIDTH + 26.0, 200.0))
-                .current_pos(desk.min + rel.to_vec2());
+                .current_pos(desk.min + rel.to_vec2() + slide);
             if raise.as_deref() == Some(id.as_str()) {
                 ctx.move_to_top(egui::LayerId::new(egui::Order::Middle, area_id));
             }
             let out = area.show(&ctx, |ui| {
+                ui.set_opacity(fade);
                 egui::Frame::new()
                     .fill(PALETTE.paper)
                     .stroke(egui::Stroke::new(1.0, PALETTE.tan))

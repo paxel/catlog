@@ -30,6 +30,7 @@ pub mod labels;
 pub mod map;
 pub mod map_page;
 pub mod merge;
+pub mod motion;
 pub mod move_dialog;
 pub mod new_field;
 pub mod notify;

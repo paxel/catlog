@@ -21,6 +21,13 @@ pub struct AppSettings {
     pub intro_seen: bool,
     /// Tips the keeper has seen, by id; `all` means every one.
     pub tips_seen: Vec<String>,
+    /// Fades, slides and eased hovers; off stills everything.
+    #[serde(default = "yes")]
+    pub eye_candy: bool,
+}
+
+fn yes() -> bool {
+    true
 }
 
 /// Where the settings live and are written back to.

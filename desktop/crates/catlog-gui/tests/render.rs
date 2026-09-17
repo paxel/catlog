@@ -56,6 +56,7 @@ fn render_with(
     file.settings.locale = Some("en".into());
     file.settings.intro_seen = intro_seen;
     file.settings.author = Some("Ada".into());
+    file.settings.eye_candy = false;
     let tiles = TileCache::open(&dir.path().join("tiles"), Box::new(GreyTiles)).expect("tiles");
     let mut app = App::open_with(
         file,

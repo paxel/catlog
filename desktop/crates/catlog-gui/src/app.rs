@@ -179,6 +179,8 @@ pub struct App {
     pub modal: Option<Modal>,
     /// The selection as last remembered for the dashboard.
     shown: Selection,
+    /// Counts the view switches, so each one fades in anew.
+    view_opened: u32,
     icon: Option<egui::TextureHandle>,
     fonts_installed: Option<String>,
     /// Opens a link in the browser or the mail program.
@@ -318,6 +320,7 @@ impl App {
             view: View::Home,
             modal: None,
             shown: Selection::None,
+            view_opened: 0,
             icon: None,
             fonts_installed: None,
             open_url: Box::new(|url| {
@@ -404,8 +407,11 @@ impl App {
     }
 
     /// Switches the bar to `view`; Cats and Clowders keep what lies on
-    /// the desk.
+    /// the desk. The new view fades in.
     pub fn open_view(&mut self, view: View) {
+        if view != self.view {
+            self.view_opened += 1;
+        }
         self.view = view;
         self.notice = None;
         self.history_of = None;
@@ -681,6 +687,7 @@ impl App {
         if self.install_fonts(ui.ctx()) {
             return;
         }
+        crate::motion::set(ui.ctx(), self.settings.settings.eye_candy);
         if !self.settings.settings.intro_seen {
             self.show_intro(ui);
             return;
@@ -735,6 +742,9 @@ impl App {
             }
         }
         egui::CentralPanel::default().show(ui, |ui| {
+            // A view fades in when the bar switches to it.
+            let fade = crate::motion::fade_in(ui.ctx(), ("view", self.view, self.view_opened));
+            ui.set_opacity(fade);
             if let Some(notice) = &self.notice {
                 ui.colored_label(ui.visuals().error_fg_color, notice);
             }
@@ -2201,6 +2211,7 @@ impl App {
             Modal::Settings => {
                 let locale = self.t.locale();
                 let code = crate::housekeeping::key_code(&self.store, &self.store.device_id());
+                let eye_candy = self.settings.settings.eye_candy;
                 let action = self.settings_page.show(
                     ui,
                     &self.store,
@@ -2209,6 +2220,7 @@ impl App {
                     locale,
                     &code,
                     &self.ladders,
+                    eye_candy,
                 );
                 if let Err(e) = self.settings_page.apply_pending(&mut self.store) {
                     self.notice = Some(e.to_string());
@@ -2418,6 +2430,10 @@ impl App {
                 );
                 self.deleting_catalog = true;
             }
+            SettingsAction::EyeCandy(on) => {
+                self.settings.settings.eye_candy = on;
+                let _ = self.settings.save();
+            }
             SettingsAction::OpenBackups => self.open_modal(Modal::Backups),
             SettingsAction::OpenAchievements => {
                 self.refresh_ladders();
@@ -2578,6 +2594,8 @@ mod tests {
         file.settings.locale = Some(locale.into());
         file.settings.intro_seen = intro_seen;
         file.settings.author = intro_seen.then(|| "Ada".to_string());
+        // Behaviour tests run with motion off, so timing never flakes them.
+        file.settings.eye_candy = false;
         let tiles = TileCache::open(&dir.join("tiles"), Box::new(FakeTiles)).unwrap();
         App::open_with(
             file,
@@ -5740,6 +5758,17 @@ mod tests {
         h.get_by_label("Show tips again").click();
         h.run();
         h.get_by_label("The highlights will show again");
+        // The Eye candy switch is remembered in the app's settings.
+        assert!(!h.state().settings.settings.eye_candy, "tests run still");
+        h.get_by_label("Eye candy: fades, slides and eased hovers")
+            .click();
+        h.run();
+        assert!(h.state().settings.settings.eye_candy);
+        assert!(SettingsFile::load(dir.path()).settings.eye_candy);
+        h.get_by_label("Eye candy: fades, slides and eased hovers")
+            .click();
+        h.run();
+        assert!(!h.state().settings.settings.eye_candy);
         // The Catalog holds pets now.
         h.get_by_label("Pets").click();
         h.run();

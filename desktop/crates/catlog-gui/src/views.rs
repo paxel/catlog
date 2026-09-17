@@ -12,7 +12,7 @@ use crate::l10n::L10n;
 use crate::theme::PALETTE;
 
 /// The six views in the bar's order.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub enum View {
     #[default]
     Home,
@@ -123,42 +123,60 @@ pub fn show_modal<R>(
     content: impl FnOnce(&mut Ui) -> R,
 ) -> (R, bool) {
     let screen = ctx.content_rect();
-    let modal = egui::Modal::new(Id::new(("modal", id))).show(ctx, |ui| {
-        // An area's ui is as big as it was last frame; the bounds are
-        // set anew so the scroll area can grow with its content.
-        ui.set_max_width((screen.width() - 80.0).min(960.0));
-        let max_height = screen.height() - 80.0;
-        ui.set_max_height(max_height);
-        let inner = egui::ScrollArea::vertical()
-            .max_height(max_height)
-            .show(ui, content)
-            .inner;
-        // An area asks for no repaint when its content shrinks; one more
-        // frame lets it settle, so what is on screen is where it says.
-        let size = ui.min_rect().size();
-        let key = Id::new(("modal-size", id));
-        if ctx.data(|d| d.get_temp::<egui::Vec2>(key)) != Some(size) {
-            ctx.data_mut(|d| d.insert_temp(key, size));
-            ctx.request_repaint();
-        }
-        // The close button sits in the frame's corner, past the content.
-        ui.set_min_width(ui.min_rect().width() + 28.0);
-        let corner = ui.min_rect().right_top();
-        let rect =
-            egui::Rect::from_min_size(corner + egui::vec2(-20.0, 0.0), egui::Vec2::splat(20.0));
-        let response = ui
-            .interact(rect, ui.id().with("close"), Sense::click())
-            .on_hover_text(close_label);
-        response
-            .widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, true, close_label));
-        let color = if response.hovered() {
-            PALETTE.orange
-        } else {
-            PALETTE.grey
-        };
-        icons::paint(ui, rect, icons::CLOSE, color);
-        (inner, response.clicked())
-    });
+    // The modal fades in: its backdrop, its frame and what it holds.
+    let fade = crate::motion::fade_in(ctx, ("modal", id));
+    let style = ctx.global_style();
+    let popup = egui::Frame::popup(&style);
+    let frame = egui::Frame {
+        fill: popup.fill.gamma_multiply(fade),
+        stroke: egui::Stroke::new(popup.stroke.width, popup.stroke.color.gamma_multiply(fade)),
+        shadow: egui::epaint::Shadow {
+            color: popup.shadow.color.gamma_multiply(fade),
+            ..popup.shadow
+        },
+        ..popup
+    };
+    let modal = egui::Modal::new(Id::new(("modal", id)))
+        .frame(frame)
+        .backdrop_color(egui::Color32::from_black_alpha((100.0 * fade) as u8))
+        .show(ctx, |ui| {
+            ui.set_opacity(fade);
+            // An area's ui is as big as it was last frame; the bounds are
+            // set anew so the scroll area can grow with its content.
+            ui.set_max_width((screen.width() - 80.0).min(960.0));
+            let max_height = screen.height() - 80.0;
+            ui.set_max_height(max_height);
+            let inner = egui::ScrollArea::vertical()
+                .max_height(max_height)
+                .show(ui, content)
+                .inner;
+            // An area asks for no repaint when its content shrinks; one more
+            // frame lets it settle, so what is on screen is where it says.
+            let size = ui.min_rect().size();
+            let key = Id::new(("modal-size", id));
+            if ctx.data(|d| d.get_temp::<egui::Vec2>(key)) != Some(size) {
+                ctx.data_mut(|d| d.insert_temp(key, size));
+                ctx.request_repaint();
+            }
+            // The close button sits in the frame's corner, past the content.
+            ui.set_min_width(ui.min_rect().width() + 28.0);
+            let corner = ui.min_rect().right_top();
+            let rect =
+                egui::Rect::from_min_size(corner + egui::vec2(-20.0, 0.0), egui::Vec2::splat(20.0));
+            let response = ui
+                .interact(rect, ui.id().with("close"), Sense::click())
+                .on_hover_text(close_label);
+            response.widget_info(|| {
+                egui::WidgetInfo::labeled(egui::WidgetType::Button, true, close_label)
+            });
+            let color = if response.hovered() {
+                PALETTE.orange
+            } else {
+                PALETTE.grey
+            };
+            icons::paint(ui, rect, icons::CLOSE, color);
+            (inner, response.clicked())
+        });
     let wants_close = modal.should_close();
     let (inner, closed) = modal.inner;
     (inner, closed || wants_close)

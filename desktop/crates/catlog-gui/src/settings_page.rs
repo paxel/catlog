@@ -26,6 +26,8 @@ pub enum SettingsAction {
     DeleteCatalog,
     OpenBackups,
     OpenAchievements,
+    /// The Eye candy switch: motion on or off.
+    EyeCandy(bool),
 }
 
 #[derive(Debug, Default)]
@@ -91,6 +93,7 @@ impl SettingsPage {
         locale: &str,
         key_code: &str,
         ladders: &[LadderState],
+        eye_candy: bool,
     ) -> SettingsAction {
         let mut action = SettingsAction::None;
         egui::ScrollArea::vertical().show(ui, |ui| {
@@ -168,6 +171,10 @@ impl SettingsPage {
                 let _ = store.set_local_setting(CHEER, if cheer { "on" } else { "off" });
             }
             ui.label(egui::RichText::new(t.cheer_subtitle()).weak());
+            let mut candy = eye_candy;
+            if ui.checkbox(&mut candy, t.eye_candy_toggle()).changed() {
+                action = SettingsAction::EyeCandy(candy);
+            }
             ui.horizontal(|ui| {
                 if ui.button(t.show_tips_again()).clicked() {
                     action = SettingsAction::ResetTips;

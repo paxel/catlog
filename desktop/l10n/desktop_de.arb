@@ -104,5 +104,6 @@
   "vetOpen": "Offen",
   "columnWhen": "Wann",
   "vetEmpty": "Noch keine Termine",
-  "vetPickRun": "Wähle einen Termin, um den Patienten zu sehen"
+  "vetPickRun": "Wähle einen Termin, um den Patienten zu sehen",
+  "eyeCandyToggle": "Augenschmaus: Einblendungen, Übergänge und weiche Farben"
 }

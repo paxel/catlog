@@ -60,7 +60,20 @@ pub fn button(ui: &mut Ui, icon: &str, text: impl Into<egui::WidgetText>) -> Res
         let color = ui.style().interact(&response.response).fg_stroke.color;
         paint(ui, rect, icon, color);
     }
+    tint(ui, &response.response);
     response.response
+}
+
+/// A hover tint that eases in and out over the button, when motion is on.
+fn tint(ui: &Ui, response: &Response) {
+    let k = crate::motion::tint(ui.ctx(), response.id, response.hovered());
+    if k > 0.0 && k < 1.0 {
+        ui.painter().rect_filled(
+            response.rect,
+            crate::theme::ROUNDING,
+            crate::theme::PALETTE.orange.gamma_multiply(0.12 * k),
+        );
+    }
 }
 
 /// A selectable row with an icon before its text.
@@ -77,6 +90,7 @@ pub fn selectable(
         let color = ui.style().interact(&response.response).fg_stroke.color;
         paint(ui, rect, icon, color);
     }
+    tint(ui, &response.response);
     response.response
 }
 

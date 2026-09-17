@@ -104,5 +104,6 @@
   "vetOpen": "Open",
   "columnWhen": "When",
   "vetEmpty": "No runs or appointments yet",
-  "vetPickRun": "Pick a run or an appointment to see its patient"
+  "vetPickRun": "Pick a run or an appointment to see its patient",
+  "eyeCandyToggle": "Eye candy: fades, slides and eased hovers"
 }
