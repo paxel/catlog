@@ -47,8 +47,9 @@ impl Dimension {
 }
 
 /// The device's side: metric or imperial.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub enum UnitSystem {
+    #[default]
     Metric,
     Imperial,
 }

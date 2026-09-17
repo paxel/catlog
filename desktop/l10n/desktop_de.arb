@@ -8,5 +8,9 @@
   "quit": "Beenden",
   "introSkipTips": "Auch die Tipps überspringen, ich kenne mich aus",
   "renameCatalog": "Katalog umbenennen",
-  "choresSection": "Aufgaben"
+  "choresSection": "Aufgaben",
+  "historyOldestFirst": "Älteste zuerst",
+  "historyShowHidden": "Korrigierte und entfernte Werte zeigen",
+  "editValue": "Wert bearbeiten",
+  "showHistory": "Verlauf"
 }

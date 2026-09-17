@@ -3,7 +3,7 @@
 //! Fields, family and timeline; the Strays. Every hold on the phone is
 //! a right-click here.
 
-use catlog_core::fields::{FieldDef, FieldScope};
+use catlog_core::fields::{FieldDef, FieldScope, FieldType, IdDisplay};
 use catlog_core::units::UnitSystem;
 use catlog_core::{Catalog, EntityView, Entry, keys};
 use egui::{Ui, Vec2};
@@ -19,6 +19,12 @@ pub enum PageAction {
     OpenCat(String),
     OpenClowder(String),
     ToggleHidden(String),
+    /// Edit this Field's value on this entity.
+    Edit(String, String),
+    /// Open this Field's history on this entity.
+    History(String, String),
+    /// Define a new Field for this scope.
+    NewField(FieldScope),
 }
 
 /// The pages' own state: the unit system values are read in.
@@ -82,7 +88,10 @@ impl Pages {
             }
             self.show_chores(ui, store, t, id);
             self.show_appointments(ui, store, t, id);
-            self.show_fields(ui, store, t, id, FieldScope::Clowder);
+            let fields = self.show_fields(ui, store, t, id, FieldScope::Clowder);
+            if fields != PageAction::None {
+                action = fields;
+            }
             self.show_timeline(ui, store, t, id);
         });
         action
@@ -141,7 +150,10 @@ impl Pages {
             });
             self.show_chores(ui, store, t, id);
             self.show_appointments(ui, store, t, id);
-            self.show_fields(ui, store, t, id, FieldScope::Cat);
+            let fields = self.show_fields(ui, store, t, id, FieldScope::Cat);
+            if fields != PageAction::None {
+                action = fields;
+            }
             if let Some(a) = self.show_family(ui, store, t, id) {
                 action = a;
             }
@@ -225,7 +237,18 @@ impl Pages {
     }
 
     /// The Fields offered for the entity, label and value, one row each.
-    fn show_fields(&mut self, ui: &mut Ui, store: &Catalog, t: &L10n, id: &str, scope: FieldScope) {
+    /// A double-click on a value edits it, a right-click holds the menu
+    /// with the editor and the history; an ID shows as its code and, with
+    /// a registry, as a link.
+    fn show_fields(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        id: &str,
+        scope: FieldScope,
+    ) -> PageAction {
+        let mut action = PageAction::None;
         let defs: Vec<FieldDef> = store.field_defs(Some(scope)).unwrap_or_default();
         let current = store.current_fields(id).unwrap_or_default();
         ui.add_space(8.0);
@@ -238,21 +261,73 @@ impl Pages {
                     let value = current.get(&def.key()).cloned().flatten();
                     let withheld = store.is_withheld(id, &def.key()).unwrap_or(false);
                     ui.label(field_def_name(t, def));
-                    if withheld {
+                    let response = if withheld {
                         ui.label(
                             egui::RichText::new(format!("🔒 {}", t.withheld_by_partner())).weak(),
-                        );
+                        )
+                    } else if def.field_type == FieldType::Id && value.is_some() {
+                        self.show_id_value(ui, t, def, value.as_deref().unwrap_or_default())
                     } else {
-                        ui.label(field_value_display(
-                            t,
-                            Some(def),
-                            value.as_deref(),
-                            self.units,
-                        ));
+                        let shown = field_value_display(t, Some(def), value.as_deref(), self.units);
+                        let private = store.is_field_private(id, &def.key()).unwrap_or(false);
+                        let text = if private {
+                            format!("🔒 {shown}")
+                        } else {
+                            shown
+                        };
+                        ui.selectable_label(false, text)
+                    };
+                    if response.double_clicked() {
+                        action = PageAction::Edit(id.to_string(), def.slug.clone());
                     }
+                    response.context_menu(|ui| {
+                        if ui.button(t.edit_value()).clicked() {
+                            action = PageAction::Edit(id.to_string(), def.slug.clone());
+                            ui.close();
+                        }
+                        if ui.button(t.show_history()).clicked() {
+                            action = PageAction::History(id.to_string(), def.slug.clone());
+                            ui.close();
+                        }
+                    });
                     ui.end_row();
                 }
             });
+        if ui.button(t.new_field()).clicked() {
+            action = PageAction::NewField(scope);
+        }
+        action
+    }
+
+    /// An ID value: plain, or as its QR or barcode, and as a link when
+    /// the Field points at a registry.
+    fn show_id_value(
+        &mut self,
+        ui: &mut Ui,
+        t: &L10n,
+        def: &FieldDef,
+        value: &str,
+    ) -> egui::Response {
+        let _ = t;
+        ui.vertical(|ui| {
+            let response = match catlog_core::registry::lookup_url(def, value) {
+                Some(url) => ui.hyperlink_to(value, url),
+                None => ui.selectable_label(false, value),
+            };
+            match def.id_display {
+                IdDisplay::Plain => {}
+                IdDisplay::Qr => {
+                    crate::codes::qr(ui, value, 96.0);
+                }
+                IdDisplay::Barcode => {
+                    if crate::codes::barcode(ui, value, 240.0, 48.0).is_none() {
+                        crate::codes::qr(ui, value, 96.0);
+                    }
+                }
+            }
+            response
+        })
+        .inner
     }
 
     fn show_chores(&mut self, ui: &mut Ui, store: &Catalog, t: &L10n, id: &str) {

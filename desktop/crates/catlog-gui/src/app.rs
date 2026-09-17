@@ -8,8 +8,11 @@ use catlog_core::{Catalog, CatalogManager};
 use egui::{Context, ThemePreference, Ui};
 
 use crate::dialogs::NameDialog;
+use crate::editor::{EditTarget, FieldEditor, apply_edit};
+use crate::history::{HistoryAction, HistoryPage};
 use crate::home::{HomeAction, HomePane, Selection};
 use crate::l10n::{self, L10n};
+use crate::new_field::NewFieldDialog;
 use crate::pages::{PageAction, Pages};
 use crate::settings::{AppSettings, SettingsFile};
 use crate::textures::FaceCache;
@@ -43,6 +46,11 @@ pub struct App {
     store: Catalog,
     home: HomePane,
     pages: Pages,
+    editor: FieldEditor,
+    new_field: NewFieldDialog,
+    history: HistoryPage,
+    /// A history page in the detail pane: entity and Field slug.
+    history_of: Option<(String, String)>,
     /// The list pane's width when the window opened.
     pane_width: f32,
     faces: FaceCache,
@@ -79,6 +87,10 @@ impl App {
             store,
             home: HomePane::default(),
             pages: Pages::default(),
+            editor: FieldEditor::closed(),
+            new_field: NewFieldDialog::default(),
+            history: HistoryPage::default(),
+            history_of: None,
             faces: FaceCache::default(),
             dialog: NameDialog::default(),
             asking: Asking::Nothing,
@@ -216,6 +228,40 @@ impl App {
             if let Some(notice) = &self.notice {
                 ui.colored_label(ui.visuals().error_fg_color, notice);
             }
+            if let Some((entity, slug)) = self.history_of.clone() {
+                if let Ok(Some(def)) = self.store.field_def(&slug) {
+                    match self.history.show(ui, &self.store, &t, &entity, &def) {
+                        HistoryAction::None => {}
+                        HistoryAction::Back => self.history_of = None,
+                        HistoryAction::Correct(seq) => {
+                            if let Ok(Some(e)) = self.store.entry_by_seq(seq) {
+                                self.editor.ask(
+                                    &self.store,
+                                    &def,
+                                    &entity,
+                                    e.value.as_deref(),
+                                    EditTarget::Correct(seq),
+                                    Some(&e.date),
+                                    t.locale(),
+                                );
+                            }
+                        }
+                        HistoryAction::Remove(seq) => {
+                            if let Err(e) = self.store.remove_entry(seq) {
+                                self.notice = Some(e.to_string());
+                            }
+                        }
+                        HistoryAction::Restore(seq) => {
+                            if let Err(e) = self.store.restore_entry(seq) {
+                                self.notice = Some(e.to_string());
+                            }
+                        }
+                    }
+                } else {
+                    self.history_of = None;
+                }
+                return;
+            }
             match self.home.selection.clone() {
                 Selection::None => {
                     ui.label(t.select_clowder_hint());
@@ -240,7 +286,29 @@ impl App {
             PageAction::OpenCat(id) => self.home.selection = Selection::Cat(id),
             PageAction::OpenClowder(id) => self.home.selection = Selection::Clowder(id),
             PageAction::ToggleHidden(id) => self.act(HomeAction::ToggleHidden(id)),
+            PageAction::Edit(entity, slug) => {
+                if let Ok(Some(def)) = self.store.field_def(&slug) {
+                    let current = self.store.current(&entity, &def.key()).ok().flatten();
+                    self.editor.ask(
+                        &self.store,
+                        &def,
+                        &entity,
+                        current.as_deref(),
+                        EditTarget::New,
+                        None,
+                        t.locale(),
+                    );
+                }
+            }
+            PageAction::History(entity, slug) => self.history_of = Some((entity, slug)),
+            PageAction::NewField(scope) => self.new_field.ask(scope),
         }
+        if let Some(edit) = self.editor.show(ui.ctx(), &self.store, &t)
+            && let Err(e) = apply_edit(&mut self.store, &self.editor, &edit)
+        {
+            self.notice = Some(e.to_string());
+        }
+        self.new_field.show(ui.ctx(), &mut self.store, &t);
         self.show_dialog(ui.ctx());
         if self.about_open {
             self.show_about(ui.ctx());
@@ -251,7 +319,10 @@ impl App {
         let t = self.t;
         match action {
             HomeAction::None => {}
-            HomeAction::Open(_) => self.notice = None,
+            HomeAction::Open(_) => {
+                self.notice = None;
+                self.history_of = None;
+            }
             HomeAction::ToggleFavourite(id) => {
                 let key = format!("fav:{id}");
                 let now = self.store.local_setting(&key).as_deref() == Some("yes");
@@ -783,6 +854,128 @@ mod tests {
                 .is_hidden("cat:00000000-0000-4000-8000-000000000002")
                 .unwrap()
         );
+    }
+
+    #[test]
+    fn a_value_is_edited_in_place_and_its_history_opens_from_the_row_menu() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "fields-all"));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        // The Visits row's menu: edit, then history.
+        h.get_by_label("3").click_secondary();
+        h.step();
+        h.get_by_label("Edit value").click_accesskit();
+        h.run();
+        assert!(h.state().editor.open);
+        h.state_mut().editor.text = "4".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:visits")
+                .unwrap()
+                .as_deref(),
+            Some("4")
+        );
+        h.get_by_label("4").click_secondary();
+        h.step();
+        h.get_by_label("History").click_accesskit();
+        h.run();
+        assert!(h.state().history_of.is_some());
+        h.get_by_label_contains("Miezi · ");
+        // Correcting from the history opens the editor as of the entry.
+        h.get_all_by_label("3").next().unwrap().click();
+        h.run();
+        assert!(matches!(h.state().editor.target, EditTarget::Correct(_)));
+        h.state_mut().editor.text = "5".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .field_history(miezi, "f:visits", false)
+                .unwrap()
+                .len(),
+            2
+        );
+        // Removing through the row menu falls back to the value before.
+        h.get_all_by_label("4").next().unwrap().click_secondary();
+        h.step();
+        h.get_by_label("Remove this value").click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:visits")
+                .unwrap()
+                .as_deref(),
+            Some("5")
+        );
+        h.get_by_label("←").click();
+        h.run();
+        assert!(h.state().history_of.is_none());
+    }
+
+    #[test]
+    fn the_weight_history_draws_a_graph_and_a_new_field_comes_from_the_page() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "history-reverts"));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label_contains(" kg").click_secondary();
+        h.step();
+        h.get_by_label("History").click_accesskit();
+        h.run();
+        h.get_by_label("Smoothed").click();
+        h.run();
+        h.get_by_label("Trend").click();
+        h.run();
+        h.get_by_label_contains("per month");
+        assert_eq!(
+            h.state().store().local_setting("graphSmooth").as_deref(),
+            Some("yes")
+        );
+        h.get_by_label("Show corrected and removed values").click();
+        h.run();
+        assert!(
+            h.get_all_by_label_contains(" kg").count() >= 5,
+            "hidden rows show on request"
+        );
+        h.get_by_label("←").click();
+        h.run();
+        h.get_by_label("New field").click();
+        h.run();
+        assert!(h.state().new_field.open);
+        h.state_mut().new_field.name = "Mood".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert!(h.state().store().field_def("mood").unwrap().is_some());
+        h.get_by_label("Mood");
+    }
+
+    #[test]
+    fn an_id_field_shows_its_code_and_a_registry_link() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "fields-all"));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label("DE-123 456");
+        h.get_by_label("276098100123456");
     }
 
     #[test]

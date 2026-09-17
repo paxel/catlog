@@ -8,5 +8,9 @@
   "quit": "Quit",
   "introSkipTips": "Skip the tips too, I know my way around",
   "renameCatalog": "Rename catalog",
-  "choresSection": "Chores"
+  "choresSection": "Chores",
+  "historyOldestFirst": "Oldest first",
+  "historyShowHidden": "Show corrected and removed values",
+  "editValue": "Edit value",
+  "showHistory": "History"
 }

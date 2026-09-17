@@ -5,10 +5,14 @@
 //! harness can drive it.
 
 pub mod app;
+pub mod codes;
 pub mod dialogs;
+pub mod editor;
+pub mod history;
 pub mod home;
 pub mod l10n;
 pub mod labels;
+pub mod new_field;
 pub mod pages;
 pub mod settings;
 pub mod textures;
