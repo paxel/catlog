@@ -69,8 +69,12 @@ impl View {
 }
 
 /// What is open over the desk.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Modal {
+    /// A Cat's whole page, from its card.
+    Page(String),
+    /// A Field's history, from a card.
+    History,
     Sync,
     Conflicts,
     Duplicates,

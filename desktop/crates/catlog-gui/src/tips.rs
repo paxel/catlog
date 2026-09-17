@@ -18,6 +18,7 @@ pub struct Tip {
 fn screen_of(view: View, modal: Option<Modal>, selection: &Selection) -> &'static str {
     match (modal, view, selection) {
         (Some(Modal::Document), _, _) => "card",
+        (Some(Modal::Page(_)), _, _) => "cat",
         (Some(Modal::Backups), _, _) => "settings",
         (Some(_), _, _) | (None, View::Vet, _) => "",
         (None, View::Map, _) => "map",
@@ -223,7 +224,8 @@ pub fn help_for(t: &L10n, view: View, modal: Option<Modal>, selection: &Selectio
         Some(Modal::Capture) => return t.help_flier(),
         Some(Modal::Settings) => return t.help_settings(),
         Some(Modal::Achievements) => return t.help_achievements(),
-        Some(Modal::Help) | Some(Modal::About) | None => {}
+        Some(Modal::Page(_)) => return t.help_cat(),
+        Some(Modal::History) | Some(Modal::Help) | Some(Modal::About) | None => {}
     }
     match (view, selection) {
         (View::Map, _) => t.help_map(),

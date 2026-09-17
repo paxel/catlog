@@ -98,5 +98,8 @@
   "statusHome": "Zuhause",
   "columnLastChange": "Letzte Änderung",
   "columnFace": "Gesicht",
-  "columnStatus": "Status"
+  "columnStatus": "Status",
+  "cardPage": "Seite öffnen",
+  "cardFields": "Felder auf der Karte",
+  "cardClose": "Karte schließen"
 }

@@ -21,6 +21,7 @@ use egui::{Context, Ui};
 use crate::agenda::{AgendaAction, AppointmentAction, ics_events, show_agenda};
 use crate::appointments::{AppointmentDialog, FinishDialog};
 use crate::capture_page::{CaptureAction, CapturePage};
+use crate::cards::{CardAction, Desk};
 use crate::cats_table::{CatsTable, TableAction};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::conflicts::{ConflictDialog, show_conflicts};
@@ -107,6 +108,8 @@ pub struct App {
     home: HomePane,
     /// The Cats view's table.
     pub cats: CatsTable,
+    /// The cards on the desk beside it.
+    pub desk: Desk,
     pages: Pages,
     editor: FieldEditor,
     new_field: NewFieldDialog,
@@ -249,6 +252,7 @@ impl App {
             store,
             home: HomePane::default(),
             cats: CatsTable::default(),
+            desk: Desk::default(),
             pages: Pages::default(),
             editor: FieldEditor::closed(),
             new_field: NewFieldDialog::default(),
@@ -388,7 +392,7 @@ impl App {
     }
 
     pub fn modal(&self) -> Option<Modal> {
-        self.modal
+        self.modal.clone()
     }
 
     /// Switches the bar to `view`; Cats and Clowders keep what lies on
@@ -415,6 +419,9 @@ impl App {
             } else {
                 View::Cats
             };
+        }
+        if !is_clowder && self.view == View::Cats {
+            self.desk.open(&self.store, std::slice::from_ref(&id));
         }
         self.home.selection = if is_clowder {
             Selection::Clowder(id)
@@ -523,6 +530,7 @@ impl App {
         self.store = store;
         self.manager.set_active(id)?;
         self.home.selection = Selection::None;
+        self.desk.reset();
         self.faces = FaceCache::default();
         self.watch_pending = None;
         self.watch_dismissed = None;
@@ -714,14 +722,16 @@ impl App {
         }
         self.act(action);
         let mut page_action = PageAction::None;
-        // In the Cats view an open Cat's page sits beside the table.
-        if self.view == View::Cats && matches!(self.home.selection, Selection::Cat(_)) {
-            egui::Panel::right("cat-pane")
+        // In the Cats view the table moves left once cards lie on the desk.
+        self.desk.load(&self.store);
+        let cards_open = self.view == View::Cats && !self.desk.open.is_empty();
+        if cards_open {
+            egui::Panel::left("table-pane")
                 .resizable(true)
-                .min_size(280.0)
-                .default_size(480.0)
+                .min_size(320.0)
+                .default_size(600.0)
                 .show(ui, |ui| {
-                    page_action = self.show_desk_page(ui);
+                    page_action = self.show_cats_table(ui);
                 });
         }
         egui::CentralPanel::default().show(ui, |ui| {
@@ -802,26 +812,20 @@ impl App {
                     }
                 },
                 View::Cats => {
-                    let today = self.pages.today;
-                    let units = self.pages.units;
-                    let show_hidden = self.home.show_hidden;
-                    match self.cats.show(
-                        ui,
-                        &self.store,
-                        &t,
-                        &mut self.faces,
-                        today,
-                        units,
-                        show_hidden,
-                    ) {
-                        TableAction::None => {}
-                        TableAction::Open(id) => page_action = PageAction::OpenCat(id),
-                        TableAction::NewCat => page_action = PageAction::NewCat(None),
-                        TableAction::CaptureFlier => {
-                            self.capture.start(today);
-                            self.open_modal(Modal::Capture);
+                    if cards_open {
+                        let units = self.pages.units;
+                        let desk = ui.max_rect();
+                        match self
+                            .desk
+                            .show(ui, &mut self.store, &t, &mut self.faces, units, desk)
+                        {
+                            CardAction::None => {}
+                            CardAction::Page(a) => page_action = a,
+                            CardAction::OpenPage(id) => self.open_modal(Modal::Page(id)),
+                            CardAction::Notice(e) => self.notice = Some(e),
                         }
-                        TableAction::ToggleHidden(id) => page_action = PageAction::ToggleHidden(id),
+                    } else {
+                        page_action = self.show_cats_table(ui);
                     }
                 }
                 View::Clowders => {
@@ -832,104 +836,7 @@ impl App {
         // The modal comes before the dialogs it may open, so a dialog
         // lies on top of it.
         self.show_modal(ui.ctx());
-        match page_action {
-            PageAction::None => {}
-            PageAction::OpenCat(id) | PageAction::OpenClowder(id) => self.open_record(id),
-            PageAction::ToggleHidden(id) => self.act(HomeAction::ToggleHidden(id)),
-            PageAction::Edit(entity, slug) => {
-                if let Ok(Some(def)) = self.store.field_def(&slug) {
-                    let current = self.store.current(&entity, &def.key()).ok().flatten();
-                    self.editor.ask(
-                        &self.store,
-                        &def,
-                        &entity,
-                        current.as_deref(),
-                        EditTarget::New,
-                        None,
-                        t.locale(),
-                    );
-                }
-            }
-            PageAction::History(entity, slug) => self.history_of = Some((entity, slug)),
-            PageAction::NewField(scope) => self.new_field.ask(scope),
-            PageAction::Move(cat) => self.mover.ask(&self.store, &cat),
-            PageAction::Sighting(cat) => {
-                self.sighting_for = Some(cat);
-                self.picker.ask(None, self.map_page.map.viewport);
-            }
-            PageAction::ShowOnMap(id) => {
-                self.map_page.focus(&self.store, &id);
-                self.open_view(View::Map);
-            }
-            PageAction::AddPhoto(cat) => {
-                let paths = (self.pick_files)(t.add_photo());
-                self.add_photos(&cat, &paths);
-            }
-            PageAction::ViewPhoto(cat, hash) => {
-                let hashes = self.store.images(&cat).unwrap_or_default();
-                self.viewer.open_at(hashes, &hash);
-            }
-            PageAction::SetProfile(cat, hash) => {
-                if let Err(e) = self.store.set_profile_image(&cat, &hash) {
-                    self.notice = Some(e.to_string());
-                }
-            }
-            PageAction::CropPhoto(cat, hash) => {
-                self.photo_editor
-                    .ask(&self.store, EditMode::Crop, &cat, &hash);
-            }
-            PageAction::MarkPhoto(cat, hash) => {
-                self.photo_editor
-                    .ask(&self.store, EditMode::Mark, &cat, &hash);
-            }
-            PageAction::DeletePhoto(cat, hash) => {
-                self.deleting_photo = Some((cat, hash));
-                self.confirm
-                    .ask(t.delete_photo_title(), t.delete_photo_body(), t.delete());
-            }
-            PageAction::Chore(action) => self.act_chore(action),
-            PageAction::Document(kind, cat) => {
-                self.document
-                    .open(&self.store, kind, &cat, self.pages.today);
-                self.open_modal(Modal::Document);
-            }
-            PageAction::NewCat(clowder) => {
-                self.asking = Asking::NewCat(clowder);
-                self.dialog.ask(t.new_cat(), t.name(), t.create(), "");
-            }
-            PageAction::MergeInto(id) => {
-                let kind = if id.starts_with("clowder:") {
-                    MergeKind::Clowder
-                } else {
-                    MergeKind::Cat
-                };
-                if !self.merge_dialog.ask_into(&self.store, &id, kind) {
-                    self.notice = Some(t.no_other_to_merge_into(kind.words(&t)));
-                }
-            }
-            PageAction::NewAppointment(entity) => {
-                self.appointment_dialog
-                    .ask(&self.store, &entity, None, self.pages.today);
-            }
-            PageAction::Appointment(AppointmentAction::Finish(a)) => {
-                self.finish_dialog.ask(&self.store, &a);
-            }
-            PageAction::Appointment(AppointmentAction::Edit(a)) => {
-                let entity = a.entity.clone();
-                self.appointment_dialog
-                    .ask(&self.store, &entity, Some(a), self.pages.today);
-            }
-            PageAction::Appointment(AppointmentAction::Delete(a, whole_run)) => {
-                let result = if whole_run {
-                    self.store.delete_appointment_group(&a)
-                } else {
-                    self.store.delete_appointment(&a)
-                };
-                if let Err(e) = result {
-                    self.notice = Some(e.to_string());
-                }
-            }
-        }
+        self.act_page(page_action);
         self.show_chore_dialogs(ui.ctx());
         if let Some((loser, survivor, kind)) = self.merge_dialog.show(ui.ctx(), &t) {
             match apply_merge(&mut self.store, &loser, &survivor, kind) {
@@ -1984,7 +1891,7 @@ impl App {
     /// The help text for what is shown.
     fn show_help(&mut self, ui: &mut Ui) {
         let t = self.t;
-        let text = tips::help_for(&t, self.view, self.modal, &self.home.selection);
+        let text = tips::help_for(&t, self.view, self.modal.clone(), &self.home.selection);
         ui.heading(t.help_title());
         ui.set_max_width(420.0);
         ui.label(text);
@@ -1999,6 +1906,151 @@ impl App {
         if let Selection::Cat(id) | Selection::Clowder(id) = &self.shown {
             dashboard::remember(&self.store, id);
         }
+    }
+
+    /// Carries out what a page, a card or the dashboard asked for.
+    fn act_page(&mut self, page_action: PageAction) {
+        let t = self.t;
+        match page_action {
+            PageAction::None => {}
+            PageAction::OpenCat(id) | PageAction::OpenClowder(id) => self.open_record(id),
+            PageAction::ToggleHidden(id) => self.act(HomeAction::ToggleHidden(id)),
+            PageAction::Edit(entity, slug) => {
+                if let Ok(Some(def)) = self.store.field_def(&slug) {
+                    let current = self.store.current(&entity, &def.key()).ok().flatten();
+                    self.editor.ask(
+                        &self.store,
+                        &def,
+                        &entity,
+                        current.as_deref(),
+                        EditTarget::New,
+                        None,
+                        t.locale(),
+                    );
+                }
+            }
+            PageAction::History(entity, slug) => {
+                self.history_of = Some((entity, slug));
+                if self.view == View::Cats {
+                    self.open_modal(Modal::History);
+                }
+            }
+            PageAction::NewField(scope) => self.new_field.ask(scope),
+            PageAction::Move(cat) => self.mover.ask(&self.store, &cat),
+            PageAction::Sighting(cat) => {
+                self.sighting_for = Some(cat);
+                self.picker.ask(None, self.map_page.map.viewport);
+            }
+            PageAction::ShowOnMap(id) => {
+                self.map_page.focus(&self.store, &id);
+                self.open_view(View::Map);
+            }
+            PageAction::AddPhoto(cat) => {
+                let paths = (self.pick_files)(t.add_photo());
+                self.add_photos(&cat, &paths);
+            }
+            PageAction::ViewPhoto(cat, hash) => {
+                let hashes = self.store.images(&cat).unwrap_or_default();
+                self.viewer.open_at(hashes, &hash);
+            }
+            PageAction::SetProfile(cat, hash) => {
+                if let Err(e) = self.store.set_profile_image(&cat, &hash) {
+                    self.notice = Some(e.to_string());
+                }
+            }
+            PageAction::CropPhoto(cat, hash) => {
+                self.photo_editor
+                    .ask(&self.store, EditMode::Crop, &cat, &hash);
+            }
+            PageAction::MarkPhoto(cat, hash) => {
+                self.photo_editor
+                    .ask(&self.store, EditMode::Mark, &cat, &hash);
+            }
+            PageAction::DeletePhoto(cat, hash) => {
+                self.deleting_photo = Some((cat, hash));
+                self.confirm
+                    .ask(t.delete_photo_title(), t.delete_photo_body(), t.delete());
+            }
+            PageAction::Chore(action) => self.act_chore(action),
+            PageAction::Document(kind, cat) => {
+                self.document
+                    .open(&self.store, kind, &cat, self.pages.today);
+                self.open_modal(Modal::Document);
+            }
+            PageAction::NewCat(clowder) => {
+                self.asking = Asking::NewCat(clowder);
+                self.dialog.ask(t.new_cat(), t.name(), t.create(), "");
+            }
+            PageAction::MergeInto(id) => {
+                let kind = if id.starts_with("clowder:") {
+                    MergeKind::Clowder
+                } else {
+                    MergeKind::Cat
+                };
+                if !self.merge_dialog.ask_into(&self.store, &id, kind) {
+                    self.notice = Some(t.no_other_to_merge_into(kind.words(&t)));
+                }
+            }
+            PageAction::NewAppointment(entity) => {
+                self.appointment_dialog
+                    .ask(&self.store, &entity, None, self.pages.today);
+            }
+            PageAction::Appointment(AppointmentAction::Finish(a)) => {
+                self.finish_dialog.ask(&self.store, &a);
+            }
+            PageAction::Appointment(AppointmentAction::Edit(a)) => {
+                let entity = a.entity.clone();
+                self.appointment_dialog
+                    .ask(&self.store, &entity, Some(a), self.pages.today);
+            }
+            PageAction::Appointment(AppointmentAction::Delete(a, whole_run)) => {
+                let result = if whole_run {
+                    self.store.delete_appointment_group(&a)
+                } else {
+                    self.store.delete_appointment(&a)
+                };
+                if let Err(e) = result {
+                    self.notice = Some(e.to_string());
+                }
+            }
+        }
+    }
+
+    /// The Cats table; Enter or a double-click lays the selected cats on
+    /// the desk as cards.
+    fn show_cats_table(&mut self, ui: &mut Ui) -> PageAction {
+        let t = self.t;
+        let today = self.pages.today;
+        let units = self.pages.units;
+        let show_hidden = self.home.show_hidden;
+        let mut page_action = PageAction::None;
+        match self.cats.show(
+            ui,
+            &self.store,
+            &t,
+            &mut self.faces,
+            today,
+            units,
+            show_hidden,
+        ) {
+            TableAction::None => {}
+            TableAction::Open(id) => {
+                let mut ids = self.cats.selected_in_order();
+                if !ids.contains(&id) {
+                    ids = vec![id.clone()];
+                }
+                self.desk.open(&self.store, &ids);
+                self.home.selection = Selection::Cat(id);
+                self.history_of = None;
+            }
+            TableAction::NewCat => page_action = PageAction::NewCat(None),
+            TableAction::CaptureFlier => {
+                self.capture.start(today);
+                self.open_modal(Modal::Capture);
+            }
+            TableAction::ToggleHidden(id) => page_action = PageAction::ToggleHidden(id),
+        }
+        page_action
     }
 
     /// What lies on the desk: a Clowder or Cat page, the Strays, a
@@ -2063,12 +2115,27 @@ impl App {
 
     /// The modal over the desk, when one is open.
     fn show_modal(&mut self, ctx: &Context) {
-        let Some(modal) = self.modal else {
+        let Some(modal) = self.modal.clone() else {
             return;
         };
         let t = self.t;
-        let id = format!("{modal:?}");
+        let id = match &modal {
+            Modal::Page(_) => "Page".to_string(),
+            other => format!("{other:?}"),
+        };
+        let mut page_action = PageAction::None;
         let (_, close) = views::show_modal(ctx, &id, t.close_label(), |ui| match modal {
+            Modal::Page(cat) => {
+                ui.set_min_width(560.0);
+                page_action = self
+                    .pages
+                    .show_cat(ui, &self.store, &t, &mut self.faces, &cat);
+            }
+            Modal::History => {
+                if self.history_of.is_some() {
+                    page_action = self.show_desk_page(ui);
+                }
+            }
             Modal::Help => self.show_help(ui),
             Modal::About => self.show_about(ui),
             Modal::Sync => match self.sync_page.show(ui, &self.store, &t) {
@@ -2164,8 +2231,11 @@ impl App {
                 }
             }
         });
-        if close {
+        if close || (self.modal == Some(Modal::History) && self.history_of.is_none()) {
             self.modal = None;
+        }
+        if page_action != PageAction::None {
+            self.act_page(page_action);
         }
     }
 
@@ -2206,9 +2276,12 @@ impl App {
     /// The tip due on this page, once.
     fn show_tip(&mut self, ui: &mut Ui) {
         let t = self.t;
-        let Some((screen, tip)) =
-            tips::due_tip(&self.store, self.view, self.modal, &self.home.selection)
-        else {
+        let Some((screen, tip)) = tips::due_tip(
+            &self.store,
+            self.view,
+            self.modal.clone(),
+            &self.home.selection,
+        ) else {
             return;
         };
         let mut done = false;
@@ -4176,7 +4249,7 @@ mod tests {
         h.get_by_label("3 cats");
         open_view(&mut h, "Cats");
         assert_eq!(h.state().view(), View::Cats);
-        // A click selects a row; Enter opens the cat beside the table.
+        // A click selects a row; Enter lays the cat's card on the desk.
         h.get_all_by_label("Tom").next().unwrap().click();
         h.run();
         assert!(
@@ -4190,6 +4263,10 @@ mod tests {
         assert_eq!(
             *h.state().selection(),
             Selection::Cat("cat:00000000-0000-4000-8000-000000000002".into())
+        );
+        assert_eq!(
+            h.state().desk.open,
+            ["cat:00000000-0000-4000-8000-000000000002"]
         );
         h.get_by_label("Actions");
         open_view(&mut h, "Vet");
@@ -4485,8 +4562,9 @@ mod tests {
         assert_eq!(
             h.state().view(),
             View::Cats,
-            "the page opens beside the table"
+            "the card opens beside the table"
         );
+        assert_eq!(h.state().desk.open, [tom]);
         // The row menu hides; the toolbar reaches the flier capture and a new cat.
         h.get_all_by_label("Wanderer")
             .next()
@@ -4505,6 +4583,270 @@ mod tests {
         h.get_by_label("New cat").click();
         h.run();
         assert!(h.state().dialog.open);
+    }
+
+    /// Drags the node named `label` by `delta` with the primary button.
+    fn drag(h: &mut Harness<'static, App>, label: &str, delta: egui::Vec2) {
+        let from = h.get_all_by_label(label).last().unwrap().rect().center();
+        let to = from + delta;
+        let press = |pos, pressed| egui::Event::PointerButton {
+            pos,
+            button: egui::PointerButton::Primary,
+            pressed,
+            modifiers: egui::Modifiers::default(),
+        };
+        h.input_mut().events.push(egui::Event::PointerMoved(from));
+        h.input_mut().events.push(press(from, true));
+        h.step();
+        h.input_mut()
+            .events
+            .push(egui::Event::PointerMoved(from + delta * 0.5));
+        h.step();
+        h.input_mut().events.push(egui::Event::PointerMoved(to));
+        h.step();
+        h.input_mut().events.push(press(to, false));
+        h.run();
+    }
+
+    #[test]
+    fn cards_open_from_the_table_are_dragged_into_place_and_found_there_again() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        // Two rows selected, Enter: two cards side by side.
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Tom")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::SHIFT);
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi, tom]);
+        let first = h.state().desk.position(miezi).unwrap();
+        let second = h.state().desk.position(tom).unwrap();
+        assert!(
+            second.x > first.x + crate::cards::CARD_WIDTH,
+            "side by side: {first:?} {second:?}"
+        );
+        assert_eq!(h.get_all_by_label("Actions").count(), 2, "a menu per card");
+        // The card shows what the printed Card shows.
+        h.get_all_by_label("Foster Home").next().unwrap();
+        h.get_all_by_label("female").next().unwrap();
+        h.get_all_by_label("tabby").next().unwrap();
+        // Dragging Tom's card moves it; the place is remembered.
+        drag(&mut h, "Tom", egui::vec2(-200.0, 150.0));
+        let moved = h.state().desk.position(tom).unwrap();
+        assert!(moved.y > second.y + 100.0, "{moved:?} vs {second:?}");
+        assert!(moved.x < second.x - 100.0);
+        assert_eq!(
+            h.state()
+                .store()
+                .local_setting(crate::cards::OPEN_KEY)
+                .as_deref(),
+            Some(format!("{miezi},{tom}").as_str())
+        );
+        drop(h);
+        let mut h = harness(app(dir.path(), "en", true));
+        h.run();
+        open_view(&mut h, "Cats");
+        assert_eq!(h.state().desk.open, [miezi, tom]);
+        assert_eq!(h.state().desk.position(tom), Some(moved));
+        assert_eq!(h.get_all_by_label("Actions").count(), 2);
+        // The menu closes a card; the open set follows.
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Close card").click_accesskit();
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi]);
+    }
+
+    #[test]
+    fn a_card_edits_simple_values_in_place_and_sends_the_rest_to_the_editor() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded_with(dir.path(), "fields-all"));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi]);
+        // A number: a click opens it in place, Enter saves.
+        h.get_all_by_label("3").last().unwrap().click();
+        h.run();
+        assert!(h.state().desk.inline.is_some(), "the number opens in place");
+        h.state_mut().desk.inline.as_mut().unwrap().text = "4".into();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert!(h.state().desk.inline.is_none());
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:visits")
+                .unwrap()
+                .as_deref(),
+            Some("4")
+        );
+        // A unit value: typed in the keeper's unit, stored in the base unit.
+        h.get_all_by_label("4.25 kg").last().unwrap().click();
+        h.run();
+        h.state_mut().desk.inline.as_mut().unwrap().text = "5".into();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:weight")
+                .unwrap()
+                .as_deref(),
+            Some("5000")
+        );
+        // Escape leaves a value as it was.
+        h.get_all_by_label("4").last().unwrap().click();
+        h.run();
+        h.state_mut().desk.inline.as_mut().unwrap().text = "9".into();
+        h.run();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(h.state().desk.inline.is_none());
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:visits")
+                .unwrap()
+                .as_deref(),
+            Some("4")
+        );
+        // Yes/no and a choice: picked from a combo in place.
+        h.get_all_by_label("yes").last().unwrap().click();
+        h.run();
+        assert!(h.state().desk.inline.is_some());
+        h.get_all_by_role(egui::accesskit::Role::ComboBox)
+            .last()
+            .unwrap()
+            .click();
+        h.step();
+        h.get_all_by_label("no").last().unwrap().click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:indoor")
+                .unwrap()
+                .as_deref(),
+            Some("no")
+        );
+        h.get_all_by_label("sleepy").last().unwrap().click();
+        h.run();
+        h.get_all_by_role(egui::accesskit::Role::ComboBox)
+            .last()
+            .unwrap()
+            .click();
+        h.step();
+        h.get_all_by_label("wild").last().unwrap().click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:mood")
+                .unwrap()
+                .as_deref(),
+            Some("wild")
+        );
+        // A date goes to the editor popup.
+        h.get_all_by_label("5/2021").last().unwrap().click();
+        h.run();
+        assert!(h.state().editor.open, "dates need the editor");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(!h.state().editor.open);
+        // The row menu reaches the history.
+        h.get_all_by_label("4").last().unwrap().click_secondary();
+        h.step();
+        h.get_by_label("History").click_accesskit();
+        h.run();
+        assert_eq!(h.state().modal(), Some(Modal::History));
+        h.get_all_by_label_contains("Visits").last().unwrap();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert_eq!(h.state().modal(), None);
+    }
+
+    #[test]
+    fn the_card_menu_reaches_the_page_the_dialogs_and_the_documents() {
+        let dir = tempfile::tempdir().unwrap();
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Tom").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        let menu = |h: &mut Harness<'static, App>, item: &str| {
+            h.get_by_label("Actions").click();
+            h.step();
+            h.get_by_label(item).click_accesskit();
+            h.run();
+        };
+        menu(&mut h, "Open the page");
+        assert_eq!(h.state().modal(), Some(Modal::Page(tom.into())));
+        h.get_by_label("Photos (1)");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        menu(&mut h, "New chore");
+        assert!(h.state().chore_dialog.open);
+        h.key_press(egui::Key::Escape);
+        h.run();
+        menu(&mut h, "Add appointment");
+        assert!(h.state().appointment_dialog.open);
+        h.key_press(egui::Key::Escape);
+        h.run();
+        menu(&mut h, "Move to");
+        assert!(h.state().mover.open);
+        h.key_press(egui::Key::Escape);
+        h.run();
+        menu(&mut h, "Card");
+        assert_eq!(h.state().modal(), Some(Modal::Document));
+        assert_eq!(h.state().document.kind, Some(DocKind::Card));
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // The fields on the card follow the printed Card's selector.
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label_contains("Fields on the card")
+            .click_accesskit();
+        h.step();
+        h.get_all_by_label("Gender")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        assert!(
+            !h.state()
+                .store()
+                .local_setting("cardFields")
+                .unwrap()
+                .contains("f:gender")
+        );
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // The table's column stays; the card's row is gone.
+        assert_eq!(
+            h.get_all_by_label("Gender").count(),
+            1,
+            "gender left the card"
+        );
+        menu(&mut h, "Hide on this device");
+        assert!(h.state().store().is_hidden(tom).unwrap());
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {

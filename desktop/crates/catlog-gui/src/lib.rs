@@ -8,6 +8,7 @@ pub mod agenda;
 pub mod app;
 pub mod appointments;
 pub mod capture_page;
+pub mod cards;
 pub mod cats_table;
 pub mod chores;
 pub mod codes;

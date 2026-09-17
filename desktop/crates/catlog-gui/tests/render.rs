@@ -151,3 +151,17 @@ fn render_cats_table() {
         ));
     });
 }
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_cards() {
+    render_with("render_cards", true, Some("fields-all"), |app| {
+        app.open_view(View::Cats);
+        app.select(Selection::Cat(
+            "cat:00000000-0000-4000-8000-000000000001".into(),
+        ));
+        app.select(Selection::Cat(
+            "cat:00000000-0000-4000-8000-000000000002".into(),
+        ));
+    });
+}

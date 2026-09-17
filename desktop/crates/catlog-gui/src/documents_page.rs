@@ -108,6 +108,29 @@ fn reportable_fields(store: &Catalog, cat: &str) -> Vec<FieldDef> {
         .collect()
 }
 
+/// The keys the Card shows, as chosen on this device: the photo, the
+/// Clowder and every Cat Field but locations until the keeper picks.
+pub fn card_keys(store: &Catalog) -> BTreeSet<String> {
+    match store.local_setting("cardFields") {
+        Some(saved) => saved
+            .lines()
+            .filter(|k| !k.is_empty())
+            .map(String::from)
+            .collect(),
+        None => {
+            let mut keys: BTreeSet<String> = [PHOTO_KEY.to_string(), keys::CLOWDER.to_string()]
+                .into_iter()
+                .collect();
+            for def in store.field_defs(Some(FieldScope::Cat)).unwrap_or_default() {
+                if def.field_type != FieldType::Location {
+                    keys.insert(def.key());
+                }
+            }
+            keys
+        }
+    }
+}
+
 /// "2 years 3 months" from a birth date.
 pub fn age_text(t: &L10n, birth: Option<&str>, today: NaiveDate) -> Option<String> {
     let born = PartialDate::parse(birth?)?.earliest()?;
@@ -139,25 +162,7 @@ impl DocumentPage {
         self.initialised = true;
         match kind {
             DocKind::Card => {
-                self.card_keys = match store.local_setting("cardFields") {
-                    Some(saved) => saved
-                        .lines()
-                        .filter(|k| !k.is_empty())
-                        .map(String::from)
-                        .collect(),
-                    None => {
-                        let mut keys: BTreeSet<String> =
-                            [PHOTO_KEY.to_string(), keys::CLOWDER.to_string()]
-                                .into_iter()
-                                .collect();
-                        for def in store.field_defs(Some(FieldScope::Cat)).unwrap_or_default() {
-                            if def.field_type != FieldType::Location {
-                                keys.insert(def.key());
-                            }
-                        }
-                        keys
-                    }
-                };
+                self.card_keys = card_keys(store);
             }
             DocKind::Poster => {
                 self.since = today.to_string();

@@ -98,5 +98,8 @@
   "statusHome": "At home",
   "columnLastChange": "Last change",
   "columnFace": "Face",
-  "columnStatus": "Status"
+  "columnStatus": "Status",
+  "cardPage": "Open the page",
+  "cardFields": "Fields on the card",
+  "cardClose": "Close card"
 }
