@@ -13,5 +13,10 @@
   "historyShowHidden": "Korrigierte und entfernte Werte zeigen",
   "editValue": "Wert bearbeiten",
   "showHistory": "Verlauf",
-  "backLabel": "Zurück"
+  "backLabel": "Zurück",
+  "search": "Suchen",
+  "searchPlaceHint": "Adresse, Stadt oder Land",
+  "actionsMenu": "Aktionen",
+  "showOnMap": "Auf der Karte zeigen",
+  "trailOff": "Spur ausblenden"
 }

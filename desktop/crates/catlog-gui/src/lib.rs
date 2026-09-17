@@ -12,8 +12,12 @@ pub mod history;
 pub mod home;
 pub mod l10n;
 pub mod labels;
+pub mod map;
+pub mod map_page;
+pub mod move_dialog;
 pub mod new_field;
 pub mod pages;
+pub mod picker;
 pub mod settings;
 pub mod textures;
 

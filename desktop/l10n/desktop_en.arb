@@ -13,5 +13,10 @@
   "historyShowHidden": "Show corrected and removed values",
   "editValue": "Edit value",
   "showHistory": "History",
-  "backLabel": "Back"
+  "backLabel": "Back",
+  "search": "Search",
+  "searchPlaceHint": "Address, city or country",
+  "actionsMenu": "Actions",
+  "showOnMap": "Show on map",
+  "trailOff": "Hide trail"
 }

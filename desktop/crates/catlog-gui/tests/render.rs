@@ -6,7 +6,30 @@
 //! cargo test -p catlog-gui --test render -- --ignored
 //! ```
 
+use catlog_core::tiles::{TileCache, TileId, TileSource};
 use catlog_gui::{App, Selection, SettingsFile};
+use std::sync::Arc;
+
+/// Tiles that never come from the network: one flat grey square each.
+struct GreyTiles;
+
+impl TileSource for GreyTiles {
+    fn fetch(&self, _tile: TileId) -> Result<Vec<u8>, String> {
+        let img = image::DynamicImage::new_rgb8(256, 256);
+        let mut out = Vec::new();
+        img.write_to(&mut std::io::Cursor::new(&mut out), image::ImageFormat::Png)
+            .map_err(|e| e.to_string())?;
+        Ok(out)
+    }
+}
+
+struct NoGeocoder;
+
+impl catlog_core::geocode::Geocoder for NoGeocoder {
+    fn search(&self, _query: &str) -> Result<Vec<catlog_core::geocode::GeoHit>, String> {
+        Ok(Vec::new())
+    }
+}
 use egui_kittest::Harness;
 use std::path::PathBuf;
 
@@ -33,7 +56,14 @@ fn render_with(
     file.settings.locale = Some("en".into());
     file.settings.intro_seen = intro_seen;
     file.settings.author = Some("Ada".into());
-    let mut app = App::open(file, &dir.path().join("data")).expect("app");
+    let tiles = TileCache::open(&dir.path().join("tiles"), Box::new(GreyTiles)).expect("tiles");
+    let mut app = App::open_with(
+        file,
+        &dir.path().join("data"),
+        Arc::new(tiles),
+        Arc::new(NoGeocoder),
+    )
+    .expect("app");
     if let Some(scenario) = scenario {
         let fixture = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
             .join(format!("../../fixtures/{scenario}/folder"));
@@ -93,4 +123,12 @@ fn render_history_page() {
             app.open_history("cat:00000000-0000-4000-8000-000000000001", "weight");
         },
     );
+}
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_map() {
+    render_with("render_map", true, Some("moves"), |app| {
+        app.select(Selection::Map);
+    });
 }

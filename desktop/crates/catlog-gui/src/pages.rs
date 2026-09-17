@@ -25,6 +25,12 @@ pub enum PageAction {
     History(String, String),
     /// Define a new Field for this scope.
     NewField(FieldScope),
+    /// Move this Cat.
+    Move(String),
+    /// Record where this Cat was seen, picked on the map.
+    Sighting(String),
+    /// Show this entity on the map.
+    ShowOnMap(String),
 }
 
 /// The pages' own state: the unit system values are read in.
@@ -108,7 +114,35 @@ impl Pages {
     ) -> PageAction {
         let mut action = PageAction::None;
         egui::ScrollArea::vertical().show(ui, |ui| {
-            ui.heading(Self::name_of(store, t, id));
+            ui.horizontal(|ui| {
+                ui.heading(Self::name_of(store, t, id));
+                ui.menu_button(t.actions_menu(), |ui| {
+                    if ui.button(t.move_to()).clicked() {
+                        action = PageAction::Move(id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.seen_here_now()).clicked() {
+                        action = PageAction::Sighting(id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.show_on_map()).clicked() {
+                        action = PageAction::ShowOnMap(id.to_string());
+                        ui.close();
+                    }
+                    let hidden = store.is_hidden(id).unwrap_or(false);
+                    if ui
+                        .button(if hidden {
+                            t.unhide_label()
+                        } else {
+                            t.hide_label()
+                        })
+                        .clicked()
+                    {
+                        action = PageAction::ToggleHidden(id.to_string());
+                        ui.close();
+                    }
+                });
+            });
             if let Ok(Some(when)) = store.current(id, "f:deceased") {
                 ui.label(egui::RichText::new(format!("{} · {when}", t.starter_deceased())).weak());
             }

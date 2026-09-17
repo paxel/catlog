@@ -3,7 +3,11 @@
 //! passes through [`App::show`], which the kittest harness drives.
 
 use std::path::{Path, PathBuf};
+use std::sync::Arc;
 
+use catlog_core::entities::PositionKind;
+use catlog_core::geocode::Geocoder;
+use catlog_core::tiles::TileCache;
 use catlog_core::{Catalog, CatalogManager};
 use egui::{Context, ThemePreference, Ui};
 
@@ -12,8 +16,12 @@ use crate::editor::{EditTarget, FieldEditor, apply_edit};
 use crate::history::{HistoryAction, HistoryPage};
 use crate::home::{HomeAction, HomePane, Selection};
 use crate::l10n::{self, L10n};
+use crate::map::MapView;
+use crate::map_page::{MapPage, MapPageAction};
+use crate::move_dialog::MoveDialog;
 use crate::new_field::NewFieldDialog;
 use crate::pages::{PageAction, Pages};
+use crate::picker::PositionPicker;
 use crate::settings::{AppSettings, SettingsFile};
 use crate::textures::FaceCache;
 
@@ -51,6 +59,11 @@ pub struct App {
     history: HistoryPage,
     /// A history page in the detail pane: entity and Field slug.
     history_of: Option<(String, String)>,
+    map_page: MapPage,
+    picker: PositionPicker,
+    /// The Cat a sighting is being picked for.
+    sighting_for: Option<String>,
+    mover: MoveDialog,
     /// The list pane's width when the window opened.
     pane_width: f32,
     faces: FaceCache,
@@ -69,6 +82,23 @@ impl App {
     /// The app over the settings in `settings` and the Catalogs under
     /// `root`, its language from the settings or the system.
     pub fn open(settings: SettingsFile, root: &Path) -> catlog_core::Result<App> {
+        let tiles = TileCache::open(&root.join("tiles"), Box::new(catlog_core::tiles::OsmTiles))?;
+        Self::open_with(
+            settings,
+            root,
+            Arc::new(tiles),
+            Arc::new(catlog_core::geocode::Nominatim),
+        )
+    }
+
+    /// [`App::open`] with the map's sources handed in: tests use
+    /// stand-ins that never touch the network.
+    pub fn open_with(
+        settings: SettingsFile,
+        root: &Path,
+        tiles: Arc<TileCache>,
+        geocoder: Arc<dyn Geocoder>,
+    ) -> catlog_core::Result<App> {
         let locale = Self::locale_of(&settings.settings);
         let t = L10n::new(&locale);
         let manager = CatalogManager::open(root, t.clowders())?;
@@ -91,6 +121,10 @@ impl App {
             new_field: NewFieldDialog::default(),
             history: HistoryPage::default(),
             history_of: None,
+            map_page: MapPage::new(MapView::new(tiles.clone())),
+            picker: PositionPicker::new(tiles, geocoder),
+            sighting_for: None,
+            mover: MoveDialog::default(),
             faces: FaceCache::default(),
             dialog: NameDialog::default(),
             asking: Asking::Nothing,
@@ -290,6 +324,19 @@ impl App {
                         .pages
                         .show_cat(ui, &self.store, &t, &mut self.faces, &id);
                 }
+                Selection::Map => match self.map_page.show(ui, &self.store, &t) {
+                    MapPageAction::None => {}
+                    MapPageAction::OpenCat(id) => page_action = PageAction::OpenCat(id),
+                    MapPageAction::OpenClowder(id) => page_action = PageAction::OpenClowder(id),
+                    MapPageAction::Sighting(id, lat, lon) => {
+                        if let Err(e) =
+                            self.store
+                                .record_position(&id, lat, lon, PositionKind::Sighting, None)
+                        {
+                            self.notice = Some(e.to_string());
+                        }
+                    }
+                },
             }
         });
         match page_action {
@@ -313,7 +360,37 @@ impl App {
             }
             PageAction::History(entity, slug) => self.history_of = Some((entity, slug)),
             PageAction::NewField(scope) => self.new_field.ask(scope),
+            PageAction::Move(cat) => self.mover.ask(&self.store, &cat),
+            PageAction::Sighting(cat) => {
+                self.sighting_for = Some(cat);
+                self.picker.ask(None, self.map_page.map.viewport);
+            }
+            PageAction::ShowOnMap(id) => {
+                self.map_page.focus(&self.store, &id);
+                self.home.selection = Selection::Map;
+            }
         }
+        if self.editor.wants_picker {
+            self.editor.wants_picker = false;
+            let current = self.editor.text.clone();
+            self.picker.ask(Some(&current), self.map_page.map.viewport);
+        }
+        if let Some(picked) = self.picker.show(ui.ctx(), &t) {
+            if let Some(cat) = self.sighting_for.take() {
+                if let Some((lat, lon)) = catlog_core::entities::parse_position(Some(&picked)) {
+                    match self
+                        .store
+                        .record_position(&cat, lat, lon, PositionKind::Sighting, None)
+                    {
+                        Ok(()) => self.notice = Some(t.sighting_recorded().to_string()),
+                        Err(e) => self.notice = Some(e.to_string()),
+                    }
+                }
+            } else if self.editor.open {
+                self.editor.text = picked;
+            }
+        }
+        self.mover.show(ui.ctx(), &mut self.store, &t);
         if let Some(edit) = self.editor.show(ui.ctx(), &self.store, &t)
             && let Err(e) = apply_edit(&mut self.store, &self.editor, &edit)
         {
@@ -401,6 +478,11 @@ impl App {
                         ui.add_enabled(false, egui::Button::new(t.rename()));
                     });
                     ui.menu_button(t.menu_view(), |ui| {
+                        if ui.button(t.map()).clicked() {
+                            self.home.selection = Selection::Map;
+                            self.history_of = None;
+                            ui.close();
+                        }
                         if ui
                             .checkbox(&mut self.home.show_hidden, t.show_hidden_label())
                             .changed()
@@ -538,6 +620,8 @@ pub fn catalogs_root(data_dir: &Path) -> PathBuf {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use catlog_core::keys;
+    use catlog_core::tiles::TileSource;
     use egui_kittest::Harness;
     use egui_kittest::kittest::Queryable;
 
@@ -546,7 +630,43 @@ mod tests {
         file.settings.locale = Some(locale.into());
         file.settings.intro_seen = intro_seen;
         file.settings.author = intro_seen.then(|| "Ada".to_string());
-        App::open(file, &dir.join("data")).unwrap()
+        let tiles = TileCache::open(&dir.join("tiles"), Box::new(FakeTiles)).unwrap();
+        App::open_with(
+            file,
+            &dir.join("data"),
+            Arc::new(tiles),
+            Arc::new(FakeGeocoder),
+        )
+        .unwrap()
+    }
+
+    /// A tile source that answers every tile with one grey PNG.
+    struct FakeTiles;
+
+    impl TileSource for FakeTiles {
+        fn fetch(&self, _tile: catlog_core::tiles::TileId) -> Result<Vec<u8>, String> {
+            let img = image::DynamicImage::new_rgb8(256, 256);
+            let mut out = Vec::new();
+            img.write_to(&mut std::io::Cursor::new(&mut out), image::ImageFormat::Png)
+                .map_err(|e| e.to_string())?;
+            Ok(out)
+        }
+    }
+
+    struct FakeGeocoder;
+
+    impl Geocoder for FakeGeocoder {
+        fn search(&self, query: &str) -> Result<Vec<catlog_core::geocode::GeoHit>, String> {
+            if query == "nowhere" {
+                return Err("no such place".into());
+            }
+            Ok(vec![catlog_core::geocode::GeoHit {
+                name: format!("{query}, Sachsen"),
+                lat: 51.34,
+                lon: 12.37,
+                bounds: Some((51.2, 51.4, 12.2, 12.5)),
+            }])
+        }
     }
 
     /// The app over the `fresh` fixture: two Clowders, three Cats, photos.
@@ -990,6 +1110,159 @@ mod tests {
         h.run();
         h.get_by_label("DE-123 456");
         h.get_by_label("276098100123456");
+    }
+
+    #[test]
+    fn the_map_shows_pins_and_stray_areas_and_remembers_its_viewport() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "moves"));
+        h.run();
+        h.get_by_label("View").click();
+        h.step();
+        h.get_by_label("Map").click();
+        h.run_steps(3);
+        assert_eq!(*h.state().selection(), Selection::Map);
+        let pins = MapPage::pins(h.state().store(), None, &std::collections::HashSet::new());
+        assert_eq!(
+            pins.iter().map(|p| p.label.as_str()).collect::<Vec<_>>(),
+            vec!["Miezi"]
+        );
+        h.get_by_label("Possible stray area").click();
+        h.run_steps(3);
+        h.get_by_label("Miezi").click();
+        h.run_steps(3);
+        assert!(
+            h.state()
+                .map_page
+                .stray_areas
+                .contains("cat:00000000-0000-4000-8000-000000000001")
+        );
+        assert!(
+            h.state()
+                .store()
+                .local_setting(crate::map_page::VIEWPORT_KEY)
+                .is_some()
+        );
+        // Focus from a Cat page jumps to its position with its trail.
+        let app = h.state_mut();
+        app.map_page
+            .focus(&app.store, "cat:00000000-0000-4000-8000-000000000001");
+        assert_eq!(h.state().map_page.map.viewport.zoom, 15);
+        assert_eq!(
+            h.state().map_page.trail_of.as_deref(),
+            Some("cat:00000000-0000-4000-8000-000000000001")
+        );
+        assert_eq!(MapPage::missing_cats(h.state().store()).len(), 1);
+    }
+
+    #[test]
+    fn a_location_is_picked_on_the_map_and_a_sighting_recorded() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "fields-all"));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        // The Location row's editor offers the map.
+        h.get_by_label("On the map").click_secondary();
+        h.step();
+        h.get_by_label("Edit value").click_accesskit();
+        h.run();
+        h.get_by_label("Pick on map").click();
+        h.run_steps(3);
+        assert!(h.state().picker.open);
+        h.state_mut().picker.query = "Leipzig".into();
+        h.run_steps(2);
+        h.get_by_label("Search").click();
+        h.run_steps(3);
+        h.get_by_label_contains("Leipzig, Sachsen");
+        assert_eq!(
+            h.state().picker.map.viewport.zoom,
+            10,
+            "a city-sized extent"
+        );
+        h.state_mut().picker.picked = Some((51.34, 12.37));
+        h.run_steps(2);
+        h.get_by_label("OK").click();
+        h.run_steps(3);
+        assert_eq!(h.state().editor.text, "51.34,12.37");
+        h.get_by_label("Save").click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        assert_eq!(
+            h.state().store().position_of(miezi).unwrap(),
+            Some((51.34, 12.37))
+        );
+        // Seen here now: the picker again, this time a sighting.
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label("Seen here now").click();
+        h.run_steps(3);
+        assert!(h.state().picker.open);
+        h.state_mut().picker.picked = Some((51.35, 12.38));
+        h.run_steps(2);
+        h.get_by_label("OK").click();
+        h.run_steps(3);
+        assert_eq!(
+            h.state().store().sighting_position_of(miezi).unwrap(),
+            Some((51.35, 12.38))
+        );
+        h.get_by_label("Sighting recorded at your position.");
+        h.state_mut().picker.query = "nowhere".into();
+        h.state_mut().picker.search();
+        assert!(h.state().picker.error.is_some());
+        // Show on map lands on the Cat.
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label("Show on map").click();
+        h.run_steps(3);
+        assert_eq!(*h.state().selection(), Selection::Map);
+    }
+
+    #[test]
+    fn a_cat_moves_between_clowders_and_to_the_street() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label("Move to").click();
+        h.run();
+        assert!(h.state().mover.open);
+        // The list pane says "Barn" too; the dialog's radio comes last.
+        h.get_all_by_label("Barn").last().unwrap().click();
+        h.run();
+        h.state_mut().mover.as_of = "2026-03-01".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, keys::CLOWDER)
+                .unwrap()
+                .as_deref(),
+            Some("clowder:00000000-0000-4000-8000-000000000002")
+        );
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label("Move to").click();
+        h.run();
+        h.get_by_label("No clowder — stray / ran away").click();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        assert_eq!(
+            h.state().store().current(miezi, keys::CLOWDER).unwrap(),
+            None
+        );
+        assert_eq!(h.state().store().strays().unwrap().len(), 2);
     }
 
     #[test]

@@ -19,6 +19,8 @@ mod entry;
 mod error;
 pub mod fields;
 mod folder;
+pub mod geo;
+pub mod geocode;
 pub mod graph;
 pub mod keys;
 pub mod looks;
@@ -28,6 +30,7 @@ pub mod photo;
 pub mod plus_code;
 pub mod registry;
 pub mod signing;
+pub mod tiles;
 pub mod units;
 
 pub use appointments::{Appointment, AppointmentAlert};

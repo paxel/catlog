@@ -48,6 +48,9 @@ pub struct FieldEditor {
     pub as_of_text: String,
     pub as_of_time: String,
     pub units: UnitSystem,
+    /// Set when the keeper asked for the map; the app opens the picker
+    /// and writes the answer back into `text`.
+    pub wants_picker: bool,
     id: u64,
 }
 
@@ -78,6 +81,7 @@ impl FieldEditor {
             as_of_text: String::new(),
             as_of_time: String::new(),
             units: UnitSystem::Metric,
+            wants_picker: false,
             id: 0,
         }
     }
@@ -307,7 +311,12 @@ impl FieldEditor {
             }
             FieldType::Location => {
                 ui.label(t.value());
-                ui.text_edit_singleline(&mut self.text);
+                ui.horizontal(|ui| {
+                    ui.text_edit_singleline(&mut self.text);
+                    if ui.button(t.pick_on_map()).clicked() {
+                        self.wants_picker = true;
+                    }
+                });
                 ui.label(egui::RichText::new("51.34, 12.37").weak().small());
             }
             FieldType::Tags => {

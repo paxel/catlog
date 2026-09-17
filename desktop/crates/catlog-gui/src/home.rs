@@ -17,6 +17,7 @@ pub enum Selection {
     Strays,
     Clowder(String),
     Cat(String),
+    Map,
 }
 
 /// What the keeper did on the home pane this frame.
