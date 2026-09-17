@@ -58,6 +58,8 @@ jobs:
       - run: cargo test --workspace --locked
       - name: Render tests (headless wgpu)
         run: cargo test -p catlog-gui --test render --locked -- --ignored
+      - name: Snapshot tests (the look of the six views and a card)
+        run: cargo test -p catlog-gui --test snapshots --locked -- --ignored
       - uses: taiki-e/install-action@v2
         with:
           tool: cargo-llvm-cov
