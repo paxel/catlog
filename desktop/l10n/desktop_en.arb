@@ -1,0 +1,10 @@
+{
+  "@@locale": "en",
+  "menuFile": "File",
+  "menuEdit": "Edit",
+  "menuView": "View",
+  "menuCatalog": "Catalog",
+  "menuHelp": "Help",
+  "quit": "Quit",
+  "introSkipTips": "Skip the tips too, I know my way around"
+}

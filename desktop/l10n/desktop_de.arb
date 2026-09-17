@@ -1,0 +1,10 @@
+{
+  "@@locale": "de",
+  "menuFile": "Datei",
+  "menuEdit": "Bearbeiten",
+  "menuView": "Ansicht",
+  "menuCatalog": "Katalog",
+  "menuHelp": "Hilfe",
+  "quit": "Beenden",
+  "introSkipTips": "Auch die Tipps überspringen, ich kenne mich aus"
+}

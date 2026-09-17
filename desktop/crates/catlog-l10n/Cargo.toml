@@ -1,0 +1,16 @@
+[package]
+name = "catlog-l10n"
+description = "Turns the phone app's ARB translation files into Rust string tables, and formats their ICU messages at run time"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "catlog_l10n"
+
+[dependencies]
+serde_json = { version = "1.0", features = ["preserve_order"] }
+
+[dev-dependencies]
+tempfile = "3.10"

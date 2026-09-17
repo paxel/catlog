@@ -1,8 +1,10 @@
 # cat(a)log desktop
 
 The Rust desktop app of cat(a)log: `catlog-core` holds the Catalog store,
-entries, signing, shared-folder sync and bundles; `catlog-gui` is the egui
-shell; the `catlog` binary opens the window.
+entries, signing, shared-folder sync and bundles; `catlog-l10n` turns the
+phone app's ARB files (plus the few desktop-only strings under `l10n/`) into
+string tables at build time; `catlog-gui` is the egui shell; the `catlog`
+binary opens the window.
 
 ```sh
 cd desktop
