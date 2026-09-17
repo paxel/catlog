@@ -10,6 +10,7 @@ use egui::{Context, ThemePreference, Ui};
 use crate::dialogs::NameDialog;
 use crate::home::{HomeAction, HomePane, Selection};
 use crate::l10n::{self, L10n};
+use crate::pages::{PageAction, Pages};
 use crate::settings::{AppSettings, SettingsFile};
 use crate::textures::FaceCache;
 
@@ -41,6 +42,9 @@ pub struct App {
     manager: CatalogManager,
     store: Catalog,
     home: HomePane,
+    pages: Pages,
+    /// The list pane's width when the window opened.
+    pane_width: f32,
     faces: FaceCache,
     dialog: NameDialog,
     asking: Asking,
@@ -67,12 +71,14 @@ impl App {
         let _ = store.strip_photo_locations();
         Ok(App {
             t,
+            pane_width: settings.settings.pane_width.unwrap_or(DEFAULT_PANE_WIDTH),
             intro_name: settings.settings.author.clone().unwrap_or_default(),
             intro_skip_tips: false,
             settings,
             manager,
             store,
             home: HomePane::default(),
+            pages: Pages::default(),
             faces: FaceCache::default(),
             dialog: NameDialog::default(),
             asking: Asking::Nothing,
@@ -187,47 +193,54 @@ impl App {
             return;
         }
         self.show_menu_bar(ui);
-        let width = self
-            .settings
-            .settings
-            .pane_width
-            .unwrap_or(DEFAULT_PANE_WIDTH);
         let t = self.t;
         let mut action = HomeAction::None;
+        // The pane opens at the remembered width; egui keeps the width
+        // between frames, and a drag that ends is what gets remembered.
         let pane = egui::Panel::left("list-pane")
             .resizable(true)
-            .default_size(width)
             .min_size(200.0)
+            .default_size(self.pane_width)
             .show(ui, |ui| {
                 action = self.home.show(ui, &self.store, &t, &mut self.faces);
             });
-        let new_width = pane.response.rect.width();
-        if (new_width - width).abs() > 0.5 && new_width > 0.0 {
-            self.settings.settings.pane_width = Some(new_width);
+        let shown = pane.response.rect.width();
+        let released = ui.input(|i| i.pointer.primary_released());
+        if released && shown > 0.0 && Some(shown) != self.settings.settings.pane_width {
+            self.settings.settings.pane_width = Some(shown);
+            let _ = self.settings.save();
         }
         self.act(action);
+        let mut page_action = PageAction::None;
         egui::CentralPanel::default().show(ui, |ui| {
             if let Some(notice) = &self.notice {
                 ui.colored_label(ui.visuals().error_fg_color, notice);
             }
-            match &self.home.selection {
+            match self.home.selection.clone() {
                 Selection::None => {
                     ui.label(t.select_clowder_hint());
                 }
                 Selection::Strays => {
-                    ui.heading(t.strays());
+                    page_action = self.pages.show_strays(ui, &self.store, &t, &mut self.faces);
                 }
                 Selection::Clowder(id) => {
-                    let name = self
-                        .store
-                        .current(id, catlog_core::keys::NAME)
-                        .ok()
-                        .flatten()
-                        .unwrap_or_default();
-                    ui.heading(name);
+                    page_action =
+                        self.pages
+                            .show_clowder(ui, &self.store, &t, &mut self.faces, &id);
+                }
+                Selection::Cat(id) => {
+                    page_action = self
+                        .pages
+                        .show_cat(ui, &self.store, &t, &mut self.faces, &id);
                 }
             }
         });
+        match page_action {
+            PageAction::None => {}
+            PageAction::OpenCat(id) => self.home.selection = Selection::Cat(id),
+            PageAction::OpenClowder(id) => self.home.selection = Selection::Clowder(id),
+            PageAction::ToggleHidden(id) => self.act(HomeAction::ToggleHidden(id)),
+        }
         self.show_dialog(ui.ctx());
         if self.about_open {
             self.show_about(ui.ctx());
@@ -609,9 +622,8 @@ mod tests {
             *h.state().selection(),
             Selection::Clowder("clowder:00000000-0000-4000-8000-000000000002".into())
         );
-        assert_eq!(
-            h.get_all_by_label("Barn").count(),
-            2,
+        assert!(
+            h.get_all_by_label("Barn").count() >= 2,
             "the detail pane shows it"
         );
         h.get_by_label_contains("Strays  (1)").click();
@@ -628,6 +640,149 @@ mod tests {
         let home = h.get_by_label("Foster Home").rect();
         let barn = h.get_by_label("Barn").rect();
         assert!(home.min.y < barn.min.y);
+    }
+
+    fn seeded_with(dir: &std::path::Path, scenario: &str) -> App {
+        let mut app = app(dir, "en", true);
+        let fixture =
+            Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("../../fixtures/{scenario}/folder"));
+        app.store_mut().import_folder(&fixture, None).unwrap();
+        app
+    }
+
+    #[test]
+    fn the_clowder_page_shows_its_cats_fields_and_a_way_to_each_cat() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_by_label("Cats (1)");
+        h.get_by_label("Katzenweg 3, Leipzig");
+        h.get_by_label(L10n::new("en").status_foster());
+        let miezi = h.get_by_label("Miezi").rect();
+        assert!(
+            miezi.min.x > DEFAULT_PANE_WIDTH,
+            "the cat sits in the detail pane: {miezi:?}"
+        );
+        h.get_by_label("Miezi").click();
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Cat("cat:00000000-0000-4000-8000-000000000001".into())
+        );
+        h.get_by_label("Photos (2)");
+        h.get_by_label(L10n::new("en").value_female());
+        h.get_by_label("tabby");
+        // The Clowder line leads back to the place; the list row comes
+        // first in the tree, the link in the detail pane last.
+        h.get_all_by_label("Foster Home").last().unwrap().click();
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000001".into())
+        );
+        // The timeline unfolds and remembers it.
+        h.get_by_label("Timeline").click();
+        h.run();
+        assert!(
+            h.get_all_by_label_contains("Ada · ").count() > 5,
+            "the rows show author and day"
+        );
+        assert_eq!(
+            h.state().store().local_setting("fold:timeline").as_deref(),
+            Some("open")
+        );
+    }
+
+    #[test]
+    fn the_strays_page_lists_homeless_cats_and_the_keyboard_walks_the_list() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label_contains("Strays  (1)").click();
+        h.run();
+        h.get_by_label("Wanderer").click();
+        h.run();
+        assert!(matches!(h.state().selection(), Selection::Cat(_)));
+        h.get_by_label(L10n::new("en").stray_no_clowder());
+        // Down from the Strays row lands on the first Clowder.
+        h.state_mut().home.selection = Selection::Strays;
+        h.key_press(egui::Key::ArrowDown);
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000001".into())
+        );
+        h.key_press(egui::Key::ArrowDown);
+        h.run();
+        h.key_press(egui::Key::ArrowDown);
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000002".into()),
+            "the end holds"
+        );
+        h.key_press(egui::Key::ArrowUp);
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000001".into())
+        );
+        h.get_by_label("Cats (1)");
+    }
+
+    #[test]
+    fn values_chores_appointments_and_family_read_in_words() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "chores"));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        assert!(
+            h.query_by_label_contains("Worming").is_none(),
+            "an ended chore is not listed"
+        );
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label_contains("Drops · ");
+        assert!(
+            h.query_by_label("Planned").is_none(),
+            "a finished visit is no plan"
+        );
+        h.get_by_label(L10n::new("en").value_yes());
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "fields-all"));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label("4.25 kg");
+        h.get_by_label("5/2021");
+        h.get_by_label("Family");
+        h.get_by_label("Tom").click();
+        h.run();
+        assert_eq!(
+            *h.state().selection(),
+            Selection::Cat("cat:00000000-0000-4000-8000-000000000002".into())
+        );
+        h.get_by_label("Kittens");
+        // Hidden through the row menu action, on the phone a hold.
+        h.get_all_by_label("Foster Home").next().unwrap().click();
+        h.run();
+        h.state_mut().act(HomeAction::ToggleHidden(
+            "cat:00000000-0000-4000-8000-000000000002".into(),
+        ));
+        h.run();
+        assert!(
+            h.state()
+                .store()
+                .is_hidden("cat:00000000-0000-4000-8000-000000000002")
+                .unwrap()
+        );
     }
 
     #[test]

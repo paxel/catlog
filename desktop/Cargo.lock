@@ -625,6 +625,7 @@ version = "2.0.0"
 dependencies = [
  "catlog-core",
  "catlog-l10n",
+ "chrono",
  "directories",
  "eframe",
  "egui",

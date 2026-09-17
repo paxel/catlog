@@ -16,6 +16,7 @@ pub enum Selection {
     None,
     Strays,
     Clowder(String),
+    Cat(String),
 }
 
 /// What the keeper did on the home pane this frame.
@@ -97,9 +98,38 @@ impl HomePane {
         faces: &mut FaceCache,
     ) -> HomeAction {
         let mut action = HomeAction::None;
+        // A resizable panel shrinks to its content; the list claims the
+        // whole pane so the width the keeper chose holds.
+        ui.set_min_width(ui.available_width());
         let pet_mode = store.is_pet_mode().unwrap_or(false);
         let rows = clowder_rows(store, self.show_hidden).unwrap_or_default();
         let strays = store.strays().map(|s| s.len()).unwrap_or(0);
+        // The keyboard walks the list while nothing is being typed:
+        // arrows move, Enter opens.
+        if ui.ctx().memory(|m| m.focused()).is_none() {
+            let (down, up, enter) = ui.input(|i| {
+                (
+                    i.key_pressed(egui::Key::ArrowDown),
+                    i.key_pressed(egui::Key::ArrowUp),
+                    i.key_pressed(egui::Key::Enter),
+                )
+            });
+            let order: Vec<Selection> = std::iter::once(Selection::Strays)
+                .chain(rows.iter().map(|r| Selection::Clowder(r.view.id.clone())))
+                .collect();
+            let at = order.iter().position(|s| *s == self.selection);
+            if down || up {
+                let next = match (at, down) {
+                    (None, _) => 0,
+                    (Some(i), true) => (i + 1).min(order.len() - 1),
+                    (Some(i), false) => i.saturating_sub(1),
+                };
+                self.selection = order[next].clone();
+                action = HomeAction::Open(self.selection.clone());
+            } else if enter && at.is_some() {
+                action = HomeAction::Open(self.selection.clone());
+            }
+        }
         ui.heading(if pet_mode {
             t.clowders_neutral()
         } else {

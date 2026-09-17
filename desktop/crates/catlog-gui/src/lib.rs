@@ -8,6 +8,8 @@ pub mod app;
 pub mod dialogs;
 pub mod home;
 pub mod l10n;
+pub mod labels;
+pub mod pages;
 pub mod settings;
 pub mod textures;
 

@@ -20,9 +20,11 @@ mod error;
 pub mod fields;
 mod folder;
 pub mod keys;
+pub mod looks;
 pub mod moments;
 pub mod partial_date;
 pub mod photo;
+pub mod plus_code;
 pub mod signing;
 pub mod units;
 
