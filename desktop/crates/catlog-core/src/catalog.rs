@@ -78,7 +78,22 @@ impl Catalog {
         Self::init(Connection::open_in_memory()?, images.to_path_buf())
     }
 
+    /// [`Catalog::open`] with the clock fixed from the first row on: the
+    /// starter Fields are seeded under it, so tests can put a Catalog
+    /// before or after another in time.
+    pub fn open_with_clock(dir: &Path, clock: Clock) -> Result<Catalog> {
+        std::fs::create_dir_all(dir).map_err(|e| Error::io(dir, e))?;
+        let images = dir.join("images");
+        std::fs::create_dir_all(&images).map_err(|e| Error::io(&images, e))?;
+        let db = Connection::open(dir.join("catalog.db"))?;
+        Self::init_with(db, images, clock)
+    }
+
     fn init(db: Connection, images: PathBuf) -> Result<Catalog> {
+        Self::init_with(db, images, Box::new(chrono::Utc::now))
+    }
+
+    fn init_with(db: Connection, images: PathBuf, clock: Clock) -> Result<Catalog> {
         db.execute_batch(
             "PRAGMA journal_mode = WAL;
              CREATE TABLE IF NOT EXISTS entries (
@@ -115,11 +130,7 @@ impl Catalog {
              CREATE INDEX IF NOT EXISTS idx_entries_entity_field
                ON entries (entity, field);",
         )?;
-        let catalog = Catalog {
-            db,
-            images,
-            clock: Box::new(chrono::Utc::now),
-        };
+        let catalog = Catalog { db, images, clock };
         catalog.ensure_device_id()?;
         catalog.rebuild_voids()?;
         catalog.ensure_signing_key()?;

@@ -35,6 +35,7 @@ pub mod photo;
 pub mod plus_code;
 pub mod registry;
 pub mod review;
+pub mod share;
 pub mod signing;
 pub mod sync;
 pub mod tiles;

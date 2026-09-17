@@ -67,6 +67,11 @@ Future<void> main(List<String> args) async {
       'the same `expected.json`. Do not edit by hand.\n\n');
   for (final scenario in scenarios) {
     _tick = DateTime.utc(2026, 1, 1, 10);
+    var ids = 0;
+    CatalogStore.idMaker = () {
+      ids++;
+      return '00000000-0000-4000-8000-${ids.toString().padLeft(12, '1')}';
+    };
     final out = Directory('${root.path}/${scenario.name}');
     if (out.existsSync()) out.deleteSync(recursive: true);
     out.createSync(recursive: true);
@@ -75,6 +80,9 @@ Future<void> main(List<String> args) async {
       final writer = _catalog(
           Directory('${work.path}/writer')..createSync(), 'writer', 'Ada');
       scenario.build(writer);
+      if (scenario.share case final share?) {
+        _writeShare(writer, out, share.cat, share.fields);
+      }
       final folderDir = Directory('${out.path}/folder')..createSync();
       await folderSync(writer, folderDir.path,
           includePrivate: scenario.includePrivate);
@@ -219,6 +227,23 @@ void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
     for (final MapEntry(key: name, value: bytes) in t.strayBlobs.entries)
       'blobs/$name': bytes
   });
+}
+
+/// The share payload's entries with the random device id fixed.
+void _writeShare(
+    CatalogStore writer, Directory out, String cat, Set<String> fields) {
+  final bytes = catShareBytes(writer,
+      catId: cat, fields: fields, includePhotos: false);
+  final archive = ZipDecoder().decodeBytes(bytes);
+  final entries = archive.files.firstWhere((f) => f.name == 'entries.jsonl');
+  final lines = const LineSplitter()
+      .convert(utf8.decode(entries.content as List<int>))
+      .map((line) {
+    final m = (jsonDecode(line) as Map).cast<String, dynamic>();
+    m['device'] = 'share-fixed';
+    return jsonEncode(m);
+  }).join('\n');
+  File('${out.path}/share.jsonl').writeAsStringSync('$lines\n');
 }
 
 void _copyTree(Directory from, Directory to) {

@@ -42,13 +42,19 @@ class Scenario {
   /// `expected-bundle.json` instead of having to match the folder's.
   final bool separateBundleState;
 
+  /// When set, the writer's share payload for this Cat and these Fields
+  /// is written as `share.jsonl`: the entries a poster's QR code carries,
+  /// with the random device id fixed, so the desktop core can compare.
+  final ({String cat, Set<String> fields})? share;
+
   const Scenario(this.name, this.about, this.build,
       {this.tamper,
       this.later = false,
       this.includePrivate = false,
       this.laterIncludePrivate = false,
       this.bundleIncludePrivate,
-      this.separateBundleState = false});
+      this.separateBundleState = false,
+      this.share});
 }
 
 /// The written files, open for editing by a scenario's tamper step.
@@ -197,6 +203,10 @@ final scenarios = <Scenario>[
       cat(w, 3, 'Wanderer');
       assert(first != second);
     },
+    share: (
+      cat: 'cat:00000000-0000-4000-8000-000000000001',
+      fields: {'f:gender', 'f:color', 'f:address', 'f:status'},
+    ),
   ),
   Scenario(
     'forged-line',

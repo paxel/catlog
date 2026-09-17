@@ -499,8 +499,12 @@ class CatalogStore {
         'ALTER TABLE entries ADD COLUMN reminder INTEGER NOT NULL DEFAULT 0');
   }
 
+  /// Makes the ids of chores and appointments; the fixture generator
+  /// replaces it with a counter so the corpus is the same on every run.
+  static String Function() idMaker = _uuid;
+
   /// A fresh id for an appointment key (#75).
-  String newAppointmentId() => _uuid();
+  String newAppointmentId() => idMaker();
 
   /// Runs [body] as one SQLite transaction: all of its writes land, or
   /// none do — a kill halfway through a move or a merge must not leave
