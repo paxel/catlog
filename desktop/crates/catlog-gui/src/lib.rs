@@ -20,6 +20,7 @@ pub mod history;
 pub mod home;
 pub mod housekeeping;
 pub mod icon;
+pub mod icons;
 pub mod l10n;
 pub mod labels;
 pub mod map;
@@ -37,6 +38,7 @@ pub mod sounds;
 pub mod summary;
 pub mod sync_page;
 pub mod textures;
+pub mod theme;
 pub mod tips;
 
 pub use app::{App, DEFAULT_PANE_WIDTH, DEFAULT_WINDOW_SIZE, Request, catalogs_root};

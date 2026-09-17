@@ -155,7 +155,7 @@ impl HomePane {
             // The Strays lead: every Cat with no home right now.
             let selected = self.selection == Selection::Strays;
             let strays_label = format!("{}  ({strays})", t.strays());
-            if ui.selectable_label(selected, strays_label).clicked() {
+            if crate::icons::selectable(ui, selected, crate::icons::PETS, strays_label).clicked() {
                 self.selection = Selection::Strays;
                 action = HomeAction::Open(Selection::Strays);
             }
@@ -203,13 +203,28 @@ impl HomePane {
                         if row.cat_count > FACES_SHOWN {
                             ui.label(format!("+{}", row.cat_count - FACES_SHOWN));
                         }
-                        let star = if row.favourite { "★" } else { "☆" };
+                        let star = if row.favourite {
+                            crate::icons::STAR
+                        } else {
+                            crate::icons::STAR_BORDER
+                        };
                         let tip = if row.favourite {
                             t.favourite_remove()
                         } else {
                             t.favourite_add()
                         };
-                        if ui.button(star).on_hover_text(tip).clicked() {
+                        let color = if row.favourite {
+                            crate::theme::PALETTE.orange
+                        } else {
+                            crate::theme::PALETTE.grey
+                        };
+                        let response = crate::icons::glyph(ui, star, 18.0, color)
+                            .interact(egui::Sense::click())
+                            .on_hover_text(tip);
+                        response.widget_info(|| {
+                            egui::WidgetInfo::labeled(egui::WidgetType::Button, true, tip)
+                        });
+                        if response.clicked() {
                             action = HomeAction::ToggleFavourite(row.view.id.clone());
                         }
                         label

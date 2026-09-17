@@ -104,7 +104,7 @@ impl Pages {
         egui::ScrollArea::vertical().show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.heading(Self::name_of(store, t, id));
-                if ui.button(t.new_cat()).clicked() {
+                if crate::icons::button(ui, crate::icons::ADD, t.new_cat()).clicked() {
                     action = PageAction::NewCat(Some(id.to_string()));
                 }
                 ui.menu_button(t.actions_menu(), |ui| {
@@ -228,7 +228,7 @@ impl Pages {
             ui.add_space(8.0);
             ui.horizontal(|ui| {
                 ui.strong(format!("{} ({})", t.photos(), images.len()));
-                if ui.button(t.add_photo()).clicked() {
+                if crate::icons::button(ui, crate::icons::ADD_A_PHOTO, t.add_photo()).clicked() {
                     action = PageAction::AddPhoto(id.to_string());
                 }
             });
@@ -315,7 +315,7 @@ impl Pages {
         egui::ScrollArea::vertical().show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.heading(t.strays());
-                if ui.button(t.new_cat()).clicked() {
+                if crate::icons::button(ui, crate::icons::ADD, t.new_cat()).clicked() {
                     action = PageAction::NewCat(None);
                 }
             });
@@ -491,7 +491,7 @@ impl Pages {
         ui.add_space(8.0);
         ui.horizontal(|ui| {
             ui.strong(t.chores_section());
-            if ui.button(t.new_chore()).clicked() {
+            if crate::icons::button(ui, crate::icons::ADD, t.new_chore()).clicked() {
                 action = Some(PageAction::Chore(ChoreAction::New(id.to_string())));
             }
         });
@@ -516,7 +516,7 @@ impl Pages {
         ui.add_space(8.0);
         ui.horizontal(|ui| {
             ui.strong(t.planned_section());
-            if ui.button(t.add_appointment()).clicked() {
+            if crate::icons::button(ui, crate::icons::EVENT, t.add_appointment()).clicked() {
                 action = Some(PageAction::NewAppointment(id.to_string()));
             }
         });

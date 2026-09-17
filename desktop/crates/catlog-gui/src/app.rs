@@ -16,7 +16,7 @@ use catlog_core::review::{needs_attention, review_import};
 use catlog_core::sync::{UnseenChanges, grown_files};
 use catlog_core::tiles::TileCache;
 use catlog_core::{Catalog, CatalogManager, keys};
-use egui::{Context, ThemePreference, Ui};
+use egui::{Context, Ui};
 
 use crate::agenda::{AgendaAction, AppointmentAction, ics_events, show_agenda};
 use crate::appointments::{AppointmentDialog, FinishDialog};
@@ -33,6 +33,7 @@ use crate::housekeeping::{
     HouseAction, Housekeeping, key_code, show_archive, show_backups, show_moderation, show_moments,
     show_restore,
 };
+use crate::icons;
 use crate::l10n::{self, L10n};
 use crate::map::MapView;
 use crate::map_page::{MapPage, MapPageAction};
@@ -160,6 +161,7 @@ pub struct App {
     pub crash_report: Option<String>,
     pub help_open: bool,
     icon: Option<egui::TextureHandle>,
+    fonts_installed: Option<String>,
     /// Opens a link in the browser or the mail program.
     pub open_url: Box<dyn FnMut(&str)>,
     /// Text recognition; the ocrs engine outside tests.
@@ -293,6 +295,7 @@ impl App {
             crash_report: crate::crash::last_crash(root),
             help_open: false,
             icon: None,
+            fonts_installed: None,
             open_url: Box::new(|url| {
                 if let Err(e) = open::that_detached(url) {
                     eprintln!("catlog: open: {e}");
@@ -410,7 +413,23 @@ impl App {
 
     /// Sets the theme the app runs in: light only, on every platform.
     pub fn install_theme(ctx: &Context) {
-        ctx.set_theme(ThemePreference::Light);
+        crate::theme::install(ctx);
+    }
+
+    /// Installs the fonts for the current language once, and again
+    /// when the language changes. New fonts bind at the next pass, so
+    /// the pass that sets them is discarded and run again: true when the
+    /// caller should draw nothing this pass.
+    fn install_fonts(&mut self, ctx: &Context) -> bool {
+        let language = self.t.locale().to_string();
+        if self.fonts_installed.as_deref() == Some(language.as_str()) {
+            return false;
+        }
+        let set = self.fonts().clone();
+        ctx.set_fonts(crate::theme::fonts(&set));
+        ctx.request_discard("fonts installed");
+        self.fonts_installed = Some(language);
+        true
     }
 
     /// The window size to open with.
@@ -588,6 +607,9 @@ impl App {
 
     /// Draws the whole window into `ui`.
     pub fn show(&mut self, ui: &mut Ui) {
+        if self.install_fonts(ui.ctx()) {
+            return;
+        }
         if !self.settings.settings.intro_seen {
             self.show_intro(ui);
             return;
@@ -1185,23 +1207,23 @@ impl App {
             .show(ui, |ui| {
                 egui::MenuBar::new().ui(ui, |ui| {
                     ui.menu_button(t.menu_file(), |ui| {
-                        if ui.button(t.quit()).clicked() {
+                        if icons::button(ui, icons::LOGOUT, t.quit()).clicked() {
                             self.request = Request::Quit;
                         }
                     });
                     ui.menu_button(t.menu_edit(), |ui| {
-                        if ui.button(t.settings()).clicked() {
+                        if icons::button(ui, icons::SETTINGS_OUTLINED, t.settings()).clicked() {
                             self.open_settings();
                             ui.close();
                         }
                     });
                     ui.menu_button(t.menu_view(), |ui| {
-                        if ui.button(t.agenda()).clicked() {
+                        if icons::button(ui, icons::CALENDAR_MONTH_OUTLINED, t.agenda()).clicked() {
                             self.home.selection = Selection::Agenda;
                             self.history_of = None;
                             ui.close();
                         }
-                        if ui.button(t.map()).clicked() {
+                        if icons::button(ui, icons::MAP_OUTLINED, t.map()).clicked() {
                             self.home.selection = Selection::Map;
                             self.history_of = None;
                             ui.close();
@@ -1242,7 +1264,9 @@ impl App {
                             self.notice = Some(e.to_string());
                         }
                         ui.separator();
-                        if ui.button(t.new_catalog()).clicked() {
+                        if icons::button(ui, icons::CREATE_NEW_FOLDER_OUTLINED, t.new_catalog())
+                            .clicked()
+                        {
                             self.asking = Asking::NewCatalog;
                             self.dialog.ask(
                                 t.new_catalog(),
@@ -1252,7 +1276,9 @@ impl App {
                             );
                             ui.close();
                         }
-                        if ui.button(t.rename_catalog()).clicked() {
+                        if icons::button(ui, icons::DRIVE_FILE_RENAME_OUTLINE, t.rename_catalog())
+                            .clicked()
+                        {
                             let current = self.manager.active().name.clone();
                             self.asking = Asking::RenameCatalog;
                             self.dialog.ask(
@@ -1264,45 +1290,51 @@ impl App {
                             ui.close();
                         }
                         ui.separator();
-                        if ui.button(t.new_clowder()).clicked() {
+                        if icons::button(ui, icons::ADD_HOME_OUTLINED, t.new_clowder()).clicked() {
                             self.act(HomeAction::NewClowder);
                             ui.close();
                         }
                         ui.separator();
-                        if ui.button(t.go_back_title()).clicked() {
+                        if icons::button(ui, icons::HISTORY, t.go_back_title()).clicked() {
                             self.home.selection = Selection::Moments;
                             self.history_of = None;
                             ui.close();
                         }
-                        if ui.button(t.archive_title()).clicked() {
+                        if icons::button(ui, icons::INVENTORY_2_OUTLINED, t.archive_title())
+                            .clicked()
+                        {
                             self.home.selection = Selection::Archive;
                             self.history_of = None;
                             ui.close();
                         }
-                        if ui.button(t.backups_title()).clicked() {
+                        if icons::button(ui, icons::SAVE_OUTLINED, t.backups_title()).clicked() {
                             self.home.selection = Selection::Backups;
                             self.history_of = None;
                             ui.close();
                         }
-                        if ui.button(t.restore_backups_menu()).clicked() {
+                        if icons::button(ui, icons::RESTORE, t.restore_backups_menu()).clicked() {
                             self.refresh_restore_sets();
                             self.home.selection = Selection::Restore;
                             self.history_of = None;
                             ui.close();
                         }
-                        if ui.button(t.moderation_title()).clicked() {
+                        if icons::button(ui, icons::PERSON_OFF_OUTLINED, t.moderation_title())
+                            .clicked()
+                        {
                             self.home.selection = Selection::Moderation;
                             self.history_of = None;
                             ui.close();
                         }
                         ui.separator();
-                        if ui.button(t.capture_flier()).clicked() {
+                        if icons::button(ui, icons::ASSIGNMENT_OUTLINED, t.capture_flier())
+                            .clicked()
+                        {
                             self.capture.start(self.pages.today);
                             self.home.selection = Selection::Capture;
                             self.history_of = None;
                             ui.close();
                         }
-                        if ui.button(t.find_duplicates()).clicked() {
+                        if icons::button(ui, icons::JOIN_INNER, t.find_duplicates()).clicked() {
                             self.home.selection = Selection::Duplicates;
                             self.history_of = None;
                             ui.close();
@@ -1319,7 +1351,7 @@ impl App {
                             }
                             ui.close();
                         }
-                        if ui.button(t.sync_menu()).clicked() {
+                        if icons::button(ui, icons::SYNC, t.sync_menu()).clicked() {
                             self.home.selection = Selection::Sync;
                             self.history_of = None;
                             ui.close();
@@ -1338,17 +1370,19 @@ impl App {
                         }
                     });
                     ui.menu_button(t.menu_help(), |ui| {
-                        if ui.button(t.help_menu()).clicked() {
+                        if icons::button(ui, icons::HELP_OUTLINE, t.help_menu()).clicked() {
                             self.help_open = true;
                             ui.close();
                         }
-                        if ui.button(t.achievements_title()).clicked() {
+                        if icons::button(ui, icons::EMOJI_EVENTS, t.achievements_title()).clicked()
+                        {
                             self.refresh_ladders();
                             self.home.selection = Selection::Achievements;
                             self.history_of = None;
                             ui.close();
                         }
-                        if ui.button(t.about_and_feedback()).clicked() {
+                        if icons::button(ui, icons::INFO_OUTLINE, t.about_and_feedback()).clicked()
+                        {
                             self.about_open = true;
                             ui.close();
                         }
@@ -1917,11 +1951,15 @@ impl App {
             .show_separator_line(true)
             .show(ui, |ui| {
                 ui.horizontal(|ui| {
-                    ui.label(t.sync_changes_waiting(&authors, &catalog));
-                    if ui.button(t.sync_now()).clicked() {
+                    icons::label(
+                        ui,
+                        icons::FOLDER_COPY_OUTLINED,
+                        t.sync_changes_waiting(&authors, &catalog),
+                    );
+                    if icons::button(ui, icons::SYNC, t.sync_now()).clicked() {
                         sync = true;
                     }
-                    if ui.button(t.sync_dismiss()).clicked() {
+                    if icons::button(ui, icons::CLOSE, t.sync_dismiss()).clicked() {
                         dismiss = true;
                     }
                 });
@@ -2053,8 +2091,8 @@ impl App {
             .show_separator_line(true)
             .show(ui, |ui| {
                 ui.horizontal(|ui| {
-                    ui.label((tip.text)(&t));
-                    if ui.button(t.spot_done()).clicked() {
+                    icons::label(ui, icons::LIGHTBULB_OUTLINE, (tip.text)(&t));
+                    if icons::button(ui, icons::CHECK, t.spot_done()).clicked() {
                         done = true;
                     }
                 });
@@ -2418,7 +2456,7 @@ mod tests {
         h.step();
         h.get_by_label_contains("Language").hover();
         h.step();
-        h.get_by_label_contains("Deutsch").click();
+        h.get_by_label_contains("Deutsch").click_accesskit();
         h.run();
         assert_eq!(h.state().t().locale(), "de");
         h.get_by_label(L10n::new("de").menu_file());
@@ -2492,12 +2530,15 @@ mod tests {
         h.run();
         assert_eq!(*h.state().selection(), Selection::Strays);
         // The star moves a Clowder to the front and back.
-        h.get_all_by_label("☆").nth(1).unwrap().click();
+        h.get_all_by_label("Mark as favourite")
+            .nth(1)
+            .unwrap()
+            .click();
         h.run();
         let home = h.get_by_label("Foster Home").rect();
         let barn = h.get_by_label("Barn").rect();
         assert!(barn.min.y < home.min.y, "the favourite leads");
-        h.get_by_label("★").click();
+        h.get_by_label("Remove from favourites").click();
         h.run();
         let home = h.get_by_label("Foster Home").rect();
         let barn = h.get_by_label("Barn").rect();
@@ -2628,7 +2669,7 @@ mod tests {
         h.get_by_label("5/2021");
         h.get_by_label("Family");
         // "Tom" is the Mother value and the family link; the link comes last.
-        h.get_all_by_label("Tom").last().unwrap().click();
+        h.get_all_by_label("Tom").last().unwrap().click_accesskit();
         h.run();
         assert_eq!(
             *h.state().selection(),
@@ -2660,6 +2701,8 @@ mod tests {
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         // The Visits row's menu: edit, then history.
+        h.get_by_label("3").scroll_to_me();
+        h.run();
         h.get_by_label("3").click_secondary();
         h.step();
         h.get_by_label("Edit value").click_accesskit();
@@ -4540,7 +4583,7 @@ mod tests {
         assert!(h.state().capture.draft.remarks.contains("Farbe: braun"));
         assert!(!h.state().capture.draft.cat_fields.contains_key("color"));
         // The address on the map: the fake geocoder answers Leipzig.
-        h.get_by_label("Find address on the map").click();
+        h.get_by_label("Find address on the map").click_accesskit();
         h.run();
         h.get_by_label_contains("Address found");
         assert_eq!(h.state().capture.draft.flier_position, Some((51.34, 12.37)));

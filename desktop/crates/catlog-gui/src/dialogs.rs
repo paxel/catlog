@@ -61,7 +61,7 @@ impl NameDialog {
                     {
                         result = Some(self.value.trim().to_string());
                     }
-                    if ui.button(cancel).clicked() || escape {
+                    if crate::icons::button(ui, crate::icons::CLOSE, cancel).clicked() || escape {
                         close = true;
                     }
                 });
@@ -164,10 +164,10 @@ impl ConfirmDialog {
                 ui.label(&self.body);
                 let escape = ui.input(|i| i.key_pressed(Key::Escape));
                 ui.horizontal(|ui| {
-                    if ui.button(&self.confirm).clicked() {
+                    if crate::icons::button(ui, crate::icons::CHECK, &self.confirm).clicked() {
                         confirmed = true;
                     }
-                    if ui.button(cancel).clicked() || escape {
+                    if crate::icons::button(ui, crate::icons::CLOSE, cancel).clicked() || escape {
                         close = true;
                     }
                 });
