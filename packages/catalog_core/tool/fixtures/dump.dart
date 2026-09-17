@@ -15,12 +15,16 @@ Map<String, dynamic> dumpState(CatalogStore store) {
     for (final e in store.versionVector().entries)
       if (e.key != self) e.key: e.value
   });
+  // An entity counts once a partner wrote a row for it: the reader's
+  // own starter fields are its own business.
+  bool foreign(String id) =>
+      store.timeline(id, includeVoided: true).any((e) => e.device != self);
   final entities = SplayTreeMap<String, dynamic>();
   for (final view in [...store.clowders(), ...store.cats()]) {
-    entities[view.id] = _entity(store, view.id);
+    if (foreign(view.id)) entities[view.id] = _entity(store, view.id);
   }
   for (final def in store.fieldDefs()) {
-    entities[def.id] = _entity(store, def.id);
+    if (foreign(def.id)) entities[def.id] = _entity(store, def.id);
   }
   final entries = [
     for (final e in store.entriesSince(const {}, includePrivate: true))

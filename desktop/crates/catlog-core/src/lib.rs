@@ -9,6 +9,7 @@
 
 mod bundle;
 mod catalog;
+pub mod corpus;
 mod dump;
 mod entry;
 mod error;
@@ -16,7 +17,7 @@ mod folder;
 pub mod keys;
 
 pub use bundle::BundleResult;
-pub use catalog::{Catalog, EntityView};
+pub use catalog::{Catalog, Clock, EntityView};
 pub use entry::{Entry, dart_iso, iso};
 pub use error::Error;
 pub use folder::FolderImport;

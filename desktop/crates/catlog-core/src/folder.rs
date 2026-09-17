@@ -3,6 +3,7 @@
 //! Every partner's file is imported read-only; photos the entries name
 //! are fetched as far as the folder has them.
 
+use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
 use sha2::{Digest, Sha256};
@@ -16,7 +17,9 @@ use crate::error::Error;
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct FolderImport {
     pub entries_in: usize,
+    pub entries_out: usize,
     pub blobs_in: usize,
+    pub blobs_out: usize,
     /// Photos the entries name that no device has put in the folder yet.
     pub blobs_missing: usize,
     /// One line per photo that could not be fetched this round and why.
@@ -72,6 +75,85 @@ impl Catalog {
         let legacy = root.join("blobs");
         result.blobs_in =
             self.fetch_missing_blobs(&blob_dir, &legacy, &mut result.blob_problems)?;
+        result.blobs_missing = self.missing_blobs()?.len();
+        Ok(result)
+    }
+
+    /// One full round through a shared folder: partners' files in, this
+    /// device's file with its full knowledge out, photos both ways.
+    /// Private values stay home unless `include_private`. With `catalog`
+    /// the files live in `catlog-sync/<catalog>/`; the root is still
+    /// read, for partners from before.
+    pub fn sync_folder(
+        &mut self,
+        folder: &Path,
+        catalog: Option<&str>,
+        include_private: bool,
+    ) -> Result<FolderImport> {
+        let root = folder.join(SYNC_DIR);
+        let own_root = match catalog {
+            Some(c) => root.join(c),
+            None => root.clone(),
+        };
+        for dir in [&own_root, &own_root.join("blobs"), &own_root.join("keys")] {
+            std::fs::create_dir_all(dir).map_err(|e| Error::io(dir, e))?;
+        }
+        // Android's media scanner must not show the photos in the phone's
+        // gallery; every other system ignores the file.
+        let nomedia = root.join(".nomedia");
+        if !nomedia.exists() {
+            write_atomically(&nomedia, &[])?;
+        }
+        let mut result = self.import_folder(folder, catalog)?;
+
+        // Own file: full knowledge. Without a flagged entry the payload is
+        // byte-identical to the old format and keeps the `.jsonl` name.
+        let me = self.device_id();
+        let all = self.entries_since(&BTreeMap::new(), include_private)?;
+        let flagged = all.iter().any(|e| e.reminder);
+        let own_name = format!("{me}.jsonl{}", if flagged { "2" } else { "" });
+        let stale_name = format!("{me}.jsonl{}", if flagged { "" } else { "2" });
+        let previous_lines = std::fs::read_to_string(own_root.join(&own_name))
+            .map(|t| t.lines().count())
+            .unwrap_or(0);
+        let mut text = String::new();
+        for (i, e) in all.iter().enumerate() {
+            if i > 0 {
+                text.push('\n');
+            }
+            text.push_str(&serde_json::to_string(&e.wire())?);
+        }
+        write_atomically(&own_root.join(&own_name), text.as_bytes())?;
+        remove_if_present(&own_root.join(&stale_name))?;
+        if catalog.is_some() {
+            remove_if_present(&root.join(&own_name))?;
+            remove_if_present(&root.join(&stale_name))?;
+        }
+        result.entries_out = all.len().saturating_sub(previous_lines);
+
+        // Photos: publish the ones in use, drop the ones every device
+        // knows as deleted.
+        let blob_dir = own_root.join("blobs");
+        let names = list_files(&blob_dir)?;
+        let live = self.live_images(include_private)?;
+        for hash in &live {
+            let file = format!("{hash}.jpg");
+            if names.contains(&file) {
+                continue;
+            }
+            if let Some(bytes) = self.image_bytes(hash) {
+                write_atomically(&blob_dir.join(&file), &bytes)?;
+                result.blobs_out += 1;
+            }
+        }
+        for name in names {
+            let Some(hash) = name.strip_suffix(".jpg") else {
+                continue;
+            };
+            if !live.iter().any(|h| h == hash) && self.known_deleted(hash)? {
+                remove_if_present(&blob_dir.join(&name))?;
+            }
+        }
         result.blobs_missing = self.missing_blobs()?.len();
         Ok(result)
     }
@@ -137,6 +219,25 @@ impl Catalog {
     }
 }
 
+/// Writes via a temporary file and a rename: a cloud client must never
+/// upload half a file as the whole.
+fn write_atomically(path: &Path, bytes: &[u8]) -> Result<()> {
+    let tmp = path.with_extension(match path.extension() {
+        Some(ext) => format!("{}.tmp", ext.to_string_lossy()),
+        None => "tmp".to_string(),
+    });
+    std::fs::write(&tmp, bytes).map_err(|e| Error::io(&tmp, e))?;
+    std::fs::rename(&tmp, path).map_err(|e| Error::io(path, e))
+}
+
+fn remove_if_present(path: &Path) -> Result<()> {
+    match std::fs::remove_file(path) {
+        Ok(()) => Ok(()),
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(()),
+        Err(e) => Err(Error::io(path, e)),
+    }
+}
+
 /// The file names directly in `dir`; an absent directory lists as empty.
 fn list_files(dir: &Path) -> Result<Vec<String>> {
     let entries = match std::fs::read_dir(dir) {
@@ -176,6 +277,67 @@ mod tests {
     fn a_damaged_line_skips_the_file() {
         assert!(parse_lines("{\"device\":1}\n").is_none());
         assert_eq!(parse_lines("\n\n").unwrap().len(), 0);
+    }
+
+    #[test]
+    fn a_round_publishes_own_rows_and_photos_and_two_catalogs_converge() {
+        let dir = tempfile::tempdir().unwrap();
+        let share = dir.path().join("share");
+        let mut a = Catalog::open_with_device(&dir.path().join("a"), "aaaa").unwrap();
+        a.set_author("Ada").unwrap();
+        a.create_clowder("clowder:h", "Home").unwrap();
+        a.create_cat("cat:m", "Miezi", Some("clowder:h"), "cat")
+            .unwrap();
+        let photo = a.add_image("cat:m", b"jpeg bytes").unwrap();
+        let r = a.sync_folder(&share, Some("leipzig"), false).unwrap();
+        assert_eq!((r.entries_out, r.blobs_out, r.entries_in), (7, 1, 0));
+        let sync = share.join(SYNC_DIR);
+        assert!(sync.join(".nomedia").exists());
+        assert!(sync.join("leipzig").join("aaaa.jsonl").exists());
+        assert!(
+            sync.join("leipzig")
+                .join("blobs")
+                .join(format!("{photo}.jpg"))
+                .exists()
+        );
+
+        let mut b = Catalog::open_with_device(&dir.path().join("b"), "bbbb").unwrap();
+        b.set_author("Bea").unwrap();
+        b.create_cat("cat:w", "Wanderer", None, "cat").unwrap();
+        let r = b.sync_folder(&share, Some("leipzig"), false).unwrap();
+        assert_eq!((r.entries_in, r.blobs_in, r.entries_out), (7, 1, 10));
+        assert_eq!(b.cats(None).unwrap().len(), 2);
+        assert_eq!(b.image_bytes(&photo).as_deref(), Some(&b"jpeg bytes"[..]));
+
+        // A second round of a changes nothing but takes b's cat; a plan
+        // moves the file to the flagged name and the old one goes.
+        a.append_at(
+            "cat:m",
+            "f:vet",
+            Some("shots"),
+            Some("2026-03-01T00:00:00Z"),
+            true,
+        )
+        .unwrap();
+        let r = a.sync_folder(&share, Some("leipzig"), false).unwrap();
+        assert_eq!((r.entries_in, r.entries_out), (3, 11));
+        assert!(sync.join("leipzig").join("aaaa.jsonl2").exists());
+        assert!(!sync.join("leipzig").join("aaaa.jsonl").exists());
+        assert_eq!(a.cats(None).unwrap().len(), 2);
+
+        // A deleted photo leaves the folder once its deletion is known.
+        a.delete_image("cat:m", &photo).unwrap();
+        a.sync_folder(&share, Some("leipzig"), false).unwrap();
+        assert!(
+            !sync
+                .join("leipzig")
+                .join("blobs")
+                .join(format!("{photo}.jpg"))
+                .exists()
+        );
+        let r = b.sync_folder(&share, Some("leipzig"), false).unwrap();
+        assert!(b.images("cat:m").unwrap().is_empty());
+        assert_eq!(r.blobs_missing, 0);
     }
 
     #[test]

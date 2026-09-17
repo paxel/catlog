@@ -63,6 +63,18 @@ jobs:
           tool: cargo-llvm-cov
       - name: Coverage per crate, 80% floor
         run: tool/coverage.sh
+      - name: Reverse corpus — the desktop writes, the Dart core reads
+        run: cargo run -p catlog-core --example reverse_corpus --locked -- target/reverse
+      - uses: dart-lang/setup-dart@v1
+      - name: Install sqlite3 for the Dart core
+        run: sudo apt-get install -y --no-install-recommends libsqlite3-dev
+      - name: Dart core reads what the desktop wrote
+        working-directory: packages/catalog_core
+        env:
+          CATLOG_REVERSE_DIR: ../../desktop/target/reverse
+        run: |
+          dart pub get
+          dart test test/reverse_corpus_test.dart
 
   apk:
     name: Android APK

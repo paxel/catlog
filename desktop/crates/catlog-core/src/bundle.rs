@@ -3,9 +3,11 @@
 //! keeps the entries in `entries2.jsonl` beside a `format` marker;
 //! format 1 files, from before reminders, use `entries.jsonl`.
 
-use std::collections::HashMap;
-use std::io::Read;
+use std::collections::{BTreeMap, HashMap};
+use std::io::{Read, Write};
 use std::path::Path;
+
+use zip::write::SimpleFileOptions;
 
 use crate::Result;
 use crate::catalog::Catalog;
@@ -29,6 +31,51 @@ pub struct BundleResult {
 }
 
 impl Catalog {
+    /// Writes the bundle zip: this Catalog's full knowledge plus the
+    /// photos in use. Private values and the photos among them stay out
+    /// unless `include_private`.
+    pub fn write_bundle(&self, path: &Path, include_private: bool) -> Result<()> {
+        let entries = self.entries_since(&BTreeMap::new(), include_private)?;
+        let mut jsonl = String::new();
+        for (i, e) in entries.iter().enumerate() {
+            if i > 0 {
+                jsonl.push('\n');
+            }
+            jsonl.push_str(&serde_json::to_string(&e.wire())?);
+        }
+        let flagged = entries.iter().any(|e| e.reminder);
+        let hashes = self.live_images(include_private)?;
+        let file = std::fs::File::create(path).map_err(|e| Error::io(path, e))?;
+        let mut zip = zip::ZipWriter::new(file);
+        let deflated = SimpleFileOptions::default()
+            .compression_method(zip::CompressionMethod::Deflated)
+            .last_modified_time(zip::DateTime::default());
+        let stored = SimpleFileOptions::default()
+            .compression_method(zip::CompressionMethod::Stored)
+            .last_modified_time(zip::DateTime::default());
+        // A payload without a flagged entry is byte-identical to the
+        // pre-1.0.0 format and ships under the old name.
+        if flagged {
+            zip.start_file("format", deflated)?;
+            zip.write_all(BUNDLE_FORMAT.to_string().as_bytes())
+                .map_err(|e| Error::io(path, e))?;
+            zip.start_file("entries2.jsonl", deflated)?;
+        } else {
+            zip.start_file("entries.jsonl", deflated)?;
+        }
+        zip.write_all(jsonl.as_bytes())
+            .map_err(|e| Error::io(path, e))?;
+        for hash in hashes {
+            let Some(bytes) = self.image_bytes(&hash) else {
+                continue;
+            };
+            zip.start_file(format!("blobs/{hash}.jpg"), stored)?;
+            zip.write_all(&bytes).map_err(|e| Error::io(path, e))?;
+        }
+        zip.finish()?;
+        Ok(())
+    }
+
     /// Imports a bundle file; unknown entries and missing photos land,
     /// everything else is ignored.
     pub fn import_bundle(&mut self, path: &Path) -> Result<BundleResult> {
@@ -105,6 +152,50 @@ mod tests {
         }
         zip.finish().unwrap();
         path
+    }
+
+    #[test]
+    fn a_written_bundle_comes_back_whole_and_a_plan_forces_format_two() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut a = Catalog::open_with_device(&dir.path().join("a"), "aaaa").unwrap();
+        a.set_author("Ada").unwrap();
+        a.create_cat("cat:m", "Miezi", None, "cat").unwrap();
+        let photo = a.add_image("cat:m", b"jpeg bytes").unwrap();
+        let path = dir.path().join("a.catsync");
+        a.write_bundle(&path, false).unwrap();
+        let names: Vec<String> = {
+            let z = zip::ZipArchive::new(std::fs::File::open(&path).unwrap()).unwrap();
+            z.file_names().map(String::from).collect()
+        };
+        assert!(names.contains(&"entries.jsonl".to_string()));
+        assert!(!names.contains(&"format".to_string()));
+
+        let mut b = Catalog::open_with_device(&dir.path().join("b"), "bbbb").unwrap();
+        let r = b.import_bundle(&path).unwrap();
+        assert_eq!((r.entries_in, r.blobs_in), (4, 1));
+        assert_eq!(b.image_bytes(&photo).as_deref(), Some(&b"jpeg bytes"[..]));
+        assert_eq!(b.import_bundle(&path).unwrap().entries_in, 0);
+
+        a.append_at(
+            "cat:m",
+            "f:vet",
+            Some("shots"),
+            Some("2026-03-01T00:00:00Z"),
+            true,
+        )
+        .unwrap();
+        a.write_bundle(&path, false).unwrap();
+        let names: Vec<String> = {
+            let z = zip::ZipArchive::new(std::fs::File::open(&path).unwrap()).unwrap();
+            z.file_names().map(String::from).collect()
+        };
+        assert!(names.contains(&"entries2.jsonl".to_string()));
+        assert!(names.contains(&"format".to_string()));
+        assert_eq!(b.import_bundle(&path).unwrap().entries_in, 1);
+        assert!(
+            a.write_bundle(&dir.path().join("nowhere").join("x.catsync"), false)
+                .is_err()
+        );
     }
 
     #[test]

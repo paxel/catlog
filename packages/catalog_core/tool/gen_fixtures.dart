@@ -17,6 +17,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:sqlite3/sqlite3.dart';
 
 import 'fixtures/dump.dart';
+import 'fixtures/folder_copy.dart';
 import 'fixtures/scenarios.dart';
 
 /// Fixed key seeds: the writer and the two readers of every scenario.
@@ -84,7 +85,7 @@ Future<void> main(List<String> args) async {
           Directory('${work.path}/folder-reader')..createSync(),
           'folderReader',
           'Reader');
-      await folderSyncIn(folderReader, _memoryCopy(folderDir));
+      await folderSyncIn(folderReader, memoryCopy(folderDir));
       final viaFolder = dumpState(folderReader);
 
       final bundleReader = _catalog(
@@ -121,21 +122,6 @@ Future<void> main(List<String> args) async {
     }
   }
   File('${root.path}/README.md').writeAsStringSync(index.toString());
-}
-
-/// The folder as written on disk, loaded into memory so importing from
-/// it writes nothing back into the fixture.
-MemorySyncFolder _memoryCopy(Directory folderDir) {
-  final folder = MemorySyncFolder();
-  final root = Directory('${folderDir.path}/catlog-sync');
-  for (final f in root.listSync(recursive: true).whereType<File>()) {
-    final rel = f.path.substring(root.path.length + 1);
-    final cut = rel.lastIndexOf('/');
-    final dir = cut < 0 ? '' : rel.substring(0, cut);
-    final name = cut < 0 ? rel : rel.substring(cut + 1);
-    folder.dirs.putIfAbsent(dir, () => {})[name] = f.readAsBytesSync();
-  }
-  return folder;
 }
 
 String _json(Object value) =>

@@ -28,9 +28,13 @@ const LATEST: &str = "ORDER BY date DESC, recorded DESC, author DESC, device DES
 const LIVE: &str = "AND NOT EXISTS (SELECT 1 FROM voids \
     WHERE voids.device = entries.device AND voids.dseq = entries.dseq)";
 
+/// Where a Catalog reads the wall clock for what it records.
+pub type Clock = Box<dyn Fn() -> chrono::DateTime<chrono::Utc> + Send>;
+
 pub struct Catalog {
     db: Connection,
     images: PathBuf,
+    clock: Clock,
 }
 
 impl Catalog {
@@ -88,10 +92,40 @@ impl Catalog {
              CREATE INDEX IF NOT EXISTS idx_entries_entity_field
                ON entries (entity, field);",
         )?;
-        let catalog = Catalog { db, images };
+        let catalog = Catalog {
+            db,
+            images,
+            clock: Box::new(chrono::Utc::now),
+        };
         catalog.ensure_device_id()?;
         catalog.rebuild_voids()?;
         Ok(catalog)
+    }
+
+    /// Opens a Catalog whose device id is fixed instead of random: the
+    /// fixture corpus and tests need a reproducible log. An existing
+    /// Catalog keeps the id it has.
+    pub fn open_with_device(dir: &Path, device: &str) -> Result<Catalog> {
+        std::fs::create_dir_all(dir).map_err(|e| Error::io(dir, e))?;
+        let db = Connection::open(dir.join("catalog.db"))?;
+        db.execute_batch(
+            "CREATE TABLE IF NOT EXISTS local_settings (key TEXT PRIMARY KEY, value TEXT NOT NULL)",
+        )?;
+        db.execute(
+            "INSERT OR IGNORE INTO local_settings (key, value) VALUES ('device', ?1)",
+            [device],
+        )?;
+        drop(db);
+        Self::open(dir)
+    }
+
+    /// Swaps the wall clock the Catalog stamps its own rows with.
+    pub fn set_clock(&mut self, clock: Clock) {
+        self.clock = clock;
+    }
+
+    fn now(&self) -> String {
+        (self.clock)().to_rfc3339_opts(chrono::SecondsFormat::Micros, true)
     }
 
     // ------------------------------------------------------------ settings
@@ -281,6 +315,246 @@ impl Catalog {
             self.set_local_setting(&key, &dseq.to_string())?;
         }
         Ok(())
+    }
+
+    /// The next sequence number for `device`: one above the high-water
+    /// mark, removed and discarded rows included (ADR 0008).
+    fn next_dseq(&self, device: &str) -> Result<i64> {
+        let highest: i64 = self.db.query_row(
+            "SELECT COALESCE(MAX(dseq), 0) FROM entries WHERE device = ?1",
+            [device],
+            |r| r.get(0),
+        )?;
+        let removed = self
+            .local_setting(&format!("banvector:{device}"))
+            .and_then(|v| v.parse::<i64>().ok())
+            .unwrap_or(0);
+        Ok(highest.max(removed) + 1)
+    }
+
+    /// Writes one row under this Catalog's own device.
+    #[allow(clippy::too_many_arguments)]
+    fn insert_own(
+        &self,
+        device: &str,
+        dseq: i64,
+        entity: &str,
+        field: &str,
+        value: Option<&str>,
+        date: &str,
+        author: &str,
+        recorded: &str,
+        reminder: bool,
+    ) -> Result<()> {
+        self.db.execute(
+            "INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded, reminder, sig) \
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, NULL)",
+            params![device, dseq, entity, field, value, date, author, recorded, reminder as i64],
+        )?;
+        self.note_void(field)
+    }
+
+    /// Appends one immutable fact under the configured Author. `date` is
+    /// the effective, backdatable date and defaults to now.
+    pub fn append(&mut self, entity: &str, field: &str, value: Option<&str>) -> Result<()> {
+        self.append_at(entity, field, value, None, false)
+    }
+
+    /// [`Catalog::append`] with an explicit effective date and the
+    /// reminder flag (a plan, not a fact).
+    pub fn append_at(
+        &mut self,
+        entity: &str,
+        field: &str,
+        value: Option<&str>,
+        date: Option<&str>,
+        reminder: bool,
+    ) -> Result<()> {
+        let author = self.author().ok_or(Error::NoAuthor)?;
+        let now = self.now();
+        let date = date.map(crate::entry::iso).unwrap_or_else(|| now.clone());
+        let device = self.device_id();
+        let next = self.next_dseq(&device)?;
+        self.insert_own(
+            &device, next, entity, field, value, &date, &author, &now, reminder,
+        )?;
+        // A value written while its field is private needs its public
+        // trace right away, or a partner sees an empty slot instead of a
+        // redacted one.
+        if !keys::is_structural(field)
+            && self.is_field_private(entity, field)?
+            && self.current(entity, &keys::withheld(field))?.as_deref() != Some("yes")
+        {
+            self.append_at(
+                entity,
+                &keys::withheld(field),
+                Some("yes"),
+                Some(&date),
+                false,
+            )?;
+        }
+        Ok(())
+    }
+
+    /// Creates a Clowder under `id` (`clowder:<uuid>`).
+    pub fn create_clowder(&mut self, id: &str, name: &str) -> Result<()> {
+        self.append(id, keys::TYPE, Some(keys::KIND_CLOWDER))?;
+        self.append(id, keys::NAME, Some(name))
+    }
+
+    /// Creates a Cat under `id` (`cat:<uuid>`), in a Clowder or as a Stray.
+    pub fn create_cat(
+        &mut self,
+        id: &str,
+        name: &str,
+        clowder: Option<&str>,
+        species: &str,
+    ) -> Result<()> {
+        self.append(id, keys::TYPE, Some(keys::KIND_CAT))?;
+        self.append(id, keys::NAME, Some(name))?;
+        self.append(id, &keys::user_field("species"), Some(species))?;
+        if let Some(c) = clowder {
+            self.append(id, keys::CLOWDER, Some(c))?;
+        }
+        Ok(())
+    }
+
+    /// Moves a Cat into a Clowder, or with none records it leaving: the
+    /// Cat becomes a Stray.
+    pub fn move_cat(&mut self, cat: &str, clowder: Option<&str>) -> Result<()> {
+        self.append(cat, keys::CLOWDER, clowder)
+    }
+
+    /// Stores an already-compressed JPEG for an entity, content-addressed
+    /// by SHA-256, and records it in the log. Returns the content hash.
+    pub fn add_image(&mut self, entity: &str, jpeg: &[u8]) -> Result<String> {
+        let hash = hex::encode(Sha256::digest(jpeg));
+        self.put_blob(&hash, jpeg)?;
+        self.append(entity, &keys::image(&hash), Some("added"))?;
+        Ok(hash)
+    }
+
+    /// Marks `hash` as the entity's Profile Image.
+    pub fn set_profile_image(&mut self, entity: &str, hash: &str) -> Result<()> {
+        self.append(entity, keys::PROFILE_IMAGE, Some(hash))
+    }
+
+    /// Deletes one photo: a marker entry propagates the deletion, the
+    /// bytes go once nothing references the hash anymore.
+    pub fn delete_image(&mut self, entity: &str, hash: &str) -> Result<()> {
+        self.append(entity, &keys::image(hash), Some("deleted"))?;
+        if !self.image_referenced(hash)? {
+            self.remove_blob(hash)?;
+        }
+        Ok(())
+    }
+
+    /// Whether any entry ever carried the reminder flag: while false,
+    /// every outgoing payload is byte-identical to the pre-1.0.0 format.
+    pub fn has_reminders(&self) -> Result<bool> {
+        Ok(self
+            .db
+            .query_row(
+                "SELECT 1 FROM entries WHERE reminder = 1 LIMIT 1",
+                [],
+                |_| Ok(()),
+            )
+            .optional()?
+            .is_some())
+    }
+
+    /// Every entry a partner with `vector` is missing, ordered (device,
+    /// dseq). Private values and their markers stay home unless
+    /// `include_private`; the `$withheld` trace travels either way.
+    pub fn entries_since(
+        &self,
+        vector: &BTreeMap<String, i64>,
+        include_private: bool,
+    ) -> Result<Vec<Entry>> {
+        let mut private_of: HashMap<(String, String), bool> = HashMap::new();
+        let mut result = Vec::new();
+        for e in self.all_entries()? {
+            let fresh = e.dseq > vector.get(&e.device).copied().unwrap_or(0);
+            let private = match private_of.get(&(e.entity.clone(), e.field.clone())) {
+                Some(p) => *p,
+                None => {
+                    let p = self.is_field_private(&e.entity, &e.field)?;
+                    private_of.insert((e.entity.clone(), e.field.clone()), p);
+                    p
+                }
+            };
+            if include_private {
+                if fresh || private {
+                    result.push(e);
+                }
+                continue;
+            }
+            if !fresh {
+                continue;
+            }
+            if e.field == keys::PRIVATE || e.field.starts_with(keys::PRIVATE_PREFIX) {
+                continue;
+            }
+            if !private {
+                result.push(e);
+            }
+        }
+        Ok(result)
+    }
+
+    /// True when this entity's value for `field` stays home: the
+    /// per-value marker decides, and a Private field definition covers
+    /// that field on every entity.
+    pub fn is_field_private(&self, id: &str, field: &str) -> Result<bool> {
+        if keys::is_structural(field) {
+            return Ok(false);
+        }
+        let key = self.canonical_key(field)?;
+        let entity = self.resolve_entity(id)?;
+        if self.current(&entity, keys::TYPE)?.as_deref() == Some(keys::KIND_FIELD_DEF) {
+            return Ok(false);
+        }
+        if let Some(marker) = self.current(&entity, &keys::private_field(&key))? {
+            return Ok(marker == "yes");
+        }
+        if let Some(slug) = key.strip_prefix("f:") {
+            let def = self.resolve_entity(&format!("fielddef:{slug}"))?;
+            if self.current(&def, keys::PRIVATE)?.as_deref() == Some("yes") {
+                return Ok(true);
+            }
+        }
+        Ok(false)
+    }
+
+    /// True when this store has seen a deletion marker for `hash`.
+    pub(crate) fn known_deleted(&self, hash: &str) -> Result<bool> {
+        Ok(self
+            .db
+            .query_row(
+                "SELECT 1 FROM entries WHERE field = ?1 AND value = 'deleted' LIMIT 1",
+                [keys::image(hash)],
+                |_| Ok(()),
+            )
+            .optional()?
+            .is_some())
+    }
+
+    /// The photos in use that travel: every added image of every Cat and
+    /// Clowder, private ones only when asked for.
+    pub(crate) fn live_images(&self, include_private: bool) -> Result<Vec<String>> {
+        let mut seen = HashSet::new();
+        let mut hashes = Vec::new();
+        for view in self.cats(None)?.into_iter().chain(self.clowders()?) {
+            for hash in self.images(&view.id)? {
+                if !include_private && self.is_field_private(&view.id, &keys::image(&hash))? {
+                    continue;
+                }
+                if seen.insert(hash.clone()) {
+                    hashes.push(hash);
+                }
+            }
+        }
+        Ok(hashes)
     }
 
     /// Imports foreign entries idempotently: (device, dseq) already held
@@ -1066,6 +1340,119 @@ mod tests {
             .unwrap();
         assert!(refused.is_empty());
         assert!(c.all_entries().unwrap().is_empty());
+    }
+
+    fn fixed_clock() -> Clock {
+        let tick = std::sync::atomic::AtomicI64::new(0);
+        Box::new(move || {
+            let n = tick.fetch_add(1, std::sync::atomic::Ordering::SeqCst);
+            chrono::DateTime::from_timestamp(1_767_261_600 + n, 0).unwrap()
+        })
+    }
+
+    #[test]
+    fn own_rows_are_numbered_stamped_and_projected() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        assert_eq!(c.device_id(), "me");
+        assert!(matches!(
+            c.append("cat:a", keys::NAME, Some("x")),
+            Err(Error::NoAuthor)
+        ));
+        c.set_author("Ada").unwrap();
+        c.set_clock(fixed_clock());
+        c.create_clowder("clowder:h", "Home").unwrap();
+        c.create_cat("cat:a", "Miezi", Some("clowder:h"), "cat")
+            .unwrap();
+        c.move_cat("cat:a", None).unwrap();
+        let rows = c.all_entries().unwrap();
+        assert_eq!(rows.len(), 7);
+        assert_eq!(rows[0].date, "2026-01-01T10:00:00.000000Z");
+        assert_eq!(rows[6].dseq, 7);
+        assert!(rows.iter().all(|e| e.device == "me" && e.author == "Ada"));
+        assert!(c.cats(Some("clowder:h")).unwrap().is_empty());
+        assert_eq!(c.cats(None).unwrap()[0].name, "Miezi");
+        c.append_at(
+            "cat:a",
+            "f:vet",
+            Some("shots"),
+            Some("2026-03-01T00:00:00Z"),
+            true,
+        )
+        .unwrap();
+        assert!(c.has_reminders().unwrap());
+        assert_eq!(c.current("cat:a", "f:vet").unwrap(), None);
+        // Reopening keeps the id and the counter moves on from the log.
+        drop(c);
+        let mut c = Catalog::open_with_device(dir.path(), "other").unwrap();
+        assert_eq!(c.device_id(), "me");
+        c.append("cat:a", "f:color", Some("black")).unwrap();
+        assert_eq!(c.all_entries().unwrap().last().unwrap().dseq, 9);
+    }
+
+    #[test]
+    fn photos_added_here_are_stored_listed_and_deleted() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        c.create_cat("cat:a", "Miezi", None, "cat").unwrap();
+        let one = c.add_image("cat:a", b"one").unwrap();
+        let two = c.add_image("cat:a", b"two").unwrap();
+        c.set_profile_image("cat:a", &two).unwrap();
+        assert_eq!(c.images("cat:a").unwrap(), vec![one.clone(), two.clone()]);
+        assert_eq!(
+            c.profile_image("cat:a").unwrap().as_deref(),
+            Some(two.as_str())
+        );
+        assert_eq!(c.live_images(false).unwrap().len(), 2);
+        c.delete_image("cat:a", &two).unwrap();
+        assert!(c.image_bytes(&two).is_none());
+        assert!(c.known_deleted(&two).unwrap());
+        assert!(!c.known_deleted(&one).unwrap());
+        assert_eq!(
+            c.profile_image("cat:a").unwrap().as_deref(),
+            Some(one.as_str())
+        );
+    }
+
+    #[test]
+    fn private_values_stay_home_and_leave_their_trace() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        c.create_clowder("clowder:h", "Home").unwrap();
+        c.append("clowder:h", &keys::private_field("f:phone"), Some("yes"))
+            .unwrap();
+        c.append("clowder:h", "f:phone", Some("555")).unwrap();
+        assert!(c.is_field_private("clowder:h", "f:phone").unwrap());
+        assert!(!c.is_field_private("clowder:h", keys::NAME).unwrap());
+        assert_eq!(
+            c.current("clowder:h", &keys::withheld("f:phone"))
+                .unwrap()
+                .as_deref(),
+            Some("yes")
+        );
+        let public = c.entries_since(&BTreeMap::new(), false).unwrap();
+        assert!(
+            public
+                .iter()
+                .all(|e| e.field != "f:phone" && !e.field.starts_with("$private"))
+        );
+        assert!(public.iter().any(|e| e.field == keys::withheld("f:phone")));
+        let all = c.entries_since(&BTreeMap::new(), true).unwrap();
+        assert!(all.iter().any(|e| e.field == "f:phone"));
+        let mut seen = BTreeMap::new();
+        seen.insert("me".to_string(), 100);
+        let late = c.entries_since(&seen, true).unwrap();
+        assert!(late.iter().all(|e| e.field == "f:phone"));
+        assert!(c.entries_since(&seen, false).unwrap().is_empty());
+        // A Private field definition covers the field on every entity.
+        c.append("fielddef:secret", keys::TYPE, Some(keys::KIND_FIELD_DEF))
+            .unwrap();
+        c.append("fielddef:secret", keys::PRIVATE, Some("yes"))
+            .unwrap();
+        assert!(c.is_field_private("clowder:h", "f:secret").unwrap());
+        assert!(!c.is_field_private("fielddef:secret", keys::NAME).unwrap());
     }
 
     #[test]
