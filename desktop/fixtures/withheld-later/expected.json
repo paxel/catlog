@@ -2242,5 +2242,37 @@
       "recorded": "2026-01-01T10:01:35.000Z",
       "sig": "DsEoO0Dbv76rTZUoRMbfwJiO4OjL7X/Zm2QeMoTOQJw6TfiH5W8OcnZcaqBm92lRkznzoCzUDyexSUBLyV9sDg=="
     }
-  ]
+  ],
+  "report": {
+    "refused": {},
+    "newKeys": [
+      "65b60673d6ed884bf01c2c222d82ada0"
+    ],
+    "impostors": [],
+    "changedKeys": []
+  },
+  "bundleReport": {
+    "refused": {},
+    "newKeys": [
+      "65b60673d6ed884bf01c2c222d82ada0"
+    ],
+    "impostors": [],
+    "changedKeys": []
+  },
+  "sync": {
+    "entriesIn": 93,
+    "blobsIn": 0,
+    "blobsMissing": 0,
+    "blobProblems": []
+  },
+  "syncLater": {
+    "entriesIn": 1,
+    "blobsIn": 0,
+    "blobsMissing": 0,
+    "blobProblems": []
+  },
+  "bundle": {
+    "entriesIn": 95,
+    "blobsIn": 0
+  }
 }

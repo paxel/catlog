@@ -36,12 +36,18 @@ class Scenario {
   /// unless set.
   final bool? bundleIncludePrivate;
 
+  /// When the two transports legitimately end in different states, the
+  /// bundle reader's state is recorded on its own as
+  /// `expected-bundle.json` instead of having to match the folder's.
+  final bool separateBundleState;
+
   const Scenario(this.name, this.about, this.build,
       {this.tamper,
       this.later = false,
       this.includePrivate = false,
       this.laterIncludePrivate = false,
-      this.bundleIncludePrivate});
+      this.bundleIncludePrivate,
+      this.separateBundleState = false});
 }
 
 /// The written files, open for editing by a scenario's tamper step.
@@ -420,7 +426,9 @@ final scenarios = <Scenario>[
   Scenario(
     'withheld-later',
     'A value received as withheld sits below the version vector; a later '
-        'round with private included carries it anyway.',
+        'round with private included carries it anyway. Its private '
+        'marker, below the vector and no withheld value itself, stays '
+        'behind in the folder; the bundle, taken whole, brings it.',
     (w) {
       final home = clowder(w, 1, 'Foster Home');
       w.append(home, 'f:phone', '+49 341 000');
@@ -430,6 +438,7 @@ final scenarios = <Scenario>[
     later: true,
     laterIncludePrivate: true,
     bundleIncludePrivate: true,
+    separateBundleState: true,
   ),
   Scenario(
     'photo-missing',

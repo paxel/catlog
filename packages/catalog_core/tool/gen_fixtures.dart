@@ -112,7 +112,10 @@ Future<void> main(List<String> args) async {
       final viaBundle = dumpState(bundleReader);
 
       final folderJson = _json(viaFolder);
-      if (folderJson != _json(viaBundle)) {
+      if (scenario.separateBundleState) {
+        File('${out.path}/expected-bundle.json')
+            .writeAsStringSync(_json(viaBundle));
+      } else if (folderJson != _json(viaBundle)) {
         File('${out.path}/expected-bundle.json')
             .writeAsStringSync(_json(viaBundle));
         File('${out.path}/expected-folder.json').writeAsStringSync(folderJson);
