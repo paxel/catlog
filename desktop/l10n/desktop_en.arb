@@ -23,5 +23,11 @@
   "nextPhoto": "Next",
   "previousPhoto": "Previous",
   "savePhotoAs": "Save photo as…",
-  "dropPhotosHint": "Drop image files here to add them as photos"
+  "dropPhotosHint": "Drop image files here to add them as photos",
+  "syncMenu": "Sync…",
+  "bundlesSection": "Sync bundle files",
+  "exportBundle": "Export sync bundle…",
+  "newKeyPinned": "New partner key pinned: {code}",
+  "noneLabel": "None",
+  "bundleWritten": "Bundle written to {path}"
 }

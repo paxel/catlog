@@ -23,5 +23,11 @@
   "nextPhoto": "Weiter",
   "previousPhoto": "Zurück",
   "savePhotoAs": "Foto speichern unter…",
-  "dropPhotosHint": "Bilddateien hier ablegen, um sie als Fotos hinzuzufügen"
+  "dropPhotosHint": "Bilddateien hier ablegen, um sie als Fotos hinzuzufügen",
+  "syncMenu": "Synchronisieren…",
+  "bundlesSection": "Sync-Bündel-Dateien",
+  "exportBundle": "Sync-Bündel exportieren…",
+  "newKeyPinned": "Neuer Partnerschlüssel gemerkt: {code}",
+  "noneLabel": "Keine",
+  "bundleWritten": "Bündel geschrieben nach {path}"
 }

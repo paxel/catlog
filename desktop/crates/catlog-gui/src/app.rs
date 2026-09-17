@@ -2,15 +2,20 @@
 //! on the right, the intro on first start. Everything the window shows
 //! passes through [`App::show`], which the kittest harness drives.
 
+use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
+use std::time::{Duration, Instant};
 
 use catlog_core::entities::PositionKind;
 use catlog_core::geocode::Geocoder;
+use catlog_core::review::{needs_attention, review_import};
+use catlog_core::sync::{UnseenChanges, grown_files};
 use catlog_core::tiles::TileCache;
 use catlog_core::{Catalog, CatalogManager, keys};
 use egui::{Context, ThemePreference, Ui};
 
+use crate::conflicts::{ConflictDialog, show_conflicts};
 use crate::dialogs::{ConfirmDialog, NameDialog};
 use crate::editor::{EditTarget, FieldEditor, apply_edit};
 use crate::history::{HistoryAction, HistoryPage};
@@ -24,6 +29,8 @@ use crate::pages::{PageAction, Pages};
 use crate::photos::{EditMode, PhotoEditor, PhotoViewer, ViewerAction};
 use crate::picker::PositionPicker;
 use crate::settings::{AppSettings, SettingsFile};
+use crate::summary::{ArrivalSummary, SummaryAction};
+use crate::sync_page::{SyncAction, SyncPage};
 use crate::textures::FaceCache;
 
 /// What the keeper asked the shell to do; the launcher acts on it.
@@ -43,6 +50,11 @@ pub const DEFAULT_PANE_WIDTH: f32 = 320.0;
 pub type FilePicker = Box<dyn FnMut(&str) -> Vec<PathBuf>>;
 /// Asks the keeper where to save: title and suggested name in, the path out.
 pub type FileSaver = Box<dyn FnMut(&str, &str) -> Option<PathBuf>>;
+/// Asks the keeper for a folder: the dialog's title in, the folder out.
+pub type FolderPicker = Box<dyn FnMut(&str) -> Option<PathBuf>>;
+
+/// How often the shared folder is looked at while the app runs.
+const WATCH_EVERY: Duration = Duration::from_secs(5 * 60);
 
 /// Which dialog is up, and what its answer means.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -83,6 +95,17 @@ pub struct App {
     pub pick_files: FilePicker,
     /// Asks the keeper where to save a file; the system dialog outside tests.
     pub save_file: FileSaver,
+    pub pick_folder: FolderPicker,
+    pub sync_page: SyncPage,
+    pub summary: ArrivalSummary,
+    pub conflict: ConflictDialog,
+    /// Changes waiting in the folder, shown on the watch line.
+    pub watch_pending: Option<UnseenChanges>,
+    /// The partners' file sizes when the line was put away with "Not now".
+    watch_dismissed: Option<BTreeMap<String, u64>>,
+    watch_sizes: BTreeMap<String, u64>,
+    last_check: Instant,
+    was_focused: bool,
     asking: Asking,
     /// The name typed on the intro page.
     intro_name: String,
@@ -159,6 +182,15 @@ impl App {
                     .set_file_name(name)
                     .save_file()
             }),
+            pick_folder: Box::new(|title| rfd::FileDialog::new().set_title(title).pick_folder()),
+            sync_page: SyncPage::default(),
+            summary: ArrivalSummary::default(),
+            conflict: ConflictDialog::default(),
+            watch_pending: None,
+            watch_dismissed: None,
+            watch_sizes: BTreeMap::new(),
+            last_check: Instant::now(),
+            was_focused: false,
             asking: Asking::Nothing,
             request: Request::None,
             about_open: false,
@@ -287,7 +319,128 @@ impl App {
         self.manager.set_active(id)?;
         self.home.selection = Selection::None;
         self.faces = FaceCache::default();
+        self.watch_pending = None;
+        self.watch_dismissed = None;
+        self.sync_page = SyncPage::default();
         Ok(())
+    }
+
+    /// One watch round over the chosen folder: merges on its own when
+    /// the switch says so, otherwise shows the line. Quiet without a
+    /// folder, with the watch off, or after "Not now" until a file grows
+    /// again.
+    pub fn check_folder(&mut self) {
+        self.last_check = Instant::now();
+        if !self.store.sync_watch_on() {
+            return;
+        }
+        let Some(folder) = self.store.sync_folder_path() else {
+            return;
+        };
+        let Ok(check) = self.store.check_sync_folder(&folder) else {
+            return;
+        };
+        if check.photos_in > 0 {
+            self.faces = FaceCache::default();
+        }
+        self.watch_sizes = check.sizes.clone();
+        let Some(pending) = check.pending else {
+            self.watch_pending = None;
+            return;
+        };
+        if let Some(dismissed) = &self.watch_dismissed
+            && grown_files(dismissed, &check.sizes).is_empty()
+        {
+            return;
+        }
+        self.watch_dismissed = None;
+        if self.store.sync_auto_on() {
+            self.run_sync();
+        } else {
+            self.watch_pending = Some(pending);
+        }
+    }
+
+    /// One round through the chosen folder, the result on the Sync page
+    /// and the summary window when something arrived.
+    pub fn run_sync(&mut self) {
+        let t = self.t;
+        self.sync_page.syncing = false;
+        self.watch_pending = None;
+        match self.store.sync_chosen_folder() {
+            Ok((round, _moment)) => {
+                self.sync_page.folder_result = Some(t.folder_synced(&round.to_string()));
+                self.faces = FaceCache::default();
+                self.open_summary(&round.applied, round.report);
+            }
+            Err(catlog_core::Error::Invalid(e)) if e.contains("unreachable") => {
+                self.sync_page.folder_result = Some(t.folder_unreachable().to_string());
+            }
+            Err(e) => {
+                self.sync_page.folder_result = Some(t.folder_sync_failed(&e.to_string()));
+            }
+        }
+    }
+
+    fn open_summary(
+        &mut self,
+        applied: &[catlog_core::Entry],
+        report: catlog_core::signing::ImportReport,
+    ) {
+        if applied.is_empty() && !needs_attention(&report) {
+            return;
+        }
+        match review_import(&self.store, applied, report) {
+            Ok(review) => self.summary.open_with(review, applied.to_vec()),
+            Err(e) => self.notice = Some(e.to_string()),
+        }
+    }
+
+    /// Imports a `.catsync` file: from the Sync page, a drop on the
+    /// window, or the file the app was started with.
+    pub fn open_bundle_file(&mut self, path: &Path) {
+        let t = self.t;
+        let label = path.file_name().map(|n| n.to_string_lossy().into_owned());
+        self.home.selection = Selection::Sync;
+        self.history_of = None;
+        match self
+            .store
+            .import_with_moment(path, "import", label.as_deref())
+        {
+            Ok((result, _moment)) => {
+                if result.applied.is_empty()
+                    && result.blobs_in == 0
+                    && !needs_attention(&result.report)
+                {
+                    self.sync_page.bundle_result = Some(t.nothing_new_in_bundle().to_string());
+                } else {
+                    self.sync_page.bundle_result = Some(t.bundle_imported(&format!(
+                        "{} entries + {} photos in",
+                        result.entries_in, result.blobs_in
+                    )));
+                    self.faces = FaceCache::default();
+                    self.open_summary(&result.applied, result.report);
+                }
+            }
+            Err(e) => {
+                self.sync_page.bundle_result = Some(t.bundle_import_failed(&e.to_string()));
+            }
+        }
+    }
+
+    /// Writes the Catalog as a `.catsync` file where the keeper says.
+    fn export_bundle(&mut self) {
+        let t = self.t;
+        let name = format!("{}.catsync", self.title());
+        let Some(path) = (self.save_file)(t.export_bundle(), &name) else {
+            return;
+        };
+        self.sync_page.bundle_result = Some(
+            match self.store.write_bundle(&path, self.store.sync_private_on()) {
+                Ok(()) => t.bundle_written(&path.to_string_lossy()),
+                Err(e) => t.sync_failed(&e.to_string()),
+            },
+        );
     }
 
     fn finish_intro(&mut self) {
@@ -310,8 +463,19 @@ impl App {
             self.show_intro(ui);
             return;
         }
+        // A round asked for last frame runs now, after "Syncing…" painted.
+        if self.sync_page.syncing {
+            self.run_sync();
+        }
+        let focused = ui.input(|i| i.focused);
+        if (focused && !self.was_focused) || self.last_check.elapsed() >= WATCH_EVERY {
+            self.check_folder();
+        }
+        self.was_focused = focused;
+        ui.ctx().request_repaint_after(Duration::from_secs(60));
         self.show_menu_bar(ui);
         let t = self.t;
+        self.show_watch_line(ui);
         let mut action = HomeAction::None;
         // The pane opens at the remembered width; egui keeps the width
         // between frames, and a drag that ends is what gets remembered.
@@ -389,6 +553,36 @@ impl App {
                         .pages
                         .show_cat(ui, &self.store, &t, &mut self.faces, &id);
                 }
+                Selection::Sync => match self.sync_page.show(ui, &self.store, &t) {
+                    SyncAction::None => {}
+                    SyncAction::ChooseFolder => {
+                        if let Some(folder) = (self.pick_folder)(t.shared_folder())
+                            && let Err(e) = self.store.choose_sync_folder(&folder)
+                        {
+                            self.notice = Some(e.to_string());
+                        }
+                    }
+                    SyncAction::UseLastFolder(last) => {
+                        if let Err(e) = self.store.choose_sync_folder(Path::new(&last)) {
+                            self.notice = Some(e.to_string());
+                        }
+                    }
+                    SyncAction::SyncNow => {}
+                    SyncAction::ExportBundle => self.export_bundle(),
+                    SyncAction::ImportBundle => {
+                        let picked = (self.pick_files)(t.import_bundle());
+                        if let Some(path) = picked.first() {
+                            self.open_bundle_file(path);
+                        }
+                    }
+                },
+                Selection::Conflicts => {
+                    if let Some((entity, field)) =
+                        show_conflicts(ui, &self.store, &t, self.pages.units)
+                    {
+                        self.conflict.ask(&self.store, &entity, &field);
+                    }
+                }
                 Selection::Map => match self.map_page.show(ui, &self.store, &t) {
                     MapPageAction::None => {}
                     MapPageAction::OpenCat(id) => page_action = PageAction::OpenCat(id),
@@ -461,7 +655,8 @@ impl App {
                     .ask(t.delete_photo_title(), t.delete_photo_body(), t.delete());
             }
         }
-        // Files dropped on a Cat's page become its photos.
+        // A dropped bundle is imported; other files dropped on a Cat's
+        // page become its photos.
         let dropped: Vec<PathBuf> = ui.input(|i| {
             i.raw
                 .dropped_files
@@ -469,11 +664,46 @@ impl App {
                 .filter_map(|f| f.path.clone())
                 .collect()
         });
-        if !dropped.is_empty()
+        let (bundles, pictures): (Vec<PathBuf>, Vec<PathBuf>) =
+            dropped.into_iter().partition(|p| {
+                p.extension()
+                    .is_some_and(|e| e.eq_ignore_ascii_case("catsync"))
+            });
+        for bundle in &bundles {
+            self.open_bundle_file(bundle);
+        }
+        if !pictures.is_empty()
             && let Selection::Cat(cat) = self.home.selection.clone()
         {
-            self.add_photos(&cat, &dropped);
+            self.add_photos(&cat, &pictures);
         }
+        match self
+            .summary
+            .show(ui.ctx(), &self.store, &t, self.pages.units)
+        {
+            SummaryAction::None => {}
+            SummaryAction::Reject => {
+                let applied = std::mem::take(&mut self.summary.applied);
+                if let Err(e) = self.store.discard_entries(&applied) {
+                    self.notice = Some(e.to_string());
+                }
+                self.faces = FaceCache::default();
+            }
+            SummaryAction::OpenConflicts => {
+                self.home.selection = Selection::Conflicts;
+                self.history_of = None;
+            }
+            SummaryAction::OpenEntity(id) => {
+                self.home.selection = if id.starts_with("clowder:") {
+                    Selection::Clowder(id)
+                } else {
+                    Selection::Cat(id)
+                };
+                self.history_of = None;
+            }
+        }
+        self.conflict
+            .show(ui.ctx(), &mut self.store, &t, self.pages.units);
         if self.confirm.show(ui.ctx(), t.cancel())
             && let Some((cat, hash)) = self.deleting_photo.take()
         {
@@ -686,6 +916,24 @@ impl App {
                             self.act(HomeAction::NewClowder);
                             ui.close();
                         }
+                        ui.separator();
+                        if ui.button(t.sync_menu()).clicked() {
+                            self.home.selection = Selection::Sync;
+                            self.history_of = None;
+                            ui.close();
+                        }
+                        let conflicts = self.store.conflicts().map(|c| c.len()).unwrap_or(0);
+                        if ui
+                            .add_enabled(
+                                conflicts > 0,
+                                egui::Button::new(t.conflicts_menu(conflicts as i64)),
+                            )
+                            .clicked()
+                        {
+                            self.home.selection = Selection::Conflicts;
+                            self.history_of = None;
+                            ui.close();
+                        }
                     });
                     ui.menu_button(t.menu_help(), |ui| {
                         if ui.button(t.about_and_feedback()).clicked() {
@@ -694,6 +942,42 @@ impl App {
                     });
                 });
             });
+    }
+
+    /// The line under the menu bar while a partner's changes wait.
+    fn show_watch_line(&mut self, ui: &mut Ui) {
+        let Some(pending) = self.watch_pending.clone() else {
+            return;
+        };
+        let t = self.t;
+        let authors = if pending.authors.is_empty() {
+            t.sync_another_device().to_string()
+        } else {
+            pending.authors.join(", ")
+        };
+        let catalog = self.manager.active().name.clone();
+        let mut sync = false;
+        let mut dismiss = false;
+        egui::Panel::top("watch-line")
+            .show_separator_line(true)
+            .show(ui, |ui| {
+                ui.horizontal(|ui| {
+                    ui.label(t.sync_changes_waiting(&authors, &catalog));
+                    if ui.button(t.sync_now()).clicked() {
+                        sync = true;
+                    }
+                    if ui.button(t.sync_dismiss()).clicked() {
+                        dismiss = true;
+                    }
+                });
+            });
+        if sync {
+            self.run_sync();
+        }
+        if dismiss {
+            self.watch_dismissed = Some(self.watch_sizes.clone());
+            self.watch_pending = None;
+        }
     }
 
     fn show_about(&mut self, ctx: &Context) {
@@ -1703,5 +1987,317 @@ mod tests {
         h.key_press(egui::Key::Escape);
         h.run();
         assert!(!h.state().viewer.open);
+    }
+
+    /// An app over its own data dir, pointed at `shared` by the folder
+    /// picker, with the author `name`.
+    fn partner(dir: &std::path::Path, name: &str, shared: &std::path::Path) -> App {
+        let mut app = app(dir, "en", true);
+        app.settings.settings.author = Some(name.into());
+        app.store().set_author(name).unwrap();
+        let hand = shared.to_path_buf();
+        app.pick_folder = Box::new(move |_| Some(hand.clone()));
+        app
+    }
+
+    fn open_sync_page(h: &mut Harness<'static, App>) {
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("Sync…").click_accesskit();
+        h.run();
+    }
+
+    #[test]
+    fn the_sync_page_chooses_a_folder_and_two_desks_meet_through_it() {
+        let dir = tempfile::tempdir().unwrap();
+        let shared = dir.path().join("shared");
+        std::fs::create_dir_all(&shared).unwrap();
+        let mut ada = seeded(&dir.path().join("ada"));
+        let hand = shared.clone();
+        ada.pick_folder = Box::new(move |_| Some(hand.clone()));
+        let mut h = harness(ada);
+        h.run();
+        open_sync_page(&mut h);
+        assert_eq!(*h.state().selection(), Selection::Sync);
+        h.get_by_label("No folder chosen yet");
+        h.get_by_label("Choose…").click();
+        h.run();
+        h.get_by_label(shared.to_string_lossy().as_ref());
+        assert_eq!(h.state().store().sync_folder_path(), Some(shared.clone()));
+        // The switches write the phone's settings.
+        h.get_by_label("Share private data").click();
+        h.run();
+        assert!(h.state().store().sync_private_on());
+        h.get_by_label("Merge them on their own").click();
+        h.run();
+        assert!(h.state().store().sync_auto_on());
+        h.get_by_label("Merge them on their own").click();
+        h.run();
+        assert!(!h.state().store().sync_auto_on());
+        // The round runs on the frame after the click, then reports.
+        h.get_by_label("Sync folder now").click();
+        h.step();
+        assert!(h.state().sync_page.syncing);
+        h.get_by_label("Syncing with the folder…");
+        h.run();
+        assert!(!h.state().sync_page.syncing);
+        h.get_by_label_contains("Folder synced: 0 entries + 0 photos in, ");
+        assert!(!h.state().summary.open, "nothing arrived at the writer");
+        assert!(shared.join("catlog-sync").is_dir());
+
+        // Bob joins with an empty Catalog and takes everything.
+        let mut b = harness(partner(&dir.path().join("bob"), "Bob", &shared));
+        b.run();
+        open_sync_page(&mut b);
+        h.get_by_label("Choose…");
+        b.get_by_label("Choose…").click();
+        b.run();
+        b.get_by_label("Sync folder now").click();
+        b.run();
+        assert!(
+            b.state().summary.open,
+            "the summary opens over what arrived"
+        );
+        b.get_by_label("What arrived");
+        b.get_by_label("New");
+        b.get_all_by_label("Miezi").next().unwrap();
+        b.get_by_label("Close").click();
+        b.run();
+        assert!(!b.state().summary.open);
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        assert_eq!(
+            b.state()
+                .store()
+                .current(miezi, keys::NAME)
+                .unwrap()
+                .as_deref(),
+            Some("Miezi")
+        );
+        // Quiet afterwards: nothing waits.
+        b.state_mut().check_folder();
+        b.run();
+        assert!(b.state().watch_pending.is_none());
+
+        // Ada changes something: Bob's watch shows the line; "Not now"
+        // keeps it away until the file grows again.
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:remarks", Some("purrs"))
+            .unwrap();
+        h.state_mut().run_sync();
+        b.state_mut().check_folder();
+        b.run();
+        assert!(b.state().watch_pending.is_some());
+        b.get_by_label("Changes from Ada waiting in Clowders. Tap to sync.");
+        b.get_by_label("Not now").click();
+        b.run();
+        assert!(b.state().watch_pending.is_none());
+        b.state_mut().check_folder();
+        b.run();
+        assert!(
+            b.state().watch_pending.is_none(),
+            "dismissed until it grows"
+        );
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:remarks", Some("purrs a lot"))
+            .unwrap();
+        h.state_mut().run_sync();
+        b.state_mut().check_folder();
+        b.run();
+        b.get_by_label("Changes from Ada waiting in Clowders. Tap to sync.");
+        b.get_by_label("Sync now").click();
+        b.run();
+        assert!(b.state().watch_pending.is_none());
+        b.get_by_label("Updated");
+        b.get_by_label_contains("purrs a lot");
+        // Reject puts it back.
+        b.get_by_label("Reject").click();
+        b.run();
+        assert!(!b.state().summary.open);
+        assert_eq!(
+            b.state()
+                .store()
+                .current(miezi, "f:remarks")
+                .unwrap()
+                .as_deref(),
+            None,
+            "rejected rows are gone"
+        );
+        // Merging on its own: the change lands without a line.
+        b.state()
+            .store()
+            .set_local_setting(catlog_core::sync::SYNC_AUTO, "1")
+            .unwrap();
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:visits", Some("2"))
+            .unwrap();
+        h.state_mut().run_sync();
+        b.state_mut().check_folder();
+        b.run();
+        assert!(b.state().watch_pending.is_none());
+        assert_eq!(
+            b.state()
+                .store()
+                .current(miezi, "f:visits")
+                .unwrap()
+                .as_deref(),
+            Some("2")
+        );
+        assert!(b.state().summary.open);
+        // The watch is quiet with the switch off, and a folder that went
+        // away fails the round with the phone's words.
+        b.state()
+            .store()
+            .set_local_setting(catlog_core::sync::SYNC_WATCH, "0")
+            .unwrap();
+        b.state_mut().check_folder();
+        assert!(b.state().watch_pending.is_none());
+        std::fs::remove_dir_all(&shared).unwrap();
+        b.state_mut().run_sync();
+        b.run();
+        assert_eq!(
+            b.state().sync_page.folder_result.as_deref(),
+            Some("Couldn't reach the folder. Is the drive or cloud folder still there?")
+        );
+    }
+
+    #[test]
+    fn a_bundle_travels_from_one_desk_to_another_and_opens_by_file() {
+        let dir = tempfile::tempdir().unwrap();
+        let bundle = dir.path().join("clowders.catsync");
+        let mut ada = seeded(&dir.path().join("ada"));
+        let hand = bundle.clone();
+        ada.save_file = Box::new(move |_, _| Some(hand.clone()));
+        let mut h = harness(ada);
+        h.run();
+        open_sync_page(&mut h);
+        h.get_by_label("Export sync bundle…").click();
+        h.run();
+        assert!(bundle.is_file());
+        h.get_by_label_contains("Bundle written to ");
+
+        let mut bob = app(&dir.path().join("bob"), "en", true);
+        let hand = bundle.clone();
+        bob.pick_files = Box::new(move |_| vec![hand.clone()]);
+        let mut b = harness(bob);
+        b.run();
+        open_sync_page(&mut b);
+        b.get_by_label("Import sync bundle…").click();
+        b.run();
+        b.get_by_label_contains("Bundle imported: ");
+        b.get_by_label("What arrived");
+        b.get_by_label("Close").click();
+        b.run();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        assert_eq!(
+            b.state()
+                .store()
+                .current(miezi, keys::NAME)
+                .unwrap()
+                .as_deref(),
+            Some("Miezi")
+        );
+        // The same file again brings nothing; junk is refused.
+        b.get_by_label("Import sync bundle…").click();
+        b.run();
+        b.get_by_label("Nothing new in that file — you already have everything");
+        let junk = dir.path().join("junk.catsync");
+        std::fs::write(&junk, b"junk").unwrap();
+        b.state_mut().open_bundle_file(&junk);
+        b.run();
+        b.get_by_label_contains("Import failed: ");
+        // A bundle dropped on the window is imported from any page.
+        let mut carol = harness(app(&dir.path().join("carol"), "en", true));
+        carol.run();
+        carol.input_mut().dropped_files.push(egui::DroppedFile {
+            path: Some(bundle.clone()),
+            ..Default::default()
+        });
+        carol.run();
+        assert_eq!(*carol.state().selection(), Selection::Sync);
+        carol.get_by_label("What arrived");
+        assert_eq!(
+            carol
+                .state()
+                .store()
+                .current(miezi, keys::NAME)
+                .unwrap()
+                .as_deref(),
+            Some("Miezi")
+        );
+    }
+
+    #[test]
+    fn conflicts_are_listed_and_decided_with_an_entry() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "conflict"));
+        h.run();
+        let conflicts = h.state().store().conflicts().unwrap();
+        assert!(!conflicts.is_empty());
+        let (entity, field) = conflicts[0].clone();
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label(format!("Conflicts ({})", conflicts.len()).as_str())
+            .click_accesskit();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Conflicts);
+        h.get_by_label("Conflicts to resolve");
+        h.get_by_label("Changed in two places at once. Pick what is true:");
+        let name = h
+            .state()
+            .store()
+            .current(&entity, keys::NAME)
+            .unwrap()
+            .unwrap();
+        h.get_by_label_contains(&format!("{name} — ")).click();
+        h.run();
+        assert!(h.state().conflict.open);
+        assert_eq!(h.state().conflict.candidates.len(), 2);
+        assert!(!h.state().conflict.same());
+        // Pick the second candidate: its value is written as an entry.
+        let second = h.state().conflict.candidates[1].clone();
+        h.state_mut().conflict.chosen = Some(second.seq);
+        h.run();
+        h.get_by_label("Resolve").click();
+        h.run();
+        assert!(!h.state().conflict.open);
+        assert!(!h.state().store().has_conflict(&entity, &field).unwrap());
+        assert_eq!(
+            h.state().store().current(&entity, &field).unwrap(),
+            second.value
+        );
+        let history = h
+            .state()
+            .store()
+            .field_history(&entity, &field, false)
+            .unwrap();
+        assert_eq!(
+            history[0].author, "Ada",
+            "the decision is an entry of this desk"
+        );
+        assert_eq!(
+            h.state().store().conflicts().unwrap().len(),
+            conflicts.len() - 1
+        );
+        // Cancel leaves the next one open.
+        if conflicts.len() > 1 {
+            let (entity, _) = conflicts[1].clone();
+            let name = h
+                .state()
+                .store()
+                .current(&entity, keys::NAME)
+                .unwrap()
+                .unwrap();
+            h.get_by_label_contains(&format!("{name} — ")).click();
+            h.run();
+            h.get_by_label("Cancel").click();
+            h.run();
+            assert_eq!(
+                h.state().store().conflicts().unwrap().len(),
+                conflicts.len() - 1
+            );
+        }
     }
 }

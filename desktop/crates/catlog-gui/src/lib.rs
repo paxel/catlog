@@ -6,6 +6,7 @@
 
 pub mod app;
 pub mod codes;
+pub mod conflicts;
 pub mod dialogs;
 pub mod editor;
 pub mod history;
@@ -20,6 +21,8 @@ pub mod pages;
 pub mod photos;
 pub mod picker;
 pub mod settings;
+pub mod summary;
+pub mod sync_page;
 pub mod textures;
 
 pub use app::{App, DEFAULT_PANE_WIDTH, DEFAULT_WINDOW_SIZE, Request, catalogs_root};

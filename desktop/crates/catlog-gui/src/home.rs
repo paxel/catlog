@@ -18,6 +18,8 @@ pub enum Selection {
     Clowder(String),
     Cat(String),
     Map,
+    Sync,
+    Conflicts,
 }
 
 /// What the keeper did on the home pane this frame.

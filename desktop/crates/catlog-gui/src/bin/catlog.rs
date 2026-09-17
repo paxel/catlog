@@ -29,13 +29,18 @@ impl eframe::App for Native {
 
 fn main() {
     let data = catlog_gui::data_dir();
-    let app = match App::open(SettingsFile::load(&data), &catlog_gui::catalogs_root(&data)) {
+    let mut app = match App::open(SettingsFile::load(&data), &catlog_gui::catalogs_root(&data)) {
         Ok(app) => app,
         Err(e) => {
             eprintln!("catlog: {e}");
             std::process::exit(1);
         }
     };
+    // A `.catsync` file the app was started with, by a double-click.
+    if let Some(arg) = std::env::args().nth(1) {
+        app.open_bundle_file(std::path::Path::new(&arg));
+    }
+    app.check_folder();
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_title(catlog_core::APP_NAME)

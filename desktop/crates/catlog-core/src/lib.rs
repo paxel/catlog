@@ -29,7 +29,9 @@ pub mod partial_date;
 pub mod photo;
 pub mod plus_code;
 pub mod registry;
+pub mod review;
 pub mod signing;
+pub mod sync;
 pub mod tiles;
 pub mod units;
 

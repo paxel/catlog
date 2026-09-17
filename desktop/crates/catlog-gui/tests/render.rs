@@ -132,3 +132,11 @@ fn render_map() {
         app.select(Selection::Map);
     });
 }
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_sync_page() {
+    render_with("render_sync_page", true, Some("fresh"), |app| {
+        app.select(Selection::Sync);
+    });
+}

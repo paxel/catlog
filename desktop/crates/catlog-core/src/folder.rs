@@ -238,6 +238,24 @@ impl Catalog {
         Ok(result)
     }
 
+    /// Fetches the photos the entries name and this store lacks from a
+    /// shared folder, on its own: a cloud client copies photo files after
+    /// the entries. Returns how many came in.
+    pub fn fetch_folder_blobs(&self, folder: &Path, catalog: Option<&str>) -> Result<usize> {
+        let root = folder.join(SYNC_DIR);
+        let blob_name = match catalog {
+            Some(c) => format!("{c}/blobs"),
+            None => "blobs".to_string(),
+        };
+        let mut problems = Vec::new();
+        self.fetch_missing_blobs(
+            &root.join(&blob_name),
+            &blob_name,
+            &root.join("blobs"),
+            &mut problems,
+        )
+    }
+
     /// Fetches the photos the entries name and this store lacks, as far
     /// as the folder has them. Returns how many came in.
     fn fetch_missing_blobs(
