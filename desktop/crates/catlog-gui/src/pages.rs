@@ -304,34 +304,6 @@ impl Pages {
     }
 
     /// The Strays page: every Cat with no home right now.
-    pub fn show_strays(
-        &mut self,
-        ui: &mut Ui,
-        store: &Catalog,
-        t: &L10n,
-        faces: &mut FaceCache,
-    ) -> PageAction {
-        let mut action = PageAction::None;
-        egui::ScrollArea::vertical().show(ui, |ui| {
-            ui.horizontal(|ui| {
-                ui.heading(t.strays());
-                if crate::icons::button(ui, crate::icons::ADD, t.new_cat()).clicked() {
-                    action = PageAction::NewCat(None);
-                }
-            });
-            let strays = store.strays().unwrap_or_default();
-            if strays.is_empty() {
-                ui.label(t.no_strays_right_now());
-            }
-            for cat in &strays {
-                if let Some(a) = self.cat_row(ui, store, t, faces, cat) {
-                    action = a;
-                }
-            }
-        });
-        action
-    }
-
     /// One Cat as a row: face and name, a tap opens, a right-click holds
     /// the menu.
     fn cat_row(

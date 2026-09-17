@@ -73,8 +73,6 @@ impl View {
 pub enum Modal {
     /// A Cat's whole page, from its card.
     Page(String),
-    /// A Field's history, from a card.
-    History,
     Sync,
     Conflicts,
     Duplicates,

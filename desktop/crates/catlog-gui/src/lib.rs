@@ -11,6 +11,7 @@ pub mod capture_page;
 pub mod cards;
 pub mod cats_table;
 pub mod chores;
+pub mod clowders_table;
 pub mod codes;
 pub mod conflicts;
 pub mod crash;

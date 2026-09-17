@@ -152,12 +152,9 @@ impl AppointmentDialog {
             t.new_appointment()
         };
         let defs = store.field_defs(Some(FieldScope::Cat)).unwrap_or_default();
-        egui::Window::new(title)
-            .id(egui::Id::new(("appointment-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
+        let modal =
+            egui::Modal::new(egui::Id::new(("appointment-dialog", self.id))).show(ctx, |ui| {
+                ui.heading(title);
                 egui::Grid::new("appointment-grid")
                     .num_columns(2)
                     .show(ui, |ui| {
@@ -273,8 +270,9 @@ impl AppointmentDialog {
                     }
                 });
             });
-        if result.is_some() || close {
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         result
     }
@@ -326,41 +324,38 @@ impl FinishDialog {
         }
         let mut result = None;
         let mut close = false;
-        egui::Window::new(t.outcome_title())
-            .id(egui::Id::new(("finish-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.label(t.notes_label());
-                ui.add(
-                    egui::TextEdit::multiline(&mut self.notes)
-                        .desired_width(300.0)
-                        .desired_rows(3),
-                );
-                if self.members.len() > 1 {
-                    ui.label(t.finish_untick_hint());
-                    for (_, name, on) in &mut self.members {
-                        ui.checkbox(on, name.as_str());
-                    }
+        let modal = egui::Modal::new(egui::Id::new(("finish-dialog", self.id))).show(ctx, |ui| {
+            ui.heading(t.outcome_title());
+            ui.label(t.notes_label());
+            ui.add(
+                egui::TextEdit::multiline(&mut self.notes)
+                    .desired_width(300.0)
+                    .desired_rows(3),
+            );
+            if self.members.len() > 1 {
+                ui.label(t.finish_untick_hint());
+                for (_, name, on) in &mut self.members {
+                    ui.checkbox(on, name.as_str());
                 }
-                ui.horizontal(|ui| {
-                    if ui.button(t.finish_label()).clicked() {
-                        let treated = self
-                            .members
-                            .iter()
-                            .filter(|(_, _, on)| *on)
-                            .map(|(a, _, _)| a.clone())
-                            .collect();
-                        result = Some((treated, self.notes.trim().to_string()));
-                    }
-                    if ui.button(t.cancel()).clicked() {
-                        close = true;
-                    }
-                });
+            }
+            ui.horizontal(|ui| {
+                if ui.button(t.finish_label()).clicked() {
+                    let treated = self
+                        .members
+                        .iter()
+                        .filter(|(_, _, on)| *on)
+                        .map(|(a, _, _)| a.clone())
+                        .collect();
+                    result = Some((treated, self.notes.trim().to_string()));
+                }
+                if ui.button(t.cancel()).clicked() {
+                    close = true;
+                }
             });
-        if result.is_some() || close {
+        });
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         result
     }

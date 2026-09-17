@@ -37,6 +37,8 @@ pub enum CardAction {
     OpenPage(String),
     /// Something went wrong storing a value.
     Notice(String),
+    /// A cat's card opened from a Clowder's card.
+    Opened(String),
 }
 
 /// A value being typed or picked on a card.
@@ -228,6 +230,7 @@ impl Desk {
         let chosen = card_keys(store);
         let raise = self.raise.take();
         let mut closing: Option<String> = None;
+        let mut opening: Option<String> = None;
         let mut saved: Option<(String, String, Option<String>)> = None;
         let mut moved: Vec<(String, Pos2, bool)> = Vec::new();
         for id in self.open.clone() {
@@ -270,6 +273,7 @@ impl Desk {
                             CardEvent::Saved(key, value) => {
                                 saved = Some((id.clone(), key, value));
                             }
+                            CardEvent::OpenCard(cat) => opening = Some(cat),
                         }
                     });
             });
@@ -294,6 +298,10 @@ impl Desk {
         if let Some(id) = closing {
             self.close(store, &id);
         }
+        if let Some(cat) = opening {
+            self.open(store, std::slice::from_ref(&cat));
+            action = CardAction::Opened(cat);
+        }
         action
     }
 
@@ -311,6 +319,9 @@ impl Desk {
         defs: &[FieldDef],
         chosen: &BTreeSet<String>,
     ) -> CardEvent {
+        if id.starts_with("clowder:") {
+            return self.clowder_card(ui, store, t, faces, units, id);
+        }
         let mut event = CardEvent::None;
         let name = store
             .current(id, keys::NAME)
@@ -373,61 +384,9 @@ impl Desk {
         });
         ui.add_space(6.0);
         ui.separator();
-        egui::Grid::new(("card-fields", id))
-            .num_columns(2)
-            .spacing([12.0, 4.0])
-            .show(ui, |ui| {
-                for def in defs {
-                    if !chosen.contains(&def.key()) {
-                        continue;
-                    }
-                    let raw = store.current(id, &def.key()).ok().flatten();
-                    let editing = self
-                        .inline
-                        .as_ref()
-                        .is_some_and(|i| i.cat == id && i.key == def.key());
-                    ui.label(egui::RichText::new(field_def_name(t, def)).weak());
-                    if editing {
-                        if let Some(e) = self.inline_widget(ui, t, def, units) {
-                            event = e;
-                        }
-                    } else {
-                        let shown = if def.field_type == FieldType::Cat {
-                            value_label(t, store, &def.key(), raw.as_deref(), units)
-                        } else {
-                            field_value_display(t, Some(def), raw.as_deref(), units)
-                        };
-                        let response = ui.add(
-                            egui::Label::new(shown)
-                                .sense(egui::Sense::click())
-                                .truncate(),
-                        );
-                        // A click on a value edits it; the header drags the card.
-                        if response.clicked()
-                            && let Some(a) = self.begin(id, def, raw.as_deref(), units, t.locale())
-                        {
-                            event = CardEvent::Action(CardAction::Page(a));
-                        }
-                        response.context_menu(|ui| {
-                            if ui.button(t.edit_value()).clicked() {
-                                event = CardEvent::Action(CardAction::Page(PageAction::Edit(
-                                    id.to_string(),
-                                    def.slug.clone(),
-                                )));
-                                ui.close();
-                            }
-                            if ui.button(t.show_history()).clicked() {
-                                event = CardEvent::Action(CardAction::Page(PageAction::History(
-                                    id.to_string(),
-                                    def.slug.clone(),
-                                )));
-                                ui.close();
-                            }
-                        });
-                    }
-                    ui.end_row();
-                }
-            });
+        if let Some(e) = self.field_rows(ui, store, t, units, id, defs, Some(chosen)) {
+            event = e;
+        }
         // ID codes, as the printed Card shows them.
         for def in defs {
             if def.field_type != FieldType::Id || !chosen.contains(&def.key()) {
@@ -450,6 +409,207 @@ impl Desk {
                 }
             }
         }
+        event
+    }
+
+    /// A Clowder's card: its name and count, its Fields, its cats as
+    /// faces that open their cards, and its menu.
+    fn clowder_card(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        faces: &mut FaceCache,
+        units: UnitSystem,
+        id: &str,
+    ) -> CardEvent {
+        let mut event = CardEvent::None;
+        let name = store
+            .current(id, keys::NAME)
+            .ok()
+            .flatten()
+            .unwrap_or_else(|| t.unnamed().to_string());
+        let hidden = store.is_hidden(id).unwrap_or(false);
+        let cats = store.cats(Some(id)).unwrap_or_default();
+        let pet_mode = store.is_pet_mode().unwrap_or(false);
+        ui.horizontal(|ui| {
+            icons::glyph(ui, icons::NIGHT_SHELTER_OUTLINED, 40.0, PALETTE.grey);
+            ui.vertical(|ui| {
+                let title = egui::RichText::new(&name).strong().size(20.0);
+                ui.add(
+                    egui::Label::new(if hidden { title.weak() } else { title }).selectable(false),
+                );
+                let count = if pet_mode {
+                    t.cats_count_neutral(cats.len() as i64)
+                } else {
+                    t.cats_count(cats.len() as i64)
+                };
+                ui.label(egui::RichText::new(count).weak());
+            });
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Min), |ui| {
+                ui.menu_button(t.actions_menu(), |ui| {
+                    let mut e = None;
+                    page(
+                        ui,
+                        &mut e,
+                        icons::ADD,
+                        t.new_cat(),
+                        PageAction::NewCat(Some(id.to_string())),
+                    );
+                    if icons::button(ui, icons::DESCRIPTION_OUTLINED, t.card_page()).clicked() {
+                        e = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
+                        ui.close();
+                    }
+                    ui.separator();
+                    page(
+                        ui,
+                        &mut e,
+                        icons::MAP_OUTLINED,
+                        t.show_on_map(),
+                        PageAction::ShowOnMap(id.to_string()),
+                    );
+                    page(
+                        ui,
+                        &mut e,
+                        icons::MERGE,
+                        &t.merge_this_into(t.kind_clowder()),
+                        PageAction::MergeInto(id.to_string()),
+                    );
+                    ui.separator();
+                    page(
+                        ui,
+                        &mut e,
+                        if hidden {
+                            icons::VISIBILITY_OUTLINED
+                        } else {
+                            icons::VISIBILITY_OFF_OUTLINED
+                        },
+                        if hidden {
+                            t.unhide_label()
+                        } else {
+                            t.hide_label()
+                        },
+                        PageAction::ToggleHidden(id.to_string()),
+                    );
+                    if icons::button(ui, icons::CLOSE, t.card_close()).clicked() {
+                        e = Some(CardEvent::Close);
+                        ui.close();
+                    }
+                    if let Some(e) = e {
+                        event = e;
+                    }
+                });
+            });
+        });
+        ui.add_space(6.0);
+        ui.separator();
+        // The cats, each a face or a name that opens its card beside this one.
+        ui.horizontal_wrapped(|ui| {
+            for cat in &cats {
+                let face = store
+                    .profile_image(&cat.id)
+                    .ok()
+                    .flatten()
+                    .and_then(|hash| faces.face(ui.ctx(), store, &hash));
+                let response = match face {
+                    Some(texture) => {
+                        let r = ui
+                            .add(
+                                egui::Image::from_texture(&texture)
+                                    .fit_to_exact_size(Vec2::splat(40.0))
+                                    .corner_radius(20.0)
+                                    .sense(egui::Sense::click()),
+                            )
+                            .on_hover_text(&cat.name);
+                        r.widget_info(|| {
+                            egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &cat.name)
+                        });
+                        r
+                    }
+                    None => icons::button(ui, icons::PETS_OUTLINED, &cat.name),
+                };
+                if response.clicked() {
+                    event = CardEvent::OpenCard(cat.id.clone());
+                }
+            }
+        });
+        ui.add_space(6.0);
+        let defs: Vec<FieldDef> = store
+            .field_defs(Some(FieldScope::Clowder))
+            .unwrap_or_default();
+        if let Some(e) = self.field_rows(ui, store, t, units, id, &defs, None) {
+            event = e;
+        }
+        event
+    }
+
+    /// The Field rows of a card, each edited on a click and holding the
+    /// editor and the history in its menu; `chosen` limits them.
+    #[allow(clippy::too_many_arguments)]
+    fn field_rows(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        units: UnitSystem,
+        id: &str,
+        defs: &[FieldDef],
+        chosen: Option<&BTreeSet<String>>,
+    ) -> Option<CardEvent> {
+        let mut event = None;
+        egui::Grid::new(("card-fields", id))
+            .num_columns(2)
+            .spacing([12.0, 4.0])
+            .show(ui, |ui| {
+                for def in defs {
+                    if chosen.is_some_and(|c| !c.contains(&def.key())) {
+                        continue;
+                    }
+                    let raw = store.current(id, &def.key()).ok().flatten();
+                    let editing = self
+                        .inline
+                        .as_ref()
+                        .is_some_and(|i| i.cat == id && i.key == def.key());
+                    ui.label(egui::RichText::new(field_def_name(t, def)).weak());
+                    if editing {
+                        if let Some(e) = self.inline_widget(ui, t, def, units) {
+                            event = Some(e);
+                        }
+                    } else {
+                        let shown = if def.field_type == FieldType::Cat {
+                            value_label(t, store, &def.key(), raw.as_deref(), units)
+                        } else {
+                            field_value_display(t, Some(def), raw.as_deref(), units)
+                        };
+                        let response = ui.add(
+                            egui::Label::new(shown)
+                                .sense(egui::Sense::click())
+                                .truncate(),
+                        );
+                        // A click on a value edits it; the header drags the card.
+                        if response.clicked()
+                            && let Some(a) = self.begin(id, def, raw.as_deref(), units, t.locale())
+                        {
+                            event = Some(CardEvent::Action(CardAction::Page(a)));
+                        }
+                        response.context_menu(|ui| {
+                            if ui.button(t.edit_value()).clicked() {
+                                event = Some(CardEvent::Action(CardAction::Page(
+                                    PageAction::Edit(id.to_string(), def.slug.clone()),
+                                )));
+                                ui.close();
+                            }
+                            if ui.button(t.show_history()).clicked() {
+                                event = Some(CardEvent::Action(CardAction::Page(
+                                    PageAction::History(id.to_string(), def.slug.clone()),
+                                )));
+                                ui.close();
+                            }
+                        });
+                    }
+                    ui.end_row();
+                }
+            });
         event
     }
 
@@ -548,18 +708,6 @@ impl Desk {
         chosen: &BTreeSet<String>,
     ) -> Option<CardEvent> {
         let mut event = None;
-        fn page(
-            ui: &mut Ui,
-            event: &mut Option<CardEvent>,
-            icon: &str,
-            label: &str,
-            action: PageAction,
-        ) {
-            if icons::button(ui, icon, label).clicked() {
-                *event = Some(CardEvent::Action(CardAction::Page(action)));
-                ui.close();
-            }
-        }
         page(
             ui,
             &mut event,
@@ -687,6 +835,14 @@ impl Desk {
     }
 }
 
+/// A menu entry that asks the app for a page action.
+fn page(ui: &mut Ui, event: &mut Option<CardEvent>, icon: &str, label: &str, action: PageAction) {
+    if icons::button(ui, icon, label).clicked() {
+        *event = Some(CardEvent::Action(CardAction::Page(action)));
+        ui.close();
+    }
+}
+
 fn toggle(keys: &mut BTreeSet<String>, key: &str, on: bool) {
     if on {
         keys.insert(key.to_string());
@@ -704,4 +860,6 @@ enum CardEvent {
     Action(CardAction),
     /// An inline edit to store: the key and the value.
     Saved(String, Option<String>),
+    /// A face on a Clowder's card: that cat's card, beside it.
+    OpenCard(String),
 }

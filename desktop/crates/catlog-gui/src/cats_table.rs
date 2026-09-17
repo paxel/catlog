@@ -406,6 +406,9 @@ impl CatsTable {
         show_hidden: bool,
     ) -> TableAction {
         let mut action = TableAction::None;
+        // A resizable pane shrinks to its content; the table claims the
+        // whole width so the width the keeper chose holds.
+        ui.set_min_width(ui.available_width());
         let mut columns = load_columns(store);
         self.columns_shown = columns.clone();
         let pet_mode = store.is_pet_mode().unwrap_or(false);

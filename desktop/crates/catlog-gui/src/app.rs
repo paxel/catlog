@@ -24,6 +24,7 @@ use crate::capture_page::{CaptureAction, CapturePage};
 use crate::cards::{CardAction, Desk};
 use crate::cats_table::{CatsTable, TableAction};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
+use crate::clowders_table::{ClowdersTable, TableAction as ClowderAction};
 use crate::conflicts::{ConflictDialog, show_conflicts};
 use crate::dashboard::{self, DashboardAction};
 use crate::dialogs::{ConfirmDialog, NameDialog};
@@ -67,7 +68,7 @@ pub enum Request {
 pub const DEFAULT_WINDOW_SIZE: [f32; 2] = [1200.0, 800.0];
 
 /// The list pane's width when nothing was remembered.
-pub const DEFAULT_PANE_WIDTH: f32 = 320.0;
+pub const DEFAULT_PANE_WIDTH: f32 = 600.0;
 
 /// Asks the keeper for files: the dialog's title in, the chosen paths out.
 pub type FilePicker = Box<dyn FnMut(&str) -> Vec<PathBuf>>;
@@ -108,7 +109,9 @@ pub struct App {
     home: HomePane,
     /// The Cats view's table.
     pub cats: CatsTable,
-    /// The cards on the desk beside it.
+    /// The Clowders view's table.
+    pub clowders: ClowdersTable,
+    /// The cards on the desk beside them.
     pub desk: Desk,
     pages: Pages,
     editor: FieldEditor,
@@ -252,6 +255,7 @@ impl App {
             store,
             home: HomePane::default(),
             cats: CatsTable::default(),
+            clowders: ClowdersTable::default(),
             desk: Desk::default(),
             pages: Pages::default(),
             editor: FieldEditor::closed(),
@@ -420,9 +424,7 @@ impl App {
                 View::Cats
             };
         }
-        if !is_clowder && self.view == View::Cats {
-            self.desk.open(&self.store, std::slice::from_ref(&id));
-        }
+        self.desk.open(&self.store, std::slice::from_ref(&id));
         self.home.selection = if is_clowder {
             Selection::Clowder(id)
         } else {
@@ -702,16 +704,24 @@ impl App {
                     self.open_view(view);
                 }
             });
-        let mut action = HomeAction::None;
-        if self.view == View::Clowders {
-            // The pane opens at the remembered width; egui keeps the width
-            // between frames, and a drag that ends is what gets remembered.
-            let pane = egui::Panel::left("list-pane")
+        let mut page_action = PageAction::None;
+        // In the Cats and Clowders views the table moves into a left pane
+        // once cards lie on the desk. The pane opens at the remembered
+        // width; a drag that ends is what gets remembered.
+        self.desk.load(&self.store);
+        let tabled = matches!(self.view, View::Cats | View::Clowders);
+        let cards_open = tabled && !self.desk.open.is_empty();
+        if cards_open {
+            let pane = egui::Panel::left("table-pane")
                 .resizable(true)
-                .min_size(200.0)
+                .min_size(320.0)
                 .default_size(self.pane_width)
                 .show(ui, |ui| {
-                    action = self.home.show(ui, &self.store, &t, &mut self.faces);
+                    page_action = if self.view == View::Cats {
+                        self.show_cats_table(ui)
+                    } else {
+                        self.show_clowders_table(ui)
+                    };
                 });
             let shown = pane.response.rect.width();
             let released = ui.input(|i| i.pointer.primary_released());
@@ -719,20 +729,6 @@ impl App {
                 self.settings.settings.pane_width = Some(shown);
                 let _ = self.settings.save();
             }
-        }
-        self.act(action);
-        let mut page_action = PageAction::None;
-        // In the Cats view the table moves left once cards lie on the desk.
-        self.desk.load(&self.store);
-        let cards_open = self.view == View::Cats && !self.desk.open.is_empty();
-        if cards_open {
-            egui::Panel::left("table-pane")
-                .resizable(true)
-                .min_size(320.0)
-                .default_size(600.0)
-                .show(ui, |ui| {
-                    page_action = self.show_cats_table(ui);
-                });
         }
         egui::CentralPanel::default().show(ui, |ui| {
             if let Some(notice) = &self.notice {
@@ -755,14 +751,14 @@ impl App {
                         units,
                     ) {
                         DashboardAction::None => {}
-                        DashboardAction::OpenCats | DashboardAction::OpenMissing => {
+                        DashboardAction::OpenCats => self.open_view(View::Cats),
+                        DashboardAction::OpenMissing => {
                             self.open_view(View::Cats);
+                            self.cats.strays_only = false;
+                            self.cats.missing_only = true;
                         }
                         DashboardAction::OpenClowders => self.open_view(View::Clowders),
-                        DashboardAction::OpenStrays => {
-                            self.open_view(View::Clowders);
-                            self.home.selection = Selection::Strays;
-                        }
+                        DashboardAction::OpenStrays => self.open_strays(),
                         DashboardAction::OpenCat(id) | DashboardAction::OpenClowder(id) => {
                             page_action = PageAction::OpenCat(id);
                         }
@@ -811,7 +807,7 @@ impl App {
                         }
                     }
                 },
-                View::Cats => {
+                View::Cats | View::Clowders => {
                     if cards_open {
                         let units = self.pages.units;
                         let desk = ui.max_rect();
@@ -823,19 +819,20 @@ impl App {
                             CardAction::Page(a) => page_action = a,
                             CardAction::OpenPage(id) => self.open_modal(Modal::Page(id)),
                             CardAction::Notice(e) => self.notice = Some(e),
+                            CardAction::Opened(id) => self.home.selection = Selection::Cat(id),
                         }
-                    } else {
+                    } else if self.view == View::Cats {
                         page_action = self.show_cats_table(ui);
+                    } else {
+                        page_action = self.show_clowders_table(ui);
                     }
-                }
-                View::Clowders => {
-                    page_action = self.show_desk_page(ui);
                 }
             }
         });
         // The modal comes before the dialogs it may open, so a dialog
         // lies on top of it.
         self.show_modal(ui.ctx());
+        self.show_history_modal(ui.ctx());
         self.act_page(page_action);
         self.show_chore_dialogs(ui.ctx());
         if let Some((loser, survivor, kind)) = self.merge_dialog.show(ui.ctx(), &t) {
@@ -1891,7 +1888,13 @@ impl App {
     /// The help text for what is shown.
     fn show_help(&mut self, ui: &mut Ui) {
         let t = self.t;
-        let text = tips::help_for(&t, self.view, self.modal.clone(), &self.home.selection);
+        let text = tips::help_for(
+            &t,
+            self.view,
+            self.modal.clone(),
+            &self.home.selection,
+            self.cats.strays_only,
+        );
         ui.heading(t.help_title());
         ui.set_max_width(420.0);
         ui.label(text);
@@ -1913,7 +1916,20 @@ impl App {
         let t = self.t;
         match page_action {
             PageAction::None => {}
-            PageAction::OpenCat(id) | PageAction::OpenClowder(id) => self.open_record(id),
+            PageAction::OpenCat(id) | PageAction::OpenClowder(id) => {
+                if matches!(self.modal, Some(Modal::Page(_))) {
+                    // A link inside the page turns the page; it counts as
+                    // looked at last.
+                    self.home.selection = if id.starts_with("clowder:") {
+                        Selection::Clowder(id.clone())
+                    } else {
+                        Selection::Cat(id.clone())
+                    };
+                    self.modal = Some(Modal::Page(id));
+                } else {
+                    self.open_record(id);
+                }
+            }
             PageAction::ToggleHidden(id) => self.act(HomeAction::ToggleHidden(id)),
             PageAction::Edit(entity, slug) => {
                 if let Ok(Some(def)) = self.store.field_def(&slug) {
@@ -1929,12 +1945,7 @@ impl App {
                     );
                 }
             }
-            PageAction::History(entity, slug) => {
-                self.history_of = Some((entity, slug));
-                if self.view == View::Cats {
-                    self.open_modal(Modal::History);
-                }
-            }
+            PageAction::History(entity, slug) => self.history_of = Some((entity, slug)),
             PageAction::NewField(scope) => self.new_field.ask(scope),
             PageAction::Move(cat) => self.mover.ask(&self.store, &cat),
             PageAction::Sighting(cat) => {
@@ -2016,6 +2027,34 @@ impl App {
         }
     }
 
+    /// The Cats view with the Strays filter on: where the homeless live.
+    pub fn open_strays(&mut self) {
+        self.open_view(View::Cats);
+        self.cats.strays_only = true;
+        self.cats.missing_only = false;
+    }
+
+    /// The Clowders table; Enter or a double-click lays a Clowder's card
+    /// on the desk.
+    fn show_clowders_table(&mut self, ui: &mut Ui) -> PageAction {
+        let t = self.t;
+        let units = self.pages.units;
+        let show_hidden = self.home.show_hidden;
+        let mut page_action = PageAction::None;
+        match self
+            .clowders
+            .show(ui, &self.store, &t, &mut self.faces, units, show_hidden)
+        {
+            ClowderAction::None => {}
+            ClowderAction::Open(id) => self.open_record(id),
+            ClowderAction::NewClowder => self.act(HomeAction::NewClowder),
+            ClowderAction::Strays => self.open_strays(),
+            ClowderAction::ToggleFavourite(id) => self.act(HomeAction::ToggleFavourite(id)),
+            ClowderAction::ToggleHidden(id) => page_action = PageAction::ToggleHidden(id),
+        }
+        page_action
+    }
+
     /// The Cats table; Enter or a double-click lays the selected cats on
     /// the desk as cards.
     fn show_cats_table(&mut self, ui: &mut Ui) -> PageAction {
@@ -2053,11 +2092,10 @@ impl App {
         page_action
     }
 
-    /// What lies on the desk: a Clowder or Cat page, the Strays, a
-    /// Field's history, or the hint to pick something.
-    fn show_desk_page(&mut self, ui: &mut Ui) -> PageAction {
+    /// A Field's history, as the modal over everything else.
+    fn show_history(&mut self, ui: &mut Ui) -> PageAction {
         let t = self.t;
-        let mut page_action = PageAction::None;
+        let page_action = PageAction::None;
         if let Some((entity, slug)) = self.history_of.clone() {
             if let Ok(Some(def)) = self.store.field_def(&slug) {
                 match self.history.show(ui, &self.store, &t, &entity, &def) {
@@ -2090,25 +2128,6 @@ impl App {
             } else {
                 self.history_of = None;
             }
-            return page_action;
-        }
-        match self.home.selection.clone() {
-            Selection::None => {
-                ui.label(t.select_clowder_hint());
-            }
-            Selection::Strays => {
-                page_action = self.pages.show_strays(ui, &self.store, &t, &mut self.faces);
-            }
-            Selection::Clowder(id) => {
-                page_action = self
-                    .pages
-                    .show_clowder(ui, &self.store, &t, &mut self.faces, &id);
-            }
-            Selection::Cat(id) => {
-                page_action = self
-                    .pages
-                    .show_cat(ui, &self.store, &t, &mut self.faces, &id);
-            }
         }
         page_action
     }
@@ -2125,16 +2144,15 @@ impl App {
         };
         let mut page_action = PageAction::None;
         let (_, close) = views::show_modal(ctx, &id, t.close_label(), |ui| match modal {
-            Modal::Page(cat) => {
+            Modal::Page(id) => {
                 ui.set_min_width(560.0);
-                page_action = self
-                    .pages
-                    .show_cat(ui, &self.store, &t, &mut self.faces, &cat);
-            }
-            Modal::History => {
-                if self.history_of.is_some() {
-                    page_action = self.show_desk_page(ui);
-                }
+                page_action = if id.starts_with("clowder:") {
+                    self.pages
+                        .show_clowder(ui, &self.store, &t, &mut self.faces, &id)
+                } else {
+                    self.pages
+                        .show_cat(ui, &self.store, &t, &mut self.faces, &id)
+                };
             }
             Modal::Help => self.show_help(ui),
             Modal::About => self.show_about(ui),
@@ -2231,8 +2249,25 @@ impl App {
                 }
             }
         });
-        if close || (self.modal == Some(Modal::History) && self.history_of.is_none()) {
+        if close {
             self.modal = None;
+        }
+        if page_action != PageAction::None {
+            self.act_page(page_action);
+        }
+    }
+
+    /// The history of a Field, over the desk and over any modal, until
+    /// it is closed.
+    fn show_history_modal(&mut self, ctx: &Context) {
+        if self.history_of.is_none() {
+            return;
+        }
+        let t = self.t;
+        let (page_action, close) =
+            views::show_modal(ctx, "History", t.close_label(), |ui| self.show_history(ui));
+        if close {
+            self.history_of = None;
         }
         if page_action != PageAction::None {
             self.act_page(page_action);
@@ -2281,6 +2316,7 @@ impl App {
             self.view,
             self.modal.clone(),
             &self.home.selection,
+            self.cats.strays_only,
         ) else {
             return;
         };
@@ -2577,15 +2613,25 @@ mod tests {
         h.run();
     }
 
-    /// Opens the Clowders view and clicks the pane row named `label`.
+    /// Opens the Clowders view and lays the row named `label` on the
+    /// desk as its card: a click on the row, then Enter.
     fn open_row(h: &mut Harness<'static, App>, label: &str) {
         open_view(h, "Clowders");
-        // The pane row comes before the page heading of the same name.
-        if label.starts_with("Strays") {
-            h.get_by_label_contains(label).click();
+        h.get_all_by_label(label).next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+    }
+
+    /// Opens a Cat's or a Clowder's whole page as the modal over the
+    /// desk; it counts as what was looked at last.
+    fn open_cat_page(h: &mut Harness<'static, App>, id: &str) {
+        h.state_mut().home.selection = if id.starts_with("clowder:") {
+            Selection::Clowder(id.to_string())
         } else {
-            h.get_all_by_label(label).next().unwrap().click();
-        }
+            Selection::Cat(id.to_string())
+        };
+        h.state_mut().open_modal(Modal::Page(id.to_string()));
         h.run();
     }
 
@@ -2630,17 +2676,8 @@ mod tests {
             assert_eq!(h.state().view(), View::Home);
             h.get_by_label(t.dashboard_due());
             open_view(&mut h, t.clowders());
-            let list = h.get_all_by_label(t.clowders()).last().unwrap().rect();
-            let hint = h.get_by_label(t.select_clowder_hint()).rect();
-            assert!(
-                list.max.x <= DEFAULT_PANE_WIDTH + 2.0,
-                "the list pane keeps its width"
-            );
-            assert!(
-                hint.min.x >= DEFAULT_PANE_WIDTH - 2.0,
-                "the detail pane sits right of it"
-            );
             h.get_by_label(t.no_clowders_yet());
+            h.get_by_label(t.new_clowder());
             assert_eq!(h.state().t().locale(), locale);
             assert_eq!(h.state().title(), t.clowders());
         }
@@ -2732,43 +2769,56 @@ mod tests {
     }
 
     #[test]
-    fn the_home_pane_lists_strays_and_clowders_with_faces_and_opens_them() {
+    fn the_clowders_table_lists_homes_with_faces_and_stars_and_opens_cards() {
         let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let barn = "clowder:00000000-0000-4000-8000-000000000002";
         let mut h = harness(seeded(dir.path()));
         h.run();
         open_view(&mut h, "Clowders");
-        h.get_by_label_contains("Strays  (1)");
-        let home = h.get_by_label("Foster Home").rect();
-        let barn = h.get_by_label("Barn").rect();
-        assert!(home.min.y < barn.min.y, "creation order");
-        assert!(home.max.x < DEFAULT_PANE_WIDTH);
+        assert_eq!(h.state().clowders.order(), [foster, barn], "creation order");
         assert!(!h.state().faces.is_empty(), "the faces were loaded");
-        h.get_by_label("Barn").click();
+        h.get_by_label("Foster home");
+        h.get_by_label("Katzenweg 3, Leipzig");
+        // A click selects, Enter lays the card on the desk. The status
+        // column says "Barn" too; the name comes first.
+        h.get_all_by_label("Barn").next().unwrap().click();
         h.run();
-        assert_eq!(
-            *h.state().selection(),
-            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000002".into())
-        );
-        assert!(
-            h.get_all_by_label("Barn").count() >= 2,
-            "the detail pane shows it"
-        );
-        open_row(&mut h, "Strays");
-        assert_eq!(*h.state().selection(), Selection::Strays);
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Clowder(barn.into()));
+        assert_eq!(h.state().desk.open, [barn]);
+        assert!(h.get_all_by_label("Barn").count() >= 2, "the card shows it");
+        h.get_by_label("1 cats");
         // The star moves a Clowder to the front and back.
         h.get_all_by_label("Mark as favourite")
             .nth(1)
             .unwrap()
             .click();
         h.run();
-        let home = h.get_by_label("Foster Home").rect();
-        let barn = h.get_by_label("Barn").rect();
-        assert!(barn.min.y < home.min.y, "the favourite leads");
+        assert_eq!(
+            h.state().clowders.order(),
+            [barn, foster],
+            "the favourite leads"
+        );
         h.get_by_label("Remove from favourites").click();
         h.run();
-        let home = h.get_by_label("Foster Home").rect();
-        let barn = h.get_by_label("Barn").rect();
-        assert!(home.min.y < barn.min.y);
+        assert_eq!(h.state().clowders.order(), [foster, barn]);
+        // The count column sorts, turned around puts the fuller home first.
+        h.get_all_by_label("Cats").last().unwrap().click();
+        h.run();
+        h.get_all_by_label("Cats").last().unwrap().click();
+        h.run();
+        assert_eq!(h.state().clowders.order()[0], foster);
+        // The Strays button leads to the Cats view with the filter on.
+        h.get_by_label("1 strays").click();
+        h.run();
+        assert_eq!(h.state().view(), View::Cats);
+        assert!(h.state().cats.strays_only);
+        assert_eq!(
+            h.state().cats.order(),
+            ["cat:00000000-0000-4000-8000-000000000003"]
+        );
     }
 
     fn seeded_with(dir: &std::path::Path, scenario: &str) -> App {
@@ -2780,36 +2830,40 @@ mod tests {
     }
 
     #[test]
-    fn the_clowder_page_shows_its_cats_fields_and_a_way_to_each_cat() {
+    fn a_clowder_card_shows_its_fields_and_faces_that_open_the_cats_beside_it() {
         let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
         let mut h = harness(seeded(dir.path()));
         h.run();
         open_row(&mut h, "Foster Home");
-        h.get_by_label("Cats (1)");
-        h.get_by_label("Katzenweg 3, Leipzig");
-        h.get_by_label(L10n::new("en").status_foster());
-        let miezi = h.get_by_label("Miezi").rect();
-        assert!(
-            miezi.min.x > DEFAULT_PANE_WIDTH,
-            "the cat sits in the detail pane: {miezi:?}"
-        );
-        h.get_by_label("Miezi").click();
+        assert_eq!(h.state().desk.open, [foster]);
+        h.get_by_label("1 cats");
+        h.get_all_by_label("Katzenweg 3, Leipzig").last().unwrap();
+        h.get_all_by_label(L10n::new("en").status_foster())
+            .last()
+            .unwrap();
+        // The face opens the cat's card beside the home's.
+        h.get_by_role_and_label(egui::accesskit::Role::Button, "Miezi")
+            .click();
         h.run();
-        assert_eq!(
-            *h.state().selection(),
-            Selection::Cat("cat:00000000-0000-4000-8000-000000000001".into())
-        );
+        assert_eq!(h.state().desk.open, [foster, miezi]);
+        assert_eq!(*h.state().selection(), Selection::Cat(miezi.into()));
+        h.get_all_by_label("tabby").next().unwrap();
+        // The whole page, from the card's menu, and the way back to the home.
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Open the page").click_accesskit();
+        h.run();
+        assert_eq!(h.state().modal(), Some(Modal::Page(miezi.into())));
         h.get_by_label("Photos (2)");
-        h.get_by_label(L10n::new("en").value_female());
-        h.get_by_label("tabby");
-        // The Clowder line leads back to the place; the list row comes
-        // first in the tree, the link in the detail pane last.
+        h.get_all_by_label(L10n::new("en").value_female())
+            .last()
+            .unwrap();
         h.get_all_by_label("Foster Home").last().unwrap().click();
         h.run();
-        assert_eq!(
-            *h.state().selection(),
-            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000001".into())
-        );
+        assert_eq!(h.state().modal(), Some(Modal::Page(foster.into())));
+        h.get_by_label("Cats (1)");
         // The timeline unfolds and remembers it.
         h.get_by_label("Timeline").click();
         h.run();
@@ -2821,34 +2875,62 @@ mod tests {
             h.state().store().local_setting("fold:timeline").as_deref(),
             Some("open")
         );
+        // New cat from the card's menu lands in the home.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        h.get_all_by_label("Actions").next().unwrap().click();
+        h.step();
+        h.get_by_label("New cat").click_accesskit();
+        h.run();
+        assert!(h.state().dialog.open);
+        h.state_mut().dialog.value = "Pixel".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        let Selection::Cat(cat) = h.state().selection().clone() else {
+            panic!("the new cat's card opens");
+        };
+        assert_eq!(
+            h.state()
+                .store()
+                .current(&cat, keys::CLOWDER)
+                .unwrap()
+                .as_deref(),
+            Some(foster)
+        );
+        assert!(h.state().desk.open.contains(&cat));
     }
 
     #[test]
-    fn the_strays_page_lists_homeless_cats_and_the_keyboard_walks_the_list() {
+    fn the_strays_filter_lists_homeless_cats_and_the_keyboard_walks_the_clowders() {
         let dir = tempfile::tempdir().unwrap();
+        let wanderer = "cat:00000000-0000-4000-8000-000000000003";
         let mut h = harness(seeded(dir.path()));
         h.run();
-        open_row(&mut h, "Strays");
-        h.get_by_label("Wanderer").click();
+        h.state_mut().open_strays();
         h.run();
-        assert!(matches!(h.state().selection(), Selection::Cat(_)));
+        assert_eq!(h.state().cats.order(), [wanderer]);
+        h.get_all_by_label("Wanderer").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Cat(wanderer.into()));
         h.get_by_label(L10n::new("en").stray_no_clowder());
-        // Down from the Strays row lands on the first Clowder, also
-        // right after a click left the focus on the row.
-        open_row(&mut h, "Strays");
+        // Arrows walk the homes, the end holds, Enter opens the card.
+        open_view(&mut h, "Clowders");
         h.key_press(egui::Key::ArrowDown);
         h.run();
         assert_eq!(
-            *h.state().selection(),
-            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000001".into())
+            h.state().clowders.cursor.as_deref(),
+            Some("clowder:00000000-0000-4000-8000-000000000001")
         );
         h.key_press(egui::Key::ArrowDown);
         h.run();
         h.key_press(egui::Key::ArrowDown);
         h.run();
         assert_eq!(
-            *h.state().selection(),
-            Selection::Clowder("clowder:00000000-0000-4000-8000-000000000002".into()),
+            h.state().clowders.cursor.as_deref(),
+            Some("clowder:00000000-0000-4000-8000-000000000002"),
             "the end holds"
         );
         h.key_press(egui::Key::ArrowUp);
@@ -2859,7 +2941,7 @@ mod tests {
             *h.state().selection(),
             Selection::Clowder("clowder:00000000-0000-4000-8000-000000000001".into())
         );
-        h.get_by_label("Cats (1)");
+        h.get_by_label("1 cats");
     }
 
     #[test]
@@ -2867,14 +2949,14 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "chores"));
         h.run();
-        open_row(&mut h, "Foster Home");
+        open_cat_page(&mut h, "clowder:00000000-0000-4000-8000-000000000001");
         assert!(
             h.query_by_label_contains("Worming").is_none(),
             "an ended chore is not listed"
         );
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
-        h.get_by_label_contains("Drops · ");
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        // The dashboard behind the page lists the chore as due too.
+        h.get_all_by_label_contains("Drops · ").last().unwrap();
         assert!(
             h.query_by_label("Finish").is_none(),
             "a finished visit is no plan"
@@ -2883,9 +2965,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         h.get_by_label("4.25 kg");
         h.get_by_label("5/2021");
         h.get_by_label("Family");
@@ -2917,9 +2997,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         // The Visits row's menu: edit, then history.
         h.get_by_label("3").scroll_to_me();
         h.run();
@@ -2963,8 +3041,9 @@ mod tests {
                 .len(),
             2
         );
-        // Removing through the row menu falls back to the value before.
-        h.get_all_by_label("4").next().unwrap().click_secondary();
+        // Removing through the row menu falls back to the value before;
+        // the history lies over the page, so its row comes last.
+        h.get_all_by_label("4").last().unwrap().click_secondary();
         h.step();
         h.get_by_label("Remove this value").click_accesskit();
         h.run();
@@ -2986,10 +3065,11 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "history-reverts"));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
-        h.get_by_label_contains(" kg").click_secondary();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        h.get_all_by_label_contains(" kg")
+            .last()
+            .unwrap()
+            .click_secondary();
         h.step();
         h.get_by_label("History").click_accesskit();
         h.run();
@@ -3026,9 +3106,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         h.get_by_label("DE-123 456");
         h.get_by_label("276098100123456");
     }
@@ -3079,9 +3157,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         // The Location row's editor offers the map.
         h.get_by_label("On the map").click_secondary();
         h.step();
@@ -3143,9 +3219,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         h.get_by_label("Actions").click();
         h.step();
         h.get_by_label("Move to").click();
@@ -3197,7 +3271,7 @@ mod tests {
         h.get_by_label("Show hidden").click();
         h.run();
         open_view(&mut h, "Clowders");
-        h.get_by_label("Barn");
+        h.get_all_by_label("Barn").next().unwrap();
         h.state_mut().act(HomeAction::ToggleHidden(
             "clowder:00000000-0000-4000-8000-000000000002".into(),
         ));
@@ -3304,9 +3378,7 @@ mod tests {
         app.pick_files = Box::new(move |_| vec![hand.clone()]);
         let mut h = harness(app);
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         assert_eq!(h.state().store().images(miezi).unwrap().len(), 2);
         h.get_by_label("Add photo").click();
@@ -3343,9 +3415,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         let images = h.state().store().images(miezi).unwrap();
         assert_eq!(images.len(), 2);
@@ -3450,9 +3520,7 @@ mod tests {
         app.save_file = Box::new(move |_, _| Some(hand.clone()));
         let mut h = harness(app);
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         h.get_by_label("Photos 2").click();
         h.run();
         assert!(h.state().viewer.open);
@@ -3471,7 +3539,7 @@ mod tests {
             std::fs::read(&target).unwrap(),
             h.state().store().image_bytes(&images[1]).unwrap()
         );
-        h.get_by_label("Close").click();
+        h.get_all_by_label("Close").last().unwrap().click();
         h.run();
         assert!(!h.state().viewer.open);
         h.get_by_label("Photos 1").click();
@@ -3813,9 +3881,7 @@ mod tests {
         fixed_day(&mut app, 2026, 3, 10, 7);
         let mut h = harness(app);
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         // A new daily chore with a reminder.
         h.get_by_label("New chore").click();
@@ -3834,15 +3900,26 @@ mod tests {
         assert_eq!(chores.len(), 1);
         assert_eq!(chores[0].title, "Feed");
         assert!(chores[0].remind);
-        h.get_by_label_contains("Feed · Daily · 08:00");
-        // Tick today from the row; the streak reads one day.
-        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.get_all_by_label_contains("Feed · Daily · 08:00")
+            .last()
+            .unwrap();
+        // Tick today from the row; the streak reads one day. The
+        // dashboard behind the page has a box too.
+        h.get_all_by_role(egui::accesskit::Role::CheckBox)
+            .last()
+            .unwrap()
+            .click();
         h.run();
         let ticks = h.state().store().chore_ticks(&chores[0]).unwrap();
         assert_eq!(ticks.len(), 1);
-        h.get_by_label_contains("1 day in a row");
+        h.get_all_by_label_contains("1 day in a row")
+            .last()
+            .unwrap();
         // The menu: history, pause, edit, end.
-        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.get_all_by_label_contains("Feed · Daily")
+            .last()
+            .unwrap()
+            .click_secondary();
         h.step();
         h.get_by_label("History").click_accesskit();
         h.run();
@@ -3850,17 +3927,26 @@ mod tests {
         h.get_by_label_contains("Feed · Miezi");
         h.state_mut().chore_history.open = false;
         h.run();
-        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.get_all_by_label_contains("Feed · Daily")
+            .last()
+            .unwrap()
+            .click_secondary();
         h.step();
         h.get_by_label("Pause").click_accesskit();
         h.run();
         assert!(h.state().store().chores_of(miezi, false).unwrap()[0].paused);
-        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.get_all_by_label_contains("Feed · Daily")
+            .last()
+            .unwrap()
+            .click_secondary();
         h.step();
         h.get_by_label("Resume").click_accesskit();
         h.run();
         assert!(!h.state().store().chores_of(miezi, false).unwrap()[0].paused);
-        h.get_by_label_contains("Feed · Daily").click_secondary();
+        h.get_all_by_label_contains("Feed · Daily")
+            .last()
+            .unwrap()
+            .click_secondary();
         h.step();
         h.get_by_label("Edit chore").click_accesskit();
         h.run();
@@ -3874,6 +3960,8 @@ mod tests {
             "Feed twice"
         );
         // The agenda lists it under today, all done.
+        h.key_press(egui::Key::Escape);
+        h.run();
         h.get_by_label("Agenda").click();
         h.run();
         assert_eq!(h.state().view(), View::Agenda);
@@ -3911,9 +3999,7 @@ mod tests {
         app.save_file = Box::new(move |_, _| Some(hand.clone()));
         let mut h = harness(app);
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         h.get_by_label("Add appointment").click();
         h.run();
@@ -3938,6 +4024,8 @@ mod tests {
         h.get_by_label_contains("Neutering · 2 cats");
         // The agenda shows the run once with both names, and the
         // calendar file carries it with its alarm.
+        h.key_press(egui::Key::Escape);
+        h.run();
         h.get_by_label("Agenda").click();
         h.run();
         h.get_by_label_contains("Neutering · 2 cats");
@@ -4147,9 +4235,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         h.get_by_label("Actions").click();
         h.step();
         h.get_by_label("Merge this cat into…").click_accesskit();
@@ -4169,9 +4255,9 @@ mod tests {
         let tom = "cat:00000000-0000-4000-8000-000000000002";
         assert_eq!(*h.state().selection(), Selection::Cat(tom.into()));
         assert_eq!(h.state().store().cats(None).unwrap().len(), 2);
-        // The Clowder page offers the same.
+        // The Clowder's card offers the same; it came last onto the desk.
         open_row(&mut h, "Foster Home");
-        h.get_by_label("Actions").click();
+        h.get_all_by_label("Actions").last().unwrap().click();
         h.step();
         h.get_by_label("Merge this clowder into…").click_accesskit();
         h.run();
@@ -4184,7 +4270,7 @@ mod tests {
         assert_eq!(h.state().store().clowders().unwrap().len(), 1);
         assert!(matches!(h.state().selection(), Selection::Clowder(_)));
         // Nothing left to merge into: a notice instead of a dialog.
-        h.get_by_label("Actions").click();
+        h.get_all_by_label("Actions").last().unwrap().click();
         h.step();
         h.get_by_label("Merge this clowder into…").click_accesskit();
         h.run();
@@ -4773,11 +4859,11 @@ mod tests {
         h.step();
         h.get_by_label("History").click_accesskit();
         h.run();
-        assert_eq!(h.state().modal(), Some(Modal::History));
+        assert!(h.state().history_of.is_some());
         h.get_all_by_label_contains("Visits").last().unwrap();
         h.key_press(egui::Key::Escape);
         h.run();
-        assert_eq!(h.state().modal(), None);
+        assert!(h.state().history_of.is_none());
     }
 
     #[test]
@@ -5087,10 +5173,8 @@ mod tests {
     }
 
     fn open_cat_document(h: &mut Harness<'static, App>, item: &str) {
-        open_row(h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
-        h.get_by_label("Actions").click();
+        open_cat_page(h, "cat:00000000-0000-4000-8000-000000000001");
+        h.get_all_by_label("Actions").last().unwrap().click();
         h.step();
         h.get_by_label(item).click_accesskit();
         h.run();
@@ -5632,12 +5716,14 @@ mod tests {
             h.query_by_label_contains("This is the catalog you are in")
                 .is_none()
         );
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         // The Cat page's first tip.
         h.get_by_label(L10n::new("en").spot_cat_edit());
-        // Help for the page.
+        // Help for what is shown: the page closes, the cat stays looked at.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        h.state_mut().open_view(View::Cats);
+        h.run();
         h.get_by_label("Help").click();
         h.step();
         h.get_by_label("Help for this page").click_accesskit();
@@ -5732,21 +5818,30 @@ mod tests {
         }
         let mut h = harness(app);
         h.run();
-        open_row(&mut h, "Foster Home");
-        h.get_all_by_label("Miezi").next().unwrap().click();
-        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         // The tenth tick: the day is done and the servant's rank reached.
-        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.get_all_by_role(egui::accesskit::Role::CheckBox)
+            .last()
+            .unwrap()
+            .click();
         h.run();
         assert_eq!(played.lock().unwrap().len(), 1, "one cheer");
         h.get_by_label("Achievement: Servant (Feed)");
         assert_eq!(h.state().manager().achievements().len(), 1);
         // Untick and tick again: no second cheer today, nothing new climbed.
-        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.get_all_by_role(egui::accesskit::Role::CheckBox)
+            .last()
+            .unwrap()
+            .click();
         h.run();
-        h.get_by_role(egui::accesskit::Role::CheckBox).click();
+        h.get_all_by_role(egui::accesskit::Role::CheckBox)
+            .last()
+            .unwrap()
+            .click();
         h.run();
         assert_eq!(played.lock().unwrap().len(), 1);
+        h.key_press(egui::Key::Escape);
+        h.run();
         h.get_by_label("Help").click();
         h.step();
         h.get_by_label("Achievements").click_accesskit();
@@ -5778,11 +5873,11 @@ mod tests {
     }
 
     #[test]
-    fn a_new_cat_comes_from_the_clowder_page_and_a_stray_from_the_strays_page() {
+    fn a_new_cat_comes_from_the_clowder_page_and_a_stray_from_the_cats_table() {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        open_row(&mut h, "Foster Home");
+        open_cat_page(&mut h, "clowder:00000000-0000-4000-8000-000000000001");
         h.get_by_label("New cat").click();
         h.run();
         assert!(h.state().dialog.open);
@@ -5791,8 +5886,9 @@ mod tests {
         h.get_by_label("Create").click();
         h.run();
         let Selection::Cat(cat) = h.state().selection().clone() else {
-            panic!("the new cat's page opens");
+            panic!("the new cat's card opens");
         };
+        assert_eq!(h.state().modal(), None, "the page makes way for the card");
         let store = h.state().store();
         assert_eq!(
             store.current(&cat, keys::NAME).unwrap().as_deref(),
@@ -5806,7 +5902,8 @@ mod tests {
             store.current(&cat, "f:species").unwrap().as_deref(),
             Some("cat")
         );
-        open_row(&mut h, "Strays");
+        h.state_mut().open_strays();
+        h.run();
         h.get_by_label("New cat").click();
         h.run();
         h.state_mut().dialog.value = "Roamer".into();
@@ -5814,7 +5911,7 @@ mod tests {
         h.get_by_label("Create").click();
         h.run();
         let Selection::Cat(stray) = h.state().selection().clone() else {
-            panic!("the stray's page opens");
+            panic!("the stray's card opens");
         };
         assert!(
             h.state()

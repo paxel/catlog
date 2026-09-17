@@ -165,3 +165,14 @@ fn render_cards() {
         ));
     });
 }
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_clowders() {
+    render_with("render_clowders", true, Some("fresh"), |app| {
+        app.open_view(View::Clowders);
+        app.select(Selection::Clowder(
+            "clowder:00000000-0000-4000-8000-000000000001".into(),
+        ));
+    });
+}

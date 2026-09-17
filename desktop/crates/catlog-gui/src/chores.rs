@@ -242,109 +242,106 @@ impl ChoreDialog {
         } else {
             t.new_chore()
         };
-        egui::Window::new(title)
-            .id(egui::Id::new(("chore-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                egui::Grid::new("chore-grid").num_columns(2).show(ui, |ui| {
-                    ui.label(t.chore_title_label());
-                    ui.add(egui::TextEdit::singleline(&mut self.title).desired_width(260.0));
-                    ui.end_row();
-                    ui.label(t.chore_repeat_every());
-                    ui.vertical(|ui| {
+        let modal = egui::Modal::new(egui::Id::new(("chore-dialog", self.id))).show(ctx, |ui| {
+            ui.heading(title);
+            egui::Grid::new("chore-grid").num_columns(2).show(ui, |ui| {
+                ui.label(t.chore_title_label());
+                ui.add(egui::TextEdit::singleline(&mut self.title).desired_width(260.0));
+                ui.end_row();
+                ui.label(t.chore_repeat_every());
+                ui.vertical(|ui| {
+                    ui.radio_value(
+                        &mut self.repeat,
+                        Some(ChoreRepeat::Daily),
+                        t.chore_repeat_daily(),
+                    );
+                    ui.horizontal(|ui| {
                         ui.radio_value(
                             &mut self.repeat,
-                            Some(ChoreRepeat::Daily),
-                            t.chore_repeat_daily(),
+                            Some(ChoreRepeat::EveryDays),
+                            t.every_label(),
                         );
-                        ui.horizontal(|ui| {
-                            ui.radio_value(
-                                &mut self.repeat,
-                                Some(ChoreRepeat::EveryDays),
-                                t.every_label(),
-                            );
-                            ui.add(egui::TextEdit::singleline(&mut self.every).desired_width(40.0));
-                            egui::ComboBox::from_id_salt("chore-unit")
-                                .selected_text(unit_words(t, self.unit.unwrap_or(ChoreUnit::Days)))
-                                .show_ui(ui, |ui| {
-                                    for unit in [
-                                        ChoreUnit::Days,
-                                        ChoreUnit::Weeks,
-                                        ChoreUnit::Months,
-                                        ChoreUnit::Years,
-                                    ] {
-                                        ui.selectable_value(
-                                            &mut self.unit,
-                                            Some(unit),
-                                            unit_words(t, unit),
-                                        );
-                                    }
-                                });
-                        });
-                        ui.radio_value(
-                            &mut self.repeat,
-                            Some(ChoreRepeat::Weekdays),
-                            t.chore_repeat_weekdays(),
-                        );
-                        if self.repeat == Some(ChoreRepeat::Weekdays) {
-                            ui.horizontal(|ui| {
-                                for (i, on) in self.weekdays.iter_mut().enumerate() {
-                                    ui.checkbox(on, weekday_short(t, i as u32 + 1));
+                        ui.add(egui::TextEdit::singleline(&mut self.every).desired_width(40.0));
+                        egui::ComboBox::from_id_salt("chore-unit")
+                            .selected_text(unit_words(t, self.unit.unwrap_or(ChoreUnit::Days)))
+                            .show_ui(ui, |ui| {
+                                for unit in [
+                                    ChoreUnit::Days,
+                                    ChoreUnit::Weeks,
+                                    ChoreUnit::Months,
+                                    ChoreUnit::Years,
+                                ] {
+                                    ui.selectable_value(
+                                        &mut self.unit,
+                                        Some(unit),
+                                        unit_words(t, unit),
+                                    );
                                 }
                             });
-                        }
                     });
-                    ui.end_row();
-                    ui.label(t.time_label());
-                    ui.horizontal(|ui| {
+                    ui.radio_value(
+                        &mut self.repeat,
+                        Some(ChoreRepeat::Weekdays),
+                        t.chore_repeat_weekdays(),
+                    );
+                    if self.repeat == Some(ChoreRepeat::Weekdays) {
+                        ui.horizontal(|ui| {
+                            for (i, on) in self.weekdays.iter_mut().enumerate() {
+                                ui.checkbox(on, weekday_short(t, i as u32 + 1));
+                            }
+                        });
+                    }
+                });
+                ui.end_row();
+                ui.label(t.time_label());
+                ui.horizontal(|ui| {
+                    ui.add(
+                        egui::TextEdit::singleline(&mut self.time)
+                            .desired_width(60.0)
+                            .hint_text("HH:MM"),
+                    );
+                    ui.label(egui::RichText::new(t.chore_no_time()).weak());
+                });
+                ui.end_row();
+                ui.label(t.start());
+                ui.add(
+                    egui::TextEdit::singleline(&mut self.start)
+                        .desired_width(100.0)
+                        .hint_text("YYYY-MM-DD"),
+                );
+                ui.end_row();
+                ui.label(t.remind_me());
+                ui.horizontal(|ui| {
+                    ui.checkbox(&mut self.remind, "");
+                    if self.remind {
+                        ui.label(t.remind_at_label());
                         ui.add(
-                            egui::TextEdit::singleline(&mut self.time)
+                            egui::TextEdit::singleline(&mut self.remind_at)
                                 .desired_width(60.0)
                                 .hint_text("HH:MM"),
                         );
-                        ui.label(egui::RichText::new(t.chore_no_time()).weak());
-                    });
-                    ui.end_row();
-                    ui.label(t.start());
-                    ui.add(
-                        egui::TextEdit::singleline(&mut self.start)
-                            .desired_width(100.0)
-                            .hint_text("YYYY-MM-DD"),
-                    );
-                    ui.end_row();
-                    ui.label(t.remind_me());
-                    ui.horizontal(|ui| {
-                        ui.checkbox(&mut self.remind, "");
-                        if self.remind {
-                            ui.label(t.remind_at_label());
-                            ui.add(
-                                egui::TextEdit::singleline(&mut self.remind_at)
-                                    .desired_width(60.0)
-                                    .hint_text("HH:MM"),
-                            );
-                        }
-                    });
-                    ui.end_row();
-                });
-                if let Some(e) = &self.error {
-                    ui.colored_label(ui.visuals().error_fg_color, e);
-                }
-                ui.horizontal(|ui| {
-                    if ui.button(t.save()).clicked() {
-                        match self.draft() {
-                            Ok(chore) => result = Some(chore),
-                            Err(field) => self.error = Some(field),
-                        }
-                    }
-                    if ui.button(t.cancel()).clicked() {
-                        close = true;
                     }
                 });
+                ui.end_row();
             });
-        if result.is_some() || close {
+            if let Some(e) = &self.error {
+                ui.colored_label(ui.visuals().error_fg_color, e);
+            }
+            ui.horizontal(|ui| {
+                if ui.button(t.save()).clicked() {
+                    match self.draft() {
+                        Ok(chore) => result = Some(chore),
+                        Err(field) => self.error = Some(field),
+                    }
+                }
+                if ui.button(t.cancel()).clicked() {
+                    close = true;
+                }
+            });
+        });
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         result
     }
@@ -387,45 +384,44 @@ impl ChoreHistory {
             .ok()
             .flatten()
             .unwrap_or_default();
-        let mut open = self.open;
-        egui::Window::new(format!("{} · {}", chore.title, name))
-            .id(egui::Id::new("chore-history"))
-            .open(&mut open)
-            .collapsible(false)
-            .show(ctx, |ui| {
-                ui.strong(t.chore_history());
-                egui::ScrollArea::vertical()
-                    .max_height(360.0)
-                    .show(ui, |ui| {
-                        egui::Grid::new("chore-log").striped(true).show(ui, |ui| {
-                            for row in &self.rows {
-                                ui.label(format_day(t.locale(), row.due));
-                                ui.label(match row.state {
-                                    ChoreDay::Done => t.chore_done_state(),
-                                    ChoreDay::Missed => t.chore_missed(),
-                                    ChoreDay::Pending => t.chore_pending(),
-                                    ChoreDay::Upcoming => t.chore_upcoming(),
-                                    ChoreDay::NotDue => t.chore_not_due(),
-                                });
-                                let mut note = String::new();
-                                if let Some(on) = row.done_on
-                                    && on != row.due
-                                {
-                                    note = t.done_on(&format_day(t.locale(), on));
-                                }
-                                if let Some(author) = &row.author {
-                                    if !note.is_empty() {
-                                        note.push_str(" · ");
-                                    }
-                                    note.push_str(author);
-                                }
-                                ui.label(note);
-                                ui.end_row();
+        let modal = egui::Modal::new(egui::Id::new("chore-history")).show(ctx, |ui| {
+            ui.heading(format!("{} · {}", chore.title, name));
+            ui.strong(t.chore_history());
+            egui::ScrollArea::vertical()
+                .max_height(360.0)
+                .show(ui, |ui| {
+                    egui::Grid::new("chore-log").striped(true).show(ui, |ui| {
+                        for row in &self.rows {
+                            ui.label(format_day(t.locale(), row.due));
+                            ui.label(match row.state {
+                                ChoreDay::Done => t.chore_done_state(),
+                                ChoreDay::Missed => t.chore_missed(),
+                                ChoreDay::Pending => t.chore_pending(),
+                                ChoreDay::Upcoming => t.chore_upcoming(),
+                                ChoreDay::NotDue => t.chore_not_due(),
+                            });
+                            let mut note = String::new();
+                            if let Some(on) = row.done_on
+                                && on != row.due
+                            {
+                                note = t.done_on(&format_day(t.locale(), on));
                             }
-                        });
+                            if let Some(author) = &row.author {
+                                if !note.is_empty() {
+                                    note.push_str(" · ");
+                                }
+                                note.push_str(author);
+                            }
+                            ui.label(note);
+                            ui.end_row();
+                        }
                     });
-            });
-        self.open = open;
+                });
+        });
+        if modal.should_close() {
+            self.open = false;
+            ctx.request_repaint();
+        }
     }
 }
 

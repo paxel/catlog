@@ -78,115 +78,108 @@ impl NewFieldDialog {
         }
         let mut created = None;
         let mut close = false;
-        egui::Window::new(t.new_field())
-            .id(egui::Id::new(("new-field", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.set_min_width(360.0);
-                ui.label(t.name());
-                ui.text_edit_singleline(&mut self.name);
-                if let Some(e) = &self.error {
-                    ui.colored_label(ui.visuals().error_fg_color, e);
-                }
+        let modal = egui::Modal::new(egui::Id::new(("new-field", self.id))).show(ctx, |ui| {
+            ui.set_min_width(360.0);
+            ui.heading(t.new_field());
+            ui.label(t.name());
+            ui.text_edit_singleline(&mut self.name);
+            if let Some(e) = &self.error {
+                ui.colored_label(ui.visuals().error_fg_color, e);
+            }
+            ui.horizontal(|ui| {
+                ui.label(t.field_type());
+                egui::ComboBox::from_id_salt("field-type")
+                    .selected_text(type_name(t, self.field_type))
+                    .show_ui(ui, |ui| {
+                        for ft in TYPES {
+                            ui.selectable_value(&mut self.field_type, ft, type_name(t, ft));
+                        }
+                    });
+            });
+            if self.field_type == FieldType::UnitValue {
                 ui.horizontal(|ui| {
-                    ui.label(t.field_type());
-                    egui::ComboBox::from_id_salt("field-type")
-                        .selected_text(type_name(t, self.field_type))
+                    ui.label(t.dimension());
+                    egui::ComboBox::from_id_salt("dimension")
+                        .selected_text(dimension_name(t, self.dimension))
                         .show_ui(ui, |ui| {
-                            for ft in TYPES {
-                                ui.selectable_value(&mut self.field_type, ft, type_name(t, ft));
+                            for d in Dimension::ALL {
+                                ui.selectable_value(&mut self.dimension, d, dimension_name(t, d));
                             }
                         });
                 });
-                if self.field_type == FieldType::UnitValue {
-                    ui.horizontal(|ui| {
-                        ui.label(t.dimension());
-                        egui::ComboBox::from_id_salt("dimension")
-                            .selected_text(dimension_name(t, self.dimension))
-                            .show_ui(ui, |ui| {
-                                for d in Dimension::ALL {
-                                    ui.selectable_value(
-                                        &mut self.dimension,
-                                        d,
-                                        dimension_name(t, d),
-                                    );
-                                }
-                            });
-                    });
-                }
-                ui.horizontal(|ui| {
-                    ui.label(t.used_on());
-                    ui.radio_value(&mut self.scope, FieldScope::Cat, t.for_cats());
-                    ui.radio_value(&mut self.scope, FieldScope::Clowder, t.for_clowders());
-                    ui.radio_value(&mut self.scope, FieldScope::Both, t.for_both());
-                });
-                if self.field_type == FieldType::Choice {
-                    ui.label(t.options_one_per_line());
-                    ui.add(egui::TextEdit::multiline(&mut self.options).desired_rows(4));
-                }
-                if self.field_type == FieldType::Id {
-                    ui.horizontal(|ui| {
-                        ui.label(t.display_format());
-                        ui.radio_value(&mut self.id_display, IdDisplay::Plain, t.display_plain());
-                        ui.radio_value(&mut self.id_display, IdDisplay::Qr, t.display_qr());
-                        ui.radio_value(
-                            &mut self.id_display,
-                            IdDisplay::Barcode,
-                            t.display_barcode(),
-                        );
-                    });
-                    ui.label(t.lookup_url_label());
-                    ui.text_edit_singleline(&mut self.lookup);
-                    ui.label(
-                        egui::RichText::new(t.lookup_url_help(LOOKUP_PLACEHOLDER))
-                            .weak()
-                            .small(),
-                    );
-                    ui.horizontal(|ui| {
-                        for preset in REGISTRY_PRESETS {
-                            if ui.button(preset.name).clicked() {
-                                if self.name.trim().is_empty() {
-                                    self.name = preset.name.to_string();
-                                }
-                                self.lookup = preset.template.to_string();
-                            }
-                        }
-                    });
-                }
-                let escape = ui.input(|i| i.key_pressed(Key::Escape));
-                ui.horizontal(|ui| {
-                    if ui.button(t.create()).clicked() {
-                        let options: Vec<String> = self
-                            .options
-                            .lines()
-                            .map(str::trim)
-                            .filter(|o| !o.is_empty())
-                            .map(String::from)
-                            .collect();
-                        let refs: Vec<&str> = options.iter().map(String::as_str).collect();
-                        match store.define_field(
-                            &self.name,
-                            self.field_type,
-                            self.scope,
-                            &refs,
-                            self.id_display,
-                            Some(self.lookup.trim()),
-                            Some(self.dimension),
-                        ) {
-                            Ok(id) => created = Some(id),
-                            Err(Error::Invalid(message)) => self.error = Some(message),
-                            Err(e) => self.error = Some(e.to_string()),
-                        }
-                    }
-                    if ui.button(t.cancel()).clicked() || escape {
-                        close = true;
-                    }
-                });
+            }
+            ui.horizontal(|ui| {
+                ui.label(t.used_on());
+                ui.radio_value(&mut self.scope, FieldScope::Cat, t.for_cats());
+                ui.radio_value(&mut self.scope, FieldScope::Clowder, t.for_clowders());
+                ui.radio_value(&mut self.scope, FieldScope::Both, t.for_both());
             });
-        if created.is_some() || close {
+            if self.field_type == FieldType::Choice {
+                ui.label(t.options_one_per_line());
+                ui.add(egui::TextEdit::multiline(&mut self.options).desired_rows(4));
+            }
+            if self.field_type == FieldType::Id {
+                ui.horizontal(|ui| {
+                    ui.label(t.display_format());
+                    ui.radio_value(&mut self.id_display, IdDisplay::Plain, t.display_plain());
+                    ui.radio_value(&mut self.id_display, IdDisplay::Qr, t.display_qr());
+                    ui.radio_value(
+                        &mut self.id_display,
+                        IdDisplay::Barcode,
+                        t.display_barcode(),
+                    );
+                });
+                ui.label(t.lookup_url_label());
+                ui.text_edit_singleline(&mut self.lookup);
+                ui.label(
+                    egui::RichText::new(t.lookup_url_help(LOOKUP_PLACEHOLDER))
+                        .weak()
+                        .small(),
+                );
+                ui.horizontal(|ui| {
+                    for preset in REGISTRY_PRESETS {
+                        if ui.button(preset.name).clicked() {
+                            if self.name.trim().is_empty() {
+                                self.name = preset.name.to_string();
+                            }
+                            self.lookup = preset.template.to_string();
+                        }
+                    }
+                });
+            }
+            let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            ui.horizontal(|ui| {
+                if ui.button(t.create()).clicked() {
+                    let options: Vec<String> = self
+                        .options
+                        .lines()
+                        .map(str::trim)
+                        .filter(|o| !o.is_empty())
+                        .map(String::from)
+                        .collect();
+                    let refs: Vec<&str> = options.iter().map(String::as_str).collect();
+                    match store.define_field(
+                        &self.name,
+                        self.field_type,
+                        self.scope,
+                        &refs,
+                        self.id_display,
+                        Some(self.lookup.trim()),
+                        Some(self.dimension),
+                    ) {
+                        Ok(id) => created = Some(id),
+                        Err(Error::Invalid(message)) => self.error = Some(message),
+                        Err(e) => self.error = Some(e.to_string()),
+                    }
+                }
+                if ui.button(t.cancel()).clicked() || escape {
+                    close = true;
+                }
+            });
+        });
+        if created.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         created
     }

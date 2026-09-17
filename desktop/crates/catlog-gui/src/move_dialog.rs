@@ -36,72 +36,69 @@ impl MoveDialog {
         }
         let mut moved = false;
         let mut close = false;
-        egui::Window::new(t.move_to())
-            .id(egui::Id::new(("move-dialog", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                for c in &self.clowders {
-                    let label = if Some(&c.id) == self.current.as_ref() {
-                        format!("✓ {}", c.name)
-                    } else {
-                        c.name.clone()
-                    };
-                    if ui
-                        .radio(self.target.as_deref() == Some(c.id.as_str()), label)
-                        .clicked()
-                    {
-                        self.target = Some(c.id.clone());
-                    }
-                }
+        let modal = egui::Modal::new(egui::Id::new(("move-dialog", self.id))).show(ctx, |ui| {
+            ui.heading(t.move_to());
+            for c in &self.clowders {
+                let label = if Some(&c.id) == self.current.as_ref() {
+                    format!("✓ {}", c.name)
+                } else {
+                    c.name.clone()
+                };
                 if ui
-                    .radio(self.target.is_none(), t.no_clowder_stray_option())
+                    .radio(self.target.as_deref() == Some(c.id.as_str()), label)
                     .clicked()
                 {
-                    self.target = None;
+                    self.target = Some(c.id.clone());
                 }
-                ui.horizontal(|ui| {
-                    ui.label(t.as_of_date(""));
-                    ui.add(egui::TextEdit::singleline(&mut self.as_of).desired_width(100.0));
-                });
-                let escape = ui.input(|i| i.key_pressed(Key::Escape));
-                ui.horizontal(|ui| {
-                    let changed = self.target != self.current;
-                    if ui
-                        .add_enabled(changed, egui::Button::new(t.save()))
-                        .clicked()
-                    {
-                        let day = catlog_core::PartialDate::parse_loose(&self.as_of)
-                            .and_then(|d| d.earliest())
-                            .unwrap_or_else(|| chrono::Local::now().date_naive());
-                        let at = day
-                            .and_hms_opt(12, 0, 0)
-                            .and_then(|d| d.and_local_timezone(chrono::Local).single())
-                            .map(|d| {
-                                d.with_timezone(&chrono::Utc)
-                                    .to_rfc3339_opts(chrono::SecondsFormat::Micros, true)
-                            });
-                        if store
-                            .append_at(
-                                &self.cat,
-                                keys::CLOWDER,
-                                self.target.as_deref(),
-                                at.as_deref(),
-                                false,
-                            )
-                            .is_ok()
-                        {
-                            moved = true;
-                        }
-                    }
-                    if ui.button(t.cancel()).clicked() || escape {
-                        close = true;
-                    }
-                });
+            }
+            if ui
+                .radio(self.target.is_none(), t.no_clowder_stray_option())
+                .clicked()
+            {
+                self.target = None;
+            }
+            ui.horizontal(|ui| {
+                ui.label(t.as_of_date(""));
+                ui.add(egui::TextEdit::singleline(&mut self.as_of).desired_width(100.0));
             });
-        if moved || close {
+            let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            ui.horizontal(|ui| {
+                let changed = self.target != self.current;
+                if ui
+                    .add_enabled(changed, egui::Button::new(t.save()))
+                    .clicked()
+                {
+                    let day = catlog_core::PartialDate::parse_loose(&self.as_of)
+                        .and_then(|d| d.earliest())
+                        .unwrap_or_else(|| chrono::Local::now().date_naive());
+                    let at = day
+                        .and_hms_opt(12, 0, 0)
+                        .and_then(|d| d.and_local_timezone(chrono::Local).single())
+                        .map(|d| {
+                            d.with_timezone(&chrono::Utc)
+                                .to_rfc3339_opts(chrono::SecondsFormat::Micros, true)
+                        });
+                    if store
+                        .append_at(
+                            &self.cat,
+                            keys::CLOWDER,
+                            self.target.as_deref(),
+                            at.as_deref(),
+                            false,
+                        )
+                        .is_ok()
+                    {
+                        moved = true;
+                    }
+                }
+                if ui.button(t.cancel()).clicked() || escape {
+                    close = true;
+                }
+            });
+        });
+        if moved || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         moved
     }

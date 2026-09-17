@@ -203,49 +203,46 @@ impl FieldEditor {
         let mut close = false;
         let def = self.def.clone();
         let title = field_def_name(t, &def);
-        egui::Window::new(title)
-            .id(egui::Id::new(("field-editor", self.id)))
-            .collapsible(false)
-            .resizable(false)
-            .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
-            .show(ctx, |ui| {
-                ui.set_min_width(360.0);
-                egui::ScrollArea::vertical()
-                    .max_height(420.0)
-                    .show(ui, |ui| {
-                        self.show_input(ui, store, t, &def);
-                    });
-                ui.add_space(8.0);
-                ui.checkbox(&mut self.private, t.private_label());
-                ui.horizontal(|ui| {
-                    let typed = PartialDate::parse_loose(&self.as_of_text)
-                        .and_then(|d| d.earliest())
-                        .unwrap_or(self.as_of_day);
-                    let today = typed == chrono::Local::now().date_naive();
-                    ui.label(if today {
-                        t.as_of_today().to_string()
-                    } else {
-                        t.as_of_date(&format_day(t.locale(), typed))
-                    });
-                    ui.add(egui::TextEdit::singleline(&mut self.as_of_text).desired_width(100.0));
-                    ui.add(egui::TextEdit::singleline(&mut self.as_of_time).desired_width(50.0));
+        let modal = egui::Modal::new(egui::Id::new(("field-editor", self.id))).show(ctx, |ui| {
+            ui.set_min_width(360.0);
+            ui.heading(title);
+            egui::ScrollArea::vertical()
+                .max_height(420.0)
+                .show(ui, |ui| {
+                    self.show_input(ui, store, t, &def);
                 });
-                let escape = ui.input(|i| i.key_pressed(Key::Escape));
-                ui.horizontal(|ui| {
-                    if ui.button(t.save()).clicked() {
-                        result = Some(FieldEdit {
-                            value: self.value(),
-                            date: self.as_of(),
-                            private: self.private,
-                        });
-                    }
-                    if ui.button(t.cancel()).clicked() || escape {
-                        close = true;
-                    }
+            ui.add_space(8.0);
+            ui.checkbox(&mut self.private, t.private_label());
+            ui.horizontal(|ui| {
+                let typed = PartialDate::parse_loose(&self.as_of_text)
+                    .and_then(|d| d.earliest())
+                    .unwrap_or(self.as_of_day);
+                let today = typed == chrono::Local::now().date_naive();
+                ui.label(if today {
+                    t.as_of_today().to_string()
+                } else {
+                    t.as_of_date(&format_day(t.locale(), typed))
                 });
+                ui.add(egui::TextEdit::singleline(&mut self.as_of_text).desired_width(100.0));
+                ui.add(egui::TextEdit::singleline(&mut self.as_of_time).desired_width(50.0));
             });
-        if result.is_some() || close {
+            let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            ui.horizontal(|ui| {
+                if ui.button(t.save()).clicked() {
+                    result = Some(FieldEdit {
+                        value: self.value(),
+                        date: self.as_of(),
+                        private: self.private,
+                    });
+                }
+                if ui.button(t.cancel()).clicked() || escape {
+                    close = true;
+                }
+            });
+        });
+        if result.is_some() || close || modal.should_close() {
             self.open = false;
+            ctx.request_repaint();
         }
         result
     }
