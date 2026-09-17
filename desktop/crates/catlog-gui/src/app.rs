@@ -8,6 +8,7 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use catlog_core::entities::PositionKind;
+use catlog_core::fonts::{FontSet, FontSource, HttpFonts};
 use catlog_core::geocode::Geocoder;
 use catlog_core::review::{needs_attention, review_import};
 use catlog_core::sync::{UnseenChanges, grown_files};
@@ -20,6 +21,7 @@ use crate::appointments::{AppointmentDialog, FinishDialog};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::conflicts::{ConflictDialog, show_conflicts};
 use crate::dialogs::{ConfirmDialog, NameDialog};
+use crate::documents_page::{DocAction, DocKind, DocumentPage, card_png};
 use crate::duplicates_page::{DuplicatesAction, show_duplicates};
 use crate::editor::{EditTarget, FieldEditor, apply_edit};
 use crate::history::{HistoryAction, HistoryPage};
@@ -62,6 +64,8 @@ pub type FilePicker = Box<dyn FnMut(&str) -> Vec<PathBuf>>;
 pub type FileSaver = Box<dyn FnMut(&str, &str) -> Option<PathBuf>>;
 /// Asks the keeper for a folder: the dialog's title in, the folder out.
 pub type FolderPicker = Box<dyn FnMut(&str) -> Option<PathBuf>>;
+/// Hands a file to the system, which opens it in the viewer.
+pub type FileOpener = Box<dyn FnMut(&Path)>;
 
 /// How often the shared folder is looked at while the app runs.
 const WATCH_EVERY: Duration = Duration::from_secs(5 * 60);
@@ -126,6 +130,11 @@ pub struct App {
     pub notifier: Box<dyn Notifier>,
     pub merge_dialog: MergeDialog,
     pub house: Housekeeping,
+    pub document: DocumentPage,
+    /// The fonts for the current language, once built.
+    fonts: Option<(String, FontSet)>,
+    pub font_source: Box<dyn FontSource>,
+    pub open_file: FileOpener,
     /// Where backups are written; the Downloads folder outside tests.
     pub backups_dir: PathBuf,
     restore_sets: Vec<catlog_core::backup::BackupSet>,
@@ -230,6 +239,14 @@ impl App {
             notifier: Box::new(DesktopNotifier),
             merge_dialog: MergeDialog::default(),
             house: Housekeeping::default(),
+            document: DocumentPage::default(),
+            fonts: None,
+            font_source: Box::new(HttpFonts),
+            open_file: Box::new(|path| {
+                if let Err(e) = open::that_detached(path) {
+                    eprintln!("catlog: open: {e}");
+                }
+            }),
             backups_dir: crate::settings::backups_dir(),
             restore_sets: Vec::new(),
             going_back: None,
@@ -648,6 +665,11 @@ impl App {
                         AgendaAction::OpenEntity(id) => page_action = PageAction::OpenCat(id),
                     }
                 }
+                Selection::Document => {
+                    let complete = self.fonts().complete;
+                    let action = self.document.show(ui, &self.store, &t, complete);
+                    self.act_document(action);
+                }
                 Selection::Moments => {
                     let action = show_moments(ui, &self.store, &t, &mut self.house);
                     self.act_house(action);
@@ -759,6 +781,12 @@ impl App {
                     .ask(t.delete_photo_title(), t.delete_photo_body(), t.delete());
             }
             PageAction::Chore(action) => self.act_chore(action),
+            PageAction::Document(kind, cat) => {
+                self.document
+                    .open(&self.store, kind, &cat, self.pages.today);
+                self.home.selection = Selection::Document;
+                self.history_of = None;
+            }
             PageAction::MergeInto(id) => {
                 let kind = if id.starts_with("clowder:") {
                     MergeKind::Clowder
@@ -1294,6 +1322,104 @@ impl App {
                 .flatten()
                 .unwrap_or_default();
             self.notifier.notify(&r.title, &name);
+        }
+    }
+
+    /// The fonts for the current language, fetched and cached under the
+    /// data dir on first use.
+    pub fn fonts(&mut self) -> &FontSet {
+        let language = self
+            .t
+            .locale()
+            .split(['-', '_'])
+            .next()
+            .unwrap_or("en")
+            .to_string();
+        if self.fonts.as_ref().is_none_or(|(l, _)| *l != language) {
+            let cache = self.manager.root().join("fonts");
+            let set = catlog_core::fonts::fonts_for(&language, &cache, self.font_source.as_ref())
+                .or_else(|_| FontSet::bundled())
+                .expect("the bundled fonts parse");
+            self.fonts = Some((language.clone(), set));
+        }
+        &self.fonts.as_ref().expect("just built").1
+    }
+
+    /// The current document as PDF bytes.
+    pub fn document_pdf(&mut self) -> Option<Vec<u8>> {
+        let t = self.t;
+        let units = self.pages.units;
+        let today = self.pages.today;
+        let kind = self.document.kind?;
+        let complete = self.fonts().complete;
+        let fonts = self.fonts().clone();
+        Some(match kind {
+            DocKind::Card => {
+                let card = self.document.card_content(&self.store, &t, units);
+                catlog_core::documents::card_pdf(&card, &fonts, &t.card_title(&card.name))
+            }
+            DocKind::Poster => {
+                let poster = self.document.poster_content(&self.store, &t, units);
+                catlog_core::documents::poster_pdf(&poster, &fonts)
+            }
+            DocKind::VetReport => {
+                let report = self
+                    .document
+                    .report_content(&self.store, &t, units, today, complete);
+                catlog_core::documents::vet_report_pdf(&report, &fonts)
+            }
+        })
+    }
+
+    fn act_document(&mut self, action: DocAction) {
+        let t = self.t;
+        match action {
+            DocAction::None => {}
+            DocAction::SavePdf => {
+                let name = self.document.file_name(&self.store, &t);
+                let Some(path) = (self.save_file)(t.save_pdf(), &name) else {
+                    return;
+                };
+                let Some(bytes) = self.document_pdf() else {
+                    return;
+                };
+                self.notice = Some(match std::fs::write(&path, bytes) {
+                    Ok(()) => t.document_saved(&path.to_string_lossy()),
+                    Err(e) => e.to_string(),
+                });
+            }
+            DocAction::Print => {
+                let name = self.document.file_name(&self.store, &t);
+                let dir = self.manager.root().join("print");
+                let Some(bytes) = self.document_pdf() else {
+                    return;
+                };
+                let path = dir.join(name);
+                match std::fs::create_dir_all(&dir).and_then(|()| std::fs::write(&path, bytes)) {
+                    Ok(()) => (self.open_file)(&path),
+                    Err(e) => self.notice = Some(e.to_string()),
+                }
+            }
+            DocAction::SaveImage => {
+                let name = self
+                    .document
+                    .file_name(&self.store, &t)
+                    .replace(".pdf", ".png");
+                let Some(path) = (self.save_file)(t.save_image(), &name) else {
+                    return;
+                };
+                let card = self
+                    .document
+                    .card_content(&self.store, &t, self.pages.units);
+                let fonts = self.fonts().clone();
+                let Some(png) = card_png(&card, &fonts) else {
+                    return;
+                };
+                self.notice = Some(match std::fs::write(&path, png) {
+                    Ok(()) => t.document_saved(&path.to_string_lossy()),
+                    Err(e) => e.to_string(),
+                });
+            }
         }
     }
 
@@ -3560,5 +3686,225 @@ mod tests {
         h.run();
         let bans = h.state().store().bans().unwrap();
         assert!(!bans.iter().any(|(k, v)| k == "device" && *v == device));
+    }
+
+    struct OfflineFonts;
+
+    impl FontSource for OfflineFonts {
+        fn fetch(&self, _url: &str) -> Result<Vec<u8>, String> {
+            Err("offline".into())
+        }
+    }
+
+    fn open_cat_document(h: &mut Harness<'static, App>, item: &str) {
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label(item).click_accesskit();
+        h.run();
+    }
+
+    #[test]
+    fn the_card_is_chosen_saved_as_pdf_and_image_and_printed() {
+        let dir = tempfile::tempdir().unwrap();
+        let target = std::sync::Arc::new(std::sync::Mutex::new(dir.path().join("card.pdf")));
+        let opened = std::sync::Arc::new(std::sync::Mutex::new(Vec::<PathBuf>::new()));
+        let mut app = seeded(dir.path());
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        app.store_mut()
+            .append(miezi, "f:chipid", Some("276098100"))
+            .unwrap();
+        app.font_source = Box::new(OfflineFonts);
+        let hand = target.clone();
+        app.save_file = Box::new(move |_, _| Some(hand.lock().unwrap().clone()));
+        let hand = opened.clone();
+        app.open_file = Box::new(move |p| hand.lock().unwrap().push(p.to_path_buf()));
+        let mut h = harness(app);
+        h.run();
+        open_cat_document(&mut h, "Card");
+        assert_eq!(*h.state().selection(), Selection::Document);
+        assert_eq!(h.state().document.kind, Some(DocKind::Card));
+        h.get_by_label("Card — Miezi");
+        h.get_by_label("What goes on the card");
+        // Untick the clowder: the choice is remembered.
+        h.get_all_by_label("Clowder").last().unwrap().click();
+        h.run();
+        assert!(!h.state().document.card_keys.contains(keys::CLOWDER));
+        assert!(h.state().store().local_setting("cardFields").is_some());
+        let card = h.state().document.card_content(
+            h.state().store(),
+            h.state().t(),
+            catlog_core::units::UnitSystem::Metric,
+        );
+        assert_eq!(card.name, "Miezi");
+        assert!(card.photo.is_some());
+        assert!(card.facts.iter().any(|(l, _)| l == "Gender"));
+        assert!(!card.facts.iter().any(|(l, _)| l == "Clowder"));
+        assert_eq!(card.codes.len(), 1, "the chip prints as a code");
+        h.get_by_label("Save as PDF…").click();
+        h.run();
+        let pdf = dir.path().join("card.pdf");
+        assert!(pdf.is_file());
+        assert_eq!(lopdf::Document::load(&pdf).unwrap().get_pages().len(), 1);
+        h.get_by_label_contains("Saved to ");
+        *target.lock().unwrap() = dir.path().join("card.png");
+        h.get_by_label("Save as image…").click();
+        h.run();
+        let png = image::open(dir.path().join("card.png")).unwrap();
+        assert_eq!(png.width(), 800);
+        h.get_by_label("Print").click();
+        h.run();
+        let printed = opened.lock().unwrap().clone();
+        assert_eq!(printed.len(), 1);
+        assert!(printed[0].is_file());
+        assert!(printed[0].ends_with("Miezi-card.pdf"));
+    }
+
+    #[test]
+    fn the_poster_takes_its_lines_photos_and_qr_and_the_report_its_fields() {
+        let dir = tempfile::tempdir().unwrap();
+        let target = std::sync::Arc::new(std::sync::Mutex::new(dir.path().join("poster.pdf")));
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 9);
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        app.store_mut()
+            .append(miezi, "f:weight", Some("3.2"))
+            .unwrap();
+        app.store_mut()
+            .append(miezi, "f:weight", Some("3.4"))
+            .unwrap();
+        app.store_mut()
+            .append(miezi, "f:birthdate", Some("2024-01-01"))
+            .unwrap();
+        let home = "clowder:00000000-0000-4000-8000-000000000001";
+        app.store_mut()
+            .append(home, "f:phone", Some("0170 1234567"))
+            .unwrap();
+        app.font_source = Box::new(OfflineFonts);
+        let hand = target.clone();
+        app.save_file = Box::new(move |_, _| Some(hand.lock().unwrap().clone()));
+        let mut h = harness(app);
+        h.run();
+        open_cat_document(&mut h, "Missing poster…");
+        assert_eq!(h.state().document.kind, Some(DocKind::Poster));
+        h.get_by_label("MISSING — Miezi");
+        h.get_by_label("Photos, up to two");
+        assert_eq!(
+            h.state().document.photos.len(),
+            1,
+            "the profile image leads"
+        );
+        assert!(h.state().document.qr);
+        h.state_mut().document.extra = "Very shy".into();
+        h.state_mut().document.since = "2026-03-01".into();
+        h.run();
+        let poster = h.state().document.poster_content(
+            h.state().store(),
+            h.state().t(),
+            catlog_core::units::UnitSystem::Metric,
+        );
+        assert_eq!(poster.name, "Miezi");
+        assert_eq!(poster.phone.as_deref(), Some("0170 1234567"));
+        assert!(
+            poster
+                .lines
+                .iter()
+                .any(|l| l.starts_with("Missing since: 3/1/2026"))
+        );
+        assert!(
+            poster
+                .lines
+                .iter()
+                .any(|l| l.starts_with("Address: Katzenweg"))
+        );
+        assert_eq!(poster.extra.as_deref(), Some("Very shy"));
+        assert_eq!(poster.codes.len(), 1, "the share QR");
+        assert!(poster.codes[0].data.starts_with("catlog-share:d:"));
+        assert_eq!(poster.photos.len(), 1);
+        h.get_by_label("QR code for cat(a)log").click();
+        h.run();
+        assert!(!h.state().document.qr);
+        h.get_by_label("Save as PDF…").click();
+        h.run();
+        assert_eq!(
+            lopdf::Document::load(dir.path().join("poster.pdf"))
+                .unwrap()
+                .get_pages()
+                .len(),
+            1
+        );
+        // The report: fields with a history, a range, the summary.
+        *target.lock().unwrap() = dir.path().join("report.pdf");
+        open_cat_document(&mut h, "Report for the vet…");
+        assert_eq!(h.state().document.kind, Some(DocKind::VetReport));
+        h.get_by_label("Report for the vet — Miezi");
+        h.get_by_label("Patient summary");
+        assert!(h.state().document.fields.contains("f:weight"));
+        assert!(h.state().document.fields.contains("f:gender"));
+        h.get_all_by_label("Gender").last().unwrap().click();
+        h.run();
+        assert!(!h.state().document.fields.contains("f:gender"));
+        // The readings were written today by the wall clock: widen the range.
+        h.state_mut().document.to = "2027-12-31".into();
+        h.run();
+        let report = h.state().document.report_content(
+            h.state().store(),
+            h.state().t(),
+            catlog_core::units::UnitSystem::Metric,
+            h.state().pages.today,
+            true,
+        );
+        assert!(report.summary.is_some());
+        let summary = report.summary.as_ref().unwrap();
+        assert!(
+            summary
+                .facts
+                .iter()
+                .any(|(l, v)| l == "Age" && v == "2 years 2 months")
+        );
+        assert!(
+            summary
+                .facts
+                .iter()
+                .any(|(l, v)| l == "Phone" && v == "0170 1234567")
+        );
+        assert!(report.rows.iter().any(|r| r.label == "Weight"));
+        assert!(!report.rows.iter().any(|r| r.label == "Gender"));
+        assert_eq!(report.curves.len(), 1, "weight has two readings");
+        assert!(report.note.is_none());
+        h.get_by_label("Save as PDF…").click();
+        h.run();
+        let pages = lopdf::Document::load(dir.path().join("report.pdf"))
+            .unwrap()
+            .get_pages()
+            .len();
+        assert!(pages >= 3, "sheet, timeline, curve: {pages}");
+    }
+
+    #[test]
+    fn a_language_without_its_fonts_says_so_on_the_page() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = app(dir.path(), "he", true);
+        app.font_source = Box::new(OfflineFonts);
+        let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../fixtures/fresh/folder");
+        app.store_mut().import_folder(&fixture, None).unwrap();
+        let mut h = harness(app);
+        h.run();
+        assert!(!h.state_mut().fonts().complete);
+        assert!(h.state_mut().fonts().rtl);
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        {
+            let app = h.state_mut();
+            let today = chrono::NaiveDate::from_ymd_opt(2026, 3, 10).unwrap();
+            let (document, store) = (&mut app.document, &app.store);
+            document.open(store, DocKind::Card, miezi, today);
+        }
+        h.state_mut().home.selection = Selection::Document;
+        h.run();
+        h.get_by_label_contains("Noto Sans");
+        assert!(h.state_mut().document_pdf().is_some());
     }
 }

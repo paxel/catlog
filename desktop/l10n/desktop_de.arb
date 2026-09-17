@@ -44,5 +44,12 @@
   "chores": "Aufgaben",
   "newAppointment": "Neuer Termin",
   "ticksLabel": "Häkchen",
-  "dateLabel": "Datum"
+  "dateLabel": "Datum",
+  "savePdf": "Als PDF speichern…",
+  "saveImage": "Als Bild speichern…",
+  "printHint": "Öffnet das PDF in deinem Betrachter, dort druckst du es",
+  "documentSaved": "Gespeichert unter {path}",
+  "cardContent": "Was auf die Karte kommt",
+  "dateHint": "JJJJ-MM-TT",
+  "fontsIncomplete": "Die Schriften für diese Sprache konnten nicht geladen werden; die Seite ist in Noto Sans gesetzt."
 }

@@ -11,6 +11,7 @@ pub mod chores;
 pub mod codes;
 pub mod conflicts;
 pub mod dialogs;
+pub mod documents_page;
 pub mod duplicates_page;
 pub mod editor;
 pub mod history;

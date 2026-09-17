@@ -22,8 +22,14 @@ zip = { version = "4", default-features = false, features = ["deflate"] }
 getrandom = "0.3"
 ed25519-dalek = "2"
 base64 = "0.22"
+ttf-parser = "0.25"
+flate2 = "1"
+qrcode = { version = "0.14", default-features = false }
+barcoders = { version = "2", default-features = false }
 image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
 ureq = { version = "3", default-features = false, features = ["rustls"] }
 
 [dev-dependencies]
+lopdf = "0.43"
+rqrr = "0.11"
 tempfile = "3.10"

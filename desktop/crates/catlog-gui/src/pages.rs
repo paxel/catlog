@@ -10,6 +10,7 @@ use egui::{Ui, Vec2};
 
 use crate::agenda::{AppointmentAction, appointment_card};
 use crate::chores::{ChoreAction, chore_row};
+use crate::documents_page::DocKind;
 use crate::l10n::L10n;
 use crate::labels::{field_def_name, field_label, field_value_display, format_day, value_label};
 use crate::textures::FaceCache;
@@ -50,6 +51,8 @@ pub enum PageAction {
     Appointment(AppointmentAction),
     /// Merge this Cat or Clowder into another.
     MergeInto(String),
+    /// Open a document page for this Cat.
+    Document(DocKind, String),
 }
 
 /// The pages' own state: the unit system values are read in.
@@ -168,6 +171,19 @@ impl Pages {
                     }
                     if ui.button(t.merge_this_into(t.kind_cat())).clicked() {
                         action = PageAction::MergeInto(id.to_string());
+                        ui.close();
+                    }
+                    ui.separator();
+                    if ui.button(t.card()).clicked() {
+                        action = PageAction::Document(DocKind::Card, id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.vet_report_menu()).clicked() {
+                        action = PageAction::Document(DocKind::VetReport, id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.poster_menu()).clicked() {
+                        action = PageAction::Document(DocKind::Poster, id.to_string());
                         ui.close();
                     }
                     let hidden = store.is_hidden(id).unwrap_or(false);

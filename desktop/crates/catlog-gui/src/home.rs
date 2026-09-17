@@ -27,6 +27,8 @@ pub enum Selection {
     Backups,
     Restore,
     Moderation,
+    /// A document page for a Cat.
+    Document,
 }
 
 /// What the keeper did on the home pane this frame.

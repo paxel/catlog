@@ -44,5 +44,12 @@
   "chores": "Chores",
   "newAppointment": "New appointment",
   "ticksLabel": "Ticks",
-  "dateLabel": "Date"
+  "dateLabel": "Date",
+  "savePdf": "Save as PDF…",
+  "saveImage": "Save as image…",
+  "printHint": "Opens the PDF in your viewer, where you print it",
+  "documentSaved": "Saved to {path}",
+  "cardContent": "What goes on the card",
+  "dateHint": "YYYY-MM-DD",
+  "fontsIncomplete": "The fonts for this language could not be fetched; the page is set in Noto Sans."
 }
