@@ -58,10 +58,14 @@ impl SettingsFile {
 /// The app's data directory: the platform's data home under the app id,
 /// in a `v2` sub-layout the Flutter desktop build never touches.
 pub fn data_dir() -> PathBuf {
-    directories::ProjectDirs::from("io.github", "paxel", "catlog")
-        .map(|d| d.data_dir().join("v2"))
-        .unwrap_or_else(|| PathBuf::from(".").join("catlog-data"))
+    directories::BaseDirs::new()
+        .map(|d| d.data_dir().join(APP_ID).join("v2"))
+        .unwrap_or_else(|| PathBuf::from(".").join(APP_ID).join("v2"))
 }
+
+/// The app id the Flutter desktop build used as well; the `v2` layout
+/// underneath is the desk's own.
+pub const APP_ID: &str = "io.github.paxel.catlog";
 
 #[cfg(test)]
 mod tests {
@@ -91,6 +95,12 @@ mod tests {
         // A directory that cannot be made reports its failure.
         let blocked = SettingsFile::load(&dir.path().join("settings.json").join("x"));
         assert!(blocked.save().is_err());
-        assert!(data_dir().ends_with("v2"));
+        let dir = data_dir();
+        assert!(dir.ends_with("v2"));
+        assert!(
+            dir.components().any(|c| c.as_os_str() == APP_ID),
+            "{}",
+            dir.display()
+        );
     }
 }

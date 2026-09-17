@@ -262,16 +262,19 @@ impl Pages {
                     let withheld = store.is_withheld(id, &def.key()).unwrap_or(false);
                     ui.label(field_def_name(t, def));
                     let response = if withheld {
-                        ui.label(
-                            egui::RichText::new(format!("🔒 {}", t.withheld_by_partner())).weak(),
-                        )
+                        ui.label(egui::RichText::new(t.withheld_by_partner()).weak())
                     } else if def.field_type == FieldType::Id && value.is_some() {
                         self.show_id_value(ui, t, def, value.as_deref().unwrap_or_default())
                     } else {
-                        let shown = field_value_display(t, Some(def), value.as_deref(), self.units);
+                        // A cat reference reads as the cat's name, as in the history.
+                        let shown = if def.field_type == FieldType::Cat {
+                            value_label(t, store, &def.key(), value.as_deref(), self.units)
+                        } else {
+                            field_value_display(t, Some(def), value.as_deref(), self.units)
+                        };
                         let private = store.is_field_private(id, &def.key()).unwrap_or(false);
                         let text = if private {
-                            format!("🔒 {shown}")
+                            format!("{shown} · {}", t.private_label())
                         } else {
                             shown
                         };

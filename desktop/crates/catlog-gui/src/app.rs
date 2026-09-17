@@ -133,6 +133,17 @@ impl App {
         &self.home.selection
     }
 
+    /// Shows a page in the detail pane, as a click in the list would.
+    pub fn select(&mut self, selection: Selection) {
+        self.home.selection = selection;
+        self.history_of = None;
+    }
+
+    /// Shows a Field's history on an entity in the detail pane.
+    pub fn open_history(&mut self, entity: &str, slug: &str) {
+        self.history_of = Some((entity.to_string(), slug.to_string()));
+    }
+
     /// The window title: the open Catalog's name.
     pub fn title(&self) -> String {
         self.manager.active().name.clone()
@@ -777,8 +788,10 @@ mod tests {
         h.run();
         assert!(matches!(h.state().selection(), Selection::Cat(_)));
         h.get_by_label(L10n::new("en").stray_no_clowder());
-        // Down from the Strays row lands on the first Clowder.
-        h.state_mut().home.selection = Selection::Strays;
+        // Down from the Strays row lands on the first Clowder, also
+        // right after a click left the focus on the row.
+        h.get_by_label_contains("Strays  (1)").click();
+        h.run();
         h.key_press(egui::Key::ArrowDown);
         h.run();
         assert_eq!(
@@ -834,7 +847,8 @@ mod tests {
         h.get_by_label("4.25 kg");
         h.get_by_label("5/2021");
         h.get_by_label("Family");
-        h.get_by_label("Tom").click();
+        // "Tom" is the Mother value and the family link; the link comes last.
+        h.get_all_by_label("Tom").last().unwrap().click();
         h.run();
         assert_eq!(
             *h.state().selection(),
@@ -919,7 +933,7 @@ mod tests {
                 .as_deref(),
             Some("5")
         );
-        h.get_by_label("←").click();
+        h.get_by_label("Back").click();
         h.run();
         assert!(h.state().history_of.is_none());
     }
@@ -952,7 +966,7 @@ mod tests {
             h.get_all_by_label_contains(" kg").count() >= 5,
             "hidden rows show on request"
         );
-        h.get_by_label("←").click();
+        h.get_by_label("Back").click();
         h.run();
         h.get_by_label("New field").click();
         h.run();

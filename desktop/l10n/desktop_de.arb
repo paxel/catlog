@@ -12,5 +12,6 @@
   "historyOldestFirst": "Älteste zuerst",
   "historyShowHidden": "Korrigierte und entfernte Werte zeigen",
   "editValue": "Wert bearbeiten",
-  "showHistory": "Verlauf"
+  "showHistory": "Verlauf",
+  "backLabel": "Zurück"
 }

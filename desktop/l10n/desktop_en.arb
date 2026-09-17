@@ -12,5 +12,6 @@
   "historyOldestFirst": "Oldest first",
   "historyShowHidden": "Show corrected and removed values",
   "editValue": "Edit value",
-  "showHistory": "History"
+  "showHistory": "History",
+  "backLabel": "Back"
 }

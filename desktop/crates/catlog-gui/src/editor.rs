@@ -212,7 +212,7 @@ impl FieldEditor {
                         self.show_input(ui, store, t, &def);
                     });
                 ui.add_space(8.0);
-                ui.checkbox(&mut self.private, format!("🔒 {}", t.private_label()));
+                ui.checkbox(&mut self.private, t.private_label());
                 ui.horizontal(|ui| {
                     let typed = PartialDate::parse_loose(&self.as_of_text)
                         .and_then(|d| d.earliest())

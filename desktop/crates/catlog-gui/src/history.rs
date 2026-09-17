@@ -61,7 +61,7 @@ impl HistoryPage {
             .unwrap_or_else(|| t.unnamed().to_string());
         egui::ScrollArea::vertical().show(ui, |ui| {
             ui.horizontal(|ui| {
-                if ui.button("←").on_hover_text(&name).clicked() {
+                if ui.button(t.back_label()).on_hover_text(&name).clicked() {
                     action = HistoryAction::Back;
                 }
                 ui.heading(format!("{name} · {}", field_def_name(t, def)));

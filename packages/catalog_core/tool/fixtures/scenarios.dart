@@ -260,7 +260,7 @@ final scenarios = <Scenario>[
       w.defineField('Height', FieldType.unitValue,
           scope: FieldScope.cat, dimension: Dimension.length);
       w.defineField('Notes', FieldType.text, scope: FieldScope.clowder);
-      w.append(miezi, 'f:temper', 'sleepy');
+      w.append(miezi, 'f:mood', 'sleepy');
       w.append(miezi, 'f:vet-registry', 'DE-123 456');
       w.append(miezi, 'f:indoor', 'yes');
       w.append(miezi, 'f:visits', '3');

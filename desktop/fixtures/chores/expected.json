@@ -6,11 +6,11 @@
     "cat:00000000-0000-4000-8000-000000000001": {
       "kind": "cat",
       "fields": {
-        "$appt:45cef480-de0c-4fb4-ae4f-6a001f8ad3c3": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"done for Miezi\",\"alert\":\"hourBefore\",\"done\":true,\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
-        "$appt:bfcc34ed-2119-4d5c-8fbf-4408221fc648": "{\"date\":\"2026-03-10\",\"time\":\"09:30\",\"title\":\"Shots\",\"notes\":\"all good\",\"field\":\"f:neutered\",\"value\":\"yes\",\"alert\":\"dayBefore\",\"done\":true}",
-        "$chore:6741df4c-6d81-4220-8d00-f555a964782c": "{\"title\":\"Drops\",\"schedule\":{\"repeat\":\"daily\"},\"time\":\"08:00\",\"start\":\"2026-01-01\",\"remind\":true,\"remindAt\":\"07:30\"}",
-        "$chore:6741df4c-6d81-4220-8d00-f555a964782c@2026-01-01": "2026-01-01",
-        "$chore:6741df4c-6d81-4220-8d00-f555a964782c@2026-01-02": null,
+        "$appt:b2dcb901-c422-429f-8c62-b176d1796e4e": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"done for Miezi\",\"alert\":\"hourBefore\",\"done\":true,\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
+        "$appt:d2916457-c414-45fc-8e35-3a445540ebe5": "{\"date\":\"2026-03-10\",\"time\":\"09:30\",\"title\":\"Shots\",\"notes\":\"all good\",\"field\":\"f:neutered\",\"value\":\"yes\",\"alert\":\"dayBefore\",\"done\":true}",
+        "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975": "{\"title\":\"Drops\",\"schedule\":{\"repeat\":\"daily\"},\"time\":\"08:00\",\"start\":\"2026-01-01\",\"remind\":true,\"remindAt\":\"07:30\"}",
+        "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975@2026-01-01": "2026-01-01",
+        "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975@2026-01-02": null,
         "$type": "cat",
         "clowder": "clowder:00000000-0000-4000-8000-000000000001",
         "f:neutered": "yes",
@@ -23,7 +23,7 @@
     "cat:00000000-0000-4000-8000-000000000002": {
       "kind": "cat",
       "fields": {
-        "$appt:9cc9218b-09b7-419b-83bb-ce525aaecc7d": null,
+        "$appt:d0d36182-2765-4249-9511-71a1a2f0dc2b": null,
         "$type": "cat",
         "clowder": "clowder:00000000-0000-4000-8000-000000000001",
         "f:species": "cat",
@@ -35,7 +35,7 @@
     "clowder:00000000-0000-4000-8000-000000000001": {
       "kind": "clowder",
       "fields": {
-        "$chore:044c972e-92dd-4759-a626-747e5a81582d": "{\"title\":\"Worming\",\"schedule\":{\"repeat\":\"everyDays\",\"every\":2,\"unit\":\"weeks\"},\"start\":\"2026-01-05\",\"ended\":true}",
+        "$chore:54b912bc-c559-4e60-a1f5-19108d5b695a": "{\"title\":\"Worming\",\"schedule\":{\"repeat\":\"everyDays\",\"every\":2,\"unit\":\"weeks\"},\"start\":\"2026-01-05\",\"ended\":true}",
         "$type": "clowder",
         "name": "Foster Home"
       },
@@ -232,11 +232,11 @@
   "blobs": [],
   "histories": {
     "cat:00000000-0000-4000-8000-000000000001": {
-      "$appt:45cef480-de0c-4fb4-ae4f-6a001f8ad3c3": [
+      "$appt:b2dcb901-c422-429f-8c62-b176d1796e4e": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 111,
-          "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"done for Miezi\",\"alert\":\"hourBefore\",\"done\":true,\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+          "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"done for Miezi\",\"alert\":\"hourBefore\",\"done\":true,\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
           "date": "2026-01-01T10:01:51.000Z",
           "author": "Ada",
           "voided": false
@@ -244,7 +244,7 @@
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 109,
-          "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+          "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
           "date": "2026-01-01T10:01:49.000Z",
           "author": "Ada",
           "voided": false
@@ -252,13 +252,13 @@
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 107,
-          "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+          "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
           "date": "2026-01-01T10:01:47.000Z",
           "author": "Ada",
           "voided": false
         }
       ],
-      "$appt:bfcc34ed-2119-4d5c-8fbf-4408221fc648": [
+      "$appt:d2916457-c414-45fc-8e35-3a445540ebe5": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 105,
@@ -276,7 +276,7 @@
           "voided": false
         }
       ],
-      "$chore:6741df4c-6d81-4220-8d00-f555a964782c": [
+      "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 97,
@@ -286,7 +286,7 @@
           "voided": false
         }
       ],
-      "$chore:6741df4c-6d81-4220-8d00-f555a964782c@2026-01-01": [
+      "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975@2026-01-01": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 98,
@@ -296,7 +296,7 @@
           "voided": false
         }
       ],
-      "$chore:6741df4c-6d81-4220-8d00-f555a964782c@2026-01-02": [
+      "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975@2026-01-02": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 100,
@@ -366,7 +366,7 @@
       ]
     },
     "cat:00000000-0000-4000-8000-000000000002": {
-      "$appt:9cc9218b-09b7-419b-83bb-ce525aaecc7d": [
+      "$appt:d0d36182-2765-4249-9511-71a1a2f0dc2b": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 112,
@@ -378,7 +378,7 @@
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 110,
-          "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+          "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
           "date": "2026-01-01T10:01:50.000Z",
           "author": "Ada",
           "voided": false
@@ -386,7 +386,7 @@
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 108,
-          "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+          "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
           "date": "2026-01-01T10:01:48.000Z",
           "author": "Ada",
           "voided": false
@@ -444,7 +444,7 @@
       ]
     },
     "clowder:00000000-0000-4000-8000-000000000001": {
-      "$chore:044c972e-92dd-4759-a626-747e5a81582d": [
+      "$chore:54b912bc-c559-4e60-a1f5-19108d5b695a": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
           "dseq": 103,
@@ -2461,100 +2461,100 @@
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 97,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$chore:6741df4c-6d81-4220-8d00-f555a964782c",
+      "field": "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975",
       "value": "{\"title\":\"Drops\",\"schedule\":{\"repeat\":\"daily\"},\"time\":\"08:00\",\"start\":\"2026-01-01\",\"remind\":true,\"remindAt\":\"07:30\"}",
       "date": "2026-01-01T10:01:37.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:37.000Z",
-      "sig": "h0r+7B7BtIiekYadPh3WpLGcCr7Bdz4NsU54hw3jNXHrU99y4SIclEXsDv8u3hMqLFVVuyaMWFCW4FwuI7mzBQ=="
+      "sig": "rjUF3yCtP9jxI8uBt9vVoMwT4j0Iv0q4sri7ZvNmtgiwGUXAbiI8VHhlXfzFYrLhwD0B3c+b+n4xwQj2nR5wBw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 98,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$chore:6741df4c-6d81-4220-8d00-f555a964782c@2026-01-01",
+      "field": "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975@2026-01-01",
       "value": "2026-01-01",
       "date": "2026-01-01T10:01:38.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:38.000Z",
-      "sig": "ElKN8auzHFEU0pFo1DIdIPcjN8ies4RZd2J0jbaJK369TAyzyRP4tG2UKNA/8rIen7Re9FllpmGMARQ18beFCA=="
+      "sig": "OrM1SjvPVw04HasqMn+ydZ/beLSo3kNLnhC3d/xOe7CK8SRSyDkwHloWlO3VJOA3p+po/9HefJsf3rZx01doDQ=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 99,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$chore:6741df4c-6d81-4220-8d00-f555a964782c@2026-01-02",
+      "field": "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975@2026-01-02",
       "value": "2026-01-03",
       "date": "2026-01-01T10:01:39.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:39.000Z",
-      "sig": "U/pb5aJYfk2rZE67XZNC++yynL6LW8fyFIAlpvuxKwflb8ZrwFJxRVAzXb2Cz37DWmnLYLjEynHtxUScVAnqCg=="
+      "sig": "jsUS33+5loBfDIvfw1BvIrFFDbU3xIR9DjEQYqCTzQiNbKkgoE1Nt8wTIC+mPHL6jUhvJ8SQofZXul24ZUEcCQ=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 100,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$chore:6741df4c-6d81-4220-8d00-f555a964782c@2026-01-02",
+      "field": "$chore:52b0424c-fc43-4b12-83b3-3b57e862a975@2026-01-02",
       "value": null,
       "date": "2026-01-01T10:01:40.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:40.000Z",
-      "sig": "I5D966JlKOjDxsihXerSHAfiEGRHNIs++W76jCn47mKHiC2kvz6uwVO9bKCSfy6mtyru5jRNmDbnDKwIeY3FBQ=="
+      "sig": "wEzeKQoxy4OZxBS69jEX0IXUCof6KR1fEth9q28jcwi9NEHkMFFVPpQGFwQZWlwnBgh2GB9HT81HNcD9ZmCCCw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 101,
       "entity": "clowder:00000000-0000-4000-8000-000000000001",
-      "field": "$chore:044c972e-92dd-4759-a626-747e5a81582d",
+      "field": "$chore:54b912bc-c559-4e60-a1f5-19108d5b695a",
       "value": "{\"title\":\"Worming\",\"schedule\":{\"repeat\":\"everyDays\",\"every\":2,\"unit\":\"weeks\"},\"start\":\"2026-01-05\"}",
       "date": "2026-01-01T10:01:41.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:41.000Z",
-      "sig": "509VQg++5k97mMG8YhO7zVEon28wlNC3uano4muodbnWdtvJGGRQ+BSIH1CBWmCEprCkmgxg4JPj2h0fevGJAw=="
+      "sig": "l7yXJHxqtVLv2B/3jNJNDRpzYBklRIV/Vqhwh/XPdP4WMGXhiNnfOrs7drM3zJ0wKkod0dQfhPtogtqn+0ygDw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 102,
       "entity": "clowder:00000000-0000-4000-8000-000000000001",
-      "field": "$chore:044c972e-92dd-4759-a626-747e5a81582d",
+      "field": "$chore:54b912bc-c559-4e60-a1f5-19108d5b695a",
       "value": "{\"title\":\"Worming\",\"schedule\":{\"repeat\":\"everyDays\",\"every\":2,\"unit\":\"weeks\"},\"start\":\"2026-01-05\",\"paused\":true}",
       "date": "2026-01-01T10:01:42.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:42.000Z",
-      "sig": "Ctr6FLvS8L+7/V3dcT0d6AJIqi9osfT5ImSK0LlewF9/HOfupwd22L3Qr45DStR7K7IWW4zWjNXNu6nduJ1dBg=="
+      "sig": "TmUZ5m8GAlB7jXQQSKSCp+JmZKdl6+T3jrgwTEahk2m/duYSAAzJRY848Druhm/mQlNxKVKKPWoOupAe37QoAQ=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 103,
       "entity": "clowder:00000000-0000-4000-8000-000000000001",
-      "field": "$chore:044c972e-92dd-4759-a626-747e5a81582d",
+      "field": "$chore:54b912bc-c559-4e60-a1f5-19108d5b695a",
       "value": "{\"title\":\"Worming\",\"schedule\":{\"repeat\":\"everyDays\",\"every\":2,\"unit\":\"weeks\"},\"start\":\"2026-01-05\",\"ended\":true}",
       "date": "2026-01-01T10:01:43.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:43.000Z",
-      "sig": "FWYKXZPxoWQla2lkmtXaAB5HmicQqvLDku/dkJcOA8fhkqYOOUR0VsTJ2UEBMiZggY+dNnXtjAyTDl+o6WqoAg=="
+      "sig": "oypqXRuxjNCn4cLd4TLsZsjISJRKGsfYfN2yAlD0TV7+e7AaqjA8DTFyilDtLA/7cOmwMRPwGXHCXYT9yXaSBw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 104,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$appt:bfcc34ed-2119-4d5c-8fbf-4408221fc648",
+      "field": "$appt:d2916457-c414-45fc-8e35-3a445540ebe5",
       "value": "{\"date\":\"2026-03-10\",\"time\":\"09:30\",\"title\":\"Shots\",\"field\":\"f:neutered\",\"value\":\"yes\",\"alert\":\"dayBefore\"}",
       "date": "2026-01-01T10:01:44.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:44.000Z",
-      "sig": "EZXuQEiLU6pRhuetovWLfiZ7HYkcecaFWfyC0ZuJ1uJxxtGiKYjnR6hHvicS0WwfcYaxul3SfmFLKYRuHQs7AA=="
+      "sig": "CcleG7E4RhQkI4dgre8wzyfShRy0qNfA70eIzSnSZlODrK7WdprbULSln0HVVnWJM/2v2Xkfltye4AHtIrfeCw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 105,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$appt:bfcc34ed-2119-4d5c-8fbf-4408221fc648",
+      "field": "$appt:d2916457-c414-45fc-8e35-3a445540ebe5",
       "value": "{\"date\":\"2026-03-10\",\"time\":\"09:30\",\"title\":\"Shots\",\"notes\":\"all good\",\"field\":\"f:neutered\",\"value\":\"yes\",\"alert\":\"dayBefore\",\"done\":true}",
       "date": "2026-01-01T10:01:45.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:45.000Z",
-      "sig": "I1uX4u1cnsFY1SfXjmtzmH419zbh9ZoX0Q1QgYrddQC1xUAVfsQBkIkovLtAMLcwyRDnu6OTOP0vRrvjP1lmAA=="
+      "sig": "a3CQLjV5XKwN1kNZ+tr+wT0zOF0kOzNBnpwQ+5bKOvgDEfV0dGgLKU598rdoi1JcggwFmV2EJGXgbD/VSO7/CQ=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
@@ -2571,67 +2571,67 @@
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 107,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$appt:45cef480-de0c-4fb4-ae4f-6a001f8ad3c3",
-      "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+      "field": "$appt:b2dcb901-c422-429f-8c62-b176d1796e4e",
+      "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
       "date": "2026-01-01T10:01:47.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:47.000Z",
-      "sig": "hcLmeEP656PlPncW8yUxbZkGEK9xEeftdu39uojklY1nbs29n/eDCdxx5GcrNHkZdR9iDWPWAxlqZYS9iPYFAA=="
+      "sig": "vQEna2P/LEEnZewoTiHPPUU9W3IeJkYZx6Z8Dwli5dfR8jS6xNTcEuWdHrXUPirTtGLjAx14qp/ZVA1VIbwlAg=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 108,
       "entity": "cat:00000000-0000-4000-8000-000000000002",
-      "field": "$appt:9cc9218b-09b7-419b-83bb-ce525aaecc7d",
-      "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+      "field": "$appt:d0d36182-2765-4249-9511-71a1a2f0dc2b",
+      "value": "{\"date\":\"2026-04-01\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
       "date": "2026-01-01T10:01:48.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:48.000Z",
-      "sig": "vyFKG+aThiZFswqUrI4WTYyADg0t5ik+3+BhcmH//T/1r8x5SgcXuEWi8pgU3QRiv/zWR/4IqrKrtd58LGQxDQ=="
+      "sig": "7cO8PNoJuit9D8ESt2q8TxHkQJSyGPCKOh/bdhrsfWYw63VzerKNT2RneGauke8Qw03lHVnrymfxhUkdNAW+Ag=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 109,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$appt:45cef480-de0c-4fb4-ae4f-6a001f8ad3c3",
-      "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+      "field": "$appt:b2dcb901-c422-429f-8c62-b176d1796e4e",
+      "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
       "date": "2026-01-01T10:01:49.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:49.000Z",
-      "sig": "91ZyKpbtS/VYRLkonwS5Zs0XJB5g78wBQRk2Zj4SnrwNiv9FZmAfD3enYBq2LQR6EIAsRGQE7tQktcoffVh1Bw=="
+      "sig": "2NiIvoDfpTh2fJ6N+EIwJoWT8gjAYY+Z/iQV6i95I/hdhnMvGmB87TL/+2hpuXAKMf4POjWprRPt1UTU6CeRCg=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 110,
       "entity": "cat:00000000-0000-4000-8000-000000000002",
-      "field": "$appt:9cc9218b-09b7-419b-83bb-ce525aaecc7d",
-      "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+      "field": "$appt:d0d36182-2765-4249-9511-71a1a2f0dc2b",
+      "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"both together\",\"alert\":\"hourBefore\",\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
       "date": "2026-01-01T10:01:50.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:50.000Z",
-      "sig": "dXXXe19R9cWhLdHB/4yF+qypcbQ9d9kdJq036lxJF9sCqUJSu7A4QRnbqgMknu27TC6SjrntT+TvFoTSLsqFDw=="
+      "sig": "BvbWCKniSBPiQBWIQ2MlS3qaax03DwbuKChB+A89VTzo0Y9ZveLyHS/KiuJKhF2G7g3QdKxjVliPSSuJUfWWDw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 111,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "$appt:45cef480-de0c-4fb4-ae4f-6a001f8ad3c3",
-      "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"done for Miezi\",\"alert\":\"hourBefore\",\"done\":true,\"group\":\"ee6b8142-f89f-4c1e-a5ea-81fd784f9555\"}",
+      "field": "$appt:b2dcb901-c422-429f-8c62-b176d1796e4e",
+      "value": "{\"date\":\"2026-04-03\",\"title\":\"Check-up\",\"notes\":\"done for Miezi\",\"alert\":\"hourBefore\",\"done\":true,\"group\":\"9c34e3a1-0274-4070-a428-130f7f932222\"}",
       "date": "2026-01-01T10:01:51.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:51.000Z",
-      "sig": "De+Dk27raK/Lddh1BZyMQADax9unebymj+pkiurm9rrbakEouAn8ajJx+JWlsVFWHUjIOSAAFL5dGzD1rV7NDQ=="
+      "sig": "bewoBa8UiQct6v7gPW+nEL+GgorUQlRzMuztGm8+XVrHFdXMHE5D3bLBo3FL3o4W8D1cayJaj1S7XOWY3wGPAw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 112,
       "entity": "cat:00000000-0000-4000-8000-000000000002",
-      "field": "$appt:9cc9218b-09b7-419b-83bb-ce525aaecc7d",
+      "field": "$appt:d0d36182-2765-4249-9511-71a1a2f0dc2b",
       "value": null,
       "date": "2026-01-01T10:01:52.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:01:52.000Z",
-      "sig": "6OxfM8HZI3HK02uEyJM0eUHt2sXivecrZ7pvPfSfZjVsSezlQvS67GgUYVKh6E3tJ1OmTGsbpOam5PeKYuB/Bg=="
+      "sig": "9kC4MVzXn2aWP+u+lq8jggzI7jHtcftVtGunIVciSs9FfCfMWB0lB/TMfdJEOowSqudeTdphGwSJnsj03++BDw=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",

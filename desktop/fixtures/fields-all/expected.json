@@ -13,10 +13,10 @@
         "f:height": "24.5",
         "f:indoor": "yes",
         "f:looks": "size=medium; colours=black,white; fur=short",
+        "f:mood": "sleepy",
         "f:mother": "cat:00000000-0000-4000-8000-000000000002",
         "f:position": "51.35,12.38@flier",
         "f:species": "cat",
-        "f:temper": "sleepy",
         "f:vet-registry": "DE-123 456",
         "f:visits": "3",
         "f:weight": "4250",
@@ -368,6 +368,16 @@
           "voided": false
         }
       ],
+      "f:mood": [
+        {
+          "device": "65b60673d6ed884bf01c2c222d82ada0",
+          "dseq": 128,
+          "value": "sleepy",
+          "date": "2026-01-01T10:02:08.000Z",
+          "author": "Ada",
+          "voided": false
+        }
+      ],
       "f:mother": [
         {
           "device": "65b60673d6ed884bf01c2c222d82ada0",
@@ -402,16 +412,6 @@
           "dseq": 91,
           "value": "cat",
           "date": "2026-01-01T10:01:31.000Z",
-          "author": "Ada",
-          "voided": false
-        }
-      ],
-      "f:temper": [
-        {
-          "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 128,
-          "value": "sleepy",
-          "date": "2026-01-01T10:02:08.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -3206,12 +3206,12 @@
       "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 128,
       "entity": "cat:00000000-0000-4000-8000-000000000001",
-      "field": "f:temper",
+      "field": "f:mood",
       "value": "sleepy",
       "date": "2026-01-01T10:02:08.000Z",
       "author": "Ada",
       "recorded": "2026-01-01T10:02:08.000Z",
-      "sig": "GKXocKy+urx8uGmV7maKxme0GbrBpP8bBoTQFj76ITL9hzJnjsvbDeP7/ISUdvsbGM9jiPkR+3W37EMbtruuBw=="
+      "sig": "UsKoyEpP69oYGb0sNDs3ISq3gi03a7aUUEoV3k+8vGvvDggmORv1YwtTnw3BNduZdSr/RXK1LsGYbKC4vDTQBg=="
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
