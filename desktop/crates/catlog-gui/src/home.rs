@@ -29,6 +29,8 @@ pub enum Selection {
     Moderation,
     /// A document page for a Cat.
     Document,
+    /// The flier capture page.
+    Capture,
 }
 
 /// What the keeper did on the home pane this frame.

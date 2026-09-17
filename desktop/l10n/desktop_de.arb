@@ -51,5 +51,8 @@
   "documentSaved": "Gespeichert unter {path}",
   "cardContent": "Was auf die Karte kommt",
   "dateHint": "JJJJ-MM-TT",
-  "fontsIncomplete": "Die Schriften für diese Sprache konnten nicht geladen werden; die Seite ist in Noto Sans gesetzt."
+  "fontsIncomplete": "Die Schriften für diese Sprache konnten nicht geladen werden; die Seite ist in Noto Sans gesetzt.",
+  "openImage": "Bild öffnen…",
+  "flierLines": "Zeilen vom Plakat",
+  "recognizing": "Plakat wird gelesen…"
 }

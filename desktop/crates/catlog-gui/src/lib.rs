@@ -7,6 +7,7 @@
 pub mod agenda;
 pub mod app;
 pub mod appointments;
+pub mod capture_page;
 pub mod chores;
 pub mod codes;
 pub mod conflicts;

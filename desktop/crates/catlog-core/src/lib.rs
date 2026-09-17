@@ -23,6 +23,7 @@ pub mod entities;
 mod entry;
 mod error;
 pub mod fields;
+pub mod flier;
 mod folder;
 pub mod fonts;
 pub mod geo;

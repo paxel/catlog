@@ -8,6 +8,7 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use catlog_core::entities::PositionKind;
+use catlog_core::flier::{HttpModels, Ocr, OcrsEngine};
 use catlog_core::fonts::{FontSet, FontSource, HttpFonts};
 use catlog_core::geocode::Geocoder;
 use catlog_core::review::{needs_attention, review_import};
@@ -18,6 +19,7 @@ use egui::{Context, ThemePreference, Ui};
 
 use crate::agenda::{AgendaAction, AppointmentAction, ics_events, show_agenda};
 use crate::appointments::{AppointmentDialog, FinishDialog};
+use crate::capture_page::{CaptureAction, CapturePage};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::conflicts::{ConflictDialog, show_conflicts};
 use crate::dialogs::{ConfirmDialog, NameDialog};
@@ -131,6 +133,13 @@ pub struct App {
     pub merge_dialog: MergeDialog,
     pub house: Housekeeping,
     pub document: DocumentPage,
+    pub capture: CapturePage,
+    geocoder: Arc<dyn Geocoder>,
+    /// Text recognition; the ocrs engine outside tests.
+    pub ocr: Arc<dyn Ocr>,
+    /// A recognition running on its thread, and its answer.
+    recognizing:
+        Option<std::sync::mpsc::Receiver<Result<Vec<catlog_core::flier::FlierLine>, String>>>,
     /// The fonts for the current language, once built.
     fonts: Option<(String, FontSet)>,
     pub font_source: Box<dyn FontSource>,
@@ -200,7 +209,8 @@ impl App {
             history: HistoryPage::default(),
             history_of: None,
             map_page: MapPage::new(MapView::new(tiles.clone())),
-            picker: PositionPicker::new(tiles, geocoder),
+            picker: PositionPicker::new(tiles, geocoder.clone()),
+            geocoder,
             sighting_for: None,
             mover: MoveDialog::default(),
             faces: FaceCache::default(),
@@ -240,6 +250,9 @@ impl App {
             merge_dialog: MergeDialog::default(),
             house: Housekeeping::default(),
             document: DocumentPage::default(),
+            capture: CapturePage::default(),
+            ocr: Arc::new(OcrsEngine::new(&root.join("ocr"), Box::new(HttpModels))),
+            recognizing: None,
             fonts: None,
             font_source: Box::new(HttpFonts),
             open_file: Box::new(|path| {
@@ -664,6 +677,12 @@ impl App {
                         AgendaAction::ExportIcs => self.export_ics(),
                         AgendaAction::OpenEntity(id) => page_action = PageAction::OpenCat(id),
                     }
+                }
+                Selection::Capture => {
+                    self.poll_recognition();
+                    let busy = self.recognizing.is_some();
+                    let action = self.capture.show(ui, &self.store, &t, busy);
+                    self.act_capture(action);
                 }
                 Selection::Document => {
                     let complete = self.fonts().complete;
@@ -1162,6 +1181,12 @@ impl App {
                             ui.close();
                         }
                         ui.separator();
+                        if ui.button(t.capture_flier()).clicked() {
+                            self.capture.start(self.pages.today);
+                            self.home.selection = Selection::Capture;
+                            self.history_of = None;
+                            ui.close();
+                        }
                         if ui.button(t.find_duplicates()).clicked() {
                             self.home.selection = Selection::Duplicates;
                             self.history_of = None;
@@ -1369,6 +1394,93 @@ impl App {
                 catlog_core::documents::vet_report_pdf(&report, &fonts)
             }
         })
+    }
+
+    /// Takes the recognised lines when the thread is done.
+    fn poll_recognition(&mut self) {
+        let t = self.t;
+        let Some(rx) = &self.recognizing else {
+            return;
+        };
+        match rx.try_recv() {
+            Ok(Ok(lines)) => {
+                self.recognizing = None;
+                self.capture.read(&self.store, &t, lines);
+            }
+            Ok(Err(e)) => {
+                self.recognizing = None;
+                self.capture.error = Some(format!("{}\n{e}", t.ocr_unavailable()));
+            }
+            Err(std::sync::mpsc::TryRecvError::Empty) => {}
+            Err(std::sync::mpsc::TryRecvError::Disconnected) => self.recognizing = None,
+        }
+    }
+
+    /// Reads a poster picture on its own thread.
+    pub fn recognize_flier(&mut self, image: Vec<u8>) {
+        self.capture.image = Some(image.clone());
+        self.capture.draft.photo = Some(image.clone());
+        self.capture.error = None;
+        let ocr = self.ocr.clone();
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::spawn(move || {
+            let _ = tx.send(ocr.recognize(&image));
+        });
+        self.recognizing = Some(rx);
+    }
+
+    fn act_capture(&mut self, action: CaptureAction) {
+        let t = self.t;
+        match action {
+            CaptureAction::None => {}
+            CaptureAction::OpenImage => {
+                let picked = (self.pick_files)(t.open_image());
+                if let Some(path) = picked.first() {
+                    match std::fs::read(path) {
+                        Ok(bytes) => self.recognize_flier(bytes),
+                        Err(e) => self.capture.error = Some(e.to_string()),
+                    }
+                }
+            }
+            CaptureAction::LocateAddress => {
+                let query = self.capture.draft.address.trim().to_string();
+                if query.is_empty() {
+                    return;
+                }
+                match self.geocoder.search(&query) {
+                    Ok(hits) if !hits.is_empty() => {
+                        self.capture.draft.address_position = Some((hits[0].lat, hits[0].lon));
+                        self.capture.draft.flier_position = Some((hits[0].lat, hits[0].lon));
+                        self.capture.address_hit = Some(hits[0].name.clone());
+                    }
+                    Ok(_) => self.capture.address_hit = Some(t.no_places_found().to_string()),
+                    Err(e) => self.capture.error = Some(e),
+                }
+            }
+            CaptureAction::Save => {
+                self.capture.draft.missing_since = self
+                    .capture
+                    .missing_since
+                    .trim()
+                    .parse::<chrono::NaiveDate>()
+                    .ok();
+                let owner_of = self.capture.owner_of(&t);
+                let cat = format!("cat:{}", new_uuid());
+                let clowder = format!("clowder:{}", new_uuid());
+                let draft = std::mem::take(&mut self.capture.draft);
+                match self.store.capture_flier(&draft, &cat, &clowder, &owner_of) {
+                    Ok(made) => {
+                        self.capture.open = false;
+                        self.faces = FaceCache::default();
+                        self.home.selection = Selection::Cat(made.cat);
+                    }
+                    Err(e) => {
+                        self.capture.draft = draft;
+                        self.notice = Some(e.to_string());
+                    }
+                }
+            }
+        }
     }
 
     fn act_document(&mut self, action: DocAction) {
@@ -3906,5 +4018,203 @@ mod tests {
         h.run();
         h.get_by_label_contains("Noto Sans");
         assert!(h.state_mut().document_pdf().is_some());
+    }
+
+    struct FakeOcr(bool);
+
+    impl Ocr for FakeOcr {
+        fn recognize(&self, _image: &[u8]) -> Result<Vec<catlog_core::flier::FlierLine>, String> {
+            if self.0 {
+                Ok(catlog_core::flier::fixtures::hugo_lines())
+            } else {
+                Err("no models".into())
+            }
+        }
+    }
+
+    fn wait_for_recognition(h: &mut Harness<'static, App>) {
+        for _ in 0..50 {
+            h.run();
+            if h.state().capture.reading.is_some() || h.state().capture.error.is_some() {
+                return;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(20));
+        }
+        panic!("recognition never answered");
+    }
+
+    #[test]
+    fn a_poster_image_becomes_a_missing_cat_with_its_owner_and_flier_position() {
+        let dir = tempfile::tempdir().unwrap();
+        let poster = picture_file(dir.path(), "poster.png", 60, 80);
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 9);
+        app.ocr = Arc::new(FakeOcr(true));
+        let hand = poster.clone();
+        app.pick_files = Box::new(move |_| vec![hand.clone()]);
+        let mut h = harness(app);
+        h.run();
+        open_catalog_menu_item(&mut h, "Capture flier");
+        assert_eq!(*h.state().selection(), Selection::Capture);
+        h.get_by_label("Open image…").click();
+        wait_for_recognition(&mut h);
+        h.get_by_label("TASSO poster recognized. Check below which field each line goes to.");
+        let draft = &h.state().capture.draft;
+        assert_eq!(draft.name, "HUGO");
+        assert_eq!(
+            draft.missing_since,
+            chrono::NaiveDate::from_ymd_opt(2025, 6, 5)
+        );
+        assert_eq!(draft.address, "04207 Leipzig, Colberger Weg. Deutschland");
+        assert_eq!(
+            draft.cat_fields.get("breed").map(String::as_str),
+            Some("Europäische Langhaarkatze")
+        );
+        assert_eq!(
+            draft.cat_fields.get("gender").map(String::as_str),
+            Some("male")
+        );
+        assert_eq!(
+            draft.cat_fields.get("birthdate").map(String::as_str),
+            Some("2024-05-26")
+        );
+        assert_eq!(draft.registry_hits.len(), 1);
+        assert_eq!(draft.registry_hits[0].value, "S2983764");
+        assert!(
+            draft.remarks.contains("GESUCHT!") && draft.remarks.contains("Das Tier ist gechipt.")
+        );
+        assert!(draft.photo.is_some());
+        // Put a line aside, then take it back.
+        h.get_by_label("Kennzeichnung: Das Tier ist gechipt.");
+        let index = h
+            .state()
+            .capture
+            .reading
+            .as_ref()
+            .unwrap()
+            .entries
+            .iter()
+            .position(|e| e.value == "Das Tier ist gechipt.")
+            .unwrap();
+        let t = *h.state().t();
+        {
+            let app = h.state_mut();
+            app.capture.hide(index);
+            let (capture, store) = (&mut app.capture, &app.store);
+            capture.apply_reading(store, &t);
+        }
+        h.run();
+        h.get_by_label("1 line put aside");
+        assert!(!h.state().capture.draft.remarks.contains("gechipt"));
+        h.get_by_label("Undo").click();
+        h.run();
+        assert!(h.state().capture.draft.remarks.contains("gechipt"));
+        // Send the colour line to remarks instead.
+        let colour = h
+            .state()
+            .capture
+            .reading
+            .as_ref()
+            .unwrap()
+            .entries
+            .iter()
+            .position(|e| e.value == "braun")
+            .unwrap();
+        {
+            let app = h.state_mut();
+            app.capture.assign(colour, "remarks");
+            let (capture, store) = (&mut app.capture, &app.store);
+            capture.apply_reading(store, &t);
+        }
+        h.run();
+        assert!(h.state().capture.draft.remarks.contains("Farbe: braun"));
+        assert!(!h.state().capture.draft.cat_fields.contains_key("color"));
+        // The address on the map: the fake geocoder answers Leipzig.
+        h.get_by_label("Find address on the map").click();
+        h.run();
+        h.get_by_label_contains("Address found");
+        assert_eq!(h.state().capture.draft.flier_position, Some((51.34, 12.37)));
+        h.state_mut().capture.draft.owner = "Familie Müller".into();
+        h.run();
+        // The page is long: the button is below the fold.
+        h.get_by_label("Save").click_accesskit();
+        h.run();
+        let Selection::Cat(cat) = h.state().selection().clone() else {
+            panic!("the new cat's page opens: {:?}", h.state().notice);
+        };
+        let store = h.state().store();
+        assert_eq!(
+            store.current(&cat, keys::NAME).unwrap().as_deref(),
+            Some("HUGO")
+        );
+        assert!(store.strays().unwrap().iter().any(|c| c.id == cat));
+        let owner = store
+            .former_clowder(&cat)
+            .unwrap()
+            .expect("an owner clowder");
+        assert_eq!(
+            store.current(&owner, keys::NAME).unwrap().as_deref(),
+            Some("Familie Müller")
+        );
+        assert_eq!(
+            store.current(&owner, "f:status").unwrap().as_deref(),
+            Some("owner")
+        );
+        assert_eq!(
+            store.current(&owner, "f:address").unwrap().as_deref(),
+            Some("04207 Leipzig, Colberger Weg. Deutschland")
+        );
+        assert_eq!(store.flier_positions(&cat).unwrap(), vec![(51.34, 12.37)]);
+        assert_eq!(
+            store.current(&cat, "f:breed").unwrap().as_deref(),
+            Some("Europäische Langhaarkatze")
+        );
+        assert_eq!(
+            store.current(&cat, "f:tasso").unwrap().as_deref(),
+            Some("S2983764")
+        );
+        assert_eq!(store.images(&cat).unwrap().len(), 1, "the poster picture");
+        assert!(
+            store
+                .current(&cat, "f:remarks")
+                .unwrap()
+                .unwrap()
+                .contains("Farbe: braun")
+        );
+        assert!(!h.state().capture.open);
+    }
+
+    #[test]
+    fn without_text_recognition_the_page_says_so_and_still_saves_by_hand() {
+        let dir = tempfile::tempdir().unwrap();
+        let poster = picture_file(dir.path(), "poster.png", 60, 80);
+        let mut app = seeded(dir.path());
+        app.ocr = Arc::new(FakeOcr(false));
+        let hand = poster.clone();
+        app.pick_files = Box::new(move |_| vec![hand.clone()]);
+        let mut h = harness(app);
+        h.run();
+        open_catalog_menu_item(&mut h, "Capture flier");
+        h.get_by_label("Open image…").click();
+        wait_for_recognition(&mut h);
+        h.get_by_label_contains("Text recognition is not available");
+        h.state_mut().capture.draft.name = "Minka".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let Selection::Cat(cat) = h.state().selection().clone() else {
+            panic!("saved by hand");
+        };
+        let store = h.state().store();
+        assert_eq!(
+            store.current(&cat, keys::NAME).unwrap().as_deref(),
+            Some("Minka")
+        );
+        let owner = store.former_clowder(&cat).unwrap().unwrap();
+        assert_eq!(
+            store.current(&owner, keys::NAME).unwrap().as_deref(),
+            Some("Owner of Minka")
+        );
+        assert_eq!(store.images(&cat).unwrap().len(), 1);
     }
 }

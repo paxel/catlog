@@ -26,6 +26,9 @@ ttf-parser = "0.25"
 flate2 = "1"
 qrcode = { version = "0.14", default-features = false }
 barcoders = { version = "2", default-features = false }
+ocrs = "0.13"
+rten = "0.26"
+regex = "1"
 image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
 ureq = { version = "3", default-features = false, features = ["rustls"] }
 

@@ -101,6 +101,30 @@ impl PartialDate {
         }
     }
 
+    /// The fullest date spelled anywhere in `text`: day, month and year
+    /// first, then month and year, then a bare year.
+    pub fn find(text: &str) -> Option<PartialDate> {
+        let patterns = [
+            r"(\d{1,2})[./](\d{1,2})[./](\d{4})",
+            r"(\d{4})-(\d{2})-(\d{2})",
+            r"(\d{1,2})[./](\d{4})",
+            r"(\d{4})-(\d{2})",
+            r"(?:^|[^\d])(\d{4})(?:[^\d]|$)",
+        ];
+        for (i, pattern) in patterns.iter().enumerate() {
+            let re = regex::Regex::new(pattern).ok()?;
+            if let Some(m) = re.captures(text) {
+                let found = if i == 4 {
+                    m.get(1).map(|g| g.as_str())?
+                } else {
+                    m.get(0).map(|g| g.as_str())?
+                };
+                return Self::parse_loose(found);
+            }
+        }
+        None
+    }
+
     /// Full years and months elapsed at `today`, as far as the precision
     /// allows: a year-only date yields no months. None before the date.
     pub fn age_at(&self, today: NaiveDate) -> Option<(i32, Option<i32>)> {

@@ -51,5 +51,8 @@
   "documentSaved": "Saved to {path}",
   "cardContent": "What goes on the card",
   "dateHint": "YYYY-MM-DD",
-  "fontsIncomplete": "The fonts for this language could not be fetched; the page is set in Noto Sans."
+  "fontsIncomplete": "The fonts for this language could not be fetched; the page is set in Noto Sans.",
+  "openImage": "Open image…",
+  "flierLines": "Lines from the poster",
+  "recognizing": "Reading the poster…"
 }
