@@ -91,7 +91,6 @@
   "dashboardNoChanges": "Noch keine Änderungen",
   "dashboardLastViewed": "Zuletzt angesehen",
   "dashboardNothingViewed": "Öffne eine Katze oder eine Kolonie, dann erscheint sie hier",
-  "vetPlaceholder": "Tierarzt-Termine aller Katzen landen hier",
   "closeLabel": "Schließen",
   "columnsButton": "Spalten",
   "filterMissing": "Vermisst",
@@ -101,5 +100,9 @@
   "columnStatus": "Status",
   "cardPage": "Seite öffnen",
   "cardFields": "Felder auf der Karte",
-  "cardClose": "Karte schließen"
+  "cardClose": "Karte schließen",
+  "vetOpen": "Offen",
+  "columnWhen": "Wann",
+  "vetEmpty": "Noch keine Termine",
+  "vetPickRun": "Wähle einen Termin, um den Patienten zu sehen"
 }

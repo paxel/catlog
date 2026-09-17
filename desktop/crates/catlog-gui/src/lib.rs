@@ -44,6 +44,7 @@ pub mod sync_page;
 pub mod textures;
 pub mod theme;
 pub mod tips;
+pub mod vet;
 pub mod views;
 
 pub use app::{App, DEFAULT_PANE_WIDTH, DEFAULT_WINDOW_SIZE, Request, catalogs_root};

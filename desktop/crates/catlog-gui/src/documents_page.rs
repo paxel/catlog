@@ -131,6 +131,57 @@ pub fn card_keys(store: &Catalog) -> BTreeSet<String> {
     }
 }
 
+/// The patient summary the vet report opens with, as the Vet view
+/// shows it: species, breed, gender, neutered, birth date and age, the
+/// chip, the home with its owner and contact. Only what is known.
+pub fn patient_facts(
+    store: &Catalog,
+    t: &L10n,
+    cat: &str,
+    today: NaiveDate,
+    units: catlog_core::units::UnitSystem,
+) -> Vec<(String, String)> {
+    let value = |slug: &str| -> Option<String> {
+        let key = keys::user_field(slug);
+        store
+            .current(cat, &key)
+            .ok()
+            .flatten()
+            .map(|v| value_label(t, store, &key, Some(&v), units))
+    };
+    let home = store.current(cat, keys::CLOWDER).ok().flatten();
+    let home_value = |slug: &str| -> Option<String> {
+        home.as_ref()
+            .and_then(|h| store.current(h, &keys::user_field(slug)).ok().flatten())
+    };
+    let born = store
+        .current(cat, &keys::user_field("birthdate"))
+        .ok()
+        .flatten();
+    let rows: Vec<(String, Option<String>)> = vec![
+        (t.starter_species().to_string(), value("species")),
+        (t.starter_breed().to_string(), value("breed")),
+        (t.starter_gender().to_string(), value("gender")),
+        (t.starter_neutered().to_string(), value("neutered")),
+        (t.starter_birthdate().to_string(), value("birthdate")),
+        (
+            t.age_label().to_string(),
+            age_text(t, born.as_deref(), today),
+        ),
+        (t.starter_chip_id().to_string(), value("chipid")),
+        (
+            t.clowder_label().to_string(),
+            home.as_ref().map(|h| DocumentPage::name_of(store, t, h)),
+        ),
+        (t.vet_report_owner().to_string(), home_value("responsible")),
+        (t.starter_phone().to_string(), home_value("phone")),
+        (t.starter_address().to_string(), home_value("address")),
+    ];
+    rows.into_iter()
+        .filter_map(|(l, v)| v.map(|v| (l, v)))
+        .collect()
+}
+
 /// "2 years 3 months" from a birth date.
 pub fn age_text(t: &L10n, birth: Option<&str>, today: NaiveDate) -> Option<String> {
     let born = PartialDate::parse(birth?)?.earliest()?;
@@ -203,7 +254,7 @@ impl DocumentPage {
         self.kind = None;
     }
 
-    fn name_of(store: &Catalog, t: &L10n, id: &str) -> String {
+    pub fn name_of(store: &Catalog, t: &L10n, id: &str) -> String {
         store
             .current(id, keys::NAME)
             .ok()
@@ -467,55 +518,14 @@ impl DocumentPage {
                 axis: (format_day(t.locale(), from), format_day(t.locale(), to)),
             });
         }
-        let summary = self.summary.then(|| {
-            let value = |slug: &str| -> Option<String> {
-                let key = keys::user_field(slug);
-                store
-                    .current(cat, &key)
-                    .ok()
-                    .flatten()
-                    .map(|v| value_label(t, store, &key, Some(&v), units))
-            };
-            let home = store.current(cat, keys::CLOWDER).ok().flatten();
-            let home_value = |slug: &str| -> Option<String> {
-                home.as_ref()
-                    .and_then(|h| store.current(h, &keys::user_field(slug)).ok().flatten())
-            };
-            let born = store
-                .current(cat, &keys::user_field("birthdate"))
+        let summary = self.summary.then(|| ReportSummary {
+            title: t.vet_report_summary().to_string(),
+            photo: store
+                .profile_image(cat)
                 .ok()
-                .flatten();
-            let rows: Vec<(String, Option<String>)> = vec![
-                (t.starter_species().to_string(), value("species")),
-                (t.starter_breed().to_string(), value("breed")),
-                (t.starter_gender().to_string(), value("gender")),
-                (t.starter_neutered().to_string(), value("neutered")),
-                (t.starter_birthdate().to_string(), value("birthdate")),
-                (
-                    t.age_label().to_string(),
-                    age_text(t, born.as_deref(), today),
-                ),
-                (t.starter_chip_id().to_string(), value("chipid")),
-                (
-                    t.clowder_label().to_string(),
-                    home.as_ref().map(|h| Self::name_of(store, t, h)),
-                ),
-                (t.vet_report_owner().to_string(), home_value("responsible")),
-                (t.starter_phone().to_string(), home_value("phone")),
-                (t.starter_address().to_string(), home_value("address")),
-            ];
-            ReportSummary {
-                title: t.vet_report_summary().to_string(),
-                photo: store
-                    .profile_image(cat)
-                    .ok()
-                    .flatten()
-                    .and_then(|h| store.image_bytes(&h)),
-                facts: rows
-                    .into_iter()
-                    .filter_map(|(l, v)| v.map(|v| (l, v)))
-                    .collect(),
-            }
+                .flatten()
+                .and_then(|h| store.image_bytes(&h)),
+            facts: patient_facts(store, t, cat, today, units),
         });
         ReportContent {
             name: Self::name_of(store, t, cat),

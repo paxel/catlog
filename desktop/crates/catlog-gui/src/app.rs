@@ -55,6 +55,7 @@ use crate::summary::{ArrivalSummary, SummaryAction};
 use crate::sync_page::{SyncAction, SyncPage};
 use crate::textures::FaceCache;
 use crate::tips;
+use crate::vet::VetView;
 use crate::views::{self, Modal, View};
 
 /// What the keeper asked the shell to do; the launcher acts on it.
@@ -113,6 +114,8 @@ pub struct App {
     pub clowders: ClowdersTable,
     /// The cards on the desk beside them.
     pub desk: Desk,
+    /// The Vet view.
+    pub vet: VetView,
     pages: Pages,
     editor: FieldEditor,
     new_field: NewFieldDialog,
@@ -257,6 +260,7 @@ impl App {
             cats: CatsTable::default(),
             clowders: ClowdersTable::default(),
             desk: Desk::default(),
+            vet: VetView::default(),
             pages: Pages::default(),
             editor: FieldEditor::closed(),
             new_field: NewFieldDialog::default(),
@@ -769,8 +773,23 @@ impl App {
                     }
                 }
                 View::Vet => {
-                    ui.heading(t.view_vet());
-                    ui.label(t.vet_placeholder());
+                    let today = self.pages.today;
+                    let units = self.pages.units;
+                    let last = match &self.home.selection {
+                        Selection::Cat(id) => Some(id.clone()),
+                        _ => None,
+                    };
+                    if let Some(a) = self.vet.show(
+                        ui,
+                        &self.store,
+                        &t,
+                        &mut self.faces,
+                        today,
+                        units,
+                        last.as_deref(),
+                    ) {
+                        page_action = a;
+                    }
                 }
                 View::Agenda => {
                     let today = self.pages.today;
@@ -4356,7 +4375,7 @@ mod tests {
         );
         h.get_by_label("Actions");
         open_view(&mut h, "Vet");
-        h.get_by_label("Runs and appointments across all cats land here");
+        h.get_by_label("Patient summary");
         // Ctrl+4 is the Map, Ctrl+1 Home; the desk keeps its cat.
         h.key_press_modifiers(egui::Modifiers::COMMAND, egui::Key::Num4);
         h.run();
@@ -4933,6 +4952,81 @@ mod tests {
         );
         menu(&mut h, "Hide on this device");
         assert!(h.state().store().is_hidden(tom).unwrap());
+    }
+
+    #[test]
+    fn the_vet_view_lists_runs_open_first_finishes_one_and_shows_the_patient() {
+        use catlog_core::appointments::{Appointment, AppointmentAlert};
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut app = seeded_with(dir.path(), "chores");
+        fixed_day(&mut app, 2026, 3, 10, 7);
+        let neutering = Appointment {
+            id: String::new(),
+            entity: tom.into(),
+            date: chrono::NaiveDate::from_ymd_opt(2026, 3, 12).unwrap(),
+            time: None,
+            title: "Neutering".into(),
+            notes: String::new(),
+            linked_field: Some("f:remarks".into()),
+            linked_value: Some("neutered".into()),
+            alert: AppointmentAlert::None,
+            done: false,
+            group: None,
+            extra: Default::default(),
+        };
+        let neutering = app
+            .store_mut()
+            .create_appointment("a-neuter", &neutering)
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        open_view(&mut h, "Vet");
+        // The open run leads; the finished ones follow, newest first.
+        let order = h.state().vet.order().to_vec();
+        assert_eq!(order[0], neutering.id);
+        assert_eq!(order.len(), 3);
+        h.get_by_label("Neutering");
+        h.get_by_label("Shots");
+        h.get_by_label("Check-up");
+        assert_eq!(h.get_all_by_label("Done").count(), 2);
+        h.get_by_label("Pick a run or an appointment to see its patient");
+        // The date column turns around; the open row still leads.
+        h.get_by_label("When").click();
+        h.run();
+        assert!(h.state().vet.descending);
+        let turned = h.state().vet.order().to_vec();
+        assert_eq!(turned[0], neutering.id);
+        assert_ne!(turned[1], order[1]);
+        // A click on a row shows its patient.
+        h.get_by_label("Shots").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap();
+        h.get_all_by_label("Species").next().unwrap();
+        // Finish from the row writes the linked value.
+        h.get_by_label("Finish").click();
+        h.run();
+        assert!(h.state().finish_dialog.open);
+        h.get_all_by_label("Finish").last().unwrap().click();
+        h.run();
+        assert!(!h.state().finish_dialog.open);
+        assert_eq!(
+            h.state()
+                .store()
+                .current(tom, "f:remarks")
+                .unwrap()
+                .as_deref(),
+            Some("neutered")
+        );
+        assert_eq!(h.get_all_by_label("Done").count(), 3);
+        assert!(h.query_by_label("Finish").is_none());
+        // One click to the report for the patient shown.
+        h.get_by_label("Report for the vet…").click();
+        h.run();
+        assert_eq!(h.state().modal(), Some(Modal::Document));
+        assert_eq!(h.state().document.kind, Some(DocKind::VetReport));
+        assert_eq!(h.state().document.cat, miezi);
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {

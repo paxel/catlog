@@ -91,7 +91,6 @@
   "dashboardNoChanges": "No changes yet",
   "dashboardLastViewed": "Last viewed",
   "dashboardNothingViewed": "Open a cat or a clowder and it shows up here",
-  "vetPlaceholder": "Runs and appointments across all cats land here",
   "closeLabel": "Close",
   "columnsButton": "Columns",
   "filterMissing": "Missing",
@@ -101,5 +100,9 @@
   "columnStatus": "Status",
   "cardPage": "Open the page",
   "cardFields": "Fields on the card",
-  "cardClose": "Close card"
+  "cardClose": "Close card",
+  "vetOpen": "Open",
+  "columnWhen": "When",
+  "vetEmpty": "No runs or appointments yet",
+  "vetPickRun": "Pick a run or an appointment to see its patient"
 }

@@ -176,3 +176,14 @@ fn render_clowders() {
         ));
     });
 }
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_vet() {
+    render_with("render_vet", true, Some("chores"), |app| {
+        app.select(Selection::Cat(
+            "cat:00000000-0000-4000-8000-000000000001".into(),
+        ));
+        app.open_view(View::Vet);
+    });
+}
