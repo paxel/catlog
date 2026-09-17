@@ -15,6 +15,7 @@ pub mod catalogs;
 pub mod chores;
 pub mod corpus;
 mod dump;
+pub mod duplicates;
 pub mod entities;
 mod entry;
 mod error;

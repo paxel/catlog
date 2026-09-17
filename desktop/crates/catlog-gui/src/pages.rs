@@ -48,6 +48,8 @@ pub enum PageAction {
     Chore(ChoreAction),
     NewAppointment(String),
     Appointment(AppointmentAction),
+    /// Merge this Cat or Clowder into another.
+    MergeInto(String),
 }
 
 /// The pages' own state: the unit system values are read in.
@@ -95,7 +97,15 @@ impl Pages {
         let mut action = PageAction::None;
         let pet_mode = store.is_pet_mode().unwrap_or(false);
         egui::ScrollArea::vertical().show(ui, |ui| {
-            ui.heading(Self::name_of(store, t, id));
+            ui.horizontal(|ui| {
+                ui.heading(Self::name_of(store, t, id));
+                ui.menu_button(t.actions_menu(), |ui| {
+                    if ui.button(t.merge_this_into(t.kind_clowder())).clicked() {
+                        action = PageAction::MergeInto(id.to_string());
+                        ui.close();
+                    }
+                });
+            });
             if let Ok(Some(cover)) = store.profile_image(id)
                 && let Some(texture) = faces.face(ui.ctx(), store, &cover)
             {
@@ -154,6 +164,10 @@ impl Pages {
                     }
                     if ui.button(t.show_on_map()).clicked() {
                         action = PageAction::ShowOnMap(id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.merge_this_into(t.kind_cat())).clicked() {
+                        action = PageAction::MergeInto(id.to_string());
                         ui.close();
                     }
                     let hidden = store.is_hidden(id).unwrap_or(false);

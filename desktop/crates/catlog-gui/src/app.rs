@@ -20,12 +20,14 @@ use crate::appointments::{AppointmentDialog, FinishDialog};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::conflicts::{ConflictDialog, show_conflicts};
 use crate::dialogs::{ConfirmDialog, NameDialog};
+use crate::duplicates_page::{DuplicatesAction, show_duplicates};
 use crate::editor::{EditTarget, FieldEditor, apply_edit};
 use crate::history::{HistoryAction, HistoryPage};
 use crate::home::{HomeAction, HomePane, Selection};
 use crate::l10n::{self, L10n};
 use crate::map::MapView;
 use crate::map_page::{MapPage, MapPageAction};
+use crate::merge::{MergeDialog, MergeKind, TransferDialog, apply_merge};
 use crate::move_dialog::MoveDialog;
 use crate::new_field::NewFieldDialog;
 use crate::notify::{DesktopNotifier, Notifier};
@@ -117,6 +119,8 @@ pub struct App {
     /// The chore the confirm dialog is about to end.
     ending_chore: Option<catlog_core::chores::Chore>,
     pub notifier: Box<dyn Notifier>,
+    pub merge_dialog: MergeDialog,
+    pub transfer_dialog: TransferDialog,
     /// The wall clock, replaceable in tests.
     pub now: Box<dyn Fn() -> chrono::NaiveDateTime>,
     /// Reminders sound once: the moment the last check ran.
@@ -212,6 +216,8 @@ impl App {
             finish_dialog: FinishDialog::default(),
             ending_chore: None,
             notifier: Box::new(DesktopNotifier),
+            merge_dialog: MergeDialog::default(),
+            transfer_dialog: TransferDialog::default(),
             now: Box::new(|| chrono::Local::now().naive_local()),
             last_reminder_check: chrono::Local::now().naive_local(),
             asking: Asking::Nothing,
@@ -623,6 +629,17 @@ impl App {
                         AgendaAction::OpenEntity(id) => page_action = PageAction::OpenCat(id),
                     }
                 }
+                Selection::Duplicates => match show_duplicates(ui, &self.store, &t) {
+                    DuplicatesAction::None => {}
+                    DuplicatesAction::Merge(a, b, kind) => {
+                        self.merge_dialog.ask_pair(&self.store, &t, &a, &b, kind);
+                    }
+                    DuplicatesAction::Reject(a, b) => {
+                        if let Err(e) = self.store.reject_looks_match(&a, &b) {
+                            self.notice = Some(e.to_string());
+                        }
+                    }
+                },
                 Selection::Conflicts => {
                     if let Some((entity, field)) =
                         show_conflicts(ui, &self.store, &t, self.pages.units)
@@ -702,6 +719,16 @@ impl App {
                     .ask(t.delete_photo_title(), t.delete_photo_body(), t.delete());
             }
             PageAction::Chore(action) => self.act_chore(action),
+            PageAction::MergeInto(id) => {
+                let kind = if id.starts_with("clowder:") {
+                    MergeKind::Clowder
+                } else {
+                    MergeKind::Cat
+                };
+                if !self.merge_dialog.ask_into(&self.store, &id, kind) {
+                    self.notice = Some(t.no_other_to_merge_into(kind.words(&t)));
+                }
+            }
             PageAction::NewAppointment(entity) => {
                 self.appointment_dialog
                     .ask(&self.store, &entity, None, self.pages.today);
@@ -726,6 +753,23 @@ impl App {
             }
         }
         self.show_chore_dialogs(ui.ctx());
+        if let Some((loser, survivor, kind)) = self.merge_dialog.show(ui.ctx(), &t) {
+            match apply_merge(&mut self.store, &loser, &survivor, kind) {
+                Ok(()) => {
+                    self.faces = FaceCache::default();
+                    // The page of the merged-away record is gone: show the survivor.
+                    self.home.selection = match kind {
+                        MergeKind::Cat => Selection::Cat(survivor),
+                        MergeKind::Clowder => Selection::Clowder(survivor),
+                        MergeKind::Field => self.home.selection.clone(),
+                    };
+                }
+                Err(e) => self.notice = Some(e.to_string()),
+            }
+        }
+        if let Some((target, ids)) = self.transfer_dialog.show(ui.ctx(), &t) {
+            self.transfer(&target, &ids);
+        }
         // A dropped bundle is imported; other files dropped on a Cat's
         // page become its photos.
         let dropped: Vec<PathBuf> = ui.input(|i| {
@@ -1003,6 +1047,23 @@ impl App {
                             ui.close();
                         }
                         ui.separator();
+                        if ui.button(t.find_duplicates()).clicked() {
+                            self.home.selection = Selection::Duplicates;
+                            self.history_of = None;
+                            ui.close();
+                        }
+                        if ui
+                            .add_enabled(
+                                self.manager.catalogs().len() > 1,
+                                egui::Button::new(t.move_to_catalog()),
+                            )
+                            .clicked()
+                        {
+                            if !self.transfer_dialog.ask(&self.manager, &self.store) {
+                                self.notice = Some(t.nothing_to_archive().to_string());
+                            }
+                            ui.close();
+                        }
                         if ui.button(t.sync_menu()).clicked() {
                             self.home.selection = Selection::Sync;
                             self.history_of = None;
@@ -1146,6 +1207,26 @@ impl App {
                 .flatten()
                 .unwrap_or_default();
             self.notifier.notify(&r.title, &name);
+        }
+    }
+
+    /// Moves `ids` into the Catalog `target`.
+    pub fn transfer(&mut self, target: &str, ids: &[String]) {
+        let t = self.t;
+        let Some(info) = self.manager.by_id(target).cloned() else {
+            return;
+        };
+        let borrowed: Vec<&str> = ids.iter().map(String::as_str).collect();
+        let result = self.manager.open_store(&info).and_then(|mut to| {
+            catlog_core::entities::transfer_entities(&mut self.store, &mut to, &borrowed)
+        });
+        match result {
+            Ok(moved) => {
+                self.notice = Some(t.moved_to_catalog(moved.moved.len() as i64, &info.name));
+                self.home.selection = Selection::None;
+                self.faces = FaceCache::default();
+            }
+            Err(e) => self.notice = Some(e.to_string()),
         }
     }
 
@@ -2794,5 +2875,180 @@ mod tests {
         h.state_mut().now = Box::new(move || next);
         h.run();
         assert_eq!(shown.lock().unwrap().len(), 2);
+    }
+
+    #[test]
+    fn duplicates_and_match_candidates_are_listed_merged_or_rejected() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        app.store_mut()
+            .create_cat("cat:dup", "miezi ", None, "cat")
+            .unwrap();
+        app.store_mut()
+            .append(tom, "f:chipid", Some("276 0981"))
+            .unwrap();
+        app.store_mut()
+            .append("cat:dup", "f:chipid", Some("2760981"))
+            .unwrap();
+        app.store_mut()
+            .create_cat("cat:p", "Pixel", None, "cat")
+            .unwrap();
+        app.store_mut()
+            .create_cat("cat:q", "Quirl", None, "cat")
+            .unwrap();
+        for id in ["cat:p", "cat:q"] {
+            app.store_mut()
+                .append(id, "f:species", Some("cat"))
+                .unwrap();
+            app.store_mut()
+                .append(
+                    id,
+                    "f:looks",
+                    Some("size=small;colours=black;features=extra-toes"),
+                )
+                .unwrap();
+        }
+        let mut h = harness(app);
+        h.run();
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("Find duplicates").click_accesskit();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Duplicates);
+        h.get_by_label("Miezi · miezi  (cat)");
+        h.get_by_label("Name");
+        h.get_by_label("Tom · miezi  (cat)");
+        h.get_all_by_label_contains("Same Chip ID").next().unwrap();
+        h.get_by_label("Match candidates");
+        h.get_by_label("Pixel · Quirl");
+        h.get_by_label("4 traits agree");
+        // Not the same: the Looks pair goes and stays gone.
+        h.get_by_label("Not the same").click();
+        h.run();
+        assert!(h.query_by_label("Pixel · Quirl").is_none());
+        assert!(
+            h.state()
+                .store()
+                .is_looks_rejected("cat:p", "cat:q")
+                .unwrap()
+        );
+        // Merge the name pair: the second survives, after one confirmation.
+        h.get_all_by_label("Merge into…").next().unwrap().click();
+        h.run();
+        assert!(h.state().merge_dialog.open);
+        h.get_all_by_label("miezi ").last().unwrap().click();
+        h.run();
+        h.get_all_by_label("Merge into…").last().unwrap().click();
+        h.run();
+        assert!(h.state().merge_dialog.confirming);
+        h.get_by_label("Merge into miezi ?");
+        h.get_by_label_contains("This cannot be undone.");
+        h.get_by_label("Merge").click();
+        h.run();
+        assert!(!h.state().merge_dialog.open);
+        assert_eq!(*h.state().selection(), Selection::Cat("cat:dup".into()));
+        assert_eq!(h.state().store().resolve_entity(miezi).unwrap(), "cat:dup");
+    }
+
+    #[test]
+    fn a_cat_and_a_clowder_merge_into_another_from_their_pages() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label("Merge this cat into…").click_accesskit();
+        h.run();
+        assert!(h.state().merge_dialog.open);
+        assert_eq!(
+            h.state().merge_dialog.candidates.len(),
+            2,
+            "the two other cats"
+        );
+        h.get_all_by_label("Tom").last().unwrap().click();
+        h.run();
+        h.get_by_label("Merge into…").click();
+        h.run();
+        h.get_by_label("Merge").click();
+        h.run();
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        assert_eq!(*h.state().selection(), Selection::Cat(tom.into()));
+        assert_eq!(h.state().store().cats(None).unwrap().len(), 2);
+        // The Clowder page offers the same.
+        h.get_by_label("Foster Home").click();
+        h.run();
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label("Merge this clowder into…").click_accesskit();
+        h.run();
+        h.get_all_by_label("Barn").last().unwrap().click();
+        h.run();
+        h.get_by_label("Merge into…").click();
+        h.run();
+        h.get_by_label("Merge").click();
+        h.run();
+        assert_eq!(h.state().store().clowders().unwrap().len(), 1);
+        assert!(matches!(h.state().selection(), Selection::Clowder(_)));
+        // Nothing left to merge into: a notice instead of a dialog.
+        h.get_by_label("Actions").click();
+        h.step();
+        h.get_by_label("Merge this clowder into…").click_accesskit();
+        h.run();
+        assert!(!h.state().merge_dialog.open);
+        h.get_by_label("No other clowder to merge into.");
+    }
+
+    #[test]
+    fn a_clowder_moves_to_another_catalog_with_its_cats() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        // One Catalog: the entry is disabled.
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert_eq!(h.state().title(), "Leipzig");
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_all_by_label("Clowders").last().unwrap().click();
+        h.run();
+        assert_eq!(h.state().title(), "Clowders");
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("Move to another catalog").click_accesskit();
+        h.run();
+        assert!(h.state().transfer_dialog.open);
+        assert!(
+            h.state().transfer_dialog.target.is_some(),
+            "one other: chosen"
+        );
+        h.get_by_label("Foster Home (clowder)").click();
+        h.run();
+        h.get_all_by_label("Move to another catalog")
+            .last()
+            .unwrap()
+            .click();
+        h.run();
+        assert!(!h.state().transfer_dialog.open);
+        h.get_by_label("2 moved to Leipzig");
+        assert_eq!(h.state().store().clowders().unwrap().len(), 1, "Barn stays");
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("Leipzig").click();
+        h.run();
+        assert_eq!(h.state().store().clowders().unwrap().len(), 1);
+        assert_eq!(h.state().store().cats(None).unwrap().len(), 1);
+        h.get_by_label("Foster Home");
     }
 }

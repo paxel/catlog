@@ -21,6 +21,7 @@ pub enum Selection {
     Sync,
     Conflicts,
     Agenda,
+    Duplicates,
 }
 
 /// What the keeper did on the home pane this frame.
