@@ -1347,7 +1347,7 @@ impl App {
     /// The chore and appointment dialogs, and what they save.
     fn show_chore_dialogs(&mut self, ctx: &Context) {
         let t = self.t;
-        if let Some(chore) = self.chore_dialog.show(ctx, &t) {
+        if let Some(chore) = self.chore_dialog.show(ctx, &self.store, &t) {
             let result = if chore.id.is_empty() {
                 self.store.create_chore(&new_uuid(), &chore).map(|_| ())
             } else {
@@ -5095,6 +5095,61 @@ mod tests {
         h.run();
         assert_eq!(h.state().modal(), Some(Modal::Sync));
         assert!(h.state().settings.settings.eye_candy);
+    }
+
+    #[test]
+    fn a_chore_is_duplicated_onto_another_cat_and_the_original_comes_back() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut app = seeded_with(dir.path(), "chores");
+        fixed_day(&mut app, 2026, 3, 10, 7);
+        let mut h = harness(app);
+        h.run();
+        open_cat_page(&mut h, miezi);
+        h.get_all_by_label_contains("Drops · ")
+            .last()
+            .unwrap()
+            .click_secondary();
+        h.step();
+        h.get_by_label("Edit chore").click_accesskit();
+        h.run();
+        assert!(h.state().chore_dialog.existing.is_some());
+        // Duplicate asks whose the copy is; the original's cat is listed too.
+        h.get_by_label("Duplicate").click();
+        h.run();
+        assert!(h.state().chore_dialog.picking);
+        h.get_all_by_label("Miezi").last().unwrap();
+        h.get_all_by_label("Tom").last().unwrap().click();
+        h.run();
+        assert!(h.state().chore_dialog.existing.is_none(), "a new chore now");
+        assert_eq!(h.state().chore_dialog.entity, tom);
+        assert_eq!(h.state().chore_dialog.title, "Drops");
+        // The page's own "New chore" button sits behind the dialog's heading.
+        assert_eq!(h.get_all_by_label("New chore").count(), 2);
+        h.get_by_label("Save").click();
+        h.run();
+        let copies = h.state().store().chores_of(tom, false).unwrap();
+        assert_eq!(copies.len(), 1);
+        assert_eq!(copies[0].title, "Drops");
+        assert_eq!(
+            copies[0].time,
+            Some(catlog_core::chores::Hhmm { hour: 8, minute: 0 })
+        );
+        assert_eq!(
+            copies[0].start,
+            chrono::NaiveDate::from_ymd_opt(2026, 3, 10).unwrap()
+        );
+        assert!(copies[0].remind);
+        // Back over the original, ready for the next kitten.
+        assert!(h.state().chore_dialog.open);
+        assert!(h.state().chore_dialog.existing.is_some());
+        h.get_by_label("Edit chore");
+        h.get_by_label("Duplicate");
+        assert_eq!(h.state().store().chores_of(miezi, false).unwrap().len(), 1);
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(!h.state().chore_dialog.open);
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {

@@ -104,12 +104,21 @@ fn paint_week_dots(ui: &mut Ui, dots: &[ChoreDay]) {
     }
 }
 
-/// The chore editor: what, how often, when, and whether to remind.
+/// The chore editor: what, how often, when, and whether to remind. An
+/// existing chore can be duplicated: the dialog asks whose the copy is,
+/// turns into a new chore preset from the original, and comes back to
+/// the original once the copy is saved or dismissed, so three kittens
+/// get their feeding with pick, Save, pick, Save.
 #[derive(Debug, Default)]
 pub struct ChoreDialog {
     pub open: bool,
     pub entity: String,
     pub existing: Option<Chore>,
+    /// The picker for the copy's cat or home is up.
+    pub picking: bool,
+    /// The original to come back to after a copy.
+    pub return_to: Option<Chore>,
+    today: NaiveDate,
     pub title: String,
     pub repeat: Option<ChoreRepeat>,
     pub every: String,
@@ -129,6 +138,8 @@ impl ChoreDialog {
         self.entity = entity.to_string();
         self.open = true;
         self.error = None;
+        self.picking = false;
+        self.today = today;
         self.id += 1;
         match &existing {
             Some(c) => {
@@ -160,6 +171,21 @@ impl ChoreDialog {
             }
         }
         self.existing = existing;
+    }
+
+    /// Turns the dialog into a new chore for `target`, preset from the
+    /// chore edited: title, schedule, time and reminder come along, the
+    /// start is today, pause and end and unknown keys stay behind. The
+    /// original waits underneath.
+    pub fn duplicate_onto(&mut self, target: &str) {
+        let Some(original) = self.existing.take() else {
+            return;
+        };
+        let today = self.today;
+        self.ask(target, Some(original.clone()), today);
+        self.existing = None;
+        self.start = today.to_string();
+        self.return_to = Some(original);
     }
 
     /// The chore as typed, or what is wrong with it.
@@ -231,12 +257,13 @@ impl ChoreDialog {
     }
 
     /// Draws the dialog; the chore to save once Save was clicked.
-    pub fn show(&mut self, ctx: &Context, t: &L10n) -> Option<Chore> {
+    pub fn show(&mut self, ctx: &Context, store: &Catalog, t: &L10n) -> Option<Chore> {
         if !self.open {
             return None;
         }
         let mut result = None;
         let mut close = false;
+        let mut duplicate = false;
         let title = if self.existing.is_some() {
             t.chore_edit()
         } else {
@@ -337,13 +364,57 @@ impl ChoreDialog {
                 if ui.button(t.cancel()).clicked() {
                     close = true;
                 }
+                if self.existing.is_some()
+                    && crate::icons::button(ui, crate::icons::COPY, t.chore_duplicate()).clicked()
+                {
+                    duplicate = true;
+                }
             });
         });
+        if duplicate {
+            self.picking = true;
+        }
+        if self.picking {
+            self.show_picker(ctx, store, t);
+        }
         if result.is_some() || close || modal.should_close() {
-            self.open = false;
+            match self.return_to.take() {
+                // The copy is done with; the original comes back.
+                Some(original) => {
+                    let today = self.today;
+                    self.ask(&original.entity.clone(), Some(original), today);
+                }
+                None => self.open = false,
+            }
             ctx.request_repaint();
         }
         result
+    }
+
+    /// Whose is the copy: every visible cat and home, the original's
+    /// among them, so "same cat, other time" is one more click.
+    fn show_picker(&mut self, ctx: &Context, store: &Catalog, t: &L10n) {
+        let mut target: Option<String> = None;
+        let modal =
+            egui::Modal::new(egui::Id::new(("chore-copy-target", self.id))).show(ctx, |ui| {
+                ui.heading(t.reminder_for());
+                let cats = store.cats(None).unwrap_or_default();
+                let homes = store.clowders().unwrap_or_default();
+                for e in cats.iter().chain(homes.iter()) {
+                    if store.is_hidden(&e.id).unwrap_or(false) {
+                        continue;
+                    }
+                    if ui.button(&e.name).clicked() {
+                        target = Some(e.id.clone());
+                    }
+                }
+            });
+        if let Some(target) = target {
+            self.picking = false;
+            self.duplicate_onto(&target);
+        } else if modal.should_close() {
+            self.picking = false;
+        }
     }
 }
 
@@ -491,5 +562,19 @@ mod tests {
         let saved = d.draft().unwrap();
         assert_eq!(saved.id, "c1");
         assert!(saved.paused);
+        // Duplicating: a new chore for the target with the same words,
+        // schedule and time, today's start, not paused; the original
+        // waits underneath.
+        d.duplicate_onto("cat:b");
+        assert!(d.existing.is_none());
+        assert_eq!(d.entity, "cat:b");
+        assert_eq!(d.title, "Feed");
+        assert_eq!(d.repeat, Some(ChoreRepeat::Weekdays));
+        let copy = d.draft().unwrap();
+        assert_eq!(copy.id, "");
+        assert_eq!(copy.entity, "cat:b");
+        assert_eq!(copy.start, today);
+        assert!(!copy.paused);
+        assert_eq!(d.return_to.as_ref().map(|c| c.id.as_str()), Some("c1"));
     }
 }
