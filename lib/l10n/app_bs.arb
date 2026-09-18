@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{svake godine} few{svake {n} godine} other{svakih {n} godina}}",
   "choreNoTime": "Bilo kada tokom dana",
   "chorePause": "Pauziraj",
+  "choreDuplicate": "Dupliciraj",
   "chorePaused": "Pauzirano",
   "choreResume": "Nastavi",
   "choreEnd": "Završi zadatak",

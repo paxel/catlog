@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{hvert år} other{hvert {n}. år}}",
   "choreNoTime": "Når som helst på dagen",
   "chorePause": "Sett på pause",
+  "choreDuplicate": "Dupliser",
   "chorePaused": "Satt på pause",
   "choreResume": "Fortsett",
   "choreEnd": "Avslutt gjøremål",

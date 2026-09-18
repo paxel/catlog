@@ -970,6 +970,7 @@
   "choreEveryYears": "هر {n} سال",
   "choreNoTime": "هر ساعتی از روز",
   "chorePause": "توقف موقت",
+  "choreDuplicate": "تکثیر",
   "chorePaused": "متوقف‌شده",
   "choreResume": "ادامه",
   "choreEnd": "پایان کار",

@@ -2922,6 +2922,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get chorePause => 'Παύση';
 
   @override
+  String get choreDuplicate => 'Αντιγραφή';
+
+  @override
   String get chorePaused => 'Σε παύση';
 
   @override

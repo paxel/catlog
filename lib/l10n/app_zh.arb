@@ -970,6 +970,7 @@
   "choreEveryYears": "每 {n} 年",
   "choreNoTime": "一天中任何时间",
   "chorePause": "暂停",
+  "choreDuplicate": "复制",
   "chorePaused": "已暂停",
   "choreResume": "继续",
   "choreEnd": "结束任务",

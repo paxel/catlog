@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{ogni anno} other{ogni {n} anni}}",
   "choreNoTime": "A qualsiasi ora",
   "chorePause": "Sospendi",
+  "choreDuplicate": "Duplica",
   "chorePaused": "In pausa",
   "choreResume": "Riprendi",
   "choreEnd": "Chiudi faccenda",

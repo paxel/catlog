@@ -2915,6 +2915,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get chorePause => 'Gera hlé';
 
   @override
+  String get choreDuplicate => 'Afrita';
+
+  @override
   String get chorePaused => 'Í bið';
 
   @override

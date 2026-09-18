@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, zero{ik pēc {n} gadiem} one{katru gadu} other{ik pēc {n} gadiem}}",
   "choreNoTime": "Jebkurā dienas laikā",
   "chorePause": "Apturēt",
+  "choreDuplicate": "Dublēt",
   "chorePaused": "Apturēts",
   "choreResume": "Atsākt",
   "choreEnd": "Beigt pienākumu",

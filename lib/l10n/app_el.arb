@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{κάθε χρόνο} other{κάθε {n} χρόνια}}",
   "choreNoTime": "Οποιαδήποτε ώρα",
   "chorePause": "Παύση",
+  "choreDuplicate": "Αντιγραφή",
   "chorePaused": "Σε παύση",
   "choreResume": "Συνέχεια",
   "choreEnd": "Τέλος δουλειάς",

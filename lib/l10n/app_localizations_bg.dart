@@ -2911,6 +2911,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get chorePause => 'Пауза';
 
   @override
+  String get choreDuplicate => 'Дублиране';
+
+  @override
   String get chorePaused => 'На пауза';
 
   @override

@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{كل سنة} two{كل سنتين} few{كل {n} سنوات} many{كل {n} سنة} other{كل {n} سنة}}",
   "choreNoTime": "في أي وقت من اليوم",
   "chorePause": "إيقاف مؤقت",
+  "choreDuplicate": "تكرار",
   "chorePaused": "متوقف مؤقتًا",
   "choreResume": "استئناف",
   "choreEnd": "إنهاء المهمة",

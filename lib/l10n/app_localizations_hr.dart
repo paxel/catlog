@@ -2920,6 +2920,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get chorePause => 'Pauziraj';
 
   @override
+  String get choreDuplicate => 'Dupliciraj';
+
+  @override
   String get chorePaused => 'Pauzirano';
 
   @override

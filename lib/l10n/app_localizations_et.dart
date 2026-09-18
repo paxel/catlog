@@ -2908,6 +2908,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get chorePause => 'Peata';
 
   @override
+  String get choreDuplicate => 'Dubleeri';
+
+  @override
   String get chorePaused => 'Peatatud';
 
   @override

@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{minden évben} other{{n} évente}}",
   "choreNoTime": "Bármikor napközben",
   "chorePause": "Szünet",
+  "choreDuplicate": "Duplikálás",
   "chorePaused": "Szüneteltetve",
   "choreResume": "Folytatás",
   "choreEnd": "Teendő lezárása",

@@ -2919,6 +2919,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get chorePause => 'Pozastaviť';
 
   @override
+  String get choreDuplicate => 'Duplikovať';
+
+  @override
   String get chorePaused => 'Pozastavené';
 
   @override

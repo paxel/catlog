@@ -2911,6 +2911,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get chorePause => 'Pausar';
 
   @override
+  String get choreDuplicate => 'Duplicar';
+
+  @override
   String get chorePaused => 'Em pausa';
 
   @override

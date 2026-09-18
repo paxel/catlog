@@ -2911,6 +2911,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get chorePause => 'Szünet';
 
   @override
+  String get choreDuplicate => 'Duplikálás';
+
+  @override
   String get chorePaused => 'Szüneteltetve';
 
   @override

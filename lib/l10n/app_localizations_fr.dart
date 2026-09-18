@@ -2920,6 +2920,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get chorePause => 'Suspendre';
 
   @override
+  String get choreDuplicate => 'Dupliquer';
+
+  @override
   String get chorePaused => 'En pause';
 
   @override

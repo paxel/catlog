@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{сваке године} few{сваке {n} године} other{сваких {n} година}}",
   "choreNoTime": "Било када у току дана",
   "chorePause": "Пауза",
+  "choreDuplicate": "Дуплирај",
   "chorePaused": "Паузирано",
   "choreResume": "Настави",
   "choreEnd": "Заврши задатак",

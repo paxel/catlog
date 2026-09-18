@@ -2768,6 +2768,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get chorePause => '暂停';
 
   @override
+  String get choreDuplicate => '复制';
+
+  @override
   String get chorePaused => '已暂停';
 
   @override

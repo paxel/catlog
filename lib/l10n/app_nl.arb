@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{elk jaar} other{elke {n} jaar}}",
   "choreNoTime": "Op elk moment van de dag",
   "chorePause": "Pauzeren",
+  "choreDuplicate": "Dupliceren",
   "chorePaused": "Gepauzeerd",
   "choreResume": "Hervatten",
   "choreEnd": "Taak beëindigen",

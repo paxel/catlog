@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{varje år} other{vart {n}:e år}}",
   "choreNoTime": "När som helst på dagen",
   "chorePause": "Pausa",
+  "choreDuplicate": "Duplicera",
   "chorePaused": "Pausad",
   "choreResume": "Återuppta",
   "choreEnd": "Avsluta syssla",

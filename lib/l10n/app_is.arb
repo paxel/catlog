@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{árlega} other{{n}. hvert ár}}",
   "choreNoTime": "Hvenær sem er dags",
   "chorePause": "Gera hlé",
+  "choreDuplicate": "Afrita",
   "chorePaused": "Í bið",
   "choreResume": "Halda áfram",
   "choreEnd": "Ljúka verki",

@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{în fiecare an} few{la fiecare {n} ani} other{la fiecare {n} de ani}}",
   "choreNoTime": "Oricând în timpul zilei",
   "chorePause": "Suspendă",
+  "choreDuplicate": "Duplică",
   "chorePaused": "În pauză",
   "choreResume": "Reia",
   "choreEnd": "Încheie treaba",

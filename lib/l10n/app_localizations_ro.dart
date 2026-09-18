@@ -2924,6 +2924,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get chorePause => 'Suspendă';
 
   @override
+  String get choreDuplicate => 'Duplică';
+
+  @override
   String get chorePaused => 'În pauză';
 
   @override

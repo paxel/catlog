@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{kull sena} other{kull {n} snin}}",
   "choreNoTime": "Fi kwalunkwe ħin tal-ġurnata",
   "chorePause": "Waqqaf",
+  "choreDuplicate": "Idduplika",
   "chorePaused": "Imwaqqaf",
   "choreResume": "Kompli",
   "choreEnd": "Temm ix-xogħol",

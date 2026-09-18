@@ -2954,6 +2954,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get chorePause => 'Cuir ar sos';
 
   @override
+  String get choreDuplicate => 'Dúblaigh';
+
+  @override
   String get chorePaused => 'Ar sos';
 
   @override

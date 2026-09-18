@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{kasmet} few{kas {n} metus} other{kas {n} metų}}",
   "choreNoTime": "Bet kuriuo dienos metu",
   "chorePause": "Pristabdyti",
+  "choreDuplicate": "Dubliuoti",
   "chorePaused": "Pristabdyta",
   "choreResume": "Tęsti",
   "choreEnd": "Baigti darbą",

@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{her yıl} other{her {n} yılda bir}}",
   "choreNoTime": "Günün herhangi bir saati",
   "chorePause": "Duraklat",
+  "choreDuplicate": "Çoğalt",
   "chorePaused": "Duraklatıldı",
   "choreResume": "Sürdür",
   "choreEnd": "Görevi bitir",

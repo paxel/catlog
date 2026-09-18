@@ -11,9 +11,11 @@ import 'chore_reminders.dart';
 
 /// Making or editing a chore (1.2.0): a title, whose it is, how often,
 /// at what time of day, and whether the phone should remind. A full
-/// page that scrolls, Save in the top bar; an existing chore has Pause
-/// and End as rows at the bottom. Returns the chore as saved, null when
-/// dismissed.
+/// page that scrolls, Save in the top bar; an existing chore has
+/// Duplicate, Pause and End as rows at the bottom. Duplicate asks whose
+/// the copy is and opens a fresh editor preset from this one, over it,
+/// so three kittens get their feeding with pick, Save, pick, Save.
+/// Returns the chore as saved, null when dismissed.
 Future<Chore?> showChoreDialog(
   BuildContext context,
   CatalogStore store, {
@@ -43,6 +45,11 @@ class ChoreEditorScreen extends StatefulWidget {
   final CatalogStore store;
   final String entityId;
   final Chore? existing;
+
+  /// A chore to copy the values from, for a new one: title, schedule,
+  /// time and reminder. Its start, pause, end and unknown keys stay
+  /// behind.
+  final Chore? template;
   final ReminderPort? reminders;
 
   const ChoreEditorScreen({
@@ -50,6 +57,7 @@ class ChoreEditorScreen extends StatefulWidget {
     required this.store,
     required this.entityId,
     this.existing,
+    this.template,
     this.reminders,
   });
 
@@ -60,17 +68,21 @@ class ChoreEditorScreen extends StatefulWidget {
 class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
   CatalogStore get store => widget.store;
   Chore? get existing => widget.existing;
+
+  /// Where the page's values come from: the chore edited, or the one
+  /// copied.
+  Chore? get _source => widget.existing ?? widget.template;
   ReminderPort get port => widget.reminders ?? LocalNotificationPort.instance;
 
   late final TextEditingController _title = TextEditingController(
-    text: existing?.title ?? '',
+    text: _source?.title ?? '',
   );
-  late ChoreRepeat _repeat = existing?.schedule.repeat ?? ChoreRepeat.daily;
+  late ChoreRepeat _repeat = _source?.schedule.repeat ?? ChoreRepeat.daily;
   // Two at least; a new chore has no existing schedule to read.
-  late int _every = existing == null || existing!.schedule.every < 2
+  late int _every = _source == null || _source!.schedule.every < 2
       ? 2
-      : existing!.schedule.every;
-  late ChoreUnit _unit = existing?.schedule.unit ?? ChoreUnit.days;
+      : _source!.schedule.every;
+  late ChoreUnit _unit = _source?.schedule.unit ?? ChoreUnit.days;
 
   /// The longest gap that still means something per unit.
   int get _maxEvery => switch (_unit) {
@@ -91,11 +103,11 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     };
   }
 
-  late final Set<int> _weekdays = {...?existing?.schedule.weekdays};
-  late ({int hour, int minute})? _time = existing?.time;
-  late bool _remind = existing?.remind ?? false;
+  late final Set<int> _weekdays = {...?_source?.schedule.weekdays};
+  late ({int hour, int minute})? _time = _source?.time;
+  late bool _remind = _source?.remind ?? false;
   late ({int hour, int minute})? _remindAt =
-      existing?.remindAt ?? existing?.time;
+      _source?.remindAt ?? _source?.time;
 
   static final _monday = DateTime(2026, 9, 7);
 
@@ -148,6 +160,25 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
       );
     }
     Navigator.of(context).pop(saved);
+  }
+
+  /// One more like this one, for another cat or home: the picker
+  /// first, the original among the choices, then the preset editor
+  /// over this page. Saved or not, this page stays where it was.
+  Future<void> _duplicate() async {
+    final target = await pickPlanEntity(context, store);
+    if (target == null || !mounted) return;
+    await Navigator.of(context).push<Chore>(
+      MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (_) => ChoreEditorScreen(
+          store: store,
+          entityId: target,
+          template: existing,
+          reminders: widget.reminders,
+        ),
+      ),
+    );
   }
 
   void _pauseOrResume() {
@@ -453,6 +484,11 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
                       ChoreHistoryScreen(store: store, chore: existing!),
                 ),
               ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.copy_outlined),
+              title: Text(t.choreDuplicate),
+              onTap: _duplicate,
             ),
             ListTile(
               leading: Icon(existing!.paused ? Icons.play_arrow : Icons.pause),

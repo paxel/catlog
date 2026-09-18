@@ -2916,6 +2916,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get chorePause => 'Pauzeren';
 
   @override
+  String get choreDuplicate => 'Dupliceren';
+
+  @override
   String get chorePaused => 'Gepauzeerd';
 
   @override

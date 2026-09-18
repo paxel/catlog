@@ -5090,6 +5090,12 @@ abstract class AppLocalizations {
   /// **'Pause'**
   String get chorePause;
 
+  /// No description provided for @choreDuplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate'**
+  String get choreDuplicate;
+
   /// No description provided for @chorePaused.
   ///
   /// In en, this message translates to:

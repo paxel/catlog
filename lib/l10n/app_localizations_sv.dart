@@ -2909,6 +2909,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get chorePause => 'Pausa';
 
   @override
+  String get choreDuplicate => 'Duplicera';
+
+  @override
   String get chorePaused => 'Pausad';
 
   @override

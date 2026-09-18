@@ -2924,6 +2924,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get chorePause => 'Apturēt';
 
   @override
+  String get choreDuplicate => 'Dublēt';
+
+  @override
   String get chorePaused => 'Apturēts';
 
   @override

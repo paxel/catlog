@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{כל שנה} two{כל שנתיים} other{כל {n} שנים}}",
   "choreNoTime": "בכל שעה ביום",
   "chorePause": "השהיה",
+  "choreDuplicate": "שכפול",
   "chorePaused": "מושהה",
   "choreResume": "המשך",
   "choreEnd": "סיום מטלה",

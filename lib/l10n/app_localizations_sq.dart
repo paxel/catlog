@@ -2911,6 +2911,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get chorePause => 'Pusho';
 
   @override
+  String get choreDuplicate => 'Dyfisho';
+
+  @override
   String get chorePaused => 'Në pauzë';
 
   @override

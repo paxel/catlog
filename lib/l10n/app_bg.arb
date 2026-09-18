@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{всяка година} other{на всеки {n} години}}",
   "choreNoTime": "По всяко време на деня",
   "chorePause": "Пауза",
+  "choreDuplicate": "Дублиране",
   "chorePaused": "На пауза",
   "choreResume": "Продължи",
   "choreEnd": "Край на задачата",

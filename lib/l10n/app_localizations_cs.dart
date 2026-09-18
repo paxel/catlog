@@ -2920,6 +2920,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get chorePause => 'Pozastavit';
 
   @override
+  String get choreDuplicate => 'Duplikovat';
+
+  @override
   String get chorePaused => 'Pozastaveno';
 
   @override

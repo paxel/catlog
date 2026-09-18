@@ -2933,6 +2933,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get chorePause => 'Začasno ustavi';
 
   @override
+  String get choreDuplicate => 'Podvoji';
+
+  @override
   String get chorePaused => 'Ustavljeno';
 
   @override

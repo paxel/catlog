@@ -2938,6 +2938,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chorePause => 'إيقاف مؤقت';
 
   @override
+  String get choreDuplicate => 'تكرار';
+
+  @override
   String get chorePaused => 'متوقف مؤقتًا';
 
   @override

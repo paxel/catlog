@@ -976,6 +976,7 @@
   "choreEveryYears": "{n, plural, one{jedes Jahr} other{alle {n} Jahre}}",
   "choreNoTime": "Egal wann am Tag",
   "chorePause": "Pausieren",
+  "choreDuplicate": "Duplizieren",
   "chorePaused": "Pausiert",
   "choreResume": "Fortsetzen",
   "choreEnd": "Aufgabe beenden",

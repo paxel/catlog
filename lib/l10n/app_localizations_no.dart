@@ -2908,6 +2908,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get chorePause => 'Sett på pause';
 
   @override
+  String get choreDuplicate => 'Dupliser';
+
+  @override
   String get chorePaused => 'Satt på pause';
 
   @override

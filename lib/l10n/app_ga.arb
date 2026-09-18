@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{gach bliain} two{gach {n} bhliain} few{gach {n} bliana} many{gach {n} mbliana} other{gach {n} bliain}}",
   "choreNoTime": "Am ar bith den lá",
   "chorePause": "Cuir ar sos",
+  "choreDuplicate": "Dúblaigh",
   "chorePaused": "Ar sos",
   "choreResume": "Atosaigh",
   "choreEnd": "Cuir deireadh leis an gcúram",

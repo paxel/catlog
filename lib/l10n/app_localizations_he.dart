@@ -2906,6 +2906,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get chorePause => 'השהיה';
 
   @override
+  String get choreDuplicate => 'שכפול';
+
+  @override
   String get chorePaused => 'מושהה';
 
   @override

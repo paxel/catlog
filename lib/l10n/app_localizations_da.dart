@@ -2910,6 +2910,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get chorePause => 'Sæt på pause';
 
   @override
+  String get choreDuplicate => 'Dupliker';
+
+  @override
   String get chorePaused => 'Sat på pause';
 
   @override

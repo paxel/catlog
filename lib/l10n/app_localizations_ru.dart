@@ -2927,6 +2927,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get chorePause => 'Приостановить';
 
   @override
+  String get choreDuplicate => 'Дублировать';
+
+  @override
   String get chorePaused => 'Приостановлено';
 
   @override

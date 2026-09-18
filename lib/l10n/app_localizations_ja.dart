@@ -2800,6 +2800,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get chorePause => '一時停止';
 
   @override
+  String get choreDuplicate => '複製';
+
+  @override
   String get chorePaused => '一時停止中';
 
   @override

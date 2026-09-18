@@ -2912,6 +2912,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get chorePause => 'Keskeytä';
 
   @override
+  String get choreDuplicate => 'Monista';
+
+  @override
   String get chorePaused => 'Tauolla';
 
   @override

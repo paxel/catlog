@@ -2920,6 +2920,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get chorePause => 'Пауза';
 
   @override
+  String get choreDuplicate => 'Дуплирај';
+
+  @override
   String get chorePaused => 'Паузирано';
 
   @override

@@ -2861,6 +2861,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get chorePause => 'توقف موقت';
 
   @override
+  String get choreDuplicate => 'تکثیر';
+
+  @override
   String get chorePaused => 'متوقف‌شده';
 
   @override

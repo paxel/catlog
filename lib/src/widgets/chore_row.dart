@@ -33,8 +33,10 @@ class ChoreRow extends StatelessWidget {
   });
 
   Future<void> _edit(BuildContext context) async {
-    final saved = await showChoreDialog(context, store, existing: chore);
-    if (saved != null) onChanged();
+    // Refresh either way: a duplicate saved underneath the editor shows
+    // up even when the editor itself is left without a save.
+    await showChoreDialog(context, store, existing: chore);
+    onChanged();
   }
 
   void _toggle() {

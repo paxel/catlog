@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{çdo vit} other{çdo {n} vjet}}",
   "choreNoTime": "Në çdo orë të ditës",
   "chorePause": "Pusho",
+  "choreDuplicate": "Dyfisho",
   "chorePaused": "Në pauzë",
   "choreResume": "Vazhdo",
   "choreEnd": "Përfundo detyrën",

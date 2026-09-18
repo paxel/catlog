@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{joka vuosi} other{joka {n}. vuosi}}",
   "choreNoTime": "Mihin aikaan vain",
   "chorePause": "Keskeytä",
+  "choreDuplicate": "Monista",
   "chorePaused": "Tauolla",
   "choreResume": "Jatka",
   "choreEnd": "Lopeta askare",

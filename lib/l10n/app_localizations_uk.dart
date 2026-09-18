@@ -2927,6 +2927,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get chorePause => 'Призупинити';
 
   @override
+  String get choreDuplicate => 'Дублювати';
+
+  @override
   String get chorePaused => 'Призупинено';
 
   @override

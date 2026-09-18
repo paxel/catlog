@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{každý rok} few{každé {n} roky} other{každých {n} rokov}}",
   "choreNoTime": "Kedykoľvek počas dňa",
   "chorePause": "Pozastaviť",
+  "choreDuplicate": "Duplikovať",
   "chorePaused": "Pozastavené",
   "choreResume": "Pokračovať",
   "choreEnd": "Ukončiť úlohu",

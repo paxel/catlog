@@ -1642,6 +1642,7 @@
   },
   "choreNoTime": "Any time of day",
   "chorePause": "Pause",
+  "choreDuplicate": "Duplicate",
   "chorePaused": "Paused",
   "choreResume": "Resume",
   "choreEnd": "End chore",

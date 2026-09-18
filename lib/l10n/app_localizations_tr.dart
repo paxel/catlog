@@ -2909,6 +2909,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get chorePause => 'Duraklat';
 
   @override
+  String get choreDuplicate => 'Çoğalt';
+
+  @override
   String get chorePaused => 'Duraklatıldı';
 
   @override

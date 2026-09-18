@@ -2922,6 +2922,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get chorePause => 'Waqqaf';
 
   @override
+  String get choreDuplicate => 'Idduplika';
+
+  @override
   String get chorePaused => 'Imwaqqaf';
 
   @override

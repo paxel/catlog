@@ -2927,6 +2927,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get chorePause => 'Wstrzymaj';
 
   @override
+  String get choreDuplicate => 'Duplikuj';
+
+  @override
   String get chorePaused => 'Wstrzymane';
 
   @override

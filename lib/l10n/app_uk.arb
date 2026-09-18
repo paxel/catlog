@@ -970,6 +970,7 @@
   "choreEveryYears": "{n, plural, one{щороку} few{кожні {n} роки} other{кожні {n} років}}",
   "choreNoTime": "Будь-коли протягом дня",
   "chorePause": "Призупинити",
+  "choreDuplicate": "Дублювати",
   "chorePaused": "Призупинено",
   "choreResume": "Відновити",
   "choreEnd": "Завершити справу",
