@@ -2,7 +2,9 @@
 //! trail of the pin last tapped, the 500 m circles of chosen missing
 //! cats, the viewport remembered per device.
 
+use catlog_core::geocode::{GeoHit, Geocoder};
 use std::collections::HashSet;
+use std::sync::Arc;
 
 use catlog_core::entities::{POSITION_KEY, PositionKind, parse_position, parse_position_kind};
 use catlog_core::geo::STRAY_AREA_RADIUS_METERS;
@@ -34,11 +36,20 @@ pub struct MapPage {
     /// The Cat a right-click offered to record a sighting for.
     pub sighting_at: Option<(f64, f64)>,
     loaded_viewport: bool,
+    /// What the keeper typed to jump somewhere: a cat, a clowder, the
+    /// person responsible for one, or a place through the geocoder.
+    pub query: String,
+    /// What the last search found, or why it found nothing.
+    pub search_note: Option<String>,
+    geocoder: Option<Arc<dyn Geocoder>>,
 }
 
 impl MapPage {
     pub fn new(map: MapView) -> MapPage {
         MapPage {
+            query: String::new(),
+            search_note: None,
+            geocoder: None,
             map,
             trail_of: None,
             stray_areas: HashSet::new(),
@@ -49,6 +60,81 @@ impl MapPage {
     }
 
     /// Jumps to an entity's position.
+    /// Where places are looked up.
+    pub fn with_geocoder(mut self, geocoder: Arc<dyn Geocoder>) -> MapPage {
+        self.geocoder = Some(geocoder);
+        self
+    }
+
+    /// Jumps to what the query names: a cat or clowder by name, a
+    /// clowder by the person responsible, else a place the geocoder
+    /// knows. The note says what was found or why nothing was.
+    pub fn search(&mut self, store: &Catalog, t: &L10n) {
+        let query = self.query.trim().to_lowercase();
+        if query.is_empty() {
+            return;
+        }
+        let records = store
+            .cats(None)
+            .unwrap_or_default()
+            .into_iter()
+            .chain(store.clowders().unwrap_or_default());
+        for record in records {
+            let person = store
+                .current(&record.id, &keys::user_field("responsible"))
+                .ok()
+                .flatten()
+                .unwrap_or_default();
+            let named = record.name.to_lowercase().contains(&query)
+                || person.to_lowercase().contains(&query);
+            if named && store.position_of(&record.id).ok().flatten().is_some() {
+                self.focus(store, &record.id);
+                self.search_note = Some(record.name);
+                return;
+            }
+        }
+        let Some(geocoder) = &self.geocoder else {
+            self.search_note = Some(t.search_no_results().to_string());
+            return;
+        };
+        match geocoder.search(&self.query) {
+            Ok(hits) => match hits.first() {
+                Some(hit) => {
+                    self.jump_to(hit);
+                    self.search_note = Some(hit.name.clone());
+                }
+                None => self.search_note = Some(t.search_no_results().to_string()),
+            },
+            Err(e) => self.search_note = Some(e),
+        }
+    }
+
+    /// Street zoom for a point, the place's own extent for an area.
+    fn jump_to(&mut self, hit: &GeoHit) {
+        let zoom = match hit.bounds {
+            Some((south, north, west, east)) => {
+                let spread = (north - south).max(east - west);
+                if spread < 0.01 {
+                    16
+                } else if spread < 0.1 {
+                    13
+                } else if spread < 1.0 {
+                    10
+                } else {
+                    7
+                }
+            }
+            None => 15,
+        };
+        self.map.viewport = Viewport {
+            lat: hit.lat,
+            lon: hit.lon,
+            zoom,
+        };
+        self.trail_of = None;
+        self.loaded_viewport = true;
+    }
+
     pub fn focus(&mut self, store: &Catalog, id: &str) {
         if let Ok(Some((lat, lon))) = store.position_of(id) {
             self.map.viewport = Viewport { lat, lon, zoom: 15 };
@@ -179,6 +265,20 @@ impl MapPage {
         }
         ui.horizontal(|ui| {
             ui.heading(t.map());
+            // The search box: Enter or the button jumps there.
+            let edit = ui.add(
+                egui::TextEdit::singleline(&mut self.query)
+                    .desired_width(240.0)
+                    .hint_text(t.map_search_hint()),
+            );
+            crate::tips::anchor(ui, "map-search", &edit);
+            let entered = edit.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter));
+            if ui.button(t.search()).clicked() || entered {
+                self.search(store, t);
+            }
+            if let Some(note) = &self.search_note {
+                ui.label(egui::RichText::new(note).weak());
+            }
             let areas = ui.button(t.stray_area_label());
             crate::tips::anchor(ui, "map-layers", &areas);
             if areas.clicked() {

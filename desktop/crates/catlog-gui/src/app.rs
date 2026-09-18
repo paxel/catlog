@@ -289,7 +289,7 @@ impl App {
             new_field: NewFieldDialog::default(),
             history: HistoryPage::default(),
             history_of: None,
-            map_page: MapPage::new(MapView::new(tiles.clone())),
+            map_page: MapPage::new(MapView::new(tiles.clone())).with_geocoder(geocoder.clone()),
             picker: PositionPicker::new(tiles, geocoder.clone()),
             geocoder,
             sighting_for: None,
@@ -5273,12 +5273,10 @@ mod tests {
         assert!(bubble.min.y > tile.max.y);
         h.get_by_label("Got it").click();
         h.run();
-        // The map's search tip has no widget on the desk: the line says it.
+        // The map's tips ring the search box, then the stray areas button.
         open_view(&mut h, "Map");
         h.get_by_label_contains("Type a cat, place, or person here");
-        assert!(crate::tips::anchor_rect(&h.ctx, "map-search").is_none());
-        let line = h.get_by_label("Got it").rect();
-        assert!(line.max.y < 120.0, "the line under the menu: {line:?}");
+        assert!(crate::tips::anchor_rect(&h.ctx, "map-search").is_some());
         h.get_by_label("Got it").click();
         h.run();
         // The next map tip rings the stray areas button again.
@@ -5334,6 +5332,38 @@ mod tests {
         assert!(h.state().store().profile_image(foster).unwrap().is_none());
         assert!(h.state().store().images(foster).unwrap().is_empty());
         assert!(h.query_by_label("Remove cover picture").is_none());
+    }
+
+    #[test]
+    fn the_map_search_jumps_to_a_cat_by_name_or_to_a_place_and_says_what_it_found() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded_with(dir.path(), "moves"));
+        h.run();
+        open_view(&mut h, "Map");
+        // A cat by name: the map centres on her position and draws her trail.
+        h.state_mut().map_page.query = "mie".into();
+        h.get_by_label("Search").click();
+        h.run();
+        let viewport = h.state().map_page.map.viewport;
+        assert!((viewport.lat - 51.35).abs() < 0.001 && (viewport.lon - 12.38).abs() < 0.001);
+        assert_eq!(viewport.zoom, 15);
+        assert_eq!(h.state().map_page.trail_of.as_deref(), Some(miezi));
+        h.get_by_label("Miezi");
+        // No record of that name: the geocoder's first hit, at its extent.
+        h.state_mut().map_page.query = "Leipzig".into();
+        h.get_by_label("Search").click();
+        h.run();
+        let viewport = h.state().map_page.map.viewport;
+        assert!((viewport.lat - 51.34).abs() < 0.001);
+        assert_eq!(viewport.zoom, 10, "a city's extent");
+        assert!(h.state().map_page.trail_of.is_none());
+        h.get_by_label("Leipzig, Sachsen");
+        // Nothing at all: the reason stays readable.
+        h.state_mut().map_page.query = "nowhere".into();
+        h.get_by_label("Search").click();
+        h.run();
+        h.get_by_label("no such place");
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {
