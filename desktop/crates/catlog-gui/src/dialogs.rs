@@ -13,6 +13,10 @@ pub struct NameDialog {
     pub value: String,
     /// What went wrong the last time the value was confirmed.
     pub error: Option<String>,
+    /// The words on the dice beside the field, when a name can be
+    /// proposed; the app rolls when `rolled` is set.
+    pub dice: Option<String>,
+    pub rolled: bool,
     id: u64,
 }
 
@@ -25,6 +29,8 @@ impl NameDialog {
         self.confirm = confirm.to_string();
         self.value = value.to_string();
         self.error = None;
+        self.dice = None;
+        self.rolled = false;
         self.id += 1;
     }
 
@@ -39,7 +45,29 @@ impl NameDialog {
         let modal = egui::Modal::new(egui::Id::new(("name-dialog", self.id))).show(ctx, |ui| {
             ui.heading(&self.title);
             ui.label(&self.label);
-            let edit = ui.add(egui::TextEdit::singleline(&mut self.value).desired_width(320.0));
+            let edit = ui
+                .horizontal(|ui| {
+                    let edit =
+                        ui.add(egui::TextEdit::singleline(&mut self.value).desired_width(320.0));
+                    if let Some(tip) = self.dice.clone() {
+                        let dice = crate::icons::glyph(
+                            ui,
+                            crate::icons::CASINO_OUTLINED,
+                            22.0,
+                            crate::theme::PALETTE.orange,
+                        )
+                        .interact(egui::Sense::click())
+                        .on_hover_text(&tip);
+                        dice.widget_info(|| {
+                            egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &tip)
+                        });
+                        if dice.clicked() {
+                            self.rolled = true;
+                        }
+                    }
+                    edit
+                })
+                .inner;
             if !edit.has_focus() && self.error.is_none() && self.value.is_empty() {
                 edit.request_focus();
             }

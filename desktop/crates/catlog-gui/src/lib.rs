@@ -32,6 +32,7 @@ pub mod map_page;
 pub mod merge;
 pub mod motion;
 pub mod move_dialog;
+pub mod names;
 pub mod new_field;
 pub mod notify;
 pub mod pages;

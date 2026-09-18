@@ -190,6 +190,9 @@ pub struct App {
     shown: Selection,
     /// Counts the view switches, so each one fades in anew.
     view_opened: u32,
+    /// How often the name dice was thrown, so two throws in one moment
+    /// still differ.
+    roll: u64,
     /// Counts the modals opened, for the same reason; and the histories
     /// apart, so a history over a page leaves the page as it is.
     modal_opened: u32,
@@ -349,6 +352,7 @@ impl App {
             modal: None,
             shown: Selection::None,
             view_opened: 0,
+            roll: 0,
             modal_opened: 0,
             history_opened: 0,
             tip_spot: None,
@@ -1117,7 +1121,18 @@ impl App {
 
     fn show_dialog(&mut self, ctx: &Context) {
         let t = self.t;
-        let Some(value) = self.dialog.show(ctx, t.cancel()) else {
+        let value = self.dialog.show(ctx, t.cancel());
+        if std::mem::take(&mut self.dialog.rolled) {
+            self.roll += 1;
+            if let Some(name) = crate::names::propose(
+                &self.store,
+                t.locale(),
+                crate::names::roll_now().wrapping_add(self.roll),
+            ) {
+                self.dialog.value = name;
+            }
+        }
+        let Some(value) = value else {
             return;
         };
         match self.asking.clone() {
@@ -2123,7 +2138,13 @@ impl App {
             }
             PageAction::NewCat(clowder) => {
                 self.asking = Asking::NewCat(clowder);
-                self.dialog.ask(t.new_cat(), t.name(), t.create(), "");
+                // A name is proposed to start with; the dice throws another.
+                let proposed =
+                    crate::names::propose(&self.store, t.locale(), crate::names::roll_now())
+                        .unwrap_or_default();
+                self.dialog
+                    .ask(t.new_cat(), t.name(), t.create(), &proposed);
+                self.dialog.dice = Some(t.propose_another_name().to_string());
             }
             PageAction::MergeInto(id) => {
                 let kind = if id.starts_with("clowder:") {
@@ -5364,6 +5385,52 @@ mod tests {
         h.get_by_label("Search").click();
         h.run();
         h.get_by_label("no such place");
+    }
+
+    #[test]
+    fn a_new_cat_starts_with_a_proposed_name_and_the_dice_throws_another() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_by_label("New cat").click();
+        h.run();
+        assert!(h.state().dialog.open);
+        let first = h.state().dialog.value.clone();
+        assert!(!first.is_empty(), "a name to start with");
+        let taken = ["miezi", "tom", "wanderer"];
+        assert!(!taken.contains(&first.to_lowercase().as_str()));
+        assert!(crate::names::pool("en", false).contains(&first.as_str()));
+        // The dice throws until another name comes, never one in use.
+        let mut seen = std::collections::BTreeSet::new();
+        seen.insert(first);
+        for _ in 0..6 {
+            h.get_by_label("Propose another name").click();
+            h.run();
+            let name = h.state().dialog.value.clone();
+            assert!(!taken.contains(&name.to_lowercase().as_str()));
+            seen.insert(name);
+        }
+        assert!(seen.len() > 1, "the dice rolls: {seen:?}");
+        // Whatever is in the field is what Create takes.
+        h.state_mut().dialog.value = "Pixel".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert!(
+            h.state()
+                .store()
+                .cats(None)
+                .unwrap()
+                .iter()
+                .any(|c| c.name == "Pixel")
+        );
+        // Other name dialogs have no dice.
+        open_view(&mut h, "Clowders");
+        h.get_by_label("New clowder").click();
+        h.run();
+        assert!(h.state().dialog.dice.is_none());
+        assert!(h.state().dialog.value.is_empty());
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {
