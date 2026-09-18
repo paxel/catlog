@@ -105,5 +105,6 @@
   "columnWhen": "Wann",
   "vetEmpty": "Noch keine Termine",
   "vetPickRun": "Wähle einen Termin, um den Patienten zu sehen",
-  "eyeCandyToggle": "Augenschmaus: Einblendungen, Übergänge und weiche Farben"
+  "eyeCandyToggle": "Augenschmaus: Einblendungen, Übergänge und weiche Farben",
+  "allFiles": "Alle Dateien"
 }

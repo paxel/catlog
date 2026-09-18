@@ -289,7 +289,8 @@ impl App {
             deleting_photo: None,
             viewer: PhotoViewer::default(),
             photo_editor: PhotoEditor::default(),
-            pick_files: Box::new(|title, extensions| {
+            pick_files: Box::new(move |title, extensions| {
+                // The fitting kinds lead; every file stays a choice away.
                 let filter = extensions
                     .iter()
                     .map(|e| e.to_uppercase())
@@ -298,6 +299,7 @@ impl App {
                 rfd::FileDialog::new()
                     .set_title(title)
                     .add_filter(filter, extensions)
+                    .add_filter(t.all_files(), &["*"])
                     .pick_files()
                     .unwrap_or_default()
             }),
