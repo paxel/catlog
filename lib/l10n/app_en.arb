@@ -1328,7 +1328,7 @@
   "crashBody": "cat(a)log hit an unexpected error. Your data is safe — everything is saved the moment you change it. Restart the app, and if this keeps happening, send the report so it can be fixed.",
   "crashRestart": "Restart the app",
   "crashSendReport": "Send report to the developer",
-  "crashLastRunBody": "cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?",
+  "crashLastRunBody": "cat(a)log stopped unexpectedly last time. Send a short report so it can be fixed?",
   "catalogsTitle": "Catalogs",
   "newCatalog": "New catalog",
   "intoCatalog": "Into catalog",

@@ -32,15 +32,26 @@ void main() {
 
     tearDown(() => dir.deleteSync(recursive: true));
 
-    test('a clean exit leaves nothing behind; a kill is noticed', () {
+    test('a clean exit leaves nothing behind; a kill is noticed', () async {
       markRunning();
       markCleanExit();
-      expect(previousRunDied(), isFalse);
+      expect(await previousRunDied(), isFalse);
 
       markRunning();
-      expect(previousRunDied(), isTrue,
+      expect(await previousRunDied(), isTrue,
           reason: 'a run that never paused cleanly was killed');
-      expect(previousRunDied(), isFalse, reason: 'asked exactly once');
+      expect(await previousRunDied(), isFalse, reason: 'asked exactly once');
+    });
+
+    test('the system\'s exit reason decides where it is known', () {
+      // A crash, a native crash or a freeze always; a memory kill only
+      // when the app was on screen; a saver's or the user's kill never.
+      for (final reason in ['crash', 'native', 'anr']) {
+        expect(exitDeservesReport(reason, foreground: false), isTrue);
+      }
+      expect(exitDeservesReport('low_memory', foreground: true), isTrue);
+      expect(exitDeservesReport('low_memory', foreground: false), isFalse);
+      expect(exitDeservesReport('other', foreground: true), isFalse);
     });
 
     test('the last crash is readable once and can be cleared', () {

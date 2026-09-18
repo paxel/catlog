@@ -1,5 +1,7 @@
 package io.github.paxel.catlog
 
+import android.app.ActivityManager
+import android.app.ApplicationExitInfo
 import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
@@ -45,6 +47,12 @@ class MainActivity : FlutterActivity() {
         val restore = RestoreChannel(this).also { restoreChannel = it }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/restore")
             .setMethodCallHandler { call, result -> restore.handle(call, result) }
+        // Why the process died last time, as Android 11+ remembers it: a
+        // battery saver's kill is not a crash and gets no report.
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/exit")
+            .setMethodCallHandler { call, result ->
+                if (call.method == "lastExit") result.success(lastExit()) else result.notImplemented()
+            }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/backup")
             .setMethodCallHandler { call, result ->
                 if (call.method == "saveToDocuments") {
@@ -81,6 +89,34 @@ class MainActivity : FlutterActivity() {
         super.onNewIntent(intent)
         handleViewIntent(intent)
         handleShareIntent(intent)
+    }
+
+    /// The newest exit record of this app: the reason in a word, whether
+    /// the app was on screen, when, and the system's own description.
+    /// Null before Android 11 or when the system holds no record.
+    private fun lastExit(): Map<String, Any?>? {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return null
+        return try {
+            val manager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
+            val info = manager.getHistoricalProcessExitReasons(packageName, 0, 1)
+                .firstOrNull() ?: return null
+            val reason = when (info.reason) {
+                ApplicationExitInfo.REASON_CRASH -> "crash"
+                ApplicationExitInfo.REASON_CRASH_NATIVE -> "native"
+                ApplicationExitInfo.REASON_ANR -> "anr"
+                ApplicationExitInfo.REASON_LOW_MEMORY -> "low_memory"
+                else -> "other"
+            }
+            mapOf(
+                "reason" to reason,
+                "foreground" to
+                    (info.importance <= ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND),
+                "timestamp" to info.timestamp,
+                "description" to (info.description ?: ""),
+            )
+        } catch (_: Exception) {
+            null
+        }
     }
 
     @Deprecated("Deprecated in Java")

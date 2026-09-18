@@ -77,7 +77,7 @@ Future<void> main(List<String> args) async {
     });
     // Read the marker BEFORE re-arming it: dirty means the last run was
     // killed without a clean pause (out-of-memory, native crash).
-    final diedLastRun = previousRunDied();
+    final diedLastRun = await previousRunDied();
     markRunning();
     await _openAndRun(dir, texts, args, diedLastRun: diedLastRun);
   }, (error, stack) {

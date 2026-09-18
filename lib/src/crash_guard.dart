@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,9 +14,13 @@ import 'l10n.dart';
 /// Catches every uncaught Dart/Flutter error and replaces the framework's
 /// grey/red death screen with a friendly one: what happened, a Restart
 /// button, and a prefilled mail to the developer. A real out-of-memory
-/// kill cannot be caught by anything in-process — the running-marker
-/// covers it: set at startup, cleared on clean pause; found dirty on the
-/// next launch, the app offers to send a report.
+/// kill cannot be caught by anything in-process. On Android 11 and newer
+/// the system remembers why the process died and is asked at the next
+/// launch: a crash, a native crash, an ANR or a memory kill while on
+/// screen get the offer of a report, a battery saver's or the user's
+/// kill gets none. Older systems fall back to the running-marker: set at
+/// startup, cleared on clean pause, dirty on the next launch means a
+/// kill.
 const crashMail = 'taum@tuta.io';
 
 late Directory _supportDir;
@@ -24,6 +29,7 @@ String? _appVersion;
 
 File get _crashFile => File('${_supportDir.path}/last_crash.txt');
 File get _marker => File('${_supportDir.path}/running.marker');
+File get _exitSeen => File('${_supportDir.path}/exit_seen.txt');
 
 Future<void> initCrashGuard(Directory supportDir,
     {required void Function() restart, String? appVersion}) async {
@@ -51,12 +57,75 @@ Future<void> initCrashGuard(Directory supportDir,
   }
 }
 
-/// True when the previous run died without a clean pause — an OOM kill
-/// or native crash. Cleared by asking exactly once.
-bool previousRunDied() {
+/// True when the previous run died in a way worth a report. The system's
+/// exit record decides where there is one; the marker decides otherwise.
+/// Cleared by asking exactly once.
+Future<bool> previousRunDied() async {
   final dirty = _marker.existsSync();
   if (dirty) _marker.deleteSync();
-  return dirty;
+  final exit = await _lastExit();
+  if (exit == null) return dirty;
+  // Each record is asked about once; the same one on the next launch
+  // means the run in between ended without a record, so nothing died.
+  final seen = _exitSeen.existsSync() ? _exitSeen.readAsStringSync().trim() : '';
+  if (seen == '${exit.timestamp}') return false;
+  try {
+    _exitSeen.writeAsStringSync('${exit.timestamp}');
+  } catch (_) {}
+  if (!exitDeservesReport(exit.reason, foreground: exit.foreground)) {
+    return false;
+  }
+  if (!_crashFile.existsSync()) {
+    try {
+      _crashFile.writeAsStringSync('${crashReportHeader()}\n\n'
+          'The system ended the app: ${exit.reason}'
+          '${exit.foreground ? ' while on screen' : ' in the background'}.\n'
+          '${exit.description}');
+    } catch (_) {}
+  }
+  return true;
+}
+
+/// Whether an exit the system reports deserves a report: a crash, a
+/// native crash, an ANR, or a memory kill while the app was on screen.
+/// A memory kill in the background is Android's housekeeping.
+bool exitDeservesReport(String reason, {required bool foreground}) =>
+    switch (reason) {
+      'crash' || 'native' || 'anr' => true,
+      'low_memory' => foreground,
+      _ => false,
+    };
+
+/// What the system remembers of the last exit.
+class LastExit {
+  final String reason;
+  final bool foreground;
+  final int timestamp;
+  final String description;
+
+  const LastExit(this.reason,
+      {required this.foreground,
+      required this.timestamp,
+      required this.description});
+}
+
+/// Asks Android 11+ for the newest exit record; null elsewhere, on older
+/// systems, without a record, or when the channel is not there.
+Future<LastExit?> _lastExit() async {
+  if (!Platform.isAndroid) return null;
+  try {
+    final info = await const MethodChannel('catlog/exit')
+        .invokeMethod<Map<Object?, Object?>>('lastExit');
+    if (info == null) return null;
+    return LastExit(
+      info['reason'] as String? ?? 'other',
+      foreground: info['foreground'] as bool? ?? false,
+      timestamp: (info['timestamp'] as num?)?.toInt() ?? 0,
+      description: info['description'] as String? ?? '',
+    );
+  } catch (_) {
+    return null;
+  }
 }
 
 void markRunning() => _marker.writeAsStringSync('1');
