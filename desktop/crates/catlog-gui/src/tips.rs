@@ -2,10 +2,105 @@
 //! the help text every page has.
 
 use catlog_core::Catalog;
+use egui::{Align2, Color32, Context, Id, Order, Pos2, Rect, Response, Stroke, Ui};
 
 use crate::home::Selection;
 use crate::l10n::L10n;
 use crate::views::{Modal, View};
+
+/// Where a tip points. A widget a tip is about registers its rectangle
+/// as it draws; the spotlight dims everything else, rings it and puts
+/// the words beside it. A tip whose widget is not on screen falls back
+/// to the line under the menu.
+pub fn anchor(ui: &Ui, id: &str, response: &Response) {
+    let pass = ui.ctx().cumulative_pass_nr();
+    ui.ctx()
+        .data_mut(|d| d.insert_temp(anchor_key(id), (response.rect, pass)));
+}
+
+fn anchor_key(id: &str) -> Id {
+    Id::new(("tip-anchor", id))
+}
+
+/// The rectangle a tip points at, when its widget drew this pass or the
+/// one before.
+pub fn anchor_rect(ctx: &Context, id: &str) -> Option<Rect> {
+    let (rect, pass) = ctx.data(|d| d.get_temp::<(Rect, u64)>(anchor_key(id)))?;
+    (ctx.cumulative_pass_nr().saturating_sub(pass) <= 1).then_some(rect)
+}
+
+/// The spotlight: the screen dimmed but for `target`, an orange ring
+/// around it that breathes when motion is on, and a bubble with the
+/// words and the button beside it. The bubble never starts above
+/// `keep_clear`, the bottom of the menu and the bar, so those stay
+/// clickable. True once the button was clicked. Drawn above modals, so
+/// a tip about a modal's widget reaches it.
+pub fn spotlight(ctx: &Context, target: Rect, keep_clear: f32, text: &str, done: &str) -> bool {
+    let screen = ctx.content_rect();
+    let hole = target.expand(6.0);
+    let pulse = if crate::motion::duration(ctx) > 0.0 {
+        ctx.request_repaint();
+        ((ctx.input(|i| i.time) * 3.0).sin() as f32) * 0.5 + 0.5
+    } else {
+        1.0
+    };
+    // The bubble below the widget when there is room, else above it.
+    let below = hole.max.y + 140.0 < screen.max.y;
+    let x = hole.min.x.clamp(
+        screen.min.x + 8.0,
+        (screen.max.x - 400.0).max(screen.min.x + 8.0),
+    );
+    let (pos, pivot) = if below {
+        (
+            Pos2::new(x, (hole.max.y + 12.0).max(keep_clear + 8.0)),
+            Align2::LEFT_TOP,
+        )
+    } else {
+        (Pos2::new(x, hole.min.y - 12.0), Align2::LEFT_BOTTOM)
+    };
+    let mut clicked = false;
+    egui::Area::new(Id::new("tip-bubble"))
+        .order(Order::Tooltip)
+        .fixed_pos(pos)
+        .pivot(pivot)
+        .show(ctx, |ui| {
+            // The veil and the ring go on the bubble's own layer, before
+            // its frame: over every modal, under the words.
+            let painter = ui.painter().with_clip_rect(screen);
+            let dim = Color32::from_black_alpha(70);
+            for part in [
+                Rect::from_min_max(screen.min, Pos2::new(screen.max.x, hole.min.y)),
+                Rect::from_min_max(Pos2::new(screen.min.x, hole.max.y), screen.max),
+                Rect::from_min_max(
+                    Pos2::new(screen.min.x, hole.min.y),
+                    Pos2::new(hole.min.x, hole.max.y),
+                ),
+                Rect::from_min_max(
+                    Pos2::new(hole.max.x, hole.min.y),
+                    Pos2::new(screen.max.x, hole.max.y),
+                ),
+            ] {
+                painter.rect_filled(part, 0.0, dim);
+            }
+            painter.rect_stroke(
+                hole.expand(pulse * 2.0),
+                10.0,
+                Stroke::new(3.0, crate::theme::PALETTE.orange),
+                egui::StrokeKind::Outside,
+            );
+            egui::Frame::popup(ui.style())
+                .fill(crate::theme::PALETTE.paper)
+                .stroke(Stroke::new(1.5, crate::theme::PALETTE.orange))
+                .show(ui, |ui| {
+                    ui.set_max_width(380.0);
+                    crate::icons::label(ui, crate::icons::LIGHTBULB_OUTLINE, text);
+                    if crate::icons::button(ui, crate::icons::CHECK, done).clicked() {
+                        clicked = true;
+                    }
+                });
+        });
+    clicked
+}
 
 /// One tip: its id and its text.
 pub struct Tip {

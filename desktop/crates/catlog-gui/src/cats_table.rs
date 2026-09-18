@@ -423,7 +423,9 @@ impl CatsTable {
                         t.search_cats()
                     }),
             );
-            if icons::selectable(ui, self.strays_only, icons::PETS, t.strays()).clicked() {
+            let strays = icons::selectable(ui, self.strays_only, icons::PETS, t.strays());
+            crate::tips::anchor(ui, "home-strays", &strays);
+            if strays.clicked() {
                 self.strays_only = !self.strays_only;
             }
             if icons::selectable(
@@ -454,7 +456,9 @@ impl CatsTable {
                 }
             });
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                if icons::button(ui, icons::ASSIGNMENT_OUTLINED, t.capture_flier()).clicked() {
+                let flier = icons::button(ui, icons::ASSIGNMENT_OUTLINED, t.capture_flier());
+                crate::tips::anchor(ui, "strays-flier", &flier);
+                if flier.clicked() {
                     action = TableAction::CaptureFlier;
                 }
                 if icons::button(ui, icons::ADD, t.new_cat()).clicked() {

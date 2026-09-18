@@ -110,7 +110,9 @@ pub fn show_agenda(ui: &mut Ui, store: &Catalog, t: &L10n, today: NaiveDate) -> 
     egui::ScrollArea::vertical().show(ui, |ui| {
         ui.horizontal(|ui| {
             ui.heading(t.agenda());
-            if ui.button(t.add_appointment()).clicked() {
+            let add = ui.button(t.add_appointment());
+            crate::tips::anchor(ui, "agenda-add", &add);
+            if add.clicked() {
                 action = AgendaAction::NewAppointment;
             }
             if ui.button(t.export_ics()).clicked() {
@@ -120,11 +122,12 @@ pub fn show_agenda(ui: &mut Ui, store: &Catalog, t: &L10n, today: NaiveDate) -> 
         let chores = store.chores_agenda(today).unwrap_or_default();
         if !chores.today.is_empty() {
             ui.add_space(8.0);
-            ui.strong(if chores.all_done_today(store) {
+            let today_heading = ui.strong(if chores.all_done_today(store) {
                 t.all_done_today()
             } else {
                 t.today_section()
             });
+            crate::tips::anchor(ui, "agenda-today", &today_heading);
             for c in &chores.today {
                 let a = chore_row(ui, store, t, c, today);
                 if a != ChoreAction::None {

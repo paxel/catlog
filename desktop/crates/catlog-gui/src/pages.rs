@@ -161,7 +161,7 @@ impl Pages {
         egui::ScrollArea::vertical().show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.heading(Self::name_of(store, t, id));
-                ui.menu_button(t.actions_menu(), |ui| {
+                let actions = ui.menu_button(t.actions_menu(), |ui| {
                     if ui.button(t.move_to()).clicked() {
                         action = PageAction::Move(id.to_string());
                         ui.close();
@@ -204,6 +204,9 @@ impl Pages {
                         ui.close();
                     }
                 });
+                for id in ["cat-menu", "cat-report", "cat-poster"] {
+                    crate::tips::anchor(ui, id, &actions.response);
+                }
             });
             if let Ok(Some(when)) = store.current(id, "f:deceased") {
                 ui.label(egui::RichText::new(format!("{} · {when}", t.starter_deceased())).weak());
@@ -370,7 +373,10 @@ impl Pages {
         let defs: Vec<FieldDef> = store.field_defs(Some(scope)).unwrap_or_default();
         let current = store.current_fields(id).unwrap_or_default();
         ui.add_space(8.0);
-        ui.strong(t.fields());
+        let fields_heading = ui.strong(t.fields());
+        if scope == FieldScope::Cat {
+            crate::tips::anchor(ui, "cat-edit", &fields_heading);
+        }
         egui::Grid::new(("fields", id))
             .num_columns(2)
             .spacing([16.0, 4.0])
@@ -463,7 +469,9 @@ impl Pages {
         ui.add_space(8.0);
         ui.horizontal(|ui| {
             ui.strong(t.chores_section());
-            if crate::icons::button(ui, crate::icons::ADD, t.new_chore()).clicked() {
+            let new_chore = crate::icons::button(ui, crate::icons::ADD, t.new_chore());
+            crate::tips::anchor(ui, "cat-chores", &new_chore);
+            if new_chore.clicked() {
                 action = Some(PageAction::Chore(ChoreAction::New(id.to_string())));
             }
         });
@@ -488,7 +496,9 @@ impl Pages {
         ui.add_space(8.0);
         ui.horizontal(|ui| {
             ui.strong(t.planned_section());
-            if crate::icons::button(ui, crate::icons::EVENT, t.add_appointment()).clicked() {
+            let add = crate::icons::button(ui, crate::icons::EVENT, t.add_appointment());
+            crate::tips::anchor(ui, "cat-reminder", &add);
+            if add.clicked() {
                 action = Some(PageAction::NewAppointment(id.to_string()));
             }
         });

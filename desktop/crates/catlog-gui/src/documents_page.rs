@@ -589,7 +589,8 @@ impl DocumentPage {
             ui.add_space(8.0);
             match kind {
                 DocKind::Card => {
-                    ui.strong(t.card_content());
+                    let chips = ui.strong(t.card_content());
+                    crate::tips::anchor(ui, "card-chips", &chips);
                     let mut toggle = |ui: &mut Ui, key: &str, label: &str| {
                         let mut on = self.card_keys.contains(key);
                         if ui.checkbox(&mut on, label).changed() {

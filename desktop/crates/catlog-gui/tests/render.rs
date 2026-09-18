@@ -188,3 +188,9 @@ fn render_vet() {
         app.open_view(View::Vet);
     });
 }
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_tip() {
+    render_with("render_tip", true, Some("fresh"), |_| {});
+}

@@ -182,7 +182,9 @@ impl SettingsPage {
                 if ui.button(t.achievements_title()).clicked() {
                     action = SettingsAction::OpenAchievements;
                 }
-                if ui.button(t.backups_title()).clicked() {
+                let backups = ui.button(t.backups_title());
+                crate::tips::anchor(ui, "settings-backups", &backups);
+                if backups.clicked() {
                     action = SettingsAction::OpenBackups;
                 }
             });

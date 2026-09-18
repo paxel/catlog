@@ -158,7 +158,9 @@ pub fn show_dashboard(
             {
                 action = DashboardAction::OpenClowders;
             }
-            if tile(ui, icons::PETS, &t.strays_count(n.strays as i64)).clicked() {
+            let strays = tile(ui, icons::PETS, &t.strays_count(n.strays as i64));
+            crate::tips::anchor(ui, "home-strays", &strays);
+            if strays.clicked() {
                 action = DashboardAction::OpenStrays;
             }
             if tile(

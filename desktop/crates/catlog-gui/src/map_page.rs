@@ -179,7 +179,9 @@ impl MapPage {
         }
         ui.horizontal(|ui| {
             ui.heading(t.map());
-            if ui.button(t.stray_area_label()).clicked() {
+            let areas = ui.button(t.stray_area_label());
+            crate::tips::anchor(ui, "map-layers", &areas);
+            if areas.clicked() {
                 self.areas_open = !self.areas_open;
             }
             if self.trail_of.is_some() && ui.button(t.trail_off()).clicked() {

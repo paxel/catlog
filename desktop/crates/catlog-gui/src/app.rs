@@ -71,6 +71,9 @@ pub const DEFAULT_WINDOW_SIZE: [f32; 2] = [1200.0, 800.0];
 /// The list pane's width when nothing was remembered.
 pub const DEFAULT_PANE_WIDTH: f32 = 600.0;
 
+/// A tip about to be spotlighted: its screen, its id and its text.
+type TipSpot = (&'static str, &'static str, fn(&L10n) -> &'static str);
+
 /// Asks the keeper for files: the dialog's title, the extensions it
 /// shows first and the words for "all files" in, the chosen paths out.
 pub type FilePicker = Box<dyn FnMut(&str, &[&str], &str) -> Vec<PathBuf>>;
@@ -191,6 +194,14 @@ pub struct App {
     /// apart, so a history over a page leaves the page as it is.
     modal_opened: u32,
     history_opened: u32,
+    /// The tip due this frame with a widget to point at, drawn as the
+    /// spotlight once everything else is on screen.
+    tip_spot: Option<TipSpot>,
+    /// No tips at all: the behaviour tests, whose clicks the spotlight
+    /// would lie under.
+    pub tips_quiet: bool,
+    /// Where the menu and the bar end, below which a tip's bubble sits.
+    bar_bottom: f32,
     icon: Option<egui::TextureHandle>,
     fonts_installed: Option<String>,
     /// Opens a link in the browser or the mail program.
@@ -340,6 +351,9 @@ impl App {
             view_opened: 0,
             modal_opened: 0,
             history_opened: 0,
+            tip_spot: None,
+            tips_quiet: false,
+            bar_bottom: 0.0,
             icon: None,
             fonts_installed: None,
             open_url: Box::new(|url| {
@@ -728,13 +742,14 @@ impl App {
         let t = self.t;
         self.show_watch_line(ui);
         self.show_tip(ui);
-        egui::Panel::top("view-bar")
+        let bar = egui::Panel::top("view-bar")
             .show_separator_line(true)
             .show(ui, |ui| {
                 if let Some(view) = views::show_bar(ui, &t, self.view) {
                     self.open_view(view);
                 }
             });
+        self.bar_bottom = bar.response.rect.max.y;
         let mut page_action = PageAction::None;
         // In the Cats and Clowders views the table moves into a left pane
         // once cards lie on the desk. The pane opens at the remembered
@@ -1029,6 +1044,7 @@ impl App {
         }
         self.new_field.show(ui.ctx(), &mut self.store, &t);
         self.show_dialog(ui.ctx());
+        self.show_spotlight(ui.ctx());
         self.remember_shown();
         self.show_crash_screen(ui.ctx());
     }
@@ -1166,7 +1182,7 @@ impl App {
                             }
                         });
                     });
-                    ui.menu_button(t.menu_catalog(), |ui| {
+                    let catalog_menu = ui.menu_button(t.menu_catalog(), |ui| {
                         let active = self.manager.active().id.clone();
                         let mut switch: Option<String> = None;
                         for info in self.manager.catalogs() {
@@ -1276,6 +1292,10 @@ impl App {
                             ui.close();
                         }
                     });
+                    // The tips about the catalog, its sync and its menu point here.
+                    for id in ["home-catalog", "home-sync", "home-menu"] {
+                        tips::anchor(ui, id, &catalog_menu.response);
+                    }
                     ui.menu_button(t.menu_help(), |ui| {
                         if icons::button(ui, icons::HELP_OUTLINE, t.help_menu()).clicked() {
                             self.open_modal(Modal::Help);
@@ -1949,6 +1969,20 @@ impl App {
         ui.label(text);
     }
 
+    /// The tip's spotlight on its widget, over everything drawn before.
+    fn show_spotlight(&mut self, ctx: &Context) {
+        let Some((screen, id, text)) = self.tip_spot.take() else {
+            return;
+        };
+        let Some(rect) = tips::anchor_rect(ctx, id) else {
+            return;
+        };
+        let t = self.t;
+        if tips::spotlight(ctx, rect, self.bar_bottom, text(&t), t.spot_done()) {
+            tips::mark_seen(&self.store, screen, id);
+        }
+    }
+
     /// Remembers the Cat or Clowder on the desk for the dashboard.
     fn remember_shown(&mut self) {
         if self.home.selection == self.shown {
@@ -2366,6 +2400,9 @@ impl App {
 
     /// The tip due on this page, once.
     fn show_tip(&mut self, ui: &mut Ui) {
+        if self.tips_quiet {
+            return;
+        }
         let t = self.t;
         let Some((screen, tip)) = tips::due_tip(
             &self.store,
@@ -2376,6 +2413,12 @@ impl App {
         ) else {
             return;
         };
+        // A widget to point at gets the spotlight, drawn last so it lies
+        // over everything; without one the line under the menu says it.
+        if tips::anchor_rect(ui.ctx(), tip.id).is_some() {
+            self.tip_spot = Some((screen, tip.id, tip.text));
+            return;
+        }
         let mut done = false;
         egui::Panel::top("tip-line")
             .show_separator_line(true)
@@ -2622,13 +2665,17 @@ mod tests {
         // Behaviour tests run with motion off, so timing never flakes them.
         file.settings.eye_candy = false;
         let tiles = TileCache::open(&dir.join("tiles"), Box::new(FakeTiles)).unwrap();
-        App::open_with(
+        let mut app = App::open_with(
             file,
             &dir.join("data"),
             Arc::new(tiles),
             Arc::new(FakeGeocoder),
         )
-        .unwrap()
+        .unwrap();
+        // The tips' spotlight would lie over what the tests click; the
+        // tip tests switch them back on.
+        app.tips_quiet = true;
+        app
     }
 
     /// A tile source that answers every tile with one grey PNG.
@@ -5152,6 +5199,46 @@ mod tests {
         assert!(!h.state().chore_dialog.open);
     }
 
+    #[test]
+    fn a_tip_spotlights_its_widget_and_falls_back_to_the_line_without_one() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.tips_quiet = false;
+        let mut h = harness(app);
+        h.run();
+        // The first tip rings the Catalog menu button and speaks beside it.
+        let catalog = h.get_by_label("Catalog").rect();
+        let ring = crate::tips::anchor_rect(&h.ctx, "home-catalog").unwrap();
+        assert!(ring.contains_rect(catalog) || catalog.contains_rect(ring));
+        h.get_by_label_contains("This is the catalog you are in");
+        let bubble = h.get_by_label("Got it").rect();
+        assert!(bubble.min.y > catalog.max.y, "the bubble hangs under it");
+        assert!(bubble.min.x < catalog.max.x + 200.0, "and sits beside it");
+        assert!(h.query_by_label("Got it").is_some());
+        h.get_by_label("Got it").click();
+        h.run();
+        // The next tip points at the strays tile on the dashboard.
+        h.get_by_label_contains("This card collects all strays");
+        let tile = h.get_by_label("1 strays").rect();
+        let ring = crate::tips::anchor_rect(&h.ctx, "home-strays").unwrap();
+        assert!(ring.contains_rect(tile) || tile.contains_rect(ring));
+        let bubble = h.get_by_label("Got it").rect();
+        assert!(bubble.min.y > tile.max.y);
+        h.get_by_label("Got it").click();
+        h.run();
+        // The map's search tip has no widget on the desk: the line says it.
+        open_view(&mut h, "Map");
+        h.get_by_label_contains("Type a cat, place, or person here");
+        assert!(crate::tips::anchor_rect(&h.ctx, "map-search").is_none());
+        let line = h.get_by_label("Got it").rect();
+        assert!(line.max.y < 120.0, "the line under the menu: {line:?}");
+        h.get_by_label("Got it").click();
+        h.run();
+        // The next map tip rings the stray areas button again.
+        h.get_by_label_contains("Show circles around its poster spots");
+        assert!(crate::tips::anchor_rect(&h.ctx, "map-layers").is_some());
+    }
+
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {
         h.get_by_label("Catalog").click();
         h.step();
@@ -5933,6 +6020,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut app = seeded(dir.path());
         let urls = recorded_urls(&mut app);
+        app.tips_quiet = false;
         let mut h = harness(app);
         h.run();
         h.get_by_label(

@@ -382,11 +382,20 @@ impl Desk {
                 }
             });
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Min), |ui| {
-                ui.menu_button(t.actions_menu(), |ui| {
+                let actions = ui.menu_button(t.actions_menu(), |ui| {
                     if let Some(e) = self.menu(ui, store, t, id, hidden, defs, chosen) {
                         event = e;
                     }
                 });
+                for tip in [
+                    "cat-menu",
+                    "cat-report",
+                    "cat-poster",
+                    "cat-reminder",
+                    "cat-chores",
+                ] {
+                    crate::tips::anchor(ui, tip, &actions.response);
+                }
             });
         });
         ui.add_space(6.0);
@@ -564,6 +573,8 @@ impl Desk {
         chosen: Option<&BTreeSet<String>>,
     ) -> Option<CardEvent> {
         let mut event = None;
+        // The first value on a cat's card is where the edit tip points.
+        let mut anchored = false;
         egui::Grid::new(("card-fields", id))
             .num_columns(2)
             .spacing([12.0, 4.0])
@@ -593,6 +604,10 @@ impl Desk {
                                 .sense(egui::Sense::click())
                                 .truncate(),
                         );
+                        if !anchored && id.starts_with("cat:") {
+                            crate::tips::anchor(ui, "cat-edit", &response);
+                            anchored = true;
+                        }
                         // A click on a value edits it; the header drags the card.
                         if response.clicked()
                             && let Some(a) = self.begin(id, def, raw.as_deref(), units, t.locale())

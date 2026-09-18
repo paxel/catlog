@@ -105,7 +105,11 @@ pub fn show_bar(ui: &mut Ui, t: &L10n, active: View) -> Option<View> {
         visuals.selection.stroke.color = PALETTE.paper;
         for view in View::ALL {
             let selected = view == active;
-            if icons::selectable(ui, selected, view.icon(), view.label(t)).clicked() {
+            let response = icons::selectable(ui, selected, view.icon(), view.label(t));
+            if view == View::Agenda {
+                crate::tips::anchor(ui, "home-agenda", &response);
+            }
+            if response.clicked() {
                 chosen = Some(view);
             }
         }
