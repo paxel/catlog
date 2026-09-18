@@ -46,14 +46,14 @@ void Function(CatalogInfo)? switchCatalog;
 Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    // The cheers are somebody's work: the credit CC BY asks for, on the
-    // licences page beside the packages'.
+    // The cat sounds come from Wikimedia Commons, CC0 and public domain:
+    // no credit is owed, the sources are named on the licences page.
     LicenseRegistry.addLicense(() => Stream.value(const LicenseEntryWithLineBreaks(
-          ['Free Crowd Cheering Sounds'],
-          'cheer1.wav–cheer4.wav are excerpts of "Free Crowd Cheering Sounds" '
-          'by Gregor Quendel (https://opengameart.org/content/free-crowd-cheering-sounds), '
-          'licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). '
-          'Cut short, mixed to mono, faded out.',
+          ['Cat sounds'],
+          'tick.wav, purr.wav, chorus.wav and party.wav are cut from recordings '
+          'on Wikimedia Commons by George Miquilena, Adam Cuerden, Tsester, '
+          'freemaster2 and jim_mowatt, released as CC0 or into the public '
+          'domain. See assets/sounds/LICENSES.md for the sources.',
         )));
     final dir = await getApplicationSupportDirectory();
     // The language decides what the catalog carried over from an older

@@ -1,35 +1,36 @@
-//! The cheers: a short crowd for a day of chores done or a ladder
-//! climbed, a different one each time. The sounds ship with the app.
+//! The cheers, each moment its own cat: a short meow for a tick, a purr
+//! for a day of chores done, a chorus of meows for a ladder climbed, a
+//! meow over a purr for an adoption. The recordings are CC0 and public
+//! domain from Wikimedia Commons, see `assets/sounds/LICENSES.md`; the
+//! sounds ship with the app.
 
 /// Plays a sound.
 pub trait Sounder {
     fn play(&mut self, wav: &'static [u8]);
 }
 
+pub static TICK: &[u8] = include_bytes!("../../../../assets/sounds/tick.wav");
+pub static PURR: &[u8] = include_bytes!("../../../../assets/sounds/purr.wav");
+pub static CHORUS: &[u8] = include_bytes!("../../../../assets/sounds/chorus.wav");
 pub static PARTY: &[u8] = include_bytes!("../../../../assets/sounds/party.wav");
-pub static CHEER1: &[u8] = include_bytes!("../../../../assets/sounds/cheer1.wav");
-pub static CHEER2: &[u8] = include_bytes!("../../../../assets/sounds/cheer2.wav");
-pub static CHEER3: &[u8] = include_bytes!("../../../../assets/sounds/cheer3.wav");
-pub static CHEER4: &[u8] = include_bytes!("../../../../assets/sounds/cheer4.wav");
 
-pub const CHEERS: [(&str, &[u8]); 5] = [
-    ("party", PARTY),
-    ("cheer1", CHEER1),
-    ("cheer2", CHEER2),
-    ("cheer3", CHEER3),
-    ("cheer4", CHEER4),
-];
+/// What is celebrated.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Cheer {
+    Tick,
+    DayDone,
+    Ladder,
+    Adoption,
+}
 
-/// A cheer other than the last one.
-pub fn pick_cheer(previous: Option<&str>) -> (&'static str, &'static [u8]) {
-    let choices: Vec<(&str, &[u8])> = CHEERS
-        .iter()
-        .copied()
-        .filter(|(name, _)| Some(*name) != previous)
-        .collect();
-    let mut b = [0u8; 1];
-    let _ = getrandom::fill(&mut b);
-    choices[b[0] as usize % choices.len()]
+/// The sound of a cheer.
+pub fn cheer_sound(cheer: Cheer) -> &'static [u8] {
+    match cheer {
+        Cheer::Tick => TICK,
+        Cheer::DayDone => PURR,
+        Cheer::Ladder => CHORUS,
+        Cheer::Adoption => PARTY,
+    }
 }
 
 /// The speakers, through rodio, on a thread of their own.
@@ -67,12 +68,16 @@ mod tests {
     use super::*;
 
     #[test]
-    fn a_cheer_is_never_the_same_twice_in_a_row() {
-        for _ in 0..20 {
-            let (name, bytes) = pick_cheer(Some("party"));
-            assert_ne!(name, "party");
-            assert!(bytes.starts_with(b"RIFF"));
+    fn every_moment_has_its_own_short_wave() {
+        let all = [Cheer::Tick, Cheer::DayDone, Cheer::Ladder, Cheer::Adoption];
+        for cheer in all {
+            let bytes = cheer_sound(cheer);
+            assert!(bytes.starts_with(b"RIFF"), "{cheer:?}");
+            assert!(
+                bytes.len() > 10_000 && bytes.len() < 400_000,
+                "{cheer:?}: short"
+            );
         }
-        assert!(pick_cheer(None).1.len() > 1000);
+        assert!(cheer_sound(Cheer::Tick).len() < cheer_sound(Cheer::DayDone).len());
     }
 }

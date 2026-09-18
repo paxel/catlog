@@ -1,5 +1,5 @@
+import 'dart:io';
 import 'dart:async';
-import 'dart:math';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
@@ -13,18 +13,14 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   setUpAll(useSystemSqlite);
 
-  test('cheers rotate and never repeat back to back', () {
-    final r = Random(1);
-    var previous = pickCheer(random: r);
-    final seen = <String>{previous};
-    for (var i = 0; i < 200; i++) {
-      final next = pickCheer(previous: previous, random: r);
-      expect(next, isNot(previous));
-      expect(cheerAssets, contains(next));
-      seen.add(next);
-      previous = next;
+  test('every moment has its own cat sound, shipped with the app', () {
+    final assets = {for (final c in Cheer.values) cheerAsset(c)};
+    expect(assets.length, Cheer.values.length, reason: 'no two alike');
+    for (final asset in assets) {
+      expect(File('assets/$asset').existsSync(), isTrue, reason: asset);
     }
-    expect(seen.length, cheerAssets.length);
+    expect(cheerAsset(Cheer.tick), 'sounds/tick.wav');
+    expect(cheerAsset(Cheer.adoption), 'sounds/party.wav');
   });
 
   testWidgets('the sound switch sits under celebrations and follows it', (

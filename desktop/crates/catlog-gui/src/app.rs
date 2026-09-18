@@ -50,7 +50,7 @@ use crate::photos::{EditMode, PhotoEditor, PhotoViewer, ViewerAction};
 use crate::picker::PositionPicker;
 use crate::settings::{AppSettings, SettingsFile};
 use crate::settings_page::{SettingsAction, SettingsPage, ladder_name, show_achievements};
-use crate::sounds::{Sounder, Speakers, pick_cheer};
+use crate::sounds::{Cheer, Sounder, Speakers, cheer_sound};
 use crate::summary::{ArrivalSummary, SummaryAction};
 use crate::sync_page::{SyncAction, SyncPage};
 use crate::textures::FaceCache;
@@ -176,7 +176,6 @@ pub struct App {
     /// The machine's country code, for the units.
     pub region: Option<String>,
     pub sounder: Box<dyn Sounder>,
-    last_cheer: Option<&'static str>,
     /// The ladders as last computed, for the Achievements page and the
     /// title choice.
     ladders: Vec<LadderState>,
@@ -345,7 +344,6 @@ impl App {
             settings_page: SettingsPage::default(),
             region: None,
             sounder: Box::new(Speakers),
-            last_cheer: None,
             ladders: Vec::new(),
             crash_report: crate::crash::last_crash(root),
             view: View::Home,
@@ -1080,7 +1078,19 @@ impl App {
                 self.editor.text = picked;
             }
         }
-        self.mover.show(ui.ctx(), &mut self.store, &t);
+        // A move into a forever home is an adoption: the party plays.
+        if self.mover.show(ui.ctx(), &mut self.store, &t)
+            && let Some(target) = self.mover.target.clone()
+            && self
+                .store
+                .current(&target, &keys::user_field("status"))
+                .ok()
+                .flatten()
+                .as_deref()
+                == Some("forever-home")
+        {
+            self.cheer(Cheer::Adoption);
+        }
         if let Some(edit) = self.editor.show(ui.ctx(), &self.store, &t)
             && let Err(e) = apply_edit(&mut self.store, &self.editor, &edit)
         {
@@ -2623,10 +2633,31 @@ impl App {
 
     /// After a tick: a cheer when the day's chores are all done, the
     /// ladders recorded, a cheer and a word for each one climbed.
+    /// Whether the keeper wants the cheers heard.
+    fn cheers_on(&self) -> bool {
+        self.store
+            .local_setting(crate::settings_page::CELEBRATIONS)
+            .as_deref()
+            != Some("off")
+            && self
+                .store
+                .local_setting(crate::settings_page::CHEER)
+                .as_deref()
+                != Some("off")
+    }
+
+    /// The cheer for a moment, when they are on.
+    fn cheer(&mut self, cheer: Cheer) {
+        if self.cheers_on() {
+            self.sounder.play(cheer_sound(cheer));
+        }
+    }
+
     fn celebrate_ticks(&mut self) {
         let t = self.t;
         let today = self.pages.today;
-        let mut cheer = false;
+        self.cheer(Cheer::Tick);
+        let mut cheer = None;
         if let Ok(agenda) = self.store.chores_agenda(today)
             && agenda.all_done_today(&self.store)
             && self.store.local_setting("choresCelebrated").as_deref() != Some(&today.to_string())
@@ -2634,32 +2665,19 @@ impl App {
             let _ = self
                 .store
                 .set_local_setting("choresCelebrated", &today.to_string());
-            cheer = true;
+            cheer = Some(Cheer::DayDone);
         }
         self.refresh_ladders();
         let now = (self.now)().and_utc().to_rfc3339();
         if let Ok(climbed) = self.manager.record_ladders(&self.ladders, &now)
             && !climbed.is_empty()
         {
-            cheer = true;
+            cheer = Some(Cheer::Ladder);
             let names: Vec<String> = climbed.iter().map(|s| ladder_name(&t, s)).collect();
             self.notice = Some(t.achievement_unlocked(&names.join(", ")));
         }
-        if cheer
-            && self
-                .store
-                .local_setting(crate::settings_page::CELEBRATIONS)
-                .as_deref()
-                != Some("off")
-            && self
-                .store
-                .local_setting(crate::settings_page::CHEER)
-                .as_deref()
-                != Some("off")
-        {
-            let (name, wav) = pick_cheer(self.last_cheer);
-            self.last_cheer = Some(name);
-            self.sounder.play(wav);
+        if let Some(cheer) = cheer {
+            self.cheer(cheer);
         }
     }
 
@@ -6397,7 +6415,11 @@ mod tests {
             .unwrap()
             .click();
         h.run();
-        assert_eq!(played.lock().unwrap().len(), 1, "one cheer");
+        // The tick's meow, then the ladder's chorus: the day done yields to it.
+        assert_eq!(
+            *played.lock().unwrap(),
+            vec![crate::sounds::TICK.len(), crate::sounds::CHORUS.len()]
+        );
         h.get_by_label("Achievement: Servant (Feed)");
         assert_eq!(h.state().manager().achievements().len(), 1);
         // Untick and tick again: no second cheer today, nothing new climbed.
@@ -6411,7 +6433,15 @@ mod tests {
             .unwrap()
             .click();
         h.run();
-        assert_eq!(played.lock().unwrap().len(), 1);
+        assert_eq!(
+            played.lock().unwrap().len(),
+            3,
+            "the meow again, nothing more"
+        );
+        assert_eq!(
+            *played.lock().unwrap().last().unwrap(),
+            crate::sounds::TICK.len()
+        );
         h.key_press(egui::Key::Escape);
         h.run();
         h.get_by_label("Help").click();

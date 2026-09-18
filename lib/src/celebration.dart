@@ -23,46 +23,42 @@ bool cheerEnabled(CatalogStore store) =>
 void setCheerEnabled(CatalogStore store, bool enabled) =>
     store.setLocalSetting('celebrationSound', enabled ? 'on' : 'off');
 
-/// The cheers, one picked at random per celebration so the hundredth
-/// still surprises. cheer1–4 are CC BY 4.0 excerpts, credited on the
-/// licences page; see assets/sounds/LICENSES.md.
-const cheerAssets = [
-  'sounds/party.wav',
-  'sounds/cheer1.wav',
-  'sounds/cheer2.wav',
-  'sounds/cheer3.wav',
-  'sounds/cheer4.wav',
-];
+/// What is celebrated, each with its own cat sound: a short meow for a
+/// tick, a purr for the day's chores done, a chorus of meows for a
+/// ladder climbed, a meow over a purr for an adoption. The recordings
+/// are CC0 and public domain; see assets/sounds/LICENSES.md.
+enum Cheer { tick, dayDone, ladder, adoption }
 
-/// One of [cheerAssets], never the same as [previous] twice in a row.
-String pickCheer({String? previous, Random? random}) {
-  final r = random ?? Random();
-  final choices = [
-    for (final a in cheerAssets)
-      if (a != previous || cheerAssets.length == 1) a
-  ];
-  return choices[r.nextInt(choices.length)];
-}
-
-String? _lastCheer;
+/// The sound of a [Cheer].
+String cheerAsset(Cheer cheer) => switch (cheer) {
+      Cheer.tick => 'sounds/tick.wav',
+      Cheer.dayDone => 'sounds/purr.wav',
+      Cheer.ladder => 'sounds/chorus.wav',
+      Cheer.adoption => 'sounds/party.wav',
+    };
 
 /// Call after a locally performed move; fires only for forever homes.
 void maybeCelebrateAdoption(
     BuildContext context, CatalogStore store, String? destinationClowder) {
   if (destinationClowder == null) return;
   if (store.current(destinationClowder, 'f:status') != 'forever-home') return;
-  celebrate(context, store);
+  celebrate(context, store, Cheer.adoption);
 }
 
 /// Confetti and a cheer, when celebrations are on: an adoption, a day
 /// of chores all done, an achievement.
-void celebrate(BuildContext context, CatalogStore store) {
+void celebrate(BuildContext context, CatalogStore store, Cheer cheer) {
   if (!celebrationsEnabled(store)) return;
-  if (cheerEnabled(store)) _playCheer();
+  if (cheerEnabled(store)) playCheer(cheer);
   _showConfetti(context);
 }
 
-Future<void> _playCheer() async {
+/// The short meow of a tick, when the cheers are on; no confetti.
+void tickSound(CatalogStore store) {
+  if (celebrationsEnabled(store) && cheerEnabled(store)) playCheer(Cheer.tick);
+}
+
+Future<void> playCheer(Cheer cheer) async {
   final player = AudioPlayer();
   try {
     await player.setAudioContext(AudioContext(
@@ -72,9 +68,7 @@ Future<void> _playCheer() async {
         audioFocus: AndroidAudioFocus.none,
       ),
     ));
-    final cheer = pickCheer(previous: _lastCheer);
-    _lastCheer = cheer;
-    await player.play(AssetSource(cheer));
+    await player.play(AssetSource(cheerAsset(cheer)));
     // Released when the sound ends — or after a few seconds if the
     // platform never says so, or at once when the platform closes the
     // stream without an event.

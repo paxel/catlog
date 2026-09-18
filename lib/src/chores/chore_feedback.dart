@@ -21,10 +21,10 @@ void afterChoreTick(
   final allDone =
       due.isNotEmpty &&
       due.every((c) => store.choreTicks(c).containsKey(today));
-  var cheer = false;
+  Cheer? cheer;
   if (allDone && store.localSetting('choresCelebrated') != dayKey(today)) {
     store.setLocalSetting('choresCelebrated', dayKey(today));
-    cheer = true;
+    cheer = Cheer.dayDone;
   }
   if (manager != null) {
     final climbed = recordLadders(
@@ -33,7 +33,7 @@ void afterChoreTick(
       DateTime.now(),
     );
     if (climbed.isNotEmpty) {
-      cheer = true;
+      cheer = Cheer.ladder;
       final t = context.t;
       // One line for all of them: queued snackbars would hide the rest.
       ScaffoldMessenger.of(context).showSnackBar(
@@ -56,7 +56,7 @@ void afterChoreTick(
       );
     }
   }
-  if (cheer) celebrate(context, store);
+  if (cheer != null) celebrate(context, store, cheer);
 }
 
 /// The chores of a cat or home, split as the pages list them: due
