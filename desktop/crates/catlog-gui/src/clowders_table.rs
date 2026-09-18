@@ -275,6 +275,19 @@ impl ClowdersTable {
                         }
                     };
                     row.col(|ui| {
+                        // The cover leads the name where a place has one.
+                        if let Some(texture) = store
+                            .profile_image(&id)
+                            .ok()
+                            .flatten()
+                            .and_then(|hash| faces.face(ui.ctx(), store, &hash))
+                        {
+                            ui.add(
+                                egui::Image::from_texture(&texture)
+                                    .fit_to_exact_size(egui::Vec2::splat(24.0))
+                                    .corner_radius(4.0),
+                            );
+                        }
                         ui.add(egui::Label::new(text(&r.row.view.name)).selectable(false));
                     });
                     row.col(|ui| {

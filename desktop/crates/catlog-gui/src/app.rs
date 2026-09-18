@@ -482,6 +482,43 @@ impl App {
     /// Reads every path as a picture and stores it on the Cat, compressed
     /// and stripped as the phone does; the notice says how many landed
     /// or what went wrong with the first that did not.
+    /// Makes the picture at `path` the cover of a Clowder, in place of
+    /// the one before: a place has one picture, stored as its profile
+    /// image so it travels like its other values.
+    pub fn set_cover(&mut self, clowder: &str, path: &Path) {
+        let old = self.store.profile_image(clowder).ok().flatten();
+        let result = std::fs::read(path)
+            .map_err(|e| e.to_string())
+            .and_then(|raw| {
+                self.store
+                    .add_photo(clowder, &raw)
+                    .map_err(|e| e.to_string())
+            });
+        match result {
+            Ok(hash) => {
+                if let Err(e) = self.store.set_profile_image(clowder, &hash) {
+                    self.notice = Some(e.to_string());
+                }
+                if let Some(old) = old
+                    && old != hash
+                    && let Err(e) = self.store.delete_image(clowder, &old)
+                {
+                    self.notice = Some(e.to_string());
+                }
+            }
+            Err(e) => self.notice = Some(format!("{}: {e}", path.display())),
+        }
+    }
+
+    /// Drops a Clowder's cover; its card falls back to the house icon.
+    pub fn remove_cover(&mut self, clowder: &str) {
+        if let Some(hash) = self.store.profile_image(clowder).ok().flatten()
+            && let Err(e) = self.store.delete_image(clowder, &hash)
+        {
+            self.notice = Some(e.to_string());
+        }
+    }
+
     pub fn add_photos(&mut self, cat: &str, paths: &[PathBuf]) {
         let t = self.t;
         let mut added = 0usize;
@@ -784,7 +821,7 @@ impl App {
                 ui.colored_label(ui.visuals().error_fg_color, notice);
             }
             let hovering = ui.input(|i| !i.raw.hovered_files.is_empty());
-            if hovering && matches!(self.home.selection, Selection::Cat(_)) {
+            if hovering && !matches!(self.home.selection, Selection::None) {
                 ui.colored_label(ui.visuals().selection.bg_fill, t.drop_photos_hint());
             }
             match self.view {
@@ -931,10 +968,13 @@ impl App {
         for bundle in &bundles {
             self.open_bundle_file(bundle);
         }
-        if !pictures.is_empty()
-            && let Selection::Cat(cat) = self.home.selection.clone()
-        {
-            self.add_photos(&cat, &pictures);
+        // Dropped pictures become a cat's photos, or a clowder's cover.
+        if !pictures.is_empty() {
+            match self.home.selection.clone() {
+                Selection::Cat(cat) => self.add_photos(&cat, &pictures),
+                Selection::Clowder(clowder) => self.set_cover(&clowder, &pictures[0]),
+                Selection::None => {}
+            }
         }
         match self
             .summary
@@ -2046,6 +2086,13 @@ impl App {
                 let paths = (self.pick_files)(t.add_photo(), IMAGE_FILES, t.all_files());
                 self.add_photos(&cat, &paths);
             }
+            PageAction::SetCover(clowder) => {
+                let paths = (self.pick_files)(t.cover_pick(), IMAGE_FILES, t.all_files());
+                if let Some(path) = paths.first() {
+                    self.set_cover(&clowder, path);
+                }
+            }
+            PageAction::RemoveCover(clowder) => self.remove_cover(&clowder),
             PageAction::ViewPhoto(cat, hash) => {
                 let hashes = self.store.images(&cat).unwrap_or_default();
                 self.viewer.open_at(hashes, &hash);
@@ -5237,6 +5284,56 @@ mod tests {
         // The next map tip rings the stray areas button again.
         h.get_by_label_contains("Show circles around its poster spots");
         assert!(crate::tips::anchor_rect(&h.ctx, "map-layers").is_some());
+    }
+
+    #[test]
+    fn a_clowder_gets_a_cover_from_a_file_or_a_drop_replaces_it_and_loses_it() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let first = picture_file(dir.path(), "house.png", 80, 60);
+        let second = picture_file(dir.path(), "yard.png", 60, 80);
+        let mut app = seeded(dir.path());
+        let hand = first.clone();
+        app.pick_files = Box::new(move |_, _, _| vec![hand.clone()]);
+        let mut h = harness(app);
+        h.run();
+        open_row(&mut h, "Foster Home");
+        assert!(h.state().store().profile_image(foster).unwrap().is_none());
+        // The card's menu asks for the picture and makes it the cover.
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Cover picture…").click_accesskit();
+        h.run();
+        let cover = h.state().store().profile_image(foster).unwrap().unwrap();
+        assert_eq!(h.state().store().images(foster).unwrap().len(), 1);
+        // A second picture replaces it: one picture per place.
+        let hand = second.clone();
+        h.state_mut().pick_files = Box::new(move |_, _, _| vec![hand.clone()]);
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Cover picture…").click_accesskit();
+        h.run();
+        let replaced = h.state().store().profile_image(foster).unwrap().unwrap();
+        assert_ne!(replaced, cover);
+        assert_eq!(h.state().store().images(foster).unwrap().len(), 1);
+        // Dropped on the desk with the clowder open, a picture is the cover too.
+        h.input_mut().dropped_files.push(egui::DroppedFile {
+            path: Some(first.clone()),
+            ..Default::default()
+        });
+        h.run();
+        assert_eq!(
+            h.state().store().profile_image(foster).unwrap().unwrap(),
+            cover
+        );
+        assert_eq!(h.state().store().images(foster).unwrap().len(), 1);
+        // The page shows and removes it as well.
+        open_cat_page(&mut h, foster);
+        h.get_by_label("Remove cover picture").click();
+        h.run();
+        assert!(h.state().store().profile_image(foster).unwrap().is_none());
+        assert!(h.state().store().images(foster).unwrap().is_empty());
+        assert!(h.query_by_label("Remove cover picture").is_none());
     }
 
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {

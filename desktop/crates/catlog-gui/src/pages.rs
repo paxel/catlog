@@ -36,6 +36,9 @@ pub enum PageAction {
     ShowOnMap(String),
     /// Add photos from files to this Cat.
     AddPhoto(String),
+    /// A picture chosen as a Clowder's cover, replacing the one before.
+    SetCover(String),
+    RemoveCover(String),
     /// View this Cat's photo full size.
     ViewPhoto(String, String),
     /// Make this photo the Cat's Profile Image.
@@ -114,13 +117,30 @@ impl Pages {
                     }
                 });
             });
-            if let Ok(Some(cover)) = store.profile_image(id)
-                && let Some(texture) = faces.face(ui.ctx(), store, &cover)
+            // The place's own picture, chosen here, as the phone's card has it.
+            let cover = store.profile_image(id).ok().flatten();
+            if let Some(texture) = cover
+                .as_ref()
+                .and_then(|hash| faces.face(ui.ctx(), store, hash))
             {
                 ui.add(
-                    egui::Image::from_texture(&texture).fit_to_exact_size(Vec2::new(480.0, 160.0)),
+                    egui::Image::from_texture(&texture)
+                        .fit_to_exact_size(Vec2::new(480.0, 160.0))
+                        .corner_radius(8.0),
                 );
             }
+            ui.horizontal(|ui| {
+                if crate::icons::button(ui, crate::icons::ADD_A_PHOTO, t.cover_pick()).clicked() {
+                    action = PageAction::SetCover(id.to_string());
+                }
+                if cover.is_some()
+                    && crate::icons::button(ui, crate::icons::HIDE_IMAGE_OUTLINED, t.cover_remove())
+                        .clicked()
+                {
+                    action = PageAction::RemoveCover(id.to_string());
+                }
+            });
+            ui.label(egui::RichText::new(t.cover_hint()).weak());
             let cats = store.cats(Some(id)).unwrap_or_default();
             ui.add_space(8.0);
             ui.strong(format!(

@@ -448,8 +448,23 @@ impl Desk {
         let hidden = store.is_hidden(id).unwrap_or(false);
         let cats = store.cats(Some(id)).unwrap_or_default();
         let pet_mode = store.is_pet_mode().unwrap_or(false);
+        let cover = store.profile_image(id).ok().flatten();
         ui.horizontal(|ui| {
-            icons::glyph(ui, icons::NIGHT_SHELTER_OUTLINED, 40.0, PALETTE.grey);
+            match cover
+                .as_ref()
+                .and_then(|hash| faces.face(ui.ctx(), store, hash))
+            {
+                Some(texture) => {
+                    ui.add(
+                        egui::Image::from_texture(&texture)
+                            .fit_to_exact_size(Vec2::splat(48.0))
+                            .corner_radius(8.0),
+                    );
+                }
+                None => {
+                    icons::glyph(ui, icons::NIGHT_SHELTER_OUTLINED, 40.0, PALETTE.grey);
+                }
+            }
             ui.vertical(|ui| {
                 let title = egui::RichText::new(&name).strong().size(20.0);
                 ui.add(
@@ -472,6 +487,22 @@ impl Desk {
                         t.new_cat(),
                         PageAction::NewCat(Some(id.to_string())),
                     );
+                    page(
+                        ui,
+                        &mut e,
+                        icons::ADD_A_PHOTO,
+                        t.cover_pick(),
+                        PageAction::SetCover(id.to_string()),
+                    );
+                    if cover.is_some() {
+                        page(
+                            ui,
+                            &mut e,
+                            icons::HIDE_IMAGE_OUTLINED,
+                            t.cover_remove(),
+                            PageAction::RemoveCover(id.to_string()),
+                        );
+                    }
                     if icons::button(ui, icons::DESCRIPTION_OUTLINED, t.card_page()).clicked() {
                         e = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
                         ui.close();
