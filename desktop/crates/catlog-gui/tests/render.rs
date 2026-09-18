@@ -144,6 +144,16 @@ fn render_sync_page() {
 
 #[test]
 #[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
+fn render_in_person() {
+    render_with("render_in_person", true, Some("fresh"), |app| {
+        app.in_person.bind = Some(std::net::IpAddr::V4(std::net::Ipv4Addr::LOCALHOST));
+        app.in_person.poll_every = Some(std::time::Duration::from_secs(5));
+        app.start_hosting();
+    });
+}
+
+#[test]
+#[ignore = "writes a PNG for the maintainer; needs a GPU or lavapipe"]
 fn render_cats_table() {
     render_with("render_cats_table", true, Some("fresh"), |app| {
         app.open_view(View::Cats);

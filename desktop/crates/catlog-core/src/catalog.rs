@@ -1344,6 +1344,7 @@ impl Catalog {
         entries: Vec<Entry>,
         sender_vector: &HashMap<String, i64>,
         keys: Option<&[KeyRecord]>,
+        verified_device: Option<&str>,
         report: &mut ImportReport,
     ) -> Result<Vec<Entry>> {
         let touched: Vec<(String, String)> = {
@@ -1368,7 +1369,7 @@ impl Catalog {
                 pre.insert((entity.clone(), field.clone()), row);
             }
         }
-        let imported = self.apply_entries_with(entries, keys, None, report)?;
+        let imported = self.apply_entries_with(entries, keys, verified_device, report)?;
         let author = self
             .author()
             .unwrap_or_else(|| crate::SEED_AUTHOR.to_string());
@@ -3171,6 +3172,7 @@ mod tests {
             a.entries_since(&BTreeMap::new(), false).unwrap(),
             &av,
             None,
+            None,
             &mut ImportReport::default(),
         )
         .unwrap();
@@ -3185,7 +3187,7 @@ mod tests {
         let rows = b
             .entries_since(&a.version_vector().unwrap(), false)
             .unwrap();
-        a.apply_entries_from(rows, &bv, None, &mut ImportReport::default())
+        a.apply_entries_from(rows, &bv, None, None, &mut ImportReport::default())
             .unwrap();
         assert_eq!(
             a.conflicts().unwrap(),
@@ -3202,6 +3204,7 @@ mod tests {
             a.entries_since(&b.version_vector().unwrap(), false)
                 .unwrap(),
             &av,
+            None,
             None,
             &mut ImportReport::default(),
         )
@@ -3223,6 +3226,7 @@ mod tests {
             b.entries_since(&a.version_vector().unwrap(), false)
                 .unwrap(),
             &bv,
+            None,
             None,
             &mut ImportReport::default(),
         )

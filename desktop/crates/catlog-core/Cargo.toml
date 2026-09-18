@@ -31,6 +31,9 @@ rten = "0.26"
 regex = "1"
 image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
 ureq = { version = "3", default-features = false, features = ["rustls"] }
+# The in-person host: its own self-signed certificate, served over TLS.
+rcgen = "0.13"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
 
 [dev-dependencies]
 lopdf = "0.43"

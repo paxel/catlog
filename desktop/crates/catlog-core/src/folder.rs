@@ -133,7 +133,7 @@ impl Catalog {
                 // The writer's knowledge is exactly what its file contains:
                 // that vector is the causal context for conflict detection.
                 let imported =
-                    self.apply_entries_from(fresh, &writer_vector, None, &mut result.report)?;
+                    self.apply_entries_from(fresh, &writer_vector, None, None, &mut result.report)?;
                 result.entries_in += imported.len();
                 result.applied.extend(imported);
             }

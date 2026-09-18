@@ -326,6 +326,7 @@ pub fn help_for(
     }
     match modal {
         Some(Modal::Sync) => return t.help_remote(),
+        Some(Modal::InPerson) => return t.help_in_person(),
         Some(Modal::Conflicts) => return t.help_conflicts(),
         Some(Modal::Duplicates) => return t.help_duplicates(),
         Some(Modal::Moments) => return t.help_go_back(),

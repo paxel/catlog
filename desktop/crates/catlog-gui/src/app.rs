@@ -38,6 +38,7 @@ use crate::housekeeping::{
     show_restore,
 };
 use crate::icons;
+use crate::in_person::{InPerson, InPersonAction};
 use crate::l10n::{self, L10n};
 use crate::map::MapView;
 use crate::map_page::{MapPage, MapPageAction};
@@ -151,6 +152,8 @@ pub struct App {
     pub save_file: FileSaver,
     pub pick_folder: FolderPicker,
     pub sync_page: SyncPage,
+    /// The in-person host, serving while its modal is open.
+    pub in_person: InPerson,
     pub summary: ArrivalSummary,
     pub conflict: ConflictDialog,
     /// Changes waiting in the folder, shown on the watch line.
@@ -324,6 +327,7 @@ impl App {
             }),
             pick_folder: Box::new(|title| rfd::FileDialog::new().set_title(title).pick_folder()),
             sync_page: SyncPage::default(),
+            in_person: InPerson::default(),
             summary: ArrivalSummary::default(),
             conflict: ConflictDialog::default(),
             watch_pending: None,
@@ -620,6 +624,8 @@ impl App {
         self.watch_pending = None;
         self.watch_dismissed = None;
         self.sync_page = SyncPage::default();
+        self.in_person.stop();
+        self.modal = self.modal.take().filter(|m| *m != Modal::InPerson);
         Ok(())
     }
 
@@ -769,6 +775,7 @@ impl App {
         if self.sync_page.syncing {
             self.run_sync();
         }
+        self.poll_host(ui.ctx());
         let focused = ui.input(|i| i.focused);
         if (focused && !self.was_focused) || self.last_check.elapsed() >= WATCH_EVERY {
             self.check_folder();
@@ -936,6 +943,7 @@ impl App {
         // lies on top of it.
         self.show_modal(ui.ctx());
         self.show_history_modal(ui.ctx());
+        self.show_trust_question(ui.ctx());
         self.act_page(page_action);
         self.show_chore_dialogs(ui.ctx());
         if let Some((loser, survivor, kind)) = self.merge_dialog.show(ui.ctx(), &t) {
@@ -1887,6 +1895,7 @@ impl App {
     /// What happens when the window closes: a backup when something
     /// changed since the last one.
     pub fn on_exit(&mut self) {
+        self.in_person.stop();
         let _ = self.store.auto_backup(&self.backups_dir, false);
     }
 
@@ -2308,6 +2317,7 @@ impl App {
             other => format!("{other:?}#{}", self.modal_opened),
         };
         let mut page_action = PageAction::None;
+        let hosting = modal == Modal::InPerson;
         let (_, close) = views::show_modal(ctx, &id, t.close_label(), |ui| match modal {
             Modal::Page(id) => {
                 ui.set_min_width(560.0);
@@ -2336,12 +2346,21 @@ impl App {
                     }
                 }
                 SyncAction::SyncNow => {}
+                SyncAction::HostInPerson => self.start_hosting(),
                 SyncAction::ExportBundle => self.export_bundle(),
                 SyncAction::ImportBundle => {
                     let picked = (self.pick_files)(t.import_bundle(), BUNDLE_FILES, t.all_files());
                     if let Some(path) = picked.first() {
                         self.open_bundle_file(path);
                     }
+                }
+            },
+            Modal::InPerson => match self.in_person.show(ui, &t) {
+                InPersonAction::None => {}
+                InPersonAction::Copy(code) => ui.ctx().copy_text(code),
+                InPersonAction::Stop => {
+                    self.in_person.stop();
+                    self.modal = None;
                 }
             },
             Modal::Settings => {
@@ -2417,11 +2436,47 @@ impl App {
             }
         });
         if close {
+            if hosting {
+                self.in_person.stop();
+            }
             self.modal = None;
         }
         if page_action != PageAction::None {
             self.act_page(page_action);
         }
+    }
+
+    /// Opens the in-person modal with the host serving behind it.
+    pub fn start_hosting(&mut self) {
+        self.in_person.start(&self.store);
+        self.open_modal(Modal::InPerson);
+    }
+
+    /// While hosting, the phones' requests are answered every frame and
+    /// each finished session opens the summary.
+    fn poll_host(&mut self, ctx: &Context) {
+        if !self.in_person.hosting() {
+            return;
+        }
+        ctx.request_repaint_after(self.in_person.poll_delay());
+        for session in self.in_person.poll(&mut self.store) {
+            self.after_session(session);
+        }
+    }
+
+    /// The question a phone waits for; its answer serves or turns it away.
+    fn show_trust_question(&mut self, ctx: &Context) {
+        let t = self.t;
+        if let Some(decision) = self.in_person.show_question(ctx, &t)
+            && let Some(session) = self.in_person.decide(&mut self.store, decision)
+        {
+            self.after_session(session);
+        }
+    }
+
+    fn after_session(&mut self, session: catlog_core::lan::Session) {
+        self.faces = FaceCache::default();
+        self.open_summary(&session.applied, session.report);
     }
 
     /// The history of a Field, over the desk and over any modal, until
@@ -6524,5 +6579,148 @@ mod tests {
                 .any(|c| c.id == stray)
         );
         assert_eq!(h.state().store().cats(None).unwrap().len(), 5);
+    }
+
+    /// A phone's joiner, as far as the desk sees it: the vector, then
+    /// the sync with one cat of its own; the answer's status and body.
+    fn phone_joins(dir: &Path, port: u16, pin: &str) -> (u16, String) {
+        let mut phone = Catalog::open(dir).unwrap();
+        phone.set_author("Bob").unwrap();
+        phone.create_cat("cat:rex", "Rex", None, "cat").unwrap();
+        let config = ureq::Agent::config_builder()
+            .tls_config(
+                ureq::tls::TlsConfig::builder()
+                    .disable_verification(true)
+                    .build(),
+            )
+            .http_status_as_error(false)
+            .build();
+        let agent = ureq::Agent::new_with_config(config);
+        let base = format!("https://127.0.0.1:{port}");
+        let mut res = agent
+            .get(format!("{base}/vector"))
+            .header("x-catlog-pin", pin)
+            .call()
+            .unwrap();
+        let host_vector: BTreeMap<String, i64> =
+            serde_json::from_str(&res.body_mut().read_to_string().unwrap()).unwrap();
+        let body = serde_json::json!({
+            "format": 3,
+            "vector": phone.version_vector().unwrap(),
+            "entries": phone.entries_since(&host_vector, false).unwrap(),
+            "author": "Bob",
+            "deviceName": "phone",
+            "deviceId": phone.device_id(),
+            "keys": phone.key_records().unwrap(),
+        });
+        let mut res = agent
+            .post(format!("{base}/sync"))
+            .header("x-catlog-pin", pin)
+            .content_type("application/json")
+            .send(serde_json::to_vec(&body).unwrap().as_slice())
+            .unwrap();
+        let text = res.body_mut().read_to_string().unwrap_or_default();
+        (res.status().as_u16(), text)
+    }
+
+    #[test]
+    fn a_phone_joins_the_desk_in_person_once_the_keeper_allows_it() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.in_person.bind = Some(std::net::IpAddr::V4(std::net::Ipv4Addr::LOCALHOST));
+        app.in_person.poll_every = Some(Duration::from_secs(5));
+        let mut h = harness(app);
+        h.run();
+        h.state_mut().open_modal(Modal::Sync);
+        h.run();
+        h.get_by_label("Start hosting").click();
+        h.run();
+        assert_eq!(h.state().modal(), Some(Modal::InPerson));
+        let (port, pin) = {
+            let host = h.state().in_person.host.as_ref().expect("hosting");
+            (host.port(), host.pin().to_string())
+        };
+        h.get_by_label("Stop hosting");
+        h.get_by_label(&format!("PIN: {pin}"));
+        h.get_by_label("0 session(s) so far");
+        let phone_dir = dir.path().join("phone");
+        let joiner = std::thread::spawn(move || phone_joins(&phone_dir, port, &pin));
+        // Frames run until the phone's sync stands as the question.
+        let deadline = Instant::now() + Duration::from_secs(30);
+        while h.state().in_person.asking.is_none() {
+            assert!(Instant::now() < deadline, "no phone asked");
+            h.step();
+            std::thread::sleep(Duration::from_millis(20));
+        }
+        h.run();
+        h.get_by_label("Bob (phone) wants to sync");
+        h.get_by_label("Allow").click();
+        h.run();
+        let (status, body) = joiner.join().unwrap();
+        assert_eq!(status, 200, "{body}");
+        assert!(body.contains("Miezi"), "the desk's cats went out");
+        assert_eq!(
+            h.state()
+                .store()
+                .current("cat:rex", "name")
+                .unwrap()
+                .as_deref(),
+            Some("Rex")
+        );
+        assert_eq!(h.state().in_person.sessions, 1);
+        assert!(h.state().summary.open);
+        h.get_by_label("What arrived");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(!h.state().summary.open);
+        h.get_by_label("1 session(s) so far");
+        h.get_by_label("Stop hosting").click();
+        h.run();
+        assert!(h.state().in_person.host.is_none());
+        assert_eq!(h.state().modal(), None);
+    }
+
+    #[test]
+    fn a_declined_phone_hears_so_and_closing_the_modal_stops_the_host() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.in_person.bind = Some(std::net::IpAddr::V4(std::net::Ipv4Addr::LOCALHOST));
+        app.in_person.poll_every = Some(Duration::from_secs(5));
+        let mut h = harness(app);
+        h.run();
+        h.state_mut().open_modal(Modal::Sync);
+        h.run();
+        h.get_by_label("Start hosting").click();
+        h.run();
+        let (port, pin) = {
+            let host = h.state().in_person.host.as_ref().expect("hosting");
+            (host.port(), host.pin().to_string())
+        };
+        let phone_dir = dir.path().join("phone");
+        let joiner = std::thread::spawn(move || phone_joins(&phone_dir, port, &pin));
+        let deadline = Instant::now() + Duration::from_secs(30);
+        while h.state().in_person.asking.is_none() {
+            assert!(Instant::now() < deadline, "no phone asked");
+            h.step();
+            std::thread::sleep(Duration::from_millis(20));
+        }
+        h.run();
+        h.get_by_label("Decline").click();
+        h.run();
+        let (status, body) = joiner.join().unwrap();
+        assert_eq!((status, body.as_str()), (403, "declined"));
+        assert!(
+            h.state()
+                .store()
+                .current("cat:rex", "name")
+                .unwrap()
+                .is_none()
+        );
+        assert_eq!(h.state().in_person.sessions, 0);
+        // Escape closes the modal and the host with it.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert_eq!(h.state().modal(), None);
+        assert!(h.state().in_person.host.is_none());
     }
 }

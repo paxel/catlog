@@ -44,3 +44,4 @@ ttf-parser = "0.25"
 lopdf = "0.43"
 egui_kittest = { version = "0.35", features = ["wgpu", "snapshot"] }
 tempfile = "3.10"
+ureq = { version = "3", default-features = false, features = ["rustls"] }

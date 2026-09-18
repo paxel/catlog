@@ -16,6 +16,8 @@ pub enum SyncAction {
     /// Use the folder chosen last for another Catalog.
     UseLastFolder(String),
     SyncNow,
+    /// Host a session for a phone in the room.
+    HostInPerson,
     ExportBundle,
     ImportBundle,
 }
@@ -105,6 +107,12 @@ impl SyncPage {
             });
             if let Some(result) = &self.bundle_result {
                 ui.label(result);
+            }
+            ui.add_space(16.0);
+            ui.strong(t.sync_chooser_in_person());
+            ui.label(t.in_person_explainer_desk());
+            if ui.button(t.start_hosting()).clicked() {
+                action = SyncAction::HostInPerson;
             }
         });
         action

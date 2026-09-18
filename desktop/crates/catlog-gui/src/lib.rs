@@ -25,6 +25,7 @@ pub mod home;
 pub mod housekeeping;
 pub mod icon;
 pub mod icons;
+pub mod in_person;
 pub mod l10n;
 pub mod labels;
 pub mod map;

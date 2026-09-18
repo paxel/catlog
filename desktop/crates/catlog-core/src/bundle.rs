@@ -24,8 +24,8 @@ pub const BUNDLE_FORMAT: u32 = 2;
 
 /// A photo larger than this is not one of ours and is skipped; an
 /// entries file above its cap is refused before it is unpacked.
-const MAX_BLOB_BYTES: u64 = 20 << 20;
-const MAX_ENTRIES_BYTES: u64 = 64 << 20;
+pub const MAX_BLOB_BYTES: u64 = 20 << 20;
+pub const MAX_ENTRIES_BYTES: u64 = 64 << 20;
 
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct BundleResult {
@@ -166,7 +166,8 @@ impl Catalog {
         }
         let mut report = ImportReport::default();
         let writer_vector = crate::folder::writer_vector(&entries);
-        let applied = self.apply_entries_from(entries, &writer_vector, Some(&keys), &mut report)?;
+        let applied =
+            self.apply_entries_from(entries, &writer_vector, Some(&keys), None, &mut report)?;
         let mut blobs_in = 0;
         for (hash, index) in blobs {
             if !self.knows_image(&hash)? || self.image_bytes(&hash).is_some() {

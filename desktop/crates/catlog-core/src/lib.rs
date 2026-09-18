@@ -32,6 +32,7 @@ pub mod geocode;
 pub mod graph;
 pub mod ics;
 pub mod keys;
+pub mod lan;
 pub mod looks;
 pub mod moments;
 pub mod partial_date;

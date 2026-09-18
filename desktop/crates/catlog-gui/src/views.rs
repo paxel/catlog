@@ -74,6 +74,8 @@ pub enum Modal {
     /// A Cat's whole page, from its card.
     Page(String),
     Sync,
+    /// Hosting a session for a phone in the room.
+    InPerson,
     Conflicts,
     Duplicates,
     Moments,
