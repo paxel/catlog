@@ -47,6 +47,9 @@ pub struct InPerson {
     pub error: Option<String>,
     /// The address to bind instead of the LAN one; tests use the loopback.
     pub bind: Option<IpAddr>,
+    /// No local network was found: the host listens on the loopback,
+    /// which no phone reaches.
+    pub no_network: bool,
     /// How often the phones' requests are looked for while hosting. A
     /// delay under the harness's frame time counts as immediate there,
     /// so tests set it long and step the frames themselves.
@@ -60,6 +63,7 @@ impl InPerson {
         self.error = None;
         self.copied = false;
         self.include_private = false;
+        self.no_network = self.bind.is_none() && catlog_core::lan::lan_address().is_none();
         match store
             .tls_identity()
             .and_then(|identity| Host::start(&identity, &catlog_core::lan::new_pin(), self.bind))
@@ -165,6 +169,9 @@ impl InPerson {
         let Some(host) = &self.host else {
             return action;
         };
+        if self.no_network {
+            ui.colored_label(PALETTE.red, t.connect_to_wifi_first());
+        }
         ui.add_space(8.0);
         ui.vertical_centered(|ui| {
             codes::qr(ui, &host.pair_code(false), 240.0);
