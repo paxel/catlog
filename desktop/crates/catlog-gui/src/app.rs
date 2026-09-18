@@ -5433,6 +5433,68 @@ mod tests {
         assert!(h.state().dialog.value.is_empty());
     }
 
+    #[test]
+    fn the_editor_and_the_card_refuse_the_impossible_with_the_phone_s_words() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut app = seeded(dir.path());
+        app.store_mut()
+            .append(miezi, "f:deceased", Some("2025-01-01"))
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        // The editor: a birth after the death is named and Save stays shut.
+        open_cat_page(&mut h, miezi);
+        let def = h.state().store().field_def("birthdate").unwrap().unwrap();
+        {
+            let app = h.state_mut();
+            let (editor, store) = (&mut app.editor, &app.store);
+            editor.ask(store, &def, miezi, None, EditTarget::New, None, "en");
+        }
+        h.run();
+        h.state_mut().editor.choice = Some("2025-02".into());
+        h.run();
+        h.get_by_label_contains("can't be after the date of death");
+        h.get_by_label("Save").click();
+        h.run();
+        assert!(h.state().editor.open, "refused");
+        h.state_mut().editor.choice = Some("2020".into());
+        h.run();
+        assert!(h.query_by_label_contains("can't be after").is_none());
+        h.get_by_label("Save").click();
+        h.run();
+        assert!(!h.state().editor.open);
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:birthdate")
+                .unwrap()
+                .as_deref(),
+            Some("2020")
+        );
+        // The card: a pregnant tom is refused with the reason as a notice.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:gender", Some("male"))
+            .unwrap();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        let pregnant = h.state().store().field_def("pregnant").unwrap().unwrap();
+        h.state_mut().desk.inline =
+            Some(crate::cards::Inline::picked(miezi, &pregnant.key(), "yes"));
+        h.run();
+        assert_eq!(
+            h.state().store().current(miezi, "f:pregnant").unwrap(),
+            None
+        );
+        h.get_by_label_contains("a male cat can't be pregnant");
+    }
+
     fn open_catalog_menu_item(h: &mut Harness<'static, App>, label: &str) {
         h.get_by_label("Catalog").click();
         h.step();

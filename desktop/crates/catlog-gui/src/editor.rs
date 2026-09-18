@@ -226,9 +226,30 @@ impl FieldEditor {
                 ui.add(egui::TextEdit::singleline(&mut self.as_of_text).desired_width(100.0));
                 ui.add(egui::TextEdit::singleline(&mut self.as_of_time).desired_width(50.0));
             });
+            // The impossible is named and not saved: a birth after the
+            // death, a pregnant tom, a female father.
+            let objection = store
+                .starter_objection(
+                    &self.entity,
+                    &def.slug,
+                    self.value().as_deref(),
+                    chrono::Local::now().date_naive(),
+                )
+                .ok()
+                .flatten();
+            if let Some(objection) = &objection {
+                ui.colored_label(
+                    ui.visuals().error_fg_color,
+                    crate::labels::objection_words(t, objection),
+                );
+            }
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            crate::views::settle(ui);
             ui.horizontal(|ui| {
-                if ui.button(t.save()).clicked() {
+                if ui
+                    .add_enabled(objection.is_none(), egui::Button::new(t.save()))
+                    .clicked()
+                {
                     result = Some(FieldEdit {
                         value: self.value(),
                         date: self.as_of(),

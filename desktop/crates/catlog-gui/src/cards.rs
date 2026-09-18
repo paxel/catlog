@@ -50,6 +50,23 @@ pub struct Inline {
     /// The picked option for choice and yes/no values.
     pub choice: Option<String>,
     focus_asked: bool,
+    /// Store on the next frame without a click, as a picked value does.
+    save_now: bool,
+}
+
+impl Inline {
+    /// A choice already made, for a test or a shortcut: the next frame
+    /// stores it as if it had been picked from the combo.
+    pub fn picked(cat: &str, key: &str, value: &str) -> Inline {
+        Inline {
+            cat: cat.to_string(),
+            key: key.to_string(),
+            text: String::new(),
+            choice: Some(value.to_string()),
+            focus_asked: true,
+            save_now: true,
+        }
+    }
 }
 
 /// The desk: the open cards, their places, the edit in progress.
@@ -187,6 +204,7 @@ impl Desk {
             text,
             choice: raw.map(String::from),
             focus_asked: false,
+            save_now: false,
         });
         None
     }
@@ -297,7 +315,21 @@ impl Desk {
             }
         }
         if let Some((cat, key, value)) = saved {
-            if let Err(e) = store.append(&cat, &key, value.as_deref()) {
+            // A starter value the app knows to be impossible is refused
+            // with its reason; the field keeps what it had.
+            let slug = key.strip_prefix("f:").unwrap_or(&key);
+            let objection = store
+                .starter_objection(
+                    &cat,
+                    slug,
+                    value.as_deref(),
+                    chrono::Local::now().date_naive(),
+                )
+                .ok()
+                .flatten();
+            if let Some(objection) = objection {
+                action = CardAction::Notice(crate::labels::objection_words(t, &objection));
+            } else if let Err(e) = store.append(&cat, &key, value.as_deref()) {
                 action = CardAction::Notice(e.to_string());
             }
             self.inline = None;
@@ -709,6 +741,9 @@ impl Desk {
                     });
                 if let Some(value) = picked {
                     inline.choice = Some(value);
+                    inline.save_now = true;
+                }
+                if inline.save_now {
                     let composed = Self::composed(inline, def, units);
                     event = Some(CardEvent::Saved(inline.key.clone(), composed));
                 }

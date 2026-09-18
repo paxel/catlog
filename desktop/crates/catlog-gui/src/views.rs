@@ -185,3 +185,16 @@ pub fn show_modal<R>(
     let (inner, closed) = modal.inner;
     (inner, closed || wants_close)
 }
+
+/// An area asks for no repaint when its content shrinks; one more frame
+/// lets it settle, so what is on screen is where it says. Called at the
+/// end of a modal's content.
+pub fn settle(ui: &Ui) {
+    let size = ui.min_rect().size();
+    let key = ui.id().with("settled-size");
+    let ctx = ui.ctx();
+    if ctx.data(|d| d.get_temp::<egui::Vec2>(key)) != Some(size) {
+        ctx.data_mut(|d| d.insert_temp(key, size));
+        ctx.request_repaint();
+    }
+}

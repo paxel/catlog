@@ -37,6 +37,7 @@ pub mod moments;
 pub mod partial_date;
 pub mod pdf;
 pub mod photo;
+pub mod plausibility;
 pub mod plus_code;
 pub mod registry;
 pub mod review;

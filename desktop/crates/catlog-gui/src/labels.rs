@@ -304,6 +304,24 @@ pub fn field_value_display(
     value.to_string()
 }
 
+/// An objection in the keeper's words.
+pub fn objection_words(t: &L10n, objection: &catlog_core::plausibility::Objection) -> String {
+    use catlog_core::plausibility::Objection as O;
+    let day = |d: &NaiveDate| format_day(t.locale(), *d);
+    match objection {
+        O::BirthdateInFuture => t.birthdate_in_future().to_string(),
+        O::DeceasedInFuture => t.deceased_in_future().to_string(),
+        O::DeceasedBeforeBirth(d) => t.deceased_before_birth(&day(d)),
+        O::BornAfterDeceased(d) => t.born_after_deceased(&day(d)),
+        O::MalePregnant => t.male_pregnant().to_string(),
+        O::FatherNotMale(name) => t.father_not_male(name),
+        O::MotherNotFemale(name) => t.mother_not_female(name),
+        O::ParentBornAfterKitten(name, d) => t.parent_born_after_kitten(name, &day(d)),
+        O::GenderFatherFemale => t.gender_father_female().to_string(),
+        O::GenderMotherMale => t.gender_mother_male().to_string(),
+    }
+}
+
 /// The label of a raw field key: user Fields through their definitions,
 /// reserved keys by their words.
 pub fn field_label(t: &L10n, store: &Catalog, key: &str) -> String {
