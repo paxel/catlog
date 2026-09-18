@@ -31,6 +31,7 @@ use crate::dialogs::{ConfirmDialog, NameDialog};
 use crate::documents_page::{DocAction, DocKind, DocumentPage, card_png};
 use crate::duplicates_page::{DuplicatesAction, show_duplicates};
 use crate::editor::{EditTarget, FieldEditor, apply_edit};
+use crate::graph_image::{graph_image, to_color_image};
 use crate::history::{HistoryAction, HistoryPage};
 use crate::home::{HomeAction, HomePane, Selection};
 use crate::housekeeping::{
@@ -239,6 +240,8 @@ pub struct App {
     request: Request,
     /// What went wrong last, shown in the detail pane until the next action.
     notice: Option<String>,
+    /// The context of the frame being drawn, for the clipboard.
+    ctx: Option<Context>,
 }
 
 impl App {
@@ -387,6 +390,7 @@ impl App {
             last_reminder_check: chrono::Local::now().naive_local(),
             asking: Asking::Nothing,
             request: Request::None,
+            ctx: None,
             notice: None,
         };
         app.apply_units();
@@ -763,6 +767,7 @@ impl App {
 
     /// Draws the whole window into `ui`.
     pub fn show(&mut self, ui: &mut Ui) {
+        self.ctx = Some(ui.ctx().clone());
         if self.install_fonts(ui.ctx()) {
             return;
         }
@@ -1045,6 +1050,15 @@ impl App {
         }
         match self.viewer.show(ui.ctx(), &self.store, &t, &mut self.faces) {
             ViewerAction::None => {}
+            ViewerAction::Copy(hash) => {
+                if let Some(image) = self
+                    .store
+                    .image_bytes(&hash)
+                    .and_then(|bytes| crate::textures::decode(&bytes))
+                {
+                    self.copy_image(image);
+                }
+            }
             ViewerAction::Save(hash) => {
                 let name = format!("{}-{}.jpg", self.title(), self.viewer.index + 1);
                 if let Some(path) = (self.save_file)(t.save_photo_as(), &name)
@@ -1675,6 +1689,12 @@ impl App {
                     Err(e) => self.notice = Some(e.to_string()),
                 }
             }
+            DocAction::CopyImage => {
+                let card = self
+                    .document
+                    .card_content(&self.store, &t, self.pages.units);
+                self.copy_card(&card);
+            }
             DocAction::SaveImage => {
                 let name = self
                     .document
@@ -2155,6 +2175,14 @@ impl App {
                     .open(&self.store, kind, &cat, self.pages.today);
                 self.open_modal(Modal::Document);
             }
+            PageAction::CopyCard(cat) => {
+                // The Card as the document page would open it, with its
+                // usual content.
+                let mut page = DocumentPage::default();
+                page.open(&self.store, DocKind::Card, &cat, self.pages.today);
+                let card = page.card_content(&self.store, &t, self.pages.units);
+                self.copy_card(&card);
+            }
             PageAction::NewCat(clowder) => {
                 self.asking = Asking::NewCat(clowder);
                 // A name is proposed to start with; the dice throws another.
@@ -2273,6 +2301,12 @@ impl App {
             if let Ok(Some(def)) = self.store.field_def(&slug) {
                 match self.history.show(ui, &self.store, &t, &entity, &def) {
                     HistoryAction::None => {}
+                    HistoryAction::CopyGraph(sheet) => {
+                        let fonts = self.fonts().clone();
+                        if let Some(image) = graph_image(&sheet, &fonts) {
+                            self.copy_image(to_color_image(&image));
+                        }
+                    }
                     HistoryAction::Back => self.history_of = None,
                     HistoryAction::Correct(seq) => {
                         if let Ok(Some(e)) = self.store.entry_by_seq(seq) {
@@ -2443,6 +2477,22 @@ impl App {
         }
         if page_action != PageAction::None {
             self.act_page(page_action);
+        }
+    }
+
+    /// The Card drawn to pixels and put on the clipboard.
+    fn copy_card(&mut self, card: &catlog_core::documents::CardContent) {
+        let fonts = self.fonts().clone();
+        if let Some(image) = card_png(card, &fonts).and_then(|png| crate::textures::decode(&png)) {
+            self.copy_image(image);
+        }
+    }
+
+    /// Puts a picture on the clipboard and says so.
+    fn copy_image(&mut self, image: egui::ColorImage) {
+        if let Some(ctx) = &self.ctx {
+            ctx.copy_image(image);
+            self.notice = Some(self.t.copied().to_string());
         }
     }
 
@@ -6722,5 +6772,89 @@ mod tests {
         h.run();
         assert_eq!(h.state().modal(), None);
         assert!(h.state().in_person.host.is_none());
+    }
+
+    /// The picture the last frame put on the clipboard, by its size.
+    fn copied_image(h: &Harness<'static, App>) -> Option<[usize; 2]> {
+        h.output()
+            .platform_output
+            .commands
+            .iter()
+            .find_map(|c| match c {
+                egui::OutputCommand::CopyImage(image) => Some(image.size),
+                _ => None,
+            })
+    }
+
+    #[test]
+    fn the_card_menu_copies_the_printed_card_as_a_picture() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(h.state().desk.open.len(), 1);
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Copy as image").click_accesskit();
+        h.step();
+        assert_eq!(copied_image(&h), Some([800, 1100]));
+        assert_eq!(h.state().notice.as_deref(), Some("Copied"));
+        // The document page copies the Card as chosen there.
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Card").click_accesskit();
+        h.run();
+        assert_eq!(h.state().modal(), Some(Modal::Document));
+        h.get_by_label("Copy as image").click();
+        h.step();
+        assert_eq!(copied_image(&h), Some([800, 1100]));
+    }
+
+    #[test]
+    fn the_viewer_copies_the_photo_full_size() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        h.get_by_label("Photos 2").click();
+        h.run();
+        assert!(h.state().viewer.open);
+        let hash = h.state().viewer.hashes[h.state().viewer.index].clone();
+        let bytes = h.state().store().image_bytes(&hash).unwrap();
+        let expected = crate::textures::decode(&bytes).unwrap().size;
+        h.get_by_label("Copy photo").click();
+        h.step();
+        assert_eq!(copied_image(&h), Some(expected));
+    }
+
+    #[test]
+    fn the_history_copies_its_graph_as_a_picture() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "history-reverts"));
+        h.run();
+        open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        h.get_all_by_label_contains(" kg")
+            .last()
+            .unwrap()
+            .click_secondary();
+        h.step();
+        h.get_by_label("History").click_accesskit();
+        h.run();
+        h.get_by_label("Smoothed").click();
+        h.run();
+        h.get_by_label("Copy graph as image").click();
+        h.step();
+        assert_eq!(
+            copied_image(&h),
+            Some([
+                crate::graph_image::WIDTH as usize,
+                crate::graph_image::HEIGHT as usize
+            ])
+        );
+        assert_eq!(h.state().notice.as_deref(), Some("Copied"));
     }
 }

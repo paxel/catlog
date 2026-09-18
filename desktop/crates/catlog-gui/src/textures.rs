@@ -40,7 +40,8 @@ impl FaceCache {
     }
 }
 
-fn decode(bytes: &[u8]) -> Option<ColorImage> {
+/// A photo's bytes as egui's pixels; none when they are no image.
+pub fn decode(bytes: &[u8]) -> Option<ColorImage> {
     let img = image::load_from_memory(bytes).ok()?.to_rgba8();
     let size = [img.width() as usize, img.height() as usize];
     Some(ColorImage::from_rgba_unmultiplied(size, img.as_raw()))

@@ -16,6 +16,8 @@ pub enum ViewerAction {
     None,
     /// Save this photo's bytes to a file the keeper picks.
     Save(String),
+    /// Put this photo on the clipboard, full size.
+    Copy(String),
 }
 
 /// The full-size viewer over a Cat's photos.
@@ -82,6 +84,9 @@ impl PhotoViewer {
                 }
                 if ui.button(t.save_photo_as()).clicked() {
                     action = ViewerAction::Save(self.hashes[self.index].clone());
+                }
+                if ui.button(t.copy_photo()).clicked() {
+                    action = ViewerAction::Copy(self.hashes[self.index].clone());
                 }
                 if ui.button(t.close()).clicked() {
                     close = true;

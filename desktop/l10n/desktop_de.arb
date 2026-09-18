@@ -108,6 +108,9 @@
   "eyeCandyToggle": "Augenschmaus: Einblendungen, Übergänge und weiche Farben",
   "allFiles": "Alle Dateien",
   "mapSearchHint": "Katze, Kolonie, Person oder Ort",
+  "copyImage": "Als Bild kopieren",
+  "copyPhoto": "Foto kopieren",
+  "copyGraphImage": "Diagramm als Bild kopieren",
   "hostLockedOut": "Zu viele falsche PINs: es wird nichts mehr beantwortet. Anbieten beenden und neu starten für eine neue PIN.",
   "inPersonExplainerDesk": "Ein Telefon im selben Raum tritt diesem Rechner bei: dort den Code scannen oder eingeben."
 }

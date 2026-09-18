@@ -821,6 +821,13 @@ impl Desk {
             event = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
             ui.close();
         }
+        page(
+            ui,
+            &mut event,
+            icons::IMAGE_OUTLINED,
+            t.copy_image(),
+            PageAction::CopyCard(id.to_string()),
+        );
         ui.separator();
         ui.menu_button(t.card_fields(), |ui| {
             let mut keys_now = chosen.clone();

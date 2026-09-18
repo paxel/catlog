@@ -108,6 +108,9 @@
   "eyeCandyToggle": "Eye candy: fades, slides and eased hovers",
   "allFiles": "All files",
   "mapSearchHint": "Cat, clowder, person or place",
+  "copyImage": "Copy as image",
+  "copyPhoto": "Copy photo",
+  "copyGraphImage": "Copy graph as image",
   "hostLockedOut": "Too many wrong PINs: nothing is answered any more. Stop and start hosting again for a new PIN.",
   "inPersonExplainerDesk": "A phone in the same room joins this desk: scan the code there, or type it."
 }

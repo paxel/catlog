@@ -56,6 +56,8 @@ pub enum PageAction {
     MergeInto(String),
     /// Open a document page for this Cat.
     Document(DocKind, String),
+    /// The Cat's printed Card as a picture on the clipboard.
+    CopyCard(String),
     /// A new Cat, in this Clowder or as a Stray.
     NewCat(Option<String>),
 }

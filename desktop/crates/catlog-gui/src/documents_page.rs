@@ -17,6 +17,7 @@ use catlog_core::{Catalog, keys};
 use chrono::NaiveDate;
 use egui::Ui;
 
+use crate::graph_image::draw_text;
 use crate::l10n::L10n;
 use crate::labels::{field_def_name, field_value_display, format_day, value_label};
 
@@ -35,6 +36,8 @@ pub enum DocAction {
     SavePdf,
     Print,
     SaveImage,
+    /// The Card as a picture on the clipboard.
+    CopyImage,
 }
 
 /// The choices, kept while the page is open.
@@ -581,6 +584,9 @@ impl DocumentPage {
                 if kind == DocKind::Card && ui.button(t.save_image()).clicked() {
                     action = DocAction::SaveImage;
                 }
+                if kind == DocKind::Card && ui.button(t.copy_image()).clicked() {
+                    action = DocAction::CopyImage;
+                }
             });
             ui.label(egui::RichText::new(t.print_hint()).weak());
             if !fonts_complete {
@@ -719,42 +725,6 @@ fn self_units() -> catlog_core::units::UnitSystem {
 }
 
 /// Draws `text` at (x, y) into `img`; returns the y below the line.
-fn draw_text(
-    img: &mut image::RgbaImage,
-    font: &ab_glyph::FontRef,
-    size: f32,
-    x: f32,
-    y: f32,
-    text: &str,
-    gray: u8,
-) -> f32 {
-    use ab_glyph::{Font as _, ScaleFont as _};
-    let (width, height) = (img.width(), img.height());
-    let scaled = font.as_scaled(ab_glyph::PxScale::from(size));
-    let mut cursor = x;
-    let baseline = y + scaled.ascent();
-    for c in text.chars() {
-        let id = scaled.glyph_id(c);
-        let glyph = id.with_scale_and_position(size, ab_glyph::point(cursor, baseline));
-        if let Some(outline) = font.outline_glyph(glyph) {
-            let bounds = outline.px_bounds();
-            outline.draw(|gx, gy, cov| {
-                let px = bounds.min.x as i32 + gx as i32;
-                let py = bounds.min.y as i32 + gy as i32;
-                if px >= 0 && py >= 0 && (px as u32) < width && (py as u32) < height {
-                    let p = img.get_pixel_mut(px as u32, py as u32);
-                    let v = (255.0 - (255.0 - gray as f32) * cov) as u8;
-                    p[0] = p[0].min(v);
-                    p[1] = p[1].min(v);
-                    p[2] = p[2].min(v);
-                }
-            });
-        }
-        cursor += scaled.h_advance(id);
-    }
-    y + scaled.height()
-}
-
 /// The Card drawn to pixels, for sharing as a picture.
 pub fn card_png(card: &CardContent, fonts: &FontSet) -> Option<Vec<u8>> {
     let regular = ab_glyph::FontRef::try_from_slice(fonts.regular.data()).ok()?;
