@@ -71,9 +71,9 @@ pub const DEFAULT_WINDOW_SIZE: [f32; 2] = [1200.0, 800.0];
 /// The list pane's width when nothing was remembered.
 pub const DEFAULT_PANE_WIDTH: f32 = 600.0;
 
-/// Asks the keeper for files: the dialog's title and the extensions it
-/// shows in, the chosen paths out.
-pub type FilePicker = Box<dyn FnMut(&str, &[&str]) -> Vec<PathBuf>>;
+/// Asks the keeper for files: the dialog's title, the extensions it
+/// shows first and the words for "all files" in, the chosen paths out.
+pub type FilePicker = Box<dyn FnMut(&str, &[&str], &str) -> Vec<PathBuf>>;
 
 /// What the photo dialogs show.
 pub const IMAGE_FILES: &[&str] = &["jpg", "jpeg", "png"];
@@ -289,7 +289,7 @@ impl App {
             deleting_photo: None,
             viewer: PhotoViewer::default(),
             photo_editor: PhotoEditor::default(),
-            pick_files: Box::new(move |title, extensions| {
+            pick_files: Box::new(|title, extensions, all_files| {
                 // The fitting kinds lead; every file stays a choice away.
                 let filter = extensions
                     .iter()
@@ -299,7 +299,7 @@ impl App {
                 rfd::FileDialog::new()
                     .set_title(title)
                     .add_filter(filter, extensions)
-                    .add_filter(t.all_files(), &["*"])
+                    .add_filter(all_files, &["*"])
                     .pick_files()
                     .unwrap_or_default()
             }),
@@ -1504,7 +1504,7 @@ impl App {
         match action {
             CaptureAction::None => {}
             CaptureAction::OpenImage => {
-                let picked = (self.pick_files)(t.open_image(), IMAGE_FILES);
+                let picked = (self.pick_files)(t.open_image(), IMAGE_FILES, t.all_files());
                 if let Some(path) = picked.first() {
                     match std::fs::read(path) {
                         Ok(bytes) => self.recognize_flier(bytes),
@@ -1687,7 +1687,7 @@ impl App {
                 self.house.restore_chosen.clear();
             }
             HouseAction::PickRestoreFiles => {
-                let picked = (self.pick_files)(t.restore_pick_files(), BUNDLE_FILES);
+                let picked = (self.pick_files)(t.restore_pick_files(), BUNDLE_FILES, t.all_files());
                 self.house.restore_files.extend(picked);
                 self.refresh_restore_sets();
             }
@@ -2009,7 +2009,7 @@ impl App {
                 self.open_view(View::Map);
             }
             PageAction::AddPhoto(cat) => {
-                let paths = (self.pick_files)(t.add_photo(), IMAGE_FILES);
+                let paths = (self.pick_files)(t.add_photo(), IMAGE_FILES, t.all_files());
                 self.add_photos(&cat, &paths);
             }
             PageAction::ViewPhoto(cat, hash) => {
@@ -2226,7 +2226,7 @@ impl App {
                 SyncAction::SyncNow => {}
                 SyncAction::ExportBundle => self.export_bundle(),
                 SyncAction::ImportBundle => {
-                    let picked = (self.pick_files)(t.import_bundle(), BUNDLE_FILES);
+                    let picked = (self.pick_files)(t.import_bundle(), BUNDLE_FILES, t.all_files());
                     if let Some(path) = picked.first() {
                         self.open_bundle_file(path);
                     }
@@ -3437,7 +3437,7 @@ mod tests {
         let dropped = picture_file(dir.path(), "dropped.png", 20, 30);
         let mut app = seeded(dir.path());
         let hand = picked.clone();
-        app.pick_files = Box::new(move |_, _| vec![hand.clone()]);
+        app.pick_files = Box::new(move |_, _, _| vec![hand.clone()]);
         let mut h = harness(app);
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
@@ -3806,7 +3806,7 @@ mod tests {
 
         let mut bob = app(&dir.path().join("bob"), "en", true);
         let hand = bundle.clone();
-        bob.pick_files = Box::new(move |_, _| vec![hand.clone()]);
+        bob.pick_files = Box::new(move |_, _, _| vec![hand.clone()]);
         let mut b = harness(bob);
         b.run();
         open_sync_page(&mut b);
@@ -5273,7 +5273,7 @@ mod tests {
         let other = dir.path().join("catlog-elsewhere.catsync");
         std::fs::copy(&backup, &other).unwrap();
         let hand = other.clone();
-        h.state_mut().pick_files = Box::new(move |_, _| vec![hand.clone()]);
+        h.state_mut().pick_files = Box::new(move |_, _, _| vec![hand.clone()]);
         h.get_by_label("Pick files…").click();
         h.run();
         h.get_by_label("Elsewhere");
@@ -5574,7 +5574,7 @@ mod tests {
         fixed_day(&mut app, 2026, 3, 10, 9);
         app.ocr = Arc::new(FakeOcr(true));
         let hand = poster.clone();
-        app.pick_files = Box::new(move |_, _| vec![hand.clone()]);
+        app.pick_files = Box::new(move |_, _, _| vec![hand.clone()]);
         let mut h = harness(app);
         h.run();
         open_catalog_menu_item(&mut h, "Capture flier");
@@ -5714,7 +5714,7 @@ mod tests {
         let mut app = seeded(dir.path());
         app.ocr = Arc::new(FakeOcr(false));
         let hand = poster.clone();
-        app.pick_files = Box::new(move |_, _| vec![hand.clone()]);
+        app.pick_files = Box::new(move |_, _, _| vec![hand.clone()]);
         let mut h = harness(app);
         h.run();
         open_catalog_menu_item(&mut h, "Capture flier");
