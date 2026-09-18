@@ -2415,7 +2415,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get crashLastRunBody =>
-      'cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?';
+      'cat(a)log wurde beim letzten Mal unerwartet beendet. Kurzen Bericht senden, damit es behoben werden kann?';
 
   @override
   String get catalogsTitle => 'Kataloge';

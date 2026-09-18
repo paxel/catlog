@@ -2405,7 +2405,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get crashLastRunBody =>
-      'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?';
+      'cat(a)log stopped unexpectedly last time. Send a short report so it can be fixed?';
 
   @override
   String get catalogsTitle => 'Catalogs';

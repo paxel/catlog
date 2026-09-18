@@ -4355,7 +4355,7 @@ abstract class AppLocalizations {
   /// No description provided for @crashLastRunBody.
   ///
   /// In en, this message translates to:
-  /// **'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?'**
+  /// **'cat(a)log stopped unexpectedly last time. Send a short report so it can be fixed?'**
   String get crashLastRunBody;
 
   /// No description provided for @catalogsTitle.
