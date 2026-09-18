@@ -82,7 +82,9 @@ void main() {
     final copies = store.choresOf(tom);
     expect(copies, hasLength(1));
     expect(copies.single.title, 'Feed');
-    expect(copies.single.schedule, ChoreSchedule.every(2, ChoreUnit.days));
+    expect(copies.single.schedule.repeat, ChoreRepeat.everyDays);
+    expect(copies.single.schedule.every, 2);
+    expect(copies.single.schedule.unit, ChoreUnit.days);
     expect(copies.single.time, (hour: 8, minute: 30));
     expect(copies.single.start, dayOf(DateTime.now()), reason: 'starts today');
     expect(copies.single.paused, isFalse);
