@@ -1,13 +1,13 @@
 //! The map: OpenStreetMap tiles under pins and circles, drawn straight
-//! into the ui. Tiles arrive from a background thread through the cache;
+//! into the ui. Tiles arrive from the shared fetcher's threads;
 //! the view repaints as they land. North stays up; a drag pans, the
 //! wheel zooms.
 
-use std::collections::{HashMap, HashSet};
-use std::sync::{Arc, Mutex, mpsc};
+use std::collections::HashMap;
+use std::sync::Arc;
 
 use catlog_core::geo::{lat_lon_of, meters_per_pixel, tile_xy};
-use catlog_core::tiles::{TileCache, TileId};
+use catlog_core::tiles::{TileFetcher, TileId};
 use egui::{Color32, Context, Pos2, Rect, Sense, Stroke, TextureHandle, TextureOptions, Ui, Vec2};
 
 /// Tiles are 256 pixels; the zoom stays between these.
@@ -19,89 +19,90 @@ pub const MAX_ZOOM: u32 = 17;
 pub const DEFAULT_CENTER: (f64, f64) = (51.0, 10.0);
 pub const DEFAULT_ZOOM: u32 = 6;
 
-/// Loads tiles on a thread; the ui asks for what it needs each frame.
+/// How many tile textures stay in graphics memory. One is 256 by 256
+/// in RGBA, a quarter of a megabyte; this covers several screens of
+/// panning and stops the memory from growing all session.
+const MAX_TEXTURES: usize = 256;
+
+/// A texture and when the view last drew it.
+struct Kept {
+    texture: Option<TextureHandle>,
+    used: u64,
+}
+
+/// The tiles one view draws: textures it already made, and wishes it
+/// hands to the shared [`TileFetcher`]. The bytes themselves live in
+/// the disk cache, so two views never fetch the same tile twice.
 pub struct TileLoader {
-    cache: Arc<TileCache>,
-    textures: HashMap<TileId, Option<TextureHandle>>,
-    pending: HashSet<TileId>,
-    failed: HashSet<TileId>,
-    sender: mpsc::Sender<(TileId, Result<Vec<u8>, String>)>,
-    receiver: mpsc::Receiver<(TileId, Result<Vec<u8>, String>)>,
-    inflight: Arc<Mutex<usize>>,
+    fetcher: Arc<TileFetcher>,
+    textures: HashMap<TileId, Kept>,
+    tick: u64,
 }
 
 impl TileLoader {
-    pub fn new(cache: Arc<TileCache>) -> TileLoader {
-        let (sender, receiver) = mpsc::channel();
+    pub fn new(fetcher: Arc<TileFetcher>) -> TileLoader {
         TileLoader {
-            cache,
+            fetcher,
             textures: HashMap::new(),
-            pending: HashSet::new(),
-            failed: HashSet::new(),
-            sender,
-            receiver,
-            inflight: Arc::new(Mutex::new(0)),
+            tick: 0,
         }
     }
 
     /// The texture of a tile, or none while it is on its way or failed.
-    /// Cached tiles load at once; the rest are fetched on a thread and
-    /// the context is asked to repaint when they land.
+    /// A tile already on disk is decoded here; the rest are asked for
+    /// and appear on a later frame.
     pub fn tile(&mut self, ctx: &Context, id: TileId) -> Option<TextureHandle> {
-        self.receive(ctx);
-        if let Some(t) = self.textures.get(&id) {
-            return t.clone();
+        self.tick += 1;
+        if let Some(kept) = self.textures.get_mut(&id) {
+            kept.used = self.tick;
+            return kept.texture.clone();
         }
-        if self.failed.contains(&id) || self.pending.contains(&id) {
+        if self.fetcher.failed(id) {
             return None;
         }
-        if let Some(bytes) = self.cache.cached(id) {
-            let texture = decode(ctx, id, &bytes);
-            self.textures.insert(id, texture.clone());
-            return texture;
+        if let Some(bytes) = self.fetcher.cache().cached(id) {
+            return self.keep(ctx, id, &bytes);
         }
-        self.pending.insert(id);
-        let cache = self.cache.clone();
-        let sender = self.sender.clone();
-        let ctx = ctx.clone();
-        let inflight = self.inflight.clone();
-        *inflight.lock().unwrap_or_else(|e| e.into_inner()) += 1;
-        std::thread::spawn(move || {
-            let result = cache.get(id);
-            let _ = sender.send((id, result));
-            *inflight.lock().unwrap_or_else(|e| e.into_inner()) -= 1;
-            ctx.request_repaint();
-        });
-        None
+        self.fetcher.want(id);
+        // A fetcher without threads filled the cache just now, so the
+        // tile is on screen in this same frame.
+        let bytes = self.fetcher.cache().cached(id)?;
+        self.keep(ctx, id, &bytes)
     }
 
-    fn receive(&mut self, ctx: &Context) {
-        while let Ok((id, result)) = self.receiver.try_recv() {
-            self.pending.remove(&id);
-            match result {
-                Ok(bytes) => {
-                    let texture = decode(ctx, id, &bytes);
-                    if texture.is_none() {
-                        self.failed.insert(id);
-                    }
-                    self.textures.insert(id, texture);
-                }
-                Err(_) => {
-                    self.failed.insert(id);
-                }
-            }
-        }
-    }
-
-    /// Whether any tile is still on its way.
+    /// Whether any tile this view wants is still on its way.
     pub fn busy(&self) -> bool {
-        !self.pending.is_empty()
+        self.fetcher.busy()
     }
 
     /// Tiles that failed may be asked for again, after the network came
     /// back.
     pub fn retry_failed(&mut self) {
-        self.failed.clear();
+        self.fetcher.retry_failed();
+    }
+
+    fn keep(&mut self, ctx: &Context, id: TileId, bytes: &[u8]) -> Option<TextureHandle> {
+        let texture = decode(ctx, id, bytes);
+        self.textures.insert(
+            id,
+            Kept {
+                texture: texture.clone(),
+                used: self.tick,
+            },
+        );
+        self.forget_oldest();
+        texture
+    }
+
+    /// Drops the textures drawn longest ago, back to the cap.
+    fn forget_oldest(&mut self) {
+        if self.textures.len() <= MAX_TEXTURES {
+            return;
+        }
+        let mut used: Vec<u64> = self.textures.values().map(|k| k.used).collect();
+        used.sort_unstable();
+        let cutoff = used[self.textures.len() - MAX_TEXTURES - 1];
+        self.textures.retain(|_, kept| kept.used > cutoff);
     }
 }
 
@@ -217,10 +218,10 @@ pub struct MapView {
 }
 
 impl MapView {
-    pub fn new(cache: Arc<TileCache>) -> MapView {
+    pub fn new(fetcher: Arc<TileFetcher>) -> MapView {
         MapView {
             viewport: Viewport::default(),
-            loader: TileLoader::new(cache),
+            loader: TileLoader::new(fetcher),
         }
     }
 

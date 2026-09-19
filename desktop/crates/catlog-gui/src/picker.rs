@@ -4,7 +4,7 @@
 use std::sync::Arc;
 
 use catlog_core::geocode::{GeoHit, Geocoder};
-use catlog_core::tiles::TileCache;
+use catlog_core::tiles::TileFetcher;
 use egui::{Context, Key, Vec2};
 
 use crate::l10n::L10n;
@@ -22,10 +22,10 @@ pub struct PositionPicker {
 }
 
 impl PositionPicker {
-    pub fn new(cache: Arc<TileCache>, geocoder: Arc<dyn Geocoder>) -> PositionPicker {
+    pub fn new(fetcher: Arc<TileFetcher>, geocoder: Arc<dyn Geocoder>) -> PositionPicker {
         PositionPicker {
             open: false,
-            map: MapView::new(cache),
+            map: MapView::new(fetcher),
             picked: None,
             query: String::new(),
             hits: Vec::new(),

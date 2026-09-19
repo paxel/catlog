@@ -11,7 +11,7 @@
 
 use std::sync::Arc;
 
-use catlog_core::tiles::{TileCache, TileId, TileSource};
+use catlog_core::tiles::{TileCache, TileFetcher, TileId, TileSource};
 use catlog_gui::{App, Selection, SettingsFile, View};
 use egui_kittest::{Harness, SnapshotOptions};
 
@@ -49,6 +49,7 @@ fn snapshot(name: &str, prepare: impl FnOnce(&mut App)) {
     file.settings.eye_candy = false;
     file.settings.tips_seen = vec!["all".into()];
     let tiles = TileCache::open(&dir.path().join("tiles"), Box::new(GreyTiles)).expect("tiles");
+    let tiles = TileFetcher::inline(Arc::new(tiles));
     let mut app = App::open_with(
         file,
         &dir.path().join("data"),

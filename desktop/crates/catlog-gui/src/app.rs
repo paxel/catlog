@@ -14,7 +14,7 @@ use catlog_core::fonts::{FontSet, FontSource, HttpFonts};
 use catlog_core::geocode::Geocoder;
 use catlog_core::review::{needs_attention, review_import};
 use catlog_core::sync::{UnseenChanges, grown_files};
-use catlog_core::tiles::TileCache;
+use catlog_core::tiles::{TileCache, TileFetcher};
 use catlog_core::{Catalog, CatalogManager, keys};
 use egui::{Context, Ui};
 
@@ -248,11 +248,14 @@ impl App {
     /// The app over the settings in `settings` and the Catalogs under
     /// `root`, its language from the settings or the system.
     pub fn open(settings: SettingsFile, root: &Path) -> catlog_core::Result<App> {
-        let tiles = TileCache::open(&root.join("tiles"), Box::new(catlog_core::tiles::OsmTiles))?;
+        let tiles = TileCache::open(
+            &root.join("tiles"),
+            Box::new(catlog_core::tiles::OsmTiles::new()),
+        )?;
         let mut app = Self::open_with(
             settings,
             root,
-            Arc::new(tiles),
+            Arc::new(TileFetcher::new(Arc::new(tiles))),
             Arc::new(catlog_core::geocode::Nominatim),
         )?;
         // The region decides the units when nothing was chosen; tests
@@ -268,7 +271,7 @@ impl App {
     pub fn open_with(
         settings: SettingsFile,
         root: &Path,
-        tiles: Arc<TileCache>,
+        tiles: Arc<TileFetcher>,
         geocoder: Arc<dyn Geocoder>,
     ) -> catlog_core::Result<App> {
         let locale = Self::locale_of(&settings.settings);
@@ -2856,6 +2859,9 @@ mod tests {
         // Behaviour tests run with motion off, so timing never flakes them.
         file.settings.eye_candy = false;
         let tiles = TileCache::open(&dir.join("tiles"), Box::new(FakeTiles)).unwrap();
+        // Without threads the map's tiles are there in the frame that
+        // asks for them, so no test waits on one.
+        let tiles = TileFetcher::inline(Arc::new(tiles));
         let mut app = App::open_with(
             file,
             &dir.join("data"),

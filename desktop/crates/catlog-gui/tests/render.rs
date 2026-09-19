@@ -6,7 +6,7 @@
 //! cargo test -p catlog-gui --test render -- --ignored
 //! ```
 
-use catlog_core::tiles::{TileCache, TileId, TileSource};
+use catlog_core::tiles::{TileCache, TileFetcher, TileId, TileSource};
 use catlog_gui::{App, Modal, Selection, SettingsFile, View};
 use std::sync::Arc;
 
@@ -58,6 +58,7 @@ fn render_with(
     file.settings.author = Some("Ada".into());
     file.settings.eye_candy = false;
     let tiles = TileCache::open(&dir.path().join("tiles"), Box::new(GreyTiles)).expect("tiles");
+    let tiles = TileFetcher::inline(Arc::new(tiles));
     let mut app = App::open_with(
         file,
         &dir.path().join("data"),
