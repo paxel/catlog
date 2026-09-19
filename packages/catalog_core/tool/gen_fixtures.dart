@@ -277,6 +277,10 @@ void _rewriteZip(
       ..compress = false
       ..lastModTime = 0);
   }
-  final bytes = ZipEncoder().encode(fixed);
+  // One stamp for every entry, in UTC: the encoder turns the modification
+  // time into DOS time through the machine's own zone, so without this the
+  // bundle's bytes differ between a writer in Berlin and one in UTC.
+  final bytes =
+      ZipEncoder().encode(fixed, modified: DateTime.utc(1980, 1, 1));
   File(path).writeAsBytesSync(bytes!);
 }
