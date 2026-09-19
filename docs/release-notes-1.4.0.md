@@ -37,6 +37,9 @@ Behoben
 
 ## App Store / TestFlight — English (What's New, since 1.3.3)
 
+Apple rejects store texts that name Android or Google Play, so the
+Android-only battery-saver fix stays out of What's New.
+
 ```
 Duplicate in a chore's editor: pick the cat or home the copy is for and a new editor opens with the same title, schedule, time and reminder, over the original — every kitten gets its feeding with one pick and one Save each.
 
@@ -45,8 +48,6 @@ The flier text page shows one card per line, the text as wide as the page, the t
 Shared folder sync is several times faster: a round with nothing new takes a sixth of the time, a first import a little over half. The Sync button shows a moving bar until the round is done, and the line about waiting changes can be swiped away; it comes back when more arrives.
 
 Photos no longer carry the camera's metadata, so where a picture was taken does not travel to the shared folder, and pictures with a location now reach the other phone through it. Photo files that reach the folder after the entries are fetched by the next round of the folder watch, and the sync result says how many photos are not in the folder yet.
-
-A battery saver closing the app in the background no longer brings the crash report on the next start; the report comes only after a real crash, a freeze, or a memory kill while the app was on screen.
 ```
 
 ## App Store / TestFlight — Deutsch
@@ -62,9 +63,7 @@ Geändert
 • Links auf der Text- und der Registerseite und im Dialog „Dienst merken" erscheinen in voller Länge
 • Der Abgleich über den gemeinsamen Ordner ist um ein Vielfaches schneller: eine Runde ohne Neues braucht ein Sechstel der Zeit, ein erster Import gut die Hälfte
 
-Behoben
-• Beendet der Energiesparmodus die App im Hintergrund, kommt beim nächsten Start kein Absturzbericht mehr. Ab Android 11 fragt die App das System, warum sie beendet wurde, und bietet den Bericht nur nach einem Absturz, einem Einfrieren oder einem Speicher-Abbruch auf dem Bildschirm an; der Bericht nennt den Grund des Systems
 
 Was testen
-Eine Aufgabe öffnen, Duplizieren antippen, eine andere Katze wählen, Speichern, und prüfen, ob beide Katzen die Aufgabe tragen. Einen Aushang erfassen, eine Textzeile wegwischen und zurückholen. Einen gemeinsamen Ordner zweimal abgleichen und sehen, dass die zweite Runde sofort fertig ist. Die App im Hintergrund vom Energiesparmodus beenden lassen und neu starten: kein Absturzbericht.
+Eine Aufgabe öffnen, Duplizieren antippen, eine andere Katze wählen, Speichern, und prüfen, ob beide Katzen die Aufgabe tragen. Einen Aushang erfassen, eine Textzeile wegwischen und zurückholen. Einen gemeinsamen Ordner zweimal abgleichen und sehen, dass die zweite Runde sofort fertig ist. 
 ```
