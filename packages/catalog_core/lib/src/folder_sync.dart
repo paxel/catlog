@@ -84,9 +84,12 @@ class LocalSyncFolder implements SyncFolder {
   Future<List<String>> list(String dir) async {
     final d = _dir(dir);
     if (!d.existsSync()) return const [];
+    // Sorted: the order a directory is read in is the filesystem's own,
+    // and it decides which key a device pins when two files claim it.
+    // The Rust core sorts too, so both read one folder the same way.
     return [
       for (final f in d.listSync().whereType<File>()) f.uri.pathSegments.last
-    ];
+    ]..sort();
   }
 
   @override
@@ -131,8 +134,10 @@ class MemorySyncFolder implements SyncFolder {
   final Map<String, Map<String, Uint8List>> dirs = {};
 
   @override
-  Future<List<String>> list(String dir) async =>
-      dirs[dir]?.keys.toList() ?? const [];
+  Future<List<String>> list(String dir) async {
+    final names = dirs[dir]?.keys.toList() ?? <String>[];
+    return names..sort();
+  }
 
   @override
   Future<Map<String, int>> sizes(String dir) async => {
