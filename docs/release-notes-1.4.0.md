@@ -2,7 +2,9 @@
 
 A list of what was added, changed and fixed — not a tutorial. Play allows
 500 characters per language, App Store and TestFlight 4000. The GitHub
-release carries the changelog section as it is.
+release carries the changelog section as it is. The store texts cover
+1.3.4 too: 1.3.3 was the last version in both stores. The same texts sit
+on the Play Kit and App Store Kit pages on claude.ai, with live counts.
 
 ## Google Play — both languages, as the console wants them pasted
 
@@ -12,43 +14,39 @@ Added
 • Duplicate a chore onto another cat or home from its editor
 
 Changed
-• Flier text page: one card per line, a swipe puts a line aside, Undo brings it back; links show in full
-• Shared folder sync several times faster
+• Flier text page: one card per line, swipe a line aside, Undo brings it back
+• Shared folder sync several times faster, with a progress bar; the waiting-changes line can be swiped away
 
 Fixed
-• No crash report after a battery saver closed the app in the background (Android 11 and newer)
+• Photos lose the camera's metadata, so pictures with a location reach the other phone through the folder
+• No crash report after a battery saver closed the app in the background (Android 11+)
 </en-US>
 <de-DE>
 Neu
 • Aufgabe aus ihrem Editor auf eine andere Katze oder Kolonie duplizieren
 
 Geändert
-• Aushang-Textseite: eine Karte je Zeile, Wischen legt eine Zeile beiseite, Rückgängig holt sie zurück; Links in voller Länge
-• Ordner-Abgleich um ein Vielfaches schneller
+• Aushang-Textseite: eine Karte je Zeile, Zeile wegwischen, Rückgängig holt sie zurück
+• Ordner-Abgleich um ein Vielfaches schneller, mit Fortschrittsbalken; die Zeile mit wartenden Änderungen lässt sich wegwischen
 
 Behoben
-• Kein Absturzbericht mehr, wenn der Energiesparmodus die App im Hintergrund beendet hat (ab Android 11)
+• Fotos verlieren die Kamera-Metadaten, damit Bilder mit Ort über den Ordner ankommen
+• Kein Absturzbericht, wenn der Energiesparmodus die App beendet hat (ab Android 11)
 </de-DE>
 ```
 
-## App Store / TestFlight — English
+## App Store / TestFlight — English (What's New, since 1.3.3)
 
 ```
-cat(a)log 1.4.0
+Duplicate in a chore's editor: pick the cat or home the copy is for and a new editor opens with the same title, schedule, time and reminder, over the original — every kitten gets its feeding with one pick and one Save each.
 
-Added
-• Duplicate in a chore's editor: pick the cat or home the copy is for and a new editor opens with the same title, schedule, time and reminder, over the original — every kitten gets its feeding with one pick and one Save each
+The flier text page shows one card per line, the text as wide as the page, the target under it; the X or a swipe puts a line aside, Undo brings it back. Links on the text and registry pages and in the remember-service dialog show in full.
 
-Changed
-• The flier text page shows one card per line, the text as wide as the page, the target under it; the X or a swipe puts a line aside, Undo brings it back
-• Links on the text and registry pages and in the remember-service dialog show in full
-• Shared folder sync is several times faster: a round with nothing new takes a sixth of the time, a first import a little over half
+Shared folder sync is several times faster: a round with nothing new takes a sixth of the time, a first import a little over half. The Sync button shows a moving bar until the round is done, and the line about waiting changes can be swiped away; it comes back when more arrives.
 
-Fixed
-• A battery saver closing the app in the background no longer brings the crash report on the next start. On Android 11 and newer the app asks the system why it was ended and offers the report only after a crash, a freeze, or a memory kill while it was on screen; the report names the system's reason
+Photos no longer carry the camera's metadata, so where a picture was taken does not travel to the shared folder, and pictures with a location now reach the other phone through it. Photo files that reach the folder after the entries are fetched by the next round of the folder watch, and the sync result says how many photos are not in the folder yet.
 
-What to test
-Open a chore, tap Duplicate, pick another cat, Save, and check both cats carry the chore. Capture a flier, swipe a text line aside and undo it. Sync a shared folder twice and watch the second round finish at once. Leave the app in the background under a battery saver and start it again: no crash report.
+A battery saver closing the app in the background no longer brings the crash report on the next start; the report comes only after a real crash, a freeze, or a memory kill while the app was on screen.
 ```
 
 ## App Store / TestFlight — Deutsch
