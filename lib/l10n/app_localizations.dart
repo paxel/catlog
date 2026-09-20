@@ -488,12 +488,6 @@ abstract class AppLocalizations {
   /// **'Newest first'**
   String get sortNewestFirst;
 
-  /// No description provided for @shareAsText.
-  ///
-  /// In en, this message translates to:
-  /// **'Share as text'**
-  String get shareAsText;
-
   /// No description provided for @shareAsPdf.
   ///
   /// In en, this message translates to:
@@ -625,12 +619,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.'**
   String get deleteCatBodyNeutral;
-
-  /// No description provided for @noLocationAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'No location available — long-press the map instead.'**
-  String get noLocationAvailable;
 
   /// No description provided for @locationDeniedForever.
   ///
@@ -962,12 +950,6 @@ abstract class AppLocalizations {
   /// **'Missing since'**
   String get missingSinceLabel;
 
-  /// No description provided for @phoneLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone'**
-  String get phoneLabel;
-
   /// No description provided for @cropPortrait.
   ///
   /// In en, this message translates to:
@@ -1214,12 +1196,6 @@ abstract class AppLocalizations {
   /// **'Value'**
   String get value;
 
-  /// No description provided for @latitudeLongitude.
-  ///
-  /// In en, this message translates to:
-  /// **'latitude, longitude'**
-  String get latitudeLongitude;
-
   /// No description provided for @newField.
   ///
   /// In en, this message translates to:
@@ -1352,12 +1328,6 @@ abstract class AppLocalizations {
   /// **'Stop hosting'**
   String get stopHosting;
 
-  /// No description provided for @pinLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'PIN: {pin}'**
-  String pinLabel(String pin);
-
   /// No description provided for @sessionsSoFar.
   ///
   /// In en, this message translates to:
@@ -1369,12 +1339,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Join'**
   String get join;
-
-  /// No description provided for @addressFromHost.
-  ///
-  /// In en, this message translates to:
-  /// **'Address (from the hosting device)'**
-  String get addressFromHost;
 
   /// No description provided for @pin.
   ///
@@ -1388,29 +1352,11 @@ abstract class AppLocalizations {
   /// **'Sync now'**
   String get syncNow;
 
-  /// No description provided for @addressFormatHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Address must look like 192.168.0.12:38472'**
-  String get addressFormatHint;
-
   /// No description provided for @syncFailed.
   ///
   /// In en, this message translates to:
   /// **'Sync failed: {error}'**
   String syncFailed(String error);
-
-  /// No description provided for @lastSyncWith.
-  ///
-  /// In en, this message translates to:
-  /// **'Last sync with {peer}: {time}'**
-  String lastSyncWith(String peer, String time);
-
-  /// No description provided for @sharedFolder.
-  ///
-  /// In en, this message translates to:
-  /// **'Shared folder'**
-  String get sharedFolder;
 
   /// No description provided for @sharedFolderExplainer.
   ///
@@ -2564,18 +2510,6 @@ abstract class AppLocalizations {
   /// **'That code is not valid'**
   String get invalidCode;
 
-  /// No description provided for @hotspotHint.
-  ///
-  /// In en, this message translates to:
-  /// **'No shared Wi-Fi? Turn on one phone\'s hotspot, connect the other phone to it, then host here.'**
-  String get hotspotHint;
-
-  /// No description provided for @byMessenger.
-  ///
-  /// In en, this message translates to:
-  /// **'By messenger'**
-  String get byMessenger;
-
   /// No description provided for @byMessengerExplainer.
   ///
   /// In en, this message translates to:
@@ -3428,12 +3362,6 @@ abstract class AppLocalizations {
   /// **'Ferret'**
   String get valueFerret;
 
-  /// No description provided for @otherOption.
-  ///
-  /// In en, this message translates to:
-  /// **'Other…'**
-  String get otherOption;
-
   /// No description provided for @celebrationsToggle.
   ///
   /// In en, this message translates to:
@@ -3530,12 +3458,6 @@ abstract class AppLocalizations {
   /// **'Delete everything by this author'**
   String get hardDeleteAction;
 
-  /// No description provided for @hardDeleteWarning.
-  ///
-  /// In en, this message translates to:
-  /// **'Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.'**
-  String hardDeleteWarning(Object name);
-
   /// No description provided for @yourKey.
   ///
   /// In en, this message translates to:
@@ -3613,12 +3535,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Removes every entry and photo written by {name} under key {key} from this catalog. Other devices keep theirs. This cannot be undone.'**
   String hardDeleteWarningKey(Object name, Object key);
-
-  /// No description provided for @typeToConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Type {name} to confirm'**
-  String typeToConfirm(Object name);
 
   /// No description provided for @alsoBan.
   ///
@@ -4424,12 +4340,6 @@ abstract class AppLocalizations {
   /// **'{name} deleted. The file is in {where}.'**
   String catalogDeleted(String name, String where);
 
-  /// No description provided for @typeTheName.
-  ///
-  /// In en, this message translates to:
-  /// **'Type {name}'**
-  String typeTheName(String name);
-
   /// No description provided for @catalogExportFailed.
   ///
   /// In en, this message translates to:
@@ -4604,12 +4514,6 @@ abstract class AppLocalizations {
   /// **'Agenda'**
   String get agenda;
 
-  /// No description provided for @reminderLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Reminder'**
-  String get reminderLabel;
-
   /// No description provided for @agendaEmpty.
   ///
   /// In en, this message translates to:
@@ -4723,12 +4627,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Calendar file saved under {path}'**
   String icsSavedTo(String path);
-
-  /// No description provided for @calendarMirrorLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Mirror to device calendar'**
-  String get calendarMirrorLabel;
 
   /// No description provided for @calendarMirrorSubtitle.
   ///
@@ -5336,35 +5234,11 @@ abstract class AppLocalizations {
   /// **'A full century'**
   String get achievementCentury;
 
-  /// No description provided for @achievementCenturyHint.
-  ///
-  /// In en, this message translates to:
-  /// **'We will both be very proud.'**
-  String get achievementCenturyHint;
-
-  /// No description provided for @achievementMaster.
-  ///
-  /// In en, this message translates to:
-  /// **'{title} master'**
-  String achievementMaster(String title);
-
   /// No description provided for @achievementReached.
   ///
   /// In en, this message translates to:
   /// **'{times, plural, one{Reached once} other{Reached {times} times}}, first on {date}'**
   String achievementReached(int times, String date);
-
-  /// No description provided for @achievementNext.
-  ///
-  /// In en, this message translates to:
-  /// **'Next at {n}'**
-  String achievementNext(int n);
-
-  /// No description provided for @achievementLocked.
-  ///
-  /// In en, this message translates to:
-  /// **'Not yet'**
-  String get achievementLocked;
 
   /// No description provided for @achievementUnlocked.
   ///
@@ -5918,12 +5792,6 @@ abstract class AppLocalizations {
   /// **'Please check cellars, sheds and garages. Do not chase, just call.'**
   String get posterStanding;
 
-  /// No description provided for @posterLastSeen.
-  ///
-  /// In en, this message translates to:
-  /// **'Last seen near'**
-  String get posterLastSeen;
-
   /// No description provided for @posterFreeText.
   ///
   /// In en, this message translates to:
@@ -5935,12 +5803,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'QR code for cat(a)log'**
   String get posterQr;
-
-  /// No description provided for @posterPhoto.
-  ///
-  /// In en, this message translates to:
-  /// **'Photo'**
-  String get posterPhoto;
 
   /// No description provided for @newCatIn.
   ///

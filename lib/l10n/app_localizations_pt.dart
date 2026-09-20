@@ -180,9 +180,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sortNewestFirst => 'Mais recente primeiro';
 
   @override
-  String get shareAsText => 'Partilhar como texto';
-
-  @override
   String get shareAsPdf => 'Partilhar como PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'O animal desaparece de todas as listas e as fotos são removidas — aqui e, após a próxima sincronização, também nos outros dispositivos.';
-
-  @override
-  String get noLocationAvailable =>
-      'Sem localização disponível — mantém premido o mapa em alternativa.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get missingSinceLabel => 'Desaparecido desde';
 
   @override
-  String get phoneLabel => 'Telefone';
-
-  @override
   String get cropPortrait => 'Recortar retrato';
 
   @override
@@ -609,9 +599,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get value => 'Valor';
 
   @override
-  String get latitudeLongitude => 'latitude, longitude';
-
-  @override
   String get newField => 'Novo campo';
 
   @override
@@ -679,11 +666,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get stopHosting => 'Parar de hospedar';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count sessão(ões) até agora';
   }
@@ -692,29 +674,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get join => 'Juntar-se';
 
   @override
-  String get addressFromHost => 'Endereço (do dispositivo anfitrião)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sincronizar agora';
 
   @override
-  String get addressFormatHint => 'O endereço deve ser como 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Falha na sincronização: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Última sincronização com $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Pasta partilhada';
 
   @override
   String get sharedFolderExplainer =>
@@ -1387,13 +1355,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get invalidCode => 'Esse código não é válido';
 
   @override
-  String get hotspotHint =>
-      'Sem Wi-Fi comum? Liga o hotspot de um telemóvel, liga o outro a ele e hospeda aqui.';
-
-  @override
-  String get byMessenger => 'Por mensagens';
-
-  @override
   String get byMessengerExplainer =>
       'Envia o catálogo inteiro como um ficheiro por WhatsApp, Signal ou mail — o outro lado importa-o.';
 
@@ -1836,9 +1797,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get valueFerret => 'Furão';
 
   @override
-  String get otherOption => 'Outro…';
-
-  @override
   String get celebrationsToggle => 'Celebrar adoções';
 
   @override
@@ -1888,11 +1846,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Apagar tudo deste autor';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Remove cada entrada e foto de $name deste dispositivo. Os outros dispositivos mantêm as suas. Não pode ser desfeito.';
-  }
 
   @override
   String get yourKey => 'A tua chave';
@@ -1949,11 +1902,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Remove deste catálogo todas as entradas e fotos escritas por $name sob a chave $key. Os outros dispositivos mantêm as suas. Não pode ser desfeito.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Escreva $name para confirmar';
   }
 
   @override
@@ -2454,11 +2402,6 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Escreve $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Não foi eliminado nada: o ficheiro do catálogo não pôde ser escrito ($error). Liberta espaço ou tenta mais tarde.';
   }
@@ -2567,9 +2510,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get agenda => 'Agenda';
 
   @override
-  String get reminderLabel => 'Lembrete';
-
-  @override
   String get agendaEmpty =>
       'Nenhum compromisso planeado. Planeia novos aqui com o mais, ou na página de um gato ou clowder.';
 
@@ -2649,9 +2589,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Ficheiro de calendário guardado em $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Espelhar no calendário do dispositivo';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3046,14 +2983,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get achievementCentury => 'Um século completo';
 
   @override
-  String get achievementCenturyHint => 'Ficaremos os dois muito orgulhosos.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Mestre de $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3063,14 +2992,6 @@ class AppLocalizationsPt extends AppLocalizations {
     );
     return '$_temp0, a primeira em $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Próximo aos $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ainda não';
 
   @override
   String achievementUnlocked(String name) {
@@ -3392,16 +3313,10 @@ class AppLocalizationsPt extends AppLocalizations {
       'Por favor, verifique caves, barracões e garagens. Não persiga, ligue.';
 
   @override
-  String get posterLastSeen => 'Visto pela última vez perto de';
-
-  @override
   String get posterFreeText => 'Linha extra';
 
   @override
   String get posterQr => 'Código QR para cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Novo gato em…';

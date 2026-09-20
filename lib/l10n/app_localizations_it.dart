@@ -180,9 +180,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get sortNewestFirst => 'Prima il più recente';
 
   @override
-  String get shareAsText => 'Condividi come testo';
-
-  @override
   String get shareAsPdf => 'Condividi come PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'L\'animale sparisce da tutte le liste e le sue foto vengono rimosse — qui e, dopo la prossima sincronizzazione, anche sugli altri dispositivi.';
-
-  @override
-  String get noLocationAvailable =>
-      'Posizione non disponibile — tieni premuto sulla mappa invece.';
 
   @override
   String get locationDeniedForever =>
@@ -447,9 +440,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get missingSinceLabel => 'Scomparso dal';
 
   @override
-  String get phoneLabel => 'Telefono';
-
-  @override
   String get cropPortrait => 'Ritaglia ritratto';
 
   @override
@@ -610,9 +600,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get value => 'Valore';
 
   @override
-  String get latitudeLongitude => 'latitudine, longitudine';
-
-  @override
   String get newField => 'Nuovo campo';
 
   @override
@@ -680,11 +667,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get stopHosting => 'Smetti di ospitare';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count sessione/i finora';
   }
@@ -693,30 +675,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get join => 'Partecipa';
 
   @override
-  String get addressFromHost => 'Indirizzo (dal dispositivo che ospita)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sincronizza ora';
 
   @override
-  String get addressFormatHint =>
-      'L\'indirizzo deve essere tipo 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sincronizzazione fallita: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Ultima sincronizzazione con $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Cartella condivisa';
 
   @override
   String get sharedFolderExplainer =>
@@ -1391,13 +1358,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get invalidCode => 'Codice non valido';
 
   @override
-  String get hotspotHint =>
-      'Niente Wi-Fi in comune? Attiva l\'hotspot di un telefono, collega l\'altro e ospita qui.';
-
-  @override
-  String get byMessenger => 'Via messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Invia tutto il catalogo come un solo file via WhatsApp, Signal o mail — l\'altra parte lo importa.';
 
@@ -1840,9 +1800,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get valueFerret => 'Furetto';
 
   @override
-  String get otherOption => 'Altro…';
-
-  @override
   String get celebrationsToggle => 'Festeggia le adozioni';
 
   @override
@@ -1892,11 +1849,6 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Elimina tutto di questo autore';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Rimuove ogni voce e foto di $name da questo dispositivo. Gli altri dispositivi conservano le loro. Irreversibile.';
-  }
 
   @override
   String get yourKey => 'La tua chiave';
@@ -1953,11 +1905,6 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Rimuove da questo catalogo ogni voce e foto scritta da $name con la chiave $key. Gli altri dispositivi tengono le loro. Non si può annullare.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Digita $name per confermare';
   }
 
   @override
@@ -2461,11 +2408,6 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Scrivi $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Non è stato eliminato nulla: il file del catalogo non è stato scritto ($error). Libera spazio o riprova più tardi.';
   }
@@ -2574,9 +2516,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get agenda => 'Agenda';
 
   @override
-  String get reminderLabel => 'Promemoria';
-
-  @override
   String get agendaEmpty =>
       'Nessun appuntamento pianificato. Pianificane di nuovi qui con il più, o nella pagina di un gatto o di un clowder.';
 
@@ -2656,9 +2595,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'File calendario salvato in $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Rispecchia nel calendario del dispositivo';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3054,14 +2990,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get achievementCentury => 'Un secolo intero';
 
   @override
-  String get achievementCenturyHint => 'Saremo entrambi molto fieri.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Maestro di $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3071,14 +2999,6 @@ class AppLocalizationsIt extends AppLocalizations {
     );
     return '$_temp0, la prima il $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Prossimo a $n';
-  }
-
-  @override
-  String get achievementLocked => 'Non ancora';
 
   @override
   String achievementUnlocked(String name) {
@@ -3400,16 +3320,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Controllate cantine, capanni e garage. Non inseguitelo, chiamate.';
 
   @override
-  String get posterLastSeen => 'Visto l\'ultima volta vicino a';
-
-  @override
   String get posterFreeText => 'Riga aggiuntiva';
 
   @override
   String get posterQr => 'Codice QR per cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Nuovo gatto in…';

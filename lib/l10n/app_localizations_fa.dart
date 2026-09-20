@@ -180,9 +180,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sortNewestFirst => 'جدیدترین اول';
 
   @override
-  String get shareAsText => 'هم‌رسانی به‌صورت متن';
-
-  @override
   String get shareAsPdf => 'اشتراک‌گذاری به‌صورت PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'حیوان خانگی از همهٔ فهرست‌ها حذف می‌شود و عکس‌هایش پاک می‌شوند — اینجا و پس از همگام‌سازی بعدی روی دستگاه‌های دیگر نیز.';
-
-  @override
-  String get noLocationAvailable =>
-      'موقعیت در دسترس نیست — به‌جای آن روی نقشه لمس طولانی کنید.';
 
   @override
   String get locationDeniedForever =>
@@ -445,9 +438,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get missingSinceLabel => 'گم‌شده از';
 
   @override
-  String get phoneLabel => 'تلفن';
-
-  @override
   String get cropPortrait => 'برش چهره';
 
   @override
@@ -606,9 +596,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get value => 'مقدار';
 
   @override
-  String get latitudeLongitude => 'عرض جغرافیایی، طول جغرافیایی';
-
-  @override
   String get newField => 'فیلد جدید';
 
   @override
@@ -676,11 +663,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get stopHosting => 'پایان میزبانی';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'نشست‌ها تاکنون: $count';
   }
@@ -689,29 +671,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get join => 'پیوستن';
 
   @override
-  String get addressFromHost => 'نشانی (از دستگاه میزبان)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'اکنون همگام‌سازی کن';
 
   @override
-  String get addressFormatHint => 'نشانی باید شبیه 192.168.0.12:38472 باشد';
-
-  @override
   String syncFailed(String error) {
     return 'همگام‌سازی ناموفق: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'آخرین همگام‌سازی با $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'پوشهٔ مشترک';
 
   @override
   String get sharedFolderExplainer =>
@@ -1383,13 +1351,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get invalidCode => 'این کد معتبر نیست';
 
   @override
-  String get hotspotHint =>
-      'وای‌فای مشترک ندارید؟ هات‌اسپات یک گوشی را روشن کنید، دیگری را وصل کنید و اینجا میزبان شوید.';
-
-  @override
-  String get byMessenger => 'با پیام‌رسان';
-
-  @override
   String get byMessengerExplainer =>
       'کل فهرست را به‌صورت یک فایل با واتساپ، سیگنال یا ایمیل بفرستید — طرف مقابل آن را وارد می‌کند.';
 
@@ -1832,9 +1793,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get valueFerret => 'راسو';
 
   @override
-  String get otherOption => 'دیگر…';
-
-  @override
   String get celebrationsToggle => 'جشن گرفتن واگذاری‌ها';
 
   @override
@@ -1883,11 +1841,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'حذف همهٔ موارد این نویسنده';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'هر ورودی و عکس $name را از این دستگاه حذف می‌کند. دستگاه‌های دیگر نسخهٔ خود را نگه می‌دارند. قابل بازگشت نیست.';
-  }
 
   @override
   String get yourKey => 'کلید شما';
@@ -1944,11 +1897,6 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'هر ورودی و عکسی را که $name با کلید $key نوشته از این فهرست حذف می‌کند. دستگاه‌های دیگر مال خود را نگه می‌دارند. قابل بازگشت نیست.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'برای تأیید $name را بنویسید';
   }
 
   @override
@@ -2435,11 +2383,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '$name را بنویسید';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'چیزی حذف نشد: نوشتن فایل کاتالوگ ممکن نشد ($error). کمی فضا آزاد کنید یا بعداً دوباره تلاش کنید.';
   }
@@ -2548,9 +2491,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get agenda => 'یادآورها';
 
   @override
-  String get reminderLabel => 'یادآور';
-
-  @override
   String get agendaEmpty =>
       'قراری برنامه‌ریزی نشده. قرارهای جدید را اینجا با علامت مثبت یا در صفحهٔ گربه یا گروه برنامه‌ریزی کن.';
 
@@ -2630,9 +2570,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'پروندهٔ تقویم در $path ذخیره شد';
   }
-
-  @override
-  String get calendarMirrorLabel => 'بازتاب در تقویم دستگاه';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2995,25 +2932,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get achievementCentury => 'یک قرن کامل';
 
   @override
-  String get achievementCenturyHint => 'هر دو خیلی افتخار خواهیم کرد.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'استاد $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     return '$times بار رسیده، اولین بار $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'بعدی در $n';
-  }
-
-  @override
-  String get achievementLocked => 'هنوز نه';
 
   @override
   String achievementUnlocked(String name) {
@@ -3335,16 +3256,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'لطفاً زیرزمین‌ها، انباری‌ها و گاراژها را بررسی کنید. دنبالش نکنید، فقط تماس بگیرید.';
 
   @override
-  String get posterLastSeen => 'آخرین بار دیده شده نزدیک';
-
-  @override
   String get posterFreeText => 'خط اضافه';
 
   @override
   String get posterQr => 'کد QR برای cat(a)log';
-
-  @override
-  String get posterPhoto => 'عکس';
 
   @override
   String get newCatIn => 'گربهٔ جدید در…';

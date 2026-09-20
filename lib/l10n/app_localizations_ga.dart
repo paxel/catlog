@@ -180,9 +180,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get sortNewestFirst => 'Is nuaí ar dtús';
 
   @override
-  String get shareAsText => 'Roinn mar théacs';
-
-  @override
   String get shareAsPdf => 'Roinn mar PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Imíonn an peata as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar na gléasanna eile freisin.';
-
-  @override
-  String get noLocationAvailable =>
-      'Níl suíomh ar fáil — brúigh go fada ar an léarscáil ina ionad.';
 
   @override
   String get locationDeniedForever =>
@@ -447,9 +440,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get missingSinceLabel => 'Ar iarraidh ó';
 
   @override
-  String get phoneLabel => 'Teileafón';
-
-  @override
   String get cropPortrait => 'Bearr an phortráid';
 
   @override
@@ -611,9 +601,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get value => 'Luach';
 
   @override
-  String get latitudeLongitude => 'domhanleithead, domhanfhad';
-
-  @override
   String get newField => 'Réimse nua';
 
   @override
@@ -681,11 +668,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get stopHosting => 'Stop ag óstáil';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seisiúin go dtí seo: $count';
   }
@@ -694,30 +676,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get join => 'Glac páirt';
 
   @override
-  String get addressFromHost => 'Seoladh (ón ngléas óstála)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sioncrónaigh anois';
 
   @override
-  String get addressFormatHint =>
-      'Caithfidh an seoladh a bheith mar 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Theip ar an sioncrónú: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Sioncrónú deireanach le $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Fillteán comhroinnte';
 
   @override
   String get sharedFolderExplainer =>
@@ -1391,13 +1358,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get invalidCode => 'Níl an cód sin bailí';
 
   @override
-  String get hotspotHint =>
-      'Gan Wi-Fi comhroinnte? Cas air hotspot ar fhón amháin, ceangail an ceann eile, ansin óstáil anseo.';
-
-  @override
-  String get byMessenger => 'Trí theachtaire';
-
-  @override
   String get byMessengerExplainer =>
       'Seol an chatalóg iomlán mar chomhad amháin trí WhatsApp, Signal nó ríomhphost — iompórtálann an taobh eile é.';
 
@@ -1843,9 +1803,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get valueFerret => 'Firéad';
 
   @override
-  String get otherOption => 'Eile…';
-
-  @override
   String get celebrationsToggle => 'Ceiliúradh uchtálacha';
 
   @override
@@ -1895,11 +1852,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Scrios gach rud ón údar seo';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Baineann sé gach iontráil agus grianghraf le $name den ghléas seo. Coinníonn gléasanna eile a gcuid. Ní féidir é a chealú.';
-  }
 
   @override
   String get yourKey => 'D’eochair';
@@ -1959,11 +1911,6 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Baineann sé gach iontráil agus grianghraf a scríobh $name faoin eochair $key den chatalóg seo. Coinníonn gléasanna eile a gcuid féin. Ní féidir é a chealú.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Clóscríobh $name le deimhniú';
   }
 
   @override
@@ -2475,11 +2422,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Clóscríobh $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Níor scriosadh aon rud: níorbh fhéidir comhad na catalóige a scríobh ($error). Déan spás a shaoradh nó bain triail eile as níos déanaí.';
   }
@@ -2588,9 +2530,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get agenda => 'Meabhrúcháin';
 
   @override
-  String get reminderLabel => 'Meabhrúchán';
-
-  @override
   String get agendaEmpty =>
       'Níl aon choinne beartaithe. Beartaigh cinn nua anseo leis an bplus, nó ar leathanach cait nó clowdair.';
 
@@ -2676,9 +2615,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Sábháladh an comhad féilire faoi $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Scáthánaigh chuig féilire an ghléis';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3093,14 +3029,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get achievementCentury => 'Céad bliain iomlán';
 
   @override
-  String get achievementCenturyHint => 'Beidh an-bhród orainn beirt.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Máistir $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3113,14 +3041,6 @@ class AppLocalizationsGa extends AppLocalizations {
     );
     return '$_temp0, den chéad uair $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'An chéad cheann eile ag $n';
-  }
-
-  @override
-  String get achievementLocked => 'Níl fós';
 
   @override
   String achievementUnlocked(String name) {
@@ -3442,16 +3362,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Seiceáil siléir, seideanna agus garáistí le do thoil. Ná téigh sa tóir, glaoigh.';
 
   @override
-  String get posterLastSeen => 'Feicthe go deireanach in aice le';
-
-  @override
   String get posterFreeText => 'Líne bhreise';
 
   @override
   String get posterQr => 'Cód QR do cat(a)log';
-
-  @override
-  String get posterPhoto => 'Grianghraf';
 
   @override
   String get newCatIn => 'Cat nua i…';

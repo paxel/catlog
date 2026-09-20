@@ -180,9 +180,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get sortNewestFirst => 'Legújabb elöl';
 
   @override
-  String get shareAsText => 'Megosztás szövegként';
-
-  @override
   String get shareAsPdf => 'Megosztás PDF-ként';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'A kisállat eltűnik minden listáról, fotói törlődnek — itt és a következő szinkron után a többi eszközön is.';
-
-  @override
-  String get noLocationAvailable =>
-      'Nincs helyadat — helyette nyomd hosszan a térképet.';
 
   @override
   String get locationDeniedForever =>
@@ -445,9 +438,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get missingSinceLabel => 'Eltűnt ekkortól';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Portré kivágása';
 
   @override
@@ -607,9 +597,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get value => 'Érték';
 
   @override
-  String get latitudeLongitude => 'szélesség, hosszúság';
-
-  @override
   String get newField => 'Új mező';
 
   @override
@@ -677,11 +664,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get stopHosting => 'Kiszolgálás leállítása';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Eddigi munkamenetek: $count';
   }
@@ -690,30 +672,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get join => 'Csatlakozás';
 
   @override
-  String get addressFromHost => 'Cím (a kiszolgáló eszközről)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Szinkronizálás most';
 
   @override
-  String get addressFormatHint =>
-      'A címnek így kell kinéznie: 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sikertelen szinkronizálás: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Utolsó szinkronizálás ezzel: $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Megosztott mappa';
 
   @override
   String get sharedFolderExplainer =>
@@ -1386,13 +1353,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get invalidCode => 'Ez a kód érvénytelen';
 
   @override
-  String get hotspotHint =>
-      'Nincs közös Wi-Fi? Kapcsold be az egyik telefon hotspotját, csatlakoztasd a másikat, majd itt legyél kiszolgáló.';
-
-  @override
-  String get byMessenger => 'Üzenetküldővel';
-
-  @override
   String get byMessengerExplainer =>
       'Küldd el az egész katalógust egy fájlként WhatsAppon, Signalon vagy mailben — a másik oldal importálja.';
 
@@ -1835,9 +1795,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get valueFerret => 'Vadászgörény';
 
   @override
-  String get otherOption => 'Egyéb…';
-
-  @override
   String get celebrationsToggle => 'Örökbefogadás ünneplése';
 
   @override
@@ -1888,11 +1845,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Minden törlése ettől a szerzőtől';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Eltávolítja $name minden bejegyzését és fotóját erről az eszközről. A többi eszköz megtartja a magáét. Nem vonható vissza.';
-  }
 
   @override
   String get yourKey => 'A kulcsod';
@@ -1949,11 +1901,6 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Eltávolít ebből a katalógusból minden bejegyzést és fotót, amelyet $name a(z) $key kulccsal írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Megerősítéshez írd be: $name';
   }
 
   @override
@@ -2453,11 +2400,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Írd be: $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Semmi sem törlődött: a katalógusfájlt nem sikerült kiírni ($error). Szabadíts fel helyet, vagy próbáld később.';
   }
@@ -2566,9 +2508,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get agenda => 'Teendők';
 
   @override
-  String get reminderLabel => 'Emlékeztető';
-
-  @override
   String get agendaEmpty =>
       'Nincs tervezett időpont. Újat itt a plusszal, vagy egy macska vagy clowder oldalán tervezhetsz.';
 
@@ -2648,9 +2587,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'A naptárfájl ide került: $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Tükrözés az eszköz naptárába';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3045,14 +2981,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get achievementCentury => 'Egy teljes évszázad';
 
   @override
-  String get achievementCenturyHint => 'Mindketten nagyon büszkék leszünk.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-mester';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3062,14 +2990,6 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0, először $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Következő: $n';
-  }
-
-  @override
-  String get achievementLocked => 'Még nem';
 
   @override
   String achievementUnlocked(String name) {
@@ -3391,16 +3311,10 @@ class AppLocalizationsHu extends AppLocalizations {
       'Kérjük, nézzenek be a pincékbe, fészerekbe és garázsokba. Ne kergessék, csak hívjanak.';
 
   @override
-  String get posterLastSeen => 'Utoljára itt látták';
-
-  @override
   String get posterFreeText => 'Plusz sor';
 
   @override
   String get posterQr => 'QR-kód a cat(a)loghoz';
-
-  @override
-  String get posterPhoto => 'Fotó';
 
   @override
   String get newCatIn => 'Új macska ide…';

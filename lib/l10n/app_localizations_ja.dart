@@ -179,9 +179,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sortNewestFirst => '新しい順';
 
   @override
-  String get shareAsText => 'テキストとして共有';
-
-  @override
   String get shareAsPdf => 'PDF として共有';
 
   @override
@@ -250,9 +247,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'このペットはすべての一覧から消え、写真も削除されます。この端末だけでなく、次回の同期後には他の端末からも消えます。';
-
-  @override
-  String get noLocationAvailable => '位置情報がありません — 代わりに地図を長押ししてください。';
 
   @override
   String get locationDeniedForever =>
@@ -439,9 +433,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get missingSinceLabel => '行方不明になった日';
 
   @override
-  String get phoneLabel => '電話';
-
-  @override
   String get cropPortrait => '顔写真を切り抜く';
 
   @override
@@ -598,9 +589,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get value => '値';
 
   @override
-  String get latitudeLongitude => '緯度、経度';
-
-  @override
   String get newField => '新しい項目';
 
   @override
@@ -667,11 +655,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stopHosting => 'ホストを停止';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'これまでのセッション: $count';
   }
@@ -680,29 +663,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get join => '参加';
 
   @override
-  String get addressFromHost => 'アドレス（ホスト端末から）';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => '今すぐ同期';
 
   @override
-  String get addressFormatHint => 'アドレスは 192.168.0.12:38472 の形式です';
-
-  @override
   String syncFailed(String error) {
     return '同期に失敗: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return '$peer との最終同期: $time';
-  }
-
-  @override
-  String get sharedFolder => '共有フォルダー';
 
   @override
   String get sharedFolderExplainer =>
@@ -1362,13 +1331,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get invalidCode => 'このコードは無効です';
 
   @override
-  String get hotspotHint =>
-      '共通のWi-Fiがない場合は、片方のスマホのテザリングをオンにし、もう片方を接続してからここでホストしてください。';
-
-  @override
-  String get byMessenger => 'メッセンジャーで';
-
-  @override
   String get byMessengerExplainer =>
       'カタログ全体を1つのファイルとしてWhatsApp・Signal・メールで送信 — 相手側が取り込みます。';
 
@@ -1810,9 +1772,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get valueFerret => 'フェレット';
 
   @override
-  String get otherOption => 'その他…';
-
-  @override
   String get celebrationsToggle => '譲渡をお祝いする';
 
   @override
@@ -1859,11 +1818,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'この作成者のすべてを削除';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return '$name のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。';
-  }
 
   @override
   String get yourKey => 'あなたの鍵';
@@ -1919,11 +1873,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return '$name が鍵 $key で書いたすべてのエントリと写真をこのカタログから削除します。他の端末は保持します。元に戻せません。';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return '確認のため $name と入力';
   }
 
   @override
@@ -2387,11 +2336,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '$name と入力';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return '何も削除していません。カタログのファイルを書き出せませんでした（$error）。空き容量を作るか、時間をおいてやり直してください。';
   }
@@ -2498,9 +2442,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get agenda => '予定表';
 
   @override
-  String get reminderLabel => 'リマインダー';
-
-  @override
   String get agendaEmpty => '計画した予定はありません。ここのプラス、または猫やクラウダーのページで新しい予定を計画できます。';
 
   @override
@@ -2577,9 +2518,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'カレンダーファイルを $path に保存しました';
   }
-
-  @override
-  String get calendarMirrorLabel => '端末のカレンダーへ反映';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2931,25 +2869,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get achievementCentury => '皆勤の100年';
 
   @override
-  String get achievementCenturyHint => 'そのときは一緒に誇りに思いましょう。';
-
-  @override
-  String achievementMaster(String title) {
-    return '$titleマスター';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     return '$times回達成、初回 $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return '次は $n 回';
-  }
-
-  @override
-  String get achievementLocked => 'まだ';
 
   @override
   String achievementUnlocked(String name) {
@@ -3264,16 +3186,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get posterStanding => '地下室・物置・ガレージを確認してください。追いかけずに、お電話ください。';
 
   @override
-  String get posterLastSeen => '最後に見た場所';
-
-  @override
   String get posterFreeText => '追加の一行';
 
   @override
   String get posterQr => 'cat(a)log 用 QR コード';
-
-  @override
-  String get posterPhoto => '写真';
 
   @override
   String get newCatIn => '新しい猫を追加…';

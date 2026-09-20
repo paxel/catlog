@@ -181,9 +181,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get sortNewestFirst => 'Най-новите първо';
 
   @override
-  String get shareAsText => 'Споделяне като текст';
-
-  @override
   String get shareAsPdf => 'Сподели като PDF';
 
   @override
@@ -253,10 +250,6 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Любимецът изчезва от всички списъци и снимките му се премахват — тук и, след следващата синхронизация, и на другите устройства.';
-
-  @override
-  String get noLocationAvailable =>
-      'Няма местоположение — вместо това задръжте върху картата.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get missingSinceLabel => 'Изчезнал от';
 
   @override
-  String get phoneLabel => 'Телефон';
-
-  @override
   String get cropPortrait => 'Изрязване на портрет';
 
   @override
@@ -608,9 +598,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get value => 'Стойност';
 
   @override
-  String get latitudeLongitude => 'ширина, дължина';
-
-  @override
   String get newField => 'Ново поле';
 
   @override
@@ -678,11 +665,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get stopHosting => 'Спри домакинството';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Сесии досега: $count';
   }
@@ -691,30 +673,15 @@ class AppLocalizationsBg extends AppLocalizations {
   String get join => 'Присъединяване';
 
   @override
-  String get addressFromHost => 'Адрес (от устройството домакин)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Синхронизирай сега';
 
   @override
-  String get addressFormatHint =>
-      'Адресът трябва да изглежда като 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Неуспешна синхронизация: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Последна синхронизация с $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Споделена папка';
 
   @override
   String get sharedFolderExplainer =>
@@ -1388,13 +1355,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get invalidCode => 'Този код не е валиден';
 
   @override
-  String get hotspotHint =>
-      'Няма общ Wi-Fi? Включи точката за достъп на единия телефон, свържи другия и стани домакин тук.';
-
-  @override
-  String get byMessenger => 'Чрез месинджър';
-
-  @override
   String get byMessengerExplainer =>
       'Изпрати целия каталог като един файл през WhatsApp, Signal или поща — другата страна го импортира.';
 
@@ -1837,9 +1797,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get valueFerret => 'Пор';
 
   @override
-  String get otherOption => 'Друго…';
-
-  @override
   String get celebrationsToggle => 'Празнувай осиновяванията';
 
   @override
@@ -1889,11 +1846,6 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Изтрий всичко от този автор';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Премахва всеки запис и снимка от $name от това устройство. Другите устройства запазват своите. Не може да се отмени.';
-  }
 
   @override
   String get yourKey => 'Вашият ключ';
@@ -1950,11 +1902,6 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Премахва от този каталог всеки запис и снимка, написани от $name под ключ $key. Другите устройства запазват своите. Не може да се отмени.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Въведи $name за потвърждение';
   }
 
   @override
@@ -2454,11 +2401,6 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Напишете $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Нищо не е изтрито: файлът на каталога не можа да се запише ($error). Освободете място или опитайте по-късно.';
   }
@@ -2567,9 +2509,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get agenda => 'Напомняния';
 
   @override
-  String get reminderLabel => 'Напомняне';
-
-  @override
   String get agendaEmpty =>
       'Няма планирани часове. Нови планираш тук с плюса или на страницата на котка или клаудер.';
 
@@ -2649,9 +2588,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Календарният файл е записан в $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Отразявай в календара на устройството';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3045,14 +2981,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get achievementCentury => 'Цял век';
 
   @override
-  String get achievementCenturyHint => 'И двамата ще се гордеем много.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Майстор: $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3062,14 +2990,6 @@ class AppLocalizationsBg extends AppLocalizations {
     );
     return '$_temp0, за първи път на $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Следващо при $n';
-  }
-
-  @override
-  String get achievementLocked => 'Още не';
 
   @override
   String achievementUnlocked(String name) {
@@ -3390,16 +3310,10 @@ class AppLocalizationsBg extends AppLocalizations {
       'Моля, проверете мазета, бараки и гаражи. Не гонете, просто се обадете.';
 
   @override
-  String get posterLastSeen => 'Последно видян при';
-
-  @override
   String get posterFreeText => 'Допълнителен ред';
 
   @override
   String get posterQr => 'QR код за cat(a)log';
-
-  @override
-  String get posterPhoto => 'Снимка';
 
   @override
   String get newCatIn => 'Нова котка в…';

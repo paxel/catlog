@@ -180,9 +180,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get sortNewestFirst => 'Nejnovější první';
 
   @override
-  String get shareAsText => 'Sdílet jako text';
-
-  @override
   String get shareAsPdf => 'Sdílet jako PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Mazlíček zmizí ze všech seznamů a jeho fotky se odstraní — tady i, po příští synchronizaci, na ostatních zařízeních.';
-
-  @override
-  String get noLocationAvailable =>
-      'Poloha není k dispozici — místo toho podržte prst na mapě.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get missingSinceLabel => 'Pohřešován od';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Oříznout portrét';
 
   @override
@@ -607,9 +597,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get value => 'Hodnota';
 
   @override
-  String get latitudeLongitude => 'zeměpisná šířka, délka';
-
-  @override
   String get newField => 'Nové pole';
 
   @override
@@ -677,11 +664,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get stopHosting => 'Zastavit hostování';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Dosud relací: $count';
   }
@@ -690,29 +672,15 @@ class AppLocalizationsCs extends AppLocalizations {
   String get join => 'Připojit se';
 
   @override
-  String get addressFromHost => 'Adresa (z hostujícího zařízení)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Synchronizovat teď';
 
   @override
-  String get addressFormatHint => 'Adresa musí vypadat jako 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Synchronizace selhala: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Poslední synchronizace s $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Sdílená složka';
 
   @override
   String get sharedFolderExplainer =>
@@ -1387,13 +1355,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get invalidCode => 'Tento kód není platný';
 
   @override
-  String get hotspotHint =>
-      'Žádná společná Wi-Fi? Zapněte hotspot na jednom telefonu, druhý připojte a hostujte zde.';
-
-  @override
-  String get byMessenger => 'Přes messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Pošlete celý katalog jako jeden soubor přes WhatsApp, Signal nebo mail — druhá strana ho importuje.';
 
@@ -1837,9 +1798,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get valueFerret => 'Fretka';
 
   @override
-  String get otherOption => 'Jiné…';
-
-  @override
   String get celebrationsToggle => 'Slavit adopce';
 
   @override
@@ -1888,11 +1846,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Smazat vše od tohoto autora';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Odstraní každý záznam a fotku od $name z tohoto zařízení. Ostatní zařízení si své ponechají. Nelze vrátit zpět.';
-  }
 
   @override
   String get yourKey => 'Tvůj klíč';
@@ -1950,11 +1903,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Odstraní z tohoto katalogu každý záznam a fotku, které $name zapsal pod klíčem $key. Ostatní zařízení si své nechají. Nelze vrátit.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Pro potvrzení napište $name';
   }
 
   @override
@@ -2456,11 +2404,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Napiš $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nic se nesmazalo: soubor katalogu se nepodařilo zapsat ($error). Uvolni místo nebo to zkus později.';
   }
@@ -2569,9 +2512,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get agenda => 'Připomínky';
 
   @override
-  String get reminderLabel => 'Připomínka';
-
-  @override
   String get agendaEmpty =>
       'Žádné termíny nejsou naplánované. Nové naplánuješ tady plusem nebo na stránce kočky či clowderu.';
 
@@ -2653,9 +2593,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Soubor kalendáře uložen do $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Zrcadlit do kalendáře zařízení';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3055,14 +2992,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get achievementCentury => 'Celé století';
 
   @override
-  String get achievementCenturyHint => 'Oba budeme moc hrdí.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Mistr: $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3073,14 +3002,6 @@ class AppLocalizationsCs extends AppLocalizations {
     );
     return '$_temp0, poprvé $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Další při $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ještě ne';
 
   @override
   String achievementUnlocked(String name) {
@@ -3402,16 +3323,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Prosím zkontrolujte sklepy, kůlny a garáže. Nehoňte, jen zavolejte.';
 
   @override
-  String get posterLastSeen => 'Naposledy viděn u';
-
-  @override
   String get posterFreeText => 'Řádek navíc';
 
   @override
   String get posterQr => 'QR kód pro cat(a)log';
-
-  @override
-  String get posterPhoto => 'Fotka';
 
   @override
   String get newCatIn => 'Nová kočka v…';

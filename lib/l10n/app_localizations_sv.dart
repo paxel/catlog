@@ -181,9 +181,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get sortNewestFirst => 'Nyast först';
 
   @override
-  String get shareAsText => 'Dela som text';
-
-  @override
   String get shareAsPdf => 'Dela som PDF';
 
   @override
@@ -253,10 +250,6 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Husdjuret försvinner från alla listor och dess foton tas bort — här och, efter nästa synk, även på de andra enheterna.';
-
-  @override
-  String get noLocationAvailable =>
-      'Ingen plats tillgänglig — håll in kartan i stället.';
 
   @override
   String get locationDeniedForever =>
@@ -447,9 +440,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get missingSinceLabel => 'Försvunnen sedan';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Beskär porträtt';
 
   @override
@@ -608,9 +598,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get value => 'Värde';
 
   @override
-  String get latitudeLongitude => 'latitud, longitud';
-
-  @override
   String get newField => 'Nytt fält';
 
   @override
@@ -678,11 +665,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get stopHosting => 'Sluta agera värd';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count session(er) hittills';
   }
@@ -691,29 +673,15 @@ class AppLocalizationsSv extends AppLocalizations {
   String get join => 'Anslut';
 
   @override
-  String get addressFromHost => 'Adress (från värdenheten)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Synkronisera nu';
 
   @override
-  String get addressFormatHint => 'Adressen ska se ut som 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Synkronisering misslyckades: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Senaste synkronisering med $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Delad mapp';
 
   @override
   String get sharedFolderExplainer =>
@@ -1386,13 +1354,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get invalidCode => 'Den koden är inte giltig';
 
   @override
-  String get hotspotHint =>
-      'Inget gemensamt Wi-Fi? Slå på hotspot på en telefon, anslut den andra och agera värd här.';
-
-  @override
-  String get byMessenger => 'Via messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Skicka hela katalogen som en fil via WhatsApp, Signal eller mail — andra sidan importerar den.';
 
@@ -1835,9 +1796,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get valueFerret => 'Iller';
 
   @override
-  String get otherOption => 'Annat…';
-
-  @override
   String get celebrationsToggle => 'Fira adoptioner';
 
   @override
@@ -1887,11 +1845,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Radera allt från denna författare';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Tar bort alla poster och foton från $name på den här enheten. Andra enheter behåller sina. Kan inte ångras.';
-  }
 
   @override
   String get yourKey => 'Din nyckel';
@@ -1948,11 +1901,6 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Tar bort varje post och foto som $name skrev under nyckel $key från den här katalogen. Andra enheter behåller sina. Kan inte ångras.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Skriv $name för att bekräfta';
   }
 
   @override
@@ -2451,11 +2399,6 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Skriv $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Inget togs bort: katalogfilen kunde inte skrivas ($error). Frigör utrymme eller försök igen senare.';
   }
@@ -2564,9 +2507,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get agenda => 'Påminnelser';
 
   @override
-  String get reminderLabel => 'Påminnelse';
-
-  @override
   String get agendaEmpty =>
       'Inga möten planerade. Planera nya här med plusset eller på en katts eller clowders sida.';
 
@@ -2646,9 +2586,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalenderfil sparad under $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Spegla till enhetens kalender';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3043,14 +2980,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get achievementCentury => 'Ett helt sekel';
 
   @override
-  String get achievementCenturyHint => 'Vi kommer båda vara mycket stolta.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-mästare';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3060,14 +2989,6 @@ class AppLocalizationsSv extends AppLocalizations {
     );
     return '$_temp0, första gången $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Nästa vid $n';
-  }
-
-  @override
-  String get achievementLocked => 'Inte än';
 
   @override
   String achievementUnlocked(String name) {
@@ -3388,16 +3309,10 @@ class AppLocalizationsSv extends AppLocalizations {
       'Kolla gärna källare, skjul och garage. Jaga inte, ring bara.';
 
   @override
-  String get posterLastSeen => 'Senast sedd vid';
-
-  @override
   String get posterFreeText => 'Extra rad';
 
   @override
   String get posterQr => 'QR-kod för cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Ny katt i…';

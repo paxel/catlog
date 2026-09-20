@@ -180,9 +180,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get sortNewestFirst => 'Uusin ensin';
 
   @override
-  String get shareAsText => 'Jaa tekstinä';
-
-  @override
   String get shareAsPdf => 'Jaa PDF:nä';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Lemmikki katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös muilta laitteilta.';
-
-  @override
-  String get noLocationAvailable =>
-      'Sijainti ei saatavilla — paina sen sijaan karttaa pitkään.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get missingSinceLabel => 'Kadonnut alkaen';
 
   @override
-  String get phoneLabel => 'Puhelin';
-
-  @override
   String get cropPortrait => 'Rajaa muotokuva';
 
   @override
@@ -608,9 +598,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get value => 'Arvo';
 
   @override
-  String get latitudeLongitude => 'leveysaste, pituusaste';
-
-  @override
   String get newField => 'Uusi kenttä';
 
   @override
@@ -678,11 +665,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get stopHosting => 'Lopeta isännöinti';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Istuntoja tähän mennessä: $count';
   }
@@ -691,30 +673,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get join => 'Liity';
 
   @override
-  String get addressFromHost => 'Osoite (isäntälaitteelta)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Synkronoi nyt';
 
   @override
-  String get addressFormatHint =>
-      'Osoitteen pitää näyttää tältä: 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Synkronointi epäonnistui: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Viimeisin synkronointi ($peer): $time';
-  }
-
-  @override
-  String get sharedFolder => 'Jaettu kansio';
 
   @override
   String get sharedFolderExplainer =>
@@ -1388,13 +1355,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get invalidCode => 'Koodi ei kelpaa';
 
   @override
-  String get hotspotHint =>
-      'Ei yhteistä Wi-Fiä? Laita yhden puhelimen hotspot päälle, yhdistä toinen siihen ja isännöi tässä.';
-
-  @override
-  String get byMessenger => 'Viestisovelluksella';
-
-  @override
   String get byMessengerExplainer =>
       'Lähetä koko luettelo yhtenä tiedostona WhatsAppilla, Signalilla tai sähköpostilla — toinen puoli tuo sen.';
 
@@ -1837,9 +1797,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get valueFerret => 'Fretti';
 
   @override
-  String get otherOption => 'Muu…';
-
-  @override
   String get celebrationsToggle => 'Juhli adoptioita';
 
   @override
@@ -1889,11 +1846,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Poista kaikki tältä tekijältä';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Poistaa kaikki $name merkinnät ja kuvat tältä laitteelta. Muut laitteet pitävät omansa. Ei voi perua.';
-  }
 
   @override
   String get yourKey => 'Oma avain';
@@ -1950,11 +1902,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka $name kirjoitti avaimella $key. Muut laitteet pitävät omansa. Ei voi kumota.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Vahvista kirjoittamalla $name';
   }
 
   @override
@@ -2454,11 +2401,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Kirjoita $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Mitään ei poistettu: luettelotiedostoa ei voitu kirjoittaa ($error). Vapauta tilaa tai yritä myöhemmin.';
   }
@@ -2567,9 +2509,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get agenda => 'Muistutukset';
 
   @override
-  String get reminderLabel => 'Muistutus';
-
-  @override
   String get agendaEmpty =>
       'Ei suunniteltuja tapaamisia. Suunnittele uusia täältä plussalla tai kissan tai clowderin sivulta.';
 
@@ -2649,9 +2588,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalenteritiedosto tallennettu polkuun $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Peilaa laitteen kalenteriin';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3046,14 +2982,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get achievementCentury => 'Kokonainen vuosisata';
 
   @override
-  String get achievementCenturyHint => 'Olemme molemmat hyvin ylpeitä.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-mestari';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3063,14 +2991,6 @@ class AppLocalizationsFi extends AppLocalizations {
     );
     return '$_temp0, ensi kerran $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Seuraava kohdassa $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ei vielä';
 
   @override
   String achievementUnlocked(String name) {
@@ -3392,16 +3312,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tarkistathan kellarit, vajat ja autotallit. Älä jahtaa, soita.';
 
   @override
-  String get posterLastSeen => 'Nähty viimeksi lähellä';
-
-  @override
   String get posterFreeText => 'Lisärivi';
 
   @override
   String get posterQr => 'QR-koodi cat(a)logille';
-
-  @override
-  String get posterPhoto => 'Kuva';
 
   @override
   String get newCatIn => 'Uusi kissa kohteeseen…';

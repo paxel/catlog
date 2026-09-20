@@ -181,9 +181,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get sortNewestFirst => 'Nyeste først';
 
   @override
-  String get shareAsText => 'Del som tekst';
-
-  @override
   String get shareAsPdf => 'Del som PDF';
 
   @override
@@ -253,10 +250,6 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Kjæledyret forsvinner fra alle lister og bildene fjernes — her og, etter neste synkronisering, også på de andre enhetene.';
-
-  @override
-  String get noLocationAvailable =>
-      'Ingen posisjon tilgjengelig — hold inne kartet i stedet.';
 
   @override
   String get locationDeniedForever =>
@@ -447,9 +440,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get missingSinceLabel => 'Savnet siden';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Beskjær portrett';
 
   @override
@@ -608,9 +598,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get value => 'Verdi';
 
   @override
-  String get latitudeLongitude => 'breddegrad, lengdegrad';
-
-  @override
   String get newField => 'Nytt felt';
 
   @override
@@ -678,11 +665,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get stopHosting => 'Stopp som vert';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count økt(er) så langt';
   }
@@ -691,29 +673,15 @@ class AppLocalizationsNo extends AppLocalizations {
   String get join => 'Bli med';
 
   @override
-  String get addressFromHost => 'Adresse (fra vertsenheten)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Synkroniser nå';
 
   @override
-  String get addressFormatHint => 'Adressen må se ut som 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Synkronisering mislyktes: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Siste synkronisering med $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Delt mappe';
 
   @override
   String get sharedFolderExplainer =>
@@ -1384,13 +1352,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get invalidCode => 'Den koden er ikke gyldig';
 
   @override
-  String get hotspotHint =>
-      'Ingen felles Wi-Fi? Slå på hotspot på én telefon, koble til den andre og vær vert her.';
-
-  @override
-  String get byMessenger => 'Via messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Send hele katalogen som én fil via WhatsApp, Signal eller e-post — den andre siden importerer den.';
 
@@ -1833,9 +1794,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get valueFerret => 'Ilder';
 
   @override
-  String get otherOption => 'Annet…';
-
-  @override
   String get celebrationsToggle => 'Feir adopsjoner';
 
   @override
@@ -1885,11 +1843,6 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Slett alt fra denne forfatteren';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Fjerner alle oppføringer og bilder fra $name på denne enheten. Andre enheter beholder sine. Kan ikke angres.';
-  }
 
   @override
   String get yourKey => 'Din nøkkel';
@@ -1946,11 +1899,6 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Fjerner hver oppføring og hvert bilde skrevet av $name under nøkkel $key fra denne katalogen. Andre enheter beholder sine. Kan ikke angres.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Skriv $name for å bekrefte';
   }
 
   @override
@@ -2450,11 +2398,6 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Skriv $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Ingenting ble slettet: katalogfilen kunne ikke skrives ($error). Frigjør plass, eller prøv igjen senere.';
   }
@@ -2563,9 +2506,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get agenda => 'Påminnelser';
 
   @override
-  String get reminderLabel => 'Påminnelse';
-
-  @override
   String get agendaEmpty =>
       'Ingen avtaler planlagt. Planlegg nye her med plusset eller på siden til en katt eller clowder.';
 
@@ -2645,9 +2585,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalenderfil lagret under $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Speil til enhetens kalender';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3043,14 +2980,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get achievementCentury => 'Et helt århundre';
 
   @override
-  String get achievementCenturyHint => 'Vi blir begge veldig stolte.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-mester';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3060,14 +2989,6 @@ class AppLocalizationsNo extends AppLocalizations {
     );
     return '$_temp0, første gang $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Neste ved $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ikke ennå';
 
   @override
   String achievementUnlocked(String name) {
@@ -3388,16 +3309,10 @@ class AppLocalizationsNo extends AppLocalizations {
       'Sjekk gjerne kjellere, skur og garasjer. Ikke jag, bare ring.';
 
   @override
-  String get posterLastSeen => 'Sist sett ved';
-
-  @override
   String get posterFreeText => 'Ekstra linje';
 
   @override
   String get posterQr => 'QR-kode for cat(a)log';
-
-  @override
-  String get posterPhoto => 'Bilde';
 
   @override
   String get newCatIn => 'Ny katt i…';

@@ -180,9 +180,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get sortNewestFirst => 'Naujausi pirmiausia';
 
   @override
-  String get shareAsText => 'Bendrinti kaip tekstą';
-
-  @override
   String get shareAsPdf => 'Bendrinti kaip PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Augintinis dingsta iš visų sąrašų, jo nuotraukos pašalinamos — čia ir, po kito sinchronizavimo, kituose įrenginiuose.';
-
-  @override
-  String get noLocationAvailable =>
-      'Vietos nėra — vietoj to palaikykite nuspaudę žemėlapį.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get missingSinceLabel => 'Dingęs nuo';
 
   @override
-  String get phoneLabel => 'Telefonas';
-
-  @override
   String get cropPortrait => 'Apkirpti portretą';
 
   @override
@@ -607,9 +597,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get value => 'Reikšmė';
 
   @override
-  String get latitudeLongitude => 'platuma, ilguma';
-
-  @override
   String get newField => 'Naujas laukas';
 
   @override
@@ -677,11 +664,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get stopHosting => 'Sustabdyti priėmimą';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seansų iki šiol: $count';
   }
@@ -690,30 +672,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String get join => 'Prisijungti';
 
   @override
-  String get addressFromHost => 'Adresas (iš priimančio įrenginio)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sinchronizuoti dabar';
 
   @override
-  String get addressFormatHint =>
-      'Adresas turi atrodyti kaip 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sinchronizavimas nepavyko: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Paskutinis sinchronizavimas su $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Bendras aplankas';
 
   @override
   String get sharedFolderExplainer =>
@@ -1387,13 +1354,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get invalidCode => 'Šis kodas negalioja';
 
   @override
-  String get hotspotHint =>
-      'Nėra bendro Wi-Fi? Įjunkite viešosios interneto prieigos tašką viename telefone, prijunkite kitą ir priimkite čia.';
-
-  @override
-  String get byMessenger => 'Per žinučių programą';
-
-  @override
   String get byMessengerExplainer =>
       'Siųskite visą katalogą kaip vieną failą per WhatsApp, Signal ar el. paštą — kita pusė jį importuos.';
 
@@ -1838,9 +1798,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get valueFerret => 'Šeškas';
 
   @override
-  String get otherOption => 'Kita…';
-
-  @override
   String get celebrationsToggle => 'Švęsti priglaudimus';
 
   @override
@@ -1889,11 +1846,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Ištrinti viską iš šio autoriaus';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Pašalina visus $name įrašus ir nuotraukas iš šio įrenginio. Kiti įrenginiai pasilieka savo. Neatšaukiama.';
-  }
 
   @override
   String get yourKey => 'Jūsų raktas';
@@ -1952,11 +1904,6 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos $name įrašė raktu $key. Kiti įrenginiai savus pasilieka. Atšaukti negalima.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Patvirtinimui įveskite $name';
   }
 
   @override
@@ -2461,11 +2408,6 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Įrašyk $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nieko neištrinta: nepavyko įrašyti katalogo failo ($error). Atlaisvink vietos arba pabandyk vėliau.';
   }
@@ -2574,9 +2516,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get agenda => 'Priminimai';
 
   @override
-  String get reminderLabel => 'Priminimas';
-
-  @override
   String get agendaEmpty =>
       'Suplanuotų vizitų nėra. Naujus planuok čia pliusu arba katės ar klauderio puslapyje.';
 
@@ -2660,9 +2599,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalendoriaus failas išsaugotas $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Atspindėti įrenginio kalendoriuje';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3063,14 +2999,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get achievementCentury => 'Visas šimtmetis';
 
   @override
-  String get achievementCenturyHint => 'Abu labai didžiuosimės.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title meistras';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3081,14 +3009,6 @@ class AppLocalizationsLt extends AppLocalizations {
     );
     return '$_temp0, pirmą kartą $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Kitas ties $n';
-  }
-
-  @override
-  String get achievementLocked => 'Dar ne';
 
   @override
   String achievementUnlocked(String name) {
@@ -3410,16 +3330,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Prašome patikrinti rūsius, pašiūres ir garažus. Nevaikykite, tiesiog paskambinkite.';
 
   @override
-  String get posterLastSeen => 'Paskutinį kartą matytas prie';
-
-  @override
   String get posterFreeText => 'Papildoma eilutė';
 
   @override
   String get posterQr => 'QR kodas cat(a)log';
-
-  @override
-  String get posterPhoto => 'Nuotrauka';
 
   @override
   String get newCatIn => 'Nauja katė į…';

@@ -180,9 +180,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get sortNewestFirst => 'Nýjasta fyrst';
 
   @override
-  String get shareAsText => 'Deila sem texta';
-
-  @override
   String get shareAsPdf => 'Deila sem PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Gæludýrið hverfur af öllum listum og myndir þess eru fjarlægðar — hér og, eftir næstu samstillingu, einnig á hinum tækjunum.';
-
-  @override
-  String get noLocationAvailable =>
-      'Engin staðsetning — haltu þess í stað fingri á kortinu.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get missingSinceLabel => 'Týndur síðan';
 
   @override
-  String get phoneLabel => 'Sími';
-
-  @override
   String get cropPortrait => 'Skera andlitsmynd';
 
   @override
@@ -609,9 +599,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get value => 'Gildi';
 
   @override
-  String get latitudeLongitude => 'breiddargráða, lengdargráða';
-
-  @override
   String get newField => 'Nýtt svæði';
 
   @override
@@ -679,11 +666,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get stopHosting => 'Stöðva hýsingu';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Lotur hingað til: $count';
   }
@@ -692,30 +674,15 @@ class AppLocalizationsIs extends AppLocalizations {
   String get join => 'Tengjast';
 
   @override
-  String get addressFromHost => 'Vistfang (frá hýsingartækinu)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Samstilla núna';
 
   @override
-  String get addressFormatHint =>
-      'Vistfangið á að líta út eins og 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Samstilling mistókst: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Síðasta samstilling við $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Sameiginleg mappa';
 
   @override
   String get sharedFolderExplainer =>
@@ -1389,13 +1356,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get invalidCode => 'Þessi kóði er ógildur';
 
   @override
-  String get hotspotHint =>
-      'Ekkert sameiginlegt Wi-Fi? Kveiktu á heitum reit á öðrum símanum, tengdu hinn og hýstu hér.';
-
-  @override
-  String get byMessenger => 'Með skilaboðaforriti';
-
-  @override
   String get byMessengerExplainer =>
       'Sendu alla skrána sem eina skrá með WhatsApp, Signal eða pósti — hin hliðin flytur hana inn.';
 
@@ -1838,9 +1798,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get valueFerret => 'Fretta';
 
   @override
-  String get otherOption => 'Annað…';
-
-  @override
   String get celebrationsToggle => 'Fagna ættleiðingum';
 
   @override
@@ -1890,11 +1847,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Eyða öllu frá þessum höfundi';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Fjarlægir allar færslur og myndir frá $name af þessu tæki. Önnur tæki halda sínum. Ekki hægt að afturkalla.';
-  }
 
   @override
   String get yourKey => 'Lykillinn þinn';
@@ -1951,11 +1903,6 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Fjarlægir hverja færslu og mynd sem $name skrifaði með lykli $key úr þessari skrá. Önnur tæki halda sínum. Ekki hægt að afturkalla.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Sláðu inn $name til að staðfesta';
   }
 
   @override
@@ -2456,11 +2403,6 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Sláðu inn $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Engu var eytt: ekki tókst að skrifa skráarskrána ($error). Losaðu pláss eða reyndu aftur síðar.';
   }
@@ -2569,9 +2511,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get agenda => 'Áminningar';
 
   @override
-  String get reminderLabel => 'Áminning';
-
-  @override
   String get agendaEmpty =>
       'Engir tímar áætlaðir. Áætlaðu nýja hér með plúsnum eða á síðu kattar eða clowders.';
 
@@ -2651,9 +2590,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Dagatalsskrá vistuð undir $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Spegla í dagatal tækisins';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3048,14 +2984,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get achievementCentury => 'Heil öld';
 
   @override
-  String get achievementCenturyHint => 'Við verðum bæði mjög stolt.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-meistari';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3065,14 +2993,6 @@ class AppLocalizationsIs extends AppLocalizations {
     );
     return '$_temp0, fyrst $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Næst við $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ekki enn';
 
   @override
   String achievementUnlocked(String name) {
@@ -3394,16 +3314,10 @@ class AppLocalizationsIs extends AppLocalizations {
       'Vinsamlegast athugið kjallara, skúra og bílskúra. Ekki elta, bara hringja.';
 
   @override
-  String get posterLastSeen => 'Síðast séð við';
-
-  @override
   String get posterFreeText => 'Aukalína';
 
   @override
   String get posterQr => 'QR-kóði fyrir cat(a)log';
-
-  @override
-  String get posterPhoto => 'Mynd';
 
   @override
   String get newCatIn => 'Nýr köttur í…';

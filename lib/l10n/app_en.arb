@@ -81,7 +81,6 @@
   "shareAsImage": "Share as image",
   "sortOldestFirst": "Oldest first",
   "sortNewestFirst": "Newest first",
-  "shareAsText": "Share as text",
   "shareAsPdf": "Share as PDF",
   "print": "Print",
   "cardTitle": "Card — {name}",
@@ -111,7 +110,6 @@
   "deletePhotoBody": "The photo data is removed for good — this cannot be undone.",
   "deleteCatBody": "The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.",
   "deleteCatBodyNeutral": "The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.",
-  "noLocationAvailable": "No location available — long-press the map instead.",
   "locationDeniedForever": "Location access is blocked. Allow it in the system settings to use Stray Cam.",
   "locationServiceOff": "Location is turned off on this device. Turn it on in the settings and try again.",
   "locationDenied": "cat(a)log has no permission to use your location. Try again and allow it when asked.",
@@ -215,7 +213,6 @@
   },
   "addFlier": "Add flier",
   "missingSinceLabel": "Missing since",
-  "phoneLabel": "Phone",
   "cropPortrait": "Crop portrait",
   "statusOwner": "Owner",
   "ocrUnavailable": "Text recognition is not available on this device — type the flier text yourself.",
@@ -370,7 +367,6 @@
     }
   },
   "value": "Value",
-  "latitudeLongitude": "latitude, longitude",
   "newField": "New field",
   "fieldType": "Type",
   "usedOn": "Used on",
@@ -393,14 +389,6 @@
   "hostExplainer": "Start here, then scan the code or type it on the other device.",
   "startHosting": "Start hosting",
   "stopHosting": "Stop hosting",
-  "pinLabel": "PIN: {pin}",
-  "@pinLabel": {
-    "placeholders": {
-      "pin": {
-        "type": "String"
-      }
-    }
-  },
   "sessionsSoFar": "{count} session(s) so far",
   "@sessionsSoFar": {
     "placeholders": {
@@ -410,10 +398,8 @@
     }
   },
   "join": "Join",
-  "addressFromHost": "Address (from the hosting device)",
   "pin": "PIN",
   "syncNow": "Sync now",
-  "addressFormatHint": "Address must look like 192.168.0.12:38472",
   "syncFailed": "Sync failed: {error}",
   "@syncFailed": {
     "placeholders": {
@@ -422,18 +408,6 @@
       }
     }
   },
-  "lastSyncWith": "Last sync with {peer}: {time}",
-  "@lastSyncWith": {
-    "placeholders": {
-      "peer": {
-        "type": "String"
-      },
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "sharedFolder": "Shared folder",
   "sharedFolderExplainer": "Both devices use the same folder (for example in Nextcloud or on a USB stick). Each sync stores your changes there and picks up the other side's.",
   "noFolderChosenYet": "No folder chosen yet",
   "choose": "Choose…",
@@ -819,8 +793,6 @@
   "orTypeCode": "Or type the code",
   "copyCode": "Copy code",
   "invalidCode": "That code is not valid",
-  "hotspotHint": "No shared Wi-Fi? Turn on one phone's hotspot, connect the other phone to it, then host here.",
-  "byMessenger": "By messenger",
   "byMessengerExplainer": "Send your whole catalog as one file through WhatsApp, Signal, or mail — the other side imports it.",
   "shareBundle": "Share sync bundle…",
   "importBundle": "Import sync bundle…",
@@ -994,7 +966,6 @@
   "valueHorse": "Horse",
   "valueTortoise": "Tortoise",
   "valueFerret": "Ferret",
-  "otherOption": "Other…",
   "celebrationsToggle": "Celebrate adoptions",
   "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home",
   "cheerToggle": "Cheer sound",
@@ -1011,7 +982,6 @@
   "moderationSubtitle": "Remove a person's data for good",
   "authorsSection": "Who wrote into this catalog",
   "hardDeleteAction": "Delete everything by this author",
-  "hardDeleteWarning": "Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.",
   "yourKey": "Your key",
   "yourTitle": "Your title",
   "titleNone": "No title",
@@ -1062,20 +1032,9 @@
       "key": {}
     }
   },
-  "typeToConfirm": "Type {name} to confirm",
   "alsoBan": "Also ban — never accept their data again",
   "bansSection": "Bans",
   "unbanAction": "Remove ban",
-  "@hardDeleteWarning": {
-    "placeholders": {
-      "name": {}
-    }
-  },
-  "@typeToConfirm": {
-    "placeholders": {
-      "name": {}
-    }
-  },
   "syncSummaryTitle": "What arrived",
   "summaryAdopted": "Adopted",
   "summaryDeceased": "Deceased",
@@ -1336,14 +1295,6 @@
       }
     }
   },
-  "typeTheName": "Type {name}",
-  "@typeTheName": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "catalogExportFailed": "Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.",
   "@catalogExportFailed": {
     "placeholders": {
@@ -1439,7 +1390,6 @@
   "markPrivate": "Mark as private",
   "unmarkPrivate": "Remove private mark",
   "agenda": "Agenda",
-  "reminderLabel": "Reminder",
   "agendaEmpty": "No appointments planned. Plan new ones here with the plus, or on a cat's or clowder's page.",
   "agendaEmptyNeutral": "No appointments planned. Plan new ones here with the plus, or on a pet's or household's page.",
   "dueToday": "due today",
@@ -1494,7 +1444,6 @@
       }
     }
   },
-  "calendarMirrorLabel": "Mirror to device calendar",
   "calendarMirrorSubtitle": "The appointments appear as all-day entries in the calendar. cat(a)log updates them there at every start and after every change. You can manage alerts for them in the calendar.",
   "syncPeerOlder": "The other device runs an older cat(a)log that cannot carry reminders. Update cat(a)log there, then sync again.",
   "syncPeerNewer": "The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.",
@@ -1667,15 +1616,6 @@
   "achievementYear": "A full year",
   "achievementDecade": "A full decade",
   "achievementCentury": "A full century",
-  "achievementCenturyHint": "We will both be very proud.",
-  "achievementMaster": "{title} master",
-  "@achievementMaster": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      }
-    }
-  },
   "achievementReached": "{times, plural, one{Reached once} other{Reached {times} times}}, first on {date}",
   "@achievementReached": {
     "placeholders": {
@@ -1687,15 +1627,6 @@
       }
     }
   },
-  "achievementNext": "Next at {n}",
-  "@achievementNext": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
-  "achievementLocked": "Not yet",
   "achievementUnlocked": "Achievement: {name}",
   "@achievementUnlocked": {
     "placeholders": {
@@ -1884,10 +1815,8 @@
   "posterMenu": "Missing poster…",
   "posterHeadline": "MISSING",
   "posterStanding": "Please check cellars, sheds and garages. Do not chase, just call.",
-  "posterLastSeen": "Last seen near",
   "posterFreeText": "Extra line",
   "posterQr": "QR code for cat(a)log",
-  "posterPhoto": "Photo",
   "newCatIn": "New cat in…",
   "newCatInNeutral": "New pet in…",
   "choreLabel": "Chore",

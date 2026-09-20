@@ -180,9 +180,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sortNewestFirst => 'Önce en yeni';
 
   @override
-  String get shareAsText => 'Metin olarak paylaş';
-
-  @override
   String get shareAsPdf => 'PDF olarak paylaş';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Evcil hayvan tüm listelerden kaybolur ve fotoğrafları silinir — burada ve bir sonraki eşitlemeden sonra diğer cihazlarda da.';
-
-  @override
-  String get noLocationAvailable =>
-      'Konum alınamadı — bunun yerine haritaya uzun basın.';
 
   @override
   String get locationDeniedForever =>
@@ -445,9 +438,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get missingSinceLabel => 'Kayıp tarihi';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Portreyi kırp';
 
   @override
@@ -606,9 +596,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get value => 'Değer';
 
   @override
-  String get latitudeLongitude => 'enlem, boylam';
-
-  @override
   String get newField => 'Yeni alan';
 
   @override
@@ -676,11 +663,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get stopHosting => 'Sunmayı durdur';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Şimdiye kadar $count oturum';
   }
@@ -689,29 +671,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get join => 'Katıl';
 
   @override
-  String get addressFromHost => 'Adres (sunucu cihazdan)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Şimdi eşitle';
 
   @override
-  String get addressFormatHint => 'Adres şöyle görünmeli: 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Eşitleme başarısız: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return '$peer ile son eşitleme: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Ortak klasör';
 
   @override
   String get sharedFolderExplainer =>
@@ -1385,13 +1353,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get invalidCode => 'Bu kod geçersiz';
 
   @override
-  String get hotspotHint =>
-      'Ortak Wi-Fi yok mu? Bir telefonun erişim noktasını aç, diğerini bağla, sonra burada sun.';
-
-  @override
-  String get byMessenger => 'Mesajlaşma ile';
-
-  @override
   String get byMessengerExplainer =>
       'Tüm kataloğu tek dosya olarak WhatsApp, Signal veya postayla gönder — karşı taraf içe aktarır.';
 
@@ -1834,9 +1795,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get valueFerret => 'Gelincik';
 
   @override
-  String get otherOption => 'Diğer…';
-
-  @override
   String get celebrationsToggle => 'Sahiplendirmeleri kutla';
 
   @override
@@ -1887,11 +1845,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Bu yazarın her şeyini sil';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return '$name tarafından yazılan her kaydı ve fotoğrafı bu cihazdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
-  }
 
   @override
   String get yourKey => 'Anahtarın';
@@ -1948,11 +1901,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return '$name tarafından $key anahtarıyla yazılan her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Onaylamak için $name yazın';
   }
 
   @override
@@ -2452,11 +2400,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '$name yaz';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Hiçbir şey silinmedi: katalog dosyası yazılamadı ($error). Yer aç ya da daha sonra yeniden dene.';
   }
@@ -2565,9 +2508,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get agenda => 'Ajanda';
 
   @override
-  String get reminderLabel => 'Hatırlatma';
-
-  @override
   String get agendaEmpty =>
       'Planlanmış randevu yok. Yenilerini burada artı ile ya da bir kedinin veya clowder\'ın sayfasında planla.';
 
@@ -2647,9 +2587,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Takvim dosyası $path konumuna kaydedildi';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Cihaz takvimine yansıt';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3043,14 +2980,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get achievementCentury => 'Tam bir yüzyıl';
 
   @override
-  String get achievementCenturyHint => 'İkimiz de çok gurur duyacağız.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title ustası';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3060,14 +2989,6 @@ class AppLocalizationsTr extends AppLocalizations {
     );
     return '$_temp0, ilki $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Sonraki: $n';
-  }
-
-  @override
-  String get achievementLocked => 'Henüz değil';
 
   @override
   String achievementUnlocked(String name) {
@@ -3389,16 +3310,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Lütfen bodrumları, kulübeleri ve garajları kontrol edin. Kovalamayın, sadece arayın.';
 
   @override
-  String get posterLastSeen => 'Son görüldüğü yer';
-
-  @override
   String get posterFreeText => 'Ek satır';
 
   @override
   String get posterQr => 'cat(a)log için QR kodu';
-
-  @override
-  String get posterPhoto => 'Fotoğraf';
 
   @override
   String get newCatIn => 'Şuraya yeni kedi…';

@@ -180,9 +180,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get sortNewestFirst => 'Më të rejat së pari';
 
   @override
-  String get shareAsText => 'Ndaj si tekst';
-
-  @override
   String get shareAsPdf => 'Ndaj si PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Kafsha zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe në pajisjet e tjera.';
-
-  @override
-  String get noLocationAvailable =>
-      'Vendndodhja s\'është e disponueshme — mbani shtypur hartën në vend të saj.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get missingSinceLabel => 'I humbur që nga';
 
   @override
-  String get phoneLabel => 'Telefoni';
-
-  @override
   String get cropPortrait => 'Prit portretin';
 
   @override
@@ -609,9 +599,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get value => 'Vlera';
 
   @override
-  String get latitudeLongitude => 'gjerësia, gjatësia gjeografike';
-
-  @override
   String get newField => 'Fushë e re';
 
   @override
@@ -679,11 +666,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get stopHosting => 'Ndalo pritjen';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seanca deri tani: $count';
   }
@@ -692,29 +674,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get join => 'Bashkohu';
 
   @override
-  String get addressFromHost => 'Adresa (nga pajisja pritëse)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sinkronizo tani';
 
   @override
-  String get addressFormatHint => 'Adresa duhet të duket si 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sinkronizimi dështoi: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Sinkronizimi i fundit me $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Dosje e përbashkët';
 
   @override
   String get sharedFolderExplainer =>
@@ -1386,13 +1354,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get invalidCode => 'Ky kod nuk është i vlefshëm';
 
   @override
-  String get hotspotHint =>
-      'S\'ka Wi-Fi të përbashkët? Ndiz hotspot-in e njërit telefon, lidh tjetrin dhe prit këtu.';
-
-  @override
-  String get byMessenger => 'Me messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Dërgo gjithë katalogun si një skedar me WhatsApp, Signal ose mail — pala tjetër e importon.';
 
@@ -1835,9 +1796,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get valueFerret => 'Qelbës';
 
   @override
-  String get otherOption => 'Tjetër…';
-
-  @override
   String get celebrationsToggle => 'Festo birësimet';
 
   @override
@@ -1887,11 +1845,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Fshi gjithçka nga ky autor';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Heq çdo hyrje dhe foto të $name nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.';
-  }
 
   @override
   String get yourKey => 'Çelësi yt';
@@ -1948,11 +1901,6 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Heq nga ky katalog çdo hyrje dhe foto të shkruar nga $name me çelësin $key. Pajisjet e tjera i mbajnë të tyret. Nuk mund të zhbëhet.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Shkruaj $name për konfirmim';
   }
 
   @override
@@ -2453,11 +2401,6 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Shkruaj $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nuk u fshi asgjë: skedari i katalogut nuk u shkrua dot ($error). Liro pak hapësirë ose provo më vonë.';
   }
@@ -2566,9 +2509,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get agenda => 'Përkujtues';
 
   @override
-  String get reminderLabel => 'Përkujtues';
-
-  @override
   String get agendaEmpty =>
       'S\'ka takime të planifikuara. Planifiko të reja këtu me plusin, ose në faqen e një maceje a clowderi.';
 
@@ -2648,9 +2588,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Skedari i kalendarit u ruajt te $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Pasqyro në kalendarin e pajisjes';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3046,14 +2983,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get achievementCentury => 'Një shekull i plotë';
 
   @override
-  String get achievementCenturyHint => 'Do të jemi të dy shumë krenarë.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Mjeshtër i $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3063,14 +2992,6 @@ class AppLocalizationsSq extends AppLocalizations {
     );
     return '$_temp0, herën e parë më $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Tjetra te $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ende jo';
 
   @override
   String achievementUnlocked(String name) {
@@ -3392,16 +3313,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Ju lutem kontrolloni bodrumet, kasollet dhe garazhet. Mos e ndiqni, vetëm telefononi.';
 
   @override
-  String get posterLastSeen => 'Parë për herë të fundit pranë';
-
-  @override
   String get posterFreeText => 'Rresht shtesë';
 
   @override
   String get posterQr => 'Kod QR për cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Mace e re në…';

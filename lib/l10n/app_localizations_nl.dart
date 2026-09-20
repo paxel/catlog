@@ -181,9 +181,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sortNewestFirst => 'Nieuwste eerst';
 
   @override
-  String get shareAsText => 'Delen als tekst';
-
-  @override
   String get shareAsPdf => 'Delen als PDF';
 
   @override
@@ -253,10 +250,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Het huisdier verdwijnt uit alle lijsten en de foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook op de andere apparaten.';
-
-  @override
-  String get noLocationAvailable =>
-      'Geen locatie beschikbaar — houd in plaats daarvan de kaart ingedrukt.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get missingSinceLabel => 'Vermist sinds';
 
   @override
-  String get phoneLabel => 'Telefoon';
-
-  @override
   String get cropPortrait => 'Portret bijsnijden';
 
   @override
@@ -610,9 +600,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get value => 'Waarde';
 
   @override
-  String get latitudeLongitude => 'breedtegraad, lengtegraad';
-
-  @override
   String get newField => 'Nieuw veld';
 
   @override
@@ -680,11 +667,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get stopHosting => 'Stoppen met hosten';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count sessie(s) tot nu toe';
   }
@@ -693,30 +675,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get join => 'Deelnemen';
 
   @override
-  String get addressFromHost => 'Adres (van het hostende apparaat)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Nu synchroniseren';
 
   @override
-  String get addressFormatHint =>
-      'Het adres moet er zo uitzien: 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Synchronisatie mislukt: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Laatste synchronisatie met $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Gedeelde map';
 
   @override
   String get sharedFolderExplainer =>
@@ -1390,13 +1357,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get invalidCode => 'Die code is ongeldig';
 
   @override
-  String get hotspotHint =>
-      'Geen gedeelde wifi? Zet de hotspot van één telefoon aan, verbind de andere en host hier.';
-
-  @override
-  String get byMessenger => 'Via messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Stuur je hele catalogus als één bestand via WhatsApp, Signal of mail — de andere kant importeert hem.';
 
@@ -1839,9 +1799,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get valueFerret => 'Fret';
 
   @override
-  String get otherOption => 'Anders…';
-
-  @override
   String get celebrationsToggle => 'Adopties vieren';
 
   @override
@@ -1892,11 +1849,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Alles van deze auteur verwijderen';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Verwijdert elke invoer en foto van $name van dit apparaat. Andere apparaten houden de hunne. Kan niet ongedaan worden gemaakt.';
-  }
 
   @override
   String get yourKey => 'Jouw sleutel';
@@ -1953,11 +1905,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Verwijdert elke invoer en foto die $name onder sleutel $key schreef uit deze catalogus. Andere apparaten houden de hunne. Dit kan niet ongedaan worden gemaakt.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Typ $name om te bevestigen';
   }
 
   @override
@@ -2458,11 +2405,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Typ $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ($error). Maak ruimte vrij of probeer het later.';
   }
@@ -2571,9 +2513,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get agenda => 'Agenda';
 
   @override
-  String get reminderLabel => 'Herinnering';
-
-  @override
   String get agendaEmpty =>
       'Geen afspraken gepland. Nieuwe afspraken plan je hier met de plus of op de pagina van een kat of clowder.';
 
@@ -2653,9 +2592,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Agendabestand opgeslagen onder $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Spiegelen naar apparaatagenda';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3050,14 +2986,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get achievementCentury => 'Een volle eeuw';
 
   @override
-  String get achievementCenturyHint => 'We zullen allebei heel trots zijn.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-meester';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3067,14 +2995,6 @@ class AppLocalizationsNl extends AppLocalizations {
     );
     return '$_temp0, de eerste op $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Volgende bij $n';
-  }
-
-  @override
-  String get achievementLocked => 'Nog niet';
 
   @override
   String achievementUnlocked(String name) {
@@ -3396,16 +3316,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Kijk alstublieft in kelders, schuren en garages. Niet achterna zitten, gewoon bellen.';
 
   @override
-  String get posterLastSeen => 'Laatst gezien bij';
-
-  @override
   String get posterFreeText => 'Extra regel';
 
   @override
   String get posterQr => 'QR-code voor cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Nieuwe kat in…';

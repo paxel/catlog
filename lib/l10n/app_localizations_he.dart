@@ -180,9 +180,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get sortNewestFirst => 'החדש קודם';
 
   @override
-  String get shareAsText => 'שיתוף כטקסט';
-
-  @override
   String get shareAsPdf => 'שיתוף כ-PDF';
 
   @override
@@ -251,10 +248,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'חיית המחמד נעלמת מכל הרשימות ותמונותיה נמחקות — כאן, ואחרי הסנכרון הבא גם במכשירים האחרים.';
-
-  @override
-  String get noLocationAvailable =>
-      'אין מיקום זמין — במקום זאת לחצו לחיצה ארוכה על המפה.';
 
   @override
   String get locationDeniedForever =>
@@ -444,9 +437,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get missingSinceLabel => 'נעדר מאז';
 
   @override
-  String get phoneLabel => 'טלפון';
-
-  @override
   String get cropPortrait => 'חיתוך דיוקן';
 
   @override
@@ -605,9 +595,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get value => 'ערך';
 
   @override
-  String get latitudeLongitude => 'קו רוחב, קו אורך';
-
-  @override
   String get newField => 'שדה חדש';
 
   @override
@@ -675,11 +662,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get stopHosting => 'עצירת האירוח';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'מפגשים עד כה: $count';
   }
@@ -688,29 +670,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get join => 'הצטרפות';
 
   @override
-  String get addressFromHost => 'כתובת (מהמכשיר המארח)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'סנכרון עכשיו';
 
   @override
-  String get addressFormatHint => 'הכתובת צריכה להיראות כמו 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'הסנכרון נכשל: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'סנכרון אחרון עם $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'תיקייה משותפת';
 
   @override
   String get sharedFolderExplainer =>
@@ -1379,13 +1347,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get invalidCode => 'הקוד הזה לא תקין';
 
   @override
-  String get hotspotHint =>
-      'אין Wi-Fi משותף? הפעילו נקודה חמה בטלפון אחד, חברו את השני וארחו כאן.';
-
-  @override
-  String get byMessenger => 'דרך מסנג\'ר';
-
-  @override
   String get byMessengerExplainer =>
       'שלחו את כל הקטלוג כקובץ אחד ב-WhatsApp, Signal או מייל — הצד השני מייבא אותו.';
 
@@ -1829,9 +1790,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get valueFerret => 'חמוס';
 
   @override
-  String get otherOption => 'אחר…';
-
-  @override
   String get celebrationsToggle => 'חגיגת אימוצים';
 
   @override
@@ -1879,11 +1837,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'מחק הכול מהמחבר הזה';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'מסיר כל רשומה ותמונה של $name מהמכשיר הזה. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.';
-  }
 
   @override
   String get yourKey => 'המפתח שלך';
@@ -1941,11 +1894,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'מסיר מקטלוג זה כל רשומה ותמונה שנכתבו על ידי $name תחת המפתח $key. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'הקלד $name לאישור';
   }
 
   @override
@@ -2445,11 +2393,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'הקלד $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הקטלוג ($error). פנה מקום או נסה שוב מאוחר יותר.';
   }
@@ -2558,9 +2501,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get agenda => 'תזכורות';
 
   @override
-  String get reminderLabel => 'תזכורת';
-
-  @override
   String get agendaEmpty =>
       'אין פגישות מתוכננות. תכננו חדשות כאן בפלוס, או בדף של חתול או קבוצה.';
 
@@ -2642,9 +2582,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'קובץ היומן נשמר תחת $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'שיקוף ליומן המכשיר';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3040,14 +2977,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get achievementCentury => 'מאה שנה מלאות';
 
   @override
-  String get achievementCenturyHint => 'שנינו נהיה גאים מאוד.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'אלוף $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3058,14 +2987,6 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return '$_temp0, לראשונה ב-$date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'הבא ב-$n';
-  }
-
-  @override
-  String get achievementLocked => 'עדיין לא';
 
   @override
   String achievementUnlocked(String name) {
@@ -3386,16 +3307,10 @@ class AppLocalizationsHe extends AppLocalizations {
       'אנא בדקו מרתפים, מחסנים ומוסכים. לא לרדוף, רק להתקשר.';
 
   @override
-  String get posterLastSeen => 'נראה לאחרונה ליד';
-
-  @override
   String get posterFreeText => 'שורה נוספת';
 
   @override
   String get posterQr => 'קוד QR ל-cat(a)log';
-
-  @override
-  String get posterPhoto => 'תמונה';
 
   @override
   String get newCatIn => 'חתול חדש ב…';

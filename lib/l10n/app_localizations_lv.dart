@@ -181,9 +181,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get sortNewestFirst => 'Jaunākie vispirms';
 
   @override
-  String get shareAsText => 'Kopīgot kā tekstu';
-
-  @override
   String get shareAsPdf => 'Kopīgot kā PDF';
 
   @override
@@ -253,10 +250,6 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Mājdzīvnieks pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī citās ierīcēs.';
-
-  @override
-  String get noLocationAvailable =>
-      'Atrašanās vieta nav pieejama — tā vietā turiet nospiestu karti.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get missingSinceLabel => 'Pazudis kopš';
 
   @override
-  String get phoneLabel => 'Tālrunis';
-
-  @override
   String get cropPortrait => 'Apgriezt portretu';
 
   @override
@@ -608,9 +598,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get value => 'Vērtība';
 
   @override
-  String get latitudeLongitude => 'platums, garums';
-
-  @override
   String get newField => 'Jauns lauks';
 
   @override
@@ -678,11 +665,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get stopHosting => 'Beigt uzņemšanu';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Sesijas līdz šim: $count';
   }
@@ -691,29 +673,15 @@ class AppLocalizationsLv extends AppLocalizations {
   String get join => 'Pievienoties';
 
   @override
-  String get addressFromHost => 'Adrese (no uzņemošās ierīces)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sinhronizēt tagad';
 
   @override
-  String get addressFormatHint => 'Adresei jāizskatās kā 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sinhronizācija neizdevās: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Pēdējā sinhronizācija ar $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Koplietota mape';
 
   @override
   String get sharedFolderExplainer =>
@@ -1387,13 +1355,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get invalidCode => 'Šis kods nav derīgs';
 
   @override
-  String get hotspotHint =>
-      'Nav kopīga Wi-Fi? Ieslēdziet tīklāju vienā tālrunī, pievienojiet otru un uzņemiet šeit.';
-
-  @override
-  String get byMessenger => 'Ar ziņotni';
-
-  @override
   String get byMessengerExplainer =>
       'Nosūtiet visu katalogu kā vienu failu ar WhatsApp, Signal vai e-pastu — otra puse to importē.';
 
@@ -1837,9 +1798,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get valueFerret => 'Sesks';
 
   @override
-  String get otherOption => 'Cits…';
-
-  @override
   String get celebrationsToggle => 'Svinēt adopcijas';
 
   @override
@@ -1889,11 +1847,6 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Dzēst visu no šī autora';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Noņem visus $name ierakstus un fotoattēlus no šīs ierīces. Citas ierīces patur savus. Nevar atsaukt.';
-  }
 
   @override
   String get yourKey => 'Tava atslēga';
@@ -1951,11 +1904,6 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Noņem no šī kataloga katru ierakstu un foto, ko $name rakstīja ar atslēgu $key. Citas ierīces savus patur. Nevar atsaukt.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Apstiprināšanai ierakstiet $name';
   }
 
   @override
@@ -2459,11 +2407,6 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Ieraksti $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nekas netika dzēsts: kataloga failu neizdevās ierakstīt ($error). Atbrīvo vietu vai mēģini vēlāk.';
   }
@@ -2572,9 +2515,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get agenda => 'Atgādinājumi';
 
   @override
-  String get reminderLabel => 'Atgādinājums';
-
-  @override
   String get agendaEmpty =>
       'Nav ieplānotu vizīšu. Jaunas plāno šeit ar plusu vai kaķa vai klaudera lapā.';
 
@@ -2656,9 +2596,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalendāra fails saglabāts $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Atspoguļot ierīces kalendārā';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3058,14 +2995,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get achievementCentury => 'Pilns gadsimts';
 
   @override
-  String get achievementCenturyHint => 'Mēs abi būsim ļoti lepni.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title meistars';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3076,14 +3005,6 @@ class AppLocalizationsLv extends AppLocalizations {
     );
     return '$_temp0, pirmoreiz $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Nākamais pie $n';
-  }
-
-  @override
-  String get achievementLocked => 'Vēl ne';
 
   @override
   String achievementUnlocked(String name) {
@@ -3405,16 +3326,10 @@ class AppLocalizationsLv extends AppLocalizations {
       'Lūdzu, pārbaudiet pagrabus, šķūņus un garāžas. Nedzeniet pakaļ, vienkārši piezvaniet.';
 
   @override
-  String get posterLastSeen => 'Pēdējo reizi redzēts pie';
-
-  @override
   String get posterFreeText => 'Papildu rinda';
 
   @override
   String get posterQr => 'QR kods cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Jauns kaķis uz…';

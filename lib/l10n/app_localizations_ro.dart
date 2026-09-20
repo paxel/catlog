@@ -180,9 +180,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sortNewestFirst => 'Cel mai nou primul';
 
   @override
-  String get shareAsText => 'Trimite ca text';
-
-  @override
   String get shareAsPdf => 'Distribuie ca PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Animalul dispare din toate listele, iar pozele lui sunt șterse — aici și, după următoarea sincronizare, și pe celelalte dispozitive.';
-
-  @override
-  String get noLocationAvailable =>
-      'Locație indisponibilă — apasă lung pe hartă în schimb.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get missingSinceLabel => 'Dispărut din';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Decupează portretul';
 
   @override
@@ -608,9 +598,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get value => 'Valoare';
 
   @override
-  String get latitudeLongitude => 'latitudine, longitudine';
-
-  @override
   String get newField => 'Câmp nou';
 
   @override
@@ -678,11 +665,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get stopHosting => 'Oprește găzduirea';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Sesiuni până acum: $count';
   }
@@ -691,30 +673,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get join => 'Alătură-te';
 
   @override
-  String get addressFromHost => 'Adresa (de pe dispozitivul gazdă)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sincronizează acum';
 
   @override
-  String get addressFormatHint =>
-      'Adresa trebuie să arate ca 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sincronizare eșuată: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Ultima sincronizare cu $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Dosar partajat';
 
   @override
   String get sharedFolderExplainer =>
@@ -1388,13 +1355,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get invalidCode => 'Codul nu este valid';
 
   @override
-  String get hotspotHint =>
-      'Fără Wi-Fi comun? Pornește hotspotul unui telefon, conectează-l pe celălalt și găzduiește aici.';
-
-  @override
-  String get byMessenger => 'Prin messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Trimite tot catalogul ca un singur fișier prin WhatsApp, Signal sau mail — cealaltă parte îl importă.';
 
@@ -1838,9 +1798,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get valueFerret => 'Dihor';
 
   @override
-  String get otherOption => 'Altele…';
-
-  @override
   String get celebrationsToggle => 'Sărbătorește adopțiile';
 
   @override
@@ -1890,11 +1847,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Șterge tot de la acest autor';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Elimină fiecare intrare și fotografie de la $name de pe acest dispozitiv. Celelalte dispozitive le păstrează pe ale lor. Ireversibil.';
-  }
 
   @override
   String get yourKey => 'Cheia ta';
@@ -1952,11 +1904,6 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Elimină din acest catalog fiecare intrare și fotografie scrisă de $name sub cheia $key. Celelalte dispozitive le păstrează pe ale lor. Nu se poate anula.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Tastează $name pentru confirmare';
   }
 
   @override
@@ -2459,11 +2406,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Scrie $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ($error). Eliberează spațiu sau încearcă mai târziu.';
   }
@@ -2572,9 +2514,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get agenda => 'Agendă';
 
   @override
-  String get reminderLabel => 'Memento';
-
-  @override
   String get agendaEmpty =>
       'Nicio programare planificată. Planifică altele aici cu plusul sau pe pagina unei pisici sau a unui clowder.';
 
@@ -2656,9 +2595,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Fișierul de calendar a fost salvat în $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Oglindește în calendarul dispozitivului';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3059,14 +2995,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get achievementCentury => 'Un secol întreg';
 
   @override
-  String get achievementCenturyHint => 'Vom fi amândoi foarte mândri.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Maestru $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3077,14 +3005,6 @@ class AppLocalizationsRo extends AppLocalizations {
     );
     return '$_temp0, prima dată pe $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Următorul la $n';
-  }
-
-  @override
-  String get achievementLocked => 'Încă nu';
 
   @override
   String achievementUnlocked(String name) {
@@ -3405,16 +3325,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Vă rugăm să verificați pivnițele, șoproanele și garajele. Nu alergați după el, doar sunați.';
 
   @override
-  String get posterLastSeen => 'Văzut ultima dată lângă';
-
-  @override
   String get posterFreeText => 'Rând suplimentar';
 
   @override
   String get posterQr => 'Cod QR pentru cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Pisică nouă în…';

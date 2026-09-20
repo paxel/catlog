@@ -181,9 +181,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get sortNewestFirst => 'Νεότερα πρώτα';
 
   @override
-  String get shareAsText => 'Κοινοποίηση ως κείμενο';
-
-  @override
   String get shareAsPdf => 'Κοινοποίηση ως PDF';
 
   @override
@@ -253,10 +250,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Το κατοικίδιο εξαφανίζεται από όλες τις λίστες και οι φωτογραφίες του αφαιρούνται — εδώ και, μετά τον επόμενο συγχρονισμό, και στις άλλες συσκευές.';
-
-  @override
-  String get noLocationAvailable =>
-      'Δεν υπάρχει τοποθεσία — πατήστε παρατεταμένα στον χάρτη.';
 
   @override
   String get locationDeniedForever =>
@@ -447,9 +440,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get missingSinceLabel => 'Αγνοείται από';
 
   @override
-  String get phoneLabel => 'Τηλέφωνο';
-
-  @override
   String get cropPortrait => 'Περικοπή πορτρέτου';
 
   @override
@@ -612,9 +602,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get value => 'Τιμή';
 
   @override
-  String get latitudeLongitude => 'γεωγρ. πλάτος, μήκος';
-
-  @override
   String get newField => 'Νέο πεδίο';
 
   @override
@@ -682,11 +669,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get stopHosting => 'Διακοπή φιλοξενίας';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Συνεδρίες μέχρι τώρα: $count';
   }
@@ -695,30 +677,15 @@ class AppLocalizationsEl extends AppLocalizations {
   String get join => 'Σύνδεση';
 
   @override
-  String get addressFromHost => 'Διεύθυνση (από τη συσκευή-οικοδεσπότη)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Συγχρονισμός τώρα';
 
   @override
-  String get addressFormatHint =>
-      'Η διεύθυνση πρέπει να μοιάζει με 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Αποτυχία συγχρονισμού: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Τελευταίος συγχρονισμός με $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Κοινός φάκελος';
 
   @override
   String get sharedFolderExplainer =>
@@ -1395,13 +1362,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get invalidCode => 'Ο κωδικός δεν είναι έγκυρος';
 
   @override
-  String get hotspotHint =>
-      'Χωρίς κοινό Wi-Fi; Ανοίξτε το hotspot του ενός τηλεφώνου, συνδέστε το άλλο και φιλοξενήστε εδώ.';
-
-  @override
-  String get byMessenger => 'Μέσω messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Στείλτε όλο τον κατάλογο ως ένα αρχείο με WhatsApp, Signal ή mail — η άλλη πλευρά τον εισάγει.';
 
@@ -1844,9 +1804,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get valueFerret => 'Κουνάβι';
 
   @override
-  String get otherOption => 'Άλλο…';
-
-  @override
   String get celebrationsToggle => 'Γιορτή υιοθεσιών';
 
   @override
@@ -1897,11 +1854,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Διαγραφή όλων από αυτόν τον συντάκτη';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Αφαιρεί κάθε καταχώρηση και φωτογραφία του $name από αυτήν τη συσκευή. Οι άλλες συσκευές κρατούν τις δικές τους. Δεν αναιρείται.';
-  }
 
   @override
   String get yourKey => 'Το κλειδί σου';
@@ -1958,11 +1910,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Αφαιρεί από αυτόν τον κατάλογο κάθε καταχώριση και φωτογραφία που έγραψε ο/η $name με το κλειδί $key. Οι άλλες συσκευές κρατούν τις δικές τους. Δεν αναιρείται.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Πληκτρολογήστε $name για επιβεβαίωση';
   }
 
   @override
@@ -2464,11 +2411,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Γράψε $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Δεν διαγράφηκε τίποτα: το αρχείο του καταλόγου δεν γράφτηκε ($error). Ελευθέρωσε χώρο ή δοκίμασε αργότερα.';
   }
@@ -2577,9 +2519,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get agenda => 'Υπενθυμίσεις';
 
   @override
-  String get reminderLabel => 'Υπενθύμιση';
-
-  @override
   String get agendaEmpty =>
       'Δεν υπάρχουν προγραμματισμένα ραντεβού. Προγραμμάτισε νέα εδώ με το συν ή στη σελίδα μιας γάτας ή ομάδας.';
 
@@ -2659,10 +2598,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Το αρχείο ημερολογίου αποθηκεύτηκε στο $path';
   }
-
-  @override
-  String get calendarMirrorLabel =>
-      'Αντικατοπτρισμός στο ημερολόγιο της συσκευής';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3056,14 +2991,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get achievementCentury => 'Ένας ολόκληρος αιώνας';
 
   @override
-  String get achievementCenturyHint => 'Θα είμαστε και οι δύο πολύ περήφανοι.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Μάστορας: $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3073,14 +3000,6 @@ class AppLocalizationsEl extends AppLocalizations {
     );
     return '$_temp0, πρώτη φορά στις $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Επόμενο στα $n';
-  }
-
-  @override
-  String get achievementLocked => 'Όχι ακόμη';
 
   @override
   String achievementUnlocked(String name) {
@@ -3402,16 +3321,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Παρακαλώ ελέγξτε υπόγεια, αποθήκες και γκαράζ. Μην το κυνηγάτε, απλώς καλέστε.';
 
   @override
-  String get posterLastSeen => 'Τελευταία φορά κοντά σε';
-
-  @override
   String get posterFreeText => 'Επιπλέον γραμμή';
 
   @override
   String get posterQr => 'Κωδικός QR για το cat(a)log';
-
-  @override
-  String get posterPhoto => 'Φωτογραφία';
 
   @override
   String get newCatIn => 'Νέα γάτα σε…';

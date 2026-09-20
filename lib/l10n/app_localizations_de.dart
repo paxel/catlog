@@ -182,9 +182,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sortNewestFirst => 'Neueste zuerst';
 
   @override
-  String get shareAsText => 'Als Text teilen';
-
-  @override
   String get shareAsPdf => 'Als PDF teilen';
 
   @override
@@ -254,10 +251,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Das Tier verschwindet aus allen Listen und seine Fotos werden entfernt — hier und nach der nächsten Synchronisierung auch auf den anderen Geräten.';
-
-  @override
-  String get noLocationAvailable =>
-      'Kein Standort verfügbar — halte stattdessen die Karte gedrückt.';
 
   @override
   String get locationDeniedForever =>
@@ -448,9 +441,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get missingSinceLabel => 'Vermisst seit';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Porträt zuschneiden';
 
   @override
@@ -612,9 +602,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get value => 'Wert';
 
   @override
-  String get latitudeLongitude => 'Breitengrad, Längengrad';
-
-  @override
   String get newField => 'Neues Feld';
 
   @override
@@ -682,11 +669,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get stopHosting => 'Anbieten beenden';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count Sitzung(en) bisher';
   }
@@ -695,30 +677,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get join => 'Beitreten';
 
   @override
-  String get addressFromHost => 'Adresse (vom anbietenden Gerät)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Jetzt synchronisieren';
 
   @override
-  String get addressFormatHint =>
-      'Adresse muss so aussehen: 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sync fehlgeschlagen: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Letzter Sync mit $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Gemeinsamer Ordner';
 
   @override
   String get sharedFolderExplainer =>
@@ -1393,13 +1360,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get invalidCode => 'Dieser Code ist ungültig';
 
   @override
-  String get hotspotHint =>
-      'Kein gemeinsames WLAN? Hotspot auf einem Handy einschalten, das andere damit verbinden, dann hier anbieten.';
-
-  @override
-  String get byMessenger => 'Per Messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Schick deinen ganzen Katalog als eine Datei über WhatsApp, Signal oder Mail — die Gegenseite importiert sie.';
 
@@ -1842,9 +1802,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get valueFerret => 'Frettchen';
 
   @override
-  String get otherOption => 'Anderes…';
-
-  @override
   String get celebrationsToggle => 'Adoptionen feiern';
 
   @override
@@ -1894,11 +1851,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Alles von dieser Person löschen';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Entfernt jeden Eintrag und jedes Foto von $name von diesem Gerät. Andere Geräte behalten ihre Kopie. Das kann nicht rückgängig gemacht werden.';
-  }
 
   @override
   String get yourKey => 'Dein Schlüssel';
@@ -1955,11 +1907,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Entfernt jeden Eintrag und jedes Foto, das $name unter Schlüssel $key geschrieben hat, aus diesem Katalog. Andere Geräte behalten ihre. Das kann nicht rückgängig gemacht werden.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Zum Bestätigen $name eintippen';
   }
 
   @override
@@ -2462,11 +2409,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '$name eintippen';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nichts wurde gelöscht: die Katalogdatei ließ sich nicht schreiben ($error). Schaff Platz oder versuch es später noch einmal.';
   }
@@ -2575,9 +2517,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get agenda => 'Agenda';
 
   @override
-  String get reminderLabel => 'Erinnerung';
-
-  @override
   String get agendaEmpty =>
       'Keine Termine geplant. Neue Termine planst du hier mit dem Plus oder auf der Seite einer Katze oder Kolonie.';
 
@@ -2657,9 +2596,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalenderdatei gespeichert unter $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'In Gerätekalender spiegeln';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3055,14 +2991,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get achievementCentury => 'Ein volles Jahrhundert';
 
   @override
-  String get achievementCenturyHint => 'Wir werden beide sehr stolz sein.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-Meister';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3072,14 +3000,6 @@ class AppLocalizationsDe extends AppLocalizations {
     );
     return '$_temp0, zuerst am $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Nächste Stufe bei $n';
-  }
-
-  @override
-  String get achievementLocked => 'Noch nicht';
 
   @override
   String achievementUnlocked(String name) {
@@ -3401,16 +3321,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Bitte in Kellern, Schuppen und Garagen nachsehen. Nicht jagen, einfach anrufen.';
 
   @override
-  String get posterLastSeen => 'Zuletzt gesehen bei';
-
-  @override
   String get posterFreeText => 'Zusatzzeile';
 
   @override
   String get posterQr => 'QR-Code für cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Neue Katze in…';

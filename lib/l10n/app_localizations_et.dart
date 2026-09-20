@@ -180,9 +180,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sortNewestFirst => 'Uusim ees';
 
   @override
-  String get shareAsText => 'Jaga tekstina';
-
-  @override
   String get shareAsPdf => 'Jaga PDF-ina';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'Lemmikloom kaob kõigist loenditest ja tema fotod eemaldatakse — siit ja pärast järgmist sünkroonimist ka teistest seadmetest.';
-
-  @override
-  String get noLocationAvailable =>
-      'Asukoht pole saadaval — hoia selle asemel kaarti all.';
 
   @override
   String get locationDeniedForever =>
@@ -445,9 +438,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get missingSinceLabel => 'Kadunud alates';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Kärbi portree';
 
   @override
@@ -607,9 +597,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get value => 'Väärtus';
 
   @override
-  String get latitudeLongitude => 'laius, pikkus';
-
-  @override
   String get newField => 'Uus väli';
 
   @override
@@ -677,11 +664,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get stopHosting => 'Lõpeta võõrustamine';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seansse seni: $count';
   }
@@ -690,30 +672,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get join => 'Liitu';
 
   @override
-  String get addressFromHost => 'Aadress (võõrustavast seadmest)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sünkrooni kohe';
 
   @override
-  String get addressFormatHint =>
-      'Aadress peab välja nägema nagu 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Sünkroonimine ebaõnnestus: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Viimane sünkroonimine seadmega $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Jagatud kaust';
 
   @override
   String get sharedFolderExplainer =>
@@ -1385,13 +1352,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get invalidCode => 'See kood ei kehti';
 
   @override
-  String get hotspotHint =>
-      'Ühist Wi-Fit pole? Lülita ühe telefoni kuumkoht sisse, ühenda teine ja majuta siin.';
-
-  @override
-  String get byMessenger => 'Sõnumirakendusega';
-
-  @override
   String get byMessengerExplainer =>
       'Saada kogu kataloog ühe failina WhatsAppi, Signali või e-postiga — teine pool impordib selle.';
 
@@ -1834,9 +1794,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get valueFerret => 'Tuhkur';
 
   @override
-  String get otherOption => 'Muu…';
-
-  @override
   String get celebrationsToggle => 'Tähista lapsendamisi';
 
   @override
@@ -1884,11 +1841,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Kustuta kõik sellelt autorilt';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Eemaldab kõik $name kirjed ja fotod sellest seadmest. Teised seadmed hoiavad omad alles. Ei saa tagasi võtta.';
-  }
 
   @override
   String get yourKey => 'Sinu võti';
@@ -1945,11 +1897,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Eemaldab sellest kataloogist iga kirje ja foto, mille $name võtme $key all kirjutas. Teised seadmed hoiavad omad. Tagasi võtta ei saa.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Kinnitamiseks kirjuta $name';
   }
 
   @override
@@ -2450,11 +2397,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Kirjuta $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ($error). Vabasta ruumi või proovi hiljem uuesti.';
   }
@@ -2563,9 +2505,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get agenda => 'Meeldetuletused';
 
   @override
-  String get reminderLabel => 'Meeldetuletus';
-
-  @override
   String get agendaEmpty =>
       'Visiite pole plaanitud. Uusi plaanid siin plussiga või kassi või klauderi lehel.';
 
@@ -2645,9 +2584,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalendrifail salvestatud asukohta $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Peegelda seadme kalendrisse';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3042,14 +2978,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get achievementCentury => 'Terve sajand';
 
   @override
-  String get achievementCenturyHint => 'Oleme mõlemad väga uhked.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title meister';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3059,14 +2987,6 @@ class AppLocalizationsEt extends AppLocalizations {
     );
     return '$_temp0, esimest korda $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Järgmine $n juures';
-  }
-
-  @override
-  String get achievementLocked => 'Veel mitte';
 
   @override
   String achievementUnlocked(String name) {
@@ -3388,16 +3308,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'Palun vaadake keldritesse, kuuridesse ja garaažidesse. Ärge ajage taga, lihtsalt helistage.';
 
   @override
-  String get posterLastSeen => 'Viimati nähtud';
-
-  @override
   String get posterFreeText => 'Lisarida';
 
   @override
   String get posterQr => 'QR-kood cat(a)logi jaoks';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Uus kass kohta…';

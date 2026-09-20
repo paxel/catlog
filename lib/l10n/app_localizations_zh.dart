@@ -178,9 +178,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sortNewestFirst => '最新的在前';
 
   @override
-  String get shareAsText => '以文本分享';
-
-  @override
   String get shareAsPdf => '以 PDF 分享';
 
   @override
@@ -248,9 +245,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       '这只宠物将从所有列表中消失，照片也会被删除——本机立即生效，下次同步后其他设备也一样。';
-
-  @override
-  String get noLocationAvailable => '无法获取位置——请改为长按地图。';
 
   @override
   String get locationDeniedForever => '位置权限已被禁止。请在系统设置中允许，以使用 Stray Cam。';
@@ -430,9 +424,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get missingSinceLabel => '失踪日期';
 
   @override
-  String get phoneLabel => '电话';
-
-  @override
   String get cropPortrait => '裁剪头像';
 
   @override
@@ -584,9 +575,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get value => '值';
 
   @override
-  String get latitudeLongitude => '纬度，经度';
-
-  @override
   String get newField => '新字段';
 
   @override
@@ -653,11 +641,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stopHosting => '停止托管';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN：$pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '已完成会话：$count';
   }
@@ -666,29 +649,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get join => '加入';
 
   @override
-  String get addressFromHost => '地址（来自主机设备）';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => '立即同步';
 
   @override
-  String get addressFormatHint => '地址格式应类似 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return '同步失败：$error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return '与 $peer 的上次同步：$time';
-  }
-
-  @override
-  String get sharedFolder => '共享文件夹';
 
   @override
   String get sharedFolderExplainer =>
@@ -1346,12 +1315,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get invalidCode => '该代码无效';
 
   @override
-  String get hotspotHint => '没有共同的 Wi-Fi？打开一部手机的热点，让另一部连接，然后在这里托管。';
-
-  @override
-  String get byMessenger => '通过聊天软件';
-
-  @override
   String get byMessengerExplainer =>
       '把整个目录作为一个文件通过 WhatsApp、Signal 或邮件发送——对方导入即可。';
 
@@ -1793,9 +1756,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get valueFerret => '雪貂';
 
   @override
-  String get otherOption => '其他…';
-
-  @override
   String get celebrationsToggle => '庆祝领养';
 
   @override
@@ -1842,11 +1802,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get hardDeleteAction => '删除该作者的全部内容';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return '从此设备移除 $name 的所有记录和照片。其他设备保留其副本。无法撤销。';
-  }
 
   @override
   String get yourKey => '你的密钥';
@@ -1902,11 +1857,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return '从此目录中移除 $name 使用密钥 $key 写入的所有条目和照片。其他设备保留各自的内容。无法撤销。';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return '输入 $name 以确认';
   }
 
   @override
@@ -2364,11 +2314,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '输入 $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return '没有删除任何内容：无法写入目录文件（$error）。请腾出空间或稍后再试。';
   }
@@ -2475,9 +2420,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get agenda => '日程';
 
   @override
-  String get reminderLabel => '提醒';
-
-  @override
   String get agendaEmpty => '没有已计划的安排。可以在这里用加号，或在猫或猫群的页面上计划新的安排。';
 
   @override
@@ -2553,9 +2495,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String icsSavedTo(String path) {
     return '日历文件已保存到 $path';
   }
-
-  @override
-  String get calendarMirrorLabel => '同步到设备日历';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2897,25 +2836,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get achievementCentury => '完整的一百年';
 
   @override
-  String get achievementCenturyHint => '到那时我们都会非常自豪。';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title大师';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     return '已达成 $times 次，首次于 $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return '下一级 $n';
-  }
-
-  @override
-  String get achievementLocked => '尚未';
 
   @override
   String achievementUnlocked(String name) {
@@ -3227,16 +3150,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get posterStanding => '请检查地下室、棚屋和车库。请勿追赶，请来电。';
 
   @override
-  String get posterLastSeen => '最后出现地点';
-
-  @override
   String get posterFreeText => '附加一行';
 
   @override
   String get posterQr => 'cat(a)log 二维码';
-
-  @override
-  String get posterPhoto => '照片';
 
   @override
   String get newCatIn => '新猫加入…';

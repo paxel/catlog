@@ -180,9 +180,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get sortNewestFirst => 'L-aktar ġdid l-ewwel';
 
   @override
-  String get shareAsText => 'Aqsam bħala test';
-
-  @override
   String get shareAsPdf => 'Aqsam bħala PDF';
 
   @override
@@ -252,10 +249,6 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get deleteCatBodyNeutral =>
       'L-annimal domestiku jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sync li jmiss, fuq l-apparati l-oħra wkoll.';
-
-  @override
-  String get noLocationAvailable =>
-      'M\'hemmx lok disponibbli — minflok agħfas fit-tul fuq il-mappa.';
 
   @override
   String get locationDeniedForever =>
@@ -446,9 +439,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get missingSinceLabel => 'Mitluf minn';
 
   @override
-  String get phoneLabel => 'Telefon';
-
-  @override
   String get cropPortrait => 'Aqta\' r-ritratt';
 
   @override
@@ -608,9 +598,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get value => 'Valur';
 
   @override
-  String get latitudeLongitude => 'latitudni, lonġitudni';
-
-  @override
   String get newField => 'Qasam ġdid';
 
   @override
@@ -678,11 +665,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get stopHosting => 'Ieqaf ospita';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Sessjonijiet s\'issa: $count';
   }
@@ -691,30 +673,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get join => 'Ingħaqad';
 
   @override
-  String get addressFromHost => 'Indirizz (mill-apparat li qed jospita)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Issinkronizza issa';
 
   @override
-  String get addressFormatHint =>
-      'L-indirizz irid jidher bħal 192.168.0.12:38472';
-
-  @override
   String syncFailed(String error) {
     return 'Is-sinkronizzazzjoni falliet: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'L-aħħar sinkronizzazzjoni ma\' $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Folder kondiviż';
 
   @override
   String get sharedFolderExplainer =>
@@ -1389,13 +1356,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get invalidCode => 'Dak il-kodiċi mhux validu';
 
   @override
-  String get hotspotHint =>
-      'M\'hemmx Wi-Fi komuni? Ixgħel il-hotspot ta\' telefown wieħed, qabbad l-ieħor, imbagħad ospita hawn.';
-
-  @override
-  String get byMessenger => 'Bil-messenger';
-
-  @override
   String get byMessengerExplainer =>
       'Ibgħat il-katalgu kollu bħala fajl wieħed bil-WhatsApp, Signal jew mail — in-naħa l-oħra timportah.';
 
@@ -1840,9 +1800,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get valueFerret => 'Nemes';
 
   @override
-  String get otherOption => 'Ieħor…';
-
-  @override
   String get celebrationsToggle => 'Iċċelebra l-adozzjonijiet';
 
   @override
@@ -1891,11 +1848,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Ħassar kollox minn dan l-awtur';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Ineħħi kull entrata u ritratt ta\' $name minn dan l-apparat. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa\' lura.';
-  }
 
   @override
   String get yourKey => 'Iċ-ċavetta tiegħek';
@@ -1954,11 +1906,6 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String hardDeleteWarningKey(Object name, Object key) {
     return 'Ineħħi minn dan il-katalgu kull entrata u ritratt miktubin minn $name taħt iċ-ċavetta $key. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.';
-  }
-
-  @override
-  String typeToConfirm(Object name) {
-    return 'Ikteb $name biex tikkonferma';
   }
 
   @override
@@ -2460,11 +2407,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Ikteb $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Ma tħassar xejn: il-fajl tal-katalgu ma setax jinkiteb ($error). Illibera spazju jew erġa’ pprova aktar tard.';
   }
@@ -2573,9 +2515,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get agenda => 'Tfakkiriet';
 
   @override
-  String get reminderLabel => 'Tfakkira';
-
-  @override
   String get agendaEmpty =>
       'L-ebda appuntament ippjanat. Ippjana oħrajn hawn bil-plus, jew fuq il-paġna ta\' qattus jew clowder.';
 
@@ -2659,9 +2598,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Il-fajl tal-kalendarju ġie salvat f\'$path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Irrifletti fil-kalendarju tal-apparat';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -3057,14 +2993,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get achievementCentury => 'Seklu sħiħ';
 
   @override
-  String get achievementCenturyHint => 'It-tnejn se nkunu kburin ħafna.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Mastru ta’ $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3074,14 +3002,6 @@ class AppLocalizationsMt extends AppLocalizations {
     );
     return '$_temp0, l-ewwel darba $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Li jmiss f’$n';
-  }
-
-  @override
-  String get achievementLocked => 'Għadu mhux';
 
   @override
   String achievementUnlocked(String name) {
@@ -3404,16 +3324,10 @@ class AppLocalizationsMt extends AppLocalizations {
       'Jekk jogħġbok iċċekkja kantini, xkafef u garaxxijiet. Tiġrix warajh, ċempel biss.';
 
   @override
-  String get posterLastSeen => 'L-aħħar li deher qrib';
-
-  @override
   String get posterFreeText => 'Linja żejda';
 
   @override
   String get posterQr => 'Kodiċi QR għal cat(a)log';
-
-  @override
-  String get posterPhoto => 'Ritratt';
 
   @override
   String get newCatIn => 'Qattus ġdid fi…';
