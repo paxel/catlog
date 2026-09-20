@@ -29,77 +29,112 @@ pub fn anchor_rect(ctx: &Context, id: &str) -> Option<Rect> {
     (ctx.cumulative_pass_nr().saturating_sub(pass) <= 1).then_some(rect)
 }
 
-/// The spotlight: the screen dimmed but for `target`, an orange ring
-/// around it that breathes when motion is on, and a bubble with the
-/// words and the button beside it. The bubble never starts above
-/// `keep_clear`, the bottom of the menu and the bar, so those stay
-/// clickable. True once the button was clicked. Drawn above modals, so
+/// What the keeper did with a tip's bubble this frame.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Answer {
+    /// Nothing yet.
+    None,
+    /// Next, or Got it on the last: this tip is seen.
+    Next,
+    /// Skip: this page's remaining tips are seen too.
+    Skip,
+}
+
+/// The one look every tip has, as on the phone: a bubble with the words,
+/// Skip, and Next or Got it on the page's last tip. With a `target` the
+/// screen is dimmed but for it, an orange ring around it breathes when
+/// motion is on, and the bubble hangs beside it; without one the bubble
+/// sits under the bar. It never starts above `keep_clear`, the bottom of
+/// the menu and the bar, so those stay clickable. Drawn above modals, so
 /// a tip about a modal's widget reaches it.
-pub fn spotlight(ctx: &Context, target: Rect, keep_clear: f32, text: &str, done: &str) -> bool {
+pub fn spotlight(
+    ctx: &Context,
+    target: Option<Rect>,
+    keep_clear: f32,
+    text: &str,
+    last: bool,
+    t: &L10n,
+) -> Answer {
     let screen = ctx.content_rect();
-    let hole = target.expand(6.0);
+    let hole = target.map(|r| r.expand(6.0));
     let pulse = if crate::motion::duration(ctx) > 0.0 {
         ctx.request_repaint();
         ((ctx.input(|i| i.time) * 3.0).sin() as f32) * 0.5 + 0.5
     } else {
         1.0
     };
-    // The bubble below the widget when there is room, else above it.
-    let below = hole.max.y + 140.0 < screen.max.y;
-    let x = hole.min.x.clamp(
-        screen.min.x + 8.0,
-        (screen.max.x - 400.0).max(screen.min.x + 8.0),
-    );
-    let (pos, pivot) = if below {
-        (
-            Pos2::new(x, (hole.max.y + 12.0).max(keep_clear + 8.0)),
+    let (pos, pivot) = match hole {
+        Some(hole) => {
+            // The bubble below the widget when there is room, else above it.
+            let below = hole.max.y + 140.0 < screen.max.y;
+            let x = hole.min.x.clamp(
+                screen.min.x + 8.0,
+                (screen.max.x - 400.0).max(screen.min.x + 8.0),
+            );
+            if below {
+                (
+                    Pos2::new(x, (hole.max.y + 12.0).max(keep_clear + 8.0)),
+                    Align2::LEFT_TOP,
+                )
+            } else {
+                (Pos2::new(x, hole.min.y - 12.0), Align2::LEFT_BOTTOM)
+            }
+        }
+        None => (
+            Pos2::new(screen.min.x + 8.0, keep_clear + 8.0),
             Align2::LEFT_TOP,
-        )
-    } else {
-        (Pos2::new(x, hole.min.y - 12.0), Align2::LEFT_BOTTOM)
+        ),
     };
-    let mut clicked = false;
+    let mut answer = Answer::None;
     egui::Area::new(Id::new("tip-bubble"))
         .order(Order::Tooltip)
         .fixed_pos(pos)
         .pivot(pivot)
         .show(ctx, |ui| {
-            // The veil and the ring go on the bubble's own layer, before
-            // its frame: over every modal, under the words.
-            let painter = ui.painter().with_clip_rect(screen);
-            let dim = Color32::from_black_alpha(70);
-            for part in [
-                Rect::from_min_max(screen.min, Pos2::new(screen.max.x, hole.min.y)),
-                Rect::from_min_max(Pos2::new(screen.min.x, hole.max.y), screen.max),
-                Rect::from_min_max(
-                    Pos2::new(screen.min.x, hole.min.y),
-                    Pos2::new(hole.min.x, hole.max.y),
-                ),
-                Rect::from_min_max(
-                    Pos2::new(hole.max.x, hole.min.y),
-                    Pos2::new(screen.max.x, hole.max.y),
-                ),
-            ] {
-                painter.rect_filled(part, 0.0, dim);
+            if let Some(hole) = hole {
+                // The veil and the ring go on the bubble's own layer, before
+                // its frame: over every modal, under the words.
+                let painter = ui.painter().with_clip_rect(screen);
+                let dim = Color32::from_black_alpha(70);
+                for part in [
+                    Rect::from_min_max(screen.min, Pos2::new(screen.max.x, hole.min.y)),
+                    Rect::from_min_max(Pos2::new(screen.min.x, hole.max.y), screen.max),
+                    Rect::from_min_max(
+                        Pos2::new(screen.min.x, hole.min.y),
+                        Pos2::new(hole.min.x, hole.max.y),
+                    ),
+                    Rect::from_min_max(
+                        Pos2::new(hole.max.x, hole.min.y),
+                        Pos2::new(screen.max.x, hole.max.y),
+                    ),
+                ] {
+                    painter.rect_filled(part, 0.0, dim);
+                }
+                painter.rect_stroke(
+                    hole.expand(pulse * 2.0),
+                    10.0,
+                    Stroke::new(3.0, crate::theme::PALETTE.orange),
+                    egui::StrokeKind::Outside,
+                );
             }
-            painter.rect_stroke(
-                hole.expand(pulse * 2.0),
-                10.0,
-                Stroke::new(3.0, crate::theme::PALETTE.orange),
-                egui::StrokeKind::Outside,
-            );
             egui::Frame::popup(ui.style())
                 .fill(crate::theme::PALETTE.paper)
                 .stroke(Stroke::new(1.5, crate::theme::PALETTE.orange))
                 .show(ui, |ui| {
                     ui.set_max_width(380.0);
                     crate::icons::label(ui, crate::icons::LIGHTBULB_OUTLINE, text);
-                    if crate::icons::button(ui, crate::icons::CHECK, done).clicked() {
-                        clicked = true;
-                    }
+                    ui.horizontal(|ui| {
+                        if ui.button(t.intro_skip()).clicked() {
+                            answer = Answer::Skip;
+                        }
+                        let go = if last { t.spot_done() } else { t.intro_next() };
+                        if crate::icons::button(ui, crate::icons::CHECK, go).clicked() {
+                            answer = Answer::Next;
+                        }
+                    });
                 });
         });
-    clicked
+    answer
 }
 
 /// One tip: its id and its text.
@@ -249,23 +284,33 @@ fn key(screen: &str) -> String {
     format!("spot:{screen}")
 }
 
-/// The next tip the keeper has not seen on this page.
+/// The next tip the keeper has not seen on this page, and whether it is
+/// the page's last.
 pub fn due_tip(
     store: &Catalog,
     view: View,
     modal: Option<Modal>,
     selection: &Selection,
     strays: bool,
-) -> Option<(&'static str, Tip)> {
+) -> Option<(&'static str, Tip, bool)> {
     let (screen, tips) = tips_for(view, modal, selection, strays);
     if screen.is_empty() {
         return None;
     }
     let seen = store.local_setting(&key(screen)).unwrap_or_default();
     let seen: Vec<&str> = seen.split(',').collect();
-    tips.into_iter()
-        .find(|t| !seen.contains(&t.id))
-        .map(|t| (screen, t))
+    let mut unseen = tips.into_iter().filter(|t| !seen.contains(&t.id));
+    let first = unseen.next()?;
+    let last = unseen.next().is_none();
+    Some((screen, first, last))
+}
+
+/// Marks every tip of one page seen: Skip.
+pub fn mark_page_seen(store: &Catalog, screen: &str) {
+    let (view, modal, selection, strays) = screen_for(screen);
+    let (_, tips) = tips_for(view, modal, &selection, strays);
+    let ids: Vec<&str> = tips.iter().map(|t| t.id).collect();
+    let _ = store.set_local_setting(&key(screen), &ids.join(","));
 }
 
 /// Marks one tip seen.
@@ -286,10 +331,7 @@ pub fn mark_seen(store: &Catalog, screen: &str, id: &str) {
 /// Marks every tip seen, for a keeper who knows their way around.
 pub fn mark_all_seen(store: &Catalog) {
     for screen in ["home", "agenda", "map", "cat", "card", "settings", "strays"] {
-        let (view, modal, selection, strays) = screen_for(screen);
-        let (_, tips) = tips_for(view, modal, &selection, strays);
-        let ids: Vec<&str> = tips.iter().map(|t| t.id).collect();
-        let _ = store.set_local_setting(&key(screen), &ids.join(","));
+        mark_page_seen(store, screen);
     }
 }
 
@@ -361,12 +403,22 @@ mod tests {
         let t = L10n::new("en");
         let cat = Selection::Cat("cat:a".into());
         let due = |store: &Catalog, s: &Selection| due_tip(store, View::Cats, None, s, false);
-        let (screen, first) = due(&store, &cat).unwrap();
-        assert_eq!((screen, first.id), ("cat", "cat-edit"));
+        let (screen, first, last) = due(&store, &cat).unwrap();
+        assert_eq!((screen, first.id, last), ("cat", "cat-edit", false));
         assert!(!(first.text)(&t).is_empty());
         mark_seen(&store, screen, first.id);
-        let (_, second) = due(&store, &cat).unwrap();
+        let (_, second, _) = due(&store, &cat).unwrap();
         assert_eq!(second.id, "cat-menu");
+        // Skip on a page marks the rest of that page seen, no other.
+        mark_page_seen(&store, "cat");
+        assert!(due(&store, &cat).is_none());
+        let (_, map_first, map_last) =
+            due_tip(&store, View::Map, None, &Selection::None, false).unwrap();
+        assert_eq!((map_first.id, map_last), ("map-search", false));
+        mark_seen(&store, "map", "map-search");
+        let (_, map_second, map_last) =
+            due_tip(&store, View::Map, None, &Selection::None, false).unwrap();
+        assert_eq!((map_second.id, map_last), ("map-layers", true));
         mark_all_seen(&store);
         assert!(due(&store, &cat).is_none());
         assert!(due(&store, &Selection::None).is_none());
@@ -383,6 +435,7 @@ mod tests {
         );
         reset(&store);
         assert_eq!(due(&store, &cat).unwrap().1.id, "cat-edit");
+        assert!(!due(&store, &cat).unwrap().2);
         assert_eq!(
             due_tip(&store, View::Map, None, &Selection::None, false)
                 .unwrap()

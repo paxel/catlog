@@ -73,7 +73,9 @@ pub const DEFAULT_WINDOW_SIZE: [f32; 2] = [1200.0, 800.0];
 pub const DEFAULT_PANE_WIDTH: f32 = 600.0;
 
 /// A tip about to be spotlighted: its screen, its id and its text.
-type TipSpot = (&'static str, &'static str, fn(&L10n) -> &'static str);
+/// A tip due this frame: its page, its id, its words and whether it is
+/// the page's last.
+type TipSpot = (&'static str, &'static str, fn(&L10n) -> &'static str, bool);
 
 /// Asks the keeper for files: the dialog's title, the extensions it
 /// shows first and the words for "all files" in, the chosen paths out.
@@ -794,7 +796,7 @@ impl App {
         self.show_menu_bar(ui);
         let t = self.t;
         self.show_watch_line(ui);
-        self.show_tip(ui);
+        self.show_tip();
         let bar = egui::Panel::top("view-bar")
             .show_separator_line(true)
             .show(ui, |ui| {
@@ -2074,17 +2076,18 @@ impl App {
         ui.label(text);
     }
 
-    /// The tip's spotlight on its widget, over everything drawn before.
+    /// The tip's bubble, over everything drawn before: on its widget when
+    /// that is on screen, under the bar when not.
     fn show_spotlight(&mut self, ctx: &Context) {
-        let Some((screen, id, text)) = self.tip_spot.take() else {
+        let Some((screen, id, text, last)) = self.tip_spot.take() else {
             return;
         };
-        let Some(rect) = tips::anchor_rect(ctx, id) else {
-            return;
-        };
+        let rect = tips::anchor_rect(ctx, id);
         let t = self.t;
-        if tips::spotlight(ctx, rect, self.bar_bottom, text(&t), t.spot_done()) {
-            tips::mark_seen(&self.store, screen, id);
+        match tips::spotlight(ctx, rect, self.bar_bottom, text(&t), last, &t) {
+            tips::Answer::None => {}
+            tips::Answer::Next => tips::mark_seen(&self.store, screen, id),
+            tips::Answer::Skip => tips::mark_page_seen(&self.store, screen),
         }
     }
 
@@ -2593,12 +2596,11 @@ impl App {
     }
 
     /// The tip due on this page, once.
-    fn show_tip(&mut self, ui: &mut Ui) {
+    fn show_tip(&mut self) {
         if self.tips_quiet {
             return;
         }
-        let t = self.t;
-        let Some((screen, tip)) = tips::due_tip(
+        let Some((screen, tip, last)) = tips::due_tip(
             &self.store,
             self.view,
             self.modal.clone(),
@@ -2607,26 +2609,8 @@ impl App {
         ) else {
             return;
         };
-        // A widget to point at gets the spotlight, drawn last so it lies
-        // over everything; without one the line under the menu says it.
-        if tips::anchor_rect(ui.ctx(), tip.id).is_some() {
-            self.tip_spot = Some((screen, tip.id, tip.text));
-            return;
-        }
-        let mut done = false;
-        egui::Panel::top("tip-line")
-            .show_separator_line(true)
-            .show(ui, |ui| {
-                ui.horizontal(|ui| {
-                    icons::label(ui, icons::LIGHTBULB_OUTLINE, (tip.text)(&t));
-                    if icons::button(ui, icons::CHECK, t.spot_done()).clicked() {
-                        done = true;
-                    }
-                });
-            });
-        if done {
-            tips::mark_seen(&self.store, screen, tip.id);
-        }
+        // Drawn last, so the bubble lies over everything.
+        self.tip_spot = Some((screen, tip.id, tip.text, last));
     }
 
     pub fn open_settings(&mut self) {
@@ -5405,41 +5389,53 @@ mod tests {
     }
 
     #[test]
-    fn a_tip_spotlights_its_widget_and_falls_back_to_the_line_without_one() {
+    fn a_tip_spotlights_its_widget_next_goes_on_and_skip_ends_the_page() {
         let dir = tempfile::tempdir().unwrap();
         let mut app = seeded(dir.path());
         app.tips_quiet = false;
         let mut h = harness(app);
         h.run();
-        // The first tip rings the Catalog menu button and speaks beside it.
+        // The first tip rings the Catalog menu button and speaks beside it,
+        // with Skip and Next: it is not the page's last.
         let catalog = h.get_by_label("Catalog").rect();
         let ring = crate::tips::anchor_rect(&h.ctx, "home-catalog").unwrap();
         assert!(ring.contains_rect(catalog) || catalog.contains_rect(ring));
         h.get_by_label_contains("This is the catalog you are in");
-        let bubble = h.get_by_label("Got it").rect();
+        let bubble = h.get_by_label("Next").rect();
         assert!(bubble.min.y > catalog.max.y, "the bubble hangs under it");
         assert!(bubble.min.x < catalog.max.x + 200.0, "and sits beside it");
-        assert!(h.query_by_label("Got it").is_some());
-        h.get_by_label("Got it").click();
+        assert!(h.query_by_label("Skip").is_some());
+        assert!(h.query_by_label("Got it").is_none());
+        h.get_by_label("Next").click();
         h.run();
         // The next tip points at the strays tile on the dashboard.
         h.get_by_label_contains("This card collects all strays");
         let tile = h.get_by_label("1 strays").rect();
         let ring = crate::tips::anchor_rect(&h.ctx, "home-strays").unwrap();
         assert!(ring.contains_rect(tile) || tile.contains_rect(ring));
-        let bubble = h.get_by_label("Got it").rect();
+        let bubble = h.get_by_label("Next").rect();
         assert!(bubble.min.y > tile.max.y);
-        h.get_by_label("Got it").click();
+        // Skip ends the Home tour: no more tips there, the map's untouched.
+        h.get_by_label("Skip").click();
         h.run();
-        // The map's tips ring the search box, then the stray areas button.
+        assert!(h.query_by_label("Skip").is_none());
+        assert!(
+            h.query_by_label_contains("Sync with people you know")
+                .is_none()
+        );
+        // The map's tips ring the search box, then the stray areas button;
+        // the last one says Got it.
         open_view(&mut h, "Map");
         h.get_by_label_contains("Type a cat, place, or person here");
         assert!(crate::tips::anchor_rect(&h.ctx, "map-search").is_some());
-        h.get_by_label("Got it").click();
+        h.get_by_label("Next").click();
         h.run();
-        // The next map tip rings the stray areas button again.
         h.get_by_label_contains("Show circles around its poster spots");
         assert!(crate::tips::anchor_rect(&h.ctx, "map-layers").is_some());
+        assert!(h.query_by_label("Next").is_none());
+        h.get_by_label("Got it").click();
+        h.run();
+        assert!(h.query_by_label("Got it").is_none());
     }
 
     #[test]
@@ -6419,7 +6415,7 @@ mod tests {
         h.get_by_label(
             "This is the catalog you are in. Tap the name to switch, or to make another one.",
         );
-        h.get_by_label("Got it").click();
+        h.get_by_label("Next").click();
         h.run();
         assert!(
             h.query_by_label_contains("This is the catalog you are in")
