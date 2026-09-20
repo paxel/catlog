@@ -20,7 +20,7 @@ stage=$(mktemp -d)
 bundle="$stage/bundle"
 mkdir -p "$bundle"
 cp "$binary" "$bundle/catlog"
-cp "$here/catlog.desktop" "$here/catlog-mime.xml" "$here/install-icon.sh" "$bundle/"
+cp "$here/io.github.paxel.catlog.desktop" "$here/catlog-mime.xml" "$here/install-icon.sh" "$bundle/"
 cp "$icons/icon.png" "$icons/icon.svg" "$bundle/"
 cp "$here/../../../LICENSE-APACHE" "$here/../../../LICENSE-MIT" "$bundle/" 2>/dev/null || true
 tar -C "$bundle" -czf "$dist/catlog-$version-linux-$arch.tar.gz" .
@@ -37,7 +37,7 @@ mkdir -p "$deb/DEBIAN" "$deb/usr/bin" "$deb/usr/share/applications" \
   "$deb/usr/share/icons/hicolor/1024x1024/apps" "$deb/usr/share/doc/catlog"
 cp "$binary" "$deb/usr/bin/catlog"
 chmod 0755 "$deb/usr/bin/catlog"
-cp "$here/catlog.desktop" "$deb/usr/share/applications/catlog.desktop"
+cp "$here/io.github.paxel.catlog.desktop" "$deb/usr/share/applications/io.github.paxel.catlog.desktop"
 cp "$here/catlog-mime.xml" "$deb/usr/share/mime/packages/catlog-mime.xml"
 cp "$icons/icon.svg" "$deb/usr/share/icons/hicolor/scalable/apps/catlog.svg"
 cp "$icons/icon.png" "$deb/usr/share/icons/hicolor/1024x1024/apps/catlog.png"
@@ -64,8 +64,8 @@ mkdir -p "$appdir/usr/bin" "$appdir/usr/share/applications" \
   "$appdir/usr/share/icons/hicolor/1024x1024/apps"
 cp "$binary" "$appdir/usr/bin/catlog"
 chmod 0755 "$appdir/usr/bin/catlog"
-cp "$here/catlog.desktop" "$appdir/catlog.desktop"
-cp "$here/catlog.desktop" "$appdir/usr/share/applications/catlog.desktop"
+cp "$here/io.github.paxel.catlog.desktop" "$appdir/io.github.paxel.catlog.desktop"
+cp "$here/io.github.paxel.catlog.desktop" "$appdir/usr/share/applications/io.github.paxel.catlog.desktop"
 cp "$icons/icon.png" "$appdir/catlog.png"
 cp "$icons/icon.png" "$appdir/usr/share/icons/hicolor/1024x1024/apps/catlog.png"
 cat > "$appdir/AppRun" <<'APPRUN'

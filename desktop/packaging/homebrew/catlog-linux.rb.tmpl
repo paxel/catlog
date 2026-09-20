@@ -24,7 +24,7 @@ class Catlog < Formula
     # session's PATH or XDG_DATA_DIRS: "Exec=catlog" would fail to launch and
     # "Icon=catlog" would find nothing to draw.
     icon = "#{opt_prefix}/share/icons/hicolor/scalable/apps/catlog.svg"
-    inreplace libexec/"catlog.desktop" do |entry|
+    inreplace libexec/"io.github.paxel.catlog.desktop" do |entry|
       entry.gsub! "Exec=catlog", "Exec=#{opt_bin}/catlog"
       entry.gsub! "Icon=catlog", "Icon=#{icon}"
     end
@@ -40,7 +40,7 @@ class Catlog < Formula
 
     # Also in Homebrew's own share, for the sessions that do read it.
     (share/"applications").mkpath
-    cp libexec/"catlog.desktop", share/"applications/catlog.desktop"
+    cp libexec/"io.github.paxel.catlog.desktop", share/"applications/io.github.paxel.catlog.desktop"
     (share/"mime/packages").mkpath
     cp libexec/"catlog-mime.xml", share/"mime/packages/catlog-mime.xml"
     (share/"icons/hicolor/scalable/apps").mkpath
@@ -49,21 +49,24 @@ class Catlog < Formula
     cp libexec/"icon.png", share/"icons/hicolor/1024x1024/apps/catlog.png"
   end
 
+  # Homebrew's own share directory is not on a desktop session's XDG_DATA_DIRS, so the
+  # entry above alone stays invisible to menus: the app could not be started at all.
+  # Homebrew on Linux runs this step outside a sandbox, so the launcher entry, the icons
+  # and the file type go into ~/.local/share here, which every session reads.
+  def post_install
+    system libexec/"install-icon.sh"
+  end
+
   def caveats
     <<~EOS
       Needs the usual desktop libraries from your distribution: X11 or
       Wayland with libxkbcommon, and ALSA for the cheers
       (e.g. Debian/Ubuntu: sudo apt install libxkbcommon0 libasound2t64).
 
-      To get cat(a)log into your application menu, where it can also be pinned, and to
-      open .catsync files with it, run once:
+      cat(a)log is in your application menu, where it can also be pinned, and opens
+      .catsync files. Another user on this machine gets the same by running once:
 
         catlog-install-icon
-
-      That copies the launcher entry, the icons and the file type into ~/.local/share,
-      which every desktop session reads. Homebrew's own share directory is not on a
-      session's XDG_DATA_DIRS, so an entry installed there alone stays invisible to
-      menus.
     EOS
   end
 

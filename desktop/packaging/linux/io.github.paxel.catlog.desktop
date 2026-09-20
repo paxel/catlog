@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=cat(a)log
+Comment=The catalog for people who foster cats
+Exec=catlog %f
+Icon=catlog
+Terminal=false
+Type=Application
+Categories=Utility;
+MimeType=application/x-catsync;
+# The running window carries this app id (set in the desktop binary). On
+# Wayland the compositor finds this entry by its file name, which is why
+# the file is called io.github.paxel.catlog.desktop; on X11 it matches
+# the window class below instead.
+StartupWMClass=io.github.paxel.catlog

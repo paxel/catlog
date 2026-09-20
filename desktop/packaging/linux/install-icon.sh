@@ -6,8 +6,8 @@
 # Homebrew's own share directory is not on a desktop session's XDG_DATA_DIRS, so an
 # entry installed there alone stays invisible to menus; this copies into ~/.local/share,
 # which every session reads. On Wayland it also gives the window its taskbar icon: there
-# is no protocol for a client to set its own, so the compositor matches the window's
-# app_id to the .desktop entry instead.
+# is no protocol for a client to set its own, so the compositor looks for the entry named
+# after the window's app id, io.github.paxel.catlog.desktop.
 #
 # Usage:
 #   install-icon.sh    launcher entry, icons and file type
@@ -34,11 +34,11 @@ if [ -f "$here/icon.png" ]; then
 else
   icons=$here/../../../assets/icon
 fi
-desktop_source="$here/catlog.desktop"
+desktop_source="$here/io.github.paxel.catlog.desktop"
 mime_source="$here/catlog-mime.xml"
 
 data_home="${XDG_DATA_HOME:-$HOME/.local/share}"
-desktop_target="$data_home/applications/catlog.desktop"
+desktop_target="$data_home/applications/io.github.paxel.catlog.desktop"
 mime_target="$data_home/mime/packages/catlog-mime.xml"
 
 mkdir -p "$(dirname "$desktop_target")" "$(dirname "$mime_target")"
@@ -72,5 +72,5 @@ command -v update-mime-database >/dev/null 2>&1 &&
   update-mime-database "$data_home/mime" >/dev/null 2>&1 || true
 command -v kbuildsycoca6 >/dev/null 2>&1 && kbuildsycoca6 >/dev/null 2>&1 || true
 
-echo "cat(a)log is in your application menu; on KDE you may need to log out and in"
-echo "before the menu and the .catsync file type notice."
+echo "cat(a)log is in your application menu. A window already open keeps its old"
+echo "icon; start cat(a)log again to see the new one."
