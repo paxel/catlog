@@ -52,9 +52,14 @@ class Catlog < Formula
   # Homebrew's own share directory is not on a desktop session's XDG_DATA_DIRS, so the
   # entry above alone stays invisible to menus: the app could not be started at all.
   # Homebrew on Linux runs this step outside a sandbox, so the launcher entry, the icons
-  # and the file type go into ~/.local/share here, which every session reads.
+  # and the file type go into ~/.local/share here, which every session reads. Homebrew
+  # scrubs the environment first, so a custom XDG_DATA_HOME is not seen here; the
+  # caveat names the helper for that case. A home that cannot be written (a container,
+  # a bottle build) must not fail the install over a menu entry.
   def post_install
     system libexec/"install-icon.sh"
+  rescue ErrorDuringExecution
+    opoo "The launcher entry could not be installed; run catlog-install-icon yourself."
   end
 
   def caveats
@@ -63,10 +68,15 @@ class Catlog < Formula
       Wayland with libxkbcommon, and ALSA for the cheers
       (e.g. Debian/Ubuntu: sudo apt install libxkbcommon0 libasound2t64).
 
-      cat(a)log is in your application menu, where it can also be pinned, and opens
-      .catsync files. Another user on this machine gets the same by running once:
+      The install puts cat(a)log into your application menu, where it can also be
+      pinned, and registers .catsync files, under ~/.local/share. If it is missing
+      there, for another user on this machine, or with a custom XDG_DATA_HOME, run:
 
         catlog-install-icon
+
+      Before brew uninstall, to take the menu entry out again:
+
+        catlog-install-icon --uninstall
     EOS
   end
 
