@@ -252,9 +252,6 @@ class AppLocalizationsJa extends AppLocalizations {
       'このペットはすべての一覧から消え、写真も削除されます。この端末だけでなく、次回の同期後には他の端末からも消えます。';
 
   @override
-  String get sightingRecorded => '現在地で目撃を記録しました。';
-
-  @override
   String get noLocationAvailable => '位置情報がありません — 代わりに地図を長押ししてください。';
 
   @override
@@ -556,16 +553,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field をクリアしました';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field を「$value」に戻しました';
-  }
-
-  @override
   String get leftStray => '去った — 野良猫';
 
   @override
@@ -705,11 +692,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addressFormatHint => 'アドレスは 192.168.0.12:38472 の形式です';
 
   @override
-  String syncedResult(String result) {
-    return '同期完了: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return '同期に失敗: $error';
   }
@@ -746,11 +728,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get folderHint =>
       '2台の端末が同じ状態に保つフォルダなら何でも使えます。クラウドドライブでも、端末内に留めたいなら Syncthing でも。Syncthing は無料です。各端末にインストールし、1つのフォルダを共有して、そのフォルダを各端末のここで選んでください。';
-
-  @override
-  String folderSynced(String result) {
-    return 'フォルダーを同期しました: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1382,9 +1359,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get copyCode => 'コードをコピー';
 
   @override
-  String get copied => 'コピーしました';
-
-  @override
   String get invalidCode => 'このコードは無効です';
 
   @override
@@ -1403,11 +1377,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get importBundle => '同期パッケージを取り込む…';
-
-  @override
-  String bundleImported(String result) {
-    return 'パッケージを取り込みました: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1967,9 +1936,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unbanAction => 'ブロック解除';
 
   @override
-  String get deletedDone => '削除しました。';
-
-  @override
   String get syncSummaryTitle => '届いた内容';
 
   @override
@@ -2006,11 +1972,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get keepMine => '自分のを保持';
-
-  @override
-  String keptMine(String name) {
-    return '$name はこの端末ではあなたの版を保持しました。';
-  }
 
   @override
   String get summaryMeta => 'その他の到着';
@@ -2308,9 +2269,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => '各ページでヒントを再表示';
-
-  @override
-  String get spotReplayDone => 'ヒントを再表示します';
 
   @override
   String get searchNoResults => 'その名前の猫は見つかりません';
@@ -3496,9 +3454,6 @@ class AppLocalizationsJa extends AppLocalizations {
     );
     return '$_temp0、初回 $date';
   }
-
-  @override
-  String get syncRunning => 'フォルダと同期中…';
 
   @override
   String flierHidden(int count) {

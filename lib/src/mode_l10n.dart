@@ -415,9 +415,6 @@ class ModeLocalizations implements AppLocalizations {
   String bundleImportFailed(String error) => base.bundleImportFailed(error);
 
   @override
-  String bundleImported(String result) => base.bundleImported(result);
-
-  @override
   String get bundleNewerError => base.bundleNewerError;
 
   @override
@@ -715,9 +712,6 @@ class ModeLocalizations implements AppLocalizations {
   String get connectToWifiFirst => base.connectToWifiFirst;
 
   @override
-  String get copied => base.copied;
-
-  @override
   String get copyCode => base.copyCode;
 
   @override
@@ -856,9 +850,6 @@ class ModeLocalizations implements AppLocalizations {
   String deleteQuestion(String name) => base.deleteQuestion(name);
 
   @override
-  String get deletedDone => base.deletedDone;
-
-  @override
   String get deletedLabel => base.deletedLabel;
 
   @override
@@ -976,12 +967,6 @@ class ModeLocalizations implements AppLocalizations {
   String get favouriteRemove => base.favouriteRemove;
 
   @override
-  String fieldBackTo(String field, String value) => base.fieldBackTo(field, value);
-
-  @override
-  String fieldCleared(String field) => base.fieldCleared(field);
-
-  @override
   String fieldHistoryOf(String field, String name) => base.fieldHistoryOf(field, name);
 
   @override
@@ -1022,9 +1007,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String folderSyncFailed(String error) => base.folderSyncFailed(error);
-
-  @override
-  String folderSynced(String result) => base.folderSynced(result);
 
   @override
   String get folderUnreachable => base.folderUnreachable;
@@ -1352,9 +1334,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get keepThisFrame => base.keepThisFrame;
-
-  @override
-  String keptMine(String name) => base.keptMine(name);
 
   @override
   String keyChangedRefused(Object name) => base.keyChangedRefused(name);
@@ -2422,9 +2401,6 @@ class ModeLocalizations implements AppLocalizations {
   String get siblingsLabel => base.siblingsLabel;
 
   @override
-  String get sightingRecorded => base.sightingRecorded;
-
-  @override
   String get similarName => base.similarName;
 
   @override
@@ -2531,9 +2507,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get spotMapSearchNeutral => base.spotMapSearchNeutral;
-
-  @override
-  String get spotReplayDone => base.spotReplayDone;
 
   @override
   String get spotReplaySubtitle => base.spotReplaySubtitle;
@@ -2794,9 +2767,6 @@ class ModeLocalizations implements AppLocalizations {
   String get syncPeerOlder => base.syncPeerOlder;
 
   @override
-  String get syncRunning => base.syncRunning;
-
-  @override
   String get syncSummaryTitle => base.syncSummaryTitle;
 
   @override
@@ -2807,9 +2777,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get syncWrongHost => base.syncWrongHost;
-
-  @override
-  String syncedResult(String result) => base.syncedResult(result);
 
   @override
   String get systemDefault => base.systemDefault;

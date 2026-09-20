@@ -254,9 +254,6 @@ class AppLocalizationsHr extends AppLocalizations {
       'Ljubimac nestaje sa svih popisa i njegove se fotografije uklanjaju — ovdje i, nakon sljedeće sinkronizacije, i na drugim uređajima.';
 
   @override
-  String get sightingRecorded => 'Viđenje zabilježeno na vašoj poziciji.';
-
-  @override
   String get noLocationAvailable =>
       'Lokacija nedostupna — umjesto toga dugo pritisnite kartu.';
 
@@ -565,16 +562,6 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field ispražnjeno';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field vraćeno na \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Otišla — lutalica';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsHr extends AppLocalizations {
       'Adresa mora izgledati kao 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sinkronizirano: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sinkronizacija nije uspjela: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsHr extends AppLocalizations {
   @override
   String get folderHint =>
       'Dovoljna je svaka mapa koju dva uređaja drže jednakom: disk u oblaku ili Syncthing za mapu koja ostaje na vašim telefonima. Syncthing je besplatan: instalirajte ga na svaki telefon, podijelite jednu mapu među njima i odaberite tu mapu ovdje na svakom uređaju.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Mapa sinkronizirana: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1407,9 +1384,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get copyCode => 'Kopiraj kod';
 
   @override
-  String get copied => 'Kopirano';
-
-  @override
   String get invalidCode => 'Taj kod nije valjan';
 
   @override
@@ -1428,11 +1402,6 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get importBundle => 'Uvezi paket sinkronizacije…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paket uvezen: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1998,9 +1967,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get unbanAction => 'Ukloni zabranu';
 
   @override
-  String get deletedDone => 'Obrisano.';
-
-  @override
   String get syncSummaryTitle => 'Što je stiglo';
 
   @override
@@ -2039,11 +2005,6 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get keepMine => 'Zadrži moje';
-
-  @override
-  String keptMine(String name) {
-    return 'Vaša verzija za $name ostaje na ovom uređaju.';
-  }
 
   @override
   String get summaryMeta => 'Također stiglo';
@@ -2363,9 +2324,6 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Ponovno prikaži savjete na svakoj stranici';
-
-  @override
-  String get spotReplayDone => 'Savjeti će se ponovno prikazati';
 
   @override
   String get searchNoResults => 'Nije pronađena mačka s tim imenom';
@@ -3641,9 +3599,6 @@ class AppLocalizationsHr extends AppLocalizations {
     );
     return '$_temp0, prvi put $date';
   }
-
-  @override
-  String get syncRunning => 'Sinkronizacija s mapom…';
 
   @override
   String flierHidden(int count) {

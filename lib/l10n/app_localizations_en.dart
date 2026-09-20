@@ -255,9 +255,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.';
 
   @override
-  String get sightingRecorded => 'Sighting recorded at your position.';
-
-  @override
   String get noLocationAvailable =>
       'No location available — long-press the map instead.';
 
@@ -565,16 +562,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field cleared';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field back to \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Left — stray';
 
   @override
@@ -715,11 +702,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addressFormatHint => 'Address must look like 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Synced: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sync failed: $error';
   }
@@ -756,11 +738,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get folderHint =>
       'Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Folder synced: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1405,9 +1382,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get copyCode => 'Copy code';
 
   @override
-  String get copied => 'Copied';
-
-  @override
   String get invalidCode => 'That code is not valid';
 
   @override
@@ -1426,11 +1400,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get importBundle => 'Import sync bundle…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Bundle imported: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1995,9 +1964,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unbanAction => 'Remove ban';
 
   @override
-  String get deletedDone => 'Deleted.';
-
-  @override
   String get syncSummaryTitle => 'What arrived';
 
   @override
@@ -2036,11 +2002,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get keepMine => 'Keep mine';
-
-  @override
-  String keptMine(String name) {
-    return 'Kept your version of $name on this device.';
-  }
 
   @override
   String get summaryMeta => 'Also arrived';
@@ -2361,9 +2322,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Show the highlights again on each page';
-
-  @override
-  String get spotReplayDone => 'The highlights will show again';
 
   @override
   String get searchNoResults => 'No cat found with that name';
@@ -3629,9 +3587,6 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0, first on $date';
   }
-
-  @override
-  String get syncRunning => 'Syncing with the folder…';
 
   @override
   String flierHidden(int count) {

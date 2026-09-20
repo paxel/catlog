@@ -254,9 +254,6 @@ class AppLocalizationsSr extends AppLocalizations {
       'Љубимац нестаје са свих листа и његове фотографије се уклањају — овде и, после следеће синхронизације, и на другим уређајима.';
 
   @override
-  String get sightingRecorded => 'Виђење забележено на вашој позицији.';
-
-  @override
   String get noLocationAvailable =>
       'Локација недоступна — уместо тога дуго притисните мапу.';
 
@@ -565,16 +562,6 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field испражњено';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field враћено на \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Отишла — луталица';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsSr extends AppLocalizations {
       'Адреса мора изгледати као 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Синхронизовано: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Синхронизација није успела: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get folderHint =>
       'Довољна је свака фасцикла коју два уређаја држе истом: диск у облаку или Syncthing за фасциклу која остаје на вашим телефонима. Syncthing је бесплатан: инсталирајте га на сваки телефон, поделите једну фасциклу међу њима и изаберите ту фасциклу овде на сваком уређају.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Фасцикла синхронизована: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1407,9 +1384,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get copyCode => 'Копирај код';
 
   @override
-  String get copied => 'Копирано';
-
-  @override
   String get invalidCode => 'Тај код није важећи';
 
   @override
@@ -1428,11 +1402,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get importBundle => 'Увези пакет синхронизације…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Пакет увезен: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1998,9 +1967,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get unbanAction => 'Уклони забрану';
 
   @override
-  String get deletedDone => 'Обрисано.';
-
-  @override
   String get syncSummaryTitle => 'Шта је стигло';
 
   @override
@@ -2039,11 +2005,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get keepMine => 'Задржи моје';
-
-  @override
-  String keptMine(String name) {
-    return 'Ваша верзија за $name остаје на овом уређају.';
-  }
 
   @override
   String get summaryMeta => 'Такође стигло';
@@ -2363,9 +2324,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Поново прикажи савете на свакој страници';
-
-  @override
-  String get spotReplayDone => 'Савети ће се поново приказати';
 
   @override
   String get searchNoResults => 'Није пронађена мачка с тим именом';
@@ -3641,9 +3599,6 @@ class AppLocalizationsSr extends AppLocalizations {
     );
     return '$_temp0, први пут $date';
   }
-
-  @override
-  String get syncRunning => 'Синхронизација са фасциклом…';
 
   @override
   String flierHidden(int count) {

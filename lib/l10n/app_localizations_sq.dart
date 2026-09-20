@@ -254,9 +254,6 @@ class AppLocalizationsSq extends AppLocalizations {
       'Kafsha zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe në pajisjet e tjera.';
 
   @override
-  String get sightingRecorded => 'Vëzhgimi u regjistrua në pozicionin tuaj.';
-
-  @override
   String get noLocationAvailable =>
       'Vendndodhja s\'është e disponueshme — mbani shtypur hartën në vend të saj.';
 
@@ -567,16 +564,6 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field u zbraz';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field u kthye te \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Iku — endacake';
 
   @override
@@ -717,11 +704,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get addressFormatHint => 'Adresa duhet të duket si 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'U sinkronizua: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sinkronizimi dështoi: $error';
   }
@@ -758,11 +740,6 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get folderHint =>
       'Mjafton çdo dosje që dy pajisje e mbajnë njësoj: një disk në re, ose Syncthing për një dosje që mbetet në telefonat tuaj. Syncthing është falas: instaloje në çdo telefon, ndaj një dosje mes tyre dhe zgjidhe atë dosje këtu në çdo pajisje.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Dosja u sinkronizua: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1406,9 +1383,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get copyCode => 'Kopjo kodin';
 
   @override
-  String get copied => 'U kopjua';
-
-  @override
   String get invalidCode => 'Ky kod nuk është i vlefshëm';
 
   @override
@@ -1427,11 +1401,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get importBundle => 'Importo paketën e sinkronizimit…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paketa u importua: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1996,9 +1965,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get unbanAction => 'Hiq ndalimin';
 
   @override
-  String get deletedDone => 'U fshi.';
-
-  @override
   String get syncSummaryTitle => 'Çfarë mbërriti';
 
   @override
@@ -2037,11 +2003,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get keepMine => 'Mbaj timen';
-
-  @override
-  String keptMine(String name) {
-    return 'Versioni yt për $name mbetet në këtë pajisje.';
-  }
 
   @override
   String get summaryMeta => 'Erdhi edhe';
@@ -2362,9 +2323,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Shfaq këshillat sërish në çdo faqe';
-
-  @override
-  String get spotReplayDone => 'Këshillat do të shfaqen sërish';
 
   @override
   String get searchNoResults => 'Nuk u gjet mace me atë emër';
@@ -3630,9 +3588,6 @@ class AppLocalizationsSq extends AppLocalizations {
     );
     return '$_temp0, herën e parë më $date';
   }
-
-  @override
-  String get syncRunning => 'Duke u sinkronizuar me dosjen…';
 
   @override
   String flierHidden(int count) {

@@ -255,9 +255,6 @@ class AppLocalizationsNo extends AppLocalizations {
       'Kjæledyret forsvinner fra alle lister og bildene fjernes — her og, etter neste synkronisering, også på de andre enhetene.';
 
   @override
-  String get sightingRecorded => 'Observasjon registrert på posisjonen din.';
-
-  @override
   String get noLocationAvailable =>
       'Ingen posisjon tilgjengelig — hold inne kartet i stedet.';
 
@@ -566,16 +563,6 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tømt';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field tilbake til \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Dro — hjemløs';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get addressFormatHint => 'Adressen må se ut som 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Synkronisert: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synkronisering mislyktes: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get folderHint =>
       'Enhver mappe som to enheter holder like duger: en skylagring, eller Syncthing for en mappe som blir på telefonene deres. Syncthing er gratis: installer det på hver telefon, del én mappe mellom dem, og velg den mappen her på hver enhet.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Mappe synkronisert: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1404,9 +1381,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get copyCode => 'Kopier kode';
 
   @override
-  String get copied => 'Kopiert';
-
-  @override
   String get invalidCode => 'Den koden er ikke gyldig';
 
   @override
@@ -1425,11 +1399,6 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get importBundle => 'Importer synkpakke…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakke importert: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1994,9 +1963,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get unbanAction => 'Fjern utestengelse';
 
   @override
-  String get deletedDone => 'Slettet.';
-
-  @override
   String get syncSummaryTitle => 'Hva som kom';
 
   @override
@@ -2035,11 +2001,6 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get keepMine => 'Behold mitt';
-
-  @override
-  String keptMine(String name) {
-    return 'Din versjon av $name beholdes på denne enheten.';
-  }
 
   @override
   String get summaryMeta => 'Kom også';
@@ -2359,9 +2320,6 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Vis tipsene igjen på hver side';
-
-  @override
-  String get spotReplayDone => 'Tipsene vises igjen';
 
   @override
   String get searchNoResults => 'Ingen katt funnet med det navnet';
@@ -3626,9 +3584,6 @@ class AppLocalizationsNo extends AppLocalizations {
     );
     return '$_temp0, første gang $date';
   }
-
-  @override
-  String get syncRunning => 'Synkroniserer med mappen…';
 
   @override
   String flierHidden(int count) {

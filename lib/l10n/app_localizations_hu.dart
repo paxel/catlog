@@ -254,9 +254,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'A kisállat eltűnik minden listáról, fotói törlődnek — itt és a következő szinkron után a többi eszközön is.';
 
   @override
-  String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
-
-  @override
   String get noLocationAvailable =>
       'Nincs helyadat — helyette nyomd hosszan a térképet.';
 
@@ -565,16 +562,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field kiürítve';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field vissza erre: \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Elment — kóbor';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'A címnek így kell kinéznie: 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Szinkronizálva: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sikertelen szinkronizálás: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get folderHint =>
       'Bármelyik mappa megteszi, amit két eszköz egyformán tart: egy felhőmeghajtó, vagy a Syncthing egy olyan mappához, ami a telefonjaitokon marad. A Syncthing ingyenes: telepítsd minden telefonra, ossz meg köztük egy mappát, és válaszd ki azt a mappát itt minden eszközön.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Mappa szinkronizálva: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1406,9 +1383,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get copyCode => 'Kód másolása';
 
   @override
-  String get copied => 'Másolva';
-
-  @override
   String get invalidCode => 'Ez a kód érvénytelen';
 
   @override
@@ -1427,11 +1401,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get importBundle => 'Szinkroncsomag importálása…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Csomag importálva: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1997,9 +1966,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get unbanAction => 'Tiltás feloldása';
 
   @override
-  String get deletedDone => 'Törölve.';
-
-  @override
   String get syncSummaryTitle => 'Mi érkezett';
 
   @override
@@ -2038,11 +2004,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get keepMine => 'Az enyém marad';
-
-  @override
-  String keptMine(String name) {
-    return 'A te $name-változatod marad ezen az eszközön.';
-  }
 
   @override
   String get summaryMeta => 'Érkezett még';
@@ -2362,9 +2323,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Tippek újbóli megjelenítése minden oldalon';
-
-  @override
-  String get spotReplayDone => 'A tippek újra megjelennek';
 
   @override
   String get searchNoResults => 'Nincs ilyen nevű macska';
@@ -3629,9 +3587,6 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0, először $date';
   }
-
-  @override
-  String get syncRunning => 'Szinkronizálás a mappával…';
 
   @override
   String flierHidden(int count) {

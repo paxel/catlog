@@ -255,9 +255,6 @@ class AppLocalizationsLv extends AppLocalizations {
       'Mājdzīvnieks pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī citās ierīcēs.';
 
   @override
-  String get sightingRecorded => 'Novērojums ierakstīts jūsu pozīcijā.';
-
-  @override
   String get noLocationAvailable =>
       'Atrašanās vieta nav pieejama — tā vietā turiet nospiestu karti.';
 
@@ -566,16 +563,6 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field iztukšots';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field atgriezts uz \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Aizgāja — klaiņojošs';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get addressFormatHint => 'Adresei jāizskatās kā 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sinhronizēts: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sinhronizācija neizdevās: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get folderHint =>
       'Der jebkura mape, ko divas ierīces tur vienādu: mākoņa disks vai Syncthing mapei, kas paliek jūsu tālruņos. Syncthing ir bez maksas: instalē to katrā tālrunī, koplieto vienu mapi starp tiem un izvēlies to mapi šeit katrā ierīcē.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Mape sinhronizēta: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1407,9 +1384,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get copyCode => 'Kopēt kodu';
 
   @override
-  String get copied => 'Nokopēts';
-
-  @override
   String get invalidCode => 'Šis kods nav derīgs';
 
   @override
@@ -1428,11 +1402,6 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get importBundle => 'Importēt sinhronizācijas paku…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paka importēta: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1999,9 +1968,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get unbanAction => 'Noņemt aizliegumu';
 
   @override
-  String get deletedDone => 'Dzēsts.';
-
-  @override
   String get syncSummaryTitle => 'Kas pienāca';
 
   @override
@@ -2040,11 +2006,6 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get keepMine => 'Paturēt manējo';
-
-  @override
-  String keptMine(String name) {
-    return 'Jūsu „$name“ versija paliek šajā ierīcē.';
-  }
 
   @override
   String get summaryMeta => 'Arī pienāca';
@@ -2367,9 +2328,6 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Rādīt padomus atkal katrā lapā';
-
-  @override
-  String get spotReplayDone => 'Padomi tiks rādīti atkal';
 
   @override
   String get searchNoResults => 'Kaķis ar šādu vārdu nav atrasts';
@@ -3644,9 +3602,6 @@ class AppLocalizationsLv extends AppLocalizations {
     );
     return '$_temp0, pirmoreiz $date';
   }
-
-  @override
-  String get syncRunning => 'Sinhronizē ar mapi…';
 
   @override
   String flierHidden(int count) {

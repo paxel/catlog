@@ -255,9 +255,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het huisdier verdwijnt uit alle lijsten en de foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook op de andere apparaten.';
 
   @override
-  String get sightingRecorded => 'Waarneming vastgelegd op je positie.';
-
-  @override
   String get noLocationAvailable =>
       'Geen locatie beschikbaar — houd in plaats daarvan de kaart ingedrukt.';
 
@@ -568,16 +565,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field leeggemaakt';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field terug naar \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Vertrokken — zwerfkat';
 
   @override
@@ -719,11 +706,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het adres moet er zo uitzien: 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Gesynchroniseerd: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synchronisatie mislukt: $error';
   }
@@ -760,11 +742,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get folderHint =>
       'Elke map die twee apparaten gelijk houden volstaat: een clouddrive, of Syncthing voor een map die op jullie telefoons blijft. Syncthing is gratis: installeer het op elke telefoon, deel één map tussen hen en kies die map hier op elk apparaat.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Map gesynchroniseerd: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1410,9 +1387,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get copyCode => 'Code kopiëren';
 
   @override
-  String get copied => 'Gekopieerd';
-
-  @override
   String get invalidCode => 'Die code is ongeldig';
 
   @override
@@ -1431,11 +1405,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get importBundle => 'Syncpakket importeren…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakket geïmporteerd: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2001,9 +1970,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get unbanAction => 'Blokkade opheffen';
 
   @override
-  String get deletedDone => 'Verwijderd.';
-
-  @override
   String get syncSummaryTitle => 'Wat er binnenkwam';
 
   @override
@@ -2042,11 +2008,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get keepMine => 'Mijn versie houden';
-
-  @override
-  String keptMine(String name) {
-    return 'Jouw versie van $name blijft op dit apparaat.';
-  }
 
   @override
   String get summaryMeta => 'Ook aangekomen';
@@ -2367,9 +2328,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Tips opnieuw tonen op elke pagina';
-
-  @override
-  String get spotReplayDone => 'De tips worden opnieuw getoond';
 
   @override
   String get searchNoResults => 'Geen kat gevonden met die naam';
@@ -3635,9 +3593,6 @@ class AppLocalizationsNl extends AppLocalizations {
     );
     return '$_temp0, de eerste op $date';
   }
-
-  @override
-  String get syncRunning => 'Synchroniseren met de map…';
 
   @override
   String flierHidden(int count) {

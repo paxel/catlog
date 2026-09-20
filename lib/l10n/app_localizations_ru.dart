@@ -255,9 +255,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'Питомец исчезнет из всех списков, его фото будут удалены — здесь и, после следующей синхронизации, на остальных устройствах.';
 
   @override
-  String get sightingRecorded => 'Встреча записана в вашей позиции.';
-
-  @override
   String get noLocationAvailable =>
       'Геолокация недоступна — вместо этого удерживайте палец на карте.';
 
@@ -567,16 +564,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field очищено';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field возвращено к «$value»';
-  }
-
-  @override
   String get leftStray => 'Ушла — бездомная';
 
   @override
@@ -718,11 +705,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'Адрес должен выглядеть как 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Синхронизировано: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Ошибка синхронизации: $error';
   }
@@ -759,11 +741,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get folderHint =>
       'Подойдёт любая папка, которую два устройства держат одинаковой: облачный диск или Syncthing для папки, которая остаётся на ваших телефонах. Syncthing бесплатен: установите его на каждом телефоне, откройте одну папку между ними и выберите эту папку здесь на каждом устройстве.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Папка синхронизирована: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1407,9 +1384,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get copyCode => 'Копировать код';
 
   @override
-  String get copied => 'Скопировано';
-
-  @override
   String get invalidCode => 'Этот код недействителен';
 
   @override
@@ -1428,11 +1402,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get importBundle => 'Импортировать пакет синхронизации…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Пакет импортирован: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2001,9 +1970,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unbanAction => 'Снять запрет';
 
   @override
-  String get deletedDone => 'Удалено.';
-
-  @override
   String get syncSummaryTitle => 'Что пришло';
 
   @override
@@ -2042,11 +2008,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get keepMine => 'Оставить моё';
-
-  @override
-  String keptMine(String name) {
-    return 'Ваша версия «$name» сохранена на этом устройстве.';
-  }
 
   @override
   String get summaryMeta => 'Также пришло';
@@ -2367,9 +2328,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get spotReplaySubtitle =>
       'Показать подсказки снова на каждой странице';
-
-  @override
-  String get spotReplayDone => 'Подсказки появятся снова';
 
   @override
   String get searchNoResults => 'Кошка с таким именем не найдена';
@@ -3651,9 +3609,6 @@ class AppLocalizationsRu extends AppLocalizations {
     );
     return '$_temp0, впервые $date';
   }
-
-  @override
-  String get syncRunning => 'Синхронизация с папкой…';
 
   @override
   String flierHidden(int count) {

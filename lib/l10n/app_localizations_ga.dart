@@ -254,9 +254,6 @@ class AppLocalizationsGa extends AppLocalizations {
       'Imíonn an peata as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar na gléasanna eile freisin.';
 
   @override
-  String get sightingRecorded => 'Feiceáil taifeadta ag do shuíomh.';
-
-  @override
   String get noLocationAvailable =>
       'Níl suíomh ar fáil — brúigh go fada ar an léarscáil ina ionad.';
 
@@ -569,16 +566,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field glanta';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field ar ais go \"$value\"';
-  }
-
-  @override
   String get leftStray => 'D\'imigh — cat fáin';
 
   @override
@@ -720,11 +707,6 @@ class AppLocalizationsGa extends AppLocalizations {
       'Caithfidh an seoladh a bheith mar 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sioncrónaithe: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Theip ar an sioncrónú: $error';
   }
@@ -761,11 +743,6 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get folderHint =>
       'Déanfaidh fillteán ar bith a choinníonn dhá ghléas mar a chéile cúis: tiomántán néil, nó Syncthing d’fhillteán a fhanann ar bhur nguthán. Tá Syncthing saor in aisce: suiteáil ar gach guthán é, comhroinn fillteán amháin eatarthu agus roghnaigh an fillteán sin anseo ar gach gléas.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Fillteán sioncrónaithe: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1411,9 +1388,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get copyCode => 'Cóipeáil an cód';
 
   @override
-  String get copied => 'Cóipeáilte';
-
-  @override
   String get invalidCode => 'Níl an cód sin bailí';
 
   @override
@@ -1432,11 +1406,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get importBundle => 'Iompórtáil paca sioncronaithe…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paca iompórtáilte: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2007,9 +1976,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get unbanAction => 'Bain an cosc';
 
   @override
-  String get deletedDone => 'Scriosta.';
-
-  @override
   String get syncSummaryTitle => 'Cad a tháinig';
 
   @override
@@ -2048,11 +2014,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get keepMine => 'Coinnigh mo cheann';
-
-  @override
-  String keptMine(String name) {
-    return 'Coinníodh do leagan de $name ar an ngléas seo.';
-  }
 
   @override
   String get summaryMeta => 'Tháinig freisin';
@@ -2378,9 +2339,6 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get spotReplaySubtitle =>
       'Taispeáin na leideanna arís ar gach leathanach';
-
-  @override
-  String get spotReplayDone => 'Taispeánfar na leideanna arís';
 
   @override
   String get searchNoResults => 'Níor aimsíodh cat leis an ainm sin';
@@ -3686,9 +3644,6 @@ class AppLocalizationsGa extends AppLocalizations {
     );
     return '$_temp0, den chéad uair ar $date';
   }
-
-  @override
-  String get syncRunning => 'Ag sioncronú leis an bhfillteán…';
 
   @override
   String flierHidden(int count) {

@@ -254,9 +254,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Evcil hayvan tüm listelerden kaybolur ve fotoğrafları silinir — burada ve bir sonraki eşitlemeden sonra diğer cihazlarda da.';
 
   @override
-  String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
-
-  @override
   String get noLocationAvailable =>
       'Konum alınamadı — bunun yerine haritaya uzun basın.';
 
@@ -564,16 +561,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field temizlendi';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field \"$value\" değerine döndü';
-  }
-
-  @override
   String get leftStray => 'Ayrıldı — sokak kedisi';
 
   @override
@@ -714,11 +701,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addressFormatHint => 'Adres şöyle görünmeli: 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Eşitlendi: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Eşitleme başarısız: $error';
   }
@@ -755,11 +737,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get folderHint =>
       'İki cihazın aynı tuttuğu herhangi bir klasör yeter: bir bulut sürücüsü ya da telefonlarınızda kalan bir klasör için Syncthing. Syncthing ücretsizdir: her telefona kur, aralarında bir klasörü paylaş ve o klasörü burada her cihazda seç.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Klasör eşitlendi: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1405,9 +1382,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get copyCode => 'Kodu kopyala';
 
   @override
-  String get copied => 'Kopyalandı';
-
-  @override
   String get invalidCode => 'Bu kod geçersiz';
 
   @override
@@ -1426,11 +1400,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importBundle => 'Eşitleme paketini içe aktar…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paket içe aktarıldı: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1996,9 +1965,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unbanAction => 'Yasağı kaldır';
 
   @override
-  String get deletedDone => 'Silindi.';
-
-  @override
   String get syncSummaryTitle => 'Ne geldi';
 
   @override
@@ -2037,11 +2003,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get keepMine => 'Benimkini koru';
-
-  @override
-  String keptMine(String name) {
-    return '$name için senin sürümün bu cihazda kaldı.';
-  }
 
   @override
   String get summaryMeta => 'Ayrıca gelenler';
@@ -2361,9 +2322,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'İpuçlarını her sayfada yeniden göster';
-
-  @override
-  String get spotReplayDone => 'İpuçları yeniden gösterilecek';
 
   @override
   String get searchNoResults => 'Bu isimde kedi bulunamadı';
@@ -3628,9 +3586,6 @@ class AppLocalizationsTr extends AppLocalizations {
     );
     return '$_temp0, ilki $date';
   }
-
-  @override
-  String get syncRunning => 'Klasörle eşitleniyor…';
 
   @override
   String flierHidden(int count) {

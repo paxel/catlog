@@ -254,9 +254,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Lemmikki katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös muilta laitteilta.';
 
   @override
-  String get sightingRecorded => 'Havainto tallennettu sijaintiisi.';
-
-  @override
   String get noLocationAvailable =>
       'Sijainti ei saatavilla — paina sen sijaan karttaa pitkään.';
 
@@ -566,16 +563,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tyhjennetty';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field palautettu arvoon \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Lähti — kulkukissa';
 
   @override
@@ -717,11 +704,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Osoitteen pitää näyttää tältä: 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Synkronoitu: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synkronointi epäonnistui: $error';
   }
@@ -758,11 +740,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get folderHint =>
       'Mikä tahansa kansio, jonka kaksi laitetta pitävät samana, kelpaa: pilvilevy, tai Syncthing kansiolle, joka pysyy puhelimissanne. Syncthing on ilmainen: asenna se jokaiseen puhelimeen, jaa yksi kansio niiden välillä ja valitse se kansio täällä jokaisella laitteella.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Kansio synkronoitu: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1408,9 +1385,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get copyCode => 'Kopioi koodi';
 
   @override
-  String get copied => 'Kopioitu';
-
-  @override
   String get invalidCode => 'Koodi ei kelpaa';
 
   @override
@@ -1429,11 +1403,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get importBundle => 'Tuo synkronointipaketti…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paketti tuotu: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1998,9 +1967,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get unbanAction => 'Poista esto';
 
   @override
-  String get deletedDone => 'Poistettu.';
-
-  @override
   String get syncSummaryTitle => 'Mitä saapui';
 
   @override
@@ -2039,11 +2005,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get keepMine => 'Pidä omani';
-
-  @override
-  String keptMine(String name) {
-    return 'Oma versiosi kohteesta $name säilyy tällä laitteella.';
-  }
 
   @override
   String get summaryMeta => 'Saapui myös';
@@ -2363,9 +2324,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Näytä vinkit uudelleen joka sivulla';
-
-  @override
-  String get spotReplayDone => 'Vinkit näytetään uudelleen';
 
   @override
   String get searchNoResults => 'Sillä nimellä ei löytynyt kissaa';
@@ -3630,9 +3588,6 @@ class AppLocalizationsFi extends AppLocalizations {
     );
     return '$_temp0, ensimmäisen kerran $date';
   }
-
-  @override
-  String get syncRunning => 'Synkronoidaan kansion kanssa…';
 
   @override
   String flierHidden(int count) {

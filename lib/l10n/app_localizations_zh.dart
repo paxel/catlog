@@ -250,9 +250,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '这只宠物将从所有列表中消失，照片也会被删除——本机立即生效，下次同步后其他设备也一样。';
 
   @override
-  String get sightingRecorded => '已在你的位置记录目击。';
-
-  @override
   String get noLocationAvailable => '无法获取位置——请改为长按地图。';
 
   @override
@@ -542,16 +539,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '已清空 $field';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field 已恢复为“$value”';
-  }
-
-  @override
   String get leftStray => '离开了 — 流浪猫';
 
   @override
@@ -691,11 +678,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addressFormatHint => '地址格式应类似 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return '已同步：$result';
-  }
-
-  @override
   String syncFailed(String error) {
     return '同步失败：$error';
   }
@@ -732,11 +714,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get folderHint =>
       '任何由两台设备保持同步的文件夹都可以：云盘，或用 Syncthing 让文件夹留在你们的手机上。Syncthing 免费：在每部手机上安装，在它们之间共享一个文件夹，然后在每台设备上于此处选择该文件夹。';
-
-  @override
-  String folderSynced(String result) {
-    return '文件夹已同步：$result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1366,9 +1343,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get copyCode => '复制代码';
 
   @override
-  String get copied => '已复制';
-
-  @override
   String get invalidCode => '该代码无效';
 
   @override
@@ -1386,11 +1360,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get importBundle => '导入同步包…';
-
-  @override
-  String bundleImported(String result) {
-    return '已导入同步包：$result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1950,9 +1919,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unbanAction => '解除封禁';
 
   @override
-  String get deletedDone => '已删除。';
-
-  @override
   String get syncSummaryTitle => '同步内容';
 
   @override
@@ -1989,11 +1955,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get keepMine => '保留我的';
-
-  @override
-  String keptMine(String name) {
-    return '已在此设备上保留你的 $name 版本。';
-  }
 
   @override
   String get summaryMeta => '同时到达';
@@ -2286,9 +2247,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => '在每个页面重新显示提示';
-
-  @override
-  String get spotReplayDone => '提示将重新显示';
 
   @override
   String get searchNoResults => '没有找到这个名字的猫';
@@ -3454,9 +3412,6 @@ class AppLocalizationsZh extends AppLocalizations {
     );
     return '$_temp0，首次 $date';
   }
-
-  @override
-  String get syncRunning => '正在与文件夹同步…';
 
   @override
   String flierHidden(int count) {

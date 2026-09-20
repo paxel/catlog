@@ -255,9 +255,6 @@ class AppLocalizationsSv extends AppLocalizations {
       'Husdjuret försvinner från alla listor och dess foton tas bort — här och, efter nästa synk, även på de andra enheterna.';
 
   @override
-  String get sightingRecorded => 'Observation sparad på din position.';
-
-  @override
   String get noLocationAvailable =>
       'Ingen plats tillgänglig — håll in kartan i stället.';
 
@@ -566,16 +563,6 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field rensat';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field tillbaka till \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Gav sig av — hemlös';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get addressFormatHint => 'Adressen ska se ut som 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Synkroniserat: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synkronisering misslyckades: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get folderHint =>
       'Vilken mapp som helst som två enheter håller lika duger: en molndisk, eller Syncthing för en mapp som stannar på era telefoner. Syncthing är gratis: installera det på varje telefon, dela en mapp mellan dem och välj den mappen här på varje enhet.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Mapp synkroniserad: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1406,9 +1383,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get copyCode => 'Kopiera kod';
 
   @override
-  String get copied => 'Kopierat';
-
-  @override
   String get invalidCode => 'Den koden är inte giltig';
 
   @override
@@ -1427,11 +1401,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get importBundle => 'Importera synkpaket…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paket importerat: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1996,9 +1965,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get unbanAction => 'Ta bort spärr';
 
   @override
-  String get deletedDone => 'Raderat.';
-
-  @override
   String get syncSummaryTitle => 'Vad som kom';
 
   @override
@@ -2037,11 +2003,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get keepMine => 'Behåll mitt';
-
-  @override
-  String keptMine(String name) {
-    return 'Din version av $name behålls på den här enheten.';
-  }
 
   @override
   String get summaryMeta => 'Kom också';
@@ -2360,9 +2321,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Visa tipsen igen på varje sida';
-
-  @override
-  String get spotReplayDone => 'Tipsen visas igen';
 
   @override
   String get searchNoResults => 'Ingen katt hittades med det namnet';
@@ -3627,9 +3585,6 @@ class AppLocalizationsSv extends AppLocalizations {
     );
     return '$_temp0, första gången $date';
   }
-
-  @override
-  String get syncRunning => 'Synkar med mappen…';
 
   @override
   String flierHidden(int count) {

@@ -254,9 +254,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Mazlíček zmizí ze všech seznamů a jeho fotky se odstraní — tady i, po příští synchronizaci, na ostatních zařízeních.';
 
   @override
-  String get sightingRecorded => 'Pozorování zaznamenáno na vaší pozici.';
-
-  @override
   String get noLocationAvailable =>
       'Poloha není k dispozici — místo toho podržte prst na mapě.';
 
@@ -565,16 +562,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field vymazáno';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field zpět na \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Odešla — toulavá';
 
   @override
@@ -715,11 +702,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get addressFormatHint => 'Adresa musí vypadat jako 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Synchronizováno: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synchronizace selhala: $error';
   }
@@ -756,11 +738,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get folderHint =>
       'Stačí jakákoli složka, kterou dvě zařízení drží stejnou: cloudový disk, nebo Syncthing pro složku, která zůstává ve vašich telefonech. Syncthing je zdarma: nainstaluj ho na každý telefon, sdílej mezi nimi jednu složku a tu zde vyber na každém zařízení.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Složka synchronizována: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1407,9 +1384,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get copyCode => 'Kopírovat kód';
 
   @override
-  String get copied => 'Zkopírováno';
-
-  @override
   String get invalidCode => 'Tento kód není platný';
 
   @override
@@ -1428,11 +1402,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get importBundle => 'Importovat synchronizační balíček…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Balíček importován: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1998,9 +1967,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get unbanAction => 'Zrušit zákaz';
 
   @override
-  String get deletedDone => 'Smazáno.';
-
-  @override
   String get syncSummaryTitle => 'Co dorazilo';
 
   @override
@@ -2039,11 +2005,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get keepMine => 'Nechat moje';
-
-  @override
-  String keptMine(String name) {
-    return 'Tvoje verze $name zůstává na tomto zařízení.';
-  }
 
   @override
   String get summaryMeta => 'Také dorazilo';
@@ -2363,9 +2324,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Znovu ukázat tipy na každé stránce';
-
-  @override
-  String get spotReplayDone => 'Tipy se znovu zobrazí';
 
   @override
   String get searchNoResults => 'Kočka s tímto jménem nenalezena';
@@ -3641,9 +3599,6 @@ class AppLocalizationsCs extends AppLocalizations {
     );
     return '$_temp0, poprvé $date';
   }
-
-  @override
-  String get syncRunning => 'Synchronizace se složkou…';
 
   @override
   String flierHidden(int count) {

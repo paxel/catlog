@@ -626,12 +626,6 @@ abstract class AppLocalizations {
   /// **'The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.'**
   String get deleteCatBodyNeutral;
 
-  /// No description provided for @sightingRecorded.
-  ///
-  /// In en, this message translates to:
-  /// **'Sighting recorded at your position.'**
-  String get sightingRecorded;
-
   /// No description provided for @noLocationAvailable.
   ///
   /// In en, this message translates to:
@@ -1154,18 +1148,6 @@ abstract class AppLocalizations {
   /// **'{field} — {name}'**
   String fieldHistoryOf(String field, String name);
 
-  /// No description provided for @fieldCleared.
-  ///
-  /// In en, this message translates to:
-  /// **'{field} cleared'**
-  String fieldCleared(String field);
-
-  /// No description provided for @fieldBackTo.
-  ///
-  /// In en, this message translates to:
-  /// **'{field} back to \"{value}\"'**
-  String fieldBackTo(String field, String value);
-
   /// No description provided for @leftStray.
   ///
   /// In en, this message translates to:
@@ -1412,12 +1394,6 @@ abstract class AppLocalizations {
   /// **'Address must look like 192.168.0.12:38472'**
   String get addressFormatHint;
 
-  /// No description provided for @syncedResult.
-  ///
-  /// In en, this message translates to:
-  /// **'Synced: {result}'**
-  String syncedResult(String result);
-
   /// No description provided for @syncFailed.
   ///
   /// In en, this message translates to:
@@ -1477,12 +1453,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.'**
   String get folderHint;
-
-  /// No description provided for @folderSynced.
-  ///
-  /// In en, this message translates to:
-  /// **'Folder synced: {result}'**
-  String folderSynced(String result);
 
   /// No description provided for @folderSyncFailed.
   ///
@@ -2588,12 +2558,6 @@ abstract class AppLocalizations {
   /// **'Copy code'**
   String get copyCode;
 
-  /// No description provided for @copied.
-  ///
-  /// In en, this message translates to:
-  /// **'Copied'**
-  String get copied;
-
   /// No description provided for @invalidCode.
   ///
   /// In en, this message translates to:
@@ -2629,12 +2593,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Import sync bundle…'**
   String get importBundle;
-
-  /// No description provided for @bundleImported.
-  ///
-  /// In en, this message translates to:
-  /// **'Bundle imported: {result}'**
-  String bundleImported(String result);
 
   /// No description provided for @lastBackupFailed.
   ///
@@ -3680,12 +3638,6 @@ abstract class AppLocalizations {
   /// **'Remove ban'**
   String get unbanAction;
 
-  /// No description provided for @deletedDone.
-  ///
-  /// In en, this message translates to:
-  /// **'Deleted.'**
-  String get deletedDone;
-
   /// No description provided for @syncSummaryTitle.
   ///
   /// In en, this message translates to:
@@ -3757,12 +3709,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep mine'**
   String get keepMine;
-
-  /// No description provided for @keptMine.
-  ///
-  /// In en, this message translates to:
-  /// **'Kept your version of {name} on this device.'**
-  String keptMine(String name);
 
   /// No description provided for @summaryMeta.
   ///
@@ -4291,12 +4237,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show the highlights again on each page'**
   String get spotReplaySubtitle;
-
-  /// No description provided for @spotReplayDone.
-  ///
-  /// In en, this message translates to:
-  /// **'The highlights will show again'**
-  String get spotReplayDone;
 
   /// No description provided for @searchNoResults.
   ///
@@ -6295,12 +6235,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{times, plural, one{Done once} other{Done {times} times}}, first on {date}'**
   String achievementDone(int times, String date);
-
-  /// No description provided for @syncRunning.
-  ///
-  /// In en, this message translates to:
-  /// **'Syncing with the folder…'**
-  String get syncRunning;
 
   /// No description provided for @flierHidden.
   ///

@@ -254,9 +254,6 @@ class AppLocalizationsFa extends AppLocalizations {
       'حیوان خانگی از همهٔ فهرست‌ها حذف می‌شود و عکس‌هایش پاک می‌شوند — اینجا و پس از همگام‌سازی بعدی روی دستگاه‌های دیگر نیز.';
 
   @override
-  String get sightingRecorded => 'مشاهده در موقعیت شما ثبت شد.';
-
-  @override
   String get noLocationAvailable =>
       'موقعیت در دسترس نیست — به‌جای آن روی نقشه لمس طولانی کنید.';
 
@@ -564,16 +561,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field خالی شد';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field به «$value» برگشت';
-  }
-
-  @override
   String get leftStray => 'رفت — ولگرد';
 
   @override
@@ -714,11 +701,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get addressFormatHint => 'نشانی باید شبیه 192.168.0.12:38472 باشد';
 
   @override
-  String syncedResult(String result) {
-    return 'همگام شد: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'همگام‌سازی ناموفق: $error';
   }
@@ -755,11 +737,6 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get folderHint =>
       'هر پوشه‌ای که دو دستگاه یکسان نگه دارند کافی است: یک درایو ابری، یا Syncthing برای پوشه‌ای که روی گوشی‌هایتان می‌ماند. Syncthing رایگان است: روی هر گوشی نصب کنید، یک پوشه را بین آنها به اشتراک بگذارید و همان پوشه را اینجا در هر دستگاه انتخاب کنید.';
-
-  @override
-  String folderSynced(String result) {
-    return 'پوشه همگام شد: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1403,9 +1380,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get copyCode => 'کپی کد';
 
   @override
-  String get copied => 'کپی شد';
-
-  @override
   String get invalidCode => 'این کد معتبر نیست';
 
   @override
@@ -1424,11 +1398,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get importBundle => 'وارد کردن بستهٔ همگام‌سازی…';
-
-  @override
-  String bundleImported(String result) {
-    return 'بسته وارد شد: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1992,9 +1961,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get unbanAction => 'رفع مسدودی';
 
   @override
-  String get deletedDone => 'حذف شد.';
-
-  @override
   String get syncSummaryTitle => 'چه چیزی رسید';
 
   @override
@@ -2033,11 +1999,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get keepMine => 'مال من بماند';
-
-  @override
-  String keptMine(String name) {
-    return 'نسخه شما از $name در این دستگاه نگه داشته شد.';
-  }
 
   @override
   String get summaryMeta => 'همچنین رسید';
@@ -2351,9 +2312,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'نمایش دوباره راهنماها در هر صفحه';
-
-  @override
-  String get spotReplayDone => 'راهنماها دوباره نمایش داده می‌شوند';
 
   @override
   String get searchNoResults => 'گربه‌ای با این نام یافت نشد';
@@ -3574,9 +3532,6 @@ class AppLocalizationsFa extends AppLocalizations {
     );
     return '$_temp0، اولین بار $date';
   }
-
-  @override
-  String get syncRunning => 'در حال همگام‌سازی با پوشه…';
 
   @override
   String flierHidden(int count) {

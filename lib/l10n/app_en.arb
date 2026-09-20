@@ -111,7 +111,6 @@
   "deletePhotoBody": "The photo data is removed for good — this cannot be undone.",
   "deleteCatBody": "The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.",
   "deleteCatBodyNeutral": "The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.",
-  "sightingRecorded": "Sighting recorded at your position.",
   "noLocationAvailable": "No location available — long-press the map instead.",
   "locationDeniedForever": "Location access is blocked. Allow it in the system settings to use Stray Cam.",
   "locationServiceOff": "Location is turned off on this device. Turn it on in the settings and try again.",
@@ -312,25 +311,6 @@
       }
     }
   },
-  "fieldCleared": "{field} cleared",
-  "@fieldCleared": {
-    "placeholders": {
-      "field": {
-        "type": "String"
-      }
-    }
-  },
-  "fieldBackTo": "{field} back to \"{value}\"",
-  "@fieldBackTo": {
-    "placeholders": {
-      "field": {
-        "type": "String"
-      },
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "leftStray": "Left — stray",
   "movedTo": "Moved to {name}",
   "@movedTo": {
@@ -434,14 +414,6 @@
   "pin": "PIN",
   "syncNow": "Sync now",
   "addressFormatHint": "Address must look like 192.168.0.12:38472",
-  "syncedResult": "Synced: {result}",
-  "@syncedResult": {
-    "placeholders": {
-      "result": {
-        "type": "String"
-      }
-    }
-  },
   "syncFailed": "Sync failed: {error}",
   "@syncFailed": {
     "placeholders": {
@@ -474,14 +446,6 @@
   },
   "useSameFolder": "Use the same folder as the other catalogs",
   "folderHint": "Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.",
-  "folderSynced": "Folder synced: {result}",
-  "@folderSynced": {
-    "placeholders": {
-      "result": {
-        "type": "String"
-      }
-    }
-  },
   "folderSyncFailed": "Folder sync failed: {error}",
   "@folderSyncFailed": {
     "placeholders": {
@@ -854,21 +818,12 @@
   "scanCode": "Scan code",
   "orTypeCode": "Or type the code",
   "copyCode": "Copy code",
-  "copied": "Copied",
   "invalidCode": "That code is not valid",
   "hotspotHint": "No shared Wi-Fi? Turn on one phone's hotspot, connect the other phone to it, then host here.",
   "byMessenger": "By messenger",
   "byMessengerExplainer": "Send your whole catalog as one file through WhatsApp, Signal, or mail — the other side imports it.",
   "shareBundle": "Share sync bundle…",
   "importBundle": "Import sync bundle…",
-  "bundleImported": "Bundle imported: {result}",
-  "@bundleImported": {
-    "placeholders": {
-      "result": {
-        "type": "String"
-      }
-    }
-  },
   "lastBackupFailed": "Last automatic backup failed: {error}",
   "@lastBackupFailed": {
     "placeholders": {
@@ -1111,7 +1066,6 @@
   "alsoBan": "Also ban — never accept their data again",
   "bansSection": "Bans",
   "unbanAction": "Remove ban",
-  "deletedDone": "Deleted.",
   "@hardDeleteWarning": {
     "placeholders": {
       "name": {}
@@ -1141,14 +1095,6 @@
   "summaryUpdated": "Updated",
   "summaryDeleted": "Deleted",
   "keepMine": "Keep mine",
-  "keptMine": "Kept your version of {name} on this device.",
-  "@keptMine": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "summaryMeta": "Also arrived",
   "acceptArrival": "Accept",
   "rejectArrival": "Reject",
@@ -1311,7 +1257,6 @@
   "spotDone": "Got it",
   "spotReplayTitle": "What's new tour",
   "spotReplaySubtitle": "Show the highlights again on each page",
-  "spotReplayDone": "The highlights will show again",
   "searchNoResults": "No cat found with that name",
   "searchNoResultsNeutral": "No pet found with that name",
   "syncUnreachable": "Couldn't reach the other device. Are both on the same Wi-Fi?",
@@ -2027,7 +1972,6 @@
       }
     }
   },
-  "syncRunning": "Syncing with the folder…",
   "flierHidden": "{count, plural, one{{count} line put aside} other{{count} lines put aside}}",
   "@flierHidden": {
     "placeholders": {

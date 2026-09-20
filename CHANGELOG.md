@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [2.0.0] - Unreleased
 
 ### Changed
+- Everything the app has to say now comes at the top of the screen, under the status bar: one note at a time, the page moving down under it, nothing at the bottom where the navigation gestures and the keyboard are. A thin line pulses with one icon per running job while a folder sync, an in-person sync, a backup or an archive runs. A note only says that a job finished, that it failed, or that changes wait: tap a finished sync for what arrived, tap a failure for the cause, the full text and a Report button, swipe left for the next note, swipe right to clear the news; a failure stays until it is swiped left or tapped, a finished job leaves after three seconds. Copied, recorded and cleared no longer announce themselves; a green paw at the tapped button says it worked. The sync pages no longer print entry and photo counts, and a catalog name already taken is answered under the name field. On the arrival page the ticks of one chore are one row with the chore's title and count, and a cat's row names what changed instead of counting changes.
 - The cheers are cats now, on the phone and the desk: a short meow when a chore is ticked, a purr when the day's chores are done, a chorus of meows for a ladder climbed, a meow over a purr for an adoption. The recordings come from Wikimedia Commons, CC0 and public domain; the crowd cheers and their credit are gone.
 
 ### Added

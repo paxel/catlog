@@ -255,9 +255,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Το κατοικίδιο εξαφανίζεται από όλες τις λίστες και οι φωτογραφίες του αφαιρούνται — εδώ και, μετά τον επόμενο συγχρονισμό, και στις άλλες συσκευές.';
 
   @override
-  String get sightingRecorded => 'Η παρατήρηση καταγράφηκε στη θέση σας.';
-
-  @override
   String get noLocationAvailable =>
       'Δεν υπάρχει τοποθεσία — πατήστε παρατεταμένα στον χάρτη.';
 
@@ -569,16 +566,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return 'Το $field καθαρίστηκε';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return 'Το $field επανήλθε σε \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Έφυγε — αδέσποτη';
 
   @override
@@ -721,11 +708,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Η διεύθυνση πρέπει να μοιάζει με 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Συγχρονίστηκε: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Αποτυχία συγχρονισμού: $error';
   }
@@ -763,11 +745,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get folderHint =>
       'Αρκεί όποιος φάκελος κρατούν ίδιο δύο συσκευές: ένας δίσκος στο cloud, ή το Syncthing για φάκελο που μένει στα τηλέφωνά σας. Το Syncthing είναι δωρεάν: εγκατέστησέ το σε κάθε τηλέφωνο, μοιράσου έναν φάκελο μεταξύ τους και διάλεξε αυτόν τον φάκελο εδώ σε κάθε συσκευή.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Ο φάκελος συγχρονίστηκε: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1415,9 +1392,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get copyCode => 'Αντιγραφή κωδικού';
 
   @override
-  String get copied => 'Αντιγράφηκε';
-
-  @override
   String get invalidCode => 'Ο κωδικός δεν είναι έγκυρος';
 
   @override
@@ -1436,11 +1410,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get importBundle => 'Εισαγωγή πακέτου συγχρονισμού…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Το πακέτο εισήχθη: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2006,9 +1975,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get unbanAction => 'Άρση αποκλεισμού';
 
   @override
-  String get deletedDone => 'Διαγράφηκε.';
-
-  @override
   String get syncSummaryTitle => 'Τι έφτασε';
 
   @override
@@ -2047,11 +2013,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get keepMine => 'Κράτα το δικό μου';
-
-  @override
-  String keptMine(String name) {
-    return 'Η δική σου εκδοχή για $name μένει σε αυτή τη συσκευή.';
-  }
 
   @override
   String get summaryMeta => 'Έφτασαν επίσης';
@@ -2372,9 +2333,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Εμφάνιση των οδηγιών ξανά σε κάθε σελίδα';
-
-  @override
-  String get spotReplayDone => 'Οι οδηγίες θα εμφανιστούν ξανά';
 
   @override
   String get searchNoResults => 'Δεν βρέθηκε γάτα με αυτό το όνομα';
@@ -3642,9 +3600,6 @@ class AppLocalizationsEl extends AppLocalizations {
     );
     return '$_temp0, πρώτη φορά στις $date';
   }
-
-  @override
-  String get syncRunning => 'Συγχρονισμός με τον φάκελο…';
 
   @override
   String flierHidden(int count) {

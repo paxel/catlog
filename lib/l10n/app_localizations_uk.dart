@@ -255,9 +255,6 @@ class AppLocalizationsUk extends AppLocalizations {
       'Улюбленець зникне з усіх списків, його фото буде видалено — тут і, після наступної синхронізації, на інших пристроях.';
 
   @override
-  String get sightingRecorded => 'Зустріч записано у вашій позиції.';
-
-  @override
   String get noLocationAvailable =>
       'Немає геолокації — натомість утримуйте палець на мапі.';
 
@@ -567,16 +564,6 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field очищено';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field повернуто до «$value»';
-  }
-
-  @override
   String get leftStray => 'Пішов — безпритульний';
 
   @override
@@ -717,11 +704,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get addressFormatHint => 'Адреса має виглядати як 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Синхронізовано: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Помилка синхронізації: $error';
   }
@@ -758,11 +740,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get folderHint =>
       'Підійде будь-яка тека, яку два пристрої тримають однаковою: хмарний диск або Syncthing для теки, що залишається на ваших телефонах. Syncthing безкоштовний: встановіть його на кожному телефоні, відкрийте одну теку між ними й оберіть її тут на кожному пристрої.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Теку синхронізовано: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1407,9 +1384,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get copyCode => 'Копіювати код';
 
   @override
-  String get copied => 'Скопійовано';
-
-  @override
   String get invalidCode => 'Цей код недійсний';
 
   @override
@@ -1428,11 +1402,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importBundle => 'Імпортувати пакет синхронізації…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Пакет імпортовано: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2001,9 +1970,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unbanAction => 'Зняти заборону';
 
   @override
-  String get deletedDone => 'Видалено.';
-
-  @override
   String get syncSummaryTitle => 'Що надійшло';
 
   @override
@@ -2042,11 +2008,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get keepMine => 'Залишити моє';
-
-  @override
-  String keptMine(String name) {
-    return 'Вашу версію «$name» збережено на цьому пристрої.';
-  }
 
   @override
   String get summaryMeta => 'Також надійшло';
@@ -2367,9 +2328,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Показати підказки знову на кожній сторінці';
-
-  @override
-  String get spotReplayDone => 'Підказки з\'являться знову';
 
   @override
   String get searchNoResults => 'Кота з таким ім\'ям не знайдено';
@@ -3651,9 +3609,6 @@ class AppLocalizationsUk extends AppLocalizations {
     );
     return '$_temp0, уперше $date';
   }
-
-  @override
-  String get syncRunning => 'Синхронізація з текою…';
 
   @override
   String flierHidden(int count) {

@@ -254,9 +254,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Lemmikloom kaob kõigist loenditest ja tema fotod eemaldatakse — siit ja pärast järgmist sünkroonimist ka teistest seadmetest.';
 
   @override
-  String get sightingRecorded => 'Vaatlus salvestatud sinu asukohas.';
-
-  @override
   String get noLocationAvailable =>
       'Asukoht pole saadaval — hoia selle asemel kaarti all.';
 
@@ -565,16 +562,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tühjendatud';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field tagasi väärtusele \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Lahkus — hulkuja';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Aadress peab välja nägema nagu 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sünkroonitud: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sünkroonimine ebaõnnestus: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get folderHint =>
       'Sobib iga kaust, mida kaks seadet ühesugusena hoiavad: pilveketas või Syncthing kausta jaoks, mis jääb teie telefonidesse. Syncthing on tasuta: paigalda see igasse telefoni, jaga nende vahel üht kausta ja vali see kaust siin igas seadmes.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Kaust sünkroonitud: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1405,9 +1382,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get copyCode => 'Kopeeri kood';
 
   @override
-  String get copied => 'Kopeeritud';
-
-  @override
   String get invalidCode => 'See kood ei kehti';
 
   @override
@@ -1426,11 +1400,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get importBundle => 'Impordi sünkroonimispakett…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakett imporditud: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1993,9 +1962,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unbanAction => 'Eemalda keeld';
 
   @override
-  String get deletedDone => 'Kustutatud.';
-
-  @override
   String get syncSummaryTitle => 'Mis saabus';
 
   @override
@@ -2034,11 +2000,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get keepMine => 'Jäta minu oma';
-
-  @override
-  String keptMine(String name) {
-    return 'Sinu versioon kirjest $name jääb sellesse seadmesse.';
-  }
 
   @override
   String get summaryMeta => 'Saabus ka';
@@ -2359,9 +2320,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Näita vihjeid igal lehel uuesti';
-
-  @override
-  String get spotReplayDone => 'Vihjed kuvatakse uuesti';
 
   @override
   String get searchNoResults => 'Selle nimega kassi ei leitud';
@@ -3627,9 +3585,6 @@ class AppLocalizationsEt extends AppLocalizations {
     );
     return '$_temp0, esimest korda $date';
   }
-
-  @override
-  String get syncRunning => 'Sünkroonimine kaustaga…';
 
   @override
   String flierHidden(int count) {

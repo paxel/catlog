@@ -253,9 +253,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'חיית המחמד נעלמת מכל הרשימות ותמונותיה נמחקות — כאן, ואחרי הסנכרון הבא גם במכשירים האחרים.';
 
   @override
-  String get sightingRecorded => 'התצפית נרשמה במיקומך.';
-
-  @override
   String get noLocationAvailable =>
       'אין מיקום זמין — במקום זאת לחצו לחיצה ארוכה על המפה.';
 
@@ -563,16 +560,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field רוקן';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field חזר אל \"$value\"';
-  }
-
-  @override
   String get leftStray => 'עזב — חתול רחוב';
 
   @override
@@ -713,11 +700,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get addressFormatHint => 'הכתובת צריכה להיראות כמו 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'סונכרן: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'הסנכרון נכשל: $error';
   }
@@ -754,11 +736,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get folderHint =>
       'כל תיקייה ששני מכשירים שומרים זהה מתאימה: כונן ענן, או Syncthing לתיקייה שנשארת בטלפונים שלכם. Syncthing חינמי: התקינו אותו בכל טלפון, שתפו תיקייה אחת ביניהם, ובחרו את התיקייה הזו כאן בכל מכשיר.';
-
-  @override
-  String folderSynced(String result) {
-    return 'התיקייה סונכרנה: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1399,9 +1376,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get copyCode => 'העתקת קוד';
 
   @override
-  String get copied => 'הועתק';
-
-  @override
   String get invalidCode => 'הקוד הזה לא תקין';
 
   @override
@@ -1420,11 +1394,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get importBundle => 'ייבוא חבילת סנכרון…';
-
-  @override
-  String bundleImported(String result) {
-    return 'החבילה יובאה: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1989,9 +1958,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get unbanAction => 'הסר חסימה';
 
   @override
-  String get deletedDone => 'נמחק.';
-
-  @override
   String get syncSummaryTitle => 'מה הגיע';
 
   @override
@@ -2030,11 +1996,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get keepMine => 'להשאיר את שלי';
-
-  @override
-  String keptMine(String name) {
-    return 'הגרסה שלך של $name נשמרה במכשיר הזה.';
-  }
 
   @override
   String get summaryMeta => 'הגיע גם';
@@ -2352,9 +2313,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'הצג את הרמזים שוב בכל עמוד';
-
-  @override
-  String get spotReplayDone => 'הרמזים יוצגו שוב';
 
   @override
   String get searchNoResults => 'לא נמצא חתול בשם הזה';
@@ -3625,9 +3583,6 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return '$_temp0, לראשונה ב-$date';
   }
-
-  @override
-  String get syncRunning => 'מסנכרן עם התיקייה…';
 
   @override
   String flierHidden(int count) {

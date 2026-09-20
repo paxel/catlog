@@ -255,9 +255,6 @@ class AppLocalizationsBg extends AppLocalizations {
       'Любимецът изчезва от всички списъци и снимките му се премахват — тук и, след следващата синхронизация, и на другите устройства.';
 
   @override
-  String get sightingRecorded => 'Забелязването е записано на вашата позиция.';
-
-  @override
   String get noLocationAvailable =>
       'Няма местоположение — вместо това задръжте върху картата.';
 
@@ -566,16 +563,6 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field изчистено';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field върнато на \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Напусна — бездомна';
 
   @override
@@ -717,11 +704,6 @@ class AppLocalizationsBg extends AppLocalizations {
       'Адресът трябва да изглежда като 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Синхронизирано: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Неуспешна синхронизация: $error';
   }
@@ -758,11 +740,6 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get folderHint =>
       'Става всяка папка, която две устройства поддържат еднаква: облачен диск или Syncthing за папка, която остава на телефоните ви. Syncthing е безплатен: инсталирайте го на всеки телефон, споделете една папка между тях и изберете тази папка тук на всяко устройство.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Папката е синхронизирана: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1408,9 +1385,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get copyCode => 'Копирай кода';
 
   @override
-  String get copied => 'Копирано';
-
-  @override
   String get invalidCode => 'Този код не е валиден';
 
   @override
@@ -1429,11 +1403,6 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get importBundle => 'Импортирай пакет за синхронизация…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Пакетът е импортиран: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1998,9 +1967,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get unbanAction => 'Премахни забраната';
 
   @override
-  String get deletedDone => 'Изтрито.';
-
-  @override
   String get syncSummaryTitle => 'Какво пристигна';
 
   @override
@@ -2039,11 +2005,6 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get keepMine => 'Запази моето';
-
-  @override
-  String keptMine(String name) {
-    return 'Вашата версия на $name остава на това устройство.';
-  }
 
   @override
   String get summaryMeta => 'Също пристигна';
@@ -2363,9 +2324,6 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get spotReplaySubtitle =>
       'Покажи подсказките отново на всяка страница';
-
-  @override
-  String get spotReplayDone => 'Подсказките ще се покажат отново';
 
   @override
   String get searchNoResults => 'Няма котка с това име';
@@ -3628,9 +3586,6 @@ class AppLocalizationsBg extends AppLocalizations {
     );
     return '$_temp0, за първи път на $date';
   }
-
-  @override
-  String get syncRunning => 'Синхронизиране с папката…';
 
   @override
   String flierHidden(int count) {

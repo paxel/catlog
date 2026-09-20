@@ -254,9 +254,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'يختفي الحيوان الأليف من كل القوائم وتُحذف صوره — هنا، وبعد المزامنة التالية، على الأجهزة الأخرى أيضًا.';
 
   @override
-  String get sightingRecorded => 'سُجِّلت المشاهدة في موقعك.';
-
-  @override
   String get noLocationAvailable =>
       'الموقع غير متاح — اضغط مطولًا على الخريطة بدلًا من ذلك.';
 
@@ -564,16 +561,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return 'أُفرغ $field';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return 'عاد $field إلى \"$value\"';
-  }
-
-  @override
   String get leftStray => 'غادرت — ضالة';
 
   @override
@@ -715,11 +702,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'يجب أن يبدو العنوان هكذا: 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'تمت المزامنة: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'فشلت المزامنة: $error';
   }
@@ -756,11 +738,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get folderHint =>
       'يكفي أي مجلد يبقيه جهازان متطابقًا: قرص سحابي، أو Syncthing لمجلد يبقى على هواتفكم. Syncthing مجاني: ثبّته على كل هاتف، وشارك مجلدًا واحدًا بينها، واختر ذلك المجلد هنا على كل جهاز.';
-
-  @override
-  String folderSynced(String result) {
-    return 'تمت مزامنة المجلد: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1402,9 +1379,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get copyCode => 'نسخ الرمز';
 
   @override
-  String get copied => 'تم النسخ';
-
-  @override
   String get invalidCode => 'هذا الرمز غير صالح';
 
   @override
@@ -1423,11 +1397,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importBundle => 'استيراد حزمة المزامنة…';
-
-  @override
-  String bundleImported(String result) {
-    return 'تم استيراد الحزمة: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1999,9 +1968,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unbanAction => 'إزالة الحظر';
 
   @override
-  String get deletedDone => 'تم الحذف.';
-
-  @override
   String get syncSummaryTitle => 'ما الذي وصل';
 
   @override
@@ -2040,11 +2006,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get keepMine => 'احتفظ بنسختي';
-
-  @override
-  String keptMine(String name) {
-    return 'بقيت نسختك من $name على هذا الجهاز.';
-  }
 
   @override
   String get summaryMeta => 'وصل أيضًا';
@@ -2365,9 +2326,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'إظهار الإرشادات مجددًا في كل صفحة';
-
-  @override
-  String get spotReplayDone => 'ستظهر الإرشادات مرة أخرى';
 
   @override
   String get searchNoResults => 'لم يتم العثور على قطة بهذا الاسم';
@@ -3664,9 +3622,6 @@ class AppLocalizationsAr extends AppLocalizations {
     );
     return '$_temp0، أول مرة في $date';
   }
-
-  @override
-  String get syncRunning => 'جارٍ المزامنة مع المجلد…';
 
   @override
   String flierHidden(int count) {

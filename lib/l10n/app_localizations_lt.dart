@@ -254,9 +254,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'Augintinis dingsta iš visų sąrašų, jo nuotraukos pašalinamos — čia ir, po kito sinchronizavimo, kituose įrenginiuose.';
 
   @override
-  String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
-
-  @override
   String get noLocationAvailable =>
       'Vietos nėra — vietoj to palaikykite nuspaudę žemėlapį.';
 
@@ -565,16 +562,6 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field išvalyta';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field grąžinta į \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Išėjo — benamė';
 
   @override
@@ -716,11 +703,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'Adresas turi atrodyti kaip 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sinchronizuota: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sinchronizavimas nepavyko: $error';
   }
@@ -757,11 +739,6 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get folderHint =>
       'Tiks bet koks aplankas, kurį du įrenginiai laiko vienodą: debesies diskas arba Syncthing aplankui, kuris lieka jūsų telefonuose. Syncthing nemokamas: įdiekite jį kiekviename telefone, bendrinkite vieną aplanką tarp jų ir pasirinkite tą aplanką čia kiekviename įrenginyje.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Aplankas sinchronizuotas: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1407,9 +1384,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get copyCode => 'Kopijuoti kodą';
 
   @override
-  String get copied => 'Nukopijuota';
-
-  @override
   String get invalidCode => 'Šis kodas negalioja';
 
   @override
@@ -1428,11 +1402,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get importBundle => 'Importuoti sinchronizavimo paketą…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paketas importuotas: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2001,9 +1970,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get unbanAction => 'Pašalinti draudimą';
 
   @override
-  String get deletedDone => 'Ištrinta.';
-
-  @override
   String get syncSummaryTitle => 'Kas atkeliavo';
 
   @override
@@ -2042,11 +2008,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get keepMine => 'Palikti mano';
-
-  @override
-  String keptMine(String name) {
-    return 'Jūsų „$name“ versija liko šiame įrenginyje.';
-  }
 
   @override
   String get summaryMeta => 'Taip pat atkeliavo';
@@ -2368,9 +2329,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Vėl rodyti patarimus kiekviename puslapyje';
-
-  @override
-  String get spotReplayDone => 'Patarimai bus rodomi vėl';
 
   @override
   String get searchNoResults => 'Katės tokiu vardu nerasta';
@@ -3651,9 +3609,6 @@ class AppLocalizationsLt extends AppLocalizations {
     );
     return '$_temp0, pirmą kartą $date';
   }
-
-  @override
-  String get syncRunning => 'Sinchronizuojama su aplanku…';
 
   @override
   String flierHidden(int count) {

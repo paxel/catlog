@@ -254,10 +254,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-annimal domestiku jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sync li jmiss, fuq l-apparati l-oħra wkoll.';
 
   @override
-  String get sightingRecorded =>
-      'Id-dehra ġiet irreġistrata fil-pożizzjoni tiegħek.';
-
-  @override
   String get noLocationAvailable =>
       'M\'hemmx lok disponibbli — minflok agħfas fit-tul fuq il-mappa.';
 
@@ -567,16 +563,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tbattal';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field lura għal \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Telaq — tat-triq';
 
   @override
@@ -718,11 +704,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-indirizz irid jidher bħal 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sinkronizzat: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Is-sinkronizzazzjoni falliet: $error';
   }
@@ -759,11 +740,6 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get folderHint =>
       'Kull folder li żewġ apparati jżommu l-istess jgħodd: drive fil-cloud, jew Syncthing għal folder li jibqa’ fuq it-telefowns tagħkom. Syncthing hu b’xejn: installah fuq kull telefon, aqsam folder wieħed bejniethom u agħżel dak il-folder hawn fuq kull apparat.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Folder sinkronizzat: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1410,9 +1386,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get copyCode => 'Ikkopja l-kodiċi';
 
   @override
-  String get copied => 'Ikkupjat';
-
-  @override
   String get invalidCode => 'Dak il-kodiċi mhux validu';
 
   @override
@@ -1431,11 +1404,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get importBundle => 'Importa l-pakkett tas-sink…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakkett importat: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2003,9 +1971,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get unbanAction => 'Neħħi l-projbizzjoni';
 
   @override
-  String get deletedDone => 'Imħassar.';
-
-  @override
   String get syncSummaryTitle => 'X\'wasal';
 
   @override
@@ -2044,11 +2009,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get keepMine => 'Żomm tiegħi';
-
-  @override
-  String keptMine(String name) {
-    return 'Il-verżjoni tiegħek ta’ $name tibqa’ f’dan l-apparat.';
-  }
 
   @override
   String get summaryMeta => 'Wasal ukoll';
@@ -2369,9 +2329,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Erġa\' uri s-suġġerimenti f\'kull paġna';
-
-  @override
-  String get spotReplayDone => 'Is-suġġerimenti jerġgħu jidhru';
 
   @override
   String get searchNoResults => 'Ma nstab l-ebda qattus b\'dak l-isem';
@@ -3646,9 +3603,6 @@ class AppLocalizationsMt extends AppLocalizations {
     );
     return '$_temp0, l-ewwel darba fi $date';
   }
-
-  @override
-  String get syncRunning => 'Qed jissinkronizza mal-folder…';
 
   @override
   String flierHidden(int count) {

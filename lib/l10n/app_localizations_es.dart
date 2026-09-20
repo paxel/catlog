@@ -255,9 +255,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'La mascota desaparece de todas las listas y sus fotos se eliminan — aquí y, tras la próxima sincronización, también en los demás dispositivos.';
 
   @override
-  String get sightingRecorded => 'Avistamiento registrado en tu posición.';
-
-  @override
   String get noLocationAvailable =>
       'Sin ubicación disponible — mantén pulsado el mapa en su lugar.';
 
@@ -568,16 +565,6 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field vaciado';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field vuelve a «$value»';
-  }
-
-  @override
   String get leftStray => 'Se fue — callejero';
 
   @override
@@ -719,11 +706,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'La dirección debe ser como 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sincronizado: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Fallo de sincronización: $error';
   }
@@ -760,11 +742,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get folderHint =>
       'Vale cualquier carpeta que dos dispositivos mantengan igual: una nube, o Syncthing para una carpeta que se queda en vuestros teléfonos. Syncthing es gratis: instálalo en cada teléfono, comparte una carpeta entre ellos y elige esa carpeta aquí en cada dispositivo.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Carpeta sincronizada: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1412,9 +1389,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get copyCode => 'Copiar código';
 
   @override
-  String get copied => 'Copiado';
-
-  @override
   String get invalidCode => 'Ese código no es válido';
 
   @override
@@ -1433,11 +1407,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get importBundle => 'Importar paquete de sincronización…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paquete importado: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2003,9 +1972,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get unbanAction => 'Quitar bloqueo';
 
   @override
-  String get deletedDone => 'Borrado.';
-
-  @override
   String get syncSummaryTitle => 'Qué ha llegado';
 
   @override
@@ -2044,11 +2010,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get keepMine => 'Conservar el mío';
-
-  @override
-  String keptMine(String name) {
-    return 'Se conservó tu versión de $name en este dispositivo.';
-  }
 
   @override
   String get summaryMeta => 'También llegó';
@@ -2370,9 +2331,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Mostrar las pistas de nuevo en cada página';
-
-  @override
-  String get spotReplayDone => 'Las pistas volverán a mostrarse';
 
   @override
   String get searchNoResults => 'No se encontró ningún gato con ese nombre';
@@ -3640,9 +3598,6 @@ class AppLocalizationsEs extends AppLocalizations {
     );
     return '$_temp0, la primera el $date';
   }
-
-  @override
-  String get syncRunning => 'Sincronizando con la carpeta…';
 
   @override
   String flierHidden(int count) {

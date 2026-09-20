@@ -254,10 +254,6 @@ class AppLocalizationsIs extends AppLocalizations {
       'Gæludýrið hverfur af öllum listum og myndir þess eru fjarlægðar — hér og, eftir næstu samstillingu, einnig á hinum tækjunum.';
 
   @override
-  String get sightingRecorded =>
-      'Skráð að kötturinn sást á staðsetningu þinni.';
-
-  @override
   String get noLocationAvailable =>
       'Engin staðsetning — haltu þess í stað fingri á kortinu.';
 
@@ -568,16 +564,6 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tæmt';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field aftur í \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Fór — flækingur';
 
   @override
@@ -719,11 +705,6 @@ class AppLocalizationsIs extends AppLocalizations {
       'Vistfangið á að líta út eins og 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Samstillt: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Samstilling mistókst: $error';
   }
@@ -760,11 +741,6 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get folderHint =>
       'Hvaða mappa sem tvö tæki halda eins dugar: skýjadrif, eða Syncthing fyrir möppu sem verður eftir í símunum ykkar. Syncthing er ókeypis: settu það upp á hverjum síma, deildu einni möppu milli þeirra og veldu þá möppu hér á hverju tæki.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Mappa samstillt: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1410,9 +1386,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get copyCode => 'Afrita kóða';
 
   @override
-  String get copied => 'Afritað';
-
-  @override
   String get invalidCode => 'Þessi kóði er ógildur';
 
   @override
@@ -1431,11 +1404,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get importBundle => 'Flytja inn samstillingarpakka…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakki fluttur inn: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2000,9 +1968,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get unbanAction => 'Fjarlægja bann';
 
   @override
-  String get deletedDone => 'Eytt.';
-
-  @override
   String get syncSummaryTitle => 'Hvað barst';
 
   @override
@@ -2041,11 +2006,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get keepMine => 'Halda mínu';
-
-  @override
-  String keptMine(String name) {
-    return 'Þín útgáfa af $name helst á þessu tæki.';
-  }
 
   @override
   String get summaryMeta => 'Kom líka';
@@ -2366,9 +2326,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Sýna ábendingar aftur á hverri síðu';
-
-  @override
-  String get spotReplayDone => 'Ábendingarnar birtast aftur';
 
   @override
   String get searchNoResults => 'Enginn köttur fannst með þessu nafni';
@@ -3634,9 +3591,6 @@ class AppLocalizationsIs extends AppLocalizations {
     );
     return '$_temp0, fyrst $date';
   }
-
-  @override
-  String get syncRunning => 'Samstilli við möppuna…';
 
   @override
   String flierHidden(int count) {

@@ -254,9 +254,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'Animalul dispare din toate listele, iar pozele lui sunt șterse — aici și, după următoarea sincronizare, și pe celelalte dispozitive.';
 
   @override
-  String get sightingRecorded => 'Observație înregistrată la poziția ta.';
-
-  @override
   String get noLocationAvailable =>
       'Locație indisponibilă — apasă lung pe hartă în schimb.';
 
@@ -566,16 +563,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field golit';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field înapoi la \"$value\"';
-  }
-
-  @override
   String get leftStray => 'A plecat — fără stăpân';
 
   @override
@@ -717,11 +704,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'Adresa trebuie să arate ca 192.168.0.12:38472';
 
   @override
-  String syncedResult(String result) {
-    return 'Sincronizat: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sincronizare eșuată: $error';
   }
@@ -758,11 +740,6 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get folderHint =>
       'Merge orice dosar pe care două dispozitive îl țin la fel: un drive în cloud, sau Syncthing pentru un dosar care rămâne pe telefoanele voastre. Syncthing e gratuit: instalează-l pe fiecare telefon, partajează un dosar între ele și alege acel dosar aici pe fiecare dispozitiv.';
-
-  @override
-  String folderSynced(String result) {
-    return 'Dosar sincronizat: $result';
-  }
 
   @override
   String folderSyncFailed(String error) {
@@ -1408,9 +1385,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get copyCode => 'Copiază codul';
 
   @override
-  String get copied => 'Copiat';
-
-  @override
   String get invalidCode => 'Codul nu este valid';
 
   @override
@@ -1429,11 +1403,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get importBundle => 'Importă pachetul de sincronizare…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pachet importat: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -2000,9 +1969,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get unbanAction => 'Elimină interdicția';
 
   @override
-  String get deletedDone => 'Șters.';
-
-  @override
   String get syncSummaryTitle => 'Ce a sosit';
 
   @override
@@ -2041,11 +2007,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get keepMine => 'Păstrează al meu';
-
-  @override
-  String keptMine(String name) {
-    return 'Versiunea ta pentru $name rămâne pe acest dispozitiv.';
-  }
 
   @override
   String get summaryMeta => 'A mai sosit';
@@ -2366,9 +2327,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Arată indiciile din nou pe fiecare pagină';
-
-  @override
-  String get spotReplayDone => 'Indiciile vor apărea din nou';
 
   @override
   String get searchNoResults => 'Nicio pisică găsită cu acest nume';
@@ -3646,9 +3604,6 @@ class AppLocalizationsRo extends AppLocalizations {
     );
     return '$_temp0, prima dată pe $date';
   }
-
-  @override
-  String get syncRunning => 'Se sincronizează cu dosarul…';
 
   @override
   String flierHidden(int count) {
