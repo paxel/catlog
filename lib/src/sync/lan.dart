@@ -29,11 +29,6 @@ class SyncResult {
       this.blobsReceived,
       {this.applied = const [], this.moment, ImportReport? report})
       : report = report ?? ImportReport();
-
-  @override
-  String toString() =>
-      '$entriesReceived entries + $blobsReceived photos in, '
-      '$entriesSent entries + $blobsSent photos out';
 }
 
 const _pinHeader = 'x-catlog-pin';

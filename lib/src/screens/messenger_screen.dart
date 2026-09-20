@@ -8,6 +8,7 @@ import 'package:share_plus/share_plus.dart';
 import '../help.dart';
 import '../import_summary.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../share.dart';
 import '../private_temp.dart';
 
@@ -23,7 +24,6 @@ class MessengerScreen extends StatefulWidget {
 }
 
 class _MessengerScreenState extends State<MessengerScreen> {
-  String? _lastResult;
   bool _includePrivate = false;
 
   Future<void> _shareBundle() async {
@@ -38,8 +38,7 @@ class _MessengerScreenState extends State<MessengerScreen> {
             context, [XFile(path, mimeType: 'application/zip')]);
       });
     } catch (e) {
-      if (!mounted) return;
-      setState(() => _lastResult = t.syncFailed('$e'));
+      noteFailed(t.syncFailed('$e'), detail: '$e');
     }
   }
 
@@ -52,16 +51,19 @@ class _MessengerScreenState extends State<MessengerScreen> {
       final imported = importWithMoment(widget.store, path,
           label: path.split(Platform.pathSeparator).last);
       final result = imported.result;
-      setState(() => _lastResult = t.bundleImported('$result'));
-      if (mounted &&
-          (result.applied.isNotEmpty || needsAttention(result.report))) {
+      if (!mounted) return;
+      if (needsAttention(result.report)) {
         await showImportSummary(context, widget.store, result.applied,
             undo: imported.moment, report: result.report);
+      } else {
+        NoteQueue.instance.add(arrivalNote(context, widget.store,
+            result.applied,
+            undo: imported.moment, report: result.report));
       }
     } on UnsupportedBundleFormat {
-      setState(() => _lastResult = t.bundleNewerError);
+      noteFailed(t.bundleNewerError);
     } catch (e) {
-      setState(() => _lastResult = t.notACatlogFile);
+      noteFailed(t.notACatlogFile, detail: '$e');
     }
   }
 
@@ -98,10 +100,6 @@ class _MessengerScreenState extends State<MessengerScreen> {
             icon: const Icon(Icons.download),
             label: Text(t.importBundle),
           ),
-          if (_lastResult != null) ...[
-            const SizedBox(height: 12),
-            Text(_lastResult!),
-          ],
         ],
       ),
     );

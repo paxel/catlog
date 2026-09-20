@@ -108,7 +108,6 @@ Map<String, dynamic> syncJson(FolderSyncResult r, CatalogStore store) => {
       'entriesIn': r.entriesIn,
       'blobsIn': r.blobsIn,
       'blobsMissing': r.blobsMissing,
-      'blobProblems': [...r.blobProblems]..sort(),
       'conflicts': _conflicts(store),
     };
 

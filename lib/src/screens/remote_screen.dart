@@ -8,6 +8,7 @@ import '../exclusive.dart';
 import '../help.dart';
 import '../import_summary.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../sync/saf_folder.dart';
 import '../sync/sync_watch.dart';
 
@@ -23,7 +24,6 @@ class RemoteScreen extends StatefulWidget {
 }
 
 class _RemoteScreenState extends State<RemoteScreen> {
-  String? _lastResult;
   late bool _includePrivate =
       widget.store.localSetting(syncPrivateKey) == '1';
 
@@ -90,6 +90,8 @@ class _RemoteScreenState extends State<RemoteScreen> {
     }
   }
 
+  /// The outcome goes to the notes at the top, like a merge the watcher
+  /// ran: the arrival page at once only when the signatures need a look.
   Future<void> _syncNow() async {
     final t = context.t;
     final folder = widget.store.localSetting('syncFolder')!;
@@ -107,18 +109,20 @@ class _RemoteScreenState extends State<RemoteScreen> {
           changed: result.applied.isNotEmpty,
           cause: MomentCause.sync,
           label: folder);
-      if (mounted &&
-          (result.applied.isNotEmpty || needsAttention(result.report))) {
-        await showImportSummary(context, widget.store, result.applied,
-            undo: point, report: result.report);
-      }
       await recordSyncSizes(widget.store);
       if (!mounted) return;
-      setState(() => _lastResult = t.folderSynced('$result'));
-    } on FileSystemException {
-      setState(() => _lastResult = t.folderUnreachable);
+      if (needsAttention(result.report)) {
+        await showImportSummary(context, widget.store, result.applied,
+            undo: point, report: result.report);
+      } else {
+        NoteQueue.instance.add(arrivalNote(context, widget.store,
+            result.applied,
+            undo: point, report: result.report));
+      }
+    } on FileSystemException catch (e) {
+      noteFailed(t.folderUnreachable, detail: '$e');
     } catch (e) {
-      setState(() => _lastResult = t.folderSyncFailed('$e'));
+      noteFailed(t.folderSyncFailed('$e'), detail: '$e');
     }
   }
 
@@ -203,16 +207,6 @@ class _RemoteScreenState extends State<RemoteScreen> {
             icon: const Icon(Icons.folder_copy_outlined),
             label: Text(t.syncFolderNow),
           ),
-          if (_busy) ...[
-            const SizedBox(height: 12),
-            const LinearProgressIndicator(),
-            const SizedBox(height: 6),
-            Text(t.syncRunning),
-          ],
-          if (_lastResult != null) ...[
-            const SizedBox(height: 12),
-            Text(_lastResult!),
-          ],
         ],
       ),
     );
