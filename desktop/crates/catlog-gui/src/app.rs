@@ -237,7 +237,6 @@ pub struct App {
     asking: Asking,
     /// The name typed on the intro page.
     intro_name: String,
-    intro_skip_tips: bool,
     request: Request,
     /// What went wrong last, shown in the detail pane until the next action.
     notice: Option<String>,
@@ -287,7 +286,6 @@ impl App {
             t,
             pane_width: settings.settings.pane_width.unwrap_or(DEFAULT_PANE_WIDTH),
             intro_name: settings.settings.author.clone().unwrap_or_default(),
-            intro_skip_tips: false,
             settings,
             manager,
             store,
@@ -754,14 +752,15 @@ impl App {
         );
     }
 
-    fn finish_intro(&mut self) {
+    /// The name is taken and the desk opens, with the tips or without.
+    fn finish_intro(&mut self, with_tips: bool) {
         let name = self.intro_name.trim().to_string();
         if name.is_empty() {
             return;
         }
         self.settings.settings.author = Some(name.clone());
         self.settings.settings.intro_seen = true;
-        if self.intro_skip_tips {
+        if !with_tips {
             self.settings.settings.tips_seen = vec!["all".into()];
             tips::mark_all_seen(&self.store);
         }
@@ -2798,16 +2797,30 @@ impl App {
                 ui.add_space(12.0);
                 ui.label(t.your_name());
                 ui.add(egui::TextEdit::singleline(&mut self.intro_name).desired_width(280.0));
+                ui.add_space(16.0);
+                // One question, two ways to start; both wait for the name.
+                ui.label(t.intro_tips_question());
                 ui.add_space(8.0);
-                ui.checkbox(&mut self.intro_skip_tips, t.intro_skip_tips());
-                ui.add_space(12.0);
                 let ready = !self.intro_name.trim().is_empty();
-                if ui
-                    .add_enabled(ready, egui::Button::new(t.start()))
-                    .clicked()
-                {
-                    self.finish_intro();
-                }
+                // A row of two, centred under the question like the rest.
+                ui.allocate_ui_with_layout(
+                    egui::vec2(300.0, 28.0),
+                    egui::Layout::left_to_right(egui::Align::Center),
+                    |ui| {
+                        if ui
+                            .add_enabled(ready, egui::Button::new(t.start_with_tips()))
+                            .clicked()
+                        {
+                            self.finish_intro(true);
+                        }
+                        if ui
+                            .add_enabled(ready, egui::Button::new(t.start_without_tips()))
+                            .clicked()
+                        {
+                            self.finish_intro(false);
+                        }
+                    },
+                );
             });
         });
     }
@@ -2988,13 +3001,14 @@ mod tests {
         h.run();
         let t = L10n::new("en");
         h.get_by_label(t.welcome_title());
-        h.get_by_label(t.start()).click();
+        h.get_by_label(t.intro_tips_question());
+        h.get_by_label(t.start_with_tips()).click();
+        h.get_by_label(t.start_without_tips()).click();
         h.run();
         assert!(!h.state().settings().intro_seen, "no name, no start");
         h.state_mut().intro_name = "Ada".into();
-        h.state_mut().intro_skip_tips = true;
         h.run();
-        h.get_by_label(t.start()).click();
+        h.get_by_label(t.start_without_tips()).click();
         h.run();
         let s = h.state().settings().clone();
         assert!(s.intro_seen);
