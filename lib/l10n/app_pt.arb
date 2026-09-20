@@ -1206,5 +1206,7 @@
   "syncRunning": "A sincronizar com a pasta…",
   "copied": "Copiado",
   "sharedFolder": "Pasta partilhada",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Agora não",
+  "changesCount": "{n, plural, one{1 alteração} other{{n} alterações}}"
 }

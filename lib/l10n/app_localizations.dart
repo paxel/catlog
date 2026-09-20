@@ -6223,6 +6223,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'PIN: {pin}'**
   String pinLabel(String pin);
+
+  /// No description provided for @syncDismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get syncDismiss;
+
+  /// No description provided for @changesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 change} other{{n} changes}}'**
+  String changesCount(int n);
 }
 
 class _AppLocalizationsDelegate

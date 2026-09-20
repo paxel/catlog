@@ -1206,5 +1206,7 @@
   "syncRunning": "Συγχρονισμός με τον φάκελο…",
   "copied": "Αντιγράφηκε",
   "sharedFolder": "Κοινός φάκελος",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Όχι τώρα",
+  "changesCount": "{n, plural, one{1 αλλαγή} other{{n} αλλαγές}}"
 }

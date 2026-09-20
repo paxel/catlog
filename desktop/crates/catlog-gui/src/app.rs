@@ -2,7 +2,6 @@
 //! on the right, the intro on first start. Everything the window shows
 //! passes through [`App::show`], which the kittest harness drives.
 
-use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::{Duration, Instant};
@@ -6658,7 +6657,7 @@ mod tests {
             .header("x-catlog-pin", pin)
             .call()
             .unwrap();
-        let host_vector: BTreeMap<String, i64> =
+        let host_vector: std::collections::BTreeMap<String, i64> =
             serde_json::from_str(&res.body_mut().read_to_string().unwrap()).unwrap();
         let body = serde_json::json!({
             "format": 3,

@@ -3653,4 +3653,21 @@ class AppLocalizationsGa extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => 'Ní anois';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n athrú',
+      many: '$n n-athrú',
+      few: '$n athrú',
+      two: '$n athrú',
+      one: '1 athrú',
+    );
+    return '$_temp0';
+  }
 }

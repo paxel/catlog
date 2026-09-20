@@ -1206,5 +1206,7 @@
   "syncRunning": "Duke u sinkronizuar me dosjen…",
   "copied": "U kopjua",
   "sharedFolder": "Dosje e përbashkët",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Jo tani",
+  "changesCount": "{n, plural, one{1 ndryshim} other{{n} ndryshime}}"
 }

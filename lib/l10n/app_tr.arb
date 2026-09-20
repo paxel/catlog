@@ -1206,5 +1206,7 @@
   "syncRunning": "Klasörle eşitleniyor…",
   "copied": "Kopyalandı",
   "sharedFolder": "Ortak klasör",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Şimdi değil",
+  "changesCount": "{n, plural, one{1 değişiklik} other{{n} değişiklik}}"
 }

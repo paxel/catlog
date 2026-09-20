@@ -1206,5 +1206,7 @@
   "syncRunning": "Синхронізація з текою…",
   "copied": "Скопійовано",
   "sharedFolder": "Спільна тека",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Не зараз",
+  "changesCount": "{n, plural, one{{n} зміна} few{{n} зміни} other{{n} змін}}"
 }

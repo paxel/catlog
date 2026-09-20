@@ -3594,4 +3594,18 @@ class AppLocalizationsSq extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => 'Jo tani';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ndryshime',
+      one: '1 ndryshim',
+    );
+    return '$_temp0';
+  }
 }

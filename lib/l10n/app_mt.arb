@@ -1206,5 +1206,7 @@
   "syncRunning": "Qed jissinkronizza mal-folder…",
   "copied": "Ikkupjat",
   "sharedFolder": "Folder kondiviż",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Mhux issa",
+  "changesCount": "{n, plural, one{bidla waħda} other{{n} bidliet}}"
 }

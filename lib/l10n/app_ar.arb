@@ -1206,5 +1206,7 @@
   "syncRunning": "جارٍ المزامنة مع المجلد…",
   "copied": "تم النسخ",
   "sharedFolder": "مجلد مشترك",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "ليس الآن",
+  "changesCount": "{n, plural, one{تغيير واحد} two{تغييران} few{{n} تغييرات} many{{n} تغييرًا} other{{n} تغيير}}"
 }

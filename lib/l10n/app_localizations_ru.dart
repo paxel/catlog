@@ -3617,4 +3617,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => 'Не сейчас';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n изменений',
+      few: '$n изменения',
+      one: '$n изменение',
+    );
+    return '$_temp0';
+  }
 }

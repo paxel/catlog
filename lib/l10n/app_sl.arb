@@ -1206,5 +1206,7 @@
   "syncRunning": "Sinhronizacija z mapo…",
   "copied": "Kopirano",
   "sharedFolder": "Skupna mapa",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ne zdaj",
+  "changesCount": "{n, plural, one{{n} sprememba} two{{n} spremembi} few{{n} spremembe} other{{n} sprememb}}"
 }

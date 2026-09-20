@@ -3607,4 +3607,19 @@ class AppLocalizationsCs extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => 'Teď ne';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n změn',
+      few: '$n změny',
+      one: '1 změna',
+    );
+    return '$_temp0';
+  }
 }

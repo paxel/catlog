@@ -1206,5 +1206,7 @@
   "syncRunning": "Synkar med mappen…",
   "copied": "Kopierat",
   "sharedFolder": "Delad mapp",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Inte nu",
+  "changesCount": "{n, plural, one{1 ändring} other{{n} ändringar}}"
 }

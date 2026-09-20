@@ -1206,5 +1206,7 @@
   "syncRunning": "Sinhronizacija s folderom…",
   "copied": "Kopirano",
   "sharedFolder": "Dijeljena fascikla",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ne sada",
+  "changesCount": "{n, plural, one{{n} izmjena} few{{n} izmjene} other{{n} izmjena}}"
 }

@@ -1206,5 +1206,7 @@
   "syncRunning": "Synchroniseren met de map…",
   "copied": "Gekopieerd",
   "sharedFolder": "Gedeelde map",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Niet nu",
+  "changesCount": "{n, plural, one{1 wijziging} other{{n} wijzigingen}}"
 }

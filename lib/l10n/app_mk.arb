@@ -1206,5 +1206,7 @@
   "syncRunning": "Синхронизација со папката…",
   "copied": "Копирано",
   "sharedFolder": "Заедничка папка",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Не сега",
+  "changesCount": "{n, plural, one{{n} промена} other{{n} промени}}"
 }

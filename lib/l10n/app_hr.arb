@@ -1206,5 +1206,7 @@
   "syncRunning": "Sinkronizacija s mapom…",
   "copied": "Kopirano",
   "sharedFolder": "Dijeljena mapa",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ne sada",
+  "changesCount": "{n, plural, one{{n} izmjena} few{{n} izmjene} other{{n} izmjena}}"
 }

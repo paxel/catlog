@@ -1206,5 +1206,7 @@
   "syncRunning": "正在与文件夹同步…",
   "copied": "已复制",
   "sharedFolder": "共享文件夹",
-  "pinLabel": "PIN：{pin}"
+  "pinLabel": "PIN：{pin}",
+  "syncDismiss": "暂不",
+  "changesCount": "{n} 项更改"
 }

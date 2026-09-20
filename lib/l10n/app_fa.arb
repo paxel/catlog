@@ -1206,5 +1206,7 @@
   "syncRunning": "در حال همگام‌سازی با پوشه…",
   "copied": "کپی شد",
   "sharedFolder": "پوشهٔ مشترک",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "الان نه",
+  "changesCount": "{n} تغییر"
 }

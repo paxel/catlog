@@ -1206,5 +1206,7 @@
   "syncRunning": "Synkroniserer med mappen…",
   "copied": "Kopiert",
   "sharedFolder": "Delt mappe",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ikke nå",
+  "changesCount": "{n, plural, one{1 endring} other{{n} endringer}}"
 }

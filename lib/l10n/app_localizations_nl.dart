@@ -3598,4 +3598,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => 'Niet nu';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n wijzigingen',
+      one: '1 wijziging',
+    );
+    return '$_temp0';
+  }
 }

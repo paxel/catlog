@@ -1206,5 +1206,7 @@
   "syncRunning": "Synkronoidaan kansion kanssa…",
   "copied": "Kopioitu",
   "sharedFolder": "Jaettu kansio",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ei nyt",
+  "changesCount": "{n, plural, one{1 muutos} other{{n} muutosta}}"
 }

@@ -1206,5 +1206,7 @@
   "syncRunning": "Samstilli við möppuna…",
   "copied": "Afritað",
   "sharedFolder": "Sameiginleg mappa",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ekki núna",
+  "changesCount": "{n, plural, one{1 breyting} other{{n} breytingar}}"
 }

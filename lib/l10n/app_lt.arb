@@ -1206,5 +1206,7 @@
   "syncRunning": "Sinchronizuojama su aplanku…",
   "copied": "Nukopijuota",
   "sharedFolder": "Bendras aplankas",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ne dabar",
+  "changesCount": "{n, plural, one{{n} pakeitimas} few{{n} pakeitimai} other{{n} pakeitimų}}"
 }

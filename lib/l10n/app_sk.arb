@@ -1206,5 +1206,7 @@
   "syncRunning": "Synchronizácia s priečinkom…",
   "copied": "Skopírované",
   "sharedFolder": "Zdieľaný priečinok",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Teraz nie",
+  "changesCount": "{n, plural, one{1 zmena} few{{n} zmeny} other{{n} zmien}}"
 }

@@ -1206,5 +1206,7 @@
   "syncRunning": "Sinhronizē ar mapi…",
   "copied": "Nokopēts",
   "sharedFolder": "Koplietota mape",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ne tagad",
+  "changesCount": "{n, plural, zero{{n} izmaiņu} one{{n} izmaiņa} other{{n} izmaiņas}}"
 }

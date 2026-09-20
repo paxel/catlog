@@ -2007,5 +2007,14 @@
         "type": "String"
       }
     }
+  },
+  "syncDismiss": "Not now",
+  "changesCount": "{n, plural, one{1 change} other{{n} changes}}",
+  "@changesCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
   }
 }

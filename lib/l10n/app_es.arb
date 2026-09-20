@@ -1206,5 +1206,7 @@
   "syncRunning": "Sincronizando con la carpeta…",
   "copied": "Copiado",
   "sharedFolder": "Carpeta compartida",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ahora no",
+  "changesCount": "{n, plural, one{1 cambio} other{{n} cambios}}"
 }

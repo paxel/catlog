@@ -1206,5 +1206,7 @@
   "syncRunning": "Synchronizacja z folderem…",
   "copied": "Skopiowano",
   "sharedFolder": "Wspólny folder",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Nie teraz",
+  "changesCount": "{n, plural, one{1 zmiana} few{{n} zmiany} other{{n} zmian}}"
 }

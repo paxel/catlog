@@ -1206,5 +1206,7 @@
   "syncRunning": "Synchronizace se složkou…",
   "copied": "Zkopírováno",
   "sharedFolder": "Sdílená složka",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Teď ne",
+  "changesCount": "{n, plural, one{1 změna} few{{n} změny} other{{n} změn}}"
 }

@@ -3610,4 +3610,18 @@ class AppLocalizationsMt extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => 'Mhux issa';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n bidliet',
+      one: 'bidla waħda',
+    );
+    return '$_temp0';
+  }
 }

@@ -499,6 +499,9 @@ class ModeLocalizations implements AppLocalizations {
   String changeSince(String delta, String date) => base.changeSince(delta, date);
 
   @override
+  String changesCount(int n) => base.changesCount(n);
+
+  @override
   String get cheerSubtitle => base.cheerSubtitle;
 
   @override
@@ -2714,6 +2717,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get syncDeclined => base.syncDeclined;
+
+  @override
+  String get syncDismiss => base.syncDismiss;
 
   @override
   String syncFailed(String error) => base.syncFailed(error);

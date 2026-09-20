@@ -1206,5 +1206,7 @@
   "syncRunning": "Ag sioncronú leis an bhfillteán…",
   "copied": "Cóipeáilte",
   "sharedFolder": "Fillteán comhroinnte",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Ní anois",
+  "changesCount": "{n, plural, one{1 athrú} two{{n} athrú} few{{n} athrú} many{{n} n-athrú} other{{n} athrú}}"
 }

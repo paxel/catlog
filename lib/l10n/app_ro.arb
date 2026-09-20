@@ -1206,5 +1206,7 @@
   "syncRunning": "Se sincronizează cu dosarul…",
   "copied": "Copiat",
   "sharedFolder": "Dosar partajat",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Nu acum",
+  "changesCount": "{n, plural, one{1 schimbare} few{{n} schimbări} other{{n} de schimbări}}"
 }

@@ -1212,5 +1212,7 @@
   "syncRunning": "Abgleich mit dem Ordner läuft…",
   "copied": "Kopiert",
   "sharedFolder": "Gemeinsamer Ordner",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Jetzt nicht",
+  "changesCount": "{n, plural, one{1 Änderung} other{{n} Änderungen}}"
 }

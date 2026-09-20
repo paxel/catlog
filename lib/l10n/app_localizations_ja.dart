@@ -3460,4 +3460,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => '今はしない';
+
+  @override
+  String changesCount(int n) {
+    return '$n件の変更';
+  }
 }

@@ -3538,4 +3538,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN: $pin';
   }
+
+  @override
+  String get syncDismiss => 'الان نه';
+
+  @override
+  String changesCount(int n) {
+    return '$n تغییر';
+  }
 }

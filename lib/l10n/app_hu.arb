@@ -1206,5 +1206,7 @@
   "syncRunning": "Szinkronizálás a mappával…",
   "copied": "Másolva",
   "sharedFolder": "Megosztott mappa",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Most nem",
+  "changesCount": "{n, plural, one{1 változás} other{{n} változás}}"
 }

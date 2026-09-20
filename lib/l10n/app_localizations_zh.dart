@@ -3419,4 +3419,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String pinLabel(String pin) {
     return 'PIN：$pin';
   }
+
+  @override
+  String get syncDismiss => '暂不';
+
+  @override
+  String changesCount(int n) {
+    return '$n 项更改';
+  }
 }

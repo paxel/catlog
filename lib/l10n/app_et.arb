@@ -1206,5 +1206,7 @@
   "syncRunning": "Sünkroonimine kaustaga…",
   "copied": "Kopeeritud",
   "sharedFolder": "Jagatud kaust",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Mitte praegu",
+  "changesCount": "{n, plural, one{1 muudatus} other{{n} muudatust}}"
 }

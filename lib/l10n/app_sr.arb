@@ -1206,5 +1206,7 @@
   "syncRunning": "Синхронизација са фасциклом…",
   "copied": "Копирано",
   "sharedFolder": "Дељена фасцикла",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "Не сада",
+  "changesCount": "{n, plural, one{{n} измена} few{{n} измене} other{{n} измена}}"
 }

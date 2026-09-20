@@ -1206,5 +1206,7 @@
   "syncRunning": "フォルダと同期中…",
   "copied": "コピーしました",
   "sharedFolder": "共有フォルダー",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "今はしない",
+  "changesCount": "{n}件の変更"
 }

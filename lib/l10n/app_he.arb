@@ -1206,5 +1206,7 @@
   "syncRunning": "מסנכרן עם התיקייה…",
   "copied": "הועתק",
   "sharedFolder": "תיקייה משותפת",
-  "pinLabel": "PIN: {pin}"
+  "pinLabel": "PIN: {pin}",
+  "syncDismiss": "לא עכשיו",
+  "changesCount": "{n, plural, one{שינוי אחד} two{{n} שינויים} other{{n} שינויים}}"
 }
