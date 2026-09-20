@@ -84,7 +84,7 @@ mod tests {
 
     #[test]
     fn the_version_is_the_crate_version() {
-        assert_eq!(VERSION, "2.0.0");
+        assert_eq!(VERSION, env!("CARGO_PKG_VERSION"));
         assert_eq!(APP_NAME, "cat(a)log");
     }
 }

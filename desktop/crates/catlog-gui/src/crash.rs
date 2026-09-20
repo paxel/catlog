@@ -118,7 +118,8 @@ mod tests {
             "   0: catlog_gui::app::show\n   1: std::rt::lang_start\n   2: catlog_core::x",
         );
         let report = last_crash(dir.path()).unwrap();
-        assert!(report.starts_with("cat(a)log 2.0.0"));
+        let version = env!("CARGO_PKG_VERSION");
+        assert!(report.starts_with(&format!("cat(a)log {version}")));
         assert!(report.contains("boom"));
         let body = mail_body(&report, 10_000);
         let catlog_first = body.find("catlog_gui::app::show").unwrap();
@@ -126,9 +127,9 @@ mod tests {
         assert!(catlog_first < std_later, "own frames come first");
         assert_eq!(mail_body(&report, 20).chars().count(), 20);
         let url = mail_url(&report);
-        assert!(url.starts_with(
-            "mailto:taum@tuta.io?subject=cat%28a%29log%20crash%20report&body=cat%28a%29log%202.0.0"
-        ));
+        assert!(url.starts_with(&format!(
+            "mailto:taum@tuta.io?subject=cat%28a%29log%20crash%20report&body=cat%28a%29log%20{version}"
+        )));
         clear(dir.path());
         assert!(last_crash(dir.path()).is_none());
         assert!(report_header(chrono::Utc::now()).contains("locale"));
