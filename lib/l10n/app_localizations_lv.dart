@@ -3646,21 +3646,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get syncAnotherDevice => 'cita ierīce';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count $authors izmaiņas apvienotas',
-      one: '$count $authors izmaiņa apvienota',
-      zero: '$count $authors izmaiņu apvienotas',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Rādīt';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3676,9 +3661,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get syncRunning => 'Sinhronizē ar mapi…';
 
   @override
-  String get syncDismiss => 'Ne tagad';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3692,4 +3674,24 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get undo => 'Atsaukt';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sinhronizēts ar $authors. Pieskarieties, lai redzētu, kas pienāca.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sinhronizēts. Nekā jauna.';
+
+  @override
+  String get noteSyncFailed =>
+      'Sinhronizācija neizdevās. Pieskarieties, lai skatītu detaļas.';
+
+  @override
+  String get failureReport => 'Ziņot';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Atvērt $page';
+  }
 }

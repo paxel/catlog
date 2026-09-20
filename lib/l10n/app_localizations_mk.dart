@@ -3633,20 +3633,6 @@ class AppLocalizationsMk extends AppLocalizations {
   String get syncAnotherDevice => 'друг уред';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count промени од $authors споени',
-      one: '$count промена од $authors споена',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Прикажи';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3661,9 +3647,6 @@ class AppLocalizationsMk extends AppLocalizations {
   String get syncRunning => 'Синхронизација со папката…';
 
   @override
-  String get syncDismiss => 'Не сега';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3676,4 +3659,23 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get undo => 'Врати';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Синхронизирано со $authors. Допрете за да видите што пристигна.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Синхронизирано. Ништо ново.';
+
+  @override
+  String get noteSyncFailed => 'Синхронизацијата не успеа. Допрете за детали.';
+
+  @override
+  String get failureReport => 'Пријави';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Отвори $page';
+  }
 }

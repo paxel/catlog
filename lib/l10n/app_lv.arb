@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Apvienot tās pašas",
   "syncChangesWaiting": "{authors} izmaiņas gaida katalogā {catalog}. Pieskarieties, lai sinhronizētu.",
   "syncAnotherDevice": "cita ierīce",
-  "syncMerged": "{count, plural, zero{{count} {authors} izmaiņu apvienotas} one{{count} {authors} izmaiņa apvienota} other{{count} {authors} izmaiņas apvienotas}}",
-  "syncShow": "Rādīt",
   "achievementDone": "{times, plural, zero{Izdarīts {times} reižu} one{Izdarīts {times} reizi} other{Izdarīts {times} reizes}}, pirmoreiz {date}",
   "syncRunning": "Sinhronizē ar mapi…",
-  "syncDismiss": "Ne tagad",
   "flierHidden": "{count, plural, zero{{count} rindu nolikts malā} one{{count} rinda nolikta malā} other{{count} rindas noliktas malā}}",
-  "undo": "Atsaukt"
+  "undo": "Atsaukt",
+  "noteSyncDone": "Sinhronizēts ar {authors}. Pieskarieties, lai redzētu, kas pienāca.",
+  "noteSyncNothingNew": "Sinhronizēts. Nekā jauna.",
+  "noteSyncFailed": "Sinhronizācija neizdevās. Pieskarieties, lai skatītu detaļas.",
+  "failureReport": "Ziņot",
+  "failureOpenPage": "Atvērt {page}"
 }

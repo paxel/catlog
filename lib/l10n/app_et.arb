@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Ühenda need iseenesest",
   "syncChangesWaiting": "{authors} muudatused ootavad kataloogis {catalog}. Puuduta sünkroonimiseks.",
   "syncAnotherDevice": "teine seade",
-  "syncMerged": "{count, plural, one{{count} muudatus ({authors}) ühendatud} other{{count} muudatust ({authors}) ühendatud}}",
-  "syncShow": "Näita",
   "achievementDone": "{times, plural, one{Tehtud üks kord} other{Tehtud {times} korda}}, esimest korda {date}",
   "syncRunning": "Sünkroonimine kaustaga…",
-  "syncDismiss": "Mitte praegu",
   "flierHidden": "{count, plural, one{{count} rida kõrvale pandud} other{{count} rida kõrvale pandud}}",
-  "undo": "Võta tagasi"
+  "undo": "Võta tagasi",
+  "noteSyncDone": "Sünkroonitud: {authors}. Puuduta, et näha, mis saabus.",
+  "noteSyncNothingNew": "Sünkroonitud. Midagi uut pole.",
+  "noteSyncFailed": "Sünkroonimine ebaõnnestus. Puuduta üksikasjade jaoks.",
+  "failureReport": "Teata",
+  "failureOpenPage": "Ava {page}"
 }

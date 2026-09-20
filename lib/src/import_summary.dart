@@ -5,6 +5,7 @@ import 'conflict_dialog.dart';
 import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
+import 'notes.dart';
 import 'pet_mode.dart';
 import 'titles.dart';
 import 'undo_import.dart';
@@ -263,6 +264,23 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied,
       conflicts: conflicts,
       meta: meta,
       report: report);
+}
+
+/// The note a finished sync leaves at the top: who sent, and a tap that
+/// opens the arrival page — or, with nothing new, no tap at all.
+Note arrivalNote(BuildContext context, CatalogStore store, List<Entry> applied,
+    {Moment? undo, ImportReport? report}) {
+  if (applied.isEmpty) return Note.done((t) => t.noteSyncNothingNew);
+  final authors = {
+    for (final e in applied)
+      if (e.author != seedAuthor) e.author
+  };
+  return Note.done(
+    (t) => t.noteSyncDone(
+        authors.isEmpty ? t.syncAnotherDevice : authors.join(', ')),
+    onTap: () => showImportSummary(context, store, applied,
+        undo: undo, report: report),
+  );
 }
 
 /// Shows what arrived, when anything did: a full page with Accept and

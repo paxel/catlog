@@ -3644,20 +3644,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get syncAnotherDevice => 'άλλη συσκευή';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count αλλαγές από $authors συγχωνεύτηκαν',
-      one: '$count αλλαγή από $authors συγχωνεύτηκε',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Εμφάνιση';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3672,9 +3658,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get syncRunning => 'Συγχρονισμός με τον φάκελο…';
 
   @override
-  String get syncDismiss => 'Όχι τώρα';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3687,4 +3670,24 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get undo => 'Αναίρεση';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Συγχρονίστηκε με $authors. Πατήστε για να δείτε τι έφτασε.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Συγχρονίστηκε. Τίποτα νέο.';
+
+  @override
+  String get noteSyncFailed =>
+      'Ο συγχρονισμός απέτυχε. Πατήστε για λεπτομέρειες.';
+
+  @override
+  String get failureReport => 'Αναφορά';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Άνοιγμα $page';
+  }
 }

@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Να συγχωνεύονται μόνες τους",
   "syncChangesWaiting": "Αλλαγές από {authors} περιμένουν στο {catalog}. Πατήστε για συγχρονισμό.",
   "syncAnotherDevice": "άλλη συσκευή",
-  "syncMerged": "{count, plural, one{{count} αλλαγή από {authors} συγχωνεύτηκε} other{{count} αλλαγές από {authors} συγχωνεύτηκαν}}",
-  "syncShow": "Εμφάνιση",
   "achievementDone": "{times, plural, one{Έγινε μία φορά} other{Έγινε {times} φορές}}, πρώτη φορά στις {date}",
   "syncRunning": "Συγχρονισμός με τον φάκελο…",
-  "syncDismiss": "Όχι τώρα",
   "flierHidden": "{count, plural, one{{count} γραμμή στην άκρη} other{{count} γραμμές στην άκρη}}",
-  "undo": "Αναίρεση"
+  "undo": "Αναίρεση",
+  "noteSyncDone": "Συγχρονίστηκε με {authors}. Πατήστε για να δείτε τι έφτασε.",
+  "noteSyncNothingNew": "Συγχρονίστηκε. Τίποτα νέο.",
+  "noteSyncFailed": "Ο συγχρονισμός απέτυχε. Πατήστε για λεπτομέρειες.",
+  "failureReport": "Αναφορά",
+  "failureOpenPage": "Άνοιγμα {page}"
 }

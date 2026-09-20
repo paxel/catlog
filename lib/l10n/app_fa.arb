@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "خودشان ادغام شوند",
   "syncChangesWaiting": "تغییراتی از {authors} در {catalog} منتظر است. برای همگام‌سازی ضربه بزنید.",
   "syncAnotherDevice": "دستگاهی دیگر",
-  "syncMerged": "{count, plural, one{{count} تغییر از {authors} ادغام شد} other{{count} تغییر از {authors} ادغام شد}}",
-  "syncShow": "نمایش",
   "achievementDone": "{times, plural, one{{times} بار انجام شد} other{{times} بار انجام شد}}، اولین بار {date}",
   "syncRunning": "در حال همگام‌سازی با پوشه…",
-  "syncDismiss": "الان نه",
   "flierHidden": "{count, plural, one{{count} خط کنار گذاشته شد} other{{count} خط کنار گذاشته شد}}",
-  "undo": "واگرد"
+  "undo": "واگرد",
+  "noteSyncDone": "با {authors} همگام شد. برای دیدن آنچه رسید ضربه بزنید.",
+  "noteSyncNothingNew": "همگام شد. چیز جدیدی نیست.",
+  "noteSyncFailed": "همگام‌سازی ناموفق بود. برای جزئیات ضربه بزنید.",
+  "failureReport": "گزارش",
+  "failureOpenPage": "باز کردن {page}"
 }

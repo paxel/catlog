@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Ze vanzelf samenvoegen",
   "syncChangesWaiting": "Wijzigingen van {authors} wachten in {catalog}. Tik om te synchroniseren.",
   "syncAnotherDevice": "een ander apparaat",
-  "syncMerged": "{count, plural, one{{count} wijziging van {authors} samengevoegd} other{{count} wijzigingen van {authors} samengevoegd}}",
-  "syncShow": "Tonen",
   "achievementDone": "{times, plural, one{Eén keer gedaan} other{{times} keer gedaan}}, de eerste op {date}",
   "syncRunning": "Synchroniseren met de map…",
-  "syncDismiss": "Niet nu",
   "flierHidden": "{count, plural, one{{count} regel opzijgezet} other{{count} regels opzijgezet}}",
-  "undo": "Ongedaan maken"
+  "undo": "Ongedaan maken",
+  "noteSyncDone": "Gesynchroniseerd met {authors}. Tik om te zien wat er is binnengekomen.",
+  "noteSyncNothingNew": "Gesynchroniseerd. Niets nieuws.",
+  "noteSyncFailed": "Synchronisatie mislukt. Tik voor details.",
+  "failureReport": "Melden",
+  "failureOpenPage": "{page} openen"
 }

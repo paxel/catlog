@@ -13,7 +13,8 @@ import 'src/crash_guard.dart';
 import 'src/import_summary.dart';
 import 'src/incoming_file.dart';
 import 'src/sync/sync_watch.dart';
-import 'src/sync/sync_watch_line.dart';
+import 'src/exclusive.dart';
+import 'src/notes.dart';
 import 'src/stray_cam.dart';
 import 'src/hidden.dart';
 import 'src/fur_background.dart';
@@ -169,8 +170,9 @@ class _CatlogAppState extends State<CatlogApp>
   /// Watches the shared folder while the app is on screen (#watch).
   late SyncWatcher _watcher = _watcherFor(widget.store);
 
-  SyncWatcher _watcherFor(CatalogStore store) =>
-      SyncWatcher(store)..onMerged = _merged;
+  SyncWatcher _watcherFor(CatalogStore store) => SyncWatcher(store)
+    ..onMerged = _merged
+    ..onFailed = _mergeFailed;
 
   /// Photos stored with camera metadata are rewritten without it once
   /// per catalog (photo_privacy.dart); a later import may bring more.
@@ -183,34 +185,29 @@ class _CatlogAppState extends State<CatlogApp>
     }
   }
 
-  /// After a merge the watcher ran: the summary when something needs a
-  /// look, else one line with a way to the summary.
+  /// After a merge, however it started: the arrival page at once when
+  /// the signatures need a look, else a finished note whose tap opens
+  /// the page.
   void _merged(FolderSyncResult result, Moment? undo, bool fromTap) {
     final context = navigatorKey.currentContext;
     if (context == null || !context.mounted) return;
-    // The keeper's own tap gets what the Sync button gives: the summary.
-    if (needsAttention(result.report) ||
-        (fromTap && result.applied.isNotEmpty)) {
+    if (needsAttention(result.report)) {
       showImportSummary(context, _store, result.applied,
           undo: undo, report: result.report);
       return;
     }
-    if (result.applied.isEmpty) return;
-    final t = context.t;
-    final authors = {
-      for (final e in result.applied)
-        if (e.author != seedAuthor) e.author
-    };
-    messengerKey.currentState?.showSnackBar(SnackBar(
-      content: Text(t.syncMerged(result.applied.length,
-          authors.isEmpty ? t.syncAnotherDevice : authors.join(', '))),
-      action: SnackBarAction(
-        label: t.syncShow,
-        onPressed: () => showImportSummary(context, _store, result.applied,
-            undo: undo, report: result.report),
-      ),
-    ));
+    NoteQueue.instance.add(arrivalNote(context, _store, result.applied,
+        undo: undo, report: result.report));
   }
+
+  void _mergeFailed(Object error) => NoteQueue.instance.add(Note.failed(
+        (t) => t.noteSyncFailed,
+        detail: '$error',
+        pageLabel: (t) => t.sync,
+        onOpenPage: () => navigatorKey.currentState?.push(MaterialPageRoute(
+              builder: (_) => SyncScreen(store: _store),
+            )),
+      ));
 
   /// Switches the app to another catalog: the new one becomes what
   /// everything writes to, and the app returns to the list.
@@ -411,8 +408,10 @@ class _CatlogAppState extends State<CatlogApp>
             const SingleActivator(LogicalKeyboardKey.escape): () =>
                 navigatorKey.currentState?.maybePop(),
           },
-          child: SyncWatchLine(
-            watcher: _watcher,
+          child: NoteStrip(
+            queue: NoteQueue.instance,
+            busy: busyFlows,
+            openIn: () => navigatorKey.currentContext!,
             child: child ?? const SizedBox.shrink(),
           ),
           ),

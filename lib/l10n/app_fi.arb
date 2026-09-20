@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Yhdistä ne itsestään",
   "syncChangesWaiting": "Muutoksia lähettäjältä {authors} odottaa kohteessa {catalog}. Napauta synkronoidaksesi.",
   "syncAnotherDevice": "toinen laite",
-  "syncMerged": "{count, plural, one{{count} muutos lähettäjältä {authors} yhdistetty} other{{count} muutosta lähettäjältä {authors} yhdistetty}}",
-  "syncShow": "Näytä",
   "achievementDone": "{times, plural, one{Tehty kerran} other{Tehty {times} kertaa}}, ensimmäisen kerran {date}",
   "syncRunning": "Synkronoidaan kansion kanssa…",
-  "syncDismiss": "Ei nyt",
   "flierHidden": "{count, plural, one{{count} rivi siirretty syrjään} other{{count} riviä siirretty syrjään}}",
-  "undo": "Kumoa"
+  "undo": "Kumoa",
+  "noteSyncDone": "Synkronoitu: {authors}. Napauta nähdäksesi, mitä saapui.",
+  "noteSyncNothingNew": "Synkronoitu. Ei mitään uutta.",
+  "noteSyncFailed": "Synkronointi epäonnistui. Napauta nähdäksesi tiedot.",
+  "failureReport": "Ilmoita",
+  "failureOpenPage": "Avaa {page}"
 }

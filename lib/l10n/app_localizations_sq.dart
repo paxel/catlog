@@ -3632,20 +3632,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get syncAnotherDevice => 'një pajisje tjetër';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count ndryshime nga $authors u bashkuan',
-      one: '$count ndryshim nga $authors u bashkua',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Shfaq';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3660,9 +3646,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get syncRunning => 'Duke u sinkronizuar me dosjen…';
 
   @override
-  String get syncDismiss => 'Jo tani';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3675,4 +3658,23 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get undo => 'Zhbëj';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'U sinkronizua me $authors. Prek për të parë çfarë mbërriti.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'U sinkronizua. Asgjë e re.';
+
+  @override
+  String get noteSyncFailed => 'Sinkronizimi dështoi. Prek për detaje.';
+
+  @override
+  String get failureReport => 'Raporto';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Hap $page';
+  }
 }

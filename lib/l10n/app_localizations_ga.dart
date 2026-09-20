@@ -3688,23 +3688,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get syncAnotherDevice => 'gléas eile';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count athrú ó $authors cumaiscthe',
-      many: '$count n-athrú ó $authors cumaiscthe',
-      few: '$count athrú ó $authors cumaiscthe',
-      two: '$count athrú ó $authors cumaiscthe',
-      one: '$count athrú ó $authors cumaiscthe',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Taispeáin';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3722,9 +3705,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get syncRunning => 'Ag sioncronú leis an bhfillteán…';
 
   @override
-  String get syncDismiss => 'Ní anois';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3740,4 +3720,24 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get undo => 'Cealaigh';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sioncronaithe le $authors. Tapáil chun a bhfuil tagtha a fheiceáil.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sioncronaithe. Rud ar bith nua.';
+
+  @override
+  String get noteSyncFailed =>
+      'Theip ar an sioncronú. Tapáil le haghaidh sonraí.';
+
+  @override
+  String get failureReport => 'Tuairiscigh';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Oscail $page';
+  }
 }

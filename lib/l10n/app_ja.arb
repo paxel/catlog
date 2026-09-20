@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "自動的に取り込む",
   "syncChangesWaiting": "{authors} の変更が {catalog} に届いています。タップして同期。",
   "syncAnotherDevice": "別の端末",
-  "syncMerged": "{count, plural, other{{authors} の変更 {count} 件を取り込みました}}",
-  "syncShow": "表示",
   "achievementDone": "{times, plural, other{{times} 回完了}}、初回 {date}",
   "syncRunning": "フォルダと同期中…",
-  "syncDismiss": "今はしない",
   "flierHidden": "{count, plural, other{{count} 行を脇に置きました}}",
-  "undo": "元に戻す"
+  "undo": "元に戻す",
+  "noteSyncDone": "{authors} と同期しました。タップして届いたものを確認。",
+  "noteSyncNothingNew": "同期しました。新しいものはありません。",
+  "noteSyncFailed": "同期に失敗しました。タップして詳細を表示。",
+  "failureReport": "報告",
+  "failureOpenPage": "{page} を開く"
 }

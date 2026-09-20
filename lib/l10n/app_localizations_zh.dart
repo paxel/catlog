@@ -3451,19 +3451,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get syncAnotherDevice => '另一台设备';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '已合并来自 $authors 的 $count 项更改',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => '显示';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3477,9 +3464,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get syncRunning => '正在与文件夹同步…';
 
   @override
-  String get syncDismiss => '暂不';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3491,4 +3475,23 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get undo => '撤销';
+
+  @override
+  String noteSyncDone(String authors) {
+    return '已与 $authors 同步。点按查看收到的内容。';
+  }
+
+  @override
+  String get noteSyncNothingNew => '已同步。没有新内容。';
+
+  @override
+  String get noteSyncFailed => '同步失败。点按查看详情。';
+
+  @override
+  String get failureReport => '报告';
+
+  @override
+  String failureOpenPage(String page) {
+    return '打开 $page';
+  }
 }

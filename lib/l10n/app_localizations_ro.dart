@@ -3648,21 +3648,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get syncAnotherDevice => 'alt dispozitiv';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count de modificări de la $authors îmbinate',
-      few: '$count modificări de la $authors îmbinate',
-      one: '$count modificare de la $authors îmbinată',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Arată';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3678,9 +3663,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get syncRunning => 'Se sincronizează cu dosarul…';
 
   @override
-  String get syncDismiss => 'Nu acum';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3694,4 +3676,23 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get undo => 'Anulează';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sincronizat cu $authors. Atinge pentru a vedea ce a sosit.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sincronizat. Nimic nou.';
+
+  @override
+  String get noteSyncFailed => 'Sincronizarea a eșuat. Atinge pentru detalii.';
+
+  @override
+  String get failureReport => 'Raportează';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Deschide $page';
+  }
 }

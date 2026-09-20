@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Спојувај ги сами",
   "syncChangesWaiting": "Промени од {authors} чекаат во {catalog}. Допрете за синхронизација.",
   "syncAnotherDevice": "друг уред",
-  "syncMerged": "{count, plural, one{{count} промена од {authors} споена} other{{count} промени од {authors} споени}}",
-  "syncShow": "Прикажи",
   "achievementDone": "{times, plural, one{Направено еднаш} other{Направено {times} пати}}, првпат на {date}",
   "syncRunning": "Синхронизација со папката…",
-  "syncDismiss": "Не сега",
   "flierHidden": "{count, plural, one{{count} ред тргнат настрана} other{{count} реда тргнати настрана}}",
-  "undo": "Врати"
+  "undo": "Врати",
+  "noteSyncDone": "Синхронизирано со {authors}. Допрете за да видите што пристигна.",
+  "noteSyncNothingNew": "Синхронизирано. Ништо ново.",
+  "noteSyncFailed": "Синхронизацијата не успеа. Допрете за детали.",
+  "failureReport": "Пријави",
+  "failureOpenPage": "Отвори {page}"
 }

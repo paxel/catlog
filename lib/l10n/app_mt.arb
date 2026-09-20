@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Għaqqadhom waħidhom",
   "syncChangesWaiting": "Bidliet minn {authors} jistennew f'{catalog}. Missu biex tissinkronizza.",
   "syncAnotherDevice": "apparat ieħor",
-  "syncMerged": "{count, plural, one{{count} bidla minn {authors} magħquda} other{{count} bidliet minn {authors} magħquda}}",
-  "syncShow": "Uri",
   "achievementDone": "{times, plural, one{Magħmul darba} other{Magħmul {times} darbiet}}, l-ewwel darba fi {date}",
   "syncRunning": "Qed jissinkronizza mal-folder…",
-  "syncDismiss": "Mhux issa",
   "flierHidden": "{count, plural, one{{count} linja mwarrba} other{{count} linji mwarrbin}}",
-  "undo": "Ħassar"
+  "undo": "Ħassar",
+  "noteSyncDone": "Sinkronizzat ma' {authors}. Mess biex tara x'wasal.",
+  "noteSyncNothingNew": "Sinkronizzat. Xejn ġdid.",
+  "noteSyncFailed": "Is-sinkronizzazzjoni falliet. Mess għad-dettalji.",
+  "failureReport": "Irrapporta",
+  "failureOpenPage": "Iftaħ {page}"
 }

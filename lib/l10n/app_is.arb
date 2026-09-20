@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Sameina þær sjálfkrafa",
   "syncChangesWaiting": "Breytingar frá {authors} bíða í {catalog}. Ýttu til að samstilla.",
   "syncAnotherDevice": "öðru tæki",
-  "syncMerged": "{count, plural, one{{count} breyting frá {authors} sameinuð} other{{count} breytingar frá {authors} sameinaðar}}",
-  "syncShow": "Sýna",
   "achievementDone": "{times, plural, one{Gert einu sinni} other{Gert {times} sinnum}}, fyrst {date}",
   "syncRunning": "Samstilli við möppuna…",
-  "syncDismiss": "Ekki núna",
   "flierHidden": "{count, plural, one{{count} lína lögð til hliðar} other{{count} línur lagðar til hliðar}}",
-  "undo": "Afturkalla"
+  "undo": "Afturkalla",
+  "noteSyncDone": "Samstillt við {authors}. Ýttu til að sjá hvað barst.",
+  "noteSyncNothingNew": "Samstillt. Ekkert nýtt.",
+  "noteSyncFailed": "Samstilling mistókst. Ýttu fyrir nánari upplýsingar.",
+  "failureReport": "Tilkynna",
+  "failureOpenPage": "Opna {page}"
 }

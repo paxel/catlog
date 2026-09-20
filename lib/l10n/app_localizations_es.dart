@@ -3642,20 +3642,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get syncAnotherDevice => 'otro dispositivo';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count cambios de $authors fusionados',
-      one: '$count cambio de $authors fusionado',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Mostrar';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3670,9 +3656,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get syncRunning => 'Sincronizando con la carpeta…';
 
   @override
-  String get syncDismiss => 'Ahora no';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3685,4 +3668,24 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get undo => 'Deshacer';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sincronizado con $authors. Toca para ver lo que llegó.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sincronizado. Nada nuevo.';
+
+  @override
+  String get noteSyncFailed =>
+      'La sincronización falló. Toca para ver detalles.';
+
+  @override
+  String get failureReport => 'Informar';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Abrir $page';
+  }
 }

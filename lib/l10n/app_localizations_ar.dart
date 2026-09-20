@@ -3665,24 +3665,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get syncAnotherDevice => 'جهاز آخر';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'دُمج $count تغيير من $authors',
-      many: 'دُمج $count تغييراً من $authors',
-      few: 'دُمجت $count تغييرات من $authors',
-      two: 'دُمج تغييران من $authors',
-      one: 'دُمج تغيير واحد من $authors',
-      zero: 'لم يُدمج أي تغيير من $authors',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'عرض';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3701,9 +3683,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get syncRunning => 'جارٍ المزامنة مع المجلد…';
 
   @override
-  String get syncDismiss => 'ليس الآن';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3720,4 +3699,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get undo => 'تراجع';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'تمت المزامنة مع $authors. انقر لرؤية ما وصل.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'تمت المزامنة. لا جديد.';
+
+  @override
+  String get noteSyncFailed => 'فشلت المزامنة. انقر للتفاصيل.';
+
+  @override
+  String get failureReport => 'إبلاغ';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'فتح $page';
+  }
 }

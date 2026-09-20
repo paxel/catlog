@@ -3632,20 +3632,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get syncAnotherDevice => 'toinen laite';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count muutosta lähettäjältä $authors yhdistetty',
-      one: '$count muutos lähettäjältä $authors yhdistetty',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Näytä';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3660,9 +3646,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get syncRunning => 'Synkronoidaan kansion kanssa…';
 
   @override
-  String get syncDismiss => 'Ei nyt';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3675,4 +3658,24 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get undo => 'Kumoa';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Synkronoitu: $authors. Napauta nähdäksesi, mitä saapui.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Synkronoitu. Ei mitään uutta.';
+
+  @override
+  String get noteSyncFailed =>
+      'Synkronointi epäonnistui. Napauta nähdäksesi tiedot.';
+
+  @override
+  String get failureReport => 'Ilmoita';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Avaa $page';
+  }
 }

@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Scalaj je samodzielnie",
   "syncChangesWaiting": "Zmiany od {authors} czekają w {catalog}. Dotknij, aby zsynchronizować.",
   "syncAnotherDevice": "innego urządzenia",
-  "syncMerged": "{count, plural, one{{count} zmiana od {authors} scalona} few{{count} zmiany od {authors} scalone} many{{count} zmian od {authors} scalonych} other{{count} zmiany od {authors} scalone}}",
-  "syncShow": "Pokaż",
   "achievementDone": "{times, plural, one{Zrobione raz} few{Zrobione {times} razy} many{Zrobione {times} razy} other{Zrobione {times} razy}}, pierwszy raz {date}",
   "syncRunning": "Synchronizacja z folderem…",
-  "syncDismiss": "Nie teraz",
   "flierHidden": "{count, plural, one{{count} wiersz odłożony} few{{count} wiersze odłożone} many{{count} wierszy odłożonych} other{{count} wiersza odłożonego}}",
-  "undo": "Cofnij"
+  "undo": "Cofnij",
+  "noteSyncDone": "Zsynchronizowano z {authors}. Dotknij, aby zobaczyć, co dotarło.",
+  "noteSyncNothingNew": "Zsynchronizowano. Nic nowego.",
+  "noteSyncFailed": "Synchronizacja nie powiodła się. Dotknij, aby zobaczyć szczegóły.",
+  "failureReport": "Zgłoś",
+  "failureOpenPage": "Otwórz {page}"
 }

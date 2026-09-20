@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Объединять самостоятельно",
   "syncChangesWaiting": "Изменения от {authors} ждут в {catalog}. Нажмите для синхронизации.",
   "syncAnotherDevice": "другого устройства",
-  "syncMerged": "{count, plural, one{{count} изменение от {authors} объединено} few{{count} изменения от {authors} объединены} many{{count} изменений от {authors} объединено} other{{count} изменения от {authors} объединены}}",
-  "syncShow": "Показать",
   "achievementDone": "{times, plural, one{Сделано {times} раз} few{Сделано {times} раза} many{Сделано {times} раз} other{Сделано {times} раза}}, впервые {date}",
   "syncRunning": "Синхронизация с папкой…",
-  "syncDismiss": "Не сейчас",
   "flierHidden": "{count, plural, one{{count} строка отложена} few{{count} строки отложены} many{{count} строк отложено} other{{count} строки отложено}}",
-  "undo": "Отменить"
+  "undo": "Отменить",
+  "noteSyncDone": "Синхронизировано с {authors}. Нажмите, чтобы увидеть, что пришло.",
+  "noteSyncNothingNew": "Синхронизировано. Ничего нового.",
+  "noteSyncFailed": "Синхронизация не удалась. Нажмите для подробностей.",
+  "failureReport": "Сообщить",
+  "failureOpenPage": "Открыть {page}"
 }

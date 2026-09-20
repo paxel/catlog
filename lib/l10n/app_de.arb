@@ -1232,11 +1232,13 @@
   "syncAutoSwitch": "Von selbst zusammenführen",
   "syncChangesWaiting": "Änderungen von {authors} warten in {catalog}. Tippen zum Abgleichen.",
   "syncAnotherDevice": "einem anderen Gerät",
-  "syncMerged": "{count, plural, one{{count} Änderung von {authors} zusammengeführt} other{{count} Änderungen von {authors} zusammengeführt}}",
-  "syncShow": "Anzeigen",
   "achievementDone": "{times, plural, one{Einmal erledigt} other{{times} Mal erledigt}}, zuerst am {date}",
   "syncRunning": "Abgleich mit dem Ordner läuft…",
-  "syncDismiss": "Jetzt nicht",
   "flierHidden": "{count, plural, one{{count} Zeile beiseitegelegt} other{{count} Zeilen beiseitegelegt}}",
-  "undo": "Rückgängig"
+  "undo": "Rückgängig",
+  "noteSyncDone": "Mit {authors} abgeglichen. Antippen zeigt, was angekommen ist.",
+  "noteSyncNothingNew": "Abgeglichen. Nichts Neues.",
+  "noteSyncFailed": "Abgleich fehlgeschlagen. Antippen für Details.",
+  "failureReport": "Melden",
+  "failureOpenPage": "{page} öffnen"
 }

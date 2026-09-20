@@ -15,6 +15,26 @@ a screen that breaks one is a bug, not a style choice.
   without an ear is undiscoverable and therefore wrong.
 - A checkbox or switch is the only thing that toggles state; the row
   around it does not.
+- **Swipe belongs to the notes at the top and nothing else.** Swipe left
+  shows the next note, swipe right clears the news and leaves the
+  failures; a failure goes only by swipe left or tap. No list row, card
+  or page swipes.
+
+## Announcements
+
+- Everything the app has to say goes to the top of the screen, under
+  the status bar: one note at a time, the page pushed down below it.
+  Nothing ever appears at the bottom, where the gestures and the
+  keyboard live — a snackbar is a bug.
+- A note says only that a job finished, failed or waits; the tap opens
+  the details. Values never go into a note.
+- A quick local success the screen already shows (copied, recorded)
+  gets a silent paw at the tapped button, no note.
+- A failure's tap opens a dialog with cause, fix and the full text,
+  Close and Report; the page it belongs to is a line inside, not a
+  third button.
+- An answer to a form field (name taken, not a code) is that field's
+  own error text, red, under the field.
 
 ## Dialogs and pages
 

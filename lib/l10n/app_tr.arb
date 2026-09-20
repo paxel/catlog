@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Kendiliğinden birleştir",
   "syncChangesWaiting": "{authors} kaynaklı değişiklikler {catalog} içinde bekliyor. Eşitlemek için dokunun.",
   "syncAnotherDevice": "başka bir cihaz",
-  "syncMerged": "{count, plural, one{{authors} kaynaklı {count} değişiklik birleştirildi} other{{authors} kaynaklı {count} değişiklik birleştirildi}}",
-  "syncShow": "Göster",
   "achievementDone": "{times, plural, one{{times} kez yapıldı} other{{times} kez yapıldı}}, ilki {date}",
   "syncRunning": "Klasörle eşitleniyor…",
-  "syncDismiss": "Şimdi değil",
   "flierHidden": "{count, plural, one{{count} satır kenara alındı} other{{count} satır kenara alındı}}",
-  "undo": "Geri al"
+  "undo": "Geri al",
+  "noteSyncDone": "{authors} ile eşitlendi. Gelenleri görmek için dokunun.",
+  "noteSyncNothingNew": "Eşitlendi. Yeni bir şey yok.",
+  "noteSyncFailed": "Eşitleme başarısız oldu. Ayrıntılar için dokunun.",
+  "failureReport": "Bildir",
+  "failureOpenPage": "{page} sayfasını aç"
 }

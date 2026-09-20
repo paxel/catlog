@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Îmbină-le de la sine",
   "syncChangesWaiting": "Modificări de la {authors} așteaptă în {catalog}. Atinge pentru a sincroniza.",
   "syncAnotherDevice": "alt dispozitiv",
-  "syncMerged": "{count, plural, one{{count} modificare de la {authors} îmbinată} few{{count} modificări de la {authors} îmbinate} other{{count} de modificări de la {authors} îmbinate}}",
-  "syncShow": "Arată",
   "achievementDone": "{times, plural, one{Făcut o dată} few{Făcut de {times} ori} other{Făcut de {times} de ori}}, prima dată pe {date}",
   "syncRunning": "Se sincronizează cu dosarul…",
-  "syncDismiss": "Nu acum",
   "flierHidden": "{count, plural, one{{count} rând pus deoparte} few{{count} rânduri puse deoparte} other{{count} de rânduri puse deoparte}}",
-  "undo": "Anulează"
+  "undo": "Anulează",
+  "noteSyncDone": "Sincronizat cu {authors}. Atinge pentru a vedea ce a sosit.",
+  "noteSyncNothingNew": "Sincronizat. Nimic nou.",
+  "noteSyncFailed": "Sincronizarea a eșuat. Atinge pentru detalii.",
+  "failureReport": "Raportează",
+  "failureOpenPage": "Deschide {page}"
 }

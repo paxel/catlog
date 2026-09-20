@@ -3652,22 +3652,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get syncAnotherDevice => 'другого устройства';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count изменения от $authors объединены',
-      many: '$count изменений от $authors объединено',
-      few: '$count изменения от $authors объединены',
-      one: '$count изменение от $authors объединено',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Показать';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3684,9 +3668,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get syncRunning => 'Синхронизация с папкой…';
 
   @override
-  String get syncDismiss => 'Не сейчас';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3701,4 +3682,24 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get undo => 'Отменить';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Синхронизировано с $authors. Нажмите, чтобы увидеть, что пришло.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Синхронизировано. Ничего нового.';
+
+  @override
+  String get noteSyncFailed =>
+      'Синхронизация не удалась. Нажмите для подробностей.';
+
+  @override
+  String get failureReport => 'Сообщить';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Открыть $page';
+  }
 }

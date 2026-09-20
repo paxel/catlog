@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Sulieti juos savaime",
   "syncChangesWaiting": "{authors} pakeitimai laukia kataloge {catalog}. Palieskite, kad sinchronizuotumėte.",
   "syncAnotherDevice": "kitas įrenginys",
-  "syncMerged": "{count, plural, one{{count} {authors} pakeitimas sulietas} few{{count} {authors} pakeitimai sulieti} many{{count} {authors} pakeitimo sulieta} other{{count} {authors} pakeitimų sulieta}}",
-  "syncShow": "Rodyti",
   "achievementDone": "{times, plural, one{Atlikta {times} kartą} few{Atlikta {times} kartus} many{Atlikta {times} karto} other{Atlikta {times} kartų}}, pirmą kartą {date}",
   "syncRunning": "Sinchronizuojama su aplanku…",
-  "syncDismiss": "Ne dabar",
   "flierHidden": "{count, plural, one{{count} eilutė atidėta} few{{count} eilutės atidėtos} many{{count} eilutės atidėta} other{{count} eilučių atidėta}}",
-  "undo": "Atšaukti"
+  "undo": "Atšaukti",
+  "noteSyncDone": "Sinchronizuota su {authors}. Palieskite, kad pamatytumėte, kas atkeliavo.",
+  "noteSyncNothingNew": "Sinchronizuota. Nieko naujo.",
+  "noteSyncFailed": "Sinchronizuoti nepavyko. Palieskite, kad pamatytumėte išsamiau.",
+  "failureReport": "Pranešti",
+  "failureOpenPage": "Atidaryti {page}"
 }

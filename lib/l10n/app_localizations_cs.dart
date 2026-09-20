@@ -3643,21 +3643,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get syncAnotherDevice => 'jiného zařízení';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count změn od $authors sloučeno',
-      few: '$count změny od $authors sloučeny',
-      one: '$count změna od $authors sloučena',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Zobrazit';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3673,9 +3658,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get syncRunning => 'Synchronizace se složkou…';
 
   @override
-  String get syncDismiss => 'Teď ne';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3689,4 +3671,24 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get undo => 'Zpět';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Synchronizováno s $authors. Klepnutím zobrazíte, co dorazilo.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Synchronizováno. Nic nového.';
+
+  @override
+  String get noteSyncFailed =>
+      'Synchronizace selhala. Klepnutím zobrazíte podrobnosti.';
+
+  @override
+  String get failureReport => 'Nahlásit';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Otevřít $page';
+  }
 }

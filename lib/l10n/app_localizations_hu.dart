@@ -3631,20 +3631,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get syncAnotherDevice => 'egy másik eszköz';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count változtatás beolvasztva ($authors)',
-      one: '$count változtatás beolvasztva ($authors)',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Mutasd';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3659,9 +3645,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get syncRunning => 'Szinkronizálás a mappával…';
 
   @override
-  String get syncDismiss => 'Most nem';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3674,4 +3657,24 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get undo => 'Visszavonás';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Szinkronizálva: $authors. Koppints, hogy lásd, mi érkezett.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Szinkronizálva. Semmi új.';
+
+  @override
+  String get noteSyncFailed =>
+      'A szinkronizálás nem sikerült. Koppints a részletekért.';
+
+  @override
+  String get failureReport => 'Jelentés';
+
+  @override
+  String failureOpenPage(String page) {
+    return '$page megnyitása';
+  }
 }

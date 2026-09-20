@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Beolvasztás maguktól",
   "syncChangesWaiting": "{authors} változtatásai várnak itt: {catalog}. Koppints a szinkronizáláshoz.",
   "syncAnotherDevice": "egy másik eszköz",
-  "syncMerged": "{count, plural, one{{count} változtatás beolvasztva ({authors})} other{{count} változtatás beolvasztva ({authors})}}",
-  "syncShow": "Mutasd",
   "achievementDone": "{times, plural, one{Egyszer megcsinálva} other{{times}-szor megcsinálva}}, először {date}",
   "syncRunning": "Szinkronizálás a mappával…",
-  "syncDismiss": "Most nem",
   "flierHidden": "{count, plural, one{{count} sor félretéve} other{{count} sor félretéve}}",
-  "undo": "Visszavonás"
+  "undo": "Visszavonás",
+  "noteSyncDone": "Szinkronizálva: {authors}. Koppints, hogy lásd, mi érkezett.",
+  "noteSyncNothingNew": "Szinkronizálva. Semmi új.",
+  "noteSyncFailed": "A szinkronizálás nem sikerült. Koppints a részletekért.",
+  "failureReport": "Jelentés",
+  "failureOpenPage": "{page} megnyitása"
 }

@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Juntá-las sozinhas",
   "syncChangesWaiting": "Alterações de {authors} à espera em {catalog}. Toca para sincronizar.",
   "syncAnotherDevice": "outro dispositivo",
-  "syncMerged": "{count, plural, one{{count} alteração de {authors} junta} other{{count} alterações de {authors} juntas}}",
-  "syncShow": "Mostrar",
   "achievementDone": "{times, plural, one{Feito uma vez} other{Feito {times} vezes}}, a primeira em {date}",
   "syncRunning": "A sincronizar com a pasta…",
-  "syncDismiss": "Agora não",
   "flierHidden": "{count, plural, one{{count} linha posta de lado} other{{count} linhas postas de lado}}",
-  "undo": "Anular"
+  "undo": "Anular",
+  "noteSyncDone": "Sincronizado com {authors}. Toque para ver o que chegou.",
+  "noteSyncNothingNew": "Sincronizado. Nada de novo.",
+  "noteSyncFailed": "A sincronização falhou. Toque para ver detalhes.",
+  "failureReport": "Reportar",
+  "failureOpenPage": "Abrir {page}"
 }

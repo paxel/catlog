@@ -5,12 +5,13 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/foundation.dart';
 
 import '../exclusive.dart';
+import '../notes.dart';
 import 'saf_folder.dart';
 
 /// Watches the shared folder while the app is on screen: every five
 /// minutes and on every resume it measures the other devices' files,
-/// reads only the ones that grew, and either says that changes wait
-/// (poll mode) or merges them on the spot (auto mode). Nothing runs
+/// reads only the ones that grew, and either puts a waiting note at the
+/// top (poll mode) or merges them on the spot (auto mode). Nothing runs
 /// behind other apps or with the app closed.
 
 /// Local settings, per catalog.
@@ -63,22 +64,28 @@ class SyncWatcher extends ChangeNotifier {
   /// folder instead.
   final SyncFolder? Function(CatalogStore) folderOf;
 
-  /// Told after every merge the watcher ran itself (auto mode) or on a
-  /// tap of the line; the UI shows the summary or a snackbar.
-  /// [fromTap] tells a merge the keeper asked for (the line's tap) from
-  /// one the watcher ran itself; the first shows the summary like the
-  /// Sync button, the second one line.
+  /// Where the waiting note goes; the app's queue unless a test hands
+  /// in its own.
+  final NoteQueue notes;
+
+  /// Told after every merge, whether the watcher ran it itself (auto
+  /// mode) or the keeper tapped the waiting note; the app adds the
+  /// finished note. [fromTap] tells the two apart.
   void Function(FolderSyncResult result, Moment? undo, bool fromTap)? onMerged;
+
+  /// Told when a merge the keeper tapped failed; the app adds the
+  /// failed note. A round that finds the folder out of reach says
+  /// nothing and tries again later.
+  void Function(Object error)? onFailed;
 
   Timer? _timer;
   bool _busy = false;
 
-  /// What waits in the folder (poll mode), null when nothing does.
-  UnseenChanges? pending;
+  /// The waiting note on screen, null when nothing waits.
+  Note? _waiting;
 
-  /// A merge is running: the line shows it, so a tap on a big folder
-  /// is not followed by nothing for a minute.
-  bool merging = false;
+  /// Whether changes wait in the folder (poll mode).
+  bool get pending => _waiting != null;
 
   /// Photo files fetched on their own in a round; the pages redraw on
   /// their next build.
@@ -89,16 +96,20 @@ class SyncWatcher extends ChangeNotifier {
   Map<String, int>? _dismissedAt;
   Map<String, int>? _lastSizes;
 
-  /// "Not now": the line goes, the changes stay in the folder, and the
-  /// line comes back when more arrives.
-  void dismiss() {
+  /// The note was swiped away: the changes stay in the folder, and the
+  /// note comes back when more arrives.
+  void _dismissed() {
     _dismissedAt = _lastSizes;
-    pending = null;
+    _waiting = null;
     notifyListeners();
   }
 
-  SyncWatcher(this.store, {SyncFolder? Function(CatalogStore)? folderOf})
-    : folderOf = folderOf ?? syncFolderOf;
+  SyncWatcher(
+    this.store, {
+    SyncFolder? Function(CatalogStore)? folderOf,
+    NoteQueue? notes,
+  }) : folderOf = folderOf ?? syncFolderOf,
+       notes = notes ?? NoteQueue.instance;
 
   bool get enabled => store.isOpen && syncWatchOn(store);
 
@@ -114,8 +125,10 @@ class SyncWatcher extends ChangeNotifier {
   /// Nothing waits any more: a manual sync took it, or the folder moved
   /// on without news.
   void _clear() {
-    if (pending == null) return;
-    pending = null;
+    final note = _waiting;
+    if (note == null) return;
+    _waiting = null;
+    notes.remove(note);
     notifyListeners();
   }
 
@@ -188,8 +201,7 @@ class SyncWatcher extends ChangeNotifier {
         _busy = false;
         await merge();
       } else {
-        pending = unseen;
-        notifyListeners();
+        announce(unseen);
       }
     } catch (_) {
       // Unreachable folder, half-written file: next round.
@@ -198,18 +210,36 @@ class SyncWatcher extends ChangeNotifier {
     }
   }
 
+  /// Puts the waiting note up: who wrote, which catalog, tap to merge.
+  void announce(UnseenChanges unseen) {
+    final note = Note.waiting(
+      (t) => t.syncChangesWaiting(
+        unseen.authors.isEmpty
+            ? t.syncAnotherDevice
+            : unseen.authors.join(', '),
+        store.localSetting(catalogNameKey) ?? t.appTitle,
+      ),
+      onTap: () => merge(fromTap: true),
+      onGone: _dismissed,
+    );
+    _waiting = note;
+    notes.add(note);
+    notifyListeners();
+  }
+
   /// Merges what the others wrote, as the Sync button does, and records
-  /// the new baseline. Null when the folder failed.
+  /// the new baseline. Null when the folder failed; a tapped merge that
+  /// fails is told to [onFailed].
   Future<FolderSyncResult?> merge({bool fromTap = false}) async {
     final folder = folderOf(store);
     if (folder == null || !store.isOpen) return null;
-    merging = true;
-    pending = null;
-    notifyListeners();
+    _clear();
     try {
       return await _merge(folder, fromTap);
+    } catch (e) {
+      if (fromTap) onFailed?.call(e);
+      return null;
     } finally {
-      merging = false;
       if (store.isOpen) notifyListeners();
     }
   }
@@ -240,6 +270,7 @@ class SyncWatcher extends ChangeNotifier {
   @override
   void dispose() {
     stop();
+    _clear();
     super.dispose();
   }
 }

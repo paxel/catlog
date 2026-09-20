@@ -3643,21 +3643,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get syncAnotherDevice => 'drugog uređaja';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count promjena od $authors spojeno',
-      few: '$count promjene od $authors spojene',
-      one: '$count promjena od $authors spojena',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Prikaži';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3673,9 +3658,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get syncRunning => 'Sinkronizacija s mapom…';
 
   @override
-  String get syncDismiss => 'Ne sada';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3689,4 +3671,24 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get undo => 'Poništi';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sinkronizirano s $authors. Dodirnite da vidite što je stiglo.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sinkronizirano. Ništa novo.';
+
+  @override
+  String get noteSyncFailed =>
+      'Sinkronizacija nije uspjela. Dodirnite za detalje.';
+
+  @override
+  String get failureReport => 'Prijavi';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Otvori $page';
+  }
 }

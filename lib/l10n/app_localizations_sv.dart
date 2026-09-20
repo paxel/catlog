@@ -3629,20 +3629,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get syncAnotherDevice => 'en annan enhet';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count ändringar från $authors sammanslagna',
-      one: '$count ändring från $authors sammanslagen',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Visa';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3657,9 +3643,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get syncRunning => 'Synkar med mappen…';
 
   @override
-  String get syncDismiss => 'Inte nu';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3672,4 +3655,23 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get undo => 'Ångra';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Synkat med $authors. Tryck för att se vad som kom.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Synkat. Inget nytt.';
+
+  @override
+  String get noteSyncFailed => 'Synkningen misslyckades. Tryck för detaljer.';
+
+  @override
+  String get failureReport => 'Rapportera';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Öppna $page';
+  }
 }

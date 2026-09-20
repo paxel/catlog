@@ -3493,19 +3493,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get syncAnotherDevice => '別の端末';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$authors の変更 $count 件を取り込みました',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => '表示';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3519,9 +3506,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get syncRunning => 'フォルダと同期中…';
 
   @override
-  String get syncDismiss => '今はしない';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3533,4 +3517,23 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get undo => '元に戻す';
+
+  @override
+  String noteSyncDone(String authors) {
+    return '$authors と同期しました。タップして届いたものを確認。';
+  }
+
+  @override
+  String get noteSyncNothingNew => '同期しました。新しいものはありません。';
+
+  @override
+  String get noteSyncFailed => '同期に失敗しました。タップして詳細を表示。';
+
+  @override
+  String get failureReport => '報告';
+
+  @override
+  String failureOpenPage(String page) {
+    return '$page を開く';
+  }
 }

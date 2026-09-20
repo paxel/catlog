@@ -3630,20 +3630,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get syncAnotherDevice => 'başka bir cihaz';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$authors kaynaklı $count değişiklik birleştirildi',
-      one: '$authors kaynaklı $count değişiklik birleştirildi',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Göster';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3658,9 +3644,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get syncRunning => 'Klasörle eşitleniyor…';
 
   @override
-  String get syncDismiss => 'Şimdi değil';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3673,4 +3656,24 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get undo => 'Geri al';
+
+  @override
+  String noteSyncDone(String authors) {
+    return '$authors ile eşitlendi. Gelenleri görmek için dokunun.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Eşitlendi. Yeni bir şey yok.';
+
+  @override
+  String get noteSyncFailed =>
+      'Eşitleme başarısız oldu. Ayrıntılar için dokunun.';
+
+  @override
+  String get failureReport => 'Bildir';
+
+  @override
+  String failureOpenPage(String page) {
+    return '$page sayfasını aç';
+  }
 }

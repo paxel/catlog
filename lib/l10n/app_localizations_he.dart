@@ -3627,21 +3627,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncAnotherDevice => 'מכשיר אחר';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count שינויים מאת $authors מוזגו',
-      two: '$count שינויים מאת $authors מוזגו',
-      one: 'שינוי אחד מאת $authors מוזג',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'הצג';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3657,9 +3642,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncRunning => 'מסנכרן עם התיקייה…';
 
   @override
-  String get syncDismiss => 'לא עכשיו';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3673,4 +3655,23 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get undo => 'בטל';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'סונכרן עם $authors. הקש כדי לראות מה הגיע.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'סונכרן. אין חדש.';
+
+  @override
+  String get noteSyncFailed => 'הסנכרון נכשל. הקש לפרטים.';
+
+  @override
+  String get failureReport => 'דווח';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'פתח $page';
+  }
 }

@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "ادمجها من تلقاء نفسها",
   "syncChangesWaiting": "تغييرات من {authors} تنتظر في {catalog}. انقر للمزامنة.",
   "syncAnotherDevice": "جهاز آخر",
-  "syncMerged": "{count, plural, zero{لم يُدمج أي تغيير من {authors}} one{دُمج تغيير واحد من {authors}} two{دُمج تغييران من {authors}} few{دُمجت {count} تغييرات من {authors}} many{دُمج {count} تغييراً من {authors}} other{دُمج {count} تغيير من {authors}}}",
-  "syncShow": "عرض",
   "achievementDone": "{times, plural, zero{لم يُنجز} one{أُنجز مرة} two{أُنجز مرتين} few{أُنجز {times} مرات} many{أُنجز {times} مرة} other{أُنجز {times} مرة}}، أول مرة في {date}",
   "syncRunning": "جارٍ المزامنة مع المجلد…",
-  "syncDismiss": "ليس الآن",
   "flierHidden": "{count, plural, zero{لا أسطر مؤجلة} one{سطر واحد مؤجل} two{سطران مؤجلان} few{{count} أسطر مؤجلة} many{{count} سطراً مؤجلاً} other{{count} سطر مؤجل}}",
-  "undo": "تراجع"
+  "undo": "تراجع",
+  "noteSyncDone": "تمت المزامنة مع {authors}. انقر لرؤية ما وصل.",
+  "noteSyncNothingNew": "تمت المزامنة. لا جديد.",
+  "noteSyncFailed": "فشلت المزامنة. انقر للتفاصيل.",
+  "failureReport": "إبلاغ",
+  "failureOpenPage": "فتح {page}"
 }

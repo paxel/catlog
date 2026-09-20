@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "自动合并",
   "syncChangesWaiting": "来自 {authors} 的更改在 {catalog} 中等待。点按以同步。",
   "syncAnotherDevice": "另一台设备",
-  "syncMerged": "{count, plural, other{已合并来自 {authors} 的 {count} 项更改}}",
-  "syncShow": "显示",
   "achievementDone": "{times, plural, other{已完成 {times} 次}}，首次 {date}",
   "syncRunning": "正在与文件夹同步…",
-  "syncDismiss": "暂不",
   "flierHidden": "{count, plural, other{已搁置 {count} 行}}",
-  "undo": "撤销"
+  "undo": "撤销",
+  "noteSyncDone": "已与 {authors} 同步。点按查看收到的内容。",
+  "noteSyncNothingNew": "已同步。没有新内容。",
+  "noteSyncFailed": "同步失败。点按查看详情。",
+  "failureReport": "报告",
+  "failureOpenPage": "打开 {page}"
 }

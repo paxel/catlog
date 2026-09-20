@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Spoji ih same",
   "syncChangesWaiting": "Promjene od {authors} čekaju u {catalog}. Dodirnite za sinkronizaciju.",
   "syncAnotherDevice": "drugog uređaja",
-  "syncMerged": "{count, plural, one{{count} promjena od {authors} spojena} few{{count} promjene od {authors} spojene} other{{count} promjena od {authors} spojeno}}",
-  "syncShow": "Prikaži",
   "achievementDone": "{times, plural, one{Obavljeno {times} put} few{Obavljeno {times} puta} other{Obavljeno {times} puta}}, prvi put {date}",
   "syncRunning": "Sinkronizacija s mapom…",
-  "syncDismiss": "Ne sada",
   "flierHidden": "{count, plural, one{{count} redak odložen} few{{count} retka odložena} other{{count} redaka odloženo}}",
-  "undo": "Poništi"
+  "undo": "Poništi",
+  "noteSyncDone": "Sinkronizirano s {authors}. Dodirnite da vidite što je stiglo.",
+  "noteSyncNothingNew": "Sinkronizirano. Ništa novo.",
+  "noteSyncFailed": "Sinkronizacija nije uspjela. Dodirnite za detalje.",
+  "failureReport": "Prijavi",
+  "failureOpenPage": "Otvori {page}"
 }

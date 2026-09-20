@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Sloučit je samy",
   "syncChangesWaiting": "Změny od {authors} čekají v {catalog}. Klepnutím synchronizujete.",
   "syncAnotherDevice": "jiného zařízení",
-  "syncMerged": "{count, plural, one{{count} změna od {authors} sloučena} few{{count} změny od {authors} sloučeny} other{{count} změn od {authors} sloučeno}}",
-  "syncShow": "Zobrazit",
   "achievementDone": "{times, plural, one{Hotovo jednou} few{Hotovo {times}krát} other{Hotovo {times}krát}}, poprvé {date}",
   "syncRunning": "Synchronizace se složkou…",
-  "syncDismiss": "Teď ne",
   "flierHidden": "{count, plural, one{{count} řádek odložen} few{{count} řádky odloženy} other{{count} řádků odloženo}}",
-  "undo": "Zpět"
+  "undo": "Zpět",
+  "noteSyncDone": "Synchronizováno s {authors}. Klepnutím zobrazíte, co dorazilo.",
+  "noteSyncNothingNew": "Synchronizováno. Nic nového.",
+  "noteSyncFailed": "Synchronizace selhala. Klepnutím zobrazíte podrobnosti.",
+  "failureReport": "Nahlásit",
+  "failureOpenPage": "Otevřít {page}"
 }

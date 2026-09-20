@@ -2024,18 +2024,6 @@
     }
   },
   "syncAnotherDevice": "another device",
-  "syncMerged": "{count, plural, one{{count} change from {authors} merged} other{{count} changes from {authors} merged}}",
-  "@syncMerged": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "authors": {
-        "type": "String"
-      }
-    }
-  },
-  "syncShow": "Show",
   "achievementDone": "{times, plural, one{Done once} other{Done {times} times}}, first on {date}",
   "@achievementDone": {
     "placeholders": {
@@ -2048,7 +2036,6 @@
     }
   },
   "syncRunning": "Syncing with the folder…",
-  "syncDismiss": "Not now",
   "flierHidden": "{count, plural, one{{count} line put aside} other{{count} lines put aside}}",
   "@flierHidden": {
     "placeholders": {
@@ -2057,5 +2044,24 @@
       }
     }
   },
-  "undo": "Undo"
+  "undo": "Undo",
+  "noteSyncDone": "Synced with {authors}. Tap to see what arrived.",
+  "@noteSyncDone": {
+    "placeholders": {
+      "authors": {
+        "type": "String"
+      }
+    }
+  },
+  "noteSyncNothingNew": "Synced. Nothing new.",
+  "noteSyncFailed": "Sync failed. Tap for details.",
+  "failureReport": "Report",
+  "failureOpenPage": "Open {page}",
+  "@failureOpenPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  }
 }

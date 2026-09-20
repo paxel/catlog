@@ -6296,18 +6296,6 @@ abstract class AppLocalizations {
   /// **'another device'**
   String get syncAnotherDevice;
 
-  /// No description provided for @syncMerged.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, one{{count} change from {authors} merged} other{{count} changes from {authors} merged}}'**
-  String syncMerged(int count, String authors);
-
-  /// No description provided for @syncShow.
-  ///
-  /// In en, this message translates to:
-  /// **'Show'**
-  String get syncShow;
-
   /// No description provided for @achievementDone.
   ///
   /// In en, this message translates to:
@@ -6320,12 +6308,6 @@ abstract class AppLocalizations {
   /// **'Syncing with the folder…'**
   String get syncRunning;
 
-  /// No description provided for @syncDismiss.
-  ///
-  /// In en, this message translates to:
-  /// **'Not now'**
-  String get syncDismiss;
-
   /// No description provided for @flierHidden.
   ///
   /// In en, this message translates to:
@@ -6337,6 +6319,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Undo'**
   String get undo;
+
+  /// No description provided for @noteSyncDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Synced with {authors}. Tap to see what arrived.'**
+  String noteSyncDone(String authors);
+
+  /// No description provided for @noteSyncNothingNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Synced. Nothing new.'**
+  String get noteSyncNothingNew;
+
+  /// No description provided for @noteSyncFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync failed. Tap for details.'**
+  String get noteSyncFailed;
+
+  /// No description provided for @failureReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Report'**
+  String get failureReport;
+
+  /// No description provided for @failureOpenPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Open {page}'**
+  String failureOpenPage(String page);
 }
 
 class _AppLocalizationsDelegate

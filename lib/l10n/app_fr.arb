@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Les fusionner tout seuls",
   "syncChangesWaiting": "Des changements de {authors} attendent dans {catalog}. Touchez pour synchroniser.",
   "syncAnotherDevice": "un autre appareil",
-  "syncMerged": "{count, plural, one{{count} changement de {authors} fusionné} other{{count} changements de {authors} fusionnés}}",
-  "syncShow": "Afficher",
   "achievementDone": "{times, plural, one{Fait une fois} other{Fait {times} fois}}, la première le {date}",
   "syncRunning": "Synchronisation avec le dossier…",
-  "syncDismiss": "Pas maintenant",
   "flierHidden": "{count, plural, one{{count} ligne mise de côté} other{{count} lignes mises de côté}}",
-  "undo": "Annuler"
+  "undo": "Annuler",
+  "noteSyncDone": "Synchronisé avec {authors}. Touchez pour voir ce qui est arrivé.",
+  "noteSyncNothingNew": "Synchronisé. Rien de nouveau.",
+  "noteSyncFailed": "Échec de la synchronisation. Touchez pour les détails.",
+  "failureReport": "Signaler",
+  "failureOpenPage": "Ouvrir {page}"
 }

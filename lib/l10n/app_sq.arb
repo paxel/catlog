@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Bashkoji vetë",
   "syncChangesWaiting": "Ndryshime nga {authors} presin në {catalog}. Prek për të sinkronizuar.",
   "syncAnotherDevice": "një pajisje tjetër",
-  "syncMerged": "{count, plural, one{{count} ndryshim nga {authors} u bashkua} other{{count} ndryshime nga {authors} u bashkuan}}",
-  "syncShow": "Shfaq",
   "achievementDone": "{times, plural, one{Bërë një herë} other{Bërë {times} herë}}, herën e parë më {date}",
   "syncRunning": "Duke u sinkronizuar me dosjen…",
-  "syncDismiss": "Jo tani",
   "flierHidden": "{count, plural, one{{count} rresht i lënë mënjanë} other{{count} rreshta të lënë mënjanë}}",
-  "undo": "Zhbëj"
+  "undo": "Zhbëj",
+  "noteSyncDone": "U sinkronizua me {authors}. Prek për të parë çfarë mbërriti.",
+  "noteSyncNothingNew": "U sinkronizua. Asgjë e re.",
+  "noteSyncFailed": "Sinkronizimi dështoi. Prek për detaje.",
+  "failureReport": "Raporto",
+  "failureOpenPage": "Hap {page}"
 }

@@ -3628,20 +3628,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get syncAnotherDevice => 'en annen enhet';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count endringer fra $authors slått sammen',
-      one: '$count endring fra $authors slått sammen',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Vis';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3656,9 +3642,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get syncRunning => 'Synkroniserer med mappen…';
 
   @override
-  String get syncDismiss => 'Ikke nå';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3671,4 +3654,23 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get undo => 'Angre';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Synkronisert med $authors. Trykk for å se hva som kom.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Synkronisert. Ingenting nytt.';
+
+  @override
+  String get noteSyncFailed => 'Synkronisering mislyktes. Trykk for detaljer.';
+
+  @override
+  String get failureReport => 'Rapporter';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Åpne $page';
+  }
 }

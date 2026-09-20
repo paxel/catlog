@@ -3636,20 +3636,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get syncAnotherDevice => 'öðru tæki';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count breytingar frá $authors sameinaðar',
-      one: '$count breyting frá $authors sameinuð',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Sýna';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3664,9 +3650,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get syncRunning => 'Samstilli við möppuna…';
 
   @override
-  String get syncDismiss => 'Ekki núna';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3679,4 +3662,24 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get undo => 'Afturkalla';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Samstillt við $authors. Ýttu til að sjá hvað barst.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Samstillt. Ekkert nýtt.';
+
+  @override
+  String get noteSyncFailed =>
+      'Samstilling mistókst. Ýttu fyrir nánari upplýsingar.';
+
+  @override
+  String get failureReport => 'Tilkynna';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Opna $page';
+  }
 }

@@ -3570,20 +3570,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get syncAnotherDevice => 'دستگاهی دیگر';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count تغییر از $authors ادغام شد',
-      one: '$count تغییر از $authors ادغام شد',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'نمایش';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3598,9 +3584,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get syncRunning => 'در حال همگام‌سازی با پوشه…';
 
   @override
-  String get syncDismiss => 'الان نه';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3613,4 +3596,23 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get undo => 'واگرد';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'با $authors همگام شد. برای دیدن آنچه رسید ضربه بزنید.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'همگام شد. چیز جدیدی نیست.';
+
+  @override
+  String get noteSyncFailed => 'همگام‌سازی ناموفق بود. برای جزئیات ضربه بزنید.';
+
+  @override
+  String get failureReport => 'گزارش';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'باز کردن $page';
+  }
 }

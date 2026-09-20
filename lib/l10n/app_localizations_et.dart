@@ -3629,20 +3629,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get syncAnotherDevice => 'teine seade';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count muudatust ($authors) ühendatud',
-      one: '$count muudatus ($authors) ühendatud',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Näita';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3657,9 +3643,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get syncRunning => 'Sünkroonimine kaustaga…';
 
   @override
-  String get syncDismiss => 'Mitte praegu';
-
-  @override
   String flierHidden(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -3672,4 +3655,24 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get undo => 'Võta tagasi';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sünkroonitud: $authors. Puuduta, et näha, mis saabus.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sünkroonitud. Midagi uut pole.';
+
+  @override
+  String get noteSyncFailed =>
+      'Sünkroonimine ebaõnnestus. Puuduta üksikasjade jaoks.';
+
+  @override
+  String get failureReport => 'Teata';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Ava $page';
+  }
 }

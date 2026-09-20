@@ -955,6 +955,12 @@ class ModeLocalizations implements AppLocalizations {
   String get exportShareFile => base.exportShareFile;
 
   @override
+  String failureOpenPage(String page) => base.failureOpenPage(page);
+
+  @override
+  String get failureReport => base.failureReport;
+
+  @override
   String get familySection => base.familySection;
 
   @override
@@ -1939,6 +1945,15 @@ class ModeLocalizations implements AppLocalizations {
   String get notSaved => base.notSaved;
 
   @override
+  String noteSyncDone(String authors) => base.noteSyncDone(authors);
+
+  @override
+  String get noteSyncFailed => base.noteSyncFailed;
+
+  @override
+  String get noteSyncNothingNew => base.noteSyncNothingNew;
+
+  @override
   String get notesLabel => base.notesLabel;
 
   @override
@@ -2755,16 +2770,10 @@ class ModeLocalizations implements AppLocalizations {
   String get syncDeclined => base.syncDeclined;
 
   @override
-  String get syncDismiss => base.syncDismiss;
-
-  @override
   String syncFailed(String error) => base.syncFailed(error);
 
   @override
   String get syncFolderNow => base.syncFolderNow;
-
-  @override
-  String syncMerged(int count, String authors) => base.syncMerged(count, authors);
 
   @override
   String get syncNow => base.syncNow;
@@ -2780,9 +2789,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get syncRunning => base.syncRunning;
-
-  @override
-  String get syncShow => base.syncShow;
 
   @override
   String get syncSummaryTitle => base.syncSummaryTitle;

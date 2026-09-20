@@ -1226,11 +1226,13 @@
   "syncAutoSwitch": "Flet dem ind af sig selv",
   "syncChangesWaiting": "Ændringer fra {authors} venter i {catalog}. Tryk for at synkronisere.",
   "syncAnotherDevice": "en anden enhed",
-  "syncMerged": "{count, plural, one{{count} ændring fra {authors} flettet ind} other{{count} ændringer fra {authors} flettet ind}}",
-  "syncShow": "Vis",
   "achievementDone": "{times, plural, one{Gjort én gang} other{Gjort {times} gange}}, første gang {date}",
   "syncRunning": "Synkroniserer med mappen…",
-  "syncDismiss": "Ikke nu",
   "flierHidden": "{count, plural, one{{count} linje lagt til side} other{{count} linjer lagt til side}}",
-  "undo": "Fortryd"
+  "undo": "Fortryd",
+  "noteSyncDone": "Synkroniseret med {authors}. Tryk for at se, hvad der kom.",
+  "noteSyncNothingNew": "Synkroniseret. Intet nyt.",
+  "noteSyncFailed": "Synkronisering mislykkedes. Tryk for detaljer.",
+  "failureReport": "Rapportér",
+  "failureOpenPage": "Åbn {page}"
 }
