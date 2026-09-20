@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} tehtud {count}×",
   "moreChanges": "+{n} veel",
   "noteFolderUnreachable": "Jagatud kaust pole kättesaadav alates {since}. Puuduta üksikasjade jaoks.",
-  "noteFolderLagging": "{names} vajab veel uut versiooni, et sinu muudatusi näha."
+  "noteFolderLagging": "{names} vajab veel uut versiooni, et sinu muudatusi näha.",
+  "folderSynced": "Kaust sünkroonitud: {result}",
+  "bundleImported": "Pakett imporditud: {result}",
+  "sightingRecorded": "Vaatlus salvestatud sinu asukohas.",
+  "deletedDone": "Kustutatud.",
+  "spotReplayDone": "Vihjed kuvatakse uuesti",
+  "syncRunning": "Sünkroonimine kaustaga…",
+  "copied": "Kopeeritud",
+  "sharedFolder": "Jagatud kaust",
+  "pinLabel": "PIN: {pin}"
 }

@@ -3558,4 +3558,37 @@ class AppLocalizationsEt extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names vajab veel uut versiooni, et sinu muudatusi näha.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Kaust sünkroonitud: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakett imporditud: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Vaatlus salvestatud sinu asukohas.';
+
+  @override
+  String get deletedDone => 'Kustutatud.';
+
+  @override
+  String get spotReplayDone => 'Vihjed kuvatakse uuesti';
+
+  @override
+  String get syncRunning => 'Sünkroonimine kaustaga…';
+
+  @override
+  String get copied => 'Kopeeritud';
+
+  @override
+  String get sharedFolder => 'Jagatud kaust';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

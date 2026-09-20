@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} atlikta {count}×",
   "moreChanges": "+{n} daugiau",
   "noteFolderUnreachable": "Bendras aplankas nepasiekiamas nuo {since}. Palieskite, kad pamatytumėte išsamiau.",
-  "noteFolderLagging": "{names} vis dar reikia naujos versijos, kad matytų jūsų pakeitimus."
+  "noteFolderLagging": "{names} vis dar reikia naujos versijos, kad matytų jūsų pakeitimus.",
+  "folderSynced": "Aplankas sinchronizuotas: {result}",
+  "bundleImported": "Paketas importuotas: {result}",
+  "sightingRecorded": "Pastebėjimas įrašytas jūsų pozicijoje.",
+  "deletedDone": "Ištrinta.",
+  "spotReplayDone": "Patarimai bus rodomi vėl",
+  "syncRunning": "Sinchronizuojama su aplanku…",
+  "copied": "Nukopijuota",
+  "sharedFolder": "Bendras aplankas",
+  "pinLabel": "PIN: {pin}"
 }

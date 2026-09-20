@@ -3590,4 +3590,37 @@ class AppLocalizationsSl extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names še vedno potrebuje novo različico, da vidi vaše spremembe.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mapa sinhronizirana: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paket uvožen: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Opažanje zabeleženo na vaši poziciji.';
+
+  @override
+  String get deletedDone => 'Izbrisano.';
+
+  @override
+  String get spotReplayDone => 'Namigi se bodo znova prikazali';
+
+  @override
+  String get syncRunning => 'Sinhronizacija z mapo…';
+
+  @override
+  String get copied => 'Kopirano';
+
+  @override
+  String get sharedFolder => 'Skupna mapa';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

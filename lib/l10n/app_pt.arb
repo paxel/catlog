@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} feito {count}×",
   "moreChanges": "+{n} mais",
   "noteFolderUnreachable": "A pasta partilhada está inacessível desde as {since}. Toque para ver detalhes.",
-  "noteFolderLagging": "{names} ainda precisa da nova versão para ver as suas alterações."
+  "noteFolderLagging": "{names} ainda precisa da nova versão para ver as suas alterações.",
+  "folderSynced": "Pasta sincronizada: {result}",
+  "bundleImported": "Pacote importado: {result}",
+  "sightingRecorded": "Avistamento registado na tua posição.",
+  "deletedDone": "Apagado.",
+  "spotReplayDone": "As dicas voltarão a aparecer",
+  "syncRunning": "A sincronizar com a pasta…",
+  "copied": "Copiado",
+  "sharedFolder": "Pasta partilhada",
+  "pinLabel": "PIN: {pin}"
 }

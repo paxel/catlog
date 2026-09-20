@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} magħmul {count}×",
   "moreChanges": "+{n} oħra",
   "noteFolderUnreachable": "Il-folder kondiviż ilu ma jintlaħaqx mis-{since}. Mess għad-dettalji.",
-  "noteFolderLagging": "{names} għad għandu bżonn il-verżjoni l-ġdida biex jara l-bidliet tiegħek."
+  "noteFolderLagging": "{names} għad għandu bżonn il-verżjoni l-ġdida biex jara l-bidliet tiegħek.",
+  "folderSynced": "Folder sinkronizzat: {result}",
+  "bundleImported": "Pakkett importat: {result}",
+  "sightingRecorded": "Id-dehra ġiet irreġistrata fil-pożizzjoni tiegħek.",
+  "deletedDone": "Imħassar.",
+  "spotReplayDone": "Is-suġġerimenti jerġgħu jidhru",
+  "syncRunning": "Qed jissinkronizza mal-folder…",
+  "copied": "Ikkupjat",
+  "sharedFolder": "Folder kondiviż",
+  "pinLabel": "PIN: {pin}"
 }

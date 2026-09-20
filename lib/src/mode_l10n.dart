@@ -397,6 +397,9 @@ class ModeLocalizations implements AppLocalizations {
   String bundleImportFailed(String error) => base.bundleImportFailed(error);
 
   @override
+  String bundleImported(String result) => base.bundleImported(result);
+
+  @override
   String get bundleNewerError => base.bundleNewerError;
 
   @override
@@ -688,6 +691,9 @@ class ModeLocalizations implements AppLocalizations {
   String get connectToWifiFirst => base.connectToWifiFirst;
 
   @override
+  String get copied => base.copied;
+
+  @override
   String get copyCode => base.copyCode;
 
   @override
@@ -824,6 +830,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String deleteQuestion(String name) => base.deleteQuestion(name);
+
+  @override
+  String get deletedDone => base.deletedDone;
 
   @override
   String get deletedLabel => base.deletedLabel;
@@ -983,6 +992,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String folderSyncFailed(String error) => base.folderSyncFailed(error);
+
+  @override
+  String folderSynced(String result) => base.folderSynced(result);
 
   @override
   String get folderUnreachable => base.folderUnreachable;
@@ -2002,6 +2014,9 @@ class ModeLocalizations implements AppLocalizations {
   String get pin => base.pin;
 
   @override
+  String pinLabel(String pin) => base.pinLabel(pin);
+
+  @override
   String get planChooserAppointment => base.planChooserAppointment;
 
   @override
@@ -2323,6 +2338,9 @@ class ModeLocalizations implements AppLocalizations {
   String sharedCatalogIs(String name) => base.sharedCatalogIs(name);
 
   @override
+  String get sharedFolder => base.sharedFolder;
+
+  @override
   String get sharedFolderExplainer => base.sharedFolderExplainer;
 
   @override
@@ -2342,6 +2360,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get siblingsLabel => base.siblingsLabel;
+
+  @override
+  String get sightingRecorded => base.sightingRecorded;
 
   @override
   String get similarName => base.similarName;
@@ -2450,6 +2471,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get spotMapSearchNeutral => base.spotMapSearchNeutral;
+
+  @override
+  String get spotReplayDone => base.spotReplayDone;
 
   @override
   String get spotReplaySubtitle => base.spotReplaySubtitle;
@@ -2708,6 +2732,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get syncPeerOlder => base.syncPeerOlder;
+
+  @override
+  String get syncRunning => base.syncRunning;
 
   @override
   String get syncSummaryTitle => base.syncSummaryTitle;

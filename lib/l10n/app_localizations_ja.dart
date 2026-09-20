@@ -3427,4 +3427,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names はあなたの変更を見るためにまだ新しいバージョンが必要です。';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'フォルダーを同期しました: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'パッケージを取り込みました: $result';
+  }
+
+  @override
+  String get sightingRecorded => '現在地で目撃を記録しました。';
+
+  @override
+  String get deletedDone => '削除しました。';
+
+  @override
+  String get spotReplayDone => 'ヒントを再表示します';
+
+  @override
+  String get syncRunning => 'フォルダと同期中…';
+
+  @override
+  String get copied => 'コピーしました';
+
+  @override
+  String get sharedFolder => '共有フォルダー';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

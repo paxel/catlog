@@ -3577,4 +3577,37 @@ class AppLocalizationsRo extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names are încă nevoie de noua versiune pentru a vedea modificările tale.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Dosar sincronizat: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pachet importat: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Observație înregistrată la poziția ta.';
+
+  @override
+  String get deletedDone => 'Șters.';
+
+  @override
+  String get spotReplayDone => 'Indiciile vor apărea din nou';
+
+  @override
+  String get syncRunning => 'Se sincronizează cu dosarul…';
+
+  @override
+  String get copied => 'Copiat';
+
+  @override
+  String get sharedFolder => 'Dosar partajat';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} făcut {count}×",
   "moreChanges": "+{n} în plus",
   "noteFolderUnreachable": "Dosarul partajat nu poate fi accesat de la {since}. Atinge pentru detalii.",
-  "noteFolderLagging": "{names} are încă nevoie de noua versiune pentru a vedea modificările tale."
+  "noteFolderLagging": "{names} are încă nevoie de noua versiune pentru a vedea modificările tale.",
+  "folderSynced": "Dosar sincronizat: {result}",
+  "bundleImported": "Pachet importat: {result}",
+  "sightingRecorded": "Observație înregistrată la poziția ta.",
+  "deletedDone": "Șters.",
+  "spotReplayDone": "Indiciile vor apărea din nou",
+  "syncRunning": "Se sincronizează cu dosarul…",
+  "copied": "Copiat",
+  "sharedFolder": "Dosar partajat",
+  "pinLabel": "PIN: {pin}"
 }

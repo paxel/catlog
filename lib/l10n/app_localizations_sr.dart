@@ -3573,4 +3573,37 @@ class AppLocalizationsSr extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names и даље треба нову верзију да види ваше измене.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Фасцикла синхронизована: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакет увезен: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Виђење забележено на вашој позицији.';
+
+  @override
+  String get deletedDone => 'Обрисано.';
+
+  @override
+  String get spotReplayDone => 'Савети ће се поново приказати';
+
+  @override
+  String get syncRunning => 'Синхронизација са фасциклом…';
+
+  @override
+  String get copied => 'Копирано';
+
+  @override
+  String get sharedFolder => 'Дељена фасцикла';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

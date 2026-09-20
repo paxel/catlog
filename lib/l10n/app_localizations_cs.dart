@@ -3574,4 +3574,37 @@ class AppLocalizationsCs extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names stále potřebuje novou verzi, aby viděl vaše změny.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Složka synchronizována: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Balíček importován: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Pozorování zaznamenáno na vaší pozici.';
+
+  @override
+  String get deletedDone => 'Smazáno.';
+
+  @override
+  String get spotReplayDone => 'Tipy se znovu zobrazí';
+
+  @override
+  String get syncRunning => 'Synchronizace se složkou…';
+
+  @override
+  String get copied => 'Zkopírováno';
+
+  @override
+  String get sharedFolder => 'Sdílená složka';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

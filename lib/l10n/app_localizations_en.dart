@@ -3560,4 +3560,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names still needs the new version to see your changes.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Folder synced: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Bundle imported: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Sighting recorded at your position.';
+
+  @override
+  String get deletedDone => 'Deleted.';
+
+  @override
+  String get spotReplayDone => 'The highlights will show again';
+
+  @override
+  String get syncRunning => 'Syncing with the folder…';
+
+  @override
+  String get copied => 'Copied';
+
+  @override
+  String get sharedFolder => 'Shared folder';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

@@ -3584,4 +3584,37 @@ class AppLocalizationsRu extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names всё ещё нужна новая версия, чтобы видеть ваши изменения.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Папка синхронизирована: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакет импортирован: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Встреча записана в вашей позиции.';
+
+  @override
+  String get deletedDone => 'Удалено.';
+
+  @override
+  String get spotReplayDone => 'Подсказки появятся снова';
+
+  @override
+  String get syncRunning => 'Синхронизация с папкой…';
+
+  @override
+  String get copied => 'Скопировано';
+
+  @override
+  String get sharedFolder => 'Общая папка';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

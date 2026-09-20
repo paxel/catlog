@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} обављено {count}×",
   "moreChanges": "+{n} више",
   "noteFolderUnreachable": "Дељена фасцикла је недоступна од {since}. Додирните за детаље.",
-  "noteFolderLagging": "{names} и даље треба нову верзију да види ваше измене."
+  "noteFolderLagging": "{names} и даље треба нову верзију да види ваше измене.",
+  "folderSynced": "Фасцикла синхронизована: {result}",
+  "bundleImported": "Пакет увезен: {result}",
+  "sightingRecorded": "Виђење забележено на вашој позицији.",
+  "deletedDone": "Обрисано.",
+  "spotReplayDone": "Савети ће се поново приказати",
+  "syncRunning": "Синхронизација са фасциклом…",
+  "copied": "Копирано",
+  "sharedFolder": "Дељена фасцикла",
+  "pinLabel": "PIN: {pin}"
 }

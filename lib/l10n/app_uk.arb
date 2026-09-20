@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} виконано {count}×",
   "moreChanges": "+{n} ще",
   "noteFolderUnreachable": "Спільна тека недоступна з {since}. Торкніться для подробиць.",
-  "noteFolderLagging": "{names} досі потребує нової версії, щоб бачити ваші зміни."
+  "noteFolderLagging": "{names} досі потребує нової версії, щоб бачити ваші зміни.",
+  "folderSynced": "Теку синхронізовано: {result}",
+  "bundleImported": "Пакет імпортовано: {result}",
+  "sightingRecorded": "Зустріч записано у вашій позиції.",
+  "deletedDone": "Видалено.",
+  "spotReplayDone": "Підказки з'являться знову",
+  "syncRunning": "Синхронізація з текою…",
+  "copied": "Скопійовано",
+  "sharedFolder": "Спільна тека",
+  "pinLabel": "PIN: {pin}"
 }

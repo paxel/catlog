@@ -3564,4 +3564,38 @@ class AppLocalizationsIs extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names þarf enn nýju útgáfuna til að sjá breytingarnar þínar.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mappa samstillt: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakki fluttur inn: $result';
+  }
+
+  @override
+  String get sightingRecorded =>
+      'Skráð að kötturinn sást á staðsetningu þinni.';
+
+  @override
+  String get deletedDone => 'Eytt.';
+
+  @override
+  String get spotReplayDone => 'Ábendingarnar birtast aftur';
+
+  @override
+  String get syncRunning => 'Samstilli við möppuna…';
+
+  @override
+  String get copied => 'Afritað';
+
+  @override
+  String get sharedFolder => 'Sameiginleg mappa';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

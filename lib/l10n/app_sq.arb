@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} kryer {count}×",
   "moreChanges": "+{n} të tjera",
   "noteFolderUnreachable": "Dosja e përbashkët nuk arrihet që nga {since}. Prek për detaje.",
-  "noteFolderLagging": "{names} ka ende nevojë për versionin e ri për të parë ndryshimet e tua."
+  "noteFolderLagging": "{names} ka ende nevojë për versionin e ri për të parë ndryshimet e tua.",
+  "folderSynced": "Dosja u sinkronizua: {result}",
+  "bundleImported": "Paketa u importua: {result}",
+  "sightingRecorded": "Vëzhgimi u regjistrua në pozicionin tuaj.",
+  "deletedDone": "U fshi.",
+  "spotReplayDone": "Këshillat do të shfaqen sërish",
+  "syncRunning": "Duke u sinkronizuar me dosjen…",
+  "copied": "U kopjua",
+  "sharedFolder": "Dosje e përbashkët",
+  "pinLabel": "PIN: {pin}"
 }

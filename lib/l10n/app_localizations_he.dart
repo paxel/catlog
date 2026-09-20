@@ -3557,4 +3557,37 @@ class AppLocalizationsHe extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names עדיין צריך את הגרסה החדשה כדי לראות את השינויים שלך.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'התיקייה סונכרנה: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'החבילה יובאה: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'התצפית נרשמה במיקומך.';
+
+  @override
+  String get deletedDone => 'נמחק.';
+
+  @override
+  String get spotReplayDone => 'הרמזים יוצגו שוב';
+
+  @override
+  String get syncRunning => 'מסנכרן עם התיקייה…';
+
+  @override
+  String get copied => 'הועתק';
+
+  @override
+  String get sharedFolder => 'תיקייה משותפת';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} έγινε {count}×",
   "moreChanges": "+{n} ακόμη",
   "noteFolderUnreachable": "Ο κοινός φάκελος δεν είναι προσβάσιμος από τις {since}. Πατήστε για λεπτομέρειες.",
-  "noteFolderLagging": "Ο/Η {names} χρειάζεται ακόμη τη νέα έκδοση για να δει τις αλλαγές σας."
+  "noteFolderLagging": "Ο/Η {names} χρειάζεται ακόμη τη νέα έκδοση για να δει τις αλλαγές σας.",
+  "folderSynced": "Ο φάκελος συγχρονίστηκε: {result}",
+  "bundleImported": "Το πακέτο εισήχθη: {result}",
+  "sightingRecorded": "Η παρατήρηση καταγράφηκε στη θέση σας.",
+  "deletedDone": "Διαγράφηκε.",
+  "spotReplayDone": "Οι οδηγίες θα εμφανιστούν ξανά",
+  "syncRunning": "Συγχρονισμός με τον φάκελο…",
+  "copied": "Αντιγράφηκε",
+  "sharedFolder": "Κοινός φάκελος",
+  "pinLabel": "PIN: {pin}"
 }

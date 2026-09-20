@@ -6169,6 +6169,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{names} still needs the new version to see your changes.'**
   String noteFolderLagging(String names);
+
+  /// No description provided for @folderSynced.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder synced: {result}'**
+  String folderSynced(String result);
+
+  /// No description provided for @bundleImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Bundle imported: {result}'**
+  String bundleImported(String result);
+
+  /// No description provided for @sightingRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Sighting recorded at your position.'**
+  String get sightingRecorded;
+
+  /// No description provided for @deletedDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted.'**
+  String get deletedDone;
+
+  /// No description provided for @spotReplayDone.
+  ///
+  /// In en, this message translates to:
+  /// **'The highlights will show again'**
+  String get spotReplayDone;
+
+  /// No description provided for @syncRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing with the folder…'**
+  String get syncRunning;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get copied;
+
+  /// No description provided for @sharedFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared folder'**
+  String get sharedFolder;
+
+  /// No description provided for @pinLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN: {pin}'**
+  String pinLabel(String pin);
 }
 
 class _AppLocalizationsDelegate

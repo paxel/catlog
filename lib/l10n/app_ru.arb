@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} выполнено {count}×",
   "moreChanges": "+{n} ещё",
   "noteFolderUnreachable": "Общая папка недоступна с {since}. Нажмите для подробностей.",
-  "noteFolderLagging": "{names} всё ещё нужна новая версия, чтобы видеть ваши изменения."
+  "noteFolderLagging": "{names} всё ещё нужна новая версия, чтобы видеть ваши изменения.",
+  "folderSynced": "Папка синхронизирована: {result}",
+  "bundleImported": "Пакет импортирован: {result}",
+  "sightingRecorded": "Встреча записана в вашей позиции.",
+  "deletedDone": "Удалено.",
+  "spotReplayDone": "Подсказки появятся снова",
+  "syncRunning": "Синхронизация с папкой…",
+  "copied": "Скопировано",
+  "sharedFolder": "Общая папка",
+  "pinLabel": "PIN: {pin}"
 }

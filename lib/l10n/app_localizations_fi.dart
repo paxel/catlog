@@ -3561,4 +3561,37 @@ class AppLocalizationsFi extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names tarvitsee vielä uuden version nähdäkseen muutoksesi.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Kansio synkronoitu: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketti tuotu: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Havainto tallennettu sijaintiisi.';
+
+  @override
+  String get deletedDone => 'Poistettu.';
+
+  @override
+  String get spotReplayDone => 'Vinkit näytetään uudelleen';
+
+  @override
+  String get syncRunning => 'Synkronoidaan kansion kanssa…';
+
+  @override
+  String get copied => 'Kopioitu';
+
+  @override
+  String get sharedFolder => 'Jaettu kansio';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

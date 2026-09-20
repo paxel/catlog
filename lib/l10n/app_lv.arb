@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} izdarīts {count}×",
   "moreChanges": "+{n} vēl",
   "noteFolderUnreachable": "Koplietotā mape nav sasniedzama kopš {since}. Pieskarieties, lai skatītu detaļas.",
-  "noteFolderLagging": "{names} joprojām nepieciešama jaunā versija, lai redzētu jūsu izmaiņas."
+  "noteFolderLagging": "{names} joprojām nepieciešama jaunā versija, lai redzētu jūsu izmaiņas.",
+  "folderSynced": "Mape sinhronizēta: {result}",
+  "bundleImported": "Paka importēta: {result}",
+  "sightingRecorded": "Novērojums ierakstīts jūsu pozīcijā.",
+  "deletedDone": "Dzēsts.",
+  "spotReplayDone": "Padomi tiks rādīti atkal",
+  "syncRunning": "Sinhronizē ar mapi…",
+  "copied": "Nokopēts",
+  "sharedFolder": "Koplietota mape",
+  "pinLabel": "PIN: {pin}"
 }

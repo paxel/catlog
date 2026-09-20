@@ -1977,5 +1977,35 @@
         "type": "String"
       }
     }
+  },
+  "folderSynced": "Folder synced: {result}",
+  "@folderSynced": {
+    "placeholders": {
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "bundleImported": "Bundle imported: {result}",
+  "@bundleImported": {
+    "placeholders": {
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "sightingRecorded": "Sighting recorded at your position.",
+  "deletedDone": "Deleted.",
+  "spotReplayDone": "The highlights will show again",
+  "syncRunning": "Syncing with the folder…",
+  "copied": "Copied",
+  "sharedFolder": "Shared folder",
+  "pinLabel": "PIN: {pin}",
+  "@pinLabel": {
+    "placeholders": {
+      "pin": {
+        "type": "String"
+      }
+    }
   }
 }

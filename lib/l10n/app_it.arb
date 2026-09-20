@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} fatto {count}×",
   "moreChanges": "+{n} altri",
   "noteFolderUnreachable": "La cartella condivisa non è raggiungibile dalle {since}. Tocca per i dettagli.",
-  "noteFolderLagging": "{names} ha ancora bisogno della nuova versione per vedere le tue modifiche."
+  "noteFolderLagging": "{names} ha ancora bisogno della nuova versione per vedere le tue modifiche.",
+  "folderSynced": "Cartella sincronizzata: {result}",
+  "bundleImported": "Pacchetto importato: {result}",
+  "sightingRecorded": "Avvistamento registrato alla tua posizione.",
+  "deletedDone": "Eliminato.",
+  "spotReplayDone": "I suggerimenti verranno mostrati di nuovo",
+  "syncRunning": "Sincronizzazione con la cartella…",
+  "copied": "Copiato",
+  "sharedFolder": "Cartella condivisa",
+  "pinLabel": "PIN: {pin}"
 }

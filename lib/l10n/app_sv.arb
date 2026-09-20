@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} gjord {count}×",
   "moreChanges": "+{n} till",
   "noteFolderUnreachable": "Den delade mappen har varit onåbar sedan {since}. Tryck för detaljer.",
-  "noteFolderLagging": "{names} behöver fortfarande den nya versionen för att se dina ändringar."
+  "noteFolderLagging": "{names} behöver fortfarande den nya versionen för att se dina ändringar.",
+  "folderSynced": "Mapp synkroniserad: {result}",
+  "bundleImported": "Paket importerat: {result}",
+  "sightingRecorded": "Observation sparad på din position.",
+  "deletedDone": "Raderat.",
+  "spotReplayDone": "Tipsen visas igen",
+  "syncRunning": "Synkar med mappen…",
+  "copied": "Kopierat",
+  "sharedFolder": "Delad mapp",
+  "pinLabel": "PIN: {pin}"
 }

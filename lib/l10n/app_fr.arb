@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} fait {count}×",
   "moreChanges": "+{n} de plus",
   "noteFolderUnreachable": "Le dossier partagé est hors de portée depuis {since}. Touchez pour les détails.",
-  "noteFolderLagging": "{names} a encore besoin de la nouvelle version pour voir vos modifications."
+  "noteFolderLagging": "{names} a encore besoin de la nouvelle version pour voir vos modifications.",
+  "folderSynced": "Dossier synchronisé : {result}",
+  "bundleImported": "Paquet importé : {result}",
+  "sightingRecorded": "Observation enregistrée à ta position.",
+  "deletedDone": "Supprimé.",
+  "spotReplayDone": "Les astuces s'afficheront à nouveau",
+  "syncRunning": "Synchronisation avec le dossier…",
+  "copied": "Copié",
+  "sharedFolder": "Dossier partagé",
+  "pinLabel": "PIN : {pin}"
 }

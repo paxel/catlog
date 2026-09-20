@@ -3557,4 +3557,37 @@ class AppLocalizationsNo extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names trenger fortsatt den nye versjonen for å se endringene dine.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mappe synkronisert: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakke importert: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Observasjon registrert på posisjonen din.';
+
+  @override
+  String get deletedDone => 'Slettet.';
+
+  @override
+  String get spotReplayDone => 'Tipsene vises igjen';
+
+  @override
+  String get syncRunning => 'Synkroniserer med mappen…';
+
+  @override
+  String get copied => 'Kopiert';
+
+  @override
+  String get sharedFolder => 'Delt mappe';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

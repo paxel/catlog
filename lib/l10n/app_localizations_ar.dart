@@ -3598,4 +3598,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String noteFolderLagging(String names) {
     return 'لا يزال $names بحاجة إلى الإصدار الجديد ليرى تغييراتك.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'تمت مزامنة المجلد: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'تم استيراد الحزمة: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'سُجِّلت المشاهدة في موقعك.';
+
+  @override
+  String get deletedDone => 'تم الحذف.';
+
+  @override
+  String get spotReplayDone => 'ستظهر الإرشادات مرة أخرى';
+
+  @override
+  String get syncRunning => 'جارٍ المزامنة مع المجلد…';
+
+  @override
+  String get copied => 'تم النسخ';
+
+  @override
+  String get sharedFolder => 'مجلد مشترك';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

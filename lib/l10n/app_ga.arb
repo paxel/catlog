@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} déanta {count}×",
   "moreChanges": "+{n} eile",
   "noteFolderUnreachable": "Tá an fillteán comhroinnte as raon ó {since}. Tapáil le haghaidh sonraí.",
-  "noteFolderLagging": "Tá an leagan nua fós ag teastáil ó {names} chun do chuid athruithe a fheiceáil."
+  "noteFolderLagging": "Tá an leagan nua fós ag teastáil ó {names} chun do chuid athruithe a fheiceáil.",
+  "folderSynced": "Fillteán sioncrónaithe: {result}",
+  "bundleImported": "Paca iompórtáilte: {result}",
+  "sightingRecorded": "Feiceáil taifeadta ag do shuíomh.",
+  "deletedDone": "Scriosta.",
+  "spotReplayDone": "Taispeánfar na leideanna arís",
+  "syncRunning": "Ag sioncronú leis an bhfillteán…",
+  "copied": "Cóipeáilte",
+  "sharedFolder": "Fillteán comhroinnte",
+  "pinLabel": "PIN: {pin}"
 }

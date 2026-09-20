@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} hecho {count}×",
   "moreChanges": "+{n} más",
   "noteFolderUnreachable": "La carpeta compartida no está accesible desde las {since}. Toca para ver detalles.",
-  "noteFolderLagging": "{names} aún necesita la nueva versión para ver tus cambios."
+  "noteFolderLagging": "{names} aún necesita la nueva versión para ver tus cambios.",
+  "folderSynced": "Carpeta sincronizada: {result}",
+  "bundleImported": "Paquete importado: {result}",
+  "sightingRecorded": "Avistamiento registrado en tu posición.",
+  "deletedDone": "Borrado.",
+  "spotReplayDone": "Las pistas volverán a mostrarse",
+  "syncRunning": "Sincronizando con la carpeta…",
+  "copied": "Copiado",
+  "sharedFolder": "Carpeta compartida",
+  "pinLabel": "PIN: {pin}"
 }

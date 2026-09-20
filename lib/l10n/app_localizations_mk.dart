@@ -3561,4 +3561,37 @@ class AppLocalizationsMk extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names сè уште ја треба новата верзија за да ги види вашите промени.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Папката е синхронизирана: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакетот е увезен: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Видувањето е запишано на вашата позиција.';
+
+  @override
+  String get deletedDone => 'Избришано.';
+
+  @override
+  String get spotReplayDone => 'Советите ќе се прикажат повторно';
+
+  @override
+  String get syncRunning => 'Синхронизација со папката…';
+
+  @override
+  String get copied => 'Копирано';
+
+  @override
+  String get sharedFolder => 'Заедничка папка';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

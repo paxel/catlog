@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} изпълнено {count}×",
   "moreChanges": "+{n} още",
   "noteFolderUnreachable": "Споделената папка е недостъпна от {since}. Докоснете за подробности.",
-  "noteFolderLagging": "{names} все още се нуждае от новата версия, за да види вашите промени."
+  "noteFolderLagging": "{names} все още се нуждае от новата версия, за да види вашите промени.",
+  "folderSynced": "Папката е синхронизирана: {result}",
+  "bundleImported": "Пакетът е импортиран: {result}",
+  "sightingRecorded": "Забелязването е записано на вашата позиция.",
+  "deletedDone": "Изтрито.",
+  "spotReplayDone": "Подсказките ще се покажат отново",
+  "syncRunning": "Синхронизиране с папката…",
+  "copied": "Копирано",
+  "sharedFolder": "Споделена папка",
+  "pinLabel": "PIN: {pin}"
 }

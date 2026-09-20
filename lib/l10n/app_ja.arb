@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} {count}回 済み",
   "moreChanges": "他 {n} 件",
   "noteFolderUnreachable": "共有フォルダーに {since} から接続できません。タップして詳細を表示。",
-  "noteFolderLagging": "{names} はあなたの変更を見るためにまだ新しいバージョンが必要です。"
+  "noteFolderLagging": "{names} はあなたの変更を見るためにまだ新しいバージョンが必要です。",
+  "folderSynced": "フォルダーを同期しました: {result}",
+  "bundleImported": "パッケージを取り込みました: {result}",
+  "sightingRecorded": "現在地で目撃を記録しました。",
+  "deletedDone": "削除しました。",
+  "spotReplayDone": "ヒントを再表示します",
+  "syncRunning": "フォルダと同期中…",
+  "copied": "コピーしました",
+  "sharedFolder": "共有フォルダー",
+  "pinLabel": "PIN: {pin}"
 }

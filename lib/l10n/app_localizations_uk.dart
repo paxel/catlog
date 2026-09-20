@@ -3585,4 +3585,37 @@ class AppLocalizationsUk extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names досі потребує нової версії, щоб бачити ваші зміни.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Теку синхронізовано: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакет імпортовано: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Зустріч записано у вашій позиції.';
+
+  @override
+  String get deletedDone => 'Видалено.';
+
+  @override
+  String get spotReplayDone => 'Підказки з\'являться знову';
+
+  @override
+  String get syncRunning => 'Синхронізація з текою…';
+
+  @override
+  String get copied => 'Скопійовано';
+
+  @override
+  String get sharedFolder => 'Спільна тека';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

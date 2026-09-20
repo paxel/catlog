@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} obavljeno {count}×",
   "moreChanges": "+{n} više",
   "noteFolderUnreachable": "Dijeljena mapa je nedostupna od {since}. Dodirnite za detalje.",
-  "noteFolderLagging": "{names} još treba novu verziju da vidi vaše promjene."
+  "noteFolderLagging": "{names} još treba novu verziju da vidi vaše promjene.",
+  "folderSynced": "Fascikla sinhronizovana: {result}",
+  "bundleImported": "Paket uvezen: {result}",
+  "sightingRecorded": "Viđenje zabilježeno na vašoj poziciji.",
+  "deletedDone": "Obrisano.",
+  "spotReplayDone": "Savjeti će se ponovo prikazati",
+  "syncRunning": "Sinhronizacija s folderom…",
+  "copied": "Kopirano",
+  "sharedFolder": "Dijeljena fascikla",
+  "pinLabel": "PIN: {pin}"
 }

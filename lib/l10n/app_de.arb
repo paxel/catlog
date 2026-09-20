@@ -1203,5 +1203,14 @@
   "choreTickedShort": "{title} {count}× erledigt",
   "moreChanges": "+{n} weitere",
   "noteFolderUnreachable": "Der gemeinsame Ordner ist seit {since} nicht erreichbar. Antippen für Details.",
-  "noteFolderLagging": "{names} braucht noch die neue Version, um deine Änderungen zu sehen."
+  "noteFolderLagging": "{names} braucht noch die neue Version, um deine Änderungen zu sehen.",
+  "folderSynced": "Ordner synchronisiert: {result}",
+  "bundleImported": "Paket importiert: {result}",
+  "sightingRecorded": "Sichtung an deiner Position gespeichert.",
+  "deletedDone": "Gelöscht.",
+  "spotReplayDone": "Die Hinweise erscheinen wieder",
+  "syncRunning": "Abgleich mit dem Ordner läuft…",
+  "copied": "Kopiert",
+  "sharedFolder": "Gemeinsamer Ordner",
+  "pinLabel": "PIN: {pin}"
 }

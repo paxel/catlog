@@ -3505,4 +3505,37 @@ class AppLocalizationsFa extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names هنوز به نسخه جدید نیاز دارد تا تغییرات شما را ببیند.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'پوشه همگام شد: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'بسته وارد شد: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'مشاهده در موقعیت شما ثبت شد.';
+
+  @override
+  String get deletedDone => 'حذف شد.';
+
+  @override
+  String get spotReplayDone => 'راهنماها دوباره نمایش داده می‌شوند';
+
+  @override
+  String get syncRunning => 'در حال همگام‌سازی با پوشه…';
+
+  @override
+  String get copied => 'کپی شد';
+
+  @override
+  String get sharedFolder => 'پوشهٔ مشترک';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

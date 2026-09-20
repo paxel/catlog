@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} أُنجز {count}×",
   "moreChanges": "+{n} أخرى",
   "noteFolderUnreachable": "المجلد المشترك غير متاح منذ {since}. انقر للتفاصيل.",
-  "noteFolderLagging": "لا يزال {names} بحاجة إلى الإصدار الجديد ليرى تغييراتك."
+  "noteFolderLagging": "لا يزال {names} بحاجة إلى الإصدار الجديد ليرى تغييراتك.",
+  "folderSynced": "تمت مزامنة المجلد: {result}",
+  "bundleImported": "تم استيراد الحزمة: {result}",
+  "sightingRecorded": "سُجِّلت المشاهدة في موقعك.",
+  "deletedDone": "تم الحذف.",
+  "spotReplayDone": "ستظهر الإرشادات مرة أخرى",
+  "syncRunning": "جارٍ المزامنة مع المجلد…",
+  "copied": "تم النسخ",
+  "sharedFolder": "مجلد مشترك",
+  "pinLabel": "PIN: {pin}"
 }

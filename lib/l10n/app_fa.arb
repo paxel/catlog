@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} انجام شد {count}×",
   "moreChanges": "+{n} مورد دیگر",
   "noteFolderUnreachable": "پوشه مشترک از {since} در دسترس نیست. برای جزئیات ضربه بزنید.",
-  "noteFolderLagging": "{names} هنوز به نسخه جدید نیاز دارد تا تغییرات شما را ببیند."
+  "noteFolderLagging": "{names} هنوز به نسخه جدید نیاز دارد تا تغییرات شما را ببیند.",
+  "folderSynced": "پوشه همگام شد: {result}",
+  "bundleImported": "بسته وارد شد: {result}",
+  "sightingRecorded": "مشاهده در موقعیت شما ثبت شد.",
+  "deletedDone": "حذف شد.",
+  "spotReplayDone": "راهنماها دوباره نمایش داده می‌شوند",
+  "syncRunning": "در حال همگام‌سازی با پوشه…",
+  "copied": "کپی شد",
+  "sharedFolder": "پوشهٔ مشترک",
+  "pinLabel": "PIN: {pin}"
 }

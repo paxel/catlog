@@ -3565,4 +3565,37 @@ class AppLocalizationsNl extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names heeft nog de nieuwe versie nodig om je wijzigingen te zien.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Map gesynchroniseerd: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakket geïmporteerd: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Waarneming vastgelegd op je positie.';
+
+  @override
+  String get deletedDone => 'Verwijderd.';
+
+  @override
+  String get spotReplayDone => 'De tips worden opnieuw getoond';
+
+  @override
+  String get syncRunning => 'Synchroniseren met de map…';
+
+  @override
+  String get copied => 'Gekopieerd';
+
+  @override
+  String get sharedFolder => 'Gedeelde map';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

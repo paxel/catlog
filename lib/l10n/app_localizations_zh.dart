@@ -3386,4 +3386,37 @@ class AppLocalizationsZh extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names 仍需要新版本才能看到你的更改。';
   }
+
+  @override
+  String folderSynced(String result) {
+    return '文件夹已同步：$result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return '已导入同步包：$result';
+  }
+
+  @override
+  String get sightingRecorded => '已在你的位置记录目击。';
+
+  @override
+  String get deletedDone => '已删除。';
+
+  @override
+  String get spotReplayDone => '提示将重新显示';
+
+  @override
+  String get syncRunning => '正在与文件夹同步…';
+
+  @override
+  String get copied => '已复制';
+
+  @override
+  String get sharedFolder => '共享文件夹';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN：$pin';
+  }
 }

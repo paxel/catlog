@@ -3584,4 +3584,37 @@ class AppLocalizationsLt extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names vis dar reikia naujos versijos, kad matytų jūsų pakeitimus.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Aplankas sinchronizuotas: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketas importuotas: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
+
+  @override
+  String get deletedDone => 'Ištrinta.';
+
+  @override
+  String get spotReplayDone => 'Patarimai bus rodomi vėl';
+
+  @override
+  String get syncRunning => 'Sinchronizuojama su aplanku…';
+
+  @override
+  String get copied => 'Nukopijuota';
+
+  @override
+  String get sharedFolder => 'Bendras aplankas';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

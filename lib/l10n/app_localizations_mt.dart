@@ -3576,4 +3576,38 @@ class AppLocalizationsMt extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names għad għandu bżonn il-verżjoni l-ġdida biex jara l-bidliet tiegħek.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Folder sinkronizzat: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakkett importat: $result';
+  }
+
+  @override
+  String get sightingRecorded =>
+      'Id-dehra ġiet irreġistrata fil-pożizzjoni tiegħek.';
+
+  @override
+  String get deletedDone => 'Imħassar.';
+
+  @override
+  String get spotReplayDone => 'Is-suġġerimenti jerġgħu jidhru';
+
+  @override
+  String get syncRunning => 'Qed jissinkronizza mal-folder…';
+
+  @override
+  String get copied => 'Ikkupjat';
+
+  @override
+  String get sharedFolder => 'Folder kondiviż';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

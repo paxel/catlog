@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} wykonano {count}×",
   "moreChanges": "+{n} więcej",
   "noteFolderUnreachable": "Udostępniony folder jest niedostępny od {since}. Dotknij, aby zobaczyć szczegóły.",
-  "noteFolderLagging": "{names} nadal potrzebuje nowej wersji, aby zobaczyć Twoje zmiany."
+  "noteFolderLagging": "{names} nadal potrzebuje nowej wersji, aby zobaczyć Twoje zmiany.",
+  "folderSynced": "Folder zsynchronizowany: {result}",
+  "bundleImported": "Pakiet zaimportowany: {result}",
+  "sightingRecorded": "Zapisano obserwację w Twojej pozycji.",
+  "deletedDone": "Usunięto.",
+  "spotReplayDone": "Wskazówki pojawią się ponownie",
+  "syncRunning": "Synchronizacja z folderem…",
+  "copied": "Skopiowano",
+  "sharedFolder": "Wspólny folder",
+  "pinLabel": "PIN: {pin}"
 }

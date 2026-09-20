@@ -3572,4 +3572,37 @@ class AppLocalizationsEl extends AppLocalizations {
   String noteFolderLagging(String names) {
     return 'Ο/Η $names χρειάζεται ακόμη τη νέα έκδοση για να δει τις αλλαγές σας.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Ο φάκελος συγχρονίστηκε: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Το πακέτο εισήχθη: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Η παρατήρηση καταγράφηκε στη θέση σας.';
+
+  @override
+  String get deletedDone => 'Διαγράφηκε.';
+
+  @override
+  String get spotReplayDone => 'Οι οδηγίες θα εμφανιστούν ξανά';
+
+  @override
+  String get syncRunning => 'Συγχρονισμός με τον φάκελο…';
+
+  @override
+  String get copied => 'Αντιγράφηκε';
+
+  @override
+  String get sharedFolder => 'Κοινός φάκελος';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

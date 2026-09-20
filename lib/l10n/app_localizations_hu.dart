@@ -3560,4 +3560,37 @@ class AppLocalizationsHu extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names számára még kell az új verzió, hogy lássa a módosításaidat.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mappa szinkronizálva: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Csomag importálva: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
+
+  @override
+  String get deletedDone => 'Törölve.';
+
+  @override
+  String get spotReplayDone => 'A tippek újra megjelennek';
+
+  @override
+  String get syncRunning => 'Szinkronizálás a mappával…';
+
+  @override
+  String get copied => 'Másolva';
+
+  @override
+  String get sharedFolder => 'Megosztott mappa';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

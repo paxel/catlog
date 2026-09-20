@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} utført {count}×",
   "moreChanges": "+{n} til",
   "noteFolderUnreachable": "Den delte mappen har vært utilgjengelig siden {since}. Trykk for detaljer.",
-  "noteFolderLagging": "{names} trenger fortsatt den nye versjonen for å se endringene dine."
+  "noteFolderLagging": "{names} trenger fortsatt den nye versjonen for å se endringene dine.",
+  "folderSynced": "Mappe synkronisert: {result}",
+  "bundleImported": "Pakke importert: {result}",
+  "sightingRecorded": "Observasjon registrert på posisjonen din.",
+  "deletedDone": "Slettet.",
+  "spotReplayDone": "Tipsene vises igjen",
+  "syncRunning": "Synkroniserer med mappen…",
+  "copied": "Kopiert",
+  "sharedFolder": "Delt mappe",
+  "pinLabel": "PIN: {pin}"
 }

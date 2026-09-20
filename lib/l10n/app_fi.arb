@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} tehty {count}×",
   "moreChanges": "+{n} lisää",
   "noteFolderUnreachable": "Jaettu kansio ei ole ollut tavoitettavissa kello {since} lähtien. Napauta nähdäksesi tiedot.",
-  "noteFolderLagging": "{names} tarvitsee vielä uuden version nähdäkseen muutoksesi."
+  "noteFolderLagging": "{names} tarvitsee vielä uuden version nähdäkseen muutoksesi.",
+  "folderSynced": "Kansio synkronoitu: {result}",
+  "bundleImported": "Paketti tuotu: {result}",
+  "sightingRecorded": "Havainto tallennettu sijaintiisi.",
+  "deletedDone": "Poistettu.",
+  "spotReplayDone": "Vinkit näytetään uudelleen",
+  "syncRunning": "Synkronoidaan kansion kanssa…",
+  "copied": "Kopioitu",
+  "sharedFolder": "Jaettu kansio",
+  "pinLabel": "PIN: {pin}"
 }

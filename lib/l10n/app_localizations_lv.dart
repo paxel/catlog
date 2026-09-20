@@ -3577,4 +3577,37 @@ class AppLocalizationsLv extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names joprojām nepieciešama jaunā versija, lai redzētu jūsu izmaiņas.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mape sinhronizēta: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paka importēta: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Novērojums ierakstīts jūsu pozīcijā.';
+
+  @override
+  String get deletedDone => 'Dzēsts.';
+
+  @override
+  String get spotReplayDone => 'Padomi tiks rādīti atkal';
+
+  @override
+  String get syncRunning => 'Sinhronizē ar mapi…';
+
+  @override
+  String get copied => 'Nokopēts';
+
+  @override
+  String get sharedFolder => 'Koplietota mape';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

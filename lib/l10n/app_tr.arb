@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} {count}× yapıldı",
   "moreChanges": "+{n} daha",
   "noteFolderUnreachable": "Paylaşılan klasöre {since} itibarıyla ulaşılamıyor. Ayrıntılar için dokunun.",
-  "noteFolderLagging": "{names} değişikliklerinizi görmek için hâlâ yeni sürüme ihtiyaç duyuyor."
+  "noteFolderLagging": "{names} değişikliklerinizi görmek için hâlâ yeni sürüme ihtiyaç duyuyor.",
+  "folderSynced": "Klasör eşitlendi: {result}",
+  "bundleImported": "Paket içe aktarıldı: {result}",
+  "sightingRecorded": "Görülme, konumunuzda kaydedildi.",
+  "deletedDone": "Silindi.",
+  "spotReplayDone": "İpuçları yeniden gösterilecek",
+  "syncRunning": "Klasörle eşitleniyor…",
+  "copied": "Kopyalandı",
+  "sharedFolder": "Ortak klasör",
+  "pinLabel": "PIN: {pin}"
 }

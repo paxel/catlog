@@ -3586,4 +3586,37 @@ class AppLocalizationsPl extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names nadal potrzebuje nowej wersji, aby zobaczyć Twoje zmiany.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Folder zsynchronizowany: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakiet zaimportowany: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Zapisano obserwację w Twojej pozycji.';
+
+  @override
+  String get deletedDone => 'Usunięto.';
+
+  @override
+  String get spotReplayDone => 'Wskazówki pojawią się ponownie';
+
+  @override
+  String get syncRunning => 'Synchronizacja z folderem…';
+
+  @override
+  String get copied => 'Skopiowano';
+
+  @override
+  String get sharedFolder => 'Wspólny folder';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

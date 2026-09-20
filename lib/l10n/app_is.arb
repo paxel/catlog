@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} lokið {count}×",
   "moreChanges": "+{n} til viðbótar",
   "noteFolderUnreachable": "Sameiginlega mappan hefur verið óaðgengileg síðan {since}. Ýttu fyrir nánari upplýsingar.",
-  "noteFolderLagging": "{names} þarf enn nýju útgáfuna til að sjá breytingarnar þínar."
+  "noteFolderLagging": "{names} þarf enn nýju útgáfuna til að sjá breytingarnar þínar.",
+  "folderSynced": "Mappa samstillt: {result}",
+  "bundleImported": "Pakki fluttur inn: {result}",
+  "sightingRecorded": "Skráð að kötturinn sást á staðsetningu þinni.",
+  "deletedDone": "Eytt.",
+  "spotReplayDone": "Ábendingarnar birtast aftur",
+  "syncRunning": "Samstilli við möppuna…",
+  "copied": "Afritað",
+  "sharedFolder": "Sameiginleg mappa",
+  "pinLabel": "PIN: {pin}"
 }

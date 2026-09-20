@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} בוצע {count}×",
   "moreChanges": "+{n} נוספים",
   "noteFolderUnreachable": "התיקייה המשותפת אינה נגישה מאז {since}. הקש לפרטים.",
-  "noteFolderLagging": "{names} עדיין צריך את הגרסה החדשה כדי לראות את השינויים שלך."
+  "noteFolderLagging": "{names} עדיין צריך את הגרסה החדשה כדי לראות את השינויים שלך.",
+  "folderSynced": "התיקייה סונכרנה: {result}",
+  "bundleImported": "החבילה יובאה: {result}",
+  "sightingRecorded": "התצפית נרשמה במיקומך.",
+  "deletedDone": "נמחק.",
+  "spotReplayDone": "הרמזים יוצגו שוב",
+  "syncRunning": "מסנכרן עם התיקייה…",
+  "copied": "הועתק",
+  "sharedFolder": "תיקייה משותפת",
+  "pinLabel": "PIN: {pin}"
 }

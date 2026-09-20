@@ -3560,4 +3560,37 @@ class AppLocalizationsTr extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names değişikliklerinizi görmek için hâlâ yeni sürüme ihtiyaç duyuyor.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Klasör eşitlendi: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paket içe aktarıldı: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
+
+  @override
+  String get deletedDone => 'Silindi.';
+
+  @override
+  String get spotReplayDone => 'İpuçları yeniden gösterilecek';
+
+  @override
+  String get syncRunning => 'Klasörle eşitleniyor…';
+
+  @override
+  String get copied => 'Kopyalandı';
+
+  @override
+  String get sharedFolder => 'Ortak klasör';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

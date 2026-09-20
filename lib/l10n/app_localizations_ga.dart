@@ -3620,4 +3620,37 @@ class AppLocalizationsGa extends AppLocalizations {
   String noteFolderLagging(String names) {
     return 'Tá an leagan nua fós ag teastáil ó $names chun do chuid athruithe a fheiceáil.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Fillteán sioncrónaithe: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paca iompórtáilte: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Feiceáil taifeadta ag do shuíomh.';
+
+  @override
+  String get deletedDone => 'Scriosta.';
+
+  @override
+  String get spotReplayDone => 'Taispeánfar na leideanna arís';
+
+  @override
+  String get syncRunning => 'Ag sioncronú leis an bhfillteán…';
+
+  @override
+  String get copied => 'Cóipeáilte';
+
+  @override
+  String get sharedFolder => 'Fillteán comhroinnte';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }

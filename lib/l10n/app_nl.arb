@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} {count}× gedaan",
   "moreChanges": "+{n} meer",
   "noteFolderUnreachable": "De gedeelde map is sinds {since} niet bereikbaar. Tik voor details.",
-  "noteFolderLagging": "{names} heeft nog de nieuwe versie nodig om je wijzigingen te zien."
+  "noteFolderLagging": "{names} heeft nog de nieuwe versie nodig om je wijzigingen te zien.",
+  "folderSynced": "Map gesynchroniseerd: {result}",
+  "bundleImported": "Pakket geïmporteerd: {result}",
+  "sightingRecorded": "Waarneming vastgelegd op je positie.",
+  "deletedDone": "Verwijderd.",
+  "spotReplayDone": "De tips worden opnieuw getoond",
+  "syncRunning": "Synchroniseren met de map…",
+  "copied": "Gekopieerd",
+  "sharedFolder": "Gedeelde map",
+  "pinLabel": "PIN: {pin}"
 }

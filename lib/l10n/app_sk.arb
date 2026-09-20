@@ -1197,5 +1197,14 @@
   "choreTickedShort": "{title} hotovo {count}×",
   "moreChanges": "+{n} ďalších",
   "noteFolderUnreachable": "Zdieľaný priečinok je nedostupný od {since}. Ťuknutím zobrazíte podrobnosti.",
-  "noteFolderLagging": "{names} stále potrebuje novú verziu, aby videl vaše zmeny."
+  "noteFolderLagging": "{names} stále potrebuje novú verziu, aby videl vaše zmeny.",
+  "folderSynced": "Priečinok synchronizovaný: {result}",
+  "bundleImported": "Balík importovaný: {result}",
+  "sightingRecorded": "Pozorovanie zaznamenané na vašej pozícii.",
+  "deletedDone": "Zmazané.",
+  "spotReplayDone": "Tipy sa zobrazia znova",
+  "syncRunning": "Synchronizácia s priečinkom…",
+  "copied": "Skopírované",
+  "sharedFolder": "Zdieľaný priečinok",
+  "pinLabel": "PIN: {pin}"
 }

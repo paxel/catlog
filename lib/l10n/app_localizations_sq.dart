@@ -3561,4 +3561,37 @@ class AppLocalizationsSq extends AppLocalizations {
   String noteFolderLagging(String names) {
     return '$names ka ende nevojë për versionin e ri për të parë ndryshimet e tua.';
   }
+
+  @override
+  String folderSynced(String result) {
+    return 'Dosja u sinkronizua: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketa u importua: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Vëzhgimi u regjistrua në pozicionin tuaj.';
+
+  @override
+  String get deletedDone => 'U fshi.';
+
+  @override
+  String get spotReplayDone => 'Këshillat do të shfaqen sërish';
+
+  @override
+  String get syncRunning => 'Duke u sinkronizuar me dosjen…';
+
+  @override
+  String get copied => 'U kopjua';
+
+  @override
+  String get sharedFolder => 'Dosje e përbashkët';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
 }
