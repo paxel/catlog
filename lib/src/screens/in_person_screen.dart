@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../exclusive.dart';
 import '../help.dart';
 import '../import_summary.dart';
 import '../sync/hotspot.dart';
@@ -318,10 +319,12 @@ class _InPersonScreenState extends State<InPersonScreen> {
       _lastResult = null;
     });
     try {
-      final result = await lanSync(
-          widget.store, info.host, info.port, info.pin,
-          fingerprint: info.fingerprint!, includePrivate: _includePrivate);
-      if (!mounted || !widget.store.isOpen) return;
+      // Under the lanSync key so the activity line shows it running.
+      final result = await runExclusive(
+          'lanSync',
+          () => lanSync(widget.store, info.host, info.port, info.pin,
+              fingerprint: info.fingerprint!, includePrivate: _includePrivate));
+      if (result == null || !mounted || !widget.store.isOpen) return;
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));

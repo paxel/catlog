@@ -162,9 +162,7 @@ class NoteQueue extends ChangeNotifier {
 const activityIcons = <String, IconData>{
   'folderSync': Icons.folder_copy_outlined,
   'lanSync': Icons.phonelink_ring_outlined,
-  'bundleImport': Icons.file_download_outlined,
   'backup': Icons.backup_outlined,
-  'restore': Icons.settings_backup_restore,
   'archive': Icons.archive_outlined,
 };
 

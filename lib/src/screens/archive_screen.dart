@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../exclusive.dart';
 import '../help.dart';
 import '../l10n.dart';
 import '../share.dart';
@@ -71,6 +72,12 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
     );
     if (sure != true || !mounted) return;
     setState(() => _working = true);
+    // Under the archive key so the activity line shows it running.
+    await runExclusive<void>('archive', () => _export(names));
+  }
+
+  Future<void> _export(List<String> names) async {
+    final t = context.t;
     final stamp = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final name = 'catlog-archive-$stamp.catsync';
     try {
