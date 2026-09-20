@@ -2245,16 +2245,12 @@
     "entriesIn": 93,
     "blobsIn": 0,
     "blobsMissing": 1,
-    "blobProblems": [
-      "60c155f9 not listed in blobs (0 files)"
-    ],
     "conflicts": []
   },
   "syncLater": {
     "entriesIn": 0,
     "blobsIn": 1,
     "blobsMissing": 0,
-    "blobProblems": [],
     "conflicts": []
   },
   "bundle": {

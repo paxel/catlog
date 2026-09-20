@@ -13,7 +13,7 @@ use catlog_core::flier::{HttpModels, Ocr, OcrsEngine};
 use catlog_core::fonts::{FontSet, FontSource, HttpFonts};
 use catlog_core::geocode::Geocoder;
 use catlog_core::review::{needs_attention, review_import};
-use catlog_core::sync::{UnseenChanges, grown_files};
+use catlog_core::sync::{UnseenChanges, WatchState};
 use catlog_core::tiles::{TileCache, TileFetcher};
 use catlog_core::{Catalog, CatalogManager, keys};
 use egui::{Context, Ui};
@@ -160,8 +160,8 @@ pub struct App {
     /// Changes waiting in the folder, shown on the watch line.
     pub watch_pending: Option<UnseenChanges>,
     /// The partners' file sizes when the line was put away with "Not now".
-    watch_dismissed: Option<BTreeMap<String, u64>>,
-    watch_sizes: BTreeMap<String, u64>,
+    watch_dismissed: Option<WatchState>,
+    watch_sizes: WatchState,
     last_check: Instant,
     was_focused: bool,
     pub chore_dialog: ChoreDialog,
@@ -338,7 +338,7 @@ impl App {
             conflict: ConflictDialog::default(),
             watch_pending: None,
             watch_dismissed: None,
-            watch_sizes: BTreeMap::new(),
+            watch_sizes: WatchState::default(),
             last_check: Instant::now(),
             was_focused: false,
             chore_dialog: ChoreDialog::default(),
@@ -654,13 +654,13 @@ impl App {
         if check.photos_in > 0 {
             self.faces = FaceCache::default();
         }
-        self.watch_sizes = check.sizes.clone();
+        self.watch_sizes = check.state.clone();
         let Some(pending) = check.pending else {
             self.watch_pending = None;
             return;
         };
         if let Some(dismissed) = &self.watch_dismissed
-            && grown_files(dismissed, &check.sizes).is_empty()
+            && !dismissed.moved_on(&check.state)
         {
             return;
         }

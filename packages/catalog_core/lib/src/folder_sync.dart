@@ -350,9 +350,14 @@ String segmentName(String device, int n) => '$device.$n.seg';
 class FolderManifest {
   final int format;
 
-  /// Bumped when the writer's history shrank and the segments were
-  /// rewritten; a reader forgets its line counts and reads afresh.
+  /// Moves on whenever the segments were rewritten from the start — the
+  /// history shrank, the private switch changed; a reader forgets its
+  /// line counts and reads afresh.
   final int generation;
+
+  /// The writer's own count of history shrinks, so it knows whether the
+  /// segments still match its store.
+  final int history;
 
   /// Whether private values are in the segments.
   final bool private;
@@ -367,6 +372,7 @@ class FolderManifest {
   const FolderManifest({
     this.format = manifestFormat,
     required this.generation,
+    this.history = 0,
     required this.private,
     required this.vector,
     required this.segments,
@@ -377,6 +383,7 @@ class FolderManifest {
   Map<String, dynamic> toJson() => {
         'format': format,
         'generation': generation,
+        'history': history,
         'private': private,
         'vector': vector,
         'segments': [
@@ -393,6 +400,7 @@ class FolderManifest {
       return FolderManifest(
         format: format,
         generation: m['generation'] as int,
+        history: (m['history'] as int?) ?? 0,
         private: m['private'] == true,
         vector: (m['vector'] as Map).cast<String, int>(),
         segments: [
@@ -601,14 +609,15 @@ Future<int> publishOwn(CatalogStore store, SyncFolder folder,
   final names = await folder.list(dir);
   final previous =
       FolderManifest.parse(await folder.read(dir, manifestName(device)));
-  final generation = store.historyGeneration;
+  final history = store.historyGeneration;
 
-  Future<void> writeManifest(List<(String, int)> segments) =>
+  Future<void> writeManifest(int generation, List<(String, int)> segments) =>
       folder.write(
           dir,
           manifestName(device),
           utf8.encode(jsonEncode(FolderManifest(
             generation: generation,
+            history: history,
             private: includePrivate,
             vector: store.versionVector(),
             segments: segments,
@@ -618,7 +627,7 @@ Future<int> publishOwn(CatalogStore store, SyncFolder folder,
   if (previous == null ||
       previous.format != manifestFormat ||
       previous.private != includePrivate ||
-      previous.generation != generation) {
+      previous.history != history) {
     // From the start: every segment of before goes, the history is cut
     // into fresh ones.
     for (final name in names) {
@@ -648,7 +657,7 @@ Future<int> publishOwn(CatalogStore store, SyncFolder folder,
       if (size >= segmentCap) await flush();
     }
     await flush();
-    await writeManifest(segments);
+    await writeManifest((previous?.generation ?? 0) + 1, segments);
     out = all.length;
   } else {
     // Only what the manifest does not know yet. Private rows below the
@@ -681,7 +690,7 @@ Future<int> publishOwn(CatalogStore store, SyncFolder folder,
         await folder.write(dir, name, utf8.encode(lines.join('\n')));
         segments.add((name, lines.length));
       }
-      await writeManifest(segments);
+      await writeManifest(previous.generation, segments);
       out = fresh.length;
     }
   }

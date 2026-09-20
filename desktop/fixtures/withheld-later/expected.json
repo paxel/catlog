@@ -19,7 +19,6 @@
       "fields": {
         "$type": "clowder",
         "$withheld:f:phone": "yes",
-        "f:phone": "+49 341 000",
         "name": "Foster Home"
       },
       "images": [],
@@ -273,16 +272,6 @@
           "dseq": 91,
           "value": "yes",
           "date": "2026-01-01T10:01:31.000Z",
-          "author": "Ada",
-          "voided": false
-        }
-      ],
-      "f:phone": [
-        {
-          "device": "65b60673d6ed884bf01c2c222d82ada0",
-          "dseq": 89,
-          "value": "+49 341 000",
-          "date": "2026-01-01T10:01:29.000Z",
           "author": "Ada",
           "voided": false
         }
@@ -2178,17 +2167,6 @@
     },
     {
       "device": "65b60673d6ed884bf01c2c222d82ada0",
-      "dseq": 89,
-      "entity": "clowder:00000000-0000-4000-8000-000000000001",
-      "field": "f:phone",
-      "value": "+49 341 000",
-      "date": "2026-01-01T10:01:29.000Z",
-      "author": "Ada",
-      "recorded": "2026-01-01T10:01:29.000Z",
-      "sig": "4aJUre7BDwdlYBpw4SnFJ/VjbwqbX3RHTUqDXRqIQoOYbNoA3r1Ei7HtTEG4JJBjPyg64rsPXWZuHQu/R//vCA=="
-    },
-    {
-      "device": "65b60673d6ed884bf01c2c222d82ada0",
       "dseq": 91,
       "entity": "clowder:00000000-0000-4000-8000-000000000001",
       "field": "$withheld:f:phone",
@@ -2263,14 +2241,12 @@
     "entriesIn": 93,
     "blobsIn": 0,
     "blobsMissing": 0,
-    "blobProblems": [],
     "conflicts": []
   },
   "syncLater": {
-    "entriesIn": 1,
+    "entriesIn": 0,
     "blobsIn": 0,
     "blobsMissing": 0,
-    "blobProblems": [],
     "conflicts": []
   },
   "bundle": {

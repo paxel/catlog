@@ -68,6 +68,9 @@ pub struct Catalog {
     clock: Clock,
 }
 
+/// The local setting that counts the history's shrinks (ADR 0010).
+const HISTORY_GENERATION_KEY: &str = "historyGeneration";
+
 impl Catalog {
     /// Opens the Catalog in `dir`, creating it when needed: `catalog.db`
     /// and an `images/` directory beside it.
@@ -1271,7 +1274,22 @@ impl Catalog {
             }
         }
         tx.commit()?;
+        // The history shrank: what the folder holds of it is rewritten
+        // from the start on the next publish (ADR 0010).
+        self.set_local_setting(
+            HISTORY_GENERATION_KEY,
+            &(self.history_generation() + 1).to_string(),
+        )?;
         self.rebuild_voids()
+    }
+
+    /// How many times rows were physically removed from this store —
+    /// going back, hard delete, keep mine. The folder's manifest carries
+    /// it, so a reader knows when the segments were rewritten (ADR 0010).
+    pub fn history_generation(&self) -> i64 {
+        self.local_setting(HISTORY_GENERATION_KEY)
+            .and_then(|v| v.parse().ok())
+            .unwrap_or(0)
     }
 
     /// True when this entity's value for `field` stays home: the

@@ -169,22 +169,38 @@ void _applyTamper(Scenario scenario, CatalogStore writer, Directory folderDir,
   final tamper = scenario.tamper;
   if (tamper == null) return;
   final root = '${folderDir.path}/catlog-sync';
-  // A writer with a plan wears the `.jsonl2` name.
-  final flagged = File('$root/${writer.deviceId}.jsonl2');
-  final ownFile =
-      flagged.existsSync() ? flagged : File('$root/${writer.deviceId}.jsonl');
+  // The writer's history sits in its segments; the tampered lines go
+  // back as one segment, announced by the manifest.
+  final manifestFile = File('$root/${manifestName(writer.deviceId)}');
+  final manifest = FolderManifest.parse(manifestFile.readAsBytesSync())!;
   List<Map<String, dynamic>> decode(String text) => [
         for (final line in const LineSplitter().convert(text))
           if (line.trim().isNotEmpty)
             (jsonDecode(line) as Map).cast<String, dynamic>()
       ];
+  final ownLines = [
+    for (final (name, _) in manifest.segments)
+      ...decode(File('$root/$name').readAsStringSync())
+  ];
   final archive = ZipDecoder().decodeBytes(File(bundlePath).readAsBytesSync());
   final entriesFile =
       archive.files.firstWhere((f) => f.name.startsWith('entries'));
-  final t = Tamper(writer.deviceId, decode(ownFile.readAsStringSync()),
+  final t = Tamper(writer.deviceId, ownLines,
       decode(utf8.decode(entriesFile.content as List<int>)));
   tamper(t);
-  ownFile.writeAsStringSync(t.folderLines.map(jsonEncode).join('\n'));
+  for (final (name, _) in manifest.segments) {
+    File('$root/$name').deleteSync();
+  }
+  final segment = segmentName(writer.deviceId, 1);
+  File('$root/$segment')
+      .writeAsStringSync(t.folderLines.map(jsonEncode).join('\n'));
+  manifestFile.writeAsStringSync(jsonEncode(FolderManifest(
+    generation: manifest.generation,
+    history: manifest.history,
+    private: manifest.private,
+    vector: manifest.vector,
+    segments: [(segment, t.folderLines.length)],
+  ).toJson()));
   final ownKeys = [
     if (t.sinceOverride case final since?)
       KeyRecord.make(writer.signingKey, writer.deviceId, since)

@@ -2258,7 +2258,6 @@
     "entriesIn": 94,
     "blobsIn": 0,
     "blobsMissing": 0,
-    "blobProblems": [],
     "conflicts": [
       [
         "cat:00000000-0000-4000-8000-000000000001",
