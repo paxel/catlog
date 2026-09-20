@@ -2049,18 +2049,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get summaryMeta => 'Také dorazilo';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n změn',
-      few: '$n změny',
-      one: '1 změna',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Přijmout';
 
   @override
@@ -3690,5 +3678,20 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Otevřít $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — hotovo $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title hotovo $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n dalších';
   }
 }

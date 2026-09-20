@@ -2048,17 +2048,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get summaryMeta => 'Érkezett még';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n változás',
-      one: '1 változás',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Elfogadás';
 
   @override
@@ -3676,5 +3665,20 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return '$page megnyitása';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — kész $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title kész $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n további';
   }
 }

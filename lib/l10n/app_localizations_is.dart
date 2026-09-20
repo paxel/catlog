@@ -2051,17 +2051,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get summaryMeta => 'Kom líka';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n breytingar',
-      one: '1 breyting',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Samþykkja';
 
   @override
@@ -3681,5 +3670,20 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Opna $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — lokið $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title lokið $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n til viðbótar';
   }
 }

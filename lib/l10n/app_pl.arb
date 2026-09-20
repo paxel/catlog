@@ -613,7 +613,6 @@
   "keepMine": "Zachowaj moje",
   "keptMine": "Twoja wersja {name} zostaje na tym urządzeniu.",
   "summaryMeta": "Ponadto przyszło",
-  "changesCount": "{n, plural, one{1 zmiana} few{{n} zmiany} other{{n} zmian}}",
   "acceptArrival": "Akceptuj",
   "rejectArrival": "Odrzuć",
   "photoAdded": "Dodano zdjęcie",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Zsynchronizowano. Nic nowego.",
   "noteSyncFailed": "Synchronizacja nie powiodła się. Dotknij, aby zobaczyć szczegóły.",
   "failureReport": "Zgłoś",
-  "failureOpenPage": "Otwórz {page}"
+  "failureOpenPage": "Otwórz {page}",
+  "choreTicked": "{title} — wykonano {count}×, {days}",
+  "choreTickedShort": "{title} wykonano {count}×",
+  "moreChanges": "+{n} więcej"
 }

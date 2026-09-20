@@ -613,7 +613,6 @@
   "keepMine": "Nechat moje",
   "keptMine": "Tvoje verze {name} zůstává na tomto zařízení.",
   "summaryMeta": "Také dorazilo",
-  "changesCount": "{n, plural, one{1 změna} few{{n} změny} other{{n} změn}}",
   "acceptArrival": "Přijmout",
   "rejectArrival": "Odmítnout",
   "photoAdded": "Přidána fotka",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Synchronizováno. Nic nového.",
   "noteSyncFailed": "Synchronizace selhala. Klepnutím zobrazíte podrobnosti.",
   "failureReport": "Nahlásit",
-  "failureOpenPage": "Otevřít {page}"
+  "failureOpenPage": "Otevřít {page}",
+  "choreTicked": "{title} — hotovo {count}×, {days}",
+  "choreTickedShort": "{title} hotovo {count}×",
+  "moreChanges": "+{n} dalších"
 }

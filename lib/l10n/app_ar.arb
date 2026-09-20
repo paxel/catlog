@@ -613,7 +613,6 @@
   "keepMine": "احتفظ بنسختي",
   "keptMine": "بقيت نسختك من {name} على هذا الجهاز.",
   "summaryMeta": "وصل أيضًا",
-  "changesCount": "{n, plural, one{تغيير واحد} two{تغييران} few{{n} تغييرات} many{{n} تغييرًا} other{{n} تغيير}}",
   "acceptArrival": "قبول",
   "rejectArrival": "رفض",
   "photoAdded": "أُضيفت صورة",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "تمت المزامنة. لا جديد.",
   "noteSyncFailed": "فشلت المزامنة. انقر للتفاصيل.",
   "failureReport": "إبلاغ",
-  "failureOpenPage": "فتح {page}"
+  "failureOpenPage": "فتح {page}",
+  "choreTicked": "{title} — أُنجز {count}×، {days}",
+  "choreTickedShort": "{title} أُنجز {count}×",
+  "moreChanges": "+{n} أخرى"
 }

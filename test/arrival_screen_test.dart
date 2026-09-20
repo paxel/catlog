@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/l10n/app_localizations_en.dart';
+import 'package:catlog/src/field_labels.dart';
 import 'package:catlog/src/import_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -103,12 +105,43 @@ void main() {
     expect(find.text('New'), findsOneWidget);
     expect(find.text('Updated'), findsOneWidget);
     expect(find.text('Runner'), findsOneWidget);
-    expect(find.text('1 change'), findsOneWidget);
-    expect(find.textContaining('other changes'), findsNothing);
+    // The row names the thing that changed, not a count of entries.
+    final color = fieldLabel(AppLocalizationsEn(), a, 'f:color');
+    expect(find.text(color), findsOneWidget);
+    expect(find.textContaining('more'), findsNothing);
 
     await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
     expect(find.text('white → grey'), findsOneWidget);
+  });
+
+  testWidgets('the ticks of one chore are one row with its title', (
+    tester,
+  ) async {
+    final cat = a.createCat('Miezi');
+    final today = DateUtils.dateOnly(DateTime.now());
+    final feed = a.createChore(Chore(
+      id: '',
+      entity: cat,
+      title: 'Feed',
+      schedule: const ChoreSchedule.daily(),
+      start: today.subtract(const Duration(days: 5)),
+    ));
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+    for (var i = 1; i <= 3; i++) {
+      final day = today.subtract(Duration(days: i));
+      b.tickChore(feed, day, doneOn: day);
+    }
+    b.append(cat, 'f:color', 'grey');
+    final (applied, moment) = receive();
+
+    await pump(tester, applied, undo: moment);
+    final color = fieldLabel(AppLocalizationsEn(), a, 'f:color');
+    expect(find.text('$color · Feed done 3×'), findsOneWidget);
+    await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Feed — done 3×, '), findsOneWidget);
+    expect(find.text('Chore done'), findsNothing);
   });
 
   testWidgets('refused rows and a name-wearing key get their section', (

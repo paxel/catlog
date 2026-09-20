@@ -613,7 +613,6 @@
   "keepMine": "Behold mitt",
   "keptMine": "Din versjon av {name} beholdes på denne enheten.",
   "summaryMeta": "Kom også",
-  "changesCount": "{n, plural, one{1 endring} other{{n} endringer}}",
   "acceptArrival": "Godta",
   "rejectArrival": "Avvis",
   "photoAdded": "Bilde lagt til",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Synkronisert. Ingenting nytt.",
   "noteSyncFailed": "Synkronisering mislyktes. Trykk for detaljer.",
   "failureReport": "Rapporter",
-  "failureOpenPage": "Åpne {page}"
+  "failureOpenPage": "Åpne {page}",
+  "choreTicked": "{title} — utført {count}×, {days}",
+  "choreTickedShort": "{title} utført {count}×",
+  "moreChanges": "+{n} til"
 }

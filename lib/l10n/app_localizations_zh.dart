@@ -1999,11 +1999,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get summaryMeta => '同时到达';
 
   @override
-  String changesCount(int n) {
-    return '$n 项更改';
-  }
-
-  @override
   String get acceptArrival => '接受';
 
   @override
@@ -3493,5 +3488,20 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return '打开 $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — 已完成 $count×，$days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title 已完成 $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '另有 $n 项';
   }
 }

@@ -2051,18 +2051,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get summaryMeta => 'A mai sosit';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n de schimbări',
-      few: '$n schimbări',
-      one: '1 schimbare',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Acceptă';
 
   @override
@@ -3694,5 +3682,20 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Deschide $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — făcut $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title făcut $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n în plus';
   }
 }

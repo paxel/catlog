@@ -2050,18 +2050,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get summaryMeta => 'Arī pienāca';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n izmaiņas',
-      one: '$n izmaiņa',
-      zero: '$n izmaiņu',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Pieņemt';
 
   @override
@@ -3693,5 +3681,20 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Atvērt $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — izdarīts $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title izdarīts $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n vēl';
   }
 }

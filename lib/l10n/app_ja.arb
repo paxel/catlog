@@ -613,7 +613,6 @@
   "keepMine": "自分のを保持",
   "keptMine": "{name} はこの端末ではあなたの版を保持しました。",
   "summaryMeta": "その他の到着",
-  "changesCount": "{n}件の変更",
   "acceptArrival": "受け入れる",
   "rejectArrival": "拒否",
   "photoAdded": "写真が追加されました",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "同期しました。新しいものはありません。",
   "noteSyncFailed": "同期に失敗しました。タップして詳細を表示。",
   "failureReport": "報告",
-  "failureOpenPage": "{page} を開く"
+  "failureOpenPage": "{page} を開く",
+  "choreTicked": "{title} — {count}回 済み、{days}",
+  "choreTickedShort": "{title} {count}回 済み",
+  "moreChanges": "他 {n} 件"
 }

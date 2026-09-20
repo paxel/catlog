@@ -613,7 +613,6 @@
   "keepMine": "Az enyém marad",
   "keptMine": "A te {name}-változatod marad ezen az eszközön.",
   "summaryMeta": "Érkezett még",
-  "changesCount": "{n, plural, one{1 változás} other{{n} változás}}",
   "acceptArrival": "Elfogadás",
   "rejectArrival": "Elutasítás",
   "photoAdded": "Fotó hozzáadva",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Szinkronizálva. Semmi új.",
   "noteSyncFailed": "A szinkronizálás nem sikerült. Koppints a részletekért.",
   "failureReport": "Jelentés",
-  "failureOpenPage": "{page} megnyitása"
+  "failureOpenPage": "{page} megnyitása",
+  "choreTicked": "{title} — kész {count}×, {days}",
+  "choreTickedShort": "{title} kész {count}×",
+  "moreChanges": "+{n} további"
 }

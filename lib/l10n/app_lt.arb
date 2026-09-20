@@ -613,7 +613,6 @@
   "keepMine": "Palikti mano",
   "keptMine": "Jūsų „{name}“ versija liko šiame įrenginyje.",
   "summaryMeta": "Taip pat atkeliavo",
-  "changesCount": "{n, plural, one{{n} pakeitimas} few{{n} pakeitimai} other{{n} pakeitimų}}",
   "acceptArrival": "Priimti",
   "rejectArrival": "Atmesti",
   "photoAdded": "Pridėta nuotrauka",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Sinchronizuota. Nieko naujo.",
   "noteSyncFailed": "Sinchronizuoti nepavyko. Palieskite, kad pamatytumėte išsamiau.",
   "failureReport": "Pranešti",
-  "failureOpenPage": "Atidaryti {page}"
+  "failureOpenPage": "Atidaryti {page}",
+  "choreTicked": "{title} — atlikta {count}×, {days}",
+  "choreTickedShort": "{title} atlikta {count}×",
+  "moreChanges": "+{n} daugiau"
 }

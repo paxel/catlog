@@ -2049,18 +2049,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get summaryMeta => 'Također stiglo';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n izmjena',
-      few: '$n izmjene',
-      one: '$n izmjena',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Prihvati';
 
   @override
@@ -3690,5 +3678,20 @@ class AppLocalizationsHr extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Otvori $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — obavljeno $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title obavljeno $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n više';
   }
 }

@@ -2049,17 +2049,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get summaryMeta => 'Saapui myös';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n muutosta',
-      one: '1 muutos',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Hyväksy';
 
   @override
@@ -3677,5 +3666,20 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Avaa $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — tehty $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title tehty $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n lisää';
   }
 }

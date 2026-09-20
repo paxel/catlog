@@ -613,7 +613,6 @@
   "keepMine": "Zadrži moje",
   "keptMine": "Vaša verzija za {name} ostaje na ovom uređaju.",
   "summaryMeta": "Također stiglo",
-  "changesCount": "{n, plural, one{{n} izmjena} few{{n} izmjene} other{{n} izmjena}}",
   "acceptArrival": "Prihvati",
   "rejectArrival": "Odbaci",
   "photoAdded": "Dodana fotografija",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Sinkronizirano. Ništa novo.",
   "noteSyncFailed": "Sinkronizacija nije uspjela. Dodirnite za detalje.",
   "failureReport": "Prijavi",
-  "failureOpenPage": "Otvori {page}"
+  "failureOpenPage": "Otvori {page}",
+  "choreTicked": "{title} — obavljeno {count}×, {days}",
+  "choreTickedShort": "{title} obavljeno {count}×",
+  "moreChanges": "+{n} više"
 }

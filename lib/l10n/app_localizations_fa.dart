@@ -2043,11 +2043,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get summaryMeta => 'همچنین رسید';
 
   @override
-  String changesCount(int n) {
-    return '$n تغییر';
-  }
-
-  @override
   String get acceptArrival => 'پذیرش';
 
   @override
@@ -3614,5 +3609,20 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'باز کردن $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — انجام شد $count×، $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title انجام شد $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n مورد دیگر';
   }
 }

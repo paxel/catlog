@@ -613,7 +613,6 @@
   "keepMine": "Оставить моё",
   "keptMine": "Ваша версия «{name}» сохранена на этом устройстве.",
   "summaryMeta": "Также пришло",
-  "changesCount": "{n, plural, one{{n} изменение} few{{n} изменения} other{{n} изменений}}",
   "acceptArrival": "Принять",
   "rejectArrival": "Отклонить",
   "photoAdded": "Добавлена фотография",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Синхронизировано. Ничего нового.",
   "noteSyncFailed": "Синхронизация не удалась. Нажмите для подробностей.",
   "failureReport": "Сообщить",
-  "failureOpenPage": "Открыть {page}"
+  "failureOpenPage": "Открыть {page}",
+  "choreTicked": "{title} — выполнено {count}×, {days}",
+  "choreTickedShort": "{title} выполнено {count}×",
+  "moreChanges": "+{n} ещё"
 }

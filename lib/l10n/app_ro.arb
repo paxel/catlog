@@ -613,7 +613,6 @@
   "keepMine": "Păstrează al meu",
   "keptMine": "Versiunea ta pentru {name} rămâne pe acest dispozitiv.",
   "summaryMeta": "A mai sosit",
-  "changesCount": "{n, plural, one{1 schimbare} few{{n} schimbări} other{{n} de schimbări}}",
   "acceptArrival": "Acceptă",
   "rejectArrival": "Respinge",
   "photoAdded": "Fotografie adăugată",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Sincronizat. Nimic nou.",
   "noteSyncFailed": "Sincronizarea a eșuat. Atinge pentru detalii.",
   "failureReport": "Raportează",
-  "failureOpenPage": "Deschide {page}"
+  "failureOpenPage": "Deschide {page}",
+  "choreTicked": "{title} — făcut {count}×, {days}",
+  "choreTickedShort": "{title} făcut {count}×",
+  "moreChanges": "+{n} în plus"
 }

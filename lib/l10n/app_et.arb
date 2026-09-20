@@ -613,7 +613,6 @@
   "keepMine": "Jäta minu oma",
   "keptMine": "Sinu versioon kirjest {name} jääb sellesse seadmesse.",
   "summaryMeta": "Saabus ka",
-  "changesCount": "{n, plural, one{1 muudatus} other{{n} muudatust}}",
   "acceptArrival": "Nõustu",
   "rejectArrival": "Lükka tagasi",
   "photoAdded": "Foto lisatud",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Sünkroonitud. Midagi uut pole.",
   "noteSyncFailed": "Sünkroonimine ebaõnnestus. Puuduta üksikasjade jaoks.",
   "failureReport": "Teata",
-  "failureOpenPage": "Ava {page}"
+  "failureOpenPage": "Ava {page}",
+  "choreTicked": "{title} — tehtud {count}×, {days}",
+  "choreTickedShort": "{title} tehtud {count}×",
+  "moreChanges": "+{n} veel"
 }

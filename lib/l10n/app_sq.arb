@@ -613,7 +613,6 @@
   "keepMine": "Mbaj timen",
   "keptMine": "Versioni yt për {name} mbetet në këtë pajisje.",
   "summaryMeta": "Erdhi edhe",
-  "changesCount": "{n, plural, one{1 ndryshim} other{{n} ndryshime}}",
   "acceptArrival": "Prano",
   "rejectArrival": "Refuzo",
   "photoAdded": "Foto e shtuar",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "U sinkronizua. Asgjë e re.",
   "noteSyncFailed": "Sinkronizimi dështoi. Prek për detaje.",
   "failureReport": "Raporto",
-  "failureOpenPage": "Hap {page}"
+  "failureOpenPage": "Hap {page}",
+  "choreTicked": "{title} — kryer {count}×, {days}",
+  "choreTickedShort": "{title} kryer {count}×",
+  "moreChanges": "+{n} të tjera"
 }

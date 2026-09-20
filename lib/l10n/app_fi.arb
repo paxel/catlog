@@ -613,7 +613,6 @@
   "keepMine": "Pidä omani",
   "keptMine": "Oma versiosi kohteesta {name} säilyy tällä laitteella.",
   "summaryMeta": "Saapui myös",
-  "changesCount": "{n, plural, one{1 muutos} other{{n} muutosta}}",
   "acceptArrival": "Hyväksy",
   "rejectArrival": "Hylkää",
   "photoAdded": "Kuva lisätty",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Synkronoitu. Ei mitään uutta.",
   "noteSyncFailed": "Synkronointi epäonnistui. Napauta nähdäksesi tiedot.",
   "failureReport": "Ilmoita",
-  "failureOpenPage": "Avaa {page}"
+  "failureOpenPage": "Avaa {page}",
+  "choreTicked": "{title} — tehty {count}×, {days}",
+  "choreTickedShort": "{title} tehty {count}×",
+  "moreChanges": "+{n} lisää"
 }

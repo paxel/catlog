@@ -613,7 +613,6 @@
   "keepMine": "Benimkini koru",
   "keptMine": "{name} için senin sürümün bu cihazda kaldı.",
   "summaryMeta": "Ayrıca gelenler",
-  "changesCount": "{n, plural, one{1 değişiklik} other{{n} değişiklik}}",
   "acceptArrival": "Kabul et",
   "rejectArrival": "Reddet",
   "photoAdded": "Fotoğraf eklendi",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Eşitlendi. Yeni bir şey yok.",
   "noteSyncFailed": "Eşitleme başarısız oldu. Ayrıntılar için dokunun.",
   "failureReport": "Bildir",
-  "failureOpenPage": "{page} sayfasını aç"
+  "failureOpenPage": "{page} sayfasını aç",
+  "choreTicked": "{title} — {count}× yapıldı, {days}",
+  "choreTickedShort": "{title} {count}× yapıldı",
+  "moreChanges": "+{n} daha"
 }

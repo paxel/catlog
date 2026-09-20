@@ -613,7 +613,6 @@
   "keepMine": "Żomm tiegħi",
   "keptMine": "Il-verżjoni tiegħek ta’ {name} tibqa’ f’dan l-apparat.",
   "summaryMeta": "Wasal ukoll",
-  "changesCount": "{n, plural, one{bidla waħda} other{{n} bidliet}}",
   "acceptArrival": "Aċċetta",
   "rejectArrival": "Irrifjuta",
   "photoAdded": "Ritratt miżjud",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Sinkronizzat. Xejn ġdid.",
   "noteSyncFailed": "Is-sinkronizzazzjoni falliet. Mess għad-dettalji.",
   "failureReport": "Irrapporta",
-  "failureOpenPage": "Iftaħ {page}"
+  "failureOpenPage": "Iftaħ {page}",
+  "choreTicked": "{title} — magħmul {count}×, {days}",
+  "choreTickedShort": "{title} magħmul {count}×",
+  "moreChanges": "+{n} oħra"
 }

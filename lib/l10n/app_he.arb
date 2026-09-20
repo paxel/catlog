@@ -613,7 +613,6 @@
   "keepMine": "להשאיר את שלי",
   "keptMine": "הגרסה שלך של {name} נשמרה במכשיר הזה.",
   "summaryMeta": "הגיע גם",
-  "changesCount": "{n, plural, one{שינוי אחד} two{{n} שינויים} other{{n} שינויים}}",
   "acceptArrival": "אישור",
   "rejectArrival": "דחייה",
   "photoAdded": "תמונה נוספה",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "סונכרן. אין חדש.",
   "noteSyncFailed": "הסנכרון נכשל. הקש לפרטים.",
   "failureReport": "דווח",
-  "failureOpenPage": "פתח {page}"
+  "failureOpenPage": "פתח {page}",
+  "choreTicked": "{title} — בוצע {count}×, {days}",
+  "choreTickedShort": "{title} בוצע {count}×",
+  "moreChanges": "+{n} נוספים"
 }

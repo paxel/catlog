@@ -1150,14 +1150,6 @@
     }
   },
   "summaryMeta": "Also arrived",
-  "changesCount": "{n, plural, one{1 change} other{{n} changes}}",
-  "@changesCount": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "acceptArrival": "Accept",
   "rejectArrival": "Reject",
   "photoAdded": "Photo added",
@@ -2061,6 +2053,39 @@
     "placeholders": {
       "page": {
         "type": "String"
+      }
+    }
+  },
+  "choreTicked": "{title} — done {count}×, {days}",
+  "@choreTicked": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "choreTickedShort": "{title} done {count}×",
+  "@choreTickedShort": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "moreChanges": "+{n} more",
+  "@moreChanges": {
+    "placeholders": {
+      "n": {
+        "type": "int"
       }
     }
   }

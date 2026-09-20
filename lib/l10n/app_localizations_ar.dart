@@ -2050,20 +2050,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get summaryMeta => 'وصل أيضًا';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n تغيير',
-      many: '$n تغييرًا',
-      few: '$n تغييرات',
-      two: 'تغييران',
-      one: 'تغيير واحد',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'قبول';
 
   @override
@@ -3717,5 +3703,20 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'فتح $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — أُنجز $count×، $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title أُنجز $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n أخرى';
   }
 }

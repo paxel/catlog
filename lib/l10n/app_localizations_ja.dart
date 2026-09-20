@@ -2016,11 +2016,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get summaryMeta => 'その他の到着';
 
   @override
-  String changesCount(int n) {
-    return '$n件の変更';
-  }
-
-  @override
   String get acceptArrival => '受け入れる';
 
   @override
@@ -3535,5 +3530,20 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return '$page を開く';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — $count回 済み、$days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title $count回 済み';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '他 $n 件';
   }
 }

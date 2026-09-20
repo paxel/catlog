@@ -613,7 +613,6 @@
   "keepMine": "Behåll mitt",
   "keptMine": "Din version av {name} behålls på den här enheten.",
   "summaryMeta": "Kom också",
-  "changesCount": "{n, plural, one{1 ändring} other{{n} ändringar}}",
   "acceptArrival": "Godkänn",
   "rejectArrival": "Avvisa",
   "photoAdded": "Foto tillagt",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Synkat. Inget nytt.",
   "noteSyncFailed": "Synkningen misslyckades. Tryck för detaljer.",
   "failureReport": "Rapportera",
-  "failureOpenPage": "Öppna {page}"
+  "failureOpenPage": "Öppna {page}",
+  "choreTicked": "{title} — gjord {count}×, {days}",
+  "choreTickedShort": "{title} gjord {count}×",
+  "moreChanges": "+{n} till"
 }

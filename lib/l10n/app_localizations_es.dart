@@ -2054,17 +2054,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get summaryMeta => 'También llegó';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n cambios',
-      one: '1 cambio',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Aceptar';
 
   @override
@@ -3687,5 +3676,20 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Abrir $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — hecho $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title hecho $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n más';
   }
 }

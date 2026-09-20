@@ -613,7 +613,6 @@
   "keepMine": "Залишити моє",
   "keptMine": "Вашу версію «{name}» збережено на цьому пристрої.",
   "summaryMeta": "Також надійшло",
-  "changesCount": "{n, plural, one{{n} зміна} few{{n} зміни} other{{n} змін}}",
   "acceptArrival": "Прийняти",
   "rejectArrival": "Відхилити",
   "photoAdded": "Додано світлину",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Синхронізовано. Нічого нового.",
   "noteSyncFailed": "Синхронізація не вдалася. Торкніться для подробиць.",
   "failureReport": "Повідомити",
-  "failureOpenPage": "Відкрити {page}"
+  "failureOpenPage": "Відкрити {page}",
+  "choreTicked": "{title} — виконано {count}×, {days}",
+  "choreTickedShort": "{title} виконано {count}×",
+  "moreChanges": "+{n} ще"
 }

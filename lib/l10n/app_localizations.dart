@@ -3770,12 +3770,6 @@ abstract class AppLocalizations {
   /// **'Also arrived'**
   String get summaryMeta;
 
-  /// No description provided for @changesCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{n, plural, one{1 change} other{{n} changes}}'**
-  String changesCount(int n);
-
   /// No description provided for @acceptArrival.
   ///
   /// In en, this message translates to:
@@ -6349,6 +6343,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open {page}'**
   String failureOpenPage(String page);
+
+  /// No description provided for @choreTicked.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} — done {count}×, {days}'**
+  String choreTicked(String title, int count, String days);
+
+  /// No description provided for @choreTickedShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} done {count}×'**
+  String choreTickedShort(String title, int count);
+
+  /// No description provided for @moreChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'+{n} more'**
+  String moreChanges(int n);
 }
 
 class _AppLocalizationsDelegate

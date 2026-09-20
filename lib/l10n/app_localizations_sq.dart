@@ -2047,17 +2047,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get summaryMeta => 'Erdhi edhe';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n ndryshime',
-      one: '1 ndryshim',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Prano';
 
   @override
@@ -3676,5 +3665,20 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Hap $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — kryer $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title kryer $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n të tjera';
   }
 }

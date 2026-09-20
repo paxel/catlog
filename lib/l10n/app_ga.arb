@@ -613,7 +613,6 @@
   "keepMine": "Coinnigh mo cheann",
   "keptMine": "Coinníodh do leagan de {name} ar an ngléas seo.",
   "summaryMeta": "Tháinig freisin",
-  "changesCount": "{n, plural, one{1 athrú} two{{n} athrú} few{{n} athrú} many{{n} n-athrú} other{{n} athrú}}",
   "acceptArrival": "Glac",
   "rejectArrival": "Diúltaigh",
   "photoAdded": "Grianghraf curtha leis",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Sioncronaithe. Rud ar bith nua.",
   "noteSyncFailed": "Theip ar an sioncronú. Tapáil le haghaidh sonraí.",
   "failureReport": "Tuairiscigh",
-  "failureOpenPage": "Oscail {page}"
+  "failureOpenPage": "Oscail {page}",
+  "choreTicked": "{title} — déanta {count}×, {days}",
+  "choreTickedShort": "{title} déanta {count}×",
+  "moreChanges": "+{n} eile"
 }

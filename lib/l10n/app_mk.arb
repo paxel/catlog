@@ -613,7 +613,6 @@
   "keepMine": "Задржи моето",
   "keptMine": "Вашата верзија на {name} остана на овој уред.",
   "summaryMeta": "Исто така пристигна",
-  "changesCount": "{n, plural, one{{n} промена} other{{n} промени}}",
   "acceptArrival": "Прифати",
   "rejectArrival": "Одбиј",
   "photoAdded": "Додадена фотографија",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Синхронизирано. Ништо ново.",
   "noteSyncFailed": "Синхронизацијата не успеа. Допрете за детали.",
   "failureReport": "Пријави",
-  "failureOpenPage": "Отвори {page}"
+  "failureOpenPage": "Отвори {page}",
+  "choreTicked": "{title} — завршено {count}×, {days}",
+  "choreTickedShort": "{title} завршено {count}×",
+  "moreChanges": "+{n} повеќе"
 }

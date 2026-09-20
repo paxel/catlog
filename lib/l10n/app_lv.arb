@@ -613,7 +613,6 @@
   "keepMine": "Paturēt manējo",
   "keptMine": "Jūsu „{name}“ versija paliek šajā ierīcē.",
   "summaryMeta": "Arī pienāca",
-  "changesCount": "{n, plural, zero{{n} izmaiņu} one{{n} izmaiņa} other{{n} izmaiņas}}",
   "acceptArrival": "Pieņemt",
   "rejectArrival": "Noraidīt",
   "photoAdded": "Pievienots fotoattēls",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Sinhronizēts. Nekā jauna.",
   "noteSyncFailed": "Sinhronizācija neizdevās. Pieskarieties, lai skatītu detaļas.",
   "failureReport": "Ziņot",
-  "failureOpenPage": "Atvērt {page}"
+  "failureOpenPage": "Atvērt {page}",
+  "choreTicked": "{title} — izdarīts {count}×, {days}",
+  "choreTickedShort": "{title} izdarīts {count}×",
+  "moreChanges": "+{n} vēl"
 }

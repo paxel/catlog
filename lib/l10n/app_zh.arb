@@ -613,7 +613,6 @@
   "keepMine": "保留我的",
   "keptMine": "已在此设备上保留你的 {name} 版本。",
   "summaryMeta": "同时到达",
-  "changesCount": "{n} 项更改",
   "acceptArrival": "接受",
   "rejectArrival": "拒绝",
   "photoAdded": "已添加照片",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "已同步。没有新内容。",
   "noteSyncFailed": "同步失败。点按查看详情。",
   "failureReport": "报告",
-  "failureOpenPage": "打开 {page}"
+  "failureOpenPage": "打开 {page}",
+  "choreTicked": "{title} — 已完成 {count}×，{days}",
+  "choreTickedShort": "{title} 已完成 {count}×",
+  "moreChanges": "另有 {n} 项"
 }

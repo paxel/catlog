@@ -613,7 +613,6 @@
   "keepMine": "مال من بماند",
   "keptMine": "نسخه شما از {name} در این دستگاه نگه داشته شد.",
   "summaryMeta": "همچنین رسید",
-  "changesCount": "{n} تغییر",
   "acceptArrival": "پذیرش",
   "rejectArrival": "رد",
   "photoAdded": "عکس افزوده شد",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "همگام شد. چیز جدیدی نیست.",
   "noteSyncFailed": "همگام‌سازی ناموفق بود. برای جزئیات ضربه بزنید.",
   "failureReport": "گزارش",
-  "failureOpenPage": "باز کردن {page}"
+  "failureOpenPage": "باز کردن {page}",
+  "choreTicked": "{title} — انجام شد {count}×، {days}",
+  "choreTickedShort": "{title} انجام شد {count}×",
+  "moreChanges": "+{n} مورد دیگر"
 }

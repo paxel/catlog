@@ -2058,20 +2058,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get summaryMeta => 'Tháinig freisin';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n athrú',
-      many: '$n n-athrú',
-      few: '$n athrú',
-      two: '$n athrú',
-      one: '1 athrú',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Glac';
 
   @override
@@ -3739,5 +3725,20 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return 'Oscail $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — déanta $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title déanta $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n eile';
   }
 }

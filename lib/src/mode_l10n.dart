@@ -523,9 +523,6 @@ class ModeLocalizations implements AppLocalizations {
   String changeSince(String delta, String date) => base.changeSince(delta, date);
 
   @override
-  String changesCount(int n) => base.changesCount(n);
-
-  @override
   String get cheerSubtitle => base.cheerSubtitle;
 
   @override
@@ -623,6 +620,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get choreTickLabel => base.choreTickLabel;
+
+  @override
+  String choreTicked(String title, int count, String days) => base.choreTicked(title, count, days);
+
+  @override
+  String choreTickedShort(String title, int count) => base.choreTickedShort(title, count);
 
   @override
   String get choreTitleLabel => base.choreTitleLabel;
@@ -1811,6 +1814,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get momentSync => base.momentSync;
+
+  @override
+  String moreChanges(int n) => base.moreChanges(n);
 
   @override
   String motherNotFemale(String name) => base.motherNotFemale(name);

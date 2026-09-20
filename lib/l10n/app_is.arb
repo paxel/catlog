@@ -613,7 +613,6 @@
   "keepMine": "Halda mínu",
   "keptMine": "Þín útgáfa af {name} helst á þessu tæki.",
   "summaryMeta": "Kom líka",
-  "changesCount": "{n, plural, one{1 breyting} other{{n} breytingar}}",
   "acceptArrival": "Samþykkja",
   "rejectArrival": "Hafna",
   "photoAdded": "Mynd bætt við",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Samstillt. Ekkert nýtt.",
   "noteSyncFailed": "Samstilling mistókst. Ýttu fyrir nánari upplýsingar.",
   "failureReport": "Tilkynna",
-  "failureOpenPage": "Opna {page}"
+  "failureOpenPage": "Opna {page}",
+  "choreTicked": "{title} — lokið {count}×, {days}",
+  "choreTickedShort": "{title} lokið {count}×",
+  "moreChanges": "+{n} til viðbótar"
 }

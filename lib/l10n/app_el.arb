@@ -613,7 +613,6 @@
   "keepMine": "Κράτα το δικό μου",
   "keptMine": "Η δική σου εκδοχή για {name} μένει σε αυτή τη συσκευή.",
   "summaryMeta": "Έφτασαν επίσης",
-  "changesCount": "{n, plural, one{1 αλλαγή} other{{n} αλλαγές}}",
   "acceptArrival": "Αποδοχή",
   "rejectArrival": "Απόρριψη",
   "photoAdded": "Προστέθηκε φωτογραφία",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Συγχρονίστηκε. Τίποτα νέο.",
   "noteSyncFailed": "Ο συγχρονισμός απέτυχε. Πατήστε για λεπτομέρειες.",
   "failureReport": "Αναφορά",
-  "failureOpenPage": "Άνοιγμα {page}"
+  "failureOpenPage": "Άνοιγμα {page}",
+  "choreTicked": "{title} — έγινε {count}×, {days}",
+  "choreTickedShort": "{title} έγινε {count}×",
+  "moreChanges": "+{n} ακόμη"
 }

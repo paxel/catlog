@@ -2047,17 +2047,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get summaryMeta => 'Ayrıca gelenler';
 
   @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n değişiklik',
-      one: '1 değişiklik',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get acceptArrival => 'Kabul et';
 
   @override
@@ -3675,5 +3664,20 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String failureOpenPage(String page) {
     return '$page sayfasını aç';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — $count× yapıldı, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title $count× yapıldı';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n daha';
   }
 }

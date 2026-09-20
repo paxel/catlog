@@ -613,7 +613,6 @@
   "keepMine": "Mijn versie houden",
   "keptMine": "Jouw versie van {name} blijft op dit apparaat.",
   "summaryMeta": "Ook aangekomen",
-  "changesCount": "{n, plural, one{1 wijziging} other{{n} wijzigingen}}",
   "acceptArrival": "Accepteren",
   "rejectArrival": "Afwijzen",
   "photoAdded": "Foto toegevoegd",
@@ -1234,5 +1233,8 @@
   "noteSyncNothingNew": "Gesynchroniseerd. Niets nieuws.",
   "noteSyncFailed": "Synchronisatie mislukt. Tik voor details.",
   "failureReport": "Melden",
-  "failureOpenPage": "{page} openen"
+  "failureOpenPage": "{page} openen",
+  "choreTicked": "{title} — {count}× gedaan, {days}",
+  "choreTickedShort": "{title} {count}× gedaan",
+  "moreChanges": "+{n} meer"
 }
