@@ -123,7 +123,6 @@ impl VetView {
                 }
             });
         egui::CentralPanel::default().show(ui, |ui| {
-            ui.heading(t.view_vet());
             if rows.is_empty() {
                 ui.label(t.vet_empty());
                 return;

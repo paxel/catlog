@@ -803,6 +803,15 @@ impl App {
                 }
             });
         self.bar_bottom = bar.response.rect.max.y;
+        // Every view opens with its name, so the bar's choice reads on
+        // the page itself and the content starts below a line of air.
+        egui::Panel::top("view-headline")
+            .show_separator_line(false)
+            .show(ui, |ui| {
+                ui.add_space(8.0);
+                ui.heading(self.view.label(&t));
+                ui.add_space(4.0);
+            });
         let mut page_action = PageAction::None;
         // In the Cats and Clowders views the table moves into a left pane
         // once cards lie on the desk. The pane opens at the remembered

@@ -109,7 +109,6 @@ pub fn show_agenda(ui: &mut Ui, store: &Catalog, t: &L10n, today: NaiveDate) -> 
     let mut action = AgendaAction::None;
     egui::ScrollArea::vertical().show(ui, |ui| {
         ui.horizontal(|ui| {
-            ui.heading(t.agenda());
             let add = ui.button(t.add_appointment());
             crate::tips::anchor(ui, "agenda-add", &add);
             if add.clicked() {

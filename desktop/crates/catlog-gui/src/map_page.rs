@@ -264,7 +264,6 @@ impl MapPage {
             }
         }
         ui.horizontal(|ui| {
-            ui.heading(t.map());
             // The search box: Enter or the button jumps there.
             let edit = ui.add(
                 egui::TextEdit::singleline(&mut self.query)

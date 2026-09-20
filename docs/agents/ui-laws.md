@@ -50,6 +50,9 @@ a screen that breaks one is a bug, not a style choice.
   dialog whose confirm button carries the verb and the error colour.
 - An editor with several fields is a full-screen page with Save in the
   top bar; secondary state changes (pause, end) are rows at the bottom.
+- On the desk every view opens with its name as a headline under the
+  view bar, drawn in one place for all six; a view draws no title of
+  its own, only its toolbar and content below the headline.
 
 ## Lists and sections
 
