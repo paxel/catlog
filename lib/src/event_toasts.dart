@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 
 import 'import_summary.dart';
 import 'l10n.dart';
+import 'notes.dart';
 
-/// Which synced-in events slide in as toasts. Adoptions and births are
-/// on by default; the somber ones are opt-in.
+/// Which synced-in events become notes at the top. Adoptions and
+/// births are on by default; the somber ones are opt-in.
 const toastKinds = [
   ('adoption', true),
   ('birth', true),
@@ -23,8 +24,9 @@ bool toastEnabled(CatalogStore store, String kind) {
 void setToastEnabled(CatalogStore store, String kind, bool on) =>
     store.setLocalSetting('toast:$kind', on ? 'on' : 'off');
 
-/// Fires the configured toasts for one sync's applied entries. Local
-/// changes never toast — the confetti covers local adoptions.
+/// Adds the configured news notes for one sync's applied entries, one
+/// behind the other. Local changes never announce — the confetti
+/// covers local adoptions.
 void showEventToasts(
     BuildContext context, CatalogStore store, List<Entry> applied) {
   final t = context.t;
@@ -45,32 +47,20 @@ void showEventToasts(
         store.resolveEntity(e.entity)
   }..removeAll({...summary.adopted, ...summary.newCats});
 
-  final messages = <(String, Color?)>[
+  final messages = <String>[
     if (toastEnabled(store, 'adoption'))
-      for (final id in summary.adopted)
-        (t.toastAdopted(name(id), home(id)), Colors.green.shade700),
+      for (final id in summary.adopted) t.toastAdopted(name(id), home(id)),
     if (toastEnabled(store, 'birth'))
-      for (final id in births)
-        (t.toastBorn(name(id)), Colors.teal.shade600),
+      for (final id in births) t.toastBorn(name(id)),
     if (toastEnabled(store, 'death'))
-      for (final id in summary.deceased)
-        (t.toastDeceased(name(id)), Colors.blueGrey.shade700),
+      for (final id in summary.deceased) t.toastDeceased(name(id)),
     if (toastEnabled(store, 'escape'))
-      for (final id in summary.escaped)
-        (t.toastEscaped(name(id)), Colors.orange.shade800),
+      for (final id in summary.escaped) t.toastEscaped(name(id)),
     if (toastEnabled(store, 'move'))
-      for (final id in moves)
-        (t.toastMoved(name(id), home(id)), null),
+      for (final id in moves) t.toastMoved(name(id), home(id)),
   ];
-  final messenger = ScaffoldMessenger.maybeOf(context);
-  if (messenger == null) return;
-  for (final (text, color) in messages.take(5)) {
-    messenger.showSnackBar(SnackBar(
-      content: Text(text),
-      backgroundColor: color,
-      behavior: SnackBarBehavior.floating,
-      duration: const Duration(seconds: 3),
-    ));
+  for (final text in messages.take(5)) {
+    noteDone(text);
   }
 }
 

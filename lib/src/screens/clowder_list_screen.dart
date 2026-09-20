@@ -13,6 +13,7 @@ import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../name_date_dialog.dart';
 import '../share.dart';
 import '../spotlight.dart';
@@ -159,9 +160,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       final file = File('${dir.path}/catlog.csv');
       await file.writeAsString(csv);
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.t.csvSavedTo(file.path))),
-      );
+      noteDone(context.t.csvSavedTo(file.path));
     }
   }
 

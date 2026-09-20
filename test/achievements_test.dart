@@ -8,6 +8,8 @@ import 'package:catlog/src/screens/agenda_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// What the chores add up to: full months and years, a master ladder
 /// per chore, recorded once per climb, shown on a page.
 void main() {
@@ -196,7 +198,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byType(Checkbox));
     await tester.pumpAndSettle();
-    expect(find.textContaining('Servant (Feed)'), findsOneWidget);
+    expect(notesSaid(), anyElement(contains('Servant (Feed)')));
     expect(
       manager.achievements().map((a) => a.id),
       contains('${masterPrefix}feed'),

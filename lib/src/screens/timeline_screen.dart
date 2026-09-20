@@ -7,6 +7,7 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
+import '../celebration.dart';
 import '../widgets/cat_ear.dart';
 import 'field_history_screen.dart';
 
@@ -147,15 +148,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   void _remove(Entry entry) {
     store.removeEntry(entry.seq);
-    final restored = store.current(entry.entity, entry.field);
     setState(() {});
-    final label = fieldLabel(context.t, store, entry.field);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(restored == null
-          ? context.t.fieldCleared(label)
-          : context.t.fieldBackTo(
-              label, valueLabel(context.t, store, entry.field, restored))),
-    ));
+    paw(context);
   }
 
   void _entryMenu(Entry entry) {

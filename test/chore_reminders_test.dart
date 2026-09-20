@@ -7,6 +7,8 @@ import 'package:catlog/src/chores/chore_reminders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// A port that records what was scheduled and answers the permission
 /// question as told.
 class _FakePort implements ReminderPort {
@@ -243,8 +245,8 @@ void main() {
       await tester.pumpAndSettle();
       expect(port.permissionAsks, 1);
       expect(
-        find.textContaining('No permission for notifications'),
-        findsOneWidget,
+        notesSaid(),
+        anyElement(contains('No permission for notifications')),
       );
       expect(tester.widget<Switch>(find.byType(Switch)).value, isFalse);
       await tester.tap(find.text('Save'));

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'l10n.dart';
+import 'notes.dart';
 
 /// Opens the registry page for an ID value in the browser. cat(a)log
 /// never talks to the service itself — this hands the link to the
@@ -24,6 +25,5 @@ Future<void> openLookup(
   }
   if (opened || !context.mounted) return;
   // Say what failed and what fixes it — never a bare "failed".
-  ScaffoldMessenger.of(context)
-      .showSnackBar(SnackBar(content: Text(t.lookupFailed(url))));
+  noteFailed(t.lookupFailed(url));
 }

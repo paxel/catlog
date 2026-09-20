@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../help.dart';
 import '../move_to_catalog.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../layout.dart';
 import 'archive_screen.dart' show formatBytes;
 import 'catalog_settings_screen.dart';
@@ -54,7 +55,8 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
   }
 
   Future<void> _create() async {
-    final name = await askCatalogName(context, context.t.newCatalog);
+    final name = await askCatalogName(context, context.t.newCatalog,
+        taken: widget.catalogs.nameTaken);
     if (name == null || !mounted) return;
     try {
       final made = widget.catalogs.create(name);
@@ -72,7 +74,8 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       if (!mounted) return;
       await _openSettings(made);
     } on DuplicateCatalogName {
-      if (mounted) _sayTaken(name);
+      // Checked in the dialog; a name taken meanwhile still lands here.
+      if (mounted) noteFailed(context.t.catalogNameTaken(name));
     }
   }
 
@@ -97,12 +100,8 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
     final count =
         await moveInto(store, widget.catalogs, made, chosen);
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(context.t.movedToCatalog(count, made.name))));
+    noteDone(context.t.movedToCatalog(count, made.name));
   }
-
-  void _sayTaken(String name) => ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(context.t.catalogNameTaken(name))));
 
   /// The catalog's own page; the list redraws on return because a name
   /// may have changed or a catalog may be gone.
@@ -177,30 +176,47 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
 }
 
 /// Asks for a catalog name. Returns null when the dialog is dismissed.
+/// A name [taken] already is refused under the field, and the dialog
+/// stays until a free one is typed.
 Future<String?> askCatalogName(BuildContext context, String title,
-    {String initial = ''}) {
+    {String initial = '', bool Function(String name)? taken}) {
   final controller = TextEditingController(text: initial);
+  String? error;
   return showDialog<String>(
     context: context,
-    builder: (context) => AlertDialog(
-      title: Text(title),
-      content: TextField(
-        controller: controller,
-        autofocus: true,
-        decoration:
-            InputDecoration(labelText: context.t.catalogNameLabel),
-        onSubmitted: (value) => Navigator.of(context).pop(value.trim()),
-      ),
-      actions: [
-        TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(context.t.cancel)),
-        FilledButton(
-          onPressed: () =>
-              Navigator.of(context).pop(controller.text.trim()),
-          child: Text(context.t.save),
-        ),
-      ],
+    builder: (context) => StatefulBuilder(
+      builder: (context, setState) {
+        void submit() {
+          final value = controller.text.trim();
+          if (value.isNotEmpty && taken != null && taken(value)) {
+            setState(() => error = context.t.catalogNameTaken(value));
+            return;
+          }
+          Navigator.of(context).pop(value);
+        }
+
+        return AlertDialog(
+          title: Text(title),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            decoration: InputDecoration(
+              labelText: context.t.catalogNameLabel,
+              errorText: error,
+            ),
+            onChanged: (_) {
+              if (error != null) setState(() => error = null);
+            },
+            onSubmitted: (_) => submit(),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text(context.t.cancel)),
+            FilledButton(onPressed: submit, child: Text(context.t.save)),
+          ],
+        );
+      },
     ),
   ).then((value) => value == null || value.isEmpty ? null : value);
 }

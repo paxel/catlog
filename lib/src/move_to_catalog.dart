@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import 'l10n.dart';
+import 'notes.dart';
 
 /// The catalogs this device holds, once the app has opened them. Null in
 /// tests and anywhere a store is built directly.
@@ -134,9 +135,7 @@ Future<CatalogInfo?> moveToAnotherCatalog(
   try {
     final result = transferEntities(from, to, ids);
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(context.t
-              .movedToCatalog(result.moved.length, chosen.name))));
+      noteDone(context.t.movedToCatalog(result.moved.length, chosen.name));
     }
     return chosen;
   } finally {

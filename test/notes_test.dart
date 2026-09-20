@@ -52,22 +52,6 @@ void main() {
     expect(notes.notes.map((n) => n.text(_none)), ['a', 'second']);
   });
 
-  // A widget test for the clock alone: its time is fake, so the dwell
-  // passes in no time at all.
-  testWidgets('a finished job leaves on its own, but only once it is visible',
-      (tester) async {
-    notes.add(failed('f'));
-    notes.add(done('d'));
-    await tester.pump(const Duration(seconds: 10));
-    expect(notes.notes, hasLength(2)); // behind a failure: still there
-    notes.next();
-    expect(notes.visible!.text(_none), 'd');
-    await tester.pump(const Duration(seconds: 2));
-    expect(notes.visible, isNotNull);
-    await tester.pump(const Duration(seconds: 2));
-    expect(notes.visible, isNull);
-  });
-
   test('a tap removes the note and runs its action', () {
     var opened = 0;
     final note = done('a', onTap: () => opened++);
@@ -95,6 +79,22 @@ void main() {
           home: const Scaffold(body: Text('page')),
         ),
       );
+
+  testWidgets('a finished job leaves on its own, once the strip showed it',
+      (tester) async {
+    await pump(tester);
+    notes.add(failed('f'));
+    notes.add(done('d'));
+    await tester.pump(const Duration(seconds: 10));
+    expect(notes.notes, hasLength(2)); // behind a failure: still there
+    notes.next();
+    await tester.pumpAndSettle();
+    expect(find.text('d'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2));
+    expect(notes.visible, isNotNull);
+    await tester.pump(const Duration(seconds: 2));
+    expect(notes.visible, isNull);
+  });
 
   testWidgets('the strip pushes the page down and marks what waits',
       (tester) async {

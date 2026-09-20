@@ -8,6 +8,7 @@ import 'import_summary.dart';
 import 'import_target.dart';
 import 'incoming_images.dart';
 import 'l10n.dart';
+import 'notes.dart';
 
 /// Opening a .catsync from a messenger or file manager lands here: the
 /// platform side (Android intent filter, iOS document type, desktop
@@ -106,7 +107,7 @@ Future<void> _import(GlobalKey<NavigatorState> navigator,
         try {
           to = catalogs.create(name);
         } on DuplicateCatalogName {
-          _snack(context, context.t.catalogNameTaken(name));
+          noteFailed(context.t.catalogNameTaken(name));
           return;
         }
     }
@@ -124,16 +125,12 @@ Future<void> _import(GlobalKey<NavigatorState> navigator,
     final result = imported.result;
     if (!context.mounted) return;
     if (result.applied.isEmpty && result.blobsIn == 0) {
-      _snack(context, context.t.nothingNewInBundle);
+      noteDone(context.t.nothingNewInBundle);
     } else {
       await showImportSummary(context, store, result.applied,
           undo: imported.moment);
     }
-  } catch (_) {
-    if (context.mounted) _snack(context, context.t.notACatlogFile);
+  } catch (e) {
+    if (context.mounted) noteFailed(context.t.notACatlogFile, detail: '$e');
   }
 }
-
-void _snack(BuildContext context, String message) =>
-    ScaffoldMessenger.maybeOf(context)
-        ?.showSnackBar(SnackBar(content: Text(message)));

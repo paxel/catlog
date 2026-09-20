@@ -11,6 +11,8 @@ import 'package:catlog/src/screens/home_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// Several catalogs on one device: the home title names the one you are
 /// in and opens the switcher; managing them lives one tap further.
 void main() {
@@ -236,7 +238,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
-      expect(find.textContaining('Switch to another one'), findsOneWidget);
+      expect(notesSaid(), anyElement(contains('Switch to another one')));
       expect(catalogs.catalogs(), hasLength(2));
     });
 
@@ -313,7 +315,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
-      expect(find.textContaining('catlog-paris.catsync'), findsOneWidget);
+      expect(notesSaid(), anyElement(contains('catlog-paris.catsync')));
     });
 
     testWidgets('the settings of a catalog you are not in act on it alone',

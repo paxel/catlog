@@ -4,7 +4,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
-import 'l10n.dart';
+import 'celebration.dart';
 
 /// One line of a history as the PDF and the clipboard get it: when,
 /// what, who, and a remark for a hidden or late value.
@@ -86,12 +86,11 @@ String historyText(String title, String subtitle, List<HistoryLine> lines) => [
     [l.when, l.value, l.who, if (l.note.isNotEmpty) l.note].join(' · '),
 ].join('\n');
 
-/// Puts [text] on the clipboard and says so.
+/// Puts [text] on the clipboard; the paw says it did.
 Future<void> copyText(BuildContext context, String text) async {
   await Clipboard.setData(ClipboardData(text: text));
   if (!context.mounted) return;
-  ScaffoldMessenger.of(context)
-      .showSnackBar(SnackBar(content: Text(context.t.copied)));
+  paw(context);
 }
 
 /// Hands the PDF to the phone's share sheet under [fileName].

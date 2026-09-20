@@ -13,6 +13,7 @@ import 'src/crash_guard.dart';
 import 'src/import_summary.dart';
 import 'src/incoming_file.dart';
 import 'src/sync/sync_watch.dart';
+import 'src/celebration.dart';
 import 'src/exclusive.dart';
 import 'src/notes.dart';
 import 'src/stray_cam.dart';
@@ -33,7 +34,6 @@ import 'src/units.dart';
 import 'src/pet_mode.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
-final messengerKey = GlobalKey<ScaffoldMessengerState>();
 
 /// The catalog everything writes to right now. A file or photo shared
 /// into the app lands in the catalog on screen, not in the one that
@@ -373,7 +373,6 @@ class _CatlogAppState extends State<CatlogApp>
       valueListenable: localeOverride,
       builder: (context, locale, _) => MaterialApp(
         navigatorKey: navigatorKey,
-        scaffoldMessengerKey: messengerKey,
         // The fur ground follows each page's own scroll position.
         navigatorObservers: [furScroll],
         title: 'cat(a)log',
@@ -408,11 +407,13 @@ class _CatlogAppState extends State<CatlogApp>
             const SingleActivator(LogicalKeyboardKey.escape): () =>
                 navigatorKey.currentState?.maybePop(),
           },
-          child: NoteStrip(
-            queue: NoteQueue.instance,
-            busy: busyFlows,
-            openIn: () => navigatorKey.currentContext!,
-            child: child ?? const SizedBox.shrink(),
+          child: TouchTracker(
+            child: NoteStrip(
+              queue: NoteQueue.instance,
+              busy: busyFlows,
+              openIn: () => navigatorKey.currentContext!,
+              child: child ?? const SizedBox.shrink(),
+            ),
           ),
           ),
           ),

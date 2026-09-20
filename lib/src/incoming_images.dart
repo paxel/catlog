@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'hidden.dart';
 import 'image_import.dart';
 import 'l10n.dart';
+import 'notes.dart';
 import 'name_proposals.dart';
 import 'screens/cat_detail_screen.dart';
 import 'video_frames_io.dart';
@@ -58,13 +59,11 @@ Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
   }
   if (!context.mounted || !store.isOpen) return;
   if (added == 0) {
-    ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-        SnackBar(content: Text(context.t.notACatlogFile)));
+    noteFailed(context.t.notACatlogFile);
     return;
   }
   final name = store.current(catId, Keys.name) ?? context.t.unnamed;
-  ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(
-      content: Text(context.t.photosAddedTo('$added', name))));
+  noteDone(context.t.photosAddedTo('$added', name));
   // Fire and forget — the handler must not block until the page pops.
   unawaited(navigator.currentState?.push(MaterialPageRoute(
     builder: (_) => CatDetailScreen(store: store, catId: catId),

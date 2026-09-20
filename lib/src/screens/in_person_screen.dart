@@ -12,6 +12,7 @@ import '../help.dart';
 import '../import_summary.dart';
 import '../sync/hotspot.dart';
 import '../l10n.dart';
+import '../celebration.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
 import '../sync/tls.dart';
@@ -460,8 +461,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
                               await Clipboard.setData(
                                   ClipboardData(text: _pairCode!));
                               if (context.mounted) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text(t.copied)));
+                                paw(context);
                               }
                             },
                           ),

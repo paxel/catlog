@@ -11,6 +11,7 @@ import 'package:catalog_core/catalog_core.dart';
 
 import 'image_import.dart';
 import 'l10n.dart';
+import 'notes.dart';
 import 'stray_cam.dart';
 import 'video_frames.dart';
 import 'exclusive.dart';
@@ -26,8 +27,7 @@ Future<List<Uint8List>?> pickVideoFrames(BuildContext context,
 Future<List<Uint8List>?> _pickVideoFrames(BuildContext context,
     {ImageSource source = ImageSource.gallery}) async {
   if (!Platform.isAndroid && !Platform.isIOS) {
-    ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.t.videoMobileOnly)));
+    noteFailed(context.t.videoMobileOnly);
     return null;
   }
   final video = await ImagePicker().pickVideo(source: source);

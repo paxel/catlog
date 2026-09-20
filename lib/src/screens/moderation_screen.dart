@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n.dart';
+import '../celebration.dart';
 import '../help.dart';
 import '../titles.dart';
 
@@ -76,10 +77,7 @@ class _ModerationScreenState extends State<ModerationScreen> {
       }
     }
     setState(() {});
-    if (mounted) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.deletedDone)));
-    }
+    if (mounted) paw(context);
   }
 
   /// The key code of a device, or the start of its id when no key was

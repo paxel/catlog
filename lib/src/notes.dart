@@ -73,7 +73,7 @@ class Note {
 class NoteQueue extends ChangeNotifier {
   static final NoteQueue instance = NoteQueue();
 
-  /// How long a finished job stays once it is the visible note.
+  /// How long a finished job stays once the strip has shown it.
   static const doneDwell = Duration(seconds: 3);
 
   final List<Note> notes = [];
@@ -131,20 +131,22 @@ class NoteQueue extends ChangeNotifier {
     _changed();
   }
 
-  /// The visible finished note dwells, then goes; the timer runs only
-  /// while the note is the visible one, so nothing leaves unseen.
+  /// The strip drew [note]: a finished job starts its dwell now, so a
+  /// note nobody has seen yet never leaves on its own.
+  void shown(Note note) {
+    if (note.kind != NoteKind.done || _dwelling == note) return;
+    _dwell?.cancel();
+    _dwelling = note;
+    _dwell = Timer(doneDwell, () {
+      if (visible == note) next();
+    });
+  }
+
   void _changed() {
-    final top = visible;
-    if (top != _dwelling) {
+    if (_dwelling != visible) {
       _dwell?.cancel();
       _dwell = null;
       _dwelling = null;
-      if (top != null && top.kind == NoteKind.done) {
-        _dwelling = top;
-        _dwell = Timer(doneDwell, () {
-          if (visible == top) next();
-        });
-      }
     }
     notifyListeners();
   }
@@ -155,6 +157,15 @@ class NoteQueue extends ChangeNotifier {
     super.dispose();
   }
 }
+
+/// A finished job, in the words already at hand.
+void noteDone(String text, {VoidCallback? onTap}) =>
+    NoteQueue.instance.add(Note.done((_) => text, onTap: onTap));
+
+/// A failed job, in the words already at hand; [detail] is the full
+/// text for its dialog.
+void noteFailed(String text, {String? detail}) =>
+    NoteQueue.instance.add(Note.failed((_) => text, detail: detail));
 
 /// Which running flows show on the activity line, with their icon.
 /// Flows without an entry (a camera, a share sheet) are on screen
@@ -209,6 +220,7 @@ class NoteStrip extends StatelessWidget {
                             key: ObjectKey(note),
                             note: note,
                             more: queue.more,
+                            onShown: () => queue.shown(note),
                             onLeft: queue.next,
                             onRight: queue.clearNews,
                             onTap: () => _open(context, note),
@@ -248,9 +260,10 @@ class NoteStrip extends StatelessWidget {
   }
 }
 
-class _NoteLine extends StatelessWidget {
+class _NoteLine extends StatefulWidget {
   final Note note;
   final bool more;
+  final VoidCallback onShown;
   final VoidCallback onLeft;
   final VoidCallback onRight;
   final VoidCallback onTap;
@@ -259,13 +272,30 @@ class _NoteLine extends StatelessWidget {
     super.key,
     required this.note,
     required this.more,
+    required this.onShown,
     required this.onLeft,
     required this.onRight,
     required this.onTap,
   });
 
   @override
+  State<_NoteLine> createState() => _NoteLineState();
+}
+
+class _NoteLineState extends State<_NoteLine> {
+  @override
+  void initState() {
+    super.initState();
+    widget.onShown();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final note = widget.note;
+    final more = widget.more;
+    final onLeft = widget.onLeft;
+    final onRight = widget.onRight;
+    final onTap = widget.onTap;
     final t = context.t;
     final scheme = Theme.of(context).colorScheme;
     final failed = note.kind == NoteKind.failed;

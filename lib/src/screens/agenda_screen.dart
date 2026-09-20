@@ -9,6 +9,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../help.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../layout.dart';
 import '../reminders/calendar_mirror.dart';
 import '../reminders/calendar_port.dart';
@@ -186,15 +187,11 @@ class _AgendaScreenState extends State<AgendaScreen> {
       final file = File('${dir.path}/catlog.ics');
       await file.writeAsString(ics);
       if (!mounted) return;
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(context.t.icsSavedTo(file.path))));
+      noteDone(context.t.icsSavedTo(file.path));
     }
   }
 
-  void _say(String message) =>
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(message)));
+  void _say(String message) => noteFailed(message);
 
   /// Switching the mirror on: permission, then the user picks one of
   /// the device's writable calendars. Every refusal is named.

@@ -4,7 +4,9 @@ import 'dart:typed_data';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import 'import_summary.dart';
 import 'l10n.dart';
+import 'notes.dart';
 import 'screens/scan_screen.dart';
 import 'exclusive.dart';
 
@@ -51,8 +53,7 @@ Future<void> _scanShareCode(BuildContext context, CatalogStore store,
   if (!context.mounted) return;
   final decoded = decodeShareQr(raw);
   if (decoded == null) {
-    ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.t.notAShareCode)));
+    noteFailed(context.t.notAShareCode);
     return;
   }
   Uint8List bytes;
@@ -60,8 +61,7 @@ Future<void> _scanShareCode(BuildContext context, CatalogStore store,
     bytes = decoded.data ?? await (fetch ?? fetchShare)(decoded.url!);
   } catch (e) {
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.t.bundleImportFailed('$e'))));
+      noteFailed(context.t.bundleImportFailed('$e'), detail: '$e');
     }
     return;
   }
@@ -79,8 +79,8 @@ Future<void> _scanShareCode(BuildContext context, CatalogStore store,
     final cat = preview.cats().firstOrNull;
     if (cat == null) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(context.t.notAShareCode)));
+
+    noteFailed(context.t.notAShareCode);
       }
       return;
     }
@@ -136,11 +136,11 @@ Future<void> _scanShareCode(BuildContext context, CatalogStore store,
   // any other import.
   final before = store.currentSeq();
   final result = importBundleBytes(store, bytes);
-  momentFor(store,
+  final point = momentFor(store,
       before: before,
       changed: result.applied.isNotEmpty,
       cause: MomentCause.import,
       label: name);
-  ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(context.t.bundleImported('$result'))));
+  NoteQueue.instance.add(arrivalNote(context, store, result.applied,
+      undo: point, report: result.report));
 }

@@ -5,6 +5,7 @@ import 'conflict_dialog.dart';
 import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
+import 'celebration.dart';
 import 'notes.dart';
 import 'pet_mode.dart';
 import 'titles.dart';
@@ -363,13 +364,12 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
   /// rows leave the page.
   final _kept = <String>{};
 
-  /// Drops what arrived about [a], for good and locally, and says so.
+  /// Drops what arrived about [a], for good and locally; the row goes,
+  /// the paw says it worked.
   void _keepMine(EntityArrival a) {
-    final name = _name(a.id);
     store.discardEntries(a.entries);
     setState(() => _kept.add(a.id));
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(context.t.keptMine(name))));
+    paw(context);
   }
 
   String _name(String id) => store.current(id, Keys.name) ?? context.t.unnamed;

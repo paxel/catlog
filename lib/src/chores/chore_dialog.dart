@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../l10n.dart';
+import '../notes.dart';
 import '../reminders/plan_chooser.dart';
 import 'chore_history_screen.dart';
 import 'chore_reminders.dart';
@@ -264,9 +265,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
   }
 
   void _say(String text) {
-    if (!mounted) return;
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(text)));
+    if (mounted) noteFailed(text);
   }
 
   /// Whether notifications may be sent: the phone's answer, or the

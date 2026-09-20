@@ -247,10 +247,12 @@ class CatalogManager implements SharedSettings {
     _db.execute('DELETE FROM catalogs WHERE id = ?', [id]);
   }
 
+  /// Whether a catalog of that name exists already, letter case aside.
+  bool nameTaken(String name) =>
+      catalogs().any((c) => c.name.toLowerCase() == name.toLowerCase());
+
   void _requireFreeName(String name) {
-    final taken =
-        catalogs().any((c) => c.name.toLowerCase() == name.toLowerCase());
-    if (taken) throw DuplicateCatalogName(name);
+    if (nameTaken(name)) throw DuplicateCatalogName(name);
   }
 
   // ------------------------------------------------------ shared settings

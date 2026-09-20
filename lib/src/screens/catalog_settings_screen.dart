@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../auto_backup.dart';
 import '../help.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../pet_mode.dart';
 import '../titles.dart';
 import 'archive_screen.dart';
@@ -100,6 +101,8 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       context,
       context.t.rename,
       initial: catalog.name,
+      taken: (n) => n.toLowerCase() != catalog.name.toLowerCase() &&
+          widget.catalogs.nameTaken(n),
     );
     if (name == null || !mounted) return;
     try {
@@ -115,10 +118,8 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       }
       _changed();
     } on DuplicateCatalogName {
-      if (!mounted) return;
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(context.t.catalogNameTaken(name))));
+      // Checked in the dialog; a name taken meanwhile still lands here.
+      if (mounted) noteFailed(context.t.catalogNameTaken(name));
     }
   }
 
@@ -140,8 +141,7 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
     final t = context.t;
     final catalog = _catalog;
     if (_isActive) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.switchBeforeDeleting)));
+      noteFailed(t.switchBeforeDeleting);
       return;
     }
     final confirmed = await showDialog<bool>(
@@ -171,17 +171,13 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       if (!mounted) return;
       // The page's catalog is gone; the switcher shows what is left and
       // where the file went.
-      final messenger = ScaffoldMessenger.of(context);
       Navigator.of(context).pop();
-      messenger.showSnackBar(
-        SnackBar(content: Text(t.catalogDeleted(catalog.name, where))),
-      );
+      noteDone(t.catalogDeleted(catalog.name, where));
     } catch (e) {
       if (!mounted) return;
       // Nothing was deleted: the file has to exist before the catalog
       // stops existing.
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.catalogExportFailed('$e'))));
+      noteFailed(t.catalogExportFailed('$e'), detail: '$e');
     } finally {
       if (mounted && !_closed) setState(() => _deleting = false);
     }

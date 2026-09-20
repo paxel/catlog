@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'auto_backup.dart';
 import 'l10n.dart';
+import 'notes.dart';
 
 /// Undoing an import (#65).
 ///
@@ -86,24 +87,15 @@ Future<bool> _confirmGoBack(
     // Anything that arrived while the file was being saved (a sync in
     // the background) is not in it — removing it would lose it.
     if (store.currentSeq() != seqBefore) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(t.goBackChanged)));
-      }
+      noteFailed(t.goBackChanged);
       return false;
     }
     applyGoBack(store, point);
-    if (context.mounted) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.undoneImport(where))));
-    }
+    noteDone(t.undoneImport(where));
     return true;
   } catch (e) {
     // Nothing was removed: the file has to exist first.
-    if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(t.goBackFileFailed('$e'))));
-    }
+    noteFailed(t.goBackFileFailed('$e'), detail: '$e');
     return false;
   } finally {
     if (tmp.existsSync()) tmp.deleteSync(recursive: true);

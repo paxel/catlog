@@ -447,8 +447,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       await explainLocationFailure(context, failure);
       return;
     }
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(context.t.sightingRecorded)));
+    paw(context);
     setState(() {});
   }
 

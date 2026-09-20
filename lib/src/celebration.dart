@@ -37,6 +37,87 @@ String cheerAsset(Cheer cheer) => switch (cheer) {
       Cheer.adoption => 'sounds/party.wav',
     };
 
+/// Where the last touch landed, so the paw appears under the thumb.
+Offset? lastTouch;
+
+/// Remembers every touch; wraps the app once.
+class TouchTracker extends StatelessWidget {
+  final Widget child;
+
+  const TouchTracker({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) => Listener(
+        behavior: HitTestBehavior.translucent,
+        onPointerDown: (e) => lastTouch = e.position,
+        child: child,
+      );
+}
+
+/// A quick local success the screen already shows — copied, recorded,
+/// cleared: a green paw for half a second at the button that was
+/// tapped, silent, and no note.
+void paw(BuildContext context) {
+  final overlay = Overlay.maybeOf(context);
+  if (overlay == null) return;
+  final at = lastTouch ?? MediaQuery.sizeOf(context).center(Offset.zero);
+  late OverlayEntry entry;
+  entry = OverlayEntry(
+    builder: (_) => _PawOverlay(at: at, onDone: () => entry.remove()),
+  );
+  overlay.insert(entry);
+}
+
+class _PawOverlay extends StatefulWidget {
+  final Offset at;
+  final VoidCallback onDone;
+
+  const _PawOverlay({required this.at, required this.onDone});
+
+  @override
+  State<_PawOverlay> createState() => _PawOverlayState();
+}
+
+class _PawOverlayState extends State<_PawOverlay>
+    with SingleTickerProviderStateMixin {
+  late final _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 500),
+  )
+    ..addStatusListener((s) {
+      if (s == AnimationStatus.completed) widget.onDone();
+    })
+    ..forward();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    const size = 48.0;
+    return Positioned(
+      left: widget.at.dx - size / 2,
+      top: widget.at.dy - size,
+      child: IgnorePointer(
+        child: FadeTransition(
+          opacity: Tween(begin: 1.0, end: 0.0).animate(
+            CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+          ),
+          child: ScaleTransition(
+            scale: Tween(begin: 0.6, end: 1.4).animate(
+              CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+            ),
+            child: Icon(Icons.pets, size: size, color: Colors.green.shade600),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 /// Call after a locally performed move; fires only for forever homes.
 void maybeCelebrateAdoption(
     BuildContext context, CatalogStore store, String? destinationClowder) {

@@ -182,8 +182,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(t.spotReplaySubtitle),
             onTap: () {
               resetSpotlights(widget.store);
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(t.spotReplayDone)));
+              paw(context);
             },
           ),
           ListTile(

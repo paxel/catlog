@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart';
 import '../exclusive.dart';
 import '../help.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../share.dart';
 import '../private_temp.dart';
 
@@ -100,8 +101,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
         if (result?.status != ShareResultStatus.success) {
           if (!mounted) return;
           setState(() => _working = false);
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(t.archiveNotSaved)));
+          noteFailed(t.archiveNotSaved);
           return;
         }
       }
@@ -109,8 +109,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
       if (!mounted) return;
       setState(() => _working = false);
       // Nothing was deleted — say so, and why the export failed.
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.archiveFailed('$e'))));
+      noteFailed(t.archiveFailed('$e'), detail: '$e');
       return;
     }
     // Only now, with the file written, does anything get deleted — and
@@ -126,8 +125,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
       _working = false;
       _cache = null;
     });
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(t.archiveDone(names.length))));
+    noteDone(t.archiveDone(names.length));
   }
 
   @override
