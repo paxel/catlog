@@ -243,8 +243,10 @@ void main() {
       ..createSync(recursive: true);
     File('${root.path}/${a.deviceId}.jsonl').writeAsStringSync('');
     await folderSync(a, dir.path);
+    // Nobody else in the folder: the stale file has no reader to wait for.
     expect(File('${root.path}/${a.deviceId}.jsonl').existsSync(), isFalse);
-    expect(File('${root.path}/${a.deviceId}.jsonl2').existsSync(), isTrue);
+    expect(File('${root.path}/${manifestName(a.deviceId)}').existsSync(),
+        isTrue);
     await folderSync(b, dir.path);
     expect(b.activeReminders(), hasLength(1));
     expect(b.current(cat, 'f:vaccine'), isNull);

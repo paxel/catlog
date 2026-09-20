@@ -8,19 +8,29 @@ import '../exclusive.dart';
 import '../notes.dart';
 import 'saf_folder.dart';
 
-/// Watches the shared folder while the app is on screen: every five
-/// minutes and on every resume it measures the other devices' files,
-/// reads only the ones that grew, and either puts a waiting note at the
-/// top (poll mode) or merges them on the spot (auto mode). Nothing runs
-/// behind other apps or with the app closed.
+/// The folder link while the app is on screen. Every thirty seconds and
+/// on every resume it reads the other devices' manifests and measures
+/// the files of devices from before, reads only what is new, and either
+/// puts a waiting note at the top (poll mode) or merges on the spot
+/// (auto mode). A change of this device's own starts a five-second
+/// gather; what landed in it goes to the folder in one write, and the
+/// app going to the background writes what it has. Nothing runs behind
+/// other apps or with the app closed.
 
 /// Local settings, per catalog.
 const syncWatchKey = 'syncWatch'; // '0' off; on once a folder is chosen
 const syncAutoKey = 'syncAuto'; // '1' merges on its own
 const syncPrivateKey = 'syncPrivate'; // '1' lets private values travel
-const syncSizesKey = 'syncWatchSizes'; // JSON: file → size at last sync
+const syncSizesKey = 'syncWatchSizes'; // JSON: legacy file → size at last sync
+const syncManifestsKey = 'syncWatchManifests'; // JSON: device → state at last sync
 
-const syncWatchEvery = Duration(minutes: 5);
+const syncWatchEvery = Duration(seconds: 30);
+
+/// How long a change waits for company before it goes to the folder.
+const publishAfter = Duration(seconds: 5);
+
+/// How long the folder may fail quietly before the note says so.
+const outageAfter = Duration(minutes: 5);
 
 /// The folder this catalog syncs through, or null without one.
 SyncFolder? syncFolderOf(CatalogStore store) {
@@ -41,20 +51,28 @@ bool syncWatchOn(CatalogStore store) =>
 
 bool syncAutoOn(CatalogStore store) => store.localSetting(syncAutoKey) == '1';
 
-/// Remembers the foreign files' sizes as they are now: the baseline the
-/// next rounds compare against. Called after every merge.
-Future<void> recordSyncSizes(
+/// Remembers the foreign manifests and the legacy files' sizes as they
+/// are now: the baseline the next rounds compare against. Called after
+/// every merge.
+Future<void> recordSyncBaselines(
   CatalogStore store, {
   SyncFolder Function(CatalogStore)? folderOf,
 }) async {
   final folder = (folderOf ?? syncFolderOf)(store);
   if (folder == null || !store.isOpen) return;
-  final sizes = await foreignFileSizes(
-    folder,
-    store.deviceId,
-    catalog: catalogDirOf(store),
-  );
-  if (store.isOpen) store.setLocalSetting(syncSizesKey, jsonEncode(sizes));
+  final catalog = catalogDirOf(store);
+  final sizes = await foreignFileSizes(folder, store.deviceId, catalog: catalog);
+  final manifests =
+      await foreignManifests(folder, store.deviceId, catalog: catalog);
+  if (!store.isOpen) return;
+  store.setLocalSetting(syncSizesKey, jsonEncode(sizes));
+  store.setLocalSetting(syncManifestsKey, jsonEncode(manifests));
+}
+
+/// Forgets the baselines: a folder just chosen is measured afresh.
+void resetSyncBaselines(CatalogStore store) {
+  store.setLocalSetting(syncSizesKey, '{}');
+  store.setLocalSetting(syncManifestsKey, '{}');
 }
 
 class SyncWatcher extends ChangeNotifier {
@@ -64,21 +82,28 @@ class SyncWatcher extends ChangeNotifier {
   /// folder instead.
   final SyncFolder? Function(CatalogStore) folderOf;
 
-  /// Where the waiting note goes; the app's queue unless a test hands
-  /// in its own.
+  /// Where the notes go; the app's queue unless a test hands in its own.
   final NoteQueue notes;
 
+  /// The wall clock; tests hand in their own.
+  final DateTime Function() clock;
+
   /// Told after every merge, whether the watcher ran it itself (auto
-  /// mode) or the keeper tapped the waiting note; the app adds the
-  /// finished note. [fromTap] tells the two apart.
+  /// mode) or the keeper tapped the waiting note; the app decides what
+  /// to say. [fromTap] tells the two apart.
   void Function(FolderSyncResult result, Moment? undo, bool fromTap)? onMerged;
 
   /// Told when a merge the keeper tapped failed; the app adds the
   /// failed note. A round that finds the folder out of reach says
-  /// nothing and tries again later.
+  /// nothing at first and tries again.
   void Function(Object error)? onFailed;
 
+  /// Told once per session which devices still write the old layout
+  /// and cannot see this device's changes until updated.
+  void Function(Set<String> devices)? onLagging;
+
   Timer? _timer;
+  Timer? _gather;
   bool _busy = false;
 
   /// The waiting note on screen, null when nothing waits.
@@ -91,15 +116,24 @@ class SyncWatcher extends ChangeNotifier {
   /// their next build.
   bool photosArrived = false;
 
-  /// The folder as it was when the keeper waved the line away: the
-  /// line stays away until a file grows past this.
-  Map<String, int>? _dismissedAt;
-  Map<String, int>? _lastSizes;
+  /// The folder as it was when the keeper waved the note away: the
+  /// note stays away until a writer moves past this.
+  ({Map<String, int> sizes, Map<String, String> manifests})? _dismissedAt;
+  ({Map<String, int> sizes, Map<String, String> manifests})? _last;
+
+  /// Since when the folder has failed, null while it answers; the note
+  /// is raised once per outage.
+  DateTime? _failingSince;
+  bool _outageNoted = false;
+  Note? _outageNote;
+
+  /// Devices already named as lagging this session.
+  final _laggingNamed = <String>{};
 
   /// The note was swiped away: the changes stay in the folder, and the
   /// note comes back when more arrives.
   void _dismissed() {
-    _dismissedAt = _lastSizes;
+    _dismissedAt = _last;
     _waiting = null;
     notifyListeners();
   }
@@ -108,10 +142,17 @@ class SyncWatcher extends ChangeNotifier {
     this.store, {
     SyncFolder? Function(CatalogStore)? folderOf,
     NoteQueue? notes,
+    DateTime Function()? clock,
   }) : folderOf = folderOf ?? syncFolderOf,
-       notes = notes ?? NoteQueue.instance;
+       notes = notes ?? NoteQueue.instance,
+       clock = clock ?? DateTime.now;
 
   bool get enabled => store.isOpen && syncWatchOn(store);
+
+  /// Whether this device publishes its changes: a folder is chosen,
+  /// whatever the switches say.
+  bool get publishes =>
+      store.isOpen && store.localSetting('syncFolder') != null;
 
   /// Arms the rounds; each round checks the switch itself, so a folder
   /// chosen or a switch flipped later takes effect within one tick.
@@ -137,7 +178,52 @@ class SyncWatcher extends ChangeNotifier {
     _timer = null;
   }
 
-  Map<String, int>? _recorded() {
+  // ---------------------------------------------------------- publishing
+
+  /// This device wrote something: it goes to the folder in a few
+  /// seconds, together with whatever else lands until then.
+  void changed() {
+    if (!publishes) return;
+    _gather?.cancel();
+    _gather = Timer(publishAfter, publish);
+  }
+
+  /// Writes what the gather holds now — the app is going away.
+  Future<void> flush() async {
+    if (_gather == null) return;
+    _gather?.cancel();
+    _gather = null;
+    await publish();
+  }
+
+  /// Puts this device's changes in the folder. Under the sync key so
+  /// the activity line shows it and no merge runs at the same time; a
+  /// merge already running takes the changes along, a busy folder
+  /// tries again with the next change.
+  Future<void> publish() async {
+    _gather = null;
+    if (!publishes) return;
+    final folder = folderOf(store);
+    if (folder == null) return;
+    try {
+      final done = await runExclusive<bool>('folderSync', () async {
+        await publishOwn(
+          store,
+          folder,
+          includePrivate: store.localSetting(syncPrivateKey) == '1',
+          catalog: catalogDirOf(store),
+        );
+        return true;
+      });
+      if (done == true) _answered();
+    } catch (_) {
+      _failed();
+    }
+  }
+
+  // --------------------------------------------------------------- rounds
+
+  Map<String, int>? _recordedSizes() {
     final raw = store.localSetting(syncSizesKey);
     if (raw == null) return null;
     try {
@@ -147,53 +233,70 @@ class SyncWatcher extends ChangeNotifier {
     }
   }
 
-  /// One round: measure, read what grew, then say or merge. A folder
-  /// out of reach is left for the next round.
+  Map<String, String>? _recordedManifests() {
+    final raw = store.localSetting(syncManifestsKey);
+    if (raw == null) return null;
+    try {
+      return (jsonDecode(raw) as Map).cast<String, String>();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// One round: read the manifests, measure the legacy files, read what
+  /// is new, then say or merge. A folder out of reach is left for the
+  /// next round — and named after a while.
   Future<void> check() async {
     if (_busy || !enabled) return;
     final folder = folderOf(store);
     if (folder == null) return;
     _busy = true;
     try {
-      final before = _recorded();
-      final after = await foreignFileSizes(
-        folder,
-        store.deviceId,
-        catalog: catalogDirOf(store),
-      );
+      final catalog = catalogDirOf(store);
+      final sizesBefore = _recordedSizes();
+      final manifestsBefore = _recordedManifests();
+      final sizes =
+          await foreignFileSizes(folder, store.deviceId, catalog: catalog);
+      final manifests =
+          await foreignManifests(folder, store.deviceId, catalog: catalog);
       if (!store.isOpen) return;
+      _answered();
       // Photo files land after the entry files: fetch what is there
       // now, no decision needed, the entries were taken already.
       if (store.missingBlobs().isNotEmpty) {
-        final got = await fetchMissingBlobs(
-          store,
-          folder,
-          catalog: catalogDirOf(store),
-        );
+        final got = await fetchMissingBlobs(store, folder, catalog: catalog);
         if (!store.isOpen) return;
         if (got > 0) photosArrived = true;
       }
-      if (before == null) {
+      if (sizesBefore == null || manifestsBefore == null) {
         // No baseline yet: the first round only takes the measure, so a
         // fresh device is not told about files it is about to import.
-        store.setLocalSetting(syncSizesKey, jsonEncode(after));
+        store.setLocalSetting(syncSizesKey, jsonEncode(sizes));
+        store.setLocalSetting(syncManifestsKey, jsonEncode(manifests));
         return;
       }
-      _lastSizes = after;
-      final grown = grownFiles(before, after);
-      if (grown.isEmpty) {
+      _last = (sizes: sizes, manifests: manifests);
+      final grown = grownFiles(sizesBefore, sizes);
+      final moved = changedManifests(manifestsBefore, manifests);
+      if (grown.isEmpty && moved.isEmpty) {
         _clear();
         return;
       }
       // Waved away and nothing new since: keep quiet.
       final dismissed = _dismissedAt;
-      if (dismissed != null && grownFiles(dismissed, after).isEmpty) return;
+      if (dismissed != null &&
+          grownFiles(dismissed.sizes, sizes).isEmpty &&
+          changedManifests(dismissed.manifests, manifests).isEmpty) {
+        return;
+      }
       _dismissedAt = null;
-      final unseen = await unseenChanges(store, folder, grown);
+      final unseen =
+          await unseenChanges(store, folder, grown, devices: moved);
       if (!store.isOpen) return;
       if (unseen.isEmpty) {
-        // Grew only by absorbing what this device wrote: move on.
-        store.setLocalSetting(syncSizesKey, jsonEncode(after));
+        // Moved on only by absorbing what this device wrote: move on.
+        store.setLocalSetting(syncSizesKey, jsonEncode(sizes));
+        store.setLocalSetting(syncManifestsKey, jsonEncode(manifests));
         _clear();
         return;
       }
@@ -205,10 +308,37 @@ class SyncWatcher extends ChangeNotifier {
       }
     } catch (_) {
       // Unreachable folder, half-written file: next round.
+      _failed();
     } finally {
       _busy = false;
     }
   }
+
+  /// The folder answered: an outage, if there was one, is over. The
+  /// note it raised stays until dismissed, as every failure does.
+  void _answered() {
+    _failingSince = null;
+    _outageNoted = false;
+    _outageNote = null;
+  }
+
+  /// The folder did not answer. Quiet at first; past [outageAfter] one
+  /// failed note, and no second one for the same outage.
+  void _failed() {
+    final now = clock();
+    _failingSince ??= now;
+    if (_outageNoted || now.difference(_failingSince!) < outageAfter) return;
+    _outageNoted = true;
+    final since = _failingSince!;
+    _outageNote = Note.failed(
+      (t) => t.noteFolderUnreachable(_clockText(since)),
+      detail: store.localSetting('syncFolder'),
+    );
+    notes.add(_outageNote!);
+  }
+
+  static String _clockText(DateTime at) =>
+      '${at.hour.toString().padLeft(2, '0')}:${at.minute.toString().padLeft(2, '0')}';
 
   /// Puts the waiting note up: who wrote, which catalog, tap to merge.
   void announce(UnseenChanges unseen) {
@@ -227,17 +357,20 @@ class SyncWatcher extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Merges what the others wrote, as the Sync button does, and records
-  /// the new baseline. Null when the folder failed; a tapped merge that
-  /// fails is told to [onFailed].
+  /// Merges what the others wrote, as the Sync button does, publishes
+  /// this device's own, and records the new baselines. Null when the
+  /// folder failed; a tapped merge that fails is told to [onFailed].
   Future<FolderSyncResult?> merge({bool fromTap = false}) async {
     final folder = folderOf(store);
     if (folder == null || !store.isOpen) return null;
     _clear();
     try {
-      return await _merge(folder, fromTap);
+      final result = await _merge(folder, fromTap);
+      if (result != null) _answered();
+      return result;
     } catch (e) {
       if (fromTap) onFailed?.call(e);
+      _failed();
       return null;
     } finally {
       if (store.isOpen) notifyListeners();
@@ -246,6 +379,8 @@ class SyncWatcher extends ChangeNotifier {
 
   Future<FolderSyncResult?> _merge(SyncFolder folder, bool fromTap) {
     return runExclusive<FolderSyncResult>('folderSync', () async {
+      _gather?.cancel();
+      _gather = null;
       final before = store.currentSeq();
       final result = await folderSyncIn(
         store,
@@ -261,7 +396,12 @@ class SyncWatcher extends ChangeNotifier {
         cause: MomentCause.sync,
         label: store.localSetting('syncFolder'),
       );
-      await recordSyncSizes(store, folderOf: (s) => folder);
+      await recordSyncBaselines(store, folderOf: (s) => folder);
+      final lagging = result.lagging.difference(_laggingNamed);
+      if (lagging.isNotEmpty) {
+        _laggingNamed.addAll(lagging);
+        onLagging?.call(lagging);
+      }
       onMerged?.call(result, point, fromTap);
       return result;
     });
@@ -270,6 +410,8 @@ class SyncWatcher extends ChangeNotifier {
   @override
   void dispose() {
     stop();
+    _gather?.cancel();
+    _gather = null;
     _clear();
     super.dispose();
   }

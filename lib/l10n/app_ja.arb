@@ -1195,5 +1195,7 @@
   "failureOpenPage": "{page} を開く",
   "choreTicked": "{title} — {count}回 済み、{days}",
   "choreTickedShort": "{title} {count}回 済み",
-  "moreChanges": "他 {n} 件"
+  "moreChanges": "他 {n} 件",
+  "noteFolderUnreachable": "共有フォルダーに {since} から接続できません。タップして詳細を表示。",
+  "noteFolderLagging": "{names} はあなたの変更を見るためにまだ新しいバージョンが必要です。"
 }

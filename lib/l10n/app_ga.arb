@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Oscail {page}",
   "choreTicked": "{title} — déanta {count}×, {days}",
   "choreTickedShort": "{title} déanta {count}×",
-  "moreChanges": "+{n} eile"
+  "moreChanges": "+{n} eile",
+  "noteFolderUnreachable": "Tá an fillteán comhroinnte as raon ó {since}. Tapáil le haghaidh sonraí.",
+  "noteFolderLagging": "Tá an leagan nua fós ag teastáil ó {names} chun do chuid athruithe a fheiceáil."
 }

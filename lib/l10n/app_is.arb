@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Opna {page}",
   "choreTicked": "{title} — lokið {count}×, {days}",
   "choreTickedShort": "{title} lokið {count}×",
-  "moreChanges": "+{n} til viðbótar"
+  "moreChanges": "+{n} til viðbótar",
+  "noteFolderUnreachable": "Sameiginlega mappan hefur verið óaðgengileg síðan {since}. Ýttu fyrir nánari upplýsingar.",
+  "noteFolderLagging": "{names} þarf enn nýju útgáfuna til að sjá breytingarnar þínar."
 }

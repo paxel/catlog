@@ -3550,4 +3550,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n more';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'The shared folder has been out of reach since $since. Tap for details.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names still needs the new version to see your changes.';
+  }
 }

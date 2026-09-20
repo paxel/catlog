@@ -1195,5 +1195,7 @@
   "failureOpenPage": "{page} openen",
   "choreTicked": "{title} — {count}× gedaan, {days}",
   "choreTickedShort": "{title} {count}× gedaan",
-  "moreChanges": "+{n} meer"
+  "moreChanges": "+{n} meer",
+  "noteFolderUnreachable": "De gedeelde map is sinds {since} niet bereikbaar. Tik voor details.",
+  "noteFolderLagging": "{names} heeft nog de nieuwe versie nodig om je wijzigingen te zien."
 }

@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Atidaryti {page}",
   "choreTicked": "{title} — atlikta {count}×, {days}",
   "choreTickedShort": "{title} atlikta {count}×",
-  "moreChanges": "+{n} daugiau"
+  "moreChanges": "+{n} daugiau",
+  "noteFolderUnreachable": "Bendras aplankas nepasiekiamas nuo {since}. Palieskite, kad pamatytumėte išsamiau.",
+  "noteFolderLagging": "{names} vis dar reikia naujos versijos, kad matytų jūsų pakeitimus."
 }

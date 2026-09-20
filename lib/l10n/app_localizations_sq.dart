@@ -3551,4 +3551,14 @@ class AppLocalizationsSq extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n të tjera';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Dosja e përbashkët nuk arrihet që nga $since. Prek për detaje.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names ka ende nevojë për versionin e ri për të parë ndryshimet e tua.';
+  }
 }

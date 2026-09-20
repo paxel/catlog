@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Öppna {page}",
   "choreTicked": "{title} — gjord {count}×, {days}",
   "choreTickedShort": "{title} gjord {count}×",
-  "moreChanges": "+{n} till"
+  "moreChanges": "+{n} till",
+  "noteFolderUnreachable": "Den delade mappen har varit onåbar sedan {since}. Tryck för detaljer.",
+  "noteFolderLagging": "{names} behöver fortfarande den nya versionen för att se dina ändringar."
 }

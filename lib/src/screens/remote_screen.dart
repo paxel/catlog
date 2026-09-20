@@ -60,7 +60,7 @@ class _RemoteScreenState extends State<RemoteScreen> {
     // A chosen folder is watched from now on; the switch below turns
     // it off.
     widget.store.setLocalSetting(syncWatchKey, '1');
-    widget.store.setLocalSetting(syncSizesKey, '{}');
+    resetSyncBaselines(widget.store);
     _folderLabel = null;
     _describeFolder();
     setState(() {});
@@ -109,7 +109,7 @@ class _RemoteScreenState extends State<RemoteScreen> {
           changed: result.applied.isNotEmpty,
           cause: MomentCause.sync,
           label: folder);
-      await recordSyncSizes(widget.store);
+      await recordSyncBaselines(widget.store);
       if (!mounted) return;
       if (needsAttention(result.report)) {
         await showImportSummary(context, widget.store, result.applied,

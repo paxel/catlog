@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/notes.dart';
@@ -66,7 +69,7 @@ void main() {
     await watcher.check();
     expect(watcher.pending, isTrue);
     await folderSyncIn(ben, folder, catalog: catalogFolderName('Farm'));
-    await recordSyncSizes(ben, folderOf: (_) => folder);
+    await recordSyncBaselines(ben, folderOf: (_) => folder);
     await watcher.check();
     expect(watcher.pending, isFalse);
     expect(notes.visible, isNull);
@@ -117,7 +120,7 @@ void main() {
     final held = Map.of(blobs);
     blobs.clear();
     await folderSyncIn(ben, folder, catalog: catalogFolderName('Farm'));
-    await recordSyncSizes(ben, folderOf: (_) => folder);
+    await recordSyncBaselines(ben, folderOf: (_) => folder);
     expect(ben.missingBlobs(), hasLength(1));
     await watcher.check();
     expect(ben.missingBlobs(), hasLength(1));
@@ -138,9 +141,98 @@ void main() {
     await watcher.check();
     expect(watcher.pending, isFalse);
     ben.setLocalSetting(syncWatchKey, '1');
-    ben.setLocalSetting(syncSizesKey, '{}');
+    resetSyncBaselines(ben);
     await watcher.check();
     expect(watcher.pending, isTrue);
+    watcher.dispose();
+  });
+
+  test('a change goes to the folder after the gather, or on flush', () async {
+    final watcher = watcherFor(ben);
+    var published = 0;
+    ben.onLocalChange = () {
+      published++;
+      watcher.changed();
+    };
+    ben.createCat('Miezi');
+    expect(published, greaterThan(0));
+    // Nothing yet: the gather is still open.
+    expect(folder.dirs[catalogFolderName('Farm')]?.keys ?? const [], isEmpty);
+    await watcher.flush();
+    final files = folder.dirs[catalogFolderName('Farm')]!.keys;
+    expect(files, contains(manifestName(ben.deviceId)));
+    expect(files, contains(segmentName(ben.deviceId, 1)));
+    // The other side reads it without a manual sync on ben's side.
+    anna.setLocalSetting('syncFolder', 'memory');
+    anna.setLocalSetting(catalogNameKey, 'Farm');
+    await folderSyncIn(anna, folder, catalog: catalogFolderName('Farm'));
+    expect(anna.searchCats('Miezi'), hasLength(1));
+    watcher.dispose();
+  });
+
+  testWidgets('the gather closes on its own after five seconds', (
+    tester,
+  ) async {
+    final watcher = watcherFor(ben);
+    addTearDown(watcher.dispose);
+    ben.onLocalChange = watcher.changed;
+    ben.createCat('Miezi');
+    await tester.pump(const Duration(seconds: 2));
+    ben.createCat('Wanderer'); // company: the gather starts over
+    await tester.pump(const Duration(seconds: 4));
+    expect(folder.dirs[catalogFolderName('Farm')]?.keys ?? const [], isEmpty);
+    await tester.pump(const Duration(seconds: 2));
+    await tester.runAsync(() => Future<void>.delayed(Duration.zero));
+    final manifest = FolderManifest.parse(
+        folder.dirs[catalogFolderName('Farm')]![manifestName(ben.deviceId)])!;
+    // Both cats in one write.
+    expect(manifest.segments.single.$2, greaterThan(1));
+  });
+
+  test('a folder out of reach is named once, after a while', () async {
+    var now = DateTime(2026, 3, 1, 9, 0);
+    final watcher = SyncWatcher(
+      ben,
+      folderOf: (_) => _BrokenFolder(),
+      notes: notes,
+      clock: () => now,
+    );
+    resetSyncBaselines(ben);
+    await watcher.check();
+    expect(notes.visible, isNull); // quiet at first
+    now = now.add(const Duration(minutes: 3));
+    await watcher.check();
+    expect(notes.visible, isNull);
+    now = now.add(const Duration(minutes: 3));
+    await watcher.check();
+    expect(notes.visible?.kind, NoteKind.failed);
+    now = now.add(const Duration(minutes: 3));
+    await watcher.check();
+    expect(notes.notes, hasLength(1)); // one note per outage
+    watcher.dispose();
+  });
+
+  test('a device still writing the old layout is named once', () async {
+    final watcher = watcherFor(ben);
+    final named = <Set<String>>[];
+    watcher.onLagging = named.add;
+    final dir = catalogFolderName('Farm');
+    await folder.ensure(dir);
+    await folder.write(dir, 'old-phone.jsonl', utf8.encode(jsonEncode({
+      'device': 'old-phone',
+      'dseq': 1,
+      'entity': 'cat:old',
+      'field': r'$type',
+      'value': 'cat',
+      'date': '2026-01-01T00:00:00.000000Z',
+      'author': 'carla',
+      'recorded': '2026-01-01T00:00:00.000000Z',
+    })));
+    await watcher.merge();
+    await watcher.merge();
+    expect(named, [
+      {'old-phone'}
+    ]);
     watcher.dispose();
   });
 
@@ -189,4 +281,22 @@ void main() {
     expect(find.text('page'), findsOneWidget);
     expect(ben.searchCats('Miezi'), hasLength(1));
   });
+}
+
+/// A folder that is not there: every call fails as a gone drive does.
+class _BrokenFolder implements SyncFolder {
+  Never _gone() => throw const FileSystemException('gone');
+
+  @override
+  Future<List<String>> list(String dir) async => _gone();
+  @override
+  Future<Uint8List?> read(String dir, String name) async => _gone();
+  @override
+  Future<Map<String, int>> sizes(String dir) async => _gone();
+  @override
+  Future<void> write(String dir, String name, List<int> bytes) async => _gone();
+  @override
+  Future<void> delete(String dir, String name) async => _gone();
+  @override
+  Future<void> ensure(String dir) async => _gone();
 }

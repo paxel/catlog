@@ -25,12 +25,17 @@ class FolderSyncResult {
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
+  /// Devices still writing the whole-history file and no manifest: their
+  /// app needs the update before they see this device's segments.
+  final Set<String> lagging;
+
   /// Refused rows and the keys met (1.2.0).
   final ImportReport report;
 
   FolderSyncResult(this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut,
       {this.blobsMissing = 0,
       this.applied = const [],
+      this.lagging = const {},
       ImportReport? report})
       : report = report ?? ImportReport();
 }
@@ -174,13 +179,14 @@ String _fingerprint(String value) {
 }
 
 /// Syncs through a shared folder on any file-sync service (ADR-0002):
-/// this device appends to `catlog-sync/<deviceId>.jsonl` and copies photo
-/// blobs to `catlog-sync/blobs/`; every other device's file is imported
-/// read-only through the same idempotent engine as LAN sync. Each file
-/// carries its writer's full knowledge, so any pair of devices sharing
-/// the folder converges without meeting. With [catalog] the files live
-/// in `catlog-sync/<catalog>/` instead, so one folder carries several
-/// catalogs (1.2.2); the root is still read, for partners from before.
+/// this device appends to its segments under `catlog-sync/` and copies
+/// photo blobs to `catlog-sync/blobs/`; every other device's files are
+/// imported read-only through the same idempotent engine as LAN sync.
+/// Each device's segments together carry its writer's full knowledge,
+/// so any pair of devices sharing the folder converges without meeting.
+/// With [catalog] the files live in `catlog-sync/<catalog>/` instead, so
+/// one folder carries several catalogs (1.2.2); the root is still read,
+/// for partners from before. The segment layout is ADR-0010.
 Future<FolderSyncResult> folderSync(CatalogStore store, String folderPath,
         {bool includePrivate = false, String? catalog}) =>
     folderSyncIn(store, LocalSyncFolder(folderPath),
@@ -276,101 +282,13 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     await folder.write(own('keys'), ownKeysName, utf8.encode(ownKeysJson));
   }
 
-  // ---- read every foreign device's file (never write them)
-  //
-  // `.jsonl2` carries the reminder flag (#74); plain `.jsonl` is what
-  // pre-1.0.0 devices write — still importable, flag-free by
-  // definition. Own output is `.jsonl2` only: a pre-1.0.0 reader skips
-  // it (it only reads `.jsonl`), which stops it from silently
-  // stripping flags and turning plans into facts. It stops receiving
-  // from this device until updated — the legacy own-file is removed
-  // below so it at least does not read stale data as current.
-  var entriesIn = 0;
-  final applied = <Entry>[];
-  final partnerFiles = <(String dir, String name)>[
-    for (final base in readDirs)
-      for (final name in await folder.list(base)) (base, name)
-  ];
-  for (final (dir, name) in partnerFiles) {
-    if (!name.endsWith('.jsonl') && !name.endsWith('.jsonl2')) continue;
-    if (name == '${store.deviceId}.jsonl' ||
-        name == '${store.deviceId}.jsonl2') {
-      continue;
-    }
-    final foreign = <Entry>[];
-    try {
-      final bytes = await folder.read(dir, name);
-      if (bytes == null) continue;
-      for (final line in const LineSplitter().convert(utf8.decode(bytes))) {
-        if (line.trim().isEmpty) continue;
-        foreign.add(
-            Entry.fromJson((jsonDecode(line) as Map).cast<String, dynamic>()));
-      }
-    } catch (_) {
-      // A file the cloud client is still writing, or a damaged one: it
-      // is skipped for this round, the others still land. Next round
-      // finds it whole.
-      continue;
-    }
-    // The writer's knowledge is exactly what its file contains — that
-    // vector is the causal context for conflict detection.
-    final writerVector = <String, int>{};
-    for (final e in foreign) {
-      if (e.dseq > (writerVector[e.device] ?? 0)) {
-        writerVector[e.device] = e.dseq;
-      }
-    }
-    // Only what this device has not seen. A file in a shared folder
-    // still holds everything its writer ever knew, including entries
-    // this device has deliberately removed — going back on an import
-    // would otherwise be undone by the next folder sync. The delta is
-    // what the other transport does; here it has to be taken.
-    final mine = store.versionVector();
-    // A value this device only ever received as withheld sits below
-    // the watermark for good; without this it could never arrive,
-    // however often the writer shares with private included. The
-    // question costs queries, so it is asked once per field, and not
-    // at all when nothing here was ever withheld.
-    final anyWithheld = store.hasWithheld();
-    final withheld = <(String, String), bool>{};
-    bool withheldHere(Entry e) =>
-        anyWithheld &&
-        withheld.putIfAbsent(
-            (e.entity, e.field), () => store.isWithheld(e.entity, e.field));
-    final fresh = [
-      for (final e in foreign)
-        if (e.dseq > (mine[e.device] ?? 0) || withheldHere(e)) e
-    ];
-    final imported =
-        store.applyEntries(fresh, senderVector: writerVector, report: report);
-    applied.addAll(imported);
-    entriesIn += imported.length;
-  }
+  // ---- read every foreign device's files (never write them)
+  final (applied, lagging) =
+      await _readForeign(store, folder, readDirs, report: report);
 
-  // ---- write own file: full knowledge
-  //
-  // A payload with no flagged entry is byte-identical to the old
-  // format and keeps the `.jsonl` name, so 0.3.x devices in the folder
-  // keep receiving until the first reminder is used. The other name
-  // must not linger as a stale data source.
-  final all = store.entriesSince(const {}, includePrivate: includePrivate);
-  final flagged = all.any((e) => e.reminder);
-  final ownName = '${store.deviceId}.jsonl${flagged ? '2' : ''}';
-  final staleName = '${store.deviceId}.jsonl${flagged ? '' : '2'}';
-  final previous = await folder.read(own(''), ownName);
-  final previousLines = previous == null
-      ? 0
-      : const LineSplitter().convert(utf8.decode(previous)).length;
-  await folder.write(own(''), ownName,
-      utf8.encode(all.map((e) => jsonEncode(e.toJson())).join('\n')));
-  await folder.delete(own(''), staleName);
-  // A catalog that moved into its subfolder leaves no stale root file.
-  if (catalog != null) {
-    await folder.delete('', ownName);
-    await folder.delete('', staleName);
-  }
-  final entriesOut =
-      all.length > previousLines ? all.length - previousLines : 0;
+  // ---- write own changes: segments and manifest
+  final entriesOut = await publishOwn(store, folder,
+      includePrivate: includePrivate, catalog: catalog);
 
   // ---- blobs: fetch missing, publish local ones, clean dead ones
   var blobsOut = 0;
@@ -406,10 +324,392 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     }
   }
 
-  return FolderSyncResult(entriesIn, entriesOut, blobsIn, blobsOut,
+  return FolderSyncResult(applied.length, entriesOut, blobsIn, blobsOut,
       blobsMissing: store.missingBlobs().length,
       applied: applied,
+      lagging: lagging,
       report: report);
+}
+
+/// A device's history in the folder is a run of segments (ADR-0010):
+/// `<device>.<n>.seg`, one entry per line, appended to until one passes
+/// [segmentCap] and the next is opened. A full segment never changes
+/// again, so a tick travels as one small file, not the whole history.
+/// The manifest beside them, `<device>.manifest`, says what the writer
+/// knows and which segments exist — the reader's map and the writer's
+/// causal context for conflicts.
+const segmentCap = 64 * 1024;
+
+/// The manifest's format; a reader refuses a higher one.
+const manifestFormat = 1;
+
+String manifestName(String device) => '$device.manifest';
+String segmentName(String device, int n) => '$device.$n.seg';
+
+/// What a device says about its segments.
+class FolderManifest {
+  final int format;
+
+  /// Bumped when the writer's history shrank and the segments were
+  /// rewritten; a reader forgets its line counts and reads afresh.
+  final int generation;
+
+  /// Whether private values are in the segments.
+  final bool private;
+
+  /// The writer's full version vector, removed numbers included.
+  final Map<String, int> vector;
+
+  /// Segment names with the line count each held when the manifest
+  /// was written, in order.
+  final List<(String name, int lines)> segments;
+
+  const FolderManifest({
+    this.format = manifestFormat,
+    required this.generation,
+    required this.private,
+    required this.vector,
+    required this.segments,
+  });
+
+  int get lines => segments.fold(0, (sum, s) => sum + s.$2);
+
+  Map<String, dynamic> toJson() => {
+        'format': format,
+        'generation': generation,
+        'private': private,
+        'vector': vector,
+        'segments': [
+          for (final (name, lines) in segments) {'name': name, 'lines': lines}
+        ],
+      };
+
+  static FolderManifest? parse(List<int>? bytes) {
+    if (bytes == null) return null;
+    try {
+      final m = (jsonDecode(utf8.decode(bytes)) as Map).cast<String, dynamic>();
+      final format = m['format'] as int;
+      if (format > manifestFormat) return null;
+      return FolderManifest(
+        format: format,
+        generation: m['generation'] as int,
+        private: m['private'] == true,
+        vector: (m['vector'] as Map).cast<String, int>(),
+        segments: [
+          for (final s in (m['segments'] as List).cast<Map>())
+            (s['name'] as String, s['lines'] as int)
+        ],
+      );
+    } catch (_) {
+      return null;
+    }
+  }
+}
+
+/// The device ids a directory holds files for, from any of the names a
+/// device writes: segments, manifest, the whole-history file.
+Set<String> _devicesIn(Iterable<String> names) => {
+      for (final name in names)
+        if (name.endsWith('.manifest'))
+          name.substring(0, name.length - '.manifest'.length)
+        else if (name.endsWith('.jsonl2'))
+          name.substring(0, name.length - '.jsonl2'.length)
+        else if (name.endsWith('.jsonl'))
+          name.substring(0, name.length - '.jsonl'.length)
+        else if (name.endsWith('.seg') && name.indexOf('.') > 0)
+          name.substring(0, name.indexOf('.')),
+    };
+
+List<Entry> _decodeLines(Iterable<String> lines) => [
+      for (final line in lines)
+        if (line.trim().isNotEmpty)
+          Entry.fromJson((jsonDecode(line) as Map).cast<String, dynamic>())
+    ];
+
+List<String> _splitLines(List<int> bytes) =>
+    const LineSplitter().convert(utf8.decode(bytes));
+
+/// What this store remembers of a writer's segments: the generation it
+/// read and how many lines of each segment it took. Kept per catalog
+/// directory in a local setting, never synced.
+String _readStateKey(String dir, String device) => 'folderRead:$dir/$device';
+
+({int generation, Map<String, int> lines}) _readState(
+    CatalogStore store, String dir, String device) {
+  final raw = store.localSetting(_readStateKey(dir, device));
+  if (raw != null) {
+    try {
+      final m = (jsonDecode(raw) as Map).cast<String, dynamic>();
+      return (
+        generation: m['generation'] as int,
+        lines: (m['lines'] as Map).cast<String, int>(),
+      );
+    } catch (_) {
+      // A damaged memory reads as none: the segments are read whole.
+    }
+  }
+  return (generation: -1, lines: const {});
+}
+
+void _saveReadState(CatalogStore store, String dir, String device,
+        FolderManifest manifest) =>
+    store.setLocalSetting(
+        _readStateKey(dir, device),
+        jsonEncode({
+          'generation': manifest.generation,
+          'lines': {for (final (name, lines) in manifest.segments) name: lines},
+        }));
+
+/// The lines of a writer's segments this store has not read yet, by the
+/// manifest and the remembered state — or null when a segment the
+/// manifest names is not there yet or shorter than announced: the
+/// cloud client is still delivering, the whole device waits a round.
+Future<List<String>?> unreadLines(
+  CatalogStore store,
+  SyncFolder folder,
+  String dir,
+  String device,
+  FolderManifest manifest,
+) async {
+  var state = _readState(store, dir, device);
+  if (state.generation != manifest.generation) {
+    state = (generation: manifest.generation, lines: const {});
+  }
+  final fresh = <String>[];
+  for (final (name, announced) in manifest.segments) {
+    final have = state.lines[name] ?? 0;
+    if (announced <= have) continue;
+    final bytes = await folder.read(dir, name);
+    if (bytes == null) return null;
+    final lines = _splitLines(bytes);
+    if (lines.length < announced) return null;
+    fresh.addAll(lines.sublist(have, announced));
+  }
+  return fresh;
+}
+
+/// Reads every foreign device's files in [readDirs] and applies what is
+/// new. A device with a manifest is read by its segments, from where
+/// this store left off; one without is read by its whole-history file
+/// as before, and named in the returned set as lagging.
+Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
+  CatalogStore store,
+  SyncFolder folder,
+  List<String> readDirs, {
+  required ImportReport report,
+}) async {
+  final applied = <Entry>[];
+  final lagging = <String>{};
+  // A value this device only ever received as withheld sits below the
+  // watermark for good; without this it could never arrive, however
+  // often the writer shares with private included. The question costs
+  // queries, so it is asked once per field, and not at all when nothing
+  // here was ever withheld.
+  final anyWithheld = store.hasWithheld();
+  final withheld = <(String, String), bool>{};
+  bool withheldHere(Entry e) =>
+      anyWithheld &&
+      withheld.putIfAbsent(
+          (e.entity, e.field), () => store.isWithheld(e.entity, e.field));
+
+  void apply(List<Entry> foreign, Map<String, int> writerVector) {
+    // Only what this device has not seen. A writer's files still hold
+    // everything it ever knew, including entries this device has
+    // deliberately removed — going back on an import would otherwise be
+    // undone by the next folder sync. The delta is what the other
+    // transport does; here it has to be taken.
+    final mine = store.versionVector();
+    final fresh = [
+      for (final e in foreign)
+        if (e.dseq > (mine[e.device] ?? 0) || withheldHere(e)) e
+    ];
+    applied.addAll(
+        store.applyEntries(fresh, senderVector: writerVector, report: report));
+  }
+
+  for (final dir in readDirs) {
+    final names = await folder.list(dir);
+    final withManifest = <String>{};
+    for (final name in names) {
+      if (!name.endsWith('.manifest')) continue;
+      final device = name.substring(0, name.length - '.manifest'.length);
+      if (device == store.deviceId) continue;
+      final manifest = FolderManifest.parse(await folder.read(dir, name));
+      if (manifest == null) continue; // half-written, or a newer format
+      withManifest.add(device);
+      final List<String>? lines;
+      final List<Entry> foreign;
+      try {
+        lines = await unreadLines(store, folder, dir, device, manifest);
+        if (lines == null) continue; // still on its way: next round
+        foreign = _decodeLines(lines);
+      } catch (_) {
+        continue; // a damaged segment: skipped this round, whole later
+      }
+      // The manifest's vector is the writer's knowledge — the causal
+      // context for conflict detection, whatever a single segment holds.
+      apply(foreign, manifest.vector);
+      _saveReadState(store, dir, device, manifest);
+    }
+    // Devices from before the segments (ADR-0010) still write one file
+    // with all they know: `.jsonl2` carries the reminder flag (#74),
+    // plain `.jsonl` is what pre-1.0.0 devices write. Read whole, as
+    // they always were.
+    for (final name in names) {
+      if (!name.endsWith('.jsonl') && !name.endsWith('.jsonl2')) continue;
+      final device = name.substring(0, name.lastIndexOf('.'));
+      if (device == store.deviceId || withManifest.contains(device)) continue;
+      lagging.add(device);
+      final List<Entry> foreign;
+      try {
+        final bytes = await folder.read(dir, name);
+        if (bytes == null) continue;
+        foreign = _decodeLines(_splitLines(bytes));
+      } catch (_) {
+        // A file the cloud client is still writing, or a damaged one:
+        // skipped for this round, the others still land.
+        continue;
+      }
+      // The writer's knowledge is exactly what its file contains.
+      final writerVector = <String, int>{};
+      for (final e in foreign) {
+        if (e.dseq > (writerVector[e.device] ?? 0)) {
+          writerVector[e.device] = e.dseq;
+        }
+      }
+      apply(foreign, writerVector);
+    }
+  }
+  return (applied, lagging);
+}
+
+/// Writes this device's changes to the folder: what is new since the
+/// manifest goes to the last segment, or to a fresh one once the last
+/// passed [segmentCap]; the manifest follows. The segments are rewritten
+/// from the start only when the history shrank (going back, hard delete)
+/// or the private switch changed — then the generation moves on. Returns
+/// how many entries went out.
+///
+/// The whole-history file of before stays frozen beside the segments
+/// until every other device in the folder has a manifest, so a phone
+/// not yet updated keeps what it had; then it goes.
+Future<int> publishOwn(CatalogStore store, SyncFolder folder,
+    {bool includePrivate = false, String? catalog}) async {
+  final dir = catalog ?? '';
+  final device = store.deviceId;
+  await folder.ensure(dir);
+  final names = await folder.list(dir);
+  final previous =
+      FolderManifest.parse(await folder.read(dir, manifestName(device)));
+  final generation = store.historyGeneration;
+
+  Future<void> writeManifest(List<(String, int)> segments) =>
+      folder.write(
+          dir,
+          manifestName(device),
+          utf8.encode(jsonEncode(FolderManifest(
+            generation: generation,
+            private: includePrivate,
+            vector: store.versionVector(),
+            segments: segments,
+          ).toJson())));
+
+  var out = 0;
+  if (previous == null ||
+      previous.format != manifestFormat ||
+      previous.private != includePrivate ||
+      previous.generation != generation) {
+    // From the start: every segment of before goes, the history is cut
+    // into fresh ones.
+    for (final name in names) {
+      if (name.startsWith('$device.') && name.endsWith('.seg')) {
+        await folder.delete(dir, name);
+      }
+    }
+    final all = store.entriesSince(const {}, includePrivate: includePrivate);
+    final segments = <(String, int)>[];
+    var n = 0;
+    var buffer = <String>[];
+    var size = 0;
+    Future<void> flush() async {
+      if (buffer.isEmpty) return;
+      n++;
+      final name = segmentName(device, n);
+      await folder.write(dir, name, utf8.encode(buffer.join('\n')));
+      segments.add((name, buffer.length));
+      buffer = [];
+      size = 0;
+    }
+
+    for (final e in all) {
+      final line = jsonEncode(e.toJson());
+      buffer.add(line);
+      size += line.length + 1;
+      if (size >= segmentCap) await flush();
+    }
+    await flush();
+    await writeManifest(segments);
+    out = all.length;
+  } else {
+    // Only what the manifest does not know yet. Private rows below the
+    // vector went out already: the private switch is unchanged.
+    final fresh = [
+      for (final e in store.entriesSince(previous.vector,
+          includePrivate: includePrivate))
+        if (e.dseq > (previous.vector[e.device] ?? 0)) e
+    ];
+    if (fresh.isNotEmpty) {
+      final segments = List.of(previous.segments);
+      var lines = [for (final e in fresh) jsonEncode(e.toJson())];
+      List<int>? tail;
+      String? tailName;
+      if (segments.isNotEmpty) {
+        tailName = segments.last.$1;
+        tail = await folder.read(dir, tailName);
+        if (tail == null || tail.length >= segmentCap) tail = null;
+      }
+      if (tail != null) {
+        // The segment is read back rather than appended to: the folder
+        // knows no append, and a segment is small by design.
+        final held = _splitLines(tail);
+        await folder.write(
+            dir, tailName!, utf8.encode([...held, ...lines].join('\n')));
+        segments[segments.length - 1] = (tailName, held.length + lines.length);
+      } else {
+        final n = segments.length + 1;
+        final name = segmentName(device, n);
+        await folder.write(dir, name, utf8.encode(lines.join('\n')));
+        segments.add((name, lines.length));
+      }
+      await writeManifest(segments);
+      out = fresh.length;
+    }
+  }
+
+  // The frozen whole-history file: gone once nobody needs it.
+  final others = _devicesIn(names)..remove(device);
+  final keyDir = dir.isEmpty ? 'keys' : '$dir/keys';
+  for (final name in await folder.list(keyDir)) {
+    if (name.endsWith('.json')) {
+      others.add(name.substring(0, name.length - '.json'.length));
+    }
+  }
+  others.remove(device);
+  final manifests = {
+    for (final name in names)
+      if (name.endsWith('.manifest'))
+        name.substring(0, name.length - '.manifest'.length)
+  };
+  if (others.every(manifests.contains)) {
+    await folder.delete(dir, '$device.jsonl');
+    await folder.delete(dir, '$device.jsonl2');
+  }
+  // A catalog that moved into its subfolder leaves no stale root file.
+  if (catalog != null) {
+    await folder.delete('', '$device.jsonl');
+    await folder.delete('', '$device.jsonl2');
+  }
+  return out;
 }
 
 /// True when this store has seen a deletion marker for [hash] and no

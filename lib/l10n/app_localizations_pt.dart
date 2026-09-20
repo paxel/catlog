@@ -3553,4 +3553,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n mais';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'A pasta partilhada está inacessível desde as $since. Toque para ver detalhes.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names ainda precisa da nova versão para ver as suas alterações.';
+  }
 }

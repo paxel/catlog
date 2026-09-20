@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Deschide {page}",
   "choreTicked": "{title} — făcut {count}×, {days}",
   "choreTickedShort": "{title} făcut {count}×",
-  "moreChanges": "+{n} în plus"
+  "moreChanges": "+{n} în plus",
+  "noteFolderUnreachable": "Dosarul partajat nu poate fi accesat de la {since}. Atinge pentru detalii.",
+  "noteFolderLagging": "{names} are încă nevoie de noua versiune pentru a vedea modificările tale."
 }

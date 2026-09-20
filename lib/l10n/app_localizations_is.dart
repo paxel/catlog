@@ -3554,4 +3554,14 @@ class AppLocalizationsIs extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n til viðbótar';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Sameiginlega mappan hefur verið óaðgengileg síðan $since. Ýttu fyrir nánari upplýsingar.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names þarf enn nýju útgáfuna til að sjá breytingarnar þínar.';
+  }
 }

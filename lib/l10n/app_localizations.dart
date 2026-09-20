@@ -6157,6 +6157,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'+{n} more'**
   String moreChanges(int n);
+
+  /// No description provided for @noteFolderUnreachable.
+  ///
+  /// In en, this message translates to:
+  /// **'The shared folder has been out of reach since {since}. Tap for details.'**
+  String noteFolderUnreachable(String since);
+
+  /// No description provided for @noteFolderLagging.
+  ///
+  /// In en, this message translates to:
+  /// **'{names} still needs the new version to see your changes.'**
+  String noteFolderLagging(String names);
 }
 
 class _AppLocalizationsDelegate

@@ -3417,4 +3417,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String moreChanges(int n) {
     return '他 $n 件';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return '共有フォルダーに $since から接続できません。タップして詳細を表示。';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names はあなたの変更を見るためにまだ新しいバージョンが必要です。';
+  }
 }

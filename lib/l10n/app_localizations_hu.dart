@@ -3550,4 +3550,14 @@ class AppLocalizationsHu extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n további';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'A megosztott mappa $since óta nem érhető el. Koppints a részletekért.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names számára még kell az új verzió, hogy lássa a módosításaidat.';
+  }
 }

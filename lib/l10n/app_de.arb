@@ -1201,5 +1201,7 @@
   "failureOpenPage": "{page} öffnen",
   "choreTicked": "{title} — {count}× erledigt, {days}",
   "choreTickedShort": "{title} {count}× erledigt",
-  "moreChanges": "+{n} weitere"
+  "moreChanges": "+{n} weitere",
+  "noteFolderUnreachable": "Der gemeinsame Ordner ist seit {since} nicht erreichbar. Antippen für Details.",
+  "noteFolderLagging": "{names} braucht noch die neue Version, um deine Änderungen zu sehen."
 }

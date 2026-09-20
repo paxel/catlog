@@ -3574,4 +3574,14 @@ class AppLocalizationsLt extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n daugiau';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Bendras aplankas nepasiekiamas nuo $since. Palieskite, kad pamatytumėte išsamiau.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names vis dar reikia naujos versijos, kad matytų jūsų pakeitimus.';
+  }
 }

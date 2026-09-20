@@ -3574,4 +3574,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n ещё';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Общая папка недоступна с $since. Нажмите для подробностей.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names всё ещё нужна новая версия, чтобы видеть ваши изменения.';
+  }
 }

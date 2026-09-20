@@ -3575,4 +3575,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n ще';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Спільна тека недоступна з $since. Торкніться для подробиць.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names досі потребує нової версії, щоб бачити ваші зміни.';
+  }
 }

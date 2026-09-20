@@ -3376,4 +3376,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String moreChanges(int n) {
     return '另有 $n 项';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return '自 $since 起无法访问共享文件夹。点按查看详情。';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names 仍需要新版本才能看到你的更改。';
+  }
 }

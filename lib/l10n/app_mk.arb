@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Отвори {page}",
   "choreTicked": "{title} — завршено {count}×, {days}",
   "choreTickedShort": "{title} завршено {count}×",
-  "moreChanges": "+{n} повеќе"
+  "moreChanges": "+{n} повеќе",
+  "noteFolderUnreachable": "Споделената папка е недостапна од {since}. Допрете за детали.",
+  "noteFolderLagging": "{names} сè уште ја треба новата верзија за да ги види вашите промени."
 }

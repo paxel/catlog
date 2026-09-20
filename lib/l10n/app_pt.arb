@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Abrir {page}",
   "choreTicked": "{title} — feito {count}×, {days}",
   "choreTickedShort": "{title} feito {count}×",
-  "moreChanges": "+{n} mais"
+  "moreChanges": "+{n} mais",
+  "noteFolderUnreachable": "A pasta partilhada está inacessível desde as {since}. Toque para ver detalhes.",
+  "noteFolderLagging": "{names} ainda precisa da nova versão para ver as suas alterações."
 }

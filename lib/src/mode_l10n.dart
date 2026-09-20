@@ -1891,6 +1891,12 @@ class ModeLocalizations implements AppLocalizations {
   String get notSaved => base.notSaved;
 
   @override
+  String noteFolderLagging(String names) => base.noteFolderLagging(names);
+
+  @override
+  String noteFolderUnreachable(String since) => base.noteFolderUnreachable(since);
+
+  @override
   String noteSyncDone(String authors) => base.noteSyncDone(authors);
 
   @override

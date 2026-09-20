@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Відкрити {page}",
   "choreTicked": "{title} — виконано {count}×, {days}",
   "choreTickedShort": "{title} виконано {count}×",
-  "moreChanges": "+{n} ще"
+  "moreChanges": "+{n} ще",
+  "noteFolderUnreachable": "Спільна тека недоступна з {since}. Торкніться для подробиць.",
+  "noteFolderLagging": "{names} досі потребує нової версії, щоб бачити ваші зміни."
 }

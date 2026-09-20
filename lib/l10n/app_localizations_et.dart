@@ -3548,4 +3548,14 @@ class AppLocalizationsEt extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n veel';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Jagatud kaust pole kättesaadav alates $since. Puuduta üksikasjade jaoks.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names vajab veel uut versiooni, et sinu muudatusi näha.';
+  }
 }

@@ -3561,4 +3561,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n altri';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'La cartella condivisa non è raggiungibile dalle $since. Tocca per i dettagli.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names ha ancora bisogno della nuova versione per vedere le tue modifiche.';
+  }
 }

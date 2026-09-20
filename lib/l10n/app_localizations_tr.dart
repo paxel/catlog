@@ -3550,4 +3550,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n daha';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Paylaşılan klasöre $since itibarıyla ulaşılamıyor. Ayrıntılar için dokunun.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names değişikliklerinizi görmek için hâlâ yeni sürüme ihtiyaç duyuyor.';
+  }
 }

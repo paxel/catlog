@@ -3610,4 +3610,14 @@ class AppLocalizationsGa extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n eile';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Tá an fillteán comhroinnte as raon ó $since. Tapáil le haghaidh sonraí.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return 'Tá an leagan nua fós ag teastáil ó $names chun do chuid athruithe a fheiceáil.';
+  }
 }

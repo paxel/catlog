@@ -1961,5 +1961,21 @@
         "type": "int"
       }
     }
+  },
+  "noteFolderUnreachable": "The shared folder has been out of reach since {since}. Tap for details.",
+  "@noteFolderUnreachable": {
+    "placeholders": {
+      "since": {
+        "type": "String"
+      }
+    }
+  },
+  "noteFolderLagging": "{names} still needs the new version to see your changes.",
+  "@noteFolderLagging": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
   }
 }

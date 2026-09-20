@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Odpri {page}",
   "choreTicked": "{title} — opravljeno {count}×, {days}",
   "choreTickedShort": "{title} opravljeno {count}×",
-  "moreChanges": "+{n} več"
+  "moreChanges": "+{n} več",
+  "noteFolderUnreachable": "Deljena mapa je nedosegljiva od {since}. Dotaknite se za podrobnosti.",
+  "noteFolderLagging": "{names} še vedno potrebuje novo različico, da vidi vaše spremembe."
 }

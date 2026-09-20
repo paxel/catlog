@@ -3548,4 +3548,14 @@ class AppLocalizationsSv extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n till';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Den delade mappen har varit onåbar sedan $since. Tryck för detaljer.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names behöver fortfarande den nya versionen för att se dina ändringar.';
+  }
 }

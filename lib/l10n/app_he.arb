@@ -1195,5 +1195,7 @@
   "failureOpenPage": "פתח {page}",
   "choreTicked": "{title} — בוצע {count}×, {days}",
   "choreTickedShort": "{title} בוצע {count}×",
-  "moreChanges": "+{n} נוספים"
+  "moreChanges": "+{n} נוספים",
+  "noteFolderUnreachable": "התיקייה המשותפת אינה נגישה מאז {since}. הקש לפרטים.",
+  "noteFolderLagging": "{names} עדיין צריך את הגרסה החדשה כדי לראות את השינויים שלך."
 }

@@ -1195,5 +1195,7 @@
   "failureOpenPage": "打开 {page}",
   "choreTicked": "{title} — 已完成 {count}×，{days}",
   "choreTickedShort": "{title} 已完成 {count}×",
-  "moreChanges": "另有 {n} 项"
+  "moreChanges": "另有 {n} 项",
+  "noteFolderUnreachable": "自 {since} 起无法访问共享文件夹。点按查看详情。",
+  "noteFolderLagging": "{names} 仍需要新版本才能看到你的更改。"
 }

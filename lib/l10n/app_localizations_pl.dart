@@ -3576,4 +3576,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n więcej';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Udostępniony folder jest niedostępny od $since. Dotknij, aby zobaczyć szczegóły.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names nadal potrzebuje nowej wersji, aby zobaczyć Twoje zmiany.';
+  }
 }

@@ -3547,4 +3547,14 @@ class AppLocalizationsHe extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n נוספים';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'התיקייה המשותפת אינה נגישה מאז $since. הקש לפרטים.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names עדיין צריך את הגרסה החדשה כדי לראות את השינויים שלך.';
+  }
 }

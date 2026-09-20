@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Ouvrir {page}",
   "choreTicked": "{title} — fait {count}×, {days}",
   "choreTickedShort": "{title} fait {count}×",
-  "moreChanges": "+{n} de plus"
+  "moreChanges": "+{n} de plus",
+  "noteFolderUnreachable": "Le dossier partagé est hors de portée depuis {since}. Touchez pour les détails.",
+  "noteFolderLagging": "{names} a encore besoin de la nouvelle version pour voir vos modifications."
 }

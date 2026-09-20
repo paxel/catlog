@@ -3566,4 +3566,14 @@ class AppLocalizationsMt extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n oħra';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Il-folder kondiviż ilu ma jintlaħaqx mis-$since. Mess għad-dettalji.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names għad għandu bżonn il-verżjoni l-ġdida biex jara l-bidliet tiegħek.';
+  }
 }

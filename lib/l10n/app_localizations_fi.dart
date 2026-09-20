@@ -3551,4 +3551,14 @@ class AppLocalizationsFi extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n lisää';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Jaettu kansio ei ole ollut tavoitettavissa kello $since lähtien. Napauta nähdäksesi tiedot.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names tarvitsee vielä uuden version nähdäkseen muutoksesi.';
+  }
 }

@@ -3563,4 +3563,14 @@ class AppLocalizationsSk extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n ďalších';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Zdieľaný priečinok je nedostupný od $since. Ťuknutím zobrazíte podrobnosti.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names stále potrebuje novú verziu, aby videl vaše zmeny.';
+  }
 }

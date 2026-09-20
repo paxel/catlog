@@ -3563,4 +3563,14 @@ class AppLocalizationsSr extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n више';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Дељена фасцикла је недоступна од $since. Додирните за детаље.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names и даље треба нову верзију да види ваше измене.';
+  }
 }

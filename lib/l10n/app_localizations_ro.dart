@@ -3567,4 +3567,14 @@ class AppLocalizationsRo extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n în plus';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Dosarul partajat nu poate fi accesat de la $since. Atinge pentru detalii.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names are încă nevoie de noua versiune pentru a vedea modificările tale.';
+  }
 }

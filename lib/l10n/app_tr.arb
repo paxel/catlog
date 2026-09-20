@@ -1195,5 +1195,7 @@
   "failureOpenPage": "{page} sayfasını aç",
   "choreTicked": "{title} — {count}× yapıldı, {days}",
   "choreTickedShort": "{title} {count}× yapıldı",
-  "moreChanges": "+{n} daha"
+  "moreChanges": "+{n} daha",
+  "noteFolderUnreachable": "Paylaşılan klasöre {since} itibarıyla ulaşılamıyor. Ayrıntılar için dokunun.",
+  "noteFolderLagging": "{names} değişikliklerinizi görmek için hâlâ yeni sürüme ihtiyaç duyuyor."
 }

@@ -3549,4 +3549,14 @@ class AppLocalizationsDa extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n mere';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Den delte mappe har været utilgængelig siden $since. Tryk for detaljer.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names mangler stadig den nye version for at se dine ændringer.';
+  }
 }

@@ -3561,4 +3561,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n de plus';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Le dossier partagé est hors de portée depuis $since. Touchez pour les détails.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names a encore besoin de la nouvelle version pour voir vos modifications.';
+  }
 }

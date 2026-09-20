@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Άνοιγμα {page}",
   "choreTicked": "{title} — έγινε {count}×, {days}",
   "choreTickedShort": "{title} έγινε {count}×",
-  "moreChanges": "+{n} ακόμη"
+  "moreChanges": "+{n} ακόμη",
+  "noteFolderUnreachable": "Ο κοινός φάκελος δεν είναι προσβάσιμος από τις {since}. Πατήστε για λεπτομέρειες.",
+  "noteFolderLagging": "Ο/Η {names} χρειάζεται ακόμη τη νέα έκδοση για να δει τις αλλαγές σας."
 }

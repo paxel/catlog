@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Iftaħ {page}",
   "choreTicked": "{title} — magħmul {count}×, {days}",
   "choreTickedShort": "{title} magħmul {count}×",
-  "moreChanges": "+{n} oħra"
+  "moreChanges": "+{n} oħra",
+  "noteFolderUnreachable": "Il-folder kondiviż ilu ma jintlaħaqx mis-{since}. Mess għad-dettalji.",
+  "noteFolderLagging": "{names} għad għandu bżonn il-verżjoni l-ġdida biex jara l-bidliet tiegħek."
 }

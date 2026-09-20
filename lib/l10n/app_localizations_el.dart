@@ -3562,4 +3562,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n ακόμη';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Ο κοινός φάκελος δεν είναι προσβάσιμος από τις $since. Πατήστε για λεπτομέρειες.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return 'Ο/Η $names χρειάζεται ακόμη τη νέα έκδοση για να δει τις αλλαγές σας.';
+  }
 }

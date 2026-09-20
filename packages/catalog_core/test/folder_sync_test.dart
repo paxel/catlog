@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -44,15 +45,138 @@ void main() {
         isNotNull);
   });
 
-  test('only the own file is ever written', () async {
+  test('only the own files are ever written', () async {
     a.createCat('Miezi');
     await folderSync(a, dir.path);
     await folderSync(b, dir.path);
-    // No reminder was ever used, so the file keeps the pre-1.0.0 name.
-    final aFile = File('${dir.path}/catlog-sync/${a.deviceId}.jsonl');
-    final before = aFile.readAsStringSync();
+    final root = '${dir.path}/catlog-sync';
+    final segment = File('$root/${segmentName(a.deviceId, 1)}');
+    final manifest = File('$root/${manifestName(a.deviceId)}');
+    final before = (segment.readAsStringSync(), manifest.readAsStringSync());
     await folderSync(b, dir.path);
-    expect(aFile.readAsStringSync(), before);
+    expect((segment.readAsStringSync(), manifest.readAsStringSync()), before);
+  });
+
+  test('a change appends to the segment; the manifest moves with it',
+      () async {
+    a.createCat('Miezi');
+    await folderSync(a, dir.path);
+    final root = '${dir.path}/catlog-sync';
+    final segment = File('$root/${segmentName(a.deviceId, 1)}');
+    final linesBefore = segment.readAsLinesSync();
+    final manifestBefore = FolderManifest.parse(
+        File('$root/${manifestName(a.deviceId)}').readAsBytesSync())!;
+    a.createCat('Wanderer');
+    final result = await folderSync(a, dir.path);
+    final linesAfter = segment.readAsLinesSync();
+    final manifestAfter = FolderManifest.parse(
+        File('$root/${manifestName(a.deviceId)}').readAsBytesSync())!;
+    // The old lines are untouched, the new ones sit after them.
+    expect(linesAfter.sublist(0, linesBefore.length), linesBefore);
+    expect(linesAfter.length, greaterThan(linesBefore.length));
+    expect(result.entriesOut, linesAfter.length - linesBefore.length);
+    expect(manifestAfter.generation, manifestBefore.generation);
+    expect(manifestAfter.segments.single.$2, linesAfter.length);
+    expect(manifestAfter.vector[a.deviceId],
+        greaterThan(manifestBefore.vector[a.deviceId]!));
+    // A reader takes only the new lines and holds both cats.
+    await folderSync(b, dir.path);
+    expect(b.cats().map((c) => c.name), containsAll(['Miezi', 'Wanderer']));
+  });
+
+  test('a full segment is closed and never written again', () async {
+    // Enough entries to pass the cap: each line is a few hundred bytes.
+    for (var i = 0; i < 400; i++) {
+      a.createCat('Cat $i');
+    }
+    await folderSync(a, dir.path);
+    final root = '${dir.path}/catlog-sync';
+    final manifest = FolderManifest.parse(
+        File('$root/${manifestName(a.deviceId)}').readAsBytesSync())!;
+    expect(manifest.segments.length, greaterThan(1));
+    final first = File('$root/${manifest.segments.first.$1}');
+    final frozen = first.readAsStringSync();
+    a.createCat('One more');
+    await folderSync(a, dir.path);
+    expect(first.readAsStringSync(), frozen);
+    await folderSync(b, dir.path);
+    expect(b.cats().length, 401);
+  });
+
+  test('a shrunk history is rewritten under a new generation', () async {
+    final cat = a.createCat('Miezi');
+    await folderSync(a, dir.path);
+    await folderSync(b, dir.path);
+    final mark = a.currentSeq();
+    a.append(cat, 'f:color', 'grey');
+    await folderSync(a, dir.path);
+    await folderSync(b, dir.path);
+    expect(b.current(b.cats().single.id, 'f:color'), 'grey');
+    final root = '${dir.path}/catlog-sync';
+    final before = FolderManifest.parse(
+        File('$root/${manifestName(a.deviceId)}').readAsBytesSync())!;
+    // Going back removes the colour on a: the folder must follow.
+    a.removeEntriesAfter(mark);
+    await folderSync(a, dir.path);
+    final after = FolderManifest.parse(
+        File('$root/${manifestName(a.deviceId)}').readAsBytesSync())!;
+    expect(after.generation, greaterThan(before.generation));
+    expect(after.lines, lessThan(before.lines));
+    // b reads the new generation from the start and applies nothing
+    // wrong; its own copy of the colour stays, as ADR-0009 says.
+    final again = await folderSync(b, dir.path);
+    expect(again.entriesIn, 0);
+    expect(b.cats().single.name, 'Miezi');
+  });
+
+  test('a segment the manifest announces but the folder lacks waits',
+      () async {
+    final folder = MemorySyncFolder();
+    a.createCat('Miezi');
+    await folderSyncIn(a, folder);
+    // The manifest arrived ahead of its segment, as a cloud client may
+    // deliver them.
+    final segment = folder.dirs['']!.remove(segmentName(a.deviceId, 1))!;
+    var result = await folderSyncIn(b, folder);
+    expect(result.entriesIn, 0);
+    expect(b.cats(), isEmpty);
+    folder.dirs['']![segmentName(a.deviceId, 1)] = segment;
+    result = await folderSyncIn(b, folder);
+    expect(result.entriesIn, greaterThan(0));
+    expect(b.cats().single.name, 'Miezi');
+  });
+
+  test('the whole-history file stays frozen until everyone has a manifest',
+      () async {
+    final folder = MemorySyncFolder();
+    a.createCat('Miezi');
+    // a wrote the old layout once; an old phone is in the folder too.
+    final legacy = utf8.encode(
+        a.entriesSince(const {}).map((e) => jsonEncode(e.toJson())).join('\n'));
+    await folder.write('', '${a.deviceId}.jsonl2', legacy);
+    await folder.ensure('keys');
+    await folder.write('', 'old-phone.jsonl', utf8.encode(jsonEncode({
+      'device': 'old-phone',
+      'dseq': 1,
+      'entity': 'cat:old',
+      'field': r'$type',
+      'value': 'cat',
+      'date': '2026-01-01T00:00:00.000000Z',
+      'author': 'carla',
+      'recorded': '2026-01-01T00:00:00.000000Z',
+    })));
+    final result = await folderSyncIn(a, folder);
+    expect(result.lagging, {'old-phone'});
+    expect(folder.dirs['']!.keys, contains('${a.deviceId}.jsonl2'));
+    expect(utf8.decode(folder.dirs['']!['${a.deviceId}.jsonl2']!),
+        utf8.decode(legacy));
+    // The old phone updates and writes a manifest: the frozen file goes.
+    await folder.write('', manifestName('old-phone'), utf8.encode(jsonEncode(
+        FolderManifest(generation: 0, private: false, vector: const {}, segments: const [])
+            .toJson())));
+    final later = await folderSyncIn(a, folder);
+    expect(later.lagging, isEmpty);
+    expect(folder.dirs['']!.keys, isNot(contains('${a.deviceId}.jsonl2')));
   });
 
   test('repeated sync is a no-op', () async {

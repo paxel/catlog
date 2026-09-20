@@ -3555,4 +3555,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n meer';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'De gedeelde map is sinds $since niet bereikbaar. Tik voor details.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names heeft nog de nieuwe versie nodig om je wijzigingen te zien.';
+  }
 }

@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Otevřít {page}",
   "choreTicked": "{title} — hotovo {count}×, {days}",
   "choreTickedShort": "{title} hotovo {count}×",
-  "moreChanges": "+{n} dalších"
+  "moreChanges": "+{n} dalších",
+  "noteFolderUnreachable": "Sdílená složka je nedostupná od {since}. Klepnutím zobrazíte podrobnosti.",
+  "noteFolderLagging": "{names} stále potřebuje novou verzi, aby viděl vaše změny."
 }

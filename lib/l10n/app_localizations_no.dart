@@ -3547,4 +3547,14 @@ class AppLocalizationsNo extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n til';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Den delte mappen har vært utilgjengelig siden $since. Trykk for detaljer.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names trenger fortsatt den nye versjonen for å se endringene dine.';
+  }
 }

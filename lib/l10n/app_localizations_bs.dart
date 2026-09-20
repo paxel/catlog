@@ -3564,4 +3564,14 @@ class AppLocalizationsBs extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n više';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Dijeljena mapa je nedostupna od $since. Dodirnite za detalje.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names još treba novu verziju da vidi vaše promjene.';
+  }
 }

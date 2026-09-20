@@ -3588,4 +3588,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n أخرى';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'المجلد المشترك غير متاح منذ $since. انقر للتفاصيل.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return 'لا يزال $names بحاجة إلى الإصدار الجديد ليرى تغييراتك.';
+  }
 }

@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Avaa {page}",
   "choreTicked": "{title} — tehty {count}×, {days}",
   "choreTickedShort": "{title} tehty {count}×",
-  "moreChanges": "+{n} lisää"
+  "moreChanges": "+{n} lisää",
+  "noteFolderUnreachable": "Jaettu kansio ei ole ollut tavoitettavissa kello {since} lähtien. Napauta nähdäksesi tiedot.",
+  "noteFolderLagging": "{names} tarvitsee vielä uuden version nähdäkseen muutoksesi."
 }

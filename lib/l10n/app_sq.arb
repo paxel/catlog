@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Hap {page}",
   "choreTicked": "{title} — kryer {count}×, {days}",
   "choreTickedShort": "{title} kryer {count}×",
-  "moreChanges": "+{n} të tjera"
+  "moreChanges": "+{n} të tjera",
+  "noteFolderUnreachable": "Dosja e përbashkët nuk arrihet që nga {since}. Prek për detaje.",
+  "noteFolderLagging": "{names} ka ende nevojë për versionin e ri për të parë ndryshimet e tua."
 }

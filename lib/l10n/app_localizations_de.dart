@@ -3560,4 +3560,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n weitere';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Der gemeinsame Ordner ist seit $since nicht erreichbar. Antippen für Details.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names braucht noch die neue Version, um deine Änderungen zu sehen.';
+  }
 }

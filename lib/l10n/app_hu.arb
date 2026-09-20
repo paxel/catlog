@@ -1195,5 +1195,7 @@
   "failureOpenPage": "{page} megnyitása",
   "choreTicked": "{title} — kész {count}×, {days}",
   "choreTickedShort": "{title} kész {count}×",
-  "moreChanges": "+{n} további"
+  "moreChanges": "+{n} további",
+  "noteFolderUnreachable": "A megosztott mappa {since} óta nem érhető el. Koppints a részletekért.",
+  "noteFolderLagging": "{names} számára még kell az új verzió, hogy lássa a módosításaidat."
 }

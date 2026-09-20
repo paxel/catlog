@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Åpne {page}",
   "choreTicked": "{title} — utført {count}×, {days}",
   "choreTickedShort": "{title} utført {count}×",
-  "moreChanges": "+{n} til"
+  "moreChanges": "+{n} til",
+  "noteFolderUnreachable": "Den delte mappen har vært utilgjengelig siden {since}. Trykk for detaljer.",
+  "noteFolderLagging": "{names} trenger fortsatt den nye versjonen for å se endringene dine."
 }

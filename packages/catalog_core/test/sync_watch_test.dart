@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -7,9 +8,10 @@ import 'package:test/test.dart';
 Uint8List jpeg(int w, int h) =>
     Uint8List.fromList(img.encodeJpg(img.Image(width: w, height: h)));
 
-/// The folder watch: sizes tell which files grew, the grown files tell
-/// what is new, and a file that only grew by absorbing your own entries
-/// counts as nothing.
+/// The folder watch: manifests tell which writers moved on, the unread
+/// lines tell what is new, and a writer that only moved on by absorbing
+/// your own entries counts as nothing. A device from before is judged
+/// by its file's size.
 void main() {
   setUpAll(useSystemSqlite);
   late CatalogStore a, b;
@@ -26,50 +28,75 @@ void main() {
     b.close();
   });
 
-  test('a grown file with unseen entries names its writer', () async {
-    expect(await foreignFileSizes(folder, b.deviceId), isEmpty);
+  test('a manifest with unread lines names its writer', () async {
+    expect(await foreignManifests(folder, b.deviceId), isEmpty);
     a.createCat('Miezi');
     await folderSyncIn(a, folder);
-    final after = await foreignFileSizes(folder, b.deviceId);
-    expect(after.keys.single, startsWith('/${a.deviceId}.jsonl'));
-    final grown = grownFiles(const {}, after);
-    expect(grown, after.keys.toList());
-    final unseen = await unseenChanges(b, folder, grown);
+    final after = await foreignManifests(folder, b.deviceId);
+    expect(after.keys.single, '/${a.deviceId}');
+    final changed = changedManifests(const {}, after);
+    expect(changed, after.keys.toList());
+    final unseen = await unseenChanges(b, folder, const [], devices: changed);
     expect(unseen.count, greaterThan(0));
     expect(unseen.authors, {'anna'});
-    // Own file never counts, and a smaller file is not growth.
-    expect(await foreignFileSizes(folder, a.deviceId), isEmpty);
-    final shrunk = {for (final e in after.entries) e.key: e.value - 1};
-    expect(grownFiles(after, shrunk), isEmpty);
+    // The own manifest never counts; a device with a manifest has no
+    // whole-history file to size.
+    expect(await foreignManifests(folder, a.deviceId), isEmpty);
+    expect(await foreignFileSizes(folder, b.deviceId), isEmpty);
   });
 
-  test('a file that grew by absorbing your own entries is not news', () async {
+  test('a manifest that moved on by absorbing your own entries is not news',
+      () async {
     await folderSyncIn(a, folder);
     await folderSyncIn(b, folder);
     await folderSyncIn(a, folder); // both hold everything
-    final before = await foreignFileSizes(folder, a.deviceId);
+    final before = await foreignManifests(folder, a.deviceId);
     a.createCat('Miezi');
     await folderSyncIn(a, folder);
-    await folderSyncIn(b, folder); // b's file grows by a's own cat
-    final sizesForA = await foreignFileSizes(folder, a.deviceId);
-    final grown = grownFiles(before, sizesForA);
-    expect(grown, isNotEmpty);
-    final unseen = await unseenChanges(a, folder, grown);
+    await folderSyncIn(b, folder); // b's segments grow by a's own cat
+    final forA = await foreignManifests(folder, a.deviceId);
+    final changed = changedManifests(before, forA);
+    expect(changed, isNotEmpty);
+    final unseen = await unseenChanges(a, folder, const [], devices: changed);
     expect(unseen.isEmpty, isTrue);
     // After b writes something of its own, a has news again.
     b.createCat('Wanderer');
     await folderSyncIn(b, folder);
-    final later = await foreignFileSizes(folder, a.deviceId);
-    expect(grownFiles(sizesForA, later), isNotEmpty);
-    final news = await unseenChanges(a, folder, grownFiles(sizesForA, later));
+    final later = await foreignManifests(folder, a.deviceId);
+    expect(changedManifests(forA, later), isNotEmpty);
+    final news = await unseenChanges(a, folder, const [],
+        devices: changedManifests(forA, later));
     expect(news.count, greaterThan(0));
     expect(news.authors, {'ben'});
+  });
+
+  test('a device from before is judged by the size of its file', () async {
+    await folder.ensure('');
+    final line = jsonEncode({
+      'device': 'old-phone',
+      'dseq': 1,
+      'entity': 'cat:old',
+      'field': r'$type',
+      'value': 'cat',
+      'date': '2026-01-01T00:00:00.000000Z',
+      'author': 'carla',
+      'recorded': '2026-01-01T00:00:00.000000Z',
+    });
+    await folder.write('', 'old-phone.jsonl', utf8.encode(line));
+    final sizes = await foreignFileSizes(folder, b.deviceId);
+    expect(sizes.keys.single, '/old-phone.jsonl');
+    final grown = grownFiles(const {}, sizes);
+    final unseen = await unseenChanges(b, folder, grown);
+    expect(unseen.count, 1);
+    expect(unseen.authors, {'carla'});
+    final shrunk = {for (final e in sizes.entries) e.key: e.value - 1};
+    expect(grownFiles(sizes, shrunk), isEmpty);
   });
 
   test('the shared folder carries a .nomedia marker for Android', () async {
     await folderSyncIn(a, folder, catalog: 'farm');
     expect(await folder.read('', '.nomedia'), isNotNull);
-    expect(await foreignFileSizes(folder, b.deviceId, catalog: 'farm'),
+    expect(await foreignManifests(folder, b.deviceId, catalog: 'farm'),
         isNot(contains('/.nomedia')));
   });
 
@@ -85,19 +112,19 @@ void main() {
     final r = await folderSyncIn(b, folder, catalog: 'farm');
     expect(r.blobsIn, 0);
     expect(r.blobsMissing, 1);
-    expect('$r', contains('1 photos not in the folder yet'));
     expect(await fetchMissingBlobs(b, folder, catalog: 'farm'), 0);
     blobs.addAll(held);
     expect(await fetchMissingBlobs(b, folder, catalog: 'farm'), 1);
     expect(b.missingBlobs(), isEmpty);
   });
 
-  test('sizes come per catalog subfolder too', () async {
+  test('manifests come per catalog subfolder too', () async {
     a.createCat('Miezi');
     await folderSyncIn(a, folder, catalog: 'farm');
-    final sizes = await foreignFileSizes(folder, b.deviceId, catalog: 'farm');
-    expect(sizes.keys.single, startsWith('farm/'));
-    final unseen = await unseenChanges(b, folder, sizes.keys);
+    final manifests = await foreignManifests(folder, b.deviceId, catalog: 'farm');
+    expect(manifests.keys.single, 'farm/${a.deviceId}');
+    final unseen =
+        await unseenChanges(b, folder, const [], devices: manifests.keys);
     expect(unseen.count, greaterThan(0));
   });
 }

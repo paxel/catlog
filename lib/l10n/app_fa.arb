@@ -1195,5 +1195,7 @@
   "failureOpenPage": "باز کردن {page}",
   "choreTicked": "{title} — انجام شد {count}×، {days}",
   "choreTickedShort": "{title} انجام شد {count}×",
-  "moreChanges": "+{n} مورد دیگر"
+  "moreChanges": "+{n} مورد دیگر",
+  "noteFolderUnreachable": "پوشه مشترک از {since} در دسترس نیست. برای جزئیات ضربه بزنید.",
+  "noteFolderLagging": "{names} هنوز به نسخه جدید نیاز دارد تا تغییرات شما را ببیند."
 }

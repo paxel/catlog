@@ -3564,4 +3564,14 @@ class AppLocalizationsCs extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n dalších';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Sdílená složka je nedostupná od $since. Klepnutím zobrazíte podrobnosti.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names stále potřebuje novou verzi, aby viděl vaše změny.';
+  }
 }

@@ -1195,5 +1195,7 @@
   "failureOpenPage": "فتح {page}",
   "choreTicked": "{title} — أُنجز {count}×، {days}",
   "choreTickedShort": "{title} أُنجز {count}×",
-  "moreChanges": "+{n} أخرى"
+  "moreChanges": "+{n} أخرى",
+  "noteFolderUnreachable": "المجلد المشترك غير متاح منذ {since}. انقر للتفاصيل.",
+  "noteFolderLagging": "لا يزال {names} بحاجة إلى الإصدار الجديد ليرى تغييراتك."
 }

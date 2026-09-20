@@ -398,6 +398,7 @@ class CatalogStore {
     );
     if (field == Keys.mergedInto) _mergeTargetsCache = null;
     _noteVoid(field);
+    onLocalChange?.call();
   }
 
   // ---------------------------------------------------------------- voids
@@ -739,6 +740,18 @@ class CatalogStore {
 
   /// Records that dseqs up to [dseq] of [device] were seen-and-discarded,
   /// so the merged version vector advances past banned rows.
+  static const _historyGenerationKey = 'historyGeneration';
+
+  /// How many times rows were physically removed from this store — going
+  /// back, hard delete, keep mine. The folder's manifest carries it, so
+  /// a reader knows when the segments were rewritten (ADR-0010).
+  int get historyGeneration =>
+      int.tryParse(localSetting(_historyGenerationKey) ?? '') ?? 0;
+
+  /// Told after every entry this device writes itself: the folder
+  /// publisher gathers a few seconds of them into one write.
+  void Function()? onLocalChange;
+
   void _recordDiscarded(String device, int dseq) {
     final key = 'banvector:$device';
     final current = int.tryParse(localSetting(key) ?? '') ?? 0;
@@ -1628,6 +1641,9 @@ class CatalogStore {
       for (final r in removed) {
         _recordDiscarded(r['device'] as String, r['m'] as int);
       }
+      // The history shrank: what the folder holds of it is rewritten
+      // from the start on the next publish (ADR-0010).
+      setLocalSetting(_historyGenerationKey, '${historyGeneration + 1}');
       _db.execute('COMMIT');
     } catch (_) {
       _db.execute('ROLLBACK');

@@ -3495,4 +3495,14 @@ class AppLocalizationsFa extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n مورد دیگر';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'پوشه مشترک از $since در دسترس نیست. برای جزئیات ضربه بزنید.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names هنوز به نسخه جدید نیاز دارد تا تغییرات شما را ببیند.';
+  }
 }

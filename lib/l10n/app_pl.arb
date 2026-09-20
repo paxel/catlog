@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Otwórz {page}",
   "choreTicked": "{title} — wykonano {count}×, {days}",
   "choreTickedShort": "{title} wykonano {count}×",
-  "moreChanges": "+{n} więcej"
+  "moreChanges": "+{n} więcej",
+  "noteFolderUnreachable": "Udostępniony folder jest niedostępny od {since}. Dotknij, aby zobaczyć szczegóły.",
+  "noteFolderLagging": "{names} nadal potrzebuje nowej wersji, aby zobaczyć Twoje zmiany."
 }

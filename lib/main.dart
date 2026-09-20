@@ -10,6 +10,7 @@ import 'package:window_manager/window_manager.dart';
 
 import 'src/auto_backup.dart';
 import 'src/crash_guard.dart';
+import 'src/event_toasts.dart';
 import 'src/import_summary.dart';
 import 'src/incoming_file.dart';
 import 'src/sync/sync_watch.dart';
@@ -170,9 +171,31 @@ class _CatlogAppState extends State<CatlogApp>
   /// Watches the shared folder while the app is on screen (#watch).
   late SyncWatcher _watcher = _watcherFor(widget.store);
 
-  SyncWatcher _watcherFor(CatalogStore store) => SyncWatcher(store)
-    ..onMerged = _merged
-    ..onFailed = _mergeFailed;
+  SyncWatcher _watcherFor(CatalogStore store) {
+    final watcher = SyncWatcher(store)
+      ..onMerged = _merged
+      ..onFailed = _mergeFailed
+      ..onLagging = (devices) => _lagging(store, devices);
+    // Every entry this device writes starts the gather that puts it in
+    // the folder.
+    store.onLocalChange = watcher.changed;
+    return watcher;
+  }
+
+  /// Devices in the folder still writing the old layout: they cannot
+  /// see this device's changes until updated, so their keepers are
+  /// named once.
+  void _lagging(CatalogStore store, Set<String> devices) {
+    final names = {
+      for (final device in devices)
+        store.authorsOverview().where((r) => r.device == device).firstOrNull
+                ?.author ??
+            device.substring(0, device.length.clamp(0, 8)),
+    };
+    NoteQueue.instance.add(Note.failed(
+      (t) => t.noteFolderLagging(names.join(', ')),
+    ));
+  }
 
   /// Photos stored with camera metadata are rewritten without it once
   /// per catalog (photo_privacy.dart); a later import may bring more.
@@ -185,9 +208,10 @@ class _CatlogAppState extends State<CatlogApp>
     }
   }
 
-  /// After a merge, however it started: the arrival page at once when
-  /// the signatures need a look, else a finished note whose tap opens
-  /// the page.
+  /// After a merge: the arrival page at once when the signatures need a
+  /// look; a finished note whose tap opens the page when the keeper
+  /// tapped; nothing but the news notes when the watcher merged on its
+  /// own — the activity line was the sign.
   void _merged(FolderSyncResult result, Moment? undo, bool fromTap) {
     final context = navigatorKey.currentContext;
     if (context == null || !context.mounted) return;
@@ -196,8 +220,12 @@ class _CatlogAppState extends State<CatlogApp>
           undo: undo, report: result.report);
       return;
     }
-    NoteQueue.instance.add(arrivalNote(context, _store, result.applied,
-        undo: undo, report: result.report));
+    if (fromTap) {
+      NoteQueue.instance.add(arrivalNote(context, _store, result.applied,
+          undo: undo, report: result.report));
+    } else if (result.applied.isNotEmpty) {
+      showEventToasts(context, _store, result.applied);
+    }
   }
 
   void _mergeFailed(Object error) => NoteQueue.instance.add(Note.failed(
@@ -351,6 +379,9 @@ class _CatlogAppState extends State<CatlogApp>
     // and mark the exit clean so the next launch doesn't cry crash.
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive) {
+      // What was gathered goes to the folder before the phone is put
+      // down; the backup follows.
+      _watcher.flush();
       autoBackup(_store);
       markCleanExit();
     }

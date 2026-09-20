@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Открыть {page}",
   "choreTicked": "{title} — выполнено {count}×, {days}",
   "choreTickedShort": "{title} выполнено {count}×",
-  "moreChanges": "+{n} ещё"
+  "moreChanges": "+{n} ещё",
+  "noteFolderUnreachable": "Общая папка недоступна с {since}. Нажмите для подробностей.",
+  "noteFolderLagging": "{names} всё ещё нужна новая версия, чтобы видеть ваши изменения."
 }

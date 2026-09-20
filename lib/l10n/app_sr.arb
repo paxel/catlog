@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Отвори {page}",
   "choreTicked": "{title} — обављено {count}×, {days}",
   "choreTickedShort": "{title} обављено {count}×",
-  "moreChanges": "+{n} више"
+  "moreChanges": "+{n} више",
+  "noteFolderUnreachable": "Дељена фасцикла је недоступна од {since}. Додирните за детаље.",
+  "noteFolderLagging": "{names} и даље треба нову верзију да види ваше измене."
 }

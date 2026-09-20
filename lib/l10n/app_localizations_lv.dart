@@ -3567,4 +3567,14 @@ class AppLocalizationsLv extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n vēl';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Koplietotā mape nav sasniedzama kopš $since. Pieskarieties, lai skatītu detaļas.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names joprojām nepieciešama jaunā versija, lai redzētu jūsu izmaiņas.';
+  }
 }

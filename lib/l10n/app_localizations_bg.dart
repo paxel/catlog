@@ -3549,4 +3549,14 @@ class AppLocalizationsBg extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n още';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Споделената папка е недостъпна от $since. Докоснете за подробности.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names все още се нуждае от новата версия, за да види вашите промени.';
+  }
 }

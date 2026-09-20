@@ -1195,5 +1195,7 @@
   "failureOpenPage": "Ava {page}",
   "choreTicked": "{title} — tehtud {count}×, {days}",
   "choreTickedShort": "{title} tehtud {count}×",
-  "moreChanges": "+{n} veel"
+  "moreChanges": "+{n} veel",
+  "noteFolderUnreachable": "Jagatud kaust pole kättesaadav alates {since}. Puuduta üksikasjade jaoks.",
+  "noteFolderLagging": "{names} vajab veel uut versiooni, et sinu muudatusi näha."
 }

@@ -3580,4 +3580,14 @@ class AppLocalizationsSl extends AppLocalizations {
   String moreChanges(int n) {
     return '+$n več';
   }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Deljena mapa je nedosegljiva od $since. Dotaknite se za podrobnosti.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names še vedno potrebuje novo različico, da vidi vaše spremembe.';
+  }
 }
