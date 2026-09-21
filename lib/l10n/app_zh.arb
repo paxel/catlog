@@ -1151,6 +1151,7 @@
   "coverPick": "封面图片…",
   "coverLabel": "猫群的照片",
   "coverLabelNeutral": "家庭的照片",
+  "coverLabelStrays": "流浪猫的照片",
   "coverRemove": "移除封面图片",
   "skipTour": "在此安装中跳过介绍和提示",
   "spotCatChores": "日常照料在这里：喂食、用药、检查，每项都有自己的提醒。",

@@ -3374,6 +3374,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get coverLabelNeutral => 'תמונה של משק הבית';
 
   @override
+  String get coverLabelStrays => 'תמונה לחתולי הרחוב';
+
+  @override
   String get coverRemove => 'הסרת תמונת השער';
 
   @override

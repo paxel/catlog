@@ -162,9 +162,11 @@ Future<String?> _strayCam(BuildContext context, CatalogStore store,
   Uint8List? bytes;
   try {
     if (context.mounted) {
-      // Field speed beats framing: Stray Cam skips the crop step.
+      // Field speed beats framing: Stray Cam skips the crop step, and
+      // the button is the camera, so nothing asks camera or gallery.
       bytes = await (pickPhoto ??
-          ((c) => pickImageBytes(c, allowCrop: false)))(context);
+          ((c) => pickImageBytes(c,
+              allowCrop: false, source: cameraIfThereIsOne)))(context);
     }
   } finally {
     // Cancelled, failed or done: nothing stays parked (#91).

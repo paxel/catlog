@@ -3409,6 +3409,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get coverLabelNeutral => 'صورة للمنزل';
 
   @override
+  String get coverLabelStrays => 'صورة للقطط الضالة';
+
+  @override
   String get coverRemove => 'إزالة صورة الغلاف';
 
   @override

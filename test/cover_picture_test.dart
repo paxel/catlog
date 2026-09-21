@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/cover_picture.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
+import 'package:catlog/src/screens/strays_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
@@ -57,5 +58,26 @@ void main() {
     await tester.tap(find.byTooltip('Edit'));
     await tester.pumpAndSettle();
     expect(find.text('A picture of the clowder'), findsOneWidget);
+  });
+
+  testWidgets('the strays list leads with its own cover row', (tester) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    tester.view.physicalSize = const Size(1000, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: StraysScreen(store: store),
+      ),
+    );
+    await tester.pumpAndSettle();
+    // The row says what it is and carries the gallery button itself;
+    // no cover icon in the app bar, no sheet to read first.
+    expect(find.text('A picture for the strays'), findsOneWidget);
+    expect(find.byTooltip('Choose from gallery'), findsOneWidget);
+    expect(find.byTooltip('Cover picture…'), findsNothing);
   });
 }

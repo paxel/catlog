@@ -3428,6 +3428,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get coverLabelNeutral => 'Pictiúr den líon tí';
 
   @override
+  String get coverLabelStrays => 'Pictiúr do na cait fháin';
+
+  @override
   String get coverRemove => 'Bain an pictiúr clúdaigh';
 
   @override

@@ -3396,6 +3396,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get coverLabelNeutral => 'Снимок домохозяйства';
 
   @override
+  String get coverLabelStrays => 'Снимок для бездомных';
+
+  @override
   String get coverRemove => 'Убрать обложку';
 
   @override

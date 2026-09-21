@@ -3390,6 +3390,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get coverLabelNeutral => 'Obrázek domácnosti';
 
   @override
+  String get coverLabelStrays => 'Obrázek pro toulavé kočky';
+
+  @override
   String get coverRemove => 'Odebrat titulní obrázek';
 
   @override

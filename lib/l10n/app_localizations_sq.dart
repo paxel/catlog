@@ -3379,6 +3379,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get coverLabelNeutral => 'Një foto e familjes';
 
   @override
+  String get coverLabelStrays => 'Një foto për macet endacake';
+
+  @override
   String get coverRemove => 'Hiq foton e kopertinës';
 
   @override

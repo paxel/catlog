@@ -3386,6 +3386,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get coverLabelNeutral => 'Un\'immagine della casa';
 
   @override
+  String get coverLabelStrays => 'Un\'immagine per i randagi';
+
+  @override
   String get coverRemove => 'Rimuovi immagine di copertina';
 
   @override

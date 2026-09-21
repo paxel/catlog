@@ -1,7 +1,9 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../cover_picture.dart';
+import '../image_import.dart';
 import '../move_to_catalog.dart';
 import '../hidden.dart';
 import '../l10n.dart';
@@ -54,6 +56,22 @@ class StraysScreen extends StatelessWidget {
     refresh();
   }
 
+  /// The flier wizard from a poster photographed now or brought from
+  /// the gallery; the new cat's page after it.
+  Future<void> _captureFlier(
+    BuildContext context,
+    VoidCallback refresh,
+    ImageSource source,
+  ) async {
+    final catId = await Navigator.of(context).push<String>(
+      MaterialPageRoute(
+        builder: (_) => FlierCaptureScreen(store: store, source: source),
+      ),
+    );
+    if (!context.mounted) return;
+    await _openNew(context, catId, refresh);
+  }
+
   Future<void> _openNew(
     BuildContext context,
     String? catId,
@@ -88,21 +106,28 @@ class StraysScreen extends StatelessWidget {
       emptyText: context.t.noStraysRightNow,
       helpScreenId: 'strays',
       spotlightScreenId: 'strays',
+      // The strays' own picture leads, camera and gallery on the row.
+      header: (context, refresh) => CoverBanner(
+        store: store,
+        entityId: straysEntity,
+        title: context.t.coverLabelStrays,
+        onChanged: refresh,
+      ),
       actions: (context, refresh) => [
-        Spotlight(
-          id: 'strays-flier',
-          child: IconButton(
-            icon: const Icon(Icons.assignment_outlined),
-            tooltip: context.t.captureFlier,
-            onPressed: () async {
-              final catId = await Navigator.of(context).push<String>(
-                MaterialPageRoute(
-                  builder: (_) => FlierCaptureScreen(store: store),
-                ),
-              );
-              if (!context.mounted) return;
-              await _openNew(context, catId, refresh);
-            },
+        // Tap photographs the poster; hold brings one from the gallery.
+        GestureDetector(
+          onLongPress: () =>
+              _captureFlier(context, refresh, ImageSource.gallery),
+          child: WithCatEar(
+            child: Spotlight(
+              id: 'strays-flier',
+              child: IconButton(
+                icon: const Icon(Icons.assignment_outlined),
+                tooltip: context.t.captureFlier,
+                onPressed: () =>
+                    _captureFlier(context, refresh, cameraIfThereIsOne),
+              ),
+            ),
           ),
         ),
         // Tap films nothing: a photo; hold for the film mode (#41).
@@ -126,13 +151,6 @@ class StraysScreen extends StatelessWidget {
               },
             ),
           ),
-        ),
-        IconButton(
-          icon: const Icon(Icons.image_outlined),
-          tooltip: context.t.coverPick,
-          onPressed: () async {
-            if (await coverMenu(context, store, straysEntity)) refresh();
-          },
         ),
         Spotlight(
           id: 'strays-scan',

@@ -3390,6 +3390,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get coverLabelNeutral => 'Stampa tad-dar';
 
   @override
+  String get coverLabelStrays => 'Stampa għall-qtates tat-triq';
+
+  @override
   String get coverRemove => 'Neħħi l-istampa tal-qoxra';
 
   @override

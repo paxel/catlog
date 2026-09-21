@@ -5918,6 +5918,12 @@ abstract class AppLocalizations {
   /// **'A picture of the household'**
   String get coverLabelNeutral;
 
+  /// No description provided for @coverLabelStrays.
+  ///
+  /// In en, this message translates to:
+  /// **'A picture for the strays'**
+  String get coverLabelStrays;
+
   /// No description provided for @coverRemove.
   ///
   /// In en, this message translates to:

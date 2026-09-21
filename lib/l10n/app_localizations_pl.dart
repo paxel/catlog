@@ -3398,6 +3398,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get coverLabelNeutral => 'Zdjęcie domostwa';
 
   @override
+  String get coverLabelStrays => 'Zdjęcie dla bezdomnych';
+
+  @override
   String get coverRemove => 'Usuń zdjęcie okładki';
 
   @override

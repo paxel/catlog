@@ -3376,6 +3376,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get coverLabelNeutral => 'Hanenin bir fotoğrafı';
 
   @override
+  String get coverLabelStrays => 'Sokak kedileri için bir fotoğraf';
+
+  @override
   String get coverRemove => 'Kapak resmini kaldır';
 
   @override

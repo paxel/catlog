@@ -93,6 +93,14 @@ Future<bool> addPhotosViaSheet(
   return true;
 }
 
+/// Whether this device has a camera to offer.
+bool get hasCamera => Platform.isAndroid || Platform.isIOS;
+
+/// The camera where there is one, the gallery on a desktop: for a
+/// button that already says "take a picture".
+ImageSource get cameraIfThereIsOne =>
+    hasCamera ? ImageSource.camera : ImageSource.gallery;
+
 /// Picks or takes a photo and returns the (optionally cropped) raw
 /// bytes, or null if the user canceled. A preselected [source] skips
 /// the sheet.

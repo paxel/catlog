@@ -3375,6 +3375,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get coverLabelNeutral => 'Et bilde av husstanden';
 
   @override
+  String get coverLabelStrays => 'Et bilde for de hjemløse kattene';
+
+  @override
   String get coverRemove => 'Fjern forsidebilde';
 
   @override

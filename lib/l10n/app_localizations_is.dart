@@ -3380,6 +3380,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get coverLabelNeutral => 'Mynd af heimilinu';
 
   @override
+  String get coverLabelStrays => 'Mynd fyrir flækingskettina';
+
+  @override
   String get coverRemove => 'Fjarlægja forsíðumynd';
 
   @override

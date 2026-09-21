@@ -3389,6 +3389,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get coverLabelNeutral => 'Слика домаћинства';
 
   @override
+  String get coverLabelStrays => 'Слика за луталице';
+
+  @override
   String get coverRemove => 'Уклони насловну слику';
 
   @override

@@ -3376,6 +3376,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get coverLabelNeutral => 'Снимка на домакинството';
 
   @override
+  String get coverLabelStrays => 'Снимка за бездомните котки';
+
+  @override
   String get coverRemove => 'Премахни заглавната снимка';
 
   @override

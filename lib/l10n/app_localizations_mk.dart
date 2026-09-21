@@ -3380,6 +3380,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get coverLabelNeutral => 'Слика на домаќинството';
 
   @override
+  String get coverLabelStrays => 'Слика за скитниците';
+
+  @override
   String get coverRemove => 'Отстрани насловна слика';
 
   @override

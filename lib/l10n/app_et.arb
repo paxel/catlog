@@ -1151,6 +1151,7 @@
   "coverPick": "Kaanepilt…",
   "coverLabel": "Pilt klauderist",
   "coverLabelNeutral": "Pilt leibkonnast",
+  "coverLabelStrays": "Pilt hulkuvate kasside jaoks",
   "coverRemove": "Eemalda kaanepilt",
   "skipTour": "Jäta sissejuhatus ja vihjed selles paigalduses vahele",
   "spotCatChores": "Korduv hool elab siin: söötmine, ravimid, kontrollid, igaühel oma meeldetuletus.",

@@ -3379,6 +3379,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get coverLabelNeutral => 'Uma imagem do lar';
 
   @override
+  String get coverLabelStrays => 'Uma imagem para os vadios';
+
+  @override
   String get coverRemove => 'Remover imagem de capa';
 
   @override

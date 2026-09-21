@@ -120,11 +120,15 @@ class CoverBanner extends StatelessWidget {
   final String entityId;
   final VoidCallback onChanged;
 
+  /// What the row says without a picture; the clowder's line by default.
+  final String? title;
+
   const CoverBanner({
     super.key,
     required this.store,
     required this.entityId,
     required this.onChanged,
+    this.title,
   });
 
   Future<void> _menu(BuildContext context) async {
@@ -144,7 +148,7 @@ class CoverBanner extends StatelessWidget {
       final t = context.t;
       return ListTile(
         leading: const Icon(Icons.image_outlined),
-        title: Text(t.coverLabel),
+        title: Text(title ?? t.coverLabel),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

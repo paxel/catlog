@@ -1846,6 +1846,7 @@
   "coverPick": "Cover picture…",
   "coverLabel": "A picture of the clowder",
   "coverLabelNeutral": "A picture of the household",
+  "coverLabelStrays": "A picture for the strays",
   "coverRemove": "Remove cover picture",
   "skipTour": "Skip the intro and the tips on this install",
   "spotCatChores": "Recurring care lives here: feeding, meds, checks, each with its own reminder.",

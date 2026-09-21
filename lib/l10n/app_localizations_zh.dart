@@ -3217,6 +3217,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get coverLabelNeutral => '家庭的照片';
 
   @override
+  String get coverLabelStrays => '流浪猫的照片';
+
+  @override
   String get coverRemove => '移除封面图片';
 
   @override

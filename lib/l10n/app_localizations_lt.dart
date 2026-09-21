@@ -3397,6 +3397,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get coverLabelNeutral => 'Namų ūkio nuotrauka';
 
   @override
+  String get coverLabelStrays => 'Benamių kačių nuotrauka';
+
+  @override
   String get coverRemove => 'Pašalinti viršelio nuotrauką';
 
   @override

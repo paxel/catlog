@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/widgets.dart' as pw;
 
@@ -150,8 +151,11 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
   /// Pictures brought in from the gallery, kept only for this poster.
   final _external = <String, Uint8List>{};
 
-  Future<void> _addExternal() async {
-    final pick = widget.pickPhoto ?? (c) => pickImageBytes(c, allowCrop: false);
+  /// A picture from the gallery or the camera, whichever tile was tapped.
+  Future<void> _addExternal(ImageSource source) async {
+    final pick =
+        widget.pickPhoto ??
+        (c) => pickImageBytes(c, allowCrop: false, source: source);
     final bytes = await pick(context);
     if (bytes == null || !mounted) return;
     final key = 'gallery:${_external.length}';
@@ -321,21 +325,32 @@ class _MissingPosterScreenState extends State<MissingPosterScreen> {
         height: 64,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemCount: images.length + 1,
+          itemCount: images.length + (hasCamera ? 2 : 1),
           separatorBuilder: (_, _) => const SizedBox(width: 8),
           itemBuilder: (context, i) {
-            // The first tile brings a full-size picture from the gallery.
+            // The first tiles bring a full-size picture in: from the
+            // gallery, and from the camera where there is one.
             if (i == 0) {
               return SizedBox(
                 width: 64,
                 child: IconButton.outlined(
                   icon: const Icon(Icons.photo_library_outlined),
                   tooltip: t.chooseFromGallery,
-                  onPressed: _addExternal,
+                  onPressed: () => _addExternal(ImageSource.gallery),
                 ),
               );
             }
-            final hash = images[i - 1];
+            if (hasCamera && i == 1) {
+              return SizedBox(
+                width: 64,
+                child: IconButton.outlined(
+                  icon: const Icon(Icons.photo_camera_outlined),
+                  tooltip: t.takePhoto,
+                  onPressed: () => _addExternal(ImageSource.camera),
+                ),
+              );
+            }
+            final hash = images[i - (hasCamera ? 2 : 1)];
             final external = _external[hash];
             final ImageProvider? photo = external == null
                 ? imageProviderFor(store, hash)

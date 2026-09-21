@@ -7,7 +7,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 - Every sound has its own setting, on the phone and the desk: a chore ticked, the day's chores done, a ladder climbed, an adoption, each with a list to pick from under Settings, Sounds. The pick is heard as it is made; None is a choice, and so is a sound file of your own. The one Cheer sound switch is gone; a device that had it off stays silent until a moment gets its own sound.
-- A clowder's cover picture is one row with the camera and the gallery as buttons, on the phone; the desk's row says what it is beside its button. The explanation and the sheet in between are gone.
+- A clowder's cover picture is one row with the camera and the gallery as buttons, on the phone; the desk's row says what it is beside its button. The explanation and the sheet in between are gone. The strays list leads with the same row for its own picture instead of an icon in the bar.
+- A button that already says camera opens the camera: the Stray Cam, the flier capture from the strays list, and the missing poster's picture tiles, which now come as a gallery tile and a camera tile. The flier capture from a cat's page offers the two as buttons on its page. On the strays list a hold on the flier button brings a poster from the gallery.
 - Every view on the desk opens with its name as a headline under the bar; Agenda, Map and Vet no longer squeeze theirs into the toolbar.
 - The desk's tips look and work like the phone's: one bubble with Skip and Next, Got it on a page's last, Skip ending that page's tips. A tip whose widget is not on screen shows the same bubble under the bar instead of a line under the menu. The intro asks whether the tips are wanted, with Start with the tips and Start without tips under the name, instead of a checkbox.
 

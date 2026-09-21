@@ -1151,6 +1151,7 @@
   "coverPick": "Stampa tal-qoxra…",
   "coverLabel": "Stampa tal-clowder",
   "coverLabelNeutral": "Stampa tad-dar",
+  "coverLabelStrays": "Stampa għall-qtates tat-triq",
   "coverRemove": "Neħħi l-istampa tal-qoxra",
   "skipTour": "Aqbeż l-introduzzjoni u l-ħjiel f'din l-installazzjoni",
   "spotCatChores": "Il-kura rikorrenti tgħix hawn: ikel, mediċini, kontrolli, kull waħda bit-tfakkira tagħha.",

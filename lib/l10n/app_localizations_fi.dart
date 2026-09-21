@@ -3379,6 +3379,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get coverLabelNeutral => 'Kuva kotitaloudesta';
 
   @override
+  String get coverLabelStrays => 'Kuva kulkukissoille';
+
+  @override
   String get coverRemove => 'Poista kansikuva';
 
   @override

@@ -3404,6 +3404,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get coverLabelNeutral => 'Slika gospodinjstva';
 
   @override
+  String get coverLabelStrays => 'Slika za potepuške mačke';
+
+  @override
   String get coverRemove => 'Odstrani naslovno sliko';
 
   @override

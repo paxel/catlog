@@ -3382,6 +3382,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get coverLabelNeutral => 'Een foto van het huishouden';
 
   @override
+  String get coverLabelStrays => 'Een foto voor de zwerfkatten';
+
+  @override
   String get coverRemove => 'Omslagfoto verwijderen';
 
   @override

@@ -3387,6 +3387,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get coverLabelNeutral => 'Μια εικόνα του νοικοκυριού';
 
   @override
+  String get coverLabelStrays => 'Μια εικόνα για τα αδέσποτα';
+
+  @override
   String get coverRemove => 'Αφαίρεση εικόνας εξωφύλλου';
 
   @override

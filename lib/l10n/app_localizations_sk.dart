@@ -3389,6 +3389,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get coverLabelNeutral => 'Obrázok domácnosti';
 
   @override
+  String get coverLabelStrays => 'Obrázok pre túlavé mačky';
+
+  @override
   String get coverRemove => 'Odstrániť titulný obrázok';
 
   @override

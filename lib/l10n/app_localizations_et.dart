@@ -3375,6 +3375,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get coverLabelNeutral => 'Pilt leibkonnast';
 
   @override
+  String get coverLabelStrays => 'Pilt hulkuvate kasside jaoks';
+
+  @override
   String get coverRemove => 'Eemalda kaanepilt';
 
   @override

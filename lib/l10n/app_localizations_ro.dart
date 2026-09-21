@@ -3391,6 +3391,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get coverLabelNeutral => 'O imagine a gospodăriei';
 
   @override
+  String get coverLabelStrays => 'O imagine pentru pisicile fără stăpân';
+
+  @override
   String get coverRemove => 'Elimină imaginea de copertă';
 
   @override

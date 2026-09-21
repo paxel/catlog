@@ -3378,6 +3378,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get coverLabelNeutral => 'A picture of the household';
 
   @override
+  String get coverLabelStrays => 'A picture for the strays';
+
+  @override
   String get coverRemove => 'Remove cover picture';
 
   @override

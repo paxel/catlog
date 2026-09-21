@@ -1151,6 +1151,7 @@
   "coverPick": "カバー写真…",
   "coverLabel": "クラウダーの写真",
   "coverLabelNeutral": "世帯の写真",
+  "coverLabelStrays": "野良猫の写真",
   "coverRemove": "カバー写真を削除",
   "skipTour": "このインストールでは紹介とヒントを省略する",
   "spotCatChores": "繰り返しのお世話はここ: 食事、薬、チェック。それぞれにリマインダーを付けられます。",

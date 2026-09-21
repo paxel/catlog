@@ -1151,6 +1151,7 @@
   "coverPick": "Borítókép…",
   "coverLabel": "Kép a clowderről",
   "coverLabelNeutral": "Kép a háztartásról",
+  "coverLabelStrays": "Kép a kóbor macskákhoz",
   "coverRemove": "Borítókép eltávolítása",
   "skipTour": "Bevezető és tippek kihagyása ezen a telepítésen",
   "spotCatChores": "Az ismétlődő gondozás itt lakik: etetés, gyógyszer, ellenőrzés, mindegyik saját emlékeztetővel.",

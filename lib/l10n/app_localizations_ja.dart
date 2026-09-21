@@ -3253,6 +3253,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get coverLabelNeutral => '世帯の写真';
 
   @override
+  String get coverLabelStrays => '野良猫の写真';
+
+  @override
   String get coverRemove => 'カバー写真を削除';
 
   @override

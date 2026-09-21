@@ -3323,6 +3323,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get coverLabelNeutral => 'تصویری از خانوار';
 
   @override
+  String get coverLabelStrays => 'تصویری برای گربه‌های ولگرد';
+
+  @override
   String get coverRemove => 'حذف تصویر جلد';
 
   @override

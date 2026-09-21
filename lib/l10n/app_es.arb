@@ -1151,6 +1151,7 @@
   "coverPick": "Imagen de portada…",
   "coverLabel": "Una imagen del clowder",
   "coverLabelNeutral": "Una imagen del hogar",
+  "coverLabelStrays": "Una imagen para los callejeros",
   "coverRemove": "Quitar imagen de portada",
   "skipTour": "Saltar la introducción y los consejos en esta instalación",
   "spotCatChores": "Los cuidados recurrentes viven aquí: comida, medicinas, controles, cada uno con su recordatorio.",

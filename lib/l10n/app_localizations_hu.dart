@@ -3378,6 +3378,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get coverLabelNeutral => 'Kép a háztartásról';
 
   @override
+  String get coverLabelStrays => 'Kép a kóbor macskákhoz';
+
+  @override
   String get coverRemove => 'Borítókép eltávolítása';
 
   @override

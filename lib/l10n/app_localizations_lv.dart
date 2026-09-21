@@ -3393,6 +3393,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get coverLabelNeutral => 'Mājsaimniecības attēls';
 
   @override
+  String get coverLabelStrays => 'Attēls klaiņojošajiem kaķiem';
+
+  @override
   String get coverRemove => 'Noņemt vāka attēlu';
 
   @override
