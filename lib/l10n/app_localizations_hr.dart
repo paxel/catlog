@@ -3371,8 +3371,10 @@ class AppLocalizationsHr extends AppLocalizations {
   String get coverPick => 'Naslovna slika…';
 
   @override
-  String get coverHint =>
-      'Slika mjesta: kuća, dvorište, hranilište. Na kartici umjesto mačke.';
+  String get coverLabel => 'Slika clowdera';
+
+  @override
+  String get coverLabelNeutral => 'Slika kućanstva';
 
   @override
   String get coverRemove => 'Ukloni naslovnu sliku';

@@ -3199,7 +3199,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get coverPick => '封面图片…';
 
   @override
-  String get coverHint => '地点的图片：房子、院子、喂食点。在卡片上代替猫显示。';
+  String get coverLabel => '猫群的照片';
+
+  @override
+  String get coverLabelNeutral => '家庭的照片';
 
   @override
   String get coverRemove => '移除封面图片';

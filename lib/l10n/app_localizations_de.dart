@@ -3370,8 +3370,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get coverPick => 'Titelbild…';
 
   @override
-  String get coverHint =>
-      'Ein Bild des Ortes: das Haus, der Hof, der Futterplatz. Auf der Karte statt einer Katze gezeigt.';
+  String get coverLabel => 'Ein Bild der Kolonie';
+
+  @override
+  String get coverLabelNeutral => 'Ein Bild des Haushalts';
 
   @override
   String get coverRemove => 'Titelbild entfernen';

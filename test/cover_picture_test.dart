@@ -53,9 +53,9 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Cover picture…'), findsNothing);
+    expect(find.text('A picture of the clowder'), findsNothing);
     await tester.tap(find.byTooltip('Edit'));
     await tester.pumpAndSettle();
-    expect(find.text('Cover picture…'), findsOneWidget);
+    expect(find.text('A picture of the clowder'), findsOneWidget);
   });
 }

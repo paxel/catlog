@@ -3411,8 +3411,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get coverPick => 'Pictiúr clúdaigh…';
 
   @override
-  String get coverHint =>
-      'Pictiúr den áit: an teach, an clós, an láthair bheathaithe. Ar an gcárta in ionad cait.';
+  String get coverLabel => 'Pictiúr den chlowdar';
+
+  @override
+  String get coverLabelNeutral => 'Pictiúr den líon tí';
 
   @override
   String get coverRemove => 'Bain an pictiúr clúdaigh';

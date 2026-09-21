@@ -3380,8 +3380,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get coverPick => 'Обкладинка…';
 
   @override
-  String get coverHint =>
-      'Знімок місця: будинок, двір, місце годівлі. Показується на картці замість кішки.';
+  String get coverLabel => 'Знімок клаудера';
+
+  @override
+  String get coverLabelNeutral => 'Знімок домогосподарства';
 
   @override
   String get coverRemove => 'Прибрати обкладинку';

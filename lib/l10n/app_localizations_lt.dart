@@ -3379,8 +3379,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get coverPick => 'Viršelio nuotrauka…';
 
   @override
-  String get coverHint =>
-      'Vietos nuotrauka: namas, kiemas, šėrimo vieta. Rodoma kortelėje vietoj katės.';
+  String get coverLabel => 'Klauderio nuotrauka';
+
+  @override
+  String get coverLabelNeutral => 'Namų ūkio nuotrauka';
 
   @override
   String get coverRemove => 'Pašalinti viršelio nuotrauką';

@@ -3381,8 +3381,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get coverPick => 'Zdjęcie okładki…';
 
   @override
-  String get coverHint =>
-      'Zdjęcie miejsca: dom, podwórko, miejsce karmienia. Pokazywane na karcie zamiast kota.';
+  String get coverLabel => 'Zdjęcie clowdera';
+
+  @override
+  String get coverLabelNeutral => 'Zdjęcie domostwa';
 
   @override
   String get coverRemove => 'Usuń zdjęcie okładki';

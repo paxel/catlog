@@ -3370,8 +3370,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get coverPick => 'Εικόνα εξωφύλλου…';
 
   @override
-  String get coverHint =>
-      'Μια εικόνα του τόπου: το σπίτι, η αυλή, το σημείο ταΐσματος. Στην κάρτα αντί για γάτα.';
+  String get coverLabel => 'Μια εικόνα της ομάδας';
+
+  @override
+  String get coverLabelNeutral => 'Μια εικόνα του νοικοκυριού';
 
   @override
   String get coverRemove => 'Αφαίρεση εικόνας εξωφύλλου';

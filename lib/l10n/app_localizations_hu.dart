@@ -3360,8 +3360,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get coverPick => 'Borítókép…';
 
   @override
-  String get coverHint =>
-      'Kép a helyről: a ház, az udvar, az etetőhely. A kártyán macska helyett.';
+  String get coverLabel => 'Kép a clowderről';
+
+  @override
+  String get coverLabelNeutral => 'Kép a háztartásról';
 
   @override
   String get coverRemove => 'Borítókép eltávolítása';

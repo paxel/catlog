@@ -3369,8 +3369,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get coverPick => 'Image de couverture…';
 
   @override
-  String get coverHint =>
-      'Une image du lieu : la maison, la cour, le point de nourrissage. Affichée sur la carte à la place d\'un chat.';
+  String get coverLabel => 'Une image du clowder';
+
+  @override
+  String get coverLabelNeutral => 'Une image du foyer';
 
   @override
   String get coverRemove => 'Retirer l\'image de couverture';

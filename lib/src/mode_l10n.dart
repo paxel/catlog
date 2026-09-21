@@ -706,7 +706,10 @@ class ModeLocalizations implements AppLocalizations {
   String get correctThisValue => base.correctThisValue;
 
   @override
-  String get coverHint => base.coverHint;
+  String get coverLabel => pets ? base.coverLabelNeutral : base.coverLabel;
+
+  @override
+  String get coverLabelNeutral => base.coverLabelNeutral;
 
   @override
   String get coverPick => base.coverPick;

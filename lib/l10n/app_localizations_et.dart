@@ -3357,8 +3357,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get coverPick => 'Kaanepilt…';
 
   @override
-  String get coverHint =>
-      'Pilt kohast: maja, hoov, söötmiskoht. Kaardil kassi asemel.';
+  String get coverLabel => 'Pilt klauderist';
+
+  @override
+  String get coverLabelNeutral => 'Pilt leibkonnast';
 
   @override
   String get coverRemove => 'Eemalda kaanepilt';

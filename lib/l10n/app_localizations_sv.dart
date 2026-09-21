@@ -3358,8 +3358,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get coverPick => 'Omslagsbild…';
 
   @override
-  String get coverHint =>
-      'En bild av platsen: huset, gården, matplatsen. Visas på kortet i stället för en katt.';
+  String get coverLabel => 'En bild av clowdern';
+
+  @override
+  String get coverLabelNeutral => 'En bild av hushållet';
 
   @override
   String get coverRemove => 'Ta bort omslagsbild';

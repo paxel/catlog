@@ -3235,7 +3235,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get coverPick => 'カバー写真…';
 
   @override
-  String get coverHint => '場所の写真: 家、庭、給餌場所。カードに猫の代わりに表示されます。';
+  String get coverLabel => 'クラウダーの写真';
+
+  @override
+  String get coverLabelNeutral => '世帯の写真';
 
   @override
   String get coverRemove => 'カバー写真を削除';

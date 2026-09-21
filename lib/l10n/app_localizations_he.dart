@@ -3356,8 +3356,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get coverPick => 'תמונת שער…';
 
   @override
-  String get coverHint =>
-      'תמונה של המקום: הבית, החצר, נקודת ההאכלה. מוצגת על הכרטיס במקום חתול.';
+  String get coverLabel => 'תמונה של הקבוצה';
+
+  @override
+  String get coverLabelNeutral => 'תמונה של משק הבית';
 
   @override
   String get coverRemove => 'הסרת תמונת השער';

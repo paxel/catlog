@@ -3374,8 +3374,10 @@ class AppLocalizationsRo extends AppLocalizations {
   String get coverPick => 'Imagine de copertă…';
 
   @override
-  String get coverHint =>
-      'O imagine a locului: casa, curtea, locul de hrănire. Pe card în locul unei pisici.';
+  String get coverLabel => 'O imagine a clowderului';
+
+  @override
+  String get coverLabelNeutral => 'O imagine a gospodăriei';
 
   @override
   String get coverRemove => 'Elimină imaginea de copertă';

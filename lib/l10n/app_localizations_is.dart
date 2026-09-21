@@ -3363,8 +3363,10 @@ class AppLocalizationsIs extends AppLocalizations {
   String get coverPick => 'Forsíðumynd…';
 
   @override
-  String get coverHint =>
-      'Mynd af staðnum: húsið, garðurinn, fóðurstaðurinn. Sýnd á spjaldinu í stað kattar.';
+  String get coverLabel => 'Mynd af hópnum';
+
+  @override
+  String get coverLabelNeutral => 'Mynd af heimilinu';
 
   @override
   String get coverRemove => 'Fjarlægja forsíðumynd';

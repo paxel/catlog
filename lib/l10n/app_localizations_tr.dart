@@ -3359,8 +3359,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get coverPick => 'Kapak resmi…';
 
   @override
-  String get coverHint =>
-      'Yerin bir resmi: ev, avlu, besleme noktası. Kartta kedi yerine gösterilir.';
+  String get coverLabel => 'Clowder\'ın bir fotoğrafı';
+
+  @override
+  String get coverLabelNeutral => 'Hanenin bir fotoğrafı';
 
   @override
   String get coverRemove => 'Kapak resmini kaldır';

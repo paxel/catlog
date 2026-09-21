@@ -3375,8 +3375,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get coverPick => 'Vāka attēls…';
 
   @override
-  String get coverHint =>
-      'Vietas attēls: māja, pagalms, barošanas vieta. Kartītē kaķa vietā.';
+  String get coverLabel => 'Klaudera attēls';
+
+  @override
+  String get coverLabelNeutral => 'Mājsaimniecības attēls';
 
   @override
   String get coverRemove => 'Noņemt vāka attēlu';

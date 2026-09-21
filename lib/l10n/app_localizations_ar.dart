@@ -3391,8 +3391,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get coverPick => 'صورة الغلاف…';
 
   @override
-  String get coverHint =>
-      'صورة للمكان: البيت، الفناء، موضع الإطعام. تُعرض على البطاقة بدل قطة.';
+  String get coverLabel => 'صورة للمجموعة';
+
+  @override
+  String get coverLabelNeutral => 'صورة للمنزل';
 
   @override
   String get coverRemove => 'إزالة صورة الغلاف';

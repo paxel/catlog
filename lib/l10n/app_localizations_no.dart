@@ -3358,8 +3358,10 @@ class AppLocalizationsNo extends AppLocalizations {
   String get coverPick => 'Forsidebilde…';
 
   @override
-  String get coverHint =>
-      'Et bilde av stedet: huset, gården, fôringsplassen. Vises på kortet i stedet for en katt.';
+  String get coverLabel => 'Et bilde av clowderen';
+
+  @override
+  String get coverLabelNeutral => 'Et bilde av husstanden';
 
   @override
   String get coverRemove => 'Fjern forsidebilde';

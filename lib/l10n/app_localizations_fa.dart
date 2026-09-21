@@ -3305,8 +3305,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get coverPick => 'تصویر جلد…';
 
   @override
-  String get coverHint =>
-      'تصویری از مکان: خانه، حیاط، محل غذا دادن. روی کارت به جای گربه نمایش داده می‌شود.';
+  String get coverLabel => 'تصویری از گروه';
+
+  @override
+  String get coverLabelNeutral => 'تصویری از خانوار';
 
   @override
   String get coverRemove => 'حذف تصویر جلد';

@@ -3371,8 +3371,10 @@ class AppLocalizationsSk extends AppLocalizations {
   String get coverPick => 'Titulný obrázok…';
 
   @override
-  String get coverHint =>
-      'Obrázok miesta: dom, dvor, kŕmne miesto. Na karte namiesto mačky.';
+  String get coverLabel => 'Obrázok clowderu';
+
+  @override
+  String get coverLabelNeutral => 'Obrázok domácnosti';
 
   @override
   String get coverRemove => 'Odstrániť titulný obrázok';

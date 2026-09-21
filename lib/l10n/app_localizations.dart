@@ -5882,11 +5882,17 @@ abstract class AppLocalizations {
   /// **'Cover picture…'**
   String get coverPick;
 
-  /// No description provided for @coverHint.
+  /// No description provided for @coverLabel.
   ///
   /// In en, this message translates to:
-  /// **'A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.'**
-  String get coverHint;
+  /// **'A picture of the clowder'**
+  String get coverLabel;
+
+  /// No description provided for @coverLabelNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'A picture of the household'**
+  String get coverLabelNeutral;
 
   /// No description provided for @coverRemove.
   ///

@@ -3386,8 +3386,10 @@ class AppLocalizationsSl extends AppLocalizations {
   String get coverPick => 'Naslovna slika…';
 
   @override
-  String get coverHint =>
-      'Slika kraja: hiša, dvorišče, krmišče. Na kartici namesto mačke.';
+  String get coverLabel => 'Slika clowderja';
+
+  @override
+  String get coverLabelNeutral => 'Slika gospodinjstva';
 
   @override
   String get coverRemove => 'Odstrani naslovno sliko';

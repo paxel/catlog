@@ -131,7 +131,13 @@ impl Pages {
                         .corner_radius(8.0),
                 );
             }
+            // What it is and the buttons in one row, nothing to read first.
             ui.horizontal(|ui| {
+                ui.label(if pet_mode {
+                    t.cover_label_neutral()
+                } else {
+                    t.cover_label()
+                });
                 if crate::icons::button(ui, crate::icons::ADD_A_PHOTO, t.cover_pick()).clicked() {
                     action = PageAction::SetCover(id.to_string());
                 }
@@ -142,7 +148,6 @@ impl Pages {
                     action = PageAction::RemoveCover(id.to_string());
                 }
             });
-            ui.label(egui::RichText::new(t.cover_hint()).weak());
             let cats = store.cats(Some(id)).unwrap_or_default();
             ui.add_space(8.0);
             ui.strong(format!(

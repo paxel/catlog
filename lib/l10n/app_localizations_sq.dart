@@ -3362,8 +3362,10 @@ class AppLocalizationsSq extends AppLocalizations {
   String get coverPick => 'Foto kopertine…';
 
   @override
-  String get coverHint =>
-      'Një foto e vendit: shtëpia, oborri, vendi i ushqimit. Në kartë në vend të një maceje.';
+  String get coverLabel => 'Një foto e clowderit';
+
+  @override
+  String get coverLabelNeutral => 'Një foto e familjes';
 
   @override
   String get coverRemove => 'Hiq foton e kopertinës';

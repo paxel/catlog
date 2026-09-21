@@ -3362,8 +3362,10 @@ class AppLocalizationsMk extends AppLocalizations {
   String get coverPick => 'Насловна слика…';
 
   @override
-  String get coverHint =>
-      'Слика од местото: куќата, дворот, местото за хранење. На картичката наместо мачка.';
+  String get coverLabel => 'Слика на клаудерот';
+
+  @override
+  String get coverLabelNeutral => 'Слика на домаќинството';
 
   @override
   String get coverRemove => 'Отстрани насловна слика';

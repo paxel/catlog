@@ -3361,8 +3361,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get coverPick => 'Kansikuva…';
 
   @override
-  String get coverHint =>
-      'Kuva paikasta: talo, piha, ruokintapaikka. Näytetään kortilla kissan sijaan.';
+  String get coverLabel => 'Kuva clowderista';
+
+  @override
+  String get coverLabelNeutral => 'Kuva kotitaloudesta';
 
   @override
   String get coverRemove => 'Poista kansikuva';

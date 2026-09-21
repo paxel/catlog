@@ -3359,8 +3359,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get coverPick => 'Заглавна снимка…';
 
   @override
-  String get coverHint =>
-      'Снимка на мястото: къщата, дворът, мястото за хранене. На картата вместо котка.';
+  String get coverLabel => 'Снимка на клаудера';
+
+  @override
+  String get coverLabelNeutral => 'Снимка на домакинството';
 
   @override
   String get coverRemove => 'Премахни заглавната снимка';

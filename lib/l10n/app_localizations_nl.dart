@@ -3365,8 +3365,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get coverPick => 'Omslagfoto…';
 
   @override
-  String get coverHint =>
-      'Een foto van de plek: het huis, de tuin, de voerplek. Op de kaart getoond in plaats van een kat.';
+  String get coverLabel => 'Een foto van de clowder';
+
+  @override
+  String get coverLabelNeutral => 'Een foto van het huishouden';
 
   @override
   String get coverRemove => 'Omslagfoto verwijderen';

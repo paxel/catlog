@@ -3379,8 +3379,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get coverPick => 'Обложка…';
 
   @override
-  String get coverHint =>
-      'Снимок места: дом, двор, место кормления. Показывается на карточке вместо кошки.';
+  String get coverLabel => 'Снимок клаудера';
+
+  @override
+  String get coverLabelNeutral => 'Снимок домохозяйства';
 
   @override
   String get coverRemove => 'Убрать обложку';

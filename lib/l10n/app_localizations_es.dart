@@ -3369,8 +3369,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get coverPick => 'Imagen de portada…';
 
   @override
-  String get coverHint =>
-      'Una imagen del lugar: la casa, el patio, el punto de alimentación. Se muestra en la tarjeta en vez de un gato.';
+  String get coverLabel => 'Una imagen del clowder';
+
+  @override
+  String get coverLabelNeutral => 'Una imagen del hogar';
 
   @override
   String get coverRemove => 'Quitar imagen de portada';

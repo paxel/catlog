@@ -3373,8 +3373,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get coverPick => 'Stampa tal-qoxra…';
 
   @override
-  String get coverHint =>
-      'Stampa tal-post: id-dar, il-bitħa, il-post tal-ikel. Fuq il-kard minflok qattus.';
+  String get coverLabel => 'Stampa tal-clowder';
+
+  @override
+  String get coverLabelNeutral => 'Stampa tad-dar';
 
   @override
   String get coverRemove => 'Neħħi l-istampa tal-qoxra';

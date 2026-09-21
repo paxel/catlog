@@ -3372,8 +3372,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get coverPick => 'Titulní obrázek…';
 
   @override
-  String get coverHint =>
-      'Obrázek místa: dům, dvůr, krmné místo. Na kartě místo kočky.';
+  String get coverLabel => 'Obrázek clowderu';
+
+  @override
+  String get coverLabelNeutral => 'Obrázek domácnosti';
 
   @override
   String get coverRemove => 'Odebrat titulní obrázek';
