@@ -112,12 +112,16 @@ impl Pages {
                 if crate::icons::button(ui, crate::icons::ADD, t.new_cat()).clicked() {
                     action = PageAction::NewCat(Some(id.to_string()));
                 }
-                ui.menu_button(t.actions_menu(), |ui| {
-                    if ui.button(t.merge_this_into(t.kind_clowder())).clicked() {
-                        action = PageAction::MergeInto(id.to_string());
-                        ui.close();
-                    }
-                });
+                // Merge beside New cat: a menu with one item is no menu.
+                if crate::icons::button(
+                    ui,
+                    crate::icons::MERGE_TYPE,
+                    t.merge_this_into(t.kind_clowder()),
+                )
+                .clicked()
+                {
+                    action = PageAction::MergeInto(id.to_string());
+                }
             });
             // The place's own picture, chosen here, as the phone's card has it.
             let cover = store.profile_image(id).ok().flatten();
