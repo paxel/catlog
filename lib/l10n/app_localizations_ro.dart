@@ -738,15 +738,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Conflict — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Modificat în două locuri deodată. Alege ce e adevărat:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privat)';
   }

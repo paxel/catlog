@@ -376,11 +376,11 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byIcon(Icons.warning_amber), findsOneWidget);
+    // The badge leads to the conflicts page; the values are buttons.
     await tester.tap(find.text('Gender'));
     await tester.pumpAndSettle();
-    expect(find.textContaining('Conflict'), findsOneWidget);
-    await tester.tap(find.text('female'));
-    await tester.tap(find.text('Resolve'));
+    expect(find.text('Conflicts to resolve'), findsOneWidget);
+    await tester.tap(find.widgetWithText(OutlinedButton, 'female'));
     await tester.pumpAndSettle();
 
     expect(store.hasConflict(cat, Keys.userField('gender')), isFalse);

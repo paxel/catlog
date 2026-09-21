@@ -1442,18 +1442,6 @@ abstract class AppLocalizations {
   /// **'Trail: {name} ({count} positions)'**
   String trailOfPlace(String name, int count);
 
-  /// No description provided for @conflictOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Conflict — {field}'**
-  String conflictOn(String field);
-
-  /// No description provided for @conflictBody.
-  ///
-  /// In en, this message translates to:
-  /// **'Changed in two places at once. Pick what is true:'**
-  String get conflictBody;
-
   /// No description provided for @privateMarker.
   ///
   /// In en, this message translates to:

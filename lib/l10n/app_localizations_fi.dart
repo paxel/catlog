@@ -738,15 +738,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Ristiriita — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Muutettu kahdessa paikassa yhtä aikaa. Valitse, mikä on totta:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (yksityinen)';
   }

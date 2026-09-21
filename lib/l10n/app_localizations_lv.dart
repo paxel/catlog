@@ -738,15 +738,6 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Konflikts — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Mainīts divās vietās vienlaikus. Izvēlieties, kas ir patiesība:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privāts)';
   }

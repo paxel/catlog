@@ -739,15 +739,6 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Árekstur — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Breytt á tveimur stöðum í einu. Veldu hvað er rétt:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (einka)';
   }

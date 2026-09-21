@@ -736,15 +736,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Çakışma — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Aynı anda iki yerde değiştirildi. Doğru olanı seçin:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (özel)';
   }

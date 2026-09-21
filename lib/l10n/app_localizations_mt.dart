@@ -738,15 +738,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Kunflitt — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Inbidel f\'żewġ postijiet fl-istess ħin. Agħżel x\'inhu veru:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privat)';
   }

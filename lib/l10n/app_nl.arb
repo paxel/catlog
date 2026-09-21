@@ -130,8 +130,6 @@
   "trailOf": "Route: {name} ({count} waarnemingen)",
   "trailOfField": "Spoor: {name} — {field} ({count} waarden)",
   "trailOfPlace": "Spoor: {name} ({count} posities)",
-  "conflictOn": "Conflict — {field}",
-  "conflictBody": "Op twee plekken tegelijk gewijzigd. Kies wat waar is:",
   "privateMarker": "{field} (privé)",
   "conflictSame": "Beide wijzigingen zeggen hetzelfde: {value}. Niets te kiezen; Oplossen haalt de markering weg.",
   "mergeThisInto": "Deze {kind} samenvoegen met…",

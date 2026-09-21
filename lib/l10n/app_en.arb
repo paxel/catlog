@@ -467,7 +467,6 @@
       }
     }
   },
-  "conflictOn": "Conflict — {field}",
   "@conflictOn": {
     "placeholders": {
       "field": {
@@ -475,7 +474,6 @@
       }
     }
   },
-  "conflictBody": "Changed in two places at once. Pick what is true:",
   "privateMarker": "{field} (private)",
   "@privateMarker": {
     "placeholders": {

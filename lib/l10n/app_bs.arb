@@ -130,8 +130,6 @@
   "trailOf": "Ruta: {name} ({count} viđenja)",
   "trailOfField": "Trag: {name} — {field} ({count} vrijednosti)",
   "trailOfPlace": "Trag: {name} ({count} pozicija)",
-  "conflictOn": "Sukob — {field}",
-  "conflictBody": "Promijenjeno na dva mjesta istovremeno. Odaberite šta je tačno:",
   "privateMarker": "{field} (privatno)",
   "conflictSame": "Obje izmjene kažu isto: {value}. Nema šta birati; Riješi uklanja oznaku.",
   "mergeThisInto": "Spoji ovaj zapis ({kind}) sa…",

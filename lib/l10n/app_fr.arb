@@ -130,8 +130,6 @@
   "trailOf": "Trajet : {name} ({count} observations)",
   "trailOfField": "Trajet : {name} — {field} ({count} valeurs)",
   "trailOfPlace": "Trajet : {name} ({count} positions)",
-  "conflictOn": "Conflit — {field}",
-  "conflictBody": "Modifié à deux endroits en même temps. Choisis ce qui est vrai :",
   "privateMarker": "{field} (privé)",
   "conflictSame": "Les deux modifications disent la même chose : {value}. Rien à choisir ; Résoudre retire la marque.",
   "mergeThisInto": "Fusionner ce {kind} avec…",

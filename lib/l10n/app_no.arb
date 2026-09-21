@@ -130,8 +130,6 @@
   "trailOf": "Rute: {name} ({count} observasjoner)",
   "trailOfField": "Spor: {name} — {field} ({count} verdier)",
   "trailOfPlace": "Spor: {name} ({count} posisjoner)",
-  "conflictOn": "Konflikt — {field}",
-  "conflictBody": "Endret to steder samtidig. Velg hva som stemmer:",
   "privateMarker": "{field} (privat)",
   "conflictSame": "Begge endringene sier det samme: {value}. Ingenting å velge; Løs fjerner merket.",
   "mergeThisInto": "Slå sammen denne {kind} med…",

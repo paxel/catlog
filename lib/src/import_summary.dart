@@ -2,7 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'conflict_dialog.dart';
+import 'conflict_choice.dart';
 import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
@@ -532,20 +532,20 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
   Widget _conflictRow((String, String) c) {
     final t = context.t;
     final (entity, field) = c;
-    final candidates = store.fieldHistory(entity, field).take(2).toList();
-    return ListTile(
-      leading: const Icon(Icons.warning_amber, color: Colors.amber),
-      title: Text('${_name(entity)} — ${fieldLabel(t, store, field)}'),
-      subtitle: Text([
-        for (final e in candidates)
-          '${valueLabel(t, store, field, e.value)} (${e.author})'
-      ].join(' · ')),
-      onTap: () async {
-        final changed = await showConflictDialog(context, store, entity, field);
-        if (!mounted) return;
-        setState(() => _resolved = _resolved || changed);
-      },
-    );
+    return Column(children: [
+      ListTile(
+        leading: const Icon(Icons.warning_amber, color: Colors.amber),
+        title: Text('${_name(entity)} — ${fieldLabel(t, store, field)}'),
+      ),
+      ConflictChoice(
+        store: store,
+        entity: entity,
+        field: field,
+        onResolved: () {
+          if (mounted) setState(() => _resolved = true);
+        },
+      ),
+    ]);
   }
 
   String _metaLine(MetaChange m) {

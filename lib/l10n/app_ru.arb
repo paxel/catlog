@@ -130,8 +130,6 @@
   "trailOf": "Маршрут: {name} (встреч: {count})",
   "trailOfField": "Маршрут: {name} — {field} ({count} значений)",
   "trailOfPlace": "Маршрут: {name} ({count} позиций)",
-  "conflictOn": "Конфликт — {field}",
-  "conflictBody": "Изменено в двух местах одновременно. Выберите, что верно:",
   "privateMarker": "{field} (личное)",
   "conflictSame": "Оба изменения говорят одно и то же: {value}. Выбирать нечего; «Разрешить» снимает отметку.",
   "mergeThisInto": "Объединить эту запись ({kind}) с…",

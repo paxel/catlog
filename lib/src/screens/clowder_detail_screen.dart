@@ -5,7 +5,6 @@ import 'package:latlong2/latlong.dart';
 import '../move_to_catalog.dart';
 import '../layout.dart';
 import '../help.dart';
-import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../hidden.dart';
 import '../l10n.dart';
@@ -29,6 +28,7 @@ import '../spotlight.dart';
 import 'card_screen.dart';
 import '../cover_picture.dart';
 import 'cat_detail_screen.dart';
+import 'conflicts_screen.dart';
 import 'clowder_card_screen.dart';
 import 'map_screen.dart';
 import 'field_history_screen.dart';
@@ -407,10 +407,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       defs: defs,
       editing: _editing,
       onEdit: _editField,
-      onConflict: (def) async {
-        await showConflictDialog(context, store, id, def.key);
-        if (!mounted) return;
-        setState(() {});
+      // The badge leads to the conflicts page, where the two values
+      // are buttons on the row.
+      onConflict: (_) async {
+        await Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ConflictsScreen(store: store)),
+        );
+        if (mounted) setState(() {});
       },
       onHistory: (def) async {
         await Navigator.of(context).push(

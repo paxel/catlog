@@ -130,8 +130,6 @@
   "trailOf": "Percurso: {name} ({count} avistamentos)",
   "trailOfField": "Percurso: {name} — {field} ({count} valores)",
   "trailOfPlace": "Percurso: {name} ({count} posições)",
-  "conflictOn": "Conflito — {field}",
-  "conflictBody": "Alterado em dois sítios ao mesmo tempo. Escolhe o que é verdade:",
   "privateMarker": "{field} (privado)",
   "conflictSame": "Ambas as alterações dizem o mesmo: {value}. Nada a escolher; Resolver retira a marca.",
   "mergeThisInto": "Unir este {kind} com…",

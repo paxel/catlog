@@ -737,14 +737,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Konflikt — $field';
-  }
-
-  @override
-  String get conflictBody => 'Muudetud kahes kohas korraga. Vali, mis on õige:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privaatne)';
   }

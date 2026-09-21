@@ -18,7 +18,9 @@ pub enum SummaryAction {
     None,
     /// Drop what arrived.
     Reject,
-    OpenConflicts,
+    /// A conflict decided on its row: the entry to keep, none when
+    /// both said the same.
+    Resolve(String, String, Option<i64>),
     OpenEntity(String),
 }
 
@@ -105,21 +107,28 @@ impl ArrivalSummary {
                             }
                         }
                     }
-                    if !review.conflicts.is_empty() {
+                    // The conflicts still open, each with its two values as
+                    // buttons right here; a decided one leaves the list.
+                    let open: Vec<&(String, String)> = review
+                        .conflicts
+                        .iter()
+                        .filter(|(e, f)| store.has_conflict(e, f).unwrap_or(false))
+                        .collect();
+                    if !open.is_empty() {
                         ui.add_space(6.0);
                         ui.strong(t.summary_conflicts());
-                        for (entity, field) in &review.conflicts {
+                        for (entity, field) in open {
                             ui.label(format!(
                                 "{} — {}",
                                 name_of(entity),
                                 field_label(t, store, field)
                             ));
-                        }
-                        if ui
-                            .button(t.conflicts_menu(review.conflicts.len() as i64))
-                            .clicked()
-                        {
-                            action = SummaryAction::OpenConflicts;
+                            if let Some(kept) =
+                                crate::conflicts::choice(ui, store, t, units, entity, field)
+                            {
+                                action =
+                                    SummaryAction::Resolve(entity.clone(), field.clone(), kept);
+                            }
                         }
                     }
                     if needs_attention(&review.report) {

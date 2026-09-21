@@ -293,10 +293,8 @@ void main() {
 
     await pump(tester, applied, undo: moment);
     expect(find.text('Conflicts to resolve'), findsOneWidget);
-    expect(find.textContaining('grey (bob)'), findsOneWidget);
-    await tester.tap(find.textContaining('grey (bob)'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Resolve'));
+    // The two values are buttons on the row; keeping grey settles it.
+    await tester.tap(find.widgetWithText(OutlinedButton, 'grey'));
     await tester.pumpAndSettle();
     expect(a.hasConflict(cat, 'f:color'), isFalse);
     expect(find.text('Conflicts to resolve'), findsNothing);

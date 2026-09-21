@@ -130,8 +130,6 @@
   "trailOf": "Διαδρομή: {name} ({count} παρατηρήσεις)",
   "trailOfField": "Διαδρομή: {name} — {field} ({count} τιμές)",
   "trailOfPlace": "Διαδρομή: {name} ({count} θέσεις)",
-  "conflictOn": "Σύγκρουση — {field}",
-  "conflictBody": "Άλλαξε σε δύο μέρη ταυτόχρονα. Διαλέξτε τι ισχύει:",
   "privateMarker": "{field} (ιδιωτικό)",
   "conflictSame": "Και οι δύο αλλαγές λένε το ίδιο: {value}. Τίποτα να διαλέξεις· η Επίλυση αφαιρεί το σήμα.",
   "mergeThisInto": "Συγχώνευση αυτού ({kind}) με…",

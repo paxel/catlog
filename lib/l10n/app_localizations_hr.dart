@@ -737,15 +737,6 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Sukob — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Promijenjeno na dva mjesta istodobno. Odaberite što je točno:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privatno)';
   }

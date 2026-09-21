@@ -130,8 +130,6 @@
   "trailOf": "Trasa: {name} ({count} pozorovaní)",
   "trailOfField": "Stopa: {name} — {field} ({count} hodnôt)",
   "trailOfPlace": "Stopa: {name} ({count} pozícií)",
-  "conflictOn": "Konflikt — {field}",
-  "conflictBody": "Zmenené na dvoch miestach naraz. Vyberte, čo platí:",
   "privateMarker": "{field} (súkromné)",
   "conflictSame": "Obe zmeny hovoria to isté: {value}. Niet čo vyberať; Vyriešiť odstráni značku.",
   "mergeThisInto": "Zlúčiť tento záznam ({kind}) s…",

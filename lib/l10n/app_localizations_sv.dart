@@ -738,15 +738,6 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Konflikt — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Ändrat på två ställen samtidigt. Välj vad som stämmer:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privat)';
   }

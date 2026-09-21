@@ -714,14 +714,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return '冲突 — $field';
-  }
-
-  @override
-  String get conflictBody => '同时在两处被修改。选出正确的：';
-
-  @override
   String privateMarker(Object field) {
     return '$field（私密）';
   }

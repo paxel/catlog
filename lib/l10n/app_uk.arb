@@ -130,8 +130,6 @@
   "trailOf": "Маршрут: {name} (зустрічей: {count})",
   "trailOfField": "Маршрут: {name} — {field} ({count} значень)",
   "trailOfPlace": "Маршрут: {name} ({count} позицій)",
-  "conflictOn": "Конфлікт — {field}",
-  "conflictBody": "Змінено у двох місцях одночасно. Оберіть, що є правдою:",
   "privateMarker": "{field} (особисте)",
   "conflictSame": "Обидві зміни кажуть те саме: {value}. Нема чого вибирати; «Розв’язати» знімає позначку.",
   "mergeThisInto": "Об'єднати цей запис ({kind}) з…",

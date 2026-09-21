@@ -2,7 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/main.dart';
 import 'package:flutter/material.dart';
-import 'package:catlog/src/conflict_dialog.dart';
+import 'package:catlog/src/conflict_choice.dart';
 import 'package:catlog/src/field_labels.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -45,11 +45,12 @@ void main() {
     expect(find.text('Conflicts to resolve'), findsOneWidget);
     expect(find.textContaining('Miezi'), findsOneWidget);
 
-    await tester.tap(find.textContaining('grey (bob)'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Resolve'));
+    // The two values are buttons on the row; keeping grey settles it.
+    expect(find.textContaining('bob'), findsOneWidget);
+    await tester.tap(find.text('grey'));
     await tester.pumpAndSettle();
     expect(store.conflicts(), isEmpty);
+    expect(store.current(cat, 'f:color'), 'grey');
     // The last one settled closes the page; the menu item is gone.
     expect(find.text('Conflicts to resolve'), findsNothing);
     await tester.tap(find.byType(PopupMenuButton<String>));
@@ -78,28 +79,30 @@ void main() {
     );
     // Same value on both sides: no conflict is raised at all.
     expect(store.conflicts(), isEmpty);
-    // One raised anyway (an older version did): the dialog says so.
+    // One raised anyway (an older version did): the row says so and
+    // offers Resolve alone.
     store.append(cat, Keys.conflict('f:deceased'), 'open');
-    late BuildContext ctx;
+    var resolved = false;
     await tester.pumpWidget(
       MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        home: Builder(
-          builder: (context) {
-            ctx = context;
-            return const SizedBox();
-          },
+        home: Scaffold(
+          body: ConflictChoice(
+            store: store,
+            entity: cat,
+            field: 'f:deceased',
+            onResolved: () => resolved = true,
+          ),
         ),
       ),
     );
-    final done = showConflictDialog(ctx, store, cat, 'f:deceased');
     await tester.pumpAndSettle();
     expect(find.textContaining('Both changes say the same'), findsOneWidget);
-    expect(find.byType(RadioListTile<int?>), findsNothing);
+    expect(find.byType(OutlinedButton), findsNothing);
     await tester.tap(find.text('Resolve'));
     await tester.pumpAndSettle();
-    expect(await done, isTrue);
+    expect(resolved, isTrue);
     expect(store.conflicts(), isEmpty);
   });
 

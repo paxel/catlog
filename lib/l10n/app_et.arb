@@ -130,8 +130,6 @@
   "trailOf": "Rada: {name} ({count} vaatlust)",
   "trailOfField": "Rada: {name} — {field} ({count} väärtust)",
   "trailOfPlace": "Rada: {name} ({count} asukohta)",
-  "conflictOn": "Konflikt — {field}",
-  "conflictBody": "Muudetud kahes kohas korraga. Vali, mis on õige:",
   "privateMarker": "{field} (privaatne)",
   "conflictSame": "Mõlemad muudatused ütlevad sama: {value}. Pole midagi valida; Lahenda eemaldab märgi.",
   "mergeThisInto": "Ühenda see {kind}…",

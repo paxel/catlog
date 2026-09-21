@@ -247,10 +247,11 @@ void main() {
     // Conflicted field visible in read mode with the warning badge.
     expect(find.text('Color'), findsOneWidget);
     expect(find.byIcon(Icons.warning_amber), findsOneWidget);
-    // Tap opens the conflict dialog without entering edit mode.
+    // Tap opens the conflicts page without entering edit mode.
     await tester.tap(find.text('Color'));
     await tester.pumpAndSettle();
-    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(find.text('Conflicts to resolve'), findsOneWidget);
+    expect(find.byType(OutlinedButton), findsNWidgets(2));
   });
 
   testWidgets('in edit mode a filled field holds to its history, an empty one holds nothing',

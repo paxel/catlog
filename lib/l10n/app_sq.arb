@@ -130,8 +130,6 @@
   "trailOf": "Gjurma: {name} ({count} vëzhgime)",
   "trailOfField": "Gjurmë: {name} — {field} ({count} vlera)",
   "trailOfPlace": "Gjurmë: {name} ({count} pozicione)",
-  "conflictOn": "Konflikt — {field}",
-  "conflictBody": "U ndryshua në dy vende njëkohësisht. Zgjidhni çfarë është e vërtetë:",
   "privateMarker": "{field} (privat)",
   "conflictSame": "Të dy ndryshimet thonë të njëjtën gjë: {value}. S’ka ç’të zgjidhet; Zgjidh heq shenjën.",
   "mergeThisInto": "Bashko këtë {kind} me…",

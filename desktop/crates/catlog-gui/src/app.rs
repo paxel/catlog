@@ -24,7 +24,7 @@ use crate::cards::{CardAction, Desk};
 use crate::cats_table::{CatsTable, TableAction};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::clowders_table::{ClowdersTable, TableAction as ClowderAction};
-use crate::conflicts::{ConflictDialog, show_conflicts};
+use crate::conflicts::show_conflicts;
 use crate::dashboard::{self, DashboardAction};
 use crate::dialogs::{ConfirmDialog, NameDialog};
 use crate::documents_page::{DocAction, DocKind, DocumentPage, card_png};
@@ -159,7 +159,6 @@ pub struct App {
     /// The in-person host, serving while its modal is open.
     pub in_person: InPerson,
     pub summary: ArrivalSummary,
-    pub conflict: ConflictDialog,
     /// Changes waiting in the folder, shown on the watch line.
     pub watch_pending: Option<UnseenChanges>,
     /// The partners' file sizes when the line was put away with "Not now".
@@ -338,7 +337,6 @@ impl App {
             sync_page: SyncPage::default(),
             in_person: InPerson::default(),
             summary: ArrivalSummary::default(),
-            conflict: ConflictDialog::default(),
             watch_pending: None,
             watch_dismissed: None,
             watch_sizes: WatchState::default(),
@@ -1020,11 +1018,13 @@ impl App {
                 }
                 self.faces = FaceCache::default();
             }
-            SummaryAction::OpenConflicts => self.open_modal(Modal::Conflicts),
+            SummaryAction::Resolve(entity, field, kept) => {
+                if let Err(e) = crate::conflicts::resolve(&mut self.store, &entity, &field, kept) {
+                    self.notice = Some(e.to_string());
+                }
+            }
             SummaryAction::OpenEntity(id) => self.open_record(id),
         }
-        self.conflict
-            .show(ui.ctx(), &mut self.store, &t, self.pages.units);
         if self.confirm.show(ui.ctx(), t.cancel()) {
             if let Some((cat, hash)) = self.deleting_photo.take() {
                 match self.store.delete_image(&cat, &hash) {
@@ -2481,9 +2481,12 @@ impl App {
                 }
             },
             Modal::Conflicts => {
-                if let Some((entity, field)) = show_conflicts(ui, &self.store, &t, self.pages.units)
+                if let Some((entity, field, kept)) =
+                    show_conflicts(ui, &self.store, &t, self.pages.units)
+                    && let Err(e) =
+                        crate::conflicts::resolve(&mut self.store, &entity, &field, kept)
                 {
-                    self.conflict.ask(&self.store, &entity, &field);
+                    self.notice = Some(e.to_string());
                 }
             }
         });
@@ -4129,25 +4132,36 @@ mod tests {
         h.run();
         assert_eq!(h.state().modal(), Some(Modal::Conflicts));
         h.get_by_label("Conflicts to resolve");
-        h.get_by_label("Changed in two places at once. Pick what is true:");
         let name = h
             .state()
             .store()
             .current(&entity, keys::NAME)
             .unwrap()
             .unwrap();
-        h.get_by_label_contains(&format!("{name} — ")).click();
+        h.get_by_label_contains(&format!("{name} — "));
+        // The two values are buttons on the row; the second one kept is
+        // written as an entry of this desk.
+        let candidates = crate::conflicts::candidates(h.state().store(), &entity, &field);
+        assert_eq!(candidates.len(), 2);
+        assert!(!crate::conflicts::same(&candidates));
+        let second = candidates[1].clone();
+        let t = L10n::new("en");
+        let label = crate::labels::value_label(
+            &t,
+            h.state().store(),
+            &field,
+            second.value.as_deref(),
+            h.state().pages.units,
+        );
+        let day = second
+            .date
+            .get(..10)
+            .and_then(|d| d.parse::<chrono::NaiveDate>().ok())
+            .map(|d| crate::labels::format_day(t.locale(), d))
+            .unwrap();
+        h.get_by_label(&format!("{label}   ({day} · {})", second.author))
+            .click();
         h.run();
-        assert!(h.state().conflict.open);
-        assert_eq!(h.state().conflict.candidates.len(), 2);
-        assert!(!h.state().conflict.same());
-        // Pick the second candidate: its value is written as an entry.
-        let second = h.state().conflict.candidates[1].clone();
-        h.state_mut().conflict.chosen = Some(second.seq);
-        h.run();
-        h.get_by_label("Resolve").click();
-        h.run();
-        assert!(!h.state().conflict.open);
         assert!(!h.state().store().has_conflict(&entity, &field).unwrap());
         assert_eq!(
             h.state().store().current(&entity, &field).unwrap(),
@@ -4166,24 +4180,6 @@ mod tests {
             h.state().store().conflicts().unwrap().len(),
             conflicts.len() - 1
         );
-        // Cancel leaves the next one open.
-        if conflicts.len() > 1 {
-            let (entity, _) = conflicts[1].clone();
-            let name = h
-                .state()
-                .store()
-                .current(&entity, keys::NAME)
-                .unwrap()
-                .unwrap();
-            h.get_by_label_contains(&format!("{name} — ")).click();
-            h.run();
-            h.get_by_label("Cancel").click();
-            h.run();
-            assert_eq!(
-                h.state().store().conflicts().unwrap().len(),
-                conflicts.len() - 1
-            );
-        }
     }
 
     fn fixed_day(app: &mut App, y: i32, m: u32, d: u32, h: u32) {

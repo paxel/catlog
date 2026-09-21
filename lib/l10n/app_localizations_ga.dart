@@ -741,15 +741,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Coinbhleacht — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Athraithe in dhá áit ag an am céanna. Roghnaigh cad atá fíor:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (príobháideach)';
   }

@@ -9,7 +9,6 @@ import '../move_to_catalog.dart';
 import '../layout.dart';
 import '../help.dart';
 import '../celebration.dart';
-import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../registry_lookup.dart';
 import '../flier_capture.dart';
@@ -37,6 +36,7 @@ import '../widgets/field_list.dart';
 import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'card_screen.dart';
+import 'conflicts_screen.dart';
 import 'photo_edit_screen.dart';
 import 'map_screen.dart';
 import 'photo_viewer_screen.dart';
@@ -773,10 +773,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               defs: defs,
               editing: _editing,
               onEdit: _editField,
-              onConflict: (def) async {
-                await showConflictDialog(context, store, id, def.key);
-                if (!mounted) return;
-                setState(() {});
+              // The badge leads to the conflicts page, where the two
+              // values are buttons on the row.
+              onConflict: (_) async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (_) => ConflictsScreen(store: store)),
+                );
+                if (mounted) setState(() {});
               },
               // A correction or removal there shows here on return.
               onHistory: (def) async {

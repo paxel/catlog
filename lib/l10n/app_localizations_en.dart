@@ -737,15 +737,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Conflict — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Changed in two places at once. Pick what is true:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (private)';
   }

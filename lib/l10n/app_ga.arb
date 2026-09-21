@@ -130,8 +130,6 @@
   "trailOf": "Rian: {name} ({count} feiceáil)",
   "trailOfField": "Rian: {name} — {field} ({count} luach)",
   "trailOfPlace": "Rian: {name} ({count} suíomh)",
-  "conflictOn": "Coinbhleacht — {field}",
-  "conflictBody": "Athraithe in dhá áit ag an am céanna. Roghnaigh cad atá fíor:",
   "privateMarker": "{field} (príobháideach)",
   "conflictSame": "Deir an dá athrú an rud céanna: {value}. Níl aon rud le roghnú; glanann Réitigh an marc.",
   "mergeThisInto": "Cumaisc an {kind} seo le…",

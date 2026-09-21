@@ -735,14 +735,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'התנגשות — $field';
-  }
-
-  @override
-  String get conflictBody => 'שונה בשני מקומות בו-זמנית. בחרו מה נכון:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (פרטי)';
   }

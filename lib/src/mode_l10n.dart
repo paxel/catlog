@@ -673,12 +673,6 @@ class ModeLocalizations implements AppLocalizations {
   String get colWho => base.colWho;
 
   @override
-  String get conflictBody => base.conflictBody;
-
-  @override
-  String conflictOn(String field) => base.conflictOn(field);
-
-  @override
   String conflictSame(Object value) => base.conflictSame(value);
 
   @override

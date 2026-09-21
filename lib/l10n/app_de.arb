@@ -212,8 +212,6 @@
   "trailOf": "Route: {name} ({count} Sichtungen)",
   "trailOfField": "Route: {name} — {field} ({count} Werte)",
   "trailOfPlace": "Route: {name} ({count} Positionen)",
-  "conflictOn": "Konflikt — {field}",
-  "conflictBody": "An zwei Orten gleichzeitig geändert. Wähle, was stimmt:",
   "privateMarker": "{field} (privat)",
   "conflictSame": "Beide Änderungen sagen dasselbe: {value}. Nichts zu wählen; Auflösen entfernt die Markierung.",
   "mergeThisInto": "Diese(n) {kind} zusammenführen mit…",

@@ -739,15 +739,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Конфликт — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Изменено в двух местах одновременно. Выберите, что верно:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (личное)';
   }

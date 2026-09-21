@@ -743,15 +743,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Σύγκρουση — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Άλλαξε σε δύο μέρη ταυτόχρονα. Διαλέξτε τι ισχύει:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (ιδιωτικό)';
   }

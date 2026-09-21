@@ -739,15 +739,6 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Konflikt — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'U ndryshua në dy vende njëkohësisht. Zgjidhni çfarë është e vërtetë:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privat)';
   }

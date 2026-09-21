@@ -737,15 +737,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return 'Ütközés — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Két helyen módosították egyszerre. Válaszd ki, mi igaz:';
-
-  @override
   String privateMarker(Object field) {
     return '$field (privát)';
   }

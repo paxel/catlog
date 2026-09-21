@@ -728,14 +728,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String conflictOn(String field) {
-    return '競合 — $field';
-  }
-
-  @override
-  String get conflictBody => '2 か所で同時に変更されました。正しい方を選んでください:';
-
-  @override
   String privateMarker(Object field) {
     return '$field（非公開）';
   }
