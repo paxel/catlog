@@ -128,9 +128,8 @@ void main() {
       ),
     );
     await pump(tester, ClowderDetailScreen(store: store, clowderId: home));
+    // A hold on the card edits it.
     await tester.longPress(find.textContaining('House visit'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Edit appointment'));
     await tester.pumpAndSettle();
     expect(find.text('Cats on this appointment'), findsNothing);
     expect(find.widgetWithText(ActionChip, 'Add cat'), findsNothing);
@@ -190,9 +189,7 @@ void main() {
       tester,
     ) async {
       await pump(tester, AgendaScreen(store: store));
-      await tester.longPress(find.textContaining('Neutering'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Delete appointment for all 2 cats'));
+      await tester.tap(find.byTooltip('Delete appointment for all 2 cats'));
       await tester.pumpAndSettle();
       expect(store.openAppointments(), isEmpty);
     });
@@ -202,9 +199,7 @@ void main() {
     ) async {
       await pump(tester, CatDetailScreen(store: store, catId: rudi));
       expect(find.widgetWithText(ActionChip, 'Hugo'), findsOneWidget);
-      await tester.longPress(find.textContaining('Neutering'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Delete appointment'));
+      await tester.tap(find.byTooltip('Delete appointment'));
       await tester.pumpAndSettle();
       expect(store.appointmentsOf(rudi), isEmpty);
       expect(store.appointmentsOf(hugo).single.group, run.first.group);
@@ -213,8 +208,6 @@ void main() {
     testWidgets('editing from the agenda moves the whole run', (tester) async {
       await pump(tester, AgendaScreen(store: store));
       await tester.longPress(find.textContaining('Neutering'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Edit appointment'));
       await tester.pumpAndSettle();
       // Members are shown but cannot be unticked here.
       expect(find.widgetWithText(FilterChip, 'Hugo'), findsOneWidget);
@@ -233,8 +226,6 @@ void main() {
     testWidgets('a cat added while editing joins the run', (tester) async {
       await pump(tester, AgendaScreen(store: store));
       await tester.longPress(find.textContaining('Neutering'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Edit appointment'));
       await tester.pumpAndSettle();
       // The edit dialog is tall; the chip row may sit below the fold.
       await tester.ensureVisible(find.widgetWithText(ActionChip, 'Add cat'));

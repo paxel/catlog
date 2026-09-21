@@ -95,9 +95,8 @@ void main() {
     store.append(cat, Keys.userField('remarks'), 'planned visit',
         date: inDays(5), reminder: true);
     await pump(tester);
-    await tester.longPress(find.textContaining('planned visit'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Remove reminder'));
+    // The bin on the card removes it.
+    await tester.tap(find.byTooltip('Remove reminder'));
     await tester.pumpAndSettle();
     expect(store.activeReminders(), isEmpty);
     expect(store.current(cat, Keys.userField('remarks')), isNull);

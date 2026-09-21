@@ -7,10 +7,11 @@ import '../l10n.dart';
 import 'cat_ear.dart';
 import 'date_entry.dart';
 
-/// One live plan as a card (#74): relative and absolute date, who, what;
-/// done records the fact and offers the next cycle; long-press changes
-/// the date or removes the plan. Shared by the agenda and the Planned
-/// section of cat and clowder pages, so both behave alike.
+/// One live plan as a card (#74), the shape every row of the agenda
+/// has: the box on the left ticks it done and offers the next cycle,
+/// tap opens whose it is, long-press changes the date, the bin on the
+/// right removes it. Shared by the agenda and the Planned section of
+/// cat and clowder pages, so both behave alike.
 ///
 /// [showEntity] is false on an entity's own page. [onChanged] fires
 /// after any write — the host refreshes and runs the calendar mirror.
@@ -67,23 +68,6 @@ class ReminderCard extends StatelessWidget {
     onChanged();
   }
 
-  Future<void> _menu(BuildContext context, Offset position) async {
-    final action = await showMenu<String>(
-      context: context,
-      position: RelativeRect.fromLTRB(
-          position.dx, position.dy, position.dx, position.dy),
-      items: [
-        PopupMenuItem(
-            value: 'date', child: Text(context.t.changeDateLabel)),
-        PopupMenuItem(
-            value: 'remove', child: Text(context.t.removeReminderLabel)),
-      ],
-    );
-    if (!context.mounted) return;
-    if (action == 'date') await _changeDate(context);
-    if (action == 'remove') _cancel();
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = context.t;
@@ -100,12 +84,17 @@ class ReminderCard extends StatelessWidget {
         DateFormat.yMd(Localizations.localeOf(context).toString());
     final color = overdue ? Theme.of(context).colorScheme.error : null;
     return Card(
-      child: GestureDetector(
-        onLongPressStart: (d) => _menu(context, d.globalPosition),
-        onSecondaryTapDown: (d) => _menu(context, d.globalPosition),
-        child: WithCatEar(
-            child: ListTile(
+      child: WithCatEar(
+        child: ListTile(
           onTap: onOpen,
+          onLongPress: () => _changeDate(context),
+          leading: Tooltip(
+            message: t.markDone,
+            child: Checkbox(
+              value: false,
+              onChanged: (_) => _markDone(context),
+            ),
+          ),
           title: Text(
               '${relativeDue(context, r.due)} · ${dateFormat.format(r.due)}',
               style:
@@ -114,11 +103,11 @@ class ReminderCard extends StatelessWidget {
               maxLines: 2, overflow: TextOverflow.ellipsis),
           isThreeLine: true,
           trailing: IconButton(
-            icon: const Icon(Icons.check_circle_outline),
-            tooltip: t.markDone,
-            onPressed: () => _markDone(context),
+            icon: const Icon(Icons.delete_outline),
+            tooltip: t.removeReminderLabel,
+            onPressed: _cancel,
           ),
-        )),
+        ),
       ),
     );
   }

@@ -7,9 +7,10 @@ import '../reminders/appointment_dialog.dart';
 import 'cat_ear.dart';
 import 'reminder_card.dart' show ReminderCard;
 
-/// One appointment as a card (#75): when, who, what, notes. The check
-/// finishes it — the outcome notes are asked for first; long-press
-/// edits or deletes. Shared by the agenda and the Planned section.
+/// One appointment as a card (#75), the shape every row of the agenda
+/// has: the box on the left finishes it, the outcome notes asked for
+/// first; tap opens whose it is, long-press edits, the bin on the
+/// right deletes. Shared by the agenda and the Planned section.
 ///
 /// A vet run with several cats is one card: [members] are the group's
 /// appointments, shown as name chips; finishing asks which cats were
@@ -76,47 +77,23 @@ class AppointmentCard extends StatelessWidget {
     onChanged();
   }
 
-  Future<void> _menu(BuildContext context, Offset position) async {
-    final t = context.t;
-    final count = _members.length;
-    final action = await showMenu<String>(
-      context: context,
-      position: RelativeRect.fromLTRB(
-        position.dx,
-        position.dy,
-        position.dx,
-        position.dy,
-      ),
-      items: [
-        PopupMenuItem(value: 'edit', child: Text(t.editLabelAppointment)),
-        PopupMenuItem(
-          value: 'delete',
-          child: Text(
-            wholeGroup && count > 1
-                ? t.deleteAppointmentGroup(count)
-                : t.deleteAppointment,
-          ),
-        ),
-      ],
+  Future<void> _edit(BuildContext context) async {
+    final saved = await showAppointmentDialog(
+      context,
+      store,
+      entityId: appointment.entity,
+      existing: appointment,
     );
-    if (!context.mounted) return;
-    if (action == 'edit') {
-      final saved = await showAppointmentDialog(
-        context,
-        store,
-        entityId: appointment.entity,
-        existing: appointment,
-      );
-      if (saved != null) onChanged();
+    if (saved != null) onChanged();
+  }
+
+  void _delete() {
+    if (wholeGroup && _members.length > 1) {
+      store.deleteAppointmentGroup(appointment);
+    } else {
+      store.deleteAppointment(appointment);
     }
-    if (action == 'delete') {
-      if (wholeGroup && count > 1) {
-        store.deleteAppointmentGroup(appointment);
-      } else {
-        store.deleteAppointment(appointment);
-      }
-      onChanged();
-    }
+    onChanged();
   }
 
   @override
@@ -138,53 +115,59 @@ class AppointmentCard extends StatelessWidget {
         ? '${_nameOf(context, a.entity)} · '
         : '';
     final color = overdue ? Theme.of(context).colorScheme.error : null;
+    final count = members.length;
     return Card(
-      child: GestureDetector(
-        onLongPressStart: (d) => _menu(context, d.globalPosition),
-        onSecondaryTapDown: (d) => _menu(context, d.globalPosition),
-        child: WithCatEar(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                onTap: onOpen,
-                leading: const Icon(Icons.event),
-                title: Text(
-                  '${ReminderCard.relativeDue(context, a.date)} · $when',
-                  style: TextStyle(color: color, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  '$who${a.title}${a.notes.isEmpty ? '' : '\n${a.notes}'}',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                isThreeLine: a.notes.isNotEmpty,
-                trailing: IconButton(
-                  icon: const Icon(Icons.check_circle_outline),
-                  tooltip: t.finishLabel,
-                  onPressed: () => _finish(context),
+      child: WithCatEar(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              onTap: onOpen,
+              onLongPress: () => _edit(context),
+              leading: Tooltip(
+                message: t.finishLabel,
+                child: Checkbox(
+                  value: false,
+                  onChanged: (_) => _finish(context),
                 ),
               ),
-              if (members.length > 1)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-                  child: Wrap(
-                    spacing: 6,
-                    runSpacing: 4,
-                    children: [
-                      for (final m in members)
-                        ActionChip(
-                          label: Text(_nameOf(context, m.entity)),
-                          visualDensity: VisualDensity.compact,
-                          onPressed: onOpenEntity == null
-                              ? null
-                              : () => onOpenEntity!(m.entity),
-                        ),
-                    ],
-                  ),
+              title: Text(
+                '${ReminderCard.relativeDue(context, a.date)} · $when',
+                style: TextStyle(color: color, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                '$who${a.title}${a.notes.isEmpty ? '' : '\n${a.notes}'}',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              isThreeLine: a.notes.isNotEmpty,
+              trailing: IconButton(
+                icon: const Icon(Icons.delete_outline),
+                tooltip: wholeGroup && count > 1
+                    ? t.deleteAppointmentGroup(count)
+                    : t.deleteAppointment,
+                onPressed: _delete,
+              ),
+            ),
+            if (members.length > 1)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                child: Wrap(
+                  spacing: 6,
+                  runSpacing: 4,
+                  children: [
+                    for (final m in members)
+                      ActionChip(
+                        label: Text(_nameOf(context, m.entity)),
+                        visualDensity: VisualDensity.compact,
+                        onPressed: onOpenEntity == null
+                            ? null
+                            : () => onOpenEntity!(m.entity),
+                      ),
+                  ],
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
       ),
     );

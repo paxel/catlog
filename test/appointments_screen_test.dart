@@ -104,9 +104,8 @@ void main() {
         date: DateTime.now().add(const Duration(days: 1)),
         title: 'Vet'));
     await pump(tester, AgendaScreen(store: store));
-    await tester.longPress(find.textContaining('Vet'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Delete appointment'));
+    // The bin on the card deletes it.
+    await tester.tap(find.byTooltip('Delete appointment'));
     await tester.pumpAndSettle();
     expect(store.appointmentsOf(cat, includeDone: true), isEmpty);
   });
