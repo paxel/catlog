@@ -15,7 +15,9 @@ import '../reminders/calendar_mirror.dart';
 import '../reminders/calendar_port.dart';
 import '../reminders/device_calendar_port.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/plan_chooser.dart';
+import '../reminders/reminder_dialog.dart';
+import '../chores/chore_dialog.dart';
+import '../widgets/add_fan.dart';
 import '../share.dart';
 import '../spotlight.dart';
 import '../reminders/appointment_dialog.dart';
@@ -132,11 +134,25 @@ class _AgendaScreenState extends State<AgendaScreen> {
     mirrorAfterChange(context, store, port: widget.calendarPort);
   }
 
-  Future<void> _add() async {
-    if (await showPlanChooser(context, store) && mounted) {
-      _changed();
-      refreshChoreReminders(store, body: _reminderBody);
-    }
+  /// One of the three kinds of plan, straight into its editor; whose
+  /// it is is the editor's first field.
+  Future<void> _addAppointment() async {
+    final saved = await showAppointmentDialog(context, store);
+    if (saved != null && mounted) _added();
+  }
+
+  Future<void> _addReminder() async {
+    if (await showAddReminder(context, store) && mounted) _added();
+  }
+
+  Future<void> _addChore() async {
+    final saved = await showChoreDialog(context, store);
+    if (saved != null && mounted) _added();
+  }
+
+  void _added() {
+    _changed();
+    refreshChoreReminders(store, body: _reminderBody);
   }
 
   Future<void> _openEntity(String id) async {
@@ -432,10 +448,25 @@ class _AgendaScreenState extends State<AgendaScreen> {
       ),
       floatingActionButton: Spotlight(
         id: 'agenda-add',
-        child: FloatingActionButton(
-          onPressed: _add,
+        child: AddFan(
           tooltip: t.addAppointment,
-          child: const Icon(Icons.add),
+          items: [
+            FanItem(
+              icon: Icons.event,
+              label: t.appointmentLabel,
+              onTap: _addAppointment,
+            ),
+            FanItem(
+              icon: Icons.alarm,
+              label: t.reminderLabel,
+              onTap: _addReminder,
+            ),
+            FanItem(
+              icon: Icons.checklist,
+              label: t.choreLabel,
+              onTap: _addChore,
+            ),
+          ],
         ),
       ),
     );

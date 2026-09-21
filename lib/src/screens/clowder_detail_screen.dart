@@ -15,6 +15,7 @@ import '../new_field_dialog.dart';
 import '../widgets/cat_avatar.dart';
 import '../reminders/mirror_hook.dart';
 import '../reminders/plan_chooser.dart';
+import '../reminders/plan_entity.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
 import '../widgets/appointment_card.dart';
@@ -151,6 +152,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   @override
   void initState() {
     super.initState();
+    // The agenda's plans start with the page looked at last.
+    rememberViewed(store, id);
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => runSpotlights(context, store, 'clowder'),
     );

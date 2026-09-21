@@ -8,6 +8,7 @@ import '../hidden.dart';
 import '../l10n.dart';
 import 'reminder_dialog.dart' show plannable;
 import '../widgets/date_entry.dart';
+import 'plan_entity.dart';
 
 /// Creating or editing an appointment (#75): what the keeper leaves the
 /// vet's desk with — date, time if any, what, notes, an alert, and
@@ -19,7 +20,7 @@ import '../widgets/date_entry.dart';
 Future<Appointment?> showAppointmentDialog(
   BuildContext context,
   CatalogStore store, {
-  required String entityId,
+  String? entityId,
   Appointment? existing,
 }) {
   return showDialog<Appointment>(
@@ -34,12 +35,15 @@ Future<Appointment?> showAppointmentDialog(
 
 class _AppointmentDialog extends StatefulWidget {
   final CatalogStore store;
-  final String entityId;
+
+  /// Whose it is, from the page; null from the agenda, where the For
+  /// field starts with the entity looked at last.
+  final String? entityId;
   final Appointment? existing;
 
   const _AppointmentDialog({
     required this.store,
-    required this.entityId,
+    this.entityId,
     this.existing,
   });
 
@@ -76,7 +80,14 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
   /// a cat leaves a run by deleting its own appointment on its page.
   final _members = <String>{};
 
-  bool get _fromClowder => widget.entityId.startsWith('clowder:');
+  /// Whose it is: the For field's value, preset from the page or the
+  /// entity being edited, else the one looked at last.
+  late String _entity = widget.entityId ??
+      widget.existing?.entity ??
+      defaultPlanEntity(store) ??
+      '';
+
+  bool get _fromClowder => _entity.startsWith('clowder:');
 
   @override
   void initState() {
@@ -88,14 +99,8 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
         _members.add(m.entity);
       }
       _ticked.addAll(_members);
-    } else if (_fromClowder) {
-      for (final c in store.visibleCats(clowderId: widget.entityId)) {
-        _offered.add(c.id);
-      }
-      _ticked.addAll(_offered);
     } else {
-      _offered.add(widget.entityId);
-      _ticked.add(widget.entityId);
+      _offerFor(_entity);
     }
     final key = existing?.linkedField;
     if (key != null) {
@@ -118,6 +123,35 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
     super.dispose();
   }
 
+  /// The cats offered for a new appointment: a clowder's cats, all
+  /// ticked, so a run takes them along; a cat, itself.
+  void _offerFor(String entity) {
+    _offered.clear();
+    _ticked.clear();
+    if (entity.startsWith('clowder:')) {
+      for (final c in store.visibleCats(clowderId: entity)) {
+        _offered.add(c.id);
+      }
+      _ticked.addAll(_offered);
+    } else if (entity.isNotEmpty) {
+      _offered.add(entity);
+      _ticked.add(entity);
+    }
+  }
+
+  /// The For field changed: the cats on offer follow, a linked field
+  /// that no longer fits goes.
+  void _changeEntity(String? entity) {
+    if (entity == null) return;
+    setState(() {
+      _entity = entity;
+      _offerFor(entity);
+      if (_linked != null && !_defs.any((d) => d.key == _linked!.key)) {
+        _pickLinked(null);
+      }
+    });
+  }
+
   /// The entities the appointment is for: the ticked cats, or — from a
   /// clowder page with none ticked — the clowder itself (a house visit).
   List<String> get _entities {
@@ -126,7 +160,7 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
         if (_ticked.contains(id)) id,
     ];
     if (cats.isNotEmpty) return cats;
-    return [widget.entityId];
+    return [_entity];
   }
 
   FieldScope get _scope =>
@@ -251,6 +285,14 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            if (widget.existing == null) ...[
+              PlanEntityField(
+                store: store,
+                value: _entity,
+                onChanged: _changeEntity,
+              ),
+              const SizedBox(height: 12),
+            ],
             TextField(
               controller: _title,
               autofocus: widget.existing == null,

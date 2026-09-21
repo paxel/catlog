@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 
 import '../l10n.dart';
 import '../notes.dart';
-import '../reminders/plan_chooser.dart';
+import '../reminders/plan_entity.dart';
 import 'chore_history_screen.dart';
 import 'chore_reminders.dart';
 
@@ -24,17 +24,12 @@ Future<Chore?> showChoreDialog(
   Chore? existing,
   ReminderPort? reminders,
 }) async {
-  var entity = existing?.entity ?? entityId;
-  if (entity == null) {
-    entity = await pickPlanEntity(context, store);
-    if (entity == null || !context.mounted) return null;
-  }
   return Navigator.of(context).push<Chore>(
     MaterialPageRoute(
       fullscreenDialog: true,
       builder: (_) => ChoreEditorScreen(
         store: store,
-        entityId: entity!,
+        entityId: existing?.entity ?? entityId,
         existing: existing,
         reminders: reminders,
       ),
@@ -44,7 +39,10 @@ Future<Chore?> showChoreDialog(
 
 class ChoreEditorScreen extends StatefulWidget {
   final CatalogStore store;
-  final String entityId;
+
+  /// Whose it is, from the page; null from the agenda or a copy, where
+  /// the For field starts with the entity looked at last.
+  final String? entityId;
   final Chore? existing;
 
   /// A chore to copy the values from, for a new one: title, schedule,
@@ -56,7 +54,7 @@ class ChoreEditorScreen extends StatefulWidget {
   const ChoreEditorScreen({
     super.key,
     required this.store,
-    required this.entityId,
+    this.entityId,
     this.existing,
     this.template,
     this.reminders,
@@ -74,6 +72,10 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
   /// copied.
   Chore? get _source => widget.existing ?? widget.template;
   ReminderPort get port => widget.reminders ?? LocalNotificationPort.instance;
+
+  /// Whose the chore is: the For field, preset from the page or the
+  /// chore edited, else the entity looked at last.
+  late String _entity = widget.entityId ?? existing?.entity ?? defaultPlanEntity(store) ?? '';
 
   late final TextEditingController _title = TextEditingController(
     text: _source?.title ?? '',
@@ -119,6 +121,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
   }
 
   bool get _canSave =>
+      _entity.isNotEmpty &&
       _title.text.trim().isNotEmpty &&
       (_repeat != ChoreRepeat.weekdays || _weekdays.isNotEmpty);
 
@@ -150,7 +153,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
       saved = store.createChore(
         Chore(
           id: '',
-          entity: widget.entityId,
+          entity: _entity,
           title: name,
           schedule: _schedule,
           time: _time,
@@ -163,18 +166,15 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     Navigator.of(context).pop(saved);
   }
 
-  /// One more like this one, for another cat or home: the picker
-  /// first, the original among the choices, then the preset editor
-  /// over this page. Saved or not, this page stays where it was.
+  /// One more like this one, for another cat or home: the preset
+  /// editor over this page, its For field the place to say whose.
+  /// Saved or not, this page stays where it was.
   Future<void> _duplicate() async {
-    final target = await pickPlanEntity(context, store);
-    if (target == null || !mounted) return;
     await Navigator.of(context).push<Chore>(
       MaterialPageRoute(
         fullscreenDialog: true,
         builder: (_) => ChoreEditorScreen(
           store: store,
-          entityId: target,
           template: existing,
           reminders: widget.reminders,
         ),
@@ -239,7 +239,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
         (existing ??
                 Chore(
                   id: 'draft',
-                  entity: widget.entityId,
+                  entity: _entity,
                   title: _title.text,
                   schedule: _schedule,
                   start: dayOf(DateTime.now()),
@@ -319,6 +319,14 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          if (existing == null) ...[
+            PlanEntityField(
+              store: store,
+              value: _entity,
+              onChanged: (v) => setState(() => _entity = v ?? _entity),
+            ),
+            const SizedBox(height: 16),
+          ],
           TextField(
             controller: _title,
             autofocus: existing == null,
@@ -451,7 +459,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
                     _title.text.trim().isEmpty
                         ? t.newChore
                         : _title.text.trim(),
-                    store.current(widget.entityId, Keys.name) ?? '',
+                    store.current(_entity, Keys.name) ?? '',
                   );
                 } catch (e) {
                   _say(t.remindFailed(e.toString()));

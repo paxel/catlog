@@ -1,7 +1,6 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
-import '../hidden.dart';
 import '../l10n.dart';
 import '../chores/chore_dialog.dart';
 import 'appointment_dialog.dart';
@@ -52,31 +51,7 @@ Future<bool> showPlanChooser(BuildContext context, CatalogStore store,
   if (kind == 'reminder') {
     return showAddReminder(context, store, entityId: entityId);
   }
-  var entity = entityId;
-  if (entity == null) {
-    entity = await pickPlanEntity(context, store);
-    if (entity == null || !context.mounted) return false;
-  }
   final saved =
-      await showAppointmentDialog(context, store, entityId: entity);
+      await showAppointmentDialog(context, store, entityId: entityId);
   return saved != null;
-}
-
-/// From the agenda there is no page to say whose plan it is.
-Future<String?> pickPlanEntity(BuildContext context, CatalogStore store) {
-  final t = context.t;
-  final entities = <EntityView>[...store.visibleCats(), ...store.visibleClowders()];
-  return showDialog<String>(
-    context: context,
-    builder: (context) => SimpleDialog(
-      title: Text(t.reminderFor),
-      children: [
-        for (final e in entities)
-          SimpleDialogOption(
-            onPressed: () => Navigator.of(context).pop(e.id),
-            child: Text(e.name),
-          ),
-      ],
-    ),
-  );
 }
