@@ -67,33 +67,33 @@ Stray Cam button. See the UI law in `docs/agents/ui-laws.md`.
   each only pushing the real page. Decided to keep it: one page with
   everything on it was tried before and was too much.
 
-## 3. Menus with one or two items
+## 3. Menus with one or two items (done 2026-09-21)
 
 Phone:
 
 - Cat tile in a clowder, `clowder_detail_screen.dart:615`: Open repeats
-  the tap; Card is the only real item. Proposal: Card as an icon on the
-  tile.
+  the tap; Card is the only real item. Done: a hold opens the Card.
 - Reminder card, `reminder_card.dart:70`, and appointment card,
-  `appointment_card.dart:79`: two items each. Proposal: icons on the card.
+  `appointment_card.dart:79`: two items each. Done: the chore row's
+  shape for all three, box on the left, hold edits, bin on the right.
 - Agenda overflow, `agenda_screen.dart:327`: one item most of the time.
-  Proposal: the export as an app-bar icon.
+  Done: export and resync as bar icons.
 
 Desk:
 
 - File holds only Quit, `app.rs:1255`; Edit holds only Settings,
-  `app.rs:1260`. Proposal: one menu for both, or Settings as a bar button.
+  `app.rs:1260`. Done: one menu under cat(a)log with both.
 - View, Language is three clicks and repeats the Settings combo,
-  `app.rs:1273`. Proposal: Settings only.
-- Clowder page Actions holds one item, `pages.rs:115`. Proposal: Merge as
-  a button beside New cat.
+  `app.rs:1273`. Done: Settings only.
+- Clowder page Actions holds one item, `pages.rs:115`. Done: Merge as a
+  button beside New cat.
 - Context menus whose items repeat the click: field rows `pages.rs:437`
   and `cards.rs:680`, cats table `cats_table.rs:590`, clowders table
   `clowders_table.rs:333`, history `history.rs:123`, vet Finish
-  `vet.rs:212`. Proposal: a menu keeps only what has no other way, and a
-  row with a menu shows a small menu icon so the menu is found.
+  `vet.rs:212`. Done: each menu keeps only what has no other way, and a
+  ⋮ at the row's end opens the same menu (`icons::more`).
 - Chore row, `chores.rs:60`: four actions behind a right-click, nothing
-  visible. Proposal: a pencil icon on the row that opens the menu.
+  visible. Done: the ⋮ after the week dots.
 
 ## 4. Steps with no decision in them — phone
 
