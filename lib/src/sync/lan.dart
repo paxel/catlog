@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 import 'dart:typed_data' show BytesBuilder;
 
 import 'package:catalog_core/catalog_core.dart';
@@ -34,10 +33,6 @@ class SyncResult {
 const _pinHeader = 'x-catlog-pin';
 const _deviceHeader = 'x-catlog-device';
 
-String _randomSecret() {
-  final r = Random.secure();
-  return List.generate(32, (_) => r.nextInt(256).toRadixString(16).padLeft(2, '0')).join();
-}
 const _formatHeader = 'x-catlog-format';
 
 /// The sync wire format this build speaks. Format 2 (1.0.0, #74):
@@ -53,15 +48,13 @@ const syncFormat = 3;
 /// drives. The PIN gates every request — it prevents accidents in a
 /// trusted group, not attackers (ADR-0002 threat model).
 /// The host's answer to "may this device sync, and with privates?".
+/// The host showed its code and PIN, so a phone that has them is
+/// welcome; the page's hook exists for tests and for a host that wants
+/// to say no anyway.
 class JoinDecision {
   final bool allow;
   final bool includePrivate;
-
-  /// "Always allow this device": the host issues it a secret and lets
-  /// it in without asking from then on — the secret, not the device's
-  /// self-declared id, is what is trusted.
-  final bool remember;
-  const JoinDecision(this.allow, this.includePrivate, {this.remember = false});
+  const JoinDecision(this.allow, this.includePrivate);
 }
 
 /// How many wrong PINs one address may send before it is locked out,
@@ -70,19 +63,14 @@ class JoinDecision {
 const pinFailuresPerAddress = 5;
 const pinFailuresTotal = 20;
 
-/// Local-setting key of a trusted joiner: `private|author|name|secret`.
-String trustKey(String deviceId) => 'trust:$deviceId';
-
-/// Local-setting key, on the joiner, of the secret a host issued.
-String trustSecretKey(String hostDeviceId) => 'trustSecret:$hostDeviceId';
-
 class LanSyncHost {
   final CatalogStore store;
   final String pin;
 
   /// Asked once per incoming /sync with the joiner's author and device
-  /// name — the human trust gate. Null allows everyone, public-only
-  /// (used by tests).
+  /// name. Null allows everyone, public-only unless [includePrivate]
+  /// says otherwise; the page passes none, a phone with the code and
+  /// the PIN is let in.
   final Future<JoinDecision> Function(String author, String device)?
       onJoinRequest;
 
@@ -103,7 +91,7 @@ class LanSyncHost {
   var _failuresTotal = 0;
 
   /// Sync requests are handled one after the other: two joiners at once
-  /// would stack two trust dialogs and interleave their imports.
+  /// would interleave their imports.
   Future<void> _syncTurn = Future.value();
 
   /// The certificate the host serves with; its fingerprint goes into
@@ -145,26 +133,6 @@ class LanSyncHost {
   }
 
   Future<void> stop() async => _server?.close(force: true);
-
-  /// The trust a joiner claims, checked against the secret this host
-  /// issued it. A stored trust without a secret (older versions) counts
-  /// as none: the keeper is asked once more and the secret is issued.
-  JoinDecision? _trusted(String deviceId, String? secret) {
-    if (deviceId.isEmpty || secret == null || secret.isEmpty) return null;
-    final stored = store.localSetting(trustKey(deviceId));
-    if (stored == null) return null;
-    final parts = stored.split('|');
-    if (parts.length < 4 || parts[3] != secret) return null;
-    return JoinDecision(true, parts.first == 'private');
-  }
-
-  String _remember(String deviceId, String author, String name,
-      bool includePrivate) {
-    final secret = _randomSecret();
-    store.setLocalSetting(trustKey(deviceId),
-        '${includePrivate ? 'private' : 'public'}|$author|$name|$secret');
-    return secret;
-  }
 
   Future<void> _handle(HttpRequest req) async {
     if (req.method == 'POST' && req.uri.path == '/sync') {
@@ -237,19 +205,15 @@ class LanSyncHost {
         final author = body['author'] as String? ?? '?';
         final deviceName = body['deviceName'] as String? ?? '?';
         final deviceId = body['deviceId'] as String? ?? '';
-        final decision = _trusted(deviceId, body['trustSecret'] as String?) ??
-            (onJoinRequest == null
-                ? const JoinDecision(true, false)
-                : await onJoinRequest!(author, '$deviceName|$deviceId'));
+        final decision = onJoinRequest == null
+            ? const JoinDecision(true, false)
+            : await onJoinRequest!(author, '$deviceName|$deviceId');
         if (!decision.allow) {
           req.response.statusCode = HttpStatus.forbidden;
           req.response.write('declined');
           return;
         }
         final private = includePrivate?.call() ?? decision.includePrivate;
-        final issued = decision.remember && deviceId.isNotEmpty
-            ? _remember(deviceId, author, deviceName, private)
-            : null;
         final joinerVector = (body['vector'] as Map)
             .map((k, v) => MapEntry(k as String, v as int));
         final incoming = [
@@ -282,7 +246,6 @@ class LanSyncHost {
               e.toJson()
           ],
           'wantBlobs': store.missingBlobs(),
-          'trust': ?issued,
           'keys': [for (final k in store.keyRecords()) k.toJson()],
         }));
         onSession?.call(applied, moment, report);
@@ -440,15 +403,7 @@ Future<SyncResult> lanSync(
       'deviceName': Platform.localHostname,
       'deviceId': store.deviceId,
       'keys': [for (final k in store.keyRecords()) k.toJson()],
-      'trustSecret': ?(hostDevice == null
-          ? null
-          : store.localSetting(trustSecretKey(hostDevice!))),
     }) as Map;
-    if (hostDevice != null && response['trust'] is String) {
-      // "Always allow" on the host: keep its secret for next time.
-      store.setLocalSetting(
-          trustSecretKey(hostDevice!), response['trust'] as String);
-    }
 
     final received = [
       for (final e in response['entries'] as List)

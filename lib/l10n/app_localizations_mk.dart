@@ -2109,30 +2109,13 @@ class AppLocalizationsMk extends AppLocalizations {
       'Прво поврзи се на Wi-Fi — тогаш уредите се наоѓаат';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) сака да синхронизира';
-  }
-
-  @override
   String get trustBothWaysNote => 'Каталозите ќе се разменат во двете насоки.';
 
   @override
   String get allowOnce => 'Дозволи';
 
   @override
-  String get allowAlways => 'Секогаш дозволи го овој уред';
-
-  @override
-  String get declineAction => 'Одбиј';
-
-  @override
   String get syncDeclined => 'Другиот уред ја одби синхронизацијата';
-
-  @override
-  String get trustedDevicesSection => 'Секогаш дозволени уреди';
-
-  @override
-  String get removeTrust => 'Отстрани';
 
   @override
   String get hostWithoutWifi => 'Хостирај без Wi-Fi';

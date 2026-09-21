@@ -116,45 +116,6 @@ class _InPersonScreenState extends State<InPersonScreen> {
     super.dispose();
   }
 
-  /// The human trust gate: allow once, always allow this device, or
-  /// decline. Include-private for the host's outbound lives here too.
-  Future<JoinDecision> _onJoinRequest(
-      String author, String deviceInfo) async {
-    final parts = deviceInfo.split('|');
-    final deviceName = parts.first;
-    // A remembered device never gets here: the host checks its secret
-    // first. Everything else is the keeper's call.
-    if (!mounted) return const JoinDecision(false, false);
-    // 'once' / 'always' / null (decline). Private data follows the
-    // page's switch, the same one the joiner side uses — no second
-    // question here.
-    final choice = await showDialog<String>(
-      context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setDialogState) => AlertDialog(
-          title: Text(context.t.trustQuestion(author, deviceName)),
-          content: Text(context.t.trustBothWaysNote),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text(context.t.declineAction),
-            ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop('always'),
-              child: Text(context.t.allowAlways),
-            ),
-            FilledButton(
-              onPressed: () => Navigator.of(context).pop('once'),
-              child: Text(context.t.allowOnce),
-            ),
-          ],
-        ),
-      ),
-    );
-    if (choice == null) return const JoinDecision(false, false);
-    return JoinDecision(true, _includePrivate, remember: choice == 'always');
-  }
-
   Future<void> _toggleHost() async {
     if (_starting) return;
     if (_host != null) {
@@ -212,7 +173,6 @@ class _InPersonScreenState extends State<InPersonScreen> {
     if (!mounted) return null;
     final host = LanSyncHost(widget.store, pin,
         identity: identity,
-        onJoinRequest: _onJoinRequest,
         onSession: _onSession,
         includePrivate: () => _includePrivate);
     final address = await host.start();

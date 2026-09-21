@@ -2113,30 +2113,13 @@ class AppLocalizationsLt extends AppLocalizations {
       'Pirmiausia prisijunk prie Wi-Fi — tada įrenginiai susiras';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) nori sinchronizuoti';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalogai bus apsikeisti abiem kryptimis.';
 
   @override
   String get allowOnce => 'Leisti';
 
   @override
-  String get allowAlways => 'Visada leisti šį įrenginį';
-
-  @override
-  String get declineAction => 'Atmesti';
-
-  @override
   String get syncDeclined => 'Kitas įrenginys atmetė sinchronizavimą';
-
-  @override
-  String get trustedDevicesSection => 'Visada leidžiami įrenginiai';
-
-  @override
-  String get removeTrust => 'Pašalinti';
 
   @override
   String get hostWithoutWifi => 'Prieglobstis be Wi-Fi';

@@ -2108,30 +2108,13 @@ class AppLocalizationsFi extends AppLocalizations {
       'Yhdistä ensin Wi-Fiin — sitten laitteet löytävät toisensa';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) haluaa synkronoida';
-  }
-
-  @override
   String get trustBothWaysNote => 'Luettelot vaihdetaan molempiin suuntiin.';
 
   @override
   String get allowOnce => 'Salli';
 
   @override
-  String get allowAlways => 'Salli tämä laite aina';
-
-  @override
-  String get declineAction => 'Hylkää';
-
-  @override
   String get syncDeclined => 'Toinen laite hylkäsi synkronoinnin';
-
-  @override
-  String get trustedDevicesSection => 'Aina sallitut laitteet';
-
-  @override
-  String get removeTrust => 'Poista';
 
   @override
   String get hostWithoutWifi => 'Isännöi ilman Wi-Fiä';

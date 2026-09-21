@@ -139,9 +139,6 @@ class ModeLocalizations implements AppLocalizations {
   String get allDoneToday => base.allDoneToday;
 
   @override
-  String get allowAlways => base.allowAlways;
-
-  @override
   String get allowOnce => base.allowOnce;
 
   @override
@@ -761,9 +758,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get deceasedInFuture => base.deceasedInFuture;
-
-  @override
-  String get declineAction => base.declineAction;
 
   @override
   String get delete => base.delete;
@@ -2173,9 +2167,6 @@ class ModeLocalizations implements AppLocalizations {
   String get removeThisValue => base.removeThisValue;
 
   @override
-  String get removeTrust => base.removeTrust;
-
-  @override
   String get rename => base.rename;
 
   @override
@@ -2861,12 +2852,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get trustBothWaysNote => base.trustBothWaysNote;
-
-  @override
-  String trustQuestion(Object author, Object device) => base.trustQuestion(author, device);
-
-  @override
-  String get trustedDevicesSection => base.trustedDevicesSection;
 
   @override
   String get typeUnitValue => base.typeUnitValue;

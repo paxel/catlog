@@ -2111,11 +2111,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-ewwel aqbad ma\' Wi-Fi — imbagħad l-apparati jsibu lil xulxin';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) irid jissinkronizza';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Il-katalgi jiġu skambjati fiż-żewġ direzzjonijiet.';
 
@@ -2123,19 +2118,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get allowOnce => 'Ħalli';
 
   @override
-  String get allowAlways => 'Dejjem ħalli dan l-apparat';
-
-  @override
-  String get declineAction => 'Irrifjuta';
-
-  @override
   String get syncDeclined => 'L-apparat l-ieħor irrifjuta s-sinkronizzazzjoni';
-
-  @override
-  String get trustedDevicesSection => 'Apparati dejjem permessi';
-
-  @override
-  String get removeTrust => 'Neħħi';
 
   @override
   String get hostWithoutWifi => 'Ospita mingħajr Wi-Fi';

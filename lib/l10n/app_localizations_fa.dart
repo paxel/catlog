@@ -2097,30 +2097,13 @@ class AppLocalizationsFa extends AppLocalizations {
       'اول به Wi-Fi وصل شوید — سپس دستگاه‌ها یکدیگر را پیدا می‌کنند';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) می‌خواهد همگام‌سازی کند';
-  }
-
-  @override
   String get trustBothWaysNote => 'دفترها در هر دو جهت مبادله می‌شوند.';
 
   @override
   String get allowOnce => 'اجازه';
 
   @override
-  String get allowAlways => 'همیشه به این دستگاه اجازه بده';
-
-  @override
-  String get declineAction => 'رد';
-
-  @override
   String get syncDeclined => 'دستگاه دیگر همگام‌سازی را رد کرد';
-
-  @override
-  String get trustedDevicesSection => 'دستگاه‌های همیشه مجاز';
-
-  @override
-  String get removeTrust => 'حذف';
 
   @override
   String get hostWithoutWifi => 'میزبانی بدون Wi-Fi';

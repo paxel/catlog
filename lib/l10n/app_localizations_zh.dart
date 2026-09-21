@@ -2054,30 +2054,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get connectToWifiFirst => '请先连接 Wi-Fi——设备才能互相发现';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author（$device）请求同步';
-  }
-
-  @override
   String get trustBothWaysNote => '双方的目录将双向交换。';
 
   @override
   String get allowOnce => '允许';
 
   @override
-  String get allowAlways => '始终允许此设备';
-
-  @override
-  String get declineAction => '拒绝';
-
-  @override
   String get syncDeclined => '对方设备拒绝了同步';
-
-  @override
-  String get trustedDevicesSection => '始终允许的设备';
-
-  @override
-  String get removeTrust => '移除';
 
   @override
   String get hostWithoutWifi => '无 Wi-Fi 主持';

@@ -129,14 +129,13 @@ void main() {
     var switchOn = false;
     // The gate says private; the switch, off, wins.
     final host = await testHost(a, '123456',
-        onJoinRequest: (_, _) async =>
-            const JoinDecision(true, true, remember: true),
+        onJoinRequest: (_, _) async => const JoinDecision(true, true),
         includePrivate: () => switchOn);
     await syncWith(b, host);
     // The cat's identity travels as a stub; its private value stays home.
     expect(b.isWithheld(secret, 'f:remarks'), isTrue);
     expect(b.current(secret, 'f:remarks'), isNull);
-    // Remembered device, switch now on: private comes without a question.
+    // Switch now on: private comes.
     switchOn = true;
     await syncWith(b, host);
     expect(b.current(secret, 'f:remarks'), 'hidden');

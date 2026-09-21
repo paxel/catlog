@@ -2111,11 +2111,6 @@ class AppLocalizationsIt extends AppLocalizations {
       'Collegati prima a una Wi-Fi — così i dispositivi si trovano';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) vuole sincronizzare';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'I cataloghi verranno scambiati in entrambe le direzioni.';
 
@@ -2123,20 +2118,8 @@ class AppLocalizationsIt extends AppLocalizations {
   String get allowOnce => 'Consenti';
 
   @override
-  String get allowAlways => 'Consenti sempre questo dispositivo';
-
-  @override
-  String get declineAction => 'Rifiuta';
-
-  @override
   String get syncDeclined =>
       'L\'altro dispositivo ha rifiutato la sincronizzazione';
-
-  @override
-  String get trustedDevicesSection => 'Dispositivi sempre consentiti';
-
-  @override
-  String get removeTrust => 'Rimuovi';
 
   @override
   String get hostWithoutWifi => 'Ospita senza Wi-Fi';

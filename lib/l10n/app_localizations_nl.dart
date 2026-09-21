@@ -2110,11 +2110,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Maak eerst verbinding met wifi — dan vinden de apparaten elkaar';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) wil synchroniseren';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Jullie catalogi worden in beide richtingen uitgewisseld.';
 
@@ -2122,19 +2117,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get allowOnce => 'Toestaan';
 
   @override
-  String get allowAlways => 'Dit apparaat altijd toestaan';
-
-  @override
-  String get declineAction => 'Weigeren';
-
-  @override
   String get syncDeclined => 'Het andere apparaat weigerde de synchronisatie';
-
-  @override
-  String get trustedDevicesSection => 'Altijd toegestane apparaten';
-
-  @override
-  String get removeTrust => 'Verwijderen';
 
   @override
   String get hostWithoutWifi => 'Hosten zonder wifi';

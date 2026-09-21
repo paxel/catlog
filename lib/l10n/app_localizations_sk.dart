@@ -2108,30 +2108,13 @@ class AppLocalizationsSk extends AppLocalizations {
       'Najprv sa pripoj k Wi-Fi — potom sa zariadenia nájdu';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) chce synchronizovať';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalógy sa vymenia oboma smermi.';
 
   @override
   String get allowOnce => 'Povoliť';
 
   @override
-  String get allowAlways => 'Vždy povoliť toto zariadenie';
-
-  @override
-  String get declineAction => 'Odmietnuť';
-
-  @override
   String get syncDeclined => 'Druhé zariadenie synchronizáciu odmietlo';
-
-  @override
-  String get trustedDevicesSection => 'Vždy povolené zariadenia';
-
-  @override
-  String get removeTrust => 'Odstrániť';
 
   @override
   String get hostWithoutWifi => 'Hostovať bez Wi-Fi';

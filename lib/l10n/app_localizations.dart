@@ -3884,12 +3884,6 @@ abstract class AppLocalizations {
   /// **'Connect to a Wi-Fi first — then devices can find each other'**
   String get connectToWifiFirst;
 
-  /// No description provided for @trustQuestion.
-  ///
-  /// In en, this message translates to:
-  /// **'{author} ({device}) wants to sync'**
-  String trustQuestion(Object author, Object device);
-
   /// No description provided for @trustBothWaysNote.
   ///
   /// In en, this message translates to:
@@ -3902,35 +3896,11 @@ abstract class AppLocalizations {
   /// **'Allow'**
   String get allowOnce;
 
-  /// No description provided for @allowAlways.
-  ///
-  /// In en, this message translates to:
-  /// **'Always allow this device'**
-  String get allowAlways;
-
-  /// No description provided for @declineAction.
-  ///
-  /// In en, this message translates to:
-  /// **'Decline'**
-  String get declineAction;
-
   /// No description provided for @syncDeclined.
   ///
   /// In en, this message translates to:
   /// **'The other device declined the sync'**
   String get syncDeclined;
-
-  /// No description provided for @trustedDevicesSection.
-  ///
-  /// In en, this message translates to:
-  /// **'Always-allowed devices'**
-  String get trustedDevicesSection;
-
-  /// No description provided for @removeTrust.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove'**
-  String get removeTrust;
 
   /// No description provided for @hostWithoutWifi.
   ///

@@ -2101,30 +2101,13 @@ class AppLocalizationsHe extends AppLocalizations {
       'התחברו קודם ל-Wi-Fi — אז המכשירים ימצאו זה את זה';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) רוצה לסנכרן';
-  }
-
-  @override
   String get trustBothWaysNote => 'הקטלוגים יוחלפו בשני הכיוונים.';
 
   @override
   String get allowOnce => 'אפשר';
 
   @override
-  String get allowAlways => 'אפשר תמיד למכשיר זה';
-
-  @override
-  String get declineAction => 'דחה';
-
-  @override
   String get syncDeclined => 'המכשיר השני דחה את הסנכרון';
-
-  @override
-  String get trustedDevicesSection => 'מכשירים מאושרים תמיד';
-
-  @override
-  String get removeTrust => 'הסר';
 
   @override
   String get hostWithoutWifi => 'אירוח ללא Wi-Fi';

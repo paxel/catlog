@@ -2115,11 +2115,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Συνδεθείτε πρώτα σε Wi-Fi — τότε οι συσκευές βρίσκονται';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) θέλει συγχρονισμό';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Οι κατάλογοι θα ανταλλαγούν και προς τις δύο κατευθύνσεις.';
 
@@ -2127,19 +2122,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get allowOnce => 'Επιτρέπω';
 
   @override
-  String get allowAlways => 'Πάντα να επιτρέπεται αυτή η συσκευή';
-
-  @override
-  String get declineAction => 'Απόρριψη';
-
-  @override
   String get syncDeclined => 'Η άλλη συσκευή απέρριψε τον συγχρονισμό';
-
-  @override
-  String get trustedDevicesSection => 'Πάντα επιτρεπόμενες συσκευές';
-
-  @override
-  String get removeTrust => 'Αφαίρεση';
 
   @override
   String get hostWithoutWifi => 'Φιλοξενία χωρίς Wi-Fi';

@@ -2106,11 +2106,6 @@ class AppLocalizationsSq extends AppLocalizations {
       'Lidhu fillimisht me Wi-Fi — atëherë pajisjet gjejnë njëra-tjetrën';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) do të sinkronizojë';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Katalogët do të shkëmbehen në të dyja drejtimet.';
 
@@ -2118,19 +2113,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get allowOnce => 'Lejo';
 
   @override
-  String get allowAlways => 'Lejo gjithmonë këtë pajisje';
-
-  @override
-  String get declineAction => 'Refuzo';
-
-  @override
   String get syncDeclined => 'Pajisja tjetër e refuzoi sinkronizimin';
-
-  @override
-  String get trustedDevicesSection => 'Pajisjet e lejuara gjithmonë';
-
-  @override
-  String get removeTrust => 'Hiq';
 
   @override
   String get hostWithoutWifi => 'Prit pa Wi-Fi';

@@ -2112,30 +2112,13 @@ class AppLocalizationsAr extends AppLocalizations {
       'اتصل بشبكة Wi-Fi أولًا — حينها تجد الأجهزة بعضها';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) يريد المزامنة';
-  }
-
-  @override
   String get trustBothWaysNote => 'سيتم تبادل السجلات في الاتجاهين.';
 
   @override
   String get allowOnce => 'السماح';
 
   @override
-  String get allowAlways => 'السماح دائمًا لهذا الجهاز';
-
-  @override
-  String get declineAction => 'رفض';
-
-  @override
   String get syncDeclined => 'رفض الجهاز الآخر المزامنة';
-
-  @override
-  String get trustedDevicesSection => 'الأجهزة المسموح بها دائمًا';
-
-  @override
-  String get removeTrust => 'إزالة';
 
   @override
   String get hostWithoutWifi => 'استضافة بدون Wi-Fi';

@@ -2109,30 +2109,13 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nejprve se připoj k Wi-Fi — pak se zařízení najdou';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) chce synchronizovat';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalogy se vymění oběma směry.';
 
   @override
   String get allowOnce => 'Povolit';
 
   @override
-  String get allowAlways => 'Vždy povolit toto zařízení';
-
-  @override
-  String get declineAction => 'Odmítnout';
-
-  @override
   String get syncDeclined => 'Druhé zařízení synchronizaci odmítlo';
-
-  @override
-  String get trustedDevicesSection => 'Vždy povolená zařízení';
-
-  @override
-  String get removeTrust => 'Odebrat';
 
   @override
   String get hostWithoutWifi => 'Hostovat bez Wi-Fi';

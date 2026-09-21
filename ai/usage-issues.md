@@ -44,26 +44,28 @@ Stray Cam button. See the UI law in `docs/agents/ui-laws.md`.
   prompts, the page opens in edit mode with species as a field, the
   last species picked as its value.
 
-## 2. Text repeated one tap later, and paragraphs above the buttons
+## 2. Text repeated one tap later (conflicts and in-person done 2026-09-21; the paragraphs stay)
 
 - Conflicts, phone `conflicts_screen.dart:45` and `conflict_dialog.dart:34`,
   desk `conflicts.rs:22` and `:126`: the explanation on the page and the
   same sentence in the dialog, then two radios for two values the row
-  already shows. Proposal: the row shows both values as two buttons; a
-  tap resolves. When both values are the same, the tap resolves without
-  a dialog.
+  already shows. Done: the row shows both values as two buttons; a tap
+  resolves; the same value on both sides shows one Resolve button. The
+  field badge on a page leads to the conflicts page. Desk the same, the
+  arrival summary resolves on its own rows.
 - In-person join, phone `in_person_screen.dart:396` and `:136`: the note
-  on the page is the whole body of the allow dialog. Proposal: the dialog
-  carries the phone's name and the three buttons only.
+  on the page is the whole body of the allow dialog. Done, further than
+  proposed: the dialog is gone. The host showed the code and the PIN,
+  that was the decision. The always-allow trust that only skipped the
+  dialog went with it, phone and desk.
 - Sync and housekeeping explainers, phone `remote_screen.dart:140`,
   `messenger_screen.dart:81`, `in_person_screen.dart:417`,
   `backups_screen.dart:126-148`, `archive_screen.dart:141`; desk
   `sync_page.rs:41-113`, `housekeeping.rs:143`, `:205`: paragraphs above
-  the buttons that are the page. Proposal: one short line per button as
-  its subtitle, the long text into Help.
+  the buttons that are the page. Decided to keep them as they are.
 - Sync chooser, phone `sync_screen.dart:44`: three cards with subtitles,
-  each only pushing the real page. Proposal: one page with three
-  sections.
+  each only pushing the real page. Decided to keep it: one page with
+  everything on it was tried before and was too much.
 
 ## 3. Menus with one or two items
 

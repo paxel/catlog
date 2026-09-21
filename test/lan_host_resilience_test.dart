@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -91,43 +90,6 @@ void main() {
     }
     await expectLater(syncWith(b, host),
         throwsA(isA<SyncException>()));
-  });
-
-  test('"always allow" hands the joiner a secret; a bare device id is asked',
-      () async {
-    final a = CatalogStore.inMemory()..author = 'a';
-    final b = CatalogStore.inMemory()..author = 'b';
-    addTearDown(a.close);
-    addTearDown(b.close);
-    var asked = 0;
-    final host = await testHost(a, '123456',
-        onJoinRequest: (_, _) async {
-      asked++;
-      return const JoinDecision(true, false, remember: true);
-    });
-    await syncWith(b, host);
-    expect(asked, 1);
-    expect(b.localSetting(trustSecretKey(a.deviceId)), isNotNull);
-    // Second time: no question.
-    await syncWith(b, host);
-    expect(asked, 1);
-    // Another device claiming b's id without the secret is asked.
-    final client = insecureClient();
-    final req = await client.openUrl(
-        'POST', Uri.parse('https://127.0.0.1:${host.port}/sync'));
-    req.headers.set('x-catlog-pin', '123456');
-    req.headers.contentType = ContentType.json;
-    req.write(jsonEncode({
-      'format': 2,
-      'author': 'c',
-      'deviceName': 'impostor',
-      'deviceId': b.deviceId,
-      'vector': <String, int>{},
-      'entries': <Object>[],
-    }));
-    final res = await req.close();
-    await res.drain<void>();
-    expect(asked, 2);
   });
 
   test('a blob the log never mentions is not stored', () async {

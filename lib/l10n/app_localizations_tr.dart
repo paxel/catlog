@@ -2106,30 +2106,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Önce bir Wi-Fi\'ye bağlanın — cihazlar birbirini o zaman bulur';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) eşitlemek istiyor';
-  }
-
-  @override
   String get trustBothWaysNote => 'Kataloglarınız iki yönde de değiştirilecek.';
 
   @override
   String get allowOnce => 'İzin ver';
 
   @override
-  String get allowAlways => 'Bu cihaza her zaman izin ver';
-
-  @override
-  String get declineAction => 'Reddet';
-
-  @override
   String get syncDeclined => 'Diğer cihaz eşitlemeyi reddetti';
-
-  @override
-  String get trustedDevicesSection => 'Her zaman izinli cihazlar';
-
-  @override
-  String get removeTrust => 'Kaldır';
 
   @override
   String get hostWithoutWifi => 'Wi-Fi olmadan barındır';

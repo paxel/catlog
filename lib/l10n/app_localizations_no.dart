@@ -2105,30 +2105,13 @@ class AppLocalizationsNo extends AppLocalizations {
       'Koble til Wi-Fi først — da finner enhetene hverandre';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) vil synkronisere';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalogene utveksles i begge retninger.';
 
   @override
   String get allowOnce => 'Tillat';
 
   @override
-  String get allowAlways => 'Tillat alltid denne enheten';
-
-  @override
-  String get declineAction => 'Avslå';
-
-  @override
   String get syncDeclined => 'Den andre enheten avslo synkroniseringen';
-
-  @override
-  String get trustedDevicesSection => 'Alltid tillatte enheter';
-
-  @override
-  String get removeTrust => 'Fjern';
 
   @override
   String get hostWithoutWifi => 'Vert uten Wi-Fi';

@@ -2106,11 +2106,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'Előbb csatlakozz Wi-Fi-hez — akkor a készülékek megtalálják egymást';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) szinkronizálni szeretne';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'A katalógusok mindkét irányban kicserélődnek.';
 
@@ -2118,19 +2113,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get allowOnce => 'Engedélyez';
 
   @override
-  String get allowAlways => 'Mindig engedélyezd ezt a készüléket';
-
-  @override
-  String get declineAction => 'Elutasít';
-
-  @override
   String get syncDeclined => 'A másik készülék elutasította a szinkronizálást';
-
-  @override
-  String get trustedDevicesSection => 'Mindig engedélyezett készülékek';
-
-  @override
-  String get removeTrust => 'Eltávolítás';
 
   @override
   String get hostWithoutWifi => 'Hosztolás Wi-Fi nélkül';

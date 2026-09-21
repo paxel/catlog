@@ -2105,30 +2105,13 @@ class AppLocalizationsEt extends AppLocalizations {
       'Ühendu kõigepealt Wi-Fi-ga — siis seadmed leiavad teineteise';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) soovib sünkroonida';
-  }
-
-  @override
   String get trustBothWaysNote => 'Kataloogid vahetatakse mõlemas suunas.';
 
   @override
   String get allowOnce => 'Luba';
 
   @override
-  String get allowAlways => 'Luba see seade alati';
-
-  @override
-  String get declineAction => 'Keeldu';
-
-  @override
   String get syncDeclined => 'Teine seade keeldus sünkroonimisest';
-
-  @override
-  String get trustedDevicesSection => 'Alati lubatud seadmed';
-
-  @override
-  String get removeTrust => 'Eemalda';
 
   @override
   String get hostWithoutWifi => 'Majuta ilma Wi-Fi-ta';

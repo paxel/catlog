@@ -2121,30 +2121,13 @@ class AppLocalizationsGa extends AppLocalizations {
       'Ceangail le Wi-Fi ar dtús — ansin aimsíonn na gléasanna a chéile';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return 'Ba mhaith le $author ($device) sioncronú';
-  }
-
-  @override
   String get trustBothWaysNote => 'Malartófar bhur gcatalóga sa dá threo.';
 
   @override
   String get allowOnce => 'Ceadaigh';
 
   @override
-  String get allowAlways => 'Ceadaigh an gléas seo i gcónaí';
-
-  @override
-  String get declineAction => 'Diúltaigh';
-
-  @override
   String get syncDeclined => 'Dhiúltaigh an gléas eile don sioncronú';
-
-  @override
-  String get trustedDevicesSection => 'Gléasanna a cheadaítear i gcónaí';
-
-  @override
-  String get removeTrust => 'Bain';
 
   @override
   String get hostWithoutWifi => 'Óstáil gan Wi-Fi';

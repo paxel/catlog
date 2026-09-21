@@ -2112,30 +2112,13 @@ class AppLocalizationsLv extends AppLocalizations {
       'Vispirms pieslēdzies Wi-Fi — tad ierīces atradīs viena otru';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) vēlas sinhronizēt';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalogi tiks apmainīti abos virzienos.';
 
   @override
   String get allowOnce => 'Atļaut';
 
   @override
-  String get allowAlways => 'Vienmēr atļaut šo ierīci';
-
-  @override
-  String get declineAction => 'Noraidīt';
-
-  @override
   String get syncDeclined => 'Otra ierīce noraidīja sinhronizāciju';
-
-  @override
-  String get trustedDevicesSection => 'Vienmēr atļautās ierīces';
-
-  @override
-  String get removeTrust => 'Noņemt';
 
   @override
   String get hostWithoutWifi => 'Viesot bez Wi-Fi';

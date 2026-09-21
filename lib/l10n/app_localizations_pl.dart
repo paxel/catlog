@@ -2111,30 +2111,13 @@ class AppLocalizationsPl extends AppLocalizations {
       'Najpierw połącz się z Wi-Fi — wtedy urządzenia się znajdą';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) chce synchronizować';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalogi zostaną wymienione w obie strony.';
 
   @override
   String get allowOnce => 'Zezwól';
 
   @override
-  String get allowAlways => 'Zawsze zezwalaj temu urządzeniu';
-
-  @override
-  String get declineAction => 'Odrzuć';
-
-  @override
   String get syncDeclined => 'Drugie urządzenie odrzuciło synchronizację';
-
-  @override
-  String get trustedDevicesSection => 'Zawsze dozwolone urządzenia';
-
-  @override
-  String get removeTrust => 'Usuń';
 
   @override
   String get hostWithoutWifi => 'Hostuj bez Wi-Fi';

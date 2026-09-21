@@ -2113,30 +2113,13 @@ class AppLocalizationsUk extends AppLocalizations {
       'Спершу підключіться до Wi-Fi — тоді пристрої знайдуть одне одного';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) хоче синхронізуватися';
-  }
-
-  @override
   String get trustBothWaysNote => 'Каталоги буде обміняно в обох напрямках.';
 
   @override
   String get allowOnce => 'Дозволити';
 
   @override
-  String get allowAlways => 'Завжди дозволяти цьому пристрою';
-
-  @override
-  String get declineAction => 'Відхилити';
-
-  @override
   String get syncDeclined => 'Інший пристрій відхилив синхронізацію';
-
-  @override
-  String get trustedDevicesSection => 'Завжди дозволені пристрої';
-
-  @override
-  String get removeTrust => 'Прибрати';
 
   @override
   String get hostWithoutWifi => 'Хостити без Wi-Fi';

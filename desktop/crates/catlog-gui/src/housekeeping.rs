@@ -31,7 +31,6 @@ pub enum HouseAction {
     HardDelete(String, String),
     /// Remove a ban: kind and value.
     Unban(String, String),
-    RemoveTrust(String),
 }
 
 /// The pages' own state.
@@ -319,25 +318,6 @@ pub fn show_moderation(
             });
         }
         ui.checkbox(&mut state.also_ban, t.also_ban());
-        let trusted = store.local_settings_by_prefix("trust:").unwrap_or_default();
-        if !trusted.is_empty() {
-            ui.add_space(6.0);
-            ui.strong(t.trusted_devices_section());
-            for (device, value) in trusted {
-                ui.horizontal(|ui| {
-                    let parts: Vec<&str> = value.split('|').collect();
-                    let label = if parts.len() > 2 {
-                        format!("{} · {}", parts[1], parts[2])
-                    } else {
-                        device.clone()
-                    };
-                    ui.label(label);
-                    if ui.button(t.remove_trust()).clicked() {
-                        action = HouseAction::RemoveTrust(device.clone());
-                    }
-                });
-            }
-        }
         let bans = store.bans().unwrap_or_default();
         if !bans.is_empty() {
             ui.add_space(6.0);

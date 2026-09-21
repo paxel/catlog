@@ -2,8 +2,8 @@
 //! own `lanSync` to join (`test/lan_desk_test.dart`): the wire check
 //! that the ureq joiner in the unit tests cannot be. Opens a Catalog at
 //! the directory given, with a cat and a photo, prints `port
-//! fingerprint-hex` on one line, allows every joiner for good, and
-//! serves until stdin closes.
+//! fingerprint-hex` on one line, serves every joiner that has the code,
+//! and runs until stdin closes.
 
 use std::io::Read;
 use std::net::{IpAddr, Ipv4Addr};
@@ -12,7 +12,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::Duration;
 
 use catlog_core::Catalog;
-use catlog_core::lan::{Host, JoinDecision, Served};
+use catlog_core::lan::Host;
 
 fn main() {
     let dir = std::env::args()
@@ -39,29 +39,15 @@ fn main() {
             done.store(true, Ordering::Relaxed);
         });
     }
-    let decision = JoinDecision {
-        allow: true,
-        remember: true,
-    };
     while !done.load(Ordering::Relaxed) {
         let Some(request) = host.next_request() else {
             std::thread::sleep(Duration::from_millis(10));
             continue;
         };
-        match store.serve(&request, false).expect("serve") {
-            Served::Reply(response, session) => {
-                request.reply(response);
-                if let Some(s) = session {
-                    println!("session {} {}", s.author, s.applied.len());
-                }
-            }
-            Served::Ask(ask) => {
-                let (response, session) = store.serve_join(&ask, decision, false).expect("join");
-                request.reply(response);
-                if let Some(s) = session {
-                    println!("session {} {}", s.author, s.applied.len());
-                }
-            }
+        let (response, session) = store.serve(&request, false).expect("serve");
+        request.reply(response);
+        if let Some(s) = session {
+            println!("session {} {}", s.author, s.applied.len());
         }
     }
 }

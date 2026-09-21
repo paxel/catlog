@@ -2109,11 +2109,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'Conectează-te mai întâi la Wi-Fi — apoi dispozitivele se găsesc';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) vrea să sincronizeze';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Cataloagele vor fi schimbate în ambele direcții.';
 
@@ -2121,19 +2116,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get allowOnce => 'Permite';
 
   @override
-  String get allowAlways => 'Permite mereu acest dispozitiv';
-
-  @override
-  String get declineAction => 'Refuză';
-
-  @override
   String get syncDeclined => 'Celălalt dispozitiv a refuzat sincronizarea';
-
-  @override
-  String get trustedDevicesSection => 'Dispozitive permise mereu';
-
-  @override
-  String get removeTrust => 'Elimină';
 
   @override
   String get hostWithoutWifi => 'Găzduiește fără Wi-Fi';

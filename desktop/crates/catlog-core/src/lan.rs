@@ -54,11 +54,6 @@ const PIN_HEADER: &str = "x-catlog-pin";
 const DEVICE_HEADER: &str = "x-catlog-device";
 const FORMAT_HEADER: &str = "x-catlog-format";
 
-/// Local-setting key of a trusted joiner: `private|author|name|secret`.
-pub fn trust_key(device_id: &str) -> String {
-    format!("trust:{device_id}")
-}
-
 // ---------------------------------------------------------------- pair code
 
 /// Crockford base32, lowercase, no i/l/o/u — as the phone writes it.
@@ -376,13 +371,6 @@ pub fn new_pin() -> String {
     let _ = getrandom::fill(&mut random);
     let n = u32::from_be_bytes(random) % 900_000 + 100_000;
     n.to_string()
-}
-
-/// A secret for a device allowed for good: 32 random bytes in hex.
-fn new_secret() -> String {
-    let mut random = [0u8; 32];
-    let _ = getrandom::fill(&mut random);
-    hex::encode(random)
 }
 
 /// The address this machine has on its local network, found without
@@ -709,15 +697,6 @@ pub struct JoinAsk {
     body: Value,
 }
 
-/// The keeper's answer to "may this device sync?".
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct JoinDecision {
-    pub allow: bool,
-    /// "Always allow this device": a secret is issued and kept, and the
-    /// device passes without a question from then on.
-    pub remember: bool,
-}
-
 /// What one joiner's session brought.
 #[derive(Debug, Clone)]
 pub struct Session {
@@ -725,13 +704,6 @@ pub struct Session {
     pub applied: Vec<Entry>,
     pub moment: Option<Moment>,
     pub report: ImportReport,
-}
-
-/// The host's answer to a request: sent, or a question first.
-#[derive(Debug)]
-pub enum Served {
-    Reply(Response, Option<Session>),
-    Ask(JoinAsk),
 }
 
 fn vector_of(value: Option<&Value>) -> BTreeMap<String, i64> {
@@ -746,21 +718,26 @@ fn vector_of(value: Option<&Value>) -> BTreeMap<String, i64> {
 }
 
 impl Catalog {
-    /// Answers one request as the phone's host would; a `/sync` from a
-    /// device not allowed for good comes back as a question.
-    pub fn serve(&mut self, request: &Request, include_private: bool) -> Result<Served> {
+    /// Answers one request as the phone's host would. A phone that has
+    /// the code and the PIN off this desk's screen is welcome: the
+    /// keeper showed them, that was the decision.
+    pub fn serve(
+        &mut self,
+        request: &Request,
+        include_private: bool,
+    ) -> Result<(Response, Option<Session>)> {
         let path = request.path.as_str();
         Ok(match (request.method.as_str(), path) {
-            ("GET", "/vector") => Served::Reply(self.serve_vector()?, None),
+            ("GET", "/vector") => (self.serve_vector()?, None),
             ("POST", "/sync") => self.serve_sync(&request.body, include_private)?,
             ("GET", p) if p.starts_with("/blob/") => {
-                Served::Reply(self.serve_blob_get(&p["/blob/".len()..]), None)
+                (self.serve_blob_get(&p["/blob/".len()..]), None)
             }
-            ("POST", p) if p.starts_with("/blob/") => Served::Reply(
+            ("POST", p) if p.starts_with("/blob/") => (
                 self.serve_blob_put(&p["/blob/".len()..], &request.body)?,
                 None,
             ),
-            _ => Served::Reply(Response::status(404), None),
+            _ => (Response::status(404), None),
         })
     }
 
@@ -777,9 +754,13 @@ impl Catalog {
         Ok(response)
     }
 
-    /// `/sync`: refuses a format that would lose data, lets a device
-    /// allowed for good straight in, and asks about anyone else.
-    pub fn serve_sync(&mut self, body: &[u8], include_private: bool) -> Result<Served> {
+    /// `/sync`: refuses a format that would lose data, serves anyone
+    /// else.
+    pub fn serve_sync(
+        &mut self,
+        body: &[u8],
+        include_private: bool,
+    ) -> Result<(Response, Option<Session>)> {
         let body: Value = serde_json::from_slice(body)?;
         let joiner_format = body.get("format").and_then(|f| f.as_i64()).unwrap_or(1);
         // While no entry ever carried the reminder flag, the payload is
@@ -799,7 +780,7 @@ impl Catalog {
                     }),
                 )
             };
-            return Ok(Served::Reply(response, None));
+            return Ok((response, None));
         }
         let text = |key: &str, fallback: &str| {
             body.get(key)
@@ -813,58 +794,17 @@ impl Catalog {
             device_id: text("deviceId", ""),
             body: body.clone(),
         };
-        let secret = body.get("trustSecret").and_then(|v| v.as_str());
-        if self.trusted(&ask.device_id, secret) {
-            let (response, session) = self.serve_join(
-                &ask,
-                JoinDecision {
-                    allow: true,
-                    remember: false,
-                },
-                include_private,
-            )?;
-            return Ok(Served::Reply(response, session));
-        }
-        Ok(Served::Ask(ask))
+        self.serve_join(&ask, include_private)
     }
 
-    /// Whether the joiner's claim of trust matches the secret this host
-    /// issued it; a stored trust without a secret counts as none.
-    fn trusted(&self, device_id: &str, secret: Option<&str>) -> bool {
-        let Some(secret) = secret.filter(|s| !s.is_empty()) else {
-            return false;
-        };
-        if device_id.is_empty() {
-            return false;
-        }
-        self.local_setting(&trust_key(device_id))
-            .map(|stored| stored.splitn(4, '|').nth(3) == Some(secret))
-            .unwrap_or(false)
-    }
-
-    /// The `/sync` answer once the keeper decided: the joiner's entries
-    /// applied, ours since its vector sent back, with the photos each
-    /// side wants and the keys both hold.
-    pub fn serve_join(
+    /// The `/sync` answer: the joiner's entries applied, ours since its
+    /// vector sent back, with the photos each side wants and the keys
+    /// both hold.
+    fn serve_join(
         &mut self,
         ask: &JoinAsk,
-        decision: JoinDecision,
         include_private: bool,
     ) -> Result<(Response, Option<Session>)> {
-        if !decision.allow {
-            return Ok((Response::text(403, "declined"), None));
-        }
-        let issued = if decision.remember && !ask.device_id.is_empty() {
-            let secret = new_secret();
-            let scope = if include_private { "private" } else { "public" };
-            self.set_local_setting(
-                &trust_key(&ask.device_id),
-                &format!("{scope}|{}|{}|{secret}", ask.author, ask.device_name),
-            )?;
-            Some(secret)
-        } else {
-            None
-        };
         let joiner_vector = vector_of(ask.body.get("vector"));
         let incoming: Vec<Entry> = ask
             .body
@@ -897,14 +837,11 @@ impl Catalog {
         )?;
         let moment =
             self.moment_for(before, !applied.is_empty(), cause::SYNC, Some(&ask.author))?;
-        let mut answer = json!({
+        let answer = json!({
             "entries": self.entries_since(&joiner_vector, include_private)?,
             "wantBlobs": self.missing_blobs()?,
             "keys": self.key_records()?,
         });
-        if let Some(secret) = issued {
-            answer["trust"] = Value::String(secret);
-        }
         Ok((
             Response::json(200, &answer),
             Some(Session {
@@ -1007,12 +944,10 @@ mod tests {
         ureq::Agent::new_with_config(config)
     }
 
-    /// What a joiner brought home: entries applied, the secret issued,
-    /// photos in and out.
+    /// What a joiner brought home: entries applied, photos in and out.
     #[derive(Debug)]
     struct Joined {
         applied: Vec<Entry>,
-        trust: Option<String>,
         blobs_in: usize,
         blobs_out: usize,
     }
@@ -1024,7 +959,6 @@ mod tests {
         port: u16,
         pin: &str,
         format: i64,
-        trust_secret: Option<&str>,
     ) -> std::result::Result<Joined, String> {
         let agent = agent();
         let base = format!("https://127.0.0.1:{port}");
@@ -1055,7 +989,7 @@ mod tests {
         let host_vector: BTreeMap<String, i64> =
             serde_json::from_str(&res.body_mut().read_to_string().unwrap()).unwrap();
         let to_send = store.entries_since(&host_vector, false).unwrap();
-        let mut body = json!({
+        let body = json!({
             "format": format,
             "vector": store.version_vector().unwrap(),
             "entries": to_send,
@@ -1064,9 +998,6 @@ mod tests {
             "deviceId": store.device_id(),
             "keys": store.key_records().unwrap(),
         });
-        if let Some(secret) = trust_secret {
-            body["trustSecret"] = Value::String(secret.to_string());
-        }
         let mut res = agent
             .post(format!("{base}/sync"))
             .header(PIN_HEADER, pin)
@@ -1118,44 +1049,32 @@ mod tests {
         }
         Ok(Joined {
             applied,
-            trust: answer["trust"].as_str().map(String::from),
             blobs_in,
             blobs_out,
         })
     }
 
     /// The host's side as the desk runs it: the store answers every
-    /// request, and every unknown phone gets the keeper's fixed answer.
+    /// request.
     fn serve_until(
         path: std::path::PathBuf,
         host: Host,
-        decision: JoinDecision,
         stop: Arc<AtomicBool>,
-    ) -> JoinHandle<(Vec<Session>, Vec<JoinAsk>)> {
+    ) -> JoinHandle<Vec<Session>> {
         std::thread::spawn(move || {
             let mut store = Catalog::open(&path).unwrap();
             let mut sessions = Vec::new();
-            let mut asks = Vec::new();
             while !stop.load(Ordering::Relaxed) {
                 let Some(request) = host.next_request() else {
                     std::thread::sleep(Duration::from_millis(5));
                     continue;
                 };
-                match store.serve(&request, false).unwrap() {
-                    Served::Reply(response, session) => {
-                        sessions.extend(session);
-                        request.reply(response);
-                    }
-                    Served::Ask(ask) => {
-                        asks.push(ask.clone());
-                        let (response, session) = store.serve_join(&ask, decision, false).unwrap();
-                        sessions.extend(session);
-                        request.reply(response);
-                    }
-                }
+                let (response, session) = store.serve(&request, false).unwrap();
+                sessions.extend(session);
+                request.reply(response);
             }
             drop(host);
-            (sessions, asks)
+            sessions
         })
     }
 
@@ -1180,15 +1099,7 @@ mod tests {
             Some(identity.fingerprint.clone())
         );
         let stop = Arc::new(AtomicBool::new(false));
-        let served = serve_until(
-            host_path.clone(),
-            host,
-            JoinDecision {
-                allow: true,
-                remember: true,
-            },
-            stop.clone(),
-        );
+        let served = serve_until(host_path.clone(), host, stop.clone());
 
         let mut phone = Catalog::open(&dir.path().join("phone")).unwrap();
         phone.set_author("Ada").unwrap();
@@ -1196,11 +1107,8 @@ mod tests {
         let tom_hash = phone.add_image("cat:tom", b"\xff\xd8tom").unwrap();
 
         // A wrong PIN is refused before anything is read from the store.
-        assert_eq!(
-            join(&mut phone, port, "000000", 3, None).unwrap_err(),
-            "403 "
-        );
-        let first = join(&mut phone, port, "246810", 3, None).unwrap();
+        assert_eq!(join(&mut phone, port, "000000", 3).unwrap_err(), "403 ");
+        let first = join(&mut phone, port, "246810", 3).unwrap();
         assert!(!first.applied.is_empty());
         assert_eq!(
             phone.current("cat:mia", "name").unwrap().as_deref(),
@@ -1208,18 +1116,13 @@ mod tests {
         );
         assert_eq!(phone.image_bytes(&mia_hash).unwrap(), b"\xff\xd8mia");
         assert_eq!((first.blobs_in, first.blobs_out), (1, 1));
-        let secret = first.trust.expect("always allow issued a secret");
-        // A second visit with the secret passes without a question.
-        let again = join(&mut phone, port, "246810", 3, Some(&secret)).unwrap();
+        // A second visit with the same code passes the same way.
+        let again = join(&mut phone, port, "246810", 3).unwrap();
         assert!(again.applied.is_empty());
-        assert!(again.trust.is_none());
         assert_eq!((again.blobs_in, again.blobs_out), (0, 0));
 
         stop.store(true, Ordering::Relaxed);
-        let (sessions, asks) = served.join().unwrap();
-        assert_eq!(asks.len(), 1, "the secret spared the second question");
-        assert_eq!(asks[0].author, "Ada");
-        assert_eq!(asks[0].device_name, "phone");
+        let sessions = served.join().unwrap();
         assert_eq!(sessions.len(), 2);
         assert!(sessions[0].moment.is_some());
         assert_eq!(sessions[0].author, "Ada");
@@ -1230,8 +1133,6 @@ mod tests {
             Some("Tom")
         );
         assert_eq!(desk.image_bytes(&tom_hash).unwrap(), b"\xff\xd8tom");
-        let stored = desk.local_setting(&trust_key(&phone.device_id())).unwrap();
-        assert_eq!(stored, format!("public|Ada|phone|{secret}"));
     }
 
     #[test]
@@ -1262,11 +1163,8 @@ mod tests {
             }))
             .unwrap()
         };
-        // Without a reminder the payload is the old one: served, asked about.
-        assert!(matches!(
-            desk.serve_sync(&body(2), false).unwrap(),
-            Served::Ask(_)
-        ));
+        // Without a reminder the payload is the old one: served.
+        assert!(desk.serve_sync(&body(2), false).unwrap().1.is_some());
         desk.append_at(
             "cat:a",
             "f:vet",
@@ -1275,51 +1173,23 @@ mod tests {
             true,
         )
         .unwrap();
-        match desk.serve_sync(&body(2), false).unwrap() {
-            Served::Reply(response, None) => {
-                assert_eq!(response.status, 403);
-                let refusal: Value = serde_json::from_slice(&response.body).unwrap();
-                assert_eq!(refusal["refusal"], "joiner-older");
-                assert_eq!(refusal["format"], 3);
-            }
-            other => panic!("{other:?}"),
-        }
+        let (response, session) = desk.serve_sync(&body(2), false).unwrap();
+        assert!(session.is_none());
+        assert_eq!(response.status, 403);
+        let refusal: Value = serde_json::from_slice(&response.body).unwrap();
+        assert_eq!(refusal["refusal"], "joiner-older");
+        assert_eq!(refusal["format"], 3);
         // A pre-1.0.0 joiner hears only the word it knows.
-        match desk.serve_sync(&body(1), false).unwrap() {
-            Served::Reply(response, None) => {
-                assert_eq!(
-                    (response.status, response.body.as_slice()),
-                    (403, &b"declined"[..])
-                );
-            }
-            other => panic!("{other:?}"),
-        }
-        match desk.serve_sync(&body(4), false).unwrap() {
-            Served::Reply(response, None) => {
-                let refusal: Value = serde_json::from_slice(&response.body).unwrap();
-                assert_eq!(refusal["refusal"], "joiner-newer");
-            }
-            other => panic!("{other:?}"),
-        }
-        // Declining answers the word the phone shows as "declined".
-        let ask = match desk.serve_sync(&body(3), false).unwrap() {
-            Served::Ask(ask) => ask,
-            other => panic!("{other:?}"),
-        };
-        let (response, session) = desk
-            .serve_join(
-                &ask,
-                JoinDecision {
-                    allow: false,
-                    remember: false,
-                },
-                false,
-            )
-            .unwrap();
+        let (response, session) = desk.serve_sync(&body(1), false).unwrap();
+        assert!(session.is_none());
         assert_eq!(
             (response.status, response.body.as_slice()),
             (403, &b"declined"[..])
         );
+        let (response, session) = desk.serve_sync(&body(4), false).unwrap();
+        assert!(session.is_none());
+        let refusal: Value = serde_json::from_slice(&response.body).unwrap();
+        assert_eq!(refusal["refusal"], "joiner-newer");
         assert!(session.is_none());
     }
 

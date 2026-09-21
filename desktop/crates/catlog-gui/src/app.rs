@@ -963,7 +963,6 @@ impl App {
         // lies on top of it.
         self.show_modal(ui.ctx());
         self.show_history_modal(ui.ctx());
-        self.show_trust_question(ui.ctx());
         self.act_page(page_action);
         self.show_chore_dialogs(ui.ctx());
         if let Some((loser, survivor, kind)) = self.merge_dialog.show(ui.ctx(), &t) {
@@ -1839,11 +1838,6 @@ impl App {
                     self.notice = Some(e.to_string());
                 }
             }
-            HouseAction::RemoveTrust(device) => {
-                if let Err(e) = self.store.remove_local_setting(&format!("trust:{device}")) {
-                    self.notice = Some(e.to_string());
-                }
-            }
         }
     }
 
@@ -2531,16 +2525,6 @@ impl App {
         }
         ctx.request_repaint_after(self.in_person.poll_delay());
         for session in self.in_person.poll(&mut self.store) {
-            self.after_session(session);
-        }
-    }
-
-    /// The question a phone waits for; its answer serves or turns it away.
-    fn show_trust_question(&mut self, ctx: &Context) {
-        let t = self.t;
-        if let Some(decision) = self.in_person.show_question(ctx, &t)
-            && let Some(session) = self.in_person.decide(&mut self.store, decision)
-        {
             self.after_session(session);
         }
     }
@@ -6758,7 +6742,7 @@ mod tests {
     }
 
     #[test]
-    fn a_phone_joins_the_desk_in_person_once_the_keeper_allows_it() {
+    fn a_phone_with_the_code_joins_the_desk_in_person_unasked() {
         let dir = tempfile::tempdir().unwrap();
         let mut app = seeded(dir.path());
         app.in_person.bind = Some(std::net::IpAddr::V4(std::net::Ipv4Addr::LOCALHOST));
@@ -6779,16 +6763,14 @@ mod tests {
         h.get_by_label("0 session(s) so far");
         let phone_dir = dir.path().join("phone");
         let joiner = std::thread::spawn(move || phone_joins(&phone_dir, port, &pin));
-        // Frames run until the phone's sync stands as the question.
+        // Frames run until the phone's sync went through: the code and
+        // the PIN off this screen are the keeper's yes, nothing asks.
         let deadline = Instant::now() + Duration::from_secs(30);
-        while h.state().in_person.asking.is_none() {
-            assert!(Instant::now() < deadline, "no phone asked");
+        while h.state().in_person.sessions == 0 {
+            assert!(Instant::now() < deadline, "no phone joined");
             h.step();
             std::thread::sleep(Duration::from_millis(20));
         }
-        h.run();
-        h.get_by_label("Bob (phone) wants to sync");
-        h.get_by_label("Allow").click();
         h.run();
         let (status, body) = joiner.join().unwrap();
         assert_eq!(status, 200, "{body}");
@@ -6808,49 +6790,6 @@ mod tests {
         h.run();
         assert!(!h.state().summary.open);
         h.get_by_label("1 session(s) so far");
-        h.get_by_label("Stop hosting").click();
-        h.run();
-        assert!(h.state().in_person.host.is_none());
-        assert_eq!(h.state().modal(), None);
-    }
-
-    #[test]
-    fn a_declined_phone_hears_so_and_closing_the_modal_stops_the_host() {
-        let dir = tempfile::tempdir().unwrap();
-        let mut app = seeded(dir.path());
-        app.in_person.bind = Some(std::net::IpAddr::V4(std::net::Ipv4Addr::LOCALHOST));
-        app.in_person.poll_every = Some(Duration::from_secs(5));
-        let mut h = harness(app);
-        h.run();
-        h.state_mut().open_modal(Modal::Sync);
-        h.run();
-        h.get_by_label("Start hosting").click();
-        h.run();
-        let (port, pin) = {
-            let host = h.state().in_person.host.as_ref().expect("hosting");
-            (host.port(), host.pin().to_string())
-        };
-        let phone_dir = dir.path().join("phone");
-        let joiner = std::thread::spawn(move || phone_joins(&phone_dir, port, &pin));
-        let deadline = Instant::now() + Duration::from_secs(30);
-        while h.state().in_person.asking.is_none() {
-            assert!(Instant::now() < deadline, "no phone asked");
-            h.step();
-            std::thread::sleep(Duration::from_millis(20));
-        }
-        h.run();
-        h.get_by_label("Decline").click();
-        h.run();
-        let (status, body) = joiner.join().unwrap();
-        assert_eq!((status, body.as_str()), (403, "declined"));
-        assert!(
-            h.state()
-                .store()
-                .current("cat:rex", "name")
-                .unwrap()
-                .is_none()
-        );
-        assert_eq!(h.state().in_person.sessions, 0);
         // Escape closes the modal and the host with it.
         h.key_press(egui::Key::Escape);
         h.run();

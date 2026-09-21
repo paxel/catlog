@@ -1165,14 +1165,9 @@
   "syncChooserMessenger": "Messenger",
   "syncChooserMessengerSub": "Export and import via social media",
   "connectToWifiFirst": "Connect to a Wi-Fi first — then devices can find each other",
-  "trustQuestion": "{author} ({device}) wants to sync",
   "trustBothWaysNote": "Your catalogs will be exchanged in both directions.",
   "allowOnce": "Allow",
-  "allowAlways": "Always allow this device",
-  "declineAction": "Decline",
   "syncDeclined": "The other device declined the sync",
-  "trustedDevicesSection": "Always-allowed devices",
-  "removeTrust": "Remove",
   "@trustQuestion": {
     "placeholders": {
       "author": {},
