@@ -279,6 +279,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get captureFlier => 'Photographier l\'affiche';
 
   @override
+  String get flierFromCamera => 'Affiche par l\'appareil photo';
+
+  @override
+  String get flierFromGallery => 'Affiche depuis la galerie';
+
+  @override
   String get addPhotosTo => 'Ajouter les photos à…';
 
   @override
@@ -2725,6 +2731,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Rendez-vous';
+
+  @override
+  String get reminderLabel => 'Rappel';
 
   @override
   String get addAppointment => 'Ajouter un rendez-vous';

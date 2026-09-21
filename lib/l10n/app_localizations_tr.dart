@@ -279,6 +279,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get captureFlier => 'İlanı fotoğrafla';
 
   @override
+  String get flierFromCamera => 'Kameradan ilan';
+
+  @override
+  String get flierFromGallery => 'Galeriden ilan';
+
+  @override
   String get addPhotosTo => 'Fotoğrafları şuna ekle…';
 
   @override
@@ -2717,6 +2723,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Randevu';
+
+  @override
+  String get reminderLabel => 'Hatırlatma';
 
   @override
   String get addAppointment => 'Randevu ekle';

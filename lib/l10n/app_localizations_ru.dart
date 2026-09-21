@@ -280,6 +280,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get captureFlier => 'Сфотографировать объявление';
 
   @override
+  String get flierFromCamera => 'Объявление с камеры';
+
+  @override
+  String get flierFromGallery => 'Объявление из галереи';
+
+  @override
   String get addPhotosTo => 'Добавить фото к…';
 
   @override
@@ -2728,6 +2734,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Визит';
+
+  @override
+  String get reminderLabel => 'Напоминание';
 
   @override
   String get addAppointment => 'Добавить визит';

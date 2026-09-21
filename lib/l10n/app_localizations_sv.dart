@@ -280,6 +280,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get captureFlier => 'Fotografera anslag';
 
   @override
+  String get flierFromCamera => 'Anslag från kameran';
+
+  @override
+  String get flierFromGallery => 'Anslag från galleriet';
+
+  @override
   String get addPhotosTo => 'Lägg till foton till…';
 
   @override
@@ -2716,6 +2722,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Möte';
+
+  @override
+  String get reminderLabel => 'Påminnelse';
 
   @override
   String get addAppointment => 'Lägg till möte';

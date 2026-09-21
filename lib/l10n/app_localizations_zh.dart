@@ -271,6 +271,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get captureFlier => '拍摄寻猫启事';
 
   @override
+  String get flierFromCamera => '用相机拍摄启事';
+
+  @override
+  String get flierFromGallery => '从相册选择启事';
+
+  @override
   String get addPhotosTo => '将照片添加到…';
 
   @override
@@ -2611,6 +2617,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get appointmentLabel => '安排';
+
+  @override
+  String get reminderLabel => '提醒';
 
   @override
   String get addAppointment => '添加安排';

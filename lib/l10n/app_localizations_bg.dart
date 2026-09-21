@@ -280,6 +280,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get captureFlier => 'Заснемане на обява';
 
   @override
+  String get flierFromCamera => 'Обява от камерата';
+
+  @override
+  String get flierFromGallery => 'Обява от галерията';
+
+  @override
   String get addPhotosTo => 'Добавяне на снимките към…';
 
   @override
@@ -2717,6 +2723,9 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Час';
+
+  @override
+  String get reminderLabel => 'Напомняне';
 
   @override
   String get addAppointment => 'Добави час';

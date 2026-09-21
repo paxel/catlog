@@ -279,6 +279,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get captureFlier => 'عکس از آگهی';
 
   @override
+  String get flierFromCamera => 'آگهی از دوربین';
+
+  @override
+  String get flierFromGallery => 'آگهی از گالری';
+
+  @override
   String get addPhotosTo => 'افزودن عکس‌ها به…';
 
   @override
@@ -2700,6 +2706,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'قرار';
+
+  @override
+  String get reminderLabel => 'یادآوری';
 
   @override
   String get addAppointment => 'افزودن قرار';

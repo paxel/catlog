@@ -279,6 +279,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get captureFlier => 'Vyfotit leták';
 
   @override
+  String get flierFromCamera => 'Leták z fotoaparátu';
+
+  @override
+  String get flierFromGallery => 'Leták z galerie';
+
+  @override
   String get addPhotosTo => 'Přidat fotky k…';
 
   @override
@@ -2723,6 +2729,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Termín';
+
+  @override
+  String get reminderLabel => 'Připomínka';
 
   @override
   String get addAppointment => 'Přidat termín';

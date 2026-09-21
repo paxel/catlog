@@ -279,6 +279,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get captureFlier => 'Ħu ritratt tal-flier';
 
   @override
+  String get flierFromCamera => 'Flier mill-kamera';
+
+  @override
+  String get flierFromGallery => 'Flier mill-gallerija';
+
+  @override
   String get addPhotosTo => 'Żid ir-ritratti ma\'…';
 
   @override
@@ -2728,6 +2734,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Appuntament';
+
+  @override
+  String get reminderLabel => 'Tfakkira';
 
   @override
   String get addAppointment => 'Żid appuntament';

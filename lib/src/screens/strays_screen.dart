@@ -14,11 +14,9 @@ import '../spotlight.dart';
 import '../video_frames_io.dart';
 import 'match_candidates_screen.dart';
 import '../stray_cam.dart';
-import '../widgets/cat_ear.dart';
+import '../widgets/add_fan.dart';
 import 'cat_detail_screen.dart';
 import 'cat_list_screen.dart';
-import '../exclusive.dart';
-import '../widgets/looks_input.dart';
 
 /// Cats currently in no Clowder: the shared cat list (#87) with the
 /// strays' own tools — flier capture, stray cam, match candidates,
@@ -72,17 +70,26 @@ class StraysScreen extends StatelessWidget {
     await _openNew(context, catId, refresh);
   }
 
+  /// A stray from a picture taken now or one from the gallery, at the
+  /// current position; its page opens in edit mode.
+  Future<void> _strayFrom(
+    BuildContext context,
+    VoidCallback refresh,
+    ImageSource source,
+  ) async {
+    final catId = await strayCam(context, store, source: source);
+    if (!context.mounted) return;
+    await _openNew(context, catId, refresh, startEditing: true);
+  }
+
   Future<void> _openNew(
     BuildContext context,
     String? catId,
     VoidCallback refresh, {
     bool startEditing = false,
   }) async {
-    // A fresh capture asks what the animal looks like before its page
-    // opens — the match list needs Looks, and now is when they are seen.
-    if (catId != null && startEditing && context.mounted) {
-      await askLooksAfterCapture(context, store, catId);
-    }
+    // A fresh capture opens its page in edit mode: species and Looks
+    // are fields there, nothing asks in the way.
     if (catId != null && context.mounted) {
       await Navigator.of(context).push(
         MaterialPageRoute(
@@ -114,44 +121,6 @@ class StraysScreen extends StatelessWidget {
         onChanged: refresh,
       ),
       actions: (context, refresh) => [
-        // Tap photographs the poster; hold brings one from the gallery.
-        GestureDetector(
-          onLongPress: () =>
-              _captureFlier(context, refresh, ImageSource.gallery),
-          child: WithCatEar(
-            child: Spotlight(
-              id: 'strays-flier',
-              child: IconButton(
-                icon: const Icon(Icons.assignment_outlined),
-                tooltip: context.t.captureFlier,
-                onPressed: () =>
-                    _captureFlier(context, refresh, cameraIfThereIsOne),
-              ),
-            ),
-          ),
-        ),
-        // Tap films nothing: a photo; hold for the film mode (#41).
-        GestureDetector(
-          onLongPress: () async {
-            final catId = await strayCamVideo(context, store);
-            if (!context.mounted) return;
-            await _openNew(context, catId, refresh, startEditing: true);
-          },
-          child: WithCatEar(
-            child: IconButton(
-              icon: const BusyIcon(
-                keys: {'strayCam', 'imagePicker'},
-                icon: Icons.photo_camera,
-              ),
-              tooltip: context.t.strayCam,
-              onPressed: () async {
-                final catId = await strayCam(context, store);
-                if (!context.mounted) return;
-                await _openNew(context, catId, refresh, startEditing: true);
-              },
-            ),
-          ),
-        ),
         Spotlight(
           id: 'strays-scan',
           child: IconButton(
@@ -182,16 +151,50 @@ class StraysScreen extends StatelessWidget {
           },
         ),
       ],
-      floatingActionButton: (context, refresh) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FloatingActionButton.extended(
-            heroTag: 'addStray',
-            onPressed: () => _addStray(context, refresh),
-            icon: const Icon(Icons.add),
-            label: Text(context.t.addStray),
-          ),
-        ],
+      // The one plus: every way a stray comes in fans out of it.
+      floatingActionButton: (context, refresh) => Spotlight(
+        id: 'strays-flier',
+        child: AddFan(
+          tooltip: context.t.addStray,
+          items: [
+            FanItem(
+              icon: Icons.add,
+              label: context.t.addStray,
+              onTap: () => _addStray(context, refresh),
+            ),
+            FanItem(
+              icon: Icons.photo_camera,
+              label: context.t.takePhoto,
+              onTap: () => _strayFrom(context, refresh, ImageSource.camera),
+            ),
+            FanItem(
+              icon: Icons.photo_library,
+              label: context.t.chooseFromGallery,
+              onTap: () => _strayFrom(context, refresh, ImageSource.gallery),
+            ),
+            FanItem(
+              icon: Icons.movie_outlined,
+              label: context.t.fromVideo,
+              onTap: () async {
+                final catId = await strayCamVideo(context, store);
+                if (!context.mounted) return;
+                await _openNew(context, catId, refresh, startEditing: true);
+              },
+            ),
+            FanItem(
+              icon: Icons.assignment_outlined,
+              label: context.t.flierFromCamera,
+              onTap: () =>
+                  _captureFlier(context, refresh, cameraIfThereIsOne),
+            ),
+            FanItem(
+              icon: Icons.assignment_outlined,
+              label: context.t.flierFromGallery,
+              onTap: () =>
+                  _captureFlier(context, refresh, ImageSource.gallery),
+            ),
+          ],
+        ),
       ),
     );
   }

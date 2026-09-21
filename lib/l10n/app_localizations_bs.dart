@@ -279,6 +279,12 @@ class AppLocalizationsBs extends AppLocalizations {
   String get captureFlier => 'Slikaj letak';
 
   @override
+  String get flierFromCamera => 'Letak s kamere';
+
+  @override
+  String get flierFromGallery => 'Letak iz galerije';
+
+  @override
   String get addPhotosTo => 'Dodaj fotografije u…';
 
   @override
@@ -2723,6 +2729,9 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Termin';
+
+  @override
+  String get reminderLabel => 'Podsjetnik';
 
   @override
   String get addAppointment => 'Dodaj termin';

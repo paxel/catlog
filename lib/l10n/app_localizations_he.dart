@@ -278,6 +278,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get captureFlier => 'צילום מודעה';
 
   @override
+  String get flierFromCamera => 'מודעה מהמצלמה';
+
+  @override
+  String get flierFromGallery => 'מודעה מהגלריה';
+
+  @override
   String get addPhotosTo => 'הוספת תמונות אל…';
 
   @override
@@ -2712,6 +2718,9 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'פגישה';
+
+  @override
+  String get reminderLabel => 'תזכורת';
 
   @override
   String get addAppointment => 'הוספת פגישה';

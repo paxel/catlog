@@ -277,6 +277,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get captureFlier => 'チラシを撮影';
 
   @override
+  String get flierFromCamera => 'カメラでチラシ';
+
+  @override
+  String get flierFromGallery => 'ギャラリーからチラシ';
+
+  @override
   String get addPhotosTo => '写真の追加先…';
 
   @override
@@ -2642,6 +2648,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get appointmentLabel => '予定';
+
+  @override
+  String get reminderLabel => 'リマインダー';
 
   @override
   String get addAppointment => '予定を追加';

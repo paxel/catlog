@@ -279,6 +279,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get captureFlier => 'Fotografar cartaz';
 
   @override
+  String get flierFromCamera => 'Cartaz da câmara';
+
+  @override
+  String get flierFromGallery => 'Cartaz da galeria';
+
+  @override
   String get addPhotosTo => 'Adicionar fotos a…';
 
   @override
@@ -2719,6 +2725,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Compromisso';
+
+  @override
+  String get reminderLabel => 'Lembrete';
 
   @override
   String get addAppointment => 'Adicionar compromisso';

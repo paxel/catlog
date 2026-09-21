@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'image_import.dart';
 import 'name_proposals.dart';
+import 'pet_mode.dart';
 import 'l10n.dart';
 import 'exclusive.dart';
 
@@ -118,6 +119,7 @@ Future<void> explainLocationFailure(
 Future<String?> strayCam(BuildContext context, CatalogStore store,
     {Locator locate = locateDevice,
     Future<Uint8List?> Function(BuildContext)? pickPhoto,
+    ImageSource? source,
     Future<bool> Function() openSettings = Geolocator.openAppSettings,
     Future<bool> Function() openLocationSettings =
         Geolocator.openLocationSettings}) {
@@ -126,6 +128,7 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
     () => _strayCam(context, store,
         locate: locate,
         pickPhoto: pickPhoto,
+        source: source,
         openSettings: openSettings,
         openLocationSettings: openLocationSettings),
     context: context,
@@ -135,6 +138,7 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
 Future<String?> _strayCam(BuildContext context, CatalogStore store,
     {Locator locate = locateDevice,
     Future<Uint8List?> Function(BuildContext)? pickPhoto,
+    ImageSource? source,
     Future<bool> Function() openSettings = Geolocator.openAppSettings,
     Future<bool> Function() openLocationSettings =
         Geolocator.openLocationSettings}) async {
@@ -163,17 +167,21 @@ Future<String?> _strayCam(BuildContext context, CatalogStore store,
   try {
     if (context.mounted) {
       // Field speed beats framing: Stray Cam skips the crop step, and
-      // the button is the camera, so nothing asks camera or gallery.
+      // the item that was picked already said camera or gallery.
       bytes = await (pickPhoto ??
           ((c) => pickImageBytes(c,
-              allowCrop: false, source: cameraIfThereIsOne)))(context);
+              allowCrop: false,
+              source: source ?? cameraIfThereIsOne)))(context);
     }
   } finally {
     // Cancelled, failed or done: nothing stays parked (#91).
     if (store.isOpen) store.setLocalSetting(strayCamPendingKey, '');
   }
   if (bytes == null || !store.isOpen) return null;
-  final catId = store.createCat(name);
+  // In a pets catalog the last species picked, a field to change on
+  // the page; no prompt in the way of the picture.
+  final catId = store.createCat(name,
+      species: petMode.value ? (store.localSetting(lastSpeciesKey) ?? 'cat') : 'cat');
   store.recordPosition(catId, position.$1, position.$2);
   await addCompressedImage(store, catId, bytes);
   return catId;

@@ -279,6 +279,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get captureFlier => 'Pildista kuulutust';
 
   @override
+  String get flierFromCamera => 'Kuulutus kaamerast';
+
+  @override
+  String get flierFromGallery => 'Kuulutus galeriist';
+
+  @override
   String get addPhotosTo => 'Lisa fotod…';
 
   @override
@@ -2715,6 +2721,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Visiit';
+
+  @override
+  String get reminderLabel => 'Meeldetuletus';
 
   @override
   String get addAppointment => 'Lisa visiit';

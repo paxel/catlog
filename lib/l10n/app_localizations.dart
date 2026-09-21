@@ -668,6 +668,18 @@ abstract class AppLocalizations {
   /// **'Capture flier'**
   String get captureFlier;
 
+  /// No description provided for @flierFromCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Flier from camera'**
+  String get flierFromCamera;
+
+  /// No description provided for @flierFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Flier from gallery'**
+  String get flierFromGallery;
+
   /// No description provided for @addPhotosTo.
   ///
   /// In en, this message translates to:
@@ -4843,6 +4855,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Appointment'**
   String get appointmentLabel;
+
+  /// No description provided for @reminderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder'**
+  String get reminderLabel;
 
   /// No description provided for @addAppointment.
   ///

@@ -279,6 +279,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get captureFlier => 'Plakát lefotózása';
 
   @override
+  String get flierFromCamera => 'Plakát a kamerából';
+
+  @override
+  String get flierFromGallery => 'Plakát a galériából';
+
+  @override
   String get addPhotosTo => 'Fotók hozzáadása ehhez…';
 
   @override
@@ -2718,6 +2724,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Időpont';
+
+  @override
+  String get reminderLabel => 'Emlékeztető';
 
   @override
   String get addAppointment => 'Időpont hozzáadása';

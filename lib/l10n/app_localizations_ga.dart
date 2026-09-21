@@ -279,6 +279,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get captureFlier => 'Grianghraf den bhileog';
 
   @override
+  String get flierFromCamera => 'Bileog ón gceamara';
+
+  @override
+  String get flierFromGallery => 'Bileog ón ngailearaí';
+
+  @override
   String get addPhotosTo => 'Cuir grianghraif le…';
 
   @override
@@ -2745,6 +2751,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Coinne';
+
+  @override
+  String get reminderLabel => 'Meabhrúchán';
 
   @override
   String get addAppointment => 'Cuir coinne leis';

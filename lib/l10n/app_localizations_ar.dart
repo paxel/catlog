@@ -279,6 +279,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get captureFlier => 'التقاط منشور';
 
   @override
+  String get flierFromCamera => 'منشور من الكاميرا';
+
+  @override
+  String get flierFromGallery => 'منشور من المعرض';
+
+  @override
   String get addPhotosTo => 'إضافة الصور إلى…';
 
   @override
@@ -2733,6 +2739,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'موعد';
+
+  @override
+  String get reminderLabel => 'تذكير';
 
   @override
   String get addAppointment => 'إضافة موعد';

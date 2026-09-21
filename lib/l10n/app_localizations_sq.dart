@@ -279,6 +279,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get captureFlier => 'Fotografo fletushkën';
 
   @override
+  String get flierFromCamera => 'Fletushkë nga kamera';
+
+  @override
+  String get flierFromGallery => 'Fletushkë nga galeria';
+
+  @override
   String get addPhotosTo => 'Shto fotot te…';
 
   @override
@@ -2718,6 +2724,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Takim';
+
+  @override
+  String get reminderLabel => 'Kujtesë';
 
   @override
   String get addAppointment => 'Shto takim';

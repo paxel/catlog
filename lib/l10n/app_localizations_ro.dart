@@ -279,6 +279,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get captureFlier => 'Fotografiază afișul';
 
   @override
+  String get flierFromCamera => 'Afiș din cameră';
+
+  @override
+  String get flierFromGallery => 'Afiș din galerie';
+
+  @override
   String get addPhotosTo => 'Adaugă fotografiile la…';
 
   @override
@@ -2725,6 +2731,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Programare';
+
+  @override
+  String get reminderLabel => 'Memento';
 
   @override
   String get addAppointment => 'Adaugă programare';

@@ -50,6 +50,10 @@ a screen that breaks one is a bug, not a style choice.
   dialog whose confirm button carries the verb and the error colour.
 - An editor with several fields is a full-screen page with Save in the
   top bar; secondary state changes (pause, end) are rows at the bottom.
+- On the phone, a page that adds in more than one way has one plus
+  that fans the ways out (`AddFan`), each way an icon with its words;
+  the plus reads minus while open. A page with one way says the way on
+  its button. The ways to add are never in a menu or a sheet.
 - On the desk every view opens with its name as a headline under the
   view bar, drawn in one place for all six; a view draws no title of
   its own, only its toolbar and content below the headline.

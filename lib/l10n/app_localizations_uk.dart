@@ -280,6 +280,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get captureFlier => 'Сфотографувати оголошення';
 
   @override
+  String get flierFromCamera => 'Оголошення з камери';
+
+  @override
+  String get flierFromGallery => 'Оголошення з галереї';
+
+  @override
   String get addPhotosTo => 'Додати фото до…';
 
   @override
@@ -2730,6 +2736,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Візит';
+
+  @override
+  String get reminderLabel => 'Нагадування';
 
   @override
   String get addAppointment => 'Додати візит';

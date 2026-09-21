@@ -280,6 +280,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get captureFlier => 'Poster fotograferen';
 
   @override
+  String get flierFromCamera => 'Poster via camera';
+
+  @override
+  String get flierFromGallery => 'Poster uit galerij';
+
+  @override
   String get addPhotosTo => 'Foto\'s toevoegen aan…';
 
   @override
@@ -2722,6 +2728,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Afspraak';
+
+  @override
+  String get reminderLabel => 'Herinnering';
 
   @override
   String get addAppointment => 'Afspraak toevoegen';

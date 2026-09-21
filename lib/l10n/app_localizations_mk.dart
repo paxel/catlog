@@ -280,6 +280,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get captureFlier => 'Сликај оглас';
 
   @override
+  String get flierFromCamera => 'Оглас од камерата';
+
+  @override
+  String get flierFromGallery => 'Оглас од галеријата';
+
+  @override
   String get addPhotosTo => 'Додај ги фотографиите на…';
 
   @override
@@ -2720,6 +2726,9 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Термин';
+
+  @override
+  String get reminderLabel => 'Потсетник';
 
   @override
   String get addAppointment => 'Додај термин';

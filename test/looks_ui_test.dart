@@ -27,8 +27,6 @@ void main() {
     home: home,
   );
 
-  FieldDef looksDef() => store.fieldDefs().firstWhere((d) => d.slug == 'looks');
-
   testWidgets('chips: one-value groups swap, many-value groups collect', (
     tester,
   ) async {
@@ -138,67 +136,5 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('No match candidates right now.'), findsOneWidget);
     expect(isLooksRejected(store, lost, seen), isTrue);
-  });
-
-  testWidgets('after a capture: species in a pets catalog, then Looks', (
-    tester,
-  ) async {
-    petMode.value = true;
-    final cat = store.createCat('Stray');
-    late BuildContext ctx;
-    await tester.pumpWidget(
-      app(
-        Scaffold(
-          body: Builder(
-            builder: (context) {
-              ctx = context;
-              return const SizedBox();
-            },
-          ),
-        ),
-      ),
-    );
-    final done = askLooksAfterCapture(ctx, store, cat);
-    await tester.pumpAndSettle();
-    expect(find.text('Species'), findsOneWidget);
-    await tester.tap(find.text('Dog'));
-    await tester.pumpAndSettle();
-    expect(store.current(cat, 'f:species'), 'dog');
-    expect(store.localSetting(lastSpeciesKey), 'dog');
-    // The dog's own pattern list, then a save.
-    expect(find.text('Brindle'), findsOneWidget);
-    await tester.tap(find.text('Brindle'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Small'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Save'));
-    await tester.pumpAndSettle();
-    await done;
-    expect(store.current(cat, looksDef().key), 'size=small; pattern=brindle');
-  });
-
-  testWidgets('a cats catalog skips the species question', (tester) async {
-    final cat = store.createCat('Stray');
-    late BuildContext ctx;
-    await tester.pumpWidget(
-      app(
-        Scaffold(
-          body: Builder(
-            builder: (context) {
-              ctx = context;
-              return const SizedBox();
-            },
-          ),
-        ),
-      ),
-    );
-    final done = askLooksAfterCapture(ctx, store, cat);
-    await tester.pumpAndSettle();
-    expect(find.text('Species'), findsNothing);
-    expect(find.text('Tabby'), findsOneWidget);
-    await tester.tap(find.text('Cancel'));
-    await tester.pumpAndSettle();
-    await done;
-    expect(store.current(cat, 'f:looks'), isNull);
   });
 }

@@ -279,6 +279,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get captureFlier => 'Kuvaa ilmoitus';
 
   @override
+  String get flierFromCamera => 'Ilmoitus kamerasta';
+
+  @override
+  String get flierFromGallery => 'Ilmoitus galleriasta';
+
+  @override
   String get addPhotosTo => 'Lisää kuvat kohteeseen…';
 
   @override
@@ -2719,6 +2725,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Tapaaminen';
+
+  @override
+  String get reminderLabel => 'Muistutus';
 
   @override
   String get addAppointment => 'Lisää tapaaminen';

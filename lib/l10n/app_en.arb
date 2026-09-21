@@ -118,6 +118,8 @@
   "starterChipId": "Chip ID",
   "starterRemarks": "Remarks",
   "captureFlier": "Capture flier",
+  "flierFromCamera": "Flier from camera",
+  "flierFromGallery": "Flier from gallery",
   "addPhotosTo": "Add photos to…",
   "photosAddedTo": "{count} photo(s) added to {name}",
   "@photosAddedTo": {
@@ -1487,6 +1489,7 @@
   "spotAddReminderClowderNeutral": "Plan an appointment for this household. It shows in the Agenda and is confirmed there.",
   "readOnlyCalendar": "read only",
   "appointmentLabel": "Appointment",
+  "reminderLabel": "Reminder",
   "addAppointment": "Add appointment",
   "planChooserTitle": "Appointment or reminder?",
   "planChooserAppointment": "Appointment — a visit at a date and time, with notes",

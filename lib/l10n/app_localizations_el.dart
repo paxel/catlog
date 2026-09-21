@@ -280,6 +280,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get captureFlier => 'Φωτογράφιση αφίσας';
 
   @override
+  String get flierFromCamera => 'Αφίσα από την κάμερα';
+
+  @override
+  String get flierFromGallery => 'Αφίσα από τη συλλογή';
+
+  @override
   String get addPhotosTo => 'Προσθήκη φωτογραφιών σε…';
 
   @override
@@ -2728,6 +2734,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Ραντεβού';
+
+  @override
+  String get reminderLabel => 'Υπενθύμιση';
 
   @override
   String get addAppointment => 'Προσθήκη ραντεβού';

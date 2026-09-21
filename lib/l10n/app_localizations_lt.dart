@@ -279,6 +279,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get captureFlier => 'Nufotografuoti skelbimą';
 
   @override
+  String get flierFromCamera => 'Skelbimas iš kameros';
+
+  @override
+  String get flierFromGallery => 'Skelbimas iš galerijos';
+
+  @override
   String get addPhotosTo => 'Pridėti nuotraukas prie…';
 
   @override
@@ -2730,6 +2736,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Vizitas';
+
+  @override
+  String get reminderLabel => 'Priminimas';
 
   @override
   String get addAppointment => 'Pridėti vizitą';

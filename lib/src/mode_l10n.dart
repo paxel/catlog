@@ -979,6 +979,12 @@ class ModeLocalizations implements AppLocalizations {
   String get finishUntickHintNeutral => base.finishUntickHintNeutral;
 
   @override
+  String get flierFromCamera => base.flierFromCamera;
+
+  @override
+  String get flierFromGallery => base.flierFromGallery;
+
+  @override
   String flierHidden(int count) => base.flierHidden(count);
 
   @override
@@ -2174,6 +2180,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get reminderFor => base.reminderFor;
+
+  @override
+  String get reminderLabel => base.reminderLabel;
 
   @override
   String get removeReminderLabel => base.removeReminderLabel;

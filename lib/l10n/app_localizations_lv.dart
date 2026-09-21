@@ -280,6 +280,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get captureFlier => 'Nofotografēt sludinājumu';
 
   @override
+  String get flierFromCamera => 'Sludinājums no kameras';
+
+  @override
+  String get flierFromGallery => 'Sludinājums no galerijas';
+
+  @override
   String get addPhotosTo => 'Pievienot fotoattēlus…';
 
   @override
@@ -2727,6 +2733,9 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get appointmentLabel => 'Vizīte';
+
+  @override
+  String get reminderLabel => 'Atgādinājums';
 
   @override
   String get addAppointment => 'Pievienot vizīti';

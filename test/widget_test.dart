@@ -230,6 +230,9 @@ void main() {
     await tester.pumpWidget(CatlogApp(store: store));
     await tester.tap(find.textContaining('Strays'));
     await tester.pumpAndSettle();
+    // The plus fans the ways out; Add stray is the first of them.
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Add stray'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField).last, 'Foundling');
