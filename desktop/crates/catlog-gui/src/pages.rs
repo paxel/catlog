@@ -369,11 +369,8 @@ impl Pages {
             if response.clicked() {
                 action = Some(PageAction::OpenCat(cat.id.clone()));
             }
-            response.context_menu(|ui| {
-                if ui.button(t.open()).clicked() {
-                    action = Some(PageAction::OpenCat(cat.id.clone()));
-                    ui.close();
-                }
+            // The menu holds what the click does not: hiding.
+            let mut menu = |ui: &mut Ui| {
                 let hide = if hidden {
                     t.unhide_label()
                 } else {
@@ -383,7 +380,9 @@ impl Pages {
                     action = Some(PageAction::ToggleHidden(cat.id.clone()));
                     ui.close();
                 }
-            });
+            };
+            response.context_menu(&mut menu);
+            crate::icons::more(ui, &mut menu);
         });
         action
     }
@@ -438,16 +437,15 @@ impl Pages {
                     if response.double_clicked() {
                         action = PageAction::Edit(id.to_string(), def.slug.clone());
                     }
-                    response.context_menu(|ui| {
-                        if ui.button(t.edit_value()).clicked() {
-                            action = PageAction::Edit(id.to_string(), def.slug.clone());
-                            ui.close();
-                        }
+                    // The menu holds what the click does not: the history.
+                    let mut menu = |ui: &mut Ui| {
                         if ui.button(t.show_history()).clicked() {
                             action = PageAction::History(id.to_string(), def.slug.clone());
                             ui.close();
                         }
-                    });
+                    };
+                    response.context_menu(&mut menu);
+                    crate::icons::more(ui, &mut menu);
                     ui.end_row();
                 }
             });

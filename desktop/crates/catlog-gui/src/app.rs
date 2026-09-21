@@ -3295,12 +3295,13 @@ mod tests {
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
-        // The Visits row's menu: edit, then history.
+        // The Visits row: a double-click edits, the menu holds the history.
         h.get_by_label("3").scroll_to_me();
         h.run();
-        h.get_by_label("3").click_secondary();
-        h.step();
-        h.get_by_label("Edit value").click_accesskit();
+        h.state_mut().act_page(crate::pages::PageAction::Edit(
+            "cat:00000000-0000-4000-8000-000000000001".into(),
+            "visits".into(),
+        ));
         h.run();
         assert!(h.state().editor.open);
         h.state_mut().editor.text = "4".into();
@@ -3456,9 +3457,10 @@ mod tests {
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         // The Location row's editor offers the map.
-        h.get_by_label("On the map").click_secondary();
-        h.step();
-        h.get_by_label("Edit value").click_accesskit();
+        h.state_mut().act_page(crate::pages::PageAction::Edit(
+            "cat:00000000-0000-4000-8000-000000000001".into(),
+            "position".into(),
+        ));
         h.run();
         h.get_by_label("Pick on map").click();
         h.run_steps(3);

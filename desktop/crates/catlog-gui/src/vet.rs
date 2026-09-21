@@ -201,20 +201,8 @@ impl VetView {
                                 )));
                             }
                         });
-                        row.col(|ui| {
-                            ui.add(egui::Label::new(&a.notes).selectable(false).truncate());
-                        });
-                        let response = row.response();
-                        if response.clicked() {
-                            picked = Some(a.id.clone());
-                        }
-                        response.context_menu(|ui| {
-                            if !a.done && ui.button(t.finish_label()).clicked() {
-                                action = Some(PageAction::Appointment(AppointmentAction::Finish(
-                                    a.clone(),
-                                )));
-                                ui.close();
-                            }
+                        // The menu holds what the Finish button does not.
+                        let mut menu = |ui: &mut egui::Ui| {
                             if ui.button(t.edit_label_appointment()).clicked() {
                                 action = Some(PageAction::Appointment(AppointmentAction::Edit(
                                     a.clone(),
@@ -233,7 +221,18 @@ impl VetView {
                                 )));
                                 ui.close();
                             }
+                        };
+                        row.col(|ui| {
+                            ui.horizontal(|ui| {
+                                ui.add(egui::Label::new(&a.notes).selectable(false).truncate());
+                                crate::icons::more(ui, &mut menu);
+                            });
                         });
+                        let response = row.response();
+                        if response.clicked() {
+                            picked = Some(a.id.clone());
+                        }
+                        response.context_menu(&mut menu);
                     });
                 });
             if sort_click {

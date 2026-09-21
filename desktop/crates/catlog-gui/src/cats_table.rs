@@ -580,18 +580,8 @@ impl CatsTable {
                             }
                         });
                     }
-                    row.col(|_| {});
-                    let response = row.response();
-                    if response.double_clicked() {
-                        action = TableAction::Open(r.id.clone());
-                    } else if response.clicked() {
-                        clicked = Some((r.id.clone(), modifiers));
-                    }
-                    response.context_menu(|ui| {
-                        if ui.button(t.open()).clicked() {
-                            action = TableAction::Open(r.id.clone());
-                            ui.close();
-                        }
+                    // The menu holds what the double-click does not: hiding.
+                    let mut menu = |ui: &mut egui::Ui| {
                         let hide = if r.hidden {
                             t.unhide_label()
                         } else {
@@ -601,7 +591,17 @@ impl CatsTable {
                             action = TableAction::ToggleHidden(r.id.clone());
                             ui.close();
                         }
+                    };
+                    row.col(|ui| {
+                        crate::icons::more(ui, &mut menu);
                     });
+                    let response = row.response();
+                    response.context_menu(&mut menu);
+                    if response.double_clicked() {
+                        action = TableAction::Open(r.id.clone());
+                    } else if response.clicked() {
+                        clicked = Some((r.id.clone(), modifiers));
+                    }
                 });
             });
         if let Some(column) = sort_click {

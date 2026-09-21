@@ -57,7 +57,9 @@ pub fn chore_row(
             parts.push(t.chore_due(&format_day(t.locale(), next)));
         }
         let label = ui.label(parts.join(" · "));
-        label.context_menu(|ui| {
+        // Edit, pause, history and end: behind the right-click and
+        // behind a ⋮ the row shows, so the menu is found.
+        let mut menu = |ui: &mut Ui| {
             if ui.button(t.chore_edit()).clicked() {
                 action = ChoreAction::Edit(chore.clone());
                 ui.close();
@@ -79,8 +81,10 @@ pub fn chore_row(
                 action = ChoreAction::End(chore.clone());
                 ui.close();
             }
-        });
+        };
+        label.context_menu(&mut menu);
         paint_week_dots(ui, &week_dots(chore, &ticks, today));
+        crate::icons::more(ui, &mut menu);
     });
     action
 }

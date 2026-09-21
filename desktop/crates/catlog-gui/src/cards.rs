@@ -677,20 +677,17 @@ impl Desk {
                         {
                             event = Some(CardEvent::Action(CardAction::Page(a)));
                         }
-                        response.context_menu(|ui| {
-                            if ui.button(t.edit_value()).clicked() {
-                                event = Some(CardEvent::Action(CardAction::Page(
-                                    PageAction::Edit(id.to_string(), def.slug.clone()),
-                                )));
-                                ui.close();
-                            }
+                        // The menu holds what the click does not: the history.
+                        let mut menu = |ui: &mut Ui| {
                             if ui.button(t.show_history()).clicked() {
                                 event = Some(CardEvent::Action(CardAction::Page(
                                     PageAction::History(id.to_string(), def.slug.clone()),
                                 )));
                                 ui.close();
                             }
-                        });
+                        };
+                        response.context_menu(&mut menu);
+                        crate::icons::more(ui, &mut menu);
                     }
                     ui.end_row();
                 }

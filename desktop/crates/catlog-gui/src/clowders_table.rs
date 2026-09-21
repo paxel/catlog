@@ -323,27 +323,9 @@ impl ClowdersTable {
                             .unwrap_or_default();
                         ui.add(egui::Label::new(text(&day)).selectable(false));
                     });
-                    row.col(|_| {});
-                    let response = row.response();
-                    if response.double_clicked() {
-                        action = TableAction::Open(id.clone());
-                    } else if response.clicked() {
-                        clicked = Some(id.clone());
-                    }
-                    response.context_menu(|ui| {
-                        if ui.button(t.open()).clicked() {
-                            action = TableAction::Open(id.clone());
-                            ui.close();
-                        }
-                        let fav = if r.row.favourite {
-                            t.favourite_remove()
-                        } else {
-                            t.favourite_add()
-                        };
-                        if ui.button(fav).clicked() {
-                            action = TableAction::ToggleFavourite(id.clone());
-                            ui.close();
-                        }
+                    // The menu holds what the double-click and the star do
+                    // not: hiding.
+                    let mut menu = |ui: &mut egui::Ui| {
                         let hide = if r.row.hidden {
                             t.unhide_label()
                         } else {
@@ -353,7 +335,17 @@ impl ClowdersTable {
                             action = TableAction::ToggleHidden(id.clone());
                             ui.close();
                         }
+                    };
+                    row.col(|ui| {
+                        crate::icons::more(ui, &mut menu);
                     });
+                    let response = row.response();
+                    response.context_menu(&mut menu);
+                    if response.double_clicked() {
+                        action = TableAction::Open(id.clone());
+                    } else if response.clicked() {
+                        clicked = Some(id.clone());
+                    }
                 });
             });
         if let Some(column) = sort_click {

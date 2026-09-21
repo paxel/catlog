@@ -103,6 +103,19 @@ pub fn glyph(ui: &mut Ui, icon: &str, size: f32, color: Color32) -> Response {
     response
 }
 
+/// A row's menu behind a small ⋮, so the mouse that never right-clicks
+/// finds it: the same items the right-click shows.
+pub fn more(ui: &mut Ui, add_contents: impl FnOnce(&mut Ui)) -> Response {
+    let button = Button::new("")
+        .frame(false)
+        .min_size(Vec2::splat(SIZE + 6.0));
+    let (response, _) =
+        egui::containers::menu::MenuButton::from_button(button).ui(ui, add_contents);
+    let color = ui.style().interact(&response).fg_stroke.color;
+    paint(ui, response.rect, MORE_VERT, color);
+    response
+}
+
 /// A label with an icon before it.
 pub fn label(ui: &mut Ui, icon: &str, text: impl Into<egui::WidgetText>) -> Response {
     ui.horizontal(|ui| {
@@ -204,6 +217,7 @@ pub const MEDICAL_INFORMATION_OUTLINED: &str = "\u{f06fc}";
 pub const MEDICAL_SERVICES_OUTLINED: &str = "\u{f1be}";
 pub const MERGE: &str = "\u{f053b}";
 pub const MERGE_TYPE: &str = "\u{e3df}";
+pub const MORE_VERT: &str = "\u{e404}";
 pub const MOVIE_OUTLINED: &str = "\u{f1f5}";
 pub const MY_LOCATION: &str = "\u{e418}";
 pub const NEW_RELEASES_OUTLINED: &str = "\u{f20e}";
@@ -359,6 +373,7 @@ pub const ALL: &[&str] = &[
     MEDICAL_SERVICES_OUTLINED,
     MERGE,
     MERGE_TYPE,
+    MORE_VERT,
     MOVIE_OUTLINED,
     MY_LOCATION,
     NEW_RELEASES_OUTLINED,
@@ -433,7 +448,7 @@ mod tests {
             let c = icon.chars().next().unwrap();
             assert!(face.glyph_index(c).is_some(), "{icon:?} has no glyph");
         }
-        assert_eq!(ALL.len(), 152);
+        assert_eq!(ALL.len(), 153);
         let mut fonts = egui::FontDefinitions::default();
         add_font(&mut fonts);
         assert!(fonts.font_data.contains_key("material-icons"));

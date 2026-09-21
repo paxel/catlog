@@ -120,11 +120,9 @@ impl HistoryPage {
                         if response.clicked() && !e.voided {
                             action = HistoryAction::Correct(e.seq);
                         }
-                        response.context_menu(|ui| {
-                            if !e.voided && ui.button(t.correct_this_value()).clicked() {
-                                action = HistoryAction::Correct(e.seq);
-                                ui.close();
-                            }
+                        // The menu holds what the click does not: removing,
+                        // or restoring what was removed.
+                        let mut menu = |ui: &mut egui::Ui| {
                             if e.voided {
                                 if ui.button(t.restore_this_value()).clicked() {
                                     action = HistoryAction::Restore(e.seq);
@@ -134,8 +132,12 @@ impl HistoryPage {
                                 action = HistoryAction::Remove(e.seq);
                                 ui.close();
                             }
+                        };
+                        response.context_menu(&mut menu);
+                        ui.horizontal(|ui| {
+                            ui.label(&e.author);
+                            crate::icons::more(ui, &mut menu);
                         });
-                        ui.label(&e.author);
                         ui.end_row();
                     }
                 });
