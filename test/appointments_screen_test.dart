@@ -33,13 +33,12 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the plus asks appointment or reminder, then records a visit',
+  testWidgets('the plus fans Appointment out, which records a visit',
       (tester) async {
     await pump(tester, CatDetailScreen(store: store, catId: cat));
-    await tester.tap(find.byTooltip('Add reminder'));
+    await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
-    expect(find.text('Appointment or reminder?'), findsOneWidget);
-    await tester.tap(find.textContaining('Appointment — a visit'));
+    await tester.tap(find.text('Appointment').last);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField).first, 'Vet');
     await tester.enterText(find.byType(TextField).last, 'bring the form');

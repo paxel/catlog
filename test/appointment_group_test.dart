@@ -49,10 +49,11 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  /// The plus fans the ways out; Appointment is one of them.
   Future<void> openDialog(WidgetTester tester) async {
-    await tester.tap(find.byTooltip('Add reminder'));
+    await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
-    await tester.tap(find.textContaining('Appointment — a visit'));
+    await tester.tap(find.text('Appointment').last);
     await tester.pumpAndSettle();
   }
 

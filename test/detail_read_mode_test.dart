@@ -164,7 +164,10 @@ void main() {
     final editFieldY = tester.getTopLeft(find.text('Main St 1')).dy;
     final editGalleryY = tester.getTopLeft(find.text('Sissi')).dy;
     expect(editFieldY, lessThan(editGalleryY));
-    // Add cat stays available in both modes.
+    // The plus stays available in both modes; Add cat fans out of it.
+    expect(find.byType(FloatingActionButton), findsOneWidget);
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
     expect(find.text('Add cat'), findsOneWidget);
   });
 

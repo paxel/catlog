@@ -165,10 +165,10 @@ void main() {
       home: CatDetailScreen(store: store, catId: cat),
     ));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Add reminder'));
+    // The plus fans the kinds out.
+    await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
-    // The plus asks which kind first (#75).
-    await tester.tap(find.textContaining('Reminder — a value'));
+    await tester.tap(find.text('Reminder').last);
     await tester.pumpAndSettle();
     expect(find.textContaining('The appointment shows in the Agenda'), findsOneWidget);
     await tester.tap(find.byType(DropdownButtonFormField<String>).last);

@@ -47,50 +47,24 @@ Future<int> addFrames(CatalogStore store, String catId, List<Uint8List> frames,
   return done;
 }
 
-/// Photo-add sheet with the video path (#41): camera, gallery, or
-/// frames picked from a video. Returns true when photos landed.
-/// [onProgress] hears about every frame stored on the way.
-Future<bool> addPhotosViaSheet(
-    BuildContext context, CatalogStore store, String catId,
-    {void Function(int done, int total)? onProgress}) async {
-  if (!Platform.isAndroid && !Platform.isIOS) {
-    // Desktop keeps the plain picker; video frames are mobile-first.
-    return await pickAndAddImage(context, store, catId) != null;
-  }
-  final choice = await showModalBottomSheet<String>(
-    context: context,
-    builder: (context) => SafeArea(
-      child: Wrap(children: [
-        ListTile(
-          leading: const Icon(Icons.photo_camera),
-          title: Text(context.t.takePhoto),
-          onTap: () => Navigator.of(context).pop('camera'),
-        ),
-        ListTile(
-          leading: const Icon(Icons.photo_library),
-          title: Text(context.t.chooseFromGallery),
-          onTap: () => Navigator.of(context).pop('gallery'),
-        ),
-        ListTile(
-          leading: const Icon(Icons.movie_outlined),
-          title: Text(context.t.fromVideo),
-          onTap: () => Navigator.of(context).pop('video'),
-        ),
-      ]),
-    ),
-  );
-  if (choice == null || !context.mounted) return false;
-  if (choice == 'video') {
-    final frames = await pickVideoFrames(context);
-    if (frames == null || frames.isEmpty) return false;
-    return await addFrames(store, catId, frames, onProgress: onProgress) > 0;
-  }
-  final raw = await pickImageBytes(context,
-      source:
-          choice == 'camera' ? ImageSource.camera : ImageSource.gallery);
+/// A photo from the camera or the gallery onto the cat, as the fan
+/// item said. True when one landed.
+Future<bool> addPhotoFrom(
+    BuildContext context, CatalogStore store, String catId, ImageSource source) async {
+  final raw = await pickImageBytes(context, source: source);
   if (raw == null) return false;
   await addCompressedImage(store, catId, raw);
   return true;
+}
+
+/// Frames picked from a video onto the cat (#41), landing one by one;
+/// [onProgress] hears about each. True when any landed.
+Future<bool> addPhotosFromVideo(
+    BuildContext context, CatalogStore store, String catId,
+    {void Function(int done, int total)? onProgress}) async {
+  final frames = await pickVideoFrames(context);
+  if (frames == null || frames.isEmpty) return false;
+  return await addFrames(store, catId, frames, onProgress: onProgress) > 0;
 }
 
 /// Whether this device has a camera to offer.

@@ -17,7 +17,16 @@ class AddFan extends StatefulWidget {
   final List<FanItem> items;
   final String tooltip;
 
-  const AddFan({super.key, required this.items, required this.tooltip});
+  /// Fanned out as the page appears: a fresh record asking for its
+  /// first photo.
+  final bool openAtStart;
+
+  const AddFan({
+    super.key,
+    required this.items,
+    required this.tooltip,
+    this.openAtStart = false,
+  });
 
   @override
   State<AddFan> createState() => _AddFanState();
@@ -29,6 +38,18 @@ class _AddFanState extends State<AddFan> with SingleTickerProviderStateMixin {
   OverlayEntry? _entry;
 
   bool get _open => _entry != null;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.openAtStart) {
+      // After the first frame, when the button has a place to fan from;
+      // a page already left must not open one.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && !_open) _openFan();
+      });
+    }
+  }
 
   @override
   void dispose() {

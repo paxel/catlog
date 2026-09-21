@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../move_to_catalog.dart';
@@ -26,7 +27,10 @@ import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/missing_photo.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/plan_chooser.dart';
+import '../reminders/appointment_dialog.dart';
+import '../reminders/reminder_dialog.dart';
+import '../chores/chore_dialog.dart';
+import '../widgets/add_fan.dart';
 import '../reminders/plan_entity.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
@@ -89,13 +93,6 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => runSpotlights(context, store, 'cat'),
     );
-    if (widget.promptPhoto) {
-      // The callback can fire after a quick back-out; a dead screen
-      // must not open a picker it can never return to.
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) _addPhoto();
-      });
-    }
   }
 
   Future<void> _rename() async {
@@ -111,10 +108,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   /// runs, null otherwise.
   (int, int)? _adding;
 
-  Future<void> _addPhoto() async {
-    // Refresh unconditionally: even a canceled or half-failed add must
-    // leave the grid showing exactly what the store holds.
-    await addPhotosViaSheet(context, store, id, onProgress: (done, total) {
+  /// A photo from the camera or the gallery. Refresh unconditionally:
+  /// even a canceled or half-failed add must leave the grid showing
+  /// exactly what the store holds.
+  Future<void> _addPhotoFrom(ImageSource source) async {
+    await addPhotoFrom(context, store, id, source);
+    if (mounted) setState(() {});
+  }
+
+  Future<void> _addFromVideo() async {
+    await addPhotosFromVideo(context, store, id, onProgress: (done, total) {
       if (!mounted) return;
       setState(() => _adding = done < total ? (done, total) : null);
     });
@@ -209,10 +212,22 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     );
   }
 
+  /// The three kinds of plan, each straight into its editor with this
+  /// cat as the For field.
+  Future<void> _addAppointment() async {
+    final saved = await showAppointmentDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
+  }
+
   Future<void> _addReminder() async {
-    if (await showPlanChooser(context, store, entityId: id) && mounted) {
+    if (await showAddReminder(context, store, entityId: id) && mounted) {
       _plansChanged();
     }
+  }
+
+  Future<void> _addChore() async {
+    final saved = await showChoreDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
   }
 
   Future<void> _openEntity(String entityId) async {
@@ -615,14 +630,6 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               ),
             ),
             Spotlight(
-              id: 'cat-reminder',
-              child: IconButton(
-                icon: const Icon(Icons.alarm_add),
-                tooltip: context.t.addReminder,
-                onPressed: _addReminder,
-              ),
-            ),
-            Spotlight(
               id: 'cat-edit',
               child: IconButton(
                 icon: Icon(_editing ? Icons.check : Icons.edit),
@@ -832,10 +839,48 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             const SizedBox(height: 80),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _addPhoto,
-          tooltip: context.t.addPhoto,
-          child: const Icon(Icons.add_a_photo),
+        // The one plus: photos three ways, plans three kinds. A fresh
+        // cat opens with it fanned out, its first photo one tap away.
+        floatingActionButton: Spotlight(
+          id: 'cat-reminder',
+          child: AddFan(
+            tooltip: context.t.addPhoto,
+            openAtStart: widget.promptPhoto,
+            items: [
+              if (hasCamera)
+                FanItem(
+                  icon: Icons.photo_camera,
+                  label: context.t.takePhoto,
+                  onTap: () => _addPhotoFrom(ImageSource.camera),
+                ),
+              FanItem(
+                icon: Icons.photo_library,
+                label: context.t.chooseFromGallery,
+                onTap: () => _addPhotoFrom(ImageSource.gallery),
+              ),
+              if (hasCamera)
+                FanItem(
+                  icon: Icons.movie_outlined,
+                  label: context.t.fromVideo,
+                  onTap: _addFromVideo,
+                ),
+              FanItem(
+                icon: Icons.event,
+                label: context.t.appointmentLabel,
+                onTap: _addAppointment,
+              ),
+              FanItem(
+                icon: Icons.alarm,
+                label: context.t.reminderLabel,
+                onTap: _addReminder,
+              ),
+              FanItem(
+                icon: Icons.checklist,
+                label: context.t.choreLabel,
+                onTap: _addChore,
+              ),
+            ],
+          ),
         ),
       ),
     );

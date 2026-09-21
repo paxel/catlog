@@ -99,7 +99,10 @@ void main() {
     await tester.pumpWidget(CatlogApp(store: store));
     await tester.tap(find.text('Home'));
     await tester.pumpAndSettle();
+    // The plus fans the ways out; Add cat is the first of them.
     await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Add cat').last);
     await tester.pumpAndSettle();
 
     final field = tester.widget<TextField>(find.byType(TextField).first);

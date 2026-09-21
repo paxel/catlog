@@ -14,7 +14,10 @@ import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
 import '../widgets/cat_avatar.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/plan_chooser.dart';
+import '../reminders/appointment_dialog.dart';
+import '../reminders/reminder_dialog.dart';
+import '../chores/chore_dialog.dart';
+import '../widgets/add_fan.dart';
 import '../reminders/plan_entity.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
@@ -268,10 +271,22 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     );
   }
 
+  /// The three kinds of plan, each straight into its editor with this
+  /// clowder as the For field; an appointment takes its cats along.
+  Future<void> _addAppointment() async {
+    final saved = await showAppointmentDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
+  }
+
   Future<void> _addReminder() async {
-    if (await showPlanChooser(context, store, entityId: id) && mounted) {
+    if (await showAddReminder(context, store, entityId: id) && mounted) {
       _plansChanged();
     }
+  }
+
+  Future<void> _addChore() async {
+    final saved = await showChoreDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
   }
 
   void _plansChanged() {
@@ -502,14 +517,6 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                 ),
               ),
             ),
-            Spotlight(
-              id: 'clowder-reminder',
-              child: IconButton(
-                icon: const Icon(Icons.alarm_add),
-                tooltip: context.t.addReminder,
-                onPressed: _addReminder,
-              ),
-            ),
             IconButton(
               icon: Icon(_editing ? Icons.check : Icons.edit),
               tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
@@ -593,10 +600,34 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             const SizedBox(height: 80),
           ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: _addCat,
-          icon: const Icon(Icons.add),
-          label: Text(context.t.addCat),
+        // The one plus: a cat, or a plan of one of three kinds.
+        floatingActionButton: Spotlight(
+          id: 'clowder-reminder',
+          child: AddFan(
+            tooltip: context.t.addCat,
+            items: [
+              FanItem(
+                icon: Icons.add,
+                label: context.t.addCat,
+                onTap: _addCat,
+              ),
+              FanItem(
+                icon: Icons.event,
+                label: context.t.appointmentLabel,
+                onTap: _addAppointment,
+              ),
+              FanItem(
+                icon: Icons.alarm,
+                label: context.t.reminderLabel,
+                onTap: _addReminder,
+              ),
+              FanItem(
+                icon: Icons.checklist,
+                label: context.t.choreLabel,
+                onTap: _addChore,
+              ),
+            ],
+          ),
         ),
       ),
     );
