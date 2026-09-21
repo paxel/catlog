@@ -1251,17 +1251,18 @@ impl App {
             .show_separator_line(true)
             .show(ui, |ui| {
                 egui::MenuBar::new().ui(ui, |ui| {
-                    ui.menu_button(t.menu_file(), |ui| {
-                        if icons::button(ui, icons::LOGOUT, t.quit()).clicked() {
-                            self.request = Request::Quit;
-                        }
-                    });
-                    ui.menu_button(t.menu_edit(), |ui| {
+                    // One menu under the app's name for the app's own two
+                    // items; no File with only Quit, no Edit with only Settings.
+                    ui.menu_button(t.app_title(), |ui| {
                         if icons::button(ui, icons::SETTINGS_OUTLINED, t.settings()).clicked() {
                             self.open_settings();
                             ui.close();
                         }
+                        if icons::button(ui, icons::LOGOUT, t.quit()).clicked() {
+                            self.request = Request::Quit;
+                        }
                     });
+                    // The language lives on the Settings page, once.
                     ui.menu_button(t.menu_view(), |ui| {
                         if ui
                             .checkbox(&mut self.home.show_hidden, t.show_hidden_label())
@@ -1269,21 +1270,6 @@ impl App {
                         {
                             ui.close();
                         }
-                        ui.menu_button(t.language(), |ui| {
-                            let mut chosen: Option<&'static str> = None;
-                            for locale in l10n::LOCALES {
-                                let label = format!("{}  ({locale})", l10n::native_name(locale));
-                                if ui
-                                    .selectable_label(self.t.locale() == locale, label)
-                                    .clicked()
-                                {
-                                    chosen = Some(locale);
-                                }
-                            }
-                            if let Some(l) = chosen {
-                                self.set_locale(l);
-                            }
-                        });
                     });
                     let catalog_menu = ui.menu_button(t.menu_catalog(), |ui| {
                         let active = self.manager.active().id.clone();
@@ -2962,8 +2948,7 @@ mod tests {
             h.run();
             let t = L10n::new(locale);
             for label in [
-                t.menu_file(),
-                t.menu_edit(),
+                t.app_title(),
                 t.menu_view(),
                 t.menu_catalog(),
                 t.menu_help(),
@@ -3010,7 +2995,7 @@ mod tests {
         assert!(s.intro_seen);
         assert_eq!(s.author.as_deref(), Some("Ada"));
         assert_eq!(s.tips_seen, vec!["all"]);
-        h.get_by_label(t.menu_file());
+        h.get_by_label(t.app_title());
         assert_eq!(
             SettingsFile::load(dir.path()).settings.author.as_deref(),
             Some("Ada")
@@ -3019,18 +3004,22 @@ mod tests {
     }
 
     #[test]
-    fn the_language_menu_switches_every_string_and_remembers_it() {
+    fn the_language_setting_switches_every_string_and_remembers_it() {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(app(dir.path(), "en", true));
         h.run();
-        h.get_by_label("View").click();
-        h.step();
-        h.get_by_label_contains("Language").hover();
+        // The language is picked on the Settings page, the first combo.
+        h.state_mut().open_settings();
+        h.run();
+        h.get_all_by_role(egui::accesskit::Role::ComboBox)
+            .next()
+            .expect("the language combo")
+            .click();
         h.step();
         h.get_by_label_contains("Deutsch").click_accesskit();
         h.run();
         assert_eq!(h.state().t().locale(), "de");
-        h.get_by_label(L10n::new("de").menu_file());
+        h.get_by_label(L10n::new("de").menu_view());
         assert_eq!(
             SettingsFile::load(dir.path()).settings.locale.as_deref(),
             Some("de")
@@ -3042,7 +3031,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(app(dir.path(), "en", true));
         h.run();
-        h.get_by_label("File").click();
+        h.get_by_label("cat(a)log").click();
         h.step();
         h.get_by_label("Quit").click();
         h.run();
@@ -6289,7 +6278,7 @@ mod tests {
         app.backups_dir = dir.path().join("downloads");
         let mut h = harness(app);
         h.run();
-        h.get_by_label("Edit").click();
+        h.get_by_label("cat(a)log").click();
         h.step();
         h.get_by_label("Settings").click_accesskit();
         h.run();

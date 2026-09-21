@@ -1,7 +1,5 @@
 {
   "@@locale": "en",
-  "menuFile": "File",
-  "menuEdit": "Edit",
   "menuView": "View",
   "menuCatalog": "Catalog",
   "menuHelp": "Help",
