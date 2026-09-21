@@ -1,0 +1,140 @@
+# Usage issues: steps that carry no decision
+
+Audit of 2026-09-21 over the phone (`lib/src`) and the desk
+(`desktop/crates/catlog-gui/src`). The trigger was the clowder cover
+picture: a row with a paragraph explaining what a cover is, a sheet
+repeating the paragraph, and only then the choice between camera and
+gallery. The fix, commit `ac1418a2`, put the two buttons on the row and
+dropped the explanation. This file lists every other place with the same
+shape, grouped by pattern, with the proposed change. Nothing here drops
+a feature; every action keeps a way to reach it.
+
+Status is kept per group. Groups not marked done are open.
+
+## 1. Camera or gallery asked when the button already said which — phone (done 2026-09-21)
+
+- Strays cover icon, `strays_screen.dart:130`: tap, sheet, camera or
+  gallery. Proposal: the same cover row as on the clowder page above the
+  strays list, camera and gallery as buttons, Remove on a long-press.
+- Stray Cam, `stray_cam.dart:166`: the camera button opens a sheet
+  asking camera or gallery. The docs call it one tap. Proposal: camera
+  straight away where there is one, gallery on a desktop. A gallery
+  picture becomes a stray by sharing it into the app, which already
+  offers New stray.
+- Flier capture, `flier_capture.dart:280`: the same sheet before the
+  camera. Proposal: on the strays screen tap is the camera, a hold with
+  the cat ear is the gallery. From a cat's page, where there is no hold,
+  the two choices are buttons on the capture page itself.
+- Missing poster, `missing_poster_screen.dart:331`: a tile labelled
+  gallery that then asks camera or gallery. Proposal: the tile opens the
+  gallery; a second tile opens the camera on a phone.
+- After a Stray Cam picture, `strays_screen.dart:65`: species (pet mode)
+  and Looks are asked in dialogs before the page opens. These carry real
+  decisions and are cheaper than tapping the fields on the page, so they
+  stay; only the sheet in front of the camera goes.
+
+## 2. Text repeated one tap later, and paragraphs above the buttons
+
+- Conflicts, phone `conflicts_screen.dart:45` and `conflict_dialog.dart:34`,
+  desk `conflicts.rs:22` and `:126`: the explanation on the page and the
+  same sentence in the dialog, then two radios for two values the row
+  already shows. Proposal: the row shows both values as two buttons; a
+  tap resolves. When both values are the same, the tap resolves without
+  a dialog.
+- In-person join, phone `in_person_screen.dart:396` and `:136`: the note
+  on the page is the whole body of the allow dialog. Proposal: the dialog
+  carries the phone's name and the three buttons only.
+- Sync and housekeeping explainers, phone `remote_screen.dart:140`,
+  `messenger_screen.dart:81`, `in_person_screen.dart:417`,
+  `backups_screen.dart:126-148`, `archive_screen.dart:141`; desk
+  `sync_page.rs:41-113`, `housekeeping.rs:143`, `:205`: paragraphs above
+  the buttons that are the page. Proposal: one short line per button as
+  its subtitle, the long text into Help.
+- Sync chooser, phone `sync_screen.dart:44`: three cards with subtitles,
+  each only pushing the real page. Proposal: one page with three
+  sections.
+
+## 3. Menus with one or two items
+
+Phone:
+
+- Cat tile in a clowder, `clowder_detail_screen.dart:615`: Open repeats
+  the tap; Card is the only real item. Proposal: Card as an icon on the
+  tile.
+- Reminder card, `reminder_card.dart:70`, and appointment card,
+  `appointment_card.dart:79`: two items each. Proposal: icons on the card.
+- Agenda overflow, `agenda_screen.dart:327`: one item most of the time.
+  Proposal: the export as an app-bar icon.
+
+Desk:
+
+- File holds only Quit, `app.rs:1255`; Edit holds only Settings,
+  `app.rs:1260`. Proposal: one menu for both, or Settings as a bar button.
+- View, Language is three clicks and repeats the Settings combo,
+  `app.rs:1273`. Proposal: Settings only.
+- Clowder page Actions holds one item, `pages.rs:115`. Proposal: Merge as
+  a button beside New cat.
+- Context menus whose items repeat the click: field rows `pages.rs:437`
+  and `cards.rs:680`, cats table `cats_table.rs:590`, clowders table
+  `clowders_table.rs:333`, history `history.rs:123`, vet Finish
+  `vet.rs:212`. Proposal: a menu keeps only what has no other way, and a
+  row with a menu shows a small menu icon so the menu is found.
+- Chore row, `chores.rs:60`: four actions behind a right-click, nothing
+  visible. Proposal: a pencil icon on the row that opens the menu.
+
+## 4. Steps with no decision in them — phone
+
+- Move a cat to another clowder, `cat_detail_screen.dart:121`: clowder
+  dialog, then an "as of today" dialog, then the date picker. Proposal:
+  the clowder list with a date field at its foot, today by default.
+- Plan chooser, `plan_chooser.dart:13`: a dialog for the kind, a dialog
+  for the cat, then the editor. Proposal: three actions on the agenda's
+  button; the cat is a field in the editor.
+- Chore from the agenda, `chore_dialog.dart:28`, and duplicate chore,
+  `:169`: an entity dialog, then a second editor on top of the first.
+  Proposal: the entity as a field in the editor.
+- "Move into the new catalog?", `catalogs_screen.dart:82`: a yes or no
+  gate before a picker that has Cancel. Proposal: no gate.
+- History rows, `timeline_screen.dart:155`, `field_history_screen.dart:217`,
+  `chore_history_screen.dart:120`: a one-item sheet on removed rows, two
+  items otherwise, then a date dialog and a time dialog. Proposal: icons
+  on the row and one date-and-time picker.
+- Shared photo, `incoming_images.dart:76`: sheet, sheet, name dialog.
+  Proposal: one sheet listing cats and homes flat, the new entries with a
+  name field inline.
+- Units, `units_dialog.dart:9`: three radios in a dialog. Proposal: a
+  segmented button on the row, as Cats and Pets already is.
+- Reminder done, `reminder_card.dart:43`: every tick opens a repeat
+  dialog whose dismiss button reads "No repeat". Proposal: the tick is
+  done; repeat is a chip on the card, or a note offering it for three
+  seconds.
+
+## 5. Desk only
+
+- Map sighting, `map_page.rs:334`: right-click, a row, a combo reading
+  "Cats", then the pick. Proposal: the right-click opens the cat list.
+- Map pin, `map_page.rs:318`: two clicks to open. Proposal: one click
+  opens; the trail shows on hover or a small button.
+- Restore, `app.rs:1348`: menu only, absent from the Backups page.
+  Proposal: a Restore button on Backups.
+- Duplicates, `duplicates_page.rs:70`: the row names both, then two
+  radios, then the confirm. Proposal: a Keep button on each side of the
+  row; the confirm stays.
+- Chore End confirm, `app.rs:1455`: the confirmation says nothing is
+  lost. Proposal: no confirm.
+- Arrival summary, Conflicts, `summary.rs:118`: the summary lists the
+  conflicts, a button opens the conflicts page, which opens the dialog.
+  Proposal: resolve buttons in the summary rows.
+
+## 6. Text-only dialogs — phone
+
+- `plausibility.dart:172`, `stray_cam.dart:89` when there is no settings
+  action, the help sheet without tips `help.dart:89`. Proposal: a note at
+  the top instead of a dialog with OK.
+
+## Left alone, on purpose
+
+Every destructive confirmation (delete, archive, go back, hard delete,
+merge), the share-import preview, the four-item photo menu, the Danger
+button on About. Each carries a decision or guards something that cannot
+be undone.
