@@ -340,19 +340,20 @@ class _AgendaScreenState extends State<AgendaScreen> {
         title: Text(t.agenda),
         actions: [
           HelpButton(store: store, screenId: 'agenda'),
-          PopupMenuButton<String>(
-            onSelected: (v) {
-              if (v == 'ics') _exportIcs();
-              if (v == 'resync') {
-                resyncCalendarNow(context, store, port: widget.calendarPort);
-              }
-            },
-            itemBuilder: (context) => [
-              PopupMenuItem(value: 'ics', child: Text(t.exportIcs)),
-              if (calendarMirrorEnabled(store) && _calendarAvailable)
-                PopupMenuItem(value: 'resync', child: Text(t.resyncCalendar)),
-            ],
+          // The export as a button of its own; the resync beside it
+          // while the calendar mirror is on. No menu for one item.
+          IconButton(
+            icon: const Icon(Icons.ios_share),
+            tooltip: t.exportIcs,
+            onPressed: _exportIcs,
           ),
+          if (calendarMirrorEnabled(store) && _calendarAvailable)
+            IconButton(
+              icon: const Icon(Icons.sync),
+              tooltip: t.resyncCalendar,
+              onPressed: () =>
+                  resyncCalendarNow(context, store, port: widget.calendarPort),
+            ),
         ],
       ),
       body: ListView(
