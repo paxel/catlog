@@ -2026,18 +2026,6 @@ class ModeLocalizations implements AppLocalizations {
   String pinLabel(String pin) => base.pinLabel(pin);
 
   @override
-  String get planChooserAppointment => base.planChooserAppointment;
-
-  @override
-  String get planChooserChore => base.planChooserChore;
-
-  @override
-  String get planChooserReminder => base.planChooserReminder;
-
-  @override
-  String get planChooserTitle => base.planChooserTitle;
-
-  @override
   String get plannedSection => base.plannedSection;
 
   @override

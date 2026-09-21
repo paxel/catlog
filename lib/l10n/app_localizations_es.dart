@@ -2740,20 +2740,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get addAppointment => 'Añadir cita';
 
   @override
-  String get planChooserTitle => '¿Cita o recordatorio?';
-
-  @override
-  String get planChooserAppointment =>
-      'Cita — una visita en una fecha y hora, con notas';
-
-  @override
-  String get planChooserReminder => 'Recordatorio — un valor que vence un día';
-
-  @override
-  String get planChooserChore =>
-      'Tarea — algo que se repite: comida, gotas, arenero';
-
-  @override
   String get newChore => 'Nueva tarea';
 
   @override

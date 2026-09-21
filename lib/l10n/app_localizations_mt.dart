@@ -2742,20 +2742,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get addAppointment => 'Żid appuntament';
 
   @override
-  String get planChooserTitle => 'Appuntament jew tfakkira?';
-
-  @override
-  String get planChooserAppointment =>
-      'Appuntament — żjara f\'data u ħin, b\'noti';
-
-  @override
-  String get planChooserReminder => 'Tfakkira — valur li jsir dovut f\'ġurnata';
-
-  @override
-  String get planChooserChore =>
-      'Xogħol — xi ħaġa li terġa’ tiġi: ikel, qtar, ramel';
-
-  @override
   String get newChore => 'Xogħol ġdid';
 
   @override

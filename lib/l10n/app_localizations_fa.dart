@@ -2714,20 +2714,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get addAppointment => 'افزودن قرار';
 
   @override
-  String get planChooserTitle => 'قرار یا یادآور؟';
-
-  @override
-  String get planChooserAppointment =>
-      'قرار — دیداری در تاریخ و ساعتی مشخص، با یادداشت';
-
-  @override
-  String get planChooserReminder => 'یادآور — مقداری که در روزی سررسید می‌شود';
-
-  @override
-  String get planChooserChore =>
-      'کار روزمره — چیزی که تکرار می‌شود: غذا، قطره، خاک';
-
-  @override
   String get newChore => 'کار جدید';
 
   @override

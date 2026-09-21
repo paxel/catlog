@@ -4868,30 +4868,6 @@ abstract class AppLocalizations {
   /// **'Add appointment'**
   String get addAppointment;
 
-  /// No description provided for @planChooserTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Appointment or reminder?'**
-  String get planChooserTitle;
-
-  /// No description provided for @planChooserAppointment.
-  ///
-  /// In en, this message translates to:
-  /// **'Appointment — a visit at a date and time, with notes'**
-  String get planChooserAppointment;
-
-  /// No description provided for @planChooserReminder.
-  ///
-  /// In en, this message translates to:
-  /// **'Reminder — a value that becomes due on a day'**
-  String get planChooserReminder;
-
-  /// No description provided for @planChooserChore.
-  ///
-  /// In en, this message translates to:
-  /// **'Chore — a task that comes around: feeding, drops, litter'**
-  String get planChooserChore;
-
   /// No description provided for @newChore.
   ///
   /// In en, this message translates to:

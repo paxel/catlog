@@ -647,22 +647,6 @@ class _MapScreenState extends State<MapScreen>
               tooltip: context.t.nextPin,
               onPressed: () => _stepPins(1),
             ),
-            const Spacer(),
-            FilledButton.tonalIcon(
-              onPressed: () async {
-                final catId = await strayCam(context, store);
-                if (catId != null && context.mounted) {
-                  await Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => CatDetailScreen(
-                        store: store, catId: catId, startEditing: true),
-                  ));
-                }
-                if (!mounted) return;
-                setState(() {});
-              },
-              icon: const Icon(Icons.photo_camera),
-              label: Text(context.t.strayCam),
-            ),
           ]),
         ),
       ),

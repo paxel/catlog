@@ -2732,21 +2732,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get addAppointment => 'Időpont hozzáadása';
 
   @override
-  String get planChooserTitle => 'Időpont vagy emlékeztető?';
-
-  @override
-  String get planChooserAppointment =>
-      'Időpont — látogatás egy dátumon és időben, jegyzetekkel';
-
-  @override
-  String get planChooserReminder =>
-      'Emlékeztető — egy érték, amely egy napon esedékes lesz';
-
-  @override
-  String get planChooserChore =>
-      'Teendő — ami visszatér: etetés, cseppek, alom';
-
-  @override
   String get newChore => 'Új teendő';
 
   @override

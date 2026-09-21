@@ -2729,21 +2729,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get addAppointment => 'Legg til avtale';
 
   @override
-  String get planChooserTitle => 'Avtale eller påminnelse?';
-
-  @override
-  String get planChooserAppointment =>
-      'Avtale — et besøk på en dato og et tidspunkt, med notater';
-
-  @override
-  String get planChooserReminder =>
-      'Påminnelse — en verdi som forfaller en dag';
-
-  @override
-  String get planChooserChore =>
-      'Gjøremål — noe som kommer igjen: mat, dråper, kattedo';
-
-  @override
   String get newChore => 'Nytt gjøremål';
 
   @override

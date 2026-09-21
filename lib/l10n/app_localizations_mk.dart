@@ -2734,21 +2734,6 @@ class AppLocalizationsMk extends AppLocalizations {
   String get addAppointment => 'Додај термин';
 
   @override
-  String get planChooserTitle => 'Термин или потсетник?';
-
-  @override
-  String get planChooserAppointment =>
-      'Термин — посета на датум и време, со белешки';
-
-  @override
-  String get planChooserReminder =>
-      'Потсетник — вредност што доспева на определен ден';
-
-  @override
-  String get planChooserChore =>
-      'Обврска — нешто што се повторува: хранење, капки, песок';
-
-  @override
   String get newChore => 'Нова обврска';
 
   @override

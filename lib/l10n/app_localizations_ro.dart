@@ -2739,21 +2739,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get addAppointment => 'Adaugă programare';
 
   @override
-  String get planChooserTitle => 'Programare sau memento?';
-
-  @override
-  String get planChooserAppointment =>
-      'Programare — o vizită la o dată și oră, cu note';
-
-  @override
-  String get planChooserReminder =>
-      'Memento — o valoare care devine scadentă într-o zi';
-
-  @override
-  String get planChooserChore =>
-      'Treabă — ceva ce revine: hrănire, picături, litieră';
-
-  @override
   String get newChore => 'Treabă nouă';
 
   @override

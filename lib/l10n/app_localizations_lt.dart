@@ -2744,21 +2744,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get addAppointment => 'Pridėti vizitą';
 
   @override
-  String get planChooserTitle => 'Vizitas ar priminimas?';
-
-  @override
-  String get planChooserAppointment =>
-      'Vizitas — apsilankymas tam tikrą dieną ir valandą, su pastabomis';
-
-  @override
-  String get planChooserReminder =>
-      'Priminimas — reikšmė, kurios terminas sueina tam tikrą dieną';
-
-  @override
-  String get planChooserChore =>
-      'Darbas — kas kartojasi: šėrimas, lašai, kraikas';
-
-  @override
   String get newChore => 'Naujas darbas';
 
   @override

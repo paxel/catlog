@@ -2730,21 +2730,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get addAppointment => 'Lägg till möte';
 
   @override
-  String get planChooserTitle => 'Möte eller påminnelse?';
-
-  @override
-  String get planChooserAppointment =>
-      'Möte — ett besök på ett datum och en tid, med anteckningar';
-
-  @override
-  String get planChooserReminder =>
-      'Påminnelse — ett värde som förfaller en dag';
-
-  @override
-  String get planChooserChore =>
-      'Syssla — något som återkommer: mat, droppar, kattlåda';
-
-  @override
   String get newChore => 'Ny syssla';
 
   @override

@@ -2734,21 +2734,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get addAppointment => 'Bæta við tíma';
 
   @override
-  String get planChooserTitle => 'Tími eða áminning?';
-
-  @override
-  String get planChooserAppointment =>
-      'Tími — heimsókn á dagsetningu og tíma, með athugasemdum';
-
-  @override
-  String get planChooserReminder =>
-      'Áminning — gildi sem fellur á gjalddaga á degi';
-
-  @override
-  String get planChooserChore =>
-      'Verk — eitthvað sem endurtekst: fóðrun, dropar, kassi';
-
-  @override
   String get newChore => 'Nýtt verk';
 
   @override

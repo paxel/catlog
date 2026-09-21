@@ -2737,21 +2737,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get addAppointment => 'Přidat termín';
 
   @override
-  String get planChooserTitle => 'Termín, nebo připomínka?';
-
-  @override
-  String get planChooserAppointment =>
-      'Termín — návštěva v den a hodinu, s poznámkami';
-
-  @override
-  String get planChooserReminder =>
-      'Připomínka — hodnota, která je v určitý den na řadě';
-
-  @override
-  String get planChooserChore =>
-      'Úkol — něco, co se vrací: krmení, kapky, záchod';
-
-  @override
   String get newChore => 'Nový úkol';
 
   @override

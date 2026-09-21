@@ -2736,21 +2736,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get addAppointment => 'Afspraak toevoegen';
 
   @override
-  String get planChooserTitle => 'Afspraak of herinnering?';
-
-  @override
-  String get planChooserAppointment =>
-      'Afspraak — een bezoek op een datum met tijd en notities';
-
-  @override
-  String get planChooserReminder =>
-      'Herinnering — een waarde die op een dag verschuldigd wordt';
-
-  @override
-  String get planChooserChore =>
-      'Taak — iets dat terugkomt: voeren, druppels, kattenbak';
-
-  @override
   String get newChore => 'Nieuwe taak';
 
   @override

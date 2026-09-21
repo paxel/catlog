@@ -2726,18 +2726,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get addAppointment => 'הוספת פגישה';
 
   @override
-  String get planChooserTitle => 'פגישה או תזכורת?';
-
-  @override
-  String get planChooserAppointment => 'פגישה — ביקור בתאריך ושעה, עם הערות';
-
-  @override
-  String get planChooserReminder => 'תזכורת — ערך שמגיע מועדו ביום מסוים';
-
-  @override
-  String get planChooserChore => 'מטלה — משהו שחוזר: האכלה, טיפות, ארגז חול';
-
-  @override
   String get newChore => 'מטלה חדשה';
 
   @override

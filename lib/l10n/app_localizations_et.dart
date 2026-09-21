@@ -2729,21 +2729,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get addAppointment => 'Lisa visiit';
 
   @override
-  String get planChooserTitle => 'Visiit või meeldetuletus?';
-
-  @override
-  String get planChooserAppointment =>
-      'Visiit — külastus kuupäeval ja kellaajal, märkmetega';
-
-  @override
-  String get planChooserReminder =>
-      'Meeldetuletus — väärtus, mille tähtaeg saabub mingil päeval';
-
-  @override
-  String get planChooserChore =>
-      'Toimetus — midagi, mis kordub: söötmine, tilgad, liivakast';
-
-  @override
   String get newChore => 'Uus toimetus';
 
   @override

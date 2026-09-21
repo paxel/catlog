@@ -2736,21 +2736,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get addAppointment => 'Pridať termín';
 
   @override
-  String get planChooserTitle => 'Termín alebo pripomienka?';
-
-  @override
-  String get planChooserAppointment =>
-      'Termín — návšteva v deň a hodinu, s poznámkami';
-
-  @override
-  String get planChooserReminder =>
-      'Pripomienka — hodnota, ktorá je v určitý deň na rade';
-
-  @override
-  String get planChooserChore =>
-      'Úloha — niečo, čo sa vracia: kŕmenie, kvapky, záchod';
-
-  @override
   String get newChore => 'Nová úloha';
 
   @override

@@ -2739,21 +2739,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get addAppointment => 'Aggiungi appuntamento';
 
   @override
-  String get planChooserTitle => 'Appuntamento o promemoria?';
-
-  @override
-  String get planChooserAppointment =>
-      'Appuntamento — una visita in una data e a un\'ora, con note';
-
-  @override
-  String get planChooserReminder =>
-      'Promemoria — un valore che scade in un giorno';
-
-  @override
-  String get planChooserChore =>
-      'Faccenda — qualcosa che torna: pappa, gocce, lettiera';
-
-  @override
   String get newChore => 'Nuova faccenda';
 
   @override

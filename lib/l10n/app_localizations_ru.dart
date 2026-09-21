@@ -2742,21 +2742,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get addAppointment => 'Добавить визит';
 
   @override
-  String get planChooserTitle => 'Визит или напоминание?';
-
-  @override
-  String get planChooserAppointment =>
-      'Визит — посещение в день и время, с заметками';
-
-  @override
-  String get planChooserReminder =>
-      'Напоминание — значение, которое наступает в определённый день';
-
-  @override
-  String get planChooserChore =>
-      'Дело — то, что повторяется: кормление, капли, лоток';
-
-  @override
   String get newChore => 'Новое дело';
 
   @override

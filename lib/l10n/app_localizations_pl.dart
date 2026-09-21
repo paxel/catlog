@@ -2743,21 +2743,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get addAppointment => 'Dodaj termin';
 
   @override
-  String get planChooserTitle => 'Termin czy przypomnienie?';
-
-  @override
-  String get planChooserAppointment =>
-      'Termin — wizyta w dniu i o godzinie, z notatkami';
-
-  @override
-  String get planChooserReminder =>
-      'Przypomnienie — wartość, która staje się należna danego dnia';
-
-  @override
-  String get planChooserChore =>
-      'Obowiązek — coś, co wraca: karmienie, krople, kuweta';
-
-  @override
   String get newChore => 'Nowy obowiązek';
 
   @override

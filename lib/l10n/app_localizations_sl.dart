@@ -2744,21 +2744,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get addAppointment => 'Dodaj termin';
 
   @override
-  String get planChooserTitle => 'Termin ali opomnik?';
-
-  @override
-  String get planChooserAppointment =>
-      'Termin — obisk na datum in ob uri, z zapiski';
-
-  @override
-  String get planChooserReminder =>
-      'Opomnik — vrednost, ki zapade na določen dan';
-
-  @override
-  String get planChooserChore =>
-      'Opravilo — nekaj, kar se ponavlja: hranjenje, kapljice, pesek';
-
-  @override
   String get newChore => 'Novo opravilo';
 
   @override

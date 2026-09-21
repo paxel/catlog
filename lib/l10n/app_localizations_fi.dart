@@ -2733,21 +2733,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get addAppointment => 'Lisää tapaaminen';
 
   @override
-  String get planChooserTitle => 'Tapaaminen vai muistutus?';
-
-  @override
-  String get planChooserAppointment =>
-      'Tapaaminen — käynti tiettynä päivänä ja kellonaikana, muistiinpanoineen';
-
-  @override
-  String get planChooserReminder =>
-      'Muistutus — arvo, joka erääntyy tiettynä päivänä';
-
-  @override
-  String get planChooserChore =>
-      'Askare — jokin, joka toistuu: ruokinta, tipat, hiekkalaatikko';
-
-  @override
   String get newChore => 'Uusi askare';
 
   @override

@@ -2759,21 +2759,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get addAppointment => 'Cuir coinne leis';
 
   @override
-  String get planChooserTitle => 'Coinne nó meabhrúchán?';
-
-  @override
-  String get planChooserAppointment =>
-      'Coinne — cuairt ar dháta agus ag am, le nótaí';
-
-  @override
-  String get planChooserReminder =>
-      'Meabhrúchán — luach a bhíonn dlite lá éigin';
-
-  @override
-  String get planChooserChore =>
-      'Cúram — rud a thagann ar ais: beathú, braonta, bruscar';
-
-  @override
   String get newChore => 'Cúram nua';
 
   @override

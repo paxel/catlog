@@ -2731,21 +2731,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addAppointment => 'Add appointment';
 
   @override
-  String get planChooserTitle => 'Appointment or reminder?';
-
-  @override
-  String get planChooserAppointment =>
-      'Appointment — a visit at a date and time, with notes';
-
-  @override
-  String get planChooserReminder =>
-      'Reminder — a value that becomes due on a day';
-
-  @override
-  String get planChooserChore =>
-      'Chore — a task that comes around: feeding, drops, litter';
-
-  @override
   String get newChore => 'New chore';
 
   @override

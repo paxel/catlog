@@ -2747,18 +2747,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addAppointment => 'إضافة موعد';
 
   @override
-  String get planChooserTitle => 'موعد أم تذكير؟';
-
-  @override
-  String get planChooserAppointment => 'موعد — زيارة في تاريخ ووقت، مع ملاحظات';
-
-  @override
-  String get planChooserReminder => 'تذكير — قيمة تستحق في يوم ما';
-
-  @override
-  String get planChooserChore => 'مهمة — شيء يتكرر: إطعام، قطرات، رمل';
-
-  @override
   String get newChore => 'مهمة جديدة';
 
   @override

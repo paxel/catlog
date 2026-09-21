@@ -2731,21 +2731,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get addAppointment => 'Добави час';
 
   @override
-  String get planChooserTitle => 'Час или напомняне?';
-
-  @override
-  String get planChooserAppointment =>
-      'Час — посещение на дата и час, с бележки';
-
-  @override
-  String get planChooserReminder =>
-      'Напомняне — стойност, която става дължима в определен ден';
-
-  @override
-  String get planChooserChore =>
-      'Задача — нещо, което се повтаря: хранене, капки, тоалетна';
-
-  @override
   String get newChore => 'Нова задача';
 
   @override

@@ -11,27 +11,38 @@ a feature; every action keeps a way to reach it.
 
 Status is kept per group. Groups not marked done are open.
 
+## 0. The plus that fans out — phone (done 2026-09-21)
+
+The answer to most of group 1 and to the plan chooser of group 4: a page
+that adds in more than one way has one plus (`AddFan`) that fans the
+ways out, each an icon with its words, over a veil; the plus reads minus
+while open. Strays: New stray, Take photo, Choose from gallery, From
+video, Flier from camera, Flier from gallery. Cat page: Take photo,
+Choose from gallery, From video, Appointment, Reminder, Chore. Clowder
+page: Add cat, Appointment, Reminder, Chore. Agenda: the three kinds of
+plan. A page with one way keeps the labelled button. The map lost its
+Stray Cam button. See the UI law in `docs/agents/ui-laws.md`.
+
 ## 1. Camera or gallery asked when the button already said which — phone (done 2026-09-21)
 
 - Strays cover icon, `strays_screen.dart:130`: tap, sheet, camera or
   gallery. Proposal: the same cover row as on the clowder page above the
   strays list, camera and gallery as buttons, Remove on a long-press.
 - Stray Cam, `stray_cam.dart:166`: the camera button opens a sheet
-  asking camera or gallery. The docs call it one tap. Proposal: camera
-  straight away where there is one, gallery on a desktop. A gallery
-  picture becomes a stray by sharing it into the app, which already
-  offers New stray.
+  asking camera or gallery. The docs call it one tap. Done through the
+  fan: Take photo, Choose from gallery and From video are three items,
+  each straight to its source.
 - Flier capture, `flier_capture.dart:280`: the same sheet before the
-  camera. Proposal: on the strays screen tap is the camera, a hold with
-  the cat ear is the gallery. From a cat's page, where there is no hold,
-  the two choices are buttons on the capture page itself.
+  camera. Done through the fan on the strays list, Flier from camera
+  and Flier from gallery. From a cat's page, where the wizard is in the
+  overflow, the two choices are buttons on the capture page itself.
 - Missing poster, `missing_poster_screen.dart:331`: a tile labelled
   gallery that then asks camera or gallery. Proposal: the tile opens the
   gallery; a second tile opens the camera on a phone.
 - After a Stray Cam picture, `strays_screen.dart:65`: species (pet mode)
-  and Looks are asked in dialogs before the page opens. These carry real
-  decisions and are cheaper than tapping the fields on the page, so they
-  stay; only the sheet in front of the camera goes.
+  and Looks were asked in dialogs before the page opened. Done: no
+  prompts, the page opens in edit mode with species as a field, the
+  last species picked as its value.
 
 ## 2. Text repeated one tap later, and paragraphs above the buttons
 
@@ -88,11 +99,12 @@ Desk:
   dialog, then an "as of today" dialog, then the date picker. Proposal:
   the clowder list with a date field at its foot, today by default.
 - Plan chooser, `plan_chooser.dart:13`: a dialog for the kind, a dialog
-  for the cat, then the editor. Proposal: three actions on the agenda's
-  button; the cat is a field in the editor.
+  for the cat, then the editor. Done: the kinds fan out of the plus; the
+  cat or clowder is the editor's first field, preset from the page,
+  from the agenda the one looked at last.
 - Chore from the agenda, `chore_dialog.dart:28`, and duplicate chore,
   `:169`: an entity dialog, then a second editor on top of the first.
-  Proposal: the entity as a field in the editor.
+  Done: the entity is a field in the editor, the copy's too.
 - "Move into the new catalog?", `catalogs_screen.dart:82`: a yes or no
   gate before a picker that has Cancel. Proposal: no gate.
 - History rows, `timeline_screen.dart:155`, `field_history_screen.dart:217`,

@@ -2732,21 +2732,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get addAppointment => 'Shto takim';
 
   @override
-  String get planChooserTitle => 'Takim apo përkujtues?';
-
-  @override
-  String get planChooserAppointment =>
-      'Takim — një vizitë në një datë dhe orë, me shënime';
-
-  @override
-  String get planChooserReminder =>
-      'Përkujtues — një vlerë që bëhet e detyrueshme një ditë';
-
-  @override
-  String get planChooserChore =>
-      'Detyrë — diçka që përsëritet: ushqim, pika, kuti';
-
-  @override
   String get newChore => 'Detyrë e re';
 
   @override

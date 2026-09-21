@@ -2742,20 +2742,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get addAppointment => 'Προσθήκη ραντεβού';
 
   @override
-  String get planChooserTitle => 'Ραντεβού ή υπενθύμιση;';
-
-  @override
-  String get planChooserAppointment =>
-      'Ραντεβού — μια επίσκεψη σε ημερομηνία και ώρα, με σημειώσεις';
-
-  @override
-  String get planChooserReminder => 'Υπενθύμιση — μια τιμή που λήγει μια μέρα';
-
-  @override
-  String get planChooserChore =>
-      'Δουλειά — κάτι που επαναλαμβάνεται: τάισμα, σταγόνες, άμμος';
-
-  @override
   String get newChore => 'Νέα δουλειά';
 
   @override

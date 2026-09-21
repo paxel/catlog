@@ -2741,21 +2741,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get addAppointment => 'Pievienot vizīti';
 
   @override
-  String get planChooserTitle => 'Vizīte vai atgādinājums?';
-
-  @override
-  String get planChooserAppointment =>
-      'Vizīte — apmeklējums datumā un laikā, ar piezīmēm';
-
-  @override
-  String get planChooserReminder =>
-      'Atgādinājums — vērtība, kurai kādā dienā pienāk termiņš';
-
-  @override
-  String get planChooserChore =>
-      'Pienākums — kas atkārtojas: barošana, pilieni, smilšu kaste';
-
-  @override
   String get newChore => 'Jauns pienākums';
 
   @override

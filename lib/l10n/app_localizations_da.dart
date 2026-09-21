@@ -2732,21 +2732,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get addAppointment => 'Tilføj aftale';
 
   @override
-  String get planChooserTitle => 'Aftale eller påmindelse?';
-
-  @override
-  String get planChooserAppointment =>
-      'Aftale — et besøg på en dato og et tidspunkt, med noter';
-
-  @override
-  String get planChooserReminder =>
-      'Påmindelse — en værdi, der forfalder en dag';
-
-  @override
-  String get planChooserChore =>
-      'Pligt — noget der kommer igen: fodring, dråber, kattebakke';
-
-  @override
   String get newChore => 'Ny pligt';
 
   @override

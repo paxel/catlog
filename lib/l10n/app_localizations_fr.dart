@@ -2739,21 +2739,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get addAppointment => 'Ajouter un rendez-vous';
 
   @override
-  String get planChooserTitle => 'Rendez-vous ou rappel ?';
-
-  @override
-  String get planChooserAppointment =>
-      'Rendez-vous — une visite à une date et une heure, avec des notes';
-
-  @override
-  String get planChooserReminder =>
-      'Rappel — une valeur qui arrive à échéance un jour';
-
-  @override
-  String get planChooserChore =>
-      'Tâche — quelque chose qui revient : nourrir, gouttes, litière';
-
-  @override
   String get newChore => 'Nouvelle tâche';
 
   @override

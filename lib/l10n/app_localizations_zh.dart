@@ -2625,18 +2625,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addAppointment => '添加安排';
 
   @override
-  String get planChooserTitle => '安排还是提醒？';
-
-  @override
-  String get planChooserAppointment => '安排——在某个日期和时间的拜访，附带备注';
-
-  @override
-  String get planChooserReminder => '提醒——在某一天到期的值';
-
-  @override
-  String get planChooserChore => '日常任务 — 会重复的事：喂食、滴药、猫砂';
-
-  @override
   String get newChore => '新任务';
 
   @override

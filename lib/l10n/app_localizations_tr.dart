@@ -2731,20 +2731,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addAppointment => 'Randevu ekle';
 
   @override
-  String get planChooserTitle => 'Randevu mu, hatırlatma mı?';
-
-  @override
-  String get planChooserAppointment =>
-      'Randevu — bir tarih ve saatte ziyaret, notlarla';
-
-  @override
-  String get planChooserReminder =>
-      'Hatırlatma — bir gün vadesi gelen bir değer';
-
-  @override
-  String get planChooserChore => 'Görev — tekrar eden bir iş: mama, damla, kum';
-
-  @override
   String get newChore => 'Yeni görev';
 
   @override

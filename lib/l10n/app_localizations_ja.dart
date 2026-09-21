@@ -2656,18 +2656,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addAppointment => '予定を追加';
 
   @override
-  String get planChooserTitle => '予定とリマインダー、どちら？';
-
-  @override
-  String get planChooserAppointment => '予定 — 日付と時刻のある訪問、メモ付き';
-
-  @override
-  String get planChooserReminder => 'リマインダー — ある日に期日となる値';
-
-  @override
-  String get planChooserChore => '日課 — 繰り返す作業: 給餌、点眼、トイレ';
-
-  @override
   String get newChore => '新しい日課';
 
   @override

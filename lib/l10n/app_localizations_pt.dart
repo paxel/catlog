@@ -2733,20 +2733,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get addAppointment => 'Adicionar compromisso';
 
   @override
-  String get planChooserTitle => 'Compromisso ou lembrete?';
-
-  @override
-  String get planChooserAppointment =>
-      'Compromisso — uma visita numa data e hora, com notas';
-
-  @override
-  String get planChooserReminder => 'Lembrete — um valor que vence num dia';
-
-  @override
-  String get planChooserChore =>
-      'Tarefa — algo que se repete: comida, gotas, liteira';
-
-  @override
   String get newChore => 'Nova tarefa';
 
   @override
