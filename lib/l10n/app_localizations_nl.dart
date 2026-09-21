@@ -1806,11 +1806,22 @@ class AppLocalizationsNl extends AppLocalizations {
       'Confetti en gejuich wanneer een kat naar zijn thuis verhuist';
 
   @override
-  String get cheerToggle => 'Juichgeluid';
+  String get soundsSection => 'Geluiden';
 
   @override
-  String get cheerSubtitle =>
-      'Een kort gejuich bij de confetti, elke keer anders';
+  String get soundMeow => 'Miauw';
+
+  @override
+  String get soundPurr => 'Spinnen';
+
+  @override
+  String get soundChorus => 'Miauwkoor';
+
+  @override
+  String get soundParty => 'Feestmiauw';
+
+  @override
+  String get soundOwn => 'Eigen geluid…';
 
   @override
   String get celebrationsSubtitleNeutral =>

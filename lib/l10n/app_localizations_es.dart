@@ -1808,11 +1808,22 @@ class AppLocalizationsEs extends AppLocalizations {
       'Confeti y vítores cuando un gato se muda a su hogar';
 
   @override
-  String get cheerToggle => 'Sonido de ovación';
+  String get soundsSection => 'Sonidos';
 
   @override
-  String get cheerSubtitle =>
-      'Una ovación breve con el confeti, distinta cada vez';
+  String get soundMeow => 'Maullido';
+
+  @override
+  String get soundPurr => 'Ronroneo';
+
+  @override
+  String get soundChorus => 'Coro de maullidos';
+
+  @override
+  String get soundParty => 'Maullido de fiesta';
+
+  @override
+  String get soundOwn => 'Sonido propio…';
 
   @override
   String get celebrationsSubtitleNeutral =>

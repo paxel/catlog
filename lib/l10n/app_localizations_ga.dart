@@ -1810,11 +1810,22 @@ class AppLocalizationsGa extends AppLocalizations {
       'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile';
 
   @override
-  String get cheerToggle => 'Fuaim gártha';
+  String get soundsSection => 'Fuaimeanna';
 
   @override
-  String get cheerSubtitle =>
-      'Gártha gearra leis an confetti, ceann difriúil gach uair';
+  String get soundMeow => 'Meamhaíl';
+
+  @override
+  String get soundPurr => 'Crónán';
+
+  @override
+  String get soundChorus => 'Cór meamhaíola';
+
+  @override
+  String get soundParty => 'Meamhaíl chóisire';
+
+  @override
+  String get soundOwn => 'Fuaim féin…';
 
   @override
   String get celebrationsSubtitleNeutral =>

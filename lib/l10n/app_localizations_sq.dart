@@ -1803,11 +1803,22 @@ class AppLocalizationsSq extends AppLocalizations {
       'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj';
 
   @override
-  String get cheerToggle => 'Tingulli i brohoritjes';
+  String get soundsSection => 'Tinguj';
 
   @override
-  String get cheerSubtitle =>
-      'Një brohoritje e shkurtër me konfetat, e ndryshme çdo herë';
+  String get soundMeow => 'Mjau';
+
+  @override
+  String get soundPurr => 'Gërhitje';
+
+  @override
+  String get soundChorus => 'Kor mjaullimash';
+
+  @override
+  String get soundParty => 'Mjau feste';
+
+  @override
+  String get soundOwn => 'Tingulli yt…';
 
   @override
   String get celebrationsSubtitleNeutral =>

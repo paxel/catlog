@@ -1805,10 +1805,22 @@ class AppLocalizationsLt extends AppLocalizations {
       'Konfeti ir šūksniai, kai katė persikelia į namus';
 
   @override
-  String get cheerToggle => 'Šūksnių garsas';
+  String get soundsSection => 'Garsai';
 
   @override
-  String get cheerSubtitle => 'Trumpi šūksniai su konfeti, kaskart kiti';
+  String get soundMeow => 'Miau';
+
+  @override
+  String get soundPurr => 'Murkimas';
+
+  @override
+  String get soundChorus => 'Miaukimo choras';
+
+  @override
+  String get soundParty => 'Šventinis miau';
+
+  @override
+  String get soundOwn => 'Savas garsas…';
 
   @override
   String get celebrationsSubtitleNeutral =>

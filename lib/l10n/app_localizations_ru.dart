@@ -1805,11 +1805,22 @@ class AppLocalizationsRu extends AppLocalizations {
       'Конфетти и ликование, когда кошка переезжает в свой дом';
 
   @override
-  String get cheerToggle => 'Звук ликования';
+  String get soundsSection => 'Звуки';
 
   @override
-  String get cheerSubtitle =>
-      'Короткое ликование к конфетти, каждый раз другое';
+  String get soundMeow => 'Мяу';
+
+  @override
+  String get soundPurr => 'Мурлыканье';
+
+  @override
+  String get soundChorus => 'Хор мяуканья';
+
+  @override
+  String get soundParty => 'Праздничное мяу';
+
+  @override
+  String get soundOwn => 'Свой звук…';
 
   @override
   String get celebrationsSubtitleNeutral =>

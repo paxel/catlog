@@ -1809,11 +1809,22 @@ class AppLocalizationsDe extends AppLocalizations {
       'Konfetti und Jubel, wenn eine Katze in ihr Zuhause zieht';
 
   @override
-  String get cheerToggle => 'Jubel-Ton';
+  String get soundsSection => 'Töne';
 
   @override
-  String get cheerSubtitle =>
-      'Ein kurzer Jubel zum Konfetti, jedes Mal ein anderer';
+  String get soundMeow => 'Miau';
+
+  @override
+  String get soundPurr => 'Schnurren';
+
+  @override
+  String get soundChorus => 'Miau-Chor';
+
+  @override
+  String get soundParty => 'Party-Miau';
+
+  @override
+  String get soundOwn => 'Eigener Ton…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -3416,7 +3427,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpSettings =>
-      'Die Einstellungen der App: Sprache, Einheiten, Feiern und Jubel, das Fell hinter den Seiten, Benachrichtigungen, und wo deine Kataloge gesichert sind. Die Touren lassen sich von hier wiederholen.';
+      'Die Einstellungen der App: Sprache, Einheiten, Feiern und Töne, das Fell hinter den Seiten, Benachrichtigungen, und wo deine Kataloge gesichert sind. Die Touren lassen sich von hier wiederholen.';
 
   @override
   String get helpLooks =>

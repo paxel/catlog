@@ -1804,10 +1804,22 @@ class AppLocalizationsHr extends AppLocalizations {
       'Konfeti i klicanje kada mačka pređe u svoj dom';
 
   @override
-  String get cheerToggle => 'Zvuk slavlja';
+  String get soundsSection => 'Zvukovi';
 
   @override
-  String get cheerSubtitle => 'Kratko slavlje uz konfete, svaki put drugačije';
+  String get soundMeow => 'Mijau';
+
+  @override
+  String get soundPurr => 'Predenje';
+
+  @override
+  String get soundChorus => 'Zbor mijaukanja';
+
+  @override
+  String get soundParty => 'Slavljeničko mijau';
+
+  @override
+  String get soundOwn => 'Vlastiti zvuk…';
 
   @override
   String get celebrationsSubtitleNeutral =>

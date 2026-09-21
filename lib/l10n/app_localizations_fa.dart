@@ -1800,10 +1800,22 @@ class AppLocalizationsFa extends AppLocalizations {
       'کاغذرنگی و هلهله وقتی گربه‌ای به خانه‌اش می‌رود';
 
   @override
-  String get cheerToggle => 'صدای هلهله';
+  String get soundsSection => 'صداها';
 
   @override
-  String get cheerSubtitle => 'هلهله کوتاه همراه کاغذرنگی، هر بار متفاوت';
+  String get soundMeow => 'میو';
+
+  @override
+  String get soundPurr => 'خرخر';
+
+  @override
+  String get soundChorus => 'همسرایی میو';
+
+  @override
+  String get soundParty => 'میوی جشن';
+
+  @override
+  String get soundOwn => 'صدای خودت…';
 
   @override
   String get celebrationsSubtitleNeutral =>

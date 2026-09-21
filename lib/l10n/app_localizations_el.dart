@@ -1811,11 +1811,22 @@ class AppLocalizationsEl extends AppLocalizations {
       'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο σπίτι της';
 
   @override
-  String get cheerToggle => 'Ήχος ζητωκραυγής';
+  String get soundsSection => 'Ήχοι';
 
   @override
-  String get cheerSubtitle =>
-      'Μια σύντομη ζητωκραυγή με το κομφετί, διαφορετική κάθε φορά';
+  String get soundMeow => 'Νιάου';
+
+  @override
+  String get soundPurr => 'Γουργουρητό';
+
+  @override
+  String get soundChorus => 'Χορωδία από νιαουρίσματα';
+
+  @override
+  String get soundParty => 'Νιάου γιορτής';
+
+  @override
+  String get soundOwn => 'Δικός σου ήχος…';
 
   @override
   String get celebrationsSubtitleNeutral =>

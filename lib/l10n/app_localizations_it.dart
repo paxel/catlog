@@ -1807,11 +1807,22 @@ class AppLocalizationsIt extends AppLocalizations {
       'Coriandoli e applausi quando un gatto trasloca nella sua casa';
 
   @override
-  String get cheerToggle => 'Suono di esultanza';
+  String get soundsSection => 'Suoni';
 
   @override
-  String get cheerSubtitle =>
-      'Una breve esultanza con i coriandoli, ogni volta diversa';
+  String get soundMeow => 'Miao';
+
+  @override
+  String get soundPurr => 'Fusa';
+
+  @override
+  String get soundChorus => 'Coro di miao';
+
+  @override
+  String get soundParty => 'Miao di festa';
+
+  @override
+  String get soundOwn => 'Suono personale…';
 
   @override
   String get celebrationsSubtitleNeutral =>

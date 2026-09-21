@@ -1806,11 +1806,22 @@ class AppLocalizationsMt extends AppLocalizations {
   String get celebrationsSubtitle => 'Konfetti u ferħ meta qattus imur f\'daru';
 
   @override
-  String get cheerToggle => 'Ħoss ta’ ċapċip';
+  String get soundsSection => 'Ħsejjes';
 
   @override
-  String get cheerSubtitle =>
-      'Ċapċipa qasira mal-konfetti, kull darba differenti';
+  String get soundMeow => 'Mjaw';
+
+  @override
+  String get soundPurr => 'Tqarqir';
+
+  @override
+  String get soundChorus => 'Kor ta\' mjaw';
+
+  @override
+  String get soundParty => 'Mjaw tal-festa';
+
+  @override
+  String get soundOwn => 'Ħoss tiegħek…';
 
   @override
   String get celebrationsSubtitleNeutral =>

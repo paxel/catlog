@@ -1804,11 +1804,22 @@ class AppLocalizationsPt extends AppLocalizations {
       'Confetes e vivas quando um gato se muda para o lar';
 
   @override
-  String get cheerToggle => 'Som de festa';
+  String get soundsSection => 'Sons';
 
   @override
-  String get cheerSubtitle =>
-      'Uma festa breve com o confete, diferente de cada vez';
+  String get soundMeow => 'Miau';
+
+  @override
+  String get soundPurr => 'Ronrono';
+
+  @override
+  String get soundChorus => 'Coro de miados';
+
+  @override
+  String get soundParty => 'Miau de festa';
+
+  @override
+  String get soundOwn => 'Som próprio…';
 
   @override
   String get celebrationsSubtitleNeutral =>

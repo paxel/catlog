@@ -502,12 +502,6 @@ class ModeLocalizations implements AppLocalizations {
   String changesCount(int n) => base.changesCount(n);
 
   @override
-  String get cheerSubtitle => base.cheerSubtitle;
-
-  @override
-  String get cheerToggle => base.cheerToggle;
-
-  @override
   String get chipScanHint => pets ? base.chipScanHintNeutral : base.chipScanHint;
 
   @override
@@ -2384,6 +2378,24 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get sortOldestFirst => base.sortOldestFirst;
+
+  @override
+  String get soundChorus => base.soundChorus;
+
+  @override
+  String get soundMeow => base.soundMeow;
+
+  @override
+  String get soundOwn => base.soundOwn;
+
+  @override
+  String get soundParty => base.soundParty;
+
+  @override
+  String get soundPurr => base.soundPurr;
+
+  @override
+  String get soundsSection => base.soundsSection;
 
   @override
   String get sourceCode => base.sourceCode;

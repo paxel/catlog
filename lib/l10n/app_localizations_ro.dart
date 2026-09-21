@@ -1805,11 +1805,22 @@ class AppLocalizationsRo extends AppLocalizations {
       'Confetti și urale când o pisică se mută în căminul ei';
 
   @override
-  String get cheerToggle => 'Sunet de urale';
+  String get soundsSection => 'Sunete';
 
   @override
-  String get cheerSubtitle =>
-      'Urale scurte la confetti, de fiecare dată altele';
+  String get soundMeow => 'Miau';
+
+  @override
+  String get soundPurr => 'Tors';
+
+  @override
+  String get soundChorus => 'Cor de miaunături';
+
+  @override
+  String get soundParty => 'Miau de petrecere';
+
+  @override
+  String get soundOwn => 'Sunet propriu…';
 
   @override
   String get celebrationsSubtitleNeutral =>

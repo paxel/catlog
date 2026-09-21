@@ -1802,10 +1802,22 @@ class AppLocalizationsHu extends AppLocalizations {
       'Konfetti és éljenzés, amikor egy macska az otthonába költözik';
 
   @override
-  String get cheerToggle => 'Ujjongás hangja';
+  String get soundsSection => 'Hangok';
 
   @override
-  String get cheerSubtitle => 'Rövid ujjongás a konfettihez, mindig más';
+  String get soundMeow => 'Miau';
+
+  @override
+  String get soundPurr => 'Dorombolás';
+
+  @override
+  String get soundChorus => 'Miau-kórus';
+
+  @override
+  String get soundParty => 'Ünnepi miau';
+
+  @override
+  String get soundOwn => 'Saját hang…';
 
   @override
   String get celebrationsSubtitleNeutral =>

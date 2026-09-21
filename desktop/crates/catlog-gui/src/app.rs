@@ -51,7 +51,9 @@ use crate::photos::{EditMode, PhotoEditor, PhotoViewer, ViewerAction};
 use crate::picker::PositionPicker;
 use crate::settings::{AppSettings, SettingsFile};
 use crate::settings_page::{SettingsAction, SettingsPage, ladder_name, show_achievements};
-use crate::sounds::{Cheer, Sounder, Speakers, cheer_sound};
+use crate::sounds::{
+    Cheer, SOUND_FILES, SoundChoice, Sounder, Speakers, keep_own, set_sound, sound_for,
+};
 use crate::summary::{ArrivalSummary, SummaryAction};
 use crate::sync_page::{SyncAction, SyncPage};
 use crate::textures::FaceCache;
@@ -224,6 +226,8 @@ pub struct App {
     pub open_file: FileOpener,
     /// Where backups are written; the Downloads folder outside tests.
     pub backups_dir: PathBuf,
+    /// Where the app keeps what is its own, an own sound among it.
+    pub data_dir: PathBuf,
     restore_sets: Vec<catlog_core::backup::BackupSet>,
     going_back: Option<catlog_core::moments::Moment>,
     archiving: Option<Vec<String>>,
@@ -382,6 +386,7 @@ impl App {
                 }
             }),
             backups_dir: crate::settings::backups_dir(),
+            data_dir: crate::settings::data_dir(),
             restore_sets: Vec::new(),
             going_back: None,
             archiving: None,
@@ -2679,6 +2684,16 @@ impl App {
                 self.settings.settings.eye_candy = on;
                 let _ = self.settings.save();
             }
+            SettingsAction::Sound(cheer, choice) => self.choose_sound(cheer, choice),
+            SettingsAction::PickSound(cheer) => {
+                let picked = (self.pick_files)(t.sound_own(), SOUND_FILES, t.all_files());
+                if let Some(source) = picked.first() {
+                    match keep_own(&self.data_dir, cheer, source) {
+                        Ok(kept) => self.choose_sound(cheer, SoundChoice::Own(kept)),
+                        Err(e) => self.notice = Some(e.to_string()),
+                    }
+                }
+            }
             SettingsAction::OpenBackups => self.open_modal(Modal::Backups),
             SettingsAction::OpenAchievements => {
                 self.refresh_ladders();
@@ -2730,25 +2745,19 @@ impl App {
         }
     }
 
-    /// After a tick: a cheer when the day's chores are all done, the
-    /// ladders recorded, a cheer and a word for each one climbed.
-    /// Whether the keeper wants the cheers heard.
-    fn cheers_on(&self) -> bool {
-        self.store
-            .local_setting(crate::settings_page::CELEBRATIONS)
-            .as_deref()
-            != Some("off")
-            && self
-                .store
-                .local_setting(crate::settings_page::CHEER)
-                .as_deref()
-                != Some("off")
+    /// A moment's sound picked on the Settings page: kept, and heard
+    /// once so the pick is known.
+    fn choose_sound(&mut self, cheer: Cheer, choice: SoundChoice) {
+        set_sound(&self.store, cheer, &choice);
+        if let Some(bytes) = choice.bytes() {
+            self.sounder.play(bytes);
+        }
     }
 
-    /// The cheer for a moment, when they are on.
+    /// The moment's sound, as chosen on the Settings page; none is a choice.
     fn cheer(&mut self, cheer: Cheer) {
-        if self.cheers_on() {
-            self.sounder.play(cheer_sound(cheer));
+        if let Some(bytes) = sound_for(&self.store, cheer).bytes() {
+            self.sounder.play(bytes);
         }
     }
 
@@ -6340,15 +6349,69 @@ mod tests {
             h.state().pages.units,
             catlog_core::units::UnitSystem::Imperial
         );
-        // Cheers off, tips again.
-        h.get_by_label("Cheer sound").click();
+        // The tick's sound: its combo comes right after the units, None
+        // is a choice and is kept; the other moments keep theirs.
+        let played = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        h.state_mut().sounder = Box::new(crate::sounds::RecordingSounder {
+            played: played.clone(),
+        });
+        h.run();
+        combo(&h, 2);
+        h.step();
+        if h.query_by_label("Chorus of meows").is_none() {
+            combo(&h, 2);
+            h.step();
+        }
+        h.get_by_label("Chorus of meows").click_accesskit();
         h.run();
         assert_eq!(
-            h.state()
-                .store()
-                .local_setting("celebrationSound")
-                .as_deref(),
-            Some("off")
+            h.state().store().local_setting("sound:tick").as_deref(),
+            Some("chorus")
+        );
+        assert_eq!(
+            *played.lock().unwrap(),
+            vec![crate::sounds::CHORUS.len()],
+            "the pick is heard"
+        );
+        h.run();
+        combo(&h, 2);
+        h.step();
+        if h.query_by_label("None").is_none() {
+            combo(&h, 2);
+            h.step();
+        }
+        h.get_by_label("None").click_accesskit();
+        h.run();
+        assert_eq!(
+            h.state().store().local_setting("sound:tick").as_deref(),
+            Some("none")
+        );
+        assert_eq!(played.lock().unwrap().len(), 1, "none is silent");
+        assert!(h.state().store().local_setting("sound:dayDone").is_none());
+        // Own sound…: the file dialog, the copy kept beside the data, heard.
+        let own = dir.path().join("mine.wav");
+        std::fs::write(&own, crate::sounds::TICK).unwrap();
+        let own_for_picker = own.clone();
+        h.state_mut().pick_files = Box::new(move |_, _, _| vec![own_for_picker.clone()]);
+        h.state_mut().data_dir = dir.path().join("data");
+        h.run();
+        combo(&h, 2);
+        h.step();
+        if h.query_by_label("Own sound…").is_none() {
+            combo(&h, 2);
+            h.step();
+        }
+        h.get_by_label("Own sound…").click_accesskit();
+        h.run();
+        let kept = dir.path().join("data/sounds/tick.wav");
+        assert!(kept.exists(), "{:?}", h.state().notice);
+        assert_eq!(
+            h.state().store().local_setting("sound:tick").as_deref(),
+            Some(format!("file:{}", kept.display()).as_str())
+        );
+        assert_eq!(
+            *played.lock().unwrap().last().unwrap(),
+            crate::sounds::TICK.len()
         );
         h.get_by_label("Show tips again").click();
         h.run();
@@ -6583,8 +6646,9 @@ mod tests {
         // The title can be worn.
         h.state_mut().open_settings();
         h.run();
+        // Language, units, the four sounds, then the title.
         h.get_all_by_role(egui::accesskit::Role::ComboBox)
-            .nth(2)
+            .nth(6)
             .expect("the title combo")
             .click();
         h.step();

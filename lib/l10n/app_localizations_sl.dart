@@ -1805,10 +1805,22 @@ class AppLocalizationsSl extends AppLocalizations {
       'Konfeti in vzkliki, ko se mačka preseli v svoj dom';
 
   @override
-  String get cheerToggle => 'Zvok navijanja';
+  String get soundsSection => 'Zvoki';
 
   @override
-  String get cheerSubtitle => 'Kratko navijanje ob konfetih, vsakič drugačno';
+  String get soundMeow => 'Mjav';
+
+  @override
+  String get soundPurr => 'Predenje';
+
+  @override
+  String get soundChorus => 'Zbor mijavkanja';
+
+  @override
+  String get soundParty => 'Praznično mjav';
+
+  @override
+  String get soundOwn => 'Lasten zvok…';
 
   @override
   String get celebrationsSubtitleNeutral =>

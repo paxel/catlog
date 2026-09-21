@@ -1802,11 +1802,22 @@ class AppLocalizationsEn extends AppLocalizations {
       'Confetti and a cheer when a cat moves into a forever home';
 
   @override
-  String get cheerToggle => 'Cheer sound';
+  String get soundsSection => 'Sounds';
 
   @override
-  String get cheerSubtitle =>
-      'A short cheer with the confetti, a different one each time';
+  String get soundMeow => 'Meow';
+
+  @override
+  String get soundPurr => 'Purr';
+
+  @override
+  String get soundChorus => 'Chorus of meows';
+
+  @override
+  String get soundParty => 'Party meow';
+
+  @override
+  String get soundOwn => 'Own sound…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -3406,7 +3417,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpSettings =>
-      'The app\'s own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.';
+      'The app\'s own choices: language, units, celebrations and sounds, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.';
 
   @override
   String get helpLooks =>

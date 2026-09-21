@@ -1796,10 +1796,22 @@ class AppLocalizationsHe extends AppLocalizations {
   String get celebrationsSubtitle => 'קונפטי ותרועות כשחתול עובר לבית';
 
   @override
-  String get cheerToggle => 'צליל תרועה';
+  String get soundsSection => 'צלילים';
 
   @override
-  String get cheerSubtitle => 'תרועה קצרה עם הקונפטי, שונה בכל פעם';
+  String get soundMeow => 'מיאו';
+
+  @override
+  String get soundPurr => 'גרגור';
+
+  @override
+  String get soundChorus => 'מקהלת מיאו';
+
+  @override
+  String get soundParty => 'מיאו חגיגי';
+
+  @override
+  String get soundOwn => 'צליל משלך…';
 
   @override
   String get celebrationsSubtitleNeutral =>

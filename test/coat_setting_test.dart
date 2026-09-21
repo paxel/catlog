@@ -34,6 +34,11 @@ void main() {
   ) async {
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
+    // The sound rows above the coat make the page long; a tall screen
+    // shows it all.
+    tester.view.physicalSize = const Size(500, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
     await tester.pumpWidget(
       MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,

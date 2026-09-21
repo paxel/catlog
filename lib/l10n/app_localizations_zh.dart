@@ -1762,10 +1762,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get celebrationsSubtitle => '猫咪搬进新家时撒彩纸并欢呼';
 
   @override
-  String get cheerToggle => '欢呼声';
+  String get soundsSection => '声音';
 
   @override
-  String get cheerSubtitle => '伴随彩纸的短促欢呼，每次不同';
+  String get soundMeow => '喵';
+
+  @override
+  String get soundPurr => '呼噜';
+
+  @override
+  String get soundChorus => '喵喵合唱';
+
+  @override
+  String get soundParty => '派对喵';
+
+  @override
+  String get soundOwn => '自定义声音…';
 
   @override
   String get celebrationsSubtitleNeutral => '宠物搬进新家时撒彩纸并欢呼';

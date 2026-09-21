@@ -1807,10 +1807,22 @@ class AppLocalizationsMk extends AppLocalizations {
       'Конфети и радост кога мачка се сели во својот дом';
 
   @override
-  String get cheerToggle => 'Звук на славење';
+  String get soundsSection => 'Звуци';
 
   @override
-  String get cheerSubtitle => 'Кратко славење со конфетите, секој пат различно';
+  String get soundMeow => 'Мјау';
+
+  @override
+  String get soundPurr => 'Предење';
+
+  @override
+  String get soundChorus => 'Хор од мјаукање';
+
+  @override
+  String get soundParty => 'Празнично мјау';
+
+  @override
+  String get soundOwn => 'Сопствен звук…';
 
   @override
   String get celebrationsSubtitleNeutral =>

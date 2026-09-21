@@ -1804,11 +1804,22 @@ class AppLocalizationsBg extends AppLocalizations {
       'Конфети и радост, когато котка се мести в своя дом';
 
   @override
-  String get cheerToggle => 'Звук на ликуване';
+  String get soundsSection => 'Звуци';
 
   @override
-  String get cheerSubtitle =>
-      'Кратко ликуване към конфетите, всеки път различно';
+  String get soundMeow => 'Мяу';
+
+  @override
+  String get soundPurr => 'Мъркане';
+
+  @override
+  String get soundChorus => 'Хор от мяукане';
+
+  @override
+  String get soundParty => 'Празнично мяу';
+
+  @override
+  String get soundOwn => 'Собствен звук…';
 
   @override
   String get celebrationsSubtitleNeutral =>

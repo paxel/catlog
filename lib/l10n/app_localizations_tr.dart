@@ -1802,11 +1802,22 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bir kedi yuvasına taşındığında konfeti ve tezahürat';
 
   @override
-  String get cheerToggle => 'Tezahürat sesi';
+  String get soundsSection => 'Sesler';
 
   @override
-  String get cheerSubtitle =>
-      'Konfetiyle kısa bir tezahürat, her seferinde farklı';
+  String get soundMeow => 'Miyav';
+
+  @override
+  String get soundPurr => 'Mırıltı';
+
+  @override
+  String get soundChorus => 'Miyav korosu';
+
+  @override
+  String get soundParty => 'Kutlama miyavı';
+
+  @override
+  String get soundOwn => 'Kendi sesin…';
 
   @override
   String get celebrationsSubtitleNeutral =>

@@ -1802,10 +1802,22 @@ class AppLocalizationsAr extends AppLocalizations {
       'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها';
 
   @override
-  String get cheerToggle => 'صوت الهتاف';
+  String get soundsSection => 'الأصوات';
 
   @override
-  String get cheerSubtitle => 'هتاف قصير مع القصاصات، مختلف في كل مرة';
+  String get soundMeow => 'مواء';
+
+  @override
+  String get soundPurr => 'خرخرة';
+
+  @override
+  String get soundChorus => 'جوقة مواء';
+
+  @override
+  String get soundParty => 'مواء الحفلة';
+
+  @override
+  String get soundOwn => 'صوت خاص…';
 
   @override
   String get celebrationsSubtitleNeutral =>

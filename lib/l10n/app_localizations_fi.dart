@@ -1804,10 +1804,22 @@ class AppLocalizationsFi extends AppLocalizations {
       'Konfettia ja hurraus, kun kissa muuttaa kotiinsa';
 
   @override
-  String get cheerToggle => 'Hurraus-ääni';
+  String get soundsSection => 'Äänet';
 
   @override
-  String get cheerSubtitle => 'Lyhyt hurraus konfettien kanssa, joka kerta eri';
+  String get soundMeow => 'Miau';
+
+  @override
+  String get soundPurr => 'Kehräys';
+
+  @override
+  String get soundChorus => 'Miau-kuoro';
+
+  @override
+  String get soundParty => 'Juhlamiau';
+
+  @override
+  String get soundOwn => 'Oma ääni…';
 
   @override
   String get celebrationsSubtitleNeutral =>

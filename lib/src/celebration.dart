@@ -1,41 +1,29 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
-/// Adoption party: confetti + a cheer when a cat moves into a
-/// forever-home clowder — only on the device performing the move (sync
-/// arrivals never celebrate; that would be Bob's phone exploding three
-/// days later). Killable in About; the sound uses the ambient audio
-/// category, so the platform silent switch mutes it.
+import 'sounds.dart';
+
+/// Adoption party: confetti when a cat moves into a forever-home
+/// clowder — only on the device performing the move (sync arrivals
+/// never celebrate; that would be Bob's phone exploding three days
+/// later). Killable in Settings. The sound of each moment is its own
+/// choice there, see `sounds.dart`.
 bool celebrationsEnabled(CatalogStore store) =>
     store.localSetting('celebrations') != 'off';
 
 void setCelebrationsEnabled(CatalogStore store, bool enabled) =>
     store.setLocalSetting('celebrations', enabled ? 'on' : 'off');
 
-/// The cheer beside the confetti; off leaves the confetti alone.
-bool cheerEnabled(CatalogStore store) =>
-    store.localSetting('celebrationSound') != 'off';
-
-void setCheerEnabled(CatalogStore store, bool enabled) =>
-    store.setLocalSetting('celebrationSound', enabled ? 'on' : 'off');
-
-/// What is celebrated, each with its own cat sound: a short meow for a
-/// tick, a purr for the day's chores done, a chorus of meows for a
-/// ladder climbed, a meow over a purr for an adoption. The recordings
-/// are CC0 and public domain; see assets/sounds/LICENSES.md.
+/// The moments the app makes a sound at: a tick, the day's chores
+/// done, a ladder climbed, an adoption. Each ships with its own cat
+/// sound until the keeper picks another or none.
 enum Cheer { tick, dayDone, ladder, adoption }
 
-/// The sound of a [Cheer].
-String cheerAsset(Cheer cheer) => switch (cheer) {
-      Cheer.tick => 'sounds/tick.wav',
-      Cheer.dayDone => 'sounds/purr.wav',
-      Cheer.ladder => 'sounds/chorus.wav',
-      Cheer.adoption => 'sounds/party.wav',
-    };
+/// The sound a [Cheer] ships with.
+String cheerAsset(Cheer cheer) => presetAsset(defaultPreset(cheer));
 
 /// Where the last touch landed, so the paw appears under the thumb.
 Offset? lastTouch;
@@ -48,10 +36,10 @@ class TouchTracker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Listener(
-        behavior: HitTestBehavior.translucent,
-        onPointerDown: (e) => lastTouch = e.position,
-        child: child,
-      );
+    behavior: HitTestBehavior.translucent,
+    onPointerDown: (e) => lastTouch = e.position,
+    child: child,
+  );
 }
 
 /// A quick local success the screen already shows — copied, recorded,
@@ -80,14 +68,15 @@ class _PawOverlay extends StatefulWidget {
 
 class _PawOverlayState extends State<_PawOverlay>
     with SingleTickerProviderStateMixin {
-  late final _controller = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 500),
-  )
-    ..addStatusListener((s) {
-      if (s == AnimationStatus.completed) widget.onDone();
-    })
-    ..forward();
+  late final _controller =
+      AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 500),
+        )
+        ..addStatusListener((s) {
+          if (s == AnimationStatus.completed) widget.onDone();
+        })
+        ..forward();
 
   @override
   void dispose() {
@@ -103,9 +92,10 @@ class _PawOverlayState extends State<_PawOverlay>
       top: widget.at.dy - size,
       child: IgnorePointer(
         child: FadeTransition(
-          opacity: Tween(begin: 1.0, end: 0.0).animate(
-            CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-          ),
+          opacity: Tween(
+            begin: 1.0,
+            end: 0.0,
+          ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn)),
           child: ScaleTransition(
             scale: Tween(begin: 0.6, end: 1.4).animate(
               CurvedAnimation(parent: _controller, curve: Curves.easeOut),
@@ -120,45 +110,25 @@ class _PawOverlayState extends State<_PawOverlay>
 
 /// Call after a locally performed move; fires only for forever homes.
 void maybeCelebrateAdoption(
-    BuildContext context, CatalogStore store, String? destinationClowder) {
+  BuildContext context,
+  CatalogStore store,
+  String? destinationClowder,
+) {
   if (destinationClowder == null) return;
   if (store.current(destinationClowder, 'f:status') != 'forever-home') return;
   celebrate(context, store, Cheer.adoption);
 }
 
-/// Confetti and a cheer, when celebrations are on: an adoption, a day
-/// of chores all done, an achievement.
+/// The moment's sound as chosen, and confetti when celebrations are
+/// on: an adoption, a day of chores all done, an achievement.
 void celebrate(BuildContext context, CatalogStore store, Cheer cheer) {
-  if (!celebrationsEnabled(store)) return;
-  if (cheerEnabled(store)) playCheer(cheer);
-  _showConfetti(context);
+  playMoment(store, cheer);
+  if (celebrationsEnabled(store)) _showConfetti(context);
 }
 
-/// The short meow of a tick, when the cheers are on; no confetti.
+/// The sound of a tick, as chosen; no confetti.
 void tickSound(CatalogStore store) {
-  if (celebrationsEnabled(store) && cheerEnabled(store)) playCheer(Cheer.tick);
-}
-
-Future<void> playCheer(Cheer cheer) async {
-  final player = AudioPlayer();
-  try {
-    await player.setAudioContext(AudioContext(
-      iOS: AudioContextIOS(category: AVAudioSessionCategory.ambient),
-      android: const AudioContextAndroid(
-        usageType: AndroidUsageType.game,
-        audioFocus: AndroidAudioFocus.none,
-      ),
-    ));
-    await player.play(AssetSource(cheerAsset(cheer)));
-    // Released when the sound ends — or after a few seconds if the
-    // platform never says so, or at once when the platform closes the
-    // stream without an event.
-    firstOrDone(player.onPlayerComplete, const Duration(seconds: 10))
-        .whenComplete(player.dispose);
-  } catch (_) {
-    // No audio device or platform quirk — the confetti still flies.
-    player.dispose();
-  }
+  playMoment(store, Cheer.tick);
 }
 
 /// Completes on the first event of [events], when the stream closes
@@ -170,8 +140,13 @@ Future<void> firstOrDone(Stream<void> events, Duration limit) {
   void finish() {
     if (!done.isCompleted) done.complete();
   }
+
   late final StreamSubscription<void> sub;
-  sub = events.listen((_) => finish(), onError: (_) => finish(), onDone: finish);
+  sub = events.listen(
+    (_) => finish(),
+    onError: (_) => finish(),
+    onDone: finish,
+  );
   return done.future.timeout(limit, onTimeout: () {}).whenComplete(sub.cancel);
 }
 
@@ -200,13 +175,13 @@ class _Particle {
   final int shape;
 
   _Particle(Random r)
-      : x = r.nextDouble(),
-        drift = (r.nextDouble() - 0.5) * 0.3,
-        size = 6 + r.nextDouble() * 8,
-        fall = 0.7 + r.nextDouble() * 0.6,
-        spin = (r.nextDouble() - 0.5) * 12,
-        color = _palette[r.nextInt(_palette.length)],
-        shape = r.nextInt(3);
+    : x = r.nextDouble(),
+      drift = (r.nextDouble() - 0.5) * 0.3,
+      size = 6 + r.nextDouble() * 8,
+      fall = 0.7 + r.nextDouble() * 0.6,
+      spin = (r.nextDouble() - 0.5) * 12,
+      color = _palette[r.nextInt(_palette.length)],
+      shape = r.nextInt(3);
 
   static const _palette = [
     Color(0xFFE91E63),
@@ -220,15 +195,20 @@ class _Particle {
 
 class _ConfettiOverlayState extends State<_ConfettiOverlay>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(
-      vsync: this, duration: const Duration(milliseconds: 2500))
-    ..addStatusListener((s) {
-      if (s == AnimationStatus.completed) widget.onDone();
-    })
-    ..forward();
+  late final AnimationController _c =
+      AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 2500),
+        )
+        ..addStatusListener((s) {
+          if (s == AnimationStatus.completed) widget.onDone();
+        })
+        ..forward();
 
-  final List<_Particle> _particles =
-      List.generate(120, (_) => _Particle(Random()));
+  final List<_Particle> _particles = List.generate(
+    120,
+    (_) => _Particle(Random()),
+  );
 
   @override
   void dispose() {
@@ -271,9 +251,13 @@ class _ConfettiPainter extends CustomPainter {
       switch (p.shape) {
         case 0:
           canvas.drawRect(
-              Rect.fromCenter(
-                  center: Offset.zero, width: p.size, height: p.size * 0.6),
-              paint);
+            Rect.fromCenter(
+              center: Offset.zero,
+              width: p.size,
+              height: p.size * 0.6,
+            ),
+            paint,
+          );
         case 1:
           canvas.drawCircle(Offset.zero, p.size / 2, paint);
         default:

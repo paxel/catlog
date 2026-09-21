@@ -1801,11 +1801,22 @@ class AppLocalizationsNo extends AppLocalizations {
       'Konfetti og jubel når en katt flytter til sitt hjem';
 
   @override
-  String get cheerToggle => 'Jubellyd';
+  String get soundsSection => 'Lyder';
 
   @override
-  String get cheerSubtitle =>
-      'En kort jubel til konfettien, en annen hver gang';
+  String get soundMeow => 'Mjau';
+
+  @override
+  String get soundPurr => 'Maling';
+
+  @override
+  String get soundChorus => 'Mjaukor';
+
+  @override
+  String get soundParty => 'Festmjau';
+
+  @override
+  String get soundOwn => 'Egen lyd…';
 
   @override
   String get celebrationsSubtitleNeutral =>

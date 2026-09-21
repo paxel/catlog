@@ -3374,17 +3374,41 @@ abstract class AppLocalizations {
   /// **'Confetti and a cheer when a cat moves into a forever home'**
   String get celebrationsSubtitle;
 
-  /// No description provided for @cheerToggle.
+  /// No description provided for @soundsSection.
   ///
   /// In en, this message translates to:
-  /// **'Cheer sound'**
-  String get cheerToggle;
+  /// **'Sounds'**
+  String get soundsSection;
 
-  /// No description provided for @cheerSubtitle.
+  /// No description provided for @soundMeow.
   ///
   /// In en, this message translates to:
-  /// **'A short cheer with the confetti, a different one each time'**
-  String get cheerSubtitle;
+  /// **'Meow'**
+  String get soundMeow;
+
+  /// No description provided for @soundPurr.
+  ///
+  /// In en, this message translates to:
+  /// **'Purr'**
+  String get soundPurr;
+
+  /// No description provided for @soundChorus.
+  ///
+  /// In en, this message translates to:
+  /// **'Chorus of meows'**
+  String get soundChorus;
+
+  /// No description provided for @soundParty.
+  ///
+  /// In en, this message translates to:
+  /// **'Party meow'**
+  String get soundParty;
+
+  /// No description provided for @soundOwn.
+  ///
+  /// In en, this message translates to:
+  /// **'Own sound…'**
+  String get soundOwn;
 
   /// No description provided for @celebrationsSubtitleNeutral.
   ///
@@ -5957,7 +5981,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpSettings.
   ///
   /// In en, this message translates to:
-  /// **'The app\'s own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.'**
+  /// **'The app\'s own choices: language, units, celebrations and sounds, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.'**
   String get helpSettings;
 
   /// No description provided for @helpLooks.

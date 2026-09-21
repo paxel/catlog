@@ -1807,11 +1807,22 @@ class AppLocalizationsFr extends AppLocalizations {
       'Confettis et acclamations quand un chat rejoint son foyer';
 
   @override
-  String get cheerToggle => 'Son d’acclamation';
+  String get soundsSection => 'Sons';
 
   @override
-  String get cheerSubtitle =>
-      'Une courte acclamation avec les confettis, différente à chaque fois';
+  String get soundMeow => 'Miaulement';
+
+  @override
+  String get soundPurr => 'Ronronnement';
+
+  @override
+  String get soundChorus => 'Chœur de miaulements';
+
+  @override
+  String get soundParty => 'Miaulement de fête';
+
+  @override
+  String get soundOwn => 'Son personnel…';
 
   @override
   String get celebrationsSubtitleNeutral =>

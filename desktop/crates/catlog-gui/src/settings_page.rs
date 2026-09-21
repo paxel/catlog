@@ -13,6 +13,7 @@ use egui::Ui;
 
 use crate::l10n::{self, L10n};
 use crate::labels::{format_day, title_words};
+use crate::sounds::{Cheer, Preset, SoundChoice, sound_for};
 
 /// What the keeper asked for on the Settings page this frame.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -28,6 +29,10 @@ pub enum SettingsAction {
     OpenAchievements,
     /// The Eye candy switch: motion on or off.
     EyeCandy(bool),
+    /// A moment's sound picked: kept and heard.
+    Sound(Cheer, SoundChoice),
+    /// Own sound… for a moment: the file dialog, then kept and heard.
+    PickSound(Cheer),
 }
 
 #[derive(Debug, Default)]
@@ -38,7 +43,6 @@ pub struct SettingsPage {
 }
 
 pub const CELEBRATIONS: &str = "celebrations";
-pub const CHEER: &str = "celebrationSound";
 pub const PET_MODE_ENTITY: &str = "catalog:mode";
 pub const PET_MODE_FIELD: &str = "mode";
 
@@ -166,11 +170,41 @@ impl SettingsPage {
                     store.set_local_setting(CELEBRATIONS, if celebrations { "on" } else { "off" });
             }
             ui.label(egui::RichText::new(t.celebrations_subtitle()).weak());
-            let mut cheer = store.local_setting(CHEER).as_deref() != Some("off");
-            if ui.checkbox(&mut cheer, t.cheer_toggle()).changed() {
-                let _ = store.set_local_setting(CHEER, if cheer { "on" } else { "off" });
-            }
-            ui.label(egui::RichText::new(t.cheer_subtitle()).weak());
+            // Every moment with a sound has its own combo: the pick is
+            // heard as it is made, none is a choice, and so is a file.
+            ui.add_space(8.0);
+            ui.strong(t.sounds_section());
+            egui::Grid::new("sounds").num_columns(2).show(ui, |ui| {
+                for cheer in Cheer::ALL {
+                    ui.label(cheer.label(t));
+                    let current = sound_for(store, cheer);
+                    egui::ComboBox::from_id_salt(("sound", cheer.key()))
+                        .selected_text(current.label(t))
+                        .show_ui(ui, |ui| {
+                            if ui
+                                .selectable_label(current == SoundChoice::None, t.alert_none())
+                                .clicked()
+                            {
+                                action = SettingsAction::Sound(cheer, SoundChoice::None);
+                            }
+                            for preset in Preset::ALL {
+                                let choice = SoundChoice::Preset(preset);
+                                if ui
+                                    .selectable_label(current == choice, preset.label(t))
+                                    .clicked()
+                                {
+                                    action = SettingsAction::Sound(cheer, choice);
+                                }
+                            }
+                            let own = matches!(current, SoundChoice::Own(_));
+                            if ui.selectable_label(own, t.sound_own()).clicked() {
+                                action = SettingsAction::PickSound(cheer);
+                            }
+                        });
+                    ui.end_row();
+                }
+            });
+            ui.add_space(8.0);
             let mut candy = eye_candy;
             if ui.checkbox(&mut candy, t.eye_candy_toggle()).changed() {
                 action = SettingsAction::EyeCandy(candy);

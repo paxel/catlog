@@ -1805,11 +1805,22 @@ class AppLocalizationsPl extends AppLocalizations {
       'Konfetti i wiwaty, gdy kot przeprowadza się do domu';
 
   @override
-  String get cheerToggle => 'Dźwięk wiwatów';
+  String get soundsSection => 'Dźwięki';
 
   @override
-  String get cheerSubtitle =>
-      'Krótkie wiwaty przy konfetti, za każdym razem inne';
+  String get soundMeow => 'Miau';
+
+  @override
+  String get soundPurr => 'Mruczenie';
+
+  @override
+  String get soundChorus => 'Chór miauczenia';
+
+  @override
+  String get soundParty => 'Imprezowe miau';
+
+  @override
+  String get soundOwn => 'Własny dźwięk…';
 
   @override
   String get celebrationsSubtitleNeutral =>

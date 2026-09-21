@@ -1803,10 +1803,22 @@ class AppLocalizationsSk extends AppLocalizations {
       'Konfety a jasot, keď sa mačka sťahuje do svojho domova';
 
   @override
-  String get cheerToggle => 'Zvuk jasotu';
+  String get soundsSection => 'Zvuky';
 
   @override
-  String get cheerSubtitle => 'Krátky jasot ku konfetám, zakaždým iný';
+  String get soundMeow => 'Mňau';
+
+  @override
+  String get soundPurr => 'Pradenie';
+
+  @override
+  String get soundChorus => 'Zbor mňaukania';
+
+  @override
+  String get soundParty => 'Oslavné mňau';
+
+  @override
+  String get soundOwn => 'Vlastný zvuk…';
 
   @override
   String get celebrationsSubtitleNeutral =>

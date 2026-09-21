@@ -1806,10 +1806,22 @@ class AppLocalizationsUk extends AppLocalizations {
       'Конфеті та радість, коли кіт переїжджає у свій дім';
 
   @override
-  String get cheerToggle => 'Звук вітання';
+  String get soundsSection => 'Звуки';
 
   @override
-  String get cheerSubtitle => 'Коротке вітання до конфеті, щоразу інше';
+  String get soundMeow => 'Няв';
+
+  @override
+  String get soundPurr => 'Муркотіння';
+
+  @override
+  String get soundChorus => 'Хор нявкання';
+
+  @override
+  String get soundParty => 'Святкове няв';
+
+  @override
+  String get soundOwn => 'Власний звук…';
 
   @override
   String get celebrationsSubtitleNeutral =>
