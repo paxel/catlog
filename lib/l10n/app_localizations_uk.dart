@@ -91,6 +91,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get save => 'Зберегти';
 
   @override
+  String get clearField => 'Очистити';
+
+  @override
   String get delete => 'Видалити';
 
   @override

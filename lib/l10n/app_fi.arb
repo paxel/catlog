@@ -26,6 +26,7 @@
   "cancel": "Peruuta",
   "create": "Luo",
   "save": "Tallenna",
+  "clearField": "Tyhjennä",
   "delete": "Poista",
   "merge": "Yhdistä",
   "resolve": "Ratkaise",

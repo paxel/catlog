@@ -91,6 +91,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get save => 'Zapisz';
 
   @override
+  String get clearField => 'Wyczyść';
+
+  @override
   String get delete => 'Usuń';
 
   @override

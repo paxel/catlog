@@ -26,6 +26,7 @@
   "cancel": "إلغاء",
   "create": "إنشاء",
   "save": "حفظ",
+  "clearField": "مسح",
   "delete": "حذف",
   "merge": "دمج",
   "resolve": "حسم",

@@ -91,6 +91,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get save => 'Mentés';
 
   @override
+  String get clearField => 'Törlés';
+
+  @override
   String get delete => 'Törlés';
 
   @override

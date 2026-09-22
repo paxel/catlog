@@ -91,6 +91,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get save => 'Spremi';
 
   @override
+  String get clearField => 'Obriši';
+
+  @override
   String get delete => 'Izbriši';
 
   @override

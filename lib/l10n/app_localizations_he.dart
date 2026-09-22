@@ -91,6 +91,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get save => 'שמירה';
 
   @override
+  String get clearField => 'נקה';
+
+  @override
   String get delete => 'מחיקה';
 
   @override

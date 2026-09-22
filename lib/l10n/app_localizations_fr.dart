@@ -91,6 +91,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get save => 'Enregistrer';
 
   @override
+  String get clearField => 'Effacer';
+
+  @override
   String get delete => 'Supprimer';
 
   @override

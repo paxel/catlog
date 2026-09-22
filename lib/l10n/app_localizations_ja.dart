@@ -90,6 +90,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get clearField => 'クリア';
+
+  @override
   String get delete => '削除';
 
   @override

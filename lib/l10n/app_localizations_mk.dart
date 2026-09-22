@@ -91,6 +91,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get save => 'Зачувај';
 
   @override
+  String get clearField => 'Исчисти';
+
+  @override
   String get delete => 'Избриши';
 
   @override

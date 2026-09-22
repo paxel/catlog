@@ -89,6 +89,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get clearField => '清空';
+
+  @override
   String get delete => '删除';
 
   @override

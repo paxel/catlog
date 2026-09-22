@@ -91,6 +91,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get save => 'Ruaj';
 
   @override
+  String get clearField => 'Pastro';
+
+  @override
   String get delete => 'Fshi';
 
   @override

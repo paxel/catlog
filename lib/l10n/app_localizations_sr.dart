@@ -91,6 +91,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get save => 'Сачувај';
 
   @override
+  String get clearField => 'Обриши';
+
+  @override
   String get delete => 'Обриши';
 
   @override

@@ -91,6 +91,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get save => 'Saglabāt';
 
   @override
+  String get clearField => 'Notīrīt';
+
+  @override
   String get delete => 'Dzēst';
 
   @override

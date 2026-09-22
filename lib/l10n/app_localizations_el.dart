@@ -91,6 +91,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get save => 'Αποθήκευση';
 
   @override
+  String get clearField => 'Καθαρισμός';
+
+  @override
   String get delete => 'Διαγραφή';
 
   @override

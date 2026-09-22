@@ -91,6 +91,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get save => 'Sábháil';
 
   @override
+  String get clearField => 'Glan';
+
+  @override
   String get delete => 'Scrios';
 
   @override

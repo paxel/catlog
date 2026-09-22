@@ -326,6 +326,12 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get save;
 
+  /// No description provided for @clearField.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearField;
+
   /// No description provided for @delete.
   ///
   /// In en, this message translates to:

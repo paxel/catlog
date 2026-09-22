@@ -91,6 +91,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get save => 'Salva';
 
   @override
+  String get clearField => 'Cancella';
+
+  @override
   String get delete => 'Elimina';
 
   @override

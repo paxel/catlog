@@ -91,6 +91,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get save => 'Uložiť';
 
   @override
+  String get clearField => 'Vymazať';
+
+  @override
   String get delete => 'Vymazať';
 
   @override

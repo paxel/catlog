@@ -91,6 +91,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get save => 'Gem';
 
   @override
+  String get clearField => 'Ryd';
+
+  @override
   String get delete => 'Slet';
 
   @override

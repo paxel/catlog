@@ -91,6 +91,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get save => 'Spara';
 
   @override
+  String get clearField => 'Rensa';
+
+  @override
   String get delete => 'Radera';
 
   @override

@@ -91,6 +91,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get save => 'Salvează';
 
   @override
+  String get clearField => 'Golește';
+
+  @override
   String get delete => 'Șterge';
 
   @override

@@ -91,6 +91,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get save => 'ذخیره';
 
   @override
+  String get clearField => 'پاک کردن';
+
+  @override
   String get delete => 'حذف';
 
   @override

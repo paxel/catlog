@@ -91,6 +91,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get save => 'Kaydet';
 
   @override
+  String get clearField => 'Temizle';
+
+  @override
   String get delete => 'Sil';
 
   @override

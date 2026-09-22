@@ -91,6 +91,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get save => 'Salvesta';
 
   @override
+  String get clearField => 'Tühjenda';
+
+  @override
   String get delete => 'Kustuta';
 
   @override

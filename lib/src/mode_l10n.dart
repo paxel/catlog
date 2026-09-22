@@ -607,6 +607,9 @@ class ModeLocalizations implements AppLocalizations {
   String get choreTitleLabel => base.choreTitleLabel;
 
   @override
+  String get clearField => base.clearField;
+
+  @override
   String get clowderLabel => pets ? base.clowderLabelNeutral : base.clowderLabel;
 
   @override

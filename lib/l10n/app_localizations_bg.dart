@@ -91,6 +91,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get save => 'Запази';
 
   @override
+  String get clearField => 'Изчисти';
+
+  @override
   String get delete => 'Изтрий';
 
   @override

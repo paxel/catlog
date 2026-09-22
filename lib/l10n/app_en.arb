@@ -26,6 +26,7 @@
   "cancel": "Cancel",
   "create": "Create",
   "save": "Save",
+  "clearField": "Clear",
   "delete": "Delete",
   "merge": "Merge",
   "resolve": "Resolve",

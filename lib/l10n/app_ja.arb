@@ -26,6 +26,7 @@
   "cancel": "キャンセル",
   "create": "作成",
   "save": "保存",
+  "clearField": "クリア",
   "delete": "削除",
   "merge": "統合",
   "resolve": "確定",

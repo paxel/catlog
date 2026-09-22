@@ -91,6 +91,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get save => 'Сохранить';
 
   @override
+  String get clearField => 'Очистить';
+
+  @override
   String get delete => 'Удалить';
 
   @override

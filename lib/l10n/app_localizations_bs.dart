@@ -91,6 +91,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get save => 'Sačuvaj';
 
   @override
+  String get clearField => 'Obriši';
+
+  @override
   String get delete => 'Obriši';
 
   @override

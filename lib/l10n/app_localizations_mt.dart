@@ -91,6 +91,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get save => 'Issejvja';
 
   @override
+  String get clearField => 'Naddaf';
+
+  @override
   String get delete => 'Ħassar';
 
   @override

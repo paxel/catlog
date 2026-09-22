@@ -91,6 +91,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get save => 'Tallenna';
 
   @override
+  String get clearField => 'Tyhjennä';
+
+  @override
   String get delete => 'Poista';
 
   @override

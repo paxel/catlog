@@ -91,6 +91,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get save => 'حفظ';
 
   @override
+  String get clearField => 'مسح';
+
+  @override
   String get delete => 'حذف';
 
   @override

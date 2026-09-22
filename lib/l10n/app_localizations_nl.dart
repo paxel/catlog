@@ -91,6 +91,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get save => 'Opslaan';
 
   @override
+  String get clearField => 'Wissen';
+
+  @override
   String get delete => 'Verwijderen';
 
   @override
