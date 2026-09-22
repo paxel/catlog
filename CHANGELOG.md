@@ -21,6 +21,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A button that says "take a picture" or "from the gallery" no longer asks which one it meant.
 
 ### Fixed
+- The desk is usable with a real catalog. It used to ask the database for every value on every frame, and every such read scanned the whole log twice, so a catalog of a thousand cats took ten seconds per frame in the Cats view and half a minute on the agenda. The store now keeps what every read needs between writes, the views keep their rows until something changes, and the reminder check runs twice a minute instead of once a frame.
 - The outcome notes of a finished appointment show in the history under the visit; they were stored but shown nowhere.
 - On Linux the desk's menu entry shows the cat icon, on KDE as on GNOME. The entry names the icon by its theme name and a 256 pixel PNG sits where every desktop looks; 2.0.1 pointed the entry at an SVG file inside the Homebrew prefix, which drew nothing. The desk also keeps its own launcher entry, icon and `.catsync` file type current in the application menu on every start, so a Homebrew, tarball or AppImage install is in the menu with its icon after one start, and a moved binary heals its entry itself.
 
