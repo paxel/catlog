@@ -48,6 +48,10 @@ a screen that breaks one is a bug, not a style choice.
 - A history row has the agenda shape: tap corrects, the bin on the
   right removes, a removed row shows the arrow back; a row with a place
   carries the map icon.
+- **Ticked today, gone tomorrow.** A chore, reminder or appointment
+  ticked today stays on the agenda and the Planned section for the day,
+  box checked and faded; the box unticks it, the bin takes it off the
+  list now. The tick itself answers with the paw and opens nothing.
 - Text and buttons must be readable at the phone's default font size:
   buttons stacked full width or in one row of two, never a cramped row
   of four. The content scrolls if it does not fit; nothing shrinks to

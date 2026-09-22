@@ -97,9 +97,10 @@ Desk:
 
 ## 4. Steps with no decision in them — phone
 
-- Move a cat to another clowder, `cat_detail_screen.dart:121`: clowder
-  dialog, then an "as of today" dialog, then the date picker. Proposal:
-  the clowder list with a date field at its foot, today by default.
+- Move a cat to another clowder, `cat_detail_screen.dart`: clowder
+  dialog, then an "as of today" dialog, then the date picker. Done
+  2026-09-22: one dialog, the homes and "stray" as rows, the day at the
+  foot; a tap moves.
 - Plan chooser, `plan_chooser.dart:13`: a dialog for the kind, a dialog
   for the cat, then the editor. Done: the kinds fan out of the plus; the
   cat or clowder is the editor's first field, preset from the page,
@@ -107,8 +108,10 @@ Desk:
 - Chore from the agenda, `chore_dialog.dart:28`, and duplicate chore,
   `:169`: an entity dialog, then a second editor on top of the first.
   Done: the entity is a field in the editor, the copy's too.
-- "Move into the new catalog?", `catalogs_screen.dart:82`: a yes or no
-  gate before a picker that has Cancel. Proposal: no gate.
+- "Move into the new catalog?", `catalogs_screen.dart`: a yes or no
+  gate before a picker that has Cancel. Done 2026-09-22: nothing asked;
+  "Move in from another catalog…" is a row on the catalog's settings
+  page, for ever.
 - History rows, `timeline_screen.dart`, `field_history_screen.dart`,
   `chore_history_screen.dart`: a one-item sheet on removed rows, two
   items otherwise, then a date dialog and a time dialog. Done
@@ -118,12 +121,15 @@ Desk:
 - Shared photo, `incoming_images.dart`: sheet, sheet, name dialog. Done
   2026-09-22: one page listing cats and homes flat, a new home typed
   there.
-- Units, `units_dialog.dart:9`: three radios in a dialog. Proposal: a
-  segmented button on the row, as Cats and Pets already is.
-- Reminder done, `reminder_card.dart:43`: every tick opens a repeat
-  dialog whose dismiss button reads "No repeat". Proposal: the tick is
-  done; repeat is a chip on the card, or a note offering it for three
-  seconds.
+- Units, `settings_screen.dart`: three radios in a dialog. Done
+  2026-09-22: a segmented button on the row, as Cats and Pets is.
+- Reminder done, `reminder_card.dart`: every tick opens a repeat dialog
+  whose dismiss button reads "No repeat". Done 2026-09-22: the tick is
+  done, a paw, nothing opens; the card stays for the day, box checked,
+  like a chore — tap plans the next cycle, the box unticks, the bin
+  takes it off the list. An appointment finished today stays the same
+  way, its outcome notes on the card and in the history (they were
+  shown nowhere before).
 
 ## 5. Desk only
 

@@ -11,12 +11,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Holding a trail dot on the map opens its menu right there: the value's history, a correction where the field has an editor, and removal. Holding the map itself offers the strays for a sighting in a menu at the finger.
 
 ### Changed
+- A reminder or appointment ticked today stays on the agenda for the day, box checked, like a chore. The tick asks nothing; a tap on the done reminder plans the next cycle, a tap on the done appointment reopens its outcome notes, the box unticks, the bin takes it off the list.
+- Moving a cat is one dialog: the homes and "stray" as rows, the day at the foot for a historic move.
+- Creating a catalog asks nothing about moving things in; "Move in from another catalog…" is a row on the catalog's settings page.
+- The unit system is picked on the settings row itself, no dialog.
 - Nothing slides in from the bottom any more. Every menu opens where the finger is: the photo menu, the cover picture's menu, the catalog switcher under the title, the map's menus. Help is a page of its own, and shared photos are placed on one page that lists cats, homes with "New cat here", a new stray, and a new home typed right there.
 - History rows on the timeline, the field history and the chore log have the agenda shape: a tap corrects, the bin removes, a removed row shows the arrow that brings it back. A chore tick's day and time are corrected in one dialog.
 - A chore tick in the history names its chore, and the day it counts for when that is not the day it was ticked.
 - A button that says "take a picture" or "from the gallery" no longer asks which one it meant.
 
 ### Fixed
+- The outcome notes of a finished appointment show in the history under the visit; they were stored but shown nowhere.
 - On Linux the desk's menu entry shows the cat icon, on KDE as on GNOME. The entry names the icon by its theme name and a 256 pixel PNG sits where every desktop looks; 2.0.1 pointed the entry at an SVG file inside the Homebrew prefix, which drew nothing. The desk also keeps its own launcher entry, icon and `.catsync` file type current in the application menu on every start, so a Homebrew, tarball or AppImage install is in the menu with its icon after one start, and a moved binary heals its entry itself.
 
 ---
