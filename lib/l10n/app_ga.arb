@@ -1120,6 +1120,8 @@
   "posterQr": "Cód QR do cat(a)log",
   "newCatIn": "Cat nua i…",
   "newCatInNeutral": "Peata nua i…",
+  "newCatHere": "Cat nua anseo",
+  "newCatHereNeutral": "Peata nua anseo",
   "choreLabel": "Cúram",
   "choreTickLabel": "Cúram déanta",
   "choreDoneTitled": "{title} déanta",

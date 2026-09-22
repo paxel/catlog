@@ -1120,6 +1120,8 @@
   "posterQr": "Código QR para cat(a)log",
   "newCatIn": "Novo gato em…",
   "newCatInNeutral": "Novo animal em…",
+  "newCatHere": "Novo gato aqui",
+  "newCatHereNeutral": "Novo animal aqui",
   "choreLabel": "Tarefa",
   "choreTickLabel": "Tarefa feita",
   "choreDoneTitled": "{title} feito",

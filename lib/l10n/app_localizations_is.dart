@@ -3305,6 +3305,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get newCatInNeutral => 'Nýtt gæludýr í…';
 
   @override
+  String get newCatHere => 'Nýr köttur hér';
+
+  @override
+  String get newCatHereNeutral => 'Nýtt gæludýr hér';
+
+  @override
   String get choreLabel => 'Verk';
 
   @override

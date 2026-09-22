@@ -1120,6 +1120,8 @@
   "posterQr": "Kod QR për cat(a)log",
   "newCatIn": "Mace e re në…",
   "newCatInNeutral": "Kafshë e re në…",
+  "newCatHere": "Mace e re këtu",
+  "newCatHereNeutral": "Kafshë e re këtu",
   "choreLabel": "Detyrë",
   "choreTickLabel": "Detyrë e kryer",
   "choreDoneTitled": "{title} u krye",

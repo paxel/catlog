@@ -3329,6 +3329,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get newCatInNeutral => 'Nov ljubljenček v…';
 
   @override
+  String get newCatHere => 'Nova mačka tukaj';
+
+  @override
+  String get newCatHereNeutral => 'Nov ljubljenček tukaj';
+
+  @override
   String get choreLabel => 'Opravilo';
 
   @override

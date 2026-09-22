@@ -3314,6 +3314,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get newCatInNeutral => 'Нови љубимац у…';
 
   @override
+  String get newCatHere => 'Нова мачка овде';
+
+  @override
+  String get newCatHereNeutral => 'Нови љубимац овде';
+
+  @override
   String get choreLabel => 'Задатак';
 
   @override

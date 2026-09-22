@@ -3311,6 +3311,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get newCatInNeutral => 'Nouvel animal dans…';
 
   @override
+  String get newCatHere => 'Nouveau chat ici';
+
+  @override
+  String get newCatHereNeutral => 'Nouvel animal ici';
+
+  @override
   String get choreLabel => 'Tâche';
 
   @override

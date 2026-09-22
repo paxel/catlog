@@ -3321,6 +3321,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get newCatInNeutral => 'Новый питомец в…';
 
   @override
+  String get newCatHere => 'Новая кошка здесь';
+
+  @override
+  String get newCatHereNeutral => 'Новый питомец здесь';
+
+  @override
   String get choreLabel => 'Задача';
 
   @override

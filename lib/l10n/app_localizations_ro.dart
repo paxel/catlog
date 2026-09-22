@@ -3316,6 +3316,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get newCatInNeutral => 'Animal nou în…';
 
   @override
+  String get newCatHere => 'Pisică nouă aici';
+
+  @override
+  String get newCatHereNeutral => 'Animal nou aici';
+
+  @override
   String get choreLabel => 'Sarcină';
 
   @override

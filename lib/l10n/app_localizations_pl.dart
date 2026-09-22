@@ -3323,6 +3323,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get newCatInNeutral => 'Nowe zwierzę w…';
 
   @override
+  String get newCatHere => 'Nowy kot tutaj';
+
+  @override
+  String get newCatHereNeutral => 'Nowy pupil tutaj';
+
+  @override
   String get choreLabel => 'Zadanie';
 
   @override

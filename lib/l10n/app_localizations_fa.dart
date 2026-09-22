@@ -3249,6 +3249,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get newCatInNeutral => 'حیوان خانگی جدید در…';
 
   @override
+  String get newCatHere => 'گربه جدید اینجا';
+
+  @override
+  String get newCatHereNeutral => 'حیوان خانگی جدید اینجا';
+
+  @override
   String get choreLabel => 'کار';
 
   @override

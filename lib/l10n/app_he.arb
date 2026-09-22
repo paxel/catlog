@@ -1120,6 +1120,8 @@
   "posterQr": "קוד QR ל-cat(a)log",
   "newCatIn": "חתול חדש ב…",
   "newCatInNeutral": "חיית מחמד חדשה ב…",
+  "newCatHere": "חתול חדש כאן",
+  "newCatHereNeutral": "חיית מחמד חדשה כאן",
   "choreLabel": "מטלה",
   "choreTickLabel": "מטלה בוצעה",
   "choreDoneTitled": "{title} בוצע",

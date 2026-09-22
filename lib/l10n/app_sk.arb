@@ -1120,6 +1120,8 @@
   "posterQr": "QR kód pre cat(a)log",
   "newCatIn": "Nová mačka v…",
   "newCatInNeutral": "Nové zviera v…",
+  "newCatHere": "Nová mačka tu",
+  "newCatHereNeutral": "Nový miláčik tu",
   "choreLabel": "Úloha",
   "choreTickLabel": "Úloha hotová",
   "choreDoneTitled": "{title} hotovo",

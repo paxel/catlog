@@ -3300,6 +3300,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get newCatInNeutral => 'Nytt husdjur i…';
 
   @override
+  String get newCatHere => 'Ny katt här';
+
+  @override
+  String get newCatHereNeutral => 'Nytt husdjur här';
+
+  @override
   String get choreLabel => 'Syssla';
 
   @override

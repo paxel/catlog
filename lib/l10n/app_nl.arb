@@ -1120,6 +1120,8 @@
   "posterQr": "QR-code voor cat(a)log",
   "newCatIn": "Nieuwe kat in…",
   "newCatInNeutral": "Nieuw huisdier in…",
+  "newCatHere": "Nieuwe kat hier",
+  "newCatHereNeutral": "Nieuw huisdier hier",
   "choreLabel": "Taak",
   "choreTickLabel": "Taak gedaan",
   "choreDoneTitled": "{title} gedaan",

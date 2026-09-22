@@ -1120,6 +1120,8 @@
   "posterQr": "QR-kood cat(a)logi jaoks",
   "newCatIn": "Uus kass kohta…",
   "newCatInNeutral": "Uus lemmik kohta…",
+  "newCatHere": "Uus kass siia",
+  "newCatHereNeutral": "Uus lemmikloom siia",
   "choreLabel": "Toimetus",
   "choreTickLabel": "Toimetus tehtud",
   "choreDoneTitled": "{title} tehtud",

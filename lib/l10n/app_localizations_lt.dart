@@ -3322,6 +3322,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get newCatInNeutral => 'Naujas augintinis į…';
 
   @override
+  String get newCatHere => 'Nauja katė čia';
+
+  @override
+  String get newCatHereNeutral => 'Naujas augintinis čia';
+
+  @override
   String get choreLabel => 'Užduotis';
 
   @override

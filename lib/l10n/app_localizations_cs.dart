@@ -3315,6 +3315,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get newCatInNeutral => 'Nové zvíře v…';
 
   @override
+  String get newCatHere => 'Nová kočka zde';
+
+  @override
+  String get newCatHereNeutral => 'Nový mazlíček zde';
+
+  @override
   String get choreLabel => 'Úkol';
 
   @override

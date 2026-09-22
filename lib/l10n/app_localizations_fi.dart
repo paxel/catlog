@@ -3304,6 +3304,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get newCatInNeutral => 'Uusi lemmikki kohteeseen…';
 
   @override
+  String get newCatHere => 'Uusi kissa tähän';
+
+  @override
+  String get newCatHereNeutral => 'Uusi lemmikki tähän';
+
+  @override
   String get choreLabel => 'Askare';
 
   @override

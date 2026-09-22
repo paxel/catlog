@@ -3302,6 +3302,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get newCatInNeutral => 'Şuraya yeni evcil hayvan…';
 
   @override
+  String get newCatHere => 'Buraya yeni kedi';
+
+  @override
+  String get newCatHereNeutral => 'Buraya yeni evcil hayvan';
+
+  @override
   String get choreLabel => 'Görev';
 
   @override

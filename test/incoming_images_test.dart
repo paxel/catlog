@@ -103,20 +103,20 @@ void main() {
     );
     await tester.tap(find.text('go'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('New cat in…'));
-    await tester.pumpAndSettle();
+    // A page, not a sheet: the homes are rows, a new cat goes in on a
+    // tap.
+    expect(find.byType(BottomSheet), findsNothing);
+    expect(find.text('New cat here'), findsOneWidget);
     await tester.tap(find.text('Barn'));
     await tester.pumpAndSettle();
     expect(picked, isNotNull);
     expect(store.current(picked!, Keys.clowder), barn);
 
+    // A new home is typed right on the page.
     await tester.tap(find.text('go'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('New cat in…'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('New clowder'));
-    await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Shed');
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
     final shed = store.clowders().firstWhere((c) => c.name == 'Shed');

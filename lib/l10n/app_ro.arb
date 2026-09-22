@@ -1120,6 +1120,8 @@
   "posterQr": "Cod QR pentru cat(a)log",
   "newCatIn": "Pisică nouă în…",
   "newCatInNeutral": "Animal nou în…",
+  "newCatHere": "Pisică nouă aici",
+  "newCatHereNeutral": "Animal nou aici",
   "choreLabel": "Sarcină",
   "choreTickLabel": "Sarcină făcută",
   "choreDoneTitled": "{title} făcut",

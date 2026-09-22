@@ -3303,6 +3303,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newCatInNeutral => 'New pet in…';
 
   @override
+  String get newCatHere => 'New cat here';
+
+  @override
+  String get newCatHereNeutral => 'New pet here';
+
+  @override
   String get choreLabel => 'Chore';
 
   @override

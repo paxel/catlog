@@ -1120,6 +1120,8 @@
   "posterQr": "QR-koodi cat(a)logille",
   "newCatIn": "Uusi kissa kohteeseen…",
   "newCatInNeutral": "Uusi lemmikki kohteeseen…",
+  "newCatHere": "Uusi kissa tähän",
+  "newCatHereNeutral": "Uusi lemmikki tähän",
   "choreLabel": "Askare",
   "choreTickLabel": "Askare tehty",
   "choreDoneTitled": "{title} tehty",

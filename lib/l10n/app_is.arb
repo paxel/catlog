@@ -1120,6 +1120,8 @@
   "posterQr": "QR-kóði fyrir cat(a)log",
   "newCatIn": "Nýr köttur í…",
   "newCatInNeutral": "Nýtt gæludýr í…",
+  "newCatHere": "Nýr köttur hér",
+  "newCatHereNeutral": "Nýtt gæludýr hér",
   "choreLabel": "Verk",
   "choreTickLabel": "Verk lokið",
   "choreDoneTitled": "{title} lokið",

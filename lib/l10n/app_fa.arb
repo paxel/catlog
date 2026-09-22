@@ -1120,6 +1120,8 @@
   "posterQr": "کد QR برای cat(a)log",
   "newCatIn": "گربهٔ جدید در…",
   "newCatInNeutral": "حیوان خانگی جدید در…",
+  "newCatHere": "گربه جدید اینجا",
+  "newCatHereNeutral": "حیوان خانگی جدید اینجا",
   "choreLabel": "کار",
   "choreTickLabel": "کار انجام شد",
   "choreDoneTitled": "{title} انجام شد",

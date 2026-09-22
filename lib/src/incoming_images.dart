@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'hidden.dart';
 import 'image_import.dart';
 import 'l10n.dart';
+import 'layout.dart';
 import 'notes.dart';
 import 'name_proposals.dart';
 import 'screens/cat_detail_screen.dart';
@@ -70,50 +71,18 @@ Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
   )));
 }
 
-/// The target chooser: every cat with its face, plus "new stray" and
-/// "new cat in…", which asks for the home first — one of the list, or
-/// a new one by name.
+/// The target chooser, a page: every cat with its face, a new stray,
+/// a new cat in any of the homes, or a new home typed right there.
 Future<String?> chooseIncomingTarget(
     BuildContext context, CatalogStore store) async {
-  const newStrayMarker = r'$new';
-  const newInHomeMarker = r'$newInHome';
-  final cats = store.visibleCats()
-    ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-  final picked = await showModalBottomSheet<String>(
-    context: context,
-    builder: (context) => SafeArea(
-      child: ListView(shrinkWrap: true, children: [
-        Padding(
-          padding: const EdgeInsets.all(12),
-          child: Text(context.t.addPhotosTo,
-              style: Theme.of(context).textTheme.titleMedium),
-        ),
-        ListTile(
-          leading: const Icon(Icons.add),
-          title: Text(context.t.newStray),
-          onTap: () => Navigator.of(context).pop(newStrayMarker),
-        ),
-        ListTile(
-          leading: const Icon(Icons.home_outlined),
-          title: Text(context.t.newCatIn),
-          onTap: () => Navigator.of(context).pop(newInHomeMarker),
-        ),
-        for (final cat in cats)
-          ListTile(
-            leading: CatAvatar(store: store, catId: cat.id, size: 40),
-            title: Text(cat.name),
-            onTap: () => Navigator.of(context).pop(cat.id),
-          ),
-      ]),
-    ),
+  final picked = await Navigator.of(context).push<_Target>(
+    MaterialPageRoute(builder: (_) => _TargetScreen(store: store)),
   );
-  if (picked == null) return null;
-  if (picked != newStrayMarker && picked != newInHomeMarker) return picked;
-  if (!context.mounted) return null;
-  String? home;
-  if (picked == newInHomeMarker) {
-    home = await _chooseHome(context, store);
-    if (home == null || !context.mounted) return null;
+  if (picked == null || !context.mounted) return null;
+  if (picked.catId case final id?) return id;
+  var home = picked.homeId;
+  if (picked.newHomeName case final name?) {
+    home = store.createClowder(name);
   }
   final locale = Localizations.localeOf(context);
   final fallback = context.t.newStray;
@@ -121,81 +90,84 @@ Future<String?> chooseIncomingTarget(
   return store.createCat(name, clowderId: home);
 }
 
-/// The home a new cat goes into: one of the list, or a new one typed.
-Future<String?> _chooseHome(BuildContext context, CatalogStore store) async {
-  const newMarker = r'$newHome';
-  final homes = store.clowders()
-    ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-  final picked = await showModalBottomSheet<String>(
-    context: context,
-    builder: (context) => SafeArea(
-      child: ListView(shrinkWrap: true, children: [
-        Padding(
-          padding: const EdgeInsets.all(12),
-          child: Text(context.t.newCatIn,
-              style: Theme.of(context).textTheme.titleMedium),
-        ),
+/// What the page picked: an existing cat, or a new cat — stray, in a
+/// home, or in a home yet to be made.
+class _Target {
+  final String? catId;
+  final String? homeId;
+  final String? newHomeName;
+  const _Target({this.catId, this.homeId, this.newHomeName});
+}
+
+class _TargetScreen extends StatefulWidget {
+  final CatalogStore store;
+  const _TargetScreen({required this.store});
+
+  @override
+  State<_TargetScreen> createState() => _TargetScreenState();
+}
+
+class _TargetScreenState extends State<_TargetScreen> {
+  final _newHome = TextEditingController();
+
+  @override
+  void dispose() {
+    _newHome.dispose();
+    super.dispose();
+  }
+
+  void _pick(_Target target) => Navigator.of(context).pop(target);
+
+  void _newHomeSubmit() {
+    final name = _newHome.text.trim();
+    if (name.isEmpty) return;
+    _pick(_Target(newHomeName: name));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final store = widget.store;
+    final cats = store.visibleCats()
+      ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+    final homes = store.clowders()
+      ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+    return Scaffold(
+      appBar: roomyAppBar(context, title: Text(t.addPhotosTo)),
+      body: ListView(children: [
         ListTile(
-          leading: const Icon(Icons.add_home_outlined),
-          title: Text(context.t.newClowder),
-          onTap: () => Navigator.of(context).pop(newMarker),
+          leading: const Icon(Icons.add),
+          title: Text(t.newStray),
+          onTap: () => _pick(const _Target()),
         ),
+        for (final cat in cats)
+          ListTile(
+            leading: CatAvatar(store: store, catId: cat.id, size: 40),
+            title: Text(cat.name),
+            onTap: () => _pick(_Target(catId: cat.id)),
+          ),
         for (final home in homes)
           ListTile(
             leading: const Icon(Icons.home_outlined),
             title: Text(home.name),
-            onTap: () => Navigator.of(context).pop(home.id),
+            subtitle: Text(t.newCatHere),
+            onTap: () => _pick(_Target(homeId: home.id)),
           ),
-      ]),
-    ),
-  );
-  if (picked == null) return null;
-  if (picked != newMarker) return picked;
-  if (!context.mounted) return null;
-  final name = await showDialog<String>(
-    context: context,
-    builder: (context) => const _NameDialog(),
-  );
-  if (name == null || name.isEmpty) return null;
-  return store.createClowder(name);
-}
-
-/// Asks for a new home's name; owns its controller for the dialog's
-/// whole life, closing animation included.
-class _NameDialog extends StatefulWidget {
-  const _NameDialog();
-
-  @override
-  State<_NameDialog> createState() => _NameDialogState();
-}
-
-class _NameDialogState extends State<_NameDialog> {
-  final _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => AlertDialog(
-        title: Text(context.t.newClowder),
-        content: TextField(
-          controller: _controller,
-          autofocus: true,
-          decoration: InputDecoration(labelText: context.t.name),
-          onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
+        // A new home, typed right here: no dialog behind a row.
+        ListTile(
+          leading: const Icon(Icons.add_home_outlined),
+          title: TextField(
+            controller: _newHome,
+            decoration: InputDecoration(labelText: t.newClowder),
+            onChanged: (_) => setState(() {}),
+            onSubmitted: (_) => _newHomeSubmit(),
+          ),
+          trailing: TextButton(
+            onPressed: _newHome.text.trim().isEmpty ? null : _newHomeSubmit,
+            child: Text(t.save),
+          ),
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(context.t.cancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(context).pop(_controller.text.trim()),
-            child: Text(context.t.save),
-          ),
-        ],
-      );
+      ]),
+    );
+  }
 }

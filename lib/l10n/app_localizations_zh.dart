@@ -3146,6 +3146,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get newCatInNeutral => '新宠物加入…';
 
   @override
+  String get newCatHere => '在此新建猫';
+
+  @override
+  String get newCatHereNeutral => '在此新建宠物';
+
+  @override
   String get choreLabel => '事务';
 
   @override

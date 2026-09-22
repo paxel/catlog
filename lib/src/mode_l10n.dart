@@ -1804,6 +1804,12 @@ class ModeLocalizations implements AppLocalizations {
   String get newCat => pets ? base.newCatNeutral : base.newCat;
 
   @override
+  String get newCatHere => pets ? base.newCatHereNeutral : base.newCatHere;
+
+  @override
+  String get newCatHereNeutral => base.newCatHereNeutral;
+
+  @override
   String get newCatIn => pets ? base.newCatInNeutral : base.newCatIn;
 
   @override

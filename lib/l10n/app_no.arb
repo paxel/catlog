@@ -1120,6 +1120,8 @@
   "posterQr": "QR-kode for cat(a)log",
   "newCatIn": "Ny katt i…",
   "newCatInNeutral": "Nytt kjæledyr i…",
+  "newCatHere": "Ny katt her",
+  "newCatHereNeutral": "Nytt kjæledyr her",
   "choreLabel": "Oppgave",
   "choreTickLabel": "Oppgave utført",
   "choreDoneTitled": "{title} gjort",

@@ -5792,6 +5792,18 @@ abstract class AppLocalizations {
   /// **'New pet in…'**
   String get newCatInNeutral;
 
+  /// No description provided for @newCatHere.
+  ///
+  /// In en, this message translates to:
+  /// **'New cat here'**
+  String get newCatHere;
+
+  /// No description provided for @newCatHereNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'New pet here'**
+  String get newCatHereNeutral;
+
   /// No description provided for @choreLabel.
   ///
   /// In en, this message translates to:

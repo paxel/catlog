@@ -3307,6 +3307,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get newCatInNeutral => 'Nieuw huisdier in…';
 
   @override
+  String get newCatHere => 'Nieuwe kat hier';
+
+  @override
+  String get newCatHereNeutral => 'Nieuw huisdier hier';
+
+  @override
   String get choreLabel => 'Taak';
 
   @override

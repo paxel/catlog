@@ -3323,6 +3323,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get newCatInNeutral => 'Новий улюбленець у…';
 
   @override
+  String get newCatHere => 'Нова кішка тут';
+
+  @override
+  String get newCatHereNeutral => 'Новий улюбленець тут';
+
+  @override
   String get choreLabel => 'Завдання';
 
   @override

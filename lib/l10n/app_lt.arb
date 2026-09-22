@@ -1120,6 +1120,8 @@
   "posterQr": "QR kodas cat(a)log",
   "newCatIn": "Nauja katė į…",
   "newCatInNeutral": "Naujas augintinis į…",
+  "newCatHere": "Nauja katė čia",
+  "newCatHereNeutral": "Naujas augintinis čia",
   "choreLabel": "Užduotis",
   "choreTickLabel": "Užduotis atlikta",
   "choreDoneTitled": "{title} atlikta",

@@ -3303,6 +3303,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get newCatInNeutral => 'Új kedvenc ide…';
 
   @override
+  String get newCatHere => 'Új macska ide';
+
+  @override
+  String get newCatHereNeutral => 'Új kedvenc ide';
+
+  @override
   String get choreLabel => 'Teendő';
 
   @override

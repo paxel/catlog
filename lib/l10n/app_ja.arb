@@ -1120,6 +1120,8 @@
   "posterQr": "cat(a)log 用 QR コード",
   "newCatIn": "新しい猫を追加…",
   "newCatInNeutral": "新しいペットを追加…",
+  "newCatHere": "ここに新しい猫",
+  "newCatHereNeutral": "ここに新しいペット",
   "choreLabel": "お世話",
   "choreTickLabel": "お世話済み",
   "choreDoneTitled": "{title} 完了",

@@ -1126,6 +1126,8 @@
   "posterQr": "QR-Code für cat(a)log",
   "newCatIn": "Neue Katze in…",
   "newCatInNeutral": "Neues Tier in…",
+  "newCatHere": "Neue Katze hier",
+  "newCatHereNeutral": "Neues Tier hier",
   "choreLabel": "Aufgabe",
   "choreTickLabel": "Aufgabe erledigt",
   "choreDoneTitled": "{title} erledigt",

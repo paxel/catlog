@@ -3305,6 +3305,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get newCatInNeutral => 'Ново милениче во…';
 
   @override
+  String get newCatHere => 'Нова мачка тука';
+
+  @override
+  String get newCatHereNeutral => 'Ново милениче тука';
+
+  @override
   String get choreLabel => 'Задача';
 
   @override

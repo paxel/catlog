@@ -1120,6 +1120,8 @@
   "posterQr": "cat(a)log için QR kodu",
   "newCatIn": "Şuraya yeni kedi…",
   "newCatInNeutral": "Şuraya yeni evcil hayvan…",
+  "newCatHere": "Buraya yeni kedi",
+  "newCatHereNeutral": "Buraya yeni evcil hayvan",
   "choreLabel": "Görev",
   "choreTickLabel": "Görev yapıldı",
   "choreDoneTitled": "{title} yapıldı",

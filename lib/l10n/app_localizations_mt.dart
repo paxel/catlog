@@ -3316,6 +3316,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get newCatInNeutral => 'Pet ġdid fi…';
 
   @override
+  String get newCatHere => 'Qattus ġdid hawn';
+
+  @override
+  String get newCatHereNeutral => 'Annimal ġdid hawn';
+
+  @override
   String get choreLabel => 'Xogħol';
 
   @override

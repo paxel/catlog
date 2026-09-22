@@ -3301,6 +3301,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get newCatInNeutral => 'Uus lemmik kohta…';
 
   @override
+  String get newCatHere => 'Uus kass siia';
+
+  @override
+  String get newCatHereNeutral => 'Uus lemmikloom siia';
+
+  @override
   String get choreLabel => 'Toimetus';
 
   @override

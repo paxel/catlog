@@ -3318,6 +3318,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get newCatInNeutral => 'Jauns mājdzīvnieks uz…';
 
   @override
+  String get newCatHere => 'Jauns kaķis šeit';
+
+  @override
+  String get newCatHereNeutral => 'Jauns mājdzīvnieks šeit';
+
+  @override
   String get choreLabel => 'Uzdevums';
 
   @override

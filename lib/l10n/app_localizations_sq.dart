@@ -3304,6 +3304,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get newCatInNeutral => 'Kafshë e re në…';
 
   @override
+  String get newCatHere => 'Mace e re këtu';
+
+  @override
+  String get newCatHereNeutral => 'Kafshë e re këtu';
+
+  @override
   String get choreLabel => 'Detyrë';
 
   @override

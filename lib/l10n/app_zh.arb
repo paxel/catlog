@@ -1120,6 +1120,8 @@
   "posterQr": "cat(a)log 二维码",
   "newCatIn": "新猫加入…",
   "newCatInNeutral": "新宠物加入…",
+  "newCatHere": "在此新建猫",
+  "newCatHereNeutral": "在此新建宠物",
   "choreLabel": "事务",
   "choreTickLabel": "事务已完成",
   "choreDoneTitled": "{title} 已完成",

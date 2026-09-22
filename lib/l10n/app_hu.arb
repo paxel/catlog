@@ -1120,6 +1120,8 @@
   "posterQr": "QR-kód a cat(a)loghoz",
   "newCatIn": "Új macska ide…",
   "newCatInNeutral": "Új kedvenc ide…",
+  "newCatHere": "Új macska ide",
+  "newCatHereNeutral": "Új kedvenc ide",
   "choreLabel": "Teendő",
   "choreTickLabel": "Teendő kész",
   "choreDoneTitled": "{title} kész",

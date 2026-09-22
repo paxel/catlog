@@ -1120,6 +1120,8 @@
   "posterQr": "QR-код для cat(a)log",
   "newCatIn": "Нова кішка в…",
   "newCatInNeutral": "Новий улюбленець у…",
+  "newCatHere": "Нова кішка тут",
+  "newCatHereNeutral": "Новий улюбленець тут",
   "choreLabel": "Завдання",
   "choreTickLabel": "Завдання виконано",
   "choreDoneTitled": "{title} зроблено",

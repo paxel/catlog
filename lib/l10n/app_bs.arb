@@ -1120,6 +1120,8 @@
   "posterQr": "QR kod za cat(a)log",
   "newCatIn": "Nova mačka u…",
   "newCatInNeutral": "Novi ljubimac u…",
+  "newCatHere": "Nova mačka ovdje",
+  "newCatHereNeutral": "Novi ljubimac ovdje",
   "choreLabel": "Zadatak",
   "choreTickLabel": "Zadatak obavljen",
   "choreDoneTitled": "{title} obavljeno",

@@ -3182,6 +3182,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get newCatInNeutral => '新しいペットを追加…';
 
   @override
+  String get newCatHere => 'ここに新しい猫';
+
+  @override
+  String get newCatHereNeutral => 'ここに新しいペット';
+
+  @override
   String get choreLabel => 'お世話';
 
   @override

@@ -3353,6 +3353,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get newCatInNeutral => 'Peata nua i…';
 
   @override
+  String get newCatHere => 'Cat nua anseo';
+
+  @override
+  String get newCatHereNeutral => 'Peata nua anseo';
+
+  @override
   String get choreLabel => 'Cúram';
 
   @override

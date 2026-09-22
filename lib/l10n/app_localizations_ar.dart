@@ -3338,6 +3338,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newCatInNeutral => 'حيوان أليف جديد في…';
 
   @override
+  String get newCatHere => 'قطة جديدة هنا';
+
+  @override
+  String get newCatHereNeutral => 'حيوان أليف جديد هنا';
+
+  @override
   String get choreLabel => 'مهمة';
 
   @override

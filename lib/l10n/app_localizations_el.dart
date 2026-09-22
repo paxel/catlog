@@ -3313,6 +3313,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get newCatInNeutral => 'Νέο κατοικίδιο σε…';
 
   @override
+  String get newCatHere => 'Νέα γάτα εδώ';
+
+  @override
+  String get newCatHereNeutral => 'Νέο κατοικίδιο εδώ';
+
+  @override
   String get choreLabel => 'Εργασία';
 
   @override

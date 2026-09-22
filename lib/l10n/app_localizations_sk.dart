@@ -3314,6 +3314,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get newCatInNeutral => 'Nové zviera v…';
 
   @override
+  String get newCatHere => 'Nová mačka tu';
+
+  @override
+  String get newCatHereNeutral => 'Nový miláčik tu';
+
+  @override
   String get choreLabel => 'Úloha';
 
   @override

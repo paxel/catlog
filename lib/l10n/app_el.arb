@@ -1120,6 +1120,8 @@
   "posterQr": "Κωδικός QR για το cat(a)log",
   "newCatIn": "Νέα γάτα σε…",
   "newCatInNeutral": "Νέο κατοικίδιο σε…",
+  "newCatHere": "Νέα γάτα εδώ",
+  "newCatHereNeutral": "Νέο κατοικίδιο εδώ",
   "choreLabel": "Εργασία",
   "choreTickLabel": "Εργασία έγινε",
   "choreDoneTitled": "{title} έγινε",
