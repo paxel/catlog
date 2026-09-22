@@ -2540,6 +2540,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get markDone => 'Utført';
 
   @override
+  String get takeOffList => 'Fjern fra listen';
+
+  @override
   String get repeatTitle => 'Igjen om…';
 
   @override
@@ -2667,11 +2670,11 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere katter er én avtale: kryss av kattene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke katter som ble behandlet — fjern krysset for de andre, de forblir planlagt. Gjøremål er de gjentakende oppgavene som fôring, kattedo eller medisin. De står under I dag med et hakemerke, en rekke og de siste sju dagene som prikker; Snart viser neste uke uten de daglige. Et gjøremål kan minne deg med et varsel til valgt tid. Pokalen åpner prestasjonene.';
+      'Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og kortet blir stående avkrysset dagen ut; trykk på det for å planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen; søppelkurven sletter avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere katter er én avtale: kryss av kattene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke katter som ble behandlet — fjern krysset for de andre, de forblir planlagt. Gjøremål er de gjentakende oppgavene som fôring, kattedo eller medisin. De står under I dag med et hakemerke, en rekke og de siste sju dagene som prikker; Snart viser neste uke uten de daglige. Et gjøremål kan minne deg med et varsel til valgt tid. Pokalen åpner prestasjonene.';
 
   @override
   String get helpAgendaNeutral =>
-      'Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner kjæledyret eller husstanden. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere kjæledyr er én avtale: kryss av kjæledyrene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke kjæledyr som ble behandlet — fjern krysset for de andre, de forblir planlagt. Gjøremål er de gjentakende oppgavene som fôring, kattedo eller medisin. De står under I dag med et hakemerke, en rekke og de siste sju dagene som prikker; Snart viser neste uke uten de daglige. Et gjøremål kan minne deg med et varsel til valgt tid. Pokalen åpner prestasjonene.';
+      'Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner kjæledyret eller husstanden. Haken bekrefter en avtale: Verdien skrives i feltet, og kortet blir stående avkrysset dagen ut; trykk på det for å planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen; søppelkurven sletter avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere kjæledyr er én avtale: kryss av kjæledyrene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke kjæledyr som ble behandlet — fjern krysset for de andre, de forblir planlagt. Gjøremål er de gjentakende oppgavene som fôring, kattedo eller medisin. De står under I dag med et hakemerke, en rekke og de siste sju dagene som prikker; Snart viser neste uke uten de daglige. Et gjøremål kan minne deg med et varsel til valgt tid. Pokalen åpner prestasjonene.';
 
   @override
   String get calendarRowOff => 'Kalender: av';

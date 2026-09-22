@@ -180,9 +180,10 @@ void main() {
         store.appointmentsOf(hugo, includeDone: true).single.notes,
         'went well',
       );
-      // Rudi's own card remains.
-      expect(find.byType(AppointmentCard), findsOneWidget);
+      // Rudi's own card remains; Hugo's finished one stays for the day.
+      expect(find.byType(AppointmentCard), findsNWidgets(2));
       expect(find.textContaining('Rudi ·'), findsOneWidget);
+      expect(find.textContaining('Hugo ·'), findsOneWidget);
     });
 
     testWidgets('delete on the agenda names the count and takes all', (

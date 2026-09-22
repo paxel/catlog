@@ -2542,6 +2542,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get markDone => 'U bë';
 
   @override
+  String get takeOffList => 'Hiqe nga lista';
+
+  @override
   String get repeatTitle => 'Sërish pas…';
 
   @override
@@ -2669,11 +2672,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe karta mbetet e shënuar deri në fund të ditës; preke për të planifikuar tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën; koshi e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
 
   @override
   String get helpAgendaNeutral =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe karta mbetet e shënuar deri në fund të ditës; preke për të planifikuar tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën; koshi e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
 
   @override
   String get calendarRowOff => 'Kalendari: fikur';

@@ -59,6 +59,27 @@ void main() {
     expect(a.current(cat, 'f:vaccine'), 'done 2026');
   });
 
+  test('a plan ticked today is listed as done for the day', () async {
+    final cat = a.createCat('Miezi');
+    a.append(cat, 'f:vaccine', 'refresh', date: inDays(3), reminder: true);
+    expect(a.remindersDoneToday(DateTime.now()), isEmpty);
+    a.append(cat, 'f:vaccine', 'refresh');
+    final done = a.remindersDoneToday(DateTime.now());
+    expect(done, hasLength(1));
+    expect(done.single.value, 'refresh');
+    expect(done.single.doneBy, isNotNull);
+    // A different value is a plain fact, not a tick.
+    a.append(cat, 'f:vaccine', 'other', date: inDays(3), reminder: true);
+    a.append(cat, 'f:vaccine', 'something else');
+    expect(a.remindersDoneToday(DateTime.now()), isEmpty);
+    // Yesterday's tick is yesterday's.
+    final dog = a.createCat('Rex');
+    a.append(dog, 'f:vaccine', 'refresh', date: inDays(-5), reminder: true);
+    a.append(dog, 'f:vaccine', 'refresh', date: inDays(-1));
+    expect(a.remindersDoneToday(DateTime.now()), isEmpty);
+    expect(a.remindersDoneToday(inDays(-1)), hasLength(1));
+  });
+
   test('a new flagged entry reschedules; a flagged null cancels', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:meds', 'worming', date: inDays(10), reminder: true);

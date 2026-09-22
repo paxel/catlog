@@ -2550,6 +2550,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get markDone => 'Hecho';
 
   @override
+  String get takeOffList => 'Quitar de la lista';
+
+  @override
   String get repeatTitle => 'Otra vez en…';
 
   @override
@@ -2677,11 +2680,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre el gato o el clowder. La marca confirma una cita: el valor se escribe en el campo y puedes planificar la siguiente al momento, por ejemplo en tres meses. Mantener pulsado cambia la fecha o borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario. Una visita al veterinario con varios gatos es una sola cita: marca los gatos, la Agenda muestra una tarjeta con sus nombres y al terminar pregunta qué gatos fueron tratados; desmarca los demás, siguen planificados. Las tareas son las obligaciones recurrentes, como alimentar, el arenero o la medicina. Están bajo Hoy con una marca, una racha y los últimos siete días como puntos; Próximamente muestra la semana siguiente sin las diarias. Una tarea puede recordarte con una notificación a la hora elegida. El trofeo abre los logros.';
+      'La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre el gato o el clowder. La marca confirma una cita: el valor se escribe en el campo y la tarjeta se queda marcada hasta el final del día; tócala para planificar la siguiente, por ejemplo en tres meses. Mantener pulsado cambia la fecha; la papelera borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario. Una visita al veterinario con varios gatos es una sola cita: marca los gatos, la Agenda muestra una tarjeta con sus nombres y al terminar pregunta qué gatos fueron tratados; desmarca los demás, siguen planificados. Las tareas son las obligaciones recurrentes, como alimentar, el arenero o la medicina. Están bajo Hoy con una marca, una racha y los últimos siete días como puntos; Próximamente muestra la semana siguiente sin las diarias. Una tarea puede recordarte con una notificación a la hora elegida. El trofeo abre los logros.';
 
   @override
   String get helpAgendaNeutral =>
-      'La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre la mascota o el hogar. La marca confirma una cita: el valor se escribe en el campo y puedes planificar la siguiente al momento, por ejemplo en tres meses. Mantener pulsado cambia la fecha o borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario. Una visita al veterinario con varias mascotas es una sola cita: marca las mascotas, la Agenda muestra una tarjeta con sus nombres y al terminar pregunta qué mascotas fueron tratadas; desmarca las demás, siguen planificadas. Las tareas son las obligaciones recurrentes, como alimentar, el arenero o la medicina. Están bajo Hoy con una marca, una racha y los últimos siete días como puntos; Próximamente muestra la semana siguiente sin las diarias. Una tarea puede recordarte con una notificación a la hora elegida. El trofeo abre los logros.';
+      'La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre la mascota o el hogar. La marca confirma una cita: el valor se escribe en el campo y la tarjeta se queda marcada hasta el final del día; tócala para planificar la siguiente, por ejemplo en tres meses. Mantener pulsado cambia la fecha; la papelera borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario. Una visita al veterinario con varias mascotas es una sola cita: marca las mascotas, la Agenda muestra una tarjeta con sus nombres y al terminar pregunta qué mascotas fueron tratadas; desmarca las demás, siguen planificadas. Las tareas son las obligaciones recurrentes, como alimentar, el arenero o la medicina. Están bajo Hoy con una marca, una racha y los últimos siete días como puntos; Próximamente muestra la semana siguiente sin las diarias. Una tarea puede recordarte con una notificación a la hora elegida. El trofeo abre los logros.';
 
   @override
   String get calendarRowOff => 'Calendario: apagado';

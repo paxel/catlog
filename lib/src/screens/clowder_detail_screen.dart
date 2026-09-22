@@ -13,6 +13,7 @@ import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
 import '../widgets/cat_avatar.dart';
 import '../reminders/mirror_hook.dart';
+import '../reminders/done_today.dart';
 import '../reminders/appointment_dialog.dart';
 import '../reminders/reminder_dialog.dart';
 import '../chores/chore_dialog.dart';
@@ -300,11 +301,19 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
 
   /// The clowder's live plans, as the agenda shows them.
   List<Widget> _plannedSection() {
+    // Live plans, and the ones ticked today still in their place.
+    final mine = store.resolveEntity(id);
     final plans = [
       for (final r in store.activeReminders())
-        if (r.entity == store.resolveEntity(id)) r,
+        if (r.entity == mine) r,
+      for (final r in doneRemindersToday(store))
+        if (r.entity == mine) r,
     ];
-    final appointments = store.appointmentsOf(id);
+    final appointments = [
+      ...store.appointmentsOf(id),
+      for (final a in doneAppointmentsToday(store))
+        if (store.resolveEntity(a.entity) == mine) a,
+    ];
     final chores = partitionChores(
         store, store.choresOf(id), DateUtils.dateOnly(DateTime.now()));
     final laterCount = chores.later.length + chores.paused.length;

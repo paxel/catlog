@@ -2544,6 +2544,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get markDone => 'Lokið';
 
   @override
+  String get takeOffList => 'Taka af listanum';
+
+  @override
   String get repeatTitle => 'Aftur eftir…';
 
   @override
@@ -2671,11 +2674,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og spjaldið stendur hakað til dagsloka; ýttu á það til að áætla næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu; ruslafatan eyðir tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
 
   @override
   String get helpAgendaNeutral =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og spjaldið stendur hakað til dagsloka; ýttu á það til að áætla næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu; ruslafatan eyðir tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
 
   @override
   String get calendarRowOff => 'Dagatal: slökkt';

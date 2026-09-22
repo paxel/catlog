@@ -69,11 +69,16 @@ class ActiveReminder {
   /// The flagged entry itself; [due] is its effective date.
   final Entry entry;
 
+  /// The fact that ticked the plan today, from [CatalogStore.remindersDoneToday];
+  /// null while the plan is live.
+  final Entry? doneBy;
+
   const ActiveReminder(
       {required this.entity,
       required this.field,
       required this.value,
-      required this.entry});
+      required this.entry,
+      this.doneBy});
 
   /// Entry dates are stored as UTC instants; the due DAY is a local
   /// notion — without toLocal a midnight due date reads as the
@@ -1042,6 +1047,46 @@ class CatalogStore {
         if (e.reminder && e.value != null && !isDeleted(entity))
           ActiveReminder(
               entity: entity, field: field, value: e.value!, entry: e)
+    ];
+    result.sort((a, b) => a.due.compareTo(b.due));
+    return result;
+  }
+
+  /// The plans ticked today: for every (entity, field) pair whose newest
+  /// entry by append order is a plain fact dated today, and the entry
+  /// appended before it was a live plan with the same value, that plan
+  /// with [ActiveReminder.doneBy] set to the fact. The agenda keeps
+  /// them for the day, box checked, like a chore ticked today; voiding
+  /// the fact makes the plan live again.
+  List<ActiveReminder> remindersDoneToday(DateTime today) {
+    final rows = _db.select(
+      'SELECT * FROM entries WHERE 1 $_live '
+      'ORDER BY recorded DESC, author DESC, device DESC, dseq DESC',
+    );
+    final newest = <(String, String), List<Entry>>{};
+    for (final r in rows) {
+      final e = _entry(r);
+      if (!_unionKind(e.entity)) continue;
+      final key = (resolveEntity(e.entity), canonicalKey(e.field));
+      final pair = newest.putIfAbsent(key, () => []);
+      if (pair.length < 2) pair.add(e);
+    }
+    final result = <ActiveReminder>[
+      for (final MapEntry(key: (String entity, String field), value: pair)
+          in newest.entries)
+        if (pair.length == 2 && !isDeleted(entity))
+          if ((pair[0], pair[1]) case (final fact, final plan)
+              when !fact.reminder &&
+                  fact.value != null &&
+                  plan.reminder &&
+                  plan.value == fact.value &&
+                  sameLocalDay(fact.date, today))
+            ActiveReminder(
+                entity: entity,
+                field: field,
+                value: plan.value!,
+                entry: plan,
+                doneBy: fact)
     ];
     result.sort((a, b) => a.due.compareTo(b.due));
     return result;
@@ -2706,4 +2751,11 @@ class _MemoryBlobStore implements _BlobStore {
     }
     return (bytes, _blobs.length);
   }
+}
+
+/// Whether two instants fall on the same local day.
+bool sameLocalDay(DateTime a, DateTime b) {
+  final x = a.toLocal();
+  final y = b.toLocal();
+  return x.year == y.year && x.month == y.month && x.day == y.day;
 }

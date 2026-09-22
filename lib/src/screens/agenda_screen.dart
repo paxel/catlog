@@ -14,6 +14,7 @@ import '../layout.dart';
 import '../reminders/calendar_mirror.dart';
 import '../reminders/calendar_port.dart';
 import '../reminders/device_calendar_port.dart';
+import '../reminders/done_today.dart';
 import '../reminders/mirror_hook.dart';
 import '../reminders/reminder_dialog.dart';
 import '../chores/chore_dialog.dart';
@@ -71,11 +72,14 @@ class AppointmentItem extends AgendaItem {
   DateTime get when => appointment.start;
 }
 
-/// Everything open, both kinds, earliest first.
+/// Everything open, both kinds, earliest first — and what was ticked
+/// today, still in its place for the day.
 List<AgendaItem> agendaItems(CatalogStore store) {
   final items = <AgendaItem>[
     for (final r in store.activeReminders()) ReminderItem(r),
+    for (final r in doneRemindersToday(store)) ReminderItem(r),
     for (final g in store.openAppointmentGroups()) AppointmentItem(g),
+    for (final a in doneAppointmentsToday(store)) AppointmentItem([a]),
   ];
   items.sort((x, y) => x.when.compareTo(y.when));
   return items;

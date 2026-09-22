@@ -2776,6 +2776,9 @@ class ModeLocalizations implements AppLocalizations {
   String get systemDefault => base.systemDefault;
 
   @override
+  String get takeOffList => base.takeOffList;
+
+  @override
   String get takePhoto => base.takePhoto;
 
   @override

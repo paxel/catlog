@@ -2540,6 +2540,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get markDone => 'Tehtud';
 
   @override
+  String get takeOffList => 'Eemalda loendist';
+
+  @override
   String get repeatTitle => 'Uuesti…';
 
   @override
@@ -2667,11 +2670,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme kassiga on üks kohtumine: märgi kassid, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid kasse raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
+      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja kaart jääb päeva lõpuni märgituna alles; puuduta seda, et plaanida järgmine, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva; prügikast kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme kassiga on üks kohtumine: märgi kassid, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid kasse raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
 
   @override
   String get helpAgendaNeutral =>
-      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab lemmiklooma või leibkonna. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme lemmikloomaga on üks kohtumine: märgi lemmikloomad, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid lemmikloomi raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
+      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab lemmiklooma või leibkonna. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja kaart jääb päeva lõpuni märgituna alles; puuduta seda, et plaanida järgmine, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva; prügikast kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme lemmikloomaga on üks kohtumine: märgi lemmikloomad, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid lemmikloomi raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
 
   @override
   String get calendarRowOff => 'Kalender: väljas';

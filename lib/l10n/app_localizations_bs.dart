@@ -2548,6 +2548,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get markDone => 'Obavljeno';
 
   @override
+  String get takeOffList => 'Skloni s liste';
+
+  @override
   String get repeatTitle => 'Ponovo za…';
 
   @override
@@ -2674,11 +2677,11 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara mačku ili clowder. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više mačaka je jedan termin: označi mačke, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koje su mačke tretirane — odznači ostale, ostaju planirane. Obaveze su ponavljajući zadaci poput hranjenja, pijeska ili lijekova. Stoje pod Danas s kvačicom, nizom i zadnjih sedam dana kao tačkama; Uskoro prikazuje sljedeću sedmicu bez dnevnih. Obaveza može podsjetiti obavještenjem u odabrano vrijeme. Pehar otvara postignuća.';
+      'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara mačku ili clowder. Kvačica potvrđuje termin: vrijednost se upisuje u polje, a kartica ostaje označena do kraja dana; dodirni je da planiraš sljedeći, na primjer za tri mjeseca. Držanje mijenja datum; kanta briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više mačaka je jedan termin: označi mačke, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koje su mačke tretirane — odznači ostale, ostaju planirane. Obaveze su ponavljajući zadaci poput hranjenja, pijeska ili lijekova. Stoje pod Danas s kvačicom, nizom i zadnjih sedam dana kao tačkama; Uskoro prikazuje sljedeću sedmicu bez dnevnih. Obaveza može podsjetiti obavještenjem u odabrano vrijeme. Pehar otvara postignuća.';
 
   @override
   String get helpAgendaNeutral =>
-      'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara ljubimca ili domaćinstvo. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više ljubimaca je jedan termin: označi ljubimce, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koji su ljubimci tretirani — odznači ostale, ostaju planirani. Obaveze su ponavljajući zadaci poput hranjenja, pijeska ili lijekova. Stoje pod Danas s kvačicom, nizom i zadnjih sedam dana kao tačkama; Uskoro prikazuje sljedeću sedmicu bez dnevnih. Obaveza može podsjetiti obavještenjem u odabrano vrijeme. Pehar otvara postignuća.';
+      'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara ljubimca ili domaćinstvo. Kvačica potvrđuje termin: vrijednost se upisuje u polje, a kartica ostaje označena do kraja dana; dodirni je da planiraš sljedeći, na primjer za tri mjeseca. Držanje mijenja datum; kanta briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više ljubimaca je jedan termin: označi ljubimce, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koji su ljubimci tretirani — odznači ostale, ostaju planirani. Obaveze su ponavljajući zadaci poput hranjenja, pijeska ili lijekova. Stoje pod Danas s kvačicom, nizom i zadnjih sedam dana kao tačkama; Uskoro prikazuje sljedeću sedmicu bez dnevnih. Obaveza može podsjetiti obavještenjem u odabrano vrijeme. Pehar otvara postignuća.';
 
   @override
   String get calendarRowOff => 'Kalendar: isključen';

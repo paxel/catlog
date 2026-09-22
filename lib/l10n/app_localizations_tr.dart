@@ -2541,6 +2541,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get markDone => 'Yapıldı';
 
   @override
+  String get takeOffList => 'Listeden kaldır';
+
+  @override
   String get repeatTitle => 'Tekrar…';
 
   @override
@@ -2668,11 +2671,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve kart gün sonuna kadar işaretli kalır; bir sonrakini, örneğin üç ay sonrasına planlamak için karta dokun. Basılı tutmak tarihi değiştirir; çöp kutusu randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
 
   @override
   String get helpAgendaNeutral =>
-      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve kart gün sonuna kadar işaretli kalır; bir sonrakini, örneğin üç ay sonrasına planlamak için karta dokun. Basılı tutmak tarihi değiştirir; çöp kutusu randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
 
   @override
   String get calendarRowOff => 'Takvim: kapalı';
