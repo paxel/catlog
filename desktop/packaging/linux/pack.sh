@@ -21,7 +21,7 @@ bundle="$stage/bundle"
 mkdir -p "$bundle"
 cp "$binary" "$bundle/catlog"
 cp "$here/io.github.paxel.catlog.desktop" "$here/catlog-mime.xml" "$here/install-icon.sh" "$bundle/"
-cp "$icons/icon.png" "$icons/icon.svg" "$bundle/"
+cp "$icons/icon.png" "$icons/icon_256.png" "$icons/icon.svg" "$bundle/"
 cp "$here/../../../LICENSE-APACHE" "$here/../../../LICENSE-MIT" "$bundle/" 2>/dev/null || true
 tar -C "$bundle" -czf "$dist/catlog-$version-linux-$arch.tar.gz" .
 
@@ -34,13 +34,13 @@ esac
 deb="$stage/deb"
 mkdir -p "$deb/DEBIAN" "$deb/usr/bin" "$deb/usr/share/applications" \
   "$deb/usr/share/mime/packages" "$deb/usr/share/icons/hicolor/scalable/apps" \
-  "$deb/usr/share/icons/hicolor/1024x1024/apps" "$deb/usr/share/doc/catlog"
+  "$deb/usr/share/icons/hicolor/256x256/apps" "$deb/usr/share/doc/catlog"
 cp "$binary" "$deb/usr/bin/catlog"
 chmod 0755 "$deb/usr/bin/catlog"
 cp "$here/io.github.paxel.catlog.desktop" "$deb/usr/share/applications/io.github.paxel.catlog.desktop"
 cp "$here/catlog-mime.xml" "$deb/usr/share/mime/packages/catlog-mime.xml"
 cp "$icons/icon.svg" "$deb/usr/share/icons/hicolor/scalable/apps/catlog.svg"
-cp "$icons/icon.png" "$deb/usr/share/icons/hicolor/1024x1024/apps/catlog.png"
+cp "$icons/icon_256.png" "$deb/usr/share/icons/hicolor/256x256/apps/catlog.png"
 cp "$here/../../THIRD-PARTY.md" "$deb/usr/share/doc/catlog/THIRD-PARTY.md"
 cat > "$deb/DEBIAN/control" <<CONTROL
 Package: catlog
@@ -61,13 +61,13 @@ dpkg-deb --build --root-owner-group "$deb" "$dist/catlog-$version-linux-$arch.de
 # The AppImage.
 appdir="$stage/AppDir"
 mkdir -p "$appdir/usr/bin" "$appdir/usr/share/applications" \
-  "$appdir/usr/share/icons/hicolor/1024x1024/apps"
+  "$appdir/usr/share/icons/hicolor/256x256/apps"
 cp "$binary" "$appdir/usr/bin/catlog"
 chmod 0755 "$appdir/usr/bin/catlog"
 cp "$here/io.github.paxel.catlog.desktop" "$appdir/io.github.paxel.catlog.desktop"
 cp "$here/io.github.paxel.catlog.desktop" "$appdir/usr/share/applications/io.github.paxel.catlog.desktop"
-cp "$icons/icon.png" "$appdir/catlog.png"
-cp "$icons/icon.png" "$appdir/usr/share/icons/hicolor/1024x1024/apps/catlog.png"
+cp "$icons/icon_256.png" "$appdir/catlog.png"
+cp "$icons/icon_256.png" "$appdir/usr/share/icons/hicolor/256x256/apps/catlog.png"
 cat > "$appdir/AppRun" <<'APPRUN'
 #!/bin/sh
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)

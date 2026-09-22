@@ -48,7 +48,7 @@ desktop_target="$data_home/applications/io.github.paxel.catlog.desktop"
 old_desktop_target="$data_home/applications/catlog.desktop"
 mime_target="$data_home/mime/packages/catlog-mime.xml"
 svg_target="$data_home/icons/hicolor/scalable/apps/catlog.svg"
-png_target="$data_home/icons/hicolor/1024x1024/apps/catlog.png"
+png_target="$data_home/icons/hicolor/256x256/apps/catlog.png"
 
 refresh_caches() {
   # Where the tools exist (harmless if they don't).
@@ -75,16 +75,16 @@ fi
 
 mkdir -p "$(dirname "$desktop_target")" "$(dirname "$mime_target")"
 
-# The scalable icon is the one menus prefer; the 1024 pixel PNG is there for the
-# desktops that cannot read SVG.
+# The 256 pixel PNG is what every desktop draws; the scalable icon is there for
+# the ones that prefer it.
 if [ -f "$icons/icon.svg" ]; then
   mkdir -p "$(dirname "$svg_target")"
   cp "$icons/icon.svg" "$svg_target"
   echo "  $svg_target"
 fi
-if [ -f "$icons/icon.png" ]; then
+if [ -f "$icons/icon_256.png" ]; then
   mkdir -p "$(dirname "$png_target")"
-  cp "$icons/icon.png" "$png_target"
+  cp "$icons/icon_256.png" "$png_target"
   echo "  $png_target"
 fi
 

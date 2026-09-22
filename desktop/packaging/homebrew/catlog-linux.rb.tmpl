@@ -19,14 +19,12 @@ class Catlog < Formula
     libexec.install Dir["*"]
     bin.write_exec_script libexec/"catlog"
 
-    # Absolute paths, not bare names. A desktop session does not read Homebrew's shell
-    # environment, so neither its bin directory nor its icon theme directory is on the
-    # session's PATH or XDG_DATA_DIRS: "Exec=catlog" would fail to launch and
-    # "Icon=catlog" would find nothing to draw.
-    icon = "#{opt_prefix}/share/icons/hicolor/scalable/apps/catlog.svg"
+    # An absolute Exec: a desktop session does not read Homebrew's shell environment,
+    # so its bin directory is not on the session's PATH. The icon stays a theme name,
+    # "catlog": the install step below puts the PNG into ~/.local/share/icons, where
+    # every desktop looks, and the desk itself keeps it there on every start.
     inreplace libexec/"io.github.paxel.catlog.desktop" do |entry|
       entry.gsub! "Exec=catlog", "Exec=#{opt_bin}/catlog"
-      entry.gsub! "Icon=catlog", "Icon=#{icon}"
     end
 
     # The helper and everything it copies live together, so it finds the icons next to
@@ -43,10 +41,10 @@ class Catlog < Formula
     cp libexec/"io.github.paxel.catlog.desktop", share/"applications/io.github.paxel.catlog.desktop"
     (share/"mime/packages").mkpath
     cp libexec/"catlog-mime.xml", share/"mime/packages/catlog-mime.xml"
+    (share/"icons/hicolor/256x256/apps").mkpath
+    cp libexec/"icon_256.png", share/"icons/hicolor/256x256/apps/catlog.png"
     (share/"icons/hicolor/scalable/apps").mkpath
     cp libexec/"icon.svg", share/"icons/hicolor/scalable/apps/catlog.svg"
-    (share/"icons/hicolor/1024x1024/apps").mkpath
-    cp libexec/"icon.png", share/"icons/hicolor/1024x1024/apps/catlog.png"
   end
 
   # Homebrew's own share directory is not on a desktop session's XDG_DATA_DIRS, so the

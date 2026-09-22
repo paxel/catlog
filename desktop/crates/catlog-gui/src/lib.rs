@@ -29,6 +29,7 @@ pub mod icons;
 pub mod in_person;
 pub mod l10n;
 pub mod labels;
+pub mod launcher;
 pub mod map;
 pub mod map_page;
 pub mod merge;

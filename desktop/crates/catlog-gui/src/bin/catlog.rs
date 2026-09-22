@@ -33,6 +33,10 @@ impl eframe::App for Native {
 fn main() {
     let data = catlog_gui::data_dir();
     catlog_gui::crash::install(&catlog_gui::catalogs_root(&data));
+    // The menu entry and the icon, kept current by the desk itself, so a
+    // Homebrew, tarball or AppImage install is in the menu after one start.
+    #[cfg(target_os = "linux")]
+    std::thread::spawn(catlog_gui::launcher::register);
     let mut app = match App::open(SettingsFile::load(&data), &catlog_gui::catalogs_root(&data)) {
         Ok(app) => app,
         Err(e) => {
