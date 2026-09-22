@@ -231,6 +231,18 @@ impl Catalog {
     /// `catalog`, under its subfolder too), then fetches missing photos.
     /// Writing this device's own file is the sync round's job.
     pub fn import_folder(&mut self, folder: &Path, catalog: Option<&str>) -> Result<FolderImport> {
+        self.import_folder_with(folder, catalog, false)
+    }
+
+    /// [`Catalog::import_folder`], and with `prune` the tidying a sync
+    /// round may do in a folder it writes to itself: the files of an
+    /// install that is gone. A plain import leaves every file alone.
+    fn import_folder_with(
+        &mut self,
+        folder: &Path,
+        catalog: Option<&str>,
+        prune: bool,
+    ) -> Result<FolderImport> {
         let root = folder.join(SYNC_DIR);
         let mut read_dirs: Vec<PathBuf> = Vec::new();
         if let Some(c) = catalog {
@@ -328,7 +340,7 @@ impl Catalog {
                 // live devices stop keeping their frozen files for it.
                 let quiet = newest
                     .is_none_or(|n| self.now_utc() - n >= chrono::Duration::days(STALE_AFTER_DAYS));
-                if quiet && covers(&self.version_vector()?, &vector) {
+                if prune && quiet && covers(&self.version_vector()?, &vector) {
                     remove_if_present(&dir.join(name))?;
                     remove_if_present(&dir.join("keys").join(format!("{device}.json")))?;
                     result.lagging.retain(|d| d != device);
@@ -568,7 +580,7 @@ impl Catalog {
         if !nomedia.exists() {
             write_atomically(&nomedia, &[])?;
         }
-        let mut result = self.import_folder(folder, catalog)?;
+        let mut result = self.import_folder_with(folder, catalog, true)?;
 
         // Own keys, rewritten only when they changed.
         let me = self.device_id();
@@ -856,6 +868,31 @@ mod tests {
     }
 
     #[test]
+    fn a_sync_round_forgets_an_install_gone_quiet_for_a_week() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open(&dir.path().join("cat")).unwrap();
+        c.set_author("Ada").unwrap();
+        let share = dir.path().join("share");
+        let sync = share.join(SYNC_DIR);
+        std::fs::create_dir_all(sync.join("keys")).unwrap();
+        std::fs::write(
+            sync.join("old.jsonl2"),
+            r#"{"device":"old","dseq":1,"entity":"clowder:gone","field":"$type","value":"clowder","date":"2026-01-01T00:00:00Z","author":"A","recorded":"2026-01-01T00:00:00Z","reminder":false}"#,
+        )
+        .unwrap();
+        std::fs::write(sync.join("keys").join("old.json"), "[]").unwrap();
+        // Months later: what it knew is here, nobody is named, its files
+        // go, and this device keeps no frozen file for it.
+        let r = c.sync_folder(&share, None, false).unwrap();
+        assert_eq!(r.entries_in, 1);
+        assert!(r.lagging.is_empty());
+        assert!(!sync.join("old.jsonl2").exists());
+        assert!(!sync.join("keys").join("old.json").exists());
+        assert_eq!(c.version_vector().unwrap().get("old"), Some(&1));
+        assert!(!sync.join(format!("{}.jsonl2", c.device_id())).exists());
+    }
+
+    #[test]
     fn an_absent_folder_imports_nothing_and_a_bad_photo_is_reported() {
         let dir = tempfile::tempdir().unwrap();
         let mut c = Catalog::open(&dir.path().join("cat")).unwrap();
@@ -889,12 +926,11 @@ mod tests {
         assert_eq!(r.entries_in, 1);
         assert_eq!(r.blobs_in, 0);
         assert_eq!(r.blobs_missing, 1);
-        // w's file is months old and everything in it is here now: an
-        // install that is gone, its file with it. The broken file stays
-        // named; it may be one still being written.
-        assert_eq!(r.lagging, vec!["broken".to_string()]);
-        assert!(!sync.join("w.jsonl").exists());
-        assert_eq!(c.version_vector().unwrap().get("w"), Some(&1));
+        // A plain import names the old files and leaves them all alone,
+        // months old or not; the broken one too, it may be one still
+        // being written.
+        assert_eq!(r.lagging, vec!["broken".to_string(), "w".to_string()]);
+        assert!(sync.join("w.jsonl").exists());
         // A catalog subfolder without photos of its own falls back to the
         // root's, where partners from before keep theirs; the wrong bytes
         // are left alone there too.
