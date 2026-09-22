@@ -221,7 +221,10 @@ String valueLabel(
         ? ''
         : ' ${a.time!.hour.toString().padLeft(2, '0')}:'
               '${a.time!.minute.toString().padLeft(2, '0')}';
-    return '${a.title}$when${a.done ? ' ✓' : ''}';
+    // The outcome notes belong to the visit: "how did it go" is what
+    // the history is read for.
+    final notes = a.notes.isEmpty ? '' : '\n${a.notes}';
+    return '${a.title}$when${a.done ? ' ✓' : ''}$notes';
   }
   if (key.startsWith(Keys.imagePrefix)) return value;
   if (key == Keys.profileImage) return '·';

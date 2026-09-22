@@ -94,7 +94,35 @@ void main() {
     final closed = store.appointmentsOf(cat, includeDone: true).single;
     expect(closed.notes, 'all fine');
     expect(store.current(cat, Keys.userField('remarks')), 'checked');
+    // Finished today, the card stays for the day: box checked, the
+    // notes on it, a tap to change them.
+    expect(find.byType(AppointmentCard), findsOneWidget);
+    expect(tester.widget<Checkbox>(find.byType(Checkbox)).value, isTrue);
+    expect(find.textContaining('all fine'), findsOneWidget);
+    await tester.tap(find.byType(AppointmentCard));
+    await tester.pumpAndSettle();
+    expect(find.text('How did it go?'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'all fine, 4.2 kg');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    expect(store.appointmentsOf(cat, includeDone: true).single.notes,
+        'all fine, 4.2 kg');
+
+    // Unticked: open again, the linked value gone with it.
+    await tester.tap(find.byType(Checkbox));
+    await tester.pumpAndSettle();
+    expect(store.appointmentsOf(cat), hasLength(1));
+    expect(store.current(cat, Keys.userField('remarks')), isNull);
+
+    // Finished once more, the bin takes it off the list.
+    await tester.tap(find.byTooltip('Finish'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Finish').last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Take off the list'));
+    await tester.pumpAndSettle();
     expect(find.byType(AppointmentCard), findsNothing);
+    expect(store.appointmentsOf(cat, includeDone: true).single.done, isTrue);
   });
 
   testWidgets('long-press deletes an appointment', (tester) async {
@@ -131,5 +159,11 @@ void main() {
     await pump(tester, TimelineScreen(store: store, entityId: cat));
     expect(find.textContaining('Vet 14:30'), findsOneWidget);
     expect(find.textContaining('{"date"'), findsNothing);
+
+    // Finished with notes: the timeline shows how it went.
+    final visit = store.appointmentsOf(cat).single;
+    store.finishAppointment(visit, notes: 'all fine');
+    await pump(tester, TimelineScreen(store: store, entityId: cat));
+    expect(find.textContaining('Vet 14:30 ✓\nall fine'), findsOneWidget);
   });
 }
