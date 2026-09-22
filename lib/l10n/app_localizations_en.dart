@@ -2402,6 +2402,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moveToCatalog => 'Move to another catalog';
 
   @override
+  String get moveInFromCatalog => 'Move in from another catalog…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count moved to $name';
   }

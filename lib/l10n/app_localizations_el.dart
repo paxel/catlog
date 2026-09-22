@@ -2413,6 +2413,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get moveToCatalog => 'Μετακίνηση σε άλλον κατάλογο';
 
   @override
+  String get moveInFromCatalog => 'Μεταφορά από άλλον κατάλογο…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count μετακινήθηκαν στο $name';
   }

@@ -2407,6 +2407,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get moveToCatalog => 'Naar een andere catalogus verplaatsen';
 
   @override
+  String get moveInFromCatalog => 'Overzetten uit een andere catalogus…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count verplaatst naar $name';
   }

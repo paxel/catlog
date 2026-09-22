@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "移动到其他目录",
+  "moveInFromCatalog": "从其他目录移入…",
   "movedToCatalog": "已将 {count} 项移动到 {name}",
   "@movedToCatalog": {
     "placeholders": {

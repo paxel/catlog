@@ -2405,6 +2405,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get moveToCatalog => 'Færa í aðra skrá';
 
   @override
+  String get moveInFromCatalog => 'Flytja inn úr annarri skrá…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count færð í $name';
   }

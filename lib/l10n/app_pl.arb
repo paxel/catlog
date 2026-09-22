@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Przenieś do innego katalogu",
+  "moveInFromCatalog": "Przenieś z innego katalogu…",
   "movedToCatalog": "Przeniesiono {count} do {name}",
   "@movedToCatalog": {
     "placeholders": {

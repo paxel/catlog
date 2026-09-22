@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "انتقال به کاتالوگ دیگر",
+  "moveInFromCatalog": "انتقال از کاتالوگ دیگر…",
   "movedToCatalog": "{count} به {name} منتقل شد",
   "@movedToCatalog": {
     "placeholders": {

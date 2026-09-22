@@ -2411,6 +2411,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get moveToCatalog => 'Перемістити до іншого каталогу';
 
   @override
+  String get moveInFromCatalog => 'Перенести з іншого каталогу…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count переміщено до $name';
   }

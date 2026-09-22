@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Zhvendos në një katalog tjetër",
+  "moveInFromCatalog": "Zhvendos nga një katalog tjetër…",
   "movedToCatalog": "{count} u zhvendosën te {name}",
   "@movedToCatalog": {
     "placeholders": {

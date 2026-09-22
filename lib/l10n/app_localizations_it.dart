@@ -2410,6 +2410,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get moveToCatalog => 'Sposta in un altro catalogo';
 
   @override
+  String get moveInFromCatalog => 'Sposta qui da un altro catalogo…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count spostati in $name';
   }

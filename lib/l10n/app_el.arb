@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Μετακίνηση σε άλλον κατάλογο",
+  "moveInFromCatalog": "Μεταφορά από άλλον κατάλογο…",
   "movedToCatalog": "{count} μετακινήθηκαν στο {name}",
   "@movedToCatalog": {
     "placeholders": {

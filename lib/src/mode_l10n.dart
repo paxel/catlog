@@ -1783,6 +1783,9 @@ class ModeLocalizations implements AppLocalizations {
   String motherNotFemale(String name) => base.motherNotFemale(name);
 
   @override
+  String get moveInFromCatalog => base.moveInFromCatalog;
+
+  @override
   String moveIntoNewCatalog(String name) => base.moveIntoNewCatalog(name);
 
   @override

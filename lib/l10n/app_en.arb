@@ -1304,6 +1304,7 @@
     }
   },
   "moveToCatalog": "Move to another catalog",
+  "moveInFromCatalog": "Move in from another catalog…",
   "movedToCatalog": "{count} moved to {name}",
   "@movedToCatalog": {
     "placeholders": {

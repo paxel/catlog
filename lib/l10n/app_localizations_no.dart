@@ -2401,6 +2401,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get moveToCatalog => 'Flytt til en annen katalog';
 
   @override
+  String get moveInFromCatalog => 'Flytt inn fra en annen katalog…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count flyttet til $name';
   }

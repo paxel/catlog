@@ -2414,6 +2414,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get moveToCatalog => 'نقل إلى كتالوج آخر';
 
   @override
+  String get moveInFromCatalog => 'نقل من كتالوج آخر…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return 'تم نقل $count إلى $name';
   }

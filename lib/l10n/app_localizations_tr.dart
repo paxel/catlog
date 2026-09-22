@@ -2402,6 +2402,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get moveToCatalog => 'Başka bir kataloğa taşı';
 
   @override
+  String get moveInFromCatalog => 'Başka bir katalogdan buraya taşı…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count öğe $name kataloğuna taşındı';
   }

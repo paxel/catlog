@@ -2404,6 +2404,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get moveToCatalog => 'Mover para outro catálogo';
 
   @override
+  String get moveInFromCatalog => 'Trazer de outro catálogo…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count movidos para $name';
   }

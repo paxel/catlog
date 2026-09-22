@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Bog go catalóg eile",
+  "moveInFromCatalog": "Bog isteach ó chatalóg eile…",
   "movedToCatalog": "Bogadh {count} go {name}",
   "@movedToCatalog": {
     "placeholders": {

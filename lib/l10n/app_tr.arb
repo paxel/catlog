@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Başka bir kataloğa taşı",
+  "moveInFromCatalog": "Başka bir katalogdan buraya taşı…",
   "movedToCatalog": "{count} öğe {name} kataloğuna taşındı",
   "@movedToCatalog": {
     "placeholders": {

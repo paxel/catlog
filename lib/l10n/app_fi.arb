@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Siirrä toiseen luetteloon",
+  "moveInFromCatalog": "Siirrä toisesta luettelosta…",
   "movedToCatalog": "{count} siirretty luetteloon {name}",
   "@movedToCatalog": {
     "placeholders": {

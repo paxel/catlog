@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "別のカタログへ移動",
+  "moveInFromCatalog": "他のカタログから移動…",
   "movedToCatalog": "{count} 件を {name} に移動しました",
   "@movedToCatalog": {
     "placeholders": {

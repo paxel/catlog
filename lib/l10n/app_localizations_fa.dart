@@ -2386,6 +2386,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get moveToCatalog => 'انتقال به کاتالوگ دیگر';
 
   @override
+  String get moveInFromCatalog => 'انتقال از کاتالوگ دیگر…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count به $name منتقل شد';
   }

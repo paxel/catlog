@@ -2401,6 +2401,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get moveToCatalog => 'Teisalda teise kataloogi';
 
   @override
+  String get moveInFromCatalog => 'Too teisest kataloogist…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count teisaldatud kataloogi $name';
   }

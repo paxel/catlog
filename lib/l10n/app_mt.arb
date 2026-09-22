@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Mexxi għal katalgu ieħor",
+  "moveInFromCatalog": "Ġib minn katalgu ieħor…",
   "movedToCatalog": "{count} imxew għal {name}",
   "@movedToCatalog": {
     "placeholders": {

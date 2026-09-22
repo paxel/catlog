@@ -2409,6 +2409,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get moveToCatalog => 'Mexxi għal katalgu ieħor';
 
   @override
+  String get moveInFromCatalog => 'Ġib minn katalgu ieħor…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count imxew għal $name';
   }

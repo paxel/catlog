@@ -2411,6 +2411,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get moveToCatalog => 'Mover a otro catálogo';
 
   @override
+  String get moveInFromCatalog => 'Traer de otro catálogo…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count movidos a $name';
   }

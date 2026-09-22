@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Naar een andere catalogus verplaatsen",
+  "moveInFromCatalog": "Overzetten uit een andere catalogus…",
   "movedToCatalog": "{count} verplaatst naar {name}",
   "@movedToCatalog": {
     "placeholders": {

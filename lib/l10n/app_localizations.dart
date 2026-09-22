@@ -4352,6 +4352,12 @@ abstract class AppLocalizations {
   /// **'Move to another catalog'**
   String get moveToCatalog;
 
+  /// No description provided for @moveInFromCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Move in from another catalog…'**
+  String get moveInFromCatalog;
+
   /// No description provided for @movedToCatalog.
   ///
   /// In en, this message translates to:

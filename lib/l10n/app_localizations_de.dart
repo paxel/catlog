@@ -2411,6 +2411,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get moveToCatalog => 'In einen anderen Katalog verschieben';
 
   @override
+  String get moveInFromCatalog =>
+      'Aus einem anderen Katalog hierher verschieben…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count nach $name verschoben';
   }

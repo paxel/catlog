@@ -2410,6 +2410,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get moveToCatalog => 'Przenieś do innego katalogu';
 
   @override
+  String get moveInFromCatalog => 'Przenieś z innego katalogu…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return 'Przeniesiono $count do $name';
   }

@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Перемістити до іншого каталогу",
+  "moveInFromCatalog": "Перенести з іншого каталогу…",
   "movedToCatalog": "{count} переміщено до {name}",
   "@movedToCatalog": {
     "placeholders": {

@@ -2407,6 +2407,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get moveToCatalog => 'Přesunout do jiného katalogu';
 
   @override
+  String get moveInFromCatalog => 'Přesunout z jiného katalogu…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count přesunuto do $name';
   }

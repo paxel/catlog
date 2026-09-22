@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../auto_backup.dart';
 import '../help.dart';
 import '../l10n.dart';
+import '../move_to_catalog.dart';
 import '../notes.dart';
 import '../pet_mode.dart';
 import '../titles.dart';
@@ -183,6 +184,50 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
     }
   }
 
+  /// Moves cats and clowders from another catalog into this one: the
+  /// source drops down from the row when there is a choice, then the
+  /// picker. Their catalog loses them the ordinary way.
+  Future<void> _moveIn(BuildContext row) async {
+    final t = context.t;
+    final others = [
+      for (final c in widget.catalogs.catalogs())
+        if (c.id != widget.catalog.id) c
+    ];
+    if (others.isEmpty) return;
+    CatalogInfo? source = others.single;
+    if (others.length > 1) {
+      final box = row.findRenderObject() as RenderBox;
+      final at = box.localToGlobal(Offset(0, box.size.height));
+      source = await showMenu<CatalogInfo>(
+        context: context,
+        position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+        items: [
+          for (final c in others)
+            PopupMenuItem(
+              value: c,
+              child: ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.folder_outlined),
+                title: Text(c.name),
+              ),
+            ),
+        ],
+      );
+    }
+    if (source == null || !mounted) return;
+    final own = source.id != widget.catalogs.active.id;
+    final from = own ? widget.catalogs.openStore(source) : widget.activeStore();
+    try {
+      final chosen = await pickWhatToMove(context, from);
+      if (chosen == null || chosen.isEmpty || !mounted) return;
+      final count = transferEntities(from, _store, chosen).moved.length;
+      noteDone(t.movedToCatalog(count, _catalog.name));
+      _changed();
+    } finally {
+      if (own) from.close();
+    }
+  }
+
   Future<void> _push(Widget screen) async {
     await Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
     if (mounted) setState(() {});
@@ -288,6 +333,14 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
             ),
             onTap: () => _push(ArchiveScreen(store: _store)),
           ),
+          if (widget.catalogs.catalogs().length > 1)
+            Builder(
+              builder: (row) => ListTile(
+                leading: const Icon(Icons.drive_file_move_outline),
+                title: Text(t.moveInFromCatalog),
+                onTap: _deleting ? null : () => _moveIn(row),
+              ),
+            ),
           ListTile(
             leading: const Icon(Icons.history),
             title: Text(t.goBackTitle),

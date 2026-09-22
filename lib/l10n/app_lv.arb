@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Pārvietot uz citu katalogu",
+  "moveInFromCatalog": "Pārvietot no cita kataloga…",
   "movedToCatalog": "{count} pārvietoti uz {name}",
   "@movedToCatalog": {
     "placeholders": {

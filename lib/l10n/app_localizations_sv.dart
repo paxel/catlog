@@ -2401,6 +2401,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get moveToCatalog => 'Flytta till en annan katalog';
 
   @override
+  String get moveInFromCatalog => 'Flytta in från en annan katalog…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count flyttade till $name';
   }

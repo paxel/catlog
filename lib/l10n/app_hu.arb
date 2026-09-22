@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Áthelyezés másik katalógusba",
+  "moveInFromCatalog": "Áthozás másik katalógusból…",
   "movedToCatalog": "{count} áthelyezve ide: {name}",
   "@movedToCatalog": {
     "placeholders": {

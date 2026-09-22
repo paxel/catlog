@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Flytta till en annan katalog",
+  "moveInFromCatalog": "Flytta in från en annan katalog…",
   "movedToCatalog": "{count} flyttade till {name}",
   "@movedToCatalog": {
     "placeholders": {

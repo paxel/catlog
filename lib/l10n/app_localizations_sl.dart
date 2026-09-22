@@ -2412,6 +2412,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get moveToCatalog => 'Premakni v drug katalog';
 
   @override
+  String get moveInFromCatalog => 'Premakni iz drugega kataloga…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count premaknjeno v $name';
   }

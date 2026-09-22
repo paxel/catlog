@@ -2403,6 +2403,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get moveToCatalog => 'Zhvendos në një katalog tjetër';
 
   @override
+  String get moveInFromCatalog => 'Zhvendos nga një katalog tjetër…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count u zhvendosën te $name';
   }

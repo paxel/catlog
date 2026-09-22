@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Mută în alt catalog",
+  "moveInFromCatalog": "Mută aici din alt catalog…",
   "movedToCatalog": "{count} mutate în {name}",
   "@movedToCatalog": {
     "placeholders": {

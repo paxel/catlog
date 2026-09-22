@@ -2408,6 +2408,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get moveToCatalog => 'Mută în alt catalog';
 
   @override
+  String get moveInFromCatalog => 'Mută aici din alt catalog…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count mutate în $name';
   }

@@ -2406,6 +2406,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get moveToCatalog => 'Premjesti u drugi katalog';
 
   @override
+  String get moveInFromCatalog => 'Premjesti iz drugog kataloga…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count premješteno u $name';
   }

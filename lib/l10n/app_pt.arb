@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Mover para outro catálogo",
+  "moveInFromCatalog": "Trazer de outro catálogo…",
   "movedToCatalog": "{count} movidos para {name}",
   "@movedToCatalog": {
     "placeholders": {

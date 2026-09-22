@@ -134,7 +134,7 @@ void main() {
     expect(store.cats().map((c) => c.name), ['Mausi']);
   });
 
-  testWidgets('creating a catalog offers to move something into it',
+  testWidgets('a new catalog asks nothing; its settings page moves things in',
       (tester) async {
     final clowder = store.createClowder('Hinterhof');
     store.moveCat(cat, clowder);
@@ -155,40 +155,23 @@ void main() {
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Move something into Paris?'), findsOneWidget);
-    await tester.tap(find.widgetWithText(FilledButton, 'Move to another catalog'));
+    // Straight to the settings page; nothing asked, nothing moved.
+    expect(find.text('Move something into Paris?'), findsNothing);
+    expect(store.clowders().map((c) => c.name), ['Hinterhof']);
+
+    // The move is a row there: one other catalog, so the picker opens
+    // at once.
+    await tester.tap(find.text('Move in from another catalog…'));
     await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(CheckboxListTile, 'Hinterhof'));
     await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(FilledButton, 'Move to another catalog'));
     await tester.pumpAndSettle();
 
+    expect(store.clowders(), isEmpty);
     final paris = catalogs.catalogs().firstWhere((c) => c.name == 'Paris');
     final there = catalogs.openStore(paris);
     expect(there.clowders().map((c) => c.name), ['Hinterhof']);
     there.close();
-  });
-
-  testWidgets('skipping the offer moves nothing', (tester) async {
-    store.createClowder('Hinterhof');
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: CatalogsScreen(
-        catalogs: catalogs,
-        storeOf: () => store,
-        onSwitch: (_, {bool unwind = true}) {},
-      ),
-    ));
-    await tester.pumpAndSettle();
-    await tester.tap(find.byType(FloatingActionButton));
-    await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), 'Paris');
-    await tester.tap(find.text('Save'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(TextButton, 'Cancel'));
-    await tester.pumpAndSettle();
-
-    expect(store.clowders().map((c) => c.name), ['Hinterhof']);
   });
 }

@@ -2403,6 +2403,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get moveToCatalog => 'Áthelyezés másik katalógusba';
 
   @override
+  String get moveInFromCatalog => 'Áthozás másik katalógusból…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count áthelyezve ide: $name';
   }

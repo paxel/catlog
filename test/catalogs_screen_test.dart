@@ -107,9 +107,8 @@ void main() {
     await tester.enterText(find.byType(TextField), 'Paris');
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
-    // The creation flow offers to move something in; not this time.
-    await tester.tap(find.widgetWithText(TextButton, 'Cancel'));
-    await tester.pumpAndSettle();
+    // No question about moving something in: the new catalog is empty.
+    expect(find.text('Move something into Paris?'), findsNothing);
 
     expect(catalogs.catalogs().map((c) => c.name), ['Berlin', 'Paris']);
     expect(catalogs.active.name, 'Paris');

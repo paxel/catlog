@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "העברה לקטלוג אחר",
+  "moveInFromCatalog": "העברה מקטלוג אחר…",
   "movedToCatalog": "{count} הועברו אל {name}",
   "@movedToCatalog": {
     "placeholders": {

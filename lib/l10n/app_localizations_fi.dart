@@ -2404,6 +2404,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get moveToCatalog => 'Siirrä toiseen luetteloon';
 
   @override
+  String get moveInFromCatalog => 'Siirrä toisesta luettelosta…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count siirretty luetteloon $name';
   }

@@ -2340,6 +2340,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get moveToCatalog => '別のカタログへ移動';
 
   @override
+  String get moveInFromCatalog => '他のカタログから移動…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count 件を $name に移動しました';
   }

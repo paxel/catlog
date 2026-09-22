@@ -2410,6 +2410,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get moveToCatalog => 'Pārvietot uz citu katalogu';
 
   @override
+  String get moveInFromCatalog => 'Pārvietot no cita kataloga…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count pārvietoti uz $name';
   }

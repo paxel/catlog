@@ -2410,6 +2410,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get moveToCatalog => 'Déplacer vers un autre catalogue';
 
   @override
+  String get moveInFromCatalog => 'Déplacer depuis un autre catalogue…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count déplacés vers $name';
   }

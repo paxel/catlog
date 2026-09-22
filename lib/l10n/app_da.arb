@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Flyt til et andet katalog",
+  "moveInFromCatalog": "Flyt ind fra et andet katalog…",
   "movedToCatalog": "{count} flyttet til {name}",
   "@movedToCatalog": {
     "placeholders": {

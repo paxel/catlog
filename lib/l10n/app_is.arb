@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Færa í aðra skrá",
+  "moveInFromCatalog": "Flytja inn úr annarri skrá…",
   "movedToCatalog": "{count} færð í {name}",
   "@movedToCatalog": {
     "placeholders": {

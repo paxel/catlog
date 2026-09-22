@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Teisalda teise kataloogi",
+  "moveInFromCatalog": "Too teisest kataloogist…",
   "movedToCatalog": "{count} teisaldatud kataloogi {name}",
   "@movedToCatalog": {
     "placeholders": {

@@ -2424,6 +2424,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get moveToCatalog => 'Bog go catalóg eile';
 
   @override
+  String get moveInFromCatalog => 'Bog isteach ó chatalóg eile…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return 'Bogadh $count go $name';
   }

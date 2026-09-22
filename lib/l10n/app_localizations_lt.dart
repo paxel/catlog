@@ -2411,6 +2411,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get moveToCatalog => 'Perkelti į kitą katalogą';
 
   @override
+  String get moveInFromCatalog => 'Perkelti iš kito katalogo…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '$count perkelta į $name';
   }

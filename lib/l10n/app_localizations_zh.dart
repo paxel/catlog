@@ -2318,6 +2318,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get moveToCatalog => '移动到其他目录';
 
   @override
+  String get moveInFromCatalog => '从其他目录移入…';
+
+  @override
   String movedToCatalog(int count, String name) {
     return '已将 $count 项移动到 $name';
   }

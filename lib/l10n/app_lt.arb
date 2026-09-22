@@ -748,6 +748,7 @@
     }
   },
   "moveToCatalog": "Perkelti į kitą katalogą",
+  "moveInFromCatalog": "Perkelti iš kito katalogo…",
   "movedToCatalog": "{count} perkelta į {name}",
   "@movedToCatalog": {
     "placeholders": {
