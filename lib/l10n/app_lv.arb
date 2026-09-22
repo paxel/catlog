@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Jauns mājdzīvnieks uz…",
   "choreLabel": "Uzdevums",
   "choreTickLabel": "Uzdevums izpildīts",
+  "choreDoneTitled": "{title} padarīts",
+  "choreDoneFor": "par {day}",
   "choreEnded": "Beigts",
   "choreRemindAt": "atgādinājums {time}",
   "@choreRemindAt": {

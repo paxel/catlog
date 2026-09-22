@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "حيوان أليف جديد في…",
   "choreLabel": "مهمة",
   "choreTickLabel": "أُنجزت المهمة",
+  "choreDoneTitled": "{title} منجز",
+  "choreDoneFor": "ليوم {day}",
   "choreEnded": "انتهت",
   "choreRemindAt": "تذكير {time}",
   "@choreRemindAt": {

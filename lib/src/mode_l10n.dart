@@ -520,7 +520,13 @@ class ModeLocalizations implements AppLocalizations {
   String get choreDoneEarly => base.choreDoneEarly;
 
   @override
+  String choreDoneFor(Object day) => base.choreDoneFor(day);
+
+  @override
   String get choreDoneLate => base.choreDoneLate;
+
+  @override
+  String choreDoneTitled(Object title) => base.choreDoneTitled(title);
 
   @override
   String choreDue(String date) => base.choreDue(date);

@@ -3152,6 +3152,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get choreTickLabel => '事务已完成';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title 已完成';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day 的';
+  }
+
+  @override
   String get choreEnded => '已结束';
 
   @override

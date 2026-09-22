@@ -3344,6 +3344,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get choreTickLabel => 'أُنجزت المهمة';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title منجز';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'ليوم $day';
+  }
+
+  @override
   String get choreEnded => 'انتهت';
 
   @override

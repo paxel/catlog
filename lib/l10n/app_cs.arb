@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Nové zvíře v…",
   "choreLabel": "Úkol",
   "choreTickLabel": "Úkol hotov",
+  "choreDoneTitled": "{title} hotovo",
+  "choreDoneFor": "za {day}",
   "choreEnded": "Ukončeno",
   "choreRemindAt": "připomínka {time}",
   "@choreRemindAt": {

@@ -3320,6 +3320,16 @@ class AppLocalizationsSk extends AppLocalizations {
   String get choreTickLabel => 'Úloha hotová';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title hotovo';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'za $day';
+  }
+
+  @override
   String get choreEnded => 'Ukončené';
 
   @override

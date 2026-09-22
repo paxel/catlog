@@ -3307,6 +3307,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String get choreTickLabel => 'Toimetus tehtud';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title tehtud';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day eest';
+  }
+
+  @override
   String get choreEnded => 'Lõpetatud';
 
   @override

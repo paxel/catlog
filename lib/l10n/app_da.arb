@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Nyt kæledyr i…",
   "choreLabel": "Opgave",
   "choreTickLabel": "Opgave udført",
+  "choreDoneTitled": "{title} gjort",
+  "choreDoneFor": "for {day}",
   "choreEnded": "Afsluttet",
   "choreRemindAt": "påmindelse {time}",
   "@choreRemindAt": {

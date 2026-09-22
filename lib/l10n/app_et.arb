@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Uus lemmik kohta…",
   "choreLabel": "Toimetus",
   "choreTickLabel": "Toimetus tehtud",
+  "choreDoneTitled": "{title} tehtud",
+  "choreDoneFor": "{day} eest",
   "choreEnded": "Lõpetatud",
   "choreRemindAt": "meeldetuletus {time}",
   "@choreRemindAt": {

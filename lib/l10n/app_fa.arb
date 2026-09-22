@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "حیوان خانگی جدید در…",
   "choreLabel": "کار",
   "choreTickLabel": "کار انجام شد",
+  "choreDoneTitled": "{title} انجام شد",
+  "choreDoneFor": "برای {day}",
   "choreEnded": "پایان یافته",
   "choreRemindAt": "یادآوری {time}",
   "@choreRemindAt": {

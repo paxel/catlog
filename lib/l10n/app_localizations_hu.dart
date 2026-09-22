@@ -3309,6 +3309,16 @@ class AppLocalizationsHu extends AppLocalizations {
   String get choreTickLabel => 'Teendő kész';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title kész';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day napra';
+  }
+
+  @override
   String get choreEnded => 'Befejezve';
 
   @override

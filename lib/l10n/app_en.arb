@@ -1817,6 +1817,10 @@
   "newCatInNeutral": "New pet in…",
   "choreLabel": "Chore",
   "choreTickLabel": "Chore done",
+  "choreDoneTitled": "{title} done",
+  "@choreDoneTitled": {"placeholders": {"title": {}}},
+  "choreDoneFor": "for {day}",
+  "@choreDoneFor": {"placeholders": {"day": {}}},
   "choreEnded": "Ended",
   "choreRemindAt": "reminder {time}",
   "@choreRemindAt": {

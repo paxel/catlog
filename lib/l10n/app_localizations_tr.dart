@@ -3308,6 +3308,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get choreTickLabel => 'Görev yapıldı';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title yapıldı';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day için';
+  }
+
+  @override
   String get choreEnded => 'Sona erdi';
 
   @override

@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Нови љубимац у…",
   "choreLabel": "Задатак",
   "choreTickLabel": "Задатак урађен",
+  "choreDoneTitled": "{title} урађено",
+  "choreDoneFor": "за {day}",
   "choreEnded": "Завршено",
   "choreRemindAt": "подсетник {time}",
   "@choreRemindAt": {

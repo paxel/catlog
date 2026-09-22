@@ -3322,6 +3322,16 @@ class AppLocalizationsRo extends AppLocalizations {
   String get choreTickLabel => 'Sarcină făcută';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title făcut';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'pentru $day';
+  }
+
+  @override
   String get choreEnded => 'Încheiată';
 
   @override

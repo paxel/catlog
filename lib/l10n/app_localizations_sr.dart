@@ -3320,6 +3320,16 @@ class AppLocalizationsSr extends AppLocalizations {
   String get choreTickLabel => 'Задатак урађен';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title урађено';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'за $day';
+  }
+
+  @override
   String get choreEnded => 'Завршено';
 
   @override

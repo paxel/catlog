@@ -3311,6 +3311,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get choreTickLabel => 'Tarefa feita';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title feito';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'para $day';
+  }
+
+  @override
   String get choreEnded => 'Terminada';
 
   @override

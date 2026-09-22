@@ -3322,6 +3322,16 @@ class AppLocalizationsMt extends AppLocalizations {
   String get choreTickLabel => 'Xogħol magħmul';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title magħmul';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'għal $day';
+  }
+
+  @override
   String get choreEnded => 'Intemm';
 
   @override

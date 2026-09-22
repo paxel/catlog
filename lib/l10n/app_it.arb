@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Nuovo animale in…",
   "choreLabel": "Compito",
   "choreTickLabel": "Compito fatto",
+  "choreDoneTitled": "{title} fatto",
+  "choreDoneFor": "per il {day}",
   "choreEnded": "Terminato",
   "choreRemindAt": "promemoria {time}",
   "@choreRemindAt": {

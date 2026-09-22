@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Naujas augintinis į…",
   "choreLabel": "Užduotis",
   "choreTickLabel": "Užduotis atlikta",
+  "choreDoneTitled": "{title} atlikta",
+  "choreDoneFor": "už {day}",
   "choreEnded": "Baigta",
   "choreRemindAt": "priminimas {time}",
   "@choreRemindAt": {

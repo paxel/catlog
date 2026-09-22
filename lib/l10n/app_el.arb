@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Νέο κατοικίδιο σε…",
   "choreLabel": "Εργασία",
   "choreTickLabel": "Εργασία έγινε",
+  "choreDoneTitled": "{title} έγινε",
+  "choreDoneFor": "για {day}",
   "choreEnded": "Ολοκληρώθηκε",
   "choreRemindAt": "υπενθύμιση {time}",
   "@choreRemindAt": {

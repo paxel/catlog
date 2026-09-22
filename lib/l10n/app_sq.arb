@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Kafshë e re në…",
   "choreLabel": "Detyrë",
   "choreTickLabel": "Detyrë e kryer",
+  "choreDoneTitled": "{title} u krye",
+  "choreDoneFor": "për {day}",
   "choreEnded": "Përfunduar",
   "choreRemindAt": "kujtesë {time}",
   "@choreRemindAt": {

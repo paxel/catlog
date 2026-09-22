@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Nytt husdjur i…",
   "choreLabel": "Syssla",
   "choreTickLabel": "Syssla gjord",
+  "choreDoneTitled": "{title} gjort",
+  "choreDoneFor": "för {day}",
   "choreEnded": "Avslutad",
   "choreRemindAt": "påminnelse {time}",
   "@choreRemindAt": {

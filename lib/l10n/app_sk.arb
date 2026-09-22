@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Nové zviera v…",
   "choreLabel": "Úloha",
   "choreTickLabel": "Úloha hotová",
+  "choreDoneTitled": "{title} hotovo",
+  "choreDoneFor": "za {day}",
   "choreEnded": "Ukončené",
   "choreRemindAt": "pripomienka {time}",
   "@choreRemindAt": {

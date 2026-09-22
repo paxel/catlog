@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Uusi lemmikki kohteeseen…",
   "choreLabel": "Askare",
   "choreTickLabel": "Askare tehty",
+  "choreDoneTitled": "{title} tehty",
+  "choreDoneFor": "päivälle {day}",
   "choreEnded": "Päättynyt",
   "choreRemindAt": "muistutus {time}",
   "@choreRemindAt": {

@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Nieuw huisdier in…",
   "choreLabel": "Taak",
   "choreTickLabel": "Taak gedaan",
+  "choreDoneTitled": "{title} gedaan",
+  "choreDoneFor": "voor {day}",
   "choreEnded": "Beëindigd",
   "choreRemindAt": "herinnering {time}",
   "@choreRemindAt": {

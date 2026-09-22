@@ -3310,6 +3310,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get choreTickLabel => 'Askare tehty';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title tehty';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'päivälle $day';
+  }
+
+  @override
   String get choreEnded => 'Päättynyt';
 
   @override

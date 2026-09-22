@@ -3310,6 +3310,16 @@ class AppLocalizationsSq extends AppLocalizations {
   String get choreTickLabel => 'Detyrë e kryer';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title u krye';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'për $day';
+  }
+
+  @override
   String get choreEnded => 'Përfunduar';
 
   @override

@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "חיית מחמד חדשה ב…",
   "choreLabel": "מטלה",
   "choreTickLabel": "מטלה בוצעה",
+  "choreDoneTitled": "{title} בוצע",
+  "choreDoneFor": "עבור {day}",
   "choreEnded": "הסתיים",
   "choreRemindAt": "תזכורת {time}",
   "@choreRemindAt": {

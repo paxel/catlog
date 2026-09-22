@@ -1,5 +1,6 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../layout.dart';
 import '../help.dart';
@@ -52,6 +53,14 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   bool get _showVoided => store.localSetting(historyShowVoidedKey) == 'yes';
 
+  /// The day a chore tick counts for, from its key; null for any other
+  /// entry.
+  String? _tickDue(Entry e) {
+    if (!e.field.startsWith(Keys.chorePrefix)) return null;
+    final at = e.field.indexOf('@');
+    return at < 0 ? null : e.field.substring(at + 1);
+  }
+
   /// Friendly rendering for a Cat's own membership entry.
   _Row _membershipRow(Entry e) => _Row(
         e,
@@ -80,6 +89,15 @@ class _TimelineScreenState extends State<TimelineScreen> {
           _membershipRow(e)
         else if (e.field == Keys.mergedInto)
           _Row(e, Icons.merge, t.duplicateMergedIn)
+        else if (_tickDue(e) case final due?)
+          // A tick: which chore, and the day it counts for when that is
+          // not the day it was ticked on.
+          _Row(
+              e,
+              Icons.check_circle_outline,
+              due == dayKey(dayOf(e.date.toLocal()))
+                  ? fieldLabel(t, store, e.field)
+                  : '${fieldLabel(t, store, e.field)} · ${t.choreDoneFor(DateFormat.yMEd(_locale).format(DateTime.parse(due)))}')
         else
           _Row(e, Icons.history,
               '${fieldLabel(t, store, e.field)}: ${valueLabel(t, store, e.field, e.value)}'),

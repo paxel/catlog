@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Нов любимец в…",
   "choreLabel": "Задача",
   "choreTickLabel": "Задача изпълнена",
+  "choreDoneTitled": "{title} готово",
+  "choreDoneFor": "за {day}",
   "choreEnded": "Приключена",
   "choreRemindAt": "напомняне {time}",
   "@choreRemindAt": {

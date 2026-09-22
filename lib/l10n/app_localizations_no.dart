@@ -3307,6 +3307,16 @@ class AppLocalizationsNo extends AppLocalizations {
   String get choreTickLabel => 'Oppgave utført';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title gjort';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'for $day';
+  }
+
+  @override
   String get choreEnded => 'Avsluttet';
 
   @override

@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Új kedvenc ide…",
   "choreLabel": "Teendő",
   "choreTickLabel": "Teendő kész",
+  "choreDoneTitled": "{title} kész",
+  "choreDoneFor": "{day} napra",
   "choreEnded": "Befejezve",
   "choreRemindAt": "emlékeztető {time}",
   "@choreRemindAt": {

@@ -3319,6 +3319,16 @@ class AppLocalizationsEl extends AppLocalizations {
   String get choreTickLabel => 'Εργασία έγινε';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title έγινε';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'για $day';
+  }
+
+  @override
   String get choreEnded => 'Ολοκληρώθηκε';
 
   @override

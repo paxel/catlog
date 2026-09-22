@@ -3188,6 +3188,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get choreTickLabel => 'お世話済み';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title 完了';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day 分';
+  }
+
+  @override
   String get choreEnded => '終了';
 
   @override

@@ -3359,6 +3359,16 @@ class AppLocalizationsGa extends AppLocalizations {
   String get choreTickLabel => 'Cúram déanta';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title déanta';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'do $day';
+  }
+
+  @override
   String get choreEnded => 'Críochnaithe';
 
   @override

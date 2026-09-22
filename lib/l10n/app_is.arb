@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Nýtt gæludýr í…",
   "choreLabel": "Verk",
   "choreTickLabel": "Verk lokið",
+  "choreDoneTitled": "{title} lokið",
+  "choreDoneFor": "fyrir {day}",
   "choreEnded": "Lokið",
   "choreRemindAt": "áminning {time}",
   "@choreRemindAt": {

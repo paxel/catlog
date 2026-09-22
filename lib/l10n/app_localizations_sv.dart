@@ -3306,6 +3306,16 @@ class AppLocalizationsSv extends AppLocalizations {
   String get choreTickLabel => 'Syssla gjord';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title gjort';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'för $day';
+  }
+
+  @override
   String get choreEnded => 'Avslutad';
 
   @override

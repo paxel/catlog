@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Animal nou în…",
   "choreLabel": "Sarcină",
   "choreTickLabel": "Sarcină făcută",
+  "choreDoneTitled": "{title} făcut",
+  "choreDoneFor": "pentru {day}",
   "choreEnded": "Încheiată",
   "choreRemindAt": "memento {time}",
   "@choreRemindAt": {

@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "新宠物加入…",
   "choreLabel": "事务",
   "choreTickLabel": "事务已完成",
+  "choreDoneTitled": "{title} 已完成",
+  "choreDoneFor": "{day} 的",
   "choreEnded": "已结束",
   "choreRemindAt": "提醒 {time}",
   "@choreRemindAt": {

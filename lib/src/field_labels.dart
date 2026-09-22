@@ -174,9 +174,17 @@ String fieldLabel(AppLocalizations t, CatalogStore store, String key) {
   }
   if (key.startsWith(Keys.appointmentPrefix)) return t.appointmentLabel;
   if (key.startsWith(Keys.chorePrefix)) {
-    return key.substring(Keys.chorePrefix.length).contains('@')
-        ? t.choreTickLabel
-        : t.choreLabel;
+    final rest = key.substring(Keys.chorePrefix.length);
+    final at = rest.indexOf('@');
+    if (at < 0) return t.choreLabel;
+    // A tick names its chore: "Meds done", not "Chore done". A chore
+    // whose title is gone falls back to the bare words.
+    final id = rest.substring(0, at);
+    final chore = store
+        .allChores(includeEnded: true)
+        .where((c) => c.id == id)
+        .firstOrNull;
+    return chore == null ? t.choreTickLabel : t.choreDoneTitled(chore.title);
   }
   if (key == Keys.personTitle) return t.titleLabel;
   if (key == Keys.deleted) return t.deletedLabel;

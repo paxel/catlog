@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Pet ġdid fi…",
   "choreLabel": "Xogħol",
   "choreTickLabel": "Xogħol magħmul",
+  "choreDoneTitled": "{title} magħmul",
+  "choreDoneFor": "għal {day}",
   "choreEnded": "Intemm",
   "choreRemindAt": "tfakkira {time}",
   "@choreRemindAt": {

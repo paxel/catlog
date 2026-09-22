@@ -3255,6 +3255,16 @@ class AppLocalizationsFa extends AppLocalizations {
   String get choreTickLabel => 'کار انجام شد';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title انجام شد';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'برای $day';
+  }
+
+  @override
   String get choreEnded => 'پایان یافته';
 
   @override

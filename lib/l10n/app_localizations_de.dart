@@ -3318,6 +3318,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get choreTickLabel => 'Aufgabe erledigt';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title erledigt';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'für $day';
+  }
+
+  @override
   String get choreEnded => 'Beendet';
 
   @override

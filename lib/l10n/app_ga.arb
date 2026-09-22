@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "Peata nua i…",
   "choreLabel": "Cúram",
   "choreTickLabel": "Cúram déanta",
+  "choreDoneTitled": "{title} déanta",
+  "choreDoneFor": "do {day}",
   "choreEnded": "Críochnaithe",
   "choreRemindAt": "meabhrúchán {time}",
   "@choreRemindAt": {

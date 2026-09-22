@@ -3321,6 +3321,16 @@ class AppLocalizationsCs extends AppLocalizations {
   String get choreTickLabel => 'Úkol hotov';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title hotovo';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'za $day';
+  }
+
+  @override
   String get choreEnded => 'Ukončeno';
 
   @override

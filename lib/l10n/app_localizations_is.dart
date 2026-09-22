@@ -3311,6 +3311,16 @@ class AppLocalizationsIs extends AppLocalizations {
   String get choreTickLabel => 'Verk lokið';
 
   @override
+  String choreDoneTitled(Object title) {
+    return '$title lokið';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'fyrir $day';
+  }
+
+  @override
   String get choreEnded => 'Lokið';
 
   @override

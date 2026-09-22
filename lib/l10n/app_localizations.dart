@@ -5804,6 +5804,18 @@ abstract class AppLocalizations {
   /// **'Chore done'**
   String get choreTickLabel;
 
+  /// No description provided for @choreDoneTitled.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} done'**
+  String choreDoneTitled(Object title);
+
+  /// No description provided for @choreDoneFor.
+  ///
+  /// In en, this message translates to:
+  /// **'for {day}'**
+  String choreDoneFor(Object day);
+
   /// No description provided for @choreEnded.
   ///
   /// In en, this message translates to:

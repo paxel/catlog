@@ -1122,6 +1122,8 @@
   "newCatInNeutral": "新しいペットを追加…",
   "choreLabel": "お世話",
   "choreTickLabel": "お世話済み",
+  "choreDoneTitled": "{title} 完了",
+  "choreDoneFor": "{day} 分",
   "choreEnded": "終了",
   "choreRemindAt": "リマインダー {time}",
   "@choreRemindAt": {
