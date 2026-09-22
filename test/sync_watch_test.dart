@@ -218,15 +218,18 @@ void main() {
     watcher.onLagging = named.add;
     final dir = catalogFolderName('Farm');
     await folder.ensure(dir);
+    // Written today: a phone that still needs its update, not an
+    // install that is gone.
+    final today = DateTime.now().toUtc().toIso8601String();
     await folder.write(dir, 'old-phone.jsonl', utf8.encode(jsonEncode({
       'device': 'old-phone',
       'dseq': 1,
       'entity': 'cat:old',
       'field': r'$type',
       'value': 'cat',
-      'date': '2026-01-01T00:00:00.000000Z',
+      'date': today,
       'author': 'carla',
-      'recorded': '2026-01-01T00:00:00.000000Z',
+      'recorded': today,
     })));
     await watcher.merge();
     await watcher.merge();

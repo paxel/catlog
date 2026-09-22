@@ -38,6 +38,17 @@ pub struct FolderImport {
 }
 
 /// The vector a writer's file states: the highest number per device in it.
+/// A whole-history file quiet for this long belongs to an install that
+/// is gone, not to a phone waiting for its update.
+const STALE_AFTER_DAYS: i64 = 7;
+
+/// Whether `mine` knows every entry `theirs` announces.
+fn covers(mine: &BTreeMap<String, i64>, theirs: &HashMap<String, i64>) -> bool {
+    theirs
+        .iter()
+        .all(|(device, dseq)| mine.get(device).copied().unwrap_or(0) >= *dseq)
+}
+
 pub(crate) fn writer_vector(entries: &[Entry]) -> HashMap<String, i64> {
     let mut vector: HashMap<String, i64> = HashMap::new();
     for e in entries {
@@ -259,13 +270,16 @@ impl Catalog {
                 if device == me {
                     continue;
                 }
+                // The name alone says the device writes manifests: one
+                // still on its way from the cloud client is no device on
+                // the old layout.
+                with_manifest.insert(device.to_string());
                 let Ok(text) = std::fs::read_to_string(dir.join(name)) else {
                     continue;
                 };
                 let Some(manifest) = Manifest::parse(&text) else {
                     continue; // half-written, or a newer format
                 };
-                with_manifest.insert(device.to_string());
                 let Some(lines) = self.unread_lines(dir, dir_name, device, &manifest) else {
                     continue; // still on its way: next round
                 };
@@ -301,7 +315,24 @@ impl Catalog {
                 };
                 // The writer's knowledge is exactly what its file contains.
                 let vector = writer_vector(&foreign);
+                let newest = foreign
+                    .iter()
+                    .filter_map(|e| chrono::DateTime::parse_from_rfc3339(&e.recorded).ok())
+                    .map(|d| d.with_timezone(&chrono::Utc))
+                    .max();
                 self.apply_foreign(foreign, &vector, &mut result)?;
+                // A file nobody has written to for a week is an install
+                // that is gone — a phone set up fresh leaves its old files
+                // behind — not a phone waiting for its update. What it knew
+                // is here now, so its files go, nobody is named, and the
+                // live devices stop keeping their frozen files for it.
+                let quiet = newest
+                    .is_none_or(|n| self.now_utc() - n >= chrono::Duration::days(STALE_AFTER_DAYS));
+                if quiet && covers(&self.version_vector()?, &vector) {
+                    remove_if_present(&dir.join(name))?;
+                    remove_if_present(&dir.join("keys").join(format!("{device}.json")))?;
+                    result.lagging.retain(|d| d != device);
+                }
             }
         }
         let blob_name = match catalog {
@@ -843,11 +874,27 @@ mod tests {
         .unwrap();
         std::fs::write(sync.join("broken.jsonl"), "not json").unwrap();
         std::fs::write(sync.join(format!("{}.jsonl", c.device_id())), "own file").unwrap();
+        // A manifest still on its way is a device on the new layout,
+        // whatever its old file says.
+        let recent = chrono::Utc::now().to_rfc3339();
+        std::fs::write(
+            sync.join("fresh.jsonl2"),
+            format!(
+                r#"{{"device":"fresh","dseq":1,"entity":"cat:f","field":"$type","value":"cat","date":"{recent}","author":"A","recorded":"{recent}","reminder":false}}"#
+            ),
+        )
+        .unwrap();
+        std::fs::write(sync.join("fresh.manifest"), "{").unwrap();
         let r = c.import_folder(&dir.path().join("share"), None).unwrap();
         assert_eq!(r.entries_in, 1);
         assert_eq!(r.blobs_in, 0);
         assert_eq!(r.blobs_missing, 1);
-        assert_eq!(r.lagging, vec!["broken".to_string(), "w".to_string()]);
+        // w's file is months old and everything in it is here now: an
+        // install that is gone, its file with it. The broken file stays
+        // named; it may be one still being written.
+        assert_eq!(r.lagging, vec!["broken".to_string()]);
+        assert!(!sync.join("w.jsonl").exists());
+        assert_eq!(c.version_vector().unwrap().get("w"), Some(&1));
         // A catalog subfolder without photos of its own falls back to the
         // root's, where partners from before keep theirs; the wrong bytes
         // are left alone there too.

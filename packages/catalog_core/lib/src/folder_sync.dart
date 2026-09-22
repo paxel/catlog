@@ -241,7 +241,7 @@ Future<int> fetchMissingBlobs(CatalogStore store, SyncFolder folder,
 
 /// The same sync through any [SyncFolder].
 Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
-    {bool includePrivate = false, String? catalog}) async {
+    {bool includePrivate = false, String? catalog, DateTime? now}) async {
   // Where this catalog's files go, and where partners' files are looked
   // for: the catalog's own subfolder, plus the root for writers from
   // before subfolders existed.
@@ -283,8 +283,8 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   }
 
   // ---- read every foreign device's files (never write them)
-  final (applied, lagging) =
-      await _readForeign(store, folder, readDirs, report: report);
+  final (applied, lagging) = await _readForeign(store, folder, readDirs,
+      report: report, now: now ?? DateTime.now());
 
   // ---- write own changes: segments and manifest
   final entriesOut = await publishOwn(store, folder,
@@ -496,15 +496,27 @@ Future<List<String>?> unreadLines(
   return fresh;
 }
 
+/// A whole-history file nobody has written to for this long belongs to
+/// an install that is gone — a phone set up fresh leaves its old files
+/// behind — not to a phone waiting for its update.
+const staleAfter = Duration(days: 7);
+
+/// Whether [mine] knows every entry [theirs] announces.
+bool _covers(Map<String, int> mine, Map<String, int> theirs) =>
+    theirs.entries.every((e) => (mine[e.key] ?? 0) >= e.value);
+
 /// Reads every foreign device's files in [readDirs] and applies what is
 /// new. A device with a manifest is read by its segments, from where
 /// this store left off; one without is read by its whole-history file
-/// as before, and named in the returned set as lagging.
+/// as before, and named in the returned set as lagging. A file gone
+/// quiet for [staleAfter] whose entries this store all holds is an
+/// install that is gone: its files are removed, nobody is named.
 Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
   CatalogStore store,
   SyncFolder folder,
   List<String> readDirs, {
   required ImportReport report,
+  required DateTime now,
 }) async {
   final applied = <Entry>[];
   final lagging = <String>{};
@@ -542,9 +554,11 @@ Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
       if (!name.endsWith('.manifest')) continue;
       final device = name.substring(0, name.length - '.manifest'.length);
       if (device == store.deviceId) continue;
+      // The name alone says the device writes manifests: one still on
+      // its way from the cloud client is no device on the old layout.
+      withManifest.add(device);
       final manifest = FolderManifest.parse(await folder.read(dir, name));
       if (manifest == null) continue; // half-written, or a newer format
-      withManifest.add(device);
       final List<String>? lines;
       final List<Entry> foreign;
       try {
@@ -580,12 +594,28 @@ Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
       }
       // The writer's knowledge is exactly what its file contains.
       final writerVector = <String, int>{};
+      DateTime? newest;
       for (final e in foreign) {
         if (e.dseq > (writerVector[e.device] ?? 0)) {
           writerVector[e.device] = e.dseq;
         }
+        if (newest == null || e.recorded.isAfter(newest)) newest = e.recorded;
       }
       apply(foreign, writerVector);
+      final quiet =
+          newest == null || now.difference(newest) >= staleAfter;
+      if (quiet && _covers(store.versionVector(), writerVector)) {
+        // Gone, and everything it knew is here: its files go, and the
+        // live devices stop keeping their frozen files for it.
+        final keyDir = dir.isEmpty ? 'keys' : '$dir/keys';
+        try {
+          await folder.delete(dir, name);
+          await folder.delete(keyDir, '$device.json');
+          lagging.remove(device);
+        } catch (_) {
+          // The cloud client holds the file this round: next round.
+        }
+      }
     }
   }
   return (applied, lagging);

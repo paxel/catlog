@@ -165,7 +165,9 @@ void main() {
       'author': 'carla',
       'recorded': '2026-01-01T00:00:00.000000Z',
     })));
-    final result = await folderSyncIn(a, folder);
+    // Written yesterday: a phone that still needs its update.
+    final now = DateTime.utc(2026, 1, 2);
+    final result = await folderSyncIn(a, folder, now: now);
     expect(result.lagging, {'old-phone'});
     expect(folder.dirs['']!.keys, contains('${a.deviceId}.jsonl2'));
     expect(utf8.decode(folder.dirs['']!['${a.deviceId}.jsonl2']!),
@@ -174,9 +176,45 @@ void main() {
     await folder.write('', manifestName('old-phone'), utf8.encode(jsonEncode(
         FolderManifest(generation: 0, private: false, vector: const {}, segments: const [])
             .toJson())));
-    final later = await folderSyncIn(a, folder);
+    final later = await folderSyncIn(a, folder, now: now);
     expect(later.lagging, isEmpty);
     expect(folder.dirs['']!.keys, isNot(contains('${a.deviceId}.jsonl2')));
+  });
+
+  test('an install gone quiet for a week is forgotten, its files with it',
+      () async {
+    final folder = MemorySyncFolder();
+    a.createCat('Miezi');
+    await folder.ensure('keys');
+    await folder.write('', 'old-install.jsonl2', utf8.encode(jsonEncode({
+      'device': 'old-install',
+      'dseq': 1,
+      'entity': 'clowder:gone',
+      'field': r'$type',
+      'value': 'clowder',
+      'date': '2026-01-01T00:00:00.000000Z',
+      'author': 'carla',
+      'recorded': '2026-01-01T00:00:00.000000Z',
+      'reminder': false,
+    })));
+    await folder.write('keys', 'old-install.json', utf8.encode('[]'));
+    // A week on: what it knew is here, nobody is named, its files go,
+    // and this device keeps no frozen file for it.
+    final result =
+        await folderSyncIn(a, folder, now: DateTime.utc(2026, 1, 9));
+    expect(result.lagging, isEmpty);
+    expect(a.versionVector()['old-install'], 1);
+    expect(folder.dirs['']!.keys, isNot(contains('old-install.jsonl2')));
+    expect(folder.dirs['keys']!.keys, isNot(contains('old-install.json')));
+    expect(folder.dirs['']!.keys, isNot(contains('${a.deviceId}.jsonl2')));
+    // A half-written manifest is a device on the new layout, not an old
+    // one: nobody named, nothing read by its old file.
+    await folder.write('', 'fresh.jsonl2', utf8.encode(''));
+    await folder.write('', manifestName('fresh'), utf8.encode('{'));
+    final again =
+        await folderSyncIn(a, folder, now: DateTime.utc(2026, 1, 9));
+    expect(again.lagging, isEmpty);
+    expect(folder.dirs['']!.keys, contains('fresh.jsonl2'));
   });
 
   test('repeated sync is a no-op', () async {

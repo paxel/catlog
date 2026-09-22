@@ -225,6 +225,11 @@ impl Catalog {
         (self.clock)().to_rfc3339_opts(chrono::SecondsFormat::Micros, true)
     }
 
+    /// The clock's moment, for a comparison rather than a stamp.
+    pub(crate) fn now_utc(&self) -> chrono::DateTime<chrono::Utc> {
+        (self.clock)()
+    }
+
     // ------------------------------------------------------------ settings
 
     pub(crate) fn db(&self) -> &Connection {

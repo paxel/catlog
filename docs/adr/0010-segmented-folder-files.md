@@ -59,7 +59,17 @@ updated device leaves its whole-history file frozen in the folder until
 every other device in the folder has a manifest, then deletes it; until
 then it names the devices still writing the old layout, so the group
 knows who needs the update. Devices without a manifest are still read by
-their whole-history file, as before.
+their whole-history file, as before. A manifest file that exists counts,
+readable or not: one still on its way from the cloud client is no device
+on the old layout.
+
+A whole-history file nobody has written to for a week belongs to an
+install that is gone — a phone set up fresh leaves its old files behind
+— not to a phone waiting for its update. Once a reader holds everything
+such a file announces, the reader deletes the file and the device's key
+file, names nobody, and the frozen files of the live devices go on the
+next round. A device that does come back on the old layout writes its
+whole file again and is named again.
 
 The Dart core and the desktop core implement the same layout, names,
 manifest fields and generation rule, and both sort directory listings
