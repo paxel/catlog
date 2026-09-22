@@ -288,4 +288,20 @@ void main() {
     await tester.pumpAndSettle();
     expect(store.current(home, Keys.name), 'Barn');
   });
+
+  testWidgets('the move is one dialog: a tap on the home moves as of today',
+      (tester) async {
+    final home = store.createClowder('Barn');
+    await pump(tester);
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Stray — no clowder'));
+    await tester.pumpAndSettle();
+    expect(find.text('Move to'), findsOneWidget);
+    expect(find.text('As of today'), findsOneWidget);
+    await tester.tap(find.text('Barn'));
+    await tester.pumpAndSettle();
+    expect(find.text('Move to'), findsNothing);
+    expect(store.current(cat, Keys.clowder), home);
+  });
 }

@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../move_to_catalog.dart';
@@ -10,6 +11,7 @@ import '../layout.dart';
 import '../help.dart';
 import '../celebration.dart';
 import '../field_editing.dart';
+import '../widgets/date_entry.dart';
 import '../registry_lookup.dart';
 import '../flier_capture.dart';
 import '../image_import.dart';
@@ -19,7 +21,6 @@ import '../plausibility.dart';
 import '../share_publicly.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
-import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
@@ -75,7 +76,6 @@ class CatDetailScreen extends StatefulWidget {
 }
 
 // Sentinel for "no clowder" in the move dialog, where null means canceled.
-const _strayMarker = '\$stray';
 
 class _CatDetailScreenState extends State<CatDetailScreen> {
   CatalogStore get store => widget.store;
@@ -124,52 +124,23 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (mounted) setState(() => _adding = null);
   }
 
+  /// One dialog: the homes and "stray", a tap moves at once; the date
+  /// row at the foot is for the rare historic move, today otherwise.
   Future<void> _move() async {
     final currentClowder = store.current(id, Keys.clowder);
-    final clowders = store.clowders();
-    final target = await showDialog<String?>(
+    final picked = await showDialog<(String?, DateTime)>(
       context: context,
-      builder: (context) => SimpleDialog(
-        title: Text(context.t.moveTo),
-        children: [
-          for (final c in clowders)
-            SimpleDialogOption(
-              onPressed: () => Navigator.of(context).pop(c.id),
-              child: Row(
-                children: [
-                  if (c.id == currentClowder)
-                    const Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Icon(Icons.check, size: 18),
-                    ),
-                  Expanded(child: Text(c.name)),
-                ],
-              ),
-            ),
-          SimpleDialogOption(
-            onPressed: () => Navigator.of(context).pop(_strayMarker),
-            child: Row(
-              children: [
-                const Icon(Icons.explore, size: 18),
-                const SizedBox(width: 8),
-                Expanded(child: Text(context.t.noClowderStrayOption)),
-              ],
-            ),
-          ),
-        ],
+      builder: (context) => _MoveDialog(
+        clowders: store.clowders(),
+        current: currentClowder,
       ),
     );
-    if (target == null) return; // dialog dismissed
-    final destination = target == _strayMarker ? null : target;
+    if (picked == null || !mounted) return; // dialog dismissed
+    final (destination, asOf) = picked;
     if (destination == currentClowder) return;
-    if (!mounted) return;
-    // Historic moves happen: the date is askable, defaulting to today.
-    final asOf = await askAsOfDate(context, context.t.moveTo);
-    if (asOf == null) return;
     store.moveCat(id, destination, date: asOf);
-    if (!mounted) return;
     setState(() {});
-    if (mounted) maybeCelebrateAdoption(context, store, destination);
+    maybeCelebrateAdoption(context, store, destination);
   }
 
   Future<void> _editField(FieldDef def) async {
@@ -952,4 +923,79 @@ Future<String?> _askForText(
       ],
     ),
   );
+}
+
+/// The move dialog: a home or "stray" per row, the current one ticked,
+/// and the day it happened at the foot. Pops the target and the day.
+class _MoveDialog extends StatefulWidget {
+  final List<EntityView> clowders;
+  final String? current;
+  const _MoveDialog({required this.clowders, required this.current});
+
+  @override
+  State<_MoveDialog> createState() => _MoveDialogState();
+}
+
+class _MoveDialogState extends State<_MoveDialog> {
+  DateTime _asOf = DateTime.now();
+
+  Future<void> _pickDay() async {
+    final picked = await pickDay(
+      context,
+      initial: _asOf,
+      lastDate: DateTime.now().add(const Duration(days: 1)),
+    );
+    if (!mounted || picked == null) return;
+    setState(() => _asOf = picked);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final sameDay = DateUtils.isSameDay(_asOf, DateTime.now());
+    return SimpleDialog(
+      title: Text(t.moveTo),
+      children: [
+        for (final c in widget.clowders)
+          SimpleDialogOption(
+            onPressed: () => Navigator.of(context).pop((c.id, _asOf)),
+            child: Row(
+              children: [
+                if (c.id == widget.current)
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8),
+                    child: Icon(Icons.check, size: 18),
+                  ),
+                Expanded(child: Text(c.name)),
+              ],
+            ),
+          ),
+        SimpleDialogOption(
+          onPressed: () => Navigator.of(context).pop((null, _asOf)),
+          child: Row(
+            children: [
+              const Icon(Icons.explore, size: 18),
+              const SizedBox(width: 8),
+              Expanded(child: Text(t.noClowderStrayOption)),
+            ],
+          ),
+        ),
+        const Divider(),
+        ListTile(
+          leading: const Icon(Icons.event),
+          title: Text(
+            sameDay
+                ? t.asOfToday
+                : t.asOfDate(
+                    DateFormat.yMd(
+                      Localizations.localeOf(context).toString(),
+                    ).format(_asOf),
+                  ),
+          ),
+          trailing: const Icon(Icons.edit_calendar_outlined),
+          onTap: _pickDay,
+        ),
+      ],
+    );
+  }
 }
