@@ -4580,6 +4580,96 @@ abstract class AppLocalizations {
   /// **'days'**
   String get unitDays;
 
+  /// No description provided for @yesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get yesterday;
+
+  /// No description provided for @weekdayMon.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get weekdayMon;
+
+  /// No description provided for @weekdayTue.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get weekdayTue;
+
+  /// No description provided for @weekdayWed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get weekdayWed;
+
+  /// No description provided for @weekdayThu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get weekdayThu;
+
+  /// No description provided for @weekdayFri.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get weekdayFri;
+
+  /// No description provided for @weekdaySat.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get weekdaySat;
+
+  /// No description provided for @weekdaySun.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get weekdaySun;
+
+  /// No description provided for @weekdayFullMon.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get weekdayFullMon;
+
+  /// No description provided for @weekdayFullTue.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get weekdayFullTue;
+
+  /// No description provided for @weekdayFullWed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get weekdayFullWed;
+
+  /// No description provided for @weekdayFullThu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get weekdayFullThu;
+
+  /// No description provided for @weekdayFullFri.
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get weekdayFullFri;
+
+  /// No description provided for @weekdayFullSat.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get weekdayFullSat;
+
+  /// No description provided for @weekdayFullSun.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get weekdayFullSun;
+
   /// No description provided for @unitWeeks.
   ///
   /// In en, this message translates to:

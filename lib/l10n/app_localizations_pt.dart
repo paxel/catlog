@@ -2555,6 +2555,51 @@ class AppLocalizationsPt extends AppLocalizations {
   String get unitDays => 'dias';
 
   @override
+  String get yesterday => 'Ontem';
+
+  @override
+  String get weekdayMon => 'seg';
+
+  @override
+  String get weekdayTue => 'ter';
+
+  @override
+  String get weekdayWed => 'qua';
+
+  @override
+  String get weekdayThu => 'qui';
+
+  @override
+  String get weekdayFri => 'sex';
+
+  @override
+  String get weekdaySat => 'sáb';
+
+  @override
+  String get weekdaySun => 'dom';
+
+  @override
+  String get weekdayFullMon => 'segunda-feira';
+
+  @override
+  String get weekdayFullTue => 'terça-feira';
+
+  @override
+  String get weekdayFullWed => 'quarta-feira';
+
+  @override
+  String get weekdayFullThu => 'quinta-feira';
+
+  @override
+  String get weekdayFullFri => 'sexta-feira';
+
+  @override
+  String get weekdayFullSat => 'sábado';
+
+  @override
+  String get weekdayFullSun => 'domingo';
+
+  @override
   String get unitWeeks => 'semanas';
 
   @override

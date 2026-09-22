@@ -2554,6 +2554,51 @@ class AppLocalizationsHu extends AppLocalizations {
   String get unitDays => 'nap';
 
   @override
+  String get yesterday => 'Tegnap';
+
+  @override
+  String get weekdayMon => 'H';
+
+  @override
+  String get weekdayTue => 'K';
+
+  @override
+  String get weekdayWed => 'Sze';
+
+  @override
+  String get weekdayThu => 'Cs';
+
+  @override
+  String get weekdayFri => 'P';
+
+  @override
+  String get weekdaySat => 'Szo';
+
+  @override
+  String get weekdaySun => 'V';
+
+  @override
+  String get weekdayFullMon => 'hétfő';
+
+  @override
+  String get weekdayFullTue => 'kedd';
+
+  @override
+  String get weekdayFullWed => 'szerda';
+
+  @override
+  String get weekdayFullThu => 'csütörtök';
+
+  @override
+  String get weekdayFullFri => 'péntek';
+
+  @override
+  String get weekdayFullSat => 'szombat';
+
+  @override
+  String get weekdayFullSun => 'vasárnap';
+
+  @override
   String get unitWeeks => 'hét';
 
   @override

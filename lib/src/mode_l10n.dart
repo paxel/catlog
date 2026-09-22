@@ -3037,6 +3037,48 @@ class ModeLocalizations implements AppLocalizations {
   String get viewAsTiles => base.viewAsTiles;
 
   @override
+  String get weekdayFri => base.weekdayFri;
+
+  @override
+  String get weekdayFullFri => base.weekdayFullFri;
+
+  @override
+  String get weekdayFullMon => base.weekdayFullMon;
+
+  @override
+  String get weekdayFullSat => base.weekdayFullSat;
+
+  @override
+  String get weekdayFullSun => base.weekdayFullSun;
+
+  @override
+  String get weekdayFullThu => base.weekdayFullThu;
+
+  @override
+  String get weekdayFullTue => base.weekdayFullTue;
+
+  @override
+  String get weekdayFullWed => base.weekdayFullWed;
+
+  @override
+  String get weekdayMon => base.weekdayMon;
+
+  @override
+  String get weekdaySat => base.weekdaySat;
+
+  @override
+  String get weekdaySun => base.weekdaySun;
+
+  @override
+  String get weekdayThu => base.weekdayThu;
+
+  @override
+  String get weekdayTue => base.weekdayTue;
+
+  @override
+  String get weekdayWed => base.weekdayWed;
+
+  @override
   String get welcomeBody => base.welcomeBody;
 
   @override
@@ -3050,6 +3092,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get writeTheDeveloper => base.writeTheDeveloper;
+
+  @override
+  String get yesterday => base.yesterday;
 
   @override
   String get yourKey => base.yourKey;

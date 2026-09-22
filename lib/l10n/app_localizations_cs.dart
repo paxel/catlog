@@ -2560,6 +2560,51 @@ class AppLocalizationsCs extends AppLocalizations {
   String get unitDays => 'dní';
 
   @override
+  String get yesterday => 'Včera';
+
+  @override
+  String get weekdayMon => 'po';
+
+  @override
+  String get weekdayTue => 'út';
+
+  @override
+  String get weekdayWed => 'st';
+
+  @override
+  String get weekdayThu => 'čt';
+
+  @override
+  String get weekdayFri => 'pá';
+
+  @override
+  String get weekdaySat => 'so';
+
+  @override
+  String get weekdaySun => 'ne';
+
+  @override
+  String get weekdayFullMon => 'pondělí';
+
+  @override
+  String get weekdayFullTue => 'úterý';
+
+  @override
+  String get weekdayFullWed => 'středa';
+
+  @override
+  String get weekdayFullThu => 'čtvrtek';
+
+  @override
+  String get weekdayFullFri => 'pátek';
+
+  @override
+  String get weekdayFullSat => 'sobota';
+
+  @override
+  String get weekdayFullSun => 'neděle';
+
+  @override
   String get unitWeeks => 'týdnů';
 
   @override

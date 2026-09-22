@@ -2566,6 +2566,51 @@ class AppLocalizationsLt extends AppLocalizations {
   String get unitDays => 'dienų';
 
   @override
+  String get yesterday => 'Vakar';
+
+  @override
+  String get weekdayMon => 'Pr';
+
+  @override
+  String get weekdayTue => 'An';
+
+  @override
+  String get weekdayWed => 'Tr';
+
+  @override
+  String get weekdayThu => 'Kt';
+
+  @override
+  String get weekdayFri => 'Pn';
+
+  @override
+  String get weekdaySat => 'Št';
+
+  @override
+  String get weekdaySun => 'Sk';
+
+  @override
+  String get weekdayFullMon => 'pirmadienis';
+
+  @override
+  String get weekdayFullTue => 'antradienis';
+
+  @override
+  String get weekdayFullWed => 'trečiadienis';
+
+  @override
+  String get weekdayFullThu => 'ketvirtadienis';
+
+  @override
+  String get weekdayFullFri => 'penktadienis';
+
+  @override
+  String get weekdayFullSat => 'šeštadienis';
+
+  @override
+  String get weekdayFullSun => 'sekmadienis';
+
+  @override
   String get unitWeeks => 'savaičių';
 
   @override

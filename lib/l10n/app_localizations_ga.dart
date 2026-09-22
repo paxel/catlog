@@ -2581,6 +2581,51 @@ class AppLocalizationsGa extends AppLocalizations {
   String get unitDays => 'lá';
 
   @override
+  String get yesterday => 'Inné';
+
+  @override
+  String get weekdayMon => 'Luan';
+
+  @override
+  String get weekdayTue => 'Máirt';
+
+  @override
+  String get weekdayWed => 'Céad';
+
+  @override
+  String get weekdayThu => 'Déar';
+
+  @override
+  String get weekdayFri => 'Aoine';
+
+  @override
+  String get weekdaySat => 'Sath';
+
+  @override
+  String get weekdaySun => 'Domh';
+
+  @override
+  String get weekdayFullMon => 'Dé Luain';
+
+  @override
+  String get weekdayFullTue => 'Dé Máirt';
+
+  @override
+  String get weekdayFullWed => 'Dé Céadaoin';
+
+  @override
+  String get weekdayFullThu => 'Déardaoin';
+
+  @override
+  String get weekdayFullFri => 'Dé hAoine';
+
+  @override
+  String get weekdayFullSat => 'Dé Sathairn';
+
+  @override
+  String get weekdayFullSun => 'Dé Domhnaigh';
+
+  @override
   String get unitWeeks => 'seachtaine';
 
   @override

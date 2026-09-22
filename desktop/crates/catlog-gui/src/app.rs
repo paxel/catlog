@@ -910,7 +910,14 @@ impl App {
                 }
                 View::Agenda => {
                     let today = self.pages.today;
-                    match show_agenda(ui, &self.store, &t, &mut self.agenda_memo, today) {
+                    match show_agenda(
+                        ui,
+                        &self.store,
+                        &t,
+                        &mut self.faces,
+                        &mut self.agenda_memo,
+                        today,
+                    ) {
                         AgendaAction::None => {}
                         AgendaAction::Chore(a) => page_action = PageAction::Chore(a),
                         AgendaAction::Appointment(a) => page_action = PageAction::Appointment(a),

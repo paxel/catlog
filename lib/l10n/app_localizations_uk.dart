@@ -2566,6 +2566,51 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unitDays => 'днів';
 
   @override
+  String get yesterday => 'Вчора';
+
+  @override
+  String get weekdayMon => 'пн';
+
+  @override
+  String get weekdayTue => 'вт';
+
+  @override
+  String get weekdayWed => 'ср';
+
+  @override
+  String get weekdayThu => 'чт';
+
+  @override
+  String get weekdayFri => 'пт';
+
+  @override
+  String get weekdaySat => 'сб';
+
+  @override
+  String get weekdaySun => 'нд';
+
+  @override
+  String get weekdayFullMon => 'понеділок';
+
+  @override
+  String get weekdayFullTue => 'вівторок';
+
+  @override
+  String get weekdayFullWed => 'середа';
+
+  @override
+  String get weekdayFullThu => 'четвер';
+
+  @override
+  String get weekdayFullFri => 'п\'ятниця';
+
+  @override
+  String get weekdayFullSat => 'субота';
+
+  @override
+  String get weekdayFullSun => 'неділя';
+
+  @override
   String get unitWeeks => 'тижнів';
 
   @override

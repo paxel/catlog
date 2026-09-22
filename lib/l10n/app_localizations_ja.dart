@@ -2486,6 +2486,51 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unitDays => '日後';
 
   @override
+  String get yesterday => '昨日';
+
+  @override
+  String get weekdayMon => '月';
+
+  @override
+  String get weekdayTue => '火';
+
+  @override
+  String get weekdayWed => '水';
+
+  @override
+  String get weekdayThu => '木';
+
+  @override
+  String get weekdayFri => '金';
+
+  @override
+  String get weekdaySat => '土';
+
+  @override
+  String get weekdaySun => '日';
+
+  @override
+  String get weekdayFullMon => '月曜日';
+
+  @override
+  String get weekdayFullTue => '火曜日';
+
+  @override
+  String get weekdayFullWed => '水曜日';
+
+  @override
+  String get weekdayFullThu => '木曜日';
+
+  @override
+  String get weekdayFullFri => '金曜日';
+
+  @override
+  String get weekdayFullSat => '土曜日';
+
+  @override
+  String get weekdayFullSun => '日曜日';
+
+  @override
   String get unitWeeks => '週間後';
 
   @override

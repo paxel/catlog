@@ -2555,6 +2555,51 @@ class AppLocalizationsFi extends AppLocalizations {
   String get unitDays => 'päivän päästä';
 
   @override
+  String get yesterday => 'Eilen';
+
+  @override
+  String get weekdayMon => 'ma';
+
+  @override
+  String get weekdayTue => 'ti';
+
+  @override
+  String get weekdayWed => 'ke';
+
+  @override
+  String get weekdayThu => 'to';
+
+  @override
+  String get weekdayFri => 'pe';
+
+  @override
+  String get weekdaySat => 'la';
+
+  @override
+  String get weekdaySun => 'su';
+
+  @override
+  String get weekdayFullMon => 'maanantai';
+
+  @override
+  String get weekdayFullTue => 'tiistai';
+
+  @override
+  String get weekdayFullWed => 'keskiviikko';
+
+  @override
+  String get weekdayFullThu => 'torstai';
+
+  @override
+  String get weekdayFullFri => 'perjantai';
+
+  @override
+  String get weekdayFullSat => 'lauantai';
+
+  @override
+  String get weekdayFullSun => 'sunnuntai';
+
+  @override
   String get unitWeeks => 'viikon päästä';
 
   @override

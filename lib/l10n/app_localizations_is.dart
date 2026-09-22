@@ -2556,6 +2556,51 @@ class AppLocalizationsIs extends AppLocalizations {
   String get unitDays => 'daga';
 
   @override
+  String get yesterday => 'Í gær';
+
+  @override
+  String get weekdayMon => 'mán';
+
+  @override
+  String get weekdayTue => 'þri';
+
+  @override
+  String get weekdayWed => 'mið';
+
+  @override
+  String get weekdayThu => 'fim';
+
+  @override
+  String get weekdayFri => 'fös';
+
+  @override
+  String get weekdaySat => 'lau';
+
+  @override
+  String get weekdaySun => 'sun';
+
+  @override
+  String get weekdayFullMon => 'mánudagur';
+
+  @override
+  String get weekdayFullTue => 'þriðjudagur';
+
+  @override
+  String get weekdayFullWed => 'miðvikudagur';
+
+  @override
+  String get weekdayFullThu => 'fimmtudagur';
+
+  @override
+  String get weekdayFullFri => 'föstudagur';
+
+  @override
+  String get weekdayFullSat => 'laugardagur';
+
+  @override
+  String get weekdayFullSun => 'sunnudagur';
+
+  @override
   String get unitWeeks => 'vikur';
 
   @override

@@ -14,6 +14,8 @@ use crate::chores::{ChoreAction, chore_row};
 use crate::l10n::L10n;
 use crate::labels::{clock, field_label, format_day};
 use crate::memo::Memo;
+use crate::sections::{PlanRow, plan_row, section_card, section_card_tipped};
+use crate::textures::FaceCache;
 
 /// What the keeper did on the Agenda page this frame.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -55,37 +57,25 @@ pub fn appointment_words(t: &L10n, group: &[Appointment]) -> String {
     }
 }
 
-/// One appointment or run as a card with its buttons and menu.
+/// One appointment or run as a two-line row: when and what, then whose
+/// with the face and the notes; Finish on the right, edit and delete
+/// behind a right-click.
 pub fn appointment_card(
     ui: &mut Ui,
     store: &Catalog,
     t: &L10n,
+    faces: &mut FaceCache,
     group: &[Appointment],
     with_names: bool,
 ) -> Option<AppointmentAction> {
     let mut action = None;
     let a = &group[0];
-    ui.horizontal(|ui| {
-        let label = ui.label(appointment_words(t, group));
-        label.context_menu(|ui| {
-            if ui.button(t.edit_label_appointment()).clicked() {
-                action = Some(AppointmentAction::Edit(a.clone()));
-                ui.close();
-            }
-            let delete = if group.len() > 1 {
-                t.delete_appointment_group(group.len() as i64)
-            } else {
-                t.delete_appointment().to_string()
-            };
-            if ui.button(delete).clicked() {
-                action = Some(AppointmentAction::Delete(a.clone(), group.len() > 1));
-                ui.close();
-            }
-        });
-        if ui.button(t.finish_label()).clicked() {
-            action = Some(AppointmentAction::Finish(a.clone()));
-        }
-    });
+    let face = store
+        .profile_image(&a.entity)
+        .ok()
+        .flatten()
+        .and_then(|hash| faces.face(ui.ctx(), store, &hash));
+    let mut line2 = Vec::new();
     if with_names {
         let names: Vec<String> = group
             .iter()
@@ -97,12 +87,90 @@ pub fn appointment_card(
                     .unwrap_or_else(|| t.unnamed().to_string())
             })
             .collect();
-        ui.label(egui::RichText::new(names.join(", ")).weak());
+        line2.push(names.join(", "));
     }
     if !a.notes.is_empty() {
-        ui.label(egui::RichText::new(&a.notes).weak());
+        line2.push(a.notes.clone());
+    }
+    let line1 = appointment_words(t, group);
+    let mut finish = false;
+    let label = plan_row(
+        ui,
+        PlanRow {
+            face,
+            line1: &line1,
+            line2: line2.join(" · "),
+        },
+        |_ui| {},
+        |ui| {
+            if ui.button(t.finish_label()).clicked() {
+                finish = true;
+            }
+        },
+    );
+    label.context_menu(|ui| {
+        if ui.button(t.edit_label_appointment()).clicked() {
+            action = Some(AppointmentAction::Edit(a.clone()));
+            ui.close();
+        }
+        let delete = if group.len() > 1 {
+            t.delete_appointment_group(group.len() as i64)
+        } else {
+            t.delete_appointment().to_string()
+        };
+        if ui.button(delete).clicked() {
+            action = Some(AppointmentAction::Delete(a.clone(), group.len() > 1));
+            ui.close();
+        }
+    });
+    if finish {
+        action = Some(AppointmentAction::Finish(a.clone()));
     }
     action
+}
+
+/// One reminder as a two-line row: the day and the value, then whose
+/// with the face; Open on the right.
+fn reminder_row(
+    ui: &mut Ui,
+    store: &Catalog,
+    t: &L10n,
+    faces: &mut FaceCache,
+    r: &catlog_core::entities::ActiveReminder,
+    when: NaiveDate,
+) -> bool {
+    let name = store
+        .current(&r.entity, keys::NAME)
+        .ok()
+        .flatten()
+        .unwrap_or_else(|| t.unnamed().to_string());
+    let face = store
+        .profile_image(&r.entity)
+        .ok()
+        .flatten()
+        .and_then(|hash| faces.face(ui.ctx(), store, &hash));
+    let line1 = format!(
+        "{} · {}: {}",
+        format_day(t.locale(), when),
+        field_label(t, store, &r.field),
+        r.value
+    );
+    let mut open = false;
+    plan_row(
+        ui,
+        PlanRow {
+            face,
+            line1: &line1,
+            line2: name.clone(),
+        },
+        |_ui| {},
+        |ui| {
+            if ui.link(t.open()).clicked() {
+                open = true;
+            }
+        },
+    );
+    open
 }
 
 /// What the page shows, as built for one write of the store.
@@ -116,11 +184,12 @@ pub struct AgendaData {
 /// The page's data between frames.
 pub type AgendaMemo = Memo<NaiveDate, AgendaData>;
 
-/// The page.
+/// The page: the sections as cards, the plans as two-line rows.
 pub fn show_agenda(
     ui: &mut Ui,
     store: &Catalog,
     t: &L10n,
+    faces: &mut FaceCache,
     memo: &mut AgendaMemo,
     today: NaiveDate,
 ) -> AgendaAction {
@@ -147,72 +216,63 @@ pub fn show_agenda(
         let chores = &data.chores;
         if !chores.today.is_empty() {
             ui.add_space(8.0);
-            let today_heading = ui.strong(if data.all_done_today {
+            let heading = if data.all_done_today {
                 t.all_done_today()
             } else {
                 t.today_section()
-            });
-            crate::tips::anchor(ui, "agenda-today", &today_heading);
-            for c in &chores.today {
-                let a = chore_row(ui, store, t, c, today);
-                if a != ChoreAction::None {
-                    action = AgendaAction::Chore(a);
+            };
+            section_card_tipped(ui, heading, Some("agenda-today"), |ui| {
+                for c in &chores.today {
+                    let a = chore_row(ui, store, t, faces, c, today);
+                    if a != ChoreAction::None {
+                        action = AgendaAction::Chore(a);
+                    }
                 }
-            }
+            });
         }
         if !chores.upcoming.is_empty() {
             ui.add_space(8.0);
-            ui.strong(t.upcoming_section());
-            for (c, _day) in &chores.upcoming {
-                let a = chore_row(ui, store, t, c, today);
-                if a != ChoreAction::None {
-                    action = AgendaAction::Chore(a);
+            section_card(ui, t.upcoming_section(), |ui| {
+                for (c, _day) in &chores.upcoming {
+                    let a = chore_row(ui, store, t, faces, c, today);
+                    if a != ChoreAction::None {
+                        action = AgendaAction::Chore(a);
+                    }
                 }
-            }
+            });
         }
         if !chores.paused.is_empty() {
             ui.add_space(8.0);
-            ui.strong(t.chore_paused());
-            for c in &chores.paused {
-                let a = chore_row(ui, store, t, c, today);
-                if a != ChoreAction::None {
-                    action = AgendaAction::Chore(a);
+            section_card(ui, t.chore_paused(), |ui| {
+                for c in &chores.paused {
+                    let a = chore_row(ui, store, t, faces, c, today);
+                    if a != ChoreAction::None {
+                        action = AgendaAction::Chore(a);
+                    }
                 }
-            }
+            });
         }
         ui.add_space(8.0);
-        ui.strong(t.planned_section());
         let items = &data.items;
-        if items.is_empty() && chores.today.is_empty() && chores.upcoming.is_empty() {
-            ui.label(t.agenda_empty());
-        }
-        for item in items {
-            match item {
-                AgendaItem::Reminder(r) => {
-                    let name = store
-                        .current(&r.entity, keys::NAME)
-                        .ok()
-                        .flatten()
-                        .unwrap_or_else(|| t.unnamed().to_string());
-                    ui.horizontal(|ui| {
-                        ui.label(format!(
-                            "{} · {}: {}",
-                            format_day(t.locale(), item.when().date()),
-                            field_label(t, store, &r.field),
-                            r.value
-                        ));
-                        if ui.link(&name).clicked() {
+        section_card(ui, t.planned_section(), |ui| {
+            if items.is_empty() && chores.today.is_empty() && chores.upcoming.is_empty() {
+                ui.label(t.agenda_empty());
+            }
+            for item in items {
+                match item {
+                    AgendaItem::Reminder(r) => {
+                        if reminder_row(ui, store, t, faces, r, item.when().date()) {
                             action = AgendaAction::OpenEntity(r.entity.clone());
                         }
-                    });
-                }
-                AgendaItem::Appointments(group) => {
-                    if let Some(a) = appointment_card(ui, store, t, group, true) {
-                        action = AgendaAction::Appointment(a);
+                    }
+                    AgendaItem::Appointments(group) => {
+                        if let Some(a) = appointment_card(ui, store, t, faces, group, true) {
+                            action = AgendaAction::Appointment(a);
+                        }
                     }
                 }
             }
-        }
+        });
     });
     action
 }

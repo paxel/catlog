@@ -2557,6 +2557,51 @@ class AppLocalizationsMk extends AppLocalizations {
   String get unitDays => 'дена';
 
   @override
+  String get yesterday => 'Вчера';
+
+  @override
+  String get weekdayMon => 'пон';
+
+  @override
+  String get weekdayTue => 'вто';
+
+  @override
+  String get weekdayWed => 'сре';
+
+  @override
+  String get weekdayThu => 'чет';
+
+  @override
+  String get weekdayFri => 'пет';
+
+  @override
+  String get weekdaySat => 'саб';
+
+  @override
+  String get weekdaySun => 'нед';
+
+  @override
+  String get weekdayFullMon => 'понеделник';
+
+  @override
+  String get weekdayFullTue => 'вторник';
+
+  @override
+  String get weekdayFullWed => 'среда';
+
+  @override
+  String get weekdayFullThu => 'четврток';
+
+  @override
+  String get weekdayFullFri => 'петок';
+
+  @override
+  String get weekdayFullSat => 'сабота';
+
+  @override
+  String get weekdayFullSun => 'недела';
+
+  @override
   String get unitWeeks => 'недели';
 
   @override

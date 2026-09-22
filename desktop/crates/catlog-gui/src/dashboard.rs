@@ -6,15 +6,16 @@ use catlog_core::agenda::{AgendaItem, ChoresAgenda};
 use catlog_core::flier::target::MISSING_SINCE;
 use catlog_core::units::UnitSystem;
 use catlog_core::{Catalog, keys};
-use chrono::NaiveDate;
+use chrono::{Datelike, NaiveDate, NaiveDateTime};
 use egui::{Ui, Vec2};
 
 use crate::agenda::{AppointmentAction, appointment_card};
 use crate::chores::{ChoreAction, chore_row};
 use crate::icons;
 use crate::l10n::L10n;
-use crate::labels::{field_label, format_day, value_label};
+use crate::labels::{field_label, format_day, value_label, weekday_full};
 use crate::memo::Memo;
+use crate::sections::section_card;
 use crate::textures::FaceCache;
 use crate::theme::PALETTE;
 
@@ -62,12 +63,18 @@ pub fn counts(store: &Catalog) -> Counts {
     }
 }
 
-/// One line of the recent changes: when, who changed, what to.
+/// One line of the recent changes: when, who changed, what to, and the
+/// face of whom.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Change {
     pub entity: String,
     pub name: String,
+    /// The field and its new value.
     pub line: String,
+    /// The moment it was recorded, in local time.
+    pub at: NaiveDateTime,
+    /// The profile picture of the cat, the cover of the clowder.
+    pub face: Option<String>,
 }
 
 /// The last changes to Cats and Clowders, newest first.
@@ -86,24 +93,75 @@ pub fn recent_changes(store: &Catalog, t: &L10n, units: UnitSystem) -> Vec<Chang
         let Some(name) = store.current(&e.entity, keys::NAME).ok().flatten() else {
             continue;
         };
-        let day = e
-            .recorded
-            .get(..10)
-            .and_then(|d| d.parse::<NaiveDate>().ok())
-            .map(|d| format_day(t.locale(), d))
+        let at = chrono::DateTime::parse_from_rfc3339(&e.recorded)
+            .map(|d| d.with_timezone(&chrono::Local).naive_local())
             .unwrap_or_default();
         let line = format!(
-            "{day} · {}: {}",
+            "{}: {}",
             field_label(t, store, &e.field),
             value_label(t, store, &e.field, e.value.as_deref(), units)
         );
         out.push(Change {
+            face: store.profile_image(&e.entity).ok().flatten(),
             entity: e.entity,
             name,
             line,
+            at,
         });
     }
     out
+}
+
+/// The heading a day's changes stand under: today and yesterday by
+/// their words, any other day by its weekday and date.
+pub fn day_heading(t: &L10n, today: NaiveDate, day: NaiveDate) -> String {
+    if day == today {
+        t.today_section().to_string()
+    } else if day.succ_opt() == Some(today) {
+        t.yesterday().to_string()
+    } else {
+        format!(
+            "{}, {}",
+            weekday_full(t, day.weekday().number_from_monday()),
+            format_day(t.locale(), day)
+        )
+    }
+}
+
+/// A Cat or Clowder as the "Last viewed" tile shows it: the face or the
+/// cover, the name, and where it belongs or what it holds.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Mini {
+    pub id: String,
+    pub name: String,
+    pub below: String,
+    pub face: Option<String>,
+}
+
+fn mini(store: &Catalog, t: &L10n, id: &str) -> Mini {
+    let name = store
+        .current(id, keys::NAME)
+        .ok()
+        .flatten()
+        .unwrap_or_else(|| t.unnamed().to_string());
+    let below = if id.starts_with("cat:") {
+        store
+            .current(id, keys::CLOWDER)
+            .ok()
+            .flatten()
+            .and_then(|c| store.current(&c, keys::NAME).ok().flatten())
+            .unwrap_or_else(|| t.strays().to_string())
+    } else {
+        let count = store.cats(Some(id)).map(|c| c.len()).unwrap_or(0);
+        t.cats_count(count as i64)
+    };
+    Mini {
+        id: id.to_string(),
+        name,
+        below,
+        // A clowder's cover is its profile image, as on the phone.
+        face: store.profile_image(id).ok().flatten(),
+    }
 }
 
 /// Remembers `id` as the last viewed Cat or Clowder.
@@ -135,12 +193,14 @@ pub struct DashboardData {
     pub chores: ChoresAgenda,
     pub items: Vec<AgendaItem>,
     pub changes: Vec<Change>,
+    pub last_viewed: Vec<Mini>,
 }
 
 /// The dashboard's data between frames.
 pub type DashboardMemo = Memo<(NaiveDate, UnitSystem, String), DashboardData>;
 
-/// Draws the dashboard and says what the keeper did.
+/// Draws the dashboard and says what the keeper did: the counts as
+/// tiles, then the sections as cards.
 pub fn show_dashboard(
     ui: &mut Ui,
     store: &Catalog,
@@ -153,11 +213,17 @@ pub fn show_dashboard(
     let mut action = DashboardAction::None;
     let pet_mode = store.is_pet_mode().unwrap_or(false);
     let data = memo.get(store, (today, units, t.locale().to_string()), || {
+        let (cat, clowder) = last_viewed(store);
         DashboardData {
             counts: counts(store),
             chores: store.chores_agenda(today).unwrap_or_default(),
             items: store.agenda_items().unwrap_or_default(),
             changes: recent_changes(store, t, units),
+            last_viewed: [cat, clowder]
+                .into_iter()
+                .flatten()
+                .map(|id| mini(store, t, &id))
+                .collect(),
         }
     });
     egui::ScrollArea::vertical().show(ui, |ui| {
@@ -198,72 +264,104 @@ pub fn show_dashboard(
         ui.add_space(12.0);
         ui.columns(2, |cols| {
             let left = &mut cols[0];
-            section(left, t.dashboard_due());
-            let chores = &data.chores;
-            let due: Vec<_> = data
-                .items
-                .iter()
-                .filter_map(|item| match item {
-                    AgendaItem::Appointments(group) if item.when().date() <= today => Some(group),
-                    _ => None,
-                })
-                .collect();
-            if chores.today.is_empty() && due.is_empty() {
-                left.label(t.dashboard_nothing_due());
-            }
-            for c in &chores.today {
-                let a = chore_row(left, store, t, c, today);
-                if a != ChoreAction::None {
-                    action = DashboardAction::Chore(a);
+            section_card(left, t.dashboard_due(), |ui| {
+                let chores = &data.chores;
+                let due: Vec<_> = data
+                    .items
+                    .iter()
+                    .filter_map(|item| match item {
+                        AgendaItem::Appointments(group) if item.when().date() <= today => {
+                            Some(group)
+                        }
+                        _ => None,
+                    })
+                    .collect();
+                if chores.today.is_empty() && due.is_empty() {
+                    ui.label(t.dashboard_nothing_due());
                 }
-            }
-            for group in due {
-                if let Some(a) = appointment_card(left, store, t, group, true) {
-                    action = DashboardAction::Appointment(a);
+                for c in &chores.today {
+                    let a = chore_row(ui, store, t, faces, c, today);
+                    if a != ChoreAction::None {
+                        action = DashboardAction::Chore(a);
+                    }
                 }
-            }
+                for group in due {
+                    if let Some(a) = appointment_card(ui, store, t, faces, group, true) {
+                        action = DashboardAction::Appointment(a);
+                    }
+                }
+            });
             left.add_space(12.0);
-            section(left, t.dashboard_recent());
-            let changes = &data.changes;
-            if changes.is_empty() {
-                left.label(t.dashboard_no_changes());
-            }
-            for change in changes {
-                left.horizontal(|ui| {
-                    if ui.link(&change.name).clicked() {
-                        action = if change.entity.starts_with("clowder:") {
-                            DashboardAction::OpenClowder(change.entity.clone())
+            section_card(left, t.dashboard_recent(), |ui| {
+                let changes = &data.changes;
+                if changes.is_empty() {
+                    ui.label(t.dashboard_no_changes());
+                }
+                // One heading per day that had a change; the time on
+                // every line, the face of whom it was about.
+                let mut day = None;
+                for change in changes {
+                    if day != Some(change.at.date()) {
+                        day = Some(change.at.date());
+                        if changes.first() != Some(change) {
+                            ui.add_space(6.0);
+                        }
+                        ui.label(
+                            egui::RichText::new(day_heading(t, today, change.at.date())).strong(),
+                        );
+                    }
+                    ui.horizontal(|ui| {
+                        ui.label(egui::RichText::new(change.at.format("%H:%M").to_string()).weak());
+                        match change
+                            .face
+                            .as_deref()
+                            .and_then(|hash| faces.face(ui.ctx(), store, hash))
+                        {
+                            Some(texture) => {
+                                ui.add(
+                                    egui::Image::from_texture(&texture)
+                                        .fit_to_exact_size(Vec2::splat(20.0))
+                                        .corner_radius(10.0),
+                                );
+                            }
+                            None => {
+                                let icon = if change.entity.starts_with("cat:") {
+                                    icons::PETS_OUTLINED
+                                } else {
+                                    icons::NIGHT_SHELTER_OUTLINED
+                                };
+                                icons::glyph(ui, icon, 20.0, PALETTE.grey);
+                            }
+                        }
+                        if ui.link(&change.name).clicked() {
+                            action = if change.entity.starts_with("clowder:") {
+                                DashboardAction::OpenClowder(change.entity.clone())
+                            } else {
+                                DashboardAction::OpenCat(change.entity.clone())
+                            };
+                        }
+                        ui.label(&change.line);
+                    });
+                }
+            });
+            let right = &mut cols[1];
+            section_card(right, t.dashboard_last_viewed(), |ui| {
+                if data.last_viewed.is_empty() {
+                    ui.label(t.dashboard_nothing_viewed());
+                }
+                for m in &data.last_viewed {
+                    if miniature(ui, store, faces, m).clicked() {
+                        action = if m.id.starts_with("clowder:") {
+                            DashboardAction::OpenClowder(m.id.clone())
                         } else {
-                            DashboardAction::OpenCat(change.entity.clone())
+                            DashboardAction::OpenCat(m.id.clone())
                         };
                     }
-                    ui.label(&change.line);
-                });
-            }
-            let right = &mut cols[1];
-            section(right, t.dashboard_last_viewed());
-            let (cat, clowder) = last_viewed(store);
-            if cat.is_none() && clowder.is_none() {
-                right.label(t.dashboard_nothing_viewed());
-            }
-            if let Some(id) = cat
-                && miniature(right, store, t, faces, &id).clicked()
-            {
-                action = DashboardAction::OpenCat(id);
-            }
-            if let Some(id) = clowder
-                && miniature(right, store, t, faces, &id).clicked()
-            {
-                action = DashboardAction::OpenClowder(id);
-            }
+                }
+            });
         });
     });
     action
-}
-
-fn section(ui: &mut Ui, title: &str) {
-    ui.label(egui::RichText::new(title).strong().size(16.0));
-    ui.add_space(4.0);
 }
 
 /// A count as a big pill with its icon.
@@ -283,51 +381,23 @@ fn tile(ui: &mut Ui, icon: &str, text: &str) -> egui::Response {
     response.response
 }
 
-/// A Cat or Clowder in miniature: its face, its name and where it
-/// belongs. The whole card is one button named after the record.
-fn miniature(
-    ui: &mut Ui,
-    store: &Catalog,
-    t: &L10n,
-    faces: &mut FaceCache,
-    id: &str,
-) -> egui::Response {
-    let name = store
-        .current(id, keys::NAME)
-        .ok()
-        .flatten()
-        .unwrap_or_else(|| t.unnamed().to_string());
-    let is_cat = id.starts_with("cat:");
-    let below = if is_cat {
-        store
-            .current(id, keys::CLOWDER)
-            .ok()
-            .flatten()
-            .and_then(|c| store.current(&c, keys::NAME).ok().flatten())
-            .unwrap_or_else(|| t.strays().to_string())
-    } else {
-        let count = store.cats(Some(id)).map(|c| c.len()).unwrap_or(0);
-        t.cats_count(count as i64)
-    };
-    let face = if is_cat {
-        store.profile_image(id).ok().flatten()
-    } else {
-        store
-            .cats(Some(id))
-            .unwrap_or_default()
-            .iter()
-            .find_map(|c| store.profile_image(&c.id).ok().flatten())
-    };
+/// A Cat or Clowder in miniature: its face or cover, its name and where
+/// it belongs. The whole card is one button named after the record.
+fn miniature(ui: &mut Ui, store: &Catalog, faces: &mut FaceCache, m: &Mini) -> egui::Response {
+    let is_cat = m.id.starts_with("cat:");
     let frame = egui::Frame::new()
-        .fill(PALETTE.paper)
-        .stroke(egui::Stroke::new(1.0, PALETTE.tan))
+        .fill(PALETTE.cream)
         .corner_radius(crate::theme::ROUNDING)
         .inner_margin(10.0);
     let inner = frame
         .show(ui, |ui| {
-            ui.set_width(260.0);
+            ui.set_width(ui.available_width());
             ui.horizontal(|ui| {
-                match face.and_then(|hash| faces.face(ui.ctx(), store, &hash)) {
+                match m
+                    .face
+                    .as_deref()
+                    .and_then(|hash| faces.face(ui.ctx(), store, hash))
+                {
                     Some(texture) => {
                         ui.add(
                             egui::Image::from_texture(&texture)
@@ -345,13 +415,13 @@ fn miniature(
                     }
                 }
                 ui.vertical(|ui| {
-                    ui.label(egui::RichText::new(&name).strong().size(16.0));
-                    ui.label(egui::RichText::new(below).weak());
+                    ui.label(egui::RichText::new(&m.name).strong().size(16.0));
+                    ui.label(egui::RichText::new(&m.below).weak());
                 });
             });
         })
         .response;
     let response = inner.interact(egui::Sense::click());
-    response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &name));
+    response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &m.name));
     response
 }

@@ -2537,6 +2537,51 @@ class AppLocalizationsFa extends AppLocalizations {
   String get unitDays => 'روز';
 
   @override
+  String get yesterday => 'دیروز';
+
+  @override
+  String get weekdayMon => 'دوش';
+
+  @override
+  String get weekdayTue => 'سه‌ش';
+
+  @override
+  String get weekdayWed => 'چها';
+
+  @override
+  String get weekdayThu => 'پنج';
+
+  @override
+  String get weekdayFri => 'جمع';
+
+  @override
+  String get weekdaySat => 'شنب';
+
+  @override
+  String get weekdaySun => 'یکش';
+
+  @override
+  String get weekdayFullMon => 'دوشنبه';
+
+  @override
+  String get weekdayFullTue => 'سه‌شنبه';
+
+  @override
+  String get weekdayFullWed => 'چهارشنبه';
+
+  @override
+  String get weekdayFullThu => 'پنجشنبه';
+
+  @override
+  String get weekdayFullFri => 'جمعه';
+
+  @override
+  String get weekdayFullSat => 'شنبه';
+
+  @override
+  String get weekdayFullSun => 'یکشنبه';
+
+  @override
   String get unitWeeks => 'هفته';
 
   @override

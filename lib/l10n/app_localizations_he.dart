@@ -2550,6 +2550,51 @@ class AppLocalizationsHe extends AppLocalizations {
   String get unitDays => 'ימים';
 
   @override
+  String get yesterday => 'אתמול';
+
+  @override
+  String get weekdayMon => 'ב׳';
+
+  @override
+  String get weekdayTue => 'ג׳';
+
+  @override
+  String get weekdayWed => 'ד׳';
+
+  @override
+  String get weekdayThu => 'ה׳';
+
+  @override
+  String get weekdayFri => 'ו׳';
+
+  @override
+  String get weekdaySat => 'ש׳';
+
+  @override
+  String get weekdaySun => 'א׳';
+
+  @override
+  String get weekdayFullMon => 'יום שני';
+
+  @override
+  String get weekdayFullTue => 'יום שלישי';
+
+  @override
+  String get weekdayFullWed => 'יום רביעי';
+
+  @override
+  String get weekdayFullThu => 'יום חמישי';
+
+  @override
+  String get weekdayFullFri => 'יום שישי';
+
+  @override
+  String get weekdayFullSat => 'שבת';
+
+  @override
+  String get weekdayFullSun => 'יום ראשון';
+
+  @override
   String get unitWeeks => 'שבועות';
 
   @override

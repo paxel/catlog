@@ -2463,6 +2463,51 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unitDays => '天后';
 
   @override
+  String get yesterday => '昨天';
+
+  @override
+  String get weekdayMon => '周一';
+
+  @override
+  String get weekdayTue => '周二';
+
+  @override
+  String get weekdayWed => '周三';
+
+  @override
+  String get weekdayThu => '周四';
+
+  @override
+  String get weekdayFri => '周五';
+
+  @override
+  String get weekdaySat => '周六';
+
+  @override
+  String get weekdaySun => '周日';
+
+  @override
+  String get weekdayFullMon => '星期一';
+
+  @override
+  String get weekdayFullTue => '星期二';
+
+  @override
+  String get weekdayFullWed => '星期三';
+
+  @override
+  String get weekdayFullThu => '星期四';
+
+  @override
+  String get weekdayFullFri => '星期五';
+
+  @override
+  String get weekdayFullSat => '星期六';
+
+  @override
+  String get weekdayFullSun => '星期日';
+
+  @override
   String get unitWeeks => '周后';
 
   @override

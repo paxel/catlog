@@ -2561,6 +2561,51 @@ class AppLocalizationsRo extends AppLocalizations {
   String get unitDays => 'zile';
 
   @override
+  String get yesterday => 'Ieri';
+
+  @override
+  String get weekdayMon => 'lun';
+
+  @override
+  String get weekdayTue => 'mar';
+
+  @override
+  String get weekdayWed => 'mie';
+
+  @override
+  String get weekdayThu => 'joi';
+
+  @override
+  String get weekdayFri => 'vin';
+
+  @override
+  String get weekdaySat => 'sâm';
+
+  @override
+  String get weekdaySun => 'dum';
+
+  @override
+  String get weekdayFullMon => 'luni';
+
+  @override
+  String get weekdayFullTue => 'marți';
+
+  @override
+  String get weekdayFullWed => 'miercuri';
+
+  @override
+  String get weekdayFullThu => 'joi';
+
+  @override
+  String get weekdayFullFri => 'vineri';
+
+  @override
+  String get weekdayFullSat => 'sâmbătă';
+
+  @override
+  String get weekdayFullSun => 'duminică';
+
+  @override
   String get unitWeeks => 'săptămâni';
 
   @override

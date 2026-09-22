@@ -430,6 +430,31 @@ pub fn schedule_words(t: &L10n, s: &ChoreSchedule) -> String {
     }
 }
 
+/// The full name of a weekday, Monday = 1, in the chosen language.
+pub fn weekday_full(t: &L10n, day: u32) -> String {
+    let key = match day {
+        1 => "weekdayFullMon",
+        2 => "weekdayFullTue",
+        3 => "weekdayFullWed",
+        4 => "weekdayFullThu",
+        5 => "weekdayFullFri",
+        6 => "weekdayFullSat",
+        _ => "weekdayFullSun",
+    };
+    t.raw_by_name(key).map(String::from).unwrap_or_else(|| {
+        [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ][(day.clamp(1, 7) - 1) as usize]
+            .to_string()
+    })
+}
+
 /// The short name of a weekday, Monday = 1, in the chosen language.
 pub fn weekday_short(t: &L10n, day: u32) -> String {
     let key = match day {

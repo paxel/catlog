@@ -2564,6 +2564,51 @@ class AppLocalizationsEl extends AppLocalizations {
   String get unitDays => 'ημέρες';
 
   @override
+  String get yesterday => 'Χθες';
+
+  @override
+  String get weekdayMon => 'Δευ';
+
+  @override
+  String get weekdayTue => 'Τρί';
+
+  @override
+  String get weekdayWed => 'Τετ';
+
+  @override
+  String get weekdayThu => 'Πέμ';
+
+  @override
+  String get weekdayFri => 'Παρ';
+
+  @override
+  String get weekdaySat => 'Σάβ';
+
+  @override
+  String get weekdaySun => 'Κυρ';
+
+  @override
+  String get weekdayFullMon => 'Δευτέρα';
+
+  @override
+  String get weekdayFullTue => 'Τρίτη';
+
+  @override
+  String get weekdayFullWed => 'Τετάρτη';
+
+  @override
+  String get weekdayFullThu => 'Πέμπτη';
+
+  @override
+  String get weekdayFullFri => 'Παρασκευή';
+
+  @override
+  String get weekdayFullSat => 'Σάββατο';
+
+  @override
+  String get weekdayFullSun => 'Κυριακή';
+
+  @override
   String get unitWeeks => 'εβδομάδες';
 
   @override

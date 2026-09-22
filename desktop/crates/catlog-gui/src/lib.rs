@@ -42,6 +42,7 @@ pub mod notify;
 pub mod pages;
 pub mod photos;
 pub mod picker;
+pub mod sections;
 pub mod settings;
 pub mod settings_page;
 pub mod sounds;

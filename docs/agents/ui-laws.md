@@ -69,6 +69,12 @@ a screen that breaks one is a bug, not a style choice.
 - On the desk every view opens with its name as a headline under the
   view bar, drawn in one place for all six; a view draws no title of
   its own, only its toolbar and content below the headline.
+- On the desk a section is a rounded card with its heading top left
+  (`section_card` in `sections.rs`); a movable desk card wears the
+  thicker frame and the shadow, a section never does. A chore, an
+  appointment or a reminder is a two-line row (`plan_row`): bold what
+  and when, weak whose with the face and how it stands, the box or the
+  button at the side. No grids or tables for plans.
 
 ## Lists and sections
 

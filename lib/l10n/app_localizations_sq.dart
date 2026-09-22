@@ -2554,6 +2554,51 @@ class AppLocalizationsSq extends AppLocalizations {
   String get unitDays => 'ditësh';
 
   @override
+  String get yesterday => 'Dje';
+
+  @override
+  String get weekdayMon => 'hën';
+
+  @override
+  String get weekdayTue => 'mar';
+
+  @override
+  String get weekdayWed => 'mër';
+
+  @override
+  String get weekdayThu => 'enj';
+
+  @override
+  String get weekdayFri => 'pre';
+
+  @override
+  String get weekdaySat => 'sht';
+
+  @override
+  String get weekdaySun => 'die';
+
+  @override
+  String get weekdayFullMon => 'e hënë';
+
+  @override
+  String get weekdayFullTue => 'e martë';
+
+  @override
+  String get weekdayFullWed => 'e mërkurë';
+
+  @override
+  String get weekdayFullThu => 'e enjte';
+
+  @override
+  String get weekdayFullFri => 'e premte';
+
+  @override
+  String get weekdayFullSat => 'e shtunë';
+
+  @override
+  String get weekdayFullSun => 'e diel';
+
+  @override
   String get unitWeeks => 'javësh';
 
   @override

@@ -2559,6 +2559,51 @@ class AppLocalizationsHr extends AppLocalizations {
   String get unitDays => 'dana';
 
   @override
+  String get yesterday => 'Jučer';
+
+  @override
+  String get weekdayMon => 'pon';
+
+  @override
+  String get weekdayTue => 'uto';
+
+  @override
+  String get weekdayWed => 'sri';
+
+  @override
+  String get weekdayThu => 'čet';
+
+  @override
+  String get weekdayFri => 'pet';
+
+  @override
+  String get weekdaySat => 'sub';
+
+  @override
+  String get weekdaySun => 'ned';
+
+  @override
+  String get weekdayFullMon => 'ponedjeljak';
+
+  @override
+  String get weekdayFullTue => 'utorak';
+
+  @override
+  String get weekdayFullWed => 'srijeda';
+
+  @override
+  String get weekdayFullThu => 'četvrtak';
+
+  @override
+  String get weekdayFullFri => 'petak';
+
+  @override
+  String get weekdayFullSat => 'subota';
+
+  @override
+  String get weekdayFullSun => 'nedjelja';
+
+  @override
   String get unitWeeks => 'tjedana';
 
   @override

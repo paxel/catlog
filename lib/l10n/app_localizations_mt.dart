@@ -2564,6 +2564,51 @@ class AppLocalizationsMt extends AppLocalizations {
   String get unitDays => 'ijiem';
 
   @override
+  String get yesterday => 'Ilbieraħ';
+
+  @override
+  String get weekdayMon => 'Tne';
+
+  @override
+  String get weekdayTue => 'Tli';
+
+  @override
+  String get weekdayWed => 'Erb';
+
+  @override
+  String get weekdayThu => 'Ħam';
+
+  @override
+  String get weekdayFri => 'Ġim';
+
+  @override
+  String get weekdaySat => 'Sib';
+
+  @override
+  String get weekdaySun => 'Ħad';
+
+  @override
+  String get weekdayFullMon => 'It-Tnejn';
+
+  @override
+  String get weekdayFullTue => 'It-Tlieta';
+
+  @override
+  String get weekdayFullWed => 'L-Erbgħa';
+
+  @override
+  String get weekdayFullThu => 'Il-Ħamis';
+
+  @override
+  String get weekdayFullFri => 'Il-Ġimgħa';
+
+  @override
+  String get weekdayFullSat => 'Is-Sibt';
+
+  @override
+  String get weekdayFullSun => 'Il-Ħadd';
+
+  @override
   String get unitWeeks => 'ġimgħat';
 
   @override

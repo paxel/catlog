@@ -2571,6 +2571,51 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unitDays => 'أيام';
 
   @override
+  String get yesterday => 'أمس';
+
+  @override
+  String get weekdayMon => 'إثن';
+
+  @override
+  String get weekdayTue => 'ثلا';
+
+  @override
+  String get weekdayWed => 'أرب';
+
+  @override
+  String get weekdayThu => 'خمي';
+
+  @override
+  String get weekdayFri => 'جمع';
+
+  @override
+  String get weekdaySat => 'سبت';
+
+  @override
+  String get weekdaySun => 'أحد';
+
+  @override
+  String get weekdayFullMon => 'الاثنين';
+
+  @override
+  String get weekdayFullTue => 'الثلاثاء';
+
+  @override
+  String get weekdayFullWed => 'الأربعاء';
+
+  @override
+  String get weekdayFullThu => 'الخميس';
+
+  @override
+  String get weekdayFullFri => 'الجمعة';
+
+  @override
+  String get weekdayFullSat => 'السبت';
+
+  @override
+  String get weekdayFullSun => 'الأحد';
+
+  @override
   String get unitWeeks => 'أسابيع';
 
   @override

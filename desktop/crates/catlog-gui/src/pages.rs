@@ -164,10 +164,10 @@ impl Pages {
                     action = a;
                 }
             }
-            if let Some(a) = self.show_chores(ui, store, t, id) {
+            if let Some(a) = self.show_chores(ui, store, t, faces, id) {
                 action = a;
             }
-            if let Some(a) = self.show_appointments(ui, store, t, id) {
+            if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
                 action = a;
             }
             let fields = self.show_fields(ui, store, t, id, FieldScope::Clowder);
@@ -319,10 +319,10 @@ impl Pages {
                     });
                 }
             });
-            if let Some(a) = self.show_chores(ui, store, t, id) {
+            if let Some(a) = self.show_chores(ui, store, t, faces, id) {
                 action = a;
             }
-            if let Some(a) = self.show_appointments(ui, store, t, id) {
+            if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
                 action = a;
             }
             let fields = self.show_fields(ui, store, t, id, FieldScope::Cat);
@@ -491,6 +491,7 @@ impl Pages {
         ui: &mut Ui,
         store: &Catalog,
         t: &L10n,
+        faces: &mut FaceCache,
         id: &str,
     ) -> Option<PageAction> {
         let mut action = None;
@@ -505,7 +506,7 @@ impl Pages {
             }
         });
         for chore in &chores {
-            let a = chore_row(ui, store, t, chore, self.today);
+            let a = chore_row(ui, store, t, faces, chore, self.today);
             if a != ChoreAction::None {
                 action = Some(PageAction::Chore(a));
             }
@@ -518,6 +519,7 @@ impl Pages {
         ui: &mut Ui,
         store: &Catalog,
         t: &L10n,
+        faces: &mut FaceCache,
         id: &str,
     ) -> Option<PageAction> {
         let mut action = None;
@@ -533,7 +535,7 @@ impl Pages {
         });
         for a in &appointments {
             let group = store.group_of(a).unwrap_or_else(|_| vec![a.clone()]);
-            if let Some(act) = appointment_card(ui, store, t, &group, group.len() > 1) {
+            if let Some(act) = appointment_card(ui, store, t, faces, &group, group.len() > 1) {
                 action = Some(PageAction::Appointment(act));
             }
         }

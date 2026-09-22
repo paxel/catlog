@@ -11,6 +11,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Holding a trail dot on the map opens its menu right there: the value's history, a correction where the field has an editor, and removal. Holding the map itself offers the strays for a sighting in a menu at the finger.
 
 ### Changed
+- The desk's Home and Agenda are laid out in cards: every section is a rounded card with its heading, and a chore, appointment or reminder is a two-line row inside it, the tick box or Finish at its side, whose it is with the face on the second line. Recent changes are grouped by day, Today and Yesterday by name, older days by weekday and date, each line with its time and the face of the cat or the cover of the clowder. The "Last viewed" clowder shows its own cover, not a cat's face. Weekday names are translated.
 - A reminder or appointment ticked today stays on the agenda for the day, box checked, like a chore. The tick asks nothing; a tap on the done reminder plans the next cycle, a tap on the done appointment reopens its outcome notes, the box unticks, the bin takes it off the list.
 - Moving a cat is one dialog: the homes and "stray" as rows, the day at the foot for a historic move.
 - Creating a catalog asks nothing about moving things in; "Move in from another catalog…" is a row on the catalog's settings page.

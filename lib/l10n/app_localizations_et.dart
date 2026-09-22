@@ -2552,6 +2552,51 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unitDays => 'päeva pärast';
 
   @override
+  String get yesterday => 'Eile';
+
+  @override
+  String get weekdayMon => 'E';
+
+  @override
+  String get weekdayTue => 'T';
+
+  @override
+  String get weekdayWed => 'K';
+
+  @override
+  String get weekdayThu => 'N';
+
+  @override
+  String get weekdayFri => 'R';
+
+  @override
+  String get weekdaySat => 'L';
+
+  @override
+  String get weekdaySun => 'P';
+
+  @override
+  String get weekdayFullMon => 'esmaspäev';
+
+  @override
+  String get weekdayFullTue => 'teisipäev';
+
+  @override
+  String get weekdayFullWed => 'kolmapäev';
+
+  @override
+  String get weekdayFullThu => 'neljapäev';
+
+  @override
+  String get weekdayFullFri => 'reede';
+
+  @override
+  String get weekdayFullSat => 'laupäev';
+
+  @override
+  String get weekdayFullSun => 'pühapäev';
+
+  @override
   String get unitWeeks => 'nädala pärast';
 
   @override

@@ -11,6 +11,8 @@ use egui::{Color32, Context, Ui};
 
 use crate::l10n::L10n;
 use crate::labels::{chore_words, format_day, weekday_short};
+use crate::sections::{PlanRow, plan_row};
+use crate::textures::FaceCache;
 
 /// What the keeper did on a chore row this frame.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -25,12 +27,14 @@ pub enum ChoreAction {
     New(String),
 }
 
-/// One chore as a row: tick box, words, streak, the week's dots, and a
-/// right-click menu with the rest.
+/// One chore as a two-line row: the tick box, the chore's words, then
+/// whose it is with the face, the streak and the next day; the week's
+/// dots and a ⋮ with the rest on the right, the same behind a right-click.
 pub fn chore_row(
     ui: &mut Ui,
     store: &Catalog,
     t: &L10n,
+    faces: &mut FaceCache,
     chore: &Chore,
     today: NaiveDate,
 ) -> ChoreAction {
@@ -39,53 +43,78 @@ pub fn chore_row(
     let state = state_on(chore, &ticks, today, today);
     let due_today = matches!(state, ChoreDay::Pending | ChoreDay::Done | ChoreDay::Missed);
     let mut done = ticks.contains_key(&today);
-    ui.horizontal(|ui| {
-        if chore.paused {
-            ui.label(t.chore_paused());
-        } else if ui
-            .add_enabled(due_today, egui::Checkbox::without_text(&mut done))
-            .changed()
-        {
-            action = ChoreAction::Toggle(chore.clone());
+    let who = store
+        .current(&chore.entity, keys::NAME)
+        .ok()
+        .flatten()
+        .unwrap_or_else(|| t.unnamed().to_string());
+    let face = store
+        .profile_image(&chore.entity)
+        .ok()
+        .flatten()
+        .and_then(|hash| faces.face(ui.ctx(), store, &hash));
+    let mut parts = vec![who];
+    let run = streak(chore, &ticks, today);
+    if run > 0 {
+        parts.push(t.streak_days(run as i64));
+    }
+    if !due_today && let Some(next) = catlog_core::chores::next_due(chore, &ticks, today) {
+        parts.push(t.chore_due(&format_day(t.locale(), next)));
+    }
+    let line1 = chore_words(t, chore);
+    // Edit, pause, history and end: behind the right-click and behind
+    // the ⋮ the row shows, so the menu is found.
+    let mut menu = |ui: &mut Ui| {
+        if ui.button(t.chore_edit()).clicked() {
+            action = ChoreAction::Edit(chore.clone());
+            ui.close();
         }
-        let mut parts = vec![chore_words(t, chore)];
-        let run = streak(chore, &ticks, today);
-        if run > 0 {
-            parts.push(t.streak_days(run as i64));
-        }
-        if !due_today && let Some(next) = catlog_core::chores::next_due(chore, &ticks, today) {
-            parts.push(t.chore_due(&format_day(t.locale(), next)));
-        }
-        let label = ui.label(parts.join(" · "));
-        // Edit, pause, history and end: behind the right-click and
-        // behind a ⋮ the row shows, so the menu is found.
-        let mut menu = |ui: &mut Ui| {
-            if ui.button(t.chore_edit()).clicked() {
-                action = ChoreAction::Edit(chore.clone());
-                ui.close();
-            }
-            let pause = if chore.paused {
-                t.chore_resume()
-            } else {
-                t.chore_pause()
-            };
-            if ui.button(pause).clicked() {
-                action = ChoreAction::PauseResume(chore.clone());
-                ui.close();
-            }
-            if ui.button(t.chore_history()).clicked() {
-                action = ChoreAction::History(chore.clone());
-                ui.close();
-            }
-            if ui.button(t.chore_end()).clicked() {
-                action = ChoreAction::End(chore.clone());
-                ui.close();
-            }
+        let pause = if chore.paused {
+            t.chore_resume()
+        } else {
+            t.chore_pause()
         };
-        label.context_menu(&mut menu);
-        paint_week_dots(ui, &week_dots(chore, &ticks, today));
-        crate::icons::more(ui, &mut menu);
-    });
+        if ui.button(pause).clicked() {
+            action = ChoreAction::PauseResume(chore.clone());
+            ui.close();
+        }
+        if ui.button(t.chore_history()).clicked() {
+            action = ChoreAction::History(chore.clone());
+            ui.close();
+        }
+        if ui.button(t.chore_end()).clicked() {
+            action = ChoreAction::End(chore.clone());
+            ui.close();
+        }
+    };
+    let mut toggled = false;
+    let dots = week_dots(chore, &ticks, today);
+    let label = plan_row(
+        ui,
+        PlanRow {
+            face,
+            line1: &line1,
+            line2: parts.join(" · "),
+        },
+        |ui| {
+            if chore.paused {
+                ui.label(t.chore_paused());
+            } else if ui
+                .add_enabled(due_today, egui::Checkbox::without_text(&mut done))
+                .changed()
+            {
+                toggled = true;
+            }
+        },
+        |ui| {
+            crate::icons::more(ui, &mut menu);
+            paint_week_dots(ui, &dots);
+        },
+    );
+    label.context_menu(&mut menu);
+    if toggled {
+        action = ChoreAction::Toggle(chore.clone());
+    }
     action
 }
 

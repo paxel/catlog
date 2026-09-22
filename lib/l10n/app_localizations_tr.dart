@@ -2553,6 +2553,51 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unitDays => 'gün sonra';
 
   @override
+  String get yesterday => 'Dün';
+
+  @override
+  String get weekdayMon => 'Pzt';
+
+  @override
+  String get weekdayTue => 'Sal';
+
+  @override
+  String get weekdayWed => 'Çar';
+
+  @override
+  String get weekdayThu => 'Per';
+
+  @override
+  String get weekdayFri => 'Cum';
+
+  @override
+  String get weekdaySat => 'Cmt';
+
+  @override
+  String get weekdaySun => 'Paz';
+
+  @override
+  String get weekdayFullMon => 'Pazartesi';
+
+  @override
+  String get weekdayFullTue => 'Salı';
+
+  @override
+  String get weekdayFullWed => 'Çarşamba';
+
+  @override
+  String get weekdayFullThu => 'Perşembe';
+
+  @override
+  String get weekdayFullFri => 'Cuma';
+
+  @override
+  String get weekdayFullSat => 'Cumartesi';
+
+  @override
+  String get weekdayFullSun => 'Pazar';
+
+  @override
   String get unitWeeks => 'hafta sonra';
 
   @override
