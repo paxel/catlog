@@ -1157,7 +1157,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kull bidla, l-aktar riċenti l-ewwel: min, meta u għal liema valur. Mess entrata biex tikkoreġiha, żommha biex tneħħiha jew tirrestawraha; entrata moħbija tibqa\' fir-reġistru u tidher fuq talba.';
+      'Kull bidla li qatt saret, l-aktar riċenti l-ewwel: min biddel xiex, meta, u għal liema valur. Mess entrata biex tikkoreġiha, il-landa tneħħiha, il-vleġġa ġġib lura waħda moħbija; entrata moħbija tibqa\' fir-reġistru u tidher fuq talba.';
 
   @override
   String get helpDuplicates =>
@@ -3388,7 +3388,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Żomm valur biex tikkoreġih jew tneħħih. Xejn ma jintilef; il-valuri moħbija jidhru fuq talba.';
+      'Mess valur biex tikkoreġih, il-landa tneħħih. Xejn ma jintilef; il-valuri moħbija jidhru fuq talba.';
 
   @override
   String get spotBackups =>
@@ -3408,7 +3408,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Il-valuri ta\' qasam wieħed maż-żmien, l-aktar riċenti l-ewwel. Mess valur biex tikkoreġih: il-ġdid jieħu postu, il-qadim jinħeba. Żomm valur biex tneħħih jew iġġib lura wieħed moħbi; l-għajn turi l-valuri moħbija. Ikkopja l-lista bħala test jew aqsamha bħala PDF.';
+      'Il-valuri ta\' qasam wieħed maż-żmien, l-aktar riċenti l-ewwel. Mess valur biex tikkoreġih: il-ġdid jieħu postu, il-qadim jinħeba. Il-landa tneħħi valur, il-vleġġa ġġib lura wieħed moħbi; l-għajn turi l-valuri moħbija. Ikkopja l-lista bħala test jew aqsamha bħala PDF.';
 
   @override
   String get helpSettings =>

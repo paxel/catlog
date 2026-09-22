@@ -1160,7 +1160,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Cada cambio, el más reciente primero: quién cambió qué, cuándo y a qué valor. Toca una entrada para corregirla, mantenla pulsada para quitarla o restaurarla; una entrada oculta sigue en el registro y se muestra a petición.';
+      'Cada cambio hecho, el más reciente primero: quién cambió qué, cuándo y a qué valor. Toca una entrada para corregirla, la papelera la quita, la flecha recupera una oculta; una entrada oculta se queda en el registro y se muestra a petición.';
 
   @override
   String get helpDuplicates =>
@@ -3384,7 +3384,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Mantén pulsado un valor para corregirlo o quitarlo. Nada se pierde; los valores ocultos se muestran a petición.';
+      'Toca un valor para corregirlo, la papelera lo quita. Nada se pierde; los valores ocultos se muestran a petición.';
 
   @override
   String get spotBackups =>
@@ -3404,7 +3404,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Los valores de un campo a lo largo del tiempo, los más recientes primero. Toca un valor para corregirlo: el nuevo ocupa su lugar y el antiguo se oculta. Mantén pulsado un valor para quitarlo o recuperar uno oculto; el ojo muestra los valores ocultos. Copia la lista como texto o compártela como PDF.';
+      'Los valores de un campo a lo largo del tiempo, el más reciente primero. Toca un valor para corregirlo: el nuevo ocupa su lugar, el antiguo se oculta. La papelera quita un valor, la flecha recupera uno oculto; el ojo muestra los valores ocultos. Copia la lista como texto o compártela como PDF.';
 
   @override
   String get helpSettings =>

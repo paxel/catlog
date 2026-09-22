@@ -9,7 +9,6 @@ import '../help.dart';
 import '../history_share.dart';
 import '../l10n.dart';
 import '../layout.dart';
-import '../widgets/cat_ear.dart';
 import '../spotlight.dart';
 import '../pdf_fonts.dart';
 import 'map_screen.dart';
@@ -104,8 +103,8 @@ String voidedLine(
 /// A field's values over time as a diary — for remarks kept as notes,
 /// a status that changed hands, anything without a curve. Newest first,
 /// or oldest first on request; shareable as text. A tap on a value
-/// corrects it (the new value takes its place, the old one hides), a
-/// long press removes or restores it; hidden values show on request.
+/// corrects it (the new value takes its place, the old one hides), the
+/// bin removes it, a removed one shows on request with its way back.
 class FieldHistoryScreen extends StatefulWidget {
   final CatalogStore store;
   final String entityId;
@@ -240,46 +239,6 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     if (mounted) setState(() {});
   }
 
-  void _menu(Entry e) {
-    final t = context.t;
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (sheet) => SafeArea(
-        child: Wrap(
-          children: [
-            if (e.voided)
-              ListTile(
-                leading: const Icon(Icons.restore),
-                title: Text(t.restoreThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  _restore(e);
-                },
-              )
-            else ...[
-              ListTile(
-                leading: const Icon(Icons.edit_outlined),
-                title: Text(t.correctThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  _correct(e);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.delete_outline),
-                title: Text(t.removeThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  _remove(e);
-                },
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = context.t;
@@ -335,68 +294,74 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     );
   }
 
+  /// The shape every history row has: tap corrects, the bin removes, a
+  /// removed value offers its way back; a location value leads to the
+  /// map.
   Widget _card(
     Entry e,
     AppLocalizations t,
     String locale,
     ThemeData theme,
     Color muted,
-  ) => Card(
-    child: WithCatEar(
-      child: InkWell(
+  ) {
+    final spot = _spotOf(e);
+    return Card(
+      child: ListTile(
         onTap: e.voided ? null : () => _correct(e),
-        onLongPress: () => _menu(e),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      valueLabel(t, store, widget.def.key, e.value),
-                      style: e.voided
-                          ? theme.textTheme.bodyLarge?.copyWith(
-                              color: muted,
-                              decoration: TextDecoration.lineThrough,
-                            )
-                          : theme.textTheme.bodyLarge,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      '${historyMoment(locale, e.date)} · ${e.author}',
-                      style: theme.textTheme.bodySmall,
-                    ),
-                    if (e.voided)
-                      Text(
-                        voidedLine(t, store, widget.def.key, e, locale),
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: muted,
-                        ),
-                      )
-                    else if (store.correctedBy(e) != null)
-                      Text(
-                        t.entryCorrection,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                  ],
+        title: Text(
+          valueLabel(t, store, widget.def.key, e.value),
+          style: e.voided
+              ? theme.textTheme.bodyLarge?.copyWith(
+                  color: muted,
+                  decoration: TextDecoration.lineThrough,
+                )
+              : theme.textTheme.bodyLarge,
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${historyMoment(locale, e.date)} · ${e.author}',
+              style: theme.textTheme.bodySmall,
+            ),
+            if (e.voided)
+              Text(
+                voidedLine(t, store, widget.def.key, e, locale),
+                style: theme.textTheme.bodySmall?.copyWith(color: muted),
+              )
+            else if (store.correctedBy(e) != null)
+              Text(
+                t.entryCorrection,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.primary,
                 ),
               ),
-              // A location value leads to the map: its spot, the
-              // field's trail, this dot marked.
-              if (_spotOf(e) case final spot?)
-                IconButton(
-                  icon: const Icon(Icons.map_outlined),
-                  tooltip: t.showOnMap,
-                  onPressed: () => _showOnMap(e, spot),
-                ),
-            ],
-          ),
+          ],
+        ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (spot != null)
+              IconButton(
+                icon: const Icon(Icons.map_outlined),
+                tooltip: t.showOnMap,
+                onPressed: () => _showOnMap(e, spot),
+              ),
+            if (e.voided)
+              IconButton(
+                icon: const Icon(Icons.restore),
+                tooltip: t.restoreThisValue,
+                onPressed: () => _restore(e),
+              )
+            else
+              IconButton(
+                icon: const Icon(Icons.delete_outline),
+                tooltip: t.removeThisValue,
+                onPressed: () => _remove(e),
+              ),
+          ],
         ),
       ),
-    ),
-  );
+    );
+  }
 }

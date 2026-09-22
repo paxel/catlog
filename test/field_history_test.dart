@@ -95,7 +95,7 @@ void main() {
     expect(texts.indexOf('Vet: fine'), lessThan(texts.indexOf('Sneezing')));
   });
 
-  testWidgets('edit-mode long-press still opens the timeline with its menu', (
+  testWidgets('edit-mode long-press still opens the history with its bins', (
     tester,
   ) async {
     store.append(cat, 'f:remarks', 'Sneezing');
@@ -111,10 +111,8 @@ void main() {
     await tester.longPress(find.text('Remarks'));
     await tester.pumpAndSettle();
     expect(find.text('Remarks — Miezi'), findsOneWidget);
-    await tester.longPress(find.textContaining('Sneezing'));
-    await tester.pumpAndSettle();
-    expect(find.text('Correct this value'), findsOneWidget);
-    expect(find.text('Remove this value'), findsOneWidget);
+    expect(find.byTooltip('Remove this value'), findsNWidgets(2));
+    expect(find.byType(BottomSheet), findsNothing);
   });
 
   testWidgets('a location value leads to the map, a remark does not', (
@@ -212,7 +210,7 @@ void main() {
     expect(store.localSetting('historyShowVoided'), 'yes');
   });
 
-  testWidgets('a long press removes a value, and restores a hidden one', (
+  testWidgets('the bin removes a value, the arrow restores a hidden one', (
     tester,
   ) async {
     final remarks = store.fieldDefs().firstWhere((d) => d.slug == 'remarks');
@@ -222,9 +220,10 @@ void main() {
       tester,
       FieldHistoryScreen(store: store, entityId: cat, def: remarks),
     );
-    await tester.longPress(find.text('Vet: fine'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Remove this value'));
+    await tester.tap(find.descendant(
+      of: find.ancestor(of: find.text('Vet: fine'), matching: find.byType(Card)),
+      matching: find.byTooltip('Remove this value'),
+    ));
     await tester.pumpAndSettle();
     expect(find.text('Vet: fine'), findsNothing);
     expect(store.current(cat, 'f:remarks'), 'Sneezing');
@@ -232,9 +231,7 @@ void main() {
     await tester.tap(find.byTooltip('Show removed values'));
     await tester.pumpAndSettle();
     expect(find.textContaining('Removed · anna'), findsOneWidget);
-    await tester.longPress(find.text('Vet: fine'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Restore this value'));
+    await tester.tap(find.byTooltip('Restore this value'));
     await tester.pumpAndSettle();
     expect(store.current(cat, 'f:remarks'), 'Vet: fine');
     expect(find.textContaining('Removed · anna'), findsNothing);

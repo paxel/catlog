@@ -1158,7 +1158,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Hver ændring, nyeste først: hvem ændrede hvad, hvornår og til hvilken værdi. Tryk på en post for at rette den, hold den for at fjerne eller gendanne den; en skjult post bliver i loggen og vises efter ønske.';
+      'Alle ændringer nogensinde, nyeste først: hvem ændrede hvad, hvornår og til hvilken værdi. Tryk på en post for at rette den, skraldespanden fjerner den, pilen henter en skjult tilbage; en skjult post bliver i loggen og vises efter ønske.';
 
   @override
   String get helpDuplicates =>
@@ -3374,7 +3374,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Hold en værdi for at rette eller fjerne den. Intet går tabt; skjulte værdier vises efter ønske.';
+      'Tryk på en værdi for at rette den, skraldespanden fjerner den. Intet går tabt; skjulte værdier vises efter ønske.';
 
   @override
   String get spotBackups =>
@@ -3394,7 +3394,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Et felts værdier over tid, nyeste først. Tryk på en værdi for at rette den: den nye tager dens plads, den gamle skjules. Hold en værdi for at fjerne den eller hente en skjult tilbage; øjet viser skjulte værdier. Kopiér listen som tekst eller del den som PDF.';
+      'Ét felts værdier over tid, nyeste først. Tryk på en værdi for at rette den: den nye tager dens plads, den gamle skjules. Skraldespanden fjerner en værdi, pilen henter en skjult tilbage; øjet viser skjulte værdier. Kopiér listen som tekst eller del den som PDF.';
 
   @override
   String get helpSettings =>

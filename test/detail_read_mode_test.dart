@@ -217,10 +217,11 @@ void main() {
     await tester.pumpAndSettle();
     await tester.longPress(find.text('Gender'));
     await tester.pumpAndSettle();
-    // The field's history page: hold the value, remove it.
-    await tester.longPress(find.text('male'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Remove this value'));
+    // The field's history page: the bin on the value removes it.
+    await tester.tap(find.descendant(
+      of: find.ancestor(of: find.text('male'), matching: find.byType(Card)),
+      matching: find.byTooltip('Remove this value'),
+    ));
     await tester.pumpAndSettle();
     await tester.pageBack();
     await tester.pumpAndSettle();

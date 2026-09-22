@@ -2189,7 +2189,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpTimeline.
   ///
   /// In en, this message translates to:
-  /// **'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.'**
+  /// **'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, the bin removes it, the arrow brings a hidden one back; a hidden entry stays in the log and shows on request.'**
   String get helpTimeline;
 
   /// No description provided for @helpDuplicates.
@@ -5915,7 +5915,7 @@ abstract class AppLocalizations {
   /// No description provided for @spotHistoryHold.
   ///
   /// In en, this message translates to:
-  /// **'Hold a value to correct or remove it. Nothing is lost; hidden values show on request.'**
+  /// **'Tap a value to correct it, the bin removes it. Nothing is lost; hidden values show on request.'**
   String get spotHistoryHold;
 
   /// No description provided for @spotBackups.
@@ -5945,7 +5945,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpHistory.
   ///
   /// In en, this message translates to:
-  /// **'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.'**
+  /// **'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. The bin removes a value, the arrow brings a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.'**
   String get helpHistory;
 
   /// No description provided for @helpSettings.

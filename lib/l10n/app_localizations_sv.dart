@@ -1157,7 +1157,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Varje ändring, nyaste först: vem som ändrade vad, när och till vilket värde. Tryck på en post för att rätta den, håll den för att ta bort eller återställa den; en dold post stannar i loggen och visas på begäran.';
+      'Varje ändring som någonsin gjorts, nyast först: vem ändrade vad, när och till vilket värde. Tryck på en post för att rätta den, papperskorgen tar bort den, pilen hämtar tillbaka en dold; en dold post stannar i loggen och visas på begäran.';
 
   @override
   String get helpDuplicates =>
@@ -3372,7 +3372,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Håll ett värde för att rätta eller ta bort det. Inget går förlorat; dolda värden visas på begäran.';
+      'Tryck på ett värde för att rätta det, papperskorgen tar bort det. Inget går förlorat; dolda värden visas på begäran.';
 
   @override
   String get spotBackups =>
@@ -3392,7 +3392,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Ett fälts värden över tid, nyaste först. Tryck på ett värde för att rätta det: det nya tar dess plats, det gamla döljs. Håll ett värde för att ta bort det eller ta tillbaka ett dolt; ögat visar dolda värden. Kopiera listan som text eller dela den som PDF.';
+      'Ett fälts värden över tid, nyast först. Tryck på ett värde för att rätta det: det nya tar dess plats, det gamla döljs. Papperskorgen tar bort ett värde, pilen hämtar tillbaka ett dolt; ögat visar dolda värden. Kopiera listan som text eller dela den som PDF.';
 
   @override
   String get helpSettings =>

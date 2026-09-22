@@ -6,7 +6,6 @@ import '../field_editing.dart';
 import '../history_share.dart';
 import '../l10n.dart';
 import '../layout.dart';
-import '../widgets/cat_ear.dart';
 import '../pdf_fonts.dart';
 import '../screens/field_history_screen.dart';
 import '../widgets/date_entry.dart';
@@ -16,9 +15,9 @@ const choreLogOldestFirstKey = 'choreLogOldestFirst';
 
 /// The chore's log, day by day: done when and by whom, missed, or still
 /// open — the page a medicine needs. Newest first, or oldest first on
-/// request; shareable as text. A long press on a done day corrects its
-/// moment or removes the tick; removed ticks show on request and can be
-/// restored.
+/// request; shareable as text. A tap on a done day corrects its moment,
+/// the bin removes the tick; removed ticks show on request with their
+/// way back.
 class ChoreHistoryScreen extends StatefulWidget {
   final CatalogStore store;
   final Chore chore;
@@ -90,75 +89,15 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
         '${voidedLine(t, store, tick.field, tick, locale)}';
   }
 
+  /// One dialog for the moment a tick was done: its day and its time.
   Future<void> _correct(Entry tick) async {
-    var moment = tick.date.toLocal();
-    final day = await pickDay(
-      context,
-      initial: moment,
-      lastDate: DateTime.now().add(const Duration(days: 1)),
-    );
-    if (day == null || !mounted) return;
-    moment = withTimeOf(day, moment);
-    final time = await showTimePicker(
+    final moment = await showDialog<DateTime>(
       context: context,
-      initialTime: TimeOfDay.fromDateTime(moment),
+      builder: (_) => _TickDialog(initial: tick.date.toLocal()),
     );
-    if (!mounted) return;
-    if (time != null) {
-      moment = DateTime(
-        moment.year,
-        moment.month,
-        moment.day,
-        time.hour,
-        time.minute,
-      );
-    }
+    if (moment == null || !mounted) return;
     store.correctEntry(tick.seq, dayKey(dayOf(moment)), date: moment);
     setState(() {});
-  }
-
-  void _menu(ChoreLogRow r) {
-    final t = context.t;
-    final tick = r.tick;
-    final removed = _voidedTick(r);
-    if (tick == null && removed == null) return;
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (sheet) => SafeArea(
-        child: Wrap(
-          children: [
-            if (tick != null) ...[
-              ListTile(
-                leading: const Icon(Icons.edit_outlined),
-                title: Text(t.correctThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  _correct(tick);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.delete_outline),
-                title: Text(t.removeThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  store.removeEntry(tick.seq);
-                  setState(() {});
-                },
-              ),
-            ] else
-              ListTile(
-                leading: const Icon(Icons.restore),
-                title: Text(t.restoreThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  store.restoreEntry(removed!.seq);
-                  setState(() {});
-                },
-              ),
-          ],
-        ),
-      ),
-    );
   }
 
   List<HistoryLine> _lines(AppLocalizations t, String locale) => [
@@ -201,10 +140,6 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
     );
     await sharePdf(doc, '$_name ${widget.chore.title}.pdf');
   }
-
-  /// The ear only where a hold does something: a done day, or a removed
-  /// tick to restore.
-  Widget _earIf(bool holds, Widget row) => holds ? WithCatEar(child: row) : row;
 
   @override
   Widget build(BuildContext context) {
@@ -257,11 +192,30 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
       ),
       body: ListView(
         children: [
+          // The shape every history row has: tap corrects, the bin
+          // removes, a removed tick offers its way back.
           for (final r in _rows)
-            _earIf(
-              r.tick != null || _voidedTick(r) != null,
-              ListTile(
-                onLongPress: () => _menu(r),
+            ListTile(
+              onTap: r.tick == null ? null : () => _correct(r.tick!),
+              trailing: r.tick != null
+                  ? IconButton(
+                      icon: const Icon(Icons.delete_outline),
+                      tooltip: t.removeThisValue,
+                      onPressed: () {
+                        store.removeEntry(r.tick!.seq);
+                        setState(() {});
+                      },
+                    )
+                  : _voidedTick(r) == null
+                      ? null
+                      : IconButton(
+                          icon: const Icon(Icons.restore),
+                          tooltip: t.restoreThisValue,
+                          onPressed: () {
+                            store.restoreEntry(_voidedTick(r)!.seq);
+                            setState(() {});
+                          },
+                        ),
                 leading: Icon(
                   switch (r.state) {
                     ChoreDay.done => Icons.check_circle,
@@ -280,10 +234,88 @@ class _ChoreHistoryScreenState extends State<ChoreHistoryScreen> {
                   null => _line(t, locale, r),
                 }),
                 isThreeLine: _voidedText(t, locale, r) != null,
-              ),
             ),
         ],
       ),
+    );
+  }
+}
+
+/// The moment a tick was done: the day and the time of day, each a tap
+/// away, saved together.
+class _TickDialog extends StatefulWidget {
+  final DateTime initial;
+  const _TickDialog({required this.initial});
+
+  @override
+  State<_TickDialog> createState() => _TickDialogState();
+}
+
+class _TickDialogState extends State<_TickDialog> {
+  late DateTime _moment = widget.initial;
+
+  Future<void> _pickDay() async {
+    final picked = await pickDay(
+      context,
+      initial: _moment,
+      lastDate: DateTime.now().add(const Duration(days: 1)),
+    );
+    if (!mounted || picked == null) return;
+    setState(() => _moment = withTimeOf(picked, _moment));
+  }
+
+  Future<void> _pickTime() async {
+    final picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.fromDateTime(_moment),
+    );
+    if (!mounted || picked == null) return;
+    setState(() {
+      _moment = DateTime(
+        _moment.year,
+        _moment.month,
+        _moment.day,
+        picked.hour,
+        picked.minute,
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final locale = Localizations.localeOf(context).toString();
+    return AlertDialog(
+      title: Text(t.correctThisValue),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.event),
+            title: Text(DateFormat.yMd(locale).format(_moment)),
+            trailing: const Icon(Icons.edit_calendar_outlined),
+            onTap: _pickDay,
+          ),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.schedule),
+            title: Text(DateFormat.Hm(locale).format(_moment)),
+            trailing: const Icon(Icons.edit_outlined),
+            onTap: _pickTime,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.cancel),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(context).pop(_moment),
+          child: Text(t.save),
+        ),
+      ],
     );
   }
 }

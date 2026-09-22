@@ -54,7 +54,7 @@ void main() {
     expect(store.localSetting('choreLogOldestFirst'), 'yes');
   });
 
-  testWidgets('a long press removes a tick, shows it on request, restores it',
+  testWidgets('the bin removes a tick, shows it on request, restores it',
       (tester) async {
     final store = CatalogStore.inMemory()..author = 'anna';
     addTearDown(store.close);
@@ -80,10 +80,14 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.textContaining('done '), findsOneWidget);
-    await tester.longPress(find.textContaining('done '));
+    // A tap on the day: one dialog for its day and time.
+    await tester.tap(find.textContaining('done '));
     await tester.pumpAndSettle();
     expect(find.text('Correct this value'), findsOneWidget);
-    await tester.tap(find.text('Remove this value'));
+    expect(find.byType(BottomSheet), findsNothing);
+    await tester.tap(find.text('Cancel'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Remove this value'));
     await tester.pumpAndSettle();
     expect(find.text('Missed'), findsOneWidget);
     expect(store.choreTicks(meds), isEmpty);
@@ -91,9 +95,7 @@ void main() {
     await tester.tap(find.byTooltip('Show removed values'));
     await tester.pumpAndSettle();
     expect(find.textContaining('Removed · anna'), findsOneWidget);
-    await tester.longPress(find.textContaining('Missed'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Restore this value'));
+    await tester.tap(find.byTooltip('Restore this value'));
     await tester.pumpAndSettle();
     expect(find.text('Missed'), findsNothing);
     expect(store.choreTicks(meds).keys, [yesterday]);

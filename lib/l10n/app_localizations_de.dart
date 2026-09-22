@@ -1163,7 +1163,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Jede Änderung, neueste zuerst: wer wann was auf welchen Wert gesetzt hat. Tippen korrigiert einen Eintrag, Halten entfernt ihn oder stellt ihn wieder her; ein ausgeblendeter Eintrag bleibt im Protokoll und wird auf Wunsch angezeigt.';
+      'Jede Änderung, neueste zuerst: wer wann was auf welchen Wert gesetzt hat. Tippen korrigiert einen Eintrag, der Papierkorb entfernt ihn, der Pfeil holt einen ausgeblendeten zurück; ein ausgeblendeter Eintrag bleibt im Protokoll und wird auf Wunsch angezeigt.';
 
   @override
   String get helpDuplicates =>
@@ -3384,7 +3384,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Halte einen Wert, um ihn zu korrigieren oder zu entfernen. Nichts geht verloren; ausgeblendete Werte zeigst du auf Wunsch.';
+      'Tippe einen Wert an, um ihn zu korrigieren, der Papierkorb entfernt ihn. Nichts geht verloren; ausgeblendete Werte zeigst du auf Wunsch.';
 
   @override
   String get spotBackups =>
@@ -3404,7 +3404,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Die Werte eines Feldes über die Zeit, neueste zuerst. Tippe einen Wert an, um ihn zu korrigieren: der neue tritt an seine Stelle, der alte wird ausgeblendet. Halte einen Wert, um ihn zu entfernen oder einen ausgeblendeten zurückzuholen; das Auge zeigt ausgeblendete Werte. Kopiere die Liste als Text oder teile sie als PDF.';
+      'Die Werte eines Feldes über die Zeit, neueste zuerst. Tippe einen Wert an, um ihn zu korrigieren: der neue tritt an seine Stelle, der alte wird ausgeblendet. Der Papierkorb entfernt einen Wert, der Pfeil holt einen ausgeblendeten zurück; das Auge zeigt ausgeblendete Werte. Kopiere die Liste als Text oder teile sie als PDF.';
 
   @override
   String get helpSettings =>

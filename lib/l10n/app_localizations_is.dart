@@ -1159,7 +1159,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Hver breyting, nýjasta fyrst: hver, hvenær og í hvaða gildi. Ýttu á færslu til að leiðrétta hana, haltu henni til að fjarlægja eða endurheimta; falin færsla er áfram í skránni og birtist sé þess óskað.';
+      'Allar breytingar sem gerðar hafa verið, nýjastar fyrst: hver breytti hverju, hvenær og í hvaða gildi. Ýttu á færslu til að leiðrétta hana, ruslafatan fjarlægir hana, örin sækir falda til baka; falin færsla helst í skránni og birtist sé þess óskað.';
 
   @override
   String get helpDuplicates =>
@@ -3376,7 +3376,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Haltu gildi til að leiðrétta eða fjarlægja það. Ekkert tapast; falin gildi birtast sé þess óskað.';
+      'Ýttu á gildi til að leiðrétta það, ruslafatan fjarlægir það. Ekkert tapast; falin gildi birtast sé þess óskað.';
 
   @override
   String get spotBackups =>
@@ -3396,7 +3396,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Gildi eins reits yfir tíma, nýjast fyrst. Ýttu á gildi til að leiðrétta það: nýja gildið tekur sætið, það gamla felst. Haltu gildi til að fjarlægja það eða endurheimta falið; augað sýnir falin gildi. Afritaðu listann sem texta eða deildu honum sem PDF.';
+      'Gildi eins reits yfir tíma, nýjust fyrst. Ýttu á gildi til að leiðrétta það: það nýja tekur sæti þess, það gamla felst. Ruslafatan fjarlægir gildi, örin sækir falið til baka; augað sýnir falin gildi. Afritaðu listann sem texta eða deildu honum sem PDF.';
 
   @override
   String get helpSettings =>

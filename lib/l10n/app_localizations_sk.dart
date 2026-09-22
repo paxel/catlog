@@ -1157,7 +1157,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Každá zmena, najnovšia prvá: kto, kedy a na akú hodnotu. Ťuknutím záznam opravíte, podržaním odstránite alebo obnovíte; skrytý záznam ostáva v protokole a zobrazí sa na požiadanie.';
+      'Každá vykonaná zmena, najnovšie prvé: kto čo zmenil, kedy a na akú hodnotu. Ťuknutím na záznam ho opravíte, kôš ho odstráni, šípka vráti skrytý; skrytý záznam zostáva v protokole a zobrazí sa na požiadanie.';
 
   @override
   String get helpDuplicates =>
@@ -3385,7 +3385,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Podržte hodnotu, aby ste ju opravili alebo odstránili. Nič sa nestratí; skryté hodnoty zobrazíte na požiadanie.';
+      'Ťuknite na hodnotu, aby ste ju opravili, kôš ju odstráni. Nič sa nestratí; skryté hodnoty zobrazíte na požiadanie.';
 
   @override
   String get spotBackups =>
@@ -3405,7 +3405,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Hodnoty jedného poľa v čase, najnovšie prvé. Ťuknutím hodnotu opravíte: nová nastúpi na jej miesto, stará sa skryje. Podržaním hodnotu odstránite alebo skrytú vrátite; oko zobrazí skryté hodnoty. Zoznam skopírujte ako text alebo zdieľajte ako PDF.';
+      'Hodnoty jedného poľa v čase, najnovšie prvé. Ťuknutím na hodnotu ju opravíte: nová zaujme jej miesto, stará sa skryje. Kôš hodnotu odstráni, šípka vráti skrytú; oko zobrazí skryté hodnoty. Skopírujte zoznam ako text alebo ho zdieľajte ako PDF.';
 
   @override
   String get helpSettings =>

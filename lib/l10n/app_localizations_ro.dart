@@ -1158,7 +1158,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Fiecare modificare, cea mai nouă prima: cine, când și la ce valoare. Atinge o intrare pentru a o corecta, ține apăsat pentru a o elimina sau restabili; o intrare ascunsă rămâne în jurnal și apare la cerere.';
+      'Fiecare modificare făcută vreodată, cele mai noi primele: cine a schimbat ce, când și în ce valoare. Atinge o intrare pentru a o corecta, coșul o elimină, săgeata aduce înapoi una ascunsă; o intrare ascunsă rămâne în jurnal și apare la cerere.';
 
   @override
   String get helpDuplicates =>
@@ -3388,7 +3388,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Ține apăsat o valoare pentru a o corecta sau elimina. Nimic nu se pierde; valorile ascunse apar la cerere.';
+      'Atinge o valoare pentru a o corecta, coșul o elimină. Nimic nu se pierde; valorile ascunse apar la cerere.';
 
   @override
   String get spotBackups =>
@@ -3408,7 +3408,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Valorile unui câmp în timp, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Ține apăsat o valoare pentru a o elimina sau a readuce una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau partajeaz-o ca PDF.';
+      'Valorile unui câmp de-a lungul timpului, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Coșul elimină o valoare, săgeata aduce înapoi una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau distribuie-o ca PDF.';
 
   @override
   String get helpSettings =>

@@ -1157,7 +1157,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kiekvienas pakeitimas, naujausias pirmas: kas, kada ir į kokią reikšmę. Palieskite įrašą, kad pataisytumėte, palaikykite, kad pašalintumėte ar atkurtumėte; paslėptas įrašas lieka žurnale ir rodomas paprašius.';
+      'Kiekvienas kada nors atliktas pakeitimas, naujausi pirmi: kas ką pakeitė, kada ir į kokią reikšmę. Bakstelėkite įrašą, kad jį pataisytumėte, šiukšliadėžė jį pašalina, rodyklė grąžina paslėptą; paslėptas įrašas lieka žurnale ir rodomas paprašius.';
 
   @override
   String get helpDuplicates =>
@@ -3393,7 +3393,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Palaikykite reikšmę, kad ją pataisytumėte ar pašalintumėte. Niekas neprarandama; paslėptos reikšmės rodomos paprašius.';
+      'Bakstelėkite reikšmę, kad ją pataisytumėte, šiukšliadėžė ją pašalina. Niekas neprarandama; paslėptos reikšmės rodomos paprašius.';
 
   @override
   String get spotBackups =>
@@ -3413,7 +3413,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Vieno lauko reikšmės laike, naujausios pirmos. Palieskite reikšmę, kad pataisytumėte: nauja užima jos vietą, sena paslepiama. Palaikykite reikšmę, kad pašalintumėte ar grąžintumėte paslėptą; akis rodo paslėptas reikšmes. Nukopijuokite sąrašą kaip tekstą arba bendrinkite kaip PDF.';
+      'Vieno lauko reikšmės laikui bėgant, naujausios pirmos. Bakstelėkite reikšmę, kad ją pataisytumėte: nauja užima jos vietą, sena paslepiama. Šiukšliadėžė pašalina reikšmę, rodyklė grąžina paslėptą; akis rodo paslėptas reikšmes. Nukopijuokite sąrašą kaip tekstą arba bendrinkite kaip PDF.';
 
   @override
   String get helpSettings =>

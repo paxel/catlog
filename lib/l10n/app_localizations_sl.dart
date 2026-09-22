@@ -1157,7 +1157,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Vsaka sprememba, najnovejša prva: kdo, kdaj in na katero vrednost. Tapnite vnos, da ga popravite, pridržite, da ga odstranite ali obnovite; skrit vnos ostane v dnevniku in se pokaže na zahtevo.';
+      'Vsaka kdaj narejena sprememba, najnovejše najprej: kdo je kaj spremenil, kdaj in v katero vrednost. Tapnite vnos, da ga popravite, koš ga odstrani, puščica vrne skritega; skrit vnos ostane v dnevniku in se pokaže na zahtevo.';
 
   @override
   String get helpDuplicates =>
@@ -3400,7 +3400,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Pridržite vrednost, da jo popravite ali odstranite. Nič se ne izgubi; skrite vrednosti se pokažejo na zahtevo.';
+      'Tapnite vrednost, da jo popravite, koš jo odstrani. Nič se ne izgubi; skrite vrednosti se pokažejo na zahtevo.';
 
   @override
   String get spotBackups =>
@@ -3420,7 +3420,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Vrednosti enega polja skozi čas, najnovejše prve. Tapnite vrednost, da jo popravite: nova zasede njeno mesto, stara se skrije. Pridržite vrednost, da jo odstranite ali vrnete skrito; oko pokaže skrite vrednosti. Kopirajte seznam kot besedilo ali ga delite kot PDF.';
+      'Vrednosti enega polja skozi čas, najnovejše najprej. Tapnite vrednost, da jo popravite: nova zavzame njeno mesto, stara se skrije. Koš odstrani vrednost, puščica vrne skrito; oko pokaže skrite vrednosti. Kopirajte seznam kot besedilo ali ga delite kot PDF.';
 
   @override
   String get helpSettings =>

@@ -1156,7 +1156,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Iga muudatus, uusim esimesena: kes, millal ja milliseks väärtuseks. Puuduta kirjet, et seda parandada, hoia all, et see eemaldada või taastada; peidetud kirje jääb logisse ja kuvatakse soovi korral.';
+      'Iga tehtud muudatus, uusimad ees: kes mida muutis, millal ja milliseks väärtuseks. Puuduta kirjet, et seda parandada, prügikast eemaldab selle, nool toob peidetud tagasi; peidetud kirje jääb logisse ja kuvatakse soovi korral.';
 
   @override
   String get helpDuplicates =>
@@ -3373,7 +3373,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Hoia väärtust all, et seda parandada või eemaldada. Midagi ei kao; peidetud väärtused kuvatakse soovi korral.';
+      'Puuduta väärtust, et seda parandada, prügikast eemaldab selle. Midagi ei kao; peidetud väärtused kuvatakse soovi korral.';
 
   @override
   String get spotBackups =>
@@ -3393,7 +3393,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Ühe välja väärtused ajas, uusim esimesena. Puuduta väärtust, et seda parandada: uus astub selle asemele, vana peidetakse. Hoia väärtust all, et see eemaldada või peidetu tagasi tuua; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.';
+      'Ühe välja väärtused ajas, uusimad ees. Puuduta väärtust, et seda parandada: uus võtab selle koha, vana peidetakse. Prügikast eemaldab väärtuse, nool toob peidetud tagasi; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.';
 
   @override
   String get helpSettings =>

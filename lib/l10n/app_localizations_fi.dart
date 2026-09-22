@@ -1157,7 +1157,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Jokainen muutos, uusin ensin: kuka muutti mitä, milloin ja miksi arvoksi. Napauta merkintää korjataksesi, pidä pohjassa poistaaksesi tai palauttaaksesi; piilotettu merkintä pysyy lokissa ja näkyy pyynnöstä.';
+      'Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja miksi arvoksi. Napauta merkintää korjataksesi sen, roskakori poistaa sen, nuoli tuo piilotetun takaisin; piilotettu merkintä pysyy lokissa ja näkyy pyynnöstä.';
 
   @override
   String get helpDuplicates =>
@@ -3375,7 +3375,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Pidä arvoa pohjassa korjataksesi tai poistaaksesi sen. Mikään ei katoa; piilotetut arvot näkyvät pyynnöstä.';
+      'Napauta arvoa korjataksesi sen, roskakori poistaa sen. Mikään ei katoa; piilotetut arvot näkyvät pyynnöstä.';
 
   @override
   String get spotBackups =>
@@ -3395,7 +3395,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Yhden kentän arvot ajan myötä, uusin ensin. Napauta arvoa korjataksesi sen: uusi ottaa sen paikan, vanha piilotetaan. Pidä arvoa pohjassa poistaaksesi sen tai palauttaaksesi piilotetun; silmä näyttää piilotetut arvot. Kopioi luettelo tekstinä tai jaa se PDF:nä.';
+      'Yhden kentän arvot ajan mittaan, uusin ensin. Napauta arvoa korjataksesi sen: uusi ottaa sen paikan, vanha piilotetaan. Roskakori poistaa arvon, nuoli tuo piilotetun takaisin; silmä näyttää piilotetut arvot. Kopioi lista tekstinä tai jaa se PDF-tiedostona.';
 
   @override
   String get helpSettings =>

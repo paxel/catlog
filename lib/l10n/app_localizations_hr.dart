@@ -1157,7 +1157,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Svaka promjena, najnovija prva: tko, kada i na koju vrijednost. Dodirnite unos da ga ispravite, zadržite da ga uklonite ili vratite; skriveni unos ostaje u dnevniku i prikazuje se na zahtjev.';
+      'Svaka ikad napravljena promjena, najnovije prvo: tko je što promijenio, kada i na koju vrijednost. Dodirnite unos da ga ispravite, kanta ga uklanja, strelica vraća skriveni; skriveni unos ostaje u dnevniku i prikazuje se na zahtjev.';
 
   @override
   String get helpDuplicates =>
@@ -3385,7 +3385,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Zadržite vrijednost da je ispravite ili uklonite. Ništa se ne gubi; skrivene vrijednosti prikazuju se na zahtjev.';
+      'Dodirnite vrijednost da je ispravite, kanta je uklanja. Ništa se ne gubi; skrivene vrijednosti prikazuju se na zahtjev.';
 
   @override
   String get spotBackups =>
@@ -3405,7 +3405,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Vrijednosti jednog polja kroz vrijeme, najnovije prve. Dodirnite vrijednost da je ispravite: nova zauzima njezino mjesto, stara se skriva. Zadržite vrijednost da je uklonite ili vratite skrivenu; oko prikazuje skrivene vrijednosti. Kopirajte popis kao tekst ili podijelite kao PDF.';
+      'Vrijednosti jednog polja kroz vrijeme, najnovije prvo. Dodirnite vrijednost da je ispravite: nova zauzima njezino mjesto, stara se skriva. Kanta uklanja vrijednost, strelica vraća skrivenu; oko prikazuje skrivene vrijednosti. Kopirajte popis kao tekst ili ga podijelite kao PDF.';
 
   @override
   String get helpSettings =>

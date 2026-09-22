@@ -1121,7 +1121,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      '所有更改，最新在前：谁在何时改成了什么值。点按条目可修正，长按可移除或恢复；隐藏的条目仍留在记录中，可按需显示。';
+      '所有更改，最新在前：谁在何时把什么改成了哪个值。点按条目可修正，垃圾桶将其移除，箭头找回隐藏的条目；隐藏的条目仍留在记录中，可按需显示。';
 
   @override
   String get helpDuplicates =>
@@ -3214,7 +3214,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotLooks => '勾选你看到的。与其他目录的匹配由此而来。';
 
   @override
-  String get spotHistoryHold => '长按一个值可修正或移除它。什么都不会丢失；隐藏的值可按需显示。';
+  String get spotHistoryHold => '点按一个值可修正它，垃圾桶将其移除。什么都不会丢失；隐藏的值可按需显示。';
 
   @override
   String get spotBackups => '您的目录的安全存放位置：手机备份的内容，以及您选择的文件夹中的副本。';
@@ -3230,7 +3230,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      '一个字段随时间的值，最新在前。点按一个值可修正：新值取代它，旧值隐藏。长按可移除或恢复隐藏的值；眼睛图标显示隐藏的值。可复制为文本或以 PDF 分享。';
+      '一个字段随时间的值，最新在前。点按一个值可修正它：新值取而代之，旧值被隐藏。垃圾桶移除一个值，箭头找回隐藏的值；眼睛显示隐藏的值。可将列表复制为文本或以 PDF 分享。';
 
   @override
   String get helpSettings =>

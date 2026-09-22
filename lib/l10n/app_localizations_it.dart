@@ -1160,7 +1160,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Ogni modifica, la più recente per prima: chi ha cambiato cosa, quando e in quale valore. Tocca una voce per correggerla, tienila premuta per rimuoverla o ripristinarla; una voce nascosta resta nel registro e si mostra su richiesta.';
+      'Ogni modifica mai fatta, la più recente per prima: chi ha cambiato cosa, quando e in quale valore. Tocca una voce per correggerla, il cestino la rimuove, la freccia riporta una voce nascosta; una voce nascosta resta nel registro e si mostra su richiesta.';
 
   @override
   String get helpDuplicates =>
@@ -3383,7 +3383,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Tieni premuto un valore per correggerlo o rimuoverlo. Nulla va perso; i valori nascosti si mostrano su richiesta.';
+      'Tocca un valore per correggerlo, il cestino lo rimuove. Nulla va perso; i valori nascosti si mostrano su richiesta.';
 
   @override
   String get spotBackups =>
@@ -3403,7 +3403,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'I valori di un campo nel tempo, i più recenti per primi. Tocca un valore per correggerlo: il nuovo prende il suo posto, il vecchio si nasconde. Tieni premuto un valore per rimuoverlo o ripristinarne uno nascosto; l\'occhio mostra i valori nascosti. Copia l\'elenco come testo o condividilo come PDF.';
+      'I valori di un campo nel tempo, il più recente per primo. Tocca un valore per correggerlo: il nuovo prende il suo posto, il vecchio si nasconde. Il cestino rimuove un valore, la freccia riporta uno nascosto; l\'occhio mostra i valori nascosti. Copia l\'elenco come testo o condividilo come PDF.';
 
   @override
   String get helpSettings =>

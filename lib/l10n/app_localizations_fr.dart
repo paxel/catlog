@@ -1161,7 +1161,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Chaque modification, la plus récente en premier : qui a changé quoi, quand, et pour quelle valeur. Touchez une entrée pour la corriger, maintenez-la pour la supprimer ou la rétablir ; une entrée masquée reste dans le journal et s\'affiche sur demande.';
+      'Chaque modification jamais faite, la plus récente en premier : qui a changé quoi, quand, et pour quelle valeur. Touchez une entrée pour la corriger, la corbeille la retire, la flèche ramène une entrée masquée ; une entrée masquée reste dans le journal et s\'affiche sur demande.';
 
   @override
   String get helpDuplicates =>
@@ -3383,7 +3383,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Maintenez une valeur pour la corriger ou la retirer. Rien n\'est perdu ; les valeurs masquées s\'affichent sur demande.';
+      'Touchez une valeur pour la corriger, la corbeille la retire. Rien n\'est perdu ; les valeurs masquées s\'affichent sur demande.';
 
   @override
   String get spotBackups =>
@@ -3403,7 +3403,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Les valeurs d\'un champ dans le temps, les plus récentes d\'abord. Touchez une valeur pour la corriger : la nouvelle prend sa place, l\'ancienne se masque. Maintenez une valeur pour la retirer ou rétablir une valeur masquée ; l\'œil affiche les valeurs masquées. Copiez la liste en texte ou partagez-la en PDF.';
+      'Les valeurs d\'un champ au fil du temps, la plus récente en premier. Touchez une valeur pour la corriger : la nouvelle prend sa place, l\'ancienne est masquée. La corbeille retire une valeur, la flèche ramène une valeur masquée ; l\'œil affiche les valeurs masquées. Copiez la liste en texte ou partagez-la en PDF.';
 
   @override
   String get helpSettings =>

@@ -1160,7 +1160,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Elke wijziging, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Tik op een item om het te corrigeren, houd het vast om het te verwijderen of te herstellen; een verborgen item blijft in het logboek en wordt op verzoek getoond.';
+      'Elke wijziging ooit gemaakt, nieuwste eerst: wie wat wanneer naar welke waarde veranderde. Tik op een regel om hem te corrigeren, de prullenbak verwijdert hem, de pijl haalt een verborgen regel terug; een verborgen regel blijft in het logboek en toon je op verzoek.';
 
   @override
   String get helpDuplicates =>
@@ -3378,7 +3378,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Houd een waarde vast om hem te corrigeren of te verwijderen. Niets gaat verloren; verborgen waarden toon je op verzoek.';
+      'Tik op een waarde om hem te corrigeren, de prullenbak verwijdert hem. Niets gaat verloren; verborgen waarden toon je op verzoek.';
 
   @override
   String get spotBackups =>
@@ -3398,7 +3398,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'De waarden van één veld door de tijd, nieuwste eerst. Tik op een waarde om die te corrigeren: de nieuwe neemt zijn plaats in, de oude wordt verborgen. Houd een waarde vast om die te verwijderen of een verborgen waarde terug te halen; het oog toont verborgen waarden. Kopieer de lijst als tekst of deel hem als pdf.';
+      'De waarden van één veld door de tijd, nieuwste eerst. Tik op een waarde om hem te corrigeren: de nieuwe neemt zijn plaats in, de oude wordt verborgen. De prullenbak verwijdert een waarde, de pijl haalt een verborgen waarde terug; het oog toont verborgen waarden. Kopieer de lijst als tekst of deel hem als PDF.';
 
   @override
   String get helpSettings =>

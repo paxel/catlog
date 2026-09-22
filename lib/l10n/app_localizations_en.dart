@@ -1156,7 +1156,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.';
+      'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, the bin removes it, the arrow brings a hidden one back; a hidden entry stays in the log and shows on request.';
 
   @override
   String get helpDuplicates =>
@@ -3374,7 +3374,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Hold a value to correct or remove it. Nothing is lost; hidden values show on request.';
+      'Tap a value to correct it, the bin removes it. Nothing is lost; hidden values show on request.';
 
   @override
   String get spotBackups =>
@@ -3394,7 +3394,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.';
+      'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. The bin removes a value, the arrow brings a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.';
 
   @override
   String get helpSettings =>

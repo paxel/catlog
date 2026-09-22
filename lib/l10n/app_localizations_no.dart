@@ -1156,7 +1156,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Hver endring, nyeste først: hvem endret hva, når og til hvilken verdi. Trykk på en oppføring for å rette den, hold den for å fjerne eller gjenopprette den; en skjult oppføring blir i loggen og vises på forespørsel.';
+      'Hver endring som noen gang er gjort, nyeste først: hvem endret hva, når og til hvilken verdi. Trykk på en oppføring for å rette den, søppelkurven fjerner den, pilen henter en skjult tilbake; en skjult oppføring blir i loggen og vises på forespørsel.';
 
   @override
   String get helpDuplicates =>
@@ -3372,7 +3372,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Hold en verdi for å rette eller fjerne den. Ingenting går tapt; skjulte verdier vises på forespørsel.';
+      'Trykk på en verdi for å rette den, søppelkurven fjerner den. Ingenting går tapt; skjulte verdier vises på forespørsel.';
 
   @override
   String get spotBackups =>
@@ -3392,7 +3392,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Ett felts verdier over tid, nyeste først. Trykk på en verdi for å rette den: den nye tar plassen, den gamle skjules. Hold en verdi for å fjerne den eller hente en skjult tilbake; øyet viser skjulte verdier. Kopier listen som tekst eller del den som PDF.';
+      'Ett felts verdier over tid, nyeste først. Trykk på en verdi for å rette den: den nye tar plassen, den gamle skjules. Søppelkurven fjerner en verdi, pilen henter en skjult tilbake; øyet viser skjulte verdier. Kopier listen som tekst eller del den som PDF.';
 
   @override
   String get helpSettings =>

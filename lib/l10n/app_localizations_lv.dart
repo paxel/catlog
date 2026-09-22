@@ -1158,7 +1158,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Katra izmaiņa, jaunākā pirmā: kas, kad un uz kādu vērtību. Pieskarieties ierakstam, lai to labotu, turiet, lai noņemtu vai atjaunotu; paslēpts ieraksts paliek žurnālā un tiek rādīts pēc pieprasījuma.';
+      'Katra jebkad veiktā izmaiņa, jaunākās vispirms: kas ko mainīja, kad un uz kādu vērtību. Pieskarieties ierakstam, lai to labotu, atkritne to noņem, bultiņa atgriež paslēptu; paslēpts ieraksts paliek žurnālā un rāda pēc pieprasījuma.';
 
   @override
   String get helpDuplicates =>
@@ -3389,7 +3389,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Turiet vērtību, lai to labotu vai noņemtu. Nekas nepazūd; paslēptās vērtības rāda pēc pieprasījuma.';
+      'Pieskarieties vērtībai, lai to labotu, atkritne to noņem. Nekas nepazūd; paslēptās vērtības rāda pēc pieprasījuma.';
 
   @override
   String get spotBackups =>
@@ -3409,7 +3409,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Viena lauka vērtības laika gaitā, jaunākās pirmās. Pieskarieties vērtībai, lai to labotu: jaunā ieņem tās vietu, vecā tiek paslēpta. Turiet vērtību, lai to noņemtu vai atgrieztu paslēpto; acs rāda paslēptās vērtības. Kopējiet sarakstu kā tekstu vai kopīgojiet kā PDF.';
+      'Viena lauka vērtības laika gaitā, jaunākās vispirms. Pieskarieties vērtībai, lai to labotu: jaunā ieņem tās vietu, vecā tiek paslēpta. Atkritne noņem vērtību, bultiņa atgriež paslēptu; acs rāda paslēptās vērtības. Kopējiet sarakstu kā tekstu vai kopīgojiet kā PDF.';
 
   @override
   String get helpSettings =>

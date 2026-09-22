@@ -1156,7 +1156,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Her değişiklik, en yenisi önce: kim, ne zaman ve hangi değere. Düzeltmek için bir kayda dokunun, kaldırmak veya geri getirmek için basılı tutun; gizli bir kayıt günlükte kalır ve istendiğinde gösterilir.';
+      'Şimdiye kadar yapılan her değişiklik, en yenisi önce: kim neyi, ne zaman, hangi değere değiştirdi. Düzeltmek için bir kayda dokunun, çöp kutusu onu kaldırır, ok gizli olanı geri getirir; gizli kayıt günlükte kalır ve istendiğinde gösterilir.';
 
   @override
   String get helpDuplicates =>
@@ -3373,7 +3373,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Düzeltmek veya kaldırmak için bir değeri basılı tutun. Hiçbir şey kaybolmaz; gizli değerler istendiğinde gösterilir.';
+      'Düzeltmek için bir değere dokunun, çöp kutusu onu kaldırır. Hiçbir şey kaybolmaz; gizli değerler istendiğinde gösterilir.';
 
   @override
   String get spotBackups =>
@@ -3393,7 +3393,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Bir alanın zaman içindeki değerleri, en yenisi önce. Düzeltmek için bir değere dokunun: yenisi yerini alır, eskisi gizlenir. Kaldırmak veya gizli bir değeri geri getirmek için basılı tutun; göz gizli değerleri gösterir. Listeyi metin olarak kopyalayın veya PDF olarak paylaşın.';
+      'Bir alanın zaman içindeki değerleri, en yenisi önce. Düzeltmek için bir değere dokunun: yenisi onun yerini alır, eskisi gizlenir. Çöp kutusu bir değeri kaldırır, ok gizli olanı geri getirir; göz gizli değerleri gösterir. Listeyi metin olarak kopyalayın veya PDF olarak paylaşın.';
 
   @override
   String get helpSettings =>

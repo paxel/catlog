@@ -1156,7 +1156,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Każda zmiana, najnowsza na górze: kto, kiedy i na jaką wartość. Dotknij wpisu, aby go poprawić, przytrzymaj, aby go usunąć lub przywrócić; ukryty wpis zostaje w dzienniku i pokazuje się na żądanie.';
+      'Każda kiedykolwiek wprowadzona zmiana, najnowsze najpierw: kto co zmienił, kiedy i na jaką wartość. Stuknij wpis, aby go poprawić, kosz go usuwa, strzałka przywraca ukryty; ukryty wpis zostaje w dzienniku i pokażesz go na żądanie.';
 
   @override
   String get helpDuplicates =>
@@ -3394,7 +3394,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Przytrzymaj wartość, aby ją poprawić lub usunąć. Nic nie ginie; ukryte wartości pokażesz na żądanie.';
+      'Stuknij wartość, aby ją poprawić, kosz ją usuwa. Nic nie ginie; ukryte wartości pokażesz na żądanie.';
 
   @override
   String get spotBackups =>
@@ -3414,7 +3414,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Wartości jednego pola w czasie, najnowsze na górze. Dotknij wartości, aby ją poprawić: nowa zajmuje jej miejsce, stara się ukrywa. Przytrzymaj wartość, aby ją usunąć lub przywrócić ukrytą; oko pokazuje ukryte wartości. Skopiuj listę jako tekst lub udostępnij jako PDF.';
+      'Wartości jednego pola w czasie, najnowsze najpierw. Stuknij wartość, aby ją poprawić: nowa zajmuje jej miejsce, stara się ukrywa. Kosz usuwa wartość, strzałka przywraca ukrytą; oko pokazuje ukryte wartości. Skopiuj listę jako tekst lub udostępnij ją jako PDF.';
 
   @override
   String get helpSettings =>

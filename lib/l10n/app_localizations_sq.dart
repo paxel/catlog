@@ -1158,7 +1158,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Çdo ndryshim, më i riu i pari: kush, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, mbaje shtypur për ta hequr ose rikthyer; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.';
+      'Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, koshi e heq, shigjeta kthen një të fshehur; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.';
 
   @override
   String get helpDuplicates =>
@@ -3375,7 +3375,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Mbaje shtypur një vlerë për ta korrigjuar ose hequr. Asgjë nuk humbet; vlerat e fshehura shfaqen sipas kërkesës.';
+      'Prek një vlerë për ta korrigjuar, koshi e heq. Asgjë nuk humbet; vlerat e fshehura shfaqen sipas kërkesës.';
 
   @override
   String get spotBackups =>
@@ -3395,7 +3395,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Vlerat e një fushe përgjatë kohës, më të rejat të parat. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Mbaje shtypur një vlerë për ta hequr ose për të rikthyer një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.';
+      'Vlerat e një fushe përgjatë kohës, më e reja e para. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Koshi heq një vlerë, shigjeta kthen një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.';
 
   @override
   String get helpSettings =>

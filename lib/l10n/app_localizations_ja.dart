@@ -1137,7 +1137,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'すべての変更を新しい順に表示: 誰がいつどの値に変えたか。項目をタップで修正、長押しで取り消しまたは復元。隠した項目も記録に残り、必要なときに表示できます。';
+      'これまでの変更をすべて、新しい順に: 誰がいつ何をどの値に変えたか。項目をタップすると修正、ゴミ箱で取り消し、矢印で隠した項目を戻せます。隠した項目は記録に残り、必要なときに表示できます。';
 
   @override
   String get helpDuplicates =>
@@ -3251,7 +3251,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      '値を長押しすると修正または取り消しできます。何も失われず、隠した値は必要なときに表示できます。';
+      '値をタップすると修正でき、ゴミ箱で取り消せます。何も失われず、隠した値は必要なときに表示できます。';
 
   @override
   String get spotBackups => 'カタログの保管場所: 端末がバックアップするものと、選んだフォルダへのコピー。';
@@ -3270,7 +3270,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      '1つの項目の値の推移を新しい順に表示。値をタップで修正: 新しい値が置き換わり、古い値は隠れます。長押しで取り消し、または隠した値を復元。目のアイコンで隠した値を表示。テキストとしてコピー、PDF として共有できます。';
+      'ひとつの項目の値の推移、新しい順。値をタップすると修正でき、新しい値が置き換わり古い値は隠れます。ゴミ箱で値を取り消し、矢印で隠した値を戻せます。目のアイコンで隠した値を表示。一覧をテキストとしてコピーするか PDF として共有できます。';
 
   @override
   String get helpSettings =>

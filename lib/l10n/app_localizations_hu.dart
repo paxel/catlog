@@ -1156,7 +1156,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Minden változás, a legújabb elöl: ki, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, tartsd nyomva az eltávolításhoz vagy visszaállításhoz; a rejtett bejegyzés a naplóban marad, és kérésre megjelenik.';
+      'Minden valaha végzett módosítás, a legújabb elöl: ki mit módosított, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, a kuka eltávolítja, a nyíl visszahoz egy rejtettet; a rejtett bejegyzés a naplóban marad és kérésre látható.';
 
   @override
   String get helpDuplicates =>
@@ -3374,7 +3374,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Tartsd nyomva az értéket a javításhoz vagy eltávolításhoz. Semmi nem vész el; a rejtett értékek kérésre láthatók.';
+      'Koppints egy értékre a javításhoz, a kuka eltávolítja. Semmi nem vész el; a rejtett értékek kérésre láthatók.';
 
   @override
   String get spotBackups =>
@@ -3394,7 +3394,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Egy mező értékei az idő során, a legújabb elöl. Koppints egy értékre a javításhoz: az új a helyére lép, a régi elrejtődik. Tartsd nyomva az értéket az eltávolításhoz vagy egy rejtett visszaállításához; a szem mutatja a rejtett értékeket. Másold a listát szövegként vagy oszd meg PDF-ként.';
+      'Egy mező értékei az idő során, a legújabb elöl. Koppints egy értékre a javításhoz: az új a helyébe lép, a régi rejtve lesz. A kuka eltávolít egy értéket, a nyíl visszahoz egy rejtettet; a szem mutatja a rejtett értékeket. Másold a listát szövegként vagy oszd meg PDF-ként.';
 
   @override
   String get helpSettings =>

@@ -1158,7 +1158,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Cada alteração, a mais recente primeiro: quem alterou o quê, quando e para que valor. Toque numa entrada para a corrigir, mantenha premido para a remover ou restaurar; uma entrada oculta fica no registo e aparece a pedido.';
+      'Todas as alterações alguma vez feitas, as mais recentes primeiro: quem alterou o quê, quando e para que valor. Toca numa entrada para a corrigir, o caixote do lixo remove-a, a seta traz uma oculta de volta; uma entrada oculta fica no registo e mostra-se a pedido.';
 
   @override
   String get helpDuplicates =>
@@ -3376,7 +3376,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Mantém premido um valor para o corrigir ou remover. Nada se perde; os valores ocultos mostram-se a pedido.';
+      'Toca num valor para o corrigir, o caixote do lixo remove-o. Nada se perde; os valores ocultos mostram-se a pedido.';
 
   @override
   String get spotBackups =>
@@ -3396,7 +3396,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Os valores de um campo ao longo do tempo, os mais recentes primeiro. Toca num valor para o corrigir: o novo toma o seu lugar, o antigo esconde-se. Mantém premido um valor para o remover ou recuperar um escondido; o olho mostra os valores escondidos. Copia a lista como texto ou partilha-a como PDF.';
+      'Os valores de um campo ao longo do tempo, os mais recentes primeiro. Toca num valor para o corrigir: o novo toma o seu lugar, o antigo oculta-se. O caixote do lixo remove um valor, a seta traz um oculto de volta; o olho mostra os valores ocultos. Copia a lista como texto ou partilha-a como PDF.';
 
   @override
   String get helpSettings =>

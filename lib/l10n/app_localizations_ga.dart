@@ -1161,7 +1161,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Gach athrú, an ceann is nuaí ar dtús: cé, cathain agus go dtí cén luach. Tapáil iontráil chun í a cheartú, coinnigh í chun í a bhaint nó a athchóiriú; fanann iontráil fholaithe sa loga agus taispeántar í ar iarratas.';
+      'Gach athrú a rinneadh riamh, an ceann is nuaí ar dtús: cé a d\'athraigh cad, cathain, agus go dtí cén luach. Tapáil iontráil chun í a cheartú, baineann an bosca bruscair í, tugann an tsaighead ceann folaithe ar ais; fanann iontráil fholaithe sa loga agus taispeántar í ar iarratas.';
 
   @override
   String get helpDuplicates =>
@@ -3425,7 +3425,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Coinnigh luach chun é a cheartú nó a bhaint. Ní chailltear aon rud; taispeántar luachanna folaithe ar iarratas.';
+      'Tapáil luach chun é a cheartú, baineann an bosca bruscair é. Ní chailltear aon rud; taispeántar luachanna folaithe ar iarratas.';
 
   @override
   String get spotBackups =>
@@ -3445,7 +3445,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Luachanna réimse amháin le himeacht ama, an ceann is nuaí ar dtús. Tapáil luach chun é a cheartú: glacann an ceann nua a áit, folaítear an seancheann. Coinnigh luach chun é a bhaint nó ceann folaithe a thabhairt ar ais; taispeánann an tsúil luachanna folaithe. Cóipeáil an liosta mar théacs nó roinn é mar PDF.';
+      'Luachanna réimse amháin le himeacht ama, an ceann is nuaí ar dtús. Tapáil luach chun é a cheartú: glacann an ceann nua a áit, folaítear an seancheann. Baineann an bosca bruscair luach, tugann an tsaighead ceann folaithe ar ais; taispeánann an tsúil luachanna folaithe. Cóipeáil an liosta mar théacs nó comhroinn é mar PDF.';
 
   @override
   String get helpSettings =>

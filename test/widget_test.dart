@@ -424,9 +424,12 @@ void main() {
     await tester.tap(find.byTooltip('Timeline'));
     await tester.pumpAndSettle();
 
-    await tester.longPress(find.textContaining('Name: Mizzi'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Remove this value'));
+    await tester.tap(find.descendant(
+      of: find.ancestor(
+          of: find.textContaining('Name: Mizzi'),
+          matching: find.byType(ListTile)),
+      matching: find.byTooltip('Remove this value'),
+    ));
     await tester.pumpAndSettle();
 
     expect(store.current(cat, Keys.name), 'Miezi');
