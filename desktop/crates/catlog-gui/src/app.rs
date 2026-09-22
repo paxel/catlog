@@ -1514,10 +1514,13 @@ impl App {
     }
 
     /// Sounds every reminder whose moment passed since the last check.
+    /// The check lists every chore and appointment, so it runs twice a
+    /// minute, not once a frame; a reminder half a minute late is still
+    /// a reminder.
     pub fn fire_reminders(&mut self) {
         let now = (self.now)();
         let since = self.last_reminder_check;
-        if now <= since {
+        if now < since + chrono::Duration::seconds(30) {
             return;
         }
         self.last_reminder_check = now;
