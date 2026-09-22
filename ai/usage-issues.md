@@ -109,13 +109,15 @@ Desk:
   Done: the entity is a field in the editor, the copy's too.
 - "Move into the new catalog?", `catalogs_screen.dart:82`: a yes or no
   gate before a picker that has Cancel. Proposal: no gate.
-- History rows, `timeline_screen.dart:155`, `field_history_screen.dart:217`,
-  `chore_history_screen.dart:120`: a one-item sheet on removed rows, two
-  items otherwise, then a date dialog and a time dialog. Proposal: icons
-  on the row and one date-and-time picker.
-- Shared photo, `incoming_images.dart:76`: sheet, sheet, name dialog.
-  Proposal: one sheet listing cats and homes flat, the new entries with a
-  name field inline.
+- History rows, `timeline_screen.dart`, `field_history_screen.dart`,
+  `chore_history_screen.dart`: a one-item sheet on removed rows, two
+  items otherwise, then a date dialog and a time dialog. Done
+  2026-09-22: the agenda shape — tap corrects, the bin removes, the
+  arrow restores; a tick's day and time in one dialog. A row with a
+  position leads to the map, its dot marked.
+- Shared photo, `incoming_images.dart`: sheet, sheet, name dialog. Done
+  2026-09-22: one page listing cats and homes flat, a new home typed
+  there.
 - Units, `units_dialog.dart:9`: three radios in a dialog. Proposal: a
   segmented button on the row, as Cats and Pets already is.
 - Reminder done, `reminder_card.dart:43`: every tick opens a repeat

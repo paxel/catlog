@@ -13,6 +13,10 @@ a screen that breaks one is a bug, not a style choice.
 - **Every widget with a long-press wears the cat ear** (`WithCatEar` in
   `lib/src/widgets/cat_ear.dart`). No ear, no long-press; a long-press
   without an ear is undiscoverable and therefore wrong.
+- **A menu opens where the finger is** (`showMenu` at the touch point,
+  or dropped down from the title it belongs to). Nothing slides in from
+  the bottom, anywhere: `showModalBottomSheet` is a bug. Choices that
+  outgrow a menu are a page.
 - A checkbox or switch is the only thing that toggles state; the row
   around it does not.
 - **Swipe belongs to the notes at the top and nothing else.** Swipe left
@@ -39,7 +43,11 @@ a screen that breaks one is a bug, not a style choice.
 ## Dialogs and pages
 
 - A dialog has one question and at most two actions plus Cancel. More
-  than that is a page.
+  than that is a page. A list to choose from (cats, homes, catalogs) is
+  a menu at the finger or a page, never a sheet.
+- A history row has the agenda shape: tap corrects, the bin on the
+  right removes, a removed row shows the arrow back; a row with a place
+  carries the map icon.
 - Text and buttons must be readable at the phone's default font size:
   buttons stacked full width or in one row of two, never a cramped row
   of four. The content scrolls if it does not fit; nothing shrinks to
