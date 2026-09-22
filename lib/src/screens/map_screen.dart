@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'dart:async';
 
+import '../field_editing.dart';
 import '../field_labels.dart';
 import '../help.dart';
 import '../geocode.dart';
@@ -24,6 +25,8 @@ import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'cat_list_screen.dart';
+import 'field_history_screen.dart';
+import 'timeline_screen.dart';
 import '../exclusive.dart';
 import '../pet_mode.dart';
 
@@ -71,6 +74,9 @@ class MapScreen extends StatefulWidget {
 /// The last viewport, kept per device so the map reopens where it was
 /// left instead of over the whole country (#55).
 const mapViewportKey = 'mapViewport';
+
+/// A trail dot's marker: the dot itself plus room for its cat ear.
+const _dotSize = 26.0;
 
 /// Greedy nearest-neighbor order over the pins, starting from [from] —
 /// the prev/next arrows walk the map like a route.
@@ -401,29 +407,88 @@ class _MapScreenState extends State<MapScreen>
 
   // Only sightings are recorded from the map; a clowder's position is set
   // via its Position field — clowders move far too rarely for a map menu.
-  Future<void> _longPress(LatLng point) async {
+  // The menu opens at the finger, on the spot it is about.
+  Future<void> _longPress(Offset at, LatLng point) async {
     final strays = store.visibleStrays();
-    final catId = await showModalBottomSheet<String>(
+    if (strays.isEmpty) return;
+    final catId = await showMenu<String>(
       context: context,
-      builder: (context) => SafeArea(
-        child: ListView(shrinkWrap: true, children: [
-          if (strays.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(context.t.recordSightingHere),
-            ),
-          for (final s in strays)
-            ListTile(
-              leading: CatAvatar(store: store, catId: s.id, size: 40),
-              title: Text(s.name),
-              onTap: () => Navigator.of(context).pop(s.id),
-            ),
-        ]),
-      ),
+      position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+      items: [
+        PopupMenuItem(
+          enabled: false,
+          child: Text(context.t.recordSightingHere),
+        ),
+        for (final s in strays)
+          PopupMenuItem(
+            value: s.id,
+            child: Row(children: [
+              CatAvatar(store: store, catId: s.id, size: 32),
+              const SizedBox(width: 12),
+              Text(s.name),
+            ]),
+          ),
+      ],
     );
-    if (catId == null) return;
+    if (catId == null || !mounted) return;
     store.recordPosition(catId, point.latitude, point.longitude);
     setState(() {});
+  }
+
+  /// The definition behind a trail's field; none for the built-in
+  /// position, which has no editor of its own.
+  FieldDef? _trailDef(String field) => field == CatalogStore.positionKey
+      ? null
+      : store.fieldDefs().where((d) => d.key == field).firstOrNull;
+
+  /// Hold on a trail dot: its date and author on top, then the history
+  /// it is a line of, a correction where the field has an editor, and
+  /// removal — all at the dot, nothing sliding in.
+  Future<void> _dotMenu(Entry entry, Offset at) async {
+    final t = context.t;
+    final (id, field) = _trailOf!;
+    final def = _trailDef(field);
+    final date = entry.date.toLocal().toIso8601String().substring(0, 10);
+    final action = await showMenu<String>(
+      context: context,
+      position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+      items: [
+        PopupMenuItem(enabled: false, child: Text('$date · ${entry.author}')),
+        PopupMenuItem(value: 'history', child: Text(t.fieldHistoryTooltip)),
+        if (def != null)
+          PopupMenuItem(value: 'correct', child: Text(t.correctThisValue)),
+        PopupMenuItem(value: 'remove', child: Text(t.removeThisValue)),
+      ],
+    );
+    if (action == null || !mounted) return;
+    switch (action) {
+      case 'history':
+        await Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) => def != null
+              ? FieldHistoryScreen(store: store, entityId: id, def: def)
+              : TimelineScreen(store: store, entityId: id, field: field),
+        ));
+      case 'correct':
+        final edit = await editFieldValue(
+          context,
+          def!,
+          entry.value,
+          store: store,
+          excludeId: id,
+          asOf: entry.date,
+        );
+        if (edit == null || !mounted) return;
+        store.correctEntry(entry.seq, edit.value, date: edit.date);
+        if (edit.private != store.isFieldPrivate(id, field)) {
+          store.setFieldPrivate(id, field, edit.private);
+        }
+      case 'remove':
+        store.removeEntry(entry.seq);
+    }
+    if (!mounted) return;
+    setState(() {
+      if (_dot?.seq == entry.seq) _dot = null;
+    });
   }
 
   /// Missing cats (any cat with flier positions) offered as overlay
@@ -778,7 +843,7 @@ class _MapScreenState extends State<MapScreen>
         options: MapOptions(
           initialCenter: center,
           initialZoom: zoom,
-          onLongPress: (_, point) => _longPress(point),
+          onLongPress: (tap, point) => _longPress(tap.global, point),
           // Reopen where the user left off (#55).
           onPositionChanged: (camera, _) => _rememberViewport(camera),
           // North stays up: accidental two-finger rotation kept leaving
@@ -935,27 +1000,44 @@ class _MapScreenState extends State<MapScreen>
                 ),
               ),
             // One dot per value on the trail; a tap puts its date and
-            // author into the trail label.
+            // author into the trail label, a hold opens its menu there.
             if (_trailOf case final of?)
               for (final (entry, point) in _trailPoints(of))
                 Marker(
                   point: point,
-                  width: 20,
-                  height: 20,
-                  child: GestureDetector(
-                    onTap: () => setState(() => _dot = entry),
-                    child: Tooltip(
-                      message: entry.date
-                          .toLocal()
-                          .toIso8601String()
-                          .substring(0, 10),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: _dot == entry ? Colors.red : Colors.redAccent,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 2),
+                  width: _dotSize,
+                  height: _dotSize,
+                  // The detector sits inside the tooltip: a tooltip
+                  // claims long presses of its own and would win.
+                  child: Tooltip(
+                    message: entry.date
+                        .toLocal()
+                        .toIso8601String()
+                        .substring(0, 10),
+                    child: GestureDetector(
+                      onTap: () => setState(() => _dot = entry),
+                      onLongPressStart: (d) =>
+                          _dotMenu(entry, d.globalPosition),
+                      child: Stack(children: [
+                        Positioned(
+                          left: 3,
+                          top: 3,
+                          width: 20,
+                          height: 20,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: _dot == entry
+                                  ? Colors.red
+                                  : Colors.redAccent,
+                              shape: BoxShape.circle,
+                              border:
+                                  Border.all(color: Colors.white, width: 2),
+                            ),
+                          ),
                         ),
-                      ),
+                        const PositionedDirectional(
+                            top: 0, end: 0, child: CatEarBadge(size: 9)),
+                      ]),
                     ),
                   ),
                 ),
