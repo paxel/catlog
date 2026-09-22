@@ -294,6 +294,10 @@ pub enum TableAction {
 }
 
 /// The table's own state: what is chosen, sorted, searched and selected.
+/// The rows by the inputs they were built for: the columns, whether
+/// hidden Cats show, the day, the unit system and the language.
+type RowsMemo = crate::memo::Memo<(Vec<Column>, bool, NaiveDate, UnitSystem, String), Vec<Row>>;
+
 #[derive(Debug, Default)]
 pub struct CatsTable {
     /// The column sorted by and whether it is descending.
@@ -312,6 +316,9 @@ pub struct CatsTable {
     /// The columns as last shown, for the sort.
     columns_shown: Vec<Column>,
     scroll_to: Option<usize>,
+    /// The rows as built for the store's last write and these inputs;
+    /// the filter and the sort run on them every frame, the store not.
+    rows: RowsMemo,
 }
 
 impl CatsTable {
@@ -467,7 +474,21 @@ impl CatsTable {
             });
         });
         ui.add_space(4.0);
-        let rows = self.filtered(rows(store, t, today, units, &columns, show_hidden));
+        let built = self
+            .rows
+            .get(
+                store,
+                (
+                    columns.clone(),
+                    show_hidden,
+                    today,
+                    units,
+                    t.locale().to_string(),
+                ),
+                || rows(store, t, today, units, &columns, show_hidden),
+            )
+            .clone();
+        let rows = self.filtered(built);
         self.order = rows.iter().map(|r| r.id.clone()).collect();
         // The keyboard walks the rows while nothing is being typed.
         if ui.ctx().memory(|m| m.focused()).is_none() && !rows.is_empty() {

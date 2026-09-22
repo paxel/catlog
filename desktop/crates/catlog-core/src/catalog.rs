@@ -162,7 +162,16 @@ impl Catalog {
             db,
             images,
             clock,
-            cache: RefCell::new(Cache::default()),
+            cache: RefCell::new(Cache {
+                // Seeded from the clock so two stores opened in a row
+                // never share a number: a view built for one is stale
+                // for the other.
+                generation: std::time::SystemTime::now()
+                    .duration_since(std::time::UNIX_EPOCH)
+                    .map(|d| d.as_nanos() as u64)
+                    .unwrap_or(1),
+                ..Cache::default()
+            }),
         };
         catalog.ensure_device_id()?;
         catalog.rebuild_voids()?;
@@ -250,6 +259,9 @@ impl Catalog {
             "INSERT OR REPLACE INTO local_settings (key, value) VALUES (?1, ?2)",
             [key, value],
         )?;
+        // Hidden, favourite, columns: a view reads them, so a change
+        // counts as a write it must see.
+        self.touch();
         Ok(())
     }
 
@@ -572,6 +584,7 @@ impl Catalog {
             "DELETE FROM local_settings WHERE key = ?1",
             [format!("u:{key}")],
         )?;
+        self.touch();
         Ok(())
     }
 

@@ -3,7 +3,7 @@
 //! appointments as cards.
 
 use catlog_core::Catalog;
-use catlog_core::agenda::AgendaItem;
+use catlog_core::agenda::{AgendaItem, ChoresAgenda};
 use catlog_core::appointments::Appointment;
 use catlog_core::ics::IcsEvent;
 use catlog_core::keys;
@@ -13,6 +13,7 @@ use egui::Ui;
 use crate::chores::{ChoreAction, chore_row};
 use crate::l10n::L10n;
 use crate::labels::{clock, field_label, format_day};
+use crate::memo::Memo;
 
 /// What the keeper did on the Agenda page this frame.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -104,9 +105,34 @@ pub fn appointment_card(
     action
 }
 
+/// What the page shows, as built for one write of the store.
+#[derive(Debug, Clone, Default)]
+pub struct AgendaData {
+    pub chores: ChoresAgenda,
+    pub all_done_today: bool,
+    pub items: Vec<AgendaItem>,
+}
+
+/// The page's data between frames.
+pub type AgendaMemo = Memo<NaiveDate, AgendaData>;
+
 /// The page.
-pub fn show_agenda(ui: &mut Ui, store: &Catalog, t: &L10n, today: NaiveDate) -> AgendaAction {
+pub fn show_agenda(
+    ui: &mut Ui,
+    store: &Catalog,
+    t: &L10n,
+    memo: &mut AgendaMemo,
+    today: NaiveDate,
+) -> AgendaAction {
     let mut action = AgendaAction::None;
+    let data = memo.get(store, today, || {
+        let chores = store.chores_agenda(today).unwrap_or_default();
+        AgendaData {
+            all_done_today: chores.all_done_today(store),
+            items: store.agenda_items().unwrap_or_default(),
+            chores,
+        }
+    });
     egui::ScrollArea::vertical().show(ui, |ui| {
         ui.horizontal(|ui| {
             let add = ui.button(t.add_appointment());
@@ -118,10 +144,10 @@ pub fn show_agenda(ui: &mut Ui, store: &Catalog, t: &L10n, today: NaiveDate) -> 
                 action = AgendaAction::ExportIcs;
             }
         });
-        let chores = store.chores_agenda(today).unwrap_or_default();
+        let chores = &data.chores;
         if !chores.today.is_empty() {
             ui.add_space(8.0);
-            let today_heading = ui.strong(if chores.all_done_today(store) {
+            let today_heading = ui.strong(if data.all_done_today {
                 t.all_done_today()
             } else {
                 t.today_section()
@@ -156,11 +182,11 @@ pub fn show_agenda(ui: &mut Ui, store: &Catalog, t: &L10n, today: NaiveDate) -> 
         }
         ui.add_space(8.0);
         ui.strong(t.planned_section());
-        let items = store.agenda_items().unwrap_or_default();
+        let items = &data.items;
         if items.is_empty() && chores.today.is_empty() && chores.upcoming.is_empty() {
             ui.label(t.agenda_empty());
         }
-        for item in &items {
+        for item in items {
             match item {
                 AgendaItem::Reminder(r) => {
                     let name = store

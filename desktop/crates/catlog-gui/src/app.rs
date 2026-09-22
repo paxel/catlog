@@ -237,6 +237,9 @@ pub struct App {
     pub now: Box<dyn Fn() -> chrono::NaiveDateTime>,
     /// Reminders sound once: the moment the last check ran.
     last_reminder_check: chrono::NaiveDateTime,
+    /// The dashboard's and the agenda's data between frames.
+    dashboard_memo: dashboard::DashboardMemo,
+    agenda_memo: crate::agenda::AgendaMemo,
     asking: Asking,
     /// The name typed on the intro page.
     intro_name: String,
@@ -393,6 +396,8 @@ impl App {
             transfer_dialog: TransferDialog::default(),
             now: Box::new(|| chrono::Local::now().naive_local()),
             last_reminder_check: chrono::Local::now().naive_local(),
+            dashboard_memo: dashboard::DashboardMemo::default(),
+            agenda_memo: crate::agenda::AgendaMemo::default(),
             asking: Asking::Nothing,
             request: Request::None,
             ctx: None,
@@ -862,6 +867,7 @@ impl App {
                         &self.store,
                         &t,
                         &mut self.faces,
+                        &mut self.dashboard_memo,
                         today,
                         units,
                     ) {
@@ -904,7 +910,7 @@ impl App {
                 }
                 View::Agenda => {
                     let today = self.pages.today;
-                    match show_agenda(ui, &self.store, &t, today) {
+                    match show_agenda(ui, &self.store, &t, &mut self.agenda_memo, today) {
                         AgendaAction::None => {}
                         AgendaAction::Chore(a) => page_action = PageAction::Chore(a),
                         AgendaAction::Appointment(a) => page_action = PageAction::Appointment(a),

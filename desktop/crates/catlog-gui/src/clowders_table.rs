@@ -76,6 +76,9 @@ pub struct ClowdersTable {
     pub cursor: Option<String>,
     order: Vec<String>,
     scroll_to: Option<usize>,
+    /// The rows and the strays count as built for the store's last
+    /// write and these inputs; the sort runs on them every frame.
+    rows: crate::memo::Memo<(bool, UnitSystem, String), (Vec<Row>, usize)>,
 }
 
 /// The rows, favourites first as the pane had them.
@@ -150,7 +153,15 @@ impl ClowdersTable {
         // whole width so the width the keeper chose holds.
         ui.set_min_width(ui.available_width());
         let pet_mode = store.is_pet_mode().unwrap_or(false);
-        let strays = store.strays().map(|s| s.len()).unwrap_or(0);
+        let (built, strays) = self
+            .rows
+            .get(store, (show_hidden, units, t.locale().to_string()), || {
+                (
+                    rows(store, t, units, show_hidden),
+                    store.strays().map(|s| s.len()).unwrap_or(0),
+                )
+            })
+            .clone();
         ui.horizontal(|ui| {
             let new_label = if pet_mode {
                 t.new_clowder_neutral()
@@ -165,7 +176,7 @@ impl ClowdersTable {
             }
         });
         ui.add_space(4.0);
-        let rows = self.sorted(rows(store, t, units, show_hidden));
+        let rows = self.sorted(built);
         self.order = rows.iter().map(|r| r.row.view.id.clone()).collect();
         if rows.is_empty() {
             ui.add_space(8.0);

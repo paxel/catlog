@@ -2,7 +2,7 @@
 //! tick and a finish, the last changes, and the Cat and Clowder looked
 //! at last so the keeper picks up where they left off.
 
-use catlog_core::agenda::AgendaItem;
+use catlog_core::agenda::{AgendaItem, ChoresAgenda};
 use catlog_core::flier::target::MISSING_SINCE;
 use catlog_core::units::UnitSystem;
 use catlog_core::{Catalog, keys};
@@ -14,6 +14,7 @@ use crate::chores::{ChoreAction, chore_row};
 use crate::icons;
 use crate::l10n::L10n;
 use crate::labels::{field_label, format_day, value_label};
+use crate::memo::Memo;
 use crate::textures::FaceCache;
 use crate::theme::PALETTE;
 
@@ -127,19 +128,40 @@ pub fn last_viewed(store: &Catalog) -> (Option<String>, Option<String>) {
     (alive(LAST_CAT), alive(LAST_CLOWDER))
 }
 
+/// What the dashboard shows, as built for one write of the store.
+#[derive(Debug, Clone, Default)]
+pub struct DashboardData {
+    pub counts: Counts,
+    pub chores: ChoresAgenda,
+    pub items: Vec<AgendaItem>,
+    pub changes: Vec<Change>,
+}
+
+/// The dashboard's data between frames.
+pub type DashboardMemo = Memo<(NaiveDate, UnitSystem, String), DashboardData>;
+
 /// Draws the dashboard and says what the keeper did.
 pub fn show_dashboard(
     ui: &mut Ui,
     store: &Catalog,
     t: &L10n,
     faces: &mut FaceCache,
+    memo: &mut DashboardMemo,
     today: NaiveDate,
     units: UnitSystem,
 ) -> DashboardAction {
     let mut action = DashboardAction::None;
     let pet_mode = store.is_pet_mode().unwrap_or(false);
+    let data = memo.get(store, (today, units, t.locale().to_string()), || {
+        DashboardData {
+            counts: counts(store),
+            chores: store.chores_agenda(today).unwrap_or_default(),
+            items: store.agenda_items().unwrap_or_default(),
+            changes: recent_changes(store, t, units),
+        }
+    });
     egui::ScrollArea::vertical().show(ui, |ui| {
-        let n = counts(store);
+        let n = data.counts;
         ui.horizontal(|ui| {
             let cats = if pet_mode {
                 t.cats_count_neutral(n.cats as i64)
@@ -177,9 +199,9 @@ pub fn show_dashboard(
         ui.columns(2, |cols| {
             let left = &mut cols[0];
             section(left, t.dashboard_due());
-            let chores = store.chores_agenda(today).unwrap_or_default();
-            let items = store.agenda_items().unwrap_or_default();
-            let due: Vec<_> = items
+            let chores = &data.chores;
+            let due: Vec<_> = data
+                .items
                 .iter()
                 .filter_map(|item| match item {
                     AgendaItem::Appointments(group) if item.when().date() <= today => Some(group),
@@ -202,11 +224,11 @@ pub fn show_dashboard(
             }
             left.add_space(12.0);
             section(left, t.dashboard_recent());
-            let changes = recent_changes(store, t, units);
+            let changes = &data.changes;
             if changes.is_empty() {
                 left.label(t.dashboard_no_changes());
             }
-            for change in &changes {
+            for change in changes {
                 left.horizontal(|ui| {
                     if ui.link(&change.name).clicked() {
                         action = if change.entity.starts_with("clowder:") {

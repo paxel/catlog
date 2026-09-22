@@ -33,6 +33,8 @@ pub struct Row {
 /// The view's own state: the row picked and the sort.
 #[derive(Debug, Default)]
 pub struct VetView {
+    /// The rows as built for the store's last write and the sort.
+    rows: crate::memo::Memo<(bool, String), Vec<Row>>,
     /// The appointment id of the picked row.
     pub picked: Option<String>,
     /// Newest first when true; open rows always lead.
@@ -102,7 +104,12 @@ impl VetView {
         last_cat: Option<&str>,
     ) -> Option<PageAction> {
         let mut action = None;
-        let rows = rows(store, t, self.descending);
+        let rows = self
+            .rows
+            .get(store, (self.descending, t.locale().to_string()), || {
+                rows(store, t, self.descending)
+            })
+            .clone();
         self.order = rows.iter().map(|r| r.first.id.clone()).collect();
         let picked_cat = self
             .picked
