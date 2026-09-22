@@ -6,7 +6,6 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'l10n.dart';
 import 'screens/photo_edit_screen.dart';
 import 'video_frames_io.dart';
 import 'exclusive.dart';
@@ -76,8 +75,8 @@ ImageSource get cameraIfThereIsOne =>
     hasCamera ? ImageSource.camera : ImageSource.gallery;
 
 /// Picks or takes a photo and returns the (optionally cropped) raw
-/// bytes, or null if the user canceled. A preselected [source] skips
-/// the sheet.
+/// bytes, or null if the user canceled. The button that led here said
+/// camera or gallery; without a [source] it is the gallery.
 Future<Uint8List?> pickImageBytes(BuildContext context,
     {bool allowCrop = true, ImageSource? source}) =>
     runExclusive('imagePicker',
@@ -86,31 +85,8 @@ Future<Uint8List?> pickImageBytes(BuildContext context,
 
 Future<Uint8List?> _pickImageBytes(BuildContext context,
     {bool allowCrop = true, ImageSource? source}) async {
-  final canUseCamera = Platform.isAndroid || Platform.isIOS;
-  var pickedSource = source ?? ImageSource.gallery;
-  if (source == null && canUseCamera) {
-    final picked = await showModalBottomSheet<ImageSource>(
-      context: context,
-      builder: (context) => SafeArea(
-        child: Wrap(children: [
-          ListTile(
-            leading: const Icon(Icons.photo_camera),
-            title: Text(context.t.takePhoto),
-            onTap: () => Navigator.of(context).pop(ImageSource.camera),
-          ),
-          ListTile(
-            leading: const Icon(Icons.photo_library),
-            title: Text(context.t.chooseFromGallery),
-            onTap: () => Navigator.of(context).pop(ImageSource.gallery),
-          ),
-        ]),
-      ),
-    );
-    if (picked == null) return null;
-    pickedSource = picked;
-  }
-
-  final file = await ImagePicker().pickImage(source: pickedSource);
+  final file =
+      await ImagePicker().pickImage(source: source ?? ImageSource.gallery);
   if (file == null) return null;
   var raw = await file.readAsBytes();
 

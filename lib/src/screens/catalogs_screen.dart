@@ -221,10 +221,11 @@ Future<String?> askCatalogName(BuildContext context, String title,
   ).then((value) => value == null || value.isEmpty ? null : value);
 }
 
-/// The switcher behind the home screen's title: the catalogs, and the
-/// way into managing them.
+/// The switcher behind the home screen's title, dropped down from it:
+/// the catalogs, and the way into managing them.
 Future<void> showCatalogSwitcher(
   BuildContext context, {
+  required Offset at,
   required CatalogManager catalogs,
   required CatalogStore Function() storeOf,
   required void Function(CatalogInfo, {bool unwind}) onSwitch,
@@ -232,45 +233,52 @@ Future<void> showCatalogSwitcher(
 }) async {
   final t = context.t;
   final active = catalogs.active;
-  await showModalBottomSheet<void>(
+  final all = catalogs.catalogs();
+  final picked = await showMenu<String>(
     context: context,
-    showDragHandle: true,
-    builder: (sheet) => SafeArea(
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        for (final catalog in catalogs.catalogs())
-          ListTile(
+    position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+    items: [
+      for (final catalog in all)
+        PopupMenuItem(
+          value: catalog.id,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
             leading: Icon(catalog.id == active.id
                 ? Icons.folder_open
                 : Icons.folder_outlined),
             selected: catalog.id == active.id,
             title: Text(catalog.name),
-            onTap: () {
-              Navigator.of(sheet).pop();
-              onSwitch(catalog);
-              onChanged?.call();
-            },
           ),
-        const Divider(height: 1),
-        ListTile(
+        ),
+      const PopupMenuDivider(),
+      PopupMenuItem(
+        value: 'manage',
+        child: ListTile(
+          contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.settings_outlined),
           title: Text(t.manageCatalogs),
-          onTap: () async {
-            Navigator.of(sheet).pop();
-            await Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => CatalogsScreen(
-                catalogs: catalogs,
-                storeOf: storeOf,
-                onSwitch: onSwitch,
-                onChanged: onChanged,
-              ),
-            ));
-            // Going back in time, deleting, renaming — the pages behind
-            // the manage screen change the world; the home must redraw
-            // it when the keeper returns, not keep the old picture.
-            onChanged?.call();
-          },
         ),
-      ]),
-    ),
+      ),
+    ],
   );
+  if (picked == null || !context.mounted) return;
+  if (picked == 'manage') {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => CatalogsScreen(
+        catalogs: catalogs,
+        storeOf: storeOf,
+        onSwitch: onSwitch,
+        onChanged: onChanged,
+      ),
+    ));
+    // Going back in time, deleting, renaming — the pages behind the
+    // manage screen change the world; the home must redraw it when the
+    // keeper returns, not keep the old picture.
+    onChanged?.call();
+    return;
+  }
+  final catalog = all.where((c) => c.id == picked).firstOrNull;
+  if (catalog == null) return;
+  onSwitch(catalog);
+  onChanged?.call();
 }

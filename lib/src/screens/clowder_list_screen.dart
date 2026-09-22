@@ -186,19 +186,26 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     if (switching == null) return text;
     return Spotlight(
       id: 'home-catalog',
-      child: InkWell(
-        onTap: () => showCatalogSwitcher(context,
-            catalogs: switching.catalogs,
-            storeOf: () => widget.store,
-            onSwitch: switching.onSwitch,
-            onChanged: () {
-              switching.onChanged?.call();
-              if (mounted) setState(() {});
-            }),
-        child: Row(mainAxisSize: MainAxisSize.min, children: [
-          Flexible(child: text),
-          const Icon(Icons.arrow_drop_down),
-        ]),
+      // The switcher drops down from the title, like the arrow says.
+      child: Builder(
+        builder: (title) => InkWell(
+          onTap: () {
+            final box = title.findRenderObject() as RenderBox;
+            showCatalogSwitcher(context,
+                at: box.localToGlobal(Offset(0, box.size.height)),
+                catalogs: switching.catalogs,
+                storeOf: () => widget.store,
+                onSwitch: switching.onSwitch,
+                onChanged: () {
+                  switching.onChanged?.call();
+                  if (mounted) setState(() {});
+                });
+          },
+          child: Row(mainAxisSize: MainAxisSize.min, children: [
+            Flexible(child: text),
+            const Icon(Icons.arrow_drop_down),
+          ]),
+        ),
       ),
     );
   }

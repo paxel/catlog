@@ -352,63 +352,72 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (mounted) setState(() {});
   }
 
-  void _imageMenu(String hash) {
+  /// The menu behind a photo, at the finger: profile, crop, mark,
+  /// delete.
+  Future<void> _imageMenu(String hash, Offset at) async {
+    final t = context.t;
     final isProfile = store.profileImage(id) == hash;
-    showModalBottomSheet<void>(
+    final action = await showMenu<String>(
       context: context,
-      builder: (context) => SafeArea(
-        child: Wrap(
-          children: [
-            ListTile(
-              leading: const Icon(Icons.star),
-              title: Text(
-                isProfile
-                    ? context.t.thisIsProfileImage
-                    : context.t.setAsProfileImage,
-              ),
-              enabled: !isProfile,
-              onTap: () {
-                store.setProfileImage(id, hash);
-                Navigator.of(context).pop();
-                setState(() {});
-              },
+      position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+      items: [
+        PopupMenuItem(
+          value: 'profile',
+          enabled: !isProfile,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.star),
+            title: Text(
+              isProfile ? t.thisIsProfileImage : t.setAsProfileImage,
             ),
-            ListTile(
-              leading: const Icon(Icons.crop),
-              title: Text(context.t.cropPhoto),
-              onTap: () {
-                Navigator.of(context).pop();
-                _editPhoto(hash, PhotoEditMode.crop);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.circle_outlined),
-              title: Text(context.t.markPhoto),
-              onTap: () {
-                Navigator.of(context).pop();
-                _editPhoto(hash, PhotoEditMode.mark);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.delete_outline),
-              title: Text(context.t.deletePhoto),
-              onTap: () async {
-                Navigator.of(context).pop();
-                final sure = await _confirm(
-                  context,
-                  context.t.deletePhotoTitle,
-                  context.t.deletePhotoBody,
-                );
-                if (sure && mounted) {
-                  store.deleteImage(id, hash);
-                  setState(() {});
-                }
-              },
-            ),
-          ],
+          ),
         ),
-      ),
+        PopupMenuItem(
+          value: 'crop',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.crop),
+            title: Text(t.cropPhoto),
+          ),
+        ),
+        PopupMenuItem(
+          value: 'mark',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.circle_outlined),
+            title: Text(t.markPhoto),
+          ),
+        ),
+        PopupMenuItem(
+          value: 'delete',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.delete_outline),
+            title: Text(t.deletePhoto),
+          ),
+        ),
+      ],
     );
+    if (action == null || !mounted) return;
+    switch (action) {
+      case 'profile':
+        store.setProfileImage(id, hash);
+        setState(() {});
+      case 'crop':
+        await _editPhoto(hash, PhotoEditMode.crop);
+      case 'mark':
+        await _editPhoto(hash, PhotoEditMode.mark);
+      case 'delete':
+        final sure = await _confirm(
+          context,
+          t.deletePhotoTitle,
+          t.deletePhotoBody,
+        );
+        if (sure && mounted) {
+          store.deleteImage(id, hash);
+          setState(() {});
+        }
+    }
   }
 
   /// Crop or mark an existing photo: the edited copy joins as a NEW
@@ -554,8 +563,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               itemBuilder: (context, i) {
                 final hash = images[i];
                 final photo = imageProviderFor(store, hash);
-                // Tap = quick action (view full-size), long-press = menu —
-                // the app-wide gesture convention.
+                // Tap = quick action (view full-size), long-press = menu
+                // at the finger — the app-wide gesture convention.
                 return GestureDetector(
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
@@ -567,7 +576,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                       ),
                     ),
                   ),
-                  onLongPress: () => _imageMenu(hash),
+                  onLongPressStart: (d) => _imageMenu(hash, d.globalPosition),
                   child: Stack(
                     fit: StackFit.expand,
                     children: [

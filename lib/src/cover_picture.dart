@@ -64,40 +64,48 @@ Future<bool> pickCover(
   return await setCover(store, entityId, bytes) != null;
 }
 
-/// The menu behind a cover: take a photo, choose one, or remove the
-/// one there. The choices are the sheet; nothing to read first.
+/// The menu behind a cover, at the finger: take a photo, choose one,
+/// or remove the one there. The choices are the menu; nothing to read
+/// first.
 Future<bool> coverMenu(
   BuildContext context,
   CatalogStore store,
   String entityId,
+  Offset at,
 ) async {
   final t = context.t;
   final has = coverHash(store, entityId) != null;
-  final choice = await showModalBottomSheet<String>(
+  final choice = await showMenu<String>(
     context: context,
-    builder: (context) => SafeArea(
-      child: Wrap(
-        children: [
-          if (_hasCamera)
-            ListTile(
-              leading: const Icon(Icons.photo_camera),
-              title: Text(t.takePhoto),
-              onTap: () => Navigator.of(context).pop('camera'),
-            ),
-          ListTile(
-            leading: const Icon(Icons.photo_library),
-            title: Text(t.chooseFromGallery),
-            onTap: () => Navigator.of(context).pop('gallery'),
+    position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+    items: [
+      if (_hasCamera)
+        PopupMenuItem(
+          value: 'camera',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.photo_camera),
+            title: Text(t.takePhoto),
           ),
-          if (has)
-            ListTile(
-              leading: const Icon(Icons.hide_image_outlined),
-              title: Text(t.coverRemove),
-              onTap: () => Navigator.of(context).pop('remove'),
-            ),
-        ],
+        ),
+      PopupMenuItem(
+        value: 'gallery',
+        child: ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const Icon(Icons.photo_library),
+          title: Text(t.chooseFromGallery),
+        ),
       ),
-    ),
+      if (has)
+        PopupMenuItem(
+          value: 'remove',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.hide_image_outlined),
+            title: Text(t.coverRemove),
+          ),
+        ),
+    ],
   );
   if (choice == null || !context.mounted) return false;
   if (choice == 'remove') {
@@ -131,8 +139,8 @@ class CoverBanner extends StatelessWidget {
     this.title,
   });
 
-  Future<void> _menu(BuildContext context) async {
-    final changed = await coverMenu(context, store, entityId);
+  Future<void> _menu(BuildContext context, Offset at) async {
+    final changed = await coverMenu(context, store, entityId, at);
     if (changed && context.mounted) onChanged();
   }
 
@@ -168,7 +176,7 @@ class CoverBanner extends StatelessWidget {
       );
     }
     return GestureDetector(
-      onLongPress: () => _menu(context),
+      onLongPressStart: (d) => _menu(context, d.globalPosition),
       child: SizedBox(
         height: 160,
         width: double.infinity,
