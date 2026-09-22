@@ -42,7 +42,11 @@ void main() {
     dir.deleteSync(recursive: true);
   });
 
-  Future<void> pump(WidgetTester tester, {(String, String)? trailOf}) async {
+  Future<void> pump(
+    WidgetTester tester, {
+    (String, String)? trailOf,
+    int? dot,
+  }) async {
     await tester.pumpWidget(
       MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -51,6 +55,7 @@ void main() {
           store: store,
           tileProvider: _FakeTileProvider(tile),
           trailOf: trailOf,
+          dot: dot,
         ),
       ),
     );
@@ -100,6 +105,21 @@ void main() {
     await tester.tap(find.byTooltip('2026-03-09'));
     await tester.pump();
     expect(find.textContaining('2026-03-09 · anna'), findsOneWidget);
+  });
+
+  testWidgets('opened from a history row, that value\'s dot is marked', (
+    tester,
+  ) async {
+    store.defineField('Vet', FieldType.location);
+    final vet = store.fieldDefs().firstWhere((d) => d.name == 'Vet');
+    final cat = store.createCat('Miezi');
+    store.append(cat, vet.key, '52.52,13.40', date: DateTime.utc(2026, 1, 5));
+    store.append(cat, vet.key, '52.53,13.41', date: DateTime.utc(2026, 3, 9));
+    final first = store.fieldHistory(cat, vet.key).last;
+
+    await pump(tester, trailOf: (cat, vet.key), dot: first.seq);
+    expect(dots(tester), 2);
+    expect(find.textContaining('2026-01-05 · anna'), findsOneWidget);
   });
 
   testWidgets('a home has a trail too, and Open leads to its page', (

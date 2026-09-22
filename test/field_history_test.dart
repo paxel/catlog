@@ -117,6 +117,29 @@ void main() {
     expect(find.text('Remove this value'), findsOneWidget);
   });
 
+  testWidgets('a location value leads to the map, a remark does not', (
+    tester,
+  ) async {
+    store.defineField('Vet', FieldType.location);
+    final vet = store.fieldDefs().firstWhere((d) => d.name == 'Vet');
+    store.append(cat, vet.key, '52.52,13.40', date: DateTime.utc(2026, 1, 5));
+    store.append(cat, vet.key, '52.53,13.41', date: DateTime.utc(2026, 3, 9));
+    await pump(
+      tester,
+      FieldHistoryScreen(store: store, entityId: cat, def: vet),
+    );
+    expect(find.byTooltip('Show on map'), findsNWidgets(2));
+
+    store.append(cat, 'f:remarks', 'Sneezing');
+    store.append(cat, 'f:remarks', 'Vet: fine');
+    final remarks = store.fieldDefs().firstWhere((d) => d.slug == 'remarks');
+    await pump(
+      tester,
+      FieldHistoryScreen(store: store, entityId: cat, def: remarks),
+    );
+    expect(find.byTooltip('Show on map'), findsNothing);
+  });
+
   testWidgets('the history flips to oldest first and shares as text', (
     tester,
   ) async {

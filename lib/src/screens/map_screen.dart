@@ -50,6 +50,10 @@ class MapScreen extends StatefulWidget {
   /// the field key, from a row with two values or more.
   final (String, String)? trailOf;
 
+  /// The trail dot marked from the start: the seq of the value a history
+  /// row was opened from. Nothing when the value is not on the trail.
+  final int? dot;
+
   const MapScreen(
       {super.key,
       required this.store,
@@ -57,7 +61,8 @@ class MapScreen extends StatefulWidget {
       this.initialCenter,
       this.geocode,
       this.focus,
-      this.trailOf});
+      this.trailOf,
+      this.dot});
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -287,6 +292,12 @@ class _MapScreenState extends State<MapScreen>
   void initState() {
     super.initState();
     _trailOf = widget.trailOf;
+    if ((widget.trailOf, widget.dot) case (final of?, final seq?)) {
+      _dot = _trailPoints(of)
+          .map((p) => p.$1)
+          .where((e) => e.seq == seq)
+          .firstOrNull;
+    }
     WidgetsBinding.instance.addPostFrameCallback(
         (_) => runSpotlights(context, store, 'map'));
     if (widget.tileProvider != null) {

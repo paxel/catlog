@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../layout.dart';
 import '../help.dart';
@@ -11,6 +12,7 @@ import '../l10n.dart';
 import '../celebration.dart';
 import '../widgets/cat_ear.dart';
 import 'field_history_screen.dart';
+import 'map_screen.dart';
 
 /// The timeline of an entity: every change in date order with Author —
 /// or, when [field] is given, the history of that one Field.
@@ -170,6 +172,32 @@ class _TimelineScreenState extends State<TimelineScreen> {
     paw(context);
   }
 
+  /// The spot a position or location value names; null for any other
+  /// row.
+  LatLng? _spotOf(Entry e) {
+    if (e.field != CatalogStore.positionKey &&
+        _defOf(e)?.type != FieldType.location) {
+      return null;
+    }
+    final pos = CatalogStore.parsePosition(e.value);
+    return pos == null ? null : LatLng(pos.$1, pos.$2);
+  }
+
+  /// The map centered on the row's spot, with the field's trail on and
+  /// this value's dot marked.
+  Future<void> _showOnMap(Entry e, LatLng spot) async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => MapScreen(
+        store: store,
+        initialCenter: spot,
+        focus: (e.entity, spot),
+        trailOf: (e.entity, e.field),
+        dot: e.seq,
+      ),
+    ));
+    if (mounted) setState(() {});
+  }
+
   void _entryMenu(Entry entry) {
     final t = context.t;
     showModalBottomSheet<void>(
@@ -246,6 +274,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
           final e = row.entry;
           final correctable = CatalogStore.isCorrectable(e.field);
           final muted = Theme.of(context).colorScheme.onSurfaceVariant;
+          final spot = _spotOf(e);
           final tile = ListTile(
             leading: Icon(row.icon, color: e.voided ? muted : null),
             title: Text(
@@ -260,6 +289,14 @@ class _TimelineScreenState extends State<TimelineScreen> {
                     '${voidedLine(context.t, store, e.field, e, _locale)}'
                 : '${_date(e.date)} · ${e.author}'),
             isThreeLine: e.voided,
+            // A position leads to the map: the spot, the trail, this dot.
+            trailing: spot == null
+                ? null
+                : IconButton(
+                    icon: const Icon(Icons.map_outlined),
+                    tooltip: context.t.showOnMap,
+                    onPressed: () => _showOnMap(e, spot),
+                  ),
             onTap: correctable && !e.voided && _defOf(e) != null
                 ? () => _correct(e)
                 : null,

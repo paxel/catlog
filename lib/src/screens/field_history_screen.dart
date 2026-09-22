@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../field_editing.dart';
 import '../field_labels.dart';
@@ -11,6 +12,7 @@ import '../layout.dart';
 import '../widgets/cat_ear.dart';
 import '../spotlight.dart';
 import '../pdf_fonts.dart';
+import 'map_screen.dart';
 
 /// The values a field has held, newest first: facts only. Cleared
 /// values, plans (reminder entries) and bookkeeping are left out;
@@ -214,6 +216,30 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     setState(() {});
   }
 
+  /// The spot a location value names; null for any other field.
+  LatLng? _spotOf(Entry e) {
+    if (widget.def.type != FieldType.location) return null;
+    final pos = CatalogStore.parsePosition(e.value);
+    return pos == null ? null : LatLng(pos.$1, pos.$2);
+  }
+
+  /// The map centered on the value's spot, with the field's trail on
+  /// and this value's dot marked.
+  Future<void> _showOnMap(Entry e, LatLng spot) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => MapScreen(
+          store: store,
+          initialCenter: spot,
+          focus: (widget.entityId, spot),
+          trailOf: (widget.entityId, widget.def.key),
+          dot: e.seq,
+        ),
+      ),
+    );
+    if (mounted) setState(() {});
+  }
+
   void _menu(Entry e) {
     final t = context.t;
     showModalBottomSheet<void>(
@@ -322,34 +348,50 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
         onLongPress: () => _menu(e),
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Text(
-                valueLabel(t, store, widget.def.key, e.value),
-                style: e.voided
-                    ? theme.textTheme.bodyLarge?.copyWith(
-                        color: muted,
-                        decoration: TextDecoration.lineThrough,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      valueLabel(t, store, widget.def.key, e.value),
+                      style: e.voided
+                          ? theme.textTheme.bodyLarge?.copyWith(
+                              color: muted,
+                              decoration: TextDecoration.lineThrough,
+                            )
+                          : theme.textTheme.bodyLarge,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      '${historyMoment(locale, e.date)} · ${e.author}',
+                      style: theme.textTheme.bodySmall,
+                    ),
+                    if (e.voided)
+                      Text(
+                        voidedLine(t, store, widget.def.key, e, locale),
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: muted,
+                        ),
                       )
-                    : theme.textTheme.bodyLarge,
+                    else if (store.correctedBy(e) != null)
+                      Text(
+                        t.entryCorrection,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                '${historyMoment(locale, e.date)} · ${e.author}',
-                style: theme.textTheme.bodySmall,
-              ),
-              if (e.voided)
-                Text(
-                  voidedLine(t, store, widget.def.key, e, locale),
-                  style: theme.textTheme.bodySmall?.copyWith(color: muted),
-                )
-              else if (store.correctedBy(e) != null)
-                Text(
-                  t.entryCorrection,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.primary,
-                  ),
+              // A location value leads to the map: its spot, the
+              // field's trail, this dot marked.
+              if (_spotOf(e) case final spot?)
+                IconButton(
+                  icon: const Icon(Icons.map_outlined),
+                  tooltip: t.showOnMap,
+                  onPressed: () => _showOnMap(e, spot),
                 ),
             ],
           ),
