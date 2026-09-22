@@ -10,7 +10,6 @@ import '../achievements.dart';
 import '../language_dialog.dart';
 import '../spotlight.dart';
 import '../units.dart';
-import '../units_dialog.dart';
 import 'intro_screen.dart';
 import '../move_to_catalog.dart';
 import '../sounds.dart';
@@ -101,12 +100,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (mounted) setState(() {});
   }
 
-  String _unitsLabel(AppLocalizations t) =>
-      switch (widget.store.localSetting(unitsSettingKey)) {
-        'metric' => t.unitsMetric,
-        'imperial' => t.unitsImperial,
-        _ => t.unitsAuto,
-      };
+  /// Metric or imperial, or whatever the region says (#96). Device-local
+  /// and immediate: every value on screen changes its unit.
+  void _setUnits(String value) {
+    widget.store.setLocalSetting(unitsSettingKey, value);
+    applyUnitSystem(widget.store, Localizations.localeOf(context));
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,11 +124,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(languageLabel(context, widget.store)),
             onTap: () => _pick(showLanguageDialog),
           ),
+          // The choice on the row itself, as the catalog's Cats and
+          // Pets is; no dialog for three options.
           ListTile(
             leading: const Icon(Icons.straighten),
             title: Text(t.unitsLabel),
-            subtitle: Text(_unitsLabel(t)),
-            onTap: () => _pick(showUnitsDialog),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: SegmentedButton<String>(
+                segments: [
+                  ButtonSegment(value: 'auto', label: Text(t.unitsAuto)),
+                  ButtonSegment(value: 'metric', label: Text(t.unitsMetric)),
+                  ButtonSegment(
+                      value: 'imperial', label: Text(t.unitsImperial)),
+                ],
+                selected: {widget.store.localSetting(unitsSettingKey) ?? 'auto'},
+                onSelectionChanged: (s) => _setUnits(s.first),
+              ),
+            ),
           ),
           SwitchListTile(
             secondary: const Icon(Icons.celebration_outlined),

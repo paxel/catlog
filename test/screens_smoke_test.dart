@@ -10,6 +10,7 @@ import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/fields_screen.dart';
 import 'package:catlog/src/screens/moderation_screen.dart';
 import 'package:catlog/src/screens/settings_screen.dart';
+import 'package:catlog/src/units.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -249,5 +250,21 @@ void main() {
       expect(store.localSetting('celebrations'), isNotNull);
       setCelebrationsEnabled(store, true);
     });
+  });
+
+  testWidgets('units are picked on the settings row itself', (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    await pump(
+      tester,
+      SettingsScreen(store: store),
+      size: const Size(500, 2400),
+    );
+    await tester.tap(find.textContaining('Imperial'));
+    await tester.pumpAndSettle();
+    expect(store.localSetting('units'), 'imperial');
+    expect(unitSystem.value, UnitSystem.imperial);
+    expect(find.byType(Dialog), findsNothing);
+    unitSystem.value = UnitSystem.metric;
   });
 }
