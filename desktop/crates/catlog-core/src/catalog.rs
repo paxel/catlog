@@ -2,6 +2,7 @@
 //! projection (ADR 0001). Photo bytes live outside the log in a
 //! content-addressed directory next to the database.
 
+use std::cell::RefCell;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Path, PathBuf};
 
@@ -66,6 +67,20 @@ pub struct Catalog {
     db: Connection,
     images: PathBuf,
     clock: Clock,
+    /// What every read needs first, kept between writes: the merge map
+    /// and the deleted set were a full scan of the log per value read,
+    /// which made every list quadratic in the catalog's size.
+    cache: RefCell<Cache>,
+}
+
+/// The read cache and the generation it belongs to. Every write to the
+/// log or the voids bumps the generation and drops the maps; the desk
+/// keeps its own views by the same number.
+#[derive(Default)]
+struct Cache {
+    generation: u64,
+    merge_targets: Option<HashMap<String, String>>,
+    deleted: Option<HashSet<String>>,
 }
 
 /// The local setting that counts the history's shrinks (ADR 0010).
@@ -139,9 +154,16 @@ impl Catalog {
              CREATE UNIQUE INDEX IF NOT EXISTS idx_entries_device_dseq
                ON entries (device, dseq);
              CREATE INDEX IF NOT EXISTS idx_entries_entity_field
-               ON entries (entity, field);",
+               ON entries (entity, field);
+             CREATE INDEX IF NOT EXISTS idx_entries_field
+               ON entries (field);",
         )?;
-        let catalog = Catalog { db, images, clock };
+        let catalog = Catalog {
+            db,
+            images,
+            clock,
+            cache: RefCell::new(Cache::default()),
+        };
         catalog.ensure_device_id()?;
         catalog.rebuild_voids()?;
         catalog.ensure_signing_key()?;
@@ -569,6 +591,7 @@ impl Catalog {
     // --------------------------------------------------------------- voids
 
     fn rebuild_voids(&self) -> Result<()> {
+        self.touch();
         self.db.execute("DELETE FROM voids", [])?;
         let fields: Vec<String> = self
             .db
@@ -606,7 +629,23 @@ impl Catalog {
                 params![device, dseq],
             )?;
         }
+        self.touch();
         Ok(())
+    }
+
+    /// A write happened: the read cache is stale and the generation
+    /// moves on.
+    fn touch(&self) {
+        let mut cache = self.cache.borrow_mut();
+        cache.generation += 1;
+        cache.merge_targets = None;
+        cache.deleted = None;
+    }
+
+    /// Counts the writes to this store since it was opened. A view that
+    /// remembers the number it was built for knows whether to rebuild.
+    pub fn generation(&self) -> u64 {
+        self.cache.borrow().generation
     }
 
     // ----------------------------------------------------------------- log
@@ -733,6 +772,7 @@ impl Catalog {
              VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
             params![device, dseq, entity, field, value, date, author, recorded, reminder as i64, sig],
         )?;
+        self.touch();
         self.note_void(field)
     }
 
@@ -1247,6 +1287,7 @@ impl Catalog {
             })?;
             rows.collect::<std::result::Result<_, _>>()?
         };
+        self.touch();
         let tx = self.db.transaction()?;
         tx.execute(
             &format!("DELETE FROM entries WHERE {where_sql}"),
@@ -1636,6 +1677,9 @@ impl Catalog {
     // -------------------------------------------------------- alias (merge)
 
     fn merge_targets(&self) -> Result<HashMap<String, String>> {
+        if let Some(map) = &self.cache.borrow().merge_targets {
+            return Ok(map.clone());
+        }
         let mut map = HashMap::new();
         for e in self.select(
             &format!("SELECT * FROM entries WHERE field = ?1 {LATEST}"),
@@ -1645,7 +1689,40 @@ impl Catalog {
                 map.entry(e.entity).or_insert(value);
             }
         }
+        self.cache.borrow_mut().merge_targets = Some(map.clone());
         Ok(map)
+    }
+
+    /// The key an entity's deletion is kept under: Cats and Clowders
+    /// unite their alias group, as every read of theirs does.
+    fn deleted_key(targets: &HashMap<String, String>, entity: &str) -> String {
+        if Self::union_kind(entity) {
+            resolve(targets, entity)
+        } else {
+            entity.to_string()
+        }
+    }
+
+    /// The entities whose newest live deletion marker says deleted, by
+    /// [`Catalog::deleted_key`]; one query, kept until the next write.
+    fn deleted_set(&self) -> Result<HashSet<String>> {
+        if let Some(set) = &self.cache.borrow().deleted {
+            return Ok(set.clone());
+        }
+        let targets = self.merge_targets()?;
+        let mut decided = HashSet::new();
+        let mut set = HashSet::new();
+        for e in self.select(
+            &format!("SELECT * FROM entries WHERE field = ?1 AND reminder = 0 {LIVE} {LATEST}"),
+            &[&keys::DELETED],
+        )? {
+            let key = Self::deleted_key(&targets, &e.entity);
+            if decided.insert(key.clone()) && e.value.as_deref() == Some("true") {
+                set.insert(key);
+            }
+        }
+        self.cache.borrow_mut().deleted = Some(set.clone());
+        Ok(set)
     }
 
     /// The losers of every merge so far.
@@ -1977,7 +2054,8 @@ impl Catalog {
     }
 
     pub fn is_deleted(&self, entity: &str) -> Result<bool> {
-        Ok(self.current(entity, keys::DELETED)?.as_deref() == Some("true"))
+        let key = Self::deleted_key(&self.merge_targets()?, entity);
+        Ok(self.deleted_set()?.contains(&key))
     }
 
     /// Ids of all non-deleted, non-merged entities of a kind, oldest
