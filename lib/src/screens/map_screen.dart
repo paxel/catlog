@@ -555,29 +555,30 @@ class _MapScreenState extends State<MapScreen>
         : dead
             ? Colors.grey
             : Colors.deepOrange;
+    final avatar = CircleAvatar(
+      radius: 18,
+      backgroundColor: Colors.white,
+      // Decode at pin size — full-resolution photos (2560px ≈ 26MB
+      // decoded) in a 40px circle were the other leg of the OOM.
+      backgroundImage: photo != null ? ResizeImage(photo, width: 96) : null,
+      child: photo == null ? _placeholder() : null,
+    );
     final face = Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: ring, width: 3),
         color: Colors.white,
       ),
-      child: CircleAvatar(
-        radius: 18,
-        backgroundColor: Colors.white,
-        // Decode at pin size — full-resolution photos (2560px ≈ 26MB
-        // decoded) in a 40px circle were the other leg of the OOM.
-        backgroundImage:
-            photo != null ? ResizeImage(photo, width: 96) : null,
-        child: photo == null
-            ? _placeholder()
-            : null,
-      ),
+      child: dead
+          ? ClipOval(
+              child: withMourningBand(Opacity(
+                opacity: 0.65,
+                child: ColorFiltered(colorFilter: greyscale, child: avatar),
+              )),
+            )
+          : avatar,
     );
-    if (!dead) return face;
-    return Opacity(
-      opacity: 0.65,
-      child: ColorFiltered(colorFilter: greyscale, child: face),
-    );
+    return face;
   }
 
   /// The cat's face in a square frame: the flier pin (#83). Squarer
@@ -585,7 +586,7 @@ class _MapScreenState extends State<MapScreen>
   Widget _flierFace(String catId, bool highlighted) {
     final hash = store.profileImage(catId);
     final photo = hash == null ? null : imageProviderFor(store, hash);
-    return Container(
+    final face = Container(
       width: 42,
       height: 42,
       decoration: BoxDecoration(
@@ -600,6 +601,9 @@ class _MapScreenState extends State<MapScreen>
       ),
       child: photo == null ? _placeholder() : null,
     );
+    if (!isDeceased(store, catId)) return face;
+    return ClipRRect(
+        borderRadius: BorderRadius.circular(3), child: withMourningBand(face));
   }
 
   /// The face of an animal without a photo: the cat silhouette, or a

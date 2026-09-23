@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [2.0.2] - Unreleased
 
 ### Added
+- The portrait of a deceased cat wears the Trauerflor, a black band across its lower right corner: on the avatar in every list, the map pin, the card, and on the desk's faces, rows and tiles. On the placeholder too, so a cat without a photo reads as deceased. The other photos stay as they are.
 - A history row with a position carries a map icon: the map opens on that spot with the trail drawn and that value's dot marked.
 - Typed fields in the value editor (remarks, numbers, unit values, ids) carry an X that empties them, so a fresh note starts blank without selecting and deleting the old one first.
 - Holding a trail dot on the map opens its menu right there: the value's history, a correction where the field has an editor, and removal. Holding the map itself offers the strays for a sighting in a menu at the finger.
