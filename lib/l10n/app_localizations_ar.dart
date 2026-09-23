@@ -64,9 +64,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pickerCardFields => 'على البطاقة';
 
   @override
-  String get exportCsv => 'تصدير CSV';
-
-  @override
   String get aboutAndFeedback => 'حول التطبيق والملاحظات';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get open => 'فتح';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'حُفظ CSV في $path';
-  }
 
   @override
   String get renameClowder => 'إعادة تسمية المجموعة';
@@ -2214,7 +2206,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'في هذه القائمة: الإعدادات، إيجاد التكرارات ودمجها، تصدير CSV، والمزيد.';
+      'في هذه القائمة: الإعدادات، إيجاد التكرارات ودمجها، والمزيد.';
 
   @override
   String get spotCatEdit =>

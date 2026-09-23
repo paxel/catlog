@@ -64,9 +64,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get pickerCardFields => 'Fuq il-karta';
 
   @override
-  String get exportCsv => 'Esporta CSV';
-
-  @override
   String get aboutAndFeedback => 'Dwar & feedback';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get open => 'Iftaħ';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV salvat f\'$path';
-  }
 
   @override
   String get renameClowder => 'Ibdel isem il-clowder';
@@ -2215,7 +2207,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'F’din il-menu: settings, sib u għaqqad id-duplikati, esporta CSV, u iktar.';
+      'F’din il-menu: settings, sib u għaqqad id-duplikati, u iktar.';
 
   @override
   String get spotCatEdit =>

@@ -64,9 +64,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get pickerCardFields => 'על הכרטיס';
 
   @override
-  String get exportCsv => 'ייצוא CSV';
-
-  @override
   String get aboutAndFeedback => 'אודות ומשוב';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get open => 'פתיחה';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV נשמר ב-$path';
-  }
 
   @override
   String get renameClowder => 'שינוי שם הקבוצה';
@@ -2202,8 +2194,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'הכרטיס הזה מרכז את כל חיות הרחוב — חיות מחמד בלי בית. הקישו לרשימה.';
 
   @override
-  String get spotHomeMenu =>
-      'בתפריט הזה: הגדרות, מציאת כפילויות ומיזוגן, ייצוא CSV ועוד.';
+  String get spotHomeMenu => 'בתפריט הזה: הגדרות, מציאת כפילויות ומיזוגן ועוד.';
 
   @override
   String get spotCatEdit =>

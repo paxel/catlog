@@ -64,9 +64,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pickerCardFields => 'Kartta';
 
   @override
-  String get exportCsv => 'CSV dışa aktar';
-
-  @override
   String get aboutAndFeedback => 'Hakkında ve geri bildirim';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get open => 'Aç';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV şuraya kaydedildi: $path';
-  }
 
   @override
   String get renameClowder => 'Clowder\'ı yeniden adlandır';
@@ -2209,7 +2201,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Bu menüde: ayarlar, yinelenen kayıtları bul ve birleştir, CSV dışa aktar ve daha fazlası.';
+      'Bu menüde: ayarlar, yinelenen kayıtları bul ve birleştir ve daha fazlası.';
 
   @override
   String get spotCatEdit =>

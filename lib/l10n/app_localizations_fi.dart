@@ -64,9 +64,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get pickerCardFields => 'Kortilla';
 
   @override
-  String get exportCsv => 'Vie CSV';
-
-  @override
   String get aboutAndFeedback => 'Tietoja & palaute';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get open => 'Avaa';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV tallennettu: $path';
-  }
 
   @override
   String get renameClowder => 'Nimeä clowder uudelleen';
@@ -2211,7 +2203,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Tässä valikossa: asetukset, kaksoiskappaleiden etsintä ja yhdistäminen, CSV-vienti ja muuta.';
+      'Tässä valikossa: asetukset, kaksoiskappaleiden etsintä ja yhdistäminen ja muuta.';
 
   @override
   String get spotCatEdit =>

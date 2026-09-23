@@ -64,9 +64,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get pickerCardFields => 'På kortet';
 
   @override
-  String get exportCsv => 'Eksporter CSV';
-
-  @override
   String get aboutAndFeedback => 'Om & tilbakemelding';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get open => 'Åpne';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV lagret i $path';
-  }
 
   @override
   String get renameClowder => 'Gi clowderen nytt navn';
@@ -2208,7 +2200,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'I denne menyen: innstillinger, finn og slå sammen duplikater, eksporter CSV og mer.';
+      'I denne menyen: innstillinger, finn og slå sammen duplikater og mer.';
 
   @override
   String get spotCatEdit =>

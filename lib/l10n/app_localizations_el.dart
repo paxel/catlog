@@ -64,9 +64,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get pickerCardFields => 'Στην κάρτα';
 
   @override
-  String get exportCsv => 'Εξαγωγή CSV';
-
-  @override
   String get aboutAndFeedback => 'Σχετικά & σχόλια';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get open => 'Άνοιγμα';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'Το CSV αποθηκεύτηκε στο $path';
-  }
 
   @override
   String get renameClowder => 'Μετονομασία ομάδας';
@@ -2219,7 +2211,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Σε αυτό το μενού: ρυθμίσεις, εύρεση και συγχώνευση διπλότυπων, εξαγωγή CSV και άλλα.';
+      'Σε αυτό το μενού: ρυθμίσεις, εύρεση και συγχώνευση διπλότυπων και άλλα.';
 
   @override
   String get spotCatEdit =>

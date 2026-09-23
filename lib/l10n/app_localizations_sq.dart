@@ -64,9 +64,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get pickerCardFields => 'Në kartë';
 
   @override
-  String get exportCsv => 'Eksporto CSV';
-
-  @override
   String get aboutAndFeedback => 'Rreth & komente';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get open => 'Hap';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV u ruajt në $path';
-  }
 
   @override
   String get renameClowder => 'Riemërto clowder-in';
@@ -2210,7 +2202,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Në këtë meny: cilësimet, gjej dhe bashko dublikatat, eksporto CSV dhe më shumë.';
+      'Në këtë meny: cilësimet, gjej dhe bashko dublikatat dhe më shumë.';
 
   @override
   String get spotCatEdit =>

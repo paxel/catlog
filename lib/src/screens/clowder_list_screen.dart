@@ -1,11 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:share_plus/share_plus.dart';
 
 import '../layout.dart';
 import '../cover_picture.dart';
@@ -13,9 +8,7 @@ import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
-import '../notes.dart';
 import '../name_date_dialog.dart';
-import '../share.dart';
 import '../spotlight.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
@@ -145,23 +138,6 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     ));
     if (!mounted) return;
     setState(() {});
-  }
-
-  Future<void> _exportCsv() async {
-    final csv = exportCsv(widget.store);
-    try {
-      await shareFiles(context, [
-        XFile.fromData(Uint8List.fromList(utf8.encode(csv)),
-            mimeType: 'text/csv', name: 'catlog.csv'),
-      ]);
-    } catch (_) {
-      // Share sheet unavailable (some desktops): save next to the data.
-      final dir = await getApplicationSupportDirectory();
-      final file = File('${dir.path}/catlog.csv');
-      await file.writeAsString(csv);
-      if (!mounted) return;
-      noteDone(context.t.csvSavedTo(file.path));
-    }
   }
 
   /// Opens a list page: in the detail pane when there is one, over the
@@ -315,7 +291,6 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             id: 'home-menu',
             child: PopupMenuButton<String>(
             onSelected: (v) {
-              if (v == 'csv') _exportCsv();
               if (v == 'duplicates') {
                 _open(PanePage(
                     id: 'duplicates',
@@ -349,8 +324,6 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               PopupMenuItem(
                   value: 'duplicates',
                   child: Text(context.t.findDuplicates)),
-              PopupMenuItem(
-                  value: 'csv', child: Text(context.t.exportCsv)),
               // Only while there is something to settle: a sync raised a
               // conflict, the arrival page was closed, and the badges
               // on the cat pages would otherwise be the only trace.

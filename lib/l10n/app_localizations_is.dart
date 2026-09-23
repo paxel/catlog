@@ -64,9 +64,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get pickerCardFields => 'Á kortinu';
 
   @override
-  String get exportCsv => 'Flytja út CSV';
-
-  @override
   String get aboutAndFeedback => 'Um & ábendingar';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get open => 'Opna';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV vistað í $path';
-  }
 
   @override
   String get renameClowder => 'Endurnefna hóp';
@@ -2212,7 +2204,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Í þessari valmynd: stillingar, finna og sameina tvítök, flytja út CSV og fleira.';
+      'Í þessari valmynd: stillingar, finna og sameina tvítök og fleira.';
 
   @override
   String get spotCatEdit =>

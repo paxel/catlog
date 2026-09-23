@@ -64,9 +64,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get pickerCardFields => 'На картці';
 
   @override
-  String get exportCsv => 'Експорт CSV';
-
-  @override
   String get aboutAndFeedback => 'Про застосунок і відгуки';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get open => 'Відкрити';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV збережено в $path';
-  }
 
   @override
   String get renameClowder => 'Перейменувати клаудер';
@@ -2216,7 +2208,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'У цьому меню: налаштування, пошук і об’єднання дублікатів, експорт CSV та інше.';
+      'У цьому меню: налаштування, пошук і об’єднання дублікатів та інше.';
 
   @override
   String get spotCatEdit =>

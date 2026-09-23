@@ -64,9 +64,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get pickerCardFields => 'Na kartici';
 
   @override
-  String get exportCsv => 'Izvezi CSV';
-
-  @override
   String get aboutAndFeedback => 'O aplikaciji i povratne informacije';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get open => 'Otvori';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV spremljen u $path';
-  }
 
   @override
   String get renameClowder => 'Preimenuj clowder';
@@ -2211,7 +2203,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'U ovom izborniku: postavke, pronalaženje i spajanje duplikata, izvoz CSV i više.';
+      'U ovom izborniku: postavke, pronalaženje i spajanje duplikata i više.';
 
   @override
   String get spotCatEdit =>

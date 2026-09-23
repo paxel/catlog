@@ -64,9 +64,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get pickerCardFields => 'På kortet';
 
   @override
-  String get exportCsv => 'Exportera CSV';
-
-  @override
   String get aboutAndFeedback => 'Om & feedback';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get open => 'Öppna';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV sparad i $path';
-  }
 
   @override
   String get renameClowder => 'Byt namn på clowder';
@@ -2208,7 +2200,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'I den här menyn: inställningar, hitta och slå ihop dubbletter, exportera CSV och mer.';
+      'I den här menyn: inställningar, hitta och slå ihop dubbletter och mer.';
 
   @override
   String get spotCatEdit =>

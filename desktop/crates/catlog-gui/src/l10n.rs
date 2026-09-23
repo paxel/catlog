@@ -81,7 +81,7 @@ mod tests {
         assert_eq!(native_name("xx"), "?");
         let en = L10n::new("en");
         assert_eq!(en.app_title(), "cat(a)log");
-        assert_eq!(en.csv_saved_to("/tmp/x"), "CSV saved to /tmp/x");
+        assert_eq!(en.field_history_of("Weight", "Miezi"), "Weight — Miezi");
         assert_eq!(en.changes_count(1), "1 change");
         assert_eq!(en.changes_count(2), "2 changes");
         let de = L10n::new("de");

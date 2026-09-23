@@ -17,7 +17,6 @@
   "fields": "Fields",
   "pickerColumns": "Columns",
   "pickerCardFields": "On the card",
-  "exportCsv": "Export CSV",
   "aboutAndFeedback": "About & feedback",
   "settings": "Settings",
   "newClowder": "New clowder",
@@ -31,14 +30,6 @@
   "merge": "Merge",
   "resolve": "Resolve",
   "open": "Open",
-  "csvSavedTo": "CSV saved to {path}",
-  "@csvSavedTo": {
-    "placeholders": {
-      "path": {
-        "type": "String"
-      }
-    }
-  },
   "renameClowder": "Rename clowder",
   "renameClowderNeutral": "Rename household",
   "rename": "Rename",
@@ -1202,7 +1193,7 @@
   "spotHomeSync": "Sync with people you know here. You decide what you share.",
   "spotHomeStrays": "This card collects all strays — cats without a home. Tap it to see the list.",
   "spotHomeStraysNeutral": "This card collects all strays — pets without a home. Tap it to see the list.",
-  "spotHomeMenu": "In this menu: settings, find and merge duplicate entries, export CSV, and more.",
+  "spotHomeMenu": "In this menu: settings, find and merge duplicate entries, and more.",
   "spotCatEdit": "Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.",
   "spotCatEditNeutral": "Tap the pencil to edit this pet. Tip: long-press any field to edit it directly.",
   "spotMapLayers": "Searching for a missing cat? Show circles around its poster spots and the home it ran from.",

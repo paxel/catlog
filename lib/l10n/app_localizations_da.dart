@@ -64,9 +64,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get pickerCardFields => 'På kortet';
 
   @override
-  String get exportCsv => 'Eksportér CSV';
-
-  @override
   String get aboutAndFeedback => 'Om & feedback';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get open => 'Åbn';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV gemt i $path';
-  }
 
   @override
   String get renameClowder => 'Omdøb clowder';
@@ -2210,7 +2202,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'I denne menu: indstillinger, find og flet dubletter, eksportér CSV og mere.';
+      'I denne menu: indstillinger, find og flet dubletter og mere.';
 
   @override
   String get spotCatEdit =>

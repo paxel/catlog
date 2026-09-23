@@ -64,9 +64,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get pickerCardFields => 'Na karte';
 
   @override
-  String get exportCsv => 'Exportovať CSV';
-
-  @override
   String get aboutAndFeedback => 'O aplikácii a spätná väzba';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get open => 'Otvoriť';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV uložené do $path';
-  }
 
   @override
   String get renameClowder => 'Premenovať clowder';
@@ -2211,7 +2203,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'V tejto ponuke: nastavenia, hľadanie a zlúčenie duplicít, export CSV a ďalšie.';
+      'V tejto ponuke: nastavenia, hľadanie a zlúčenie duplicít a ďalšie.';
 
   @override
   String get spotCatEdit =>

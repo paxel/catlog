@@ -62,9 +62,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get pickerCardFields => '卡片上显示';
 
   @override
-  String get exportCsv => '导出 CSV';
-
-  @override
   String get aboutAndFeedback => '关于与反馈';
 
   @override
@@ -102,11 +99,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get open => '打开';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV 已保存到 $path';
-  }
 
   @override
   String get renameClowder => '重命名猫群';
@@ -2151,7 +2143,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotHomeStraysNeutral => '这张卡片汇集所有流浪动物——没有家的宠物。点按查看列表。';
 
   @override
-  String get spotHomeMenu => '此菜单中有：设置、查找并合并重复条目、导出 CSV 等。';
+  String get spotHomeMenu => '此菜单中有：设置、查找并合并重复条目等。';
 
   @override
   String get spotCatEdit => '点铅笔编辑这只猫。提示：长按任意字段可直接编辑。';

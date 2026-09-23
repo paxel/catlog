@@ -64,9 +64,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get pickerCardFields => 'Ar an gcárta';
 
   @override
-  String get exportCsv => 'Easpórtáil CSV';
-
-  @override
   String get aboutAndFeedback => 'Maidir leis & aiseolas';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get open => 'Oscail';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV sábháilte in $path';
-  }
 
   @override
   String get renameClowder => 'Athainmnigh an clowdar';
@@ -2224,7 +2216,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Sa roghchlár seo: socruithe, dúbailtí a aimsiú agus a chumasc, CSV a easpórtáil, agus tuilleadh.';
+      'Sa roghchlár seo: socruithe, dúbailtí a aimsiú agus a chumasc, agus tuilleadh.';
 
   @override
   String get spotCatEdit =>

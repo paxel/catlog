@@ -64,9 +64,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get pickerCardFields => 'Pe card';
 
   @override
-  String get exportCsv => 'Exportă CSV';
-
-  @override
   String get aboutAndFeedback => 'Despre & feedback';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get open => 'Deschide';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV salvat în $path';
-  }
 
   @override
   String get renameClowder => 'Redenumește clowderul';
@@ -2213,7 +2205,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'În acest meniu: setări, găsirea și unirea duplicatelor, export CSV și altele.';
+      'În acest meniu: setări, găsirea și unirea duplicatelor și altele.';
 
   @override
   String get spotCatEdit =>

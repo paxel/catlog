@@ -64,9 +64,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get pickerCardFields => 'Kartītē';
 
   @override
-  String get exportCsv => 'Eksportēt CSV';
-
-  @override
   String get aboutAndFeedback => 'Par lietotni un atsauksmes';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get open => 'Atvērt';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV saglabāts: $path';
-  }
 
   @override
   String get renameClowder => 'Pārdēvēt klauderi';
@@ -2216,7 +2208,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Šajā izvēlnē: iestatījumi, dublikātu meklēšana un apvienošana, CSV eksports un vairāk.';
+      'Šajā izvēlnē: iestatījumi, dublikātu meklēšana un apvienošana un vairāk.';
 
   @override
   String get spotCatEdit =>

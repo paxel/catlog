@@ -64,9 +64,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get pickerCardFields => 'Sur la carte';
 
   @override
-  String get exportCsv => 'Exporter en CSV';
-
-  @override
   String get aboutAndFeedback => 'À propos & retours';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get open => 'Ouvrir';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV enregistré dans $path';
-  }
 
   @override
   String get renameClowder => 'Renommer le clowder';
@@ -2217,7 +2209,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Dans ce menu : réglages, trouver et fusionner les doublons, exporter en CSV, et plus.';
+      'Dans ce menu : réglages, trouver et fusionner les doublons, et plus.';
 
   @override
   String get spotCatEdit =>

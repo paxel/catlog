@@ -5,6 +5,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [2.0.3] - Unreleased
 
+### Removed
+- The CSV export on the phone's home menu. One flat row per cat was no export of a catalog; what an export should hold is an open question, and nothing stands in its place until it is answered.
+
 ### Changed
 - Picking frames from a video is a page of its own with the video playing in it: the slider seeks the picture as the finger moves, play and pause, steps of one frame, one second and ten seconds either way, held to repeat, and "Keep this frame" takes the exact frame at the player's position. The kept frames line up at the bottom, a tap lets one go. The guessed "suggested frames" are gone; the scrubber that showed a frame only after the finger came to rest, half a second later, is gone with them.
 

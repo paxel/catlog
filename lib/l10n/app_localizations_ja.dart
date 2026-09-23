@@ -63,9 +63,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get pickerCardFields => 'カードに表示';
 
   @override
-  String get exportCsv => 'CSV をエクスポート';
-
-  @override
   String get aboutAndFeedback => '情報とフィードバック';
 
   @override
@@ -103,11 +100,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get open => '開く';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV を $path に保存しました';
-  }
 
   @override
   String get renameClowder => 'クラウダー名を変更';
@@ -2169,7 +2161,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotHomeStraysNeutral => 'このカードには野良（家のないペット）が集まります。タップで一覧を表示。';
 
   @override
-  String get spotHomeMenu => 'このメニューには設定、重複の検出と統合、CSV書き出しなどがあります。';
+  String get spotHomeMenu => 'このメニューには設定、重複の検出と統合などがあります。';
 
   @override
   String get spotCatEdit => '鉛筆をタップして編集。ヒント：項目を長押しすると直接編集できます。';

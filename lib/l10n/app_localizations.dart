@@ -272,12 +272,6 @@ abstract class AppLocalizations {
   /// **'On the card'**
   String get pickerCardFields;
 
-  /// No description provided for @exportCsv.
-  ///
-  /// In en, this message translates to:
-  /// **'Export CSV'**
-  String get exportCsv;
-
   /// No description provided for @aboutAndFeedback.
   ///
   /// In en, this message translates to:
@@ -355,12 +349,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open'**
   String get open;
-
-  /// No description provided for @csvSavedTo.
-  ///
-  /// In en, this message translates to:
-  /// **'CSV saved to {path}'**
-  String csvSavedTo(String path);
 
   /// No description provided for @renameClowder.
   ///
@@ -4073,7 +4061,7 @@ abstract class AppLocalizations {
   /// No description provided for @spotHomeMenu.
   ///
   /// In en, this message translates to:
-  /// **'In this menu: settings, find and merge duplicate entries, export CSV, and more.'**
+  /// **'In this menu: settings, find and merge duplicate entries, and more.'**
   String get spotHomeMenu;
 
   /// No description provided for @spotCatEdit.

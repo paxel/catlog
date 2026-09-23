@@ -64,9 +64,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get pickerCardFields => 'Kaardil';
 
   @override
-  String get exportCsv => 'Ekspordi CSV';
-
-  @override
   String get aboutAndFeedback => 'Teave ja tagasiside';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get open => 'Ava';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV salvestatud: $path';
-  }
 
   @override
   String get renameClowder => 'Nimeta klauder ümber';
@@ -2208,7 +2200,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Selles menüüs: seaded, duplikaatide leidmine ja ühendamine, CSV eksport ja muud.';
+      'Selles menüüs: seaded, duplikaatide leidmine ja ühendamine ja muud.';
 
   @override
   String get spotCatEdit =>

@@ -64,9 +64,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get pickerCardFields => 'Kortelėje';
 
   @override
-  String get exportCsv => 'Eksportuoti CSV';
-
-  @override
   String get aboutAndFeedback => 'Apie ir atsiliepimai';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get open => 'Atidaryti';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV išsaugotas: $path';
-  }
 
   @override
   String get renameClowder => 'Pervadinti klauderį';
@@ -2216,7 +2208,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Šiame meniu: nustatymai, dublikatų paieška ir sujungimas, CSV eksportas ir daugiau.';
+      'Šiame meniu: nustatymai, dublikatų paieška ir sujungimas ir daugiau.';
 
   @override
   String get spotCatEdit =>

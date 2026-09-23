@@ -64,9 +64,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get pickerCardFields => 'روی کارت';
 
   @override
-  String get exportCsv => 'خروجی CSV';
-
-  @override
   String get aboutAndFeedback => 'درباره و بازخورد';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get open => 'باز کردن';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV در $path ذخیره شد';
-  }
 
   @override
   String get renameClowder => 'تغییر نام گروه';
@@ -2200,7 +2192,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'در این منو: تنظیمات، یافتن و ادغام موارد تکراری، خروجی CSV و بیشتر.';
+      'در این منو: تنظیمات، یافتن و ادغام موارد تکراری و بیشتر.';
 
   @override
   String get spotCatEdit =>

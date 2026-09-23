@@ -64,9 +64,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get pickerCardFields => 'На картата';
 
   @override
-  String get exportCsv => 'Експорт на CSV';
-
-  @override
   String get aboutAndFeedback => 'Относно и обратна връзка';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get open => 'Отвори';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV записан в $path';
-  }
 
   @override
   String get renameClowder => 'Преименувай клаудера';
@@ -2209,7 +2201,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'В това меню: настройки, търсене и обединяване на дубликати, експорт на CSV и други.';
+      'В това меню: настройки, търсене и обединяване на дубликати и други.';
 
   @override
   String get spotCatEdit =>

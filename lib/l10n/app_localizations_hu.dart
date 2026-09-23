@@ -64,9 +64,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get pickerCardFields => 'A kártyán';
 
   @override
-  String get exportCsv => 'CSV exportálása';
-
-  @override
   String get aboutAndFeedback => 'Névjegy és visszajelzés';
 
   @override
@@ -104,11 +101,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get open => 'Megnyitás';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV mentve ide: $path';
-  }
 
   @override
   String get renameClowder => 'Clowder átnevezése';
@@ -2210,7 +2202,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Ebben a menüben: beállítások, ismétlődések keresése és összevonása, CSV-exportálás és több.';
+      'Ebben a menüben: beállítások, ismétlődések keresése és összevonása és több.';
 
   @override
   String get spotCatEdit =>

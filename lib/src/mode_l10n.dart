@@ -748,9 +748,6 @@ class ModeLocalizations implements AppLocalizations {
   String get cropTitle => base.cropTitle;
 
   @override
-  String csvSavedTo(String path) => base.csvSavedTo(path);
-
-  @override
   String get dangerButton => base.dangerButton;
 
   @override
@@ -923,9 +920,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get existingClowderNeutral => base.existingClowderNeutral;
-
-  @override
-  String get exportCsv => base.exportCsv;
 
   @override
   String get exportIcs => base.exportIcs;
