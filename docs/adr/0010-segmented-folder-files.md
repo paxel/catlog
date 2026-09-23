@@ -66,10 +66,12 @@ on the old layout.
 A whole-history file nobody has written to for a week belongs to an
 install that is gone — a phone set up fresh leaves its old files behind
 — not to a phone waiting for its update. Once a reader holds everything
-such a file announces, the reader deletes the file and the device's key
-file, names nobody, and the frozen files of the live devices go on the
-next round. A device that does come back on the old layout writes its
-whole file again and is named again.
+such a file announces, it names nobody for it and stops keeping its own
+frozen file for it. The file itself stays: nothing in the folder is ever
+deleted on another device's behalf, and a reader that arrives later
+reads it, holds nothing new, and moves on. The manifest's vector is the
+read receipt every updated device publishes; an old-layout device has
+none, so its clock is the only word on whether it is alive.
 
 The Dart core and the desktop core implement the same layout, names,
 manifest fields and generation rule, and both sort directory listings

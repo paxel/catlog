@@ -403,10 +403,13 @@ impl Catalog {
         if !folder.is_dir() {
             return Err(Error::Invalid("folder unreachable".into()));
         }
+        // A publish on its own reads nobody's file, so it knows of no
+        // quiet device; the frozen file waits for the next full round.
         self.publish_own(
             &folder,
             Some(&self.sync_catalog_dir()),
             self.sync_private_on(),
+            &[],
         )
     }
 

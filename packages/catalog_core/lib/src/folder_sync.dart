@@ -283,12 +283,12 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   }
 
   // ---- read every foreign device's files (never write them)
-  final (applied, lagging) = await _readForeign(store, folder, readDirs,
+  final (applied, lagging, quiet) = await _readForeign(store, folder, readDirs,
       report: report, now: now ?? DateTime.now());
 
   // ---- write own changes: segments and manifest
   final entriesOut = await publishOwn(store, folder,
-      includePrivate: includePrivate, catalog: catalog);
+      includePrivate: includePrivate, catalog: catalog, quiet: quiet);
 
   // ---- blobs: fetch missing, publish local ones, clean dead ones
   var blobsOut = 0;
@@ -498,7 +498,9 @@ Future<List<String>?> unreadLines(
 
 /// A whole-history file nobody has written to for this long belongs to
 /// an install that is gone — a phone set up fresh leaves its old files
-/// behind — not to a phone waiting for its update.
+/// behind — not to a phone waiting for its update. Nothing is deleted
+/// for it: the file stays, nobody is named, nobody keeps a frozen file
+/// for it.
 const staleAfter = Duration(days: 7);
 
 /// Whether [mine] knows every entry [theirs] announces.
@@ -510,8 +512,10 @@ bool _covers(Map<String, int> mine, Map<String, int> theirs) =>
 /// this store left off; one without is read by its whole-history file
 /// as before, and named in the returned set as lagging. A file gone
 /// quiet for [staleAfter] whose entries this store all holds is an
-/// install that is gone: its files are removed, nobody is named.
-Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
+/// install that is gone: named in the returned quiet set instead, its
+/// file left alone.
+Future<(List<Entry> applied, Set<String> lagging, Set<String> quiet)>
+    _readForeign(
   CatalogStore store,
   SyncFolder folder,
   List<String> readDirs, {
@@ -520,6 +524,7 @@ Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
 }) async {
   final applied = <Entry>[];
   final lagging = <String>{};
+  final quiet = <String>{};
   // A value this device only ever received as withheld sits below the
   // watermark for good; without this it could never arrive, however
   // often the writer shares with private included. The question costs
@@ -602,23 +607,18 @@ Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
         if (newest == null || e.recorded.isAfter(newest)) newest = e.recorded;
       }
       apply(foreign, writerVector);
-      final quiet =
-          newest == null || now.difference(newest) >= staleAfter;
-      if (quiet && _covers(store.versionVector(), writerVector)) {
-        // Gone, and everything it knew is here: its files go, and the
-        // live devices stop keeping their frozen files for it.
-        final keyDir = dir.isEmpty ? 'keys' : '$dir/keys';
-        try {
-          await folder.delete(dir, name);
-          await folder.delete(keyDir, '$device.json');
-          lagging.remove(device);
-        } catch (_) {
-          // The cloud client holds the file this round: next round.
-        }
+      final gone = newest == null || now.difference(newest) >= staleAfter;
+      if (gone && _covers(store.versionVector(), writerVector)) {
+        // Gone, and everything it knew is here: nobody is named for it,
+        // and the live devices stop keeping their frozen files for it.
+        // The file itself stays; nothing in the folder is ever deleted
+        // on another device's behalf.
+        lagging.remove(device);
+        quiet.add(device);
       }
     }
   }
-  return (applied, lagging);
+  return (applied, lagging, quiet);
 }
 
 /// Writes this device's changes to the folder: what is new since the
@@ -631,8 +631,13 @@ Future<(List<Entry> applied, Set<String> lagging)> _readForeign(
 /// The whole-history file of before stays frozen beside the segments
 /// until every other device in the folder has a manifest, so a phone
 /// not yet updated keeps what it had; then it goes.
+///
+/// [quiet] names the devices on the old layout whose file has gone
+/// quiet: they no longer keep this device's frozen file alive.
 Future<int> publishOwn(CatalogStore store, SyncFolder folder,
-    {bool includePrivate = false, String? catalog}) async {
+    {bool includePrivate = false,
+    String? catalog,
+    Set<String> quiet = const {}}) async {
   final dir = catalog ?? '';
   final device = store.deviceId;
   await folder.ensure(dir);
@@ -734,6 +739,7 @@ Future<int> publishOwn(CatalogStore store, SyncFolder folder,
     }
   }
   others.remove(device);
+  others.removeAll(quiet);
   final manifests = {
     for (final name in names)
       if (name.endsWith('.manifest'))

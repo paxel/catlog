@@ -31,6 +31,10 @@ pub struct FolderImport {
     /// Devices still writing the whole-history file and no manifest:
     /// their app needs the update before they see this device's segments.
     pub lagging: Vec<String>,
+    /// Devices on the old layout whose file has gone quiet for a week
+    /// and holds nothing this store lacks: an install that is gone. Not
+    /// named, and nobody keeps a frozen file for it; its file stays.
+    pub quiet: Vec<String>,
     /// Refused rows and the keys met.
     pub report: ImportReport,
     /// Fields with unresolved concurrent edits after this round.
@@ -39,7 +43,9 @@ pub struct FolderImport {
 
 /// The vector a writer's file states: the highest number per device in it.
 /// A whole-history file quiet for this long belongs to an install that
-/// is gone, not to a phone waiting for its update.
+/// is gone, not to a phone waiting for its update. Nothing is deleted
+/// for it: the file stays, nobody is named, nobody keeps a frozen file
+/// for it.
 const STALE_AFTER_DAYS: i64 = 7;
 
 /// Whether `mine` knows every entry `theirs` announces.
@@ -231,18 +237,6 @@ impl Catalog {
     /// `catalog`, under its subfolder too), then fetches missing photos.
     /// Writing this device's own file is the sync round's job.
     pub fn import_folder(&mut self, folder: &Path, catalog: Option<&str>) -> Result<FolderImport> {
-        self.import_folder_with(folder, catalog, false)
-    }
-
-    /// [`Catalog::import_folder`], and with `prune` the tidying a sync
-    /// round may do in a folder it writes to itself: the files of an
-    /// install that is gone. A plain import leaves every file alone.
-    fn import_folder_with(
-        &mut self,
-        folder: &Path,
-        catalog: Option<&str>,
-        prune: bool,
-    ) -> Result<FolderImport> {
         let root = folder.join(SYNC_DIR);
         let mut read_dirs: Vec<PathBuf> = Vec::new();
         if let Some(c) = catalog {
@@ -336,14 +330,17 @@ impl Catalog {
                 // A file nobody has written to for a week is an install
                 // that is gone — a phone set up fresh leaves its old files
                 // behind — not a phone waiting for its update. What it knew
-                // is here now, so its files go, nobody is named, and the
-                // live devices stop keeping their frozen files for it.
-                let quiet = newest
+                // is here now, so nobody is named for it, and the live
+                // devices stop keeping their frozen files for it. The file
+                // itself stays: nothing in the folder is ever deleted on
+                // another device's behalf.
+                let gone = newest
                     .is_none_or(|n| self.now_utc() - n >= chrono::Duration::days(STALE_AFTER_DAYS));
-                if prune && quiet && covers(&self.version_vector()?, &vector) {
-                    remove_if_present(&dir.join(name))?;
-                    remove_if_present(&dir.join("keys").join(format!("{device}.json")))?;
+                if gone && covers(&self.version_vector()?, &vector) {
                     result.lagging.retain(|d| d != device);
+                    if !result.quiet.iter().any(|d| d == device) {
+                        result.quiet.push(device.to_string());
+                    }
                 }
             }
         }
@@ -408,11 +405,15 @@ impl Catalog {
     /// The whole-history file of before stays frozen beside the segments
     /// until every other device in the folder has a manifest, so a phone
     /// not yet updated keeps what it had; then it goes.
+    ///
+    /// `quiet` names the devices on the old layout whose file has gone
+    /// quiet: they no longer keep this device's frozen file alive.
     pub fn publish_own(
         &self,
         folder: &Path,
         catalog: Option<&str>,
         include_private: bool,
+        quiet: &[String],
     ) -> Result<usize> {
         let root = folder.join(SYNC_DIR);
         let own_root = match catalog {
@@ -539,6 +540,9 @@ impl Catalog {
             }
         }
         others.remove(&me);
+        for d in quiet {
+            others.remove(d);
+        }
         let manifests: std::collections::BTreeSet<String> = names
             .iter()
             .filter_map(|n| n.strip_suffix(".manifest").map(String::from))
@@ -580,7 +584,7 @@ impl Catalog {
         if !nomedia.exists() {
             write_atomically(&nomedia, &[])?;
         }
-        let mut result = self.import_folder_with(folder, catalog, true)?;
+        let mut result = self.import_folder(folder, catalog)?;
 
         // Own keys, rewritten only when they changed.
         let me = self.device_id();
@@ -591,7 +595,7 @@ impl Catalog {
         }
 
         // Own changes: segments and manifest (ADR 0010).
-        result.entries_out = self.publish_own(folder, catalog, include_private)?;
+        result.entries_out = self.publish_own(folder, catalog, include_private, &result.quiet)?;
 
         // Photos: publish the ones in use, drop the ones every device
         // knows as deleted.
@@ -868,7 +872,7 @@ mod tests {
     }
 
     #[test]
-    fn a_sync_round_forgets_an_install_gone_quiet_for_a_week() {
+    fn a_sync_round_names_nobody_for_an_install_gone_quiet_and_leaves_its_file() {
         let dir = tempfile::tempdir().unwrap();
         let mut c = Catalog::open(&dir.path().join("cat")).unwrap();
         c.set_author("Ada").unwrap();
@@ -882,12 +886,13 @@ mod tests {
         .unwrap();
         std::fs::write(sync.join("keys").join("old.json"), "[]").unwrap();
         // Months later: what it knew is here, nobody is named, its files
-        // go, and this device keeps no frozen file for it.
+        // stay where they are, and this device keeps no frozen file for it.
         let r = c.sync_folder(&share, None, false).unwrap();
         assert_eq!(r.entries_in, 1);
         assert!(r.lagging.is_empty());
-        assert!(!sync.join("old.jsonl2").exists());
-        assert!(!sync.join("keys").join("old.json").exists());
+        assert_eq!(r.quiet, vec!["old".to_string()]);
+        assert!(sync.join("old.jsonl2").exists());
+        assert!(sync.join("keys").join("old.json").exists());
         assert_eq!(c.version_vector().unwrap().get("old"), Some(&1));
         assert!(!sync.join(format!("{}.jsonl2", c.device_id())).exists());
     }
@@ -926,10 +931,11 @@ mod tests {
         assert_eq!(r.entries_in, 1);
         assert_eq!(r.blobs_in, 0);
         assert_eq!(r.blobs_missing, 1);
-        // A plain import names the old files and leaves them all alone,
-        // months old or not; the broken one too, it may be one still
-        // being written.
-        assert_eq!(r.lagging, vec!["broken".to_string(), "w".to_string()]);
+        // w's file is months old and everything in it is here: an install
+        // that is gone, not named, its file left alone. The broken one is
+        // named; it may be one still being written.
+        assert_eq!(r.lagging, vec!["broken".to_string()]);
+        assert_eq!(r.quiet, vec!["w".to_string()]);
         assert!(sync.join("w.jsonl").exists());
         // A catalog subfolder without photos of its own falls back to the
         // root's, where partners from before keep theirs; the wrong bytes

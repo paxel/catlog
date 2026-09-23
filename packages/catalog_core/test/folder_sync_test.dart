@@ -181,7 +181,7 @@ void main() {
     expect(folder.dirs['']!.keys, isNot(contains('${a.deviceId}.jsonl2')));
   });
 
-  test('an install gone quiet for a week is forgotten, its files with it',
+  test('an install gone quiet for a week is not named, its file left alone',
       () async {
     final folder = MemorySyncFolder();
     a.createCat('Miezi');
@@ -198,14 +198,14 @@ void main() {
       'reminder': false,
     })));
     await folder.write('keys', 'old-install.json', utf8.encode('[]'));
-    // A week on: what it knew is here, nobody is named, its files go,
-    // and this device keeps no frozen file for it.
+    // A week on: what it knew is here, nobody is named, its files stay
+    // where they are, and this device keeps no frozen file for it.
     final result =
         await folderSyncIn(a, folder, now: DateTime.utc(2026, 1, 9));
     expect(result.lagging, isEmpty);
     expect(a.versionVector()['old-install'], 1);
-    expect(folder.dirs['']!.keys, isNot(contains('old-install.jsonl2')));
-    expect(folder.dirs['keys']!.keys, isNot(contains('old-install.json')));
+    expect(folder.dirs['']!.keys, contains('old-install.jsonl2'));
+    expect(folder.dirs['keys']!.keys, contains('old-install.json'));
     expect(folder.dirs['']!.keys, isNot(contains('${a.deviceId}.jsonl2')));
     // A half-written manifest is a device on the new layout, not an old
     // one: nobody named, nothing read by its old file.
