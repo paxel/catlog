@@ -355,13 +355,34 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pickFramesTitle => 'Выбор кадров';
 
   @override
-  String get suggestedFrames => 'Предложенные кадры';
-
-  @override
-  String get scrubFrames => 'Перемотка видео';
-
-  @override
   String get keepThisFrame => 'Оставить этот кадр';
+
+  @override
+  String get frameBack => 'Кадр назад';
+
+  @override
+  String get frameForward => 'Кадр вперёд';
+
+  @override
+  String get secondBack => 'Секунда назад';
+
+  @override
+  String get secondForward => 'Секунда вперёд';
+
+  @override
+  String get tenSecondsBack => 'Десять секунд назад';
+
+  @override
+  String get tenSecondsForward => 'Десять секунд вперёд';
+
+  @override
+  String get play => 'Воспроизвести';
+
+  @override
+  String get pause => 'Пауза';
+
+  @override
+  String get keptFrames => 'Сохранённые кадры появятся здесь';
 
   @override
   String get fromVideo => 'Из видео…';

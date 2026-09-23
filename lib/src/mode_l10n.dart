@@ -1021,6 +1021,12 @@ class ModeLocalizations implements AppLocalizations {
   String get forClowdersNeutral => base.forClowdersNeutral;
 
   @override
+  String get frameBack => base.frameBack;
+
+  @override
+  String get frameForward => base.frameForward;
+
+  @override
   String get fromVideo => base.fromVideo;
 
   @override
@@ -1322,6 +1328,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get keepThisFrame => base.keepThisFrame;
+
+  @override
+  String get keptFrames => base.keptFrames;
 
   @override
   String keyChangedRefused(Object name) => base.keyChangedRefused(name);
@@ -1987,6 +1996,9 @@ class ModeLocalizations implements AppLocalizations {
   String parentBornAfterKittenNeutral(String name, String date) => base.parentBornAfterKittenNeutral(name, date);
 
   @override
+  String get pause => base.pause;
+
+  @override
   String get pdfFontMissing => base.pdfFontMissing;
 
   @override
@@ -2033,6 +2045,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get plannedSection => base.plannedSection;
+
+  @override
+  String get play => base.play;
 
   @override
   String get posterFrameHint => base.posterFrameHint;
@@ -2275,9 +2290,6 @@ class ModeLocalizations implements AppLocalizations {
   String get scanShareLabel => base.scanShareLabel;
 
   @override
-  String get scrubFrames => base.scrubFrames;
-
-  @override
   String get searchByNameHint => pets ? base.searchByNameHintNeutral : base.searchByNameHint;
 
   @override
@@ -2297,6 +2309,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get searchPlaceHint => base.searchPlaceHint;
+
+  @override
+  String get secondBack => base.secondBack;
+
+  @override
+  String get secondForward => base.secondForward;
 
   @override
   String get seenHereNow => base.seenHereNow;
@@ -2671,9 +2689,6 @@ class ModeLocalizations implements AppLocalizations {
   String streakDays(int n) => base.streakDays(n);
 
   @override
-  String get suggestedFrames => base.suggestedFrames;
-
-  @override
   String get summaryAdopted => base.summaryAdopted;
 
   @override
@@ -2792,6 +2807,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get targetRegistryNumber => base.targetRegistryNumber;
+
+  @override
+  String get tenSecondsBack => base.tenSecondsBack;
+
+  @override
+  String get tenSecondsForward => base.tenSecondsForward;
 
   @override
   String get thisIsProfileImage => base.thisIsProfileImage;

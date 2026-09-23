@@ -355,13 +355,34 @@ class AppLocalizationsNo extends AppLocalizations {
   String get pickFramesTitle => 'Velg bilder';
 
   @override
-  String get suggestedFrames => 'Foreslåtte bilder';
-
-  @override
-  String get scrubFrames => 'Spol i videoen';
-
-  @override
   String get keepThisFrame => 'Behold dette bildet';
+
+  @override
+  String get frameBack => 'Ett bilde tilbake';
+
+  @override
+  String get frameForward => 'Ett bilde frem';
+
+  @override
+  String get secondBack => 'Ett sekund tilbake';
+
+  @override
+  String get secondForward => 'Ett sekund frem';
+
+  @override
+  String get tenSecondsBack => 'Ti sekunder tilbake';
+
+  @override
+  String get tenSecondsForward => 'Ti sekunder frem';
+
+  @override
+  String get play => 'Spill av';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get keptFrames => 'Beholdte bilder vises her';
 
   @override
   String get fromVideo => 'Fra video…';

@@ -355,13 +355,34 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pickFramesTitle => 'Elegir fotogramas';
 
   @override
-  String get suggestedFrames => 'Fotogramas sugeridos';
-
-  @override
-  String get scrubFrames => 'Recorrer el vídeo';
-
-  @override
   String get keepThisFrame => 'Conservar este fotograma';
+
+  @override
+  String get frameBack => 'Un fotograma atrás';
+
+  @override
+  String get frameForward => 'Un fotograma adelante';
+
+  @override
+  String get secondBack => 'Un segundo atrás';
+
+  @override
+  String get secondForward => 'Un segundo adelante';
+
+  @override
+  String get tenSecondsBack => 'Diez segundos atrás';
+
+  @override
+  String get tenSecondsForward => 'Diez segundos adelante';
+
+  @override
+  String get play => 'Reproducir';
+
+  @override
+  String get pause => 'Pausa';
+
+  @override
+  String get keptFrames => 'Los fotogramas guardados aparecen aquí';
 
   @override
   String get fromVideo => 'Desde vídeo…';

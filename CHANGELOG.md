@@ -5,6 +5,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [2.0.3] - Unreleased
 
+### Changed
+- Picking frames from a video is a page of its own with the video playing in it: the slider seeks the picture as the finger moves, play and pause, steps of one frame, one second and ten seconds either way, held to repeat, and "Keep this frame" takes the exact frame at the player's position. The kept frames line up at the bottom, a tap lets one go. The guessed "suggested frames" are gone; the scrubber that showed a frame only after the finger came to rest, half a second later, is gone with them.
+
 ### Fixed
 - A fresh cat's page no longer opens with the plus fanned out; it fanned from where the "Create" button had been, its items over the app bar. The plus stays a plus until tapped, and while the fan is out the minus stands lit above the veil instead of darkened under it.
 

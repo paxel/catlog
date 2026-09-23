@@ -355,13 +355,34 @@ class AppLocalizationsEl extends AppLocalizations {
   String get pickFramesTitle => 'Επιλογή καρέ';
 
   @override
-  String get suggestedFrames => 'Προτεινόμενα καρέ';
-
-  @override
-  String get scrubFrames => 'Μετακίνηση στο βίντεο';
-
-  @override
   String get keepThisFrame => 'Κράτησε αυτό το καρέ';
+
+  @override
+  String get frameBack => 'Ένα καρέ πίσω';
+
+  @override
+  String get frameForward => 'Ένα καρέ μπροστά';
+
+  @override
+  String get secondBack => 'Ένα δευτερόλεπτο πίσω';
+
+  @override
+  String get secondForward => 'Ένα δευτερόλεπτο μπροστά';
+
+  @override
+  String get tenSecondsBack => 'Δέκα δευτερόλεπτα πίσω';
+
+  @override
+  String get tenSecondsForward => 'Δέκα δευτερόλεπτα μπροστά';
+
+  @override
+  String get play => 'Αναπαραγωγή';
+
+  @override
+  String get pause => 'Παύση';
+
+  @override
+  String get keptFrames => 'Τα καρέ που κρατάτε εμφανίζονται εδώ';
 
   @override
   String get fromVideo => 'Από βίντεο…';

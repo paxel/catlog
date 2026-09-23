@@ -355,13 +355,34 @@ class AppLocalizationsLv extends AppLocalizations {
   String get pickFramesTitle => 'Kadru izvēle';
 
   @override
-  String get suggestedFrames => 'Ieteiktie kadri';
-
-  @override
-  String get scrubFrames => 'Pārtīt video';
-
-  @override
   String get keepThisFrame => 'Paturēt šo kadru';
+
+  @override
+  String get frameBack => 'Viens kadrs atpakaļ';
+
+  @override
+  String get frameForward => 'Viens kadrs uz priekšu';
+
+  @override
+  String get secondBack => 'Viena sekunde atpakaļ';
+
+  @override
+  String get secondForward => 'Viena sekunde uz priekšu';
+
+  @override
+  String get tenSecondsBack => 'Desmit sekundes atpakaļ';
+
+  @override
+  String get tenSecondsForward => 'Desmit sekundes uz priekšu';
+
+  @override
+  String get play => 'Atskaņot';
+
+  @override
+  String get pause => 'Pauze';
+
+  @override
+  String get keptFrames => 'Paturētie kadri parādās šeit';
 
   @override
   String get fromVideo => 'No video…';

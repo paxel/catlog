@@ -355,13 +355,34 @@ class AppLocalizationsSv extends AppLocalizations {
   String get pickFramesTitle => 'Välj bildrutor';
 
   @override
-  String get suggestedFrames => 'Föreslagna bildrutor';
-
-  @override
-  String get scrubFrames => 'Spola i videon';
-
-  @override
   String get keepThisFrame => 'Behåll den här bildrutan';
+
+  @override
+  String get frameBack => 'En bildruta bakåt';
+
+  @override
+  String get frameForward => 'En bildruta framåt';
+
+  @override
+  String get secondBack => 'En sekund bakåt';
+
+  @override
+  String get secondForward => 'En sekund framåt';
+
+  @override
+  String get tenSecondsBack => 'Tio sekunder bakåt';
+
+  @override
+  String get tenSecondsForward => 'Tio sekunder framåt';
+
+  @override
+  String get play => 'Spela upp';
+
+  @override
+  String get pause => 'Paus';
+
+  @override
+  String get keptFrames => 'Behållna bildrutor visas här';
 
   @override
   String get fromVideo => 'Från video…';

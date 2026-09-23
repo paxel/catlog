@@ -355,13 +355,34 @@ class AppLocalizationsDa extends AppLocalizations {
   String get pickFramesTitle => 'Vælg billeder';
 
   @override
-  String get suggestedFrames => 'Foreslåede billeder';
-
-  @override
-  String get scrubFrames => 'Spol i videoen';
-
-  @override
   String get keepThisFrame => 'Behold dette billede';
+
+  @override
+  String get frameBack => 'Et billede tilbage';
+
+  @override
+  String get frameForward => 'Et billede frem';
+
+  @override
+  String get secondBack => 'Et sekund tilbage';
+
+  @override
+  String get secondForward => 'Et sekund frem';
+
+  @override
+  String get tenSecondsBack => 'Ti sekunder tilbage';
+
+  @override
+  String get tenSecondsForward => 'Ti sekunder frem';
+
+  @override
+  String get play => 'Afspil';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get keptFrames => 'Beholdte billeder vises her';
 
   @override
   String get fromVideo => 'Fra video…';

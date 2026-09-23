@@ -354,13 +354,34 @@ class AppLocalizationsMt extends AppLocalizations {
   String get pickFramesTitle => 'Agħżel frejms';
 
   @override
-  String get suggestedFrames => 'Frejms issuġġeriti';
-
-  @override
-  String get scrubFrames => 'Skrolja l-video';
-
-  @override
   String get keepThisFrame => 'Żomm dan il-frejm';
+
+  @override
+  String get frameBack => 'Frejm wieħed lura';
+
+  @override
+  String get frameForward => 'Frejm wieħed \'il quddiem';
+
+  @override
+  String get secondBack => 'Sekonda lura';
+
+  @override
+  String get secondForward => 'Sekonda \'il quddiem';
+
+  @override
+  String get tenSecondsBack => 'Għaxar sekondi lura';
+
+  @override
+  String get tenSecondsForward => 'Għaxar sekondi \'il quddiem';
+
+  @override
+  String get play => 'Ilgħab';
+
+  @override
+  String get pause => 'Pawża';
+
+  @override
+  String get keptFrames => 'Il-frejms miżmuma jidhru hawn';
 
   @override
   String get fromVideo => 'Minn video…';

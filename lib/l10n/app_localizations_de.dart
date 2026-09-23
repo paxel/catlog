@@ -356,13 +356,34 @@ class AppLocalizationsDe extends AppLocalizations {
   String get pickFramesTitle => 'Bilder auswählen';
 
   @override
-  String get suggestedFrames => 'Vorgeschlagene Bilder';
-
-  @override
-  String get scrubFrames => 'Durchs Video spulen';
-
-  @override
   String get keepThisFrame => 'Dieses Bild behalten';
+
+  @override
+  String get frameBack => 'Ein Bild zurück';
+
+  @override
+  String get frameForward => 'Ein Bild vor';
+
+  @override
+  String get secondBack => 'Eine Sekunde zurück';
+
+  @override
+  String get secondForward => 'Eine Sekunde vor';
+
+  @override
+  String get tenSecondsBack => 'Zehn Sekunden zurück';
+
+  @override
+  String get tenSecondsForward => 'Zehn Sekunden vor';
+
+  @override
+  String get play => 'Abspielen';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get keptFrames => 'Behaltene Bilder erscheinen hier';
 
   @override
   String get fromVideo => 'Aus Video…';

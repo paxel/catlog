@@ -354,13 +354,34 @@ class AppLocalizationsEt extends AppLocalizations {
   String get pickFramesTitle => 'Kaadrite valik';
 
   @override
-  String get suggestedFrames => 'Soovitatud kaadrid';
-
-  @override
-  String get scrubFrames => 'Keri videot';
-
-  @override
   String get keepThisFrame => 'Jäta see kaader alles';
+
+  @override
+  String get frameBack => 'Üks kaader tagasi';
+
+  @override
+  String get frameForward => 'Üks kaader edasi';
+
+  @override
+  String get secondBack => 'Üks sekund tagasi';
+
+  @override
+  String get secondForward => 'Üks sekund edasi';
+
+  @override
+  String get tenSecondsBack => 'Kümme sekundit tagasi';
+
+  @override
+  String get tenSecondsForward => 'Kümme sekundit edasi';
+
+  @override
+  String get play => 'Esita';
+
+  @override
+  String get pause => 'Paus';
+
+  @override
+  String get keptFrames => 'Alles jäetud kaadrid ilmuvad siia';
 
   @override
   String get fromVideo => 'Videost…';

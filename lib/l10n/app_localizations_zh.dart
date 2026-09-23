@@ -344,13 +344,34 @@ class AppLocalizationsZh extends AppLocalizations {
   String get pickFramesTitle => '挑选画面';
 
   @override
-  String get suggestedFrames => '推荐画面';
-
-  @override
-  String get scrubFrames => '拖动视频';
-
-  @override
   String get keepThisFrame => '保留此画面';
+
+  @override
+  String get frameBack => '后退一帧';
+
+  @override
+  String get frameForward => '前进一帧';
+
+  @override
+  String get secondBack => '后退一秒';
+
+  @override
+  String get secondForward => '前进一秒';
+
+  @override
+  String get tenSecondsBack => '后退十秒';
+
+  @override
+  String get tenSecondsForward => '前进十秒';
+
+  @override
+  String get play => '播放';
+
+  @override
+  String get pause => '暂停';
+
+  @override
+  String get keptFrames => '保留的帧显示在此处';
 
   @override
   String get fromVideo => '来自视频…';

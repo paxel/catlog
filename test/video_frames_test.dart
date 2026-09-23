@@ -6,63 +6,70 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
 
-Uint8List _sharp() {
-  // A checkerboard has hard edges everywhere — maximal Laplacian energy.
-  final image = img.Image(width: 64, height: 64);
-  for (var y = 0; y < 64; y++) {
-    for (var x = 0; x < 64; x++) {
-      final on = ((x ~/ 4) + (y ~/ 4)).isEven;
-      image.setPixelRgb(x, y, on ? 255 : 0, on ? 255 : 0, on ? 255 : 0);
-    }
+/// A player for the test: a clock that moves when told, no picture.
+class _FakePlayer extends ChangeNotifier implements FramePlayer {
+  @override
+  final Duration duration;
+  @override
+  Duration position = Duration.zero;
+  @override
+  bool playing = false;
+  @override
+  double get fps => 30;
+  final seeks = <Duration>[];
+
+  _FakePlayer(this.duration);
+
+  @override
+  Widget build(BuildContext context) =>
+      const SizedBox(width: 160, height: 90, child: ColoredBox(color: Colors.black));
+
+  @override
+  Future<void> seekTo(Duration at) async {
+    position = at;
+    seeks.add(at);
+    notifyListeners();
   }
-  return Uint8List.fromList(img.encodeJpg(image));
+
+  @override
+  Future<void> play() async {
+    playing = true;
+    notifyListeners();
+  }
+
+  @override
+  Future<void> pause() async {
+    playing = false;
+    notifyListeners();
+  }
 }
 
-Uint8List _blurred() {
-  final image = img.Image(width: 64, height: 64);
-  img.fill(image, color: img.ColorRgb8(128, 128, 128));
-  return Uint8List.fromList(img.encodeJpg(image));
-}
+Uint8List _jpeg(int w, int h) =>
+    Uint8List.fromList(img.encodeJpg(img.Image(width: w, height: h)));
 
 void main() {
-  test('sharp frames outrank blurred ones', () {
-    expect(sharpnessScore(_sharp()),
-        greaterThan(sharpnessScore(_blurred())));
-  });
-
-  test('suggestions pick the sharpest, spread over the clip', () {
-    final frames = <(int, Uint8List)>[
-      (500, _blurred()),
-      (1500, _sharp()),
-      (1800, _sharp()), // same second bucket as nothing — 1s vs 1.8s
-      (2500, _blurred()),
-      (3500, _sharp()),
-    ];
-    final picks = suggestFrameIndexes(frames, keep: 2);
-    expect(picks, hasLength(2));
-    // The two sharp frames from different seconds win.
-    expect(picks.map((i) => frames[i].$1),
-        containsAll(<int>[1500, 3500]));
-  });
-
-  testWidgets('scrubbed grabs are kept and popped on save',
-      (tester) async {
-    final frame = _sharp();
-    List<Uint8List>? result;
+  Future<_FakePlayer> open(
+    WidgetTester tester, {
+    required Future<Uint8List?> Function(int) extractFrame,
+    Future<Uint8List?> Function(int)? extractFull,
+    void Function(List<Uint8List>?)? onResult,
+  }) async {
+    final player = _FakePlayer(const Duration(seconds: 30));
     await tester.pumpWidget(MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Builder(
         builder: (context) => ElevatedButton(
           onPressed: () async {
-            result = await Navigator.of(context)
+            final result = await Navigator.of(context)
                 .push<List<Uint8List>>(MaterialPageRoute(
               builder: (_) => VideoFramesScreen(
-                duration: const Duration(seconds: 10),
-                samples: 4,
-                extractFrame: (ms) async => frame,
+                player: player,
+                extractFrame: extractFrame,
+                extractFull: extractFull,
               ),
             ));
+            onResult?.call(result);
           },
           child: const Text('go'),
         ),
@@ -70,67 +77,82 @@ void main() {
     ));
     await tester.tap(find.text('go'));
     await tester.pumpAndSettle();
-    // Scrubbing alone shows the frame at that position — before any keep.
-    expect(find.byKey(const ValueKey('scrub-preview')), findsNothing);
-    await tester.scrollUntilVisible(find.byType(Slider), 200,
-        scrollable: find.byType(Scrollable).first);
-    // The preview is decoded before it shows — real async work.
-    await tester.runAsync(() async {
-      await tester.drag(find.byType(Slider), const Offset(60, 0));
-      await Future<void>.delayed(const Duration(milliseconds: 300));
-    });
+    return player;
+  }
+
+  testWidgets('the steps move the clock by a frame, a second, ten seconds',
+      (tester) async {
+    final player = await open(tester, extractFrame: (_) async => null);
+    await tester.tap(find.byTooltip('One frame forward'));
     await tester.pumpAndSettle();
-    expect(find.byKey(const ValueKey('scrub-preview')), findsOneWidget);
-    // Suggestions rendered; keep one via tap, plus a scrubbed grab.
-    await tester.tap(find.byType(GestureDetector).first);
+    expect(player.position, const Duration(microseconds: 33333));
+    await tester.tap(find.byTooltip('One second forward'));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('Keep this frame'), 200,
-        scrollable: find.byType(Scrollable).first);
-    await tester.tap(find.text('Keep this frame'));
+    expect(player.position, const Duration(microseconds: 1033333));
+    await tester.tap(find.byTooltip('Ten seconds forward'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Save'));
+    expect(player.position, const Duration(microseconds: 11033333));
+    await tester.tap(find.byTooltip('Ten seconds back'));
+    await tester.tap(find.byTooltip('One second back'));
+    await tester.tap(find.byTooltip('One frame back'));
     await tester.pumpAndSettle();
-    expect(result, isNotNull);
-    expect(result!.length, greaterThanOrEqualTo(1));
+    expect(player.position, Duration.zero);
+    // Never before the start.
+    await tester.tap(find.byTooltip('One frame back'));
+    await tester.pumpAndSettle();
+    expect(player.position, Duration.zero);
+    expect(find.text('0:00.0 / 0:30.0'), findsOneWidget);
   });
 
-  testWidgets('kept frames come back at photo size, previews stay small',
+  testWidgets('play and pause, and the slider seeks while the finger moves',
       (tester) async {
-    final small = Uint8List.fromList(
-        img.encodeJpg(img.Image(width: 64, height: 48)));
-    final big = Uint8List.fromList(
-        img.encodeJpg(img.Image(width: 256, height: 192)));
+    final player = await open(tester, extractFrame: (_) async => null);
+    await tester.tap(find.byTooltip('Play'));
+    await tester.pumpAndSettle();
+    expect(player.playing, isTrue);
+    await tester.tap(find.byTooltip('Pause'));
+    await tester.pumpAndSettle();
+    expect(player.playing, isFalse);
+    await tester.tap(find.byTooltip('Play'));
+    await tester.pumpAndSettle();
+    await tester.drag(find.byType(Slider), const Offset(120, 0));
+    await tester.pumpAndSettle();
+    // The drag paused the player and seeked it along the way.
+    expect(player.playing, isFalse);
+    expect(player.seeks, isNotEmpty);
+    expect(player.position, greaterThan(Duration.zero));
+  });
+
+  testWidgets('kept frames line up, a tap lets one go, save pops them full',
+      (tester) async {
+    final small = _jpeg(64, 48);
+    final big = _jpeg(256, 192);
     var fullCalls = 0;
     List<Uint8List>? result;
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: Builder(
-        builder: (context) => ElevatedButton(
-          onPressed: () async {
-            result = await Navigator.of(context)
-                .push<List<Uint8List>>(MaterialPageRoute(
-              builder: (_) => VideoFramesScreen(
-                duration: const Duration(seconds: 10),
-                samples: 3,
-                extractFrame: (ms) async => small,
-                extractFull: (ms) async {
-                  fullCalls++;
-                  return big;
-                },
-              ),
-            ));
-          },
-          child: const Text('go'),
-        ),
-      ),
-    ));
-    await tester.tap(find.text('go'));
+    final player = await open(
+      tester,
+      extractFrame: (_) async => small,
+      extractFull: (_) async {
+        fullCalls++;
+        return big;
+      },
+      onResult: (r) => result = r,
+    );
+    expect(find.text('Kept frames appear here'), findsOneWidget);
+    expect(find.byTooltip('Save'), findsOneWidget);
+    await tester.tap(find.text('Keep this frame'));
     await tester.pumpAndSettle();
-    // Nothing full-size until something is kept.
+    await player.seekTo(const Duration(seconds: 2));
+    await tester.tap(find.text('Keep this frame'));
+    await tester.pumpAndSettle();
+    expect(find.byIcon(Icons.check_circle), findsNWidgets(2));
+    expect(find.text('Kept frames appear here'), findsNothing);
+    // The second one goes again.
+    await tester.tap(find.byTooltip('0:02.0'));
+    await tester.pumpAndSettle();
+    expect(find.byIcon(Icons.check_circle), findsOneWidget);
+    // Nothing full-size until save; then one per kept frame.
     expect(fullCalls, 0);
-    await tester.tap(find.byType(GestureDetector).first);
-    await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Save'));
     await tester.pumpAndSettle();
     expect(fullCalls, 1);

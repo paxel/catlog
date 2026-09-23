@@ -354,13 +354,34 @@ class AppLocalizationsHu extends AppLocalizations {
   String get pickFramesTitle => 'Képkockák kiválasztása';
 
   @override
-  String get suggestedFrames => 'Javasolt képkockák';
-
-  @override
-  String get scrubFrames => 'Videó léptetése';
-
-  @override
   String get keepThisFrame => 'Képkocka megtartása';
+
+  @override
+  String get frameBack => 'Egy képkocka vissza';
+
+  @override
+  String get frameForward => 'Egy képkocka előre';
+
+  @override
+  String get secondBack => 'Egy másodperc vissza';
+
+  @override
+  String get secondForward => 'Egy másodperc előre';
+
+  @override
+  String get tenSecondsBack => 'Tíz másodperc vissza';
+
+  @override
+  String get tenSecondsForward => 'Tíz másodperc előre';
+
+  @override
+  String get play => 'Lejátszás';
+
+  @override
+  String get pause => 'Szünet';
+
+  @override
+  String get keptFrames => 'A megtartott képkockák itt jelennek meg';
 
   @override
   String get fromVideo => 'Videóból…';

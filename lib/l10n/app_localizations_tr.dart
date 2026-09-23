@@ -354,13 +354,34 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pickFramesTitle => 'Kare seç';
 
   @override
-  String get suggestedFrames => 'Önerilen kareler';
-
-  @override
-  String get scrubFrames => 'Videoda gezin';
-
-  @override
   String get keepThisFrame => 'Bu kareyi tut';
+
+  @override
+  String get frameBack => 'Bir kare geri';
+
+  @override
+  String get frameForward => 'Bir kare ileri';
+
+  @override
+  String get secondBack => 'Bir saniye geri';
+
+  @override
+  String get secondForward => 'Bir saniye ileri';
+
+  @override
+  String get tenSecondsBack => 'On saniye geri';
+
+  @override
+  String get tenSecondsForward => 'On saniye ileri';
+
+  @override
+  String get play => 'Oynat';
+
+  @override
+  String get pause => 'Duraklat';
+
+  @override
+  String get keptFrames => 'Tutulan kareler burada görünür';
 
   @override
   String get fromVideo => 'Videodan…';

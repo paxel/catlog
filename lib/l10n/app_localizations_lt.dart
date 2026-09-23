@@ -354,13 +354,34 @@ class AppLocalizationsLt extends AppLocalizations {
   String get pickFramesTitle => 'Kadrų pasirinkimas';
 
   @override
-  String get suggestedFrames => 'Siūlomi kadrai';
-
-  @override
-  String get scrubFrames => 'Persukti vaizdo įrašą';
-
-  @override
   String get keepThisFrame => 'Palikti šį kadrą';
+
+  @override
+  String get frameBack => 'Vienas kadras atgal';
+
+  @override
+  String get frameForward => 'Vienas kadras pirmyn';
+
+  @override
+  String get secondBack => 'Viena sekundė atgal';
+
+  @override
+  String get secondForward => 'Viena sekundė pirmyn';
+
+  @override
+  String get tenSecondsBack => 'Dešimt sekundžių atgal';
+
+  @override
+  String get tenSecondsForward => 'Dešimt sekundžių pirmyn';
+
+  @override
+  String get play => 'Leisti';
+
+  @override
+  String get pause => 'Pristabdyti';
+
+  @override
+  String get keptFrames => 'Pasilikti kadrai rodomi čia';
 
   @override
   String get fromVideo => 'Iš vaizdo įrašo…';

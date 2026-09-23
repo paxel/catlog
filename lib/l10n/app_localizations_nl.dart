@@ -355,13 +355,34 @@ class AppLocalizationsNl extends AppLocalizations {
   String get pickFramesTitle => 'Frames kiezen';
 
   @override
-  String get suggestedFrames => 'Voorgestelde frames';
-
-  @override
-  String get scrubFrames => 'Door de video spoelen';
-
-  @override
   String get keepThisFrame => 'Dit frame bewaren';
+
+  @override
+  String get frameBack => 'Eén beeld terug';
+
+  @override
+  String get frameForward => 'Eén beeld vooruit';
+
+  @override
+  String get secondBack => 'Eén seconde terug';
+
+  @override
+  String get secondForward => 'Eén seconde vooruit';
+
+  @override
+  String get tenSecondsBack => 'Tien seconden terug';
+
+  @override
+  String get tenSecondsForward => 'Tien seconden vooruit';
+
+  @override
+  String get play => 'Afspelen';
+
+  @override
+  String get pause => 'Pauze';
+
+  @override
+  String get keptFrames => 'Bewaarde beelden verschijnen hier';
 
   @override
   String get fromVideo => 'Uit video…';

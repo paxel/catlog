@@ -354,13 +354,34 @@ class AppLocalizationsFi extends AppLocalizations {
   String get pickFramesTitle => 'Valitse ruudut';
 
   @override
-  String get suggestedFrames => 'Ehdotetut ruudut';
-
-  @override
-  String get scrubFrames => 'Kelaa videota';
-
-  @override
   String get keepThisFrame => 'Pidä tämä ruutu';
+
+  @override
+  String get frameBack => 'Yksi ruutu taakse';
+
+  @override
+  String get frameForward => 'Yksi ruutu eteen';
+
+  @override
+  String get secondBack => 'Sekunti taakse';
+
+  @override
+  String get secondForward => 'Sekunti eteen';
+
+  @override
+  String get tenSecondsBack => 'Kymmenen sekuntia taakse';
+
+  @override
+  String get tenSecondsForward => 'Kymmenen sekuntia eteen';
+
+  @override
+  String get play => 'Toista';
+
+  @override
+  String get pause => 'Tauko';
+
+  @override
+  String get keptFrames => 'Talletetut ruudut näkyvät tässä';
 
   @override
   String get fromVideo => 'Videosta…';

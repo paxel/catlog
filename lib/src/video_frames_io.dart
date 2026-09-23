@@ -40,35 +40,76 @@ Future<List<Uint8List>?> _pickVideoFrames(BuildContext context,
 Future<List<Uint8List>?> framesFromVideoFile(
     BuildContext context, String path) async {
   final controller = VideoPlayerController.file(File(path));
-  Duration duration;
   try {
     await controller.initialize();
-    duration = controller.value.duration;
+    if (!context.mounted) return null;
+    return await Navigator.of(context).push<List<Uint8List>>(MaterialPageRoute(
+      builder: (_) => VideoFramesScreen(
+        player: _ControllerPlayer(controller),
+        // Preview size for the strip; photo size only for what is kept.
+        extractFrame: (ms) => VideoThumbnail.thumbnailData(
+          video: path,
+          timeMs: ms,
+          imageFormat: ImageFormat.JPEG,
+          quality: 85,
+          maxWidth: 1024,
+        ),
+        extractFull: (ms) => VideoThumbnail.thumbnailData(
+          video: path,
+          timeMs: ms,
+          imageFormat: ImageFormat.JPEG,
+          quality: 90,
+          maxWidth: 2560,
+        ),
+      ),
+    ));
   } finally {
     await controller.dispose();
   }
-  if (!context.mounted) return null;
+}
 
-  return Navigator.of(context).push<List<Uint8List>>(MaterialPageRoute(
-    builder: (_) => VideoFramesScreen(
-      duration: duration,
-      // Preview size while picking; photo size only for what is kept.
-      extractFrame: (ms) => VideoThumbnail.thumbnailData(
-        video: path,
-        timeMs: ms,
-        imageFormat: ImageFormat.JPEG,
-        quality: 85,
-        maxWidth: 1024,
-      ),
-      extractFull: (ms) => VideoThumbnail.thumbnailData(
-        video: path,
-        timeMs: ms,
-        imageFormat: ImageFormat.JPEG,
-        quality: 90,
-        maxWidth: 2560,
-      ),
-    ),
-  ));
+/// The video player as the picker sees it.
+class _ControllerPlayer extends ChangeNotifier implements FramePlayer {
+  final VideoPlayerController controller;
+
+  _ControllerPlayer(this.controller) {
+    controller.addListener(notifyListeners);
+  }
+
+  @override
+  Duration get duration => controller.value.duration;
+
+  @override
+  Duration get position => controller.value.position;
+
+  @override
+  bool get playing => controller.value.isPlaying;
+
+  /// The player does not tell the clip's rate; thirty is what phones
+  /// film at, and a step of a thirtieth lands on some frame either way.
+  @override
+  double get fps => 30;
+
+  @override
+  Widget build(BuildContext context) => AspectRatio(
+        aspectRatio: controller.value.aspectRatio,
+        child: VideoPlayer(controller),
+      );
+
+  @override
+  Future<void> seekTo(Duration at) => controller.seekTo(at);
+
+  @override
+  Future<void> play() => controller.play();
+
+  @override
+  Future<void> pause() => controller.pause();
+
+  @override
+  void dispose() {
+    controller.removeListener(notifyListeners);
+    super.dispose();
+  }
 }
 
 /// Stray Cam's film mode (#41): film the stray, pick frames, and only a

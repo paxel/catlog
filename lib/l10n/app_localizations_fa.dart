@@ -354,13 +354,34 @@ class AppLocalizationsFa extends AppLocalizations {
   String get pickFramesTitle => 'انتخاب فریم‌ها';
 
   @override
-  String get suggestedFrames => 'فریم‌های پیشنهادی';
-
-  @override
-  String get scrubFrames => 'پیمایش ویدیو';
-
-  @override
   String get keepThisFrame => 'این فریم را نگه دار';
+
+  @override
+  String get frameBack => 'یک فریم عقب';
+
+  @override
+  String get frameForward => 'یک فریم جلو';
+
+  @override
+  String get secondBack => 'یک ثانیه عقب';
+
+  @override
+  String get secondForward => 'یک ثانیه جلو';
+
+  @override
+  String get tenSecondsBack => 'ده ثانیه عقب';
+
+  @override
+  String get tenSecondsForward => 'ده ثانیه جلو';
+
+  @override
+  String get play => 'پخش';
+
+  @override
+  String get pause => 'مکث';
+
+  @override
+  String get keptFrames => 'فریم‌های نگه‌داشته‌شده اینجا نمایش داده می‌شوند';
 
   @override
   String get fromVideo => 'از ویدیو…';

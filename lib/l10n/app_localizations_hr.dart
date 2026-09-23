@@ -354,13 +354,34 @@ class AppLocalizationsHr extends AppLocalizations {
   String get pickFramesTitle => 'Odabir kadrova';
 
   @override
-  String get suggestedFrames => 'Predloženi kadrovi';
-
-  @override
-  String get scrubFrames => 'Premotavanje videa';
-
-  @override
   String get keepThisFrame => 'Zadrži ovaj kadar';
+
+  @override
+  String get frameBack => 'Jedan kadar natrag';
+
+  @override
+  String get frameForward => 'Jedan kadar naprijed';
+
+  @override
+  String get secondBack => 'Jednu sekundu natrag';
+
+  @override
+  String get secondForward => 'Jednu sekundu naprijed';
+
+  @override
+  String get tenSecondsBack => 'Deset sekundi natrag';
+
+  @override
+  String get tenSecondsForward => 'Deset sekundi naprijed';
+
+  @override
+  String get play => 'Reproduciraj';
+
+  @override
+  String get pause => 'Pauza';
+
+  @override
+  String get keptFrames => 'Zadržani kadrovi pojavljuju se ovdje';
 
   @override
   String get fromVideo => 'Iz videa…';

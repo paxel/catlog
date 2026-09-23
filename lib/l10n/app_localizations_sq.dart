@@ -354,13 +354,34 @@ class AppLocalizationsSq extends AppLocalizations {
   String get pickFramesTitle => 'Zgjidh kuadro';
 
   @override
-  String get suggestedFrames => 'Kuadro të sugjeruara';
-
-  @override
-  String get scrubFrames => 'Lëviz nëpër video';
-
-  @override
   String get keepThisFrame => 'Mbaje këtë kuadër';
+
+  @override
+  String get frameBack => 'Një kuadër prapa';
+
+  @override
+  String get frameForward => 'Një kuadër përpara';
+
+  @override
+  String get secondBack => 'Një sekondë prapa';
+
+  @override
+  String get secondForward => 'Një sekondë përpara';
+
+  @override
+  String get tenSecondsBack => 'Dhjetë sekonda prapa';
+
+  @override
+  String get tenSecondsForward => 'Dhjetë sekonda përpara';
+
+  @override
+  String get play => 'Luaj';
+
+  @override
+  String get pause => 'Pauzë';
+
+  @override
+  String get keptFrames => 'Kuadrot e mbajtura shfaqen këtu';
 
   @override
   String get fromVideo => 'Nga video…';

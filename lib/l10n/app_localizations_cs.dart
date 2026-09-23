@@ -354,13 +354,34 @@ class AppLocalizationsCs extends AppLocalizations {
   String get pickFramesTitle => 'Výběr snímků';
 
   @override
-  String get suggestedFrames => 'Navržené snímky';
-
-  @override
-  String get scrubFrames => 'Posouvání videa';
-
-  @override
   String get keepThisFrame => 'Ponechat tento snímek';
+
+  @override
+  String get frameBack => 'O snímek zpět';
+
+  @override
+  String get frameForward => 'O snímek vpřed';
+
+  @override
+  String get secondBack => 'O sekundu zpět';
+
+  @override
+  String get secondForward => 'O sekundu vpřed';
+
+  @override
+  String get tenSecondsBack => 'O deset sekund zpět';
+
+  @override
+  String get tenSecondsForward => 'O deset sekund vpřed';
+
+  @override
+  String get play => 'Přehrát';
+
+  @override
+  String get pause => 'Pozastavit';
+
+  @override
+  String get keptFrames => 'Ponechané snímky se objeví zde';
 
   @override
   String get fromVideo => 'Z videa…';

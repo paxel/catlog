@@ -355,13 +355,34 @@ class AppLocalizationsMk extends AppLocalizations {
   String get pickFramesTitle => 'Избор на кадри';
 
   @override
-  String get suggestedFrames => 'Предложени кадри';
-
-  @override
-  String get scrubFrames => 'Премотување на видеото';
-
-  @override
   String get keepThisFrame => 'Задржи го овој кадар';
+
+  @override
+  String get frameBack => 'Еден кадар назад';
+
+  @override
+  String get frameForward => 'Еден кадар напред';
+
+  @override
+  String get secondBack => 'Една секунда назад';
+
+  @override
+  String get secondForward => 'Една секунда напред';
+
+  @override
+  String get tenSecondsBack => 'Десет секунди назад';
+
+  @override
+  String get tenSecondsForward => 'Десет секунди напред';
+
+  @override
+  String get play => 'Пушти';
+
+  @override
+  String get pause => 'Пауза';
+
+  @override
+  String get keptFrames => 'Задржаните кадри се појавуваат тука';
 
   @override
   String get fromVideo => 'Од видео…';

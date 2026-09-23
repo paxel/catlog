@@ -354,13 +354,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pickFramesTitle => 'اختيار اللقطات';
 
   @override
-  String get suggestedFrames => 'لقطات مقترحة';
-
-  @override
-  String get scrubFrames => 'تحريك شريط الفيديو';
-
-  @override
   String get keepThisFrame => 'احتفظ بهذه اللقطة';
+
+  @override
+  String get frameBack => 'إطار واحد للخلف';
+
+  @override
+  String get frameForward => 'إطار واحد للأمام';
+
+  @override
+  String get secondBack => 'ثانية للخلف';
+
+  @override
+  String get secondForward => 'ثانية للأمام';
+
+  @override
+  String get tenSecondsBack => 'عشر ثوانٍ للخلف';
+
+  @override
+  String get tenSecondsForward => 'عشر ثوانٍ للأمام';
+
+  @override
+  String get play => 'تشغيل';
+
+  @override
+  String get pause => 'إيقاف مؤقت';
+
+  @override
+  String get keptFrames => 'تظهر الإطارات المحتفظ بها هنا';
 
   @override
   String get fromVideo => 'من فيديو…';

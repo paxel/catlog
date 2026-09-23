@@ -352,13 +352,34 @@ class AppLocalizationsJa extends AppLocalizations {
   String get pickFramesTitle => 'フレームを選ぶ';
 
   @override
-  String get suggestedFrames => 'おすすめフレーム';
-
-  @override
-  String get scrubFrames => '動画をスクラブ';
-
-  @override
   String get keepThisFrame => 'このフレームを残す';
+
+  @override
+  String get frameBack => '1コマ戻る';
+
+  @override
+  String get frameForward => '1コマ進む';
+
+  @override
+  String get secondBack => '1秒戻る';
+
+  @override
+  String get secondForward => '1秒進む';
+
+  @override
+  String get tenSecondsBack => '10秒戻る';
+
+  @override
+  String get tenSecondsForward => '10秒進む';
+
+  @override
+  String get play => '再生';
+
+  @override
+  String get pause => '一時停止';
+
+  @override
+  String get keptFrames => '残したコマはここに表示されます';
 
   @override
   String get fromVideo => '動画から…';

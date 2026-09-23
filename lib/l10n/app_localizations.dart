@@ -806,23 +806,65 @@ abstract class AppLocalizations {
   /// **'Pick frames'**
   String get pickFramesTitle;
 
-  /// No description provided for @suggestedFrames.
-  ///
-  /// In en, this message translates to:
-  /// **'Suggested frames'**
-  String get suggestedFrames;
-
-  /// No description provided for @scrubFrames.
-  ///
-  /// In en, this message translates to:
-  /// **'Scrub the video'**
-  String get scrubFrames;
-
   /// No description provided for @keepThisFrame.
   ///
   /// In en, this message translates to:
   /// **'Keep this frame'**
   String get keepThisFrame;
+
+  /// No description provided for @frameBack.
+  ///
+  /// In en, this message translates to:
+  /// **'One frame back'**
+  String get frameBack;
+
+  /// No description provided for @frameForward.
+  ///
+  /// In en, this message translates to:
+  /// **'One frame forward'**
+  String get frameForward;
+
+  /// No description provided for @secondBack.
+  ///
+  /// In en, this message translates to:
+  /// **'One second back'**
+  String get secondBack;
+
+  /// No description provided for @secondForward.
+  ///
+  /// In en, this message translates to:
+  /// **'One second forward'**
+  String get secondForward;
+
+  /// No description provided for @tenSecondsBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Ten seconds back'**
+  String get tenSecondsBack;
+
+  /// No description provided for @tenSecondsForward.
+  ///
+  /// In en, this message translates to:
+  /// **'Ten seconds forward'**
+  String get tenSecondsForward;
+
+  /// No description provided for @play.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get play;
+
+  /// No description provided for @pause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get pause;
+
+  /// No description provided for @keptFrames.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept frames appear here'**
+  String get keptFrames;
 
   /// No description provided for @fromVideo.
   ///

@@ -354,13 +354,34 @@ class AppLocalizationsGa extends AppLocalizations {
   String get pickFramesTitle => 'Roghnaigh frámaí';
 
   @override
-  String get suggestedFrames => 'Frámaí molta';
-
-  @override
-  String get scrubFrames => 'Scrollaigh tríd an bhfíseán';
-
-  @override
   String get keepThisFrame => 'Coinnigh an fráma seo';
+
+  @override
+  String get frameBack => 'Fráma amháin siar';
+
+  @override
+  String get frameForward => 'Fráma amháin ar aghaidh';
+
+  @override
+  String get secondBack => 'Soicind amháin siar';
+
+  @override
+  String get secondForward => 'Soicind amháin ar aghaidh';
+
+  @override
+  String get tenSecondsBack => 'Deich soicind siar';
+
+  @override
+  String get tenSecondsForward => 'Deich soicind ar aghaidh';
+
+  @override
+  String get play => 'Seinn';
+
+  @override
+  String get pause => 'Sos';
+
+  @override
+  String get keptFrames => 'Taispeántar na frámaí coinnithe anseo';
 
   @override
   String get fromVideo => 'Ó fhíseán…';

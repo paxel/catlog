@@ -353,13 +353,34 @@ class AppLocalizationsHe extends AppLocalizations {
   String get pickFramesTitle => 'בחירת פריימים';
 
   @override
-  String get suggestedFrames => 'פריימים מוצעים';
-
-  @override
-  String get scrubFrames => 'גלילה בסרטון';
-
-  @override
   String get keepThisFrame => 'שמור פריים זה';
+
+  @override
+  String get frameBack => 'פריים אחד אחורה';
+
+  @override
+  String get frameForward => 'פריים אחד קדימה';
+
+  @override
+  String get secondBack => 'שנייה אחורה';
+
+  @override
+  String get secondForward => 'שנייה קדימה';
+
+  @override
+  String get tenSecondsBack => 'עשר שניות אחורה';
+
+  @override
+  String get tenSecondsForward => 'עשר שניות קדימה';
+
+  @override
+  String get play => 'נגן';
+
+  @override
+  String get pause => 'השהה';
+
+  @override
+  String get keptFrames => 'פריימים שנשמרו מופיעים כאן';
 
   @override
   String get fromVideo => 'מסרטון…';

@@ -354,13 +354,34 @@ class AppLocalizationsPl extends AppLocalizations {
   String get pickFramesTitle => 'Wybór klatek';
 
   @override
-  String get suggestedFrames => 'Sugerowane klatki';
-
-  @override
-  String get scrubFrames => 'Przewijanie wideo';
-
-  @override
   String get keepThisFrame => 'Zachowaj tę klatkę';
+
+  @override
+  String get frameBack => 'Jedna klatka wstecz';
+
+  @override
+  String get frameForward => 'Jedna klatka naprzód';
+
+  @override
+  String get secondBack => 'Sekunda wstecz';
+
+  @override
+  String get secondForward => 'Sekunda naprzód';
+
+  @override
+  String get tenSecondsBack => 'Dziesięć sekund wstecz';
+
+  @override
+  String get tenSecondsForward => 'Dziesięć sekund naprzód';
+
+  @override
+  String get play => 'Odtwórz';
+
+  @override
+  String get pause => 'Pauza';
+
+  @override
+  String get keptFrames => 'Zachowane klatki pojawią się tutaj';
 
   @override
   String get fromVideo => 'Z wideo…';

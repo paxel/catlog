@@ -354,13 +354,34 @@ class AppLocalizationsIs extends AppLocalizations {
   String get pickFramesTitle => 'Velja ramma';
 
   @override
-  String get suggestedFrames => 'Tillögur að römmum';
-
-  @override
-  String get scrubFrames => 'Spóla í myndbandinu';
-
-  @override
   String get keepThisFrame => 'Halda þessum ramma';
+
+  @override
+  String get frameBack => 'Einn ramma til baka';
+
+  @override
+  String get frameForward => 'Einn ramma áfram';
+
+  @override
+  String get secondBack => 'Eina sekúndu til baka';
+
+  @override
+  String get secondForward => 'Eina sekúndu áfram';
+
+  @override
+  String get tenSecondsBack => 'Tíu sekúndur til baka';
+
+  @override
+  String get tenSecondsForward => 'Tíu sekúndur áfram';
+
+  @override
+  String get play => 'Spila';
+
+  @override
+  String get pause => 'Hlé';
+
+  @override
+  String get keptFrames => 'Rammar sem þú heldur birtast hér';
 
   @override
   String get fromVideo => 'Úr myndbandi…';

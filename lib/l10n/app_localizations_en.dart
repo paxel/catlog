@@ -355,13 +355,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pickFramesTitle => 'Pick frames';
 
   @override
-  String get suggestedFrames => 'Suggested frames';
-
-  @override
-  String get scrubFrames => 'Scrub the video';
-
-  @override
   String get keepThisFrame => 'Keep this frame';
+
+  @override
+  String get frameBack => 'One frame back';
+
+  @override
+  String get frameForward => 'One frame forward';
+
+  @override
+  String get secondBack => 'One second back';
+
+  @override
+  String get secondForward => 'One second forward';
+
+  @override
+  String get tenSecondsBack => 'Ten seconds back';
+
+  @override
+  String get tenSecondsForward => 'Ten seconds forward';
+
+  @override
+  String get play => 'Play';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get keptFrames => 'Kept frames appear here';
 
   @override
   String get fromVideo => 'From video…';

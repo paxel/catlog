@@ -354,13 +354,34 @@ class AppLocalizationsRo extends AppLocalizations {
   String get pickFramesTitle => 'Alege cadre';
 
   @override
-  String get suggestedFrames => 'Cadre sugerate';
-
-  @override
-  String get scrubFrames => 'Derulează videoclipul';
-
-  @override
   String get keepThisFrame => 'Păstrează acest cadru';
+
+  @override
+  String get frameBack => 'Un cadru înapoi';
+
+  @override
+  String get frameForward => 'Un cadru înainte';
+
+  @override
+  String get secondBack => 'O secundă înapoi';
+
+  @override
+  String get secondForward => 'O secundă înainte';
+
+  @override
+  String get tenSecondsBack => 'Zece secunde înapoi';
+
+  @override
+  String get tenSecondsForward => 'Zece secunde înainte';
+
+  @override
+  String get play => 'Redă';
+
+  @override
+  String get pause => 'Pauză';
+
+  @override
+  String get keptFrames => 'Cadrele păstrate apar aici';
 
   @override
   String get fromVideo => 'Din video…';

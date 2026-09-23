@@ -354,13 +354,34 @@ class AppLocalizationsSk extends AppLocalizations {
   String get pickFramesTitle => 'Výber snímok';
 
   @override
-  String get suggestedFrames => 'Navrhované snímky';
-
-  @override
-  String get scrubFrames => 'Pretáčanie videa';
-
-  @override
   String get keepThisFrame => 'Ponechať túto snímku';
+
+  @override
+  String get frameBack => 'O snímku späť';
+
+  @override
+  String get frameForward => 'O snímku vpred';
+
+  @override
+  String get secondBack => 'O sekundu späť';
+
+  @override
+  String get secondForward => 'O sekundu vpred';
+
+  @override
+  String get tenSecondsBack => 'O desať sekúnd späť';
+
+  @override
+  String get tenSecondsForward => 'O desať sekúnd vpred';
+
+  @override
+  String get play => 'Prehrať';
+
+  @override
+  String get pause => 'Pozastaviť';
+
+  @override
+  String get keptFrames => 'Ponechané snímky sa objavia tu';
 
   @override
   String get fromVideo => 'Z videa…';

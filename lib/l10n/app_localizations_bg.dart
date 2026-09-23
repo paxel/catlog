@@ -355,13 +355,34 @@ class AppLocalizationsBg extends AppLocalizations {
   String get pickFramesTitle => 'Избор на кадри';
 
   @override
-  String get suggestedFrames => 'Предложени кадри';
-
-  @override
-  String get scrubFrames => 'Превъртане на видеото';
-
-  @override
   String get keepThisFrame => 'Запази този кадър';
+
+  @override
+  String get frameBack => 'Един кадър назад';
+
+  @override
+  String get frameForward => 'Един кадър напред';
+
+  @override
+  String get secondBack => 'Една секунда назад';
+
+  @override
+  String get secondForward => 'Една секунда напред';
+
+  @override
+  String get tenSecondsBack => 'Десет секунди назад';
+
+  @override
+  String get tenSecondsForward => 'Десет секунди напред';
+
+  @override
+  String get play => 'Пусни';
+
+  @override
+  String get pause => 'Пауза';
+
+  @override
+  String get keptFrames => 'Запазените кадри се показват тук';
 
   @override
   String get fromVideo => 'От видео…';
