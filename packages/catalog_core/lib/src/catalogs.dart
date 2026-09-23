@@ -122,6 +122,14 @@ class CatalogManager implements SharedSettings {
         last  TEXT NOT NULL
       );
     ''');
+    // Dismissed achievements (2.0.3): the tier the keeper waved off.
+    final columns = [
+      for (final r in db.select('PRAGMA table_info(achievements)'))
+        r['name'] as String
+    ];
+    if (!columns.contains('dismissed')) {
+      db.execute('ALTER TABLE achievements ADD COLUMN dismissed INTEGER');
+    }
     final manager = CatalogManager._(root, db);
     manager._adopt(defaultName);
     return manager;
@@ -134,15 +142,25 @@ class CatalogManager implements SharedSettings {
   /// catalog's — kept here beside the shared settings, never synced.
   List<Achievement> achievements() => [
         for (final r in _db.select(
-            'SELECT id, tier, times, first, last FROM achievements ORDER BY id'))
+            'SELECT id, tier, times, first, last, dismissed FROM achievements '
+            'ORDER BY id'))
           Achievement(
             id: r['id'] as String,
             tier: r['tier'] as int,
             times: r['times'] as int,
             first: DateTime.parse(r['first'] as String),
             last: DateTime.parse(r['last'] as String),
+            dismissed: r['dismissed'] as int?,
           )
       ];
+
+  /// Waves an achievement off at its current tier: a typo in a chore's
+  /// name, a ladder nobody wants. It stays recorded, hidden until the
+  /// ladder climbs past that tier.
+  void dismissAchievement(String id) {
+    _db.execute(
+        'UPDATE achievements SET dismissed = tier WHERE id = ?', [id]);
+  }
 
   /// Writes the state of one ladder; the first date stays the first.
   void recordAchievement(String id,
@@ -393,10 +411,19 @@ class Achievement {
   final DateTime first;
   final DateTime last;
 
+  /// The tier the keeper waved off, null while it is wanted. The
+  /// achievement shows again once its tier is past this.
+  final int? dismissed;
+
   const Achievement(
       {required this.id,
       required this.tier,
       required this.times,
       required this.first,
-      required this.last});
+      required this.last,
+      this.dismissed});
+
+  /// Whether a ladder at [tier] is on show: not waved off, or climbed
+  /// past the tier it was waved off at.
+  bool shows(int tier) => dismissed == null || tier > dismissed!;
 }

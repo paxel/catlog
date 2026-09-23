@@ -333,10 +333,27 @@ fn size_words(bytes: u64) -> String {
 }
 
 /// The Achievements page: what was reached, and the coats.
-pub fn show_achievements(ui: &mut Ui, manager: &CatalogManager, t: &L10n, ladders: &[LadderState]) {
+/// The achievements window: what was earned. A right-click or the ⋮
+/// on one offers Delete, for a chore's typo or a ladder nobody wants;
+/// it stays gone until the ladder climbs past that tier.
+pub fn show_achievements(
+    ui: &mut Ui,
+    manager: &mut CatalogManager,
+    t: &L10n,
+    ladders: &[LadderState],
+) {
     ui.heading(t.achievements_title());
-    let recorded = manager.achievements();
-    let reached: Vec<&LadderState> = ladders.iter().filter(|s| s.reached()).collect();
+    let recorded = manager.achievements().to_vec();
+    let reached: Vec<&LadderState> = ladders
+        .iter()
+        .filter(|s| {
+            s.reached()
+                && recorded
+                    .iter()
+                    .find(|a| a.id == s.id)
+                    .is_none_or(|a| a.shows(s.tier))
+        })
+        .collect();
     let months = ladders
         .iter()
         .find(|s| s.id == FULL_MONTH)
@@ -347,6 +364,7 @@ pub fn show_achievements(ui: &mut Ui, manager: &CatalogManager, t: &L10n, ladder
         ui.label(t.achievements_empty());
         return;
     }
+    let mut dismiss: Option<String> = None;
     for s in reached {
         let first = recorded
             .iter()
@@ -355,13 +373,26 @@ pub fn show_achievements(ui: &mut Ui, manager: &CatalogManager, t: &L10n, ladder
             .and_then(|d| d.parse::<chrono::NaiveDate>().ok())
             .map(|d| format_day(t.locale(), d))
             .unwrap_or_default();
-        ui.label(ladder_name(t, s));
+        let mut menu = |ui: &mut Ui| {
+            if ui.button(t.delete()).clicked() {
+                dismiss = Some(s.id.clone());
+                ui.close();
+            }
+        };
+        ui.horizontal(|ui| {
+            let name = ui.label(ladder_name(t, s));
+            name.context_menu(&mut menu);
+            crate::icons::more(ui, &mut menu);
+        });
         let detail = if s.id.starts_with(MASTER_PREFIX) {
             t.achievement_done(s.times, &first)
         } else {
             t.achievement_reached(s.times, &first)
         };
         ui.label(egui::RichText::new(detail).weak());
+    }
+    if let Some(id) = dismiss {
+        let _ = manager.dismiss_achievement(&id);
     }
     for coat in coats {
         ui.label(t.coat_unlocked(&coat_name(t, coat)));

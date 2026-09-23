@@ -158,6 +158,18 @@ pub struct Achievement {
     pub times: i64,
     pub first: String,
     pub last: String,
+    /// The tier the keeper waved off, none while it is wanted. The
+    /// achievement shows again once its tier is past this.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub dismissed: Option<i64>,
+}
+
+impl Achievement {
+    /// Whether a ladder at `tier` is on show: not waved off, or climbed
+    /// past the tier it was waved off at.
+    pub fn shows(&self, tier: i64) -> bool {
+        self.dismissed.is_none_or(|d| tier > d)
+    }
 }
 
 impl CatalogManager {
@@ -285,6 +297,25 @@ mod tests {
         // The registry keeps them across reopening.
         let again = CatalogManager::open(&dir.path().join("root"), "Clowders").unwrap();
         assert_eq!(again.achievements().len(), 2);
+        // Waved off: hidden at its tier, on show again one tier up, and
+        // the dismissal survives a reopening too.
+        let mut again = again;
+        again.dismiss_achievement("master:feed").unwrap();
+        let feed = again
+            .achievements()
+            .iter()
+            .find(|a| a.id == "master:feed")
+            .unwrap();
+        assert_eq!(feed.dismissed, Some(1));
+        assert!(!feed.shows(1));
+        assert!(feed.shows(2));
+        let once_more = CatalogManager::open(&dir.path().join("root"), "Clowders").unwrap();
+        let feed = once_more
+            .achievements()
+            .iter()
+            .find(|a| a.id == "master:feed")
+            .unwrap();
+        assert_eq!(feed.dismissed, Some(1));
     }
 
     #[test]

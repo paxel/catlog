@@ -5,6 +5,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [2.0.3] - Unreleased
 
+### Added
+- An achievement can be deleted: hold it on the phone, right-click or the ⋮ on the desk. For a chore's typo or a ladder nobody wants. It stays gone until the ladder climbs past the tier it was waved off at, which counts as new.
+
 ### Removed
 - The CSV export on the phone's home menu. One flat row per cat was no export of a catalog; what an export should hold is an open question, and nothing stands in its place until it is answered.
 

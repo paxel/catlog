@@ -91,9 +91,20 @@ impl CatalogManager {
                     times,
                     first: at.to_string(),
                     last: at.to_string(),
+                    dismissed: None,
                 }),
         }
         self.registry.achievements.sort_by(|a, b| a.id.cmp(&b.id));
+        self.save()
+    }
+
+    /// Waves an achievement off at its current tier: a typo in a
+    /// chore's name, a ladder nobody wants. It stays recorded, hidden
+    /// until the ladder climbs past that tier.
+    pub fn dismiss_achievement(&mut self, id: &str) -> Result<()> {
+        if let Some(a) = self.registry.achievements.iter_mut().find(|a| a.id == id) {
+            a.dismissed = Some(a.tier);
+        }
         self.save()
     }
 

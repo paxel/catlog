@@ -2431,7 +2431,7 @@ impl App {
                 self.act_settings(action);
             }
             Modal::Achievements => {
-                show_achievements(ui, &self.manager, &t, &self.ladders);
+                show_achievements(ui, &mut self.manager, &t, &self.ladders);
             }
             Modal::Capture => {
                 self.poll_recognition();
