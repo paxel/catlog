@@ -198,7 +198,6 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         builder: (_) => CatDetailScreen(
           store: store,
           catId: catId,
-          promptPhoto: true,
           startEditing: true,
         ),
       ),

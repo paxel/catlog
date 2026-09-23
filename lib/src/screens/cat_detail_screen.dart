@@ -57,10 +57,6 @@ class CatDetailScreen extends StatefulWidget {
   final CatalogStore store;
   final String catId;
 
-  /// Opens the photo picker right away — used when a Cat was just created,
-  /// so name + photo happen in one flow.
-  final bool promptPhoto;
-
   /// Fresh cats open in edit mode: they exist to be filled in (#46).
   final bool startEditing;
 
@@ -68,7 +64,6 @@ class CatDetailScreen extends StatefulWidget {
     super.key,
     required this.store,
     required this.catId,
-    this.promptPhoto = false,
     this.startEditing = false,
   });
 
@@ -832,13 +827,11 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             const SizedBox(height: 80),
           ],
         ),
-        // The one plus: photos three ways, plans three kinds. A fresh
-        // cat opens with it fanned out, its first photo one tap away.
+        // The one plus: photos three ways, plans three kinds.
         floatingActionButton: Spotlight(
           id: 'cat-reminder',
           child: AddFan(
             tooltip: context.t.addPhoto,
-            openAtStart: widget.promptPhoto,
             items: [
               if (hasCamera)
                 FanItem(

@@ -46,7 +46,6 @@ class StraysScreen extends StatelessWidget {
         builder: (_) => CatDetailScreen(
           store: store,
           catId: catId,
-          promptPhoto: true,
           startEditing: true,
         ),
       ),

@@ -11,22 +11,15 @@ class FanItem {
 
 /// The plus of a page that adds in more than one way. A tap fans the
 /// ways out above it, icon and words each, over a light veil; the plus
-/// becomes a minus. Minus, the veil or a pick folds it back. The items
-/// appear one after another, unless the system asks for no motion.
+/// becomes a minus, lit above the veil. Minus, the veil or a pick folds
+/// it back. The items appear one after another, unless the system asks
+/// for no motion. It never opens by itself: a page that just appeared
+/// has no place to fan from yet.
 class AddFan extends StatefulWidget {
   final List<FanItem> items;
   final String tooltip;
 
-  /// Fanned out as the page appears: a fresh record asking for its
-  /// first photo.
-  final bool openAtStart;
-
-  const AddFan({
-    super.key,
-    required this.items,
-    required this.tooltip,
-    this.openAtStart = false,
-  });
+  const AddFan({super.key, required this.items, required this.tooltip});
 
   @override
   State<AddFan> createState() => _AddFanState();
@@ -38,18 +31,6 @@ class _AddFanState extends State<AddFan> with SingleTickerProviderStateMixin {
   OverlayEntry? _entry;
 
   bool get _open => _entry != null;
-
-  @override
-  void initState() {
-    super.initState();
-    if (widget.openAtStart) {
-      // After the first frame, when the button has a place to fan from;
-      // a page already left must not open one.
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && !_open) _openFan();
-      });
-    }
-  }
 
   @override
   void dispose() {
@@ -105,17 +86,13 @@ class _AddFanState extends State<AddFan> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    // While the fan is out, the minus stands in the overlay above the
+    // veil; this button lies darkened under it and keeps its plus.
     return FloatingActionButton(
       key: _button,
       onPressed: _toggle,
       tooltip: widget.tooltip,
-      child: AnimatedSwitcher(
-        duration: _duration,
-        child: Icon(
-          _open ? Icons.remove : Icons.add,
-          key: ValueKey(_open),
-        ),
-      ),
+      child: const Icon(Icons.add),
     );
   }
 }
@@ -148,6 +125,20 @@ class _Fan extends StatelessWidget {
             child: FadeTransition(
               opacity: motion,
               child: const ColoredBox(color: Color(0x66000000)),
+            ),
+          ),
+        ),
+        // The minus, lit above the veil where the plus stands.
+        Positioned(
+          left: anchor.left,
+          top: anchor.top,
+          child: SizedBox(
+            width: anchor.width,
+            height: anchor.height,
+            child: FloatingActionButton(
+              heroTag: null,
+              onPressed: onClose,
+              child: const Icon(Icons.remove),
             ),
           ),
         ),
