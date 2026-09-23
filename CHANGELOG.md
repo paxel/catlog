@@ -3,7 +3,7 @@
 All notable changes to cat(a)log are documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [SemVer](https://semver.org/).
 
-## [2.0.2] - Unreleased
+## [2.0.2] - 2026-09-23
 
 ### Added
 - The portrait of a deceased cat wears the Trauerflor, a black band across its lower right corner: on the avatar in every list, the map pin, the card, and on the desk's faces, rows and tiles. On the placeholder too, so a cat without a photo reads as deceased. The other photos stay as they are.
