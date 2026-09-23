@@ -15,8 +15,8 @@ name = "catlog"
 path = "src/bin/catlog.rs"
 
 [dependencies]
-catlog-core = { path = "../catlog-core", version = "2.0.2" }
-catlog-l10n = { path = "../catlog-l10n", version = "2.0.2" }
+catlog-core = { path = "../catlog-core", version = "2.0.3" }
+catlog-l10n = { path = "../catlog-l10n", version = "2.0.3" }
 eframe = "0.35"
 egui = "0.35"
 egui_extras = "0.35"
@@ -37,7 +37,7 @@ ab_glyph = "0.2"
 image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
 
 [build-dependencies]
-catlog-l10n = { path = "../catlog-l10n", version = "2.0.2" }
+catlog-l10n = { path = "../catlog-l10n", version = "2.0.3" }
 
 [dev-dependencies]
 ttf-parser = "0.25"
