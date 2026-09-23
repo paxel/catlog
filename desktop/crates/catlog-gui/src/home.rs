@@ -29,8 +29,8 @@ pub struct ClowderRow {
     pub view: EntityView,
     pub favourite: bool,
     pub hidden: bool,
-    /// Profile image hashes of up to five of its Cats.
-    pub faces: Vec<String>,
+    /// Up to five of its Cats with a profile image: the cat and the hash.
+    pub faces: Vec<(String, String)>,
     pub cat_count: usize,
 }
 
@@ -53,7 +53,7 @@ pub fn clowder_rows(store: &Catalog, show_hidden: bool) -> catlog_core::Result<V
                 break;
             }
             if let Some(hash) = store.profile_image(&cat.id)? {
-                faces.push(hash);
+                faces.push((cat.id.clone(), hash));
             }
         }
         rows.push(ClowderRow {

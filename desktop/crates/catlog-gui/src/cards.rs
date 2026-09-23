@@ -377,11 +377,12 @@ impl Desk {
                     .and_then(|hash| faces.face(ui.ctx(), store, &hash))
                 {
                     Some(texture) => {
-                        ui.add(
+                        let drawn = ui.add(
                             egui::Image::from_texture(&texture)
                                 .fit_to_exact_size(Vec2::splat(56.0))
                                 .corner_radius(28.0),
                         );
+                        crate::textures::band_if_deceased(ui, store, id, drawn.rect);
                     }
                     None => {
                         icons::glyph(ui, icons::PETS_OUTLINED, 56.0, PALETTE.grey);
@@ -600,6 +601,7 @@ impl Desk {
                                     .sense(egui::Sense::click()),
                             )
                             .on_hover_text(&cat.name);
+                        crate::textures::band_if_deceased(ui, store, &cat.id, r.rect);
                         r.widget_info(|| {
                             egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &cat.name)
                         });

@@ -577,7 +577,7 @@ impl CatsTable {
                     for (column, cell) in columns.iter().zip(&r.cells) {
                         row.col(|ui| match column {
                             Column::Face => {
-                                if let Some(texture) = r
+                                let drawn = if let Some(texture) = r
                                     .face
                                     .as_ref()
                                     .and_then(|hash| faces.face(ui.ctx(), store, hash))
@@ -586,10 +586,11 @@ impl CatsTable {
                                         egui::Image::from_texture(&texture)
                                             .fit_to_exact_size(Vec2::splat(28.0))
                                             .corner_radius(14.0),
-                                    );
+                                    )
                                 } else {
-                                    icons::glyph(ui, icons::PETS_OUTLINED, 22.0, PALETTE.grey);
-                                }
+                                    icons::glyph(ui, icons::PETS_OUTLINED, 22.0, PALETTE.grey)
+                                };
+                                crate::textures::band_if_deceased(ui, store, &r.id, drawn.rect);
                             }
                             _ => {
                                 let text = if r.hidden {

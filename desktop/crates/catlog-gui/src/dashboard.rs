@@ -312,26 +312,32 @@ pub fn show_dashboard(
                     }
                     ui.horizontal(|ui| {
                         ui.label(egui::RichText::new(change.at.format("%H:%M").to_string()).weak());
-                        match change
+                        let drawn = match change
                             .face
                             .as_deref()
                             .and_then(|hash| faces.face(ui.ctx(), store, hash))
                         {
-                            Some(texture) => {
-                                ui.add(
-                                    egui::Image::from_texture(&texture)
-                                        .fit_to_exact_size(Vec2::splat(20.0))
-                                        .corner_radius(10.0),
-                                );
-                            }
+                            Some(texture) => ui.add(
+                                egui::Image::from_texture(&texture)
+                                    .fit_to_exact_size(Vec2::splat(20.0))
+                                    .corner_radius(10.0),
+                            ),
                             None => {
                                 let icon = if change.entity.starts_with("cat:") {
                                     icons::PETS_OUTLINED
                                 } else {
                                     icons::NIGHT_SHELTER_OUTLINED
                                 };
-                                icons::glyph(ui, icon, 20.0, PALETTE.grey);
+                                icons::glyph(ui, icon, 20.0, PALETTE.grey)
                             }
+                        };
+                        if change.entity.starts_with("cat:") {
+                            crate::textures::band_if_deceased(
+                                ui,
+                                store,
+                                &change.entity,
+                                drawn.rect,
+                            );
                         }
                         if ui.link(&change.name).clicked() {
                             action = if change.entity.starts_with("clowder:") {
@@ -393,26 +399,27 @@ fn miniature(ui: &mut Ui, store: &Catalog, faces: &mut FaceCache, m: &Mini) -> e
         .show(ui, |ui| {
             ui.set_width(ui.available_width());
             ui.horizontal(|ui| {
-                match m
+                let drawn = match m
                     .face
                     .as_deref()
                     .and_then(|hash| faces.face(ui.ctx(), store, hash))
                 {
-                    Some(texture) => {
-                        ui.add(
-                            egui::Image::from_texture(&texture)
-                                .fit_to_exact_size(Vec2::splat(48.0))
-                                .corner_radius(24.0),
-                        );
-                    }
+                    Some(texture) => ui.add(
+                        egui::Image::from_texture(&texture)
+                            .fit_to_exact_size(Vec2::splat(48.0))
+                            .corner_radius(24.0),
+                    ),
                     None => {
                         let icon = if is_cat {
                             icons::PETS_OUTLINED
                         } else {
                             icons::NIGHT_SHELTER_OUTLINED
                         };
-                        icons::glyph(ui, icon, 48.0, PALETTE.grey);
+                        icons::glyph(ui, icon, 48.0, PALETTE.grey)
                     }
+                };
+                if is_cat {
+                    crate::textures::band_if_deceased(ui, store, &m.id, drawn.rect);
                 }
                 ui.vertical(|ui| {
                     ui.label(egui::RichText::new(&m.name).strong().size(16.0));

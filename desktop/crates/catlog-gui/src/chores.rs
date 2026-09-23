@@ -93,6 +93,7 @@ pub fn chore_row(
         ui,
         PlanRow {
             face,
+            deceased: crate::textures::is_deceased(store, &chore.entity),
             line1: &line1,
             line2: parts.join(" · "),
         },

@@ -353,11 +353,12 @@ impl Pages {
             if let Ok(Some(hash)) = store.profile_image(&cat.id)
                 && let Some(texture) = faces.face(ui.ctx(), store, &hash)
             {
-                ui.add(
+                let drawn = ui.add(
                     egui::Image::from_texture(&texture)
                         .fit_to_exact_size(Vec2::splat(32.0))
                         .corner_radius(16.0),
                 );
+                crate::textures::band_if_deceased(ui, store, &cat.id, drawn.rect);
             }
             let hidden = store.is_hidden(&cat.id).unwrap_or(false);
             let text = if hidden {

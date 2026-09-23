@@ -43,6 +43,8 @@ pub fn section_card_tipped<R>(
 /// weak second line whose it is, with the face, and how it stands.
 pub struct PlanRow<'a> {
     pub face: Option<TextureHandle>,
+    /// Whose: a deceased cat's face wears the mourning band.
+    pub deceased: bool,
     pub line1: &'a str,
     pub line2: String,
 }
@@ -70,11 +72,14 @@ pub fn plan_row(
                     label = Some(ui.label(RichText::new(row.line1).strong()));
                     ui.horizontal(|ui| {
                         if let Some(face) = &row.face {
-                            ui.add(
+                            let drawn = ui.add(
                                 egui::Image::from_texture(face)
                                     .fit_to_exact_size(Vec2::splat(20.0))
                                     .corner_radius(10.0),
                             );
+                            if row.deceased {
+                                crate::textures::mourning_band(ui, drawn.rect);
+                            }
                         }
                         if !row.line2.is_empty() {
                             ui.label(RichText::new(&row.line2).weak());

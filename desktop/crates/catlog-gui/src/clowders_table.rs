@@ -302,13 +302,14 @@ impl ClowdersTable {
                         ui.add(egui::Label::new(text(&r.row.view.name)).selectable(false));
                     });
                     row.col(|ui| {
-                        for hash in &r.row.faces {
+                        for (cat, hash) in &r.row.faces {
                             if let Some(texture) = faces.face(ui.ctx(), store, hash) {
-                                ui.add(
+                                let drawn = ui.add(
                                     egui::Image::from_texture(&texture)
                                         .fit_to_exact_size(egui::Vec2::splat(22.0))
                                         .corner_radius(11.0),
                                 );
+                                crate::textures::band_if_deceased(ui, store, cat, drawn.rect);
                             }
                         }
                         ui.add(

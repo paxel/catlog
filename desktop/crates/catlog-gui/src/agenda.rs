@@ -98,6 +98,7 @@ pub fn appointment_card(
         ui,
         PlanRow {
             face,
+            deceased: crate::textures::is_deceased(store, &a.entity),
             line1: &line1,
             line2: line2.join(" · "),
         },
@@ -160,6 +161,7 @@ fn reminder_row(
         ui,
         PlanRow {
             face,
+            deceased: crate::textures::is_deceased(store, &r.entity),
             line1: &line1,
             line2: name.clone(),
         },

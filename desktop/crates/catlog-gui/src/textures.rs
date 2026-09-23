@@ -3,8 +3,57 @@
 
 use std::collections::HashMap;
 
-use catlog_core::Catalog;
-use egui::{ColorImage, Context, TextureHandle, TextureOptions};
+use catlog_core::{Catalog, keys};
+use egui::{Color32, ColorImage, Context, Pos2, Rect, TextureHandle, TextureOptions, Ui};
+
+/// True when the cat's deceased date is set.
+pub fn is_deceased(store: &Catalog, cat: &str) -> bool {
+    store
+        .current(cat, &keys::user_field("deceased"))
+        .ok()
+        .flatten()
+        .is_some_and(|d| !d.is_empty())
+}
+
+/// The Trauerflor: a black band across the lower right of a round
+/// portrait, the sign on the framed picture of one who died. Drawn over
+/// the face of a deceased cat wherever it stands for the cat, photo or
+/// placeholder; never over the other photos. The band is a fifth of the
+/// face deep, at 45°, and ends at the rim.
+pub fn mourning_band(ui: &Ui, face: Rect) {
+    let r = face.width().min(face.height()) / 2.0;
+    let centre = face.center();
+    let depth = r * 0.4;
+    // The chord where the band begins: its distance from the centre.
+    let inner = r - depth;
+    let half = (r * r - inner * inner).sqrt();
+    let along = egui::vec2(1.0, -1.0) / 2f32.sqrt();
+    let toward = egui::vec2(1.0, 1.0) / 2f32.sqrt();
+    let foot = centre + toward * inner;
+    let a = foot + along * half;
+    let b = foot - along * half;
+    let mut points = vec![b, a];
+    // The rim from a to b, the way through the corner.
+    let angle = |p: Pos2| (p.y - centre.y).atan2(p.x - centre.x);
+    let (from, to) = (angle(a), angle(b));
+    let steps = 12;
+    for i in 1..steps {
+        let t = from + (to - from) * i as f32 / steps as f32;
+        points.push(centre + egui::vec2(t.cos(), t.sin()) * r);
+    }
+    ui.painter().add(egui::Shape::convex_polygon(
+        points,
+        Color32::BLACK,
+        egui::Stroke::NONE,
+    ));
+}
+
+/// The band on `face` when `cat` is deceased.
+pub fn band_if_deceased(ui: &Ui, store: &Catalog, cat: &str, face: Rect) {
+    if is_deceased(store, cat) {
+        mourning_band(ui, face);
+    }
+}
 
 #[derive(Default)]
 pub struct FaceCache {
