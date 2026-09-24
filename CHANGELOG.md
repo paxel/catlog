@@ -3,7 +3,7 @@
 All notable changes to cat(a)log are documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [SemVer](https://semver.org/).
 
-## [2.0.3] - Unreleased
+## [2.0.3] - 2026-09-24
 
 ### Added
 - An achievement can be deleted: hold it on the phone, right-click or the ⋮ on the desk. For a chore's typo or a ladder nobody wants. It stays gone until the ladder climbs past the tier it was waved off at, which counts as new.
