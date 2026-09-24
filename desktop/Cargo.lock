@@ -674,7 +674,7 @@ dependencies = [
 
 [[package]]
 name = "catlog-core"
-version = "2.0.3"
+version = "2.0.4"
 dependencies = [
  "barcoders",
  "base64 0.22.1",
@@ -705,7 +705,7 @@ dependencies = [
 
 [[package]]
 name = "catlog-gui"
-version = "2.0.3"
+version = "2.0.4"
 dependencies = [
  "ab_glyph",
  "barcoders",
@@ -736,7 +736,7 @@ dependencies = [
 
 [[package]]
 name = "catlog-l10n"
-version = "2.0.3"
+version = "2.0.4"
 dependencies = [
  "serde_json",
  "tempfile",
