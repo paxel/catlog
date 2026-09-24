@@ -348,7 +348,208 @@ impl Desk {
             self.open(store, std::slice::from_ref(&cat));
             action = CardAction::Opened(cat);
         }
+        if !self.open.is_empty() {
+            self.dock(&ctx, store, t, faces, desk);
+        }
         action
+    }
+
+    /// The layer a card is drawn on.
+    fn layer(id: &str) -> egui::LayerId {
+        egui::LayerId::new(egui::Order::Middle, Id::new(("card", id)))
+    }
+
+    /// The card on top of the pile, as egui last stacked them.
+    pub fn front(&self, ctx: &egui::Context) -> Option<String> {
+        let top = ctx.memory(|m| m.areas().top_layer_id(egui::Order::Middle))?;
+        self.open.iter().find(|id| Self::layer(id) == top).cloned()
+    }
+
+    /// A card's size as last drawn; the default before its first frame.
+    fn size_of(ctx: &egui::Context, id: &str) -> Vec2 {
+        egui::AreaState::load(ctx, Id::new(("card", id)))
+            .and_then(|s| s.size)
+            .unwrap_or(Vec2::new(CARD_WIDTH + 24.0, 200.0))
+    }
+
+    fn place(&mut self, store: &Catalog, id: &str, pos: Pos2) {
+        self.positions.insert(id.to_string(), pos);
+        let _ = store.set_local_setting(&pos_key(id), &format!("{},{}", pos.x, pos.y));
+    }
+
+    /// Tile: rows from the top left in opening order, wrapping at the
+    /// desk's edge, none overlapping, the dock's strip at the bottom
+    /// left free.
+    pub fn tile(&mut self, ctx: &egui::Context, store: &Catalog) {
+        let gap = 16.0;
+        let width = if self.desk_size.x < CARD_WIDTH {
+            f32::INFINITY
+        } else {
+            self.desk_size.x
+        };
+        let (mut x, mut y, mut row_height) = (gap, gap, 0.0f32);
+        for id in self.open.clone() {
+            let size = Self::size_of(ctx, &id);
+            if x > gap && x + size.x > width - gap {
+                x = gap;
+                y += row_height + gap;
+                row_height = 0.0;
+            }
+            self.place(store, &id, Pos2::new(x, y));
+            x += size.x + gap;
+            row_height = row_height.max(size.y);
+        }
+    }
+
+    /// Stack: a cascade from the top left, each card a step down and
+    /// right of the one before, the last opened on top.
+    pub fn stack(&mut self, ctx: &egui::Context, store: &Catalog) {
+        for (i, id) in self.open.clone().iter().enumerate() {
+            let step = 16.0 + i as f32 * 24.0;
+            self.place(store, id, Pos2::new(step, step));
+            ctx.memory_mut(|m| m.areas_mut().move_to_top(Self::layer(id)));
+        }
+    }
+
+    /// Close all: the desk is bare; the table is where they come back from.
+    pub fn close_all(&mut self, store: &Catalog) {
+        self.open.clear();
+        self.inline = None;
+        self.save_open(store);
+    }
+
+    /// The dock: a float at the bottom of the desk with Tile, Stack and
+    /// Close all, then one face per open card; a click on a face brings
+    /// that card to the front. The front card wears a dot.
+    fn dock(
+        &mut self,
+        ctx: &egui::Context,
+        store: &Catalog,
+        t: &L10n,
+        faces: &mut FaceCache,
+        desk: Rect,
+    ) {
+        let front = self.front(ctx);
+        let screen = ctx.content_rect();
+        let offset = Vec2::new(
+            desk.center().x - screen.center().x,
+            desk.max.y - screen.max.y - 12.0,
+        );
+        let mut tile = false;
+        let mut stack = false;
+        let mut close_all = false;
+        let mut raise: Option<String> = None;
+        egui::Area::new(Id::new("desk-dock"))
+            .order(egui::Order::Foreground)
+            .anchor(egui::Align2::CENTER_BOTTOM, offset)
+            .interactable(true)
+            .show(ctx, |ui| {
+                egui::Frame::new()
+                    .fill(PALETTE.paper)
+                    .stroke(egui::Stroke::new(1.0, PALETTE.tan))
+                    .corner_radius(ROUNDING + 4)
+                    .shadow(egui::epaint::Shadow {
+                        offset: [0, 4],
+                        blur: 12,
+                        spread: 0,
+                        color: egui::Color32::from_black_alpha(28),
+                    })
+                    .inner_margin(egui::Margin::symmetric(10, 6))
+                    .show(ui, |ui| {
+                        ui.horizontal(|ui| {
+                            if icons::button(ui, icons::GRID_VIEW, t.desk_tile()).clicked() {
+                                tile = true;
+                            }
+                            if icons::button(ui, icons::LAYERS_OUTLINED, t.desk_stack()).clicked() {
+                                stack = true;
+                            }
+                            if icons::button(ui, icons::CLEAR, t.desk_close_all()).clicked() {
+                                close_all = true;
+                            }
+                            ui.separator();
+                            for id in &self.open {
+                                let name = store
+                                    .current(id, keys::NAME)
+                                    .ok()
+                                    .flatten()
+                                    .unwrap_or_else(|| t.unnamed().to_string());
+                                let is_cat = id.starts_with("cat:");
+                                ui.vertical(|ui| {
+                                    let face = store
+                                        .profile_image(id)
+                                        .ok()
+                                        .flatten()
+                                        .and_then(|hash| faces.face(ui.ctx(), store, &hash));
+                                    let response = match face {
+                                        Some(texture) => ui.add(
+                                            egui::Image::from_texture(&texture)
+                                                .fit_to_exact_size(Vec2::splat(36.0))
+                                                .corner_radius(18.0)
+                                                .sense(egui::Sense::click()),
+                                        ),
+                                        None => {
+                                            let icon = if is_cat {
+                                                icons::PETS_OUTLINED
+                                            } else {
+                                                icons::NIGHT_SHELTER_OUTLINED
+                                            };
+                                            let (rect, response) = ui.allocate_exact_size(
+                                                Vec2::splat(36.0),
+                                                egui::Sense::click(),
+                                            );
+                                            icons::paint(ui, rect, icon, PALETTE.grey);
+                                            response
+                                        }
+                                    };
+                                    if is_cat {
+                                        crate::textures::band_if_deceased(
+                                            ui,
+                                            store,
+                                            id,
+                                            response.rect,
+                                        );
+                                    }
+                                    let response = response.on_hover_text(&name);
+                                    let words = name.clone();
+                                    response.widget_info(|| {
+                                        egui::WidgetInfo::labeled(
+                                            egui::WidgetType::Button,
+                                            true,
+                                            &words,
+                                        )
+                                    });
+                                    if response.clicked() {
+                                        raise = Some(id.clone());
+                                    }
+                                    // The dot under the card on top.
+                                    let (dot, _) = ui.allocate_exact_size(
+                                        Vec2::new(36.0, 6.0),
+                                        egui::Sense::hover(),
+                                    );
+                                    if front.as_deref() == Some(id.as_str()) {
+                                        ui.painter().circle_filled(
+                                            dot.center(),
+                                            2.5,
+                                            PALETTE.orange,
+                                        );
+                                    }
+                                });
+                            }
+                        });
+                    });
+            });
+        if tile {
+            self.tile(ctx, store);
+        }
+        if stack {
+            self.stack(ctx, store);
+        }
+        if close_all {
+            self.close_all(store);
+        }
+        if let Some(id) = raise {
+            ctx.memory_mut(|m| m.areas_mut().move_to_top(Self::layer(&id)));
+        }
     }
 
     /// The bar a window has: the name, × to close, ⋮ with the card's

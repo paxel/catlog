@@ -3624,7 +3624,8 @@ mod tests {
         assert_eq!(h.state().store().clowders().unwrap()[0].name, "Barn");
         assert!(matches!(h.state().selection(), Selection::Clowder(_)));
         assert!(h.query_by_label("Pick a clowder on the left").is_none());
-        assert_eq!(h.get_all_by_label("Barn").count(), 2);
+        // The row, the card's title bar, the face on the dock.
+        assert_eq!(h.get_all_by_label("Barn").count(), 3);
     }
 
     #[test]
@@ -4980,8 +4981,16 @@ mod tests {
     }
 
     /// Drags the node named `label` by `delta` with the primary button.
+    /// Drags a card by the name in its title bar: the last label so
+    /// named, as the cards lie over the table; the dock's face is a
+    /// button, not a label.
     fn drag(h: &mut Harness<'static, App>, label: &str, delta: egui::Vec2) {
-        let from = h.get_all_by_label(label).last().unwrap().rect().center();
+        let from = h
+            .get_all_by_role_and_label(egui::accesskit::Role::Label, label)
+            .last()
+            .unwrap()
+            .rect()
+            .center();
         let to = from + delta;
         let press = |pos, pressed| egui::Event::PointerButton {
             pos,
@@ -5000,6 +5009,60 @@ mod tests {
         h.step();
         h.input_mut().events.push(press(to, false));
         h.run();
+    }
+
+    #[test]
+    fn the_dock_tiles_stacks_raises_and_closes_the_cards() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Tom")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::SHIFT);
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi, tom]);
+        let ctx = h.state().ctx.clone().unwrap();
+        // The last opened lies on top; its face on the dock wears the dot.
+        assert_eq!(h.state().desk.front(&ctx).as_deref(), Some(tom));
+        // Stack: a cascade, Tom a step down and right of Miezi.
+        h.get_by_label("Stack").click();
+        h.run();
+        let a = h.state().desk.position(miezi).unwrap();
+        let b = h.state().desk.position(tom).unwrap();
+        assert_eq!((b.x - a.x, b.y - a.y), (24.0, 24.0));
+        // Tile: side by side on one row, a gap between.
+        h.get_by_label("Tile").click();
+        h.run();
+        let a = h.state().desk.position(miezi).unwrap();
+        let b = h.state().desk.position(tom).unwrap();
+        assert_eq!(a.y, b.y);
+        assert!(b.x > a.x + crate::cards::CARD_WIDTH, "{a:?} {b:?}");
+        // Miezi's face on the dock brings her card to the front.
+        h.get_all_by_role_and_label(egui::accesskit::Role::Button, "Miezi")
+            .last()
+            .unwrap()
+            .click();
+        h.run();
+        assert_eq!(h.state().desk.front(&ctx).as_deref(), Some(miezi));
+        // Close all: the desk is bare, the open set empty and remembered so.
+        h.get_by_label("Close all").click();
+        h.run();
+        assert!(h.state().desk.open.is_empty());
+        assert_eq!(
+            h.state()
+                .store()
+                .local_setting(crate::cards::OPEN_KEY)
+                .as_deref(),
+            Some("")
+        );
     }
 
     #[test]
