@@ -64,6 +64,28 @@ pub fn button(ui: &mut Ui, icon: &str, text: impl Into<egui::WidgetText>) -> Res
     response.response
 }
 
+/// An icon alone as a button: the tooltip is its accessible label.
+pub fn icon_button(ui: &mut Ui, icon: &str, label: &str) -> Response {
+    let button = Button::new("")
+        .frame(false)
+        .min_size(Vec2::splat(SIZE + 6.0));
+    let response = ui.add(button).on_hover_text(label);
+    let color = ui.style().interact(&response).fg_stroke.color;
+    paint(ui, response.rect, icon, color);
+    let words = label.to_string();
+    response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &words));
+    response
+}
+
+/// A ⋮ that opens a menu and answers to `label`, so what was a button
+/// with words keeps its name for the keyboard and the tests.
+pub fn more_labeled(ui: &mut Ui, label: &str, add_contents: impl FnOnce(&mut Ui)) -> Response {
+    let response = more(ui, add_contents).on_hover_text(label);
+    let words = label.to_string();
+    response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &words));
+    response
+}
+
 /// A hover tint that eases in and out over the button, when motion is on.
 fn tint(ui: &Ui, response: &Response) {
     let k = crate::motion::tint(ui.ctx(), response.id, response.hovered());

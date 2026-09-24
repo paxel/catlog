@@ -5051,10 +5051,8 @@ mod tests {
         assert_eq!(h.state().desk.open, [miezi, tom]);
         assert_eq!(h.state().desk.position(tom), Some(moved));
         assert_eq!(h.get_all_by_label("Actions").count(), 2);
-        // The menu closes a card; the open set follows.
-        h.get_all_by_label("Actions").last().unwrap().click();
-        h.step();
-        h.get_by_label("Close card").click_accesskit();
+        // The × on the title bar closes a card; the open set follows.
+        h.get_all_by_label("Close card").last().unwrap().click();
         h.run();
         assert_eq!(h.state().desk.open, [miezi]);
     }

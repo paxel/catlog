@@ -287,10 +287,17 @@ impl Desk {
                         spread: 0,
                         color: egui::Color32::from_black_alpha(28),
                     })
-                    .inner_margin(12.0)
+                    .inner_margin(0.0)
                     .show(ui, |ui| {
-                        ui.set_width(CARD_WIDTH);
-                        let a = self.card(ui, store, t, faces, units, &id, &defs, &chosen);
+                        ui.set_width(CARD_WIDTH + 24.0);
+                        let mut a = self.title_bar(ui, store, t, &id, &defs, &chosen);
+                        egui::Frame::new().inner_margin(12.0).show(ui, |ui| {
+                            ui.set_width(CARD_WIDTH);
+                            let b = self.card(ui, store, t, faces, units, &id, &defs, &chosen);
+                            if b != CardEvent::None {
+                                a = b;
+                            }
+                        });
                         match a {
                             CardEvent::None | CardEvent::Cancel => {}
                             CardEvent::Close => closing = Some(id.clone()),
@@ -344,8 +351,75 @@ impl Desk {
         action
     }
 
-    /// One card's face, name, home, the chosen Fields, its codes and
-    /// its menu.
+    /// The bar a window has: the name, × to close, ⋮ with the card's
+    /// menu. The whole card drags, the bar is where a hand expects to.
+    fn title_bar(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        id: &str,
+        defs: &[FieldDef],
+        chosen: &BTreeSet<String>,
+    ) -> CardEvent {
+        let mut event = CardEvent::None;
+        let name = store
+            .current(id, keys::NAME)
+            .ok()
+            .flatten()
+            .unwrap_or_else(|| t.unnamed().to_string());
+        let hidden = store.is_hidden(id).unwrap_or(false);
+        let r = ROUNDING + 4;
+        egui::Frame::new()
+            .fill(PALETTE.tan)
+            .corner_radius(egui::CornerRadius {
+                nw: r,
+                ne: r,
+                sw: 0,
+                se: 0,
+            })
+            .inner_margin(egui::Margin::symmetric(12, 6))
+            .show(ui, |ui| {
+                ui.set_width(CARD_WIDTH);
+                ui.horizontal(|ui| {
+                    let title = egui::RichText::new(&name).strong().size(16.0);
+                    ui.add(
+                        egui::Label::new(if hidden { title.weak() } else { title })
+                            .selectable(false),
+                    );
+                    ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                        if icons::icon_button(ui, icons::CLOSE, t.card_close()).clicked() {
+                            event = CardEvent::Close;
+                        }
+                        let actions = icons::more_labeled(ui, t.actions_menu(), |ui| {
+                            let e = if id.starts_with("clowder:") {
+                                self.clowder_menu(ui, store, t, id, hidden)
+                            } else {
+                                self.menu(ui, store, t, id, hidden, defs, chosen)
+                            };
+                            if let Some(e) = e {
+                                event = e;
+                            }
+                        });
+                        if !id.starts_with("clowder:") {
+                            for tip in [
+                                "cat-menu",
+                                "cat-report",
+                                "cat-poster",
+                                "cat-reminder",
+                                "cat-chores",
+                            ] {
+                                crate::tips::anchor(ui, tip, &actions);
+                            }
+                        }
+                    });
+                });
+            });
+        event
+    }
+
+    /// One card's face, home, the chosen Fields, its codes; the name and
+    /// the menu are the title bar's.
     #[allow(clippy::too_many_arguments)]
     fn card(
         &mut self,
@@ -362,12 +436,6 @@ impl Desk {
             return self.clowder_card(ui, store, t, faces, units, id);
         }
         let mut event = CardEvent::None;
-        let name = store
-            .current(id, keys::NAME)
-            .ok()
-            .flatten()
-            .unwrap_or_else(|| t.unnamed().to_string());
-        let hidden = store.is_hidden(id).unwrap_or(false);
         ui.horizontal(|ui| {
             if chosen.contains(PHOTO_KEY) {
                 match store
@@ -389,47 +457,24 @@ impl Desk {
                     }
                 }
             }
-            ui.vertical(|ui| {
-                let title = egui::RichText::new(&name).strong().size(20.0);
-                ui.add(
-                    egui::Label::new(if hidden { title.weak() } else { title }).selectable(false),
-                );
-                if chosen.contains(keys::CLOWDER) {
-                    match store.current(id, keys::CLOWDER).ok().flatten() {
-                        Some(home) => {
-                            let home_name = store
-                                .current(&home, keys::NAME)
-                                .ok()
-                                .flatten()
-                                .unwrap_or_else(|| t.unnamed().to_string());
-                            if ui.link(home_name).clicked() {
-                                event = CardEvent::Action(CardAction::Page(
-                                    PageAction::OpenClowder(home),
-                                ));
-                            }
-                        }
-                        None => {
-                            ui.label(egui::RichText::new(t.stray_no_clowder()).weak());
+            if chosen.contains(keys::CLOWDER) {
+                match store.current(id, keys::CLOWDER).ok().flatten() {
+                    Some(home) => {
+                        let home_name = store
+                            .current(&home, keys::NAME)
+                            .ok()
+                            .flatten()
+                            .unwrap_or_else(|| t.unnamed().to_string());
+                        if ui.link(home_name).clicked() {
+                            event =
+                                CardEvent::Action(CardAction::Page(PageAction::OpenClowder(home)));
                         }
                     }
-                }
-            });
-            ui.with_layout(egui::Layout::right_to_left(egui::Align::Min), |ui| {
-                let actions = ui.menu_button(t.actions_menu(), |ui| {
-                    if let Some(e) = self.menu(ui, store, t, id, hidden, defs, chosen) {
-                        event = e;
+                    None => {
+                        ui.label(egui::RichText::new(t.stray_no_clowder()).weak());
                     }
-                });
-                for tip in [
-                    "cat-menu",
-                    "cat-report",
-                    "cat-poster",
-                    "cat-reminder",
-                    "cat-chores",
-                ] {
-                    crate::tips::anchor(ui, tip, &actions.response);
                 }
-            });
+            }
         });
         ui.add_space(6.0);
         ui.separator();
@@ -473,12 +518,6 @@ impl Desk {
         id: &str,
     ) -> CardEvent {
         let mut event = CardEvent::None;
-        let name = store
-            .current(id, keys::NAME)
-            .ok()
-            .flatten()
-            .unwrap_or_else(|| t.unnamed().to_string());
-        let hidden = store.is_hidden(id).unwrap_or(false);
         let cats = store.cats(Some(id)).unwrap_or_default();
         let pet_mode = store.is_pet_mode().unwrap_or(false);
         let cover = store.profile_image(id).ok().flatten();
@@ -498,88 +537,12 @@ impl Desk {
                     icons::glyph(ui, icons::NIGHT_SHELTER_OUTLINED, 40.0, PALETTE.grey);
                 }
             }
-            ui.vertical(|ui| {
-                let title = egui::RichText::new(&name).strong().size(20.0);
-                ui.add(
-                    egui::Label::new(if hidden { title.weak() } else { title }).selectable(false),
-                );
-                let count = if pet_mode {
-                    t.cats_count_neutral(cats.len() as i64)
-                } else {
-                    t.cats_count(cats.len() as i64)
-                };
-                ui.label(egui::RichText::new(count).weak());
-            });
-            ui.with_layout(egui::Layout::right_to_left(egui::Align::Min), |ui| {
-                ui.menu_button(t.actions_menu(), |ui| {
-                    let mut e = None;
-                    page(
-                        ui,
-                        &mut e,
-                        icons::ADD,
-                        t.new_cat(),
-                        PageAction::NewCat(Some(id.to_string())),
-                    );
-                    page(
-                        ui,
-                        &mut e,
-                        icons::ADD_A_PHOTO,
-                        t.cover_pick(),
-                        PageAction::SetCover(id.to_string()),
-                    );
-                    if cover.is_some() {
-                        page(
-                            ui,
-                            &mut e,
-                            icons::HIDE_IMAGE_OUTLINED,
-                            t.cover_remove(),
-                            PageAction::RemoveCover(id.to_string()),
-                        );
-                    }
-                    if icons::button(ui, icons::DESCRIPTION_OUTLINED, t.card_page()).clicked() {
-                        e = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
-                        ui.close();
-                    }
-                    ui.separator();
-                    page(
-                        ui,
-                        &mut e,
-                        icons::MAP_OUTLINED,
-                        t.show_on_map(),
-                        PageAction::ShowOnMap(id.to_string()),
-                    );
-                    page(
-                        ui,
-                        &mut e,
-                        icons::MERGE,
-                        &t.merge_this_into(t.kind_clowder()),
-                        PageAction::MergeInto(id.to_string()),
-                    );
-                    ui.separator();
-                    page(
-                        ui,
-                        &mut e,
-                        if hidden {
-                            icons::VISIBILITY_OUTLINED
-                        } else {
-                            icons::VISIBILITY_OFF_OUTLINED
-                        },
-                        if hidden {
-                            t.unhide_label()
-                        } else {
-                            t.hide_label()
-                        },
-                        PageAction::ToggleHidden(id.to_string()),
-                    );
-                    if icons::button(ui, icons::CLOSE, t.card_close()).clicked() {
-                        e = Some(CardEvent::Close);
-                        ui.close();
-                    }
-                    if let Some(e) = e {
-                        event = e;
-                    }
-                });
-            });
+            let count = if pet_mode {
+                t.cats_count_neutral(cats.len() as i64)
+            } else {
+                t.cats_count(cats.len() as i64)
+            };
+            ui.label(egui::RichText::new(count).weak());
         });
         ui.add_space(6.0);
         ui.separator();
@@ -626,6 +589,79 @@ impl Desk {
 
     /// The Field rows of a card, each edited on a click and holding the
     /// editor and the history in its menu; `chosen` limits them.
+    /// A Clowder card's menu: a cat in, the cover, the page, the map,
+    /// merging, hiding.
+    fn clowder_menu(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        id: &str,
+        hidden: bool,
+    ) -> Option<CardEvent> {
+        let mut e = None;
+        let cover = store.profile_image(id).ok().flatten();
+        page(
+            ui,
+            &mut e,
+            icons::ADD,
+            t.new_cat(),
+            PageAction::NewCat(Some(id.to_string())),
+        );
+        page(
+            ui,
+            &mut e,
+            icons::ADD_A_PHOTO,
+            t.cover_pick(),
+            PageAction::SetCover(id.to_string()),
+        );
+        if cover.is_some() {
+            page(
+                ui,
+                &mut e,
+                icons::HIDE_IMAGE_OUTLINED,
+                t.cover_remove(),
+                PageAction::RemoveCover(id.to_string()),
+            );
+        }
+        if icons::button(ui, icons::DESCRIPTION_OUTLINED, t.card_page()).clicked() {
+            e = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
+            ui.close();
+        }
+        ui.separator();
+        page(
+            ui,
+            &mut e,
+            icons::MAP_OUTLINED,
+            t.show_on_map(),
+            PageAction::ShowOnMap(id.to_string()),
+        );
+        page(
+            ui,
+            &mut e,
+            icons::MERGE,
+            &t.merge_this_into(t.kind_clowder()),
+            PageAction::MergeInto(id.to_string()),
+        );
+        ui.separator();
+        page(
+            ui,
+            &mut e,
+            if hidden {
+                icons::VISIBILITY_OUTLINED
+            } else {
+                icons::VISIBILITY_OFF_OUTLINED
+            },
+            if hidden {
+                t.unhide_label()
+            } else {
+                t.hide_label()
+            },
+            PageAction::ToggleHidden(id.to_string()),
+        );
+        e
+    }
+
     #[allow(clippy::too_many_arguments)]
     fn field_rows(
         &mut self,
@@ -921,10 +957,6 @@ impl Desk {
             },
             PageAction::ToggleHidden(id.to_string()),
         );
-        if icons::button(ui, icons::CLOSE, t.card_close()).clicked() {
-            event = Some(CardEvent::Close);
-            ui.close();
-        }
         event
     }
 }
