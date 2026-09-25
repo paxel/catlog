@@ -1835,6 +1835,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get soundParty => 'Miaulement de fête';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Son personnel…';
 
   @override

@@ -1825,6 +1825,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get soundParty => 'מיאו חגיגי';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'צליל משלך…';
 
   @override

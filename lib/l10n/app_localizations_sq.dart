@@ -1831,6 +1831,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get soundParty => 'Mjau feste';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Tingulli yt…';
 
   @override

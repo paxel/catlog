@@ -1830,6 +1830,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get soundParty => 'Party meow';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Own sound…';
 
   @override

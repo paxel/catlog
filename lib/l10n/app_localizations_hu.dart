@@ -1830,6 +1830,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get soundParty => 'Ünnepi miau';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Saját hang…';
 
   @override

@@ -31,14 +31,18 @@ class OwnSound extends SoundChoice {
   const OwnSound(this.path);
 }
 
-/// The shipped sounds; CC0 and public domain, see assets/sounds/LICENSES.md.
-enum Preset { meow, purr, chorus, party }
+/// The shipped sounds, see assets/sounds/LICENSES.md: four from
+/// Wikimedia Commons, three of one cat called Socke.
+enum Preset { meow, purr, chorus, party, meep, mrrp, mrrr }
 
 String presetAsset(Preset preset) => switch (preset) {
   Preset.meow => 'sounds/tick.wav',
   Preset.purr => 'sounds/purr.wav',
   Preset.chorus => 'sounds/chorus.wav',
   Preset.party => 'sounds/party.wav',
+  Preset.meep => 'sounds/socke1.wav',
+  Preset.mrrp => 'sounds/socke2.wav',
+  Preset.mrrr => 'sounds/socke3.wav',
 };
 
 /// The sound a moment has until the keeper picks another.
@@ -143,6 +147,9 @@ String presetLabel(AppLocalizations t, Preset preset) => switch (preset) {
   Preset.purr => t.soundPurr,
   Preset.chorus => t.soundChorus,
   Preset.party => t.soundParty,
+  Preset.meep => t.soundMeep,
+  Preset.mrrp => t.soundMrrp,
+  Preset.mrrr => t.soundMrrr,
 };
 
 /// The choice's name: None, the preset, or the own file's name.

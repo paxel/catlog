@@ -1834,6 +1834,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get soundParty => 'Святкове няв';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Власний звук…';
 
   @override

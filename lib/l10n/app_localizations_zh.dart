@@ -1791,6 +1791,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get soundParty => '派对喵';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => '自定义声音…';
 
   @override

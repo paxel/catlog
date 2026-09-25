@@ -1829,6 +1829,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get soundParty => 'Peomjäu';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Oma heli…';
 
   @override

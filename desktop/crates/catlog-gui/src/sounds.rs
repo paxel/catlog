@@ -2,9 +2,11 @@
 //! kept on this machine: none, one of the shipped cat sounds, or a file
 //! of the keeper's own. The shipped ones, each moment its own cat: a
 //! short meow for a tick, a purr for a day of chores done, a chorus of
-//! meows for a ladder climbed, a meow over a purr for an adoption. The
-//! recordings are CC0 and public domain from Wikimedia Commons, see
-//! `assets/sounds/LICENSES.md`; they ship with the app.
+//! meows for a ladder climbed, a meow over a purr for an adoption, and
+//! three calls of one cat called Socke to pick instead. The four are
+//! CC0 and public domain from Wikimedia Commons, Socke's are the
+//! keeper's own recordings, see `assets/sounds/LICENSES.md`; they all
+//! ship with the app.
 
 use std::path::{Path, PathBuf};
 
@@ -21,6 +23,9 @@ pub static TICK: &[u8] = include_bytes!("../../../../assets/sounds/tick.wav");
 pub static PURR: &[u8] = include_bytes!("../../../../assets/sounds/purr.wav");
 pub static CHORUS: &[u8] = include_bytes!("../../../../assets/sounds/chorus.wav");
 pub static PARTY: &[u8] = include_bytes!("../../../../assets/sounds/party.wav");
+pub static MEEP: &[u8] = include_bytes!("../../../../assets/sounds/socke1.wav");
+pub static MRRP: &[u8] = include_bytes!("../../../../assets/sounds/socke2.wav");
+pub static MRRR: &[u8] = include_bytes!("../../../../assets/sounds/socke3.wav");
 
 /// The moments a sound belongs to.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -72,10 +77,21 @@ pub enum Preset {
     Purr,
     Chorus,
     Party,
+    Meep,
+    Mrrp,
+    Mrrr,
 }
 
 impl Preset {
-    pub const ALL: [Preset; 4] = [Preset::Meow, Preset::Purr, Preset::Chorus, Preset::Party];
+    pub const ALL: [Preset; 7] = [
+        Preset::Meow,
+        Preset::Purr,
+        Preset::Chorus,
+        Preset::Party,
+        Preset::Meep,
+        Preset::Mrrp,
+        Preset::Mrrr,
+    ];
 
     /// The value kept in the setting; the phone's spelling.
     pub fn name(self) -> &'static str {
@@ -84,6 +100,9 @@ impl Preset {
             Preset::Purr => "purr",
             Preset::Chorus => "chorus",
             Preset::Party => "party",
+            Preset::Meep => "meep",
+            Preset::Mrrp => "mrrp",
+            Preset::Mrrr => "mrrr",
         }
     }
 
@@ -97,6 +116,9 @@ impl Preset {
             Preset::Purr => t.sound_purr(),
             Preset::Chorus => t.sound_chorus(),
             Preset::Party => t.sound_party(),
+            Preset::Meep => t.sound_meep(),
+            Preset::Mrrp => t.sound_mrrp(),
+            Preset::Mrrr => t.sound_mrrr(),
         }
     }
 
@@ -106,6 +128,9 @@ impl Preset {
             Preset::Purr => PURR,
             Preset::Chorus => CHORUS,
             Preset::Party => PARTY,
+            Preset::Meep => MEEP,
+            Preset::Mrrp => MRRP,
+            Preset::Mrrr => MRRR,
         }
     }
 }
@@ -234,7 +259,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn every_moment_has_its_own_short_wave() {
+    fn every_moment_and_every_preset_has_its_own_short_wave() {
         for cheer in Cheer::ALL {
             let bytes = cheer_sound(cheer);
             assert!(bytes.starts_with(b"RIFF"), "{cheer:?}");
@@ -244,6 +269,16 @@ mod tests {
             );
         }
         assert!(cheer_sound(Cheer::Tick).len() < cheer_sound(Cheer::DayDone).len());
+        for preset in Preset::ALL {
+            let bytes = preset.bytes();
+            assert!(bytes.starts_with(b"RIFF"), "{preset:?}");
+            assert!(
+                bytes.len() > 5_000 && bytes.len() < 400_000,
+                "{preset:?}: short"
+            );
+            // Every preset answers to its own name and nobody else's.
+            assert_eq!(Preset::from_name(preset.name()), Some(preset));
+        }
     }
 
     #[test]

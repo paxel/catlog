@@ -1832,6 +1832,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get soundParty => 'Miau de festa';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Som próprio…';
 
   @override

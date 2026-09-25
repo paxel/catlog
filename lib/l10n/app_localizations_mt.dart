@@ -1834,6 +1834,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get soundParty => 'Mjaw tal-festa';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Ħoss tiegħek…';
 
   @override

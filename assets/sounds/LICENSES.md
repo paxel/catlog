@@ -1,9 +1,10 @@
 # Sounds
 
-Four cat sounds, cut from recordings on Wikimedia Commons that their
-authors released as CC0 or into the public domain. No credit is owed;
-the sources are named so anyone can hear the originals. Every cut is
-mono, 22.05 kHz, faded, and loudness-matched with ffmpeg.
+Seven cat sounds. Four are cut from recordings on Wikimedia Commons that
+their authors released as CC0 or into the public domain; no credit is
+owed, the sources are named so anyone can hear the originals. Three are
+one cat's own calls, recorded and given to the app by its keeper. Every
+cut is mono, 22.05 kHz, faded, and loudness-matched.
 
 ## tick.wav — a chore ticked
 
@@ -31,3 +32,9 @@ and "Maullido de gata hembra joven" as above.
 "Purring cat bertie" by jim_mowatt, public domain,
 https://commons.wikimedia.org/wiki/File:Purring_cat_bertie.ogg
 under the Siamese meow above.
+
+## socke1.wav, socke2.wav, socke3.wav — Meep, Mrrp, Mrrr
+
+Socke, recorded by Patrick Zimmer on a phone and given to the app. Used
+by permission; not from a stock library and not under a public licence.
+Trimmed to the call, rumble filtered out, levelled.

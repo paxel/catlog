@@ -1833,6 +1833,15 @@ class AppLocalizationsSl extends AppLocalizations {
   String get soundParty => 'Praznično mjav';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Lasten zvok…';
 
   @override

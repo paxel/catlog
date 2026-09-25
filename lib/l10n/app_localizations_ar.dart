@@ -1831,6 +1831,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get soundParty => 'مواء الحفلة';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'صوت خاص…';
 
   @override

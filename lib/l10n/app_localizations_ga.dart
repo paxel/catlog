@@ -1838,6 +1838,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get soundParty => 'Meamhaíl chóisire';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Fuaim féin…';
 
   @override

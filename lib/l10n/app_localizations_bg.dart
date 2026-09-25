@@ -1832,6 +1832,15 @@ class AppLocalizationsBg extends AppLocalizations {
   String get soundParty => 'Празнично мяу';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Собствен звук…';
 
   @override

@@ -1831,6 +1831,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get soundParty => 'Oslavné mňau';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Vlastný zvuk…';
 
   @override

@@ -3440,6 +3440,24 @@ abstract class AppLocalizations {
   /// **'Party meow'**
   String get soundParty;
 
+  /// No description provided for @soundMeep.
+  ///
+  /// In en, this message translates to:
+  /// **'Meep'**
+  String get soundMeep;
+
+  /// No description provided for @soundMrrp.
+  ///
+  /// In en, this message translates to:
+  /// **'Mrrp'**
+  String get soundMrrp;
+
+  /// No description provided for @soundMrrr.
+  ///
+  /// In en, this message translates to:
+  /// **'Mrrr'**
+  String get soundMrrr;
+
   /// No description provided for @soundOwn.
   ///
   /// In en, this message translates to:

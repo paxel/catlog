@@ -1833,6 +1833,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get soundParty => 'Праздничное мяу';
 
   @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
   String get soundOwn => 'Свой звук…';
 
   @override
