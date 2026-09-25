@@ -1822,9 +1822,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get soundsSection => 'Geluiden';
 
   @override
-  String get soundMeow => 'Miauw';
-
-  @override
   String get soundPurr => 'Spinnen';
 
   @override

@@ -1818,9 +1818,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get soundsSection => 'Hangok';
 
   @override
-  String get soundMeow => 'Miau';
-
-  @override
   String get soundPurr => 'Dorombolás';
 
   @override

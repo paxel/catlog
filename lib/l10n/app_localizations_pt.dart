@@ -1820,9 +1820,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get soundsSection => 'Sons';
 
   @override
-  String get soundMeow => 'Miau';
-
-  @override
   String get soundPurr => 'Ronrono';
 
   @override

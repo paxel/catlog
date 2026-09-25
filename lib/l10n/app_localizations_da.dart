@@ -1820,9 +1820,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get soundsSection => 'Lyde';
 
   @override
-  String get soundMeow => 'Miav';
-
-  @override
   String get soundPurr => 'Spinden';
 
   @override

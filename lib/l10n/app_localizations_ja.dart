@@ -1795,9 +1795,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get soundsSection => 'サウンド';
 
   @override
-  String get soundMeow => 'ニャー';
-
-  @override
   String get soundPurr => 'ゴロゴロ';
 
   @override

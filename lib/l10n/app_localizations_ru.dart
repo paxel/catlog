@@ -1821,9 +1821,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get soundsSection => 'Звуки';
 
   @override
-  String get soundMeow => 'Мяу';
-
-  @override
   String get soundPurr => 'Мурлыканье';
 
   @override

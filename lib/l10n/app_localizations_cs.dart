@@ -1821,9 +1821,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get soundsSection => 'Zvuky';
 
   @override
-  String get soundMeow => 'Mňau';
-
-  @override
   String get soundPurr => 'Předení';
 
   @override

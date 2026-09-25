@@ -1820,9 +1820,6 @@ class AppLocalizationsBs extends AppLocalizations {
   String get soundsSection => 'Zvukovi';
 
   @override
-  String get soundMeow => 'Mjau';
-
-  @override
   String get soundPurr => 'Predenje';
 
   @override

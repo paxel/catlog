@@ -31,12 +31,12 @@ class OwnSound extends SoundChoice {
   const OwnSound(this.path);
 }
 
-/// The shipped sounds, see assets/sounds/LICENSES.md: four from
-/// Wikimedia Commons, three of one cat called Socke.
-enum Preset { meow, purr, chorus, party, meep, mrrp, mrrr }
+/// The shipped sounds, see assets/sounds/LICENSES.md: a purr and a
+/// party meow from Wikimedia Commons, three calls of one cat called
+/// Socke, and a chorus made of those three.
+enum Preset { purr, chorus, party, meep, mrrp, mrrr }
 
 String presetAsset(Preset preset) => switch (preset) {
-  Preset.meow => 'sounds/tick.wav',
   Preset.purr => 'sounds/purr.wav',
   Preset.chorus => 'sounds/chorus.wav',
   Preset.party => 'sounds/party.wav',
@@ -47,7 +47,7 @@ String presetAsset(Preset preset) => switch (preset) {
 
 /// The sound a moment has until the keeper picks another.
 Preset defaultPreset(Cheer moment) => switch (moment) {
-  Cheer.tick => Preset.meow,
+  Cheer.tick => Preset.meep,
   Cheer.dayDone => Preset.purr,
   Cheer.ladder => Preset.chorus,
   Cheer.adoption => Preset.party,
@@ -143,7 +143,6 @@ String momentLabel(AppLocalizations t, Cheer moment) => switch (moment) {
 };
 
 String presetLabel(AppLocalizations t, Preset preset) => switch (preset) {
-  Preset.meow => t.soundMeow,
   Preset.purr => t.soundPurr,
   Preset.chorus => t.soundChorus,
   Preset.party => t.soundParty,

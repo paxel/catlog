@@ -21,7 +21,7 @@ void main() {
     for (final asset in assets) {
       expect(File('assets/$asset').existsSync(), isTrue, reason: asset);
     }
-    expect(cheerAsset(Cheer.tick), 'sounds/tick.wav');
+    expect(cheerAsset(Cheer.tick), 'sounds/socke1.wav');
     expect(cheerAsset(Cheer.adoption), 'sounds/party.wav');
   });
 
@@ -29,7 +29,7 @@ void main() {
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     expect(soundFor(store, Cheer.tick), isA<PresetSound>());
-    expect((soundFor(store, Cheer.tick) as PresetSound).preset, Preset.meow);
+    expect((soundFor(store, Cheer.tick) as PresetSound).preset, Preset.meep);
     setSound(store, Cheer.tick, const NoSound());
     expect(soundFor(store, Cheer.tick), isA<NoSound>());
     expect(soundFor(store, Cheer.dayDone), isA<PresetSound>());
@@ -81,9 +81,9 @@ void main() {
     expect(find.text('Chore done'), findsOneWidget);
     expect(find.text('Today: all done'), findsOneWidget);
     expect(find.text('Adoptions'), findsOneWidget);
-    // The tick row shows its meow; its dialog offers none, the four
+    // The tick row shows Socke's call; its dialog offers none, the six
     // shipped sounds and an own file.
-    expect(find.text('Meow'), findsOneWidget);
+    expect(find.text('Meep'), findsOneWidget);
     await tester.tap(find.text('Chore done'));
     await tester.pumpAndSettle();
     expect(find.byType(SoundDialog), findsOneWidget);

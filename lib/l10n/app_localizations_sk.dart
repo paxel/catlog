@@ -1819,9 +1819,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get soundsSection => 'Zvuky';
 
   @override
-  String get soundMeow => 'Mňau';
-
-  @override
   String get soundPurr => 'Pradenie';
 
   @override

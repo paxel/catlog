@@ -1817,9 +1817,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get soundsSection => 'Helid';
 
   @override
-  String get soundMeow => 'Mjäu';
-
-  @override
   String get soundPurr => 'Nurrumine';
 
   @override

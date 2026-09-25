@@ -1818,9 +1818,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get soundsSection => 'Sesler';
 
   @override
-  String get soundMeow => 'Miyav';
-
-  @override
   String get soundPurr => 'Mırıltı';
 
   @override

@@ -1819,9 +1819,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get soundsSection => 'الأصوات';
 
   @override
-  String get soundMeow => 'مواء';
-
-  @override
   String get soundPurr => 'خرخرة';
 
   @override

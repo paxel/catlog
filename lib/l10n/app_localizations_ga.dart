@@ -1826,9 +1826,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get soundsSection => 'Fuaimeanna';
 
   @override
-  String get soundMeow => 'Meamhaíl';
-
-  @override
   String get soundPurr => 'Crónán';
 
   @override

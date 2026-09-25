@@ -1820,9 +1820,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get soundsSection => 'Äänet';
 
   @override
-  String get soundMeow => 'Miau';
-
-  @override
   String get soundPurr => 'Kehräys';
 
   @override

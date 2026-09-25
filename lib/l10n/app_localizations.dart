@@ -3416,12 +3416,6 @@ abstract class AppLocalizations {
   /// **'Sounds'**
   String get soundsSection;
 
-  /// No description provided for @soundMeow.
-  ///
-  /// In en, this message translates to:
-  /// **'Meow'**
-  String get soundMeow;
-
   /// No description provided for @soundPurr.
   ///
   /// In en, this message translates to:

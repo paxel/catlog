@@ -1827,9 +1827,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get soundsSection => 'Ήχοι';
 
   @override
-  String get soundMeow => 'Νιάου';
-
-  @override
   String get soundPurr => 'Γουργουρητό';
 
   @override

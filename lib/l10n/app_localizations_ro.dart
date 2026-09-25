@@ -1821,9 +1821,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get soundsSection => 'Sunete';
 
   @override
-  String get soundMeow => 'Miau';
-
-  @override
   String get soundPurr => 'Tors';
 
   @override

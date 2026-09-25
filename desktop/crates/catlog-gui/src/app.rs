@@ -6438,7 +6438,7 @@ mod tests {
         assert!(h.state().store().local_setting("sound:dayDone").is_none());
         // Own sound…: the file dialog, the copy kept beside the data, heard.
         let own = dir.path().join("mine.wav");
-        std::fs::write(&own, crate::sounds::TICK).unwrap();
+        std::fs::write(&own, crate::sounds::MEEP).unwrap();
         let own_for_picker = own.clone();
         h.state_mut().pick_files = Box::new(move |_, _, _| vec![own_for_picker.clone()]);
         h.state_mut().data_dir = dir.path().join("data");
@@ -6459,7 +6459,7 @@ mod tests {
         );
         assert_eq!(
             *played.lock().unwrap().last().unwrap(),
-            crate::sounds::TICK.len()
+            crate::sounds::MEEP.len()
         );
         h.get_by_label("Show tips again").click();
         h.run();
@@ -6655,10 +6655,10 @@ mod tests {
             .unwrap()
             .click();
         h.run();
-        // The tick's meow, then the ladder's chorus: the day done yields to it.
+        // The tick's call, then the ladder's chorus: the day done yields to it.
         assert_eq!(
             *played.lock().unwrap(),
-            vec![crate::sounds::TICK.len(), crate::sounds::CHORUS.len()]
+            vec![crate::sounds::MEEP.len(), crate::sounds::CHORUS.len()]
         );
         h.get_by_label("Achievement: Servant (Feed)");
         assert_eq!(h.state().manager().achievements().len(), 1);
@@ -6680,7 +6680,7 @@ mod tests {
         );
         assert_eq!(
             *played.lock().unwrap().last().unwrap(),
-            crate::sounds::TICK.len()
+            crate::sounds::MEEP.len()
         );
         h.key_press(egui::Key::Escape);
         h.run();

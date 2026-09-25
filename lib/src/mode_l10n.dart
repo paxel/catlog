@@ -2401,9 +2401,6 @@ class ModeLocalizations implements AppLocalizations {
   String get soundMeep => base.soundMeep;
 
   @override
-  String get soundMeow => base.soundMeow;
-
-  @override
   String get soundMrrp => base.soundMrrp;
 
   @override

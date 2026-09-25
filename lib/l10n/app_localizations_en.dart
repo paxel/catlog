@@ -1818,9 +1818,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get soundsSection => 'Sounds';
 
   @override
-  String get soundMeow => 'Meow';
-
-  @override
   String get soundPurr => 'Purr';
 
   @override

@@ -1823,9 +1823,6 @@ class AppLocalizationsMk extends AppLocalizations {
   String get soundsSection => 'Звуци';
 
   @override
-  String get soundMeow => 'Мјау';
-
-  @override
   String get soundPurr => 'Предење';
 
   @override

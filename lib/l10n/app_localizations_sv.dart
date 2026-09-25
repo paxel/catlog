@@ -1819,9 +1819,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get soundsSection => 'Ljud';
 
   @override
-  String get soundMeow => 'Mjau';
-
-  @override
   String get soundPurr => 'Spinnande';
 
   @override

@@ -1825,9 +1825,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get soundsSection => 'Töne';
 
   @override
-  String get soundMeow => 'Miau';
-
-  @override
   String get soundPurr => 'Schnurren';
 
   @override

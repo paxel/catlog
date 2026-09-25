@@ -1821,9 +1821,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get soundsSection => 'Dźwięki';
 
   @override
-  String get soundMeow => 'Miau';
-
-  @override
   String get soundPurr => 'Mruczenie';
 
   @override

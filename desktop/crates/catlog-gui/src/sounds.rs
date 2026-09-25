@@ -1,12 +1,12 @@
 //! The sounds: every moment the desk makes one at has its own choice,
 //! kept on this machine: none, one of the shipped cat sounds, or a file
 //! of the keeper's own. The shipped ones, each moment its own cat: a
-//! short meow for a tick, a purr for a day of chores done, a chorus of
-//! meows for a ladder climbed, a meow over a purr for an adoption, and
-//! three calls of one cat called Socke to pick instead. The four are
-//! CC0 and public domain from Wikimedia Commons, Socke's are the
-//! keeper's own recordings, see `assets/sounds/LICENSES.md`; they all
-//! ship with the app.
+//! short call for a tick, a purr for a day of chores done, a chorus of
+//! calls for a ladder climbed, a meow over a purr for an adoption. The
+//! purr and the party meow are CC0 and public domain from Wikimedia
+//! Commons; the three calls and the chorus made of them are one cat's,
+//! called Socke, recorded by its keeper. See
+//! `assets/sounds/LICENSES.md`; they all ship with the app.
 
 use std::path::{Path, PathBuf};
 
@@ -19,7 +19,6 @@ pub trait Sounder {
     fn play(&mut self, sound: Vec<u8>);
 }
 
-pub static TICK: &[u8] = include_bytes!("../../../../assets/sounds/tick.wav");
 pub static PURR: &[u8] = include_bytes!("../../../../assets/sounds/purr.wav");
 pub static CHORUS: &[u8] = include_bytes!("../../../../assets/sounds/chorus.wav");
 pub static PARTY: &[u8] = include_bytes!("../../../../assets/sounds/party.wav");
@@ -62,7 +61,7 @@ impl Cheer {
     /// The sound a moment ships with.
     pub fn default_preset(self) -> Preset {
         match self {
-            Cheer::Tick => Preset::Meow,
+            Cheer::Tick => Preset::Meep,
             Cheer::DayDone => Preset::Purr,
             Cheer::Ladder => Preset::Chorus,
             Cheer::Adoption => Preset::Party,
@@ -73,7 +72,6 @@ impl Cheer {
 /// The shipped sounds.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Preset {
-    Meow,
     Purr,
     Chorus,
     Party,
@@ -83,8 +81,7 @@ pub enum Preset {
 }
 
 impl Preset {
-    pub const ALL: [Preset; 7] = [
-        Preset::Meow,
+    pub const ALL: [Preset; 6] = [
         Preset::Purr,
         Preset::Chorus,
         Preset::Party,
@@ -96,7 +93,6 @@ impl Preset {
     /// The value kept in the setting; the phone's spelling.
     pub fn name(self) -> &'static str {
         match self {
-            Preset::Meow => "meow",
             Preset::Purr => "purr",
             Preset::Chorus => "chorus",
             Preset::Party => "party",
@@ -112,7 +108,6 @@ impl Preset {
 
     pub fn label(self, t: &L10n) -> &'static str {
         match self {
-            Preset::Meow => t.sound_meow(),
             Preset::Purr => t.sound_purr(),
             Preset::Chorus => t.sound_chorus(),
             Preset::Party => t.sound_party(),
@@ -124,7 +119,6 @@ impl Preset {
 
     pub fn bytes(self) -> &'static [u8] {
         match self {
-            Preset::Meow => TICK,
             Preset::Purr => PURR,
             Preset::Chorus => CHORUS,
             Preset::Party => PARTY,
@@ -264,7 +258,7 @@ mod tests {
             let bytes = cheer_sound(cheer);
             assert!(bytes.starts_with(b"RIFF"), "{cheer:?}");
             assert!(
-                bytes.len() > 10_000 && bytes.len() < 400_000,
+                bytes.len() > 5_000 && bytes.len() < 400_000,
                 "{cheer:?}: short"
             );
         }
@@ -287,7 +281,7 @@ mod tests {
         let store = Catalog::open(dir.path()).unwrap();
         assert_eq!(
             sound_for(&store, Cheer::Tick),
-            SoundChoice::Preset(Preset::Meow)
+            SoundChoice::Preset(Preset::Meep)
         );
         set_sound(&store, Cheer::Tick, &SoundChoice::None);
         assert_eq!(sound_for(&store, Cheer::Tick), SoundChoice::None);
@@ -299,14 +293,14 @@ mod tests {
         );
         // An own file is copied beside the data and read from there.
         let source = dir.path().join("mine.wav");
-        std::fs::write(&source, TICK).unwrap();
+        std::fs::write(&source, MEEP).unwrap();
         let kept = keep_own(dir.path().join("data").as_path(), Cheer::Ladder, &source).unwrap();
         assert_eq!(kept, dir.path().join("data/sounds/ladder.wav"));
         set_sound(&store, Cheer::Ladder, &SoundChoice::Own(kept.clone()));
         assert_eq!(sound_for(&store, Cheer::Ladder), SoundChoice::Own(kept));
         assert_eq!(
             sound_for(&store, Cheer::Ladder).bytes().unwrap().len(),
-            TICK.len()
+            MEEP.len()
         );
         // A value the app does not know falls back to the moment's own.
         let _ = store.set_local_setting(Cheer::Adoption.key(), "trumpet");

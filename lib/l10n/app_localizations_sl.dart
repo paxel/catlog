@@ -1821,9 +1821,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get soundsSection => 'Zvoki';
 
   @override
-  String get soundMeow => 'Mjav';
-
-  @override
   String get soundPurr => 'Predenje';
 
   @override

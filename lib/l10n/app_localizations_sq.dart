@@ -1819,9 +1819,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get soundsSection => 'Tinguj';
 
   @override
-  String get soundMeow => 'Mjau';
-
-  @override
   String get soundPurr => 'Gërhitje';
 
   @override

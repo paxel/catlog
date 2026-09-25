@@ -1820,9 +1820,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get soundsSection => 'Zvukovi';
 
   @override
-  String get soundMeow => 'Mijau';
-
-  @override
   String get soundPurr => 'Predenje';
 
   @override

@@ -1816,9 +1816,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get soundsSection => 'صداها';
 
   @override
-  String get soundMeow => 'میو';
-
-  @override
   String get soundPurr => 'خرخر';
 
   @override

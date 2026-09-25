@@ -48,14 +48,17 @@ void Function(CatalogInfo)? switchCatalog;
 Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    // The cat sounds come from Wikimedia Commons, CC0 and public domain:
-    // no credit is owed, the sources are named on the licences page.
+    // Two cat sounds come from Wikimedia Commons, CC0 and public domain:
+    // no credit is owed, the sources are named on the licences page. The
+    // rest are one cat's own calls, given to the app by its keeper.
     LicenseRegistry.addLicense(() => Stream.value(const LicenseEntryWithLineBreaks(
           ['Cat sounds'],
-          'tick.wav, purr.wav, chorus.wav and party.wav are cut from recordings '
-          'on Wikimedia Commons by George Miquilena, Adam Cuerden, Tsester, '
-          'freemaster2 and jim_mowatt, released as CC0 or into the public '
-          'domain. See assets/sounds/LICENSES.md for the sources.',
+          'purr.wav and party.wav are cut from recordings on Wikimedia '
+          'Commons by Adam Cuerden, freemaster2 and jim_mowatt, released as '
+          'CC0 or into the public domain. socke1.wav, socke2.wav, '
+          'socke3.wav and the chorus made of them are recordings of a cat '
+          'called Socke, used by permission of their keeper. See '
+          'assets/sounds/LICENSES.md for the sources.',
         )));
     final dir = await getApplicationSupportDirectory();
     // The language decides what the catalog carried over from an older
