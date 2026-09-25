@@ -1821,6 +1821,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get soundsSection => 'Zvuky';
 
   @override
+  String get reminderSound => 'Kočičí zvuk u připomínek';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Připomínka úkolu řekne Mrrr místo zvuku telefonu.';
+
+  @override
   String get soundPurr => 'Předení';
 
   @override

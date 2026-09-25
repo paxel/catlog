@@ -554,6 +554,8 @@
   "celebrationsToggle": "Celebrar adopciones",
   "celebrationsSubtitle": "Confeti y vítores cuando un gato se muda a su hogar",
   "soundsSection": "Sonidos",
+  "reminderSound": "Sonido de gato en los recordatorios",
+  "reminderSoundSubtitle": "El recordatorio de una tarea dice Mrrr en vez del sonido del teléfono.",
   "soundPurr": "Ronroneo",
   "soundChorus": "Coro de maullidos",
   "soundParty": "Maullido de fiesta",

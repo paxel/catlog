@@ -554,6 +554,8 @@
   "celebrationsToggle": "Praznuj posvojitve",
   "celebrationsSubtitle": "Konfeti in vzkliki, ko se mačka preseli v svoj dom",
   "soundsSection": "Zvoki",
+  "reminderSound": "Mačji zvok za opomnike",
+  "reminderSoundSubtitle": "Opomnik za opravilo reče Mrrr namesto zvoka telefona.",
   "soundPurr": "Predenje",
   "soundChorus": "Zbor mijavkanja",
   "soundParty": "Praznično mjav",

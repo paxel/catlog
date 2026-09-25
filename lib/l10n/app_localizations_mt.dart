@@ -1822,6 +1822,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get soundsSection => 'Ħsejjes';
 
   @override
+  String get reminderSound => 'Ħoss ta\' qattus għat-tfakkiriet';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'It-tfakkira ta\' xogħol tgħid Mrrr minflok il-ħoss tat-telefown.';
+
+  @override
   String get soundPurr => 'Tqarqir';
 
   @override

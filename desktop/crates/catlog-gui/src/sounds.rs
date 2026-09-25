@@ -134,6 +134,20 @@ pub fn cheer_sound(cheer: Cheer) -> &'static [u8] {
     cheer.default_preset().bytes()
 }
 
+/// A chore's reminder arrives as a notification the system draws, so
+/// all this machine decides is whether the desk speaks with it: Socke's
+/// Mrrr, or nothing but the popup. The phone's key and its default.
+pub const REMINDER_SOUND: &str = "reminderCatSound";
+
+/// The reminder sound this machine uses; the cat unless switched off.
+pub fn reminder_cat_sound(store: &Catalog) -> bool {
+    store.local_setting(REMINDER_SOUND).as_deref() != Some("off")
+}
+
+pub fn set_reminder_cat_sound(store: &Catalog, on: bool) {
+    let _ = store.set_local_setting(REMINDER_SOUND, if on { "on" } else { "off" });
+}
+
 /// What plays at a moment.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum SoundChoice {

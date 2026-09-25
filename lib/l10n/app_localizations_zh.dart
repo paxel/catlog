@@ -1779,6 +1779,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get soundsSection => '声音';
 
   @override
+  String get reminderSound => '用猫声提醒';
+
+  @override
+  String get reminderSoundSubtitle => '事务提醒会喵一声 Mrrr，而不是手机自带的提示音。';
+
+  @override
   String get soundPurr => '呼噜';
 
   @override

@@ -554,6 +554,8 @@
   "celebrationsToggle": "Örökbefogadás ünneplése",
   "celebrationsSubtitle": "Konfetti és éljenzés, amikor egy macska az otthonába költözik",
   "soundsSection": "Hangok",
+  "reminderSound": "Macskahang az emlékeztetőkhöz",
+  "reminderSoundSubtitle": "A teendő emlékeztetője Mrrr-t mond a telefon hangja helyett.",
   "soundPurr": "Dorombolás",
   "soundChorus": "Miau-kórus",
   "soundParty": "Ünnepi miau",

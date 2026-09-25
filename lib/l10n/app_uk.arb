@@ -554,6 +554,8 @@
   "celebrationsToggle": "Святкувати прилаштування",
   "celebrationsSubtitle": "Конфеті та радість, коли кіт переїжджає у свій дім",
   "soundsSection": "Звуки",
+  "reminderSound": "Котячий звук нагадувань",
+  "reminderSoundSubtitle": "Нагадування про справу каже Mrrr замість звуку телефона.",
   "soundPurr": "Муркотіння",
   "soundChorus": "Хор нявкання",
   "soundParty": "Святкове няв",

@@ -1817,6 +1817,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get soundsSection => 'Helid';
 
   @override
+  String get reminderSound => 'Kassi heli meeldetuletustes';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Toimetuse meeldetuletus ütleb Mrrr telefoni oma heli asemel.';
+
+  @override
   String get soundPurr => 'Nurrumine';
 
   @override

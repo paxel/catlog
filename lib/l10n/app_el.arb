@@ -554,6 +554,8 @@
   "celebrationsToggle": "Γιορτή υιοθεσιών",
   "celebrationsSubtitle": "Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο σπίτι της",
   "soundsSection": "Ήχοι",
+  "reminderSound": "Ήχος γάτας στις υπενθυμίσεις",
+  "reminderSoundSubtitle": "Η υπενθύμιση μιας δουλειάς λέει Mrrr αντί για τον ήχο του τηλεφώνου.",
   "soundPurr": "Γουργουρητό",
   "soundChorus": "Χορωδία από νιαουρίσματα",
   "soundParty": "Νιάου γιορτής",

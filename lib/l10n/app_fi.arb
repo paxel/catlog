@@ -554,6 +554,8 @@
   "celebrationsToggle": "Juhli adoptioita",
   "celebrationsSubtitle": "Konfettia ja hurraus, kun kissa muuttaa kotiinsa",
   "soundsSection": "Äänet",
+  "reminderSound": "Kissan ääni muistutuksissa",
+  "reminderSoundSubtitle": "Askareen muistutus sanoo Mrrr puhelimen oman äänen sijaan.",
   "soundPurr": "Kehräys",
   "soundChorus": "Miau-kuoro",
   "soundParty": "Juhlamiau",

@@ -554,6 +554,8 @@
   "celebrationsToggle": "Świętuj adopcje",
   "celebrationsSubtitle": "Konfetti i wiwaty, gdy kot przeprowadza się do domu",
   "soundsSection": "Dźwięki",
+  "reminderSound": "Kocie brzmienie przypomnień",
+  "reminderSoundSubtitle": "Przypomnienie o obowiązku mówi Mrrr zamiast dźwięku telefonu.",
   "soundPurr": "Mruczenie",
   "soundChorus": "Chór miauczenia",
   "soundParty": "Imprezowe miau",

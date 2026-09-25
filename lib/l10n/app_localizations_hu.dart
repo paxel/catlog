@@ -1818,6 +1818,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get soundsSection => 'Hangok';
 
   @override
+  String get reminderSound => 'Macskahang az emlékeztetőkhöz';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'A teendő emlékeztetője Mrrr-t mond a telefon hangja helyett.';
+
+  @override
   String get soundPurr => 'Dorombolás';
 
   @override

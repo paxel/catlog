@@ -554,6 +554,8 @@
   "celebrationsToggle": "الاحتفال بالتبني",
   "celebrationsSubtitle": "قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها",
   "soundsSection": "الأصوات",
+  "reminderSound": "صوت قط للتذكيرات",
+  "reminderSoundSubtitle": "تذكير المهمة يقول Mrrr بدل نغمة الهاتف.",
   "soundPurr": "خرخرة",
   "soundChorus": "جوقة مواء",
   "soundParty": "مواء الحفلة",

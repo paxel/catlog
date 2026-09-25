@@ -1827,6 +1827,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get soundsSection => 'Ήχοι';
 
   @override
+  String get reminderSound => 'Ήχος γάτας στις υπενθυμίσεις';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Η υπενθύμιση μιας δουλειάς λέει Mrrr αντί για τον ήχο του τηλεφώνου.';
+
+  @override
   String get soundPurr => 'Γουργουρητό';
 
   @override

@@ -1821,6 +1821,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get soundsSection => 'Sunete';
 
   @override
+  String get reminderSound => 'Sunet de pisică la mementouri';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Mementoul unei treburi spune Mrrr în locul sunetului telefonului.';
+
+  @override
   String get soundPurr => 'Tors';
 
   @override

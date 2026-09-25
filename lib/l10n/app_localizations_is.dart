@@ -1821,6 +1821,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get soundsSection => 'Hljóð';
 
   @override
+  String get reminderSound => 'Kattahljóð fyrir áminningar';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Áminning um verk segir Mrrr í stað hljóðs símans.';
+
+  @override
   String get soundPurr => 'Mal';
 
   @override

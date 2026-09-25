@@ -554,6 +554,8 @@
   "celebrationsToggle": "Празнувай осиновяванията",
   "celebrationsSubtitle": "Конфети и радост, когато котка се мести в своя дом",
   "soundsSection": "Звуци",
+  "reminderSound": "Котешки звук за напомняния",
+  "reminderSoundSubtitle": "Напомнянето за задължение казва Mrrr вместо звука на телефона.",
   "soundPurr": "Мъркане",
   "soundChorus": "Хор от мяукане",
   "soundParty": "Празнично мяу",

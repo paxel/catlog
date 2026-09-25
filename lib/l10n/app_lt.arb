@@ -554,6 +554,8 @@
   "celebrationsToggle": "Švęsti priglaudimus",
   "celebrationsSubtitle": "Konfeti ir šūksniai, kai katė persikelia į namus",
   "soundsSection": "Garsai",
+  "reminderSound": "Katės garsas priminimams",
+  "reminderSoundSubtitle": "Darbo priminimas sako Mrrr vietoj telefono garso.",
   "soundPurr": "Murkimas",
   "soundChorus": "Miaukimo choras",
   "soundParty": "Šventinis miau",

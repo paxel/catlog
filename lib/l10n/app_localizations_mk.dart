@@ -1823,6 +1823,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get soundsSection => 'Звуци';
 
   @override
+  String get reminderSound => 'Мачкин звук за потсетници';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Потсетникот за обврска вели Mrrr наместо звукот на телефонот.';
+
+  @override
   String get soundPurr => 'Предење';
 
   @override

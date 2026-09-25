@@ -1819,6 +1819,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get soundsSection => 'Tinguj';
 
   @override
+  String get reminderSound => 'Zë mace për përkujtuesit';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Përkujtuesi i një detyre thotë Mrrr në vend të zërit të telefonit.';
+
+  @override
   String get soundPurr => 'Gërhitje';
 
   @override

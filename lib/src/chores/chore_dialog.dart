@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../l10n.dart';
+import '../sounds.dart';
 import '../notes.dart';
 import '../reminders/plan_entity.dart';
 import 'chore_history_screen.dart';
@@ -460,6 +461,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
                         ? t.newChore
                         : _title.text.trim(),
                     store.current(_entity, Keys.name) ?? '',
+                    catSound: reminderCatSound(store),
                   );
                 } catch (e) {
                   _say(t.remindFailed(e.toString()));

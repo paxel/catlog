@@ -554,6 +554,8 @@
   "celebrationsToggle": "Ceiliúradh uchtálacha",
   "celebrationsSubtitle": "Coinfití agus gártha nuair a bhogann cat go dtí a bhaile",
   "soundsSection": "Fuaimeanna",
+  "reminderSound": "Fuaim cait do mheabhrúcháin",
+  "reminderSoundSubtitle": "Deir meabhrúchán cúraim Mrrr in ionad fhuaim an ghutháin.",
   "soundPurr": "Crónán",
   "soundChorus": "Cór meamhaíola",
   "soundParty": "Meamhaíl chóisire",

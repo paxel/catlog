@@ -1820,6 +1820,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get soundsSection => 'Sons';
 
   @override
+  String get reminderSound => 'Som de gato nos lembretes';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'O lembrete de uma tarefa diz Mrrr em vez do som do telemóvel.';
+
+  @override
   String get soundPurr => 'Ronrono';
 
   @override

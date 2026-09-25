@@ -1819,6 +1819,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get soundsSection => 'الأصوات';
 
   @override
+  String get reminderSound => 'صوت قط للتذكيرات';
+
+  @override
+  String get reminderSoundSubtitle => 'تذكير المهمة يقول Mrrr بدل نغمة الهاتف.';
+
+  @override
   String get soundPurr => 'خرخرة';
 
   @override

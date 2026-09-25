@@ -3416,6 +3416,18 @@ abstract class AppLocalizations {
   /// **'Sounds'**
   String get soundsSection;
 
+  /// No description provided for @reminderSound.
+  ///
+  /// In en, this message translates to:
+  /// **'Cat sound for reminders'**
+  String get reminderSound;
+
+  /// No description provided for @reminderSoundSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A chore\'s reminder says Mrrr instead of the phone\'s own sound.'**
+  String get reminderSoundSubtitle;
+
   /// No description provided for @soundPurr.
   ///
   /// In en, this message translates to:

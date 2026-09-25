@@ -1821,6 +1821,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get soundsSection => 'Звуки';
 
   @override
+  String get reminderSound => 'Кошачий звук напоминаний';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Напоминание о деле говорит Mrrr вместо звука телефона.';
+
+  @override
   String get soundPurr => 'Мурлыканье';
 
   @override

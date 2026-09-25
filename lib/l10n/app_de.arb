@@ -551,6 +551,8 @@
   "celebrationsToggle": "Adoptionen feiern",
   "celebrationsSubtitle": "Konfetti und Jubel, wenn eine Katze in ihr Zuhause zieht",
   "soundsSection": "Töne",
+  "reminderSound": "Katzenton für Erinnerungen",
+  "reminderSoundSubtitle": "Die Erinnerung an eine Aufgabe sagt Mrrr statt des Telefontons.",
   "soundPurr": "Schnurren",
   "soundChorus": "Miau-Chor",
   "soundParty": "Party-Miau",

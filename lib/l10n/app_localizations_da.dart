@@ -1820,6 +1820,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get soundsSection => 'Lyde';
 
   @override
+  String get reminderSound => 'Kattelyd til påmindelser';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'En pligts påmindelse siger Mrrr i stedet for telefonens egen lyd.';
+
+  @override
   String get soundPurr => 'Spinden';
 
   @override

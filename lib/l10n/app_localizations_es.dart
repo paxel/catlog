@@ -1824,6 +1824,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get soundsSection => 'Sonidos';
 
   @override
+  String get reminderSound => 'Sonido de gato en los recordatorios';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'El recordatorio de una tarea dice Mrrr en vez del sonido del teléfono.';
+
+  @override
   String get soundPurr => 'Ronroneo';
 
   @override

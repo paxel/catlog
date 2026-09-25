@@ -1825,6 +1825,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get soundsSection => 'Töne';
 
   @override
+  String get reminderSound => 'Katzenton für Erinnerungen';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Die Erinnerung an eine Aufgabe sagt Mrrr statt des Telefontons.';
+
+  @override
   String get soundPurr => 'Schnurren';
 
   @override

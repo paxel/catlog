@@ -2188,6 +2188,12 @@ class ModeLocalizations implements AppLocalizations {
   String get reminderLabel => base.reminderLabel;
 
   @override
+  String get reminderSound => base.reminderSound;
+
+  @override
+  String get reminderSoundSubtitle => base.reminderSoundSubtitle;
+
+  @override
   String get removeReminderLabel => base.removeReminderLabel;
 
   @override

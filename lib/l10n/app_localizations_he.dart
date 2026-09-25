@@ -1813,6 +1813,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get soundsSection => 'צלילים';
 
   @override
+  String get reminderSound => 'צליל חתול לתזכורות';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'תזכורת של מטלה אומרת Mrrr במקום צליל הטלפון.';
+
+  @override
   String get soundPurr => 'גרגור';
 
   @override

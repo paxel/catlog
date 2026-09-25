@@ -204,6 +204,13 @@ impl SettingsPage {
                     ui.end_row();
                 }
             });
+            // A reminder arrives as a notification the system draws, so
+            // the desk decides only whether it speaks with it.
+            let mut cat = crate::sounds::reminder_cat_sound(store);
+            if ui.checkbox(&mut cat, t.reminder_sound()).changed() {
+                crate::sounds::set_reminder_cat_sound(store, cat);
+            }
+            ui.label(egui::RichText::new(t.reminder_sound_subtitle()).weak());
             ui.add_space(8.0);
             let mut candy = eye_candy;
             if ui.checkbox(&mut candy, t.eye_candy_toggle()).changed() {

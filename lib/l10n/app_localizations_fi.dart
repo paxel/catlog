@@ -1820,6 +1820,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get soundsSection => 'Äänet';
 
   @override
+  String get reminderSound => 'Kissan ääni muistutuksissa';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Askareen muistutus sanoo Mrrr puhelimen oman äänen sijaan.';
+
+  @override
   String get soundPurr => 'Kehräys';
 
   @override

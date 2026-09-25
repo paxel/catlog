@@ -1819,6 +1819,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get soundsSection => 'Ljud';
 
   @override
+  String get reminderSound => 'Kattljud för påminnelser';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'En sysslas påminnelse säger Mrrr i stället för telefonens eget ljud.';
+
+  @override
   String get soundPurr => 'Spinnande';
 
   @override

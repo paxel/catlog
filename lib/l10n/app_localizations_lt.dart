@@ -1821,6 +1821,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get soundsSection => 'Garsai';
 
   @override
+  String get reminderSound => 'Katės garsas priminimams';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Darbo priminimas sako Mrrr vietoj telefono garso.';
+
+  @override
   String get soundPurr => 'Murkimas';
 
   @override

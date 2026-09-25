@@ -1821,6 +1821,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get soundsSection => 'Dźwięki';
 
   @override
+  String get reminderSound => 'Kocie brzmienie przypomnień';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Przypomnienie o obowiązku mówi Mrrr zamiast dźwięku telefonu.';
+
+  @override
   String get soundPurr => 'Mruczenie';
 
   @override

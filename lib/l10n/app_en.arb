@@ -968,6 +968,8 @@
   "celebrationsToggle": "Celebrate adoptions",
   "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home",
   "soundsSection": "Sounds",
+  "reminderSound": "Cat sound for reminders",
+  "reminderSoundSubtitle": "A chore's reminder says Mrrr instead of the phone's own sound.",
   "soundPurr": "Purr",
   "soundChorus": "Chorus of meows",
   "soundParty": "Party meow",

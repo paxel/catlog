@@ -554,6 +554,8 @@
   "celebrationsToggle": "庆祝领养",
   "celebrationsSubtitle": "猫咪搬进新家时撒彩纸并欢呼",
   "soundsSection": "声音",
+  "reminderSound": "用猫声提醒",
+  "reminderSoundSubtitle": "事务提醒会喵一声 Mrrr，而不是手机自带的提示音。",
   "soundPurr": "呼噜",
   "soundChorus": "喵喵合唱",
   "soundParty": "派对喵",

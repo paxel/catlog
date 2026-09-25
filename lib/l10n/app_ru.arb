@@ -554,6 +554,8 @@
   "celebrationsToggle": "Праздновать пристройство",
   "celebrationsSubtitle": "Конфетти и ликование, когда кошка переезжает в свой дом",
   "soundsSection": "Звуки",
+  "reminderSound": "Кошачий звук напоминаний",
+  "reminderSoundSubtitle": "Напоминание о деле говорит Mrrr вместо звука телефона.",
   "soundPurr": "Мурлыканье",
   "soundChorus": "Хор мяуканья",
   "soundParty": "Праздничное мяу",

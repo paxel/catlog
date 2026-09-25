@@ -554,6 +554,8 @@
   "celebrationsToggle": "Oslavovať adopcie",
   "celebrationsSubtitle": "Konfety a jasot, keď sa mačka sťahuje do svojho domova",
   "soundsSection": "Zvuky",
+  "reminderSound": "Mačací zvuk pri pripomienkach",
+  "reminderSoundSubtitle": "Pripomienka úlohy povie Mrrr namiesto zvuku telefónu.",
   "soundPurr": "Pradenie",
   "soundChorus": "Zbor mňaukania",
   "soundParty": "Oslavné mňau",

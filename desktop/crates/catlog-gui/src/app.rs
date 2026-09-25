@@ -1542,6 +1542,10 @@ impl App {
                 .flatten()
                 .unwrap_or_default();
             self.notifier.notify(&r.title, &name);
+            // The popup is the system's; the voice is the desk's.
+            if crate::sounds::reminder_cat_sound(&self.store) {
+                self.sounder.play(crate::sounds::MRRR.to_vec());
+            }
         }
     }
 
@@ -4442,6 +4446,10 @@ mod tests {
         app.notifier = Box::new(crate::notify::RecordingNotifier {
             shown: shown.clone(),
         });
+        let played = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        app.sounder = Box::new(crate::sounds::RecordingSounder {
+            played: played.clone(),
+        });
         let mut h = harness(app);
         h.run();
         assert!(shown.lock().unwrap().is_empty(), "nothing due at seven");
@@ -4455,13 +4463,19 @@ mod tests {
             *shown.lock().unwrap(),
             vec![("Feed".to_string(), "Miezi".to_string())]
         );
+        // The desk speaks with the popup: Socke's Mrrr.
+        assert_eq!(*played.lock().unwrap(), vec![crate::sounds::MRRR.len()]);
         h.run();
         assert_eq!(shown.lock().unwrap().len(), 1, "sounds once");
+        // Switched off: the popup stays, the voice goes.
+        crate::sounds::set_reminder_cat_sound(h.state().store(), false);
+        played.lock().unwrap().clear();
         // The next day at the same time: again.
         let next = at + chrono::Duration::days(1);
         h.state_mut().now = Box::new(move || next);
         h.run();
         assert_eq!(shown.lock().unwrap().len(), 2);
+        assert!(played.lock().unwrap().is_empty(), "no voice when off");
     }
 
     #[test]

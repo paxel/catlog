@@ -55,6 +55,27 @@ Preset defaultPreset(Cheer moment) => switch (moment) {
 
 String soundKey(Cheer moment) => 'sound:${moment.name}';
 
+/// A chore's reminder arrives while the app is closed, so the system
+/// owns the notification and all this device decides is whose voice it
+/// speaks with: the phone's own sound, or Socke's Mrrr. A switch, not
+/// the picker the in-app moments have — Android fixes a channel's sound
+/// when the channel is made.
+const reminderSoundKey = 'reminderCatSound';
+
+/// The reminder sound this device uses; the cat unless switched off.
+bool reminderCatSound(CatalogStore store) =>
+    store.localSetting(reminderSoundKey) != 'off';
+
+void setReminderCatSound(CatalogStore store, bool on) =>
+    store.setLocalSetting(reminderSoundKey, on ? 'on' : 'off');
+
+/// The file the reminder sound is cut from, as the app bundles it.
+const reminderSoundAsset = 'assets/sounds/socke3.wav';
+
+/// Its name without the folder or the dot, as Android's raw resources
+/// and iOS's sound files are named.
+const reminderSoundName = 'mrrr';
+
 /// The choice for a moment. Before the choices existed one switch
 /// silenced every cheer; a device that had it off stays silent.
 SoundChoice soundFor(CatalogStore store, Cheer moment) {

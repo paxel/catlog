@@ -554,6 +554,8 @@
   "celebrationsToggle": "Fagna ættleiðingum",
   "celebrationsSubtitle": "Skrautborðar og fagnaðarlæti þegar köttur flytur á heimili sitt",
   "soundsSection": "Hljóð",
+  "reminderSound": "Kattahljóð fyrir áminningar",
+  "reminderSoundSubtitle": "Áminning um verk segir Mrrr í stað hljóðs símans.",
   "soundPurr": "Mal",
   "soundChorus": "Mjákór",
   "soundParty": "Hátíðarmjá",

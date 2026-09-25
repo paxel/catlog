@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [2.0.4] - Unreleased
 
 ### Added
+- A chore's reminder says Mrrr: the notification carries Socke's call instead of the phone's own sound, and the desk speaks it with its popup. A switch under Sounds on both Settings pages turns it back to the system's sound.
 - Three more sounds to pick from for any moment, on the phone and the desk: Meep, Mrrp and Mrrr, the calls of a cat called Socke.
 
 ### Removed

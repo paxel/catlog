@@ -1818,6 +1818,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get soundsSection => 'Sesler';
 
   @override
+  String get reminderSound => 'Hatırlatmalarda kedi sesi';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Bir görevin hatırlatması telefonun sesi yerine Mrrr der.';
+
+  @override
   String get soundPurr => 'Mırıltı';
 
   @override

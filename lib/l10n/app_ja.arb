@@ -554,6 +554,8 @@
   "celebrationsToggle": "譲渡をお祝いする",
   "celebrationsSubtitle": "猫がおうちに移るときに紙吹雪と歓声",
   "soundsSection": "サウンド",
+  "reminderSound": "リマインダーを猫の声で",
+  "reminderSoundSubtitle": "お世話のリマインダーが端末の音の代わりに Mrrr と鳴きます。",
   "soundPurr": "ゴロゴロ",
   "soundChorus": "ニャーの合唱",
   "soundParty": "お祝いのニャー",

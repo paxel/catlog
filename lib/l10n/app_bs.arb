@@ -554,6 +554,8 @@
   "celebrationsToggle": "Slavi udomljavanja",
   "celebrationsSubtitle": "Konfeti i klicanje kada mačka pređe u svoj dom",
   "soundsSection": "Zvukovi",
+  "reminderSound": "Mačji zvuk za podsjetnike",
+  "reminderSoundSubtitle": "Podsjetnik na obavezu kaže Mrrr umjesto zvuka telefona.",
   "soundPurr": "Predenje",
   "soundChorus": "Hor mjaukanja",
   "soundParty": "Slavljeničko mjau",

@@ -1795,6 +1795,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get soundsSection => 'サウンド';
 
   @override
+  String get reminderSound => 'リマインダーを猫の声で';
+
+  @override
+  String get reminderSoundSubtitle => 'お世話のリマインダーが端末の音の代わりに Mrrr と鳴きます。';
+
+  @override
   String get soundPurr => 'ゴロゴロ';
 
   @override

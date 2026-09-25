@@ -554,6 +554,8 @@
   "celebrationsToggle": "Fêter les adoptions",
   "celebrationsSubtitle": "Confettis et acclamations quand un chat rejoint son foyer",
   "soundsSection": "Sons",
+  "reminderSound": "Son de chat pour les rappels",
+  "reminderSoundSubtitle": "Le rappel d'une tâche dit Mrrr au lieu du son du téléphone.",
   "soundPurr": "Ronronnement",
   "soundChorus": "Chœur de miaulements",
   "soundParty": "Miaulement de fête",

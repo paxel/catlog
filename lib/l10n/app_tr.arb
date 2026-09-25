@@ -554,6 +554,8 @@
   "celebrationsToggle": "Sahiplendirmeleri kutla",
   "celebrationsSubtitle": "Bir kedi yuvasına taşındığında konfeti ve tezahürat",
   "soundsSection": "Sesler",
+  "reminderSound": "Hatırlatmalarda kedi sesi",
+  "reminderSoundSubtitle": "Bir görevin hatırlatması telefonun sesi yerine Mrrr der.",
   "soundPurr": "Mırıltı",
   "soundChorus": "Miyav korosu",
   "soundParty": "Kutlama miyavı",

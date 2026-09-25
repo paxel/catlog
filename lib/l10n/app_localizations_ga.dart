@@ -1826,6 +1826,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get soundsSection => 'Fuaimeanna';
 
   @override
+  String get reminderSound => 'Fuaim cait do mheabhrúcháin';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Deir meabhrúchán cúraim Mrrr in ionad fhuaim an ghutháin.';
+
+  @override
   String get soundPurr => 'Crónán';
 
   @override

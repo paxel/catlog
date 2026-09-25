@@ -554,6 +554,8 @@
   "celebrationsToggle": "Tähista lapsendamisi",
   "celebrationsSubtitle": "Konfetid ja hõisked, kui kass kolib koju",
   "soundsSection": "Helid",
+  "reminderSound": "Kassi heli meeldetuletustes",
+  "reminderSoundSubtitle": "Toimetuse meeldetuletus ütleb Mrrr telefoni oma heli asemel.",
   "soundPurr": "Nurrumine",
   "soundChorus": "Mjäukoor",
   "soundParty": "Peomjäu",

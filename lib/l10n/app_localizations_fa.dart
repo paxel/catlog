@@ -1816,6 +1816,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get soundsSection => 'صداها';
 
   @override
+  String get reminderSound => 'صدای گربه برای یادآورها';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'یادآور یک کار به‌جای صدای گوشی Mrrr می‌گوید.';
+
+  @override
   String get soundPurr => 'خرخر';
 
   @override

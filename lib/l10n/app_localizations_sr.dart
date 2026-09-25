@@ -1820,6 +1820,13 @@ class AppLocalizationsSr extends AppLocalizations {
   String get soundsSection => 'Звуци';
 
   @override
+  String get reminderSound => 'Мачји звук за подсетнике';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Подсетник на обавезу каже Mrrr уместо звука телефона.';
+
+  @override
   String get soundPurr => 'Предење';
 
   @override

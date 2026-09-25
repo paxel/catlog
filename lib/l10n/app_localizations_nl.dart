@@ -1822,6 +1822,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get soundsSection => 'Geluiden';
 
   @override
+  String get reminderSound => 'Kattengeluid bij herinneringen';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'De herinnering aan een taak zegt Mrrr in plaats van het geluid van de telefoon.';
+
+  @override
   String get soundPurr => 'Spinnen';
 
   @override

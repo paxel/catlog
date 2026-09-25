@@ -12,6 +12,7 @@ import '../spotlight.dart';
 import '../units.dart';
 import 'intro_screen.dart';
 import '../move_to_catalog.dart';
+import '../chores/chore_reminders.dart';
 import '../sounds.dart';
 import 'achievements_screen.dart';
 import 'backups_screen.dart';
@@ -164,6 +165,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
               subtitle: Text(choiceLabel(t, soundFor(widget.store, moment))),
               onTap: () => _pickSound(moment),
             ),
+          // A reminder arrives while the app is closed, so the system
+          // owns it: the cat's voice or the phone's, nothing else.
+          SwitchListTile(
+            secondary: const SizedBox(width: 24),
+            title: Text(t.reminderSound),
+            subtitle: Text(t.reminderSoundSubtitle),
+            value: reminderCatSound(widget.store),
+            onChanged: (v) => setState(() {
+              setReminderCatSound(widget.store, v);
+              refreshChoreReminders(
+                widget.store,
+                body: (c) =>
+                    widget.store.current(c.entity, Keys.name) ?? context.t.unnamed,
+              );
+            }),
+          ),
           // The coat under every page: a different one each start, or
           // a favourite among the ones earned.
           ListTile(

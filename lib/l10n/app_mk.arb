@@ -554,6 +554,8 @@
   "celebrationsToggle": "Прославувај посвојувања",
   "celebrationsSubtitle": "Конфети и радост кога мачка се сели во својот дом",
   "soundsSection": "Звуци",
+  "reminderSound": "Мачкин звук за потсетници",
+  "reminderSoundSubtitle": "Потсетникот за обврска вели Mrrr наместо звукот на телефонот.",
   "soundPurr": "Предење",
   "soundChorus": "Хор од мјаукање",
   "soundParty": "Празнично мјау",

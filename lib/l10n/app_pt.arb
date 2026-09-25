@@ -554,6 +554,8 @@
   "celebrationsToggle": "Celebrar adoções",
   "celebrationsSubtitle": "Confetes e vivas quando um gato se muda para o lar",
   "soundsSection": "Sons",
+  "reminderSound": "Som de gato nos lembretes",
+  "reminderSoundSubtitle": "O lembrete de uma tarefa diz Mrrr em vez do som do telemóvel.",
   "soundPurr": "Ronrono",
   "soundChorus": "Coro de miados",
   "soundParty": "Miau de festa",

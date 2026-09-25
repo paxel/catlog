@@ -554,6 +554,8 @@
   "celebrationsToggle": "Adopties vieren",
   "celebrationsSubtitle": "Confetti en gejuich wanneer een kat naar zijn thuis verhuist",
   "soundsSection": "Geluiden",
+  "reminderSound": "Kattengeluid bij herinneringen",
+  "reminderSoundSubtitle": "De herinnering aan een taak zegt Mrrr in plaats van het geluid van de telefoon.",
   "soundPurr": "Spinnen",
   "soundChorus": "Miauwkoor",
   "soundParty": "Feestmiauw",

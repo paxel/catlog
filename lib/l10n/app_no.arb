@@ -554,6 +554,8 @@
   "celebrationsToggle": "Feir adopsjoner",
   "celebrationsSubtitle": "Konfetti og jubel når en katt flytter til sitt hjem",
   "soundsSection": "Lyder",
+  "reminderSound": "Kattelyd for påminnelser",
+  "reminderSoundSubtitle": "Påminnelsen om et gjøremål sier Mrrr i stedet for telefonens egen lyd.",
   "soundPurr": "Maling",
   "soundChorus": "Mjaukor",
   "soundParty": "Festmjau",

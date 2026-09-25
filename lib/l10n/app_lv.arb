@@ -554,6 +554,8 @@
   "celebrationsToggle": "Svinēt adopcijas",
   "celebrationsSubtitle": "Konfeti un gaviles, kad kaķis pārceļas uz mājām",
   "soundsSection": "Skaņas",
+  "reminderSound": "Kaķa skaņa atgādinājumiem",
+  "reminderSoundSubtitle": "Pienākuma atgādinājums saka Mrrr tālruņa skaņas vietā.",
   "soundPurr": "Murrāšana",
   "soundChorus": "Ņaudēšanas koris",
   "soundParty": "Svētku ņau",

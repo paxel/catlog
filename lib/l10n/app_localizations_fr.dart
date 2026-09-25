@@ -1823,6 +1823,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get soundsSection => 'Sons';
 
   @override
+  String get reminderSound => 'Son de chat pour les rappels';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Le rappel d\'une tâche dit Mrrr au lieu du son du téléphone.';
+
+  @override
   String get soundPurr => 'Ronronnement';
 
   @override

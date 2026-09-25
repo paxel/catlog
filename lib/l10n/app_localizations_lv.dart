@@ -1821,6 +1821,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get soundsSection => 'Skaņas';
 
   @override
+  String get reminderSound => 'Kaķa skaņa atgādinājumiem';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Pienākuma atgādinājums saka Mrrr tālruņa skaņas vietā.';
+
+  @override
   String get soundPurr => 'Murrāšana';
 
   @override

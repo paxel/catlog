@@ -554,6 +554,8 @@
   "celebrationsToggle": "Festo birësimet",
   "celebrationsSubtitle": "Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj",
   "soundsSection": "Tinguj",
+  "reminderSound": "Zë mace për përkujtuesit",
+  "reminderSoundSubtitle": "Përkujtuesi i një detyre thotë Mrrr në vend të zërit të telefonit.",
   "soundPurr": "Gërhitje",
   "soundChorus": "Kor mjaullimash",
   "soundParty": "Mjau feste",

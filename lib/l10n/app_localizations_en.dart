@@ -1818,6 +1818,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get soundsSection => 'Sounds';
 
   @override
+  String get reminderSound => 'Cat sound for reminders';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'A chore\'s reminder says Mrrr instead of the phone\'s own sound.';
+
+  @override
   String get soundPurr => 'Purr';
 
   @override

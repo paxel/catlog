@@ -2,12 +2,14 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
 import '../move_to_catalog.dart';
+import '../sounds.dart';
 
 /// Chore reminders (1.2.0): a phone notification at the chore's chosen
 /// time on the days it is due, for the chores the keeper switched it on
@@ -20,13 +22,14 @@ abstract class ReminderPort {
   /// Asks for the right to notify; false when refused.
   Future<bool> ensurePermission();
 
-  Future<void> schedule(int id, DateTime at, String title, String body);
+  Future<void> schedule(int id, DateTime at, String title, String body,
+      {required bool catSound});
 
   Future<void> cancelAll();
 
   /// Shows a notification right now — the test button: one tap proves
-  /// permission, icon and channel together.
-  Future<void> showNow(String title, String body);
+  /// permission, icon, channel and sound together.
+  Future<void> showNow(String title, String body, {required bool catSound});
 
   /// How many reminders the phone holds for the app right now — what
   /// the editor shows so a keeper can see the schedule is really there.
@@ -97,13 +100,32 @@ Future<void> rescheduleChoreReminders(
         (p, other.current(p.chore.entity, Keys.name) ?? ''),
   ];
   await port.cancelAll();
+  final catSound = reminderCatSound(store);
   for (final (p, text) in planned) {
-    await port.schedule(p.id, p.at, p.chore.title, text);
+    await port.schedule(p.id, p.at, p.chore.title, text, catSound: catSound);
   }
 }
 
-/// The Android channel; `chores` was the quiet 1.2.0 one.
+/// The Android channels; `chores` was the quiet 1.2.0 one. A channel
+/// keeps the sound it was made with, so each sound has its own.
 const _channelId = 'chores-loud';
+const _catChannelId = 'chores-mrrr';
+
+/// What a reminder looks and sounds like on each platform.
+NotificationDetails _details(bool catSound) => NotificationDetails(
+      android: AndroidNotificationDetails(
+        catSound ? _catChannelId : _channelId,
+        'Chores',
+        importance: Importance.high,
+        priority: Priority.high,
+        sound: catSound
+            ? const RawResourceAndroidNotificationSound(reminderSoundName)
+            : null,
+      ),
+      iOS: DarwinNotificationDetails(
+        sound: catSound ? '$reminderSoundName.wav' : null,
+      ),
+    );
 
 /// The phone's own notifications, through the local notifications
 /// plugin. One instance for the app.
@@ -145,6 +167,22 @@ class LocalNotificationPort implements ReminderPort {
             ?.deleteNotificationChannel('chores');
       } catch (_) {}
     }
+    // iOS reads a notification's sound from the bundle or from the app's
+    // own Library/Sounds, so the asset is laid down there once.
+    if (Platform.isIOS) {
+      try {
+        final library = await getLibraryDirectory();
+        final sounds = Directory('${library.path}/Sounds');
+        await sounds.create(recursive: true);
+        final target = File('${sounds.path}/$reminderSoundName.wav');
+        if (!target.existsSync()) {
+          final bytes = await rootBundle.load(reminderSoundAsset);
+          await target.writeAsBytes(bytes.buffer.asUint8List());
+        }
+      } catch (_) {
+        // No bundle or no room: the reminder keeps the phone's own sound.
+      }
+    }
     _ready = true;
   }
 
@@ -175,7 +213,8 @@ class LocalNotificationPort implements ReminderPort {
   }
 
   @override
-  Future<void> schedule(int id, DateTime at, String title, String body) async {
+  Future<void> schedule(int id, DateTime at, String title, String body,
+      {required bool catSound}) async {
     if (!Platform.isAndroid && !Platform.isIOS) return;
     try {
       await _init();
@@ -184,15 +223,7 @@ class LocalNotificationPort implements ReminderPort {
         title,
         body,
         tz.TZDateTime.from(at, tz.local),
-        const NotificationDetails(
-          android: AndroidNotificationDetails(
-            _channelId,
-            'Chores',
-            importance: Importance.high,
-            priority: Priority.high,
-          ),
-          iOS: DarwinNotificationDetails(),
-        ),
+        _details(catSound),
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
@@ -203,24 +234,12 @@ class LocalNotificationPort implements ReminderPort {
   }
 
   @override
-  Future<void> showNow(String title, String body) async {
+  Future<void> showNow(String title, String body,
+      {required bool catSound}) async {
     if (!Platform.isAndroid && !Platform.isIOS) return;
     try {
       await _init();
-      await _plugin.show(
-        0,
-        title,
-        body,
-        const NotificationDetails(
-          android: AndroidNotificationDetails(
-            _channelId,
-            'Chores',
-            importance: Importance.high,
-            priority: Priority.high,
-          ),
-          iOS: DarwinNotificationDetails(),
-        ),
-      );
+      await _plugin.show(0, title, body, _details(catSound));
     } on MissingPluginException {
       // No plugin here (desktop, tests).
     }
