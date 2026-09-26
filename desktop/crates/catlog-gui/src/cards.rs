@@ -860,6 +860,7 @@ impl Desk {
                                 // card and the stripe reaches the edge.
                                 ui.set_min_width(VALUE_WIDTH);
                                 ui.add(egui::Label::new(shown).wrap());
+                                trend(ui, store, t, id, def);
                             },
                         );
                         let pen = icons::icon_button(ui, icons::EDIT_OUTLINED, t.edit_value());
@@ -1050,6 +1051,52 @@ impl Desk {
             PageAction::ToggleHidden(id.to_string()),
         );
         event
+    }
+}
+
+/// A number's course under its value: the readings on their line, as
+/// small as a row allows. A Field measured once has no course and gets
+/// no line.
+fn trend(ui: &mut Ui, store: &Catalog, t: &L10n, id: &str, def: &FieldDef) {
+    if !matches!(def.field_type, FieldType::Number | FieldType::UnitValue) {
+        return;
+    }
+    let points = store.history_points(id, &def.key()).unwrap_or_default();
+    if points.len() < 2 {
+        return;
+    }
+    let (rect, response) =
+        ui.allocate_exact_size(Vec2::new(VALUE_WIDTH, 24.0), egui::Sense::hover());
+    let words = t.card_trend_of(&field_def_name(t, def));
+    let response = response.on_hover_text(&words);
+    response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Label, true, &words));
+    if !ui.is_rect_visible(rect) {
+        return;
+    }
+    let (from, to) = (points[0].at, points[points.len() - 1].at);
+    let (mut lo, mut hi) = points.iter().fold((f64::MAX, f64::MIN), |(lo, hi), p| {
+        (lo.min(p.value), hi.max(p.value))
+    });
+    if hi <= lo {
+        hi = lo + 1.0;
+        lo -= 1.0;
+    }
+    let span = (to - from).max(1) as f64;
+    let line: Vec<Pos2> = points
+        .iter()
+        .map(|p| {
+            let x = rect.left() + ((p.at - from) as f64 / span) as f32 * rect.width();
+            let y = rect.bottom() - ((p.value - lo) / (hi - lo)) as f32 * rect.height();
+            Pos2::new(x, y)
+        })
+        .collect();
+    let painter = ui.painter();
+    painter.add(egui::Shape::line(
+        line.clone(),
+        egui::Stroke::new(1.5, PALETTE.orange),
+    ));
+    if let Some(last) = line.last() {
+        painter.circle_filled(*last, 2.0, PALETTE.orange);
     }
 }
 

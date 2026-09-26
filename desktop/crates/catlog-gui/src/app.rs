@@ -5271,6 +5271,28 @@ mod tests {
     }
 
     #[test]
+    fn a_number_with_a_history_draws_its_trend_on_the_card() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        // This catalog weighed the cat more than once.
+        let mut h = harness(seeded_with(dir.path(), "history-reverts"));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi]);
+        h.get_by_label("Weight over time");
+        // One reading is no trend: the gender row has no graph.
+        assert_eq!(
+            h.get_all_by_label_contains("over time").count(),
+            1,
+            "only the Field with a history of numbers"
+        );
+    }
+
+    #[test]
     fn a_clowder_card_chooses_the_fields_it_shows_as_a_cat_s_does() {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
