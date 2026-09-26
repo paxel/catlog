@@ -6,6 +6,9 @@ flutter_launcher_icons:
   android: true
   adaptive_icon_background: "#F6E7D3"
   adaptive_icon_foreground: assets/icon/icon_fg.png
+  # The foreground already keeps its own margin; the package's default
+  # 16% inset on top of it is what made the cats a speck in the ring.
+  adaptive_icon_foreground_inset: 0
   ios: true
   remove_alpha_ios: true
   windows:

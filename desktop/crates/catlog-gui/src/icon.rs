@@ -1,5 +1,6 @@
-//! The app icon: the index card with the cat face, from the asset every
-//! platform ships, for the window, the taskbar and the pages that show it.
+//! The app icon: the stack of index cards with the two cats, from the
+//! asset every platform ships, for the window, the taskbar and the pages
+//! that show it.
 
 use egui::{ColorImage, Context, IconData, TextureHandle, TextureOptions};
 
