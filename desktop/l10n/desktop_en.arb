@@ -14,6 +14,7 @@
   "editValue": "Edit value",
   "cardAddValue": "Fill in a field…",
   "valueActions": "More for this value",
+  "cardPlacePicture": "The place on the map",
   "cardTrendOf": "{field} over time",
   "@cardTrendOf": {
     "placeholders": {

@@ -34,6 +34,9 @@ const DOCK_STRIP: f32 = 96.0;
 /// A Field row's two columns: the name, then the value with the pen and
 /// the ⋮ beside it. Both are measured so that a row fills the card.
 const NAME_WIDTH: f32 = 104.0;
+/// How close the little map on a location row stands: a street, not a
+/// house, so one tile holds it whatever the place.
+const PLACE_ZOOM: u32 = 15;
 const VALUE_WIDTH: f32 = CARD_WIDTH - NAME_WIDTH - 12.0 - 56.0;
 
 fn pos_key(id: &str) -> String {
@@ -54,8 +57,11 @@ pub enum CardAction {
 }
 
 /// The desk: the open cards and their places.
-#[derive(Debug, Default)]
+#[derive(Default)]
 pub struct Desk {
+    /// The tiles a location row draws its picture from, shared with the
+    /// map's own loader through the fetcher beneath it.
+    tiles: Option<crate::map::TileLoader>,
     pub open: Vec<String>,
     /// Places relative to the desk's top left corner.
     positions: BTreeMap<String, Pos2>,
@@ -69,9 +75,20 @@ pub struct Desk {
 }
 
 impl Desk {
-    /// Forgets what was loaded, for another Catalog.
+    /// A desk that can draw the little map on a location row.
+    pub fn with_tiles(fetcher: std::sync::Arc<catlog_core::tiles::TileFetcher>) -> Desk {
+        Desk {
+            tiles: Some(crate::map::TileLoader::new(fetcher)),
+            ..Desk::default()
+        }
+    }
+
+    /// Forgets what was loaded, for another Catalog. The tiles stay:
+    /// they belong to the machine, not to the Catalog.
     pub fn reset(&mut self) {
+        let tiles = self.tiles.take();
         *self = Desk::default();
+        self.tiles = tiles;
     }
 
     /// Reads the open set and the places once per Catalog.
@@ -822,6 +839,7 @@ impl Desk {
         let mut event = None;
         // The first pen on a cat's card is where the edit tip points.
         let mut anchored = false;
+        let tiles = &mut self.tiles;
         let edit = |slug: &str| {
             Some(CardEvent::Action(CardAction::Page(PageAction::Edit(
                 id.to_string(),
@@ -843,7 +861,9 @@ impl Desk {
                         continue;
                     };
                     ui.label(egui::RichText::new(field_def_name(t, def)).weak());
-                    let shown = if def.field_type == FieldType::Cat {
+                    // A cat reference reads as its name, a place as where
+                    // it is — "on the map" says nothing a keeper wants.
+                    let shown = if matches!(def.field_type, FieldType::Cat | FieldType::Location) {
                         value_label(t, store, &def.key(), Some(raw.as_str()), units)
                     } else {
                         field_value_display(t, Some(def), Some(raw.as_str()), units)
@@ -861,6 +881,9 @@ impl Desk {
                                 ui.set_min_width(VALUE_WIDTH);
                                 ui.add(egui::Label::new(shown).wrap());
                                 trend(ui, store, t, id, def);
+                                if def.field_type == FieldType::Location {
+                                    place(ui, t, tiles, &raw);
+                                }
                             },
                         );
                         let pen = icons::icon_button(ui, icons::EDIT_OUTLINED, t.edit_value());
@@ -1098,6 +1121,82 @@ fn trend(ui: &mut Ui, store: &Catalog, t: &L10n, id: &str, def: &FieldDef) {
     if let Some(last) = line.last() {
         painter.circle_filled(*last, 2.0, PALETTE.orange);
     }
+}
+
+/// A place under its coordinates: the map tile it sits in, cut to a
+/// square around it with a pin, and the code a phone reads to go there.
+fn place(ui: &mut Ui, t: &L10n, tiles: &mut Option<crate::map::TileLoader>, raw: &str) {
+    let Some((lat, lon)) = catlog_core::entities::parse_position(Some(raw)) else {
+        return;
+    };
+    let side = 72.0;
+    ui.add_space(4.0);
+    let response = ui
+        .horizontal(|ui| {
+            let (rect, _) = ui.allocate_exact_size(Vec2::splat(side), egui::Sense::hover());
+            if ui.is_rect_visible(rect) {
+                draw_place(ui, rect, tiles, lat, lon);
+            }
+            crate::codes::qr(ui, &format!("geo:{lat},{lon}"), side);
+        })
+        .response;
+    let words = t.card_place_picture().to_string();
+    let response = response.on_hover_text(&words);
+    response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Image, true, &words));
+}
+
+/// The tile the place sits in, drawn so that the place is the middle,
+/// with a pin on it. Without the tile only the pin and a frame.
+fn draw_place(
+    ui: &mut Ui,
+    rect: Rect,
+    tiles: &mut Option<crate::map::TileLoader>,
+    lat: f64,
+    lon: f64,
+) {
+    let zoom = PLACE_ZOOM;
+    let (x, y) = catlog_core::geo::tile_xy(lat, lon, zoom);
+    let texture = tiles
+        .as_mut()
+        .and_then(|loader| {
+            loader.tile(
+                &ui.ctx().clone(),
+                catlog_core::tiles::TileId {
+                    z: zoom,
+                    x: x.floor() as u32,
+                    y: y.floor() as u32,
+                },
+            )
+        })
+        .clone();
+    let painter = ui.painter_at(rect);
+    match texture {
+        Some(texture) => {
+            // The part of the tile around the place, as a fraction of it.
+            let half = rect.width() / (2.0 * crate::map::TILE_SIZE);
+            let (fx, fy) = ((x.fract()) as f32, (y.fract()) as f32);
+            let uv = Rect::from_min_max(
+                Pos2::new((fx - half).clamp(0.0, 1.0), (fy - half).clamp(0.0, 1.0)),
+                Pos2::new((fx + half).clamp(0.0, 1.0), (fy + half).clamp(0.0, 1.0)),
+            );
+            painter.image(texture.id(), rect, uv, egui::Color32::WHITE);
+        }
+        None => {
+            painter.rect_filled(rect, 4.0, PALETTE.cream);
+        }
+    }
+    painter.rect_stroke(
+        rect,
+        4.0,
+        egui::Stroke::new(1.0, PALETTE.grey),
+        egui::StrokeKind::Inside,
+    );
+    painter.circle_filled(rect.center(), 4.0, PALETTE.orange);
+    painter.circle_stroke(
+        rect.center(),
+        4.0,
+        egui::Stroke::new(1.0, egui::Color32::WHITE),
+    );
 }
 
 /// The Fields a Clowder's card shows: what was chosen, or all of them.

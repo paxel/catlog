@@ -10,6 +10,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A cat or a home can be renamed from its card on the desk: the pen beside the name on the title bar.
 - A home's card chooses which Fields it shows, as a cat's card already did.
 - A number measured more than once draws its course under the value on the card — the weight at a glance, without opening the history.
+- A place on a card shows where it is: the coordinates with their Plus Code, a picture of the spot on the map and the code a phone reads to go there, in place of the words "On the map".
 
 ### Changed
 - A card on the desk lists only the Fields the cat or the home actually has a value for, and every value is changed by the pen on its row, which opens the ordinary field editor — so a private mark and a date picker are there wherever the value is edited. A button under the rows fills in a Field that is still empty. A long value wraps over as many lines as it needs, and a card whose body outgrows the desk scrolls inside itself instead of growing past the edge. Every row is as wide as the card, so the stripes no longer stop halfway across, and the card's outline is visible against its own title bar.

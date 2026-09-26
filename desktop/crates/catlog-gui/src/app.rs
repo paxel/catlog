@@ -300,7 +300,7 @@ impl App {
             home: HomePane::default(),
             cats: CatsTable::default(),
             clowders: ClowdersTable::default(),
-            desk: Desk::default(),
+            desk: Desk::with_tiles(tiles.clone()),
             vet: VetView::default(),
             pages: Pages::default(),
             editor: FieldEditor::closed(),
@@ -5268,6 +5268,29 @@ mod tests {
         h.key_press(egui::Key::Escape);
         h.run();
         assert!(h.state().history_of.is_none());
+    }
+
+    #[test]
+    fn a_location_row_shows_the_place_not_the_words_on_the_map() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let mut app = seeded(dir.path());
+        app.store_mut()
+            .append(foster, "f:position", Some("51.34,12.37"))
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        open_view(&mut h, "Clowders");
+        h.get_all_by_label("Foster Home").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert!(
+            h.query_by_label("On the map").is_none(),
+            "the row says where, not that there is a where"
+        );
+        h.get_by_label_contains("51.34000, 12.37000");
+        h.get_by_label("The place on the map");
     }
 
     #[test]
