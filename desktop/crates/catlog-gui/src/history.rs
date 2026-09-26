@@ -96,51 +96,63 @@ impl HistoryPage {
             if oldest_first {
                 entries.reverse();
             }
-            egui::Grid::new(("history", entity, &def.slug))
-                .num_columns(3)
-                .spacing([16.0, 4.0])
-                .striped(true)
-                .show(ui, |ui| {
-                    ui.strong(t.col_when());
-                    ui.strong(t.col_value());
-                    ui.strong(t.col_who());
-                    ui.end_row();
-                    for e in &entries {
-                        let day = chrono::DateTime::parse_from_rfc3339(&e.date)
-                            .map(|d| format_day(locale, d.date_naive()))
-                            .unwrap_or_else(|_| e.date.clone());
-                        let value = value_label(t, store, &e.field, e.value.as_deref(), self.units);
-                        let text = if e.voided {
-                            egui::RichText::new(&value).weak().strikethrough()
-                        } else {
-                            egui::RichText::new(&value)
-                        };
-                        ui.label(&day);
-                        let response = ui.selectable_label(false, text);
-                        if response.clicked() && !e.voided {
-                            action = HistoryAction::Correct(e.seq);
-                        }
-                        // The menu holds what the click does not: removing,
-                        // or restoring what was removed.
-                        let mut menu = |ui: &mut egui::Ui| {
-                            if e.voided {
-                                if ui.button(t.restore_this_value()).clicked() {
-                                    action = HistoryAction::Restore(e.seq);
-                                    ui.close();
-                                }
-                            } else if ui.button(t.remove_this_value()).clicked() {
-                                action = HistoryAction::Remove(e.seq);
+            // A diary: the day over what was written on it, each value
+            // as long as it is. A long remark used to be one line and
+            // pushed the modal past both edges of the screen.
+            let mut day_shown = String::new();
+            for e in &entries {
+                let day = chrono::DateTime::parse_from_rfc3339(&e.date)
+                    .map(|d| format_day(locale, d.date_naive()))
+                    .unwrap_or_else(|_| e.date.clone());
+                if day != day_shown {
+                    ui.add_space(10.0);
+                    ui.label(egui::RichText::new(&day).strong());
+                    ui.separator();
+                    day_shown = day;
+                }
+                let value = value_label(t, store, &e.field, e.value.as_deref(), self.units);
+                let text = if e.voided {
+                    egui::RichText::new(&value).weak().strikethrough()
+                } else {
+                    egui::RichText::new(&value)
+                };
+                let mut row = HistoryAction::None;
+                ui.horizontal_top(|ui| {
+                    let width = (ui.available_width() - 200.0).max(160.0);
+                    let response = ui
+                        .allocate_ui_with_layout(
+                            Vec2::new(width, 0.0),
+                            egui::Layout::top_down(egui::Align::LEFT),
+                            |ui| {
+                                ui.set_min_width(width);
+                                ui.add(egui::Label::new(text).wrap().sense(egui::Sense::click()))
+                            },
+                        )
+                        .inner;
+                    if response.clicked() && !e.voided {
+                        row = HistoryAction::Correct(e.seq);
+                    }
+                    ui.label(egui::RichText::new(&e.author).weak());
+                    // The menu holds what the click does not: removing, or
+                    // restoring what was removed.
+                    let mut menu = |ui: &mut egui::Ui| {
+                        if e.voided {
+                            if ui.button(t.restore_this_value()).clicked() {
+                                row = HistoryAction::Restore(e.seq);
                                 ui.close();
                             }
-                        };
-                        response.context_menu(&mut menu);
-                        ui.horizontal(|ui| {
-                            ui.label(&e.author);
-                            crate::icons::more(ui, &mut menu);
-                        });
-                        ui.end_row();
-                    }
+                        } else if ui.button(t.remove_this_value()).clicked() {
+                            row = HistoryAction::Remove(e.seq);
+                            ui.close();
+                        }
+                    };
+                    response.context_menu(&mut menu);
+                    crate::icons::more_labeled(ui, t.value_actions(), &mut menu);
                 });
+                if row != HistoryAction::None {
+                    action = row;
+                }
+            }
         });
         action
     }

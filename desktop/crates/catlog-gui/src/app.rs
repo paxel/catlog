@@ -5834,6 +5834,45 @@ mod tests {
     }
 
     #[test]
+    fn a_field_s_history_reads_as_a_diary_with_the_day_over_its_entries() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let long = "she ate a little and slept by the window ".repeat(12);
+        let mut app = seeded(dir.path());
+        app.store_mut()
+            .append_at(
+                miezi,
+                "f:remarks",
+                Some("quiet today"),
+                Some("2026-03-01T09:00:00Z"),
+                false,
+            )
+            .unwrap();
+        app.store_mut()
+            .append_at(
+                miezi,
+                "f:remarks",
+                Some(&long),
+                Some("2026-03-01T18:00:00Z"),
+                false,
+            )
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        h.state_mut().open_history(miezi, "remarks");
+        h.run();
+        // One day, one heading, whatever was written under it.
+        assert_eq!(
+            h.get_all_by_label("3/1/2026").count(),
+            1,
+            "the day stands over its entries once"
+        );
+        // The whole remark is in the diary, wrapped, not cut to a line.
+        assert!(h.get_all_by_label_contains(long.trim()).count() >= 1);
+        assert!(h.get_all_by_label_contains("quiet today").count() >= 1);
+    }
+
+    #[test]
     fn a_place_is_found_by_its_address_in_the_editor() {
         let dir = tempfile::tempdir().unwrap();
         let foster = "clowder:00000000-0000-4000-8000-000000000001";
