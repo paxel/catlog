@@ -341,10 +341,19 @@ pub fn field_label(t: &L10n, store: &Catalog, key: &str) -> String {
         return t.appointment_label().to_string();
     }
     if let Some(rest) = key.strip_prefix(keys::CHORE_PREFIX) {
-        return if rest.contains('@') {
-            t.chore_tick_label().to_string()
-        } else {
-            t.chore_label().to_string()
+        let Some((id, _)) = rest.split_once('@') else {
+            return t.chore_label().to_string();
+        };
+        // A tick names its chore: "Feed done", not "Chore done". A chore
+        // whose title is gone falls back to the bare words.
+        return match store
+            .all_chores(true)
+            .unwrap_or_default()
+            .into_iter()
+            .find(|c| c.id == id)
+        {
+            Some(chore) => t.chore_done_titled(&chore.title),
+            None => t.chore_tick_label().to_string(),
         };
     }
     if key == "title" {
@@ -514,6 +523,28 @@ pub fn title_words(t: &L10n, value: &str) -> String {
         _ => return value.to_string(),
     };
     t.title_with_chore(rank_name, chore)
+}
+
+/// One line of a history or a list of changes: what changed and to
+/// what. A chore tick whose day is the day of the entry says only that
+/// the chore is done — the line beside it already carries that date.
+pub fn change_line(
+    t: &L10n,
+    store: &Catalog,
+    field: &str,
+    value: Option<&str>,
+    units: UnitSystem,
+    on: Option<chrono::NaiveDate>,
+) -> String {
+    let label = field_label(t, store, field);
+    if field.starts_with(keys::CHORE_PREFIX)
+        && field.contains('@')
+        && let (Some(day), Some(on)) = (catlog_core::chores::parse_day(value), on)
+        && day == on
+    {
+        return label;
+    }
+    format!("{label}: {}", value_label(t, store, field, value, units))
 }
 
 /// The words for `value` under `key`, or none when the key is not one
@@ -989,7 +1020,52 @@ mod tests {
         assert_eq!(field_label(&en, &store, "$chore:x"), en.chore_label());
         assert_eq!(
             field_label(&en, &store, "$chore:x@2026-01-01"),
-            en.chore_tick_label()
+            en.chore_tick_label(),
+            "a chore that is gone keeps the bare words"
+        );
+        // A tick names its chore, as the phone's history does.
+        let draft = catlog_core::chores::Chore {
+            id: "chore:feed".into(),
+            entity: "cat:a".into(),
+            title: "Feed".into(),
+            schedule: catlog_core::chores::ChoreSchedule::daily(),
+            time: None,
+            start: chrono::NaiveDate::from_ymd_opt(2026, 1, 1).unwrap(),
+            paused: false,
+            ended: false,
+            remind: false,
+            remind_at: None,
+            extra: Default::default(),
+        };
+        store.create_chore("chore:feed", &draft).unwrap();
+        assert_eq!(
+            field_label(&en, &store, "$chore:chore:feed@2026-01-01"),
+            en.chore_done_titled("Feed")
+        );
+        // The day the tick is for is not repeated when the entry is of
+        // that day; a tick written on another day still says which.
+        let day = chrono::NaiveDate::from_ymd_opt(2026, 1, 1).unwrap();
+        assert_eq!(
+            change_line(
+                &en,
+                &store,
+                "$chore:chore:feed@2026-01-01",
+                Some("2026-01-01"),
+                m,
+                Some(day)
+            ),
+            en.chore_done_titled("Feed")
+        );
+        assert!(
+            change_line(
+                &en,
+                &store,
+                "$chore:chore:feed@2026-01-01",
+                Some("2026-01-01"),
+                m,
+                Some(day.succ_opt().unwrap())
+            )
+            .contains(&format_day("en", day))
         );
         assert_eq!(field_label(&en, &store, "title"), en.title_label());
         assert_eq!(field_label(&en, &store, keys::DELETED), en.deleted_label());

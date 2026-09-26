@@ -12,7 +12,7 @@ use crate::agenda::{AppointmentAction, appointment_card};
 use crate::chores::{ChoreAction, chore_row};
 use crate::documents_page::DocKind;
 use crate::l10n::L10n;
-use crate::labels::{field_def_name, field_label, field_value_display, format_day, value_label};
+use crate::labels::{field_def_name, field_value_display, format_day, value_label};
 use crate::textures::FaceCache;
 
 /// What the keeper did on a page this frame.
@@ -600,12 +600,20 @@ impl Pages {
         let response = header.show(ui, |ui| {
             let entries: Vec<Entry> = store.timeline(id, false).unwrap_or_default();
             for e in entries.iter().take(200) {
-                let label = field_label(t, store, &e.field);
-                let value = value_label(t, store, &e.field, e.value.as_deref(), self.units);
-                ui.label(format!("{label}: {value}"));
-                let day = chrono::DateTime::parse_from_rfc3339(&e.date)
-                    .map(|d| format_day(t.locale(), d.date_naive()))
-                    .unwrap_or_else(|_| e.date.clone());
+                let on = chrono::DateTime::parse_from_rfc3339(&e.date)
+                    .map(|d| d.date_naive())
+                    .ok();
+                ui.label(crate::labels::change_line(
+                    t,
+                    store,
+                    &e.field,
+                    e.value.as_deref(),
+                    self.units,
+                    on,
+                ));
+                let day = on
+                    .map(|d| format_day(t.locale(), d))
+                    .unwrap_or_else(|| e.date.clone());
                 ui.label(
                     egui::RichText::new(format!("{} · {day}", e.author))
                         .weak()

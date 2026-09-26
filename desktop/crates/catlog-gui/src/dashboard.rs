@@ -13,7 +13,7 @@ use crate::agenda::{AppointmentAction, appointment_card};
 use crate::chores::{ChoreAction, chore_row};
 use crate::icons;
 use crate::l10n::L10n;
-use crate::labels::{field_label, format_day, value_label, weekday_full};
+use crate::labels::{format_day, weekday_full};
 use crate::memo::Memo;
 use crate::sections::section_card;
 use crate::textures::FaceCache;
@@ -96,10 +96,13 @@ pub fn recent_changes(store: &Catalog, t: &L10n, units: UnitSystem) -> Vec<Chang
         let at = chrono::DateTime::parse_from_rfc3339(&e.recorded)
             .map(|d| d.with_timezone(&chrono::Local).naive_local())
             .unwrap_or_default();
-        let line = format!(
-            "{}: {}",
-            field_label(t, store, &e.field),
-            value_label(t, store, &e.field, e.value.as_deref(), units)
+        let line = crate::labels::change_line(
+            t,
+            store,
+            &e.field,
+            e.value.as_deref(),
+            units,
+            Some(at.date()),
         );
         out.push(Change {
             face: store.profile_image(&e.entity).ok().flatten(),
