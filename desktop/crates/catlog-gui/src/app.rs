@@ -5888,6 +5888,36 @@ mod tests {
     }
 
     #[test]
+    fn the_desk_shows_only_cats_or_only_clowders_without_closing_the_rest() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1800.0, 900.0));
+        h.run();
+        {
+            let app = h.state_mut();
+            let (desk, store) = (&mut app.desk, &app.store);
+            desk.open(store, &[miezi.into(), foster.into()]);
+        }
+        h.run();
+        open_view(&mut h, "Cats");
+        let cards = |h: &mut Harness<'static, App>| h.get_all_by_label("Close card").count();
+        assert_eq!(cards(&mut h), 2);
+        // Only the cats: the home's card is out of sight, not closed.
+        h.get_by_label("Only cat").click();
+        h.run();
+        assert_eq!(cards(&mut h), 1);
+        assert_eq!(h.state().desk.open.len(), 2, "both are still open");
+        h.get_by_label("Only clowder").click();
+        h.run();
+        assert_eq!(cards(&mut h), 1);
+        // And back to both.
+        h.get_by_label("Only clowder").click();
+        h.run();
+        assert_eq!(cards(&mut h), 2);
+    }
+
+    #[test]
     fn a_tick_in_the_table_lays_a_card_on_the_desk_and_taking_it_back_closes_it() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";

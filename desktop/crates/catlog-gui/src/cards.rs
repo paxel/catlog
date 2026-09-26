@@ -19,6 +19,8 @@ use crate::pages::PageAction;
 use crate::textures::FaceCache;
 use crate::theme::{PALETTE, ROUNDING};
 
+/// The local setting naming which kind of card the desk shows.
+pub const FILTER_KEY: &str = "cards:filter";
 /// The local setting naming the open cards, comma-separated.
 pub const OPEN_KEY: &str = "cards:open";
 /// The local setting naming the Fields a Clowder's card shows. A Cat's
@@ -74,6 +76,8 @@ pub struct Desk {
     desk_size: Vec2,
     /// Counts the openings, so a card laid down again fades in again.
     opened: u32,
+    /// Which kind of card is in sight; the others stay open, unseen.
+    filter: Option<bool>,
 }
 
 impl Desk {
@@ -99,6 +103,11 @@ impl Desk {
             return;
         }
         self.loaded = true;
+        self.filter = match store.local_setting(FILTER_KEY).as_deref() {
+            Some("cat") => Some(true),
+            Some("clowder") => Some(false),
+            _ => None,
+        };
         self.open = store
             .local_setting(OPEN_KEY)
             .unwrap_or_default()
@@ -192,6 +201,12 @@ impl Desk {
         let mut opening: Option<String> = None;
         let mut moved: Vec<(String, Pos2, bool)> = Vec::new();
         for id in self.open.clone() {
+            if self
+                .filter
+                .is_some_and(|cats| cats != id.starts_with("cat:"))
+            {
+                continue;
+            }
             let rel = self
                 .positions
                 .get(&id)
@@ -363,6 +378,7 @@ impl Desk {
             desk.max.y - screen.max.y - 12.0,
         );
         let mut tile = false;
+        let mut filter: Option<Option<bool>> = None;
         let mut stack = false;
         let mut close_all = false;
         let mut raise: Option<String> = None;
@@ -392,6 +408,47 @@ impl Desk {
                             }
                             if icons::button(ui, icons::CLEAR, t.desk_close_all()).clicked() {
                                 close_all = true;
+                            }
+                            ui.separator();
+                            // What the desk shows, without closing the rest.
+                            let pet_mode = store.is_pet_mode().unwrap_or(false);
+                            for (cats, icon, kind) in [
+                                (true, icons::PETS_OUTLINED, t.kind_cat()),
+                                (
+                                    false,
+                                    icons::NIGHT_SHELTER_OUTLINED,
+                                    if pet_mode {
+                                        t.kind_clowder_neutral()
+                                    } else {
+                                        t.kind_clowder()
+                                    },
+                                ),
+                            ] {
+                                let words = t.only_kind(kind);
+                                let on = self.filter == Some(cats);
+                                let (rect, response) =
+                                    ui.allocate_exact_size(Vec2::splat(28.0), egui::Sense::click());
+                                if on {
+                                    ui.painter().rect_filled(rect, ROUNDING, PALETTE.tan);
+                                }
+                                icons::paint(
+                                    ui,
+                                    rect,
+                                    icon,
+                                    if on { PALETTE.orange } else { PALETTE.grey },
+                                );
+                                let response = response.on_hover_text(&words);
+                                response.widget_info(|| {
+                                    egui::WidgetInfo::selected(
+                                        egui::WidgetType::Button,
+                                        true,
+                                        on,
+                                        &words,
+                                    )
+                                });
+                                if response.clicked() {
+                                    filter = Some(if on { None } else { Some(cats) });
+                                }
                             }
                             ui.separator();
                             for id in &self.open {
@@ -470,6 +527,17 @@ impl Desk {
         }
         if stack {
             self.stack(ctx, store);
+        }
+        if let Some(now) = filter {
+            self.filter = now;
+            let _ = store.set_local_setting(
+                FILTER_KEY,
+                match now {
+                    Some(true) => "cat",
+                    Some(false) => "clowder",
+                    None => "",
+                },
+            );
         }
         if close_all {
             self.close_all(store);

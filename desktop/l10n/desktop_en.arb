@@ -15,6 +15,14 @@
   "cardAddValue": "Fill in a field…",
   "valueActions": "More for this value",
   "onTheDesk": "On the desk",
+  "onlyKind": "Only {kind}",
+  "@onlyKind": {
+    "placeholders": {
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
   "zoomIn": "Zoom in",
   "zoomOut": "Zoom out",
   "rangeMonth": "1 month",
