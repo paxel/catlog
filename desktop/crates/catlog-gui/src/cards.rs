@@ -200,13 +200,24 @@ impl Desk {
                     .show(ui, |ui| {
                         ui.set_width(CARD_WIDTH + 24.0);
                         let mut a = self.title_bar(ui, store, t, &id, &defs, &chosen);
-                        egui::Frame::new().inner_margin(12.0).show(ui, |ui| {
-                            ui.set_width(CARD_WIDTH);
-                            let b = self.card(ui, store, t, faces, units, &id, &defs, &chosen);
-                            if b != CardEvent::None {
-                                a = b;
-                            }
-                        });
+                        // A card never grows past the desk: what does not
+                        // fit under the cap scrolls inside the card, so a
+                        // record with ten long values is still a card a
+                        // hand can move.
+                        egui::ScrollArea::vertical()
+                            .id_salt(("card-body", id.as_str()))
+                            .max_height(body_cap(desk.height()))
+                            .auto_shrink([false, true])
+                            .show(ui, |ui| {
+                                egui::Frame::new().inner_margin(12.0).show(ui, |ui| {
+                                    ui.set_width(CARD_WIDTH);
+                                    let b =
+                                        self.card(ui, store, t, faces, units, &id, &defs, &chosen);
+                                    if b != CardEvent::None {
+                                        a = b;
+                                    }
+                                });
+                            });
                         match a {
                             CardEvent::None => {}
                             CardEvent::Close => closing = Some(id.clone()),
@@ -987,6 +998,13 @@ impl Desk {
         );
         event
     }
+}
+
+/// How tall a card's body may grow before it scrolls: the desk, less
+/// the dock's strip, the title bar and a margin at each end. A card
+/// taller than the desk cannot be dragged at all — egui pins it.
+fn body_cap(desk_height: f32) -> f32 {
+    (desk_height - DOCK_STRIP - 80.0).max(120.0)
 }
 
 /// A menu entry that asks the app for a page action.

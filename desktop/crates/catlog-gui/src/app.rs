@@ -5225,7 +5225,7 @@ mod tests {
         h.run();
         assert!(!h.state().editor.open);
         // The button under the rows reaches a Field the cat has nothing in.
-        h.get_by_label_contains("Fill in a field").click();
+        h.get_by_label_contains("Fill in a field").click_accesskit();
         h.step();
         h.get_by_label("Remarks").click_accesskit();
         h.run();
@@ -5237,7 +5237,7 @@ mod tests {
         h.get_all_by_label("More for this value")
             .last()
             .unwrap()
-            .click();
+            .click_accesskit();
         h.step();
         h.get_by_label("History").click_accesskit();
         h.run();
@@ -5245,6 +5245,37 @@ mod tests {
         h.key_press(egui::Key::Escape);
         h.run();
         assert!(h.state().history_of.is_none());
+    }
+
+    #[test]
+    fn a_long_value_wraps_and_the_card_scrolls_rather_than_outgrowing_the_desk() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut app = seeded(dir.path());
+        let long = "a remark that goes on and on ".repeat(40);
+        app.store_mut()
+            .append(miezi, "f:remarks", Some(&long))
+            .unwrap();
+        // A desk barely taller than a card: the body has to give way.
+        let mut h = sized_harness(app, egui::vec2(1100.0, 640.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        let card = h
+            .ctx
+            .read_response(egui::Id::new(("card", miezi)))
+            .expect("the card is on the desk");
+        let desk = h.state().desk.size();
+        assert!(
+            card.rect.height() <= desk.y,
+            "a card of {} is taller than the desk of {desk:?}",
+            card.rect.height()
+        );
+        // The whole remark is there, wrapped, not cut off at the row.
+        h.get_by_label_contains(long.trim());
     }
 
     #[test]
@@ -5700,7 +5731,7 @@ mod tests {
         h.run();
         h.key_press(egui::Key::Enter);
         h.run();
-        h.get_by_label_contains("Fill in a field").click();
+        h.get_by_label_contains("Fill in a field").click_accesskit();
         h.step();
         h.get_by_label("Pregnant").click_accesskit();
         h.run();
