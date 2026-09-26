@@ -42,6 +42,36 @@ fn wheel_steps(turned: &mut f32, scroll: f32) -> i32 {
     steps
 }
 
+/// The view a box drawn on the map asks for: its middle, and the
+/// deepest zoom that still holds it. A box too small to have been meant
+/// leaves the view as it was.
+fn band_viewport(from: Viewport, rect: Rect, a: Pos2, b: Pos2) -> Viewport {
+    let box_rect = Rect::from_two_pos(a, b);
+    if box_rect.width() < 12.0 || box_rect.height() < 12.0 {
+        return from;
+    }
+    let at = |p: Pos2| -> (f64, f64) {
+        let (cx, cy) = tile_xy(from.lat, from.lon, from.zoom);
+        let d = p - rect.center();
+        lat_lon_of(
+            cx + d.x as f64 / TILE_SIZE as f64,
+            cy + d.y as f64 / TILE_SIZE as f64,
+            from.zoom,
+        )
+    };
+    let (one, two) = (at(box_rect.min), at(box_rect.max));
+    let lat = (one.0 + two.0) / 2.0;
+    let lon = (one.1 + two.1) / 2.0;
+    // How many doublings the box is away from filling the view.
+    let wider = (rect.width() / box_rect.width()).max(rect.height() / box_rect.height());
+    let closer = wider.log2().floor().max(0.0) as u32;
+    Viewport {
+        lat,
+        lon,
+        zoom: (from.zoom + closer).min(MAX_ZOOM),
+    }
+}
+
 /// A texture and when the view last drew it.
 struct Kept {
     texture: Option<TextureHandle>,
@@ -235,6 +265,9 @@ pub struct MapView {
     pub loader: TileLoader,
     /// Wheel gathered since the last zoom level it paid for.
     turned: f32,
+    /// The box being drawn with Shift held: where it started and where
+    /// the hand is now.
+    band: Option<(Pos2, Pos2)>,
 }
 
 impl MapView {
@@ -243,6 +276,7 @@ impl MapView {
             viewport: Viewport::default(),
             loader: TileLoader::new(fetcher),
             turned: 0.0,
+            band: None,
         }
     }
 
@@ -281,8 +315,23 @@ impl MapView {
         let (rect, response) = ui.allocate_exact_size(size, Sense::click_and_drag());
         let ctx = ui.ctx().clone();
         let mut action = MapAction::None;
+        // Shift and drag draws a box to zoom into; a plain drag pans.
+        let shift = ui.input(|i| i.modifiers.shift);
+        if response.drag_started() && shift {
+            self.band = response.interact_pointer_pos().map(|p| (p, p));
+        }
+        if let Some((_, to)) = self.band.as_mut()
+            && let Some(now) = response.interact_pointer_pos()
+        {
+            *to = now;
+        }
+        if response.drag_stopped()
+            && let Some((a, b)) = self.band.take()
+        {
+            self.viewport = band_viewport(self.viewport, rect, a, b);
+        }
         // Pan by drag, zoom by wheel, both around the pointer.
-        if response.dragged() {
+        if response.dragged() && self.band.is_none() {
             let d = response.drag_delta();
             let (cx, cy) = tile_xy(self.viewport.lat, self.viewport.lon, self.viewport.zoom);
             let (lat, lon) = lat_lon_of(
@@ -350,6 +399,16 @@ impl MapView {
                     }
                 }
             }
+        }
+        if let Some((a, b)) = self.band {
+            let box_rect = Rect::from_two_pos(a, b);
+            painter.rect_filled(box_rect, 2.0, Color32::from_black_alpha(20));
+            painter.rect_stroke(
+                box_rect,
+                2.0,
+                Stroke::new(1.5, crate::theme::PALETTE.orange),
+                egui::StrokeKind::Inside,
+            );
         }
         // Circles, then the trail, then the pins, so pins stay clickable.
         for c in circles {
@@ -491,6 +550,28 @@ mod tests {
         assert_eq!(wheel_steps(&mut turned, 30.0), 0);
         assert_eq!(wheel_steps(&mut turned, -30.0), 0);
         assert_eq!(turned, -30.0);
+    }
+
+    #[test]
+    fn a_box_drawn_on_the_map_becomes_the_view() {
+        let rect = Rect::from_min_size(Pos2::ZERO, Vec2::new(512.0, 512.0));
+        let from = Viewport {
+            lat: 51.34,
+            lon: 12.37,
+            zoom: 10,
+        };
+        // A box around the middle: the view centres on it and goes closer.
+        let to = band_viewport(from, rect, Pos2::new(200.0, 200.0), Pos2::new(312.0, 312.0));
+        assert!(to.zoom > from.zoom, "a small box means a closer look");
+        assert!((to.lat - from.lat).abs() < 0.2 && (to.lon - from.lon).abs() < 0.2);
+        // A box in one corner moves the view there.
+        let corner = band_viewport(from, rect, Pos2::new(20.0, 20.0), Pos2::new(60.0, 60.0));
+        assert!(corner.lat > from.lat && corner.lon < from.lon);
+        // A box too small to mean anything leaves the view alone.
+        assert_eq!(
+            band_viewport(from, rect, Pos2::new(20.0, 20.0), Pos2::new(23.0, 22.0)),
+            from
+        );
     }
 
     #[test]
