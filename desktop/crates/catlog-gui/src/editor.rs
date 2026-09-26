@@ -447,11 +447,10 @@ impl FieldEditor {
             }
             FieldType::Text => {
                 ui.label(t.value());
-                if def.slug == "remarks" {
-                    ui.add(egui::TextEdit::multiline(&mut self.text).desired_rows(4));
-                } else {
-                    ui.text_edit_singleline(&mut self.text);
-                }
+                // Free text is free: every text Field takes as many lines
+                // as the keeper writes, not only Remarks.
+                let rows = if def.slug == "remarks" { 4 } else { 2 };
+                ui.add(egui::TextEdit::multiline(&mut self.text).desired_rows(rows));
             }
             FieldType::Id => {
                 ui.label(t.value());

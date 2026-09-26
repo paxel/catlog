@@ -5832,6 +5832,52 @@ mod tests {
     }
 
     #[test]
+    fn a_free_text_value_is_written_over_several_lines() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut app = seeded(dir.path());
+        app.store_mut()
+            .define_field(
+                "Story",
+                catlog_core::fields::FieldType::Text,
+                catlog_core::fields::FieldScope::Cat,
+                &[],
+                catlog_core::fields::IdDisplay::Plain,
+                None,
+                None,
+            )
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        open_cat_page(&mut h, miezi);
+        let def = h.state().store().field_def("story").unwrap().unwrap();
+        {
+            let app = h.state_mut();
+            let (editor, store) = (&mut app.editor, &app.store);
+            editor.ask(store, &def, miezi, None, EditTarget::New, None, "en");
+        }
+        h.run();
+        assert_eq!(
+            h.get_all_by_role(egui::accesskit::Role::MultilineTextInput)
+                .count(),
+            1,
+            "a text Field takes more than one line, not only Remarks"
+        );
+        h.state_mut().editor.text = "found her\nin the rain".into();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:story")
+                .unwrap()
+                .as_deref(),
+            Some("found her\nin the rain")
+        );
+    }
+
+    #[test]
     fn a_date_is_picked_from_a_calendar_as_well_as_typed() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
