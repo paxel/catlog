@@ -5832,6 +5832,35 @@ mod tests {
     }
 
     #[test]
+    fn the_parent_pickers_offer_only_cats_that_could_be_one() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        let pick = |h: &mut Harness<'static, App>, slug: &str| {
+            let def = h.state().store().field_def(slug).unwrap().unwrap();
+            let app = h.state_mut();
+            let (editor, store) = (&mut app.editor, &app.store);
+            editor.ask(store, &def, miezi, None, EditTarget::New, None, "en");
+        };
+        let offered = |h: &mut Harness<'static, App>, name: &str| {
+            h.query_all_by_role_and_label(egui::accesskit::Role::RadioButton, name)
+                .count()
+        };
+        // Tom is male, Wanderer's gender is unknown.
+        pick(&mut h, "mother");
+        h.run();
+        assert_eq!(offered(&mut h, "Tom"), 0, "a male cat is no mother");
+        assert_eq!(offered(&mut h, "Wanderer"), 1, "an unknown one may be");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        pick(&mut h, "father");
+        h.run();
+        assert_eq!(offered(&mut h, "Tom"), 1);
+        assert_eq!(offered(&mut h, "Wanderer"), 1);
+    }
+
+    #[test]
     fn a_free_text_value_is_written_over_several_lines() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";

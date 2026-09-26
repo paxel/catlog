@@ -461,8 +461,27 @@ impl FieldEditor {
             }
             FieldType::Cat => {
                 let me = store.resolve_entity(&self.entity).unwrap_or_default();
+                // A mother is not male and a father not female: the cats
+                // the app would refuse are not offered in the first place.
+                // A cat of unknown gender stays on the list — an
+                // incomplete record is no reason to refuse a real relation.
+                let wrong = match def.slug.as_str() {
+                    "mother" => Some("male"),
+                    "father" => Some("female"),
+                    _ => None,
+                };
                 for cat in store.cats(None).unwrap_or_default() {
                     if store.resolve_entity(&cat.id).unwrap_or_default() == me {
+                        continue;
+                    }
+                    if let Some(wrong) = wrong
+                        && store
+                            .current(&cat.id, &keys::user_field("gender"))
+                            .ok()
+                            .flatten()
+                            .as_deref()
+                            == Some(wrong)
+                    {
                         continue;
                     }
                     if ui
