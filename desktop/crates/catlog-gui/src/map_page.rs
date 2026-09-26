@@ -28,6 +28,8 @@ pub enum MapPageAction {
 
 pub struct MapPage {
     pub map: MapView,
+    /// Which pin the chevrons last walked to.
+    walked: i32,
     /// The pin whose trail is drawn.
     pub trail_of: Option<String>,
     /// Missing cats whose possible stray area is overlaid.
@@ -51,6 +53,7 @@ impl MapPage {
             search_note: None,
             geocoder: None,
             map,
+            walked: -1,
             trail_of: None,
             stray_areas: HashSet::new(),
             areas_open: false,
@@ -263,6 +266,7 @@ impl MapPage {
                 }
             }
         }
+        let mut step = 0;
         ui.horizontal(|ui| {
             // The search box: Enter or the button jumps there.
             let edit = ui.add(
@@ -286,6 +290,26 @@ impl MapPage {
             if self.trail_of.is_some() && ui.button(t.trail_off()).clicked() {
                 self.trail_of = None;
             }
+            ui.separator();
+            // What a phone does with two fingers and a swipe, a desk does
+            // with buttons: closer, further, and pin by pin.
+            if crate::icons::icon_button(ui, crate::icons::ADD, t.zoom_in()).clicked() {
+                self.map.viewport.zoom = (self.map.viewport.zoom + 1).min(crate::map::MAX_ZOOM);
+            }
+            if crate::icons::icon_button(ui, crate::icons::REMOVE, t.zoom_out()).clicked() {
+                self.map.viewport.zoom = self
+                    .map
+                    .viewport
+                    .zoom
+                    .saturating_sub(1)
+                    .max(crate::map::MIN_ZOOM);
+            }
+            if crate::icons::icon_button(ui, crate::icons::CHEVRON_LEFT, t.prev_pin()).clicked() {
+                step = -1;
+            }
+            if crate::icons::icon_button(ui, crate::icons::CHEVRON_RIGHT, t.next_pin()).clicked() {
+                step = 1;
+            }
         });
         if self.areas_open {
             let missing = Self::missing_cats(store);
@@ -304,6 +328,14 @@ impl MapPage {
             }
         }
         let pins = Self::pins(store, self.trail_of.as_deref(), &self.stray_areas);
+        if step != 0 && !pins.is_empty() {
+            let count = pins.len() as i32;
+            let at = (self.walked + step).rem_euclid(count);
+            self.walked = at;
+            let pin = &pins[at as usize];
+            self.map.viewport.lat = pin.lat;
+            self.map.viewport.lon = pin.lon;
+        }
         let circles = Self::circles(store, &self.stray_areas);
         let trail = self
             .trail_of

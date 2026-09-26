@@ -14,6 +14,8 @@
   "editValue": "Wert bearbeiten",
   "cardAddValue": "Feld ausfüllen…",
   "valueActions": "Mehr zu diesem Wert",
+  "zoomIn": "Heranzoomen",
+  "zoomOut": "Herauszoomen",
   "rangeMonth": "1 Monat",
   "rangeHalfYear": "6 Monate",
   "rangeYear": "1 Jahr",

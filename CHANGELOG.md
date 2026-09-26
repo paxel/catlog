@@ -12,6 +12,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A number measured more than once draws its course under the value on the card — the weight at a glance, without opening the history.
 - An address can be searched when a place is set on the desk: type it, press Search, pick the match. The lookup runs only when asked, never while typing.
 - Every free-text Field on the desk takes as many lines as the keeper writes, not only Remarks.
+- Buttons on the desk's map for closer, further and pin by pin, beside the search and the stray areas it already had.
 - Shift and drag on the desk's map draws a box and zooms into it; a plain drag still pans.
 - A calendar on the desk's field editor: a date is picked from the month rather than spelled out, and can still be typed.
 - A place on a card shows where it is: the coordinates with their Plus Code, a picture of the spot on the map and the code a phone reads to go there, in place of the words "On the map".

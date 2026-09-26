@@ -5860,6 +5860,39 @@ mod tests {
     }
 
     #[test]
+    fn the_map_zooms_by_button_and_walks_from_pin_to_pin() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        for (id, pos) in [
+            ("cat:00000000-0000-4000-8000-000000000001", "51.34,12.37"),
+            ("cat:00000000-0000-4000-8000-000000000002", "52.52,13.40"),
+        ] {
+            app.store_mut().append(id, "f:position", Some(pos)).unwrap();
+        }
+        let mut h = harness(app);
+        h.run();
+        open_view(&mut h, "Map");
+        let zoom = |h: &Harness<'static, App>| h.state().map_page.map.viewport.zoom;
+        let before = zoom(&h);
+        h.get_by_label("Zoom in").click();
+        h.run();
+        assert_eq!(zoom(&h), before + 1);
+        h.get_by_label("Zoom out").click();
+        h.run();
+        assert_eq!(zoom(&h), before);
+        // The chevrons walk the pins, centring on each.
+        h.get_by_label("Next pin").click();
+        h.run();
+        let first = h.state().map_page.map.viewport;
+        h.get_by_label("Next pin").click();
+        h.run();
+        assert_ne!(h.state().map_page.map.viewport, first, "another pin");
+        h.get_by_label("Previous pin").click();
+        h.run();
+        assert_eq!(h.state().map_page.map.viewport, first, "and back again");
+    }
+
+    #[test]
     fn a_card_opens_the_editor_and_the_whole_history_of_its_own() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
