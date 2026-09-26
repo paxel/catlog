@@ -3,6 +3,7 @@
 //! a correction hides the entry it replaces.
 
 use catlog_core::fields::{FieldDef, FieldType, breed_options};
+use catlog_core::geocode::{GeoHit, Geocoder};
 use catlog_core::units::{
     UnitSystem, base_string, entry_unit, format_decimal, from_base, parse_entry, to_base,
 };
@@ -56,6 +57,13 @@ pub struct FieldEditor {
     /// The month the calendar shows, once the keeper has walked away
     /// from the month the value is in.
     month: Option<NaiveDate>,
+    /// The address being looked for on a location Field.
+    pub query: String,
+    /// What the last search found, and what to say when it found nothing.
+    hits: Vec<GeoHit>,
+    note: Option<String>,
+    /// Where places are looked up; none in a build without one.
+    geocoder: Option<std::sync::Arc<dyn Geocoder>>,
     id: u64,
 }
 
@@ -88,7 +96,38 @@ impl FieldEditor {
             units: UnitSystem::Metric,
             wants_picker: false,
             month: None,
+            query: String::new(),
+            hits: Vec::new(),
+            note: None,
+            geocoder: None,
             id: 0,
+        }
+    }
+
+    /// The editor with a place to look addresses up, the one the map
+    /// already uses.
+    pub fn with_geocoder(mut self, geocoder: std::sync::Arc<dyn Geocoder>) -> FieldEditor {
+        self.geocoder = Some(geocoder);
+        self
+    }
+
+    /// Looks the typed address up and keeps what came back. An address
+    /// leaves the machine only when the keeper asks for it, never while
+    /// they type.
+    fn search_place(&mut self, t: &L10n) {
+        self.hits.clear();
+        self.note = None;
+        if self.query.trim().is_empty() {
+            return;
+        }
+        let Some(geocoder) = &self.geocoder else {
+            self.note = Some(t.search_no_results().to_string());
+            return;
+        };
+        match geocoder.search(self.query.trim()) {
+            Ok(hits) if hits.is_empty() => self.note = Some(t.search_no_results().to_string()),
+            Ok(hits) => self.hits = hits,
+            Err(e) => self.note = Some(e),
         }
     }
 
@@ -107,6 +146,10 @@ impl FieldEditor {
     ) {
         self.open = true;
         self.id += 1;
+        self.month = None;
+        self.query.clear();
+        self.hits.clear();
+        self.note = None;
         self.def = def.clone();
         self.entity = entity.to_string();
         self.target = target;
@@ -419,6 +462,33 @@ impl FieldEditor {
                     }
                 });
                 ui.label(egui::RichText::new("51.34, 12.37").weak().small());
+                // An address instead of coordinates: looked up when the
+                // keeper asks, by the same service the map searches with.
+                ui.horizontal(|ui| {
+                    let edit = ui.add(
+                        egui::TextEdit::singleline(&mut self.query)
+                            .desired_width(200.0)
+                            .hint_text(t.search_place_hint()),
+                    );
+                    let entered =
+                        edit.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter));
+                    if ui.button(t.search()).clicked() || entered {
+                        self.search_place(t);
+                    }
+                });
+                if let Some(note) = self.note.clone() {
+                    ui.label(egui::RichText::new(note).weak());
+                }
+                let mut picked: Option<(f64, f64)> = None;
+                for hit in &self.hits {
+                    if ui.button(&hit.name).clicked() {
+                        picked = Some((hit.lat, hit.lon));
+                    }
+                }
+                if let Some((lat, lon)) = picked {
+                    self.text = format!("{lat},{lon}");
+                    self.hits.clear();
+                }
             }
             FieldType::Tags => {
                 let species = store.current(&self.entity, "f:species").ok().flatten();

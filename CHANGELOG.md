@@ -10,6 +10,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A cat or a home can be renamed from its card on the desk: the pen beside the name on the title bar.
 - A home's card chooses which Fields it shows, as a cat's card already did.
 - A number measured more than once draws its course under the value on the card — the weight at a glance, without opening the history.
+- An address can be searched when a place is set on the desk: type it, press Search, pick the match. The lookup runs only when asked, never while typing.
 - Every free-text Field on the desk takes as many lines as the keeper writes, not only Remarks.
 - A calendar on the desk's field editor: a date is picked from the month rather than spelled out, and can still be typed.
 - A place on a card shows where it is: the coordinates with their Plus Code, a picture of the spot on the map and the code a phone reads to go there, in place of the words "On the map".

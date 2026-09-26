@@ -303,7 +303,7 @@ impl App {
             desk: Desk::with_tiles(tiles.clone()),
             vet: VetView::default(),
             pages: Pages::default(),
-            editor: FieldEditor::closed(),
+            editor: FieldEditor::closed().with_geocoder(geocoder.clone()),
             new_field: NewFieldDialog::default(),
             history: HistoryPage::default(),
             history_of: None,
@@ -3512,7 +3512,9 @@ mod tests {
         assert!(h.state().picker.open);
         h.state_mut().picker.query = "Leipzig".into();
         h.run_steps(2);
-        h.get_by_label("Search").click();
+        // The editor behind the picker has a search of its own; the
+        // picker's is the first drawn.
+        h.get_all_by_label("Search").next().unwrap().click();
         h.run_steps(3);
         h.get_by_label_contains("Leipzig, Sachsen");
         assert_eq!(
@@ -5829,6 +5831,38 @@ mod tests {
         h.run();
         assert!(h.state().dialog.dice.is_none());
         assert!(h.state().dialog.value.is_empty());
+    }
+
+    #[test]
+    fn a_place_is_found_by_its_address_in_the_editor() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        let def = h.state().store().field_def("position").unwrap().unwrap();
+        {
+            let app = h.state_mut();
+            let (editor, store) = (&mut app.editor, &app.store);
+            editor.ask(store, &def, foster, None, EditTarget::New, None, "en");
+        }
+        h.run();
+        h.state_mut().editor.query = "Katzenweg 1".into();
+        h.run();
+        h.get_by_label("Search").click();
+        h.run();
+        h.get_by_label_contains("Katzenweg 1, Sachsen").click();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(foster, "f:position")
+                .unwrap()
+                .as_deref(),
+            Some("51.34,12.37"),
+            "the address became the place"
+        );
     }
 
     #[test]
