@@ -24,6 +24,9 @@ pub const OPEN_KEY: &str = "cards:open";
 /// A card's width on the desk.
 pub const CARD_WIDTH: f32 = 320.0;
 
+/// The strip the dock floats in, kept clear when cards are laid out.
+const DOCK_STRIP: f32 = 96.0;
+
 fn pos_key(id: &str) -> String {
     format!("card:{id}")
 }
@@ -157,6 +160,12 @@ impl Desk {
             self.inline = None;
         }
         self.save_open(store);
+    }
+
+    /// The desk as last drawn, for a test that asks whether a card
+    /// landed where it can be seen.
+    pub fn size(&self) -> Vec2 {
+        self.desk_size
     }
 
     /// Where a card lies, relative to the desk.
@@ -365,39 +374,38 @@ impl Desk {
         self.open.iter().find(|id| Self::layer(id) == top).cloned()
     }
 
-    /// A card's size as last drawn; the default before its first frame.
-    fn size_of(ctx: &egui::Context, id: &str) -> Vec2 {
-        egui::AreaState::load(ctx, Id::new(("card", id)))
-            .and_then(|s| s.size)
-            .unwrap_or(Vec2::new(CARD_WIDTH + 24.0, 200.0))
-    }
-
+    /// Lays a card down, never past the desk's edge: egui clamps a card
+    /// that hangs over it, and a clamped card cannot be dragged at all.
+    /// On a desk too small for the grid, cards share a place rather
+    /// than leave the room.
     fn place(&mut self, store: &Catalog, id: &str, pos: Pos2) {
+        let seen = 120.0;
+        let max = Pos2::new(
+            (self.desk_size.x - seen).max(0.0),
+            (self.desk_size.y - DOCK_STRIP - 48.0).max(0.0),
+        );
+        let pos = Pos2::new(pos.x.clamp(0.0, max.x), pos.y.clamp(0.0, max.y));
         self.positions.insert(id.to_string(), pos);
         let _ = store.set_local_setting(&pos_key(id), &format!("{},{}", pos.x, pos.y));
     }
 
-    /// Tile: rows from the top left in opening order, wrapping at the
-    /// desk's edge, none overlapping, the dock's strip at the bottom
-    /// left free.
-    pub fn tile(&mut self, ctx: &egui::Context, store: &Catalog) {
+    /// Tile: a grid from the top left in opening order, every card in
+    /// sight and none overlapping. The rows share the height that is
+    /// left once the dock has its strip, so the bodies scroll rather
+    /// than run off the desk.
+    pub fn tile(&mut self, store: &Catalog) {
         let gap = 16.0;
-        let width = if self.desk_size.x < CARD_WIDTH {
-            f32::INFINITY
-        } else {
-            self.desk_size.x
-        };
-        let (mut x, mut y, mut row_height) = (gap, gap, 0.0f32);
-        for id in self.open.clone() {
-            let size = Self::size_of(ctx, &id);
-            if x > gap && x + size.x > width - gap {
-                x = gap;
-                y += row_height + gap;
-                row_height = 0.0;
-            }
-            self.place(store, &id, Pos2::new(x, y));
-            x += size.x + gap;
-            row_height = row_height.max(size.y);
+        let step = CARD_WIDTH + 24.0 + gap;
+        let width = self.desk_size.x.max(step);
+        let columns = (((width - gap) / step).floor() as usize).clamp(1, 16);
+        let rows = self.open.len().div_ceil(columns).max(1);
+        let usable = (self.desk_size.y - DOCK_STRIP).max(160.0);
+        let row_height = ((usable - gap) / rows as f32 - gap).max(120.0);
+        for (i, id) in self.open.clone().iter().enumerate() {
+            let (column, row) = (i % columns, i / columns);
+            let x = gap + column as f32 * step;
+            let y = gap + row as f32 * (row_height + gap);
+            self.place(store, id, Pos2::new(x, y));
         }
     }
 
@@ -539,7 +547,7 @@ impl Desk {
                     });
             });
         if tile {
-            self.tile(ctx, store);
+            self.tile(store);
         }
         if stack {
             self.stack(ctx, store);

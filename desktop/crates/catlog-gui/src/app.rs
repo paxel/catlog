@@ -2949,15 +2949,17 @@ mod tests {
     }
 
     fn harness(app: App) -> Harness<'static, App> {
-        Harness::builder()
-            .with_size(egui::vec2(1440.0, 900.0))
-            .build_ui_state(
-                |ui, app: &mut App| {
-                    App::install_theme(ui.ctx());
-                    app.show(ui);
-                },
-                app,
-            )
+        sized_harness(app, egui::vec2(1440.0, 900.0))
+    }
+
+    fn sized_harness(app: App, size: egui::Vec2) -> Harness<'static, App> {
+        Harness::builder().with_size(size).build_ui_state(
+            |ui, app: &mut App| {
+                App::install_theme(ui.ctx());
+                app.show(ui);
+            },
+            app,
+        )
     }
 
     #[test]
@@ -5026,6 +5028,35 @@ mod tests {
     }
 
     #[test]
+    fn tiled_cards_stay_on_a_desk_too_small_to_hold_them_whole() {
+        // A window barely taller than one card: every card must still
+        // land where it can be seen and dragged. A card placed past the
+        // bottom is clamped by egui and then cannot be moved at all.
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(900.0, 420.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Wanderer")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::SHIFT);
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        assert_eq!(h.state().desk.open.len(), 3);
+        h.get_by_label("Tile").click();
+        h.run();
+        let desk = h.state().desk.size();
+        for id in h.state().desk.open.clone() {
+            let p = h.state().desk.position(&id).expect("placed");
+            assert!(p.x >= 0.0 && p.y >= 0.0, "{id}: {p:?}");
+            assert!(p.y < desk.y, "{id}: {p:?} past the desk of {desk:?}");
+        }
+    }
+
+    #[test]
     fn the_dock_tiles_stacks_raises_and_closes_the_cards() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -5059,6 +5090,34 @@ mod tests {
         let b = h.state().desk.position(tom).unwrap();
         assert_eq!(a.y, b.y);
         assert!(b.x > a.x + crate::cards::CARD_WIDTH, "{a:?} {b:?}");
+        // Every card lands where the desk can hold it: one placed past
+        // the bottom is clamped by egui and then cannot be dragged at
+        // all, which is what a long card used to do to the row below it.
+        let wanderer = "cat:00000000-0000-4000-8000-000000000003";
+        h.get_all_by_label("Wanderer")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::COMMAND);
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Tile").click();
+        h.run();
+        let placed: Vec<egui::Pos2> = [miezi, tom, wanderer]
+            .iter()
+            .map(|id| h.state().desk.position(id).expect("placed"))
+            .collect();
+        let desk = h.state().desk.size();
+        for p in &placed {
+            assert!(p.x >= 0.0 && p.y >= 0.0, "{p:?}");
+            assert!(p.y + 120.0 < desk.y, "{p:?} past the desk of {desk:?}");
+            assert!(p.x + crate::cards::CARD_WIDTH < desk.x, "{p:?}");
+        }
+        for (i, p) in placed.iter().enumerate() {
+            for q in placed.iter().skip(i + 1) {
+                assert!(p != q, "two cards in one place: {p:?}");
+            }
+        }
         // Miezi's face on the dock brings her card to the front.
         h.get_all_by_role_and_label(egui::accesskit::Role::Button, "Miezi")
             .last()
@@ -5138,7 +5197,12 @@ mod tests {
     fn a_card_edits_simple_values_in_place_and_sends_the_rest_to_the_editor() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
-        let mut h = harness(seeded_with(dir.path(), "fields-all"));
+        // A tall window: a card of every field type fits whole, so a
+        // right-click lands on the row it is aimed at.
+        let mut h = sized_harness(
+            seeded_with(dir.path(), "fields-all"),
+            egui::vec2(1440.0, 1400.0),
+        );
         h.run();
         open_view(&mut h, "Cats");
         h.get_all_by_label("Miezi").next().unwrap().click();
@@ -5147,7 +5211,7 @@ mod tests {
         h.run();
         assert_eq!(h.state().desk.open, [miezi]);
         // A number: a click opens it in place, Enter saves.
-        h.get_all_by_label("3").last().unwrap().click();
+        h.get_all_by_label("3").last().unwrap().click_accesskit();
         h.run();
         assert!(h.state().desk.inline.is_some(), "the number opens in place");
         h.state_mut().desk.inline.as_mut().unwrap().text = "4".into();
@@ -5164,7 +5228,10 @@ mod tests {
             Some("4")
         );
         // A unit value: typed in the keeper's unit, stored in the base unit.
-        h.get_all_by_label("4.25 kg").last().unwrap().click();
+        h.get_all_by_label("4.25 kg")
+            .last()
+            .unwrap()
+            .click_accesskit();
         h.run();
         h.state_mut().desk.inline.as_mut().unwrap().text = "5".into();
         h.run();
@@ -5179,7 +5246,7 @@ mod tests {
             Some("5000")
         );
         // Escape leaves a value as it was.
-        h.get_all_by_label("4").last().unwrap().click();
+        h.get_all_by_label("4").last().unwrap().click_accesskit();
         h.run();
         h.state_mut().desk.inline.as_mut().unwrap().text = "9".into();
         h.run();
@@ -5195,13 +5262,13 @@ mod tests {
             Some("4")
         );
         // Yes/no and a choice: picked from a combo in place.
-        h.get_all_by_label("yes").last().unwrap().click();
+        h.get_all_by_label("yes").last().unwrap().click_accesskit();
         h.run();
         assert!(h.state().desk.inline.is_some());
         h.get_all_by_role(egui::accesskit::Role::ComboBox)
             .last()
             .unwrap()
-            .click();
+            .click_accesskit();
         h.step();
         h.get_all_by_label("no").last().unwrap().click_accesskit();
         h.run();
@@ -5213,12 +5280,15 @@ mod tests {
                 .as_deref(),
             Some("no")
         );
-        h.get_all_by_label("sleepy").last().unwrap().click();
+        h.get_all_by_label("sleepy")
+            .last()
+            .unwrap()
+            .click_accesskit();
         h.run();
         h.get_all_by_role(egui::accesskit::Role::ComboBox)
             .last()
             .unwrap()
-            .click();
+            .click_accesskit();
         h.step();
         h.get_all_by_label("wild").last().unwrap().click_accesskit();
         h.run();
@@ -5231,7 +5301,10 @@ mod tests {
             Some("wild")
         );
         // A date goes to the editor popup.
-        h.get_all_by_label("5/2021").last().unwrap().click();
+        h.get_all_by_label("5/2021")
+            .last()
+            .unwrap()
+            .click_accesskit();
         h.run();
         assert!(h.state().editor.open, "dates need the editor");
         h.key_press(egui::Key::Escape);
