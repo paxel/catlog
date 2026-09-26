@@ -16,6 +16,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A place on a card shows where it is: the coordinates with their Plus Code, a picture of the spot on the map and the code a phone reads to go there, in place of the words "On the map".
 
 ### Changed
+- The history graph on the desk takes a time range — one month, six months, a year or everything — and the smoothed curve replaces the measured line instead of being drawn over it.
 - The card's menu says Edit, because the page behind it is where a cat or a home is edited, and offers Timeline beside it: everything that ever happened to that one, in a window of its own instead of a fold at the foot of the page.
 - The Mother and Father pickers on the desk offer only cats that could be one — a male cat is no longer offered as a mother and then refused. A cat whose gender is unknown is still offered.
 - A card on the desk lists only the Fields the cat or the home actually has a value for, and every value is changed by the pen on its row, which opens the ordinary field editor — so a private mark and a date picker are there wherever the value is edited. A button under the rows fills in a Field that is still empty. A long value wraps over as many lines as it needs, and a card whose body outgrows the desk scrolls inside itself instead of growing past the edge. Every row is as wide as the card, so the stripes no longer stop halfway across, and the card's outline is visible against its own title bar.

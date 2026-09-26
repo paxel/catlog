@@ -3414,6 +3414,39 @@ mod tests {
         h.get_by_label("Trend").click();
         h.run();
         h.get_by_label_contains("per month");
+        // The range narrows what the graph is given, and is remembered.
+        h.state_mut()
+            .store_mut()
+            .append_at(
+                "cat:00000000-0000-4000-8000-000000000001",
+                "f:weight",
+                Some("2800"),
+                Some("2024-06-01T00:00:00Z"),
+                false,
+            )
+            .unwrap();
+        h.run();
+        let old_day =
+            |h: &mut Harness<'static, App>| h.get_all_by_label_contains("6/1/2024").count();
+        assert_eq!(
+            old_day(&mut h),
+            2,
+            "the graph's axis names it and the diary lists it"
+        );
+        h.get_by_label("1 month").click();
+        h.run();
+        assert_eq!(
+            h.state().store().local_setting("graphRange").as_deref(),
+            Some("month")
+        );
+        assert_eq!(
+            old_day(&mut h),
+            1,
+            "outside the month the graph drops it; the diary keeps it"
+        );
+        h.get_by_label("All").click();
+        h.run();
+        assert_eq!(old_day(&mut h), 2);
         assert_eq!(
             h.state().store().local_setting("graphSmooth").as_deref(),
             Some("yes")

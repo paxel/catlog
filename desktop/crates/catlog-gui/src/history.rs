@@ -35,7 +35,70 @@ pub struct HistoryPage {
 const OLDEST_FIRST_KEY: &str = "historyOldestFirst";
 const SHOW_VOIDED_KEY: &str = "historyShowVoided";
 const SMOOTH_KEY: &str = "graphSmooth";
+const RANGE_KEY: &str = "graphRange";
 const TREND_KEY: &str = "graphTrend";
+
+/// How far back a graph looks, remembered per device.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Range {
+    Month,
+    HalfYear,
+    Year,
+    All,
+}
+
+impl Range {
+    const ALL: [Range; 4] = [Range::Month, Range::HalfYear, Range::Year, Range::All];
+
+    fn stored(self) -> &'static str {
+        match self {
+            Range::Month => "month",
+            Range::HalfYear => "halfYear",
+            Range::Year => "year",
+            Range::All => "all",
+        }
+    }
+
+    fn of(store: &Catalog) -> Range {
+        match store.local_setting(RANGE_KEY).as_deref() {
+            Some("month") => Range::Month,
+            Some("halfYear") => Range::HalfYear,
+            Some("year") => Range::Year,
+            _ => Range::All,
+        }
+    }
+
+    fn words(self, t: &L10n) -> &'static str {
+        match self {
+            Range::Month => t.range_month(),
+            Range::HalfYear => t.range_half_year(),
+            Range::Year => t.range_year(),
+            Range::All => t.range_all(),
+        }
+    }
+
+    /// The days this range covers, counted back from the last reading so
+    /// that a cat who died last year still has a graph.
+    fn days(self) -> Option<i64> {
+        match self {
+            Range::Month => Some(31),
+            Range::HalfYear => Some(183),
+            Range::Year => Some(365),
+            Range::All => None,
+        }
+    }
+
+    fn keep(self, points: &[catlog_core::GraphPoint]) -> Vec<catlog_core::GraphPoint> {
+        let Some(days) = self.days() else {
+            return points.to_vec();
+        };
+        let Some(last) = points.last().map(|p| p.at) else {
+            return Vec::new();
+        };
+        let first = last - days * 24 * 60 * 60 * 1000;
+        points.iter().filter(|p| p.at >= first).cloned().collect()
+    }
+}
 
 fn flag(store: &Catalog, key: &str) -> bool {
     store.local_setting(key).as_deref() == Some("yes")
@@ -170,9 +233,10 @@ impl HistoryPage {
         def: &FieldDef,
         name: &str,
     ) -> Option<GraphSheet> {
-        let points = store.history_points(entity, &def.key()).unwrap_or_default();
+        let all = store.history_points(entity, &def.key()).unwrap_or_default();
         let mut smooth = flag(store, SMOOTH_KEY);
         let mut trend = flag(store, TREND_KEY);
+        let mut range = Range::of(store);
         let mut copy = false;
         ui.horizontal(|ui| {
             if ui.checkbox(&mut smooth, t.graph_smoothed()).changed() {
@@ -181,10 +245,21 @@ impl HistoryPage {
             if ui.checkbox(&mut trend, t.graph_trend()).changed() {
                 set_flag(store, TREND_KEY, trend);
             }
-            if points.len() >= 2 && ui.button(t.copy_graph_image()).clicked() {
+            if all.len() >= 2 && ui.button(t.copy_graph_image()).clicked() {
                 copy = true;
             }
         });
+        // How far back the graph looks: a month tells a sick cat's week
+        // apart, everything tells a life.
+        ui.horizontal(|ui| {
+            for one in Range::ALL {
+                if ui.selectable_label(range == one, one.words(t)).clicked() {
+                    range = one;
+                    let _ = store.set_local_setting(RANGE_KEY, one.stored());
+                }
+            }
+        });
+        let points = range.keep(&all);
         if points.len() < 2 {
             return None;
         }
@@ -215,15 +290,18 @@ impl HistoryPage {
         };
         let ink = ui.visuals().text_color();
         let line: Vec<Pos2> = points.iter().map(at).collect();
-        painter.add(egui::Shape::line(
-            line.clone(),
-            Stroke::new(1.0, ink.gamma_multiply(0.4)),
-        ));
+        // Smoothed or measured, one line at a time: the two drawn over
+        // each other were two answers to the same question.
         if smooth {
             let curve: Vec<Pos2> = smooth_curve(&points, from, to, 80).iter().map(at).collect();
             painter.add(egui::Shape::line(
                 curve,
                 Stroke::new(2.0, Color32::from_rgb(0xd9, 0x6c, 0x2b)),
+            ));
+        } else {
+            painter.add(egui::Shape::line(
+                line.clone(),
+                Stroke::new(1.0, ink.gamma_multiply(0.4)),
             ));
         }
         if trend && let Some(fit) = trend_line(&points, from, to) {
