@@ -5271,6 +5271,44 @@ mod tests {
     }
 
     #[test]
+    fn a_clowder_card_chooses_the_fields_it_shows_as_a_cat_s_does() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Clowders");
+        h.get_all_by_label("Foster Home").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        let on_card = |h: &mut Harness<'static, App>| {
+            // The table names the address too; the card's row is the second.
+            h.get_all_by_label_contains("Katzenweg").count()
+        };
+        assert_eq!(on_card(&mut h), 2, "the table and the card");
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label_contains("Fields on the card")
+            .click_accesskit();
+        h.step();
+        h.get_all_by_label("Address")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        assert!(
+            !h.state()
+                .store()
+                .local_setting("clowderCardFields")
+                .unwrap()
+                .contains("f:address"),
+            "the address is off the card"
+        );
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert_eq!(on_card(&mut h), 1, "and the card's row is gone");
+    }
+
+    #[test]
     fn the_pen_on_a_card_s_title_renames_the_cat_and_the_clowder() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";

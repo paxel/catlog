@@ -21,6 +21,10 @@ use crate::theme::{PALETTE, ROUNDING};
 
 /// The local setting naming the open cards, comma-separated.
 pub const OPEN_KEY: &str = "cards:open";
+/// The local setting naming the Fields a Clowder's card shows. A Cat's
+/// card follows the printed Card's selector; a Clowder has no printed
+/// Card, so it keeps its own.
+pub const CLOWDER_FIELDS_KEY: &str = "clowderCardFields";
 /// A card's width on the desk.
 pub const CARD_WIDTH: f32 = 320.0;
 
@@ -699,7 +703,8 @@ impl Desk {
         let defs: Vec<FieldDef> = store
             .field_defs(Some(FieldScope::Clowder))
             .unwrap_or_default();
-        if let Some(e) = self.field_rows(ui, store, t, units, id, &defs, None) {
+        let chosen = clowder_keys(store, &defs);
+        if let Some(e) = self.field_rows(ui, store, t, units, id, &defs, Some(&chosen)) {
             event = e;
         }
         event
@@ -744,6 +749,26 @@ impl Desk {
             e = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
             ui.close();
         }
+        ui.separator();
+        let defs: Vec<FieldDef> = store
+            .field_defs(Some(FieldScope::Clowder))
+            .unwrap_or_default();
+        ui.menu_button(t.card_fields(), |ui| {
+            let mut keys_now = clowder_keys(store, &defs);
+            let mut changed = false;
+            for def in &defs {
+                let key = def.key();
+                let mut on = keys_now.contains(&key);
+                if ui.checkbox(&mut on, field_def_name(t, def)).changed() {
+                    toggle(&mut keys_now, &key, on);
+                    changed = true;
+                }
+            }
+            if changed {
+                let text: Vec<&str> = keys_now.iter().map(String::as_str).collect();
+                let _ = store.set_local_setting(CLOWDER_FIELDS_KEY, &text.join("\n"));
+            }
+        });
         ui.separator();
         page(
             ui,
@@ -1025,6 +1050,18 @@ impl Desk {
             PageAction::ToggleHidden(id.to_string()),
         );
         event
+    }
+}
+
+/// The Fields a Clowder's card shows: what was chosen, or all of them.
+fn clowder_keys(store: &Catalog, defs: &[FieldDef]) -> BTreeSet<String> {
+    match store.local_setting(CLOWDER_FIELDS_KEY) {
+        Some(saved) => saved
+            .lines()
+            .filter(|k| !k.is_empty())
+            .map(String::from)
+            .collect(),
+        None => defs.iter().map(FieldDef::key).collect(),
     }
 }
 
