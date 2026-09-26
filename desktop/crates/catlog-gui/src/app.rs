@@ -5832,6 +5832,49 @@ mod tests {
     }
 
     #[test]
+    fn a_date_is_picked_from_a_calendar_as_well_as_typed() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_cat_page(&mut h, miezi);
+        let def = h.state().store().field_def("birthdate").unwrap().unwrap();
+        {
+            let app = h.state_mut();
+            let (editor, store) = (&mut app.editor, &app.store);
+            editor.ask(
+                store,
+                &def,
+                miezi,
+                Some("2021-05-14"),
+                EditTarget::New,
+                None,
+                "en",
+            );
+        }
+        h.run();
+        // The calendar opens on the month of the value it was given: the
+        // hint line names it too, so it is there twice.
+        assert_eq!(h.get_all_by_label_contains("5/2021").count(), 2);
+        h.get_by_label("Month before").click();
+        h.run();
+        h.get_by_label_contains("4/2021");
+        h.get_by_label("9").click();
+        h.run();
+        assert_eq!(h.state().editor.choice.as_deref(), Some("2021-04-09"));
+        h.get_by_label("Save").click();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(miezi, "f:birthdate")
+                .unwrap()
+                .as_deref(),
+            Some("2021-04-09")
+        );
+    }
+
+    #[test]
     fn the_editor_and_the_card_refuse_the_impossible_with_the_phone_s_words() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";

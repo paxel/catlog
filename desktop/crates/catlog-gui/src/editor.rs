@@ -7,11 +7,13 @@ use catlog_core::units::{
     UnitSystem, base_string, entry_unit, format_decimal, from_base, parse_entry, to_base,
 };
 use catlog_core::{Catalog, PartialDate, keys, looks};
-use chrono::{NaiveDate, NaiveTime};
+use chrono::{Datelike, NaiveDate, NaiveTime};
 use egui::{Context, Key};
 
 use crate::l10n::L10n;
-use crate::labels::{field_def_name, field_value_display, format_day, format_number};
+use crate::labels::{
+    field_def_name, field_value_display, format_day, format_number, format_partial_date,
+};
 
 /// What the editor was opened for.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -51,6 +53,9 @@ pub struct FieldEditor {
     /// Set when the keeper asked for the map; the app opens the picker
     /// and writes the answer back into `text`.
     pub wants_picker: bool,
+    /// The month the calendar shows, once the keeper has walked away
+    /// from the month the value is in.
+    month: Option<NaiveDate>,
     id: u64,
 }
 
@@ -82,6 +87,7 @@ impl FieldEditor {
             as_of_time: String::new(),
             units: UnitSystem::Metric,
             wants_picker: false,
+            month: None,
             id: 0,
         }
     }
@@ -268,6 +274,82 @@ impl FieldEditor {
         result
     }
 
+    /// A month at a time, days as buttons: a date is picked, not spelled.
+    /// The month shown follows the value until the keeper walks away
+    /// from it. Weekdays carry no letters — they have no words in the
+    /// thirty-eight languages the app speaks; a day's full date is its
+    /// tooltip instead.
+    fn calendar(&mut self, ui: &mut egui::Ui, t: &L10n) {
+        let picked = self
+            .choice
+            .as_deref()
+            .and_then(PartialDate::parse)
+            .and_then(|d| match (d.month, d.day) {
+                (Some(m), Some(day)) => NaiveDate::from_ymd_opt(d.year, m, day),
+                (Some(m), None) => NaiveDate::from_ymd_opt(d.year, m, 1),
+                _ => NaiveDate::from_ymd_opt(d.year, 1, 1),
+            });
+        let month = self
+            .month
+            .or(picked)
+            .unwrap_or_else(|| chrono::Local::now().date_naive());
+        let first = NaiveDate::from_ymd_opt(month.year(), month.month(), 1).unwrap_or(month);
+        ui.horizontal(|ui| {
+            if crate::icons::icon_button(ui, crate::icons::CHEVRON_LEFT, t.month_before()).clicked()
+            {
+                self.month = Some(step_month(first, -1));
+            }
+            ui.label(
+                egui::RichText::new(format_partial_date(
+                    t.locale(),
+                    &PartialDate {
+                        year: first.year(),
+                        month: Some(first.month()),
+                        day: None,
+                    },
+                ))
+                .strong(),
+            );
+            if crate::icons::icon_button(ui, crate::icons::CHEVRON_RIGHT, t.month_after()).clicked()
+            {
+                self.month = Some(step_month(first, 1));
+            }
+        });
+        // Monday first, as the app's weeks run.
+        let lead = first.weekday().num_days_from_monday() as usize;
+        let days = days_in_month(first);
+        egui::Grid::new(("calendar", self.id))
+            .num_columns(7)
+            .spacing([2.0, 2.0])
+            .show(ui, |ui| {
+                for cell in 0..lead {
+                    let _ = cell;
+                    ui.label("");
+                }
+                for day in 1..=days {
+                    let Some(date) = NaiveDate::from_ymd_opt(first.year(), first.month(), day)
+                    else {
+                        continue;
+                    };
+                    let on = picked == Some(date);
+                    if ui
+                        .add(
+                            egui::Button::selectable(on, day.to_string())
+                                .min_size(egui::Vec2::splat(28.0)),
+                        )
+                        .on_hover_text(format_day(t.locale(), date))
+                        .clicked()
+                    {
+                        self.choice = Some(date.format("%Y-%m-%d").to_string());
+                        self.month = Some(date);
+                    }
+                    if (lead + day as usize).is_multiple_of(7) {
+                        ui.end_row();
+                    }
+                }
+            });
+    }
+
     fn show_input(&mut self, ui: &mut egui::Ui, store: &Catalog, t: &L10n, def: &FieldDef) {
         match def.field_type {
             FieldType::YesNo | FieldType::Choice => {
@@ -315,6 +397,7 @@ impl FieldEditor {
                         .weak()
                         .small(),
                 );
+                self.calendar(ui, t);
             }
             FieldType::Number => {
                 ui.label(t.value());
@@ -393,6 +476,20 @@ impl FieldEditor {
             }
         }
     }
+}
+
+/// The same day one month on or back, kept inside the month's length.
+fn step_month(day: NaiveDate, by: i32) -> NaiveDate {
+    let month0 = day.month0() as i32 + by;
+    let (year, month0) = (day.year() + month0.div_euclid(12), month0.rem_euclid(12));
+    NaiveDate::from_ymd_opt(year, month0 as u32 + 1, 1).unwrap_or(day)
+}
+
+/// How many days the month of `day` has.
+fn days_in_month(day: NaiveDate) -> u32 {
+    let next = step_month(day, 1);
+    next.signed_duration_since(NaiveDate::from_ymd_opt(day.year(), day.month(), 1).unwrap_or(day))
+        .num_days() as u32
 }
 
 /// Applies an edit to the store: a new entry or a correction, the

@@ -14,6 +14,8 @@
   "editValue": "Edit value",
   "cardAddValue": "Fill in a field…",
   "valueActions": "More for this value",
+  "monthBefore": "Month before",
+  "monthAfter": "Month after",
   "cardPlacePicture": "The place on the map",
   "cardTrendOf": "{field} over time",
   "@cardTrendOf": {
