@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [2.0.5] - Unreleased
 
 ### Added
+- A Catalogs page on the desk: every catalog on this device on the left, what can be done with the chosen one on the right — create, open, rename, delete, and the shared folder with a way to stop sharing it. The catalog entries in the menu are gone; the menu opens the page.
 - Two more sounds to pick from for any moment, on the phone and the desk: Sonne miau and Sonne purr, a second cat's voice.
 - A cat or a home can be renamed from its card on the desk: the pen beside the name on the title bar.
 - A home's card chooses which Fields it shows, as a cat's card already did.

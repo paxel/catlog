@@ -75,6 +75,8 @@ pub enum Modal {
     Page(String),
     /// Everything that ever happened to one Cat or Clowder.
     Timeline(String),
+    /// The Catalogs this device holds, and what can be done with them.
+    Catalogs,
     Sync,
     /// Hosting a session for a phone in the room.
     InPerson,

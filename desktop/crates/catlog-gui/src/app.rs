@@ -21,6 +21,7 @@ use crate::agenda::{AgendaAction, AppointmentAction, ics_events, show_agenda};
 use crate::appointments::{AppointmentDialog, FinishDialog};
 use crate::capture_page::{CaptureAction, CapturePage};
 use crate::cards::{CardAction, Desk};
+use crate::catalogs_page::{CatalogsAction, CatalogsPage};
 use crate::cats_table::{CatsTable, TableAction};
 use crate::chores::{ChoreAction, ChoreDialog, ChoreHistory};
 use crate::clowders_table::{ClowdersTable, TableAction as ClowderAction};
@@ -130,6 +131,8 @@ pub struct App {
     pub clowders: ClowdersTable,
     /// The cards on the desk beside them.
     pub desk: Desk,
+    /// The Catalogs page, when it is open.
+    catalogs_page: CatalogsPage,
     /// The Vet view.
     pub vet: VetView,
     pages: Pages,
@@ -301,6 +304,7 @@ impl App {
             cats: CatsTable::default(),
             clowders: ClowdersTable::default(),
             desk: Desk::with_tiles(tiles.clone()),
+            catalogs_page: CatalogsPage::default(),
             vet: VetView::default(),
             pages: Pages::default(),
             editor: FieldEditor::closed().with_geocoder(geocoder.clone()),
@@ -1069,7 +1073,25 @@ impl App {
                 self.hard_delete(&author, &device);
             }
             if std::mem::take(&mut self.deleting_catalog) {
-                self.delete_active_catalog();
+                match self.catalogs_page.chosen.clone() {
+                    // Another Catalog goes without ceremony; it is not
+                    // the one being worked in.
+                    Some(id) if id != self.manager.active().id => {
+                        let name = self
+                            .manager
+                            .by_id(&id)
+                            .map(|c| c.name.clone())
+                            .unwrap_or_default();
+                        match self.manager.delete(&id) {
+                            Ok(()) => {
+                                self.catalogs_page.chosen = None;
+                                self.notice = Some(t.catalog_deleted(&name, ""));
+                            }
+                            Err(e) => self.notice = Some(e.to_string()),
+                        }
+                    }
+                    _ => self.delete_active_catalog(),
+                }
             }
         }
         if !self.confirm.open {
@@ -1296,50 +1318,17 @@ impl App {
                         }
                     });
                     let catalog_menu = ui.menu_button(t.menu_catalog(), |ui| {
-                        let active = self.manager.active().id.clone();
-                        let mut switch: Option<String> = None;
-                        for info in self.manager.catalogs() {
-                            if ui.selectable_label(info.id == active, &info.name).clicked() {
-                                switch = Some(info.id.clone());
-                            }
-                        }
-                        if let Some(id) = switch
-                            && let Err(e) = self.switch_catalog(&id)
-                        {
-                            self.notice = Some(e.to_string());
-                        }
-                        ui.separator();
-                        if icons::button(ui, icons::CREATE_NEW_FOLDER_OUTLINED, t.new_catalog())
-                            .clicked()
-                        {
-                            self.asking = Asking::NewCatalog;
-                            self.dialog.ask(
-                                t.new_catalog(),
-                                t.catalog_name_label(),
-                                t.create(),
-                                "",
-                            );
-                            ui.close();
-                        }
-                        if icons::button(ui, icons::DRIVE_FILE_RENAME_OUTLINE, t.rename_catalog())
-                            .clicked()
-                        {
-                            let current = self.manager.active().name.clone();
-                            self.asking = Asking::RenameCatalog;
-                            self.dialog.ask(
-                                t.rename_catalog(),
-                                t.catalog_name_label(),
-                                t.rename(),
-                                &current,
-                            );
-                            ui.close();
-                        }
-                        ui.separator();
+                        // Everything about the Catalogs themselves is on
+                        // their own page now, not spread through here.
                         if icons::button(ui, icons::ADD_HOME_OUTLINED, t.new_clowder()).clicked() {
                             self.act(HomeAction::NewClowder);
                             ui.close();
                         }
                         ui.separator();
+                        if ui.button(t.catalogs_title()).clicked() {
+                            self.open_modal(Modal::Catalogs);
+                            ui.close();
+                        }
                         if icons::button(ui, icons::HISTORY, t.go_back_title()).clicked() {
                             self.open_modal(Modal::Moments);
                             ui.close();
@@ -2431,6 +2420,59 @@ impl App {
                         .show_cat(ui, &self.store, &t, &mut self.faces, &id)
                 };
             }
+            Modal::Catalogs => match self.catalogs_page.show(ui, &self.manager, &self.store, &t) {
+                CatalogsAction::None => {}
+                CatalogsAction::Switch(id) => {
+                    if let Err(e) = self.switch_catalog(&id) {
+                        self.notice = Some(e.to_string());
+                    }
+                    self.catalogs_page.chosen = None;
+                }
+                CatalogsAction::NewCatalog => {
+                    self.asking = Asking::NewCatalog;
+                    self.dialog
+                        .ask(t.new_catalog(), t.catalog_name_label(), t.create(), "");
+                }
+                CatalogsAction::Rename => {
+                    let current = self.manager.active().name.clone();
+                    self.asking = Asking::RenameCatalog;
+                    self.dialog.ask(
+                        t.rename_catalog(),
+                        t.catalog_name_label(),
+                        t.rename(),
+                        &current,
+                    );
+                }
+                CatalogsAction::Delete(id) => {
+                    let name = self
+                        .manager
+                        .by_id(&id)
+                        .map(|c| c.name.clone())
+                        .unwrap_or_default();
+                    self.confirm.ask(
+                        t.delete_catalog(),
+                        &t.delete_catalog_body(&name),
+                        t.delete(),
+                    );
+                    self.deleting_catalog = true;
+                    self.catalogs_page.chosen = Some(id);
+                }
+                CatalogsAction::ChooseFolder => {
+                    if let Some(folder) = (self.pick_folder)(t.shared_folder())
+                        && let Err(e) = self.store.choose_sync_folder(&folder)
+                    {
+                        self.notice = Some(e.to_string());
+                    }
+                }
+                CatalogsAction::StopSharing => {
+                    if let Err(e) = self
+                        .store
+                        .set_local_setting(catlog_core::sync::SYNC_FOLDER, "")
+                    {
+                        self.notice = Some(e.to_string());
+                    }
+                }
+            },
             Modal::Timeline(id) => {
                 crate::pages::show_timeline(ui, &self.store, &t, self.pages.units, &id);
             }
@@ -3712,12 +3754,11 @@ mod tests {
     }
 
     #[test]
-    fn catalogs_are_created_renamed_and_switched_from_the_menu() {
+    fn catalogs_are_created_renamed_and_switched_on_their_page() {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        h.get_by_label("Catalog").click();
-        h.step();
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_by_label("New catalog").click();
         h.run();
         h.state_mut().dialog.value = "Clowders".into();
@@ -3732,11 +3773,12 @@ mod tests {
         h.run();
         assert_eq!(h.state().title(), "Leipzig");
         assert_eq!(h.state().manager().catalogs().len(), 2);
+        h.key_press(egui::Key::Escape);
+        h.run();
         open_view(&mut h, "Clowders");
         h.get_by_label("No clowders yet. A clowder is a place where cats live — your foster home, an adopter's flat. Create the first one below.");
-        // Rename the open one.
-        h.get_by_label("Catalog").click();
-        h.step();
+        // Rename the open one from the page.
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_by_label("Rename catalog").click();
         h.run();
         h.state_mut().dialog.value = "Leipzig Nord".into();
@@ -3745,12 +3787,16 @@ mod tests {
         h.run();
         assert_eq!(h.state().title(), "Leipzig Nord");
         // Switch back to the first, which still holds its Clowders.
-        h.get_by_label("Catalog").click();
-        h.step();
-        // The pane heading says "Clowders" too; the menu entry comes last.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_all_by_label("Clowders").last().unwrap().click();
         h.run();
+        h.get_by_label("Switch to this catalog").click();
+        h.run();
         assert_eq!(h.state().title(), "Clowders");
+        h.key_press(egui::Key::Escape);
+        h.run();
         h.get_by_label("Foster Home");
         assert_eq!(new_uuid().len(), 36);
         assert_eq!(catalogs_root(Path::new("/x")), Path::new("/x"));
@@ -4685,9 +4731,8 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
         h.run();
-        // One Catalog: the entry is disabled.
-        h.get_by_label("Catalog").click();
-        h.step();
+        // A second Catalog to move into, made on the Catalogs page.
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_by_label("New catalog").click();
         h.run();
         h.state_mut().dialog.value = "Leipzig".into();
@@ -4695,11 +4740,16 @@ mod tests {
         h.get_by_label("Create").click();
         h.run();
         assert_eq!(h.state().title(), "Leipzig");
-        h.get_by_label("Catalog").click();
-        h.step();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_all_by_label("Clowders").last().unwrap().click();
         h.run();
+        h.get_by_label("Switch to this catalog").click();
+        h.run();
         assert_eq!(h.state().title(), "Clowders");
+        h.key_press(egui::Key::Escape);
+        h.run();
         h.get_by_label("Catalog").click();
         h.step();
         h.get_by_label("Move to another catalog").click_accesskit();
@@ -4719,9 +4769,12 @@ mod tests {
         assert!(!h.state().transfer_dialog.open);
         h.get_by_label("2 moved to Leipzig");
         assert_eq!(h.state().store().clowders().unwrap().len(), 1, "Barn stays");
-        h.get_by_label("Catalog").click();
-        h.step();
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_by_label("Leipzig").click();
+        h.run();
+        h.get_by_label("Switch to this catalog").click();
+        h.run();
+        h.key_press(egui::Key::Escape);
         h.run();
         assert_eq!(h.state().store().clowders().unwrap().len(), 1);
         assert_eq!(h.state().store().cats(None).unwrap().len(), 1);
@@ -5931,6 +5984,73 @@ mod tests {
     }
 
     #[test]
+    fn the_catalog_page_creates_renames_switches_and_deletes_a_catalog() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.backups_dir = dir.path().join("downloads");
+        let mut h = harness(app);
+        h.run();
+        let make = |h: &mut Harness<'static, App>, name: &str| {
+            // Whatever was open goes first; the menu is behind a modal.
+            h.key_press(egui::Key::Escape);
+            h.run();
+            h.get_by_label("Catalog").click();
+            h.step();
+            h.get_by_label("Catalogs").click_accesskit();
+            h.run();
+            assert_eq!(h.state().modal(), Some(Modal::Catalogs), "the page opens");
+            h.get_by_label("New catalog").click();
+            h.run();
+            h.state_mut().dialog.value = name.into();
+            h.run();
+            h.get_by_label("Create").click();
+            h.run();
+        };
+        make(&mut h, "Leipzig");
+        assert_eq!(h.state().title(), "Leipzig");
+        assert_eq!(h.state().store().cats(None).unwrap().len(), 0);
+        make(&mut h, "Altona");
+        assert_eq!(h.state().title(), "Altona");
+        // The page lists them all and opens the one picked.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("Leipzig").click();
+        h.run();
+        h.get_by_label("Switch to this catalog").click();
+        h.run();
+        assert_eq!(h.state().title(), "Leipzig");
+        // Renaming the open one goes through the same dialog.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("Rename catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Dresden".into();
+        h.run();
+        h.get_by_label("Rename").click();
+        h.run();
+        assert_eq!(h.state().title(), "Dresden");
+        // Another Catalog can be deleted from here, after one question.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("Altona").click();
+        h.run();
+        h.get_by_label("Delete catalog").click();
+        h.run();
+        h.get_by_label("Delete").click();
+        h.run();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
+        assert!(
+            h.query_by_label("Altona").is_none(),
+            "the other catalog is gone"
+        );
+    }
+
+    #[test]
     fn the_desk_shows_only_cats_or_only_clowders_without_closing_the_rest() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -7120,8 +7240,7 @@ mod tests {
         h.key_press(egui::Key::Escape);
         h.run();
         assert_eq!(h.state().modal(), None);
-        h.get_by_label("Catalog").click();
-        h.step();
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_by_label("New catalog").click();
         h.run();
         h.state_mut().dialog.value = "Leipzig".into();
@@ -7129,9 +7248,12 @@ mod tests {
         h.get_by_label("Create").click();
         h.run();
         assert_eq!(h.state().title(), "Leipzig");
-        h.get_by_label("Catalog").click();
-        h.step();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
         h.get_all_by_label("Clowders").last().unwrap().click();
+        h.run();
+        h.get_by_label("Switch to this catalog").click();
         h.run();
         h.state_mut().open_settings();
         h.run();
