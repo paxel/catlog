@@ -963,6 +963,7 @@ impl App {
                             CardAction::None => {}
                             CardAction::Page(a) => page_action = a,
                             CardAction::OpenPage(id) => self.open_modal(Modal::Page(id)),
+                            CardAction::OpenTimeline(id) => self.open_modal(Modal::Timeline(id)),
                             CardAction::Notice(e) => self.notice = Some(e),
                             CardAction::Opened(id) => self.home.selection = Selection::Cat(id),
                         }
@@ -2404,6 +2405,9 @@ impl App {
                         .show_cat(ui, &self.store, &t, &mut self.faces, &id)
                 };
             }
+            Modal::Timeline(id) => {
+                crate::pages::show_timeline(ui, &self.store, &t, self.pages.units, &id);
+            }
             Modal::Help => self.show_help(ui),
             Modal::About => self.show_about(ui),
             Modal::Sync => match self.sync_page.show(ui, &self.store, &t) {
@@ -3195,7 +3199,7 @@ mod tests {
         // The whole page, from the card's menu, and the way back to the home.
         h.get_all_by_label("Actions").last().unwrap().click();
         h.step();
-        h.get_by_label("Open the page").click_accesskit();
+        h.get_by_label("Edit").click_accesskit();
         h.run();
         assert_eq!(h.state().modal(), Some(Modal::Page(miezi.into())));
         h.get_by_label("Photos (2)");
@@ -3206,17 +3210,6 @@ mod tests {
         h.run();
         assert_eq!(h.state().modal(), Some(Modal::Page(foster.into())));
         h.get_by_label("Cats (1)");
-        // The timeline unfolds and remembers it.
-        h.get_by_label("Timeline").click();
-        h.run();
-        assert!(
-            h.get_all_by_label_contains("Ada · ").count() > 0,
-            "the rows show author and day"
-        );
-        assert_eq!(
-            h.state().store().local_setting("fold:timeline").as_deref(),
-            Some("open")
-        );
         // New cat from the card's menu lands in the home.
         h.key_press(egui::Key::Escape);
         h.run();
@@ -5448,7 +5441,7 @@ mod tests {
             h.get_by_label(item).click_accesskit();
             h.run();
         };
-        menu(&mut h, "Open the page");
+        menu(&mut h, "Edit");
         assert_eq!(h.state().modal(), Some(Modal::Page(tom.into())));
         h.get_by_label("Photos (1)");
         h.key_press(egui::Key::Escape);
@@ -5831,6 +5824,41 @@ mod tests {
         h.run();
         assert!(h.state().dialog.dice.is_none());
         assert!(h.state().dialog.value.is_empty());
+    }
+
+    #[test]
+    fn a_card_opens_the_editor_and_the_whole_history_of_its_own() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        let menu = |h: &mut Harness<'static, App>, item: &str| {
+            h.get_all_by_label("Actions").last().unwrap().click();
+            h.step();
+            h.get_by_label(item).click_accesskit();
+            h.run();
+        };
+        // The page is where a cat is edited, and says so.
+        menu(&mut h, "Edit");
+        assert_eq!(h.state().modal(), Some(Modal::Page(miezi.into())));
+        assert!(
+            h.query_by_label("Timeline").is_none(),
+            "the history left the page"
+        );
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // Everything that ever happened to this cat, in a modal of its own.
+        menu(&mut h, "Timeline");
+        assert_eq!(h.state().modal(), Some(Modal::Timeline(miezi.into())));
+        h.get_by_label_contains("Miezi · Timeline");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert_eq!(h.state().modal(), None);
     }
 
     #[test]

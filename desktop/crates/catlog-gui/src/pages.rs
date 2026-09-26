@@ -176,7 +176,6 @@ impl Pages {
             if fields != PageAction::None {
                 action = fields;
             }
-            self.show_timeline(ui, store, t, id);
         });
         action
     }
@@ -334,7 +333,6 @@ impl Pages {
             if let Some(a) = self.show_family(ui, store, t, id) {
                 action = a;
             }
-            self.show_timeline(ui, store, t, id);
         });
         action
     }
@@ -587,43 +585,56 @@ impl Pages {
         }
         action
     }
+}
 
-    /// Every change ever made, newest first, behind a fold that is
-    /// closed by default and remembered per device.
-    fn show_timeline(&mut self, ui: &mut Ui, store: &Catalog, t: &L10n, id: &str) {
-        ui.add_space(8.0);
-        let key = "fold:timeline";
-        let open = store.local_setting(key).as_deref() == Some("open");
-        let header = egui::CollapsingHeader::new(t.timeline())
-            .id_salt(("timeline", id))
-            .default_open(open);
-        let response = header.show(ui, |ui| {
-            let entries: Vec<Entry> = store.timeline(id, false).unwrap_or_default();
-            for e in entries.iter().take(200) {
-                let on = chrono::DateTime::parse_from_rfc3339(&e.date)
-                    .map(|d| d.date_naive())
-                    .ok();
-                ui.label(crate::labels::change_line(
-                    t,
-                    store,
-                    &e.field,
-                    e.value.as_deref(),
-                    self.units,
-                    on,
-                ));
-                let day = on
-                    .map(|d| format_day(t.locale(), d))
-                    .unwrap_or_else(|| e.date.clone());
-                ui.label(
-                    egui::RichText::new(format!("{} · {day}", e.author))
-                        .weak()
-                        .small(),
-                );
-            }
-        });
-        let now_open = response.fully_open();
-        if now_open != open {
-            let _ = store.set_local_setting(key, if now_open { "open" } else { "closed" });
+/// Everything that ever happened to one Cat or Clowder, newest first:
+/// the day over its entries, as a Field's own history reads. It used to
+/// hang at the foot of the page, where a keeper looking for it had to
+/// scroll past everything else.
+pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, units: UnitSystem, id: &str) {
+    let name = store
+        .current(id, catlog_core::keys::NAME)
+        .ok()
+        .flatten()
+        .unwrap_or_else(|| t.unnamed().to_string());
+    ui.set_min_width(480.0);
+    ui.heading(format!("{name} · {}", t.timeline()));
+    let entries: Vec<Entry> = store.timeline(id, false).unwrap_or_default();
+    let mut day_shown = String::new();
+    for e in entries.iter().take(200) {
+        let on = chrono::DateTime::parse_from_rfc3339(&e.date)
+            .map(|d| d.date_naive())
+            .ok();
+        let day = on
+            .map(|d| format_day(t.locale(), d))
+            .unwrap_or_else(|| e.date.clone());
+        if day != day_shown {
+            ui.add_space(10.0);
+            ui.label(egui::RichText::new(&day).strong());
+            ui.separator();
+            day_shown = day;
         }
+        let width = (ui.available_width() - 160.0).max(200.0);
+        ui.horizontal_top(|ui| {
+            ui.allocate_ui_with_layout(
+                egui::vec2(width, 0.0),
+                egui::Layout::top_down(egui::Align::LEFT),
+                |ui| {
+                    ui.set_min_width(width);
+                    ui.add(
+                        egui::Label::new(crate::labels::change_line(
+                            t,
+                            store,
+                            &e.field,
+                            e.value.as_deref(),
+                            units,
+                            on,
+                        ))
+                        .wrap(),
+                    );
+                },
+            );
+            ui.label(egui::RichText::new(&e.author).weak());
+        });
     }
 }

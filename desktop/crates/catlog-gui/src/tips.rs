@@ -380,7 +380,7 @@ pub fn help_for(
         Some(Modal::Capture) => return t.help_flier(),
         Some(Modal::Settings) => return t.help_settings(),
         Some(Modal::Achievements) => return t.help_achievements(),
-        Some(Modal::Page(_)) => return t.help_cat(),
+        Some(Modal::Page(_)) | Some(Modal::Timeline(_)) => return t.help_cat(),
         Some(Modal::Help) | Some(Modal::About) | None => {}
     }
     match (view, selection) {

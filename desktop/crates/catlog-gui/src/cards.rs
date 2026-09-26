@@ -48,8 +48,10 @@ fn pos_key(id: &str) -> String {
 pub enum CardAction {
     None,
     Page(PageAction),
-    /// The whole page in a modal: photos, chores, plans, family, history.
+    /// The whole page in a modal: photos, chores, plans, family.
     OpenPage(String),
+    /// Everything that ever happened to this one, in a modal.
+    OpenTimeline(String),
     /// Something went wrong storing a value.
     Notice(String),
     /// A cat's card opened from a Clowder's card.
@@ -766,6 +768,10 @@ impl Desk {
             e = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
             ui.close();
         }
+        if icons::button(ui, icons::HISTORY, t.timeline()).clicked() {
+            e = Some(CardEvent::Action(CardAction::OpenTimeline(id.to_string())));
+            ui.close();
+        }
         ui.separator();
         let defs: Vec<FieldDef> = store
             .field_defs(Some(FieldScope::Clowder))
@@ -970,6 +976,10 @@ impl Desk {
         );
         if icons::button(ui, icons::DESCRIPTION_OUTLINED, t.card_page()).clicked() {
             event = Some(CardEvent::Action(CardAction::OpenPage(id.to_string())));
+            ui.close();
+        }
+        if icons::button(ui, icons::HISTORY, t.timeline()).clicked() {
+            event = Some(CardEvent::Action(CardAction::OpenTimeline(id.to_string())));
             ui.close();
         }
         page(

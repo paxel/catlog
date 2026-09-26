@@ -73,6 +73,8 @@ impl View {
 pub enum Modal {
     /// A Cat's whole page, from its card.
     Page(String),
+    /// Everything that ever happened to one Cat or Clowder.
+    Timeline(String),
     Sync,
     /// Hosting a session for a phone in the room.
     InPerson,
