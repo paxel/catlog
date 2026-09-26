@@ -1,9 +1,9 @@
 # Sounds
 
-Six cat sounds. Two are cut from recordings on Wikimedia Commons that
+Eight cat sounds. Two are cut from recordings on Wikimedia Commons that
 their authors released as CC0 or into the public domain; no credit is
 owed, the sources are named so anyone can hear the originals. The other
-four are one cat's own calls, recorded and given to the app by its
+six are two cats' own voices, recorded and given to the app by their
 keeper. Every cut is mono, 22.05 kHz, faded, and loudness-matched.
 
 ## purr.wav — a day of chores done
@@ -29,3 +29,12 @@ https://commons.wikimedia.org/wiki/File:Meow_of_a_Siamese_cat_-_freemaster2.wav
 Socke, recorded by Patrick Zimmer on a phone and given to the app. Used
 by permission; not from a stock library and not under a public licence.
 Trimmed to the call, rumble filtered out, levelled.
+
+## sonne_miau.wav, sonne_purr.wav — Sonne miau, Sonne purr
+
+Sonne, recorded by Patrick Zimmer on a phone in her last days and given
+to the app. Used by permission; not from a stock library and not under a
+public licence. Both recordings are very faint, so each is filtered to
+the band the cat is in, the call from 250 Hz to 4 kHz and the purr from
+40 Hz to 1.8 kHz, before the level is lifted; without that the room's
+hiss would come up with her.

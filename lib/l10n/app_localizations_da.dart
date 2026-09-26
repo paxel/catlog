@@ -1845,6 +1845,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get soundMrrr => 'Mrrr';
 
   @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
   String get soundOwn => 'Egen lyd…';
 
   @override

@@ -2422,6 +2422,12 @@ class ModeLocalizations implements AppLocalizations {
   String get soundPurr => base.soundPurr;
 
   @override
+  String get soundSonneMiau => base.soundSonneMiau;
+
+  @override
+  String get soundSonnePurr => base.soundSonnePurr;
+
+  @override
   String get soundsSection => base.soundsSection;
 
   @override

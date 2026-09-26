@@ -3464,6 +3464,18 @@ abstract class AppLocalizations {
   /// **'Mrrr'**
   String get soundMrrr;
 
+  /// No description provided for @soundSonneMiau.
+  ///
+  /// In en, this message translates to:
+  /// **'Sonne miau'**
+  String get soundSonneMiau;
+
+  /// No description provided for @soundSonnePurr.
+  ///
+  /// In en, this message translates to:
+  /// **'Sonne purr'**
+  String get soundSonnePurr;
+
   /// No description provided for @soundOwn.
   ///
   /// In en, this message translates to:

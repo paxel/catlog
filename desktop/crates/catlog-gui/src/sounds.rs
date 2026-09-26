@@ -5,8 +5,9 @@
 //! calls for a ladder climbed, a meow over a purr for an adoption. The
 //! purr and the party meow are CC0 and public domain from Wikimedia
 //! Commons; the three calls and the chorus made of them are one cat's,
-//! called Socke, recorded by its keeper. See
-//! `assets/sounds/LICENSES.md`; they all ship with the app.
+//! called Socke, recorded by its keeper, as are the call and the purr
+//! of one called Sonne. See `assets/sounds/LICENSES.md`; they all ship
+//! with the app.
 
 use std::path::{Path, PathBuf};
 
@@ -25,6 +26,8 @@ pub static PARTY: &[u8] = include_bytes!("../../../../assets/sounds/party.wav");
 pub static MEEP: &[u8] = include_bytes!("../../../../assets/sounds/socke1.wav");
 pub static MRRP: &[u8] = include_bytes!("../../../../assets/sounds/socke2.wav");
 pub static MRRR: &[u8] = include_bytes!("../../../../assets/sounds/socke3.wav");
+pub static SONNE_MIAU: &[u8] = include_bytes!("../../../../assets/sounds/sonne_miau.wav");
+pub static SONNE_PURR: &[u8] = include_bytes!("../../../../assets/sounds/sonne_purr.wav");
 
 /// The moments a sound belongs to.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -78,16 +81,20 @@ pub enum Preset {
     Meep,
     Mrrp,
     Mrrr,
+    SonneMiau,
+    SonnePurr,
 }
 
 impl Preset {
-    pub const ALL: [Preset; 6] = [
+    pub const ALL: [Preset; 8] = [
         Preset::Purr,
         Preset::Chorus,
         Preset::Party,
         Preset::Meep,
         Preset::Mrrp,
         Preset::Mrrr,
+        Preset::SonneMiau,
+        Preset::SonnePurr,
     ];
 
     /// The value kept in the setting; the phone's spelling.
@@ -99,6 +106,8 @@ impl Preset {
             Preset::Meep => "meep",
             Preset::Mrrp => "mrrp",
             Preset::Mrrr => "mrrr",
+            Preset::SonneMiau => "sonneMiau",
+            Preset::SonnePurr => "sonnePurr",
         }
     }
 
@@ -114,6 +123,8 @@ impl Preset {
             Preset::Meep => t.sound_meep(),
             Preset::Mrrp => t.sound_mrrp(),
             Preset::Mrrr => t.sound_mrrr(),
+            Preset::SonneMiau => t.sound_sonne_miau(),
+            Preset::SonnePurr => t.sound_sonne_purr(),
         }
     }
 
@@ -125,6 +136,8 @@ impl Preset {
             Preset::Meep => MEEP,
             Preset::Mrrp => MRRP,
             Preset::Mrrr => MRRR,
+            Preset::SonneMiau => SONNE_MIAU,
+            Preset::SonnePurr => SONNE_PURR,
         }
     }
 }
