@@ -12,6 +12,8 @@
   "historyOldestFirst": "Oldest first",
   "historyShowHidden": "Show corrected and removed values",
   "editValue": "Edit value",
+  "cardAddValue": "Fill in a field…",
+  "valueActions": "More for this value",
   "showHistory": "History",
   "backLabel": "Back",
   "search": "Search",

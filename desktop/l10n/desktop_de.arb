@@ -12,6 +12,8 @@
   "historyOldestFirst": "Älteste zuerst",
   "historyShowHidden": "Korrigierte und entfernte Werte zeigen",
   "editValue": "Wert bearbeiten",
+  "cardAddValue": "Feld ausfüllen…",
+  "valueActions": "Mehr zu diesem Wert",
   "showHistory": "Verlauf",
   "backLabel": "Zurück",
   "search": "Suchen",

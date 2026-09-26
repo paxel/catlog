@@ -1,20 +1,20 @@
 //! The desk: every opened Cat as its index card, side by side and
 //! dragged into place, found there again next time. A card shows what
-//! the printed Card shows, from the same field selector; simple values
-//! are edited on the card, complex ones in the editor popup.
+//! the printed Card shows, from the same field selector; the pen on a
+//! row opens the editor, which is the one place a value is changed.
 
 use std::collections::{BTreeMap, BTreeSet};
 
 use catlog_core::fields::{FieldDef, FieldScope, FieldType, IdDisplay};
-use catlog_core::units::{UnitSystem, base_string, from_base, parse_entry, to_base};
+use catlog_core::units::UnitSystem;
 use catlog_core::{Catalog, keys};
-use egui::{Id, Key, Pos2, Rect, Ui, Vec2};
+use egui::{Id, Pos2, Rect, Ui, Vec2};
 
 use crate::chores::ChoreAction;
 use crate::documents_page::{DocKind, PHOTO_KEY, card_keys};
 use crate::icons;
 use crate::l10n::L10n;
-use crate::labels::{field_def_name, field_value_display, format_number, value_label};
+use crate::labels::{field_def_name, field_value_display, value_label};
 use crate::pages::PageAction;
 use crate::textures::FaceCache;
 use crate::theme::{PALETTE, ROUNDING};
@@ -44,42 +44,13 @@ pub enum CardAction {
     Opened(String),
 }
 
-/// A value being typed or picked on a card.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Inline {
-    pub cat: String,
-    pub key: String,
-    pub text: String,
-    /// The picked option for choice and yes/no values.
-    pub choice: Option<String>,
-    focus_asked: bool,
-    /// Store on the next frame without a click, as a picked value does.
-    save_now: bool,
-}
-
-impl Inline {
-    /// A choice already made, for a test or a shortcut: the next frame
-    /// stores it as if it had been picked from the combo.
-    pub fn picked(cat: &str, key: &str, value: &str) -> Inline {
-        Inline {
-            cat: cat.to_string(),
-            key: key.to_string(),
-            text: String::new(),
-            choice: Some(value.to_string()),
-            focus_asked: true,
-            save_now: true,
-        }
-    }
-}
-
-/// The desk: the open cards, their places, the edit in progress.
+/// The desk: the open cards and their places.
 #[derive(Debug, Default)]
 pub struct Desk {
     pub open: Vec<String>,
     /// Places relative to the desk's top left corner.
     positions: BTreeMap<String, Pos2>,
     loaded: bool,
-    pub inline: Option<Inline>,
     /// The card just opened, brought to the front once.
     raise: Option<String>,
     /// The desk as last drawn, so new cards land where there is room.
@@ -156,9 +127,6 @@ impl Desk {
     pub fn close(&mut self, store: &Catalog, id: &str) {
         self.load(store);
         self.open.retain(|o| o != id);
-        if self.inline.as_ref().is_some_and(|i| i.cat == id) {
-            self.inline = None;
-        }
         self.save_open(store);
     }
 
@@ -171,73 +139,6 @@ impl Desk {
     /// Where a card lies, relative to the desk.
     pub fn position(&self, id: &str) -> Option<Pos2> {
         self.positions.get(id).copied()
-    }
-
-    /// Starts an inline edit of `key` on `cat`, or asks for the editor
-    /// popup when the kind needs one.
-    fn begin(
-        &mut self,
-        cat: &str,
-        def: &FieldDef,
-        raw: Option<&str>,
-        units: UnitSystem,
-        locale: &str,
-    ) -> Option<PageAction> {
-        let simple = matches!(
-            def.field_type,
-            FieldType::Text
-                | FieldType::Number
-                | FieldType::YesNo
-                | FieldType::Choice
-                | FieldType::UnitValue
-        );
-        if !simple {
-            return Some(PageAction::Edit(cat.to_string(), def.slug.clone()));
-        }
-        let text = match (def.field_type, raw) {
-            (_, None) => String::new(),
-            (FieldType::Number, Some(v)) => v
-                .replace(',', ".")
-                .parse::<f64>()
-                .map(|n| format_number(locale, n, 6))
-                .unwrap_or_else(|_| v.to_string()),
-            (FieldType::UnitValue, Some(v)) => v
-                .parse::<f64>()
-                .map(|base| format_number(locale, from_base(def.unit_dimension(), units, base), 2))
-                .unwrap_or_else(|_| v.to_string()),
-            (_, Some(v)) => v.to_string(),
-        };
-        self.inline = Some(Inline {
-            cat: cat.to_string(),
-            key: def.key(),
-            text,
-            choice: raw.map(String::from),
-            focus_asked: false,
-            save_now: false,
-        });
-        None
-    }
-
-    /// The value an inline edit stores, or none to clear it.
-    fn composed(inline: &Inline, def: &FieldDef, units: UnitSystem) -> Option<String> {
-        let typed = inline.text.trim();
-        match def.field_type {
-            FieldType::YesNo | FieldType::Choice => inline.choice.clone(),
-            FieldType::Number => {
-                if typed.is_empty() {
-                    return None;
-                }
-                Some(match typed.replace(',', ".").parse::<f64>() {
-                    Ok(n) => catlog_core::units::format_decimal(n, 6),
-                    Err(_) => typed.to_string(),
-                })
-            }
-            FieldType::UnitValue => {
-                let entered = parse_entry(typed)?;
-                Some(base_string(to_base(def.unit_dimension(), units, entered)))
-            }
-            _ => (!typed.is_empty()).then(|| typed.to_string()),
-        }
     }
 
     /// Draws every open card into `desk`, the pane's rect; says what the
@@ -261,7 +162,6 @@ impl Desk {
         let raise = self.raise.take();
         let mut closing: Option<String> = None;
         let mut opening: Option<String> = None;
-        let mut saved: Option<(String, String, Option<String>)> = None;
         let mut moved: Vec<(String, Pos2, bool)> = Vec::new();
         for id in self.open.clone() {
             let rel = self
@@ -308,12 +208,9 @@ impl Desk {
                             }
                         });
                         match a {
-                            CardEvent::None | CardEvent::Cancel => {}
+                            CardEvent::None => {}
                             CardEvent::Close => closing = Some(id.clone()),
                             CardEvent::Action(a) => action = a,
-                            CardEvent::Saved(key, value) => {
-                                saved = Some((id.clone(), key, value));
-                            }
                             CardEvent::OpenCard(cat) => opening = Some(cat),
                         }
                     });
@@ -329,26 +226,6 @@ impl Desk {
             if done {
                 let _ = store.set_local_setting(&pos_key(&id), &format!("{},{}", pos.x, pos.y));
             }
-        }
-        if let Some((cat, key, value)) = saved {
-            // A starter value the app knows to be impossible is refused
-            // with its reason; the field keeps what it had.
-            let slug = key.strip_prefix("f:").unwrap_or(&key);
-            let objection = store
-                .starter_objection(
-                    &cat,
-                    slug,
-                    value.as_deref(),
-                    chrono::Local::now().date_naive(),
-                )
-                .ok()
-                .flatten();
-            if let Some(objection) = objection {
-                action = CardAction::Notice(crate::labels::objection_words(t, &objection));
-            } else if let Err(e) = store.append(&cat, &key, value.as_deref()) {
-                action = CardAction::Notice(e.to_string());
-            }
-            self.inline = None;
         }
         if let Some(id) = closing {
             self.close(store, &id);
@@ -422,7 +299,6 @@ impl Desk {
     /// Close all: the desk is bare; the table is where they come back from.
     pub fn close_all(&mut self, store: &Catalog) {
         self.open.clear();
-        self.inline = None;
         self.save_open(store);
     }
 
@@ -796,8 +672,6 @@ impl Desk {
         event
     }
 
-    /// The Field rows of a card, each edited on a click and holding the
-    /// editor and the history in its menu; `chosen` limits them.
     /// A Clowder card's menu: a cat in, the cover, the page, the map,
     /// merging, hiding.
     fn clowder_menu(
@@ -871,6 +745,11 @@ impl Desk {
         e
     }
 
+    /// The Field rows of a card: what the record actually holds, the
+    /// value over as many lines as it needs, a pen that opens the
+    /// editor and the history behind the ⋮. A Field nobody filled in is
+    /// no row; the button under them reaches those. `chosen` limits
+    /// them.
     #[allow(clippy::too_many_arguments)]
     fn field_rows(
         &mut self,
@@ -883,8 +762,14 @@ impl Desk {
         chosen: Option<&BTreeSet<String>>,
     ) -> Option<CardEvent> {
         let mut event = None;
-        // The first value on a cat's card is where the edit tip points.
+        // The first pen on a cat's card is where the edit tip points.
         let mut anchored = false;
+        let edit = |slug: &str| {
+            Some(CardEvent::Action(CardAction::Page(PageAction::Edit(
+                id.to_string(),
+                slug.to_string(),
+            ))))
+        };
         egui::Grid::new(("card-fields", id))
             .num_columns(2)
             .spacing([12.0, 4.0])
@@ -893,135 +778,69 @@ impl Desk {
                     if chosen.is_some_and(|c| !c.contains(&def.key())) {
                         continue;
                     }
-                    let raw = store.current(id, &def.key()).ok().flatten();
-                    let editing = self
-                        .inline
-                        .as_ref()
-                        .is_some_and(|i| i.cat == id && i.key == def.key());
+                    let Some(raw) = store.current(id, &def.key()).ok().flatten() else {
+                        continue;
+                    };
                     ui.label(egui::RichText::new(field_def_name(t, def)).weak());
-                    if editing {
-                        if let Some(e) = self.inline_widget(ui, t, def, units) {
-                            event = Some(e);
-                        }
+                    let shown = if def.field_type == FieldType::Cat {
+                        value_label(t, store, &def.key(), Some(raw.as_str()), units)
                     } else {
-                        let shown = if def.field_type == FieldType::Cat {
-                            value_label(t, store, &def.key(), raw.as_deref(), units)
-                        } else {
-                            field_value_display(t, Some(def), raw.as_deref(), units)
-                        };
-                        let response = ui.add(
-                            egui::Label::new(shown)
-                                .sense(egui::Sense::click())
-                                .truncate(),
+                        field_value_display(t, Some(def), Some(raw.as_str()), units)
+                    };
+                    ui.horizontal_top(|ui| {
+                        // The value takes the row but for the two buttons,
+                        // and wraps rather than being cut off.
+                        let width = (ui.available_width() - 56.0).max(40.0);
+                        ui.allocate_ui_with_layout(
+                            egui::vec2(width, 0.0),
+                            egui::Layout::top_down(egui::Align::LEFT),
+                            |ui| {
+                                ui.add(egui::Label::new(shown).wrap());
+                            },
                         );
+                        let pen = icons::icon_button(ui, icons::EDIT_OUTLINED, t.edit_value());
                         if !anchored && id.starts_with("cat:") {
-                            crate::tips::anchor(ui, "cat-edit", &response);
+                            crate::tips::anchor(ui, "cat-edit", &pen);
                             anchored = true;
                         }
-                        // A click on a value edits it; the header drags the card.
-                        if response.clicked()
-                            && let Some(a) = self.begin(id, def, raw.as_deref(), units, t.locale())
-                        {
-                            event = Some(CardEvent::Action(CardAction::Page(a)));
+                        if pen.clicked() {
+                            event = edit(&def.slug);
                         }
-                        // The menu holds what the click does not: the history.
-                        let mut menu = |ui: &mut Ui| {
+                        // The menu holds what the pen does not: the history.
+                        icons::more_labeled(ui, t.value_actions(), |ui| {
                             if ui.button(t.show_history()).clicked() {
                                 event = Some(CardEvent::Action(CardAction::Page(
                                     PageAction::History(id.to_string(), def.slug.clone()),
                                 )));
                                 ui.close();
                             }
-                        };
-                        response.context_menu(&mut menu);
-                        crate::icons::more(ui, &mut menu);
-                    }
+                        });
+                    });
                     ui.end_row();
                 }
             });
-        event
-    }
-
-    /// The text box or the combo for the value being edited.
-    fn inline_widget(
-        &mut self,
-        ui: &mut Ui,
-        t: &L10n,
-        def: &FieldDef,
-        units: UnitSystem,
-    ) -> Option<CardEvent> {
-        let inline = self.inline.as_mut()?;
-        let mut event = None;
-        match def.field_type {
-            FieldType::YesNo | FieldType::Choice => {
-                let options: Vec<(String, String)> = if def.field_type == FieldType::YesNo {
-                    vec![
-                        ("yes".to_string(), t.value_yes().to_string()),
-                        ("no".to_string(), t.value_no().to_string()),
-                    ]
-                } else {
-                    def.options
-                        .iter()
-                        .map(|o| (o.clone(), field_value_display(t, Some(def), Some(o), units)))
-                        .collect()
-                };
-                let shown = options
-                    .iter()
-                    .find(|(o, _)| Some(o) == inline.choice.as_ref())
-                    .map(|(_, l)| l.clone())
-                    .unwrap_or_default();
-                let mut picked: Option<String> = None;
-                egui::ComboBox::from_id_salt(("inline-choice", &inline.key))
-                    .selected_text(shown)
-                    .show_ui(ui, |ui| {
-                        for (value, label) in &options {
-                            if ui
-                                .selectable_label(inline.choice.as_ref() == Some(value), label)
-                                .clicked()
-                            {
-                                picked = Some(value.clone());
-                            }
-                        }
-                    });
-                if let Some(value) = picked {
-                    inline.choice = Some(value);
-                    inline.save_now = true;
+        // The Fields this one has nothing in, each a click from a value.
+        let empty: Vec<&FieldDef> = defs
+            .iter()
+            .filter(|def| {
+                chosen.is_none_or(|c| c.contains(&def.key()))
+                    && store.current(id, &def.key()).ok().flatten().is_none()
+            })
+            .collect();
+        if !empty.is_empty() {
+            ui.add_space(4.0);
+            let mut picked: Option<String> = None;
+            ui.menu_button(t.card_add_value(), |ui| {
+                for def in &empty {
+                    if ui.button(field_def_name(t, def)).clicked() {
+                        picked = Some(def.slug.clone());
+                        ui.close();
+                    }
                 }
-                if inline.save_now {
-                    let composed = Self::composed(inline, def, units);
-                    event = Some(CardEvent::Saved(inline.key.clone(), composed));
-                }
-                if ui.input(|i| i.key_pressed(Key::Escape)) {
-                    event = Some(CardEvent::Cancel);
-                }
+            });
+            if let Some(slug) = picked {
+                event = edit(&slug);
             }
-            _ => {
-                let edit = ui.add(
-                    egui::TextEdit::singleline(&mut inline.text)
-                        .desired_width(150.0)
-                        .hint_text(if def.field_type == FieldType::UnitValue {
-                            catlog_core::units::entry_unit(def.unit_dimension(), units)
-                        } else {
-                            ""
-                        }),
-                );
-                if !inline.focus_asked {
-                    edit.request_focus();
-                    inline.focus_asked = true;
-                }
-                let escape = ui.input(|i| i.key_pressed(Key::Escape));
-                let enter = ui.input(|i| i.key_pressed(Key::Enter));
-                if escape {
-                    event = Some(CardEvent::Cancel);
-                } else if enter || (inline.focus_asked && edit.lost_focus()) {
-                    let composed = Self::composed(inline, def, units);
-                    event = Some(CardEvent::Saved(inline.key.clone(), composed));
-                }
-            }
-        }
-        if matches!(event, Some(CardEvent::Cancel)) {
-            self.inline = None;
-            return None;
         }
         event
     }
@@ -1191,10 +1010,7 @@ fn toggle(keys: &mut BTreeSet<String>, key: &str, on: bool) {
 enum CardEvent {
     None,
     Close,
-    Cancel,
     Action(CardAction),
-    /// An inline edit to store: the key and the value.
-    Saved(String, Option<String>),
     /// A face on a Clowder's card: that cat's card, beside it.
     OpenCard(String),
 }

@@ -8,6 +8,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ### Added
 - Two more sounds to pick from for any moment, on the phone and the desk: Sonne miau and Sonne purr, a second cat's voice.
 
+### Changed
+- A card on the desk lists only the Fields the cat or the home actually has a value for, and every value is changed by the pen on its row, which opens the ordinary field editor — so a private mark and a date picker are there wherever the value is edited. A button under the rows fills in a Field that is still empty.
+
 ### Fixed
 - Tile on the desk lays a real grid again: columns from the desk's width, rows sharing what is left above the dock. It used to start the second row below the tallest card, which pushed those cards off the desk, where egui pinned them and no hand could drag them back. No card is ever laid down past the desk's edge now, whichever way it was arranged.
 

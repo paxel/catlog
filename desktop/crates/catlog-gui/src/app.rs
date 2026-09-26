@@ -5194,11 +5194,11 @@ mod tests {
     }
 
     #[test]
-    fn a_card_edits_simple_values_in_place_and_sends_the_rest_to_the_editor() {
+    fn a_card_sends_every_value_to_the_editor_and_offers_the_fields_it_has_none_of() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         // A tall window: a card of every field type fits whole, so a
-        // right-click lands on the row it is aimed at.
+        // click lands on the row it is aimed at.
         let mut h = sized_harness(
             seeded_with(dir.path(), "fields-all"),
             egui::vec2(1440.0, 1400.0),
@@ -5210,113 +5210,38 @@ mod tests {
         h.key_press(egui::Key::Enter);
         h.run();
         assert_eq!(h.state().desk.open, [miezi]);
-        // A number: a click opens it in place, Enter saves.
-        h.get_all_by_label("3").last().unwrap().click_accesskit();
-        h.run();
-        assert!(h.state().desk.inline.is_some(), "the number opens in place");
-        h.state_mut().desk.inline.as_mut().unwrap().text = "4".into();
-        h.run();
-        h.key_press(egui::Key::Enter);
-        h.run();
-        assert!(h.state().desk.inline.is_none());
-        assert_eq!(
-            h.state()
-                .store()
-                .current(miezi, "f:visits")
-                .unwrap()
-                .as_deref(),
-            Some("4")
+        // A Field with nothing in it is no row: the dash is gone.
+        assert!(
+            h.query_by_label("—").is_none(),
+            "an empty Field is not a row"
         );
-        // A unit value: typed in the keeper's unit, stored in the base unit.
-        h.get_all_by_label("4.25 kg")
-            .last()
-            .unwrap()
-            .click_accesskit();
+        // Every value is edited by its pen, in the one editor.
+        let pens = h.get_all_by_label("Edit value").count();
+        assert!(pens > 1, "a pen on every row, not {pens}");
+        h.get_all_by_label("Edit value").next().unwrap().click();
         h.run();
-        h.state_mut().desk.inline.as_mut().unwrap().text = "5".into();
-        h.run();
-        h.key_press(egui::Key::Enter);
-        h.run();
-        assert_eq!(
-            h.state()
-                .store()
-                .current(miezi, "f:weight")
-                .unwrap()
-                .as_deref(),
-            Some("5000")
-        );
-        // Escape leaves a value as it was.
-        h.get_all_by_label("4").last().unwrap().click_accesskit();
-        h.run();
-        h.state_mut().desk.inline.as_mut().unwrap().text = "9".into();
-        h.run();
-        h.key_press(egui::Key::Escape);
-        h.run();
-        assert!(h.state().desk.inline.is_none());
-        assert_eq!(
-            h.state()
-                .store()
-                .current(miezi, "f:visits")
-                .unwrap()
-                .as_deref(),
-            Some("4")
-        );
-        // Yes/no and a choice: picked from a combo in place.
-        h.get_all_by_label("yes").last().unwrap().click_accesskit();
-        h.run();
-        assert!(h.state().desk.inline.is_some());
-        h.get_all_by_role(egui::accesskit::Role::ComboBox)
-            .last()
-            .unwrap()
-            .click_accesskit();
-        h.step();
-        h.get_all_by_label("no").last().unwrap().click_accesskit();
-        h.run();
-        assert_eq!(
-            h.state()
-                .store()
-                .current(miezi, "f:indoor")
-                .unwrap()
-                .as_deref(),
-            Some("no")
-        );
-        h.get_all_by_label("sleepy")
-            .last()
-            .unwrap()
-            .click_accesskit();
-        h.run();
-        h.get_all_by_role(egui::accesskit::Role::ComboBox)
-            .last()
-            .unwrap()
-            .click_accesskit();
-        h.step();
-        h.get_all_by_label("wild").last().unwrap().click_accesskit();
-        h.run();
-        assert_eq!(
-            h.state()
-                .store()
-                .current(miezi, "f:mood")
-                .unwrap()
-                .as_deref(),
-            Some("wild")
-        );
-        // A date goes to the editor popup.
-        h.get_all_by_label("5/2021")
-            .last()
-            .unwrap()
-            .click_accesskit();
-        h.run();
-        assert!(h.state().editor.open, "dates need the editor");
+        assert!(h.state().editor.open, "the pen opens the editor");
         h.key_press(egui::Key::Escape);
         h.run();
         assert!(!h.state().editor.open);
+        // The button under the rows reaches a Field the cat has nothing in.
+        h.get_by_label_contains("Fill in a field").click();
+        h.step();
+        h.get_by_label("Remarks").click_accesskit();
+        h.run();
+        assert!(h.state().editor.open, "an empty Field opens the editor");
+        assert_eq!(h.state().editor.def.slug, "remarks");
+        h.key_press(egui::Key::Escape);
+        h.run();
         // The row menu reaches the history.
-        h.get_all_by_label("4").last().unwrap().click_secondary();
+        h.get_all_by_label("More for this value")
+            .last()
+            .unwrap()
+            .click();
         h.step();
         h.get_by_label("History").click_accesskit();
         h.run();
         assert!(h.state().history_of.is_some());
-        h.get_all_by_label_contains("Visits").last().unwrap();
         h.key_press(egui::Key::Escape);
         h.run();
         assert!(h.state().history_of.is_none());
@@ -5775,10 +5700,16 @@ mod tests {
         h.run();
         h.key_press(egui::Key::Enter);
         h.run();
-        let pregnant = h.state().store().field_def("pregnant").unwrap().unwrap();
-        h.state_mut().desk.inline =
-            Some(crate::cards::Inline::picked(miezi, &pregnant.key(), "yes"));
+        h.get_by_label_contains("Fill in a field").click();
+        h.step();
+        h.get_by_label("Pregnant").click_accesskit();
         h.run();
+        assert!(h.state().editor.open, "the card sends it to the editor");
+        h.state_mut().editor.choice = Some("yes".into());
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        assert!(h.state().editor.open, "refused");
         assert_eq!(
             h.state().store().current(miezi, "f:pregnant").unwrap(),
             None
