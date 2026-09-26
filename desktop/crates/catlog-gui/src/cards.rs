@@ -78,6 +78,8 @@ pub struct Desk {
     opened: u32,
     /// Which kind of card is in sight; the others stay open, unseen.
     filter: Option<bool>,
+    /// The height one tiled card may take, while the cards lie tiled.
+    cell: Option<f32>,
 }
 
 impl Desk {
@@ -224,7 +226,10 @@ impl Desk {
                 .constrain_to(desk)
                 // The body's scroller reads the room the area offers, so
                 // the area is told it may be as tall as a card may grow.
-                .default_size(Vec2::new(CARD_WIDTH + 26.0, body_cap(desk.height()) + 48.0))
+                .default_size(Vec2::new(
+                    CARD_WIDTH + 26.0,
+                    self.body_height(desk.height()) + 48.0,
+                ))
                 .current_pos(desk.min + rel.to_vec2() + slide);
             if raise.as_deref() == Some(id.as_str()) {
                 ctx.move_to_top(egui::LayerId::new(egui::Order::Middle, area_id));
@@ -253,7 +258,7 @@ impl Desk {
                         // hand can move.
                         egui::ScrollArea::vertical()
                             .id_salt(("card-body", id.as_str()))
-                            .max_height(body_cap(desk.height()))
+                            .max_height(self.body_height(desk.height()))
                             .auto_shrink([false, true])
                             .show(ui, |ui| {
                                 egui::Frame::new().inner_margin(12.0).show(ui, |ui| {
@@ -298,6 +303,16 @@ impl Desk {
         action
     }
 
+    /// How tall a card's body may be: the desk's cap, or the tile's
+    /// cell while the cards lie tiled.
+    fn body_height(&self, desk_height: f32) -> f32 {
+        let cap = body_cap(desk_height);
+        match self.cell {
+            Some(cell) => cap.min((cell - 56.0).max(80.0)),
+            None => cap,
+        }
+    }
+
     /// The layer a card is drawn on.
     fn layer(id: &str) -> egui::LayerId {
         egui::LayerId::new(egui::Order::Middle, Id::new(("card", id)))
@@ -329,6 +344,8 @@ impl Desk {
     /// left once the dock has its strip, so the bodies scroll rather
     /// than run off the desk.
     pub fn tile(&mut self, store: &Catalog) {
+        // Whatever a card holds, it fits its cell from now on and
+        // scrolls inside it, so no card is laid out of reach.
         let gap = 16.0;
         let step = CARD_WIDTH + 24.0 + gap;
         let width = self.desk_size.x.max(step);
@@ -336,6 +353,7 @@ impl Desk {
         let rows = self.open.len().div_ceil(columns).max(1);
         let usable = (self.desk_size.y - DOCK_STRIP).max(160.0);
         let row_height = ((usable - gap) / rows as f32 - gap).max(120.0);
+        self.cell = Some(row_height);
         for (i, id) in self.open.clone().iter().enumerate() {
             let (column, row) = (i % columns, i / columns);
             let x = gap + column as f32 * step;
@@ -347,6 +365,8 @@ impl Desk {
     /// Stack: a cascade from the top left, each card a step down and
     /// right of the one before, the last opened on top.
     pub fn stack(&mut self, ctx: &egui::Context, store: &Catalog) {
+        // A stacked card is as tall as it likes again.
+        self.cell = None;
         for (i, id) in self.open.clone().iter().enumerate() {
             let step = 16.0 + i as f32 * 24.0;
             self.place(store, id, Pos2::new(step, step));

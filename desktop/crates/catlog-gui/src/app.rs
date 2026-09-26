@@ -5888,6 +5888,49 @@ mod tests {
     }
 
     #[test]
+    fn tiled_cards_shrink_to_their_cell_and_scroll_inside_it() {
+        let dir = tempfile::tempdir().unwrap();
+        let ids = [
+            "cat:00000000-0000-4000-8000-000000000001",
+            "cat:00000000-0000-4000-8000-000000000002",
+            "cat:00000000-0000-4000-8000-000000000003",
+        ];
+        let mut app = seeded(dir.path());
+        // Every cat carries a remark long enough to outgrow any cell.
+        for id in ids {
+            app.store_mut()
+                .append(id, "f:remarks", Some(&"a long tale ".repeat(60)))
+                .unwrap();
+        }
+        // One column on a short desk: the cells are shallow.
+        let mut h = sized_harness(app, egui::vec2(1100.0, 700.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        {
+            let app = h.state_mut();
+            let (desk, store) = (&mut app.desk, &app.store);
+            desk.open(store, &ids.map(String::from));
+        }
+        h.run();
+        h.get_by_label("Tile").click();
+        h.run();
+        let desk = h.state().desk.size();
+        let mut bottom: f32 = 0.0;
+        for id in ids {
+            let card = h
+                .ctx
+                .read_response(egui::Id::new(("card", id)))
+                .expect("on the desk");
+            let top = h.state().desk.position(id).unwrap().y;
+            bottom = bottom.max(top + card.rect.height());
+        }
+        assert!(
+            bottom <= desk.y,
+            "the tiled cards reach {bottom}, past the desk of {desk:?}"
+        );
+    }
+
+    #[test]
     fn the_desk_shows_only_cats_or_only_clowders_without_closing_the_rest() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
