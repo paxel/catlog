@@ -2277,18 +2277,33 @@ impl App {
         self.cats.missing_only = false;
     }
 
-    /// The Clowders table; Enter or a double-click lays a Clowder's card
-    /// on the desk.
+    /// The Clowders table; the tick in a row lays a Clowder's card on
+    /// the desk and takes it off again.
     fn show_clowders_table(&mut self, ui: &mut Ui) -> PageAction {
         let t = self.t;
         let units = self.pages.units;
         let show_hidden = self.home.show_hidden;
         let mut page_action = PageAction::None;
-        match self
-            .clowders
-            .show(ui, &self.store, &t, &mut self.faces, units, show_hidden)
-        {
+        let open: std::collections::BTreeSet<String> = self.desk.open.iter().cloned().collect();
+        match self.clowders.show(
+            ui,
+            &self.store,
+            &t,
+            &mut self.faces,
+            units,
+            show_hidden,
+            &open,
+        ) {
             ClowderAction::None => {}
+            ClowderAction::SetOpen(id, on) => {
+                if on {
+                    self.desk.open(&self.store, std::slice::from_ref(&id));
+                    self.home.selection = Selection::Clowder(id);
+                } else {
+                    self.desk.close(&self.store, &id);
+                }
+                self.history_of = None;
+            }
             ClowderAction::Open(id) => self.open_record(id),
             ClowderAction::NewClowder => self.act(HomeAction::NewClowder),
             ClowderAction::Strays => self.open_strays(),
@@ -2298,14 +2313,15 @@ impl App {
         page_action
     }
 
-    /// The Cats table; Enter or a double-click lays the selected cats on
-    /// the desk as cards.
+    /// The Cats table; the tick in a row lays that cat on the desk as a
+    /// card and takes it off again.
     fn show_cats_table(&mut self, ui: &mut Ui) -> PageAction {
         let t = self.t;
         let today = self.pages.today;
         let units = self.pages.units;
         let show_hidden = self.home.show_hidden;
         let mut page_action = PageAction::None;
+        let open: std::collections::BTreeSet<String> = self.desk.open.iter().cloned().collect();
         match self.cats.show(
             ui,
             &self.store,
@@ -2314,8 +2330,18 @@ impl App {
             today,
             units,
             show_hidden,
+            &open,
         ) {
             TableAction::None => {}
+            TableAction::SetOpen(id, on) => {
+                if on {
+                    self.desk.open(&self.store, std::slice::from_ref(&id));
+                    self.home.selection = Selection::Cat(id);
+                } else {
+                    self.desk.close(&self.store, &id);
+                }
+                self.history_of = None;
+            }
             TableAction::Open(id) => {
                 let mut ids = self.cats.selected_in_order();
                 if !ids.contains(&id) {
@@ -5112,7 +5138,9 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         let tom = "cat:00000000-0000-4000-8000-000000000002";
-        let mut h = harness(seeded(dir.path()));
+        // A wide window: the desk beside the table has room for two
+        // cards side by side, which is what Tile is asked about here.
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1800.0, 900.0));
         h.run();
         open_view(&mut h, "Cats");
         h.get_all_by_label("Miezi").next().unwrap().click();
@@ -5857,6 +5885,41 @@ mod tests {
         h.run();
         assert!(h.state().dialog.dice.is_none());
         assert!(h.state().dialog.value.is_empty());
+    }
+
+    #[test]
+    fn a_tick_in_the_table_lays_a_card_on_the_desk_and_taking_it_back_closes_it() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        let boxes = |h: &mut Harness<'static, App>| {
+            h.get_all_by_role_and_label(egui::accesskit::Role::CheckBox, "On the desk")
+                .count()
+        };
+        assert_eq!(boxes(&mut h), 3, "one to a row");
+        h.get_all_by_label("On the desk").next().unwrap().click();
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi], "the card is out");
+        // Closing the card with its × clears the tick: one state, both ways.
+        h.get_by_label("Close card").click();
+        h.run();
+        assert!(h.state().desk.open.is_empty());
+        assert_eq!(boxes(&mut h), 3, "the ticks are still there");
+        // And the tick takes it back again.
+        h.get_all_by_label("On the desk").next().unwrap().click();
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi]);
+        h.get_all_by_label("On the desk").next().unwrap().click();
+        h.run();
+        assert!(h.state().desk.open.is_empty(), "the tick closes it too");
+        // A click on the row still only marks it; nothing opens.
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        assert!(h.state().desk.open.is_empty(), "one way in, the tick");
     }
 
     #[test]

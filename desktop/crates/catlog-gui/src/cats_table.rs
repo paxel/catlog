@@ -286,7 +286,9 @@ pub fn rows(
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TableAction {
     None,
-    /// Enter or a double-click: the Cat's page or card.
+    /// Lay this Cat on the desk, or take it off again.
+    SetOpen(String, bool),
+    /// Enter: the Cat's card.
     Open(String),
     NewCat,
     CaptureFlier,
@@ -411,6 +413,7 @@ impl CatsTable {
         today: NaiveDate,
         units: UnitSystem,
         show_hidden: bool,
+        open: &BTreeSet<String>,
     ) -> TableAction {
         let mut action = TableAction::None;
         // A resizable pane shrinks to its content; the table claims the
@@ -532,6 +535,8 @@ impl CatsTable {
         if let Some(row) = self.scroll_to.take() {
             table = table.scroll_to_row(row, None);
         }
+        // The tick is the way a card gets to the desk, so it comes first.
+        table = table.column(TableColumn::exact(28.0));
         for column in &columns {
             table = table.column(match column {
                 Column::Face => TableColumn::exact(40.0),
@@ -540,9 +545,11 @@ impl CatsTable {
         }
         table = table.column(TableColumn::remainder());
         let mut sort_click: Option<Column> = None;
+        let mut set_open: Option<(String, bool)> = None;
         let mut clicked: Option<(String, egui::Modifiers)> = None;
         table
             .header(28.0, |mut header| {
+                header.col(|_| {});
                 for column in &columns {
                     header.col(|ui| {
                         if *column == Column::Face {
@@ -574,6 +581,17 @@ impl CatsTable {
                 body.rows(34.0, rows.len(), |mut row| {
                     let r = &rows[row.index()];
                     row.set_selected(self.selected.contains(&r.id));
+                    row.col(|ui| {
+                        let mut on = open.contains(&r.id);
+                        let response = ui.checkbox(&mut on, "").on_hover_text(t.on_the_desk());
+                        let words = t.on_the_desk().to_string();
+                        response.widget_info(|| {
+                            egui::WidgetInfo::selected(egui::WidgetType::Checkbox, true, on, &words)
+                        });
+                        if response.changed() {
+                            set_open = Some((r.id.clone(), on));
+                        }
+                    });
                     for (column, cell) in columns.iter().zip(&r.cells) {
                         row.col(|ui| match column {
                             Column::Face => {
@@ -619,9 +637,7 @@ impl CatsTable {
                     });
                     let response = row.response();
                     response.context_menu(&mut menu);
-                    if response.double_clicked() {
-                        action = TableAction::Open(r.id.clone());
-                    } else if response.clicked() {
+                    if response.clicked() {
                         clicked = Some((r.id.clone(), modifiers));
                     }
                 });
@@ -635,6 +651,9 @@ impl CatsTable {
         }
         if let Some((id, modifiers)) = clicked {
             self.select(&id, modifiers);
+        }
+        if let Some((id, on)) = set_open {
+            action = TableAction::SetOpen(id, on);
         }
         action
     }

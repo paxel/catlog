@@ -59,8 +59,10 @@ pub struct Row {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TableAction {
     None,
-    /// Enter or a double-click: the Clowder's card.
+    /// Enter: the Clowder's card.
     Open(String),
+    /// Lay this Clowder on the desk, or take it off again.
+    SetOpen(String, bool),
     NewClowder,
     /// The Cats view with its Strays filter on.
     Strays,
@@ -139,6 +141,7 @@ impl ClowdersTable {
     }
 
     /// Draws the toolbar and the table; says what the keeper did.
+    #[allow(clippy::too_many_arguments)]
     pub fn show(
         &mut self,
         ui: &mut Ui,
@@ -147,6 +150,7 @@ impl ClowdersTable {
         faces: &mut crate::textures::FaceCache,
         units: UnitSystem,
         show_hidden: bool,
+        open: &std::collections::BTreeSet<String>,
     ) -> TableAction {
         let mut action = TableAction::None;
         // A resizable pane shrinks to its content; the table claims the
@@ -219,6 +223,8 @@ impl ClowdersTable {
             .sense(Sense::click())
             .cell_layout(egui::Layout::left_to_right(egui::Align::Center))
             .min_scrolled_height(0.0)
+            // The tick that lays it on the desk, then the star.
+            .column(TableColumn::exact(28.0))
             .column(TableColumn::exact(28.0));
         if let Some(row) = self.scroll_to.take() {
             table = table.scroll_to_row(row, None);
@@ -229,8 +235,10 @@ impl ClowdersTable {
         table = table.column(TableColumn::remainder());
         let mut sort_click: Option<Column> = None;
         let mut clicked: Option<String> = None;
+        let mut set_open: Option<(String, bool)> = None;
         table
             .header(28.0, |mut header| {
+                header.col(|_| {});
                 header.col(|ui| {
                     icons::glyph(ui, icons::STAR, 16.0, PALETTE.grey);
                 });
@@ -262,6 +270,17 @@ impl ClowdersTable {
                     let r = &rows[row.index()];
                     let id = r.row.view.id.clone();
                     row.set_selected(self.cursor.as_deref() == Some(id.as_str()));
+                    row.col(|ui| {
+                        let mut on = open.contains(&id);
+                        let response = ui.checkbox(&mut on, "").on_hover_text(t.on_the_desk());
+                        let words = t.on_the_desk().to_string();
+                        response.widget_info(|| {
+                            egui::WidgetInfo::selected(egui::WidgetType::Checkbox, true, on, &words)
+                        });
+                        if response.changed() {
+                            set_open = Some((id.clone(), on));
+                        }
+                    });
                     row.col(|ui| {
                         let (icon, tip, color) = if r.row.favourite {
                             (icons::STAR, t.favourite_remove(), PALETTE.orange)
@@ -335,8 +354,8 @@ impl ClowdersTable {
                             .unwrap_or_default();
                         ui.add(egui::Label::new(text(&day)).selectable(false));
                     });
-                    // The menu holds what the double-click and the star do
-                    // not: hiding.
+                    // The menu holds what the tick and the star do not:
+                    // hiding.
                     let mut menu = |ui: &mut egui::Ui| {
                         let hide = if r.row.hidden {
                             t.unhide_label()
@@ -353,9 +372,7 @@ impl ClowdersTable {
                     });
                     let response = row.response();
                     response.context_menu(&mut menu);
-                    if response.double_clicked() {
-                        action = TableAction::Open(id.clone());
-                    } else if response.clicked() {
+                    if response.clicked() {
                         clicked = Some(id.clone());
                     }
                 });
@@ -369,6 +386,9 @@ impl ClowdersTable {
         }
         if let Some(id) = clicked {
             self.cursor = Some(id);
+        }
+        if let Some((id, on)) = set_open {
+            action = TableAction::SetOpen(id, on);
         }
         action
     }
