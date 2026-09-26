@@ -4908,11 +4908,11 @@ mod tests {
         open_view(&mut h, "Home");
         h.get_by_label("Last viewed");
         assert_eq!(
-            h.state()
-                .store()
-                .local_setting(crate::dashboard::LAST_CAT)
-                .as_deref(),
-            Some(miezi)
+            crate::dashboard::last_viewed(h.state().store())
+                .first()
+                .map(String::as_str),
+            Some(miezi),
+            "the newest is at the top of the list"
         );
         h.get_by_role_and_label(egui::accesskit::Role::Button, "Miezi")
             .click();

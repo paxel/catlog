@@ -20,6 +20,10 @@ use crate::textures::FaceCache;
 use crate::theme::PALETTE;
 
 /// Local settings that remember the last viewed Cat and Clowder.
+/// How many of the last viewed the dashboard lists.
+pub const LAST_VIEWED: usize = 7;
+/// The local setting holding them, newest first, comma-separated.
+pub const LAST_VIEWED_KEY: &str = "last:viewed";
 pub const LAST_CAT: &str = "last:cat";
 pub const LAST_CLOWDER: &str = "last:clowder";
 
@@ -167,26 +171,46 @@ fn mini(store: &Catalog, t: &L10n, id: &str) -> Mini {
     }
 }
 
-/// Remembers `id` as the last viewed Cat or Clowder.
+/// Remembers `id` as the last viewed Cat or Clowder: to the front of
+/// the list, once, with the oldest dropped when the list is full.
 pub fn remember(store: &Catalog, id: &str) {
-    let key = if id.starts_with("clowder:") {
-        LAST_CLOWDER
-    } else if id.starts_with("cat:") {
-        LAST_CAT
-    } else {
+    if !(id.starts_with("cat:") || id.starts_with("clowder:")) {
         return;
-    };
-    let _ = store.set_local_setting(key, id);
+    }
+    let mut seen = viewed_ids(store);
+    seen.retain(|other| other != id);
+    seen.insert(0, id.to_string());
+    seen.truncate(LAST_VIEWED);
+    let _ = store.set_local_setting(LAST_VIEWED_KEY, &seen.join(","));
 }
 
-/// The last viewed Cat and Clowder, when they still exist.
-pub fn last_viewed(store: &Catalog) -> (Option<String>, Option<String>) {
-    let alive = |key: &str| {
-        store
-            .local_setting(key)
-            .filter(|id| store.current(id, keys::NAME).ok().flatten().is_some())
-    };
-    (alive(LAST_CAT), alive(LAST_CLOWDER))
+/// The ids the list holds, oldest two settings folded in once so that a
+/// catalog from before this version does not start empty.
+fn viewed_ids(store: &Catalog) -> Vec<String> {
+    match store.local_setting(LAST_VIEWED_KEY) {
+        Some(saved) => saved
+            .split(',')
+            .filter(|s| !s.is_empty())
+            .map(String::from)
+            .collect(),
+        None => [LAST_CAT, LAST_CLOWDER]
+            .into_iter()
+            .filter_map(|key| store.local_setting(key))
+            .collect(),
+    }
+}
+
+/// The Cats and Clowders last viewed, newest first, those that still
+/// exist.
+pub fn last_viewed(store: &Catalog) -> Vec<String> {
+    viewed_ids(store)
+        .into_iter()
+        .filter(|id| {
+            store.current(id, keys::NAME).ok().flatten().is_some()
+                && !store.is_deleted(id).unwrap_or(false)
+        })
+        .take(LAST_VIEWED)
+        .collect()
 }
 
 /// What the dashboard shows, as built for one write of the store.
@@ -216,16 +240,14 @@ pub fn show_dashboard(
     let mut action = DashboardAction::None;
     let pet_mode = store.is_pet_mode().unwrap_or(false);
     let data = memo.get(store, (today, units, t.locale().to_string()), || {
-        let (cat, clowder) = last_viewed(store);
         DashboardData {
             counts: counts(store),
             chores: store.chores_agenda(today).unwrap_or_default(),
             items: store.agenda_items().unwrap_or_default(),
             changes: recent_changes(store, t, units),
-            last_viewed: [cat, clowder]
-                .into_iter()
-                .flatten()
-                .map(|id| mini(store, t, &id))
+            last_viewed: last_viewed(store)
+                .iter()
+                .map(|id| mini(store, t, id))
                 .collect(),
         }
     });
@@ -434,4 +456,73 @@ fn miniature(ui: &mut Ui, store: &Catalog, faces: &mut FaceCache, m: &Mini) -> e
     let response = inner.interact(egui::Sense::click());
     response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &m.name));
     response
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn store() -> (tempfile::TempDir, Catalog) {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open(dir.path()).unwrap();
+        c.set_author("Ada").unwrap();
+        for (id, name) in [
+            ("cat:a", "Miezi"),
+            ("cat:b", "Tom"),
+            ("cat:c", "Wanderer"),
+            ("cat:d", "Pixel"),
+            ("cat:e", "Schnurr"),
+            ("cat:f", "Socke"),
+            ("cat:g", "Sonne"),
+            ("cat:h", "Mohrle"),
+        ] {
+            c.create_cat(id, name, None, "cat").unwrap();
+        }
+        c.create_clowder("clowder:h", "Barn").unwrap();
+        (dir, c)
+    }
+
+    #[test]
+    fn the_last_viewed_is_a_list_of_seven_newest_first() {
+        let (_dir, store) = store();
+        for id in ["cat:a", "clowder:h", "cat:b"] {
+            remember(&store, id);
+        }
+        assert_eq!(last_viewed(&store), ["cat:b", "clowder:h", "cat:a"]);
+        // Looking again moves it to the front instead of listing it twice.
+        remember(&store, "cat:a");
+        assert_eq!(last_viewed(&store), ["cat:a", "cat:b", "clowder:h"]);
+        // The eighth pushes the oldest out.
+        for id in ["cat:c", "cat:d", "cat:e", "cat:f", "cat:g"] {
+            remember(&store, id);
+        }
+        assert_eq!(last_viewed(&store).len(), LAST_VIEWED);
+        remember(&store, "cat:h");
+        let seen = last_viewed(&store);
+        assert_eq!(seen.len(), LAST_VIEWED);
+        assert_eq!(seen[0], "cat:h");
+        assert!(!seen.contains(&"clowder:h".to_string()), "the oldest went");
+        // Anything that is not a Cat or a Clowder is not remembered.
+        remember(&store, "fielddef:weight");
+        assert_eq!(last_viewed(&store)[0], "cat:h");
+    }
+
+    #[test]
+    fn the_two_settings_from_before_seed_the_list_once() {
+        let (_dir, store) = store();
+        store.set_local_setting(LAST_CAT, "cat:a").unwrap();
+        store.set_local_setting(LAST_CLOWDER, "clowder:h").unwrap();
+        assert_eq!(last_viewed(&store), ["cat:a", "clowder:h"]);
+        remember(&store, "cat:b");
+        assert_eq!(last_viewed(&store), ["cat:b", "cat:a", "clowder:h"]);
+    }
+
+    #[test]
+    fn a_record_that_is_gone_is_not_offered() {
+        let (_dir, mut store) = store();
+        remember(&store, "cat:a");
+        remember(&store, "cat:b");
+        store.delete_cat("cat:a").unwrap();
+        assert_eq!(last_viewed(&store), ["cat:b"]);
+    }
 }
