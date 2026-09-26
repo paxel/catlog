@@ -13,7 +13,13 @@ use egui::{Color32, Context, Pos2, Rect, Sense, Stroke, TextureHandle, TextureOp
 /// Tiles are 256 pixels; the zoom stays between these.
 pub const TILE_SIZE: f32 = 256.0;
 pub const MIN_ZOOM: u32 = 2;
-pub const MAX_ZOOM: u32 = 17;
+/// The deepest level the tiles are served at; a street corner needs it.
+pub const MAX_ZOOM: u32 = 19;
+
+/// How much wheel a zoom level costs. A level is a doubling, so a brush
+/// of the wheel must not spend one: three ticks used to reach the whole
+/// world from a city.
+const WHEEL_PER_STEP: f32 = 40.0;
 
 /// Where the map opens when nothing was remembered: Central Europe.
 pub const DEFAULT_CENTER: (f64, f64) = (51.0, 10.0);
@@ -23,6 +29,18 @@ pub const DEFAULT_ZOOM: u32 = 6;
 /// in RGBA, a quarter of a megabyte; this covers several screens of
 /// panning and stops the memory from growing all session.
 const MAX_TEXTURES: usize = 256;
+
+/// How many zoom levels a turn of the wheel has now earned. What is
+/// left over waits for the next turn; turning the other way drops it.
+fn wheel_steps(turned: &mut f32, scroll: f32) -> i32 {
+    if turned.signum() != scroll.signum() {
+        *turned = 0.0;
+    }
+    *turned += scroll;
+    let steps = (*turned / WHEEL_PER_STEP).trunc() as i32;
+    *turned -= steps as f32 * WHEEL_PER_STEP;
+    steps
+}
 
 /// A texture and when the view last drew it.
 struct Kept {
@@ -215,6 +233,8 @@ impl Viewport {
 pub struct MapView {
     pub viewport: Viewport,
     pub loader: TileLoader,
+    /// Wheel gathered since the last zoom level it paid for.
+    turned: f32,
 }
 
 impl MapView {
@@ -222,6 +242,7 @@ impl MapView {
         MapView {
             viewport: Viewport::default(),
             loader: TileLoader::new(fetcher),
+            turned: 0.0,
         }
     }
 
@@ -274,8 +295,11 @@ impl MapView {
         }
         let scroll = ui.input(|i| i.smooth_scroll_delta.y);
         if response.hovered() && scroll != 0.0 {
-            let z = self.viewport.zoom as i64 + if scroll > 0.0 { 1 } else { -1 };
-            self.viewport.zoom = (z.max(MIN_ZOOM as i64) as u32).min(MAX_ZOOM);
+            let steps = wheel_steps(&mut self.turned, scroll);
+            if steps != 0 {
+                let z = self.viewport.zoom as i64 + steps as i64;
+                self.viewport.zoom = (z.max(MIN_ZOOM as i64) as u32).min(MAX_ZOOM);
+            }
         }
         let painter = ui.painter_at(rect);
         painter.rect_filled(rect, 0.0, Color32::from_gray(235));
@@ -448,5 +472,29 @@ mod tests {
         assert_eq!(Viewport::around(&[(51.0, 12.0), (51.02, 12.0)]).zoom, 13);
         assert_eq!(Viewport::around(&[(51.0, 12.0), (51.2, 12.0)]).zoom, 11);
         assert_eq!(Viewport::around(&[(51.0, 12.0), (55.0, 12.0)]).zoom, 6);
+    }
+
+    #[test]
+    fn the_wheel_gathers_before_it_steps_a_zoom_level() {
+        // A brush of the wheel is no zoom: it gathers and waits.
+        let mut turned = 0.0;
+        assert_eq!(wheel_steps(&mut turned, 8.0), 0);
+        assert_eq!(turned, 8.0);
+        // Enough of a turn steps one level and keeps the rest.
+        assert_eq!(wheel_steps(&mut turned, 40.0), 1);
+        assert!(turned.abs() < WHEEL_PER_STEP);
+        // The other way round, and a hard flick steps more than one.
+        turned = 0.0;
+        assert_eq!(wheel_steps(&mut turned, -120.0), -3);
+        // A turn the other way drops what was gathered.
+        turned = 0.0;
+        assert_eq!(wheel_steps(&mut turned, 30.0), 0);
+        assert_eq!(wheel_steps(&mut turned, -30.0), 0);
+        assert_eq!(turned, -30.0);
+    }
+
+    #[test]
+    fn the_zoom_reaches_what_the_tiles_have() {
+        assert_eq!(MAX_ZOOM, 19);
     }
 }
