@@ -204,79 +204,230 @@ pub fn show_agenda(
             chores,
         }
     });
+    let mut view = AgendaView::of(store);
     egui::ScrollArea::vertical().show(ui, |ui| {
+        // A column, not a wall: on a wide screen the agenda would
+        // otherwise run a metre across and be unreadable.
+        let width = ui.available_width().min(CONTENT_WIDTH);
+        let margin = ((ui.available_width() - width) / 2.0).max(0.0);
         ui.horizontal(|ui| {
-            let add = ui.button(t.add_appointment());
-            crate::tips::anchor(ui, "agenda-add", &add);
-            if add.clicked() {
-                action = AgendaAction::NewAppointment;
-            }
-            if ui.button(t.export_ics()).clicked() {
-                action = AgendaAction::ExportIcs;
-            }
-        });
-        let chores = &data.chores;
-        if !chores.today.is_empty() {
-            ui.add_space(8.0);
-            let heading = if data.all_done_today {
-                t.all_done_today()
-            } else {
-                t.today_section()
-            };
-            section_card_tipped(ui, heading, Some("agenda-today"), |ui| {
-                for c in &chores.today {
-                    let a = chore_row(ui, store, t, faces, c, today);
-                    if a != ChoreAction::None {
-                        action = AgendaAction::Chore(a);
+            ui.add_space(margin);
+            ui.vertical(|ui| {
+                ui.set_max_width(width);
+                ui.set_min_width(width);
+                ui.horizontal(|ui| {
+                    let add = ui.button(t.add_appointment());
+                    crate::tips::anchor(ui, "agenda-add", &add);
+                    if add.clicked() {
+                        action = AgendaAction::NewAppointment;
                     }
-                }
-            });
-        }
-        if !chores.upcoming.is_empty() {
-            ui.add_space(8.0);
-            section_card(ui, t.upcoming_section(), |ui| {
-                for (c, _day) in &chores.upcoming {
-                    let a = chore_row(ui, store, t, faces, c, today);
-                    if a != ChoreAction::None {
-                        action = AgendaAction::Chore(a);
+                    if ui.button(t.export_ics()).clicked() {
+                        action = AgendaAction::ExportIcs;
                     }
-                }
-            });
-        }
-        if !chores.paused.is_empty() {
-            ui.add_space(8.0);
-            section_card(ui, t.chore_paused(), |ui| {
-                for c in &chores.paused {
-                    let a = chore_row(ui, store, t, faces, c, today);
-                    if a != ChoreAction::None {
-                        action = AgendaAction::Chore(a);
-                    }
-                }
-            });
-        }
-        ui.add_space(8.0);
-        let items = &data.items;
-        section_card(ui, t.planned_section(), |ui| {
-            if items.is_empty() && chores.today.is_empty() && chores.upcoming.is_empty() {
-                ui.label(t.agenda_empty());
-            }
-            for item in items {
-                match item {
-                    AgendaItem::Reminder(r) => {
-                        if reminder_row(ui, store, t, faces, r, item.when().date()) {
-                            action = AgendaAction::OpenEntity(r.entity.clone());
+                    ui.separator();
+                    // The same plans, laid out three ways.
+                    for one in AgendaView::ALL {
+                        if ui.selectable_label(view == one, one.words(t)).clicked() {
+                            view = one;
+                            let _ = store.set_local_setting(AGENDA_VIEW_KEY, one.stored());
                         }
                     }
-                    AgendaItem::Appointments(group) => {
-                        if let Some(a) = appointment_card(ui, store, t, faces, group, true) {
-                            action = AgendaAction::Appointment(a);
+                });
+                if view != AgendaView::List {
+                    calendar(ui, store, t, &data.items, today, view);
+                    return;
+                }
+                let chores = &data.chores;
+                if !chores.today.is_empty() {
+                    ui.add_space(8.0);
+                    let heading = if data.all_done_today {
+                        t.all_done_today()
+                    } else {
+                        t.today_section()
+                    };
+                    section_card_tipped(ui, heading, Some("agenda-today"), |ui| {
+                        for c in &chores.today {
+                            let a = chore_row(ui, store, t, faces, c, today);
+                            if a != ChoreAction::None {
+                                action = AgendaAction::Chore(a);
+                            }
+                        }
+                    });
+                }
+                if !chores.upcoming.is_empty() {
+                    ui.add_space(8.0);
+                    section_card(ui, t.upcoming_section(), |ui| {
+                        for (c, _day) in &chores.upcoming {
+                            let a = chore_row(ui, store, t, faces, c, today);
+                            if a != ChoreAction::None {
+                                action = AgendaAction::Chore(a);
+                            }
+                        }
+                    });
+                }
+                if !chores.paused.is_empty() {
+                    ui.add_space(8.0);
+                    section_card(ui, t.chore_paused(), |ui| {
+                        for c in &chores.paused {
+                            let a = chore_row(ui, store, t, faces, c, today);
+                            if a != ChoreAction::None {
+                                action = AgendaAction::Chore(a);
+                            }
+                        }
+                    });
+                }
+                ui.add_space(8.0);
+                let items = &data.items;
+                section_card(ui, t.planned_section(), |ui| {
+                    if items.is_empty() && chores.today.is_empty() && chores.upcoming.is_empty() {
+                        ui.label(t.agenda_empty());
+                    }
+                    for item in items {
+                        match item {
+                            AgendaItem::Reminder(r) => {
+                                if reminder_row(ui, store, t, faces, r, item.when().date()) {
+                                    action = AgendaAction::OpenEntity(r.entity.clone());
+                                }
+                            }
+                            AgendaItem::Appointments(group) => {
+                                if let Some(a) = appointment_card(ui, store, t, faces, group, true)
+                                {
+                                    action = AgendaAction::Appointment(a);
+                                }
+                            }
                         }
                     }
-                }
-            }
+                });
+            });
         });
     });
     action
+}
+
+/// How wide the agenda's column may grow, whatever the window does.
+const CONTENT_WIDTH: f32 = 900.0;
+const AGENDA_VIEW_KEY: &str = "agendaView";
+
+/// The three ways to look at the same plans.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AgendaView {
+    List,
+    Week,
+    Month,
+}
+
+impl AgendaView {
+    const ALL: [AgendaView; 3] = [AgendaView::List, AgendaView::Week, AgendaView::Month];
+
+    fn stored(self) -> &'static str {
+        match self {
+            AgendaView::List => "list",
+            AgendaView::Week => "week",
+            AgendaView::Month => "month",
+        }
+    }
+
+    fn of(store: &Catalog) -> AgendaView {
+        match store.local_setting(AGENDA_VIEW_KEY).as_deref() {
+            Some("week") => AgendaView::Week,
+            Some("month") => AgendaView::Month,
+            _ => AgendaView::List,
+        }
+    }
+
+    fn words(self, t: &L10n) -> &'static str {
+        match self {
+            AgendaView::List => t.agenda_list(),
+            AgendaView::Week => t.agenda_week(),
+            AgendaView::Month => t.agenda_month(),
+        }
+    }
+}
+
+/// The plans laid out by day: seven days in a row for a week, the whole
+/// month in rows of seven. The same items the list shows, so the views
+/// cannot disagree.
+fn calendar(
+    ui: &mut Ui,
+    store: &Catalog,
+    t: &L10n,
+    items: &[AgendaItem],
+    today: NaiveDate,
+    view: AgendaView,
+) {
+    use chrono::Datelike;
+    let (first, days) = match view {
+        AgendaView::Week => (
+            today - chrono::Duration::days(today.weekday().num_days_from_monday() as i64),
+            7,
+        ),
+        _ => {
+            let first = NaiveDate::from_ymd_opt(today.year(), today.month(), 1).unwrap_or(today);
+            let lead = first.weekday().num_days_from_monday() as i64;
+            let length = first
+                .checked_add_months(chrono::Months::new(1))
+                .map(|next| next.signed_duration_since(first).num_days())
+                .unwrap_or(30);
+            (first - chrono::Duration::days(lead), lead + length)
+        }
+    };
+    let cell = ((ui.available_width() - 24.0) / 7.0).max(80.0);
+    egui::Grid::new(("agenda-calendar", view.stored()))
+        .num_columns(7)
+        .spacing([4.0, 4.0])
+        .show(ui, |ui| {
+            for step in 0..days {
+                let day = first + chrono::Duration::days(step);
+                ui.allocate_ui_with_layout(
+                    egui::vec2(cell, 0.0),
+                    egui::Layout::top_down(egui::Align::LEFT),
+                    |ui| {
+                        ui.set_min_width(cell);
+                        ui.set_min_height(72.0);
+                        let heading = format_day(t.locale(), day);
+                        let heading = if day == today {
+                            egui::RichText::new(heading).strong()
+                        } else {
+                            egui::RichText::new(heading).weak()
+                        };
+                        ui.label(heading);
+                        for item in items {
+                            if item.when().date() != day {
+                                continue;
+                            }
+                            let words = match item {
+                                AgendaItem::Reminder(r) => format!(
+                                    "{} · {}",
+                                    name_of(store, t, &r.entity),
+                                    field_label(t, store, &r.field)
+                                ),
+                                AgendaItem::Appointments(group) => {
+                                    let a = &group[0];
+                                    if group.len() > 1 {
+                                        format!("{} · {}", a.title, group.len())
+                                    } else {
+                                        format!("{} · {}", name_of(store, t, &a.entity), a.title)
+                                    }
+                                }
+                            };
+                            ui.add(egui::Label::new(egui::RichText::new(words).small()).wrap());
+                        }
+                    },
+                );
+                if (step + 1) % 7 == 0 {
+                    ui.end_row();
+                }
+            }
+        });
+}
+
+/// A Cat's or Clowder's name for a calendar cell.
+fn name_of(store: &Catalog, t: &L10n, entity: &str) -> String {
+    store
+        .current(entity, keys::NAME)
+        .ok()
+        .flatten()
+        .unwrap_or_else(|| t.unnamed().to_string())
 }
 
 /// The calendar file's events: reminders all-day, appointments timed

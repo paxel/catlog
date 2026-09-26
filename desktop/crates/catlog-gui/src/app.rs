@@ -6116,6 +6116,61 @@ mod tests {
     }
 
     #[test]
+    fn the_agenda_shows_a_week_and_a_month_and_stays_readable_on_a_wide_screen() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 9);
+        let visit = catlog_core::appointments::Appointment {
+            id: String::new(),
+            entity: miezi.into(),
+            date: chrono::NaiveDate::from_ymd_opt(2026, 3, 12).unwrap(),
+            time: None,
+            title: "Vet".into(),
+            notes: String::new(),
+            linked_field: None,
+            linked_value: None,
+            alert: catlog_core::appointments::AppointmentAlert::None,
+            done: false,
+            group: None,
+            extra: Default::default(),
+        };
+        app.store_mut().create_appointment("a-vet", &visit).unwrap();
+        // A wide window: the content must not stretch across all of it.
+        let mut h = sized_harness(app, egui::vec2(2200.0, 900.0));
+        h.run();
+        open_view(&mut h, "Agenda");
+        let add = h.get_by_label("Add appointment").rect();
+        let wide = h
+            .get_all_by_label_contains("Planned")
+            .next()
+            .unwrap()
+            .rect();
+        assert!(
+            wide.width() < 1100.0,
+            "the agenda stays a column, not {}",
+            wide.width()
+        );
+        assert!(add.min.x > 100.0, "and is centred in the window");
+        // Week and month lay the appointment on its day.
+        h.get_by_label("Week").click();
+        h.run();
+        assert_eq!(
+            h.state().store().local_setting("agendaView").as_deref(),
+            Some("week")
+        );
+        h.get_by_label_contains("3/12/2026");
+        h.get_all_by_label_contains("Vet").next().unwrap();
+        h.get_by_label("Month").click();
+        h.run();
+        h.get_all_by_label_contains("Vet").next().unwrap();
+        // And back to the list, which is what the agenda opens with.
+        h.get_by_label("List").click();
+        h.run();
+        h.get_by_label_contains("Planned");
+    }
+
+    #[test]
     fn the_map_zooms_by_button_and_walks_from_pin_to_pin() {
         let dir = tempfile::tempdir().unwrap();
         let mut app = seeded(dir.path());
