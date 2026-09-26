@@ -20,6 +20,7 @@
   "agendaMonth": "Monat",
   "today": "Heute",
   "stopSharing": "Teilen beenden",
+  "stopSharingNote": "Bereits gesendete Einträge bleiben im Ordner.",
   "notShared": "Nicht geteilt",
   "switchToCatalog": "Zu diesem Katalog wechseln",
   "catalogActive": "Jetzt offen",

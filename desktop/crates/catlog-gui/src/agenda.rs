@@ -234,7 +234,37 @@ pub fn show_agenda(
                     }
                 });
                 if view != AgendaView::List {
-                    calendar(ui, store, t, &data.items, today, view);
+                    let anchor = anchor_day(store, today);
+                    ui.horizontal(|ui| {
+                        // Back and forth a week or a month, and home to today.
+                        let step = if view == AgendaView::Week { 7 } else { 0 };
+                        if crate::icons::icon_button(
+                            ui,
+                            crate::icons::CHEVRON_LEFT,
+                            t.month_before(),
+                        )
+                        .clicked()
+                        {
+                            set_anchor(store, back(anchor, step));
+                        }
+                        if ui.button(t.today()).clicked() {
+                            let _ = store.remove_local_setting(ANCHOR_KEY);
+                        }
+                        if crate::icons::icon_button(
+                            ui,
+                            crate::icons::CHEVRON_RIGHT,
+                            t.month_after(),
+                        )
+                        .clicked()
+                        {
+                            set_anchor(store, forward(anchor, step));
+                        }
+                    });
+                    if let Some(entity) =
+                        calendar(ui, store, t, &data.items, &data.chores, anchor, today, view)
+                    {
+                        action = AgendaAction::OpenEntity(entity);
+                    }
                     return;
                 }
                 let chores = &data.chores;
@@ -347,30 +377,19 @@ impl AgendaView {
 /// The plans laid out by day: seven days in a row for a week, the whole
 /// month in rows of seven. The same items the list shows, so the views
 /// cannot disagree.
+#[allow(clippy::too_many_arguments)]
 fn calendar(
     ui: &mut Ui,
     store: &Catalog,
     t: &L10n,
     items: &[AgendaItem],
+    chores: &ChoresAgenda,
+    anchor: NaiveDate,
     today: NaiveDate,
     view: AgendaView,
-) {
-    use chrono::Datelike;
-    let (first, days) = match view {
-        AgendaView::Week => (
-            today - chrono::Duration::days(today.weekday().num_days_from_monday() as i64),
-            7,
-        ),
-        _ => {
-            let first = NaiveDate::from_ymd_opt(today.year(), today.month(), 1).unwrap_or(today);
-            let lead = first.weekday().num_days_from_monday() as i64;
-            let length = first
-                .checked_add_months(chrono::Months::new(1))
-                .map(|next| next.signed_duration_since(first).num_days())
-                .unwrap_or(30);
-            (first - chrono::Duration::days(lead), lead + length)
-        }
-    };
+) -> Option<String> {
+    let mut opened = None;
+    let (first, days) = calendar_span(anchor, view);
     let cell = ((ui.available_width() - 24.0) / 7.0).max(80.0);
     egui::Grid::new(("agenda-calendar", view.stored()))
         .num_columns(7)
@@ -391,26 +410,17 @@ fn calendar(
                             egui::RichText::new(heading).weak()
                         };
                         ui.label(heading);
-                        for item in items {
-                            if item.when().date() != day {
-                                continue;
+                        for (entity, words) in day_entries(store, t, items, chores, day) {
+                            if ui
+                                .add(
+                                    egui::Button::new(egui::RichText::new(words).small())
+                                        .frame(false)
+                                        .wrap_mode(egui::TextWrapMode::Wrap),
+                                )
+                                .clicked()
+                            {
+                                opened = Some(entity);
                             }
-                            let words = match item {
-                                AgendaItem::Reminder(r) => format!(
-                                    "{} · {}",
-                                    name_of(store, t, &r.entity),
-                                    field_label(t, store, &r.field)
-                                ),
-                                AgendaItem::Appointments(group) => {
-                                    let a = &group[0];
-                                    if group.len() > 1 {
-                                        format!("{} · {}", a.title, group.len())
-                                    } else {
-                                        format!("{} · {}", name_of(store, t, &a.entity), a.title)
-                                    }
-                                }
-                            };
-                            ui.add(egui::Label::new(egui::RichText::new(words).small()).wrap());
                         }
                     },
                 );
@@ -419,6 +429,109 @@ fn calendar(
                 }
             }
         });
+    opened
+}
+
+const ANCHOR_KEY: &str = "agendaAnchor";
+
+/// The day the calendar is built around: today, until the keeper walks
+/// to another week or month.
+fn anchor_day(store: &Catalog, today: NaiveDate) -> NaiveDate {
+    store
+        .local_setting(ANCHOR_KEY)
+        .and_then(|raw| raw.parse::<NaiveDate>().ok())
+        .unwrap_or(today)
+}
+
+fn set_anchor(store: &Catalog, day: NaiveDate) {
+    let _ = store.set_local_setting(ANCHOR_KEY, &day.to_string());
+}
+
+/// A week back, or a month when `days` is zero.
+fn back(day: NaiveDate, days: i64) -> NaiveDate {
+    if days > 0 {
+        day - chrono::Duration::days(days)
+    } else {
+        day.checked_sub_months(chrono::Months::new(1))
+            .unwrap_or(day)
+    }
+}
+
+fn forward(day: NaiveDate, days: i64) -> NaiveDate {
+    if days > 0 {
+        day + chrono::Duration::days(days)
+    } else {
+        day.checked_add_months(chrono::Months::new(1))
+            .unwrap_or(day)
+    }
+}
+
+/// The first cell and how many cells a view holds: a week from its
+/// Monday, a month from the Monday before its first, so a month that
+/// starts mid-week keeps its days under the right columns.
+fn calendar_span(anchor: NaiveDate, view: AgendaView) -> (NaiveDate, i64) {
+    use chrono::Datelike;
+    match view {
+        AgendaView::Week => (
+            anchor - chrono::Duration::days(anchor.weekday().num_days_from_monday() as i64),
+            7,
+        ),
+        _ => {
+            let first = NaiveDate::from_ymd_opt(anchor.year(), anchor.month(), 1).unwrap_or(anchor);
+            let lead = first.weekday().num_days_from_monday() as i64;
+            let length = first
+                .checked_add_months(chrono::Months::new(1))
+                .map(|next| next.signed_duration_since(first).num_days())
+                .unwrap_or(30);
+            (first - chrono::Duration::days(lead), lead + length)
+        }
+    }
+}
+
+/// What stands on one day: the reminders and appointments the list
+/// shows, and the chores due that day, each with the Cat or Clowder it
+/// belongs to.
+fn day_entries(
+    store: &Catalog,
+    t: &L10n,
+    items: &[AgendaItem],
+    chores: &ChoresAgenda,
+    day: NaiveDate,
+) -> Vec<(String, String)> {
+    let mut out = Vec::new();
+    for item in items {
+        if item.when().date() != day {
+            continue;
+        }
+        match item {
+            AgendaItem::Reminder(r) => out.push((
+                r.entity.clone(),
+                format!(
+                    "{} · {}",
+                    name_of(store, t, &r.entity),
+                    field_label(t, store, &r.field)
+                ),
+            )),
+            AgendaItem::Appointments(group) => {
+                let a = &group[0];
+                let words = if group.len() > 1 {
+                    format!("{} · {}", a.title, group.len())
+                } else {
+                    format!("{} · {}", name_of(store, t, &a.entity), a.title)
+                };
+                out.push((a.entity.clone(), words));
+            }
+        }
+    }
+    for (chore, on) in chores.upcoming.iter().map(|(c, on)| (c, *on)) {
+        if on == day {
+            out.push((
+                chore.entity.clone(),
+                format!("{} · {}", name_of(store, t, &chore.entity), chore.title),
+            ));
+        }
+    }
+    out
 }
 
 /// A Cat's or Clowder's name for a calendar cell.
@@ -493,4 +606,43 @@ pub fn ics_events(store: &Catalog, t: &L10n) -> Vec<IcsEvent> {
         }
     }
     events
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use chrono::Datelike;
+
+    fn day(y: i32, m: u32, d: u32) -> NaiveDate {
+        NaiveDate::from_ymd_opt(y, m, d).unwrap()
+    }
+
+    #[test]
+    fn a_week_runs_from_its_monday_and_a_month_keeps_its_columns() {
+        // A Wednesday: the week starts on the Monday before it.
+        let (first, days) = calendar_span(day(2026, 3, 11), AgendaView::Week);
+        assert_eq!((first, days), (day(2026, 3, 9), 7));
+        // March 2026 starts on a Sunday: six days of lead, then 31.
+        let (first, days) = calendar_span(day(2026, 3, 11), AgendaView::Month);
+        assert_eq!((first, days), (day(2026, 2, 23), 6 + 31));
+        // February 2026 starts on a Sunday too, and has 28 days.
+        let (first, days) = calendar_span(day(2026, 2, 2), AgendaView::Month);
+        assert_eq!((first, days), (day(2026, 1, 26), 6 + 28));
+        // A month that starts on a Monday has no lead at all.
+        let (first, days) = calendar_span(day(2026, 6, 15), AgendaView::Month);
+        assert_eq!((first, days), (day(2026, 6, 1), 30));
+        // Every span is whole weeks plus the lead, so the columns hold.
+        for view in [AgendaView::Week, AgendaView::Month] {
+            let (first, _) = calendar_span(day(2026, 3, 11), view);
+            assert_eq!(first.weekday(), chrono::Weekday::Mon);
+        }
+    }
+
+    #[test]
+    fn the_chevrons_walk_a_week_or_a_month() {
+        assert_eq!(back(day(2026, 3, 11), 7), day(2026, 3, 4));
+        assert_eq!(forward(day(2026, 3, 11), 7), day(2026, 3, 18));
+        assert_eq!(back(day(2026, 3, 31), 0), day(2026, 2, 28), "a short month");
+        assert_eq!(forward(day(2026, 12, 15), 0), day(2027, 1, 15));
+    }
 }

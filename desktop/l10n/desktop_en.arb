@@ -20,6 +20,7 @@
   "agendaMonth": "Month",
   "today": "Today",
   "stopSharing": "Stop sharing",
+  "stopSharingNote": "Entries already sent stay in the folder.",
   "notShared": "Not shared",
   "switchToCatalog": "Switch to this catalog",
   "catalogActive": "Open now",

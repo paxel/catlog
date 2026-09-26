@@ -139,11 +139,17 @@ impl CatalogsPage {
                     }
                 }
                 ui.add_space(16.0);
-                let last = manager.catalogs().len() < 2;
-                let delete = ui.add_enabled(
-                    !last,
-                    egui::Button::new(egui::RichText::new(t.delete_catalog()).color(PALETTE.red)),
-                );
+                // The Catalog being worked in cannot go: switch away
+                // first, as the phone has it.
+                let can_delete = manager.catalogs().len() > 1 && chosen != active;
+                let delete = ui
+                    .add_enabled(
+                        can_delete,
+                        egui::Button::new(
+                            egui::RichText::new(t.delete_catalog()).color(PALETTE.red),
+                        ),
+                    )
+                    .on_disabled_hover_text(t.switch_before_deleting());
                 if delete.clicked() {
                     action = CatalogsAction::Delete(info.id.clone());
                 }

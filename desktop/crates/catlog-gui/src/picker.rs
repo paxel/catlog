@@ -111,6 +111,20 @@ impl PositionPicker {
                 if ui.button(t.search()).clicked() || submitted {
                     self.search();
                 }
+                ui.separator();
+                // The same closer and further the map page has, so a
+                // place is picked as precisely here as it is read there.
+                if crate::icons::icon_button(ui, crate::icons::ADD, t.zoom_in()).clicked() {
+                    self.map.viewport.zoom = (self.map.viewport.zoom + 1).min(crate::map::MAX_ZOOM);
+                }
+                if crate::icons::icon_button(ui, crate::icons::REMOVE, t.zoom_out()).clicked() {
+                    self.map.viewport.zoom = self
+                        .map
+                        .viewport
+                        .zoom
+                        .saturating_sub(1)
+                        .max(crate::map::MIN_ZOOM);
+                }
             });
             if let Some(e) = &self.error {
                 ui.colored_label(ui.visuals().error_fg_color, e);

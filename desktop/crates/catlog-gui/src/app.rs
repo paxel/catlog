@@ -2479,9 +2479,11 @@ impl App {
                     }
                 }
                 CatalogsAction::StopSharing => {
+                    // Removed, not emptied: an empty setting still reads
+                    // as a folder to everything that asks.
                     if let Err(e) = self
                         .store
-                        .set_local_setting(catlog_core::sync::SYNC_FOLDER, "")
+                        .remove_local_setting(catlog_core::sync::SYNC_FOLDER)
                     {
                         self.notice = Some(e.to_string());
                     }
@@ -6056,6 +6058,21 @@ mod tests {
             .create_cat("cat:x", "Kater", None, "cat")
             .unwrap();
         h.run();
+        // Sharing a folder and stopping again, on the same page.
+        {
+            let folder = dir.path().join("shared");
+            std::fs::create_dir_all(&folder).unwrap();
+            h.state_mut().store().choose_sync_folder(&folder).unwrap();
+        }
+        h.run();
+        assert!(h.state().store().sync_folder_path().is_some(), "shared now");
+        h.get_by_label("Stop sharing").click_accesskit();
+        h.run();
+        assert!(
+            h.state().store().sync_folder_path().is_none(),
+            "the catalog reads as shared with nobody"
+        );
+        h.get_by_label_contains("Not shared");
         // The page lists them all and opens the one picked.
         h.key_press(egui::Key::Escape);
         h.run();
@@ -6212,11 +6229,30 @@ mod tests {
             Some("week")
         );
         h.get_by_label_contains("3/12/2026");
-        h.get_all_by_label_contains("Vet").next().unwrap();
+        // "Vet" alone is also a view in the bar; the cell names the cat.
+        h.get_all_by_label_contains("Miezi · Vet").next().unwrap();
         h.get_by_label("Month").click();
         h.run();
-        h.get_all_by_label_contains("Vet").next().unwrap();
+        h.get_all_by_label_contains("Miezi · Vet").next().unwrap();
+        // The chevrons walk the months; Today comes home.
+        h.get_by_label("Month before").click();
+        h.run();
+        assert!(
+            h.query_by_label_contains("Miezi · Vet").is_none(),
+            "February holds nothing"
+        );
+        h.get_by_label("Today").click();
+        h.run();
+        h.get_all_by_label_contains("Miezi · Vet").next().unwrap();
+        // An entry in a day cell opens the cat it belongs to.
+        h.get_all_by_label_contains("Miezi · Vet")
+            .next()
+            .unwrap()
+            .click();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Cat(miezi.into()));
         // And back to the list, which is what the agenda opens with.
+        open_view(&mut h, "Agenda");
         h.get_by_label("List").click();
         h.run();
         h.get_by_label_contains("Planned");

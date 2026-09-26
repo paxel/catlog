@@ -62,9 +62,11 @@ fn band_viewport(from: Viewport, rect: Rect, a: Pos2, b: Pos2) -> Viewport {
     let (one, two) = (at(box_rect.min), at(box_rect.max));
     let lat = (one.0 + two.0) / 2.0;
     let lon = (one.1 + two.1) / 2.0;
-    // How many doublings the box is away from filling the view.
-    let wider = (rect.width() / box_rect.width()).max(rect.height() / box_rect.height());
-    let closer = wider.log2().floor().max(0.0) as u32;
+    // How many doublings the box is away from filling the view. The
+    // narrower fit decides, or a box taller than it is wide would be
+    // zoomed past the edges of the view.
+    let fits = (rect.width() / box_rect.width()).min(rect.height() / box_rect.height());
+    let closer = fits.log2().floor().max(0.0) as u32;
     Viewport {
         lat,
         lon,
@@ -346,8 +348,23 @@ impl MapView {
         if response.hovered() && scroll != 0.0 {
             let steps = wheel_steps(&mut self.turned, scroll);
             if steps != 0 {
+                // The place under the pointer stays under the pointer.
+                let under = response
+                    .hover_pos()
+                    .map(|pos| self.unproject(rect, pos))
+                    .unwrap_or((self.viewport.lat, self.viewport.lon));
                 let z = self.viewport.zoom as i64 + steps as i64;
                 self.viewport.zoom = (z.max(MIN_ZOOM as i64) as u32).min(MAX_ZOOM);
+                if let Some(pos) = response.hover_pos() {
+                    let now = self.unproject(rect, pos);
+                    let (cx, cy) =
+                        tile_xy(self.viewport.lat, self.viewport.lon, self.viewport.zoom);
+                    let (wx, wy) = tile_xy(under.0, under.1, self.viewport.zoom);
+                    let (nx, ny) = tile_xy(now.0, now.1, self.viewport.zoom);
+                    let (lat, lon) = lat_lon_of(cx + wx - nx, cy + wy - ny, self.viewport.zoom);
+                    self.viewport.lat = lat.clamp(-85.0, 85.0);
+                    self.viewport.lon = lon;
+                }
             }
         }
         let painter = ui.painter_at(rect);
@@ -567,6 +584,12 @@ mod tests {
         // A box in one corner moves the view there.
         let corner = band_viewport(from, rect, Pos2::new(20.0, 20.0), Pos2::new(60.0, 60.0));
         assert!(corner.lat > from.lat && corner.lon < from.lon);
+        // A tall, narrow box still fits inside the view afterwards.
+        let tall = band_viewport(from, rect, Pos2::new(240.0, 40.0), Pos2::new(280.0, 470.0));
+        assert_eq!(
+            tall.zoom, from.zoom,
+            "a box as tall as the view is no closer look"
+        );
         // A box too small to mean anything leaves the view alone.
         assert_eq!(
             band_viewport(from, rect, Pos2::new(20.0, 20.0), Pos2::new(23.0, 22.0)),
