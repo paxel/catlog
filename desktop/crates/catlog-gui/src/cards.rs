@@ -392,6 +392,7 @@ impl Desk {
         desk: Rect,
     ) {
         let front = self.front(ctx);
+        let pet_mode = store.is_pet_mode().unwrap_or(false);
         let screen = ctx.content_rect();
         let offset = Vec2::new(
             desk.center().x - screen.center().x,
@@ -431,9 +432,16 @@ impl Desk {
                             }
                             ui.separator();
                             // What the desk shows, without closing the rest.
-                            let pet_mode = store.is_pet_mode().unwrap_or(false);
                             for (cats, icon, kind) in [
-                                (true, icons::PETS_OUTLINED, t.kind_cat()),
+                                (
+                                    true,
+                                    icons::PETS_OUTLINED,
+                                    if pet_mode {
+                                        t.kind_cat_neutral()
+                                    } else {
+                                        t.kind_cat()
+                                    },
+                                ),
                                 (
                                     false,
                                     icons::NIGHT_SHELTER_OUTLINED,
@@ -951,7 +959,21 @@ impl Desk {
                     if chosen.is_some_and(|c| !c.contains(&def.key())) {
                         continue;
                     }
-                    let Some(raw) = store.current(id, &def.key()).ok().flatten() else {
+                    // A value a partner kept back is a row with a lock, not
+                    // a Field to fill in: filling it would overwrite what
+                    // they may yet send.
+                    let withheld = store.is_withheld(id, &def.key()).unwrap_or(false);
+                    let raw = store.current(id, &def.key()).ok().flatten();
+                    let Some(raw) = raw else {
+                        if withheld {
+                            ui.label(egui::RichText::new(field_def_name(t, def)).weak());
+                            icons::label(
+                                ui,
+                                icons::LOCK_OUTLINE,
+                                egui::RichText::new(t.withheld_by_partner()).weak(),
+                            );
+                            ui.end_row();
+                        }
                         continue;
                     };
                     ui.label(egui::RichText::new(field_def_name(t, def)).weak());
@@ -1007,6 +1029,7 @@ impl Desk {
             .filter(|def| {
                 chosen.is_none_or(|c| c.contains(&def.key()))
                     && store.current(id, &def.key()).ok().flatten().is_none()
+                    && !store.is_withheld(id, &def.key()).unwrap_or(false)
             })
             .collect();
         if !empty.is_empty() {

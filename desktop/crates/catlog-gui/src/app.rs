@@ -1077,15 +1077,29 @@ impl App {
                     // Another Catalog goes without ceremony; it is not
                     // the one being worked in.
                     Some(id) if id != self.manager.active().id => {
-                        let name = self
-                            .manager
-                            .by_id(&id)
-                            .map(|c| c.name.clone())
-                            .unwrap_or_default();
+                        // The same keepsake the open Catalog gets: a
+                        // Catalog never goes without a file to bring it
+                        // back from.
+                        let Some(info) = self.manager.by_id(&id).cloned() else {
+                            return;
+                        };
+                        let saved = match self.manager.open_store(&info) {
+                            Ok(store) => store.auto_backup(&self.backups_dir, true),
+                            Err(e) => Err(e),
+                        };
+                        let saved = match saved {
+                            Ok(Some(path)) => path,
+                            Ok(None) => self.backups_dir.clone(),
+                            Err(e) => {
+                                self.notice = Some(t.catalog_export_failed(&e.to_string()));
+                                return;
+                            }
+                        };
                         match self.manager.delete(&id) {
                             Ok(()) => {
                                 self.catalogs_page.chosen = None;
-                                self.notice = Some(t.catalog_deleted(&name, ""));
+                                self.notice =
+                                    Some(t.catalog_deleted(&info.name, &saved.to_string_lossy()));
                             }
                             Err(e) => self.notice = Some(e.to_string()),
                         }
@@ -5380,6 +5394,31 @@ mod tests {
     }
 
     #[test]
+    fn a_value_a_partner_kept_back_is_a_locked_row_not_an_empty_field() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut app = seeded(dir.path());
+        app.store_mut()
+            .append(miezi, &catlog_core::keys::withheld("f:breed"), Some("yes"))
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label_contains("kept back by a partner");
+        h.get_by_label_contains("Fill in a field").click_accesskit();
+        h.step();
+        assert_eq!(
+            h.get_all_by_label("Breed").count(),
+            1,
+            "the locked row names it; the fill-in menu does not offer it"
+        );
+    }
+
+    #[test]
     fn a_location_row_shows_the_place_not_the_words_on_the_map() {
         let dir = tempfile::tempdir().unwrap();
         let foster = "clowder:00000000-0000-4000-8000-000000000001";
@@ -6011,6 +6050,12 @@ mod tests {
         assert_eq!(h.state().store().cats(None).unwrap().len(), 0);
         make(&mut h, "Altona");
         assert_eq!(h.state().title(), "Altona");
+        // Something in it, so its keepsake file has something to hold.
+        h.state_mut()
+            .store_mut()
+            .create_cat("cat:x", "Kater", None, "cat")
+            .unwrap();
+        h.run();
         // The page lists them all and opens the one picked.
         h.key_press(egui::Key::Escape);
         h.run();
@@ -6047,6 +6092,13 @@ mod tests {
         assert!(
             h.query_by_label("Altona").is_none(),
             "the other catalog is gone"
+        );
+        assert!(
+            dir.path()
+                .join("downloads")
+                .join("catlog-altona.catsync")
+                .exists(),
+            "and its keepsake file was written first"
         );
     }
 
