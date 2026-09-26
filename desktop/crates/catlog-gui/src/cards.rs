@@ -492,6 +492,19 @@ impl Desk {
                         egui::Label::new(if hidden { title.weak() } else { title })
                             .selectable(false),
                     );
+                    // The name is a value like any other; its pen is where
+                    // the name is, not in a menu.
+                    let pet_mode = store.is_pet_mode().unwrap_or(false);
+                    let rename = match (id.starts_with("clowder:"), pet_mode) {
+                        (true, false) => t.rename_clowder(),
+                        (true, true) => t.rename_clowder_neutral(),
+                        (false, false) => t.rename_cat(),
+                        (false, true) => t.rename_cat_neutral(),
+                    };
+                    if icons::icon_button(ui, icons::EDIT_OUTLINED, rename).clicked() {
+                        event =
+                            CardEvent::Action(CardAction::Page(PageAction::Rename(id.to_string())));
+                    }
                     ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                         if icons::icon_button(ui, icons::CLOSE, t.card_close()).clicked() {
                             event = CardEvent::Close;

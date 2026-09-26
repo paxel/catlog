@@ -24,6 +24,8 @@ pub enum PageAction {
     ToggleHidden(String),
     /// Edit this Field's value on this entity.
     Edit(String, String),
+    /// Give this Cat or Clowder another name.
+    Rename(String),
     /// Open this Field's history on this entity.
     History(String, String),
     /// Define a new Field for this scope.

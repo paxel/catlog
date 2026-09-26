@@ -114,6 +114,8 @@ enum Asking {
     NameMoment,
     /// A new Cat in this Clowder, or a Stray.
     NewCat(Option<String>),
+    /// Another name for this Cat or Clowder.
+    Rename(String),
 }
 
 pub struct App {
@@ -1252,6 +1254,14 @@ impl App {
                     self.dialog.refuse(t.catalog_name_taken(&value));
                 }
             }
+            Asking::Rename(id) => {
+                if let Err(e) = self
+                    .store
+                    .append(&id, catlog_core::keys::NAME, Some(&value))
+                {
+                    self.notice = Some(e.to_string());
+                }
+            }
         }
         if !self.dialog.open {
             self.asking = Asking::Nothing;
@@ -2139,6 +2149,19 @@ impl App {
                         t.locale(),
                     );
                 }
+            }
+            PageAction::Rename(entity) => {
+                let name = self.store.current(&entity, keys::NAME).ok().flatten();
+                let pet_mode = self.store.is_pet_mode().unwrap_or(false);
+                let title = match (entity.starts_with("clowder:"), pet_mode) {
+                    (true, false) => t.rename_clowder(),
+                    (true, true) => t.rename_clowder_neutral(),
+                    (false, false) => t.rename_cat(),
+                    (false, true) => t.rename_cat_neutral(),
+                };
+                self.dialog
+                    .ask(title, t.name(), t.rename(), name.as_deref().unwrap_or(""));
+                self.asking = Asking::Rename(entity);
             }
             PageAction::History(entity, slug) => {
                 self.history_of = Some((entity, slug));
@@ -5245,6 +5268,51 @@ mod tests {
         h.key_press(egui::Key::Escape);
         h.run();
         assert!(h.state().history_of.is_none());
+    }
+
+    #[test]
+    fn the_pen_on_a_card_s_title_renames_the_cat_and_the_clowder() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Rename cat").click();
+        h.run();
+        assert_eq!(h.state().dialog.value, "Miezi", "the name it has now");
+        h.state_mut().dialog.value = "Mietze".into();
+        h.run();
+        h.get_by_label("Rename").click();
+        h.run();
+        assert_eq!(
+            h.state().store().current(miezi, "name").unwrap().as_deref(),
+            Some("Mietze")
+        );
+        // A Clowder renames the same way, in its own words.
+        open_view(&mut h, "Clowders");
+        h.get_all_by_label("Foster Home").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Rename clowder").click();
+        h.run();
+        h.state_mut().dialog.value = "Katzenhaus".into();
+        h.run();
+        h.get_by_label("Rename").click();
+        h.run();
+        assert_eq!(
+            h.state()
+                .store()
+                .current(foster, "name")
+                .unwrap()
+                .as_deref(),
+            Some("Katzenhaus")
+        );
     }
 
     #[test]
