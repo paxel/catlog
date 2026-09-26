@@ -27,6 +27,11 @@ pub const CARD_WIDTH: f32 = 320.0;
 /// The strip the dock floats in, kept clear when cards are laid out.
 const DOCK_STRIP: f32 = 96.0;
 
+/// A Field row's two columns: the name, then the value with the pen and
+/// the ⋮ beside it. Both are measured so that a row fills the card.
+const NAME_WIDTH: f32 = 104.0;
+const VALUE_WIDTH: f32 = CARD_WIDTH - NAME_WIDTH - 12.0 - 56.0;
+
 fn pos_key(id: &str) -> String {
     format!("card:{id}")
 }
@@ -179,7 +184,9 @@ impl Desk {
             let area = egui::Area::new(area_id)
                 .movable(true)
                 .constrain_to(desk)
-                .default_size(Vec2::new(CARD_WIDTH + 26.0, 200.0))
+                // The body's scroller reads the room the area offers, so
+                // the area is told it may be as tall as a card may grow.
+                .default_size(Vec2::new(CARD_WIDTH + 26.0, body_cap(desk.height()) + 48.0))
                 .current_pos(desk.min + rel.to_vec2() + slide);
             if raise.as_deref() == Some(id.as_str()) {
                 ctx.move_to_top(egui::LayerId::new(egui::Order::Middle, area_id));
@@ -188,7 +195,9 @@ impl Desk {
                 ui.set_opacity(fade);
                 egui::Frame::new()
                     .fill(PALETTE.paper)
-                    .stroke(egui::Stroke::new(1.0, PALETTE.tan))
+                    // Darker than the title bar, or the card's top edge
+                    // would vanish into it.
+                    .stroke(egui::Stroke::new(1.0, PALETTE.grey))
                     .corner_radius(ROUNDING + 4)
                     .shadow(egui::epaint::Shadow {
                         offset: [0, 4],
@@ -783,6 +792,9 @@ impl Desk {
         };
         egui::Grid::new(("card-fields", id))
             .num_columns(2)
+            // Measured columns, not the longest value's: a row is then as
+            // wide as the card, and its stripe reaches the edge.
+            .min_col_width(NAME_WIDTH)
             .spacing([12.0, 4.0])
             .show(ui, |ui| {
                 for def in defs {
@@ -801,11 +813,14 @@ impl Desk {
                     ui.horizontal_top(|ui| {
                         // The value takes the row but for the two buttons,
                         // and wraps rather than being cut off.
-                        let width = (ui.available_width() - 56.0).max(40.0);
                         ui.allocate_ui_with_layout(
-                            egui::vec2(width, 0.0),
+                            egui::vec2(VALUE_WIDTH, 0.0),
                             egui::Layout::top_down(egui::Align::LEFT),
                             |ui| {
+                                // Held to its width, short value or long,
+                                // so the pen and the ⋮ line up down the
+                                // card and the stripe reaches the edge.
+                                ui.set_min_width(VALUE_WIDTH);
                                 ui.add(egui::Label::new(shown).wrap());
                             },
                         );
