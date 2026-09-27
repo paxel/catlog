@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 - "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
+- A moment's sound is the same in every catalog, like the celebrations switch beside it; an own sound picked in one catalog no longer replaces another's file behind its back.
 - The chore reminder voice is one switch for the whole device: turning the cat sound off in one catalog is no longer undone by ticking a chore in another.
 - Deleting an empty catalog says there was nothing to back up instead of naming a keepsake file that was never written.
 - Saving picked video frames no longer hangs on a spinner when a full-size frame cannot be read; the picked picture is kept instead.

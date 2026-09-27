@@ -59,6 +59,7 @@ void main() {
     a.setLocalSetting('locale', 'de');
     a.setLocalSetting('spot2:home', 'home-strays');
     a.setLocalSetting('reminderCatSound', 'off');
+    a.setLocalSetting('sound:tick', 'none');
     a.setLocalSetting('mapViewport', '52.5,13.4,12');
     a.close();
 
@@ -69,6 +70,8 @@ void main() {
         reason: 'tips already seen must not run again');
     expect(b.localSetting('reminderCatSound'), 'off',
         reason: 'the reminders of every catalog speak with one voice');
+    expect(b.localSetting('sound:tick'), 'none',
+        reason: 'a moment sounds the same whichever catalog is open');
     expect(b.localSetting('mapViewport'), isNull,
         reason: 'Berlin is not Paris');
     b.close();
