@@ -45,6 +45,10 @@ fn pos_key(id: &str) -> String {
     format!("card:{id}")
 }
 
+fn height_key(id: &str) -> String {
+    format!("card:h:{id}")
+}
+
 /// What the keeper did on the desk this frame.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum CardAction {
@@ -54,6 +58,8 @@ pub enum CardAction {
     OpenPage(String),
     /// Everything that ever happened to this one, in a modal.
     OpenTimeline(String),
+    /// Every Cat living in this Clowder, laid on the desk and tiled.
+    OpenAllIn(String),
     /// Something went wrong storing a value.
     Notice(String),
     /// A cat's card opened from a Clowder's card.
@@ -80,6 +86,11 @@ pub struct Desk {
     filter: Option<bool>,
     /// The height one tiled card may take, while the cards lie tiled.
     cell: Option<f32>,
+    /// Set by Stack: lay the cards' layers in the cascade's order on the
+    /// next frame, the first card at the back.
+    restack: bool,
+    /// A card's own height, when a hand has dragged it.
+    heights: BTreeMap<String, f32>,
 }
 
 impl Desk {
@@ -118,6 +129,11 @@ impl Desk {
             .map(String::from)
             .collect();
         for id in &self.open {
+            if let Some(saved) = store.local_setting(&height_key(id))
+                && let Ok(height) = saved.parse::<f32>()
+            {
+                self.heights.insert(id.clone(), height);
+            }
             if let Some(saved) = store.local_setting(&pos_key(id))
                 && let Some((x, y)) = saved.split_once(',')
                 && let (Ok(x), Ok(y)) = (x.parse::<f32>(), y.parse::<f32>())
@@ -199,9 +215,12 @@ impl Desk {
         let defs: Vec<FieldDef> = store.field_defs(Some(FieldScope::Cat)).unwrap_or_default();
         let chosen = card_keys(store);
         let raise = self.raise.take();
+        let restack = std::mem::take(&mut self.restack);
         let mut closing: Option<String> = None;
         let mut opening: Option<String> = None;
         let mut moved: Vec<(String, Pos2, bool)> = Vec::new();
+        let mut dragged: Option<(String, f32)> = None;
+        let mut settled: Option<String> = None;
         for id in self.open.clone() {
             if self
                 .filter
@@ -228,10 +247,12 @@ impl Desk {
                 // the area is told it may be as tall as a card may grow.
                 .default_size(Vec2::new(
                     CARD_WIDTH + 26.0,
-                    self.body_height(desk.height()) + 48.0,
+                    self.body_height(&id, desk.height()) + 48.0,
                 ))
                 .current_pos(desk.min + rel.to_vec2() + slide);
-            if raise.as_deref() == Some(id.as_str()) {
+            if restack || raise.as_deref() == Some(id.as_str()) {
+                // In the open set's order, so the last card laid down in
+                // the cascade ends up in front of the ones above it.
                 ctx.move_to_top(egui::LayerId::new(egui::Order::Middle, area_id));
             }
             let out = area.show(&ctx, |ui| {
@@ -256,9 +277,27 @@ impl Desk {
                         // fit under the cap scrolls inside the card, so a
                         // record with ten long values is still a card a
                         // hand can move.
+                        // A scrollbar that takes width would make the rows
+                        // end before the title bar does; this one floats
+                        // over them, so the card stays one shape. It is
+                        // always as visible as it gets: a bar that fades
+                        // in and out asks for a repaint forever.
+                        ui.style_mut().spacing.scroll = egui::style::ScrollStyle {
+                            floating: true,
+                            floating_allocated_width: 0.0,
+                            dormant_background_opacity: 0.0,
+                            dormant_handle_opacity: 0.0,
+                            ..egui::style::ScrollStyle::floating()
+                        };
                         egui::ScrollArea::vertical()
                             .id_salt(("card-body", id.as_str()))
-                            .max_height(self.body_height(desk.height()))
+                            // Whether the bar is there must not change the
+                            // layout, or the card flickers between two
+                            // sizes and asks for a repaint forever.
+                            .scroll_bar_visibility(
+                                egui::scroll_area::ScrollBarVisibility::AlwaysVisible,
+                            )
+                            .max_height(self.body_height(&id, desk.height()))
                             .auto_shrink([false, true])
                             .show(ui, |ui| {
                                 egui::Frame::new().inner_margin(12.0).show(ui, |ui| {
@@ -270,6 +309,30 @@ impl Desk {
                                     }
                                 });
                             });
+                        // The bottom edge is a handle: a card that was
+                        // made small can be made big again.
+                        let (handle, drag) = ui.allocate_exact_size(
+                            Vec2::new(CARD_WIDTH + 24.0, 8.0),
+                            egui::Sense::drag(),
+                        );
+                        if ui.is_rect_visible(handle) {
+                            let grip =
+                                egui::Rect::from_center_size(handle.center(), Vec2::new(36.0, 3.0));
+                            ui.painter().rect_filled(grip, 1.5, PALETTE.tan);
+                        }
+                        let drag = drag
+                            .on_hover_cursor(egui::CursorIcon::ResizeVertical)
+                            .on_hover_text(t.card_height());
+                        let words = t.card_height().to_string();
+                        drag.widget_info(|| {
+                            egui::WidgetInfo::labeled(egui::WidgetType::Other, true, &words)
+                        });
+                        if drag.dragged() {
+                            dragged = Some((id.clone(), drag.drag_delta().y));
+                        }
+                        if drag.drag_stopped() {
+                            settled = Some(id.clone());
+                        }
                         match a {
                             CardEvent::None => {}
                             CardEvent::Close => closing = Some(id.clone()),
@@ -283,6 +346,16 @@ impl Desk {
                 let now = Pos2::new(now.x.round().max(0.0), now.y.round().max(0.0));
                 moved.push((id.clone(), now, out.response.drag_stopped()));
             }
+        }
+        if let Some((id, by)) = dragged {
+            let cap = body_cap(desk.height());
+            let now = self.body_height(&id, desk.height()) + by;
+            self.heights.insert(id, now.clamp(80.0, cap));
+        }
+        if let Some(id) = settled
+            && let Some(height) = self.heights.get(&id)
+        {
+            let _ = store.set_local_setting(&height_key(&id), &format!("{height}"));
         }
         for (id, pos, done) in moved {
             self.positions.insert(id.clone(), pos);
@@ -305,11 +378,13 @@ impl Desk {
 
     /// How tall a card's body may be: the desk's cap, or the tile's
     /// cell while the cards lie tiled.
-    fn body_height(&self, desk_height: f32) -> f32 {
+    fn body_height(&self, id: &str, desk_height: f32) -> f32 {
         let cap = body_cap(desk_height);
-        match self.cell {
-            Some(cell) => cap.min((cell - 56.0).max(80.0)),
-            None => cap,
+        match (self.cell, self.heights.get(id)) {
+            // While the cards lie tiled, the cell decides.
+            (Some(cell), _) => cap.min((cell - 56.0).max(80.0)),
+            (None, Some(own)) => own.min(cap),
+            (None, None) => cap,
         }
     }
 
@@ -372,6 +447,11 @@ impl Desk {
             self.place(store, id, Pos2::new(step, step));
             ctx.memory_mut(|m| m.areas_mut().move_to_top(Self::layer(id)));
         }
+        // The order is set again while the cards are drawn: a card that
+        // was not on top of the pile before keeps egui's old order
+        // otherwise, and the pile reads neither front to back nor back
+        // to front.
+        self.restack = true;
     }
 
     /// Close all: the desk is bare; the table is where they come back from.
@@ -868,6 +948,10 @@ impl Desk {
             e = Some(CardEvent::Action(CardAction::OpenTimeline(id.to_string())));
             ui.close();
         }
+        if icons::button(ui, icons::PETS_OUTLINED, t.open_all_pets()).clicked() {
+            e = Some(CardEvent::Action(CardAction::OpenAllIn(id.to_string())));
+            ui.close();
+        }
         ui.separator();
         let defs: Vec<FieldDef> = store
             .field_defs(Some(FieldScope::Clowder))
@@ -942,6 +1026,16 @@ impl Desk {
         // The first pen on a cat's card is where the edit tip points.
         let mut anchored = false;
         let tiles = &mut self.tiles;
+        // How many rows there will be, so the last one draws no line.
+        let row_count = defs
+            .iter()
+            .filter(|def| {
+                chosen.is_none_or(|c| c.contains(&def.key()))
+                    && (store.current(id, &def.key()).ok().flatten().is_some()
+                        || store.is_withheld(id, &def.key()).unwrap_or(false))
+            })
+            .count();
+        let mut rows = 0usize;
         let edit = |slug: &str| {
             Some(CardEvent::Action(CardAction::Page(PageAction::Edit(
                 id.to_string(),
@@ -950,10 +1044,13 @@ impl Desk {
         };
         egui::Grid::new(("card-fields", id))
             .num_columns(2)
-            // Measured columns, not the longest value's: a row is then as
-            // wide as the card, and its stripe reaches the edge.
+            // Measured columns, not the longest value's, so a row is as
+            // wide as the card.
             .min_col_width(NAME_WIDTH)
-            .spacing([12.0, 4.0])
+            .spacing([12.0, 10.0])
+            // Alternating colours on a handful of values read as noise;
+            // a hairline under each row says the same thing quietly.
+            .striped(false)
             .show(ui, |ui| {
                 for def in defs {
                     if chosen.is_some_and(|c| !c.contains(&def.key())) {
@@ -984,43 +1081,57 @@ impl Desk {
                     } else {
                         field_value_display(t, Some(def), Some(raw.as_str()), units)
                     };
-                    ui.horizontal_top(|ui| {
-                        // The value takes the row but for the two buttons,
-                        // and wraps rather than being cut off.
-                        ui.allocate_ui_with_layout(
-                            egui::vec2(VALUE_WIDTH, 0.0),
-                            egui::Layout::top_down(egui::Align::LEFT),
-                            |ui| {
-                                // Held to its width, short value or long,
-                                // so the pen and the ⋮ line up down the
-                                // card and the stripe reaches the edge.
-                                ui.set_min_width(VALUE_WIDTH);
-                                ui.add(egui::Label::new(shown).wrap());
-                                trend(ui, store, t, id, def);
-                                if def.field_type == FieldType::Location {
-                                    place(ui, t, tiles, &raw);
-                                }
-                            },
-                        );
-                        let pen = icons::icon_button(ui, icons::EDIT_OUTLINED, t.edit_value());
-                        if !anchored && id.starts_with("cat:") {
-                            crate::tips::anchor(ui, "cat-edit", &pen);
-                            anchored = true;
-                        }
-                        if pen.clicked() {
-                            event = edit(&def.slug);
-                        }
-                        // The menu holds what the pen does not: the history.
-                        icons::more_labeled(ui, t.value_actions(), |ui| {
-                            if ui.button(t.show_history()).clicked() {
-                                event = Some(CardEvent::Action(CardAction::Page(
-                                    PageAction::History(id.to_string(), def.slug.clone()),
-                                )));
-                                ui.close();
+                    let row = ui
+                        .horizontal_top(|ui| {
+                            // The value takes the row but for the two buttons,
+                            // and wraps rather than being cut off.
+                            ui.allocate_ui_with_layout(
+                                egui::vec2(VALUE_WIDTH, 0.0),
+                                egui::Layout::top_down(egui::Align::LEFT),
+                                |ui| {
+                                    // Held to its width, short value or long,
+                                    // so the pen and the ⋮ line up down the
+                                    // card and the stripe reaches the edge.
+                                    ui.set_min_width(VALUE_WIDTH);
+                                    ui.add(egui::Label::new(shown).wrap());
+                                    trend(ui, store, t, id, def);
+                                    if def.field_type == FieldType::Location {
+                                        place(ui, t, tiles, &raw);
+                                    }
+                                },
+                            );
+                            let pen = icons::icon_button(ui, icons::EDIT_OUTLINED, t.edit_value());
+                            if !anchored && id.starts_with("cat:") {
+                                crate::tips::anchor(ui, "cat-edit", &pen);
+                                anchored = true;
                             }
-                        });
-                    });
+                            if pen.clicked() {
+                                event = edit(&def.slug);
+                            }
+                            // The menu holds what the pen does not: the history.
+                            icons::more_labeled(ui, t.value_actions(), |ui| {
+                                if ui.button(t.show_history()).clicked() {
+                                    event = Some(CardEvent::Action(CardAction::Page(
+                                        PageAction::History(id.to_string(), def.slug.clone()),
+                                    )));
+                                    ui.close();
+                                }
+                            });
+                        })
+                        .response
+                        .rect;
+                    // A hairline under the row, all the way across the
+                    // card, in place of the alternating colours.
+                    if rows + 1 < row_count {
+                        let left = row.left() - NAME_WIDTH - 12.0;
+                        ui.painter().hline(
+                            left..=row.right(),
+                            row.bottom() + 5.0,
+                            egui::Stroke::new(1.0, PALETTE.tan),
+                        );
+                    }
                     ui.end_row();
+                    rows += 1;
                 }
             });
         // The Fields this one has nothing in, each a click from a value.
@@ -1128,19 +1239,17 @@ impl Desk {
             }
         });
         ui.separator();
+        let pet_mode = store.is_pet_mode().unwrap_or(false);
         page(
             ui,
             &mut event,
             icons::DRIVE_FILE_MOVE_OUTLINE,
-            t.move_to(),
+            if pet_mode {
+                t.move_to_home_neutral()
+            } else {
+                t.move_to_home()
+            },
             PageAction::Move(id.to_string()),
-        );
-        page(
-            ui,
-            &mut event,
-            icons::MY_LOCATION,
-            t.seen_here_now(),
-            PageAction::Sighting(id.to_string()),
         );
         page(
             ui,

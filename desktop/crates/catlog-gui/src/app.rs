@@ -968,6 +968,17 @@ impl App {
                             CardAction::Page(a) => page_action = a,
                             CardAction::OpenPage(id) => self.open_modal(Modal::Page(id)),
                             CardAction::OpenTimeline(id) => self.open_modal(Modal::Timeline(id)),
+                            CardAction::OpenAllIn(clowder) => {
+                                let cats: Vec<String> = self
+                                    .store
+                                    .cats(Some(&clowder))
+                                    .unwrap_or_default()
+                                    .into_iter()
+                                    .map(|c| c.id)
+                                    .collect();
+                                self.desk.open(&self.store, &cats);
+                                self.desk.tile(&self.store);
+                            }
                             CardAction::Notice(e) => self.notice = Some(e),
                             CardAction::Opened(id) => self.home.selection = Selection::Cat(id),
                         }
@@ -5609,7 +5620,7 @@ mod tests {
         assert!(h.state().appointment_dialog.open);
         h.key_press(egui::Key::Escape);
         h.run();
-        menu(&mut h, "Move to");
+        menu(&mut h, "Move to another home");
         assert!(h.state().mover.open);
         h.key_press(egui::Key::Escape);
         h.run();
@@ -6116,6 +6127,122 @@ mod tests {
                 .join("catlog-altona.catsync")
                 .exists(),
             "and its keepsake file was written first"
+        );
+    }
+
+    #[test]
+    fn a_card_s_height_is_dragged_and_remembered_and_stacking_orders_the_pile() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut app = seeded(dir.path());
+        app.store_mut()
+            .append(miezi, "f:remarks", Some(&"a long tale ".repeat(60)))
+            .unwrap();
+        let mut h = sized_harness(app, egui::vec2(1500.0, 900.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        let tall = h
+            .ctx
+            .read_response(egui::Id::new(("card", miezi)))
+            .unwrap()
+            .rect
+            .height();
+        // The handle at the bottom edge pulls the card shorter.
+        let grip = |h: &mut Harness<'static, App>| {
+            h.get_by_label("Drag to make the card taller or shorter")
+                .rect()
+                .center()
+        };
+        let from = grip(&mut h);
+        h.drag_at(from);
+        h.step();
+        h.hover_at(from - egui::vec2(0.0, 120.0));
+        h.step();
+        h.drop_at(from - egui::vec2(0.0, 120.0));
+        h.run();
+        let short = h
+            .ctx
+            .read_response(egui::Id::new(("card", miezi)))
+            .unwrap()
+            .rect
+            .height();
+        assert!(short < tall, "{short} is shorter than {tall}");
+        assert!(
+            h.state()
+                .store()
+                .local_setting(&format!("card:h:{miezi}"))
+                .is_some(),
+            "and the height is kept"
+        );
+        // And pulls it taller again: a small card is no dead end.
+        let from = grip(&mut h);
+        h.drag_at(from);
+        h.step();
+        h.hover_at(from + egui::vec2(0.0, 200.0));
+        h.step();
+        h.drop_at(from + egui::vec2(0.0, 200.0));
+        h.run();
+        let again = h
+            .ctx
+            .read_response(egui::Id::new(("card", miezi)))
+            .unwrap()
+            .rect
+            .height();
+        assert!(again > short, "{again} is taller than {short}");
+        // Stack lays the pile in the cascade's order, the last in front.
+        h.get_all_by_label("Tom").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Stack").click();
+        h.run();
+        let ctx = h.state().ctx.clone().unwrap();
+        assert_eq!(h.state().desk.front(&ctx).as_deref(), Some(tom));
+    }
+
+    #[test]
+    fn a_home_lays_all_its_cats_on_the_desk_and_the_menu_says_what_moving_means() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1800.0, 900.0));
+        h.run();
+        open_view(&mut h, "Clowders");
+        h.get_all_by_label("Foster Home").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Open all pets").click_accesskit();
+        h.run();
+        let open = h.state().desk.open.clone();
+        assert!(open.contains(&foster.to_string()));
+        for cat in h.state().store().cats(Some(foster)).unwrap() {
+            assert!(open.contains(&cat.id), "{} is on the desk", cat.name);
+        }
+        // Tiled as they are laid down: none of them overlap.
+        let desk = h.state().desk.size();
+        for id in &open {
+            let at = h.state().desk.position(id).unwrap();
+            assert!(at.x < desk.x && at.y < desk.y, "{id} is on the desk");
+        }
+        // A cat's menu says what moving means, and offers no "here".
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Move to another home");
+        assert!(
+            h.query_by_label("Seen here now").is_none(),
+            "a desk has no here"
         );
     }
 
