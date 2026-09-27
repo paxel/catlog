@@ -236,7 +236,9 @@ pub struct App {
     going_back: Option<catlog_core::moments::Moment>,
     archiving: Option<Vec<String>>,
     hard_deleting: Option<(String, String)>,
-    deleting_catalog: bool,
+    /// The Catalog the confirmation on screen names, so what is deleted
+    /// is what was asked about — not whatever row was last clicked.
+    deleting_catalog: Option<String>,
     /// The rows a keeper asked to delete, waiting for the confirmation.
     deleting_marked: Option<Vec<String>>,
     pub transfer_dialog: TransferDialog,
@@ -410,7 +412,7 @@ impl App {
             going_back: None,
             archiving: None,
             hard_deleting: None,
-            deleting_catalog: false,
+            deleting_catalog: None,
             deleting_marked: None,
             transfer_dialog: TransferDialog::default(),
             now: Box::new(|| chrono::Local::now().naive_local()),
@@ -1132,8 +1134,8 @@ impl App {
                 self.cats.selected.clear();
                 self.clowders.selected.clear();
             }
-            if std::mem::take(&mut self.deleting_catalog) {
-                match self.catalogs_page.chosen.clone() {
+            if let Some(named) = self.deleting_catalog.take() {
+                match Some(named) {
                     // Another Catalog goes without ceremony; it is not
                     // the one being worked in.
                     Some(id) if id != self.manager.active().id => {
@@ -1169,13 +1171,14 @@ impl App {
             }
         }
         if !self.confirm.open {
+            self.deleting_catalog = None;
             self.deleting_marked = None;
             self.deleting_photo = None;
             self.ending_chore = None;
             self.going_back = None;
             self.archiving = None;
             self.hard_deleting = None;
-            self.deleting_catalog = false;
+            self.deleting_catalog = None;
         }
         match self.viewer.show(ui.ctx(), &self.store, &t, &mut self.faces) {
             ViewerAction::None => {}
@@ -2681,7 +2684,7 @@ impl App {
                         &t.delete_catalog_body(&name),
                         t.delete(),
                     );
-                    self.deleting_catalog = true;
+                    self.deleting_catalog = Some(id.clone());
                     self.catalogs_page.chosen = Some(id);
                 }
                 CatalogsAction::ChooseFolder => {
@@ -2999,13 +3002,15 @@ impl App {
                 );
             }
             SettingsAction::DeleteCatalog => {
-                let name = self.manager.active().name.clone();
+                let active = self.manager.active().clone();
                 self.confirm.ask(
                     t.delete_catalog(),
-                    &t.delete_catalog_body(&name),
+                    &t.delete_catalog_body(&active.name),
                     t.delete(),
                 );
-                self.deleting_catalog = true;
+                // The one named in the question, not whichever row the
+                // Catalogs page was last left on.
+                self.deleting_catalog = Some(active.id);
             }
             SettingsAction::EyeCandy(on) => {
                 self.settings.settings.eye_candy = on;
@@ -6284,6 +6289,58 @@ mod tests {
         assert!(
             bottom <= desk.y,
             "the tiled cards reach {bottom}, past the desk of {desk:?}"
+        );
+    }
+
+    #[test]
+    fn a_delete_takes_the_catalog_the_question_named() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.backups_dir = dir.path().join("downloads");
+        let mut h = harness(app);
+        h.run();
+        // A second catalog, and something in it, so a delete has a file
+        // to write first.
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        h.state_mut()
+            .store_mut()
+            .create_cat("cat:x", "Kater", None, "cat")
+            .unwrap();
+        h.run();
+        assert_eq!(h.state().title(), "Leipzig");
+        // Look at the other catalog on the page — looking is not asking.
+        h.get_all_by_label("Clowders").last().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // Now delete from Settings, which asks about the open one.
+        h.state_mut().open_settings();
+        h.run();
+        h.get_by_label("Delete catalog").click_accesskit();
+        h.run();
+        assert!(
+            h.get_all_by_label_contains("Leipzig").count() > 0,
+            "the question names the catalog that is open"
+        );
+        h.get_all_by_label("Delete").last().unwrap().click();
+        h.run();
+        let left: Vec<String> = h
+            .state()
+            .manager()
+            .catalogs()
+            .iter()
+            .map(|c| c.name.clone())
+            .collect();
+        assert_eq!(
+            left,
+            ["Clowders"],
+            "the one the question named went, not the one that was looked at"
         );
     }
 
