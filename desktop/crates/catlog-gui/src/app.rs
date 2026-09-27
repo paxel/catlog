@@ -247,6 +247,8 @@ pub struct App {
     /// The dashboard's and the agenda's data between frames.
     dashboard_memo: dashboard::DashboardMemo,
     agenda_memo: crate::agenda::AgendaMemo,
+    /// One entity's whole timeline, between frames.
+    timeline_memo: crate::memo::Memo<(String, String), Vec<crate::pages::TimelineLine>>,
     asking: Asking,
     /// The name typed on the intro page.
     intro_name: String,
@@ -407,6 +409,7 @@ impl App {
             last_reminder_check: chrono::Local::now().naive_local(),
             dashboard_memo: dashboard::DashboardMemo::default(),
             agenda_memo: crate::agenda::AgendaMemo::default(),
+            timeline_memo: crate::memo::Memo::default(),
             asking: Asking::Nothing,
             request: Request::None,
             ctx: None,
@@ -2591,7 +2594,16 @@ impl App {
                 }
             },
             Modal::Timeline(id) => {
-                crate::pages::show_timeline(ui, &self.store, &t, self.pages.units, &id);
+                // Built once per write of the store: walking the whole
+                // log on every frame is what made this unusably slow.
+                let units = self.pages.units;
+                let lines = self
+                    .timeline_memo
+                    .get(&self.store, (id.clone(), t.locale().to_string()), || {
+                        crate::pages::timeline_lines(&self.store, &t, units, &id)
+                    })
+                    .clone();
+                crate::pages::show_timeline(ui, &self.store, &t, &id, &lines);
             }
             Modal::Help => self.show_help(ui),
             Modal::About => self.show_about(ui),
@@ -3627,7 +3639,7 @@ mod tests {
             2,
             "the graph's axis names it and the diary lists it"
         );
-        h.get_by_label("1 month").click();
+        h.get_by_label("Month").click();
         h.run();
         assert_eq!(
             h.state().store().local_setting("graphRange").as_deref(),
@@ -3638,7 +3650,7 @@ mod tests {
             1,
             "outside the month the graph drops it; the diary keeps it"
         );
-        h.get_by_label("All").click();
+        h.get_all_by_label("All").last().unwrap().click();
         h.run();
         assert_eq!(old_day(&mut h), 2);
         assert_eq!(
@@ -6313,6 +6325,56 @@ mod tests {
         h.run();
         let ctx = h.state().ctx.clone().unwrap();
         assert_eq!(h.state().desk.front(&ctx).as_deref(), Some(tom));
+    }
+
+    #[test]
+    fn a_timeline_is_built_once_per_write_and_the_ranges_are_the_phone_s() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.state_mut().open_modal(Modal::Timeline(miezi.into()));
+        h.run();
+        h.get_by_label_contains("Miezi · Timeline");
+        // Several frames, one walk of the log: the memo holds the lines.
+        let built = h.state().store().generation();
+        h.run();
+        h.step();
+        assert_eq!(
+            h.state().store().generation(),
+            built,
+            "nothing was written, so nothing was built again"
+        );
+        // A value written while it is open does show up.
+        h.state_mut()
+            .store_mut()
+            .append(miezi, "f:remarks", Some("sat in the sun"))
+            .unwrap();
+        h.run();
+        assert!(h.get_all_by_label_contains("sat in the sun").count() > 0);
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // The graph's ranges are the phone's five, under its own setting.
+        let def = h.state().store().field_def("weight").unwrap().unwrap();
+        h.state_mut()
+            .store_mut()
+            .append(miezi, &def.key(), Some("4200"))
+            .unwrap();
+        h.state_mut().open_history(miezi, "weight");
+        h.run();
+        for words in ["Week", "Month", "Year", "All", "Custom…"] {
+            assert!(
+                h.get_all_by_label_contains(words).count() > 0,
+                "the graph offers {words}"
+            );
+        }
+        h.get_by_label("Week").click();
+        h.run();
+        assert_eq!(
+            h.state().store().local_setting("graphRange").as_deref(),
+            Some("week"),
+            "written as the phone writes it"
+        );
     }
 
     #[test]

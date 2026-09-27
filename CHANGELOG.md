@@ -11,6 +11,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A home's card can lay every pet living in it on the desk at once and tile them.
 
 ### Fixed
+- The timeline opens at once: it used to walk the whole log again on every frame, which made it unusable on a real catalog.
+- The desk's graph offers the phone's ranges — week, month, year, all and a custom from/to — and writes them under the phone's own setting, so a catalog opened on either shows what was picked on the other.
 - The home a cat is in now is named plainly in the Move dialog; it used to carry a tick this font has not, which drew as an empty box.
 
 ### Changed

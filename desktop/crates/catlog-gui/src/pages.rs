@@ -5,7 +5,7 @@
 
 use catlog_core::fields::{FieldDef, FieldScope, FieldType, IdDisplay};
 use catlog_core::units::UnitSystem;
-use catlog_core::{Catalog, EntityView, Entry, keys};
+use catlog_core::{Catalog, EntityView, keys};
 use egui::{Ui, Vec2};
 
 use crate::agenda::{AppointmentAction, appointment_card};
@@ -699,7 +699,44 @@ impl Pages {
 /// the day over its entries, as a Field's own history reads. It used to
 /// hang at the foot of the page, where a keeper looking for it had to
 /// scroll past everything else.
-pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, units: UnitSystem, id: &str) {
+/// One line of a timeline, built once per write of the store: the day
+/// it belongs under, what changed, and who changed it.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TimelineLine {
+    pub day: String,
+    pub what: String,
+    pub who: String,
+}
+
+/// Everything that ever happened to one Cat or Clowder, newest first.
+/// Walking the log and wording every line is far too much work to do on
+/// every frame, so the app holds the answer between them.
+pub fn timeline_lines(store: &Catalog, t: &L10n, units: UnitSystem, id: &str) -> Vec<TimelineLine> {
+    store
+        .timeline(id, false)
+        .unwrap_or_default()
+        .iter()
+        .take(200)
+        .map(|e| {
+            let on = chrono::DateTime::parse_from_rfc3339(&e.date)
+                .map(|d| d.date_naive())
+                .ok();
+            TimelineLine {
+                day: on
+                    .map(|d| format_day(t.locale(), d))
+                    .unwrap_or_else(|| e.date.clone()),
+                what: crate::labels::change_line(t, store, &e.field, e.value.as_deref(), units, on),
+                who: e.author.clone(),
+            }
+        })
+        .collect()
+}
+
+/// Everything that ever happened to one Cat or Clowder, newest first:
+/// the day over its entries, as a Field's own history reads. It used to
+/// hang at the foot of the page, where a keeper looking for it had to
+/// scroll past everything else.
+pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, id: &str, lines: &[TimelineLine]) {
     let name = store
         .current(id, catlog_core::keys::NAME)
         .ok()
@@ -707,20 +744,13 @@ pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, units: UnitSystem, 
         .unwrap_or_else(|| t.unnamed().to_string());
     ui.set_min_width(480.0);
     ui.heading(format!("{name} · {}", t.timeline()));
-    let entries: Vec<Entry> = store.timeline(id, false).unwrap_or_default();
-    let mut day_shown = String::new();
-    for e in entries.iter().take(200) {
-        let on = chrono::DateTime::parse_from_rfc3339(&e.date)
-            .map(|d| d.date_naive())
-            .ok();
-        let day = on
-            .map(|d| format_day(t.locale(), d))
-            .unwrap_or_else(|| e.date.clone());
-        if day != day_shown {
+    let mut day_shown = "";
+    for line in lines {
+        if line.day != day_shown {
             ui.add_space(10.0);
-            ui.label(egui::RichText::new(&day).strong());
+            ui.label(egui::RichText::new(&line.day).strong());
             ui.separator();
-            day_shown = day;
+            day_shown = &line.day;
         }
         let width = (ui.available_width() - 160.0).max(200.0);
         ui.horizontal_top(|ui| {
@@ -729,20 +759,10 @@ pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, units: UnitSystem, 
                 egui::Layout::top_down(egui::Align::LEFT),
                 |ui| {
                     ui.set_min_width(width);
-                    ui.add(
-                        egui::Label::new(crate::labels::change_line(
-                            t,
-                            store,
-                            &e.field,
-                            e.value.as_deref(),
-                            units,
-                            on,
-                        ))
-                        .wrap(),
-                    );
+                    ui.add(egui::Label::new(&line.what).wrap());
                 },
             );
-            ui.label(egui::RichText::new(&e.author).weak());
+            ui.label(egui::RichText::new(&line.who).weak());
         });
     }
 }

@@ -7,6 +7,7 @@ use catlog_core::fields::{FieldDef, FieldType};
 use catlog_core::graph::{smooth_curve, trend_line};
 use catlog_core::units::UnitSystem;
 use catlog_core::{Catalog, Entry};
+use chrono::NaiveDate;
 use egui::{Color32, Pos2, Rect, Stroke, Ui, Vec2};
 
 use crate::graph_image::GraphSheet;
@@ -36,44 +37,58 @@ const OLDEST_FIRST_KEY: &str = "historyOldestFirst";
 const SHOW_VOIDED_KEY: &str = "historyShowVoided";
 const SMOOTH_KEY: &str = "graphSmooth";
 const RANGE_KEY: &str = "graphRange";
+const RANGE_FROM_KEY: &str = "graphRange:from";
+const RANGE_TO_KEY: &str = "graphRange:to";
 const TREND_KEY: &str = "graphTrend";
 
-/// How far back a graph looks, remembered per device.
+/// How far back a graph looks, remembered per device — the phone's own
+/// set, under the phone's own setting, so a catalog opened on either
+/// shows what was picked on the other.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum Range {
+    Week,
     Month,
-    HalfYear,
     Year,
     All,
+    Custom,
 }
 
 impl Range {
-    const ALL: [Range; 4] = [Range::Month, Range::HalfYear, Range::Year, Range::All];
+    const ALL: [Range; 5] = [
+        Range::Week,
+        Range::Month,
+        Range::Year,
+        Range::All,
+        Range::Custom,
+    ];
 
     fn stored(self) -> &'static str {
         match self {
+            Range::Week => "week",
             Range::Month => "month",
-            Range::HalfYear => "halfYear",
             Range::Year => "year",
             Range::All => "all",
+            Range::Custom => "custom",
         }
     }
 
     fn of(store: &Catalog) -> Range {
         match store.local_setting(RANGE_KEY).as_deref() {
+            Some("week") => Range::Week,
             Some("month") => Range::Month,
-            Some("halfYear") => Range::HalfYear,
             Some("year") => Range::Year,
+            Some("custom") => Range::Custom,
             _ => Range::All,
         }
     }
 
     fn words(self, t: &L10n) -> &'static str {
         match self {
+            Range::Week => t.range_week(),
             Range::Month => t.range_month(),
-            Range::HalfYear => t.range_half_year(),
             Range::Year => t.range_year(),
             Range::All => t.range_all(),
+            Range::Custom => t.range_custom(),
         }
     }
 
@@ -81,14 +96,36 @@ impl Range {
     /// that a cat who died last year still has a graph.
     fn days(self) -> Option<i64> {
         match self {
+            Range::Week => Some(7),
             Range::Month => Some(31),
-            Range::HalfYear => Some(183),
             Range::Year => Some(365),
-            Range::All => None,
+            Range::All | Range::Custom => None,
         }
     }
 
-    fn keep(self, points: &[catlog_core::GraphPoint]) -> Vec<catlog_core::GraphPoint> {
+    /// The readings this range keeps. A custom range is absolute: the
+    /// two days the keeper typed, under the phone's own settings.
+    fn keep(
+        self,
+        store: &Catalog,
+        points: &[catlog_core::GraphPoint],
+    ) -> Vec<catlog_core::GraphPoint> {
+        if self == Range::Custom {
+            let day = |key: &str| {
+                store
+                    .local_setting(key)
+                    .and_then(|raw| raw.get(..10).and_then(|d| d.parse::<NaiveDate>().ok()))
+                    .and_then(|d| d.and_hms_opt(0, 0, 0))
+                    .map(|d| d.and_utc().timestamp_millis())
+            };
+            let from = day(RANGE_FROM_KEY);
+            let to = day(RANGE_TO_KEY).map(|ms| ms + 24 * 60 * 60 * 1000);
+            return points
+                .iter()
+                .filter(|p| from.is_none_or(|f| p.at >= f) && to.is_none_or(|t| p.at <= t))
+                .cloned()
+                .collect();
+        }
         let Some(days) = self.days() else {
             return points.to_vec();
         };
@@ -259,7 +296,25 @@ impl HistoryPage {
                 }
             }
         });
-        let points = range.keep(&all);
+        let points = range.keep(store, &all);
+        // A custom range is two days, typed as the phone types them.
+        if range == Range::Custom {
+            ui.horizontal(|ui| {
+                for key in [RANGE_FROM_KEY, RANGE_TO_KEY] {
+                    let mut day = store.local_setting(key).unwrap_or_default();
+                    if ui
+                        .add(
+                            egui::TextEdit::singleline(&mut day)
+                                .desired_width(110.0)
+                                .hint_text("2026-01-31"),
+                        )
+                        .changed()
+                    {
+                        let _ = store.set_local_setting(key, &day);
+                    }
+                }
+            });
+        }
         if points.len() < 2 {
             return None;
         }
