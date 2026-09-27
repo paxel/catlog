@@ -158,4 +158,22 @@ void main() {
     expect(fullCalls, 1);
     expect(result, [big]);
   });
+
+  testWidgets('a full-size frame that fails leaves the small one', (
+    tester,
+  ) async {
+    final small = _jpeg(64, 48);
+    List<Uint8List>? result;
+    await open(
+      tester,
+      extractFrame: (_) async => small,
+      extractFull: (_) async => throw Exception('no decoder'),
+      onResult: (r) => result = r,
+    );
+    await tester.tap(find.text('Keep this frame'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Save'));
+    await tester.pumpAndSettle();
+    expect(result, [small]);
+  });
 }

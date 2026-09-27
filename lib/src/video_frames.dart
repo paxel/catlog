@@ -132,7 +132,15 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
     final full = widget.extractFull ?? widget.extractFrame;
     final kept = <Uint8List>[];
     for (final ms in _kept.keys.toList()..sort()) {
-      kept.add(await full(ms) ?? _kept[ms]!);
+      Uint8List? whole;
+      try {
+        whole = await full(ms);
+      } catch (_) {
+        // The full-size frame failed: the small one the keeper picked
+        // stands in for it, rather than a spinner that never ends.
+        whole = null;
+      }
+      kept.add(whole ?? _kept[ms]!);
     }
     if (!mounted) return;
     Navigator.of(context).pop(kept);
