@@ -187,6 +187,7 @@ pub struct AgendaData {
 pub type AgendaMemo = Memo<NaiveDate, AgendaData>;
 
 /// The page: the sections as cards, the plans as two-line rows.
+#[allow(clippy::too_many_arguments)]
 pub fn show_agenda(
     ui: &mut Ui,
     store: &Catalog,
@@ -194,6 +195,9 @@ pub fn show_agenda(
     faces: &mut FaceCache,
     memo: &mut AgendaMemo,
     today: NaiveDate,
+    // The app's own clock, so the line across the hour it is stands
+    // where a test says it does and not where the machine's clock does.
+    now: chrono::NaiveDateTime,
 ) -> AgendaAction {
     let mut action = AgendaAction::None;
     let data = memo.get(store, today, || {
@@ -334,7 +338,7 @@ pub fn show_agenda(
             ui.separator();
             let entries = day_entries(store, t, &data.items, &data.chores, anchor, mode, today);
             if let Some(entity) = match mode {
-                Calendar::Week => week_view(ui, t, &entries, anchor, today),
+                Calendar::Week => week_view(ui, t, &entries, anchor, today, now),
                 Calendar::Month => month_view(ui, t, &entries, anchor, today),
             } {
                 opened = Some(entity);
@@ -626,6 +630,7 @@ fn week_view(
     entries: &[DayEntry],
     anchor: NaiveDate,
     today: NaiveDate,
+    now: chrono::NaiveDateTime,
 ) -> Option<String> {
     let (first, days) = span(anchor, Calendar::Week);
     let mut opened = None;
@@ -673,8 +678,7 @@ fn week_view(
     if ui.ctx().data(|d| d.get_temp::<bool>(scrolled)) != Some(true) {
         ui.ctx().data_mut(|d| d.insert_temp(scrolled, true));
         use chrono::Timelike;
-        let now = chrono::Local::now().time();
-        let at = (now.hour() as f32 - 1.0).max(0.0) * HOUR;
+        let at = (now.time().hour() as f32 - 1.0).max(0.0) * HOUR;
         scroll = scroll.vertical_scroll_offset(at);
     }
     scroll.show(ui, |ui| {
@@ -710,9 +714,8 @@ fn week_view(
         }
         // Where the day has got to, when today is in view.
         if (first..first + chrono::Duration::days(days)).contains(&today) {
-            let now = chrono::Local::now().time();
             use chrono::Timelike;
-            let minutes = now.hour() as f32 * 60.0 + now.minute() as f32;
+            let minutes = now.time().hour() as f32 * 60.0 + now.time().minute() as f32;
             let y = rect.top() + minutes / 60.0 * HOUR;
             painter.hline(
                 rect.x_range(),

@@ -944,6 +944,7 @@ impl App {
                 }
                 View::Agenda => {
                     let today = self.pages.today;
+                    let now = (self.now)();
                     match show_agenda(
                         ui,
                         &self.store,
@@ -951,6 +952,7 @@ impl App {
                         &mut self.faces,
                         &mut self.agenda_memo,
                         today,
+                        now,
                     ) {
                         AgendaAction::None => {}
                         AgendaAction::Chore(a) => page_action = PageAction::Chore(a),
