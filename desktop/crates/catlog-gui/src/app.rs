@@ -660,6 +660,11 @@ impl App {
         self.manager.set_active(id)?;
         self.home.selection = Selection::None;
         self.desk.reset();
+        // The marks belong to the Catalog they were made in. Carried
+        // over, a bulk action would run against ids this Catalog has
+        // never heard of — and a delete would write them into its log.
+        self.cats.selected.clear();
+        self.clowders.selected.clear();
         self.faces = FaceCache::default();
         self.watch_pending = None;
         self.watch_dismissed = None;
@@ -6289,6 +6294,42 @@ mod tests {
         assert!(
             bottom <= desk.y,
             "the tiled cards reach {bottom}, past the desk of {desk:?}"
+        );
+    }
+
+    #[test]
+    fn marks_do_not_travel_to_another_catalog() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Tom")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::COMMAND);
+        h.run();
+        assert_eq!(h.state().cats.selected.len(), 2);
+        // Another catalog: its table starts with nothing marked, so a
+        // bulk action cannot reach into the one left behind.
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        assert!(
+            h.state().cats.selected.is_empty(),
+            "the marks stayed behind"
+        );
+        open_view(&mut h, "Cats");
+        assert!(
+            h.query_by_label_contains("marked").is_none(),
+            "and nothing claims to be marked"
         );
     }
 
