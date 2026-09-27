@@ -45,7 +45,7 @@ fn pos_key(id: &str) -> String {
     format!("card:{id}")
 }
 
-fn height_key(id: &str) -> String {
+pub(crate) fn height_key(id: &str) -> String {
     format!("card:h:{id}")
 }
 
@@ -350,6 +350,11 @@ impl Desk {
         if let Some((id, by)) = dragged {
             let cap = body_cap(desk.height());
             let now = self.body_height(&id, desk.height()) + by;
+            // A hand on the edge ends the tiling: while the cell
+            // decided, the pull changed nothing on screen and then
+            // saved the cell's own height as the card's, so every pull
+            // started over from the cell.
+            self.cell = None;
             self.heights.insert(id, now.clamp(80.0, cap));
         }
         if let Some(id) = settled

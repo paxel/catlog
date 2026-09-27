@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 - "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
+- Pulling a tiled card's bottom edge changes its height instead of snapping it back to the tile's row, so a card no longer shrinks with every pull.
 - The vet report's preview follows every change again: a new date range, the patient summary switch and a row taken out all redraw it, not only the field chips.
 - An appointment can no longer be saved with nobody to visit; Save stays grey until a cat or a home is picked.
 - Turning the adoption confetti off no longer silences the tick, the day's chores, the ladder and the adoption sounds as well.

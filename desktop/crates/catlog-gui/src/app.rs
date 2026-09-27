@@ -5487,6 +5487,11 @@ mod tests {
             .unwrap()
             .rect()
             .center();
+        drag_from(h, from, delta);
+    }
+
+    /// The same drag, from a place rather than from a label.
+    fn drag_from(h: &mut Harness<'static, App>, from: egui::Pos2, delta: egui::Vec2) {
         let to = from + delta;
         let press = |pos, pressed| egui::Event::PointerButton {
             pos,
@@ -5617,6 +5622,42 @@ mod tests {
                 .local_setting(crate::cards::OPEN_KEY)
                 .as_deref(),
             Some("")
+        );
+    }
+
+    #[test]
+    fn a_pull_on_a_tiled_cards_edge_shortens_it_and_keeps_shortening_it() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1400.0, 900.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Tile").click();
+        h.run();
+        let saved = |h: &Harness<'static, App>| {
+            h.state()
+                .store()
+                .local_setting(&crate::cards::height_key(miezi))
+                .and_then(|v| v.parse::<f32>().ok())
+        };
+        let handle = |h: &mut Harness<'static, App>| {
+            h.get_by_label("Drag to make the card taller or shorter")
+                .rect()
+                .center()
+        };
+        let from = handle(&mut h);
+        drag_from(&mut h, from, egui::vec2(0.0, -16.0));
+        let first = saved(&h).expect("the pull is kept");
+        let from = handle(&mut h);
+        drag_from(&mut h, from, egui::vec2(0.0, -16.0));
+        let second = saved(&h).expect("and so is the next one");
+        assert!(
+            second < first - 8.0,
+            "the card keeps shrinking: {first} then {second}"
         );
     }
 
