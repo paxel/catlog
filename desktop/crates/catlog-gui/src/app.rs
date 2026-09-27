@@ -259,9 +259,11 @@ pub struct App {
     request: Request,
     /// What went wrong last, shown in the detail pane until the next action.
     notice: Option<String>,
-    /// A note that failed stays until it is dismissed; one that only
-    /// says a job is done goes by itself.
-    notice_failed: bool,
+    /// The words of the note that failed, so a later note — set from
+    /// three dozen places that know nothing of this — is read as the
+    /// plain news it is. A note that failed stays until it is
+    /// dismissed; one that only says a job is done goes by itself.
+    notice_failed: Option<String>,
     /// The note on screen and when it appeared, so it can fade.
     notice_shown: Option<String>,
     notice_since: f64,
@@ -425,7 +427,7 @@ impl App {
             request: Request::None,
             ctx: None,
             notice: None,
-            notice_failed: false,
+            notice_failed: None,
             notice_shown: None,
             notice_since: 0.0,
         };
@@ -2469,8 +2471,13 @@ impl App {
 
     /// Something went wrong: the note stays until it is dismissed.
     fn fail(&mut self, what: String) {
+        self.notice_failed = Some(what.clone());
         self.notice = Some(what);
-        self.notice_failed = true;
+    }
+
+    /// Whether the note on screen is the one that went wrong.
+    fn notice_is_failure(&self) -> bool {
+        self.notice.is_some() && self.notice_failed == self.notice
     }
 
     /// A paw at the pointer for a small local success the screen
@@ -2498,13 +2505,14 @@ impl App {
         // A note that only says a job is done has said it after a while;
         // it goes on the next frame, and asks for none of its own — a
         // note that keeps asking for repaints never lets the desk rest.
-        if !self.notice_failed && now - self.notice_since > 6.0 {
+        let failed = self.notice_is_failure();
+        if !failed && now - self.notice_since > 6.0 {
             self.notice = None;
             self.notice_shown = None;
             return;
         }
 
-        let (ground, ink) = if self.notice_failed {
+        let (ground, ink) = if failed {
             (crate::theme::PALETTE.red, egui::Color32::WHITE)
         } else {
             (crate::theme::PALETTE.tan, crate::theme::PALETTE.ink)
@@ -2528,7 +2536,7 @@ impl App {
                     .show(ui, |ui| {
                         ui.horizontal(|ui| {
                             ui.label(egui::RichText::new(&text).color(ink));
-                            if self.notice_failed
+                            if failed
                                 && crate::icons::icon_button(
                                     ui,
                                     crate::icons::CLOSE,
@@ -2544,7 +2552,7 @@ impl App {
         if dismissed {
             self.notice = None;
             self.notice_shown = None;
-            self.notice_failed = false;
+            self.notice_failed = None;
         }
     }
 
@@ -6564,6 +6572,25 @@ mod tests {
             ["Clowders"],
             "the one the question named went, not the one that was looked at"
         );
+    }
+
+    #[test]
+    fn a_note_after_a_failure_is_news_again_and_fades() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        h.state_mut().fail("The photo could not be deleted".into());
+        h.run();
+        assert!(h.state().notice_is_failure(), "red, and it waits for the x");
+        // Any later note is the news it says it is: the red ground and
+        // the x used to stay until someone dismissed them.
+        h.state_mut().notice = Some("Photo added".into());
+        h.run();
+        assert!(!h.state().notice_is_failure());
+        // And it goes by itself once it has been read.
+        h.state_mut().notice_since = -10.0;
+        h.run();
+        assert_eq!(h.state().notice, None, "the news faded");
     }
 
     #[test]
