@@ -113,6 +113,15 @@ fn map() {
 
 #[test]
 #[ignore = "compares PNGs; needs a GPU or lavapipe, CI has one"]
+fn agenda_week() {
+    snapshot("agenda_week", |app| {
+        app.open_view(View::Agenda);
+        let _ = app.store().set_local_setting("agendaCalendar", "week");
+    });
+}
+
+#[test]
+#[ignore = "compares PNGs; needs a GPU or lavapipe, CI has one"]
 fn agenda() {
     snapshot("agenda", |app| app.open_view(View::Agenda));
 }

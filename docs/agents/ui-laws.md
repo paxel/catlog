@@ -74,7 +74,10 @@ a screen that breaks one is a bug, not a style choice.
   thicker frame and the shadow, a section never does. A chore, an
   appointment or a reminder is a two-line row (`plan_row`): bold what
   and when, weak whose with the face and how it stands, the box or the
-  button at the side. No grids or tables for plans.
+  button at the side. No grids or tables for plans — **except a
+  calendar**: a month of cells or a week of hour columns is a shape
+  everyone already reads, and the agenda draws one beside its list. The
+  rule holds everywhere else; a grid is not a way to list plans.
 
 ## Lists and sections
 

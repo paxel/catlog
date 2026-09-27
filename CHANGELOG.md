@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [2.0.6] - Unreleased
 
 ### Added
+- The agenda is a list beside a calendar now, not three tabs: the plans on the left, a month or a week on the right. The week lays the day out hour by hour with an all-day band above it and a line across the time it is; the month gives every day a cell with its all-day things first and the timed ones under them, recurring chores on every day they are due. Back, forward, Today and a month picker steer it, and an entry opens the cat or the home it belongs to.
 - A preview on the desk's document pages: the Card as the picture it becomes, updating as values are ticked on and off, and what will be printed on the missing poster and the vet report.
 - The vet report on the phone is previewed as it will print, the way the missing poster already was.
 - Marking several rows and moving them into another home in one go, from either table.

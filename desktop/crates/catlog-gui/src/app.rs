@@ -4638,9 +4638,20 @@ mod tests {
         h.run();
         assert_eq!(h.state().view(), View::Agenda);
         h.get_by_label("Today: all done");
-        h.get_by_label_contains("Feed twice");
+        // The calendar beside the list carries it too; the list's row is
+        // the left one.
+        let row = |h: &mut Harness<'static, App>| {
+            h.get_all_by_label_contains("Feed twice")
+                .min_by(|a, b| a.rect().left().total_cmp(&b.rect().left()))
+                .expect("the chore is on the agenda")
+                .rect()
+        };
+        assert!(row(&mut h).left() < 600.0);
         // End it after one confirmation: gone from the lists.
-        h.get_by_label_contains("Feed twice").click_secondary();
+        h.get_all_by_label_contains("Feed twice")
+            .min_by(|a, b| a.rect().left().total_cmp(&b.rect().left()))
+            .unwrap()
+            .click_secondary();
         h.step();
         h.get_by_label("End chore").click_accesskit();
         h.run();
@@ -4722,7 +4733,7 @@ mod tests {
             vec![("Neutering".to_string(), "Miezi".to_string())]
         );
         // Finish: Tom was not treated; Miezi's linked field is written.
-        h.get_by_label("Finish").click();
+        h.get_by_label("Finish").click_accesskit();
         h.run();
         assert!(h.state().finish_dialog.open);
         h.state_mut().finish_dialog.notes = "went well".into();
@@ -4753,9 +4764,13 @@ mod tests {
             1,
             "Tom stays planned"
         );
-        // Edit Tom's leftover, then delete it.
-        h.get_by_label_contains("Neutering").click_secondary();
-        h.step();
+        // Edit Tom's leftover, then delete it. The calendar beside the
+        // list names it too; the card in the list is the left one.
+        h.get_all_by_label_contains("Neutering")
+            .min_by(|a, b| a.rect().left().total_cmp(&b.rect().left()))
+            .unwrap()
+            .click_secondary();
+        h.run();
         h.get_by_label("Edit appointment").click_accesskit();
         h.run();
         assert_eq!(h.state().appointment_dialog.title, "Neutering");
@@ -4767,7 +4782,10 @@ mod tests {
             h.state().store().appointments_of(tom, false).unwrap()[0].title,
             "Check-up"
         );
-        h.get_by_label_contains("Check-up").click_secondary();
+        h.get_all_by_label_contains("Check-up")
+            .min_by(|a, b| a.rect().left().total_cmp(&b.rect().left()))
+            .unwrap()
+            .click_secondary();
         h.step();
         h.get_by_label("Delete appointment").click_accesskit();
         h.run();
@@ -6805,7 +6823,7 @@ mod tests {
     }
 
     #[test]
-    fn the_agenda_shows_a_week_and_a_month_and_stays_readable_on_a_wide_screen() {
+    fn the_agenda_is_a_list_beside_a_calendar_of_months_and_weeks() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         let mut app = seeded(dir.path());
@@ -6814,7 +6832,7 @@ mod tests {
             id: String::new(),
             entity: miezi.into(),
             date: chrono::NaiveDate::from_ymd_opt(2026, 3, 12).unwrap(),
-            time: None,
+            time: catlog_core::chores::Hhmm::parse("14:30"),
             title: "Vet".into(),
             notes: String::new(),
             linked_field: None,
@@ -6825,57 +6843,51 @@ mod tests {
             extra: Default::default(),
         };
         app.store_mut().create_appointment("a-vet", &visit).unwrap();
-        // A wide window: the content must not stretch across all of it.
-        let mut h = sized_harness(app, egui::vec2(2200.0, 900.0));
+        let mut h = sized_harness(app, egui::vec2(1800.0, 1000.0));
         h.run();
         open_view(&mut h, "Agenda");
-        let add = h.get_by_label("Add appointment").rect();
-        let wide = h
-            .get_all_by_label_contains("Planned")
-            .next()
-            .unwrap()
-            .rect();
+        // Both halves at once: the list on the left, the calendar right.
+        let planned = h.get_by_label_contains("Planned").rect();
+        let month = h.get_by_label("Month").rect();
         assert!(
-            wide.width() < 1100.0,
-            "the agenda stays a column, not {}",
-            wide.width()
+            planned.right() < month.left(),
+            "the list is left of the calendar"
         );
-        assert!(add.min.x > 100.0, "and is centred in the window");
-        // Week and month lay the appointment on its day.
+        // The month lays the appointment on its day, with the weekdays
+        // over the columns.
+        h.get_by_label_contains("Monday");
+        // In the calendar, not the list or the view bar: a cell's entry
+        // is truncated to its column, so it is found by where it is.
+        let entry = |h: &mut Harness<'static, App>| {
+            h.get_all_by_label_contains("Vet")
+                .map(|n| n.rect())
+                .rfind(|r| r.left() > 900.0)
+        };
+        assert!(entry(&mut h).is_some(), "the visit is in the month");
+        // A step back holds nothing; Today comes home again.
+        h.get_by_label("Month before").click();
+        h.run();
+        assert!(entry(&mut h).is_none(), "February holds nothing");
+        h.get_by_label("Today").click();
+        h.run();
+        assert!(entry(&mut h).is_some());
+        // The week lays it at its hour, and the all-day band is there.
         h.get_by_label("Week").click();
         h.run();
         assert_eq!(
-            h.state().store().local_setting("agendaView").as_deref(),
+            h.state().store().local_setting("agendaCalendar").as_deref(),
             Some("week")
         );
-        h.get_by_label_contains("3/12/2026");
-        // "Vet" alone is also a view in the bar; the cell names the cat.
-        h.get_all_by_label_contains("Miezi · Vet").next().unwrap();
-        h.get_by_label("Month").click();
-        h.run();
-        h.get_all_by_label_contains("Miezi · Vet").next().unwrap();
-        // The chevrons walk the months; Today comes home.
-        h.get_by_label("Month before").click();
-        h.run();
-        assert!(
-            h.query_by_label_contains("Miezi · Vet").is_none(),
-            "February holds nothing"
-        );
-        h.get_by_label("Today").click();
-        h.run();
-        h.get_all_by_label_contains("Miezi · Vet").next().unwrap();
-        // An entry in a day cell opens the cat it belongs to.
-        h.get_all_by_label_contains("Miezi · Vet")
-            .next()
+        h.get_by_label_contains("All day");
+        let at = entry(&mut h).expect("the visit is in the week");
+        assert!(at.top() > 100.0, "half past two is not at the top");
+        // An entry opens the cat it belongs to.
+        h.get_all_by_label_contains("Vet")
+            .rfind(|n| n.rect().left() > 900.0)
             .unwrap()
             .click();
         h.run();
         assert_eq!(*h.state().selection(), Selection::Cat(miezi.into()));
-        // And back to the list, which is what the agenda opens with.
-        open_view(&mut h, "Agenda");
-        h.get_by_label("List").click();
-        h.run();
-        h.get_by_label_contains("Planned");
     }
 
     #[test]
