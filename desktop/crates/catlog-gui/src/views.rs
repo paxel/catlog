@@ -21,16 +21,20 @@ pub enum View {
     Map,
     Agenda,
     Vet,
+    /// Who came from whom: the catalog's cats by the month they were
+    /// born in, with lines between kin.
+    Family,
 }
 
 impl View {
-    pub const ALL: [View; 6] = [
+    pub const ALL: [View; 7] = [
         View::Home,
         View::Cats,
         View::Clowders,
         View::Map,
         View::Agenda,
         View::Vet,
+        View::Family,
     ];
 
     pub fn label(self, t: &L10n) -> &'static str {
@@ -41,6 +45,7 @@ impl View {
             View::Map => t.map(),
             View::Agenda => t.agenda(),
             View::Vet => t.view_vet(),
+            View::Family => t.view_family(),
         }
     }
 
@@ -52,6 +57,7 @@ impl View {
             View::Map => icons::MAP_OUTLINED,
             View::Agenda => icons::CALENDAR_MONTH_OUTLINED,
             View::Vet => icons::MEDICAL_SERVICES_OUTLINED,
+            View::Family => icons::MERGE_TYPE,
         }
     }
 
@@ -64,6 +70,7 @@ impl View {
             View::Map => Key::Num4,
             View::Agenda => Key::Num5,
             View::Vet => Key::Num6,
+            View::Family => Key::Num7,
         }
     }
 }

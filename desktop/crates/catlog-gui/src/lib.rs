@@ -21,6 +21,7 @@ pub mod dialogs;
 pub mod documents_page;
 pub mod duplicates_page;
 pub mod editor;
+pub mod family;
 pub mod graph_image;
 pub mod history;
 pub mod home;

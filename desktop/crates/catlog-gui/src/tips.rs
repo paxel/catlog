@@ -158,7 +158,7 @@ fn screen_of(
         (Some(Modal::Document), _, _) => "card",
         (Some(Modal::Page(_)), _, _) => "cat",
         (Some(Modal::Backups), _, _) => "settings",
-        (Some(_), _, _) | (None, View::Vet, _) => "",
+        (Some(_), _, _) | (None, View::Vet, _) | (None, View::Family, _) => "",
         (None, View::Map, _) => "map",
         (None, View::Agenda, _) => "agenda",
         (None, View::Cats | View::Clowders, Selection::Cat(_)) => "cat",
@@ -387,6 +387,7 @@ pub fn help_for(
     match (view, selection) {
         (View::Map, _) => t.help_map(),
         (View::Agenda | View::Vet, _) => t.help_agenda(),
+        (View::Family, _) => t.help_cat(),
         (View::Cats | View::Clowders, Selection::Clowder(_)) => t.help_clowder(),
         (View::Cats | View::Clowders, Selection::Cat(_)) => t.help_cat(),
         (View::Home, _) | (View::Cats | View::Clowders, Selection::None) => t.help_home(),

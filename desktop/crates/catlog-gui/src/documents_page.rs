@@ -810,8 +810,9 @@ impl DocumentPage {
                 ui.label(egui::RichText::new(&poster.standing).weak());
                 ui.label(
                     egui::RichText::new(format!(
-                        "{} · {}",
-                        format!("{} ({})", t.photos(), poster.photos.len()),
+                        "{} ({}) · {}",
+                        t.photos(),
+                        poster.photos.len(),
                         poster.codes.len()
                     ))
                     .weak()

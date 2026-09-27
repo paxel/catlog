@@ -247,6 +247,8 @@ pub struct App {
     /// The dashboard's and the agenda's data between frames.
     dashboard_memo: dashboard::DashboardMemo,
     agenda_memo: crate::agenda::AgendaMemo,
+    /// The family tree, between frames.
+    family_memo: crate::memo::Memo<(), crate::family::Tree>,
     /// One entity's whole timeline, between frames.
     timeline_memo: crate::memo::Memo<(String, String), Vec<crate::pages::TimelineLine>>,
     asking: Asking,
@@ -416,6 +418,7 @@ impl App {
             dashboard_memo: dashboard::DashboardMemo::default(),
             agenda_memo: crate::agenda::AgendaMemo::default(),
             timeline_memo: crate::memo::Memo::default(),
+            family_memo: crate::memo::Memo::default(),
             asking: Asking::Nothing,
             request: Request::None,
             ctx: None,
@@ -905,6 +908,19 @@ impl App {
                         DashboardAction::Appointment(a) => {
                             page_action = PageAction::Appointment(a);
                         }
+                    }
+                }
+                View::Family => {
+                    // Who came from whom, built once per write: it walks
+                    // every cat and every relation.
+                    let tree = self
+                        .family_memo
+                        .get(&self.store, (), || crate::family::tree(&self.store))
+                        .clone();
+                    if let Some(id) =
+                        crate::family::show_family(ui, &self.store, &t, &mut self.faces, &tree)
+                    {
+                        page_action = PageAction::OpenCat(id);
                     }
                 }
                 View::Vet => {
@@ -3265,8 +3281,10 @@ mod tests {
     }
 
     /// A page's sections live behind tabs; this picks one by its words.
+    /// The view bar carries some of the same words, so the page's own
+    /// tab — drawn later, over the bar — is the last of them.
     fn open_tab(h: &mut Harness<'static, App>, label: &str) {
-        h.get_all_by_label_contains(label).next().unwrap().click();
+        h.get_all_by_label_contains(label).last().unwrap().click();
         h.run();
     }
 
@@ -6568,7 +6586,10 @@ mod tests {
         // Fields first, and what the other tabs hold is on their labels.
         h.get_by_label_contains("Photos (2)");
         h.get_by_label_contains("Plans (");
-        h.get_by_label("Family");
+        assert!(
+            h.get_all_by_label("Family").count() >= 1,
+            "and a Family tab"
+        );
         // The table behind the page names the gender too; the page's
         // own field row is the one that comes and goes with the tab.
         let fields = |h: &mut Harness<'static, App>| h.get_all_by_label_contains("female").count();
@@ -6596,9 +6617,10 @@ mod tests {
         h.run();
         open_cat_page(&mut h, "clowder:00000000-0000-4000-8000-000000000001");
         h.get_by_label_contains("Cats (1)");
-        assert!(
-            h.query_by_label("Family").is_none(),
-            "a home has no family tab"
+        assert_eq!(
+            h.get_all_by_label("Family").count(),
+            1,
+            "only the view bar's: a home has no family tab"
         );
     }
 
@@ -6820,6 +6842,51 @@ mod tests {
         h.get_all_by_label("Miezi").next().unwrap().click();
         h.run();
         assert!(h.state().desk.open.is_empty(), "one way in, the tick");
+    }
+
+    #[test]
+    fn the_family_view_groups_the_kin_by_month_and_opens_a_cat() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let wanderer = "cat:00000000-0000-4000-8000-000000000003";
+        let mut app = seeded(dir.path());
+        {
+            let store = app.store_mut();
+            store
+                .append(miezi, "f:birthdate", Some("2024-03-02"))
+                .unwrap();
+            store
+                .append(tom, "f:birthdate", Some("2020-06-14"))
+                .unwrap();
+            // Miezi is Tom's daughter; Wanderer has kin but no birth day.
+            store.append(miezi, "f:mother", Some(tom)).unwrap();
+            store.append(wanderer, "f:father", Some(tom)).unwrap();
+        }
+        let mut h = sized_harness(app, egui::vec2(1400.0, 900.0));
+        h.run();
+        open_view(&mut h, "Family");
+        assert_eq!(h.state().view(), View::Family);
+        // The months that hold somebody, oldest first, then the unknown.
+        let at = |h: &mut Harness<'static, App>, name: &str| {
+            h.get_all_by_label(name)
+                .map(|n| n.rect())
+                .next_back()
+                .unwrap_or(egui::Rect::NOTHING)
+        };
+        let older = at(&mut h, "Tom");
+        let younger = at(&mut h, "Miezi");
+        let unknown = at(&mut h, "Wanderer");
+        assert!(older.top() < younger.top(), "the older one is above");
+        assert!(
+            unknown.top() > younger.top(),
+            "the one with no birth day comes last"
+        );
+        h.get_by_label_contains("Birth date unknown");
+        // A face opens that cat.
+        h.get_all_by_label("Miezi").next_back().unwrap().click();
+        h.run();
+        assert_eq!(*h.state().selection(), Selection::Cat(miezi.into()));
     }
 
     #[test]

@@ -128,6 +128,24 @@ fn agenda() {
 
 #[test]
 #[ignore = "compares PNGs; needs a GPU or lavapipe, CI has one"]
+fn family() {
+    snapshot("family", |app| {
+        let store = app.store_mut();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        store
+            .append(tom, "f:birthdate", Some("2020-06-14"))
+            .unwrap();
+        store
+            .append(miezi, "f:birthdate", Some("2024-03-02"))
+            .unwrap();
+        store.append(miezi, "f:mother", Some(tom)).unwrap();
+        app.open_view(View::Family);
+    });
+}
+
+#[test]
+#[ignore = "compares PNGs; needs a GPU or lavapipe, CI has one"]
 fn vet() {
     snapshot("vet", |app| app.open_view(View::Vet));
 }
