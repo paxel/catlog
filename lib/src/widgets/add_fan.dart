@@ -115,7 +115,16 @@ class _Fan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+    // The anchor was measured against the overlay, so the room to
+    // place things in is the overlay's, not the window's: in the
+    // two-pane layout the detail pane has an overlay of its own, and
+    // the window's width put the ways a pane's width to the left.
+    return LayoutBuilder(
+      builder: (context, constraints) => _fan(constraints.biggest),
+    );
+  }
+
+  Widget _fan(Size size) {
     return Stack(
       children: [
         Positioned.fill(
