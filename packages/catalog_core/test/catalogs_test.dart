@@ -58,6 +58,7 @@ void main() {
     final a = m.openStore(m.active)..author = 'me';
     a.setLocalSetting('locale', 'de');
     a.setLocalSetting('spot2:home', 'home-strays');
+    a.setLocalSetting('reminderCatSound', 'off');
     a.setLocalSetting('mapViewport', '52.5,13.4,12');
     a.close();
 
@@ -66,6 +67,8 @@ void main() {
     expect(b.localSetting('locale'), 'de');
     expect(b.localSetting('spot2:home'), 'home-strays',
         reason: 'tips already seen must not run again');
+    expect(b.localSetting('reminderCatSound'), 'off',
+        reason: 'the reminders of every catalog speak with one voice');
     expect(b.localSetting('mapViewport'), isNull,
         reason: 'Berlin is not Paris');
     b.close();

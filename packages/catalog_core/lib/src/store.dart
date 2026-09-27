@@ -31,6 +31,9 @@ bool isSharedSetting(String key) =>
     key.startsWith('tls:') ||
     key == 'introSeen' ||
     key == 'celebrations' ||
+    // One device, one notification sound: the switch drives every
+    // catalog's chore reminders, so it may not live in one of them.
+    key == 'reminderCatSound' ||
     key == 'windowBounds' ||
     key.startsWith('spot:') ||
     key.startsWith('spot2:') ||
