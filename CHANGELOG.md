@@ -6,11 +6,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [2.0.6] - Unreleased
 
 ### Added
+- A preview on the desk's document pages: the Card as the picture it becomes, updating as values are ticked on and off, and what will be printed on the missing poster and the vet report.
+- The vet report on the phone is previewed as it will print, the way the missing poster already was.
 - Marking several rows and moving them into another home in one go, from either table.
 - A card on the desk is made taller or shorter by dragging its bottom edge, and keeps that height.
 - A home's card can lay every pet living in it on the desk at once and tile them.
 
 ### Fixed
+- The card copied as a picture wraps its values instead of running them off the right edge on one line, and the sheet is as tall as what it holds instead of half a page of white.
 - The red line of text at the top of a view is gone: what the app has to say is a note at the top of the window, which goes by itself when it only says a job is done, and stays with a × when something failed.
 - Copying a card, a photo or a graph answers with a green paw at the pointer instead of a word in the corner — and the phone's paw appears at last: it went into whatever overlay was nearest, so a paw asked for inside a dialog vanished with the dialog.
 - The timeline opens at once: it used to walk the whole log again on every frame, which made it unusable on a real catalog.

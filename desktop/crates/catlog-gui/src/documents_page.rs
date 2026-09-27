@@ -41,8 +41,12 @@ pub enum DocAction {
 }
 
 /// The choices, kept while the page is open.
-#[derive(Debug, Default)]
+#[derive(Default)]
 pub struct DocumentPage {
+    /// The Card as it will look, and what it was built from, so it is
+    /// drawn again only when a choice changes.
+    preview_png: Option<egui::TextureHandle>,
+    preview_of: Option<String>,
     pub kind: Option<DocKind>,
     pub cat: String,
     // Card.
@@ -561,8 +565,9 @@ impl DocumentPage {
         ui: &mut Ui,
         store: &Catalog,
         t: &L10n,
-        fonts_complete: bool,
+        fonts: Option<&FontSet>,
     ) -> DocAction {
+        let fonts_complete = fonts.is_some_and(|f| f.complete);
         let mut action = DocAction::None;
         let Some(kind) = self.kind else {
             return action;
@@ -593,130 +598,244 @@ impl DocumentPage {
                 ui.colored_label(ui.visuals().error_fg_color, t.fonts_incomplete());
             }
             ui.add_space(8.0);
-            match kind {
-                DocKind::Card => {
-                    let chips = ui.strong(t.card_content());
-                    crate::tips::anchor(ui, "card-chips", &chips);
-                    let mut toggle = |ui: &mut Ui, key: &str, label: &str| {
-                        let mut on = self.card_keys.contains(key);
-                        if crate::icons::check_box(ui, &mut on, label).changed() {
-                            if on {
-                                self.card_keys.insert(key.to_string());
-                            } else {
-                                self.card_keys.remove(key);
-                            }
-                            let joined: Vec<&str> =
-                                self.card_keys.iter().map(String::as_str).collect();
-                            let _ = store.set_local_setting("cardFields", &joined.join("\n"));
+            // The choices on the left, what they make on the right.
+            ui.horizontal_top(|ui| {
+                let half = (ui.available_width() * 0.45).clamp(260.0, 460.0);
+                ui.allocate_ui_with_layout(
+                    egui::vec2(half, 0.0),
+                    egui::Layout::top_down(egui::Align::LEFT),
+                    |ui| {
+                        ui.set_min_width(half);
+                        self.choices(ui, store, t, kind);
+                    },
+                );
+                ui.separator();
+                ui.vertical(|ui| {
+                    self.preview(ui, store, t, kind, fonts);
+                });
+            });
+        });
+        action
+    }
+
+    /// What the preview was last built from, for a test that asks
+    /// whether it follows the choices.
+    pub fn preview_fingerprint(&self) -> Option<&str> {
+        self.preview_of.as_deref()
+    }
+
+    /// The choices that make the document: which values, which days.
+    fn choices(&mut self, ui: &mut Ui, store: &Catalog, t: &L10n, kind: DocKind) {
+        match kind {
+            DocKind::Card => {
+                let chips = ui.strong(t.card_content());
+                crate::tips::anchor(ui, "card-chips", &chips);
+                let mut toggle = |ui: &mut Ui, key: &str, label: &str| {
+                    let mut on = self.card_keys.contains(key);
+                    if crate::icons::check_box(ui, &mut on, label).changed() {
+                        if on {
+                            self.card_keys.insert(key.to_string());
+                        } else {
+                            self.card_keys.remove(key);
                         }
-                    };
-                    toggle(ui, PHOTO_KEY, t.photos());
-                    toggle(ui, keys::CLOWDER, t.clowder_label());
-                    for def in store.field_defs(Some(FieldScope::Cat)).unwrap_or_default() {
-                        if store
-                            .current(&self.cat, &def.key())
-                            .ok()
-                            .flatten()
-                            .is_some_and(|v| !v.is_empty())
-                        {
-                            toggle(ui, &def.key(), &field_def_name(t, &def));
-                        }
+                        let joined: Vec<&str> = self.card_keys.iter().map(String::as_str).collect();
+                        let _ = store.set_local_setting("cardFields", &joined.join("\n"));
                     }
-                }
-                DocKind::Poster => {
-                    ui.horizontal(|ui| {
-                        ui.label(t.missing_since_label());
-                        ui.add(
-                            egui::TextEdit::singleline(&mut self.since)
-                                .desired_width(100.0)
-                                .hint_text(t.date_hint()),
-                        );
-                    });
-                    ui.strong(t.poster_photos());
-                    for hash in store.images(&self.cat).unwrap_or_default() {
-                        let mut on = self.photos.contains(&hash);
-                        let label = format!(
-                            "{} {}",
-                            t.photos(),
-                            self.photos
-                                .iter()
-                                .position(|h| *h == hash)
-                                .map(|i| (i + 1).to_string())
-                                .unwrap_or_default()
-                        );
-                        if crate::icons::check_box(ui, &mut on, label.trim()).changed() {
-                            if on && self.photos.len() < 2 {
-                                self.photos.push(hash.clone());
-                            } else {
-                                self.photos.retain(|h| *h != hash);
-                            }
-                        }
-                    }
-                    ui.add_space(6.0);
-                    for (entity, def, value) in poster_rows(store, &self.cat) {
-                        let id = row_id(&entity, &def);
-                        let mut on = self.ticked.contains(&id);
-                        let label = format!(
-                            "{}: {}",
-                            field_def_name(t, &def),
-                            value_label(t, store, &def.key(), Some(&value), self_units())
-                        );
-                        if crate::icons::check_box(ui, &mut on, label).changed() {
-                            if on {
-                                self.ticked.insert(id);
-                            } else {
-                                self.ticked.remove(&id);
-                            }
-                        }
-                    }
-                    let fits = self.poster_payload(store).is_some();
-                    let mut qr = self.qr && fits;
-                    if ui
-                        .add_enabled(fits, egui::Checkbox::new(&mut qr, t.poster_qr()))
-                        .changed()
+                };
+                toggle(ui, PHOTO_KEY, t.photos());
+                toggle(ui, keys::CLOWDER, t.clowder_label());
+                for def in store.field_defs(Some(FieldScope::Cat)).unwrap_or_default() {
+                    if store
+                        .current(&self.cat, &def.key())
+                        .ok()
+                        .flatten()
+                        .is_some_and(|v| !v.is_empty())
                     {
-                        self.qr = qr;
+                        toggle(ui, &def.key(), &field_def_name(t, &def));
                     }
-                    if !fits {
-                        ui.label(egui::RichText::new(t.poster_qr_too_big()).weak());
-                    }
-                    ui.horizontal(|ui| {
-                        ui.label(t.poster_free_text());
-                        ui.add(egui::TextEdit::singleline(&mut self.extra).desired_width(300.0));
-                    });
                 }
-                DocKind::VetReport => {
-                    ui.horizontal(|ui| {
-                        ui.label(t.vet_report_from());
-                        ui.add(
-                            egui::TextEdit::singleline(&mut self.from)
-                                .desired_width(100.0)
-                                .hint_text(t.date_hint()),
-                        );
-                        ui.label(t.vet_report_to());
-                        ui.add(
-                            egui::TextEdit::singleline(&mut self.to)
-                                .desired_width(100.0)
-                                .hint_text(t.date_hint()),
-                        );
-                    });
-                    crate::icons::check_box(ui, &mut self.summary, t.vet_report_summary());
-                    ui.strong(t.vet_report_fields());
-                    for def in reportable_fields(store, &self.cat) {
-                        let key = def.key();
-                        let mut on = self.fields.contains(&key);
-                        if crate::icons::check_box(ui, &mut on, field_def_name(t, &def)).changed() {
-                            if on {
-                                self.fields.insert(key);
-                            } else {
-                                self.fields.remove(&key);
-                            }
+            }
+            DocKind::Poster => {
+                ui.horizontal(|ui| {
+                    ui.label(t.missing_since_label());
+                    ui.add(
+                        egui::TextEdit::singleline(&mut self.since)
+                            .desired_width(100.0)
+                            .hint_text(t.date_hint()),
+                    );
+                });
+                ui.strong(t.poster_photos());
+                for hash in store.images(&self.cat).unwrap_or_default() {
+                    let mut on = self.photos.contains(&hash);
+                    let label = format!(
+                        "{} {}",
+                        t.photos(),
+                        self.photos
+                            .iter()
+                            .position(|h| *h == hash)
+                            .map(|i| (i + 1).to_string())
+                            .unwrap_or_default()
+                    );
+                    if crate::icons::check_box(ui, &mut on, label.trim()).changed() {
+                        if on && self.photos.len() < 2 {
+                            self.photos.push(hash.clone());
+                        } else {
+                            self.photos.retain(|h| *h != hash);
+                        }
+                    }
+                }
+                ui.add_space(6.0);
+                for (entity, def, value) in poster_rows(store, &self.cat) {
+                    let id = row_id(&entity, &def);
+                    let mut on = self.ticked.contains(&id);
+                    let label = format!(
+                        "{}: {}",
+                        field_def_name(t, &def),
+                        value_label(t, store, &def.key(), Some(&value), self_units())
+                    );
+                    if crate::icons::check_box(ui, &mut on, label).changed() {
+                        if on {
+                            self.ticked.insert(id);
+                        } else {
+                            self.ticked.remove(&id);
+                        }
+                    }
+                }
+                let fits = self.poster_payload(store).is_some();
+                let mut qr = self.qr && fits;
+                if ui
+                    .add_enabled(fits, egui::Checkbox::new(&mut qr, t.poster_qr()))
+                    .changed()
+                {
+                    self.qr = qr;
+                }
+                if !fits {
+                    ui.label(egui::RichText::new(t.poster_qr_too_big()).weak());
+                }
+                ui.horizontal(|ui| {
+                    ui.label(t.poster_free_text());
+                    ui.add(egui::TextEdit::singleline(&mut self.extra).desired_width(300.0));
+                });
+            }
+            DocKind::VetReport => {
+                ui.horizontal(|ui| {
+                    ui.label(t.vet_report_from());
+                    ui.add(
+                        egui::TextEdit::singleline(&mut self.from)
+                            .desired_width(100.0)
+                            .hint_text(t.date_hint()),
+                    );
+                    ui.label(t.vet_report_to());
+                    ui.add(
+                        egui::TextEdit::singleline(&mut self.to)
+                            .desired_width(100.0)
+                            .hint_text(t.date_hint()),
+                    );
+                });
+                crate::icons::check_box(ui, &mut self.summary, t.vet_report_summary());
+                ui.strong(t.vet_report_fields());
+                for def in reportable_fields(store, &self.cat) {
+                    let key = def.key();
+                    let mut on = self.fields.contains(&key);
+                    if crate::icons::check_box(ui, &mut on, field_def_name(t, &def)).changed() {
+                        if on {
+                            self.fields.insert(key);
+                        } else {
+                            self.fields.remove(&key);
                         }
                     }
                 }
             }
-        });
-        action
+        }
+    }
+
+    /// What the document will be, beside the choices that make it. The
+    /// Card is drawn as the picture it becomes; the poster and the vet
+    /// report are PDFs, and the desk has no renderer for one, so they
+    /// show what will be printed on them instead.
+    fn preview(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        kind: DocKind,
+        fonts: Option<&FontSet>,
+    ) {
+        ui.strong(t.preview_title());
+        let Some(fonts) = fonts else {
+            return;
+        };
+        match kind {
+            DocKind::Card => {
+                let card = self.card_content(store, t, self_units());
+                let fingerprint = format!("{card:?}");
+                if self.preview_of.as_deref() != Some(fingerprint.as_str()) {
+                    self.preview_of = Some(fingerprint);
+                    self.preview_png = card_png(&card, fonts)
+                        .and_then(|png| crate::textures::decode(&png))
+                        .map(|image| {
+                            ui.ctx().load_texture(
+                                "card-preview",
+                                image,
+                                egui::TextureOptions::LINEAR,
+                            )
+                        });
+                }
+                if let Some(texture) = &self.preview_png {
+                    let width = ui.available_width().min(320.0);
+                    ui.add(
+                        egui::Image::from_texture(texture)
+                            .fit_to_exact_size(egui::vec2(
+                                width,
+                                width * texture.size()[1] as f32 / texture.size()[0] as f32,
+                            ))
+                            .corner_radius(4.0),
+                    );
+                }
+            }
+            DocKind::Poster => {
+                let poster = self.poster_content(store, t, self_units());
+                ui.label(egui::RichText::new(t.preview_content()).weak().small());
+                ui.strong(&poster.headline);
+                ui.heading(&poster.name);
+                for line in &poster.lines {
+                    ui.label(line);
+                }
+                if let Some(looks) = &poster.looks {
+                    ui.label(looks);
+                }
+                if let Some(phone) = &poster.phone {
+                    ui.label(phone);
+                }
+                ui.label(egui::RichText::new(&poster.standing).weak());
+                ui.label(
+                    egui::RichText::new(format!(
+                        "{} · {}",
+                        format!("{} ({})", t.photos(), poster.photos.len()),
+                        poster.codes.len()
+                    ))
+                    .weak()
+                    .small(),
+                );
+            }
+            DocKind::VetReport => {
+                let report = self.report_content(
+                    store,
+                    t,
+                    self_units(),
+                    chrono::Local::now().date_naive(),
+                    true,
+                );
+                ui.label(egui::RichText::new(t.preview_content()).weak().small());
+                ui.heading(&report.name);
+                for row in report.rows.iter().take(40) {
+                    ui.label(format!("{} · {} · {}", row.day, row.label, row.value));
+                }
+                if report.rows.len() > 40 {
+                    ui.label(egui::RichText::new("…").weak());
+                }
+            }
+        }
     }
 }
 
@@ -729,15 +848,37 @@ fn self_units() -> catlog_core::units::UnitSystem {
 pub fn card_png(card: &CardContent, fonts: &FontSet) -> Option<Vec<u8>> {
     let regular = ab_glyph::FontRef::try_from_slice(fonts.regular.data()).ok()?;
     let bold = ab_glyph::FontRef::try_from_slice(fonts.bold.data()).ok()?;
-    let (width, height) = (800u32, 1100u32);
+    let width = 800u32;
+    // The sheet is as tall as what it holds: a long remark used to run
+    // off the right edge on one line, and the page below it was white.
+    let value_width = width as f32 - 340.0;
+    let photo = card.photo.as_ref().and_then(|bytes| {
+        image::load_from_memory(bytes)
+            .ok()
+            .map(|decoded| decoded.resize(width - 80, 400, image::imageops::FilterType::Triangle))
+    });
+    let mut height = 40.0;
+    if let Some(photo) = &photo {
+        height += photo.height() as f32 + 24.0;
+    }
+    height += 56.0 + 16.0;
+    for (_, value) in &card.facts {
+        let lines = crate::graph_image::wrap_text(&regular, 24.0, value, value_width);
+        height += lines.len().max(1) as f32 * 30.0 + 6.0;
+    }
+    for code in &card.codes {
+        height += 16.0
+            + if code.kind == CodeKind::Qr {
+                170.0
+            } else {
+                60.0
+            };
+    }
+    let height = (height + 40.0).max(400.0) as u32;
     let mut img = image::RgbaImage::from_pixel(width, height, image::Rgba([255, 255, 255, 255]));
     let mut y = 40.0;
-    if let Some(photo) = &card.photo
-        && let Ok(decoded) = image::load_from_memory(photo)
-    {
-        let thumb = decoded
-            .resize(width - 80, 400, image::imageops::FilterType::Triangle)
-            .to_rgba8();
+    if let Some(decoded) = &photo {
+        let thumb = decoded.to_rgba8();
         let x = (width - thumb.width()) / 2;
         image::imageops::overlay(&mut img, &thumb, x as i64, y as i64);
         y += thumb.height() as f32 + 24.0;
@@ -745,7 +886,16 @@ pub fn card_png(card: &CardContent, fonts: &FontSet) -> Option<Vec<u8>> {
     y = draw_text(&mut img, &bold, 56.0, 40.0, y, &card.name, 0) + 16.0;
     for (label, value) in &card.facts {
         draw_text(&mut img, &regular, 24.0, 40.0, y, label, 110);
-        y = draw_text(&mut img, &regular, 24.0, 300.0, y, value, 0) + 6.0;
+        y = crate::graph_image::draw_wrapped(
+            &mut img,
+            &regular,
+            24.0,
+            300.0,
+            y,
+            value_width,
+            value,
+            0,
+        ) + 6.0;
     }
     for code in &card.codes {
         y += 16.0;
@@ -828,8 +978,24 @@ mod tests {
         };
         let png = card_png(&card, &fonts).unwrap();
         let decoded = image::load_from_memory(&png).unwrap();
-        assert_eq!((decoded.width(), decoded.height()), (800, 1100));
+        // The sheet is as tall as what it holds, never taller.
+        assert_eq!(decoded.width(), 800);
+        assert!(
+            (400..1100).contains(&decoded.height()),
+            "as tall as it needs: {}",
+            decoded.height()
+        );
         let dark = decoded.to_luma8().pixels().filter(|p| p[0] < 128).count();
         assert!(dark > 1000, "text, photo and code leave ink");
+        // A remark longer than the sheet wraps and makes it taller.
+        let mut long = card.clone();
+        long.facts = vec![("Remarks".into(), "a long tale ".repeat(40))];
+        let tall = image::load_from_memory(&card_png(&long, &fonts).unwrap()).unwrap();
+        assert!(
+            tall.height() > decoded.height(),
+            "{} grew past {}",
+            tall.height(),
+            decoded.height()
+        );
     }
 }

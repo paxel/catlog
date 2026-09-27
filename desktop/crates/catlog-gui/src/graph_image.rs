@@ -222,6 +222,60 @@ fn text_width(font: &ab_glyph::FontRef, size: f32, text: &str) -> f32 {
 }
 
 /// Draws one line of text; returns the y below it.
+/// `text` broken into lines that fit `width`, on spaces where it can and
+/// mid-word where a word is longer than the line.
+pub fn wrap_text(font: &ab_glyph::FontRef, size: f32, text: &str, width: f32) -> Vec<String> {
+    let mut lines = Vec::new();
+    for paragraph in text.split('\n') {
+        let mut line = String::new();
+        for word in paragraph.split_whitespace() {
+            let candidate = if line.is_empty() {
+                word.to_string()
+            } else {
+                format!("{line} {word}")
+            };
+            if text_width(font, size, &candidate) <= width || line.is_empty() {
+                line = candidate;
+            } else {
+                lines.push(std::mem::take(&mut line));
+                line = word.to_string();
+            }
+            // A single word wider than the line is cut where it must be.
+            while text_width(font, size, &line) > width && line.chars().count() > 1 {
+                let mut cut = line.clone();
+                while text_width(font, size, &cut) > width && cut.chars().count() > 1 {
+                    cut.pop();
+                }
+                let rest = line[cut.len()..].to_string();
+                lines.push(cut);
+                line = rest;
+            }
+        }
+        lines.push(line);
+    }
+    lines
+}
+
+/// Draws `text` at (x, y), wrapped to `width`; returns the y below the
+/// last line.
+#[allow(clippy::too_many_arguments)]
+pub fn draw_wrapped(
+    img: &mut RgbaImage,
+    font: &ab_glyph::FontRef,
+    size: f32,
+    x: f32,
+    y: f32,
+    width: f32,
+    text: &str,
+    gray: u8,
+) -> f32 {
+    let mut at = y;
+    for line in wrap_text(font, size, text, width) {
+        at = draw_text(img, font, size, x, at, &line, gray);
+    }
+    at
+}
+
 pub fn draw_text(
     img: &mut RgbaImage,
     font: &ab_glyph::FontRef,

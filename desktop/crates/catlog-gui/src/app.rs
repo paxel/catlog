@@ -2759,8 +2759,8 @@ impl App {
                 self.act_capture(action);
             }
             Modal::Document => {
-                let complete = self.fonts().complete;
-                let action = self.document.show(ui, &self.store, &t, complete);
+                let fonts = self.fonts().clone();
+                let action = self.document.show(ui, &self.store, &t, Some(&fonts));
                 self.act_document(action);
             }
             Modal::Moments => {
@@ -6420,6 +6420,40 @@ mod tests {
     }
 
     #[test]
+    fn a_document_shows_what_it_will_be_before_it_is_made() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1600.0, 1000.0));
+        h.run();
+        h.state_mut().act_page(crate::pages::PageAction::Document(
+            DocKind::Card,
+            miezi.into(),
+        ));
+        h.run();
+        h.get_by_label("Preview");
+        // The card's preview is the picture it becomes, and it follows
+        // the values that are ticked on and off.
+        let before = h.state().document.preview_fingerprint().map(String::from);
+        h.get_all_by_label("Gender").last().unwrap().click();
+        h.run();
+        assert_ne!(
+            h.state().document.preview_fingerprint().map(String::from),
+            before,
+            "the preview follows the choices"
+        );
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // The poster and the report say what goes on the sheet.
+        h.state_mut().act_page(crate::pages::PageAction::Document(
+            DocKind::Poster,
+            miezi.into(),
+        ));
+        h.run();
+        h.get_by_label("Preview");
+        h.get_by_label_contains("What goes on the sheet");
+    }
+
+    #[test]
     fn what_the_app_says_is_a_note_at_the_top_and_a_copy_answers_with_a_paw() {
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded(dir.path()));
@@ -8365,7 +8399,7 @@ mod tests {
         h.step();
         h.get_by_label("Copy as image").click_accesskit();
         h.step();
-        assert_eq!(copied_image(&h), Some([800, 1100]));
+        assert_eq!(copied_image(&h).map(|size| size[0]), Some(800));
         assert!(h.state().notice.is_none(), "a paw, not a word");
         // The document page copies the Card as chosen there.
         h.get_all_by_label("Actions").last().unwrap().click();
@@ -8375,7 +8409,7 @@ mod tests {
         assert_eq!(h.state().modal(), Some(Modal::Document));
         h.get_by_label("Copy as image").click();
         h.step();
-        assert_eq!(copied_image(&h), Some([800, 1100]));
+        assert_eq!(copied_image(&h).map(|size| size[0]), Some(800));
     }
 
     #[test]

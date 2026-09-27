@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/pdf_fonts.dart';
@@ -111,6 +113,7 @@ void main() {
         home: VetReportScreen(
           store: store,
           catId: cat,
+          preview: (_) async => null,
           share: (doc, name) async {
             shared = doc;
             fileName = name;
@@ -135,4 +138,42 @@ void main() {
     expect(shared, isNotNull);
     expect(fileName, 'Miezi Report for the vet.pdf');
   });
+
+  testWidgets('the report is previewed as it will print', (tester) async {
+    var previews = 0;
+    // A one-pixel PNG stands in for the rasterised first page.
+    final png = Uint8List.fromList([
+      137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, //
+      1, 0, 0, 0, 1, 8, 6, 0, 0, 0, 31, 21, 196, 137, 0, 0, 0, 13, 73, 68, 65,
+      84, 120, 156, 99, 250, 207, 192, 0, 0, 3, 1, 1, 0, 24, 221, 141, 219, 0,
+      0, 0, 0, 73, 69, 78, 68, 174, 66, 96, 130,
+    ]);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: VetReportScreen(
+          store: store,
+          catId: cat,
+          preview: (pdf) async {
+            previews++;
+            expect(pdf.isNotEmpty, isTrue, reason: 'a real PDF is rasterised');
+            return png;
+          },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Preview'), findsNothing);
+    // The timer belongs to the test's clock; the curve it then draws is
+    // real work on a real canvas, so it needs the clock let go of.
+    await tester.pump(const Duration(milliseconds: 600));
+    await tester.runAsync(() async {
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+    });
+    await tester.pumpAndSettle();
+    expect(find.text('Preview'), findsOneWidget);
+    expect(previews, 1);
+  });
+
 }
