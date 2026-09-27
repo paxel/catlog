@@ -53,6 +53,14 @@
   "moveToHomeNeutral": "Move to another household",
   "openAllPets": "Open all pets",
   "cardHeight": "Drag to make the card taller or shorter",
+  "catalogDeletedEmpty": "{name} deleted. It held no cats and no homes, so there was nothing to back up.",
+  "@catalogDeletedEmpty": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "agendaList": "List",
   "agendaWeek": "Week",
   "agendaMonth": "Month",

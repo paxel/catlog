@@ -1154,9 +1154,11 @@ impl App {
                             Ok(store) => store.auto_backup(&self.backups_dir, true),
                             Err(e) => Err(e),
                         };
+                        // An empty catalog is backed up into nothing:
+                        // the file the notice used to name was never
+                        // written.
                         let saved = match saved {
-                            Ok(Some(path)) => path,
-                            Ok(None) => self.backups_dir.clone(),
+                            Ok(path) => path,
                             Err(e) => {
                                 self.notice = Some(t.catalog_export_failed(&e.to_string()));
                                 return;
@@ -1165,8 +1167,12 @@ impl App {
                         match self.manager.delete(&id) {
                             Ok(()) => {
                                 self.catalogs_page.chosen = None;
-                                self.notice =
-                                    Some(t.catalog_deleted(&info.name, &saved.to_string_lossy()));
+                                self.notice = Some(match &saved {
+                                    Some(path) => {
+                                        t.catalog_deleted(&info.name, &path.to_string_lossy())
+                                    }
+                                    None => t.catalog_deleted_empty(&info.name),
+                                });
                             }
                             Err(e) => self.fail(e.to_string()),
                         }
@@ -3072,9 +3078,10 @@ impl App {
             self.notice = Some(t.switch_before_deleting().to_string());
             return;
         }
+        // Nothing in it, nothing to back up: the notice then names no
+        // file, rather than one that was never written.
         let saved = match self.store.auto_backup(&self.backups_dir, true) {
-            Ok(Some(path)) => path,
-            Ok(None) => self.backups_dir.clone(),
+            Ok(path) => path,
             Err(e) => {
                 self.notice = Some(t.catalog_export_failed(&e.to_string()));
                 return;
@@ -3094,7 +3101,12 @@ impl App {
             return;
         }
         match self.manager.delete(&active.id) {
-            Ok(()) => self.notice = Some(t.catalog_deleted(&active.name, &saved.to_string_lossy())),
+            Ok(()) => {
+                self.notice = Some(match &saved {
+                    Some(path) => t.catalog_deleted(&active.name, &path.to_string_lossy()),
+                    None => t.catalog_deleted_empty(&active.name),
+                })
+            }
             Err(e) => self.fail(e.to_string()),
         }
     }
@@ -6551,6 +6563,44 @@ mod tests {
             left,
             ["Clowders"],
             "the one the question named went, not the one that was looked at"
+        );
+    }
+
+    #[test]
+    fn deleting_an_empty_catalog_promises_no_keepsake_file() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.backups_dir = dir.path().join("downloads");
+        let mut h = harness(app);
+        h.run();
+        // A second catalog, with nothing in it: there is nothing to
+        // write, so the notice may not name a file.
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        assert_eq!(h.state().title(), "Leipzig");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        h.state_mut().open_settings();
+        h.run();
+        h.get_by_label("Delete catalog").click_accesskit();
+        h.run();
+        h.get_all_by_label("Delete").last().unwrap().click();
+        h.run();
+        assert_eq!(
+            h.state().notice.as_deref(),
+            Some("Leipzig deleted. It held no cats and no homes, so there was nothing to back up.")
+        );
+        assert!(
+            !dir.path()
+                .join("downloads")
+                .join("catlog-leipzig.catsync")
+                .exists(),
+            "no file was written to promise"
         );
     }
 

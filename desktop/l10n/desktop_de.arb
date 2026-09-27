@@ -53,6 +53,14 @@
   "moveToHomeNeutral": "In einen anderen Haushalt umziehen",
   "openAllPets": "Alle Tiere öffnen",
   "cardHeight": "Ziehen macht die Karte höher oder niedriger",
+  "catalogDeletedEmpty": "{name} gelöscht. Er enthielt weder Katzen noch Zuhause, also gab es nichts zu sichern.",
+  "@catalogDeletedEmpty": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "agendaList": "Liste",
   "agendaWeek": "Woche",
   "agendaMonth": "Monat",
