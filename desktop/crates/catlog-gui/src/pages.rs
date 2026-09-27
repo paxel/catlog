@@ -15,6 +15,42 @@ use crate::l10n::L10n;
 use crate::labels::{field_def_name, field_value_display, format_day, value_label};
 use crate::textures::FaceCache;
 
+/// Which part of a page is open. Remembered per device, so a habit is
+/// not punished by every page opening on Fields again.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PageTab {
+    Fields,
+    Photos,
+    Plans,
+    Family,
+    /// A Clowder's cats.
+    Cats,
+}
+
+const PAGE_TAB_KEY: &str = "pageTab";
+
+impl PageTab {
+    fn stored(self) -> &'static str {
+        match self {
+            PageTab::Fields => "fields",
+            PageTab::Photos => "photos",
+            PageTab::Plans => "plans",
+            PageTab::Family => "family",
+            PageTab::Cats => "cats",
+        }
+    }
+
+    fn of(store: &Catalog) -> PageTab {
+        match store.local_setting(PAGE_TAB_KEY).as_deref() {
+            Some("photos") => PageTab::Photos,
+            Some("plans") => PageTab::Plans,
+            Some("family") => PageTab::Family,
+            Some("cats") => PageTab::Cats,
+            _ => PageTab::Fields,
+        }
+    }
+}
+
 /// What the keeper did on a page this frame.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum PageAction {
@@ -155,32 +191,76 @@ impl Pages {
                 }
             });
             let cats = store.cats(Some(id)).unwrap_or_default();
+            let plans = store.chores_of(id, false).map(|c| c.len()).unwrap_or(0)
+                + store
+                    .appointments_of(id, false)
+                    .map(|a| a.len())
+                    .unwrap_or(0);
+            let tabs = [
+                (PageTab::Fields, t.tab_fields().to_string()),
+                (
+                    PageTab::Cats,
+                    format!(
+                        "{} ({})",
+                        if pet_mode {
+                            t.cats_neutral()
+                        } else {
+                            t.tab_cats()
+                        },
+                        cats.len()
+                    ),
+                ),
+                (PageTab::Plans, format!("{} ({})", t.tab_plans(), plans)),
+            ];
             ui.add_space(8.0);
-            ui.strong(format!(
-                "{} ({})",
-                if pet_mode { t.cats_neutral() } else { t.cats() },
-                cats.len()
-            ));
-            for cat in &cats {
-                if let Some(a) = self.cat_row(ui, store, t, faces, cat) {
-                    action = a;
+            match self.tabs(ui, store, &tabs) {
+                PageTab::Cats => {
+                    for cat in &cats {
+                        if let Some(a) = self.cat_row(ui, store, t, faces, cat) {
+                            action = a;
+                        }
+                    }
                 }
-            }
-            if let Some(a) = self.show_chores(ui, store, t, faces, id) {
-                action = a;
-            }
-            if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
-                action = a;
-            }
-            let fields = self.show_fields(ui, store, t, id, FieldScope::Clowder);
-            if fields != PageAction::None {
-                action = fields;
+                PageTab::Plans => {
+                    if let Some(a) = self.show_chores(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                    if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                }
+                _ => {
+                    let fields = self.show_fields(ui, store, t, id, FieldScope::Clowder);
+                    if fields != PageAction::None {
+                        action = fields;
+                    }
+                }
             }
         });
         action
     }
 
     /// The Cat page.
+    /// The tabs a page is cut into, so its sections are not one long
+    /// scroll: Fields, Photos, Plans and Family. Which one was last
+    /// open is remembered per device, not per cat.
+    fn tabs(&mut self, ui: &mut Ui, store: &Catalog, tabs: &[(PageTab, String)]) -> PageTab {
+        let mut chosen = PageTab::of(store);
+        if !tabs.iter().any(|(tab, _)| *tab == chosen) {
+            chosen = tabs.first().map(|(tab, _)| *tab).unwrap_or(PageTab::Fields);
+        }
+        ui.horizontal(|ui| {
+            for (tab, words) in tabs {
+                if ui.selectable_label(chosen == *tab, words).clicked() {
+                    chosen = *tab;
+                    let _ = store.set_local_setting(PAGE_TAB_KEY, tab.stored());
+                }
+            }
+        });
+        ui.separator();
+        chosen
+    }
+
     pub fn show_cat(
         &mut self,
         ui: &mut Ui,
@@ -257,81 +337,109 @@ impl Pages {
                     }
                 }
             });
-            // Photos lead on a Cat's page.
+            // The page is cut into tabs, so its sections are not one
+            // long scroll.
             let images = store.images(id).unwrap_or_default();
-            let profile = store.profile_image(id).ok().flatten();
+            let plans = store.chores_of(id, false).map(|c| c.len()).unwrap_or(0)
+                + store
+                    .appointments_of(id, false)
+                    .map(|a| a.len())
+                    .unwrap_or(0);
+            let tabs = [
+                (PageTab::Fields, t.tab_fields().to_string()),
+                (
+                    PageTab::Photos,
+                    format!("{} ({})", t.tab_photos(), images.len()),
+                ),
+                (PageTab::Plans, format!("{} ({})", t.tab_plans(), plans)),
+                (PageTab::Family, t.tab_family().to_string()),
+            ];
             ui.add_space(8.0);
-            ui.horizontal(|ui| {
-                ui.strong(format!("{} ({})", t.photos(), images.len()));
-                if crate::icons::button(ui, crate::icons::ADD_A_PHOTO, t.add_photo()).clicked() {
-                    action = PageAction::AddPhoto(id.to_string());
-                }
-            });
-            ui.horizontal_wrapped(|ui| {
-                for (i, hash) in images.iter().enumerate() {
-                    let Some(texture) = faces.face(ui.ctx(), store, hash) else {
-                        continue;
-                    };
-                    let image = egui::Image::from_texture(&texture)
-                        .fit_to_exact_size(Vec2::splat(96.0))
-                        .sense(egui::Sense::click());
-                    let response = ui.add(image);
-                    let label = format!("{} {}", t.photos(), i + 1);
-                    response.widget_info(|| {
-                        egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &label)
-                    });
-                    let is_profile = profile.as_deref() == Some(hash.as_str());
-                    if is_profile {
-                        ui.painter().rect_stroke(
-                            response.rect,
-                            4.0,
-                            egui::Stroke::new(2.0, ui.visuals().selection.bg_fill),
-                            egui::StrokeKind::Outside,
-                        );
-                    }
-                    if response.clicked() {
-                        action = PageAction::ViewPhoto(id.to_string(), hash.clone());
-                    }
-                    response.context_menu(|ui| {
-                        let profile_label = if is_profile {
-                            t.this_is_profile_image()
-                        } else {
-                            t.set_as_profile_image()
-                        };
-                        if ui
-                            .add_enabled(!is_profile, egui::Button::new(profile_label))
+            match self.tabs(ui, store, &tabs) {
+                PageTab::Photos => {
+                    let profile = store.profile_image(id).ok().flatten();
+                    ui.add_space(8.0);
+                    ui.horizontal(|ui| {
+                        ui.strong(format!("{} ({})", t.photos(), images.len()));
+                        if crate::icons::button(ui, crate::icons::ADD_A_PHOTO, t.add_photo())
                             .clicked()
                         {
-                            action = PageAction::SetProfile(id.to_string(), hash.clone());
-                            ui.close();
+                            action = PageAction::AddPhoto(id.to_string());
                         }
-                        if ui.button(t.crop_photo()).clicked() {
-                            action = PageAction::CropPhoto(id.to_string(), hash.clone());
-                            ui.close();
-                        }
-                        if ui.button(t.mark_photo()).clicked() {
-                            action = PageAction::MarkPhoto(id.to_string(), hash.clone());
-                            ui.close();
-                        }
-                        if ui.button(t.delete_photo()).clicked() {
-                            action = PageAction::DeletePhoto(id.to_string(), hash.clone());
-                            ui.close();
+                    });
+                    ui.horizontal_wrapped(|ui| {
+                        for (i, hash) in images.iter().enumerate() {
+                            let Some(texture) = faces.face(ui.ctx(), store, hash) else {
+                                continue;
+                            };
+                            let image = egui::Image::from_texture(&texture)
+                                .fit_to_exact_size(Vec2::splat(96.0))
+                                .sense(egui::Sense::click());
+                            let response = ui.add(image);
+                            let label = format!("{} {}", t.photos(), i + 1);
+                            response.widget_info(|| {
+                                egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &label)
+                            });
+                            let is_profile = profile.as_deref() == Some(hash.as_str());
+                            if is_profile {
+                                ui.painter().rect_stroke(
+                                    response.rect,
+                                    4.0,
+                                    egui::Stroke::new(2.0, ui.visuals().selection.bg_fill),
+                                    egui::StrokeKind::Outside,
+                                );
+                            }
+                            if response.clicked() {
+                                action = PageAction::ViewPhoto(id.to_string(), hash.clone());
+                            }
+                            response.context_menu(|ui| {
+                                let profile_label = if is_profile {
+                                    t.this_is_profile_image()
+                                } else {
+                                    t.set_as_profile_image()
+                                };
+                                if ui
+                                    .add_enabled(!is_profile, egui::Button::new(profile_label))
+                                    .clicked()
+                                {
+                                    action = PageAction::SetProfile(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                                if ui.button(t.crop_photo()).clicked() {
+                                    action = PageAction::CropPhoto(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                                if ui.button(t.mark_photo()).clicked() {
+                                    action = PageAction::MarkPhoto(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                                if ui.button(t.delete_photo()).clicked() {
+                                    action = PageAction::DeletePhoto(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                            });
                         }
                     });
                 }
-            });
-            if let Some(a) = self.show_chores(ui, store, t, faces, id) {
-                action = a;
-            }
-            if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
-                action = a;
-            }
-            let fields = self.show_fields(ui, store, t, id, FieldScope::Cat);
-            if fields != PageAction::None {
-                action = fields;
-            }
-            if let Some(a) = self.show_family(ui, store, t, id) {
-                action = a;
+                PageTab::Plans => {
+                    if let Some(a) = self.show_chores(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                    if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                }
+                PageTab::Family => {
+                    if let Some(a) = self.show_family(ui, store, t, id) {
+                        action = a;
+                    }
+                }
+                PageTab::Fields | PageTab::Cats => {
+                    let fields = self.show_fields(ui, store, t, id, FieldScope::Cat);
+                    if fields != PageAction::None {
+                        action = fields;
+                    }
+                }
             }
         });
         action

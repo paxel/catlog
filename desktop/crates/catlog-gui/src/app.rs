@@ -3160,6 +3160,12 @@ mod tests {
         h.run();
     }
 
+    /// A page's sections live behind tabs; this picks one by its words.
+    fn open_tab(h: &mut Harness<'static, App>, label: &str) {
+        h.get_all_by_label_contains(label).next().unwrap().click();
+        h.run();
+    }
+
     fn harness(app: App) -> Harness<'static, App> {
         sized_harness(app, egui::vec2(1440.0, 900.0))
     }
@@ -3475,12 +3481,15 @@ mod tests {
             "an ended chore is not listed"
         );
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Plans");
         // The dashboard behind the page lists the chore as due too.
         h.get_all_by_label_contains("Drops · ").last().unwrap();
         assert!(
             h.query_by_label("Finish").is_none(),
             "a finished visit is no plan"
         );
+        // The value the finished visit wrote lives under Fields.
+        open_tab(&mut h, "Fields");
         h.get_by_label(L10n::new("en").value_yes());
         let dir = tempfile::tempdir().unwrap();
         let mut h = harness(seeded_with(dir.path(), "fields-all"));
@@ -3488,7 +3497,7 @@ mod tests {
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
         h.get_by_label("4.25 kg");
         h.get_by_label("5/2021");
-        h.get_by_label("Family");
+        open_tab(&mut h, "Family");
         // "Tom" is the Mother value and the family link; the link comes last.
         h.get_all_by_label("Tom").last().unwrap().click_accesskit();
         h.run();
@@ -3941,6 +3950,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Photos");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         assert_eq!(h.state().store().images(miezi).unwrap().len(), 2);
         h.get_by_label("Add photo").click();
@@ -3978,6 +3988,7 @@ mod tests {
         let mut h = harness(seeded(dir.path()));
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Photos");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         let images = h.state().store().images(miezi).unwrap();
         assert_eq!(images.len(), 2);
@@ -4083,6 +4094,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Photos");
         h.get_by_label("Photos 2").click();
         h.run();
         assert!(h.state().viewer.open);
@@ -4437,6 +4449,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Plans");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         // A new daily chore with a reminder.
         h.get_by_label("New chore").click();
@@ -4555,6 +4568,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Plans");
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
         h.get_by_label("Add appointment").click();
         h.run();
@@ -5864,6 +5878,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_cat_page(&mut h, miezi);
+        open_tab(&mut h, "Plans");
         h.get_all_by_label_contains("Drops · ")
             .last()
             .unwrap()
@@ -6298,6 +6313,50 @@ mod tests {
         h.run();
         let ctx = h.state().ctx.clone().unwrap();
         assert_eq!(h.state().desk.front(&ctx).as_deref(), Some(tom));
+    }
+
+    #[test]
+    fn the_edit_page_is_cut_into_tabs_and_remembers_the_last_one() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        open_cat_page(&mut h, miezi);
+        // Fields first, and what the other tabs hold is on their labels.
+        h.get_by_label_contains("Photos (2)");
+        h.get_by_label_contains("Plans (");
+        h.get_by_label("Family");
+        // The table behind the page names the gender too; the page's
+        // own field row is the one that comes and goes with the tab.
+        let fields = |h: &mut Harness<'static, App>| h.get_all_by_label_contains("female").count();
+        let with_fields = fields(&mut h);
+        assert!(with_fields > 1, "the fields are the first tab");
+        assert!(
+            h.query_by_label("Photos 1").is_none(),
+            "the photos wait behind their tab"
+        );
+        open_tab(&mut h, "Photos");
+        h.get_by_label("Photos 1");
+        h.get_by_label("Photos 2");
+        assert!(fields(&mut h) < with_fields, "and the fields step aside");
+        assert_eq!(
+            h.state().store().local_setting("pageTab").as_deref(),
+            Some("photos")
+        );
+        // Closed and opened again, the page comes back on that tab.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_cat_page(&mut h, miezi);
+        h.get_by_label("Photos 1");
+        // A home's page has the tabs that apply to it.
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_cat_page(&mut h, "clowder:00000000-0000-4000-8000-000000000001");
+        h.get_by_label_contains("Cats (1)");
+        assert!(
+            h.query_by_label("Family").is_none(),
+            "a home has no family tab"
+        );
     }
 
     #[test]
@@ -7871,6 +7930,7 @@ mod tests {
         let mut h = harness(app);
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Plans");
         // The tenth tick: the day is done and the servant's rank reached.
         h.get_all_by_role(egui::accesskit::Role::CheckBox)
             .last()
@@ -8133,6 +8193,7 @@ mod tests {
         let mut h = harness(seeded(dir.path()));
         h.run();
         open_cat_page(&mut h, "cat:00000000-0000-4000-8000-000000000001");
+        open_tab(&mut h, "Photos");
         h.get_by_label("Photos 2").click();
         h.run();
         assert!(h.state().viewer.open);

@@ -14,6 +14,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - The home a cat is in now is named plainly in the Move dialog; it used to carry a tick this font has not, which drew as an empty box.
 
 ### Changed
+- The page behind Edit is cut into tabs — Fields, Photos, Plans and Family, and Fields, Cats and Plans for a home — instead of one long scroll. The tab last used comes back with the next page.
 - Every dialog on the desk confirms on the right, with Cancel beside it.
 - The value editor reads as a dialog now: room around its content, the value, the date it counts from and the private mark kept apart.
 - Checkboxes on the desk are squares that cross themselves off, instead of a tick too small to recognise.

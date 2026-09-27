@@ -15,6 +15,11 @@
   "cardAddValue": "Feld ausfüllen…",
   "valueActions": "Mehr zu diesem Wert",
   "onTheDesk": "Auf dem Schreibtisch",
+  "tabFields": "Felder",
+  "tabPhotos": "Fotos",
+  "tabPlans": "Geplant",
+  "tabFamily": "Familie",
+  "tabCats": "Katzen",
   "markedCount": "{count} markiert",
   "@markedCount": {
     "placeholders": {
