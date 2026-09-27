@@ -61,8 +61,10 @@ pub enum TableAction {
     None,
     /// Enter: the Clowder's card.
     Open(String),
-    /// Lay this Clowder on the desk, or take it off again.
-    SetOpen(String, bool),
+    /// Lay these Clowders on the desk, or take them off again.
+    SetOpen(Vec<String>, bool),
+    /// What the keeper asked for the marked rows.
+    Marked(crate::marked::MarkedAction),
     NewClowder,
     /// The Cats view with its Strays filter on.
     Strays,
@@ -76,6 +78,10 @@ pub struct ClowdersTable {
     pub sort: Option<(Column, bool)>,
     /// The row the keyboard stands on and a click selects.
     pub cursor: Option<String>,
+    /// The marked rows, in no order; `order` says how they lie.
+    pub selected: std::collections::BTreeSet<String>,
+    /// Where a shift-click measures from.
+    anchor: Option<String>,
     order: Vec<String>,
     scroll_to: Option<usize>,
     /// The rows and the strays count as built for the store's last
@@ -141,6 +147,53 @@ impl ClowdersTable {
     }
 
     /// Draws the toolbar and the table; says what the keeper did.
+    #[allow(clippy::too_many_arguments)]
+    /// The marked Clowders in the table's order, then any the filters
+    /// have since hidden.
+    pub fn selected_in_order(&self) -> Vec<String> {
+        let mut out: Vec<String> = self
+            .order
+            .iter()
+            .filter(|id| self.selected.contains(*id))
+            .cloned()
+            .collect();
+        for id in &self.selected {
+            if !out.contains(id) {
+                out.push(id.clone());
+            }
+        }
+        out
+    }
+
+    /// A click marks one row; Ctrl adds or removes one; Shift takes the
+    /// run from where the last click was.
+    fn select(&mut self, id: &str, modifiers: egui::Modifiers) {
+        self.cursor = Some(id.to_string());
+        if modifiers.shift
+            && let Some(anchor) = self.anchor.clone()
+            && let (Some(from), Some(to)) = (
+                self.order.iter().position(|x| *x == anchor),
+                self.order.iter().position(|x| x == id),
+            )
+        {
+            let (from, to) = if from <= to { (from, to) } else { (to, from) };
+            if !modifiers.command {
+                self.selected.clear();
+            }
+            self.selected.extend(self.order[from..=to].iter().cloned());
+            return;
+        }
+        self.anchor = Some(id.to_string());
+        if modifiers.command {
+            if !self.selected.remove(id) {
+                self.selected.insert(id.to_string());
+            }
+        } else {
+            self.selected.clear();
+            self.selected.insert(id.to_string());
+        }
+    }
+
     #[allow(clippy::too_many_arguments)]
     pub fn show(
         &mut self,
@@ -216,6 +269,22 @@ impl ClowdersTable {
                 action = TableAction::Open(id);
             }
         }
+        let hidden = self
+            .selected
+            .iter()
+            .all(|id| store.is_hidden(id).unwrap_or(false));
+        let marked = crate::marked::marked_bar(
+            ui,
+            t,
+            self.selected.len(),
+            false,
+            hidden && !self.selected.is_empty(),
+            pet_mode,
+        );
+        if marked != crate::marked::MarkedAction::None {
+            action = TableAction::Marked(marked);
+        }
+        let modifiers = ui.input(|i| i.modifiers);
         let mut table = TableBuilder::new(ui)
             .id_salt("clowders-table")
             .striped(true)
@@ -234,7 +303,7 @@ impl ClowdersTable {
         }
         table = table.column(TableColumn::remainder());
         let mut sort_click: Option<Column> = None;
-        let mut clicked: Option<String> = None;
+        let mut clicked: Option<(String, egui::Modifiers)> = None;
         let mut set_open: Option<(String, bool)> = None;
         table
             .header(28.0, |mut header| {
@@ -269,7 +338,6 @@ impl ClowdersTable {
                 body.rows(34.0, rows.len(), |mut row| {
                     let r = &rows[row.index()];
                     let id = r.row.view.id.clone();
-                    row.set_selected(self.cursor.as_deref() == Some(id.as_str()));
                     row.col(|ui| {
                         let mut on = open.contains(&id);
                         let response = ui.checkbox(&mut on, "").on_hover_text(t.on_the_desk());
@@ -370,10 +438,13 @@ impl ClowdersTable {
                     row.col(|ui| {
                         crate::icons::more(ui, &mut menu);
                     });
+                    row.set_selected(
+                        self.selected.contains(&id) || self.cursor.as_deref() == Some(id.as_str()),
+                    );
                     let response = row.response();
                     response.context_menu(&mut menu);
                     if response.clicked() {
-                        clicked = Some(id.clone());
+                        clicked = Some((id.clone(), modifiers));
                     }
                 });
             });
@@ -384,11 +455,17 @@ impl ClowdersTable {
                 _ => Some((column, false)),
             };
         }
-        if let Some(id) = clicked {
-            self.cursor = Some(id);
+        if let Some((id, modifiers)) = clicked {
+            self.select(&id, modifiers);
         }
         if let Some((id, on)) = set_open {
-            action = TableAction::SetOpen(id, on);
+            // A tick on a marked row speaks for every marked row.
+            let ids = if self.selected.contains(&id) {
+                self.selected_in_order()
+            } else {
+                vec![id]
+            };
+            action = TableAction::SetOpen(ids, on);
         }
         action
     }

@@ -237,6 +237,8 @@ pub struct App {
     archiving: Option<Vec<String>>,
     hard_deleting: Option<(String, String)>,
     deleting_catalog: bool,
+    /// The rows a keeper asked to delete, waiting for the confirmation.
+    deleting_marked: Option<Vec<String>>,
     pub transfer_dialog: TransferDialog,
     /// The wall clock, replaceable in tests.
     pub now: Box<dyn Fn() -> chrono::NaiveDateTime>,
@@ -399,6 +401,7 @@ impl App {
             archiving: None,
             hard_deleting: None,
             deleting_catalog: false,
+            deleting_marked: None,
             transfer_dialog: TransferDialog::default(),
             now: Box::new(|| chrono::Local::now().naive_local()),
             last_reminder_check: chrono::Local::now().naive_local(),
@@ -1083,6 +1086,21 @@ impl App {
             if let Some((author, device)) = self.hard_deleting.take() {
                 self.hard_delete(&author, &device);
             }
+            if let Some(ids) = self.deleting_marked.take() {
+                for id in &ids {
+                    let gone = if id.starts_with("clowder:") {
+                        self.store.delete_clowder(id)
+                    } else {
+                        self.store.delete_cat(id)
+                    };
+                    if let Err(e) = gone {
+                        self.notice = Some(e.to_string());
+                    }
+                    self.desk.close(&self.store, id);
+                }
+                self.cats.selected.clear();
+                self.clowders.selected.clear();
+            }
             if std::mem::take(&mut self.deleting_catalog) {
                 match self.catalogs_page.chosen.clone() {
                     // Another Catalog goes without ceremony; it is not
@@ -1120,6 +1138,7 @@ impl App {
             }
         }
         if !self.confirm.open {
+            self.deleting_marked = None;
             self.deleting_photo = None;
             self.ending_chore = None;
             self.going_back = None;
@@ -2309,14 +2328,22 @@ impl App {
             &open,
         ) {
             ClowderAction::None => {}
-            ClowderAction::SetOpen(id, on) => {
+            ClowderAction::SetOpen(ids, on) => {
                 if on {
-                    self.desk.open(&self.store, std::slice::from_ref(&id));
-                    self.home.selection = Selection::Clowder(id);
+                    self.desk.open(&self.store, &ids);
+                    if let Some(id) = ids.last() {
+                        self.home.selection = Selection::Clowder(id.clone());
+                    }
                 } else {
-                    self.desk.close(&self.store, &id);
+                    for id in &ids {
+                        self.desk.close(&self.store, id);
+                    }
                 }
                 self.history_of = None;
+            }
+            ClowderAction::Marked(what) => {
+                let ids = self.clowders.selected_in_order();
+                self.act_marked(what, &ids);
             }
             ClowderAction::Open(id) => self.open_record(id),
             ClowderAction::NewClowder => self.act(HomeAction::NewClowder),
@@ -2347,14 +2374,22 @@ impl App {
             &open,
         ) {
             TableAction::None => {}
-            TableAction::SetOpen(id, on) => {
+            TableAction::SetOpen(ids, on) => {
                 if on {
-                    self.desk.open(&self.store, std::slice::from_ref(&id));
-                    self.home.selection = Selection::Cat(id);
+                    self.desk.open(&self.store, &ids);
+                    if let Some(id) = ids.last() {
+                        self.home.selection = Selection::Cat(id.clone());
+                    }
                 } else {
-                    self.desk.close(&self.store, &id);
+                    for id in &ids {
+                        self.desk.close(&self.store, id);
+                    }
                 }
                 self.history_of = None;
+            }
+            TableAction::Marked(what) => {
+                let ids = self.cats.selected_in_order();
+                self.act_marked(what, &ids);
             }
             TableAction::Open(id) => {
                 let mut ids = self.cats.selected_in_order();
@@ -2373,6 +2408,61 @@ impl App {
             TableAction::ToggleHidden(id) => page_action = PageAction::ToggleHidden(id),
         }
         page_action
+    }
+
+    /// What the keeper asked for the rows they marked in a table.
+    fn act_marked(&mut self, what: crate::marked::MarkedAction, ids: &[String]) {
+        use crate::marked::MarkedAction;
+        let t = self.t;
+        if ids.is_empty() {
+            return;
+        }
+        match what {
+            MarkedAction::None => {}
+            MarkedAction::Open => {
+                self.desk.open(&self.store, ids);
+                self.history_of = None;
+            }
+            MarkedAction::MoveHome => {
+                let cats: Vec<String> = ids
+                    .iter()
+                    .filter(|id| id.starts_with("cat:"))
+                    .cloned()
+                    .collect();
+                if !cats.is_empty() {
+                    self.mover.ask_many(&self.store, &cats);
+                }
+            }
+            MarkedAction::MoveCatalog => {
+                if !self.transfer_dialog.ask(&self.manager, &self.store) {
+                    self.notice = Some(t.nothing_to_archive().to_string());
+                }
+            }
+            MarkedAction::Hide(on) => {
+                for id in ids {
+                    if let Err(e) = self.store.set_hidden(id, on) {
+                        self.notice = Some(e.to_string());
+                    }
+                }
+            }
+            MarkedAction::Export => {
+                let name = format!("catlog-{}.catsync", ids.len());
+                if let Some(path) = (self.save_file)(t.marked_export(), &name) {
+                    match self.store.write_archive(&path, ids) {
+                        Ok(()) => self.notice = Some(t.bundle_written(&path.to_string_lossy())),
+                        Err(e) => self.notice = Some(e.to_string()),
+                    }
+                }
+            }
+            MarkedAction::Delete => {
+                self.confirm.ask(
+                    t.marked_delete(),
+                    &t.marked_delete_body(ids.len() as i64),
+                    t.delete(),
+                );
+                self.deleting_marked = Some(ids.to_vec());
+            }
+        }
     }
 
     /// A Field's history, as the modal over everything else.
@@ -5139,7 +5229,12 @@ mod tests {
             .unwrap()
             .click_secondary();
         h.step();
-        h.get_by_label("Hide on this device").click_accesskit();
+        // The bar over the marked rows offers hiding too; the row's own
+        // menu is the one that just opened.
+        h.get_all_by_label("Hide on this device")
+            .last()
+            .unwrap()
+            .click_accesskit();
         h.run();
         assert!(h.state().store().is_hidden(wanderer).unwrap());
         assert_eq!(h.state().cats.order().len(), 2);
@@ -6206,6 +6301,77 @@ mod tests {
     }
 
     #[test]
+    fn the_marked_rows_are_opened_moved_hidden_exported_and_deleted_together() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let barn = "clowder:00000000-0000-4000-8000-000000000002";
+        let mut app = seeded(dir.path());
+        app.save_file = Box::new({
+            let out = dir.path().join("marked.catsync");
+            move |_, _| Some(out.clone())
+        });
+        let mut h = sized_harness(app, egui::vec2(1600.0, 900.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Tom")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::COMMAND);
+        h.run();
+        h.get_by_label_contains("2 marked");
+        let marked = |h: &mut Harness<'static, App>, item: &str| {
+            h.get_by_label_contains("2 marked").click();
+            h.step();
+            h.get_by_label(item).click_accesskit();
+            h.run();
+        };
+        // A tick on one marked row lays all the marked ones down.
+        h.get_all_by_label("On the desk").next().unwrap().click();
+        h.run();
+        assert_eq!(h.state().desk.open, [miezi, tom]);
+        h.get_all_by_label("On the desk").next().unwrap().click();
+        h.run();
+        assert!(h.state().desk.open.is_empty(), "and takes them all off");
+        // The marked ones move into another home in one go.
+        marked(&mut h, "Move to another home");
+        h.state_mut().mover.target = Some(barn.into());
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        for cat in [miezi, tom] {
+            assert_eq!(
+                h.state()
+                    .store()
+                    .current(cat, "clowder")
+                    .unwrap()
+                    .as_deref(),
+                Some(barn),
+                "{cat} moved"
+            );
+        }
+        // Hidden together, and shown again.
+        marked(&mut h, "Hide on this device");
+        assert!(h.state().store().is_hidden(miezi).unwrap());
+        assert!(h.state().store().is_hidden(tom).unwrap());
+        // Exported together, into one file.
+        marked(&mut h, "Export…");
+        assert!(
+            dir.path().join("marked.catsync").exists(),
+            "one file; notice says {:?}",
+            h.state().notice.clone()
+        );
+        // Deleted together, after one question that names the count.
+        marked(&mut h, "Delete…");
+        h.get_by_label_contains("2 cats and homes will be deleted");
+        h.get_all_by_label("Delete").last().unwrap().click();
+        h.run();
+        assert_eq!(h.state().store().cats(None).unwrap().len(), 1, "one left");
+    }
+
+    #[test]
     fn a_home_lays_all_its_cats_on_the_desk_and_the_menu_says_what_moving_means() {
         let dir = tempfile::tempdir().unwrap();
         let foster = "clowder:00000000-0000-4000-8000-000000000001";
@@ -6239,7 +6405,10 @@ mod tests {
         h.run();
         h.get_all_by_label("Actions").last().unwrap().click();
         h.step();
-        h.get_by_label("Move to another home");
+        assert!(
+            h.get_all_by_label("Move to another home").count() >= 1,
+            "the menu says what moving means"
+        );
         assert!(
             h.query_by_label("Seen here now").is_none(),
             "a desk has no here"

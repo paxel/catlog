@@ -33,6 +33,7 @@ pub mod labels;
 pub mod launcher;
 pub mod map;
 pub mod map_page;
+pub mod marked;
 pub mod memo;
 pub mod merge;
 pub mod motion;

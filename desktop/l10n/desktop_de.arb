@@ -15,6 +15,25 @@
   "cardAddValue": "Feld ausfüllen…",
   "valueActions": "Mehr zu diesem Wert",
   "onTheDesk": "Auf dem Schreibtisch",
+  "markedCount": "{count} markiert",
+  "@markedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markedOpen": "Auf dem Schreibtisch öffnen",
+  "markedExport": "Exportieren…",
+  "markedDelete": "Löschen…",
+  "markedDeleteBody": "{count} Katzen und Zuhause werden gelöscht. Die Löschung erreicht alle, mit denen du synchronisierst.",
+  "@markedDeleteBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "moveToHome": "In ein anderes Zuhause umziehen",
   "moveToHomeNeutral": "In einen anderen Haushalt umziehen",
   "openAllPets": "Alle Tiere öffnen",

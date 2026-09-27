@@ -15,6 +15,25 @@
   "cardAddValue": "Fill in a field…",
   "valueActions": "More for this value",
   "onTheDesk": "On the desk",
+  "markedCount": "{count} marked",
+  "@markedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markedOpen": "Open on the desk",
+  "markedExport": "Export…",
+  "markedDelete": "Delete…",
+  "markedDeleteBody": "{count} cats and homes will be deleted. The deletion reaches everyone you sync with.",
+  "@markedDeleteBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "moveToHome": "Move to another home",
   "moveToHomeNeutral": "Move to another household",
   "openAllPets": "Open all pets",

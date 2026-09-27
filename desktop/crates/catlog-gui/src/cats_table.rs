@@ -286,8 +286,10 @@ pub fn rows(
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TableAction {
     None,
-    /// Lay this Cat on the desk, or take it off again.
-    SetOpen(String, bool),
+    /// Lay these Cats on the desk, or take them off again.
+    SetOpen(Vec<String>, bool),
+    /// What the keeper asked for the marked rows.
+    Marked(crate::marked::MarkedAction),
     /// Enter: the Cat's card.
     Open(String),
     NewCat,
@@ -331,11 +333,20 @@ impl CatsTable {
 
     /// The selected Cats in the table's order.
     pub fn selected_in_order(&self) -> Vec<String> {
-        self.order
+        let mut out: Vec<String> = self
+            .order
             .iter()
             .filter(|id| self.selected.contains(*id))
             .cloned()
-            .collect()
+            .collect();
+        // A marked row that a filter has since hidden is still marked:
+        // hiding a handful of cats must not lose the handful.
+        for id in &self.selected {
+            if !out.contains(id) {
+                out.push(id.clone());
+            }
+        }
+        out
     }
 
     fn filtered(&self, all: Vec<Row>) -> Vec<Row> {
@@ -524,6 +535,22 @@ impl CatsTable {
                 action = TableAction::Open(id);
             }
         }
+        // What can be done with the rows that are marked.
+        let hidden = self
+            .selected
+            .iter()
+            .all(|id| store.is_hidden(id).unwrap_or(false));
+        let marked = crate::marked::marked_bar(
+            ui,
+            t,
+            self.selected.len(),
+            true,
+            hidden && !self.selected.is_empty(),
+            store.is_pet_mode().unwrap_or(false),
+        );
+        if marked != crate::marked::MarkedAction::None {
+            action = TableAction::Marked(marked);
+        }
         let modifiers = ui.input(|i| i.modifiers);
         let mut table = TableBuilder::new(ui)
             .id_salt("cats-table")
@@ -653,7 +680,14 @@ impl CatsTable {
             self.select(&id, modifiers);
         }
         if let Some((id, on)) = set_open {
-            action = TableAction::SetOpen(id, on);
+            // A tick on a marked row speaks for every marked row; on a
+            // row that is not marked it speaks only for itself.
+            let ids = if self.selected.contains(&id) {
+                self.selected_in_order()
+            } else {
+                vec![id]
+            };
+            action = TableAction::SetOpen(ids, on);
         }
         action
     }

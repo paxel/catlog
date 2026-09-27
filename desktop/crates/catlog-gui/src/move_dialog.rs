@@ -9,7 +9,8 @@ use crate::l10n::L10n;
 #[derive(Default)]
 pub struct MoveDialog {
     pub open: bool,
-    pub cat: String,
+    /// The Cats being moved; one of them, or every marked one.
+    pub cats: Vec<String>,
     pub current: Option<String>,
     pub clowders: Vec<EntityView>,
     /// The chosen destination; none for the street.
@@ -20,10 +21,23 @@ pub struct MoveDialog {
 
 impl MoveDialog {
     pub fn ask(&mut self, store: &Catalog, cat: &str) {
+        self.ask_many(store, std::slice::from_ref(&cat.to_string()));
+    }
+
+    /// The same dialog for several Cats: the home they share, when they
+    /// share one, is the one already ticked.
+    pub fn ask_many(&mut self, store: &Catalog, cats: &[String]) {
         self.open = true;
         self.id += 1;
-        self.cat = cat.to_string();
-        self.current = store.current(cat, keys::CLOWDER).ok().flatten();
+        self.cats = cats.to_vec();
+        let homes: Vec<Option<String>> = cats
+            .iter()
+            .map(|cat| store.current(cat, keys::CLOWDER).ok().flatten())
+            .collect();
+        self.current = match homes.first() {
+            Some(first) if homes.iter().all(|h| h == first) => first.clone(),
+            _ => None,
+        };
         self.clowders = store.clowders().unwrap_or_default();
         self.target = self.current.clone();
         self.as_of = chrono::Local::now().date_naive().to_string();
@@ -39,10 +53,13 @@ impl MoveDialog {
         let modal = egui::Modal::new(egui::Id::new(("move-dialog", self.id))).show(ctx, |ui| {
             ui.heading(t.move_to());
             for c in &self.clowders {
+                // The home they are in now is named as such; the tick
+                // that used to mark it is a glyph this font has not, and
+                // drew as an empty box.
                 let label = if Some(&c.id) == self.current.as_ref() {
-                    format!("✓ {}", c.name)
+                    egui::RichText::new(&c.name).strong()
                 } else {
-                    c.name.clone()
+                    egui::RichText::new(&c.name)
                 };
                 if ui
                     .radio(self.target.as_deref() == Some(c.id.as_str()), label)
@@ -78,17 +95,19 @@ impl MoveDialog {
                             d.with_timezone(&chrono::Utc)
                                 .to_rfc3339_opts(chrono::SecondsFormat::Micros, true)
                         });
-                    if store
-                        .append_at(
-                            &self.cat,
-                            keys::CLOWDER,
-                            self.target.as_deref(),
-                            at.as_deref(),
-                            false,
-                        )
-                        .is_ok()
-                    {
-                        moved = true;
+                    for cat in &self.cats {
+                        if store
+                            .append_at(
+                                cat,
+                                keys::CLOWDER,
+                                self.target.as_deref(),
+                                at.as_deref(),
+                                false,
+                            )
+                            .is_ok()
+                        {
+                            moved = true;
+                        }
                     }
                 }
                 if ui.button(t.cancel()).clicked() || escape {
