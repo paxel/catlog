@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [2.0.7] - Unreleased
 
 ### Fixed
+- "Move in from another catalog" works with three catalogs or more; it used to do nothing at all, throwing where nobody could see it.
 - What arrives from a phone or a folder shows up at once: a sync wrote the entries but never told the views, so the cats, the dashboard, the agenda and the family tree went on showing the catalog as it was before it.
 
 ---

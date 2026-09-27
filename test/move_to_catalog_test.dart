@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/move_to_catalog.dart';
+import 'package:catlog/src/screens/catalog_settings_screen.dart';
 import 'package:catlog/src/screens/catalogs_screen.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
@@ -173,5 +174,28 @@ void main() {
     final there = catalogs.openStore(paris);
     expect(there.clowders().map((c) => c.name), ['Hinterhof']);
     there.close();
+  });
+
+  testWidgets('with three catalogs the move in asks which one', (tester) async {
+    final clowder = store.createClowder('Hinterhof');
+    store.moveCat(cat, clowder);
+    catalogs.create('Paris');
+    catalogs.create('Rom');
+    final paris = catalogs.catalogs().firstWhere((c) => c.name == 'Paris');
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: CatalogSettingsScreen(
+        catalogs: catalogs,
+        catalog: paris,
+        activeStore: () => store,
+      ),
+    ));
+    await tester.pumpAndSettle();
+    // Two other catalogs: a menu, not a crash that swallows itself.
+    await tester.tap(find.text('Move in from another catalog…'));
+    await tester.pumpAndSettle();
+    expect(find.text('Rom'), findsWidgets);
+    expect(tester.takeException(), isNull);
   });
 }

@@ -194,7 +194,10 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
         if (c.id != widget.catalog.id) c
     ];
     if (others.isEmpty) return;
-    CatalogInfo? source = others.single;
+    // One other catalog needs no choosing; `single` on a longer list
+    // throws, and the throw died unseen in this async tap — the entry
+    // simply did nothing with three catalogs or more.
+    CatalogInfo? source = others.first;
     if (others.length > 1) {
       final box = row.findRenderObject() as RenderBox;
       final at = box.localToGlobal(Offset(0, box.size.height));
