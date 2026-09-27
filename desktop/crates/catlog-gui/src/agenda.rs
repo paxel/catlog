@@ -336,7 +336,7 @@ pub fn show_agenda(
                 month_picker(ui, store, t, anchor);
             });
             ui.separator();
-            let entries = day_entries(store, t, &data.items, &data.chores, anchor, mode, today);
+            let entries = day_entries(store, t, &data.items, anchor, mode, today);
             if let Some(entity) = match mode {
                 Calendar::Week => week_view(ui, t, &entries, anchor, today, now),
                 Calendar::Month => month_view(ui, t, &entries, anchor, today),
@@ -494,7 +494,6 @@ fn day_entries(
     store: &Catalog,
     t: &L10n,
     items: &[AgendaItem],
-    chores: &ChoresAgenda,
     anchor: NaiveDate,
     mode: Calendar,
     today: NaiveDate,
@@ -539,6 +538,12 @@ fn day_entries(
     // Every day a chore is due in the range, not only the next one: a
     // daily chore belongs on every one of those days.
     for chore in store.all_chores(false).unwrap_or_default() {
+        // A paused chore is due on no day: the list files it under
+        // Paused, and the calendar used to print it on every cell of
+        // the month all the same.
+        if chore.paused || !chore.active() {
+            continue;
+        }
         let ticks = store.chore_ticks(&chore).unwrap_or_default();
         for occurrence in catlog_core::chores::occurrences(&chore, &ticks, first, last) {
             out.push(DayEntry {
@@ -553,7 +558,7 @@ fn day_entries(
             });
         }
     }
-    let _ = (chores, today);
+    let _ = today;
     out.sort_by_key(|e| (e.day, e.at));
     out
 }
@@ -930,12 +935,10 @@ mod tests {
         let t = L10n::new("en");
         let items = store.agenda_items().unwrap();
         assert!(!items.is_empty(), "the visit is an agenda item");
-        let chores = store.chores_agenda(day(2026, 3, 10)).unwrap();
         let entries = day_entries(
             &store,
             &t,
             &items,
-            &chores,
             day(2026, 3, 10),
             Calendar::Month,
             day(2026, 3, 10),
@@ -943,6 +946,45 @@ mod tests {
         assert_eq!(entries.len(), 1, "one entry: {entries:?}");
         assert_eq!(entries[0].day, day(2026, 3, 12));
         assert!(entries[0].at.is_some(), "at half past two");
+    }
+
+    #[test]
+    fn a_paused_chore_is_on_no_day_of_the_calendar() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut store = Catalog::open(dir.path()).unwrap();
+        store.set_author("Ada").unwrap();
+        store.create_cat("cat:a", "Miezi", None, "cat").unwrap();
+        let mut chore = catlog_core::chores::Chore {
+            id: String::new(),
+            entity: "cat:a".into(),
+            title: "Brush".into(),
+            schedule: catlog_core::chores::ChoreSchedule::daily(),
+            time: None,
+            start: day(2026, 3, 1),
+            paused: false,
+            ended: false,
+            remind: false,
+            remind_at: None,
+            extra: Default::default(),
+        };
+        chore = store.create_chore("c-brush", &chore).unwrap();
+        let t = L10n::new("en");
+        let items = store.agenda_items().unwrap();
+        let entries = |store: &Catalog| {
+            day_entries(
+                store,
+                &t,
+                &items,
+                day(2026, 3, 10),
+                Calendar::Month,
+                day(2026, 3, 10),
+            )
+            .len()
+        };
+        assert!(entries(&store) > 20, "a daily chore fills the month");
+        chore.paused = true;
+        store.create_chore(&chore.id, &chore).unwrap();
+        assert_eq!(entries(&store), 0, "paused is due on no day");
     }
 
     #[test]
