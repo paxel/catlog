@@ -96,6 +96,7 @@ class _VetReportScreenState extends State<VetReportScreen> {
         _to = picked;
       }
     });
+    _schedulePreview();
   }
 
   Future<pw.Document?> _build() async {
@@ -320,7 +321,10 @@ class _VetReportScreenState extends State<VetReportScreen> {
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             value: _summary,
-            onChanged: (v) => setState(() => _summary = v),
+            onChanged: (v) {
+              setState(() => _summary = v);
+              _schedulePreview();
+            },
             title: Text(t.vetReportSummary),
           ),
           const Divider(),
@@ -329,13 +333,16 @@ class _VetReportScreenState extends State<VetReportScreen> {
               contentPadding: EdgeInsets.zero,
               dense: true,
               value: !_dropped.contains(e.seq),
-              onChanged: (v) => setState(() {
-                if (v == true) {
-                  _dropped.remove(e.seq);
-                } else {
-                  _dropped.add(e.seq);
-                }
-              }),
+              onChanged: (v) {
+                setState(() {
+                  if (v == true) {
+                    _dropped.remove(e.seq);
+                  } else {
+                    _dropped.add(e.seq);
+                  }
+                });
+                _schedulePreview();
+              },
               title: Text(
                 '${fieldLabel(t, store, e.field)}: ${valueLabel(t, store, e.field, e.value)}',
               ),

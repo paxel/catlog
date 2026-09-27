@@ -176,4 +176,46 @@ void main() {
     expect(previews, 1);
   });
 
+  testWidgets('dropping a row draws the preview again', (tester) async {
+    var previews = 0;
+    tester.view.physicalSize = const Size(500, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: VetReportScreen(
+          store: store,
+          catId: cat,
+          // The picture itself is the poster screen's business; what
+          // matters here is that a new one is asked for.
+          preview: (pdf) async {
+            previews++;
+            return null;
+          },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    Future<void> settlePreview() async {
+      await tester.pump(const Duration(milliseconds: 600));
+      await tester.runAsync(() async {
+        await Future<void>.delayed(const Duration(milliseconds: 500));
+      });
+      await tester.pumpAndSettle();
+    }
+
+    await settlePreview();
+    expect(previews, 1);
+    // A row taken out of the report is a different report.
+    await tester.tap(find.textContaining('Sneezing'));
+    await settlePreview();
+    expect(previews, 2);
+    // So is the summary going away.
+    await tester.tap(find.byType(Switch).first);
+    await settlePreview();
+    expect(previews, 3);
+  });
+
 }

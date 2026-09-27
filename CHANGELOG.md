@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 - "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
+- The vet report's preview follows every change again: a new date range, the patient summary switch and a row taken out all redraw it, not only the field chips.
 - An appointment can no longer be saved with nobody to visit; Save stays grey until a cat or a home is picked.
 - Turning the adoption confetti off no longer silences the tick, the day's chores, the ladder and the adoption sounds as well.
 - A marked home is highlighted in the Clowders table again; the row was marked but looked like any other.
