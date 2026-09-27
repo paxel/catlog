@@ -7531,6 +7531,20 @@ mod tests {
         h.run();
         assert_eq!(offered(&mut h, "Tom"), 1);
         assert_eq!(offered(&mut h, "Wanderer"), 1);
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // The one already written down stays on the list, whatever its
+        // gender says today: hidden, it ticked no row and could only be
+        // left as it was.
+        {
+            let def = h.state().store().field_def("mother").unwrap().unwrap();
+            let app = h.state_mut();
+            let (editor, store) = (&mut app.editor, &app.store);
+            let tom = "cat:00000000-0000-4000-8000-000000000002";
+            editor.ask(store, &def, miezi, Some(tom), EditTarget::New, None, "en");
+        }
+        h.run();
+        assert_eq!(offered(&mut h, "Tom"), 1, "the mother written down");
     }
 
     #[test]

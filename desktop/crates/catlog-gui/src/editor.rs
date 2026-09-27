@@ -557,7 +557,12 @@ impl FieldEditor {
                     if store.resolve_entity(&cat.id).unwrap_or_default() == me {
                         continue;
                     }
+                    // The cat already written down stays on the list
+                    // whatever its gender says now: hidden, it left no
+                    // row ticked and no way to put another one in its
+                    // place — only Cancel.
                     if let Some(wrong) = wrong
+                        && self.choice.as_deref() != Some(cat.id.as_str())
                         && store
                             .current(&cat.id, &keys::user_field("gender"))
                             .ok()
