@@ -11,6 +11,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A home's card can lay every pet living in it on the desk at once and tile them.
 
 ### Fixed
+- The red line of text at the top of a view is gone: what the app has to say is a note at the top of the window, which goes by itself when it only says a job is done, and stays with a × when something failed.
+- Copying a card, a photo or a graph answers with a green paw at the pointer instead of a word in the corner — and the phone's paw appears at last: it went into whatever overlay was nearest, so a paw asked for inside a dialog vanished with the dialog.
 - The timeline opens at once: it used to walk the whole log again on every frame, which made it unusable on a real catalog.
 - The desk's graph offers the phone's ranges — week, month, year, all and a custom from/to — and writes them under the phone's own setting, so a catalog opened on either shows what was picked on the other.
 - The home a cat is in now is named plainly in the Move dialog; it used to carry a tick this font has not, which drew as an empty box.

@@ -255,6 +255,12 @@ pub struct App {
     request: Request,
     /// What went wrong last, shown in the detail pane until the next action.
     notice: Option<String>,
+    /// A note that failed stays until it is dismissed; one that only
+    /// says a job is done goes by itself.
+    notice_failed: bool,
+    /// The note on screen and when it appeared, so it can fade.
+    notice_shown: Option<String>,
+    notice_since: f64,
     /// The context of the frame being drawn, for the clipboard.
     ctx: Option<Context>,
 }
@@ -414,6 +420,9 @@ impl App {
             request: Request::None,
             ctx: None,
             notice: None,
+            notice_failed: false,
+            notice_shown: None,
+            notice_since: 0.0,
         };
         app.apply_units();
         Ok(app)
@@ -529,13 +538,13 @@ impl App {
         match result {
             Ok(hash) => {
                 if let Err(e) = self.store.set_profile_image(clowder, &hash) {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
                 if let Some(old) = old
                     && old != hash
                     && let Err(e) = self.store.delete_image(clowder, &old)
                 {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
             Err(e) => self.notice = Some(format!("{}: {e}", path.display())),
@@ -547,7 +556,7 @@ impl App {
         if let Some(hash) = self.store.profile_image(clowder).ok().flatten()
             && let Err(e) = self.store.delete_image(clowder, &hash)
         {
-            self.notice = Some(e.to_string());
+            self.fail(e.to_string());
         }
     }
 
@@ -722,7 +731,7 @@ impl App {
         }
         match review_import(&self.store, applied, report) {
             Ok(review) => self.summary.open_with(review, applied.to_vec()),
-            Err(e) => self.notice = Some(e.to_string()),
+            Err(e) => self.fail(e.to_string()),
         }
     }
 
@@ -863,9 +872,6 @@ impl App {
             // A view fades in when the bar switches to it.
             let fade = crate::motion::fade_in(ui.ctx(), ("view", self.view, self.view_opened));
             ui.set_opacity(fade);
-            if let Some(notice) = &self.notice {
-                ui.colored_label(ui.visuals().error_fg_color, notice);
-            }
             let hovering = ui.input(|i| !i.raw.hovered_files.is_empty());
             if hovering && !matches!(self.home.selection, Selection::None) {
                 ui.colored_label(ui.visuals().selection.bg_fill, t.drop_photos_hint());
@@ -958,7 +964,7 @@ impl App {
                             self.store
                                 .record_position(&id, lat, lon, PositionKind::Sighting, None)
                         {
-                            self.notice = Some(e.to_string());
+                            self.fail(e.to_string());
                         }
                     }
                 },
@@ -1000,6 +1006,10 @@ impl App {
         // lies on top of it.
         self.show_modal(ui.ctx());
         self.show_history_modal(ui.ctx());
+        // What the app has to say, in one place at the top, and the paw
+        // that answers a small local success.
+        self.show_note(ui.ctx());
+        crate::motion::show_paw(ui.ctx());
         self.act_page(page_action);
         self.show_chore_dialogs(ui.ctx());
         if let Some((loser, survivor, kind)) = self.merge_dialog.show(ui.ctx(), &t) {
@@ -1011,7 +1021,7 @@ impl App {
                         self.open_record(survivor);
                     }
                 }
-                Err(e) => self.notice = Some(e.to_string()),
+                Err(e) => self.fail(e.to_string()),
             }
         }
         if let Some((target, ids)) = self.transfer_dialog.show(ui.ctx(), &t) {
@@ -1050,13 +1060,13 @@ impl App {
             SummaryAction::Reject => {
                 let applied = std::mem::take(&mut self.summary.applied);
                 if let Err(e) = self.store.discard_entries(&applied) {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
                 self.faces = FaceCache::default();
             }
             SummaryAction::Resolve(entity, field, kept) => {
                 if let Err(e) = crate::conflicts::resolve(&mut self.store, &entity, &field, kept) {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
             SummaryAction::OpenEntity(id) => self.open_record(id),
@@ -1068,7 +1078,7 @@ impl App {
                         self.faces.forget(&hash);
                         self.notice = Some(t.photo_removed().to_string());
                     }
-                    Err(e) => self.notice = Some(e.to_string()),
+                    Err(e) => self.fail(e.to_string()),
                 }
             }
             if let Some(chore) = self.ending_chore.take() {
@@ -1077,7 +1087,7 @@ impl App {
                     ..chore
                 };
                 if let Err(e) = self.store.update_chore(&ended) {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
             if let Some(moment) = self.going_back.take() {
@@ -1097,7 +1107,7 @@ impl App {
                         self.store.delete_cat(id)
                     };
                     if let Err(e) = gone {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                     self.desk.close(&self.store, id);
                 }
@@ -1133,7 +1143,7 @@ impl App {
                                 self.notice =
                                     Some(t.catalog_deleted(&info.name, &saved.to_string_lossy()));
                             }
-                            Err(e) => self.notice = Some(e.to_string()),
+                            Err(e) => self.fail(e.to_string()),
                         }
                     }
                     _ => self.delete_active_catalog(),
@@ -1166,7 +1176,7 @@ impl App {
                     && let Some(bytes) = self.store.image_bytes(&hash)
                     && let Err(e) = std::fs::write(&path, bytes)
                 {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
         }
@@ -1177,7 +1187,7 @@ impl App {
             None => {}
             Some(Ok((cat, bytes))) => match self.store.add_image(&cat, &bytes) {
                 Ok(_) => self.notice = Some(t.photo_added().to_string()),
-                Err(e) => self.notice = Some(e.to_string()),
+                Err(e) => self.fail(e.to_string()),
             },
             Some(Err(e)) => self.notice = Some(e),
         }
@@ -1194,7 +1204,7 @@ impl App {
                         .record_position(&cat, lat, lon, PositionKind::Sighting, None)
                     {
                         Ok(()) => self.notice = Some(t.sighting_recorded().to_string()),
-                        Err(e) => self.notice = Some(e.to_string()),
+                        Err(e) => self.fail(e.to_string()),
                     }
                 }
             } else if self.editor.open {
@@ -1217,7 +1227,7 @@ impl App {
         if let Some(edit) = self.editor.show(ui.ctx(), &self.store, &t)
             && let Err(e) = apply_edit(&mut self.store, &self.editor, &edit)
         {
-            self.notice = Some(e.to_string());
+            self.fail(e.to_string());
         }
         self.new_field.show(ui.ctx(), &mut self.store, &t);
         self.show_dialog(ui.ctx());
@@ -1275,7 +1285,7 @@ impl App {
                     self.store
                         .add_moment(catlog_core::moments::cause::MANUAL, Some(&value), None)
                 {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
             Asking::NewCat(clowder) => {
@@ -1300,20 +1310,20 @@ impl App {
                     .create_cat(&id, &value, clowder.as_deref(), species)
                 {
                     Ok(()) => self.open_record(id),
-                    Err(e) => self.notice = Some(e.to_string()),
+                    Err(e) => self.fail(e.to_string()),
                 }
             }
             Asking::NewClowder => {
                 let id = format!("clowder:{}", new_uuid());
                 match self.store.create_clowder(&id, &value) {
                     Ok(()) => self.open_record(id),
-                    Err(e) => self.notice = Some(e.to_string()),
+                    Err(e) => self.fail(e.to_string()),
                 }
             }
             Asking::NewCatalog => match self.manager.create(&value) {
                 Ok(info) => {
                     if let Err(e) = self.switch_catalog(&info.id) {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
                 Err(_) => self.dialog.refuse(t.catalog_name_taken(&value)),
@@ -1329,7 +1339,7 @@ impl App {
                     .store
                     .append(&id, catlog_core::keys::NAME, Some(&value))
                 {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
         }
@@ -1509,7 +1519,7 @@ impl App {
             }
         };
         if let Err(e) = result {
-            self.notice = Some(e.to_string());
+            self.fail(e.to_string());
         }
     }
 
@@ -1523,7 +1533,7 @@ impl App {
                 self.store.update_chore(&chore)
             };
             if let Err(e) = result {
-                self.notice = Some(e.to_string());
+                self.fail(e.to_string());
             }
         }
         self.chore_history.show(ctx, &self.store, &t);
@@ -1557,13 +1567,13 @@ impl App {
                 })
             };
             if let Err(e) = result {
-                self.notice = Some(e.to_string());
+                self.fail(e.to_string());
             }
         }
         if let Some((treated, notes)) = self.finish_dialog.show(ctx, &t)
             && let Err(e) = self.store.finish_appointments(&treated, Some(&notes))
         {
-            self.notice = Some(e.to_string());
+            self.fail(e.to_string());
         }
     }
 
@@ -1722,7 +1732,7 @@ impl App {
                     }
                     Err(e) => {
                         self.capture.draft = draft;
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
             }
@@ -1755,7 +1765,7 @@ impl App {
                 let path = dir.join(name);
                 match std::fs::create_dir_all(&dir).and_then(|()| std::fs::write(&path, bytes)) {
                     Ok(()) => (self.open_file)(&path),
-                    Err(e) => self.notice = Some(e.to_string()),
+                    Err(e) => self.fail(e.to_string()),
                 }
             }
             DocAction::CopyImage => {
@@ -1841,7 +1851,7 @@ impl App {
                         &folder.to_string_lossy(),
                     )
                 {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
             HouseAction::RemoveBackupFolder => {
@@ -1849,7 +1859,7 @@ impl App {
                     .store
                     .remove_local_setting(catlog_core::backup::BACKUP_FOLDER_KEY)
                 {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
             HouseAction::Restore(indexes) => {
@@ -1860,7 +1870,7 @@ impl App {
                     };
                     match catlog_core::backup::restore_backup_set(&mut self.manager, &set) {
                         Ok(_) => count += 1,
-                        Err(e) => self.notice = Some(e.to_string()),
+                        Err(e) => self.fail(e.to_string()),
                     }
                 }
                 if count > 0 || self.notice.is_none() {
@@ -1888,7 +1898,7 @@ impl App {
                     _ => self.store.unban(None, None, Some(&value)),
                 };
                 if let Err(e) = result {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
         }
@@ -1972,7 +1982,7 @@ impl App {
                 self.notice = Some(t.deleted_done().to_string());
                 self.faces = FaceCache::default();
             }
-            Err(e) => self.notice = Some(e.to_string()),
+            Err(e) => self.fail(e.to_string()),
         }
     }
 
@@ -1999,7 +2009,7 @@ impl App {
                 self.home.selection = Selection::None;
                 self.faces = FaceCache::default();
             }
-            Err(e) => self.notice = Some(e.to_string()),
+            Err(e) => self.fail(e.to_string()),
         }
     }
 
@@ -2231,7 +2241,7 @@ impl App {
             }
             PageAction::SetProfile(cat, hash) => {
                 if let Err(e) = self.store.set_profile_image(&cat, &hash) {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
             PageAction::CropPhoto(cat, hash) => {
@@ -2300,7 +2310,7 @@ impl App {
                     self.store.delete_appointment(&a)
                 };
                 if let Err(e) = result {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
         }
@@ -2413,6 +2423,87 @@ impl App {
         page_action
     }
 
+    /// Something went wrong: the note stays until it is dismissed.
+    fn fail(&mut self, what: String) {
+        self.notice = Some(what);
+        self.notice_failed = true;
+    }
+
+    /// A paw at the pointer for a small local success the screen
+    /// already shows — copied, recorded — instead of a word in the
+    /// corner. The phone answers the same way.
+    fn paw(&mut self) {
+        if let Some(ctx) = &self.ctx {
+            let at = ctx.input(|i| i.pointer.latest_pos());
+            crate::motion::paw(ctx, at);
+        }
+    }
+
+    /// The note at the top of the window: what the app has to say, in
+    /// one place, never at the bottom where the hands are.
+    fn show_note(&mut self, ctx: &Context) {
+        let Some(text) = self.notice.clone() else {
+            self.notice_shown = None;
+            return;
+        };
+        let now = ctx.input(|i| i.time);
+        if self.notice_shown.as_deref() != Some(text.as_str()) {
+            self.notice_shown = Some(text.clone());
+            self.notice_since = now;
+        }
+        // A note that only says a job is done has said it after a while;
+        // it goes on the next frame, and asks for none of its own — a
+        // note that keeps asking for repaints never lets the desk rest.
+        if !self.notice_failed && now - self.notice_since > 6.0 {
+            self.notice = None;
+            self.notice_shown = None;
+            return;
+        }
+
+        let (ground, ink) = if self.notice_failed {
+            (crate::theme::PALETTE.red, egui::Color32::WHITE)
+        } else {
+            (crate::theme::PALETTE.tan, crate::theme::PALETTE.ink)
+        };
+        let mut dismissed = false;
+        egui::Area::new(egui::Id::new("note"))
+            .order(egui::Order::Foreground)
+            .anchor(egui::Align2::CENTER_TOP, egui::vec2(0.0, 72.0))
+            .interactable(true)
+            .show(ctx, |ui| {
+                egui::Frame::new()
+                    .fill(ground)
+                    .corner_radius(crate::theme::ROUNDING + 2)
+                    .inner_margin(egui::Margin::symmetric(14, 8))
+                    .shadow(egui::epaint::Shadow {
+                        offset: [0, 3],
+                        blur: 10,
+                        spread: 0,
+                        color: egui::Color32::from_black_alpha(30),
+                    })
+                    .show(ui, |ui| {
+                        ui.horizontal(|ui| {
+                            ui.label(egui::RichText::new(&text).color(ink));
+                            if self.notice_failed
+                                && crate::icons::icon_button(
+                                    ui,
+                                    crate::icons::CLOSE,
+                                    self.t.close_label(),
+                                )
+                                .clicked()
+                            {
+                                dismissed = true;
+                            }
+                        });
+                    });
+            });
+        if dismissed {
+            self.notice = None;
+            self.notice_shown = None;
+            self.notice_failed = false;
+        }
+    }
+
     /// What the keeper asked for the rows they marked in a table.
     fn act_marked(&mut self, what: crate::marked::MarkedAction, ids: &[String]) {
         use crate::marked::MarkedAction;
@@ -2444,7 +2535,7 @@ impl App {
             MarkedAction::Hide(on) => {
                 for id in ids {
                     if let Err(e) = self.store.set_hidden(id, on) {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
             }
@@ -2453,7 +2544,7 @@ impl App {
                 if let Some(path) = (self.save_file)(t.marked_export(), &name) {
                     match self.store.write_archive(&path, ids) {
                         Ok(()) => self.notice = Some(t.bundle_written(&path.to_string_lossy())),
-                        Err(e) => self.notice = Some(e.to_string()),
+                        Err(e) => self.fail(e.to_string()),
                     }
                 }
             }
@@ -2498,12 +2589,12 @@ impl App {
                     }
                     HistoryAction::Remove(seq) => {
                         if let Err(e) = self.store.remove_entry(seq) {
-                            self.notice = Some(e.to_string());
+                            self.fail(e.to_string());
                         }
                     }
                     HistoryAction::Restore(seq) => {
                         if let Err(e) = self.store.restore_entry(seq) {
-                            self.notice = Some(e.to_string());
+                            self.fail(e.to_string());
                         }
                     }
                 }
@@ -2542,7 +2633,7 @@ impl App {
                 CatalogsAction::None => {}
                 CatalogsAction::Switch(id) => {
                     if let Err(e) = self.switch_catalog(&id) {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                     self.catalogs_page.chosen = None;
                 }
@@ -2579,7 +2670,7 @@ impl App {
                     if let Some(folder) = (self.pick_folder)(t.shared_folder())
                         && let Err(e) = self.store.choose_sync_folder(&folder)
                     {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
                 CatalogsAction::StopSharing => {
@@ -2589,7 +2680,7 @@ impl App {
                         .store
                         .remove_local_setting(catlog_core::sync::SYNC_FOLDER)
                     {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
             },
@@ -2613,12 +2704,12 @@ impl App {
                     if let Some(folder) = (self.pick_folder)(t.shared_folder())
                         && let Err(e) = self.store.choose_sync_folder(&folder)
                     {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
                 SyncAction::UseLastFolder(last) => {
                     if let Err(e) = self.store.choose_sync_folder(Path::new(&last)) {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
                 SyncAction::SyncNow => {}
@@ -2654,7 +2745,7 @@ impl App {
                     eye_candy,
                 );
                 if let Err(e) = self.settings_page.apply_pending(&mut self.store) {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
                 self.act_settings(action);
             }
@@ -2700,7 +2791,7 @@ impl App {
                 }
                 DuplicatesAction::Reject(a, b) => {
                     if let Err(e) = self.store.reject_looks_match(&a, &b) {
-                        self.notice = Some(e.to_string());
+                        self.fail(e.to_string());
                     }
                 }
             },
@@ -2710,7 +2801,7 @@ impl App {
                     && let Err(e) =
                         crate::conflicts::resolve(&mut self.store, &entity, &field, kept)
                 {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
             }
         });
@@ -2733,12 +2824,13 @@ impl App {
         }
     }
 
-    /// Puts a picture on the clipboard and says so.
+    /// Puts a picture on the clipboard and answers with a paw, not with
+    /// a word in the corner.
     fn copy_image(&mut self, image: egui::ColorImage) {
         if let Some(ctx) = &self.ctx {
             ctx.copy_image(image);
-            self.notice = Some(self.t.copied().to_string());
         }
+        self.paw();
     }
 
     /// Opens the in-person modal with the host serving behind it.
@@ -2870,7 +2962,7 @@ impl App {
                         .remove_local_setting(catlog_core::units::UNITS_SETTING),
                 };
                 if let Err(e) = result {
-                    self.notice = Some(e.to_string());
+                    self.fail(e.to_string());
                 }
                 self.apply_units();
             }
@@ -2907,7 +2999,7 @@ impl App {
                 if let Some(source) = picked.first() {
                     match keep_own(&self.data_dir, cheer, source) {
                         Ok(kept) => self.choose_sound(cheer, SoundChoice::Own(kept)),
-                        Err(e) => self.notice = Some(e.to_string()),
+                        Err(e) => self.fail(e.to_string()),
                     }
                 }
             }
@@ -2953,12 +3045,12 @@ impl App {
             return;
         };
         if let Err(e) = self.switch_catalog(&other) {
-            self.notice = Some(e.to_string());
+            self.fail(e.to_string());
             return;
         }
         match self.manager.delete(&active.id) {
             Ok(()) => self.notice = Some(t.catalog_deleted(&active.name, &saved.to_string_lossy())),
-            Err(e) => self.notice = Some(e.to_string()),
+            Err(e) => self.fail(e.to_string()),
         }
     }
 
@@ -6328,6 +6420,43 @@ mod tests {
     }
 
     #[test]
+    fn what_the_app_says_is_a_note_at_the_top_and_a_copy_answers_with_a_paw() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        // A note is at the top of the window, not a red line in the view.
+        h.state_mut().notice = Some("Bundle written".into());
+        h.run();
+        let note = h.get_by_label("Bundle written").rect();
+        assert!(note.top() < 200.0, "the note is at the top: {note:?}");
+        assert!(
+            note.center().x > 200.0,
+            "and over the window, not in the corner"
+        );
+        // A failure keeps its note until it is dismissed.
+        h.state_mut().fail("The folder is gone".into());
+        h.run();
+        h.get_by_label("The folder is gone");
+        h.get_all_by_label("Close")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        assert!(h.state().notice.is_none(), "dismissed");
+        // Copying answers with a paw and no words at all.
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_all_by_label("Actions").last().unwrap().click();
+        h.step();
+        h.get_by_label("Copy as image").click_accesskit();
+        h.run();
+        assert!(h.state().notice.is_none(), "a paw, not a word");
+    }
+
+    #[test]
     fn a_timeline_is_built_once_per_write_and_the_ranges_are_the_phone_s() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
@@ -8237,7 +8366,7 @@ mod tests {
         h.get_by_label("Copy as image").click_accesskit();
         h.step();
         assert_eq!(copied_image(&h), Some([800, 1100]));
-        assert_eq!(h.state().notice.as_deref(), Some("Copied"));
+        assert!(h.state().notice.is_none(), "a paw, not a word");
         // The document page copies the Card as chosen there.
         h.get_all_by_label("Actions").last().unwrap().click();
         h.step();
@@ -8291,6 +8420,6 @@ mod tests {
                 crate::graph_image::HEIGHT as usize
             ])
         );
-        assert_eq!(h.state().notice.as_deref(), Some("Copied"));
+        assert!(h.state().notice.is_none(), "a paw, not a word");
     }
 }

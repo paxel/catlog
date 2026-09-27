@@ -71,6 +71,38 @@ pub fn tint(ctx: &Context, what: impl Hash + std::fmt::Debug, on: bool) -> f32 {
     ctx.animate_bool_with_time(Id::new(("tint", what)), on, duration)
 }
 
+/// A green paw at the pointer for half a second: the desk's answer to a
+/// small local success, as the phone answers with one. Call [`paw`]
+/// when it happens and [`show_paw`] once a frame.
+pub fn paw(ctx: &Context, at: Option<egui::Pos2>) {
+    let at = at.unwrap_or_else(|| ctx.content_rect().center());
+    let now = ctx.input(|i| i.time);
+    ctx.data_mut(|d| d.insert_temp(Id::new("paw"), (at, now)));
+    ctx.request_repaint();
+}
+
+/// Draws the paw, if one was asked for in the last half second.
+pub fn show_paw(ctx: &Context) {
+    let Some((at, when)) = ctx.data(|d| d.get_temp::<(egui::Pos2, f64)>(Id::new("paw"))) else {
+        return;
+    };
+    let age = ctx.input(|i| i.time) - when;
+    if !(0.0..0.6).contains(&age) {
+        return;
+    }
+    let k = (age / 0.6) as f32;
+    let painter = ctx.layer_painter(egui::LayerId::new(
+        egui::Order::Tooltip,
+        Id::new("paw-layer"),
+    ));
+    let size = 34.0 * (0.7 + 0.5 * k);
+    let colour = crate::theme::PALETTE.green.gamma_multiply(1.0 - k);
+    let rect =
+        egui::Rect::from_center_size(egui::pos2(at.x, at.y - size * 0.6), egui::Vec2::splat(size));
+    crate::icons::paint_at(&painter, rect, crate::icons::PETS_OUTLINED, colour);
+    ctx.request_repaint();
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

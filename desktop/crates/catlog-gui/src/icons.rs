@@ -36,6 +36,24 @@ pub fn font_id(size: f32) -> FontId {
 }
 
 /// Paints one icon centred in `rect`.
+/// The same, on a painter of its own: for what is drawn outside any
+/// widget, like the paw that answers a copy.
+pub fn paint_at(painter: &egui::Painter, rect: egui::Rect, icon: &str, color: Color32) {
+    let bound = painter
+        .ctx()
+        .fonts(|f| f.families().contains(&FontFamily::Name(FAMILY.into())));
+    if !bound {
+        return;
+    }
+    painter.text(
+        rect.center(),
+        Align2::CENTER_CENTER,
+        icon,
+        font_id(rect.height()),
+        color,
+    );
+}
+
 pub fn paint(ui: &Ui, rect: egui::Rect, icon: &str, color: Color32) {
     // A bare Context without the fonts (unit tests) draws nothing.
     let bound = ui.fonts(|f| f.families().contains(&FontFamily::Name(FAMILY.into())));

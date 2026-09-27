@@ -46,12 +46,23 @@ class TouchTracker extends StatelessWidget {
 /// cleared: a green paw for half a second at the button that was
 /// tapped, silent, and no note.
 void paw(BuildContext context) {
-  final overlay = Overlay.maybeOf(context);
+  // The root overlay, not the nearest one: a paw put into a dialog's
+  // own overlay goes with the dialog, which is exactly when a paw is
+  // asked for — copied, recorded, ticked — so nobody ever saw one.
+  final overlay = Overlay.maybeOf(context, rootOverlay: true);
   if (overlay == null) return;
   final at = lastTouch ?? MediaQuery.sizeOf(context).center(Offset.zero);
   late OverlayEntry entry;
+  var removed = false;
   entry = OverlayEntry(
-    builder: (_) => _PawOverlay(at: at, onDone: () => entry.remove()),
+    builder: (_) => _PawOverlay(
+      at: at,
+      onDone: () {
+        if (removed) return;
+        removed = true;
+        entry.remove();
+      },
+    ),
   );
   overlay.insert(entry);
 }
@@ -71,7 +82,7 @@ class _PawOverlayState extends State<_PawOverlay>
   late final _controller =
       AnimationController(
           vsync: this,
-          duration: const Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 900),
         )
         ..addStatusListener((s) {
           if (s == AnimationStatus.completed) widget.onDone();
@@ -86,10 +97,11 @@ class _PawOverlayState extends State<_PawOverlay>
 
   @override
   Widget build(BuildContext context) {
-    const size = 48.0;
+    const size = 56.0;
     return Positioned(
       left: widget.at.dx - size / 2,
-      top: widget.at.dy - size,
+      // Above the finger, or a thumb covers the answer.
+      top: widget.at.dy - size * 1.6,
       child: IgnorePointer(
         child: FadeTransition(
           opacity: Tween(
