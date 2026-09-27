@@ -348,7 +348,7 @@ impl ChoreDialog {
                     if self.repeat == Some(ChoreRepeat::Weekdays) {
                         ui.horizontal(|ui| {
                             for (i, on) in self.weekdays.iter_mut().enumerate() {
-                                ui.checkbox(on, weekday_short(t, i as u32 + 1));
+                                crate::icons::check_box(ui, on, weekday_short(t, i as u32 + 1));
                             }
                         });
                     }
@@ -373,7 +373,7 @@ impl ChoreDialog {
                 ui.end_row();
                 ui.label(t.remind_me());
                 ui.horizontal(|ui| {
-                    ui.checkbox(&mut self.remind, "");
+                    crate::icons::check_box(ui, &mut self.remind, "");
                     if self.remind {
                         ui.label(t.remind_at_label());
                         ui.add(

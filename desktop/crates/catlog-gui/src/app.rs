@@ -6301,6 +6301,46 @@ mod tests {
     }
 
     #[test]
+    fn a_dialog_confirms_on_the_right_and_its_boxes_are_squares() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = harness(seeded(dir.path()));
+        h.run();
+        let def = h.state().store().field_def("neutered").unwrap().unwrap();
+        {
+            let app = h.state_mut();
+            let (editor, store) = (&mut app.editor, &app.store);
+            editor.ask(store, &def, miezi, None, EditTarget::New, None, "en");
+        }
+        h.run();
+        // Save sits to the right of Cancel, as it does everywhere else.
+        let save = h.get_by_label("Save").rect();
+        let cancel = h.get_by_label("Cancel").rect();
+        assert!(
+            save.left() > cancel.right(),
+            "Save at {save:?} is right of Cancel at {cancel:?}"
+        );
+        // The Private box is the app's own square, and ticks.
+        let private = h.get_by_role_and_label(
+            egui::accesskit::Role::CheckBox,
+            L10n::new("en").private_label(),
+        );
+        private.click();
+        h.run();
+        assert!(h.state().editor.private, "the square ticks");
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // And the name dialog puts its verb on the right too.
+        h.get_by_label("Catalog").click();
+        h.step();
+        h.get_by_label("New clowder").click_accesskit();
+        h.run();
+        let create = h.get_by_label("Create").rect();
+        let cancel = h.get_by_label("Cancel").rect();
+        assert!(create.left() > cancel.right(), "Create is right of Cancel");
+    }
+
+    #[test]
     fn the_marked_rows_are_opened_moved_hidden_exported_and_deleted_together() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";

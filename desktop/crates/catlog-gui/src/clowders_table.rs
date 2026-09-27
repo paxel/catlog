@@ -340,7 +340,8 @@ impl ClowdersTable {
                     let id = r.row.view.id.clone();
                     row.col(|ui| {
                         let mut on = open.contains(&id);
-                        let response = ui.checkbox(&mut on, "").on_hover_text(t.on_the_desk());
+                        let response =
+                            crate::icons::check_box(ui, &mut on, "").on_hover_text(t.on_the_desk());
                         let words = t.on_the_desk().to_string();
                         response.widget_info(|| {
                             egui::WidgetInfo::selected(egui::WidgetType::Checkbox, true, on, &words)

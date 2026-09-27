@@ -79,7 +79,7 @@ impl MoveDialog {
                 ui.add(egui::TextEdit::singleline(&mut self.as_of).desired_width(100.0));
             });
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
-            ui.horizontal(|ui| {
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 let changed = self.target != self.current;
                 if ui
                     .add_enabled(changed, egui::Button::new(t.save()))

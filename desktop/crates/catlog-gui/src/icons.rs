@@ -138,6 +138,79 @@ pub fn more(ui: &mut Ui, add_contents: impl FnOnce(&mut Ui)) -> Response {
     response
 }
 
+/// A checkbox the eye can read across a room: an empty square, and a
+/// square crossed out when it is ticked. The icon font has no such
+/// pair, so it is painted; egui's own tick is too small and too thin to
+/// say "this can be ticked".
+pub fn check_box(ui: &mut Ui, on: &mut bool, text: impl Into<egui::WidgetText>) -> Response {
+    let text = text.into();
+    let galley = text.into_galley(
+        ui,
+        Some(egui::TextWrapMode::Extend),
+        f32::INFINITY,
+        egui::TextStyle::Button,
+    );
+    let side = 16.0;
+    let gap = if galley.is_empty() { 0.0 } else { 6.0 };
+    let size = Vec2::new(
+        side + gap + galley.size().x,
+        galley.size().y.max(side) + 4.0,
+    );
+    let (rect, mut response) = ui.allocate_exact_size(size, egui::Sense::click());
+    if response.clicked() {
+        *on = !*on;
+        response.mark_changed();
+    }
+    if ui.is_rect_visible(rect) {
+        let square = egui::Rect::from_min_size(
+            egui::pos2(rect.left(), rect.center().y - side / 2.0),
+            Vec2::splat(side),
+        );
+        let visuals = ui.style().interact(&response);
+        let painter = ui.painter();
+        painter.rect(
+            square,
+            3.0,
+            crate::theme::PALETTE.paper,
+            egui::Stroke::new(1.5, visuals.fg_stroke.color),
+            egui::StrokeKind::Inside,
+        );
+        if *on {
+            // Crossed off, corner to corner.
+            let pad = 3.5;
+            let stroke = egui::Stroke::new(2.0, crate::theme::PALETTE.orange);
+            painter.line_segment(
+                [
+                    square.left_top() + Vec2::splat(pad),
+                    square.right_bottom() - Vec2::splat(pad),
+                ],
+                stroke,
+            );
+            painter.line_segment(
+                [
+                    egui::pos2(square.right() - pad, square.top() + pad),
+                    egui::pos2(square.left() + pad, square.bottom() - pad),
+                ],
+                stroke,
+            );
+        }
+        if !galley.is_empty() {
+            let at = egui::pos2(
+                square.right() + gap,
+                rect.center().y - galley.size().y / 2.0,
+            );
+            painter.galley(at, galley.clone(), ui.visuals().text_color());
+        }
+    }
+    let words = galley.text().to_string();
+    let enabled = ui.is_enabled();
+    let ticked = *on;
+    response.widget_info(|| {
+        egui::WidgetInfo::selected(egui::WidgetType::Checkbox, enabled, ticked, &words)
+    });
+    response
+}
+
 /// A label with an icon before it.
 pub fn label(ui: &mut Ui, icon: &str, text: impl Into<egui::WidgetText>) -> Response {
     ui.horizontal(|ui| {

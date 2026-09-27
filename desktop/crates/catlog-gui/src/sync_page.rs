@@ -59,17 +59,17 @@ impl SyncPage {
                 ui.label(t.folder_catalog_hint(&store.sync_catalog_dir()));
             }
             let mut private = store.sync_private_on();
-            if ui.checkbox(&mut private, t.include_private()).changed() {
+            if crate::icons::check_box(ui, &mut private, t.include_private()).changed() {
                 let _ = store.set_local_setting(SYNC_PRIVATE, if private { "1" } else { "0" });
             }
             if folder.is_some() {
                 let mut watch = store.sync_watch_on();
-                if ui.checkbox(&mut watch, t.sync_watch_switch()).changed() {
+                if crate::icons::check_box(ui, &mut watch, t.sync_watch_switch()).changed() {
                     let _ = store.set_local_setting(SYNC_WATCH, if watch { "1" } else { "0" });
                 }
                 if watch {
                     let mut auto = store.sync_auto_on();
-                    if ui.checkbox(&mut auto, t.sync_auto_switch()).changed() {
+                    if crate::icons::check_box(ui, &mut auto, t.sync_auto_switch()).changed() {
                         let _ = store.set_local_setting(SYNC_AUTO, if auto { "1" } else { "0" });
                     }
                 }

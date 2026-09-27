@@ -253,15 +253,27 @@ impl FieldEditor {
         let def = self.def.clone();
         let title = field_def_name(t, &def);
         let modal = egui::Modal::new(egui::Id::new(("field-editor", self.id))).show(ctx, |ui| {
-            ui.set_min_width(360.0);
+            // A dialog asking one thing, not a spreadsheet: room around
+            // the content, room between its parts, and the value, when
+            // it counts from and whether it stays home kept apart.
+            ui.set_min_width(400.0);
+            ui.style_mut().spacing.item_spacing.y = 8.0;
+            ui.add_space(4.0);
             ui.heading(title);
+            ui.add_space(10.0);
             egui::ScrollArea::vertical()
                 .max_height(420.0)
                 .show(ui, |ui| {
-                    self.show_input(ui, store, t, &def);
+                    egui::Frame::new()
+                        .inner_margin(egui::Margin::symmetric(2, 4))
+                        .show(ui, |ui| {
+                            self.show_input(ui, store, t, &def);
+                        });
                 });
-            ui.add_space(8.0);
-            ui.checkbox(&mut self.private, t.private_label());
+            ui.add_space(14.0);
+            ui.separator();
+            ui.add_space(6.0);
+            crate::icons::check_box(ui, &mut self.private, t.private_label());
             ui.horizontal(|ui| {
                 let typed = PartialDate::parse_loose(&self.as_of_text)
                     .and_then(|d| d.earliest())
@@ -293,8 +305,9 @@ impl FieldEditor {
                 );
             }
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
+            ui.add_space(10.0);
             crate::views::settle(ui);
-            ui.horizontal(|ui| {
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 if ui
                     .add_enabled(objection.is_none(), egui::Button::new(t.save()))
                     .clicked()

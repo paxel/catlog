@@ -335,7 +335,7 @@ impl FinishDialog {
             if self.members.len() > 1 {
                 ui.label(t.finish_untick_hint());
                 for (_, name, on) in &mut self.members {
-                    ui.checkbox(on, name.as_str());
+                    crate::icons::check_box(ui, on, name.as_str());
                 }
             }
             ui.horizontal(|ui| {

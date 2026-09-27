@@ -148,7 +148,7 @@ impl InPerson {
             });
         });
         ui.add_space(8.0);
-        ui.checkbox(&mut self.include_private, t.include_private());
+        crate::icons::check_box(ui, &mut self.include_private, t.include_private());
         ui.label(t.sessions_so_far(i64::from(self.sessions)));
         if host.locked_out() {
             ui.colored_label(PALETTE.red, t.host_locked_out());

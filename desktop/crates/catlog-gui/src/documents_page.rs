@@ -599,7 +599,7 @@ impl DocumentPage {
                     crate::tips::anchor(ui, "card-chips", &chips);
                     let mut toggle = |ui: &mut Ui, key: &str, label: &str| {
                         let mut on = self.card_keys.contains(key);
-                        if ui.checkbox(&mut on, label).changed() {
+                        if crate::icons::check_box(ui, &mut on, label).changed() {
                             if on {
                                 self.card_keys.insert(key.to_string());
                             } else {
@@ -644,7 +644,7 @@ impl DocumentPage {
                                 .map(|i| (i + 1).to_string())
                                 .unwrap_or_default()
                         );
-                        if ui.checkbox(&mut on, label.trim()).changed() {
+                        if crate::icons::check_box(ui, &mut on, label.trim()).changed() {
                             if on && self.photos.len() < 2 {
                                 self.photos.push(hash.clone());
                             } else {
@@ -661,7 +661,7 @@ impl DocumentPage {
                             field_def_name(t, &def),
                             value_label(t, store, &def.key(), Some(&value), self_units())
                         );
-                        if ui.checkbox(&mut on, label).changed() {
+                        if crate::icons::check_box(ui, &mut on, label).changed() {
                             if on {
                                 self.ticked.insert(id);
                             } else {
@@ -700,12 +700,12 @@ impl DocumentPage {
                                 .hint_text(t.date_hint()),
                         );
                     });
-                    ui.checkbox(&mut self.summary, t.vet_report_summary());
+                    crate::icons::check_box(ui, &mut self.summary, t.vet_report_summary());
                     ui.strong(t.vet_report_fields());
                     for def in reportable_fields(store, &self.cat) {
                         let key = def.key();
                         let mut on = self.fields.contains(&key);
-                        if ui.checkbox(&mut on, field_def_name(t, &def)).changed() {
+                        if crate::icons::check_box(ui, &mut on, field_def_name(t, &def)).changed() {
                             if on {
                                 self.fields.insert(key);
                             } else {

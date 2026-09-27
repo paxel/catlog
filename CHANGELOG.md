@@ -14,6 +14,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - The home a cat is in now is named plainly in the Move dialog; it used to carry a tick this font has not, which drew as an empty box.
 
 ### Changed
+- Every dialog on the desk confirms on the right, with Cancel beside it.
+- The value editor reads as a dialog now: room around its content, the value, the date it counts from and the private mark kept apart.
+- Checkboxes on the desk are squares that cross themselves off, instead of a tick too small to recognise.
 - Marking rows in the Cats or Clowders table is worth something now: the marked rows carry a menu — open them all on the desk, move them into another home or another catalog, hide or show them, export them into one file, delete them after one question — and a tick on a marked row speaks for every marked row.
 - A card's rows are separated by a hairline instead of alternating colours, and the body's scrollbar floats over them, so the card is one shape from the title bar down.
 - Stack lays the pile in the cascade's order: the card highest up is furthest back.

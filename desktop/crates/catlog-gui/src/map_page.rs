@@ -318,7 +318,7 @@ impl MapPage {
             }
             for cat in missing {
                 let mut on = self.stray_areas.contains(&cat.id);
-                if ui.checkbox(&mut on, &cat.name).changed() {
+                if crate::icons::check_box(ui, &mut on, &cat.name).changed() {
                     if on {
                         self.stray_areas.insert(cat.id.clone());
                     } else {

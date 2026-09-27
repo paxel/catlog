@@ -148,7 +148,7 @@ impl NewFieldDialog {
                 });
             }
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
-            ui.horizontal(|ui| {
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 if ui.button(t.create()).clicked() {
                     let options: Vec<String> = self
                         .options

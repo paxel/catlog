@@ -962,7 +962,7 @@ impl Desk {
             for def in &defs {
                 let key = def.key();
                 let mut on = keys_now.contains(&key);
-                if ui.checkbox(&mut on, field_def_name(t, def)).changed() {
+                if crate::icons::check_box(ui, &mut on, field_def_name(t, def)).changed() {
                     toggle(&mut keys_now, &key, on);
                     changed = true;
                 }
@@ -1216,19 +1216,19 @@ impl Desk {
             let mut keys_now = chosen.clone();
             let mut changed = false;
             let mut on = keys_now.contains(PHOTO_KEY);
-            if ui.checkbox(&mut on, t.photos()).changed() {
+            if crate::icons::check_box(ui, &mut on, t.photos()).changed() {
                 toggle(&mut keys_now, PHOTO_KEY, on);
                 changed = true;
             }
             let mut on = keys_now.contains(keys::CLOWDER);
-            if ui.checkbox(&mut on, t.clowder_label()).changed() {
+            if crate::icons::check_box(ui, &mut on, t.clowder_label()).changed() {
                 toggle(&mut keys_now, keys::CLOWDER, on);
                 changed = true;
             }
             for def in defs {
                 let key = def.key();
                 let mut on = keys_now.contains(&key);
-                if ui.checkbox(&mut on, field_def_name(t, def)).changed() {
+                if crate::icons::check_box(ui, &mut on, field_def_name(t, def)).changed() {
                     toggle(&mut keys_now, &key, on);
                     changed = true;
                 }

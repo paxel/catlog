@@ -76,7 +76,7 @@ impl NameDialog {
             }
             let enter = edit.lost_focus() && ui.input(|i| i.key_pressed(Key::Enter));
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
-            ui.horizontal(|ui| {
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 let ready = !self.value.trim().is_empty();
                 if ui
                     .add_enabled(ready, egui::Button::new(&self.confirm))
@@ -185,7 +185,7 @@ impl ConfirmDialog {
             ui.heading(&self.title);
             ui.label(&self.body);
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
-            ui.horizontal(|ui| {
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 if crate::icons::button(ui, crate::icons::CHECK, &self.confirm).clicked() {
                     confirmed = true;
                 }

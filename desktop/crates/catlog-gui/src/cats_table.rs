@@ -463,7 +463,7 @@ impl CatsTable {
                 let mut changed = false;
                 for column in all_columns(store) {
                     let mut on = columns.contains(&column);
-                    if ui.checkbox(&mut on, column.label(t, store)).changed() {
+                    if crate::icons::check_box(ui, &mut on, column.label(t, store)).changed() {
                         if on {
                             columns.push(column);
                         } else {
@@ -610,7 +610,8 @@ impl CatsTable {
                     row.set_selected(self.selected.contains(&r.id));
                     row.col(|ui| {
                         let mut on = open.contains(&r.id);
-                        let response = ui.checkbox(&mut on, "").on_hover_text(t.on_the_desk());
+                        let response =
+                            crate::icons::check_box(ui, &mut on, "").on_hover_text(t.on_the_desk());
                         let words = t.on_the_desk().to_string();
                         response.widget_info(|| {
                             egui::WidgetInfo::selected(egui::WidgetType::Checkbox, true, on, &words)

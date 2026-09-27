@@ -156,7 +156,7 @@ impl PositionPicker {
                 self.picked = Some((lat, lon));
             }
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
-            ui.horizontal(|ui| {
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 let ready = self.picked.is_some();
                 if ui.add_enabled(ready, egui::Button::new(t.ok())).clicked()
                     && let Some((lat, lon)) = self.picked

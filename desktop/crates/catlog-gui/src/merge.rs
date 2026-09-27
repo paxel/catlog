@@ -265,7 +265,7 @@ impl TransferDialog {
                         } else {
                             format!("{name} ({})", t.stray())
                         };
-                        ui.checkbox(on, label);
+                        crate::icons::check_box(ui, on, label);
                     }
                 });
             ui.horizontal(|ui| {

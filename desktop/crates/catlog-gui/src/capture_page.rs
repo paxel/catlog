@@ -403,7 +403,8 @@ impl CapturePage {
                 ui.label(t.no_registry_links());
             }
             for hit in &mut self.draft.registry_hits {
-                ui.checkbox(
+                crate::icons::check_box(
+                    ui,
                     &mut hit.take,
                     format!("{}: {}", hit.service_name, hit.value),
                 );

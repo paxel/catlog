@@ -239,10 +239,10 @@ impl HistoryPage {
         let mut range = Range::of(store);
         let mut copy = false;
         ui.horizontal(|ui| {
-            if ui.checkbox(&mut smooth, t.graph_smoothed()).changed() {
+            if crate::icons::check_box(ui, &mut smooth, t.graph_smoothed()).changed() {
                 set_flag(store, SMOOTH_KEY, smooth);
             }
-            if ui.checkbox(&mut trend, t.graph_trend()).changed() {
+            if crate::icons::check_box(ui, &mut trend, t.graph_trend()).changed() {
                 set_flag(store, TREND_KEY, trend);
             }
             if all.len() >= 2 && ui.button(t.copy_graph_image()).clicked() {

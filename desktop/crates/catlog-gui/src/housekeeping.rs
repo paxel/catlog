@@ -147,7 +147,7 @@ pub fn show_archive(
         }
         for c in &candidates {
             let mut on = state.archive_chosen.contains(&c.id);
-            if ui.checkbox(&mut on, &c.name).changed() {
+            if crate::icons::check_box(ui, &mut on, &c.name).changed() {
                 if on {
                     state.archive_chosen.insert(c.id.clone());
                 } else {
@@ -236,7 +236,7 @@ pub fn show_restore(
     });
     for (i, set) in sets.iter().enumerate() {
         let mut on = state.restore_chosen.contains(&i);
-        if ui.checkbox(&mut on, &set.name).changed() {
+        if crate::icons::check_box(ui, &mut on, &set.name).changed() {
             if on {
                 state.restore_chosen.insert(i);
             } else {
@@ -317,7 +317,7 @@ pub fn show_moderation(
                 }
             });
         }
-        ui.checkbox(&mut state.also_ban, t.also_ban());
+        crate::icons::check_box(ui, &mut state.also_ban, t.also_ban());
         let bans = store.bans().unwrap_or_default();
         if !bans.is_empty() {
             ui.add_space(6.0);
