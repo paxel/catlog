@@ -232,6 +232,34 @@ impl TransferDialog {
         true
     }
 
+    /// The same dialog for what a keeper has marked: exactly those Cats
+    /// and Clowders, already ticked. Marking five cats inside a home and
+    /// asking to move them used to open a dialog that offered whole
+    /// homes and strays — never the cats themselves.
+    pub fn ask_these(&mut self, manager: &CatalogManager, store: &Catalog, ids: &[String]) -> bool {
+        let active = manager.active().id.clone();
+        self.targets = manager
+            .catalogs()
+            .iter()
+            .filter(|c| c.id != active)
+            .map(|c| (c.id.clone(), c.name.clone()))
+            .collect();
+        self.options = ids
+            .iter()
+            .filter_map(|id| {
+                let name = store.current(id, catlog_core::keys::NAME).ok().flatten()?;
+                Some((id.clone(), name, id.starts_with("clowder:"), true))
+            })
+            .collect();
+        if self.targets.is_empty() || self.options.is_empty() {
+            return false;
+        }
+        self.target = (self.targets.len() == 1).then(|| self.targets[0].0.clone());
+        self.open = true;
+        self.id += 1;
+        true
+    }
+
     pub fn chosen(&self) -> Vec<String> {
         self.options
             .iter()

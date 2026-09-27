@@ -2031,6 +2031,18 @@ impl App {
         });
         match result {
             Ok(moved) => {
+                // A cat whose home did not come with it is a stray in
+                // the new Catalog, not a cat in a home that is not there.
+                if let Ok(mut to) = self.manager.open_store(&info) {
+                    for id in &moved.moved {
+                        let Ok(Some(home)) = to.current(id, keys::CLOWDER) else {
+                            continue;
+                        };
+                        if to.current(&home, keys::NAME).ok().flatten().is_none() {
+                            let _ = to.append(id, keys::CLOWDER, None);
+                        }
+                    }
+                }
                 self.notice = Some(t.moved_to_catalog(moved.moved.len() as i64, &info.name));
                 self.home.selection = Selection::None;
                 self.faces = FaceCache::default();
@@ -2554,7 +2566,12 @@ impl App {
                 }
             }
             MarkedAction::MoveCatalog => {
-                if !self.transfer_dialog.ask(&self.manager, &self.store) {
+                // The marked ones, not whole homes: what was marked is
+                // what is offered.
+                if !self
+                    .transfer_dialog
+                    .ask_these(&self.manager, &self.store, ids)
+                {
                     self.notice = Some(t.nothing_to_archive().to_string());
                 }
             }
@@ -6295,6 +6312,72 @@ mod tests {
             bottom <= desk.y,
             "the tiled cards reach {bottom}, past the desk of {desk:?}"
         );
+    }
+
+    #[test]
+    fn the_marked_cats_are_what_moves_to_another_catalog() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1600.0, 900.0));
+        h.run();
+        // A catalog to move into.
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_all_by_label("Clowders").last().unwrap().click();
+        h.run();
+        h.get_by_label("Switch to this catalog").click();
+        h.run();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        // Miezi lives in a home; marked alone, she is what is offered.
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_by_label_contains("1 marked").click();
+        h.step();
+        h.get_by_label("Move to another catalog").click_accesskit();
+        h.run();
+        assert!(h.state().transfer_dialog.open, "the dialog opens");
+        assert_eq!(
+            h.state().transfer_dialog.chosen(),
+            vec![miezi.to_string()],
+            "what was marked is what is ticked"
+        );
+        // The dialog's own button carries the same words as the menu's.
+        h.get_all_by_label("Move to another catalog")
+            .last()
+            .unwrap()
+            .click();
+        h.run();
+        assert!(
+            h.state()
+                .store()
+                .cats(None)
+                .unwrap()
+                .iter()
+                .all(|c| c.id != miezi),
+            "she left"
+        );
+        // And she is a stray where she landed: her home stayed behind.
+        let leipzig = h
+            .state()
+            .manager()
+            .catalogs()
+            .iter()
+            .find(|c| c.name == "Leipzig")
+            .cloned()
+            .unwrap();
+        let there = h.state().manager().open_store(&leipzig).unwrap();
+        assert_eq!(there.cats(None).unwrap().len(), 1);
+        assert_eq!(there.current(miezi, "clowder").unwrap(), None, "a stray");
     }
 
     #[test]
