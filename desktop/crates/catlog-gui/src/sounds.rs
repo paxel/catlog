@@ -194,12 +194,12 @@ impl SoundChoice {
 }
 
 /// The choice for a moment. Before the choices existed one switch
-/// silenced every cheer; a machine that had it off stays silent.
+/// silenced every cheer; a machine that had it off stays silent. The
+/// confetti switch is not that switch: it takes the confetti away and
+/// leaves the sounds alone.
 pub fn sound_for(store: &Catalog, cheer: Cheer) -> SoundChoice {
     let Some(raw) = store.local_setting(cheer.key()) else {
-        let legacy_off = ["celebrationSound", "celebrations"]
-            .iter()
-            .any(|k| store.local_setting(k).as_deref() == Some("off"));
+        let legacy_off = store.local_setting("celebrationSound").as_deref() == Some("off");
         return if legacy_off {
             SoundChoice::None
         } else {
@@ -347,5 +347,15 @@ mod tests {
             SoundChoice::Preset(Preset::Purr)
         );
         assert_eq!(sound_for(&old, Cheer::Ladder), SoundChoice::None);
+        // The confetti switch is a switch for confetti: the sounds stay.
+        let quiet = Catalog::open(&dir.path().join("quiet")).unwrap();
+        let _ = quiet.set_local_setting(crate::settings_page::CELEBRATIONS, "off");
+        for cheer in Cheer::ALL {
+            assert_eq!(
+                sound_for(&quiet, cheer),
+                SoundChoice::Preset(cheer.default_preset()),
+                "{cheer:?}"
+            );
+        }
     }
 }

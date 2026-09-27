@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 - "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
+- Turning the adoption confetti off no longer silences the tick, the day's chores, the ladder and the adoption sounds as well.
 - A marked home is highlighted in the Clowders table again; the row was marked but looked like any other.
 - Moving marked cats that are not all in the same home now starts with nothing ticked, and any choice — the street included — can be saved. The street used to look ticked and Save stayed grey.
 - Marked rows stay in the catalog they were marked in. They used to survive a switch, and a bulk action — a delete above all — would then be aimed at cats the new catalog has never heard of.

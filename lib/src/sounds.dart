@@ -80,13 +80,13 @@ const reminderSoundAsset = 'assets/sounds/socke3.wav';
 const reminderSoundName = 'mrrr';
 
 /// The choice for a moment. Before the choices existed one switch
-/// silenced every cheer; a device that had it off stays silent.
+/// silenced every cheer; a device that had it off stays silent. The
+/// confetti switch is not that switch: it takes the confetti away and
+/// leaves the sounds alone.
 SoundChoice soundFor(CatalogStore store, Cheer moment) {
   final raw = store.localSetting(soundKey(moment));
   if (raw == null) {
-    final legacyOff =
-        store.localSetting('celebrationSound') == 'off' ||
-        store.localSetting('celebrations') == 'off';
+    final legacyOff = store.localSetting('celebrationSound') == 'off';
     return legacyOff ? const NoSound() : PresetSound(defaultPreset(moment));
   }
   if (raw == 'none') return const NoSound();

@@ -61,6 +61,15 @@ void main() {
     expect(soundFor(store, Cheer.ladder), isA<NoSound>());
   });
 
+  test('turning the confetti off leaves the sounds alone', () {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    setCelebrationsEnabled(store, false);
+    for (final moment in Cheer.values) {
+      expect(soundFor(store, moment), isA<PresetSound>(), reason: moment.name);
+    }
+  });
+
   testWidgets('every moment has a row on Settings and none is a choice', (
     tester,
   ) async {
