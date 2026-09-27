@@ -1675,6 +1675,12 @@ impl Catalog {
             }
         }
         tx.commit()?;
+        // Entries that arrived are a write like any other: without this
+        // the generation never moves, and every view that holds its data
+        // between frames goes on showing what was there before the sync.
+        if !imported.is_empty() {
+            self.touch();
+        }
         for (device, dseq) in discarded {
             self.record_discarded(&device, dseq)?;
         }
@@ -2382,8 +2388,21 @@ mod tests {
                 "2026-01-01T10:00:03Z",
             ),
         ];
+        // What arrives is a write: the views that hold their data between
+        // frames must be told, or they go on showing the old catalog.
+        let before = c.generation();
         assert_eq!(c.apply_entries(rows.clone()).unwrap().len(), 3);
+        assert!(
+            c.generation() > before,
+            "entries that arrived moved the generation"
+        );
+        let after = c.generation();
         assert_eq!(c.apply_entries(rows).unwrap().len(), 0);
+        assert_eq!(
+            c.generation(),
+            after,
+            "nothing new, nothing to tell anybody about"
+        );
         assert_eq!(
             c.current("cat:a", keys::NAME).unwrap().as_deref(),
             Some("Mimi")
