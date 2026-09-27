@@ -6929,7 +6929,7 @@ mod tests {
         assert!(h.state().desk.open.is_empty(), "and takes them all off");
         // The marked ones move into another home in one go.
         marked(&mut h, "Move to another home");
-        h.state_mut().mover.target = Some(barn.into());
+        h.get_all_by_label("Barn").last().unwrap().click_accesskit();
         h.run();
         h.get_by_label("Save").click();
         h.run();
@@ -6961,6 +6961,43 @@ mod tests {
         h.get_all_by_label("Delete").last().unwrap().click();
         h.run();
         assert_eq!(h.state().store().cats(None).unwrap().len(), 1, "one left");
+    }
+
+    #[test]
+    fn cats_out_of_different_homes_can_all_be_sent_to_the_street() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1600.0, 900.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Tom")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::COMMAND);
+        h.run();
+        h.get_by_label_contains("2 marked").click();
+        h.step();
+        h.get_by_label("Move to another home").click_accesskit();
+        h.run();
+        assert!(h.state().mover.mixed, "they are in different homes");
+        // Nothing is ticked, so the street is a choice like any other.
+        h.get_all_by_label("No clowder — stray / ran away")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        for cat in [miezi, tom] {
+            assert_eq!(
+                h.state().store().current(cat, "clowder").unwrap(),
+                None,
+                "{cat} is on the street"
+            );
+        }
     }
 
     #[test]

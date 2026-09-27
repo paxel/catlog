@@ -12,6 +12,11 @@ pub struct MoveDialog {
     /// The Cats being moved; one of them, or every marked one.
     pub cats: Vec<String>,
     pub current: Option<String>,
+    /// The Cats are not all in the same home: nothing is ticked, and
+    /// whatever the keeper picks is a change — the street included.
+    pub mixed: bool,
+    /// A home or the street has been picked since the dialog opened.
+    picked: bool,
     pub clowders: Vec<EntityView>,
     /// The chosen destination; none for the street.
     pub target: Option<String>,
@@ -34,10 +39,10 @@ impl MoveDialog {
             .iter()
             .map(|cat| store.current(cat, keys::CLOWDER).ok().flatten())
             .collect();
-        self.current = match homes.first() {
-            Some(first) if homes.iter().all(|h| h == first) => first.clone(),
-            _ => None,
-        };
+        let first = homes.first().cloned().unwrap_or(None);
+        self.mixed = homes.iter().any(|h| *h != first);
+        self.picked = false;
+        self.current = if self.mixed { None } else { first };
         self.clowders = store.clowders().unwrap_or_default();
         self.target = self.current.clone();
         self.as_of = chrono::Local::now().date_naive().to_string();
@@ -66,13 +71,13 @@ impl MoveDialog {
                     .clicked()
                 {
                     self.target = Some(c.id.clone());
+                    self.picked = true;
                 }
             }
-            if ui
-                .radio(self.target.is_none(), t.no_clowder_stray_option())
-                .clicked()
-            {
+            let stray = self.target.is_none() && (!self.mixed || self.picked);
+            if ui.radio(stray, t.no_clowder_stray_option()).clicked() {
                 self.target = None;
+                self.picked = true;
             }
             ui.horizontal(|ui| {
                 ui.label(t.as_of_date(""));
@@ -80,7 +85,11 @@ impl MoveDialog {
             });
             let escape = ui.input(|i| i.key_pressed(Key::Escape));
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                let changed = self.target != self.current;
+                let changed = if self.mixed {
+                    self.picked
+                } else {
+                    self.target != self.current
+                };
                 if ui
                     .add_enabled(changed, egui::Button::new(t.save()))
                     .clicked()

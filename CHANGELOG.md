@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 - "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
+- Moving marked cats that are not all in the same home now starts with nothing ticked, and any choice — the street included — can be saved. The street used to look ticked and Save stayed grey.
 - Marked rows stay in the catalog they were marked in. They used to survive a switch, and a bulk action — a delete above all — would then be aimed at cats the new catalog has never heard of.
 - The plus on a wide screen fans its ways out under itself again: in the two-pane layout they were drawn a pane's width to the left, over the list.
 - Deleting a catalog takes the one the question names. Looking at another catalog on the Catalogs page could leave that one marked, and the delete from Settings then took it instead of the one it had asked about.
