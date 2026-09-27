@@ -105,6 +105,19 @@ fn clowders() {
     snapshot("clowders", |app| app.open_view(View::Clowders));
 }
 
+/// A marked home wears the selection stripe; the cells used to be drawn
+/// over it, so nothing showed.
+#[test]
+#[ignore = "compares PNGs; needs a GPU or lavapipe, CI has one"]
+fn clowders_marked() {
+    snapshot("clowders_marked", |app| {
+        app.open_view(View::Clowders);
+        app.clowders
+            .selected
+            .insert("clowder:00000000-0000-4000-8000-000000000001".into());
+    });
+}
+
 #[test]
 #[ignore = "compares PNGs; needs a GPU or lavapipe, CI has one"]
 fn map() {

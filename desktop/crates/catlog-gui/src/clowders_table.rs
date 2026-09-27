@@ -338,6 +338,11 @@ impl ClowdersTable {
                 body.rows(34.0, rows.len(), |mut row| {
                     let r = &rows[row.index()];
                     let id = r.row.view.id.clone();
+                    // The stripe has to be set before the cells are
+                    // drawn; after them it paints nothing.
+                    row.set_selected(
+                        self.selected.contains(&id) || self.cursor.as_deref() == Some(id.as_str()),
+                    );
                     row.col(|ui| {
                         let mut on = open.contains(&id);
                         let response =
@@ -439,9 +444,6 @@ impl ClowdersTable {
                     row.col(|ui| {
                         crate::icons::more(ui, &mut menu);
                     });
-                    row.set_selected(
-                        self.selected.contains(&id) || self.cursor.as_deref() == Some(id.as_str()),
-                    );
                     let response = row.response();
                     response.context_menu(&mut menu);
                     if response.clicked() {
