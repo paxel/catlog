@@ -228,7 +228,11 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
     });
   }
 
-  bool get _complete => _title.text.trim().isNotEmpty;
+  /// A title, and someone it is for: an empty catalog offers neither a
+  /// cat nor a home, and an appointment belonging to nobody shows up
+  /// on no page and no agenda.
+  bool get _complete =>
+      _title.text.trim().isNotEmpty && _entities.first.isNotEmpty;
 
   void _save() {
     final existing = widget.existing;

@@ -54,6 +54,23 @@ void main() {
     expect(find.byType(AppointmentCard), findsOneWidget);
   });
 
+  testWidgets('an appointment for nobody cannot be saved', (tester) async {
+    final empty = CatalogStore.inMemory();
+    empty.author = 'test';
+    addTearDown(empty.close);
+    await pump(tester, AgendaScreen(store: empty));
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Appointment').last);
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField).first, 'Vet');
+    await tester.pumpAndSettle();
+    final save = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, 'Save'),
+    );
+    expect(save.onPressed, isNull, reason: 'there is no cat to visit');
+  });
+
   testWidgets('the agenda mixes both kinds by date', (tester) async {
     final soon = DateTime.now().add(const Duration(days: 2));
     final later = DateTime.now().add(const Duration(days: 9));
