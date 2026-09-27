@@ -150,6 +150,16 @@ impl Desk {
     /// Lays `ids` on the desk, the new ones beside the last card.
     pub fn open(&mut self, store: &Catalog, ids: &[String]) {
         self.load(store);
+        // A card asked for is a card shown. While the dock's filter
+        // held, opening a cat from the table drew nothing at all — and
+        // the filter outlived a restart, so the click stayed dead.
+        if ids.iter().any(|id| {
+            self.filter
+                .is_some_and(|cats| cats != id.starts_with("cat:"))
+        }) {
+            self.filter = None;
+            let _ = store.set_local_setting(FILTER_KEY, "");
+        }
         for id in ids {
             if !self.open.contains(id) {
                 let place = self.free_place();
