@@ -50,6 +50,11 @@ abstract class SyncFolder {
   /// `keys`. An absent directory lists as empty.
   Future<List<String>> list(String dir);
 
+  /// When the file was last written, as far as the folder knows;
+  /// null when it cannot say. This is how "an install that is gone" is
+  /// told from a phone that syncs and simply has nothing to record.
+  Future<DateTime?> written(String dir, String name);
+
   /// The file's bytes, or null when it is not there.
   Future<Uint8List?> read(String dir, String name);
 
@@ -97,6 +102,12 @@ class LocalSyncFolder implements SyncFolder {
   }
 
   @override
+  Future<DateTime?> written(String dir, String name) async {
+    final f = File('${_dir(dir).path}/$name');
+    return f.existsSync() ? f.lastModifiedSync() : null;
+  }
+
+  @override
   Future<Uint8List?> read(String dir, String name) async {
     final f = File('${_dir(dir).path}/$name');
     return f.existsSync() ? f.readAsBytesSync() : null;
@@ -139,6 +150,14 @@ class MemorySyncFolder implements SyncFolder {
             in (dirs[dir] ?? const {}).entries)
           name: bytes.length
       };
+
+  /// What the tests set for a file, so the quiet rule can be tried
+  /// without waiting a week.
+  final Map<String, DateTime> writtenAt = {};
+
+  @override
+  Future<DateTime?> written(String dir, String name) async =>
+      dirs[dir]?[name] == null ? null : writtenAt['$dir/$name'];
 
   @override
   Future<Uint8List?> read(String dir, String name) async => dirs[dir]?[name];
@@ -607,7 +626,11 @@ Future<(List<Entry> applied, Set<String> lagging, Set<String> quiet)>
         if (newest == null || e.recorded.isAfter(newest)) newest = e.recorded;
       }
       apply(foreign, writerVector);
-      final gone = newest == null || now.difference(newest) >= staleAfter;
+      // How long ago the file itself was written, not when the writer
+      // last had something to say: a phone that syncs daily and
+      // records nothing for a week is still here.
+      final lastWrite = await folder.written(dir, name) ?? newest;
+      final gone = lastWrite == null || now.difference(lastWrite) >= staleAfter;
       if (gone && _covers(store.versionVector(), writerVector)) {
         // Gone, and everything it knew is here: nobody is named for it,
         // and the live devices stop keeping their frozen files for it.

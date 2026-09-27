@@ -294,6 +294,9 @@ class _BrokenFolder implements SyncFolder {
   Future<List<String>> list(String dir) async => _gone();
   @override
   Future<Uint8List?> read(String dir, String name) async => _gone();
+
+  @override
+  Future<DateTime?> written(String dir, String name) async => _gone();
   @override
   Future<Map<String, int>> sizes(String dir) async => _gone();
   @override

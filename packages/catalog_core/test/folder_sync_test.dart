@@ -217,6 +217,31 @@ void main() {
     expect(folder.dirs['']!.keys, contains('fresh.jsonl2'));
   });
 
+  test('a phone that writes its file is here, however old its entries',
+      () async {
+    final folder = MemorySyncFolder();
+    a.createCat('Miezi');
+    await folder.ensure('keys');
+    await folder.write('', 'quiet-phone.jsonl2', utf8.encode(jsonEncode({
+      'device': 'quiet-phone',
+      'dseq': 1,
+      'entity': 'clowder:home',
+      'field': r'$type',
+      'value': 'clowder',
+      'date': '2026-01-01T00:00:00.000000Z',
+      'author': 'carla',
+      'recorded': '2026-01-01T00:00:00.000000Z',
+      'reminder': false,
+    })));
+    await folder.write('keys', 'quiet-phone.json', utf8.encode('[]'));
+    // It synced this morning; it simply had nothing to record.
+    folder.writtenAt['/quiet-phone.jsonl2'] = DateTime.utc(2026, 1, 9);
+    final result =
+        await folderSyncIn(a, folder, now: DateTime.utc(2026, 1, 9));
+    expect(result.lagging, contains('quiet-phone'),
+        reason: 'it is here and still waits for the update');
+  });
+
   test('repeated sync is a no-op', () async {
     a.createCat('Miezi');
     await folderSync(a, dir.path);

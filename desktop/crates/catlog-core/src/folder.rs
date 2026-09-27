@@ -334,7 +334,16 @@ impl Catalog {
                 // devices stop keeping their frozen files for it. The file
                 // itself stays: nothing in the folder is ever deleted on
                 // another device's behalf.
-                let gone = newest
+                // How long ago the file itself was written, not when
+                // the writer last had something to say: a phone that
+                // syncs daily and records nothing for a week is still
+                // here, and used to be declared gone.
+                let written = std::fs::metadata(dir.join(name))
+                    .and_then(|m| m.modified())
+                    .ok()
+                    .map(chrono::DateTime::<chrono::Utc>::from);
+                let gone = written
+                    .or(newest)
                     .is_none_or(|n| self.now_utc() - n >= chrono::Duration::days(STALE_AFTER_DAYS));
                 if gone && covers(&self.version_vector()?, &vector) {
                     result.lagging.retain(|d| d != device);
@@ -871,6 +880,16 @@ mod tests {
         assert_eq!(r.blobs_missing, 0);
     }
 
+    /// Puts a file's last write back in time, so the quiet rule can be
+    /// tried without waiting a week.
+    fn written_days_ago(path: &std::path::Path, days: i64) {
+        let when = std::time::SystemTime::now()
+            - std::time::Duration::from_secs(days as u64 * 24 * 60 * 60);
+        let file = std::fs::OpenOptions::new().write(true).open(path).unwrap();
+        file.set_times(std::fs::FileTimes::new().set_modified(when))
+            .unwrap();
+    }
+
     #[test]
     fn a_sync_round_names_nobody_for_an_install_gone_quiet_and_leaves_its_file() {
         let dir = tempfile::tempdir().unwrap();
@@ -885,6 +904,7 @@ mod tests {
         )
         .unwrap();
         std::fs::write(sync.join("keys").join("old.json"), "[]").unwrap();
+        written_days_ago(&sync.join("old.jsonl2"), 30);
         // Months later: what it knew is here, nobody is named, its files
         // stay where they are, and this device keeps no frozen file for it.
         let r = c.sync_folder(&share, None, false).unwrap();
@@ -895,6 +915,38 @@ mod tests {
         assert!(sync.join("keys").join("old.json").exists());
         assert_eq!(c.version_vector().unwrap().get("old"), Some(&1));
         assert!(!sync.join(format!("{}.jsonl2", c.device_id())).exists());
+    }
+
+    #[test]
+    fn a_phone_that_writes_its_file_is_here_however_old_its_entries_are() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open(&dir.path().join("cat")).unwrap();
+        c.set_author("Ada").unwrap();
+        let share = dir.path().join("share");
+        let sync = share.join(SYNC_DIR);
+        std::fs::create_dir_all(sync.join("keys")).unwrap();
+        // Everything it knows is from January; the file was written
+        // today, so the phone is syncing and only has nothing to say.
+        std::fs::write(
+            sync.join("quiet.jsonl2"),
+            r#"{"device":"quiet","dseq":1,"entity":"clowder:home","field":"$type","value":"clowder","date":"2026-01-01T00:00:00Z","author":"A","recorded":"2026-01-01T00:00:00Z","reminder":false}"#,
+        )
+        .unwrap();
+        std::fs::write(sync.join("keys").join("quiet.json"), "[]").unwrap();
+        // The whole-history file that phone reads us from.
+        let mine = sync.join(format!("{}.jsonl2", c.device_id()));
+        std::fs::write(&mine, "").unwrap();
+        let r = c.sync_folder(&share, None, false).unwrap();
+        assert_eq!(r.entries_in, 1);
+        assert!(r.quiet.is_empty(), "it is here: {:?}", r.quiet);
+        assert_eq!(
+            r.lagging,
+            vec!["quiet".to_string()],
+            "and it still waits for the update"
+        );
+        // And the file it reads us from is still there: declaring it
+        // gone took that away and cut the phone off for good.
+        assert!(mine.exists());
     }
 
     #[test]
@@ -915,6 +967,7 @@ mod tests {
         )
         .unwrap();
         std::fs::write(sync.join("broken.jsonl"), "not json").unwrap();
+        written_days_ago(&sync.join("w.jsonl"), 30);
         std::fs::write(sync.join(format!("{}.jsonl", c.device_id())), "own file").unwrap();
         // A manifest still on its way is a device on the new layout,
         // whatever its old file says.
