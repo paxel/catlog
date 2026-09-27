@@ -189,7 +189,9 @@ impl ArrivalSummary {
         if modal.should_close() {
             self.open = false;
         }
-        if action != SummaryAction::None {
+        // Settling one conflict is work on this window, not a way out of
+        // it: closing here took the conflicts still to settle with it.
+        if !matches!(action, SummaryAction::None | SummaryAction::Resolve(..)) {
             self.open = false;
         }
         if !self.open {

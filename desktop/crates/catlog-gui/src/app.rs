@@ -4583,6 +4583,51 @@ mod tests {
         );
     }
 
+    #[test]
+    fn settling_one_conflict_leaves_the_arrival_window_open() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut h = harness(seeded_with(dir.path(), "conflict"));
+        h.run();
+        let conflicts = h.state().store().conflicts().unwrap();
+        assert!(!conflicts.is_empty());
+        let (entity, field) = conflicts[0].clone();
+        // The window that opens after a sync, with the conflicts in it.
+        {
+            let app = h.state_mut();
+            let applied = app.store().all_entries().unwrap();
+            app.open_summary(&applied, Default::default());
+        }
+        h.run();
+        assert!(h.state().summary.open);
+        assert!(!h.state().summary.review.conflicts.is_empty());
+        let candidates = crate::conflicts::candidates(h.state().store(), &entity, &field);
+        let second = candidates[1].clone();
+        let t = L10n::new("en");
+        let label = crate::labels::value_label(
+            &t,
+            h.state().store(),
+            &field,
+            second.value.as_deref(),
+            h.state().pages.units,
+        );
+        let day = second
+            .date
+            .get(..10)
+            .and_then(|d| d.parse::<chrono::NaiveDate>().ok())
+            .map(|d| crate::labels::format_day(t.locale(), d))
+            .unwrap();
+        let want = format!("{label}   ({day} · {})", second.author);
+        // The modal lies over the page: the pointer never reaches the
+        // button, accesskit does.
+        h.get_all_by_label(&want).last().unwrap().click_accesskit();
+        h.run();
+        assert!(!h.state().store().has_conflict(&entity, &field).unwrap());
+        assert!(
+            h.state().summary.open,
+            "the window stays: settling is work in it, not a way out"
+        );
+    }
+
     fn fixed_day(app: &mut App, y: i32, m: u32, d: u32, h: u32) {
         let at = chrono::NaiveDate::from_ymd_opt(y, m, d)
             .unwrap()
