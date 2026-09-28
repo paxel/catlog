@@ -556,7 +556,7 @@ impl App {
                     self.fail(e.to_string());
                 }
             }
-            Err(e) => self.notice = Some(format!("{}: {e}", path.display())),
+            Err(e) => self.fail(format!("{}: {e}", path.display())),
         }
     }
 
@@ -579,7 +579,7 @@ impl App {
             match result {
                 Ok(_) => added += 1,
                 Err(e) => {
-                    self.notice = Some(format!("{}: {e}", path.display()));
+                    self.fail(format!("{}: {e}", path.display()));
                     return;
                 }
             }
@@ -1020,7 +1020,7 @@ impl App {
                                 self.desk.open(&self.store, &cats);
                                 self.desk.tile(&self.store);
                             }
-                            CardAction::Notice(e) => self.notice = Some(e),
+                            CardAction::Notice(e) => self.fail(e),
                             CardAction::Opened(id) => self.home.selection = Selection::Cat(id),
                         }
                     } else if self.view == View::Cats {
@@ -1164,7 +1164,7 @@ impl App {
                         let saved = match saved {
                             Ok(path) => path,
                             Err(e) => {
-                                self.notice = Some(t.catalog_export_failed(&e.to_string()));
+                                self.fail(t.catalog_export_failed(&e.to_string()));
                                 return;
                             }
                         };
@@ -1225,7 +1225,7 @@ impl App {
                 Ok(_) => self.notice = Some(t.photo_added().to_string()),
                 Err(e) => self.fail(e.to_string()),
             },
-            Some(Err(e)) => self.notice = Some(e),
+            Some(Err(e)) => self.fail(e),
         }
         if self.editor.wants_picker {
             self.editor.wants_picker = false;
@@ -1787,10 +1787,10 @@ impl App {
                 let Some(bytes) = self.document_pdf() else {
                     return;
                 };
-                self.notice = Some(match std::fs::write(&path, bytes) {
-                    Ok(()) => t.document_saved(&path.to_string_lossy()),
-                    Err(e) => e.to_string(),
-                });
+                match std::fs::write(&path, bytes) {
+                    Ok(()) => self.notice = Some(t.document_saved(&path.to_string_lossy())),
+                    Err(e) => self.fail(e.to_string()),
+                }
             }
             DocAction::Print => {
                 let name = self.document.file_name(&self.store, &t);
@@ -1825,10 +1825,10 @@ impl App {
                 let Some(png) = card_png(&card, &fonts) else {
                     return;
                 };
-                self.notice = Some(match std::fs::write(&path, png) {
-                    Ok(()) => t.document_saved(&path.to_string_lossy()),
-                    Err(e) => e.to_string(),
-                });
+                match std::fs::write(&path, png) {
+                    Ok(()) => self.notice = Some(t.document_saved(&path.to_string_lossy())),
+                    Err(e) => self.fail(e.to_string()),
+                }
             }
         }
     }
@@ -1873,13 +1873,11 @@ impl App {
                 );
                 self.archiving = Some(ids);
             }
-            HouseAction::BackupNow => {
-                self.notice = Some(match self.store.auto_backup(&self.backups_dir, true) {
-                    Ok(Some(path)) => path.to_string_lossy().into_owned(),
-                    Ok(None) => t.backups_never().to_string(),
-                    Err(e) => t.last_backup_failed(&e.to_string()),
-                });
-            }
+            HouseAction::BackupNow => match self.store.auto_backup(&self.backups_dir, true) {
+                Ok(Some(path)) => self.notice = Some(path.to_string_lossy().into_owned()),
+                Ok(None) => self.notice = Some(t.backups_never().to_string()),
+                Err(e) => self.fail(t.last_backup_failed(&e.to_string())),
+            },
             HouseAction::PickBackupFolder => {
                 if let Some(folder) = (self.pick_folder)(t.backups_folder_pick())
                     && let Err(e) = self.store.set_local_setting(
@@ -1963,7 +1961,7 @@ impl App {
             .backups_dir
             .join(format!("catlog-undone-{stamp}.catsync"));
         if let Err(e) = std::fs::create_dir_all(&self.backups_dir) {
-            self.notice = Some(t.go_back_file_failed(&e.to_string()));
+            self.fail(t.go_back_file_failed(&e.to_string()));
             return;
         }
         match self.store.revert_to(moment, &keep_at) {
@@ -1972,7 +1970,7 @@ impl App {
                 self.faces = FaceCache::default();
                 self.home.selection = Selection::None;
             }
-            Err(e) => self.notice = Some(t.go_back_file_failed(&e.to_string())),
+            Err(e) => self.fail(t.go_back_file_failed(&e.to_string())),
         }
     }
 
@@ -1988,10 +1986,10 @@ impl App {
             .add_moment(catlog_core::moments::cause::ARCHIVE, None, None)
             .and_then(|_| self.store.write_archive(&path, ids))
             .and_then(|()| self.store.delete_archived(ids));
-        self.notice = Some(match result {
-            Ok(()) => t.archive_done(ids.len() as i64),
-            Err(e) => t.archive_failed(&e.to_string()),
-        });
+        match result {
+            Ok(()) => self.notice = Some(t.archive_done(ids.len() as i64)),
+            Err(e) => self.fail(t.archive_failed(&e.to_string())),
+        }
         self.house.archive_chosen.clear();
         self.faces = FaceCache::default();
     }
@@ -2069,10 +2067,10 @@ impl App {
         };
         let events = ics_events(&self.store, &t);
         let text = catlog_core::ics::write_ics(&events, chrono::Utc::now());
-        self.notice = Some(match std::fs::write(&path, text) {
-            Ok(()) => t.ics_saved_to(&path.to_string_lossy()),
-            Err(e) => e.to_string(),
-        });
+        match std::fs::write(&path, text) {
+            Ok(()) => self.notice = Some(t.ics_saved_to(&path.to_string_lossy())),
+            Err(e) => self.fail(e.to_string()),
+        }
     }
 
     /// The line under the menu bar while a partner's changes wait.
@@ -3106,7 +3104,7 @@ impl App {
         let saved = match self.store.auto_backup(&self.backups_dir, true) {
             Ok(path) => path,
             Err(e) => {
-                self.notice = Some(t.catalog_export_failed(&e.to_string()));
+                self.fail(t.catalog_export_failed(&e.to_string()));
                 return;
             }
         };
@@ -6769,6 +6767,41 @@ mod tests {
             ["Clowders"],
             "the one the question named went, not the one that was looked at"
         );
+    }
+
+    #[test]
+    fn a_failed_delete_says_why_until_it_is_dismissed() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        // Nowhere to write the keepsake file: the delete is abandoned,
+        // and the reason waits for the x instead of fading in six
+        // seconds with the catalog still there.
+        let blocked = dir.path().join("blocked");
+        std::fs::write(&blocked, b"a file, not a folder").unwrap();
+        app.backups_dir = blocked.join("backups");
+        let mut h = harness(app);
+        h.run();
+        open_catalog_menu_item(&mut h, "Catalogs");
+        h.get_by_label("New catalog").click();
+        h.run();
+        h.state_mut().dialog.value = "Leipzig".into();
+        h.run();
+        h.get_by_label("Create").click();
+        h.run();
+        h.state_mut()
+            .store_mut()
+            .create_cat("cat:z", "Mo", None, "cat")
+            .unwrap();
+        h.key_press(egui::Key::Escape);
+        h.run();
+        h.state_mut().open_settings();
+        h.run();
+        h.get_by_label("Delete catalog").click_accesskit();
+        h.run();
+        h.get_all_by_label("Delete").last().unwrap().click();
+        h.run();
+        assert!(h.state().notice_is_failure(), "{:?}", h.state().notice);
+        assert_eq!(h.state().manager().catalogs().len(), 2, "nothing deleted");
     }
 
     #[test]

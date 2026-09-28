@@ -11,7 +11,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - The mother or father already written down stays on the picker's list even after that cat's gender is corrected, so the relation can be changed instead of only cancelled.
 - Opening a cat while the desk shows homes only puts the card on the desk and lets the filter go, instead of swallowing the click until the filter is found and turned off. A face in the dock brings its card back the same way, and Tile arranges the cards in sight and leaves the hidden ones where they lie.
 - A paused chore is off the agenda's calendar; the month grid used to print it on every day while the list filed it under Paused.
-- A note that follows a failure is drawn as news again and fades by itself; later notes used to inherit the red ground and the close button of the failure before them.
+- A note that follows a failure is drawn as news again and fades by itself; later notes used to inherit the red ground and the close button of the failure before them. A failure of its own — a photo that could not be read, a catalog whose keepsake file could not be written, an archive or a calendar file that failed — now waits for the x instead of fading after six seconds.
 - A moment's sound, the confetti switch and the reminder's voice are the device's own: they are the same in every catalog on phone and desk, and an own sound picked in one catalog no longer replaces another's file behind its back. A choice made before this release is read where it was made.
 - Turning the chore reminder's cat sound off is no longer undone by ticking a chore in another catalog.
 - The vet report's preview on the desk speaks the app's units and counts from the app's day, so it says what the written report says.
