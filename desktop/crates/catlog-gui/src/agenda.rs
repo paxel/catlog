@@ -421,6 +421,20 @@ fn forward(day: NaiveDate, days: i64) -> NaiveDate {
     }
 }
 
+/// The same day one year away, the last day of the month when that year
+/// has no such day: a year back from 31 March used to land on 28
+/// February, so back and forward did not lead home again.
+fn same_day_in_year(day: NaiveDate, year: i32) -> NaiveDate {
+    use chrono::Datelike;
+    NaiveDate::from_ymd_opt(year, day.month(), day.day()).unwrap_or_else(|| {
+        let first = NaiveDate::from_ymd_opt(year, day.month(), 1).unwrap_or(day);
+        first
+            .checked_add_months(chrono::Months::new(1))
+            .and_then(|next| next.pred_opt())
+            .unwrap_or(day)
+    })
+}
+
 /// The month and the year the calendar stands in, and a menu that jumps
 /// to another one without walking there a month at a time.
 fn month_picker(ui: &mut Ui, store: &Catalog, t: &L10n, anchor: NaiveDate) {
@@ -437,19 +451,12 @@ fn month_picker(ui: &mut Ui, store: &Catalog, t: &L10n, anchor: NaiveDate) {
         ui.horizontal(|ui| {
             if crate::icons::icon_button(ui, crate::icons::CHEVRON_LEFT, t.month_before()).clicked()
             {
-                set_anchor(
-                    store,
-                    back(anchor, 0)
-                        .with_month(anchor.month())
-                        .unwrap_or(anchor)
-                        .with_year(anchor.year() - 1)
-                        .unwrap_or(anchor),
-                );
+                set_anchor(store, same_day_in_year(anchor, anchor.year() - 1));
             }
             ui.label(anchor.year().to_string());
             if crate::icons::icon_button(ui, crate::icons::CHEVRON_RIGHT, t.month_after()).clicked()
             {
-                set_anchor(store, anchor.with_year(anchor.year() + 1).unwrap_or(anchor));
+                set_anchor(store, same_day_in_year(anchor, anchor.year() + 1));
             }
         });
         ui.separator();
@@ -946,6 +953,22 @@ mod tests {
         assert_eq!(entries.len(), 1, "one entry: {entries:?}");
         assert_eq!(entries[0].day, day(2026, 3, 12));
         assert!(entries[0].at.is_some(), "at half past two");
+    }
+
+    #[test]
+    fn a_year_back_and_forward_leads_home_again() {
+        assert_eq!(
+            same_day_in_year(day(2026, 3, 31), 2025),
+            day(2025, 3, 31),
+            "a month step used to clip this to 28 February"
+        );
+        assert_eq!(
+            same_day_in_year(same_day_in_year(day(2026, 3, 31), 2025), 2026),
+            day(2026, 3, 31)
+        );
+        // A day the other year has not: the last of that month.
+        assert_eq!(same_day_in_year(day(2028, 2, 29), 2027), day(2027, 2, 28));
+        assert_eq!(same_day_in_year(day(2028, 2, 29), 2029), day(2029, 2, 28));
     }
 
     #[test]

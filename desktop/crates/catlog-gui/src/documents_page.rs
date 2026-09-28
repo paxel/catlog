@@ -566,6 +566,8 @@ impl DocumentPage {
         store: &Catalog,
         t: &L10n,
         fonts: Option<&FontSet>,
+        units: catlog_core::units::UnitSystem,
+        today: NaiveDate,
     ) -> DocAction {
         let fonts_complete = fonts.is_some_and(|f| f.complete);
         let mut action = DocAction::None;
@@ -606,12 +608,12 @@ impl DocumentPage {
                     egui::Layout::top_down(egui::Align::LEFT),
                     |ui| {
                         ui.set_min_width(half);
-                        self.choices(ui, store, t, kind);
+                        self.choices(ui, store, t, kind, units);
                     },
                 );
                 ui.separator();
                 ui.vertical(|ui| {
-                    self.preview(ui, store, t, kind, fonts);
+                    self.preview(ui, store, t, kind, fonts, units, today);
                 });
             });
         });
@@ -625,7 +627,14 @@ impl DocumentPage {
     }
 
     /// The choices that make the document: which values, which days.
-    fn choices(&mut self, ui: &mut Ui, store: &Catalog, t: &L10n, kind: DocKind) {
+    fn choices(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        kind: DocKind,
+        units: catlog_core::units::UnitSystem,
+    ) {
         match kind {
             DocKind::Card => {
                 let chips = ui.strong(t.card_content());
@@ -691,7 +700,7 @@ impl DocumentPage {
                     let label = format!(
                         "{}: {}",
                         field_def_name(t, &def),
-                        value_label(t, store, &def.key(), Some(&value), self_units())
+                        value_label(t, store, &def.key(), Some(&value), units)
                     );
                     if crate::icons::check_box(ui, &mut on, label).changed() {
                         if on {
@@ -753,6 +762,7 @@ impl DocumentPage {
     /// Card is drawn as the picture it becomes; the poster and the vet
     /// report are PDFs, and the desk has no renderer for one, so they
     /// show what will be printed on them instead.
+    #[allow(clippy::too_many_arguments)]
     fn preview(
         &mut self,
         ui: &mut Ui,
@@ -760,6 +770,8 @@ impl DocumentPage {
         t: &L10n,
         kind: DocKind,
         fonts: Option<&FontSet>,
+        units: catlog_core::units::UnitSystem,
+        today: NaiveDate,
     ) {
         ui.strong(t.preview_title());
         let Some(fonts) = fonts else {
@@ -767,7 +779,7 @@ impl DocumentPage {
         };
         match kind {
             DocKind::Card => {
-                let card = self.card_content(store, t, self_units());
+                let card = self.card_content(store, t, units);
                 let fingerprint = format!("{card:?}");
                 if self.preview_of.as_deref() != Some(fingerprint.as_str()) {
                     self.preview_of = Some(fingerprint);
@@ -794,7 +806,7 @@ impl DocumentPage {
                 }
             }
             DocKind::Poster => {
-                let poster = self.poster_content(store, t, self_units());
+                let poster = self.poster_content(store, t, units);
                 ui.label(egui::RichText::new(t.preview_content()).weak().small());
                 ui.strong(&poster.headline);
                 ui.heading(&poster.name);
@@ -820,13 +832,9 @@ impl DocumentPage {
                 );
             }
             DocKind::VetReport => {
-                let report = self.report_content(
-                    store,
-                    t,
-                    self_units(),
-                    chrono::Local::now().date_naive(),
-                    true,
-                );
+                // The app's units and the app's day: what the preview
+                // says is what the written document says.
+                let report = self.report_content(store, t, units, today, true);
                 ui.label(egui::RichText::new(t.preview_content()).weak().small());
                 ui.heading(&report.name);
                 for row in report.rows.iter().take(40) {
@@ -838,10 +846,6 @@ impl DocumentPage {
             }
         }
     }
-}
-
-fn self_units() -> catlog_core::units::UnitSystem {
-    catlog_core::units::UnitSystem::Metric
 }
 
 /// Draws `text` at (x, y) into `img`; returns the y below the line.

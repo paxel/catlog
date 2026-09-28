@@ -275,6 +275,10 @@ impl HistoryPage {
         let mut trend = flag(store, TREND_KEY);
         let mut range = Range::of(store);
         let mut copy = false;
+        // The button belongs to the graph that is drawn, not to every
+        // reading there is: a range that leaves fewer than two points
+        // draws no graph, and used to leave a button that did nothing.
+        let enough = range.keep(store, &all).len() >= 2;
         ui.horizontal(|ui| {
             if crate::icons::check_box(ui, &mut smooth, t.graph_smoothed()).changed() {
                 set_flag(store, SMOOTH_KEY, smooth);
@@ -282,7 +286,7 @@ impl HistoryPage {
             if crate::icons::check_box(ui, &mut trend, t.graph_trend()).changed() {
                 set_flag(store, TREND_KEY, trend);
             }
-            if all.len() >= 2 && ui.button(t.copy_graph_image()).clicked() {
+            if enough && ui.button(t.copy_graph_image()).clicked() {
                 copy = true;
             }
         });

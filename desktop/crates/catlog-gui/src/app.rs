@@ -2820,7 +2820,11 @@ impl App {
             }
             Modal::Document => {
                 let fonts = self.fonts().clone();
-                let action = self.document.show(ui, &self.store, &t, Some(&fonts));
+                let units = self.pages.units;
+                let today = self.pages.today;
+                let action = self
+                    .document
+                    .show(ui, &self.store, &t, Some(&fonts), units, today);
                 self.act_document(action);
             }
             Modal::Moments => {
@@ -5654,6 +5658,62 @@ mod tests {
                 .local_setting(crate::cards::OPEN_KEY)
                 .as_deref(),
             Some("")
+        );
+    }
+
+    #[test]
+    fn the_document_preview_speaks_the_apps_units() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        app.font_source = Box::new(OfflineFonts);
+        app.store_mut()
+            .append(
+                "cat:00000000-0000-4000-8000-000000000001",
+                "f:weight",
+                Some("4200"),
+            )
+            .unwrap();
+        let mut h = sized_harness(app, egui::vec2(1500.0, 1000.0));
+        h.run();
+        let _ = h
+            .state()
+            .store()
+            .set_local_setting(catlog_core::units::UNITS_SETTING, "imperial");
+        h.state_mut().apply_units();
+        h.run();
+        open_cat_document(&mut h, "Report for the vet…");
+        assert_eq!(h.state().document.kind, Some(DocKind::VetReport));
+        h.state_mut().document.from = "2000-01-01".into();
+        h.state_mut().document.to = "2027-12-31".into();
+        h.run();
+        // The preview draws what will be printed, in the units the
+        // rest of the app speaks — it used to be metric whatever the
+        // keeper chose.
+        assert_eq!(
+            h.state().pages.units,
+            catlog_core::units::UnitSystem::Imperial
+        );
+        let report = h.state().document.report_content(
+            h.state().store(),
+            h.state().t(),
+            h.state().pages.units,
+            h.state().pages.today,
+            true,
+        );
+        assert!(
+            report.rows.iter().any(|r| r.value.contains("lb")),
+            "{:?}",
+            report.rows
+        );
+        let weight = report
+            .rows
+            .iter()
+            .find(|r| r.value.contains("lb"))
+            .expect("a weight in pounds");
+        let row = format!("{} · {} · {}", weight.day, weight.label, weight.value);
+        assert!(
+            h.query_all_by_label(&row).next().is_some(),
+            "the preview prints {row}"
         );
     }
 
@@ -9084,5 +9144,13 @@ mod tests {
             ])
         );
         assert!(h.state().notice.is_none(), "a paw, not a word");
+        // A range that leaves fewer than two readings draws no graph,
+        // and offers no button that would copy nothing.
+        h.get_by_label("Week").click();
+        h.run();
+        assert!(
+            h.query_by_label("Copy graph as image").is_none(),
+            "no graph, no button"
+        );
     }
 }
