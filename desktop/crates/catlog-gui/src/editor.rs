@@ -809,10 +809,13 @@ mod tests {
         e.as_of_time = "08:15".into();
         assert!(e.as_of().starts_with("2026-01-03T") || e.as_of().starts_with("2026-01-02T"));
         e.as_of_text = "1.1.2999".into();
-        assert!(
-            e.as_of() < chrono::Utc::now().to_rfc3339(),
-            "never the future"
-        );
+        // As moments, not as text: `as_of` writes microseconds and a
+        // Z, `to_rfc3339` nanoseconds and an offset, and comparing
+        // those two strings says 'Z' is later than any digit.
+        let clamped = chrono::DateTime::parse_from_rfc3339(&e.as_of())
+            .unwrap()
+            .with_timezone(&chrono::Utc);
+        assert!(clamped <= chrono::Utc::now(), "never the future");
         e.as_of_text = "junk".into();
         e.as_of_time = "junk".into();
         let fallback = e.as_of();
