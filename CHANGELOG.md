@@ -16,7 +16,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Turning the chore reminder's cat sound off is no longer undone by ticking a chore in another catalog.
 - Deleting an achievement takes it off the list: it is waved off at the tier shown, so a ladder that climbed through a sync no longer comes straight back, and one that was never recorded goes too.
 - Deleting an empty catalog says there was nothing to back up instead of naming a keepsake file that was never written.
-- Saving picked video frames no longer hangs on a spinner when a full-size frame cannot be read; the picked picture is kept instead.
+- Saving picked video frames no longer hangs on a spinner when a full-size frame cannot be read; the picked picture is kept instead. A frame that cannot be grabbed leaves Keep this frame working, rather than dead for the rest of the picking.
 - Pulling a tiled card's bottom edge changes that card's height instead of snapping it back to the tile's row, so a card no longer shrinks with every pull and the cards beside it keep theirs.
 - The vet report's preview follows every change again: a new date range, the patient summary switch and a row taken out all redraw it, not only the field chips. Drawing it no longer greys out Share and Print.
 - An appointment can no longer be saved with nobody to visit; Save stays grey until a cat or a home is picked.

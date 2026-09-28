@@ -116,9 +116,17 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
   Future<void> _keep() async {
     if (_grabbing) return;
     await player.pause();
+    if (!mounted) return;
     final ms = player.position.inMilliseconds;
     setState(() => _grabbing = true);
-    final bytes = await widget.extractFrame(ms);
+    Uint8List? bytes;
+    try {
+      bytes = await widget.extractFrame(ms);
+    } catch (_) {
+      // No frame this time; the button comes back rather than staying
+      // dead for the rest of the picking.
+      bytes = null;
+    }
     if (!mounted) return;
     setState(() {
       _grabbing = false;

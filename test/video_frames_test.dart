@@ -159,6 +159,29 @@ void main() {
     expect(result, [big]);
   });
 
+  testWidgets('a frame that cannot be grabbed leaves the button alive', (
+    tester,
+  ) async {
+    final small = _jpeg(64, 48);
+    var calls = 0;
+    await open(
+      tester,
+      extractFrame: (_) async {
+        calls++;
+        if (calls == 1) throw Exception('no decoder');
+        return small;
+      },
+    );
+    await tester.tap(find.text('Keep this frame'));
+    await tester.pumpAndSettle();
+    expect(find.byIcon(Icons.check_circle), findsNothing,
+        reason: 'nothing kept');
+    // The second try works: the button was not left dead.
+    await tester.tap(find.text('Keep this frame'));
+    await tester.pumpAndSettle();
+    expect(find.byIcon(Icons.check_circle), findsOneWidget);
+  });
+
   testWidgets('a full-size frame that fails leaves the small one', (
     tester,
   ) async {
