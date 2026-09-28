@@ -355,6 +355,7 @@ pub fn show_achievements(
     manager: &mut CatalogManager,
     t: &L10n,
     ladders: &[LadderState],
+    now: &str,
 ) {
     ui.heading(t.achievements_title());
     let recorded = manager.achievements().to_vec();
@@ -378,7 +379,7 @@ pub fn show_achievements(
         ui.label(t.achievements_empty());
         return;
     }
-    let mut dismiss: Option<String> = None;
+    let mut dismiss: Option<LadderState> = None;
     for s in reached {
         let first = recorded
             .iter()
@@ -389,7 +390,7 @@ pub fn show_achievements(
             .unwrap_or_default();
         let mut menu = |ui: &mut Ui| {
             if ui.button(t.delete()).clicked() {
-                dismiss = Some(s.id.clone());
+                dismiss = Some((*s).clone());
                 ui.close();
             }
         };
@@ -405,8 +406,8 @@ pub fn show_achievements(
         };
         ui.label(egui::RichText::new(detail).weak());
     }
-    if let Some(id) = dismiss {
-        let _ = manager.dismiss_achievement(&id);
+    if let Some(state) = dismiss {
+        let _ = manager.dismiss_achievement(&state, now);
     }
     for coat in coats {
         ui.label(t.coat_unlocked(&coat_name(t, coat)));

@@ -14,6 +14,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A note that follows a failure is drawn as news again and fades by itself; later notes used to inherit the red ground and the close button of the failure before them.
 - A moment's sound, the confetti switch and the reminder's voice are the device's own: they are the same in every catalog on phone and desk, and an own sound picked in one catalog no longer replaces another's file behind its back. A choice made before this release is read where it was made.
 - Turning the chore reminder's cat sound off is no longer undone by ticking a chore in another catalog.
+- Deleting an achievement takes it off the list: it is waved off at the tier shown, so a ladder that climbed through a sync no longer comes straight back, and one that was never recorded goes too.
 - Deleting an empty catalog says there was nothing to back up instead of naming a keepsake file that was never written.
 - Saving picked video frames no longer hangs on a spinner when a full-size frame cannot be read; the picked picture is kept instead.
 - Pulling a tiled card's bottom edge changes that card's height instead of snapping it back to the tile's row, so a card no longer shrinks with every pull and the cards beside it keep theirs.

@@ -2809,7 +2809,8 @@ impl App {
                 self.act_settings(action);
             }
             Modal::Achievements => {
-                show_achievements(ui, &mut self.manager, &t, &self.ladders);
+                let now = (self.now)().and_utc().to_rfc3339();
+                show_achievements(ui, &mut self.manager, &t, &self.ladders, &now);
             }
             Modal::Capture => {
                 self.poll_recognition();

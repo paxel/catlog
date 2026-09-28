@@ -98,12 +98,25 @@ impl CatalogManager {
         self.save()
     }
 
-    /// Waves an achievement off at its current tier: a typo in a
-    /// chore's name, a ladder nobody wants. It stays recorded, hidden
-    /// until the ladder climbs past that tier.
-    pub fn dismiss_achievement(&mut self, id: &str) -> Result<()> {
-        if let Some(a) = self.registry.achievements.iter_mut().find(|a| a.id == id) {
-            a.dismissed = Some(a.tier);
+    /// Waves a ladder off at the tier the keeper is looking at: a typo
+    /// in a chore's name, a ladder nobody wants. It stays recorded,
+    /// hidden until the ladder climbs past that tier. The tier comes
+    /// from the list, not from what was recorded last: ticks that
+    /// arrived by sync raise a ladder without recording it here, and a
+    /// Delete that wrote the older tier left the row on show.
+    pub fn dismiss_achievement(
+        &mut self,
+        state: &crate::achievements::LadderState,
+        at: &str,
+    ) -> Result<()> {
+        self.record_ladders(std::slice::from_ref(state), at)?;
+        if let Some(a) = self
+            .registry
+            .achievements
+            .iter_mut()
+            .find(|a| a.id == state.id)
+        {
+            a.dismissed = Some(state.tier);
         }
         self.save()
     }

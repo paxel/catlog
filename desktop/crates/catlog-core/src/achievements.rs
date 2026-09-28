@@ -300,7 +300,14 @@ mod tests {
         // Waved off: hidden at its tier, on show again one tier up, and
         // the dismissal survives a reopening too.
         let mut again = again;
-        again.dismiss_achievement("master:feed").unwrap();
+        let feed_state = states
+            .iter()
+            .find(|s| s.id == "master:feed")
+            .unwrap()
+            .clone();
+        again
+            .dismiss_achievement(&feed_state, "2026-03-04T12:00:00Z")
+            .unwrap();
         let feed = again
             .achievements()
             .iter()
@@ -309,13 +316,45 @@ mod tests {
         assert_eq!(feed.dismissed, Some(1));
         assert!(!feed.shows(1));
         assert!(feed.shows(2));
+        // A ladder the list shows one tier up — ticks that arrived by
+        // sync raise it without recording anything here — is waved off
+        // at the tier the keeper saw, not at the one recorded before.
+        let higher = LadderState {
+            tier: 2,
+            ..feed_state.clone()
+        };
+        again
+            .dismiss_achievement(&higher, "2026-03-04T13:00:00Z")
+            .unwrap();
+        let feed = again
+            .achievements()
+            .iter()
+            .find(|a| a.id == "master:feed")
+            .unwrap();
+        assert_eq!(feed.dismissed, Some(2));
+        assert!(!feed.shows(2));
+        // One never recorded goes the same way: it is written down and
+        // waved off in one go, rather than silently doing nothing.
+        let unknown = LadderState {
+            id: "master:brush".to_string(),
+            ..higher
+        };
+        again
+            .dismiss_achievement(&unknown, "2026-03-04T14:00:00Z")
+            .unwrap();
+        let brush = again
+            .achievements()
+            .iter()
+            .find(|a| a.id == "master:brush")
+            .unwrap();
+        assert_eq!(brush.dismissed, Some(2));
         let once_more = CatalogManager::open(&dir.path().join("root"), "Clowders").unwrap();
         let feed = once_more
             .achievements()
             .iter()
             .find(|a| a.id == "master:feed")
             .unwrap();
-        assert_eq!(feed.dismissed, Some(1));
+        assert_eq!(feed.dismissed, Some(2));
     }
 
     #[test]
