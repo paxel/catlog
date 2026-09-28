@@ -91,6 +91,9 @@ pub struct Desk {
     restack: bool,
     /// A card's own height, when a hand has dragged it.
     heights: BTreeMap<String, f32>,
+    /// The cards a hand has taken out of the tiling by dragging their
+    /// edge; the others still follow the cell.
+    untiled: std::collections::BTreeSet<String>,
 }
 
 impl Desk {
@@ -360,11 +363,12 @@ impl Desk {
         if let Some((id, by)) = dragged {
             let cap = body_cap(desk.height());
             let now = self.body_height(&id, desk.height()) + by;
-            // A hand on the edge ends the tiling: while the cell
-            // decided, the pull changed nothing on screen and then
-            // saved the cell's own height as the card's, so every pull
-            // started over from the cell.
-            self.cell = None;
+            // A hand on the edge takes that card out of the tiling:
+            // while the cell decided, the pull changed nothing on
+            // screen and then saved the cell's own height as the
+            // card's, so every pull started over from the cell. The
+            // cards beside it keep their row.
+            self.untiled.insert(id.clone());
             self.heights.insert(id, now.clamp(80.0, cap));
         }
         if let Some(id) = settled
@@ -393,14 +397,33 @@ impl Desk {
 
     /// How tall a card's body may be: the desk's cap, or the tile's
     /// cell while the cards lie tiled.
-    fn body_height(&self, id: &str, desk_height: f32) -> f32 {
+    pub(crate) fn body_height(&self, id: &str, desk_height: f32) -> f32 {
         let cap = body_cap(desk_height);
-        match (self.cell, self.heights.get(id)) {
+        let cell = self.cell.filter(|_| !self.untiled.contains(id));
+        match (cell, self.heights.get(id)) {
             // While the cards lie tiled, the cell decides.
             (Some(cell), _) => cap.min((cell - 56.0).max(80.0)),
             (None, Some(own)) => own.min(cap),
             (None, None) => cap,
         }
+    }
+
+    /// Whether the dock's filter lets this card be seen.
+    fn visible(&self, id: &str) -> bool {
+        !self
+            .filter
+            .is_some_and(|cats| cats != id.starts_with("cat:"))
+    }
+
+    /// The open cards the filter lets through, in opening order: what
+    /// Tile and Stack arrange, so the ones out of sight keep the places
+    /// they were left in.
+    fn shown(&self) -> Vec<String> {
+        self.open
+            .iter()
+            .filter(|id| self.visible(id))
+            .cloned()
+            .collect()
     }
 
     /// The layer a card is drawn on.
@@ -411,7 +434,12 @@ impl Desk {
     /// The card on top of the pile, as egui last stacked them.
     pub fn front(&self, ctx: &egui::Context) -> Option<String> {
         let top = ctx.memory(|m| m.areas().top_layer_id(egui::Order::Middle))?;
-        self.open.iter().find(|id| Self::layer(id) == top).cloned()
+        // A card the filter hides is drawn nowhere: it wears no dot.
+        self.open
+            .iter()
+            .filter(|id| self.visible(id))
+            .find(|id| Self::layer(id) == top)
+            .cloned()
     }
 
     /// Lays a card down, never past the desk's edge: egui clamps a card
@@ -435,16 +463,23 @@ impl Desk {
     /// than run off the desk.
     pub fn tile(&mut self, store: &Catalog) {
         // Whatever a card holds, it fits its cell from now on and
-        // scrolls inside it, so no card is laid out of reach.
+        // scrolls inside it, so no card is laid out of reach. Only the
+        // cards in sight are arranged: the filtered-out ones keep the
+        // places they were left in, rather than being laid out unseen.
+        let shown = self.shown();
+        if shown.is_empty() {
+            return;
+        }
+        self.untiled.clear();
         let gap = 16.0;
         let step = CARD_WIDTH + 24.0 + gap;
         let width = self.desk_size.x.max(step);
         let columns = (((width - gap) / step).floor() as usize).clamp(1, 16);
-        let rows = self.open.len().div_ceil(columns).max(1);
+        let rows = shown.len().div_ceil(columns).max(1);
         let usable = (self.desk_size.y - DOCK_STRIP).max(160.0);
         let row_height = ((usable - gap) / rows as f32 - gap).max(120.0);
         self.cell = Some(row_height);
-        for (i, id) in self.open.clone().iter().enumerate() {
+        for (i, id) in shown.iter().enumerate() {
             let (column, row) = (i % columns, i / columns);
             let x = gap + column as f32 * step;
             let y = gap + row as f32 * (row_height + gap);
@@ -457,7 +492,8 @@ impl Desk {
     pub fn stack(&mut self, ctx: &egui::Context, store: &Catalog) {
         // A stacked card is as tall as it likes again.
         self.cell = None;
-        for (i, id) in self.open.clone().iter().enumerate() {
+        self.untiled.clear();
+        for (i, id) in self.shown().iter().enumerate() {
             let step = 16.0 + i as f32 * 24.0;
             self.place(store, id, Pos2::new(step, step));
             ctx.memory_mut(|m| m.areas_mut().move_to_top(Self::layer(id)));
@@ -666,6 +702,13 @@ impl Desk {
             self.close_all(store);
         }
         if let Some(id) = raise {
+            // A face in the dock brings its card to the front — and a
+            // filter that hides that card lets go, rather than turning
+            // the click into nothing.
+            if !self.visible(&id) {
+                self.filter = None;
+                let _ = store.set_local_setting(FILTER_KEY, "");
+            }
             ctx.memory_mut(|m| m.areas_mut().move_to_top(Self::layer(&id)));
         }
     }

@@ -5657,6 +5657,106 @@ mod tests {
     }
 
     #[test]
+    fn a_pull_on_one_tiled_card_leaves_the_others_in_their_row() {
+        let dir = tempfile::tempdir().unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let tom = "cat:00000000-0000-4000-8000-000000000002";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1400.0, 900.0));
+        h.run();
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.get_all_by_label("Tom")
+            .next()
+            .unwrap()
+            .click_modifiers(egui::Modifiers::COMMAND);
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Tile").click();
+        h.run();
+        let tall = |h: &Harness<'static, App>, id: &str| {
+            let desk = h.state().desk.size().y;
+            h.state().desk.body_height(id, desk)
+        };
+        let before = tall(&h, tom);
+        let handle = h
+            .get_all_by_label("Drag to make the card taller or shorter")
+            .next()
+            .unwrap()
+            .rect()
+            .center();
+        drag_from(&mut h, handle, egui::vec2(0.0, -16.0));
+        assert_eq!(
+            tall(&h, tom),
+            before,
+            "the card nobody touched keeps its row"
+        );
+        assert!(
+            tall(&h, miezi) < before,
+            "and the one that was pulled is shorter"
+        );
+    }
+
+    #[test]
+    fn tile_arranges_the_cards_in_sight_and_leaves_the_others_where_they_lie() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1400.0, 900.0));
+        h.run();
+        open_row(&mut h, "Foster Home");
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Tile").click();
+        h.run();
+        let home_place = h.state().desk.position(foster).unwrap();
+        // Only the cats are shown; Tile arranges those, and the home
+        // that nobody can see keeps the place it was left in.
+        h.get_by_label("Only cat").click();
+        h.run();
+        h.get_by_label("Tile").click();
+        h.run();
+        assert_eq!(h.state().desk.position(foster), Some(home_place));
+        let cat_place = h.state().desk.position(miezi).unwrap();
+        assert!(cat_place.x < 40.0 && cat_place.y < 40.0, "{cat_place:?}");
+    }
+
+    #[test]
+    fn a_face_in_the_dock_brings_back_a_card_the_filter_hides() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let mut h = sized_harness(seeded(dir.path()), egui::vec2(1400.0, 900.0));
+        h.run();
+        open_row(&mut h, "Foster Home");
+        open_view(&mut h, "Cats");
+        h.get_all_by_label("Miezi").next().unwrap().click();
+        h.run();
+        h.key_press(egui::Key::Enter);
+        h.run();
+        h.get_by_label("Only cat").click();
+        h.run();
+        assert_eq!(h.get_all_by_label("Close card").count(), 1, "the cat only");
+        // The home's face is still in the dock; a click brings its card
+        // back instead of doing nothing at all.
+        h.get_all_by_role_and_label(egui::accesskit::Role::Button, "Foster Home")
+            .last()
+            .unwrap()
+            .click();
+        h.run();
+        assert_eq!(h.get_all_by_label("Close card").count(), 2);
+        assert_eq!(
+            h.state().store().local_setting(crate::cards::FILTER_KEY),
+            Some(String::new())
+        );
+        let ctx = h.state().ctx.clone().unwrap();
+        assert_eq!(h.state().desk.front(&ctx).as_deref(), Some(foster));
+    }
+
+    #[test]
     fn opening_a_cat_while_the_dock_shows_only_homes_lets_the_filter_go() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
