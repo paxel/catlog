@@ -52,6 +52,21 @@ void main() {
     expect(rows.map((e) => e.value), ['4200', 'Sneezing']);
   });
 
+  test('the summary counts the age to the day the cat died', () {
+    final t = lookupAppLocalizations(const Locale('en'));
+    final now = DateTime(2026, 9, 11);
+    expect(
+      patientFacts(t, store, cat, now).firstWhere((r) => r.$1 == 'Age').$2,
+      '6 yrs 4 mo',
+    );
+    store.append(cat, Keys.userField('deceased'), '2025-05-18');
+    expect(
+      patientFacts(t, store, cat, now).firstWhere((r) => r.$1 == 'Age').$2,
+      '5 yrs †',
+      reason: 'born 2020-05-01, died 2025-05-18',
+    );
+  });
+
   test('the age reads in years and months', () {
     final t = lookupAppLocalizations(const Locale('en'));
     expect(ageText(t, '2020-05-01', DateTime(2026, 9, 11)), '6 years 4 months');

@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
+import 'age.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
 import 'pdf_fonts.dart';
@@ -123,6 +124,43 @@ String? ageText(AppLocalizations t, String? birth, DateTime today) {
   ].join(' ');
 }
 
+/// The patient summary the report opens with: species, breed, gender,
+/// neutered, birth date and the age reached, the chip, weight and
+/// looks, the home with its owner and contact. Only what is known.
+List<(String, String?)> patientFacts(
+  AppLocalizations t,
+  CatalogStore store,
+  String catId,
+  DateTime now,
+) {
+  String? value(String slug) {
+    final v = store.current(catId, Keys.userField(slug));
+    return v == null ? null : valueLabel(t, store, Keys.userField(slug), v);
+  }
+
+  final clowder = store.current(catId, Keys.clowder);
+  String? home(String slug) =>
+      clowder == null ? null : store.current(clowder, Keys.userField(slug));
+  return [
+    (t.starterSpecies, value('species')),
+    (t.starterBreed, value('breed')),
+    (t.starterGender, value('gender')),
+    (t.starterNeutered, value('neutered')),
+    (t.starterBirthdate, value('birthdate')),
+    // A cat that died stopped ageing: the age it reached, with the
+    // cross the rest of the app marks it with.
+    (t.ageLabel, ageDisplay(t, store, catId, today: now)),
+    (t.starterChipId, value('chipid')),
+    (t.starterWeight, value('weight')),
+    (t.starterLooks, value('looks')),
+    if (clowder != null) (t.clowderLabel, store.current(clowder, Keys.name)),
+    (t.vetReportOwner, home('responsible')),
+    (t.starterAddress, home('address')),
+    (t.starterPhone, home('phone')),
+    (t.starterEmail, home('email')),
+  ];
+}
+
 /// One curve page's material.
 typedef ReportCurve = ({FieldDef def, Uint8List png});
 
@@ -180,33 +218,9 @@ pw.Document vetReportPdf({
   );
 
   List<pw.Widget> summaryPage() {
-    String? value(String slug) {
-      final v = store.current(catId, Keys.userField(slug));
-      return v == null ? null : valueLabel(t, store, Keys.userField(slug), v);
-    }
-
     final hash = store.profileImage(catId);
     final photo = hash == null ? null : store.imageBytes(hash);
-    final clowder = store.current(catId, Keys.clowder);
-    String? home(String slug) =>
-        clowder == null ? null : store.current(clowder, Keys.userField(slug));
-    final born = store.current(catId, Keys.userField('birthdate'));
-    final rows = <(String, String?)>[
-      (t.starterSpecies, value('species')),
-      (t.starterBreed, value('breed')),
-      (t.starterGender, value('gender')),
-      (t.starterNeutered, value('neutered')),
-      (t.starterBirthdate, value('birthdate')),
-      (t.ageLabel, ageText(t, born, now)),
-      (t.starterChipId, value('chipid')),
-      (t.starterWeight, value('weight')),
-      (t.starterLooks, value('looks')),
-      if (clowder != null) (t.clowderLabel, store.current(clowder, Keys.name)),
-      (t.vetReportOwner, home('responsible')),
-      (t.starterAddress, home('address')),
-      (t.starterPhone, home('phone')),
-      (t.starterEmail, home('email')),
-    ];
+    final rows = patientFacts(t, store, catId, now);
     return [
       pw.Row(
         crossAxisAlignment: pw.CrossAxisAlignment.start,

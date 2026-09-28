@@ -1672,7 +1672,9 @@ impl App {
         let fonts = self.fonts().clone();
         Some(match kind {
             DocKind::Card => {
-                let card = self.document.card_content(&self.store, &t, units);
+                let card = self
+                    .document
+                    .card_content(&self.store, &t, units, self.pages.today);
                 catlog_core::documents::card_pdf(&card, &fonts, &t.card_title(&card.name))
             }
             DocKind::Poster => {
@@ -1805,9 +1807,9 @@ impl App {
                 }
             }
             DocAction::CopyImage => {
-                let card = self
-                    .document
-                    .card_content(&self.store, &t, self.pages.units);
+                let card =
+                    self.document
+                        .card_content(&self.store, &t, self.pages.units, self.pages.today);
                 self.copy_card(&card);
             }
             DocAction::SaveImage => {
@@ -1818,9 +1820,9 @@ impl App {
                 let Some(path) = (self.save_file)(t.save_image(), &name) else {
                     return;
                 };
-                let card = self
-                    .document
-                    .card_content(&self.store, &t, self.pages.units);
+                let card =
+                    self.document
+                        .card_content(&self.store, &t, self.pages.units, self.pages.today);
                 let fonts = self.fonts().clone();
                 let Some(png) = card_png(&card, &fonts) else {
                     return;
@@ -2314,7 +2316,7 @@ impl App {
                 // usual content.
                 let mut page = DocumentPage::default();
                 page.open(&self.store, DocKind::Card, &cat, self.pages.today);
-                let card = page.card_content(&self.store, &t, self.pages.units);
+                let card = page.card_content(&self.store, &t, self.pages.units, self.pages.today);
                 self.copy_card(&card);
             }
             PageAction::NewCat(clowder) => {
@@ -8185,6 +8187,7 @@ mod tests {
             h.state().store(),
             h.state().t(),
             catlog_core::units::UnitSystem::Metric,
+            h.state().pages.today,
         );
         assert_eq!(card.name, "Miezi");
         assert!(card.photo.is_some());

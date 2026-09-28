@@ -161,20 +161,13 @@ pub fn patient_facts(
         home.as_ref()
             .and_then(|h| store.current(h, &keys::user_field(slug)).ok().flatten())
     };
-    let born = store
-        .current(cat, &keys::user_field("birthdate"))
-        .ok()
-        .flatten();
     let rows: Vec<(String, Option<String>)> = vec![
         (t.starter_species().to_string(), value("species")),
         (t.starter_breed().to_string(), value("breed")),
         (t.starter_gender().to_string(), value("gender")),
         (t.starter_neutered().to_string(), value("neutered")),
         (t.starter_birthdate().to_string(), value("birthdate")),
-        (
-            t.age_label().to_string(),
-            age_text(t, born.as_deref(), today),
-        ),
+        (t.age_label().to_string(), age_display(store, t, cat, today)),
         (t.starter_chip_id().to_string(), value("chipid")),
         (
             t.clowder_label().to_string(),
@@ -187,6 +180,20 @@ pub fn patient_facts(
     rows.into_iter()
         .filter_map(|(l, v)| v.map(|v| (l, v)))
         .collect()
+}
+
+/// The age a Cat has, or the age it reached: from its birth date to
+/// today, or to the day it died, marked with the cross the rest of the
+/// app marks a dead cat with.
+pub fn age_display(store: &Catalog, t: &L10n, cat: &str, today: NaiveDate) -> Option<String> {
+    let value = |slug: &str| store.current(cat, &keys::user_field(slug)).ok().flatten();
+    let born = value("birthdate");
+    let died = value("deceased").and_then(|d| PartialDate::parse(&d)?.latest());
+    let age = age_text(t, born.as_deref(), died.unwrap_or(today))?;
+    Some(match died {
+        Some(_) => format!("{age} †"),
+        None => age,
+    })
 }
 
 /// "2 years 3 months" from a birth date.
@@ -275,6 +282,7 @@ impl DocumentPage {
         store: &Catalog,
         t: &L10n,
         units: catlog_core::units::UnitSystem,
+        today: NaiveDate,
     ) -> CardContent {
         let cat = &self.cat;
         let mut facts = Vec::new();
@@ -309,10 +317,15 @@ impl DocumentPage {
                 }
                 continue;
             }
-            facts.push((
-                field_def_name(t, &def),
-                field_value_display(t, Some(&def), Some(&value), units),
-            ));
+            let mut display = field_value_display(t, Some(&def), Some(&value), units);
+            // The birth date answers "how old" here as it does on the
+            // cat's own page — with the cross when the cat has died.
+            if def.slug == "birthdate"
+                && let Some(age) = age_display(store, t, cat, today)
+            {
+                display = format!("{display} · {age}");
+            }
+            facts.push((field_def_name(t, &def), display));
             if def.field_type == FieldType::Id {
                 let caption = format!("{}: {value}", field_def_name(t, &def));
                 match def.id_display {
@@ -779,7 +792,7 @@ impl DocumentPage {
         };
         match kind {
             DocKind::Card => {
-                let card = self.card_content(store, t, units);
+                let card = self.card_content(store, t, units, today);
                 let fingerprint = format!("{card:?}");
                 if self.preview_of.as_deref() != Some(fingerprint.as_str()) {
                     self.preview_of = Some(fingerprint);
@@ -939,6 +952,88 @@ pub fn card_png(card: &CardContent, fonts: &FontSet) -> Option<Vec<u8>> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn the_report_counts_the_age_to_the_day_the_cat_died() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut store = Catalog::open(dir.path()).unwrap();
+        store.set_author("Ada").unwrap();
+        store.create_cat("cat:socke", "Socke", None, "cat").unwrap();
+        store
+            .append(
+                "cat:socke",
+                &keys::user_field("birthdate"),
+                Some("2010-12-27"),
+            )
+            .unwrap();
+        store
+            .append(
+                "cat:socke",
+                &keys::user_field("deceased"),
+                Some("2025-05-18"),
+            )
+            .unwrap();
+        let t = L10n::new("en");
+        let today = NaiveDate::from_ymd_opt(2026, 3, 10).unwrap();
+        let facts = patient_facts(
+            &store,
+            &t,
+            "cat:socke",
+            today,
+            catlog_core::units::UnitSystem::Metric,
+        );
+        assert!(
+            facts
+                .iter()
+                .any(|(l, v)| l == "Age" && v == "14 years 4 months †"),
+            "{facts:?}"
+        );
+    }
+
+    #[test]
+    fn a_cat_that_died_keeps_the_age_it_reached() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut store = Catalog::open(dir.path()).unwrap();
+        store.set_author("Ada").unwrap();
+        store.create_cat("cat:socke", "Socke", None, "cat").unwrap();
+        store
+            .append(
+                "cat:socke",
+                &keys::user_field("birthdate"),
+                Some("2010-12-27"),
+            )
+            .unwrap();
+        let t = L10n::new("en");
+        let today = NaiveDate::from_ymd_opt(2026, 3, 10).unwrap();
+        assert_eq!(
+            age_display(&store, &t, "cat:socke", today).as_deref(),
+            Some("15 years 2 months")
+        );
+        store
+            .append(
+                "cat:socke",
+                &keys::user_field("deceased"),
+                Some("2025-05-18"),
+            )
+            .unwrap();
+        assert_eq!(
+            age_display(&store, &t, "cat:socke", today).as_deref(),
+            Some("14 years 4 months †"),
+            "the age it reached, and the cross"
+        );
+        // And the Card says it beside the birth date, as the cat's own
+        // page does.
+        let mut page = DocumentPage::default();
+        page.open(&store, DocKind::Card, "cat:socke", today);
+        let card = page.card_content(&store, &t, catlog_core::units::UnitSystem::Metric, today);
+        assert!(
+            card.facts
+                .iter()
+                .any(|(_, v)| v.contains("14 years 4 months †")),
+            "{:?}",
+            card.facts
+        );
+    }
 
     #[test]
     fn ages_read_in_years_and_months() {

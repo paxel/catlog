@@ -5,6 +5,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [2.0.7] - Unreleased
 
+### Changed
+- The card a keeper shares says how old the cat is beside its birth date, and for a cat that has died the age it reached, marked with the cross — the same as on the cat's own page, on phone and desk.
+- The vet report's age counts to the day a cat died instead of to today, and carries the cross.
+
 ### Fixed
 - "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
 - A phone that syncs but records nothing for a week is no longer treated as an install that is gone: its warning stays and the whole-history file it reads is kept, instead of being cut off for good. Only a file nobody has written to for a week counts as gone, and a folder that cannot say when a file was written — an Android shared folder — keeps everyone.

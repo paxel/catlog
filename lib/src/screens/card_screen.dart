@@ -5,6 +5,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../age.dart';
 import '../layout.dart';
 import '../help.dart';
 import '../field_labels.dart';
@@ -115,7 +116,14 @@ class _CardScreenState extends State<CardScreen> {
         }
         continue;
       }
-      facts.add((fieldDefName(t, def), fieldValueDisplay(t, def, value)));
+      var display = fieldValueDisplay(t, def, value);
+      // The birth date answers "how old" here as it does on the cat's
+      // own page — with the cross when the cat has died.
+      if (def.slug == 'birthdate') {
+        final age = ageDisplay(t, store, id);
+        if (age != null) display = '$display · $age';
+      }
+      facts.add((fieldDefName(t, def), display));
     }
     return facts;
   }
