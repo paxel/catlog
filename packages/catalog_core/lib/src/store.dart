@@ -575,7 +575,13 @@ class CatalogStore {
   /// folder paths, …).
   String? localSetting(String key) {
     final s = shared;
-    if (s != null && isSharedSetting(key)) return s.get(key);
+    if (s != null && isSharedSetting(key)) {
+      final value = s.get(key);
+      // A key that became app-wide in a later release still sits in the
+      // catalog it was set in: it is read there until it is set again,
+      // so nobody's choice is quietly replaced by the default.
+      if (value != null) return value;
+    }
     final rows = _db
         .select('SELECT value FROM local_settings WHERE key = ?', ['u:$key']);
     return rows.isEmpty ? null : rows.first['value'] as String;

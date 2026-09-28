@@ -77,6 +77,29 @@ void main() {
     b.close();
   });
 
+  test('a setting that became app-wide is still read where it was set',
+      () {
+    final m = open();
+    addTearDown(m.close);
+    final berlin = m.active;
+    // Set before the release that made these keys app-wide: they sit in
+    // the catalog's own database, and nobody lifted them out.
+    final before = CatalogStore.open(berlin.dbPath);
+    before.setLocalSetting('reminderCatSound', 'off');
+    before.setLocalSetting('sound:tick', 'none');
+    before.close();
+
+    final store = m.openStore(berlin);
+    addTearDown(store.close);
+    expect(store.localSetting('reminderCatSound'), 'off');
+    expect(store.localSetting('sound:tick'), 'none');
+    // Set again, it moves to the shared place for every catalog.
+    store.setLocalSetting('sound:tick', 'purr');
+    final paris = m.openStore(m.create('Paris'));
+    addTearDown(paris.close);
+    expect(paris.localSetting('sound:tick'), 'purr');
+  });
+
   test('names are unique', () {
     final m = open();
     addTearDown(m.close);
