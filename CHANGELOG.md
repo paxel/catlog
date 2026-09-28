@@ -12,8 +12,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Opening a cat while the desk shows homes only puts the card on the desk and lets the filter go, instead of swallowing the click until the filter is found and turned off.
 - A paused chore is off the agenda's calendar; the month grid used to print it on every day while the list filed it under Paused.
 - A note that follows a failure is drawn as news again and fades by itself; later notes used to inherit the red ground and the close button of the failure before them.
-- A moment's sound is the same in every catalog, like the celebrations switch beside it; an own sound picked in one catalog no longer replaces another's file behind its back.
-- The chore reminder voice is one switch for the whole device: turning the cat sound off in one catalog is no longer undone by ticking a chore in another.
+- A moment's sound, the confetti switch and the reminder's voice are the device's own: they are the same in every catalog on phone and desk, and an own sound picked in one catalog no longer replaces another's file behind its back. A choice made before this release is read where it was made.
+- Turning the chore reminder's cat sound off is no longer undone by ticking a chore in another catalog.
 - Deleting an empty catalog says there was nothing to back up instead of naming a keepsake file that was never written.
 - Saving picked video frames no longer hangs on a spinner when a full-size frame cannot be read; the picked picture is kept instead.
 - Pulling a tiled card's bottom edge changes its height instead of snapping it back to the tile's row, so a card no longer shrinks with every pull.

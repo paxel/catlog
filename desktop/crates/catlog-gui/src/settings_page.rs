@@ -33,6 +33,10 @@ pub enum SettingsAction {
     Sound(Cheer, SoundChoice),
     /// Own sound… for a moment: the file dialog, then kept and heard.
     PickSound(Cheer),
+    /// The reminder's voice: the cat, or the system's own sound.
+    ReminderSound(bool),
+    /// Confetti at an adoption, on or off.
+    Celebrations(bool),
 }
 
 #[derive(Debug, Default)]
@@ -97,7 +101,7 @@ impl SettingsPage {
         locale: &str,
         key_code: &str,
         ladders: &[LadderState],
-        eye_candy: bool,
+        app: &crate::settings::AppSettings,
     ) -> SettingsAction {
         let mut action = SettingsAction::None;
         egui::ScrollArea::vertical().show(ui, |ui| {
@@ -161,13 +165,16 @@ impl SettingsPage {
                     });
                 ui.end_row();
             });
-            let mut celebrations = store.local_setting(CELEBRATIONS).as_deref() != Some("off");
+            // The confetti, the sounds and the reminder's voice belong
+            // to the device, not to the catalog that happens to be open.
+            let mut celebrations = app
+                .celebrations
+                .unwrap_or_else(|| store.local_setting(CELEBRATIONS).as_deref() != Some("off"));
             if ui
                 .checkbox(&mut celebrations, t.celebrations_toggle())
                 .changed()
             {
-                let _ =
-                    store.set_local_setting(CELEBRATIONS, if celebrations { "on" } else { "off" });
+                action = SettingsAction::Celebrations(celebrations);
             }
             ui.label(egui::RichText::new(t.celebrations_subtitle()).weak());
             // Every moment with a sound has its own combo: the pick is
@@ -177,7 +184,7 @@ impl SettingsPage {
             egui::Grid::new("sounds").num_columns(2).show(ui, |ui| {
                 for cheer in Cheer::ALL {
                     ui.label(cheer.label(t));
-                    let current = sound_for(store, cheer);
+                    let current = sound_for(app, store, cheer);
                     egui::ComboBox::from_id_salt(("sound", cheer.key()))
                         .selected_text(current.label(t))
                         .show_ui(ui, |ui| {
@@ -206,13 +213,13 @@ impl SettingsPage {
             });
             // A reminder arrives as a notification the system draws, so
             // the desk decides only whether it speaks with it.
-            let mut cat = crate::sounds::reminder_cat_sound(store);
+            let mut cat = crate::sounds::reminder_cat_sound(app, store);
             if crate::icons::check_box(ui, &mut cat, t.reminder_sound()).changed() {
-                crate::sounds::set_reminder_cat_sound(store, cat);
+                action = SettingsAction::ReminderSound(cat);
             }
             ui.label(egui::RichText::new(t.reminder_sound_subtitle()).weak());
             ui.add_space(8.0);
-            let mut candy = eye_candy;
+            let mut candy = app.eye_candy;
             if crate::icons::check_box(ui, &mut candy, t.eye_candy_toggle()).changed() {
                 action = SettingsAction::EyeCandy(candy);
             }

@@ -14,6 +14,7 @@ use std::path::{Path, PathBuf};
 use catlog_core::Catalog;
 
 use crate::l10n::L10n;
+use crate::settings::AppSettings;
 
 /// Plays a sound.
 pub trait Sounder {
@@ -153,12 +154,15 @@ pub fn cheer_sound(cheer: Cheer) -> &'static [u8] {
 pub const REMINDER_SOUND: &str = "reminderCatSound";
 
 /// The reminder sound this machine uses; the cat unless switched off.
-pub fn reminder_cat_sound(store: &Catalog) -> bool {
-    store.local_setting(REMINDER_SOUND).as_deref() != Some("off")
+/// The answer belongs to the device, and is read from the catalog it
+/// was given in until it is given again.
+pub fn reminder_cat_sound(app: &AppSettings, store: &Catalog) -> bool {
+    app.reminder_cat_sound
+        .unwrap_or_else(|| store.local_setting(REMINDER_SOUND).as_deref() != Some("off"))
 }
 
-pub fn set_reminder_cat_sound(store: &Catalog, on: bool) {
-    let _ = store.set_local_setting(REMINDER_SOUND, if on { "on" } else { "off" });
+pub fn set_reminder_cat_sound(app: &mut AppSettings, on: bool) {
+    app.reminder_cat_sound = Some(on);
 }
 
 /// What plays at a moment.
@@ -197,8 +201,13 @@ impl SoundChoice {
 /// silenced every cheer; a machine that had it off stays silent. The
 /// confetti switch is not that switch: it takes the confetti away and
 /// leaves the sounds alone.
-pub fn sound_for(store: &Catalog, cheer: Cheer) -> SoundChoice {
-    let Some(raw) = store.local_setting(cheer.key()) else {
+pub fn sound_for(app: &AppSettings, store: &Catalog, cheer: Cheer) -> SoundChoice {
+    let chosen = app
+        .sounds
+        .get(cheer.key())
+        .cloned()
+        .or_else(|| store.local_setting(cheer.key()));
+    let Some(raw) = chosen else {
         let legacy_off = store.local_setting("celebrationSound").as_deref() == Some("off");
         return if legacy_off {
             SoundChoice::None
@@ -215,13 +224,13 @@ pub fn sound_for(store: &Catalog, cheer: Cheer) -> SoundChoice {
     SoundChoice::Preset(Preset::from_name(&raw).unwrap_or(cheer.default_preset()))
 }
 
-pub fn set_sound(store: &Catalog, cheer: Cheer, choice: &SoundChoice) {
+pub fn set_sound(app: &mut AppSettings, cheer: Cheer, choice: &SoundChoice) {
     let raw = match choice {
         SoundChoice::None => "none".to_string(),
         SoundChoice::Preset(p) => p.name().to_string(),
         SoundChoice::Own(path) => format!("file:{}", path.display()),
     };
-    let _ = store.set_local_setting(cheer.key(), &raw);
+    app.sounds.insert(cheer.key().to_string(), raw);
 }
 
 /// The file kinds the player can read.
@@ -306,53 +315,88 @@ mod tests {
     fn a_moment_keeps_its_choice_and_the_old_switch_is_honoured() {
         let dir = tempfile::tempdir().unwrap();
         let store = Catalog::open(dir.path()).unwrap();
+        let mut app = AppSettings::default();
         assert_eq!(
-            sound_for(&store, Cheer::Tick),
+            sound_for(&app, &store, Cheer::Tick),
             SoundChoice::Preset(Preset::Meep)
         );
-        set_sound(&store, Cheer::Tick, &SoundChoice::None);
-        assert_eq!(sound_for(&store, Cheer::Tick), SoundChoice::None);
-        assert!(sound_for(&store, Cheer::Tick).bytes().is_none());
-        set_sound(&store, Cheer::DayDone, &SoundChoice::Preset(Preset::Party));
+        set_sound(&mut app, Cheer::Tick, &SoundChoice::None);
+        assert_eq!(sound_for(&app, &store, Cheer::Tick), SoundChoice::None);
+        assert!(sound_for(&app, &store, Cheer::Tick).bytes().is_none());
+        set_sound(
+            &mut app,
+            Cheer::DayDone,
+            &SoundChoice::Preset(Preset::Party),
+        );
         assert_eq!(
-            sound_for(&store, Cheer::DayDone).bytes().unwrap().len(),
+            sound_for(&app, &store, Cheer::DayDone)
+                .bytes()
+                .unwrap()
+                .len(),
             PARTY.len()
         );
+        // The choice is the device's: another Catalog hears the same.
+        let other = Catalog::open(&dir.path().join("other")).unwrap();
+        assert_eq!(sound_for(&app, &other, Cheer::Tick), SoundChoice::None);
         // An own file is copied beside the data and read from there.
         let source = dir.path().join("mine.wav");
         std::fs::write(&source, MEEP).unwrap();
         let kept = keep_own(dir.path().join("data").as_path(), Cheer::Ladder, &source).unwrap();
         assert_eq!(kept, dir.path().join("data/sounds/ladder.wav"));
-        set_sound(&store, Cheer::Ladder, &SoundChoice::Own(kept.clone()));
-        assert_eq!(sound_for(&store, Cheer::Ladder), SoundChoice::Own(kept));
+        set_sound(&mut app, Cheer::Ladder, &SoundChoice::Own(kept.clone()));
         assert_eq!(
-            sound_for(&store, Cheer::Ladder).bytes().unwrap().len(),
+            sound_for(&app, &store, Cheer::Ladder),
+            SoundChoice::Own(kept)
+        );
+        assert_eq!(
+            sound_for(&app, &store, Cheer::Ladder)
+                .bytes()
+                .unwrap()
+                .len(),
             MEEP.len()
         );
         // A value the app does not know falls back to the moment's own.
-        let _ = store.set_local_setting(Cheer::Adoption.key(), "trumpet");
+        app.sounds
+            .insert(Cheer::Adoption.key().to_string(), "trumpet".to_string());
         assert_eq!(
-            sound_for(&store, Cheer::Adoption),
+            sound_for(&app, &store, Cheer::Adoption),
             SoundChoice::Preset(Preset::Party)
+        );
+        // A choice made before the sounds belonged to the device is
+        // read where it was made.
+        let kept_in_catalog = Catalog::open(&dir.path().join("kept")).unwrap();
+        let _ = kept_in_catalog.set_local_setting(Cheer::Tick.key(), "purr");
+        assert_eq!(
+            sound_for(&AppSettings::default(), &kept_in_catalog, Cheer::Tick),
+            SoundChoice::Preset(Preset::Purr)
         );
         // The switch from before the choices: off keeps every unset moment silent.
         let old = Catalog::open(&dir.path().join("old")).unwrap();
+        let mut old_app = AppSettings::default();
         let _ = old.set_local_setting("celebrationSound", "off");
         for cheer in Cheer::ALL {
-            assert_eq!(sound_for(&old, cheer), SoundChoice::None, "{cheer:?}");
+            assert_eq!(
+                sound_for(&old_app, &old, cheer),
+                SoundChoice::None,
+                "{cheer:?}"
+            );
         }
-        set_sound(&old, Cheer::Tick, &SoundChoice::Preset(Preset::Purr));
+        set_sound(
+            &mut old_app,
+            Cheer::Tick,
+            &SoundChoice::Preset(Preset::Purr),
+        );
         assert_eq!(
-            sound_for(&old, Cheer::Tick),
+            sound_for(&old_app, &old, Cheer::Tick),
             SoundChoice::Preset(Preset::Purr)
         );
-        assert_eq!(sound_for(&old, Cheer::Ladder), SoundChoice::None);
+        assert_eq!(sound_for(&old_app, &old, Cheer::Ladder), SoundChoice::None);
         // The confetti switch is a switch for confetti: the sounds stay.
         let quiet = Catalog::open(&dir.path().join("quiet")).unwrap();
         let _ = quiet.set_local_setting(crate::settings_page::CELEBRATIONS, "off");
         for cheer in Cheer::ALL {
             assert_eq!(
-                sound_for(&quiet, cheer),
+                sound_for(&AppSettings::default(), &quiet, cheer),
                 SoundChoice::Preset(cheer.default_preset()),
                 "{cheer:?}"
             );

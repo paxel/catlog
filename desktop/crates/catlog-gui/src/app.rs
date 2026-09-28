@@ -1634,7 +1634,7 @@ impl App {
                 .unwrap_or_default();
             self.notifier.notify(&r.title, &name);
             // The popup is the system's; the voice is the desk's.
-            if crate::sounds::reminder_cat_sound(&self.store) {
+            if crate::sounds::reminder_cat_sound(&self.settings.settings, &self.store) {
                 self.sounder.play(crate::sounds::MRRR.to_vec());
             }
         }
@@ -2790,7 +2790,7 @@ impl App {
             Modal::Settings => {
                 let locale = self.t.locale();
                 let code = crate::housekeeping::key_code(&self.store, &self.store.device_id());
-                let eye_candy = self.settings.settings.eye_candy;
+                let app = self.settings.settings.clone();
                 let action = self.settings_page.show(
                     ui,
                     &self.store,
@@ -2799,7 +2799,7 @@ impl App {
                     locale,
                     &code,
                     &self.ladders,
-                    eye_candy,
+                    &app,
                 );
                 if let Err(e) = self.settings_page.apply_pending(&mut self.store) {
                     self.fail(e.to_string());
@@ -3052,6 +3052,14 @@ impl App {
                 self.settings.settings.eye_candy = on;
                 let _ = self.settings.save();
             }
+            SettingsAction::ReminderSound(on) => {
+                crate::sounds::set_reminder_cat_sound(&mut self.settings.settings, on);
+                let _ = self.settings.save();
+            }
+            SettingsAction::Celebrations(on) => {
+                self.settings.settings.celebrations = Some(on);
+                let _ = self.settings.save();
+            }
             SettingsAction::Sound(cheer, choice) => self.choose_sound(cheer, choice),
             SettingsAction::PickSound(cheer) => {
                 let picked = (self.pick_files)(t.sound_own(), SOUND_FILES, t.all_files());
@@ -3122,7 +3130,8 @@ impl App {
     /// A moment's sound picked on the Settings page: kept, and heard
     /// once so the pick is known.
     fn choose_sound(&mut self, cheer: Cheer, choice: SoundChoice) {
-        set_sound(&self.store, cheer, &choice);
+        set_sound(&mut self.settings.settings, cheer, &choice);
+        let _ = self.settings.save();
         if let Some(bytes) = choice.bytes() {
             self.sounder.play(bytes);
         }
@@ -3130,7 +3139,7 @@ impl App {
 
     /// The moment's sound, as chosen on the Settings page; none is a choice.
     fn cheer(&mut self, cheer: Cheer) {
-        if let Some(bytes) = sound_for(&self.store, cheer).bytes() {
+        if let Some(bytes) = sound_for(&self.settings.settings, &self.store, cheer).bytes() {
             self.sounder.play(bytes);
         }
     }
@@ -4958,7 +4967,7 @@ mod tests {
         h.run();
         assert_eq!(shown.lock().unwrap().len(), 1, "sounds once");
         // Switched off: the popup stays, the voice goes.
-        crate::sounds::set_reminder_cat_sound(h.state().store(), false);
+        crate::sounds::set_reminder_cat_sound(&mut h.state_mut().settings.settings, false);
         played.lock().unwrap().clear();
         // The next day at the same time: again.
         let next = at + chrono::Duration::days(1);
@@ -8417,9 +8426,11 @@ mod tests {
         }
         h.get_by_label("Chorus of meows").click_accesskit();
         h.run();
+        // The choice belongs to the device, not to the catalog: the
+        // app's own settings hold it, and every catalog hears it.
         assert_eq!(
-            h.state().store().local_setting("sound:tick").as_deref(),
-            Some("chorus")
+            h.state().settings.settings.sounds.get("sound:tick"),
+            Some(&"chorus".to_string())
         );
         assert_eq!(
             *played.lock().unwrap(),
@@ -8436,11 +8447,17 @@ mod tests {
         h.get_by_label("None").click_accesskit();
         h.run();
         assert_eq!(
-            h.state().store().local_setting("sound:tick").as_deref(),
-            Some("none")
+            h.state().settings.settings.sounds.get("sound:tick"),
+            Some(&"none".to_string())
         );
         assert_eq!(played.lock().unwrap().len(), 1, "none is silent");
-        assert!(h.state().store().local_setting("sound:dayDone").is_none());
+        assert!(
+            !h.state()
+                .settings
+                .settings
+                .sounds
+                .contains_key("sound:dayDone")
+        );
         // Own sound…: the file dialog, the copy kept beside the data, heard.
         let own = dir.path().join("mine.wav");
         std::fs::write(&own, crate::sounds::MEEP).unwrap();
@@ -8459,8 +8476,16 @@ mod tests {
         let kept = dir.path().join("data/sounds/tick.wav");
         assert!(kept.exists(), "{:?}", h.state().notice);
         assert_eq!(
-            h.state().store().local_setting("sound:tick").as_deref(),
-            Some(format!("file:{}", kept.display()).as_str())
+            h.state().settings.settings.sounds.get("sound:tick"),
+            Some(&format!("file:{}", kept.display()))
+        );
+        assert_eq!(
+            SettingsFile::load(dir.path())
+                .settings
+                .sounds
+                .get("sound:tick"),
+            Some(&format!("file:{}", kept.display())),
+            "and it is written down"
         );
         assert_eq!(
             *played.lock().unwrap().last().unwrap(),

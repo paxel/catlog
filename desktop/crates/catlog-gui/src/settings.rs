@@ -24,6 +24,14 @@ pub struct AppSettings {
     /// Fades, slides and eased hovers; off stills everything.
     #[serde(default = "yes")]
     pub eye_candy: bool,
+    /// The sound picked for each moment, by the moment's key: one
+    /// choice for the device, as the switch above it always was.
+    pub sounds: std::collections::BTreeMap<String, String>,
+    /// Whether a chore's notification speaks with the cat's voice;
+    /// none means the answer is still in the catalog it was given in.
+    pub reminder_cat_sound: Option<bool>,
+    /// Confetti at an adoption; none means the same.
+    pub celebrations: Option<bool>,
 }
 
 fn yes() -> bool {
