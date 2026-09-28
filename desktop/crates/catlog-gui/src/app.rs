@@ -5367,6 +5367,13 @@ mod tests {
         h.get_by_label("Stray");
         h.get_all_by_label("At home").next().unwrap();
         h.get_by_label("5 years 10 months");
+        // A cat that died stopped ageing, in the table as on its card.
+        h.state_mut()
+            .store_mut()
+            .append(tom, &keys::user_field("deceased"), Some("2026-01-15"))
+            .unwrap();
+        h.run();
+        h.get_by_label_contains("†");
         // A header click sorts, a second one turns it around, a third lets go.
         h.get_by_label("Age").click();
         h.run();

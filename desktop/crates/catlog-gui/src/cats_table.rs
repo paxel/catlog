@@ -14,7 +14,7 @@ use chrono::NaiveDate;
 use egui::{Key, Sense, Ui, Vec2};
 use egui_extras::{Column as TableColumn, TableBuilder};
 
-use crate::documents_page::age_text;
+use crate::documents_page::age_display;
 use crate::icons;
 use crate::l10n::L10n;
 use crate::labels::{field_label, field_value_display, format_day};
@@ -227,7 +227,9 @@ pub fn rows(
                 ),
                 Column::Age => {
                     let birth = value(&keys::user_field("birthdate"));
-                    let text = age_text(t, birth.as_deref(), today).unwrap_or_default();
+                    // A cat that died stopped ageing: the age it
+                    // reached, with the cross, as everywhere else.
+                    let text = age_display(store, t, &cat.id, today).unwrap_or_default();
                     // Older cats sort first when the column is descending.
                     let key = birth
                         .as_deref()
