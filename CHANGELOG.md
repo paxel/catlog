@@ -3,7 +3,7 @@
 All notable changes to cat(a)log are documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [SemVer](https://semver.org/).
 
-## [2.0.7] - Unreleased
+## [2.0.7] - 2026-09-28
 
 ### Changed
 - The card a keeper shares says how old the cat is beside its birth date, and for a cat that has died the age it reached, marked with the cross — the same as on the cat's own page, on phone and desk.
