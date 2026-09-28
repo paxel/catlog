@@ -7,7 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 - "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
-- A phone that syncs but records nothing for a week is no longer treated as an install that is gone: its warning stays and the whole-history file it reads is kept, instead of being cut off for good.
+- A phone that syncs but records nothing for a week is no longer treated as an install that is gone: its warning stays and the whole-history file it reads is kept, instead of being cut off for good. Only a file nobody has written to for a week counts as gone, and a folder that cannot say when a file was written — an Android shared folder — keeps everyone.
 - The mother or father already written down stays on the picker's list even after that cat's gender is corrected, so the relation can be changed instead of only cancelled.
 - Opening a cat while the desk shows homes only puts the card on the desk and lets the filter go, instead of swallowing the click until the filter is found and turned off.
 - A paused chore is off the agenda's calendar; the month grid used to print it on every day while the list filed it under Paused.

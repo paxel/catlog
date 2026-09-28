@@ -628,9 +628,12 @@ Future<(List<Entry> applied, Set<String> lagging, Set<String> quiet)>
       apply(foreign, writerVector);
       // How long ago the file itself was written, not when the writer
       // last had something to say: a phone that syncs daily and
-      // records nothing for a week is still here.
-      final lastWrite = await folder.written(dir, name) ?? newest;
-      final gone = lastWrite == null || now.difference(lastWrite) >= staleAfter;
+      // records nothing for a week is still here. A folder that cannot
+      // say — the Android document tree — leaves everyone here: a
+      // stale warning costs a line, cutting a live phone off costs it
+      // the catalog.
+      final lastWrite = await folder.written(dir, name);
+      final gone = lastWrite != null && now.difference(lastWrite) >= staleAfter;
       if (gone && _covers(store.versionVector(), writerVector)) {
         // Gone, and everything it knew is here: nobody is named for it,
         // and the live devices stop keeping their frozen files for it.

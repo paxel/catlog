@@ -321,11 +321,6 @@ impl Catalog {
                 };
                 // The writer's knowledge is exactly what its file contains.
                 let vector = writer_vector(&foreign);
-                let newest = foreign
-                    .iter()
-                    .filter_map(|e| chrono::DateTime::parse_from_rfc3339(&e.recorded).ok())
-                    .map(|d| d.with_timezone(&chrono::Utc))
-                    .max();
                 self.apply_foreign(foreign, &vector, &mut result)?;
                 // A file nobody has written to for a week is an install
                 // that is gone — a phone set up fresh leaves its old files
@@ -342,9 +337,12 @@ impl Catalog {
                     .and_then(|m| m.modified())
                     .ok()
                     .map(chrono::DateTime::<chrono::Utc>::from);
-                let gone = written
-                    .or(newest)
-                    .is_none_or(|n| self.now_utc() - n >= chrono::Duration::days(STALE_AFTER_DAYS));
+                // A folder that cannot say when the file was written
+                // leaves everyone here: a stale warning costs a line,
+                // cutting a live phone off costs it the catalog.
+                let gone = written.is_some_and(|n| {
+                    self.now_utc() - n >= chrono::Duration::days(STALE_AFTER_DAYS)
+                });
                 if gone && covers(&self.version_vector()?, &vector) {
                     result.lagging.retain(|d| d != device);
                     if !result.quiet.iter().any(|d| d == device) {

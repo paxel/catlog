@@ -198,6 +198,7 @@ void main() {
       'reminder': false,
     })));
     await folder.write('keys', 'old-install.json', utf8.encode('[]'));
+    folder.writtenAt['/old-install.jsonl2'] = DateTime.utc(2026, 1, 1);
     // A week on: what it knew is here, nobody is named, its files stay
     // where they are, and this device keeps no frozen file for it.
     final result =
@@ -240,6 +241,30 @@ void main() {
         await folderSyncIn(a, folder, now: DateTime.utc(2026, 1, 9));
     expect(result.lagging, contains('quiet-phone'),
         reason: 'it is here and still waits for the update');
+  });
+
+  test('a folder that cannot say when a file was written keeps everyone',
+      () async {
+    final folder = MemorySyncFolder();
+    a.createCat('Miezi');
+    await folder.ensure('keys');
+    await folder.write('', 'android.jsonl2', utf8.encode(jsonEncode({
+      'device': 'android',
+      'dseq': 1,
+      'entity': 'clowder:home',
+      'field': r'$type',
+      'value': 'clowder',
+      'date': '2026-01-01T00:00:00.000000Z',
+      'author': 'carla',
+      'recorded': '2026-01-01T00:00:00.000000Z',
+      'reminder': false,
+    })));
+    await folder.write('keys', 'android.json', utf8.encode('[]'));
+    // No write time — the document tree does not hand one out.
+    final result =
+        await folderSyncIn(a, folder, now: DateTime.utc(2026, 3, 1));
+    expect(result.lagging, contains('android'),
+        reason: 'unknown is not gone');
   });
 
   test('repeated sync is a no-op', () async {
