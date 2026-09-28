@@ -176,6 +176,34 @@ void main() {
     expect(previews, 1);
   });
 
+  testWidgets('the preview does not take Share and Print away', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(500, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: VetReportScreen(
+          store: store,
+          catId: cat,
+          preview: (_) async => null,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    // The debounce fires and the preview starts building; the page is
+    // not busy — only Share and Print make it so.
+    await tester.pump(const Duration(milliseconds: 600));
+    await tester.pump();
+    final share = tester.widget<IconButton>(
+      find.widgetWithIcon(IconButton, Icons.picture_as_pdf),
+    );
+    expect(share.onPressed, isNotNull, reason: 'the report is there to share');
+  });
+
   testWidgets('dropping a row draws the preview again', (tester) async {
     var previews = 0;
     tester.view.physicalSize = const Size(500, 1400);

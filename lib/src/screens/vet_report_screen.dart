@@ -103,7 +103,6 @@ class _VetReportScreenState extends State<VetReportScreen> {
     final t = context.t;
     final locale = Localizations.localeOf(context).toString();
     final language = Localizations.localeOf(context).languageCode;
-    setState(() => _busy = true);
     try {
       final fields = _chosenFields;
       final entries = [
@@ -150,7 +149,9 @@ class _VetReportScreenState extends State<VetReportScreen> {
       );
       return doc;
     } finally {
-      if (mounted) setState(() => _busy = false);
+      // The preview builds the same report in the background; only
+      // Share and Print take the page, so only they set it busy.
+      if (mounted && _busy) setState(() => _busy = false);
     }
   }
 
@@ -193,6 +194,7 @@ class _VetReportScreenState extends State<VetReportScreen> {
 
   Future<void> _share() async {
     final t = context.t;
+    setState(() => _busy = true);
     final doc = await _build();
     if (doc == null || !mounted) return;
     final name = store.current(widget.catId, Keys.name) ?? t.unnamed;
@@ -200,6 +202,7 @@ class _VetReportScreenState extends State<VetReportScreen> {
   }
 
   Future<void> _print() async {
+    setState(() => _busy = true);
     final doc = await _build();
     if (doc == null || !mounted) return;
     await (widget.print ?? printPdf)(doc);
