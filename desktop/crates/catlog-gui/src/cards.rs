@@ -1458,16 +1458,22 @@ fn draw_place(
         })
         .clone();
     let painter = ui.painter_at(rect);
+    // Without a tile the pin is all there is, and it sits in the middle.
+    let mut pin = rect.center();
     match texture {
         Some(texture) => {
             // The part of the tile around the place, as a fraction of it.
             let half = rect.width() / (2.0 * crate::map::TILE_SIZE);
             let (fx, fy) = ((x.fract()) as f32, (y.fract()) as f32);
-            let uv = Rect::from_min_max(
-                Pos2::new((fx - half).clamp(0.0, 1.0), (fy - half).clamp(0.0, 1.0)),
-                Pos2::new((fx + half).clamp(0.0, 1.0), (fy + half).clamp(0.0, 1.0)),
-            );
+            let (lox, px) = place_window(fx, half);
+            let (loy, py) = place_window(fy, half);
+            let window = (2.0 * half).min(1.0);
+            let uv = Rect::from_min_max(Pos2::new(lox, loy), Pos2::new(lox + window, loy + window));
             painter.image(texture.id(), rect, uv, egui::Color32::WHITE);
+            pin = Pos2::new(
+                rect.left() + px * rect.width(),
+                rect.top() + py * rect.height(),
+            );
         }
         None => {
             painter.rect_filled(rect, 4.0, PALETTE.cream);
@@ -1479,12 +1485,18 @@ fn draw_place(
         egui::Stroke::new(1.0, PALETTE.grey),
         egui::StrokeKind::Inside,
     );
-    painter.circle_filled(rect.center(), 4.0, PALETTE.orange);
-    painter.circle_stroke(
-        rect.center(),
-        4.0,
-        egui::Stroke::new(1.0, egui::Color32::WHITE),
-    );
+    painter.circle_filled(pin, 4.0, PALETTE.orange);
+    painter.circle_stroke(pin, 4.0, egui::Stroke::new(1.0, egui::Color32::WHITE));
+}
+
+/// The square cut out of a tile around a place, on one axis: where it
+/// starts, and where in it the place lies, both as fractions. The
+/// window keeps its size and slides to stay on the tile — cutting it
+/// short instead stretched the picture and left the pin off the place.
+fn place_window(fraction: f32, half: f32) -> (f32, f32) {
+    let window = (2.0 * half).min(1.0);
+    let low = (fraction - window / 2.0).clamp(0.0, (1.0 - window).max(0.0));
+    (low, ((fraction - low) / window).clamp(0.0, 1.0))
 }
 
 /// The Fields a Clowder's card shows: what was chosen, or all of them.
@@ -1504,6 +1516,34 @@ fn clowder_keys(store: &Catalog, defs: &[FieldDef]) -> BTreeSet<String> {
 /// taller than the desk cannot be dragged at all — egui pins it.
 fn body_cap(desk_height: f32) -> f32 {
     (desk_height - DOCK_STRIP - 80.0).max(120.0)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn a_place_near_a_tiles_edge_keeps_its_square_and_its_pin() {
+        let half = 72.0 / (2.0 * crate::map::TILE_SIZE);
+        let window = 2.0 * half;
+        // In the middle of the tile: the square is centred on it.
+        let (low, pin) = place_window(0.5, half);
+        assert!((low - (0.5 - half)).abs() < 1e-6);
+        assert!((pin - 0.5).abs() < 1e-6, "{pin}");
+        // Near the edge: the square slides in whole, and the pin says
+        // where the place is inside it.
+        let (low, pin) = place_window(0.05, half);
+        assert_eq!(low, 0.0);
+        assert!((pin - 0.05 / window).abs() < 1e-6, "{pin}");
+        let (low, pin) = place_window(0.99, half);
+        assert!((low - (1.0 - window)).abs() < 1e-6);
+        assert!((pin - (0.99 - low) / window).abs() < 1e-6);
+        assert!(pin <= 1.0);
+        // A square wider than the tile takes all of it.
+        let (low, pin) = place_window(0.25, 0.75);
+        assert_eq!(low, 0.0);
+        assert!((pin - 0.25).abs() < 1e-6);
+    }
 }
 
 /// A menu entry that asks the app for a page action.
