@@ -61,6 +61,32 @@ void main() {
     expect(soundFor(store, Cheer.ladder), isA<NoSound>());
   });
 
+  test('a device that had the celebrations off before keeps its silence',
+      () {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    // 2.0.0: one switch, and it silenced every cheer.
+    setCelebrationsEnabled(store, false);
+    adoptLegacyCelebrationSwitch(store);
+    for (final moment in Cheer.values) {
+      expect(soundFor(store, moment), isA<NoSound>(), reason: moment.name);
+    }
+    // Read once: a sound picked afterwards stands, switch or no switch.
+    setSound(store, Cheer.tick, const PresetSound(Preset.purr));
+    adoptLegacyCelebrationSwitch(store);
+    expect(soundFor(store, Cheer.tick), isA<PresetSound>());
+  });
+
+  test('the confetti switch alone leaves a later device loud', () {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    // Read first — a fresh install — then switched off: sounds stay.
+    adoptLegacyCelebrationSwitch(store);
+    setCelebrationsEnabled(store, false);
+    adoptLegacyCelebrationSwitch(store);
+    expect(soundFor(store, Cheer.tick), isA<PresetSound>());
+  });
+
   test('turning the confetti off leaves the sounds alone', () {
     final store = CatalogStore.inMemory();
     addTearDown(store.close);

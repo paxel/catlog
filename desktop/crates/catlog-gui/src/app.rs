@@ -290,6 +290,8 @@ impl App {
         app.region = sys_locale::get_locale()
             .and_then(|l| l.split(['-', '_']).nth(1).map(|c| c.to_uppercase()));
         app.apply_units();
+        crate::sounds::adopt_legacy_celebration_switch(&mut app.settings.settings, &app.store);
+        let _ = app.settings.save();
         Ok(app)
     }
 

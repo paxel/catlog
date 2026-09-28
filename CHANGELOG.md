@@ -19,7 +19,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Pulling a tiled card's bottom edge changes its height instead of snapping it back to the tile's row, so a card no longer shrinks with every pull.
 - The vet report's preview follows every change again: a new date range, the patient summary switch and a row taken out all redraw it, not only the field chips.
 - An appointment can no longer be saved with nobody to visit; Save stays grey until a cat or a home is picked.
-- Turning the adoption confetti off no longer silences the tick, the day's chores, the ladder and the adoption sounds as well.
+- Turning the adoption confetti off no longer silences the tick, the day's chores, the ladder and the adoption sounds as well. A device that had the switch off before the moments had their own sounds keeps its silence: it is read once as the choice for every moment.
 - A marked home is highlighted in the Clowders table again; the row was marked but looked like any other.
 - Moving marked cats that are not all in the same home now starts with nothing ticked, and any choice — the street included — can be saved. The street used to look ticked and Save stayed grey.
 - Marked rows stay in the catalog they were marked in. They used to survive a switch, and a bulk action — a delete above all — would then be aimed at cats the new catalog has never heard of.

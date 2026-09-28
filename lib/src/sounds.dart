@@ -58,6 +58,24 @@ Preset defaultPreset(Cheer moment) => switch (moment) {
 
 String soundKey(Cheer moment) => 'sound:${moment.name}';
 
+/// Set once the switch below has been read.
+const _fromCelebrationsKey = 'soundsFromCelebrations';
+
+/// Before the moments had their own sounds, the celebrations switch
+/// silenced all of them. It does not any more — so a device that had it
+/// off is given silence as its choice, once, and the switch is a switch
+/// for confetti from then on.
+void adoptLegacyCelebrationSwitch(CatalogStore store) {
+  if (store.localSetting(_fromCelebrationsKey) != null) return;
+  store.setLocalSetting(_fromCelebrationsKey, 'done');
+  if (store.localSetting('celebrations') != 'off') return;
+  for (final moment in Cheer.values) {
+    if (store.localSetting(soundKey(moment)) == null) {
+      setSound(store, moment, const NoSound());
+    }
+  }
+}
+
 /// A chore's reminder arrives while the app is closed, so the system
 /// owns the notification and all this device decides is whose voice it
 /// speaks with: the phone's own sound, or Socke's Mrrr. A switch, not

@@ -31,6 +31,7 @@ import 'src/screens/intro_screen.dart';
 import 'src/screens/cat_list_screen.dart';
 import 'src/screens/sync_screen.dart';
 import 'src/image_provider_cache.dart';
+import 'src/sounds.dart';
 import 'src/units.dart';
 import 'src/pet_mode.dart';
 
@@ -104,6 +105,7 @@ Future<void> _openAndRun(
   final store = catalogs.openStore(catalogs.active);
   activeStore = store;
   catalogManager = catalogs;
+  adoptLegacyCelebrationSwitch(store);
   applyUnitSystem(store, _resolvedLocale());
   refreshPetMode(store);
   // A Stray Cam capture the OS killed mid-camera completes here.

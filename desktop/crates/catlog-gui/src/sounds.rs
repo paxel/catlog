@@ -224,6 +224,31 @@ pub fn sound_for(app: &AppSettings, store: &Catalog, cheer: Cheer) -> SoundChoic
     SoundChoice::Preset(Preset::from_name(&raw).unwrap_or(cheer.default_preset()))
 }
 
+/// Before the moments had their own sounds, the celebrations switch
+/// silenced all of them. It does not any more — so a machine that had
+/// it off is given silence as its choice, once, and the switch is a
+/// switch for confetti from then on.
+pub fn adopt_legacy_celebration_switch(app: &mut AppSettings, store: &Catalog) {
+    if app.sounds_from_celebrations {
+        return;
+    }
+    app.sounds_from_celebrations = true;
+    let off = app.celebrations == Some(false)
+        || (app.celebrations.is_none()
+            && store
+                .local_setting(crate::settings_page::CELEBRATIONS)
+                .as_deref()
+                == Some("off"));
+    if !off {
+        return;
+    }
+    for cheer in Cheer::ALL {
+        if !app.sounds.contains_key(cheer.key()) && store.local_setting(cheer.key()).is_none() {
+            set_sound(app, cheer, &SoundChoice::None);
+        }
+    }
+}
+
 pub fn set_sound(app: &mut AppSettings, cheer: Cheer, choice: &SoundChoice) {
     let raw = match choice {
         SoundChoice::None => "none".to_string(),
@@ -391,6 +416,22 @@ mod tests {
             SoundChoice::Preset(Preset::Purr)
         );
         assert_eq!(sound_for(&old_app, &old, Cheer::Ladder), SoundChoice::None);
+        // A machine that had the one switch off before the moments had
+        // their own sounds keeps its silence, once.
+        let before = Catalog::open(&dir.path().join("before")).unwrap();
+        let _ = before.set_local_setting(crate::settings_page::CELEBRATIONS, "off");
+        let mut silent = AppSettings::default();
+        adopt_legacy_celebration_switch(&mut silent, &before);
+        for cheer in Cheer::ALL {
+            assert_eq!(sound_for(&silent, &before, cheer), SoundChoice::None);
+        }
+        // Read once: what is picked afterwards stands.
+        set_sound(&mut silent, Cheer::Tick, &SoundChoice::Preset(Preset::Purr));
+        adopt_legacy_celebration_switch(&mut silent, &before);
+        assert_eq!(
+            sound_for(&silent, &before, Cheer::Tick),
+            SoundChoice::Preset(Preset::Purr)
+        );
         // The confetti switch is a switch for confetti: the sounds stay.
         let quiet = Catalog::open(&dir.path().join("quiet")).unwrap();
         let _ = quiet.set_local_setting(crate::settings_page::CELEBRATIONS, "off");

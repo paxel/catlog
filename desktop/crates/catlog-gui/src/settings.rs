@@ -32,6 +32,9 @@ pub struct AppSettings {
     pub reminder_cat_sound: Option<bool>,
     /// Confetti at an adoption; none means the same.
     pub celebrations: Option<bool>,
+    /// Set once the old celebrations switch has been read as a choice
+    /// of sounds; see `sounds::adopt_legacy_celebration_switch`.
+    pub sounds_from_celebrations: bool,
 }
 
 fn yes() -> bool {
