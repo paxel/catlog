@@ -43,8 +43,6 @@ class Catlog < Formula
     cp libexec/"catlog-mime.xml", share/"mime/packages/catlog-mime.xml"
     (share/"icons/hicolor/256x256/apps").mkpath
     cp libexec/"icon_256.png", share/"icons/hicolor/256x256/apps/catlog.png"
-    (share/"icons/hicolor/scalable/apps").mkpath
-    cp libexec/"icon.svg", share/"icons/hicolor/scalable/apps/catlog.svg"
   end
 
   # Homebrew's own share directory is not on a desktop session's XDG_DATA_DIRS, so the

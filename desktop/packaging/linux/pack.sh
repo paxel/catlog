@@ -21,7 +21,7 @@ bundle="$stage/bundle"
 mkdir -p "$bundle"
 cp "$binary" "$bundle/catlog"
 cp "$here/io.github.paxel.catlog.desktop" "$here/catlog-mime.xml" "$here/install-icon.sh" "$bundle/"
-cp "$icons/icon.png" "$icons/icon_256.png" "$icons/icon.svg" "$bundle/"
+cp "$icons/icon.png" "$icons/icon_256.png" "$bundle/"
 cp "$here/../../../LICENSE-APACHE" "$here/../../../LICENSE-MIT" "$bundle/" 2>/dev/null || true
 tar -C "$bundle" -czf "$dist/catlog-$version-linux-$arch.tar.gz" .
 
@@ -33,13 +33,12 @@ case $arch in
 esac
 deb="$stage/deb"
 mkdir -p "$deb/DEBIAN" "$deb/usr/bin" "$deb/usr/share/applications" \
-  "$deb/usr/share/mime/packages" "$deb/usr/share/icons/hicolor/scalable/apps" \
+  "$deb/usr/share/mime/packages" \
   "$deb/usr/share/icons/hicolor/256x256/apps" "$deb/usr/share/doc/catlog"
 cp "$binary" "$deb/usr/bin/catlog"
 chmod 0755 "$deb/usr/bin/catlog"
 cp "$here/io.github.paxel.catlog.desktop" "$deb/usr/share/applications/io.github.paxel.catlog.desktop"
 cp "$here/catlog-mime.xml" "$deb/usr/share/mime/packages/catlog-mime.xml"
-cp "$icons/icon.svg" "$deb/usr/share/icons/hicolor/scalable/apps/catlog.svg"
 cp "$icons/icon_256.png" "$deb/usr/share/icons/hicolor/256x256/apps/catlog.png"
 cp "$here/../../THIRD-PARTY.md" "$deb/usr/share/doc/catlog/THIRD-PARTY.md"
 cat > "$deb/DEBIAN/control" <<CONTROL
