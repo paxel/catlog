@@ -600,7 +600,10 @@ void main() {
       '08-agenda': () => AgendaScreen(store: store, manager: manager),
       '09-poster': () =>
           MissingPosterScreen(store: store, catId: miezi, preview: preview),
-      '10-report': () => VetReportScreen(store: store, catId: miezi),
+      // The report previews like the poster; the shot is taken before
+      // the preview has drawn, so the frame shows the page without it.
+      '10-report': () =>
+          VetReportScreen(store: store, catId: miezi, preview: preview),
       '11-sync': () => NoteStrip(
         queue: notes,
         busy: ValueNotifier(const {}),
