@@ -160,6 +160,20 @@ class _FieldValueInputState extends State<FieldValueInput> {
   FieldValueController get c => widget.controller;
   FieldDef get def => c.def;
 
+  /// The X that empties a typed field: a fresh note or number starts
+  /// blank without selecting and deleting the old one first. Shown only
+  /// while there is something to clear.
+  Widget _clearButton() => ListenableBuilder(
+        listenable: c.text,
+        builder: (context, _) => c.text.text.isEmpty
+            ? const SizedBox.shrink()
+            : IconButton(
+                icon: const Icon(Icons.clear),
+                tooltip: context.t.clearField,
+                onPressed: () => setState(() => c.text.clear()),
+              ),
+      );
+
   @override
   Widget build(BuildContext context) {
     switch (def.type) {
@@ -225,7 +239,10 @@ class _FieldValueInputState extends State<FieldValueInput> {
           controller: c.text,
           autofocus: widget.autofocus,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          decoration: InputDecoration(labelText: context.t.value),
+          decoration: InputDecoration(
+            labelText: context.t.value,
+            suffixIcon: _clearButton(),
+          ),
         );
       case FieldType.unitValue:
         return TextField(
@@ -234,6 +251,7 @@ class _FieldValueInputState extends State<FieldValueInput> {
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
           decoration: InputDecoration(
             labelText: context.t.value,
+            suffixIcon: _clearButton(),
             suffixText: entryUnit(
                 def.unitDimension, unitSystem.value),
           ),
@@ -275,7 +293,10 @@ class _FieldValueInputState extends State<FieldValueInput> {
           autofocus: widget.autofocus,
           minLines: multiline ? 3 : 1,
           maxLines: multiline ? 8 : 1,
-          decoration: InputDecoration(labelText: context.t.value),
+          decoration: InputDecoration(
+            labelText: context.t.value,
+            suffixIcon: _clearButton(),
+          ),
         );
       case FieldType.id:
         // Typed or scanned — QR and 1D barcodes both land here (#28).
@@ -288,18 +309,21 @@ class _FieldValueInputState extends State<FieldValueInput> {
             labelText: context.t.value,
             helperText: def.slug == 'chipid' ? context.t.chipScanHint : null,
             helperMaxLines: 3,
-            suffixIcon: IconButton(
-              icon: const Icon(Icons.qr_code_scanner),
-              tooltip: context.t.scanPrintedCode,
-              onPressed: () async {
-                final value = await Navigator.of(context).push<String>(
-                  MaterialPageRoute(builder: (_) => const ScanScreen()),
-                );
-                if (value != null && value.isNotEmpty) {
-                  setState(() => c.text.text = value);
-                }
-              },
-            ),
+            suffixIcon: Row(mainAxisSize: MainAxisSize.min, children: [
+              _clearButton(),
+              IconButton(
+                icon: const Icon(Icons.qr_code_scanner),
+                tooltip: context.t.scanPrintedCode,
+                onPressed: () async {
+                  final value = await Navigator.of(context).push<String>(
+                    MaterialPageRoute(builder: (_) => const ScanScreen()),
+                  );
+                  if (value != null && value.isNotEmpty) {
+                    setState(() => c.text.text = value);
+                  }
+                },
+              ),
+            ]),
           ),
         );
       case FieldType.cat:

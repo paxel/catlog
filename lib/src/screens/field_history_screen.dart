@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../field_editing.dart';
 import '../field_labels.dart';
@@ -8,9 +9,9 @@ import '../help.dart';
 import '../history_share.dart';
 import '../l10n.dart';
 import '../layout.dart';
-import '../widgets/cat_ear.dart';
 import '../spotlight.dart';
 import '../pdf_fonts.dart';
+import 'map_screen.dart';
 
 /// The values a field has held, newest first: facts only. Cleared
 /// values, plans (reminder entries) and bookkeeping are left out;
@@ -102,8 +103,8 @@ String voidedLine(
 /// A field's values over time as a diary — for remarks kept as notes,
 /// a status that changed hands, anything without a curve. Newest first,
 /// or oldest first on request; shareable as text. A tap on a value
-/// corrects it (the new value takes its place, the old one hides), a
-/// long press removes or restores it; hidden values show on request.
+/// corrects it (the new value takes its place, the old one hides), the
+/// bin removes it, a removed one shows on request with its way back.
 class FieldHistoryScreen extends StatefulWidget {
   final CatalogStore store;
   final String entityId;
@@ -214,44 +215,28 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     setState(() {});
   }
 
-  void _menu(Entry e) {
-    final t = context.t;
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (sheet) => SafeArea(
-        child: Wrap(
-          children: [
-            if (e.voided)
-              ListTile(
-                leading: const Icon(Icons.restore),
-                title: Text(t.restoreThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  _restore(e);
-                },
-              )
-            else ...[
-              ListTile(
-                leading: const Icon(Icons.edit_outlined),
-                title: Text(t.correctThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  _correct(e);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.delete_outline),
-                title: Text(t.removeThisValue),
-                onTap: () {
-                  Navigator.of(sheet).pop();
-                  _remove(e);
-                },
-              ),
-            ],
-          ],
+  /// The spot a location value names; null for any other field.
+  LatLng? _spotOf(Entry e) {
+    if (widget.def.type != FieldType.location) return null;
+    final pos = CatalogStore.parsePosition(e.value);
+    return pos == null ? null : LatLng(pos.$1, pos.$2);
+  }
+
+  /// The map centered on the value's spot, with the field's trail on
+  /// and this value's dot marked.
+  Future<void> _showOnMap(Entry e, LatLng spot) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => MapScreen(
+          store: store,
+          initialCenter: spot,
+          focus: (widget.entityId, spot),
+          trailOf: (widget.entityId, widget.def.key),
+          dot: e.seq,
         ),
       ),
     );
+    if (mounted) setState(() {});
   }
 
   @override
@@ -309,52 +294,74 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     );
   }
 
+  /// The shape every history row has: tap corrects, the bin removes, a
+  /// removed value offers its way back; a location value leads to the
+  /// map.
   Widget _card(
     Entry e,
     AppLocalizations t,
     String locale,
     ThemeData theme,
     Color muted,
-  ) => Card(
-    child: WithCatEar(
-      child: InkWell(
+  ) {
+    final spot = _spotOf(e);
+    return Card(
+      child: ListTile(
         onTap: e.voided ? null : () => _correct(e),
-        onLongPress: () => _menu(e),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                valueLabel(t, store, widget.def.key, e.value),
-                style: e.voided
-                    ? theme.textTheme.bodyLarge?.copyWith(
-                        color: muted,
-                        decoration: TextDecoration.lineThrough,
-                      )
-                    : theme.textTheme.bodyLarge,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '${historyMoment(locale, e.date)} · ${e.author}',
-                style: theme.textTheme.bodySmall,
-              ),
-              if (e.voided)
-                Text(
-                  voidedLine(t, store, widget.def.key, e, locale),
-                  style: theme.textTheme.bodySmall?.copyWith(color: muted),
+        title: Text(
+          valueLabel(t, store, widget.def.key, e.value),
+          style: e.voided
+              ? theme.textTheme.bodyLarge?.copyWith(
+                  color: muted,
+                  decoration: TextDecoration.lineThrough,
                 )
-              else if (store.correctedBy(e) != null)
-                Text(
-                  t.entryCorrection,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.primary,
-                  ),
+              : theme.textTheme.bodyLarge,
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${historyMoment(locale, e.date)} · ${e.author}',
+              style: theme.textTheme.bodySmall,
+            ),
+            if (e.voided)
+              Text(
+                voidedLine(t, store, widget.def.key, e, locale),
+                style: theme.textTheme.bodySmall?.copyWith(color: muted),
+              )
+            else if (store.correctedBy(e) != null)
+              Text(
+                t.entryCorrection,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.primary,
                 ),
-            ],
-          ),
+              ),
+          ],
+        ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (spot != null)
+              IconButton(
+                icon: const Icon(Icons.map_outlined),
+                tooltip: t.showOnMap,
+                onPressed: () => _showOnMap(e, spot),
+              ),
+            if (e.voided)
+              IconButton(
+                icon: const Icon(Icons.restore),
+                tooltip: t.restoreThisValue,
+                onPressed: () => _restore(e),
+              )
+            else
+              IconButton(
+                icon: const Icon(Icons.delete_outline),
+                tooltip: t.removeThisValue,
+                onPressed: () => _remove(e),
+              ),
+          ],
         ),
       ),
-    ),
-  );
+    );
+  }
 }

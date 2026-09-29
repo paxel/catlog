@@ -1,0 +1,41 @@
+[package]
+name = "catlog-core"
+description = "Core of the cat(a)log desktop app: the Catalog store, entries, signing, folder sync and bundles"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "catlog_core"
+
+[dependencies]
+rusqlite = { version = "0.38", features = ["bundled"] }
+serde = { version = "1.0", features = ["derive"] }
+# Documents keep their keys in the order the phones write them.
+serde_json = { version = "1.0", features = ["preserve_order"] }
+thiserror = "2.0"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+sha2 = "0.10"
+hex = "0.4"
+zip = { version = "4", default-features = false, features = ["deflate"] }
+getrandom = "0.3"
+ed25519-dalek = "2"
+base64 = "0.22"
+ttf-parser = "0.25"
+flate2 = "1"
+qrcode = { version = "0.14", default-features = false }
+barcoders = { version = "2", default-features = false }
+ocrs = "0.13"
+rten = "0.26"
+regex = "1"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+ureq = { version = "3", default-features = false, features = ["rustls"] }
+# The in-person host: its own self-signed certificate, served over TLS.
+rcgen = "0.13"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
+
+[dev-dependencies]
+lopdf = "0.43"
+rqrr = "0.11"
+tempfile = "3.10"

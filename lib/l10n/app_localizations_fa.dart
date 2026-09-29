@@ -64,9 +64,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get pickerCardFields => 'روی کارت';
 
   @override
-  String get exportCsv => 'خروجی CSV';
-
-  @override
   String get aboutAndFeedback => 'درباره و بازخورد';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get save => 'ذخیره';
 
   @override
+  String get clearField => 'پاک کردن';
+
+  @override
   String get delete => 'حذف';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get open => 'باز کردن';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV در $path ذخیره شد';
-  }
 
   @override
   String get renameClowder => 'تغییر نام گروه';
@@ -180,9 +175,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sortNewestFirst => 'جدیدترین اول';
 
   @override
-  String get shareAsText => 'هم‌رسانی به‌صورت متن';
-
-  @override
   String get shareAsPdf => 'اشتراک‌گذاری به‌صورت PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsFa extends AppLocalizations {
       'حیوان خانگی از همهٔ فهرست‌ها حذف می‌شود و عکس‌هایش پاک می‌شوند — اینجا و پس از همگام‌سازی بعدی روی دستگاه‌های دیگر نیز.';
 
   @override
-  String get sightingRecorded => 'مشاهده در موقعیت شما ثبت شد.';
-
-  @override
-  String get noLocationAvailable =>
-      'موقعیت در دسترس نیست — به‌جای آن روی نقشه لمس طولانی کنید.';
-
-  @override
   String get locationDeniedForever =>
       'دسترسی به موقعیت مکانی مسدود است. برای استفاده از Stray Cam آن را در تنظیمات سیستم مجاز کنید.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get captureFlier => 'عکس از آگهی';
+
+  @override
+  String get flierFromCamera => 'آگهی از دوربین';
+
+  @override
+  String get flierFromGallery => 'آگهی از گالری';
 
   @override
   String get addPhotosTo => 'افزودن عکس‌ها به…';
@@ -355,13 +346,34 @@ class AppLocalizationsFa extends AppLocalizations {
   String get pickFramesTitle => 'انتخاب فریم‌ها';
 
   @override
-  String get suggestedFrames => 'فریم‌های پیشنهادی';
-
-  @override
-  String get scrubFrames => 'پیمایش ویدیو';
-
-  @override
   String get keepThisFrame => 'این فریم را نگه دار';
+
+  @override
+  String get frameBack => 'یک فریم عقب';
+
+  @override
+  String get frameForward => 'یک فریم جلو';
+
+  @override
+  String get secondBack => 'یک ثانیه عقب';
+
+  @override
+  String get secondForward => 'یک ثانیه جلو';
+
+  @override
+  String get tenSecondsBack => 'ده ثانیه عقب';
+
+  @override
+  String get tenSecondsForward => 'ده ثانیه جلو';
+
+  @override
+  String get play => 'پخش';
+
+  @override
+  String get pause => 'مکث';
+
+  @override
+  String get keptFrames => 'فریم‌های نگه‌داشته‌شده اینجا نمایش داده می‌شوند';
 
   @override
   String get fromVideo => 'از ویدیو…';
@@ -446,9 +458,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'گم‌شده از';
-
-  @override
-  String get phoneLabel => 'تلفن';
 
   @override
   String get cropPortrait => 'برش چهره';
@@ -564,16 +573,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field خالی شد';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field به «$value» برگشت';
-  }
-
-  @override
   String get leftStray => 'رفت — ولگرد';
 
   @override
@@ -617,9 +616,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get value => 'مقدار';
-
-  @override
-  String get latitudeLongitude => 'عرض جغرافیایی، طول جغرافیایی';
 
   @override
   String get newField => 'فیلد جدید';
@@ -689,11 +685,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get stopHosting => 'پایان میزبانی';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'نشست‌ها تاکنون: $count';
   }
@@ -702,34 +693,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get join => 'پیوستن';
 
   @override
-  String get addressFromHost => 'نشانی (از دستگاه میزبان)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'اکنون همگام‌سازی کن';
 
   @override
-  String get addressFormatHint => 'نشانی باید شبیه 192.168.0.12:38472 باشد';
-
-  @override
-  String syncedResult(String result) {
-    return 'همگام شد: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'همگام‌سازی ناموفق: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'آخرین همگام‌سازی با $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'پوشهٔ مشترک';
 
   @override
   String get sharedFolderExplainer =>
@@ -757,11 +729,6 @@ class AppLocalizationsFa extends AppLocalizations {
       'هر پوشه‌ای که دو دستگاه یکسان نگه دارند کافی است: یک درایو ابری، یا Syncthing برای پوشه‌ای که روی گوشی‌هایتان می‌ماند. Syncthing رایگان است: روی هر گوشی نصب کنید، یک پوشه را بین آنها به اشتراک بگذارید و همان پوشه را اینجا در هر دستگاه انتخاب کنید.';
 
   @override
-  String folderSynced(String result) {
-    return 'پوشه همگام شد: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'همگام‌سازی پوشه ناموفق: $error';
   }
@@ -783,15 +750,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'مسیر: $name ($count موقعیت)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'تعارض — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'هم‌زمان در دو جا تغییر کرده است. درست را انتخاب کنید:';
 
   @override
   String privateMarker(Object field) {
@@ -1213,7 +1171,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'هر تغییر، جدیدترین اول: چه کسی، چه زمانی و به چه مقداری. برای اصلاح روی یک مورد بزنید، برای حذف یا بازگرداندن نگه دارید؛ مورد پنهان در گزارش می‌ماند و در صورت درخواست نمایش داده می‌شود.';
+      'هر تغییری که تا کنون انجام شده، جدیدترین اول: چه کسی چه چیزی را کی و به چه مقداری تغییر داد. روی یک ورودی بزنید تا اصلاح شود، سطل زباله آن را حذف می‌کند، پیکان یک ورودی پنهان را بازمی‌گرداند؛ ورودی پنهان در گزارش می‌ماند و در صورت درخواست نمایش داده می‌شود.';
 
   @override
   String get helpDuplicates =>
@@ -1403,17 +1361,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get copyCode => 'کپی کد';
 
   @override
-  String get copied => 'کپی شد';
-
-  @override
   String get invalidCode => 'این کد معتبر نیست';
-
-  @override
-  String get hotspotHint =>
-      'وای‌فای مشترک ندارید؟ هات‌اسپات یک گوشی را روشن کنید، دیگری را وصل کنید و اینجا میزبان شوید.';
-
-  @override
-  String get byMessenger => 'با پیام‌رسان';
 
   @override
   String get byMessengerExplainer =>
@@ -1424,11 +1372,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get importBundle => 'وارد کردن بستهٔ همگام‌سازی…';
-
-  @override
-  String bundleImported(String result) {
-    return 'بسته وارد شد: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1863,9 +1806,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get valueFerret => 'راسو';
 
   @override
-  String get otherOption => 'دیگر…';
-
-  @override
   String get celebrationsToggle => 'جشن گرفتن واگذاری‌ها';
 
   @override
@@ -1873,10 +1813,41 @@ class AppLocalizationsFa extends AppLocalizations {
       'کاغذرنگی و هلهله وقتی گربه‌ای به خانه‌اش می‌رود';
 
   @override
-  String get cheerToggle => 'صدای هلهله';
+  String get soundsSection => 'صداها';
 
   @override
-  String get cheerSubtitle => 'هلهله کوتاه همراه کاغذرنگی، هر بار متفاوت';
+  String get reminderSound => 'صدای گربه برای یادآورها';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'یادآور یک کار به‌جای صدای گوشی Mrrr می‌گوید.';
+
+  @override
+  String get soundPurr => 'خرخر';
+
+  @override
+  String get soundChorus => 'همسرایی میو';
+
+  @override
+  String get soundParty => 'میوی جشن';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'صدای خودت…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1914,11 +1885,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'حذف همهٔ موارد این نویسنده';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'هر ورودی و عکس $name را از این دستگاه حذف می‌کند. دستگاه‌های دیگر نسخهٔ خود را نگه می‌دارند. قابل بازگشت نیست.';
-  }
 
   @override
   String get yourKey => 'کلید شما';
@@ -1978,11 +1944,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'برای تأیید $name را بنویسید';
-  }
-
-  @override
   String get alsoBan => 'مسدود هم بشود — دیگر هرگز داده نپذیر';
 
   @override
@@ -1990,9 +1951,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get unbanAction => 'رفع مسدودی';
-
-  @override
-  String get deletedDone => 'حذف شد.';
 
   @override
   String get syncSummaryTitle => 'چه چیزی رسید';
@@ -2035,17 +1993,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get keepMine => 'مال من بماند';
 
   @override
-  String keptMine(String name) {
-    return 'نسخه شما از $name در این دستگاه نگه داشته شد.';
-  }
-
-  @override
   String get summaryMeta => 'همچنین رسید';
-
-  @override
-  String changesCount(int n) {
-    return '$n تغییر';
-  }
 
   @override
   String get acceptArrival => 'پذیرش';
@@ -2184,30 +2132,13 @@ class AppLocalizationsFa extends AppLocalizations {
       'اول به Wi-Fi وصل شوید — سپس دستگاه‌ها یکدیگر را پیدا می‌کنند';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) می‌خواهد همگام‌سازی کند';
-  }
-
-  @override
   String get trustBothWaysNote => 'دفترها در هر دو جهت مبادله می‌شوند.';
 
   @override
   String get allowOnce => 'اجازه';
 
   @override
-  String get allowAlways => 'همیشه به این دستگاه اجازه بده';
-
-  @override
-  String get declineAction => 'رد';
-
-  @override
   String get syncDeclined => 'دستگاه دیگر همگام‌سازی را رد کرد';
-
-  @override
-  String get trustedDevicesSection => 'دستگاه‌های همیشه مجاز';
-
-  @override
-  String get removeTrust => 'حذف';
 
   @override
   String get hostWithoutWifi => 'میزبانی بدون Wi-Fi';
@@ -2280,7 +2211,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'در این منو: تنظیمات، یافتن و ادغام موارد تکراری، خروجی CSV و بیشتر.';
+      'در این منو: تنظیمات، یافتن و ادغام موارد تکراری و بیشتر.';
 
   @override
   String get spotCatEdit =>
@@ -2356,9 +2287,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'نمایش دوباره راهنماها در هر صفحه';
-
-  @override
-  String get spotReplayDone => 'راهنماها دوباره نمایش داده می‌شوند';
 
   @override
   String get searchNoResults => 'گربه‌ای با این نام یافت نشد';
@@ -2482,17 +2410,15 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '$name را بنویسید';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'چیزی حذف نشد: نوشتن فایل کاتالوگ ممکن نشد ($error). کمی فضا آزاد کنید یا بعداً دوباره تلاش کنید.';
   }
 
   @override
   String get moveToCatalog => 'انتقال به کاتالوگ دیگر';
+
+  @override
+  String get moveInFromCatalog => 'انتقال از کاتالوگ دیگر…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2595,9 +2521,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get agenda => 'یادآورها';
 
   @override
-  String get reminderLabel => 'یادآور';
-
-  @override
   String get agendaEmpty =>
       'قراری برنامه‌ریزی نشده. قرارهای جدید را اینجا با علامت مثبت یا در صفحهٔ گربه یا گروه برنامه‌ریزی کن.';
 
@@ -2634,6 +2557,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get markDone => 'انجام شد';
 
   @override
+  String get takeOffList => 'حذف از فهرست';
+
+  @override
   String get repeatTitle => 'دوباره پس از…';
 
   @override
@@ -2641,6 +2567,51 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get unitDays => 'روز';
+
+  @override
+  String get yesterday => 'دیروز';
+
+  @override
+  String get weekdayMon => 'دوش';
+
+  @override
+  String get weekdayTue => 'سه‌ش';
+
+  @override
+  String get weekdayWed => 'چها';
+
+  @override
+  String get weekdayThu => 'پنج';
+
+  @override
+  String get weekdayFri => 'جمع';
+
+  @override
+  String get weekdaySat => 'شنب';
+
+  @override
+  String get weekdaySun => 'یکش';
+
+  @override
+  String get weekdayFullMon => 'دوشنبه';
+
+  @override
+  String get weekdayFullTue => 'سه‌شنبه';
+
+  @override
+  String get weekdayFullWed => 'چهارشنبه';
+
+  @override
+  String get weekdayFullThu => 'پنجشنبه';
+
+  @override
+  String get weekdayFullFri => 'جمعه';
+
+  @override
+  String get weekdayFullSat => 'شنبه';
+
+  @override
+  String get weekdayFullSun => 'یکشنبه';
 
   @override
   String get unitWeeks => 'هفته';
@@ -2677,9 +2648,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'پروندهٔ تقویم در $path ذخیره شد';
   }
-
-  @override
-  String get calendarMirrorLabel => 'بازتاب در تقویم دستگاه';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2763,11 +2731,11 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، گربه یا گروه را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند گربه یک نوبت است: گربه‌ها را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام گربه‌ها درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند. کارها وظایف تکراری مانند غذا دادن، خاک گربه یا دارو هستند. زیر «امروز» با تیک، رشته و هفت روز اخیر به‌صورت نقطه قرار می‌گیرند؛ «به‌زودی» هفته بعد را بدون کارهای روزانه نشان می‌دهد. یک کار می‌تواند در زمان انتخابی با اعلان یادآوری کند. جام دستاوردها را باز می‌کند.';
+      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، گربه یا گروه را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و کارت تا پایان روز تیک‌خورده می‌ماند؛ روی آن بزن تا قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد؛ سطل زباله قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند گربه یک نوبت است: گربه‌ها را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام گربه‌ها درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند. کارها وظایف تکراری مانند غذا دادن، خاک گربه یا دارو هستند. زیر «امروز» با تیک، رشته و هفت روز اخیر به‌صورت نقطه قرار می‌گیرند؛ «به‌زودی» هفته بعد را بدون کارهای روزانه نشان می‌دهد. یک کار می‌تواند در زمان انتخابی با اعلان یادآوری کند. جام دستاوردها را باز می‌کند.';
 
   @override
   String get helpAgendaNeutral =>
-      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، حیوان خانگی یا خانوار را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند حیوان خانگی یک نوبت است: حیوانات را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام حیوانات درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند. کارها وظایف تکراری مانند غذا دادن، خاک گربه یا دارو هستند. زیر «امروز» با تیک، رشته و هفت روز اخیر به‌صورت نقطه قرار می‌گیرند؛ «به‌زودی» هفته بعد را بدون کارهای روزانه نشان می‌دهد. یک کار می‌تواند در زمان انتخابی با اعلان یادآوری کند. جام دستاوردها را باز می‌کند.';
+      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، حیوان خانگی یا خانوار را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و کارت تا پایان روز تیک‌خورده می‌ماند؛ روی آن بزن تا قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد؛ سطل زباله قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند حیوان خانگی یک نوبت است: حیوانات را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام حیوانات درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند. کارها وظایف تکراری مانند غذا دادن، خاک گربه یا دارو هستند. زیر «امروز» با تیک، رشته و هفت روز اخیر به‌صورت نقطه قرار می‌گیرند؛ «به‌زودی» هفته بعد را بدون کارهای روزانه نشان می‌دهد. یک کار می‌تواند در زمان انتخابی با اعلان یادآوری کند. جام دستاوردها را باز می‌کند.';
 
   @override
   String get calendarRowOff => 'تقویم: خاموش';
@@ -2800,21 +2768,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get appointmentLabel => 'قرار';
 
   @override
+  String get reminderLabel => 'یادآوری';
+
+  @override
   String get addAppointment => 'افزودن قرار';
-
-  @override
-  String get planChooserTitle => 'قرار یا یادآور؟';
-
-  @override
-  String get planChooserAppointment =>
-      'قرار — دیداری در تاریخ و ساعتی مشخص، با یادداشت';
-
-  @override
-  String get planChooserReminder => 'یادآور — مقداری که در روزی سررسید می‌شود';
-
-  @override
-  String get planChooserChore =>
-      'کار روزمره — چیزی که تکرار می‌شود: غذا، قطره، خاک';
 
   @override
   String get newChore => 'کار جدید';
@@ -3042,25 +2999,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get achievementCentury => 'یک قرن کامل';
 
   @override
-  String get achievementCenturyHint => 'هر دو خیلی افتخار خواهیم کرد.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'استاد $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     return '$times بار رسیده، اولین بار $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'بعدی در $n';
-  }
-
-  @override
-  String get achievementLocked => 'هنوز نه';
 
   @override
   String achievementUnlocked(String name) {
@@ -3382,16 +3323,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'لطفاً زیرزمین‌ها، انباری‌ها و گاراژها را بررسی کنید. دنبالش نکنید، فقط تماس بگیرید.';
 
   @override
-  String get posterLastSeen => 'آخرین بار دیده شده نزدیک';
-
-  @override
   String get posterFreeText => 'خط اضافه';
 
   @override
   String get posterQr => 'کد QR برای cat(a)log';
-
-  @override
-  String get posterPhoto => 'عکس';
 
   @override
   String get newCatIn => 'گربهٔ جدید در…';
@@ -3400,10 +3335,26 @@ class AppLocalizationsFa extends AppLocalizations {
   String get newCatInNeutral => 'حیوان خانگی جدید در…';
 
   @override
+  String get newCatHere => 'گربه جدید اینجا';
+
+  @override
+  String get newCatHereNeutral => 'حیوان خانگی جدید اینجا';
+
+  @override
   String get choreLabel => 'کار';
 
   @override
   String get choreTickLabel => 'کار انجام شد';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title انجام شد';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'برای $day';
+  }
 
   @override
   String get choreEnded => 'پایان یافته';
@@ -3437,8 +3388,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get coverPick => 'تصویر جلد…';
 
   @override
-  String get coverHint =>
-      'تصویری از مکان: خانه، حیاط، محل غذا دادن. روی کارت به جای گربه نمایش داده می‌شود.';
+  String get coverLabel => 'تصویری از گروه';
+
+  @override
+  String get coverLabelNeutral => 'تصویری از خانوار';
+
+  @override
+  String get coverLabelStrays => 'تصویری برای گربه‌های ولگرد';
 
   @override
   String get coverRemove => 'حذف تصویر جلد';
@@ -3456,7 +3412,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'برای اصلاح یا حذف یک مقدار آن را نگه دارید. چیزی از دست نمی‌رود؛ مقادیر پنهان در صورت درخواست نمایش داده می‌شوند.';
+      'روی یک مقدار بزنید تا اصلاح شود، سطل زباله آن را حذف می‌کند. چیزی از دست نمی‌رود؛ مقادیر پنهان در صورت درخواست نمایش داده می‌شوند.';
 
   @override
   String get spotBackups =>
@@ -3476,7 +3432,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'مقادیر یک فیلد در طول زمان، جدیدترین اول. برای اصلاح روی یک مقدار بزنید: مقدار جدید جای آن را می‌گیرد و قدیمی پنهان می‌شود. برای حذف یا بازگرداندن مقدار پنهان، آن را نگه دارید؛ چشم مقادیر پنهان را نشان می‌دهد. فهرست را به‌صورت متن کپی یا به‌صورت PDF به اشتراک بگذارید.';
+      'مقادیر یک فیلد در طول زمان، جدیدترین اول. روی یک مقدار بزنید تا اصلاح شود: مقدار جدید جای آن را می‌گیرد و قدیمی پنهان می‌شود. سطل زباله یک مقدار را حذف می‌کند، پیکان یک مقدار پنهان را بازمی‌گرداند؛ چشم مقادیر پنهان را نشان می‌دهد. فهرست را به‌صورت متن کپی کنید یا به‌صورت PDF به اشتراک بگذارید.';
 
   @override
   String get helpSettings =>
@@ -3570,20 +3526,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get syncAnotherDevice => 'دستگاهی دیگر';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count تغییر از $authors ادغام شد',
-      one: '$count تغییر از $authors ادغام شد',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'نمایش';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3593,12 +3535,6 @@ class AppLocalizationsFa extends AppLocalizations {
     );
     return '$_temp0، اولین بار $date';
   }
-
-  @override
-  String get syncRunning => 'در حال همگام‌سازی با پوشه…';
-
-  @override
-  String get syncDismiss => 'الان نه';
 
   @override
   String flierHidden(int count) {
@@ -3613,4 +3549,89 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get undo => 'واگرد';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'با $authors همگام شد. برای دیدن آنچه رسید ضربه بزنید.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'همگام شد. چیز جدیدی نیست.';
+
+  @override
+  String get noteSyncFailed => 'همگام‌سازی ناموفق بود. برای جزئیات ضربه بزنید.';
+
+  @override
+  String get failureReport => 'گزارش';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'باز کردن $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — انجام شد $count×، $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title انجام شد $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n مورد دیگر';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'پوشه مشترک از $since در دسترس نیست. برای جزئیات ضربه بزنید.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names هنوز به نسخه جدید نیاز دارد تا تغییرات شما را ببیند.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'پوشه همگام شد: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'بسته وارد شد: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'مشاهده در موقعیت شما ثبت شد.';
+
+  @override
+  String get deletedDone => 'حذف شد.';
+
+  @override
+  String get spotReplayDone => 'راهنماها دوباره نمایش داده می‌شوند';
+
+  @override
+  String get syncRunning => 'در حال همگام‌سازی با پوشه…';
+
+  @override
+  String get copied => 'کپی شد';
+
+  @override
+  String get sharedFolder => 'پوشهٔ مشترک';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'الان نه';
+
+  @override
+  String changesCount(int n) {
+    return '$n تغییر';
+  }
 }

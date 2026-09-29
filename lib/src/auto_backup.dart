@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
+import 'exclusive.dart';
 import 'private_temp.dart';
 import 'sync/saf_folder.dart';
 
@@ -152,8 +153,11 @@ Future<void> autoBackup(CatalogStore store,
     bool force = false}) {
   final running = _inFlight;
   if (running != null) return running;
-  final run =
-      _autoBackup(store, save: save, copy: copy, force: force).whenComplete(() {
+  // Under the backup key so the activity line shows it running.
+  final run = runExclusive<void>(
+    'backup',
+    () => _autoBackup(store, save: save, copy: copy, force: force),
+  ).whenComplete(() {
     _inFlight = null;
   });
   _inFlight = run;

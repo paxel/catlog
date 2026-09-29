@@ -2,14 +2,16 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../move_to_catalog.dart';
 import '../layout.dart';
 import '../help.dart';
 import '../celebration.dart';
-import '../conflict_dialog.dart';
 import '../field_editing.dart';
+import '../widgets/date_entry.dart';
 import '../registry_lookup.dart';
 import '../flier_capture.dart';
 import '../image_import.dart';
@@ -19,19 +21,24 @@ import '../plausibility.dart';
 import '../share_publicly.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
-import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/missing_photo.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/plan_chooser.dart';
+import '../reminders/done_today.dart';
+import '../reminders/appointment_dialog.dart';
+import '../reminders/reminder_dialog.dart';
+import '../chores/chore_dialog.dart';
+import '../widgets/add_fan.dart';
+import '../reminders/plan_entity.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
 import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'card_screen.dart';
+import 'conflicts_screen.dart';
 import 'photo_edit_screen.dart';
 import 'map_screen.dart';
 import 'photo_viewer_screen.dart';
@@ -50,10 +57,6 @@ class CatDetailScreen extends StatefulWidget {
   final CatalogStore store;
   final String catId;
 
-  /// Opens the photo picker right away — used when a Cat was just created,
-  /// so name + photo happen in one flow.
-  final bool promptPhoto;
-
   /// Fresh cats open in edit mode: they exist to be filled in (#46).
   final bool startEditing;
 
@@ -61,7 +64,6 @@ class CatDetailScreen extends StatefulWidget {
     super.key,
     required this.store,
     required this.catId,
-    this.promptPhoto = false,
     this.startEditing = false,
   });
 
@@ -70,7 +72,6 @@ class CatDetailScreen extends StatefulWidget {
 }
 
 // Sentinel for "no clowder" in the move dialog, where null means canceled.
-const _strayMarker = '\$stray';
 
 class _CatDetailScreenState extends State<CatDetailScreen> {
   CatalogStore get store => widget.store;
@@ -83,16 +84,11 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   @override
   void initState() {
     super.initState();
+    // The agenda's plans start with the page looked at last.
+    rememberViewed(store, id);
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => runSpotlights(context, store, 'cat'),
     );
-    if (widget.promptPhoto) {
-      // The callback can fire after a quick back-out; a dead screen
-      // must not open a picker it can never return to.
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) _addPhoto();
-      });
-    }
   }
 
   Future<void> _rename() async {
@@ -108,62 +104,39 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   /// runs, null otherwise.
   (int, int)? _adding;
 
-  Future<void> _addPhoto() async {
-    // Refresh unconditionally: even a canceled or half-failed add must
-    // leave the grid showing exactly what the store holds.
-    await addPhotosViaSheet(context, store, id, onProgress: (done, total) {
+  /// A photo from the camera or the gallery. Refresh unconditionally:
+  /// even a canceled or half-failed add must leave the grid showing
+  /// exactly what the store holds.
+  Future<void> _addPhotoFrom(ImageSource source) async {
+    await addPhotoFrom(context, store, id, source);
+    if (mounted) setState(() {});
+  }
+
+  Future<void> _addFromVideo() async {
+    await addPhotosFromVideo(context, store, id, onProgress: (done, total) {
       if (!mounted) return;
       setState(() => _adding = done < total ? (done, total) : null);
     });
     if (mounted) setState(() => _adding = null);
   }
 
+  /// One dialog: the homes and "stray", a tap moves at once; the date
+  /// row at the foot is for the rare historic move, today otherwise.
   Future<void> _move() async {
     final currentClowder = store.current(id, Keys.clowder);
-    final clowders = store.clowders();
-    final target = await showDialog<String?>(
+    final picked = await showDialog<(String?, DateTime)>(
       context: context,
-      builder: (context) => SimpleDialog(
-        title: Text(context.t.moveTo),
-        children: [
-          for (final c in clowders)
-            SimpleDialogOption(
-              onPressed: () => Navigator.of(context).pop(c.id),
-              child: Row(
-                children: [
-                  if (c.id == currentClowder)
-                    const Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Icon(Icons.check, size: 18),
-                    ),
-                  Expanded(child: Text(c.name)),
-                ],
-              ),
-            ),
-          SimpleDialogOption(
-            onPressed: () => Navigator.of(context).pop(_strayMarker),
-            child: Row(
-              children: [
-                const Icon(Icons.explore, size: 18),
-                const SizedBox(width: 8),
-                Expanded(child: Text(context.t.noClowderStrayOption)),
-              ],
-            ),
-          ),
-        ],
+      builder: (context) => _MoveDialog(
+        clowders: store.clowders(),
+        current: currentClowder,
       ),
     );
-    if (target == null) return; // dialog dismissed
-    final destination = target == _strayMarker ? null : target;
+    if (picked == null || !mounted) return; // dialog dismissed
+    final (destination, asOf) = picked;
     if (destination == currentClowder) return;
-    if (!mounted) return;
-    // Historic moves happen: the date is askable, defaulting to today.
-    final asOf = await askAsOfDate(context, context.t.moveTo);
-    if (asOf == null) return;
     store.moveCat(id, destination, date: asOf);
-    if (!mounted) return;
     setState(() {});
-    if (mounted) maybeCelebrateAdoption(context, store, destination);
+    maybeCelebrateAdoption(context, store, destination);
   }
 
   Future<void> _editField(FieldDef def) async {
@@ -206,10 +179,22 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     );
   }
 
+  /// The three kinds of plan, each straight into its editor with this
+  /// cat as the For field.
+  Future<void> _addAppointment() async {
+    final saved = await showAppointmentDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
+  }
+
   Future<void> _addReminder() async {
-    if (await showPlanChooser(context, store, entityId: id) && mounted) {
+    if (await showAddReminder(context, store, entityId: id) && mounted) {
       _plansChanged();
     }
+  }
+
+  Future<void> _addChore() async {
+    final saved = await showChoreDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
   }
 
   Future<void> _openEntity(String entityId) async {
@@ -234,11 +219,19 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   /// The cat's live plans, as the agenda shows them — nothing vanishes
   /// into the agenda alone, and a field without a fact can carry one.
   List<Widget> _plannedSection() {
+    // Live plans, and the ones ticked today still in their place.
+    final mine = store.resolveEntity(id);
     final plans = [
       for (final r in store.activeReminders())
-        if (r.entity == store.resolveEntity(id)) r,
+        if (r.entity == mine) r,
+      for (final r in doneRemindersToday(store))
+        if (r.entity == mine) r,
     ];
-    final appointments = store.appointmentsOf(id);
+    final appointments = [
+      ...store.appointmentsOf(id),
+      for (final a in doneAppointmentsToday(store))
+        if (store.resolveEntity(a.entity) == mine) a,
+    ];
     final chores = partitionChores(
         store, store.choresOf(id), DateUtils.dateOnly(DateTime.now()));
     final laterCount = chores.later.length + chores.paused.length;
@@ -334,63 +327,72 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (mounted) setState(() {});
   }
 
-  void _imageMenu(String hash) {
+  /// The menu behind a photo, at the finger: profile, crop, mark,
+  /// delete.
+  Future<void> _imageMenu(String hash, Offset at) async {
+    final t = context.t;
     final isProfile = store.profileImage(id) == hash;
-    showModalBottomSheet<void>(
+    final action = await showMenu<String>(
       context: context,
-      builder: (context) => SafeArea(
-        child: Wrap(
-          children: [
-            ListTile(
-              leading: const Icon(Icons.star),
-              title: Text(
-                isProfile
-                    ? context.t.thisIsProfileImage
-                    : context.t.setAsProfileImage,
-              ),
-              enabled: !isProfile,
-              onTap: () {
-                store.setProfileImage(id, hash);
-                Navigator.of(context).pop();
-                setState(() {});
-              },
+      position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+      items: [
+        PopupMenuItem(
+          value: 'profile',
+          enabled: !isProfile,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.star),
+            title: Text(
+              isProfile ? t.thisIsProfileImage : t.setAsProfileImage,
             ),
-            ListTile(
-              leading: const Icon(Icons.crop),
-              title: Text(context.t.cropPhoto),
-              onTap: () {
-                Navigator.of(context).pop();
-                _editPhoto(hash, PhotoEditMode.crop);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.circle_outlined),
-              title: Text(context.t.markPhoto),
-              onTap: () {
-                Navigator.of(context).pop();
-                _editPhoto(hash, PhotoEditMode.mark);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.delete_outline),
-              title: Text(context.t.deletePhoto),
-              onTap: () async {
-                Navigator.of(context).pop();
-                final sure = await _confirm(
-                  context,
-                  context.t.deletePhotoTitle,
-                  context.t.deletePhotoBody,
-                );
-                if (sure && mounted) {
-                  store.deleteImage(id, hash);
-                  setState(() {});
-                }
-              },
-            ),
-          ],
+          ),
         ),
-      ),
+        PopupMenuItem(
+          value: 'crop',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.crop),
+            title: Text(t.cropPhoto),
+          ),
+        ),
+        PopupMenuItem(
+          value: 'mark',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.circle_outlined),
+            title: Text(t.markPhoto),
+          ),
+        ),
+        PopupMenuItem(
+          value: 'delete',
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.delete_outline),
+            title: Text(t.deletePhoto),
+          ),
+        ),
+      ],
     );
+    if (action == null || !mounted) return;
+    switch (action) {
+      case 'profile':
+        store.setProfileImage(id, hash);
+        setState(() {});
+      case 'crop':
+        await _editPhoto(hash, PhotoEditMode.crop);
+      case 'mark':
+        await _editPhoto(hash, PhotoEditMode.mark);
+      case 'delete':
+        final sure = await _confirm(
+          context,
+          t.deletePhotoTitle,
+          t.deletePhotoBody,
+        );
+        if (sure && mounted) {
+          store.deleteImage(id, hash);
+          setState(() {});
+        }
+    }
   }
 
   /// Crop or mark an existing photo: the edited copy joins as a NEW
@@ -447,8 +449,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       await explainLocationFailure(context, failure);
       return;
     }
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(context.t.sightingRecorded)));
+    paw(context);
     setState(() {});
   }
 
@@ -537,8 +538,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               itemBuilder: (context, i) {
                 final hash = images[i];
                 final photo = imageProviderFor(store, hash);
-                // Tap = quick action (view full-size), long-press = menu —
-                // the app-wide gesture convention.
+                // Tap = quick action (view full-size), long-press = menu
+                // at the finger — the app-wide gesture convention.
                 return GestureDetector(
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
@@ -550,7 +551,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                       ),
                     ),
                   ),
-                  onLongPress: () => _imageMenu(hash),
+                  onLongPressStart: (d) => _imageMenu(hash, d.globalPosition),
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
@@ -610,14 +611,6 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 MaterialPageRoute(
                   builder: (_) => CardScreen(store: store, catId: id),
                 ),
-              ),
-            ),
-            Spotlight(
-              id: 'cat-reminder',
-              child: IconButton(
-                icon: const Icon(Icons.alarm_add),
-                tooltip: context.t.addReminder,
-                onPressed: _addReminder,
               ),
             ),
             Spotlight(
@@ -764,10 +757,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               defs: defs,
               editing: _editing,
               onEdit: _editField,
-              onConflict: (def) async {
-                await showConflictDialog(context, store, id, def.key);
-                if (!mounted) return;
-                setState(() {});
+              // The badge leads to the conflicts page, where the two
+              // values are buttons on the row.
+              onConflict: (_) async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (_) => ConflictsScreen(store: store)),
+                );
+                if (mounted) setState(() {});
               },
               // A correction or removal there shows here on return.
               onHistory: (def) async {
@@ -830,10 +827,46 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             const SizedBox(height: 80),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _addPhoto,
-          tooltip: context.t.addPhoto,
-          child: const Icon(Icons.add_a_photo),
+        // The one plus: photos three ways, plans three kinds.
+        floatingActionButton: Spotlight(
+          id: 'cat-reminder',
+          child: AddFan(
+            tooltip: context.t.addPhoto,
+            items: [
+              if (hasCamera)
+                FanItem(
+                  icon: Icons.photo_camera,
+                  label: context.t.takePhoto,
+                  onTap: () => _addPhotoFrom(ImageSource.camera),
+                ),
+              FanItem(
+                icon: Icons.photo_library,
+                label: context.t.chooseFromGallery,
+                onTap: () => _addPhotoFrom(ImageSource.gallery),
+              ),
+              if (hasCamera)
+                FanItem(
+                  icon: Icons.movie_outlined,
+                  label: context.t.fromVideo,
+                  onTap: _addFromVideo,
+                ),
+              FanItem(
+                icon: Icons.event,
+                label: context.t.appointmentLabel,
+                onTap: _addAppointment,
+              ),
+              FanItem(
+                icon: Icons.alarm,
+                label: context.t.reminderLabel,
+                onTap: _addReminder,
+              ),
+              FanItem(
+                icon: Icons.checklist,
+                label: context.t.choreLabel,
+                onTap: _addChore,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -892,4 +925,79 @@ Future<String?> _askForText(
       ],
     ),
   );
+}
+
+/// The move dialog: a home or "stray" per row, the current one ticked,
+/// and the day it happened at the foot. Pops the target and the day.
+class _MoveDialog extends StatefulWidget {
+  final List<EntityView> clowders;
+  final String? current;
+  const _MoveDialog({required this.clowders, required this.current});
+
+  @override
+  State<_MoveDialog> createState() => _MoveDialogState();
+}
+
+class _MoveDialogState extends State<_MoveDialog> {
+  DateTime _asOf = DateTime.now();
+
+  Future<void> _pickDay() async {
+    final picked = await pickDay(
+      context,
+      initial: _asOf,
+      lastDate: DateTime.now().add(const Duration(days: 1)),
+    );
+    if (!mounted || picked == null) return;
+    setState(() => _asOf = picked);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final sameDay = DateUtils.isSameDay(_asOf, DateTime.now());
+    return SimpleDialog(
+      title: Text(t.moveTo),
+      children: [
+        for (final c in widget.clowders)
+          SimpleDialogOption(
+            onPressed: () => Navigator.of(context).pop((c.id, _asOf)),
+            child: Row(
+              children: [
+                if (c.id == widget.current)
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8),
+                    child: Icon(Icons.check, size: 18),
+                  ),
+                Expanded(child: Text(c.name)),
+              ],
+            ),
+          ),
+        SimpleDialogOption(
+          onPressed: () => Navigator.of(context).pop((null, _asOf)),
+          child: Row(
+            children: [
+              const Icon(Icons.explore, size: 18),
+              const SizedBox(width: 8),
+              Expanded(child: Text(t.noClowderStrayOption)),
+            ],
+          ),
+        ),
+        const Divider(),
+        ListTile(
+          leading: const Icon(Icons.event),
+          title: Text(
+            sameDay
+                ? t.asOfToday
+                : t.asOfDate(
+                    DateFormat.yMd(
+                      Localizations.localeOf(context).toString(),
+                    ).format(_asOf),
+                  ),
+          ),
+          trailing: const Icon(Icons.edit_calendar_outlined),
+          onTap: _pickDay,
+        ),
+      ],
+    );
+  }
 }

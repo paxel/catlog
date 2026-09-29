@@ -2,13 +2,14 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../help.dart';
-import '../conflict_dialog.dart';
+import '../conflict_choice.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
 
 /// Every field in the catalog that two people changed at once and
 /// nobody has settled yet. Reached from the home menu while there is
-/// one; each row settles with the same dialog the field itself offers.
+/// one, and from a field's badge; each row carries its two values as
+/// buttons, a tap settles it.
 class ConflictsScreen extends StatefulWidget {
   final CatalogStore store;
 
@@ -21,8 +22,7 @@ class ConflictsScreen extends StatefulWidget {
 class _ConflictsScreenState extends State<ConflictsScreen> {
   CatalogStore get store => widget.store;
 
-  Future<void> _resolve(String entity, String field) async {
-    await showConflictDialog(context, store, entity, field);
+  void _resolved() {
     if (!mounted) return;
     // The last one settled: nothing left to show here.
     if (store.conflicts().isEmpty) {
@@ -42,24 +42,20 @@ class _ConflictsScreenState extends State<ConflictsScreen> {
       ),
       body: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-            child: Text(t.conflictBody),
-          ),
-          for (final (entity, field) in store.conflicts())
+          for (final (entity, field) in store.conflicts()) ...[
             ListTile(
               leading: const Icon(Icons.warning_amber, color: Colors.amber),
               title: Text(
                 '${store.current(entity, Keys.name) ?? t.unnamed} — ${fieldLabel(t, store, field)}',
               ),
-              subtitle: Text(
-                [
-                  for (final e in store.fieldHistory(entity, field).take(2))
-                    '${valueLabel(t, store, field, e.value)} (${e.author})',
-                ].join(' · '),
-              ),
-              onTap: () => _resolve(entity, field),
             ),
+            ConflictChoice(
+              store: store,
+              entity: entity,
+              field: field,
+              onResolved: _resolved,
+            ),
+          ],
         ],
       ),
     );

@@ -73,10 +73,12 @@ void main() {
     final raw = store.current(cat, meds.key)!;
     expect(valueLabel(t, store, meds.key, raw), startsWith('Meds · Daily'));
     expect(fieldLabel(t, store, meds.key), 'Chore');
+    // A tick names its chore; a chore that is gone falls back.
     expect(
       fieldLabel(t, store, Keys.choreTick(meds.id, '2026-09-11')),
-      'Chore done',
+      'Meds done',
     );
+    expect(fieldLabel(t, store, Keys.choreTick('gone', '2026-09-11')), 'Chore done');
     expect(
       valueLabel(t, store, Keys.choreTick(meds.id, '2026-09-11'), '2026-09-11'),
       'done on 9/11/2026',

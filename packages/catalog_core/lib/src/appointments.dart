@@ -301,6 +301,21 @@ extension Appointments on CatalogStore {
     return result;
   }
 
+  /// The appointments finished today, each on its own: the day keeps
+  /// them on the agenda, box checked, like a chore ticked today.
+  List<Appointment> appointmentsDoneToday(DateTime today) {
+    final result = <Appointment>[];
+    for (final e in [...cats(), ...clowders()]) {
+      for (final a in appointmentsOf(e.id, includeDone: true)) {
+        if (!a.done) continue;
+        final last = fieldHistory(e.id, a.key).firstOrNull;
+        if (last != null && sameLocalDay(last.date, today)) result.add(a);
+      }
+    }
+    result.sort((x, y) => x.start.compareTo(y.start));
+    return result;
+  }
+
   /// Writes the appointment's current state as a new entry.
   void updateAppointment(Appointment a, {DateTime? date}) =>
       append(a.entity, a.key, jsonEncode(a.toJson()), date: date);

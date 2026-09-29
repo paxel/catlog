@@ -5,12 +5,15 @@ import 'package:intl/intl.dart';
 import '../help.dart';
 import '../achievements.dart';
 import '../l10n.dart';
+import '../widgets/cat_ear.dart';
 
 /// The keeper's achievements: what was earned, and only that — full
 /// stretches with their count, one title per chore at its rank, the
 /// coats unlocked. No progress bars, no next steps: the rewards are a
-/// quiet bonus, not a goal to chase.
-class AchievementsScreen extends StatelessWidget {
+/// quiet bonus, not a goal to chase. A hold on one offers Delete, for a
+/// chore's typo or a ladder nobody wants; it stays gone until the
+/// ladder climbs past the tier it was waved off at.
+class AchievementsScreen extends StatefulWidget {
   final CatalogManager manager;
 
   /// The catalogs' stores to count from, opened by the caller.
@@ -23,22 +26,51 @@ class AchievementsScreen extends StatelessWidget {
   });
 
   @override
+  State<AchievementsScreen> createState() => _AchievementsScreenState();
+}
+
+class _AchievementsScreenState extends State<AchievementsScreen> {
+  CatalogManager get manager => widget.manager;
+
+  Future<void> _menu(LadderState s, Offset at) async {
+    final picked = await showMenu<String>(
+      context: context,
+      position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+      items: [
+        PopupMenuItem(value: 'delete', child: Text(context.t.delete)),
+      ],
+    );
+    if (picked != 'delete' || !mounted) return;
+    manager.dismissAchievement(s.id);
+    setState(() {});
+  }
+
+  Widget _row(LadderState s, Widget tile) => WithCatEar(
+        child: GestureDetector(
+          onLongPressStart: (d) => _menu(s, d.globalPosition),
+          child: tile,
+        ),
+      );
+
+  @override
   Widget build(BuildContext context) {
     final t = context.t;
     final today = DateUtils.dateOnly(DateTime.now());
-    final states = ladders(gatherStats(stores, today));
+    final states = ladders(gatherStats(widget.stores, today));
     recordLadders(manager, states, DateTime.now());
     final recorded = {for (final a in manager.achievements()) a.id: a};
     final locale = Localizations.localeOf(context).toString();
     String since(LadderState s) =>
         DateFormat.yMd(locale).format(recorded[s.id]?.first.toLocal() ?? today);
+    bool shown(LadderState s) =>
+        s.reached && (recorded[s.id]?.shows(s.tier) ?? true);
     final stretches = [
       for (final s in states)
-        if (s.reached && s.title == null) s,
+        if (shown(s) && s.title == null) s,
     ];
     final titled = [
       for (final s in states)
-        if (s.reached && s.title != null) s,
+        if (shown(s) && s.title != null) s,
     ];
     final months = states.firstWhere((s) => s.id == fullMonthId).times;
     final coats = unlockedCoats(months);
@@ -56,24 +88,31 @@ class AchievementsScreen extends StatelessWidget {
               child: Text(t.achievementsEmpty),
             ),
           for (final s in stretches)
-            ListTile(
-              leading: Icon(Icons.emoji_events, color: Colors.amber.shade700),
-              title: Text(switch (s.id) {
-                fullMonthId => t.achievementMonth,
-                fullYearId => t.achievementYear,
-                fullDecadeId => t.achievementDecade,
-                _ => t.achievementCentury,
-              }),
-              subtitle: Text(t.achievementReached(s.times, since(s))),
+            _row(
+              s,
+              ListTile(
+                leading:
+                    Icon(Icons.emoji_events, color: Colors.amber.shade700),
+                title: Text(switch (s.id) {
+                  fullMonthId => t.achievementMonth,
+                  fullYearId => t.achievementYear,
+                  fullDecadeId => t.achievementDecade,
+                  _ => t.achievementCentury,
+                }),
+                subtitle: Text(t.achievementReached(s.times, since(s))),
+              ),
             ),
           for (final s in titled)
-            ListTile(
-              leading: const Icon(Icons.workspace_premium_outlined),
-              title: Text(titleWithChore(t, rankFor(s.tier)!, s.title!)),
-              // A master ladder counts ticks, not stretches: "done". No
-              // next rung here; the page lists what was earned, nothing
-              // to chase.
-              subtitle: Text(t.achievementDone(s.times, since(s))),
+            _row(
+              s,
+              ListTile(
+                leading: const Icon(Icons.workspace_premium_outlined),
+                title: Text(titleWithChore(t, rankFor(s.tier)!, s.title!)),
+                // A master ladder counts ticks, not stretches: "done".
+                // No next rung here; the page lists what was earned,
+                // nothing to chase.
+                subtitle: Text(t.achievementDone(s.times, since(s))),
+              ),
             ),
           for (final coat in coats)
             ListTile(

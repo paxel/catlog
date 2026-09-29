@@ -64,9 +64,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get pickerCardFields => 'På kortet';
 
   @override
-  String get exportCsv => 'Eksportér CSV';
-
-  @override
   String get aboutAndFeedback => 'Om & feedback';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get save => 'Gem';
 
   @override
+  String get clearField => 'Ryd';
+
+  @override
   String get delete => 'Slet';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get open => 'Åbn';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV gemt i $path';
-  }
 
   @override
   String get renameClowder => 'Omdøb clowder';
@@ -181,9 +176,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get sortNewestFirst => 'Nyeste først';
 
   @override
-  String get shareAsText => 'Del som tekst';
-
-  @override
   String get shareAsPdf => 'Del som PDF';
 
   @override
@@ -255,13 +247,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Kæledyret forsvinder fra alle lister, og dets fotos fjernes — her og, efter næste synkronisering, også på de andre enheder.';
 
   @override
-  String get sightingRecorded => 'Observation registreret på din position.';
-
-  @override
-  String get noLocationAvailable =>
-      'Ingen placering tilgængelig — hold i stedet kortet nede.';
-
-  @override
   String get locationDeniedForever =>
       'Adgang til placering er blokeret. Tillad den i systemindstillingerne for at bruge Stray Cam.';
 
@@ -288,6 +273,12 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get captureFlier => 'Fotografér opslag';
+
+  @override
+  String get flierFromCamera => 'Opslag fra kameraet';
+
+  @override
+  String get flierFromGallery => 'Opslag fra galleriet';
 
   @override
   String get addPhotosTo => 'Føj fotos til…';
@@ -356,13 +347,34 @@ class AppLocalizationsDa extends AppLocalizations {
   String get pickFramesTitle => 'Vælg billeder';
 
   @override
-  String get suggestedFrames => 'Foreslåede billeder';
-
-  @override
-  String get scrubFrames => 'Spol i videoen';
-
-  @override
   String get keepThisFrame => 'Behold dette billede';
+
+  @override
+  String get frameBack => 'Et billede tilbage';
+
+  @override
+  String get frameForward => 'Et billede frem';
+
+  @override
+  String get secondBack => 'Et sekund tilbage';
+
+  @override
+  String get secondForward => 'Et sekund frem';
+
+  @override
+  String get tenSecondsBack => 'Ti sekunder tilbage';
+
+  @override
+  String get tenSecondsForward => 'Ti sekunder frem';
+
+  @override
+  String get play => 'Afspil';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get keptFrames => 'Beholdte billeder vises her';
 
   @override
   String get fromVideo => 'Fra video…';
@@ -448,9 +460,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Savnet siden';
-
-  @override
-  String get phoneLabel => 'Telefon';
 
   @override
   String get cropPortrait => 'Beskær portræt';
@@ -567,16 +576,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field ryddet';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field tilbage til \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Gik — herreløs';
 
   @override
@@ -620,9 +619,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get value => 'Værdi';
-
-  @override
-  String get latitudeLongitude => 'breddegrad, længdegrad';
 
   @override
   String get newField => 'Nyt felt';
@@ -692,11 +688,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get stopHosting => 'Stop som vært';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count session(er) indtil nu';
   }
@@ -705,34 +696,15 @@ class AppLocalizationsDa extends AppLocalizations {
   String get join => 'Deltag';
 
   @override
-  String get addressFromHost => 'Adresse (fra værtsenheden)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Synkronisér nu';
 
   @override
-  String get addressFormatHint => 'Adressen skal ligne 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Synkroniseret: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synkronisering mislykkedes: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Sidste synkronisering med $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Delt mappe';
 
   @override
   String get sharedFolderExplainer =>
@@ -760,11 +732,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Enhver mappe, som to enheder holder ens, dur: et clouddrev, eller Syncthing til en mappe, der bliver på jeres telefoner. Syncthing er gratis: installer det på hver telefon, del én mappe mellem dem, og vælg den mappe her på hver enhed.';
 
   @override
-  String folderSynced(String result) {
-    return 'Mappe synkroniseret: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Mappesynkronisering mislykkedes: $error';
   }
@@ -786,15 +753,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Spor: $name ($count positioner)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Konflikt — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Ændret to steder på én gang. Vælg, hvad der er sandt:';
 
   @override
   String privateMarker(Object field) {
@@ -1216,7 +1174,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Hver ændring, nyeste først: hvem ændrede hvad, hvornår og til hvilken værdi. Tryk på en post for at rette den, hold den for at fjerne eller gendanne den; en skjult post bliver i loggen og vises efter ønske.';
+      'Alle ændringer nogensinde, nyeste først: hvem ændrede hvad, hvornår og til hvilken værdi. Tryk på en post for at rette den, skraldespanden fjerner den, pilen henter en skjult tilbage; en skjult post bliver i loggen og vises efter ønske.';
 
   @override
   String get helpDuplicates =>
@@ -1407,17 +1365,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get copyCode => 'Kopiér kode';
 
   @override
-  String get copied => 'Kopieret';
-
-  @override
   String get invalidCode => 'Den kode er ikke gyldig';
-
-  @override
-  String get hotspotHint =>
-      'Intet fælles Wi-Fi? Tænd hotspot på én telefon, forbind den anden og vær vært her.';
-
-  @override
-  String get byMessenger => 'Via messenger';
 
   @override
   String get byMessengerExplainer =>
@@ -1428,11 +1376,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get importBundle => 'Importér synkroniseringspakke…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakke importeret: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1867,9 +1810,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get valueFerret => 'Fritte';
 
   @override
-  String get otherOption => 'Andet…';
-
-  @override
   String get celebrationsToggle => 'Fejr adoptioner';
 
   @override
@@ -1877,10 +1817,41 @@ class AppLocalizationsDa extends AppLocalizations {
       'Konfetti og jubel, når en kat flytter til sit hjem';
 
   @override
-  String get cheerToggle => 'Jubellyd';
+  String get soundsSection => 'Lyde';
 
   @override
-  String get cheerSubtitle => 'En kort jubel til konfettien, en ny hver gang';
+  String get reminderSound => 'Kattelyd til påmindelser';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'En pligts påmindelse siger Mrrr i stedet for telefonens egen lyd.';
+
+  @override
+  String get soundPurr => 'Spinden';
+
+  @override
+  String get soundChorus => 'Miavekor';
+
+  @override
+  String get soundParty => 'Festmiav';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Egen lyd…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1918,11 +1889,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Slet alt fra denne forfatter';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Fjerner alle poster og fotos fra $name på denne enhed. Andre enheder beholder deres. Kan ikke fortrydes.';
-  }
 
   @override
   String get yourKey => 'Din nøgle';
@@ -1982,11 +1948,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Skriv $name for at bekræfte';
-  }
-
-  @override
   String get alsoBan => 'Udeluk også — modtag aldrig data igen';
 
   @override
@@ -1994,9 +1955,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get unbanAction => 'Fjern udelukkelse';
-
-  @override
-  String get deletedDone => 'Slettet.';
 
   @override
   String get syncSummaryTitle => 'Hvad der kom';
@@ -2039,23 +1997,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get keepMine => 'Behold mit';
 
   @override
-  String keptMine(String name) {
-    return 'Din version af $name beholdes på denne enhed.';
-  }
-
-  @override
   String get summaryMeta => 'Også ankommet';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n ændringer',
-      one: '1 ændring',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Acceptér';
@@ -2199,11 +2141,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Forbind til Wi-Fi først — så kan enhederne finde hinanden';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) vil synkronisere';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Jeres kataloger udveksles i begge retninger.';
 
@@ -2211,19 +2148,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get allowOnce => 'Tillad';
 
   @override
-  String get allowAlways => 'Tillad altid denne enhed';
-
-  @override
-  String get declineAction => 'Afvis';
-
-  @override
   String get syncDeclined => 'Den anden enhed afviste synkroniseringen';
-
-  @override
-  String get trustedDevicesSection => 'Altid tilladte enheder';
-
-  @override
-  String get removeTrust => 'Fjern';
 
   @override
   String get hostWithoutWifi => 'Vær vært uden Wi-Fi';
@@ -2296,7 +2221,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'I denne menu: indstillinger, find og flet dubletter, eksportér CSV og mere.';
+      'I denne menu: indstillinger, find og flet dubletter og mere.';
 
   @override
   String get spotCatEdit =>
@@ -2372,9 +2297,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Vis tips igen på hver side';
-
-  @override
-  String get spotReplayDone => 'Tipsene vises igen';
 
   @override
   String get searchNoResults => 'Ingen kat fundet med det navn';
@@ -2505,17 +2427,15 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Skriv $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Intet blev slettet: katalogfilen kunne ikke skrives ($error). Frigør plads, eller prøv igen senere.';
   }
 
   @override
   String get moveToCatalog => 'Flyt til et andet katalog';
+
+  @override
+  String get moveInFromCatalog => 'Flyt ind fra et andet katalog…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2618,9 +2538,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get agenda => 'Påmindelser';
 
   @override
-  String get reminderLabel => 'Påmindelse';
-
-  @override
   String get agendaEmpty =>
       'Ingen aftaler planlagt. Planlæg nye her med plusset eller på en kats eller clowders side.';
 
@@ -2657,6 +2574,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get markDone => 'Udført';
 
   @override
+  String get takeOffList => 'Fjern fra listen';
+
+  @override
   String get repeatTitle => 'Igen om…';
 
   @override
@@ -2664,6 +2584,51 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get unitDays => 'dage';
+
+  @override
+  String get yesterday => 'I går';
+
+  @override
+  String get weekdayMon => 'man';
+
+  @override
+  String get weekdayTue => 'tir';
+
+  @override
+  String get weekdayWed => 'ons';
+
+  @override
+  String get weekdayThu => 'tor';
+
+  @override
+  String get weekdayFri => 'fre';
+
+  @override
+  String get weekdaySat => 'lør';
+
+  @override
+  String get weekdaySun => 'søn';
+
+  @override
+  String get weekdayFullMon => 'mandag';
+
+  @override
+  String get weekdayFullTue => 'tirsdag';
+
+  @override
+  String get weekdayFullWed => 'onsdag';
+
+  @override
+  String get weekdayFullThu => 'torsdag';
+
+  @override
+  String get weekdayFullFri => 'fredag';
+
+  @override
+  String get weekdayFullSat => 'lørdag';
+
+  @override
+  String get weekdayFullSun => 'søndag';
 
   @override
   String get unitWeeks => 'uger';
@@ -2700,9 +2665,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalenderfil gemt under $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Spejl til enhedens kalender';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2787,11 +2749,11 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner katten eller clowderen. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og du kan straks planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen eller slette aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere katte er én aftale: kryds kattene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke katte der blev behandlet — fjern krydset ved de andre, de forbliver planlagt. Pligter er de tilbagevendende opgaver som fodring, kattebakke eller medicin. De står under I dag med et flueben, en stime og de sidste syv dage som prikker; Snart viser næste uge uden de daglige. En pligt kan minde dig med en meddelelse på et valgt tidspunkt. Pokalen åbner præstationerne.';
+      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner katten eller clowderen. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og kortet bliver stående afkrydset dagen ud; tryk på det for at planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen; skraldespanden sletter aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere katte er én aftale: kryds kattene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke katte der blev behandlet — fjern krydset ved de andre, de forbliver planlagt. Pligter er de tilbagevendende opgaver som fodring, kattebakke eller medicin. De står under I dag med et flueben, en stime og de sidste syv dage som prikker; Snart viser næste uge uden de daglige. En pligt kan minde dig med en meddelelse på et valgt tidspunkt. Pokalen åbner præstationerne.';
 
   @override
   String get helpAgendaNeutral =>
-      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner kæledyret eller husstanden. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og du kan straks planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen eller slette aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere kæledyr er én aftale: kryds kæledyrene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke kæledyr der blev behandlet — fjern krydset ved de andre, de forbliver planlagt. Pligter er de tilbagevendende opgaver som fodring, kattebakke eller medicin. De står under I dag med et flueben, en stime og de sidste syv dage som prikker; Snart viser næste uge uden de daglige. En pligt kan minde dig med en meddelelse på et valgt tidspunkt. Pokalen åbner præstationerne.';
+      'Påmindelserne viser de planlagte aftaler efter dato. Der er to slags: aftaler med et klokkeslæt og påmindelser, der gælder for en dag. Oversete aftaler bliver stående øverst. Tryk åbner kæledyret eller husstanden. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og kortet bliver stående afkrydset dagen ud; tryk på det for at planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen; skraldespanden sletter aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil. Et dyrlægebesøg med flere kæledyr er én aftale: kryds kæledyrene af, Agendaen viser ét kort med deres navne, og ved afslutning spørges der, hvilke kæledyr der blev behandlet — fjern krydset ved de andre, de forbliver planlagt. Pligter er de tilbagevendende opgaver som fodring, kattebakke eller medicin. De står under I dag med et flueben, en stime og de sidste syv dage som prikker; Snart viser næste uge uden de daglige. En pligt kan minde dig med en meddelelse på et valgt tidspunkt. Pokalen åbner præstationerne.';
 
   @override
   String get calendarRowOff => 'Kalender: fra';
@@ -2824,22 +2786,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get appointmentLabel => 'Aftale';
 
   @override
+  String get reminderLabel => 'Påmindelse';
+
+  @override
   String get addAppointment => 'Tilføj aftale';
-
-  @override
-  String get planChooserTitle => 'Aftale eller påmindelse?';
-
-  @override
-  String get planChooserAppointment =>
-      'Aftale — et besøg på en dato og et tidspunkt, med noter';
-
-  @override
-  String get planChooserReminder =>
-      'Påmindelse — en værdi, der forfalder en dag';
-
-  @override
-  String get planChooserChore =>
-      'Pligt — noget der kommer igen: fodring, dråber, kattebakke';
 
   @override
   String get newChore => 'Ny pligt';
@@ -3098,14 +3048,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get achievementCentury => 'Et helt århundrede';
 
   @override
-  String get achievementCenturyHint => 'Vi bliver begge meget stolte.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-mester';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3115,14 +3057,6 @@ class AppLocalizationsDa extends AppLocalizations {
     );
     return '$_temp0, første gang $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Næste ved $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ikke endnu';
 
   @override
   String achievementUnlocked(String name) {
@@ -3443,16 +3377,10 @@ class AppLocalizationsDa extends AppLocalizations {
       'Tjek venligst kældre, skure og garager. Jag ikke, ring bare.';
 
   @override
-  String get posterLastSeen => 'Sidst set ved';
-
-  @override
   String get posterFreeText => 'Ekstra linje';
 
   @override
   String get posterQr => 'QR-kode til cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Ny kat i…';
@@ -3461,10 +3389,26 @@ class AppLocalizationsDa extends AppLocalizations {
   String get newCatInNeutral => 'Nyt kæledyr i…';
 
   @override
+  String get newCatHere => 'Ny kat her';
+
+  @override
+  String get newCatHereNeutral => 'Nyt kæledyr her';
+
+  @override
   String get choreLabel => 'Opgave';
 
   @override
   String get choreTickLabel => 'Opgave udført';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title gjort';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'for $day';
+  }
 
   @override
   String get choreEnded => 'Afsluttet';
@@ -3498,8 +3442,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get coverPick => 'Forsidebillede…';
 
   @override
-  String get coverHint =>
-      'Et billede af stedet: huset, gården, foderpladsen. Vises på kortet i stedet for en kat.';
+  String get coverLabel => 'Et billede af clowderen';
+
+  @override
+  String get coverLabelNeutral => 'Et billede af husstanden';
+
+  @override
+  String get coverLabelStrays => 'Et billede til de herreløse katte';
 
   @override
   String get coverRemove => 'Fjern forsidebillede';
@@ -3517,7 +3466,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Hold en værdi for at rette eller fjerne den. Intet går tabt; skjulte værdier vises efter ønske.';
+      'Tryk på en værdi for at rette den, skraldespanden fjerner den. Intet går tabt; skjulte værdier vises efter ønske.';
 
   @override
   String get spotBackups =>
@@ -3537,7 +3486,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Et felts værdier over tid, nyeste først. Tryk på en værdi for at rette den: den nye tager dens plads, den gamle skjules. Hold en værdi for at fjerne den eller hente en skjult tilbage; øjet viser skjulte værdier. Kopiér listen som tekst eller del den som PDF.';
+      'Ét felts værdier over tid, nyeste først. Tryk på en værdi for at rette den: den nye tager dens plads, den gamle skjules. Skraldespanden fjerner en værdi, pilen henter en skjult tilbage; øjet viser skjulte værdier. Kopiér listen som tekst eller del den som PDF.';
 
   @override
   String get helpSettings =>
@@ -3630,20 +3579,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get syncAnotherDevice => 'en anden enhed';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count ændringer fra $authors flettet ind',
-      one: '$count ændring fra $authors flettet ind',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Vis';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3653,12 +3588,6 @@ class AppLocalizationsDa extends AppLocalizations {
     );
     return '$_temp0, første gang $date';
   }
-
-  @override
-  String get syncRunning => 'Synkroniserer med mappen…';
-
-  @override
-  String get syncDismiss => 'Ikke nu';
 
   @override
   String flierHidden(int count) {
@@ -3673,4 +3602,95 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get undo => 'Fortryd';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Synkroniseret med $authors. Tryk for at se, hvad der kom.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Synkroniseret. Intet nyt.';
+
+  @override
+  String get noteSyncFailed => 'Synkronisering mislykkedes. Tryk for detaljer.';
+
+  @override
+  String get failureReport => 'Rapportér';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Åbn $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — udført $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title udført $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n mere';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Den delte mappe har været utilgængelig siden $since. Tryk for detaljer.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names mangler stadig den nye version for at se dine ændringer.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mappe synkroniseret: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakke importeret: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Observation registreret på din position.';
+
+  @override
+  String get deletedDone => 'Slettet.';
+
+  @override
+  String get spotReplayDone => 'Tipsene vises igen';
+
+  @override
+  String get syncRunning => 'Synkroniserer med mappen…';
+
+  @override
+  String get copied => 'Kopieret';
+
+  @override
+  String get sharedFolder => 'Delt mappe';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Ikke nu';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ændringer',
+      one: '1 ændring',
+    );
+    return '$_temp0';
+  }
 }

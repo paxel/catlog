@@ -64,9 +64,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get pickerCardFields => 'Kaardil';
 
   @override
-  String get exportCsv => 'Ekspordi CSV';
-
-  @override
   String get aboutAndFeedback => 'Teave ja tagasiside';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get save => 'Salvesta';
 
   @override
+  String get clearField => 'Tühjenda';
+
+  @override
   String get delete => 'Kustuta';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get open => 'Ava';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV salvestatud: $path';
-  }
 
   @override
   String get renameClowder => 'Nimeta klauder ümber';
@@ -180,9 +175,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sortNewestFirst => 'Uusim ees';
 
   @override
-  String get shareAsText => 'Jaga tekstina';
-
-  @override
   String get shareAsPdf => 'Jaga PDF-ina';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Lemmikloom kaob kõigist loenditest ja tema fotod eemaldatakse — siit ja pärast järgmist sünkroonimist ka teistest seadmetest.';
 
   @override
-  String get sightingRecorded => 'Vaatlus salvestatud sinu asukohas.';
-
-  @override
-  String get noLocationAvailable =>
-      'Asukoht pole saadaval — hoia selle asemel kaarti all.';
-
-  @override
   String get locationDeniedForever =>
       'Juurdepääs asukohale on blokeeritud. Luba see süsteemi seadetes, et kasutada Stray Cami.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get captureFlier => 'Pildista kuulutust';
+
+  @override
+  String get flierFromCamera => 'Kuulutus kaamerast';
+
+  @override
+  String get flierFromGallery => 'Kuulutus galeriist';
 
   @override
   String get addPhotosTo => 'Lisa fotod…';
@@ -355,13 +346,34 @@ class AppLocalizationsEt extends AppLocalizations {
   String get pickFramesTitle => 'Kaadrite valik';
 
   @override
-  String get suggestedFrames => 'Soovitatud kaadrid';
-
-  @override
-  String get scrubFrames => 'Keri videot';
-
-  @override
   String get keepThisFrame => 'Jäta see kaader alles';
+
+  @override
+  String get frameBack => 'Üks kaader tagasi';
+
+  @override
+  String get frameForward => 'Üks kaader edasi';
+
+  @override
+  String get secondBack => 'Üks sekund tagasi';
+
+  @override
+  String get secondForward => 'Üks sekund edasi';
+
+  @override
+  String get tenSecondsBack => 'Kümme sekundit tagasi';
+
+  @override
+  String get tenSecondsForward => 'Kümme sekundit edasi';
+
+  @override
+  String get play => 'Esita';
+
+  @override
+  String get pause => 'Paus';
+
+  @override
+  String get keptFrames => 'Alles jäetud kaadrid ilmuvad siia';
 
   @override
   String get fromVideo => 'Videost…';
@@ -446,9 +458,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Kadunud alates';
-
-  @override
-  String get phoneLabel => 'Telefon';
 
   @override
   String get cropPortrait => 'Kärbi portree';
@@ -565,16 +574,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tühjendatud';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field tagasi väärtusele \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Lahkus — hulkuja';
 
   @override
@@ -618,9 +617,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get value => 'Väärtus';
-
-  @override
-  String get latitudeLongitude => 'laius, pikkus';
 
   @override
   String get newField => 'Uus väli';
@@ -690,11 +686,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get stopHosting => 'Lõpeta võõrustamine';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seansse seni: $count';
   }
@@ -703,35 +694,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get join => 'Liitu';
 
   @override
-  String get addressFromHost => 'Aadress (võõrustavast seadmest)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sünkrooni kohe';
 
   @override
-  String get addressFormatHint =>
-      'Aadress peab välja nägema nagu 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Sünkroonitud: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sünkroonimine ebaõnnestus: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Viimane sünkroonimine seadmega $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Jagatud kaust';
 
   @override
   String get sharedFolderExplainer =>
@@ -759,11 +730,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Sobib iga kaust, mida kaks seadet ühesugusena hoiavad: pilveketas või Syncthing kausta jaoks, mis jääb teie telefonidesse. Syncthing on tasuta: paigalda see igasse telefoni, jaga nende vahel üht kausta ja vali see kaust siin igas seadmes.';
 
   @override
-  String folderSynced(String result) {
-    return 'Kaust sünkroonitud: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Kausta sünkroonimine ebaõnnestus: $error';
   }
@@ -785,14 +751,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Rada: $name ($count asukohta)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Konflikt — $field';
-  }
-
-  @override
-  String get conflictBody => 'Muudetud kahes kohas korraga. Vali, mis on õige:';
 
   @override
   String privateMarker(Object field) {
@@ -1214,7 +1172,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Iga muudatus, uusim esimesena: kes, millal ja milliseks väärtuseks. Puuduta kirjet, et seda parandada, hoia all, et see eemaldada või taastada; peidetud kirje jääb logisse ja kuvatakse soovi korral.';
+      'Iga tehtud muudatus, uusimad ees: kes mida muutis, millal ja milliseks väärtuseks. Puuduta kirjet, et seda parandada, prügikast eemaldab selle, nool toob peidetud tagasi; peidetud kirje jääb logisse ja kuvatakse soovi korral.';
 
   @override
   String get helpDuplicates =>
@@ -1405,17 +1363,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get copyCode => 'Kopeeri kood';
 
   @override
-  String get copied => 'Kopeeritud';
-
-  @override
   String get invalidCode => 'See kood ei kehti';
-
-  @override
-  String get hotspotHint =>
-      'Ühist Wi-Fit pole? Lülita ühe telefoni kuumkoht sisse, ühenda teine ja majuta siin.';
-
-  @override
-  String get byMessenger => 'Sõnumirakendusega';
 
   @override
   String get byMessengerExplainer =>
@@ -1426,11 +1374,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get importBundle => 'Impordi sünkroonimispakett…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakett imporditud: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1865,19 +1808,47 @@ class AppLocalizationsEt extends AppLocalizations {
   String get valueFerret => 'Tuhkur';
 
   @override
-  String get otherOption => 'Muu…';
-
-  @override
   String get celebrationsToggle => 'Tähista lapsendamisi';
 
   @override
   String get celebrationsSubtitle => 'Konfetid ja hõisked, kui kass kolib koju';
 
   @override
-  String get cheerToggle => 'Juubelduse heli';
+  String get soundsSection => 'Helid';
 
   @override
-  String get cheerSubtitle => 'Lühike juubeldus konfettidega, iga kord erinev';
+  String get reminderSound => 'Kassi heli meeldetuletustes';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Toimetuse meeldetuletus ütleb Mrrr telefoni oma heli asemel.';
+
+  @override
+  String get soundPurr => 'Nurrumine';
+
+  @override
+  String get soundChorus => 'Mjäukoor';
+
+  @override
+  String get soundParty => 'Peomjäu';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Oma heli…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1915,11 +1886,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Kustuta kõik sellelt autorilt';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Eemaldab kõik $name kirjed ja fotod sellest seadmest. Teised seadmed hoiavad omad alles. Ei saa tagasi võtta.';
-  }
 
   @override
   String get yourKey => 'Sinu võti';
@@ -1979,11 +1945,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Kinnitamiseks kirjuta $name';
-  }
-
-  @override
   String get alsoBan => 'Keela ka — ära võta enam kunagi andmeid vastu';
 
   @override
@@ -1991,9 +1952,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get unbanAction => 'Eemalda keeld';
-
-  @override
-  String get deletedDone => 'Kustutatud.';
 
   @override
   String get syncSummaryTitle => 'Mis saabus';
@@ -2036,23 +1994,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get keepMine => 'Jäta minu oma';
 
   @override
-  String keptMine(String name) {
-    return 'Sinu versioon kirjest $name jääb sellesse seadmesse.';
-  }
-
-  @override
   String get summaryMeta => 'Saabus ka';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n muudatust',
-      one: '1 muudatus',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Nõustu';
@@ -2198,30 +2140,13 @@ class AppLocalizationsEt extends AppLocalizations {
       'Ühendu kõigepealt Wi-Fi-ga — siis seadmed leiavad teineteise';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) soovib sünkroonida';
-  }
-
-  @override
   String get trustBothWaysNote => 'Kataloogid vahetatakse mõlemas suunas.';
 
   @override
   String get allowOnce => 'Luba';
 
   @override
-  String get allowAlways => 'Luba see seade alati';
-
-  @override
-  String get declineAction => 'Keeldu';
-
-  @override
   String get syncDeclined => 'Teine seade keeldus sünkroonimisest';
-
-  @override
-  String get trustedDevicesSection => 'Alati lubatud seadmed';
-
-  @override
-  String get removeTrust => 'Eemalda';
 
   @override
   String get hostWithoutWifi => 'Majuta ilma Wi-Fi-ta';
@@ -2294,7 +2219,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Selles menüüs: seaded, duplikaatide leidmine ja ühendamine, CSV eksport ja muud.';
+      'Selles menüüs: seaded, duplikaatide leidmine ja ühendamine ja muud.';
 
   @override
   String get spotCatEdit =>
@@ -2370,9 +2295,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Näita vihjeid igal lehel uuesti';
-
-  @override
-  String get spotReplayDone => 'Vihjed kuvatakse uuesti';
 
   @override
   String get searchNoResults => 'Selle nimega kassi ei leitud';
@@ -2503,17 +2425,15 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Kirjuta $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ($error). Vabasta ruumi või proovi hiljem uuesti.';
   }
 
   @override
   String get moveToCatalog => 'Teisalda teise kataloogi';
+
+  @override
+  String get moveInFromCatalog => 'Too teisest kataloogist…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2616,9 +2536,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get agenda => 'Meeldetuletused';
 
   @override
-  String get reminderLabel => 'Meeldetuletus';
-
-  @override
   String get agendaEmpty =>
       'Visiite pole plaanitud. Uusi plaanid siin plussiga või kassi või klauderi lehel.';
 
@@ -2655,6 +2572,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get markDone => 'Tehtud';
 
   @override
+  String get takeOffList => 'Eemalda loendist';
+
+  @override
   String get repeatTitle => 'Uuesti…';
 
   @override
@@ -2662,6 +2582,51 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get unitDays => 'päeva pärast';
+
+  @override
+  String get yesterday => 'Eile';
+
+  @override
+  String get weekdayMon => 'E';
+
+  @override
+  String get weekdayTue => 'T';
+
+  @override
+  String get weekdayWed => 'K';
+
+  @override
+  String get weekdayThu => 'N';
+
+  @override
+  String get weekdayFri => 'R';
+
+  @override
+  String get weekdaySat => 'L';
+
+  @override
+  String get weekdaySun => 'P';
+
+  @override
+  String get weekdayFullMon => 'esmaspäev';
+
+  @override
+  String get weekdayFullTue => 'teisipäev';
+
+  @override
+  String get weekdayFullWed => 'kolmapäev';
+
+  @override
+  String get weekdayFullThu => 'neljapäev';
+
+  @override
+  String get weekdayFullFri => 'reede';
+
+  @override
+  String get weekdayFullSat => 'laupäev';
+
+  @override
+  String get weekdayFullSun => 'pühapäev';
 
   @override
   String get unitWeeks => 'nädala pärast';
@@ -2698,9 +2663,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalendrifail salvestatud asukohta $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Peegelda seadme kalendrisse';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2785,11 +2747,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme kassiga on üks kohtumine: märgi kassid, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid kasse raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
+      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja kaart jääb päeva lõpuni märgituna alles; puuduta seda, et plaanida järgmine, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva; prügikast kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme kassiga on üks kohtumine: märgi kassid, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid kasse raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
 
   @override
   String get helpAgendaNeutral =>
-      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab lemmiklooma või leibkonna. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme lemmikloomaga on üks kohtumine: märgi lemmikloomad, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid lemmikloomi raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
+      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab lemmiklooma või leibkonna. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja kaart jääb päeva lõpuni märgituna alles; puuduta seda, et plaanida järgmine, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva; prügikast kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme lemmikloomaga on üks kohtumine: märgi lemmikloomad, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid lemmikloomi raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.';
 
   @override
   String get calendarRowOff => 'Kalender: väljas';
@@ -2822,22 +2784,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get appointmentLabel => 'Visiit';
 
   @override
+  String get reminderLabel => 'Meeldetuletus';
+
+  @override
   String get addAppointment => 'Lisa visiit';
-
-  @override
-  String get planChooserTitle => 'Visiit või meeldetuletus?';
-
-  @override
-  String get planChooserAppointment =>
-      'Visiit — külastus kuupäeval ja kellaajal, märkmetega';
-
-  @override
-  String get planChooserReminder =>
-      'Meeldetuletus — väärtus, mille tähtaeg saabub mingil päeval';
-
-  @override
-  String get planChooserChore =>
-      'Toimetus — midagi, mis kordub: söötmine, tilgad, liivakast';
 
   @override
   String get newChore => 'Uus toimetus';
@@ -3095,14 +3045,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get achievementCentury => 'Terve sajand';
 
   @override
-  String get achievementCenturyHint => 'Oleme mõlemad väga uhked.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title meister';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3112,14 +3054,6 @@ class AppLocalizationsEt extends AppLocalizations {
     );
     return '$_temp0, esimest korda $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Järgmine $n juures';
-  }
-
-  @override
-  String get achievementLocked => 'Veel mitte';
 
   @override
   String achievementUnlocked(String name) {
@@ -3441,16 +3375,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'Palun vaadake keldritesse, kuuridesse ja garaažidesse. Ärge ajage taga, lihtsalt helistage.';
 
   @override
-  String get posterLastSeen => 'Viimati nähtud';
-
-  @override
   String get posterFreeText => 'Lisarida';
 
   @override
   String get posterQr => 'QR-kood cat(a)logi jaoks';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Uus kass kohta…';
@@ -3459,10 +3387,26 @@ class AppLocalizationsEt extends AppLocalizations {
   String get newCatInNeutral => 'Uus lemmik kohta…';
 
   @override
+  String get newCatHere => 'Uus kass siia';
+
+  @override
+  String get newCatHereNeutral => 'Uus lemmikloom siia';
+
+  @override
   String get choreLabel => 'Toimetus';
 
   @override
   String get choreTickLabel => 'Toimetus tehtud';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title tehtud';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day eest';
+  }
 
   @override
   String get choreEnded => 'Lõpetatud';
@@ -3496,8 +3440,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get coverPick => 'Kaanepilt…';
 
   @override
-  String get coverHint =>
-      'Pilt kohast: maja, hoov, söötmiskoht. Kaardil kassi asemel.';
+  String get coverLabel => 'Pilt klauderist';
+
+  @override
+  String get coverLabelNeutral => 'Pilt leibkonnast';
+
+  @override
+  String get coverLabelStrays => 'Pilt hulkuvate kasside jaoks';
 
   @override
   String get coverRemove => 'Eemalda kaanepilt';
@@ -3516,7 +3465,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Hoia väärtust all, et seda parandada või eemaldada. Midagi ei kao; peidetud väärtused kuvatakse soovi korral.';
+      'Puuduta väärtust, et seda parandada, prügikast eemaldab selle. Midagi ei kao; peidetud väärtused kuvatakse soovi korral.';
 
   @override
   String get spotBackups =>
@@ -3536,7 +3485,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Ühe välja väärtused ajas, uusim esimesena. Puuduta väärtust, et seda parandada: uus astub selle asemele, vana peidetakse. Hoia väärtust all, et see eemaldada või peidetu tagasi tuua; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.';
+      'Ühe välja väärtused ajas, uusimad ees. Puuduta väärtust, et seda parandada: uus võtab selle koha, vana peidetakse. Prügikast eemaldab väärtuse, nool toob peidetud tagasi; silm näitab peidetud väärtusi. Kopeeri loend tekstina või jaga PDF-ina.';
 
   @override
   String get helpSettings =>
@@ -3629,20 +3578,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get syncAnotherDevice => 'teine seade';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count muudatust ($authors) ühendatud',
-      one: '$count muudatus ($authors) ühendatud',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Näita';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3652,12 +3587,6 @@ class AppLocalizationsEt extends AppLocalizations {
     );
     return '$_temp0, esimest korda $date';
   }
-
-  @override
-  String get syncRunning => 'Sünkroonimine kaustaga…';
-
-  @override
-  String get syncDismiss => 'Mitte praegu';
 
   @override
   String flierHidden(int count) {
@@ -3672,4 +3601,96 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get undo => 'Võta tagasi';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sünkroonitud: $authors. Puuduta, et näha, mis saabus.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sünkroonitud. Midagi uut pole.';
+
+  @override
+  String get noteSyncFailed =>
+      'Sünkroonimine ebaõnnestus. Puuduta üksikasjade jaoks.';
+
+  @override
+  String get failureReport => 'Teata';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Ava $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — tehtud $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title tehtud $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n veel';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Jagatud kaust pole kättesaadav alates $since. Puuduta üksikasjade jaoks.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names vajab veel uut versiooni, et sinu muudatusi näha.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Kaust sünkroonitud: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakett imporditud: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Vaatlus salvestatud sinu asukohas.';
+
+  @override
+  String get deletedDone => 'Kustutatud.';
+
+  @override
+  String get spotReplayDone => 'Vihjed kuvatakse uuesti';
+
+  @override
+  String get syncRunning => 'Sünkroonimine kaustaga…';
+
+  @override
+  String get copied => 'Kopeeritud';
+
+  @override
+  String get sharedFolder => 'Jagatud kaust';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Mitte praegu';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n muudatust',
+      one: '1 muudatus',
+    );
+    return '$_temp0';
+  }
 }

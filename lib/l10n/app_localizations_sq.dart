@@ -64,9 +64,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get pickerCardFields => 'Në kartë';
 
   @override
-  String get exportCsv => 'Eksporto CSV';
-
-  @override
   String get aboutAndFeedback => 'Rreth & komente';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get save => 'Ruaj';
 
   @override
+  String get clearField => 'Pastro';
+
+  @override
   String get delete => 'Fshi';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get open => 'Hap';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV u ruajt në $path';
-  }
 
   @override
   String get renameClowder => 'Riemërto clowder-in';
@@ -180,9 +175,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get sortNewestFirst => 'Më të rejat së pari';
 
   @override
-  String get shareAsText => 'Ndaj si tekst';
-
-  @override
   String get shareAsPdf => 'Ndaj si PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsSq extends AppLocalizations {
       'Kafsha zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe në pajisjet e tjera.';
 
   @override
-  String get sightingRecorded => 'Vëzhgimi u regjistrua në pozicionin tuaj.';
-
-  @override
-  String get noLocationAvailable =>
-      'Vendndodhja s\'është e disponueshme — mbani shtypur hartën në vend të saj.';
-
-  @override
   String get locationDeniedForever =>
       'Qasja në vendndodhje është e bllokuar. Lejojeni në cilësimet e sistemit për të përdorur Stray Cam.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get captureFlier => 'Fotografo fletushkën';
+
+  @override
+  String get flierFromCamera => 'Fletushkë nga kamera';
+
+  @override
+  String get flierFromGallery => 'Fletushkë nga galeria';
 
   @override
   String get addPhotosTo => 'Shto fotot te…';
@@ -355,13 +346,34 @@ class AppLocalizationsSq extends AppLocalizations {
   String get pickFramesTitle => 'Zgjidh kuadro';
 
   @override
-  String get suggestedFrames => 'Kuadro të sugjeruara';
-
-  @override
-  String get scrubFrames => 'Lëviz nëpër video';
-
-  @override
   String get keepThisFrame => 'Mbaje këtë kuadër';
+
+  @override
+  String get frameBack => 'Një kuadër prapa';
+
+  @override
+  String get frameForward => 'Një kuadër përpara';
+
+  @override
+  String get secondBack => 'Një sekondë prapa';
+
+  @override
+  String get secondForward => 'Një sekondë përpara';
+
+  @override
+  String get tenSecondsBack => 'Dhjetë sekonda prapa';
+
+  @override
+  String get tenSecondsForward => 'Dhjetë sekonda përpara';
+
+  @override
+  String get play => 'Luaj';
+
+  @override
+  String get pause => 'Pauzë';
+
+  @override
+  String get keptFrames => 'Kuadrot e mbajtura shfaqen këtu';
 
   @override
   String get fromVideo => 'Nga video…';
@@ -447,9 +459,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'I humbur që nga';
-
-  @override
-  String get phoneLabel => 'Telefoni';
 
   @override
   String get cropPortrait => 'Prit portretin';
@@ -567,16 +576,6 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field u zbraz';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field u kthye te \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Iku — endacake';
 
   @override
@@ -620,9 +619,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get value => 'Vlera';
-
-  @override
-  String get latitudeLongitude => 'gjerësia, gjatësia gjeografike';
 
   @override
   String get newField => 'Fushë e re';
@@ -692,11 +688,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get stopHosting => 'Ndalo pritjen';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seanca deri tani: $count';
   }
@@ -705,34 +696,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get join => 'Bashkohu';
 
   @override
-  String get addressFromHost => 'Adresa (nga pajisja pritëse)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sinkronizo tani';
 
   @override
-  String get addressFormatHint => 'Adresa duhet të duket si 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'U sinkronizua: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sinkronizimi dështoi: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Sinkronizimi i fundit me $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Dosje e përbashkët';
 
   @override
   String get sharedFolderExplainer =>
@@ -760,11 +732,6 @@ class AppLocalizationsSq extends AppLocalizations {
       'Mjafton çdo dosje që dy pajisje e mbajnë njësoj: një disk në re, ose Syncthing për një dosje që mbetet në telefonat tuaj. Syncthing është falas: instaloje në çdo telefon, ndaj një dosje mes tyre dhe zgjidhe atë dosje këtu në çdo pajisje.';
 
   @override
-  String folderSynced(String result) {
-    return 'Dosja u sinkronizua: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Sinkronizimi i dosjes dështoi: $error';
   }
@@ -786,15 +753,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Gjurmë: $name ($count pozicione)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Konflikt — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'U ndryshua në dy vende njëkohësisht. Zgjidhni çfarë është e vërtetë:';
 
   @override
   String privateMarker(Object field) {
@@ -1216,7 +1174,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Çdo ndryshim, më i riu i pari: kush, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, mbaje shtypur për ta hequr ose rikthyer; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.';
+      'Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, koshi e heq, shigjeta kthen një të fshehur; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.';
 
   @override
   String get helpDuplicates =>
@@ -1406,17 +1364,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get copyCode => 'Kopjo kodin';
 
   @override
-  String get copied => 'U kopjua';
-
-  @override
   String get invalidCode => 'Ky kod nuk është i vlefshëm';
-
-  @override
-  String get hotspotHint =>
-      'S\'ka Wi-Fi të përbashkët? Ndiz hotspot-in e njërit telefon, lidh tjetrin dhe prit këtu.';
-
-  @override
-  String get byMessenger => 'Me messenger';
 
   @override
   String get byMessengerExplainer =>
@@ -1427,11 +1375,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get importBundle => 'Importo paketën e sinkronizimit…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paketa u importua: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1866,9 +1809,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get valueFerret => 'Qelbës';
 
   @override
-  String get otherOption => 'Tjetër…';
-
-  @override
   String get celebrationsToggle => 'Festo birësimet';
 
   @override
@@ -1876,11 +1816,41 @@ class AppLocalizationsSq extends AppLocalizations {
       'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj';
 
   @override
-  String get cheerToggle => 'Tingulli i brohoritjes';
+  String get soundsSection => 'Tinguj';
 
   @override
-  String get cheerSubtitle =>
-      'Një brohoritje e shkurtër me konfetat, e ndryshme çdo herë';
+  String get reminderSound => 'Zë mace për përkujtuesit';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Përkujtuesi i një detyre thotë Mrrr në vend të zërit të telefonit.';
+
+  @override
+  String get soundPurr => 'Gërhitje';
+
+  @override
+  String get soundChorus => 'Kor mjaullimash';
+
+  @override
+  String get soundParty => 'Mjau feste';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Tingulli yt…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1918,11 +1888,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Fshi gjithçka nga ky autor';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Heq çdo hyrje dhe foto të $name nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.';
-  }
 
   @override
   String get yourKey => 'Çelësi yt';
@@ -1982,11 +1947,6 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Shkruaj $name për konfirmim';
-  }
-
-  @override
   String get alsoBan => 'Ndalo gjithashtu — mos prano më kurrë të dhëna';
 
   @override
@@ -1994,9 +1954,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get unbanAction => 'Hiq ndalimin';
-
-  @override
-  String get deletedDone => 'U fshi.';
 
   @override
   String get syncSummaryTitle => 'Çfarë mbërriti';
@@ -2039,23 +1996,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get keepMine => 'Mbaj timen';
 
   @override
-  String keptMine(String name) {
-    return 'Versioni yt për $name mbetet në këtë pajisje.';
-  }
-
-  @override
   String get summaryMeta => 'Erdhi edhe';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n ndryshime',
-      one: '1 ndryshim',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Prano';
@@ -2200,11 +2141,6 @@ class AppLocalizationsSq extends AppLocalizations {
       'Lidhu fillimisht me Wi-Fi — atëherë pajisjet gjejnë njëra-tjetrën';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) do të sinkronizojë';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Katalogët do të shkëmbehen në të dyja drejtimet.';
 
@@ -2212,19 +2148,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get allowOnce => 'Lejo';
 
   @override
-  String get allowAlways => 'Lejo gjithmonë këtë pajisje';
-
-  @override
-  String get declineAction => 'Refuzo';
-
-  @override
   String get syncDeclined => 'Pajisja tjetër e refuzoi sinkronizimin';
-
-  @override
-  String get trustedDevicesSection => 'Pajisjet e lejuara gjithmonë';
-
-  @override
-  String get removeTrust => 'Hiq';
 
   @override
   String get hostWithoutWifi => 'Prit pa Wi-Fi';
@@ -2297,7 +2221,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Në këtë meny: cilësimet, gjej dhe bashko dublikatat, eksporto CSV dhe më shumë.';
+      'Në këtë meny: cilësimet, gjej dhe bashko dublikatat dhe më shumë.';
 
   @override
   String get spotCatEdit =>
@@ -2373,9 +2297,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Shfaq këshillat sërish në çdo faqe';
-
-  @override
-  String get spotReplayDone => 'Këshillat do të shfaqen sërish';
 
   @override
   String get searchNoResults => 'Nuk u gjet mace me atë emër';
@@ -2506,17 +2427,15 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Shkruaj $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nuk u fshi asgjë: skedari i katalogut nuk u shkrua dot ($error). Liro pak hapësirë ose provo më vonë.';
   }
 
   @override
   String get moveToCatalog => 'Zhvendos në një katalog tjetër';
+
+  @override
+  String get moveInFromCatalog => 'Zhvendos nga një katalog tjetër…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2619,9 +2538,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get agenda => 'Përkujtues';
 
   @override
-  String get reminderLabel => 'Përkujtues';
-
-  @override
   String get agendaEmpty =>
       'S\'ka takime të planifikuara. Planifiko të reja këtu me plusin, ose në faqen e një maceje a clowderi.';
 
@@ -2658,6 +2574,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get markDone => 'U bë';
 
   @override
+  String get takeOffList => 'Hiqe nga lista';
+
+  @override
   String get repeatTitle => 'Sërish pas…';
 
   @override
@@ -2665,6 +2584,51 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get unitDays => 'ditësh';
+
+  @override
+  String get yesterday => 'Dje';
+
+  @override
+  String get weekdayMon => 'hën';
+
+  @override
+  String get weekdayTue => 'mar';
+
+  @override
+  String get weekdayWed => 'mër';
+
+  @override
+  String get weekdayThu => 'enj';
+
+  @override
+  String get weekdayFri => 'pre';
+
+  @override
+  String get weekdaySat => 'sht';
+
+  @override
+  String get weekdaySun => 'die';
+
+  @override
+  String get weekdayFullMon => 'e hënë';
+
+  @override
+  String get weekdayFullTue => 'e martë';
+
+  @override
+  String get weekdayFullWed => 'e mërkurë';
+
+  @override
+  String get weekdayFullThu => 'e enjte';
+
+  @override
+  String get weekdayFullFri => 'e premte';
+
+  @override
+  String get weekdayFullSat => 'e shtunë';
+
+  @override
+  String get weekdayFullSun => 'e diel';
 
   @override
   String get unitWeeks => 'javësh';
@@ -2701,9 +2665,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Skedari i kalendarit u ruajt te $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Pasqyro në kalendarin e pajisjes';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2788,11 +2749,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe karta mbetet e shënuar deri në fund të ditës; preke për të planifikuar tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën; koshi e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
 
   @override
   String get helpAgendaNeutral =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe karta mbetet e shënuar deri në fund të ditës; preke për të planifikuar tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën; koshi e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.';
 
   @override
   String get calendarRowOff => 'Kalendari: fikur';
@@ -2825,22 +2786,10 @@ class AppLocalizationsSq extends AppLocalizations {
   String get appointmentLabel => 'Takim';
 
   @override
+  String get reminderLabel => 'Kujtesë';
+
+  @override
   String get addAppointment => 'Shto takim';
-
-  @override
-  String get planChooserTitle => 'Takim apo përkujtues?';
-
-  @override
-  String get planChooserAppointment =>
-      'Takim — një vizitë në një datë dhe orë, me shënime';
-
-  @override
-  String get planChooserReminder =>
-      'Përkujtues — një vlerë që bëhet e detyrueshme një ditë';
-
-  @override
-  String get planChooserChore =>
-      'Detyrë — diçka që përsëritet: ushqim, pika, kuti';
 
   @override
   String get newChore => 'Detyrë e re';
@@ -3099,14 +3048,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get achievementCentury => 'Një shekull i plotë';
 
   @override
-  String get achievementCenturyHint => 'Do të jemi të dy shumë krenarë.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Mjeshtër i $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3116,14 +3057,6 @@ class AppLocalizationsSq extends AppLocalizations {
     );
     return '$_temp0, herën e parë më $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Tjetra te $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ende jo';
 
   @override
   String achievementUnlocked(String name) {
@@ -3445,16 +3378,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Ju lutem kontrolloni bodrumet, kasollet dhe garazhet. Mos e ndiqni, vetëm telefononi.';
 
   @override
-  String get posterLastSeen => 'Parë për herë të fundit pranë';
-
-  @override
   String get posterFreeText => 'Rresht shtesë';
 
   @override
   String get posterQr => 'Kod QR për cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Mace e re në…';
@@ -3463,10 +3390,26 @@ class AppLocalizationsSq extends AppLocalizations {
   String get newCatInNeutral => 'Kafshë e re në…';
 
   @override
+  String get newCatHere => 'Mace e re këtu';
+
+  @override
+  String get newCatHereNeutral => 'Kafshë e re këtu';
+
+  @override
   String get choreLabel => 'Detyrë';
 
   @override
   String get choreTickLabel => 'Detyrë e kryer';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title u krye';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'për $day';
+  }
 
   @override
   String get choreEnded => 'Përfunduar';
@@ -3500,8 +3443,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get coverPick => 'Foto kopertine…';
 
   @override
-  String get coverHint =>
-      'Një foto e vendit: shtëpia, oborri, vendi i ushqimit. Në kartë në vend të një maceje.';
+  String get coverLabel => 'Një foto e clowderit';
+
+  @override
+  String get coverLabelNeutral => 'Një foto e familjes';
+
+  @override
+  String get coverLabelStrays => 'Një foto për macet endacake';
 
   @override
   String get coverRemove => 'Hiq foton e kopertinës';
@@ -3519,7 +3467,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Mbaje shtypur një vlerë për ta korrigjuar ose hequr. Asgjë nuk humbet; vlerat e fshehura shfaqen sipas kërkesës.';
+      'Prek një vlerë për ta korrigjuar, koshi e heq. Asgjë nuk humbet; vlerat e fshehura shfaqen sipas kërkesës.';
 
   @override
   String get spotBackups =>
@@ -3539,7 +3487,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Vlerat e një fushe përgjatë kohës, më të rejat të parat. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Mbaje shtypur një vlerë për ta hequr ose për të rikthyer një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.';
+      'Vlerat e një fushe përgjatë kohës, më e reja e para. Prek një vlerë për ta korrigjuar: e reja zë vendin e saj, e vjetra fshihet. Koshi heq një vlerë, shigjeta kthen një të fshehur; syri tregon vlerat e fshehura. Kopjo listën si tekst ose ndaje si PDF.';
 
   @override
   String get helpSettings =>
@@ -3632,20 +3580,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get syncAnotherDevice => 'një pajisje tjetër';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count ndryshime nga $authors u bashkuan',
-      one: '$count ndryshim nga $authors u bashkua',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Shfaq';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3655,12 +3589,6 @@ class AppLocalizationsSq extends AppLocalizations {
     );
     return '$_temp0, herën e parë më $date';
   }
-
-  @override
-  String get syncRunning => 'Duke u sinkronizuar me dosjen…';
-
-  @override
-  String get syncDismiss => 'Jo tani';
 
   @override
   String flierHidden(int count) {
@@ -3675,4 +3603,95 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get undo => 'Zhbëj';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'U sinkronizua me $authors. Prek për të parë çfarë mbërriti.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'U sinkronizua. Asgjë e re.';
+
+  @override
+  String get noteSyncFailed => 'Sinkronizimi dështoi. Prek për detaje.';
+
+  @override
+  String get failureReport => 'Raporto';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Hap $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — kryer $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title kryer $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n të tjera';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Dosja e përbashkët nuk arrihet që nga $since. Prek për detaje.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names ka ende nevojë për versionin e ri për të parë ndryshimet e tua.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Dosja u sinkronizua: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketa u importua: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Vëzhgimi u regjistrua në pozicionin tuaj.';
+
+  @override
+  String get deletedDone => 'U fshi.';
+
+  @override
+  String get spotReplayDone => 'Këshillat do të shfaqen sërish';
+
+  @override
+  String get syncRunning => 'Duke u sinkronizuar me dosjen…';
+
+  @override
+  String get copied => 'U kopjua';
+
+  @override
+  String get sharedFolder => 'Dosje e përbashkët';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Jo tani';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ndryshime',
+      one: '1 ndryshim',
+    );
+    return '$_temp0';
+  }
 }

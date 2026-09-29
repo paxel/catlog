@@ -156,12 +156,11 @@ void main() {
     await pump(tester, AgendaScreen(store: store));
     await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
-    await tester.tap(find.textContaining('Chore'));
+    await tester.tap(find.text('Chore'));
     await tester.pumpAndSettle();
-    // Whose: the only cat.
-    await tester.tap(find.text('Miezi'));
-    await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), 'Eye drops');
+    // Whose: the For field, preset with the only cat.
+    expect(find.text('Miezi'), findsOneWidget);
+    await tester.enterText(find.byType(TextField).first, 'Eye drops');
     await tester.pumpAndSettle();
     // Every N days on a new chore starts at two; it used to throw.
     await tester.tap(find.text('Every…'));

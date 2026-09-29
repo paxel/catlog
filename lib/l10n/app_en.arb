@@ -17,7 +17,6 @@
   "fields": "Fields",
   "pickerColumns": "Columns",
   "pickerCardFields": "On the card",
-  "exportCsv": "Export CSV",
   "aboutAndFeedback": "About & feedback",
   "settings": "Settings",
   "newClowder": "New clowder",
@@ -26,18 +25,11 @@
   "cancel": "Cancel",
   "create": "Create",
   "save": "Save",
+  "clearField": "Clear",
   "delete": "Delete",
   "merge": "Merge",
   "resolve": "Resolve",
   "open": "Open",
-  "csvSavedTo": "CSV saved to {path}",
-  "@csvSavedTo": {
-    "placeholders": {
-      "path": {
-        "type": "String"
-      }
-    }
-  },
   "renameClowder": "Rename clowder",
   "renameClowderNeutral": "Rename household",
   "rename": "Rename",
@@ -81,7 +73,6 @@
   "shareAsImage": "Share as image",
   "sortOldestFirst": "Oldest first",
   "sortNewestFirst": "Newest first",
-  "shareAsText": "Share as text",
   "shareAsPdf": "Share as PDF",
   "print": "Print",
   "cardTitle": "Card — {name}",
@@ -111,8 +102,6 @@
   "deletePhotoBody": "The photo data is removed for good — this cannot be undone.",
   "deleteCatBody": "The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.",
   "deleteCatBodyNeutral": "The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.",
-  "sightingRecorded": "Sighting recorded at your position.",
-  "noLocationAvailable": "No location available — long-press the map instead.",
   "locationDeniedForever": "Location access is blocked. Allow it in the system settings to use Stray Cam.",
   "locationServiceOff": "Location is turned off on this device. Turn it on in the settings and try again.",
   "locationDenied": "cat(a)log has no permission to use your location. Try again and allow it when asked.",
@@ -121,6 +110,8 @@
   "starterChipId": "Chip ID",
   "starterRemarks": "Remarks",
   "captureFlier": "Capture flier",
+  "flierFromCamera": "Flier from camera",
+  "flierFromGallery": "Flier from gallery",
   "addPhotosTo": "Add photos to…",
   "photosAddedTo": "{count} photo(s) added to {name}",
   "@photosAddedTo": {
@@ -158,9 +149,16 @@
   "similarName": "Similar name",
   "sharePublicly": "Share publicly…",
   "pickFramesTitle": "Pick frames",
-  "suggestedFrames": "Suggested frames",
-  "scrubFrames": "Scrub the video",
   "keepThisFrame": "Keep this frame",
+  "frameBack": "One frame back",
+  "frameForward": "One frame forward",
+  "secondBack": "One second back",
+  "secondForward": "One second forward",
+  "tenSecondsBack": "Ten seconds back",
+  "tenSecondsForward": "Ten seconds forward",
+  "play": "Play",
+  "pause": "Pause",
+  "keptFrames": "Kept frames appear here",
   "fromVideo": "From video…",
   "addingPhotos": "Adding photo {done} of {total}…",
   "@addingPhotos": {
@@ -216,7 +214,6 @@
   },
   "addFlier": "Add flier",
   "missingSinceLabel": "Missing since",
-  "phoneLabel": "Phone",
   "cropPortrait": "Crop portrait",
   "statusOwner": "Owner",
   "ocrUnavailable": "Text recognition is not available on this device — type the flier text yourself.",
@@ -312,25 +309,6 @@
       }
     }
   },
-  "fieldCleared": "{field} cleared",
-  "@fieldCleared": {
-    "placeholders": {
-      "field": {
-        "type": "String"
-      }
-    }
-  },
-  "fieldBackTo": "{field} back to \"{value}\"",
-  "@fieldBackTo": {
-    "placeholders": {
-      "field": {
-        "type": "String"
-      },
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "leftStray": "Left — stray",
   "movedTo": "Moved to {name}",
   "@movedTo": {
@@ -390,7 +368,6 @@
     }
   },
   "value": "Value",
-  "latitudeLongitude": "latitude, longitude",
   "newField": "New field",
   "fieldType": "Type",
   "usedOn": "Used on",
@@ -413,14 +390,6 @@
   "hostExplainer": "Start here, then scan the code or type it on the other device.",
   "startHosting": "Start hosting",
   "stopHosting": "Stop hosting",
-  "pinLabel": "PIN: {pin}",
-  "@pinLabel": {
-    "placeholders": {
-      "pin": {
-        "type": "String"
-      }
-    }
-  },
   "sessionsSoFar": "{count} session(s) so far",
   "@sessionsSoFar": {
     "placeholders": {
@@ -430,18 +399,8 @@
     }
   },
   "join": "Join",
-  "addressFromHost": "Address (from the hosting device)",
   "pin": "PIN",
   "syncNow": "Sync now",
-  "addressFormatHint": "Address must look like 192.168.0.12:38472",
-  "syncedResult": "Synced: {result}",
-  "@syncedResult": {
-    "placeholders": {
-      "result": {
-        "type": "String"
-      }
-    }
-  },
   "syncFailed": "Sync failed: {error}",
   "@syncFailed": {
     "placeholders": {
@@ -450,18 +409,6 @@
       }
     }
   },
-  "lastSyncWith": "Last sync with {peer}: {time}",
-  "@lastSyncWith": {
-    "placeholders": {
-      "peer": {
-        "type": "String"
-      },
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "sharedFolder": "Shared folder",
   "sharedFolderExplainer": "Both devices use the same folder (for example in Nextcloud or on a USB stick). Each sync stores your changes there and picks up the other side's.",
   "noFolderChosenYet": "No folder chosen yet",
   "choose": "Choose…",
@@ -474,14 +421,6 @@
   },
   "useSameFolder": "Use the same folder as the other catalogs",
   "folderHint": "Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.",
-  "folderSynced": "Folder synced: {result}",
-  "@folderSynced": {
-    "placeholders": {
-      "result": {
-        "type": "String"
-      }
-    }
-  },
   "folderSyncFailed": "Folder sync failed: {error}",
   "@folderSyncFailed": {
     "placeholders": {
@@ -527,7 +466,6 @@
       }
     }
   },
-  "conflictOn": "Conflict — {field}",
   "@conflictOn": {
     "placeholders": {
       "field": {
@@ -535,7 +473,6 @@
       }
     }
   },
-  "conflictBody": "Changed in two places at once. Pick what is true:",
   "privateMarker": "{field} (private)",
   "@privateMarker": {
     "placeholders": {
@@ -722,7 +659,7 @@
   "helpSync": "Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too. Every catalog signs what it writes with its own key; partners see the key code next to your name. A partner's first key is taken on trust from a file and counts as met once you sync in person. Entries in a known name without the right signature are refused and listed on the arrival page.",
   "helpFields": "The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the cat.",
   "helpFieldsNeutral": "The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the pet.",
-  "helpTimeline": "Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.",
+  "helpTimeline": "Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, the bin removes it, the arrow brings a hidden one back; a hidden entry stays in the log and shows on request.",
   "helpDuplicates": "Cats or clowders that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.",
   "helpDuplicatesNeutral": "Pets or households that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.",
   "helpMatches": "Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat's search area. Tap a pair to merge it, long-press to open the first cat and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal's Looks change.",
@@ -854,21 +791,10 @@
   "scanCode": "Scan code",
   "orTypeCode": "Or type the code",
   "copyCode": "Copy code",
-  "copied": "Copied",
   "invalidCode": "That code is not valid",
-  "hotspotHint": "No shared Wi-Fi? Turn on one phone's hotspot, connect the other phone to it, then host here.",
-  "byMessenger": "By messenger",
   "byMessengerExplainer": "Send your whole catalog as one file through WhatsApp, Signal, or mail — the other side imports it.",
   "shareBundle": "Share sync bundle…",
   "importBundle": "Import sync bundle…",
-  "bundleImported": "Bundle imported: {result}",
-  "@bundleImported": {
-    "placeholders": {
-      "result": {
-        "type": "String"
-      }
-    }
-  },
   "lastBackupFailed": "Last automatic backup failed: {error}",
   "@lastBackupFailed": {
     "placeholders": {
@@ -1039,11 +965,20 @@
   "valueHorse": "Horse",
   "valueTortoise": "Tortoise",
   "valueFerret": "Ferret",
-  "otherOption": "Other…",
   "celebrationsToggle": "Celebrate adoptions",
   "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home",
-  "cheerToggle": "Cheer sound",
-  "cheerSubtitle": "A short cheer with the confetti, a different one each time",
+  "soundsSection": "Sounds",
+  "reminderSound": "Cat sound for reminders",
+  "reminderSoundSubtitle": "A chore's reminder says Mrrr instead of the phone's own sound.",
+  "soundPurr": "Purr",
+  "soundChorus": "Chorus of meows",
+  "soundParty": "Party meow",
+  "soundMeep": "Meep",
+  "soundMrrp": "Mrrp",
+  "soundMrrr": "Mrrr",
+  "soundSonneMiau": "Sonne miau",
+  "soundSonnePurr": "Sonne purr",
+  "soundOwn": "Own sound…",
   "celebrationsSubtitleNeutral": "Confetti and a cheer when a pet moves into a forever home",
   "onMapLabel": "On the map",
   "showOnMap": "Show on map",
@@ -1056,7 +991,6 @@
   "moderationSubtitle": "Remove a person's data for good",
   "authorsSection": "Who wrote into this catalog",
   "hardDeleteAction": "Delete everything by this author",
-  "hardDeleteWarning": "Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.",
   "yourKey": "Your key",
   "yourTitle": "Your title",
   "titleNone": "No title",
@@ -1107,21 +1041,9 @@
       "key": {}
     }
   },
-  "typeToConfirm": "Type {name} to confirm",
   "alsoBan": "Also ban — never accept their data again",
   "bansSection": "Bans",
   "unbanAction": "Remove ban",
-  "deletedDone": "Deleted.",
-  "@hardDeleteWarning": {
-    "placeholders": {
-      "name": {}
-    }
-  },
-  "@typeToConfirm": {
-    "placeholders": {
-      "name": {}
-    }
-  },
   "syncSummaryTitle": "What arrived",
   "summaryAdopted": "Adopted",
   "summaryDeceased": "Deceased",
@@ -1141,23 +1063,7 @@
   "summaryUpdated": "Updated",
   "summaryDeleted": "Deleted",
   "keepMine": "Keep mine",
-  "keptMine": "Kept your version of {name} on this device.",
-  "@keptMine": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "summaryMeta": "Also arrived",
-  "changesCount": "{n, plural, one{1 change} other{{n} changes}}",
-  "@changesCount": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "acceptArrival": "Accept",
   "rejectArrival": "Reject",
   "photoAdded": "Photo added",
@@ -1264,14 +1170,9 @@
   "syncChooserMessenger": "Messenger",
   "syncChooserMessengerSub": "Export and import via social media",
   "connectToWifiFirst": "Connect to a Wi-Fi first — then devices can find each other",
-  "trustQuestion": "{author} ({device}) wants to sync",
   "trustBothWaysNote": "Your catalogs will be exchanged in both directions.",
   "allowOnce": "Allow",
-  "allowAlways": "Always allow this device",
-  "declineAction": "Decline",
   "syncDeclined": "The other device declined the sync",
-  "trustedDevicesSection": "Always-allowed devices",
-  "removeTrust": "Remove",
   "@trustQuestion": {
     "placeholders": {
       "author": {},
@@ -1298,7 +1199,7 @@
   "spotHomeSync": "Sync with people you know here. You decide what you share.",
   "spotHomeStrays": "This card collects all strays — cats without a home. Tap it to see the list.",
   "spotHomeStraysNeutral": "This card collects all strays — pets without a home. Tap it to see the list.",
-  "spotHomeMenu": "In this menu: settings, find and merge duplicate entries, export CSV, and more.",
+  "spotHomeMenu": "In this menu: settings, find and merge duplicate entries, and more.",
   "spotCatEdit": "Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.",
   "spotCatEditNeutral": "Tap the pencil to edit this pet. Tip: long-press any field to edit it directly.",
   "spotMapLayers": "Searching for a missing cat? Show circles around its poster spots and the home it ran from.",
@@ -1319,7 +1220,6 @@
   "spotDone": "Got it",
   "spotReplayTitle": "What's new tour",
   "spotReplaySubtitle": "Show the highlights again on each page",
-  "spotReplayDone": "The highlights will show again",
   "searchNoResults": "No cat found with that name",
   "searchNoResultsNeutral": "No pet found with that name",
   "syncUnreachable": "Couldn't reach the other device. Are both on the same Wi-Fi?",
@@ -1399,14 +1299,6 @@
       }
     }
   },
-  "typeTheName": "Type {name}",
-  "@typeTheName": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "catalogExportFailed": "Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.",
   "@catalogExportFailed": {
     "placeholders": {
@@ -1416,6 +1308,7 @@
     }
   },
   "moveToCatalog": "Move to another catalog",
+  "moveInFromCatalog": "Move in from another catalog…",
   "movedToCatalog": "{count} moved to {name}",
   "@movedToCatalog": {
     "placeholders": {
@@ -1502,7 +1395,6 @@
   "markPrivate": "Mark as private",
   "unmarkPrivate": "Remove private mark",
   "agenda": "Agenda",
-  "reminderLabel": "Reminder",
   "agendaEmpty": "No appointments planned. Plan new ones here with the plus, or on a cat's or clowder's page.",
   "agendaEmptyNeutral": "No appointments planned. Plan new ones here with the plus, or on a pet's or household's page.",
   "dueToday": "due today",
@@ -1523,9 +1415,25 @@
     }
   },
   "markDone": "Done",
+  "takeOffList": "Take off the list",
   "repeatTitle": "Again in…",
   "noRepeatLabel": "No repeat",
   "unitDays": "days",
+  "yesterday": "Yesterday",
+  "weekdayMon": "Mon",
+  "weekdayTue": "Tue",
+  "weekdayWed": "Wed",
+  "weekdayThu": "Thu",
+  "weekdayFri": "Fri",
+  "weekdaySat": "Sat",
+  "weekdaySun": "Sun",
+  "weekdayFullMon": "Monday",
+  "weekdayFullTue": "Tuesday",
+  "weekdayFullWed": "Wednesday",
+  "weekdayFullThu": "Thursday",
+  "weekdayFullFri": "Friday",
+  "weekdayFullSat": "Saturday",
+  "weekdayFullSun": "Sunday",
   "unitWeeks": "weeks",
   "unitMonths": "months",
   "unitYears": "years",
@@ -1557,7 +1465,6 @@
       }
     }
   },
-  "calendarMirrorLabel": "Mirror to device calendar",
   "calendarMirrorSubtitle": "The appointments appear as all-day entries in the calendar. cat(a)log updates them there at every start and after every change. You can manage alerts for them in the calendar.",
   "syncPeerOlder": "The other device runs an older cat(a)log that cannot carry reminders. Update cat(a)log there, then sync again.",
   "syncPeerNewer": "The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.",
@@ -1580,8 +1487,8 @@
   "spotAgendaAdd": "Plan a new appointment.",
   "spotAgendaCalendar": "Switch on here to mirror the cat(a)log appointments into a calendar of your choice.",
   "spotAgendaToday": "Today's chores: tick when done. The dots show the last seven days.",
-  "helpAgenda": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.",
-  "helpAgendaNeutral": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.",
+  "helpAgenda": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and the card stays for the day, ticked; tap it to plan the next one, for example in three months. Press and hold changes the date; the bin deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.",
+  "helpAgendaNeutral": "The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and the card stays for the day, ticked; tap it to plan the next one, for example in three months. Press and hold changes the date; the bin deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.",
   "calendarRowOff": "Calendar: off",
   "calendarRowOn": "Calendar: {name}",
   "@calendarRowOn": {
@@ -1597,11 +1504,8 @@
   "spotAddReminderClowderNeutral": "Plan an appointment for this household. It shows in the Agenda and is confirmed there.",
   "readOnlyCalendar": "read only",
   "appointmentLabel": "Appointment",
+  "reminderLabel": "Reminder",
   "addAppointment": "Add appointment",
-  "planChooserTitle": "Appointment or reminder?",
-  "planChooserAppointment": "Appointment — a visit at a date and time, with notes",
-  "planChooserReminder": "Reminder — a value that becomes due on a day",
-  "planChooserChore": "Chore — a task that comes around: feeding, drops, litter",
   "newChore": "New chore",
   "choreEdit": "Edit chore",
   "choreTitleLabel": "What",
@@ -1730,15 +1634,6 @@
   "achievementYear": "A full year",
   "achievementDecade": "A full decade",
   "achievementCentury": "A full century",
-  "achievementCenturyHint": "We will both be very proud.",
-  "achievementMaster": "{title} master",
-  "@achievementMaster": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      }
-    }
-  },
   "achievementReached": "{times, plural, one{Reached once} other{Reached {times} times}}, first on {date}",
   "@achievementReached": {
     "placeholders": {
@@ -1750,15 +1645,6 @@
       }
     }
   },
-  "achievementNext": "Next at {n}",
-  "@achievementNext": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
-  "achievementLocked": "Not yet",
   "achievementUnlocked": "Achievement: {name}",
   "@achievementUnlocked": {
     "placeholders": {
@@ -1947,14 +1833,18 @@
   "posterMenu": "Missing poster…",
   "posterHeadline": "MISSING",
   "posterStanding": "Please check cellars, sheds and garages. Do not chase, just call.",
-  "posterLastSeen": "Last seen near",
   "posterFreeText": "Extra line",
   "posterQr": "QR code for cat(a)log",
-  "posterPhoto": "Photo",
   "newCatIn": "New cat in…",
   "newCatInNeutral": "New pet in…",
+  "newCatHere": "New cat here",
+  "newCatHereNeutral": "New pet here",
   "choreLabel": "Chore",
   "choreTickLabel": "Chore done",
+  "choreDoneTitled": "{title} done",
+  "@choreDoneTitled": {"placeholders": {"title": {}}},
+  "choreDoneFor": "for {day}",
+  "@choreDoneFor": {"placeholders": {"day": {}}},
   "choreEnded": "Ended",
   "choreRemindAt": "reminder {time}",
   "@choreRemindAt": {
@@ -1974,18 +1864,20 @@
   "favouriteAdd": "Mark as favourite",
   "favouriteRemove": "Remove from favourites",
   "coverPick": "Cover picture…",
-  "coverHint": "A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.",
+  "coverLabel": "A picture of the clowder",
+  "coverLabelNeutral": "A picture of the household",
+  "coverLabelStrays": "A picture for the strays",
   "coverRemove": "Remove cover picture",
   "skipTour": "Skip the intro and the tips on this install",
   "spotCatChores": "Recurring care lives here: feeding, meds, checks, each with its own reminder.",
   "spotLooks": "Tick what you see. Matches with other catalogs come from these.",
-  "spotHistoryHold": "Hold a value to correct or remove it. Nothing is lost; hidden values show on request.",
+  "spotHistoryHold": "Tap a value to correct it, the bin removes it. Nothing is lost; hidden values show on request.",
   "spotBackups": "Where your catalogs are kept safe: what the phone backs up, and a copy in a folder of your choice.",
   "spotCardPoster": "A missing poster from this cat's record: photo, name, phone in big letters, and a code other keepers scan.",
   "spotCardPosterNeutral": "A missing poster from this pet's record: photo, name, phone in big letters, and a code other keepers scan.",
   "spotTimelineReport": "A report for the vet: the entries you pick as a timeline, a patient summary, and a graph for every number field, weight for one.",
-  "helpHistory": "One field's values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.",
-  "helpSettings": "The app's own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.",
+  "helpHistory": "One field's values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. The bin removes a value, the arrow brings a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.",
+  "helpSettings": "The app's own choices: language, units, celebrations and sounds, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.",
   "helpLooks": "What the cat looks like, as chips: size, colours, pattern, fur, tail, ears, marks and lasting features. Tick what you see; a stray that agrees with a missing cat in two traits becomes a match candidate.",
   "graphSmoothed": "Smoothed",
   "graphTrend": "Trend",
@@ -2024,18 +1916,6 @@
     }
   },
   "syncAnotherDevice": "another device",
-  "syncMerged": "{count, plural, one{{count} change from {authors} merged} other{{count} changes from {authors} merged}}",
-  "@syncMerged": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "authors": {
-        "type": "String"
-      }
-    }
-  },
-  "syncShow": "Show",
   "achievementDone": "{times, plural, one{Done once} other{Done {times} times}}, first on {date}",
   "@achievementDone": {
     "placeholders": {
@@ -2047,8 +1927,6 @@
       }
     }
   },
-  "syncRunning": "Syncing with the folder…",
-  "syncDismiss": "Not now",
   "flierHidden": "{count, plural, one{{count} line put aside} other{{count} lines put aside}}",
   "@flierHidden": {
     "placeholders": {
@@ -2057,5 +1935,112 @@
       }
     }
   },
-  "undo": "Undo"
+  "undo": "Undo",
+  "noteSyncDone": "Synced with {authors}. Tap to see what arrived.",
+  "@noteSyncDone": {
+    "placeholders": {
+      "authors": {
+        "type": "String"
+      }
+    }
+  },
+  "noteSyncNothingNew": "Synced. Nothing new.",
+  "noteSyncFailed": "Sync failed. Tap for details.",
+  "failureReport": "Report",
+  "failureOpenPage": "Open {page}",
+  "@failureOpenPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "choreTicked": "{title} — done {count}×, {days}",
+  "@choreTicked": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "choreTickedShort": "{title} done {count}×",
+  "@choreTickedShort": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "moreChanges": "+{n} more",
+  "@moreChanges": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "noteFolderUnreachable": "The shared folder has been out of reach since {since}. Tap for details.",
+  "@noteFolderUnreachable": {
+    "placeholders": {
+      "since": {
+        "type": "String"
+      }
+    }
+  },
+  "noteFolderLagging": "{names} still needs the new version to see your changes.",
+  "@noteFolderLagging": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "folderSynced": "Folder synced: {result}",
+  "@folderSynced": {
+    "placeholders": {
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "bundleImported": "Bundle imported: {result}",
+  "@bundleImported": {
+    "placeholders": {
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "sightingRecorded": "Sighting recorded at your position.",
+  "deletedDone": "Deleted.",
+  "spotReplayDone": "The highlights will show again",
+  "syncRunning": "Syncing with the folder…",
+  "copied": "Copied",
+  "sharedFolder": "Shared folder",
+  "pinLabel": "PIN: {pin}",
+  "@pinLabel": {
+    "placeholders": {
+      "pin": {
+        "type": "String"
+      }
+    }
+  },
+  "syncDismiss": "Not now",
+  "changesCount": "{n, plural, one{1 change} other{{n} changes}}",
+  "@changesCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  }
 }

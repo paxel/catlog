@@ -82,7 +82,7 @@ void main() {
     await folderSyncIn(a, folder);
     expect(a.cats().length, 2);
     // The layout on the provider is the known one.
-    expect(memory.dirs['']!.keys, contains('${a.deviceId}.jsonl'));
+    expect(memory.dirs['']!.keys, contains(manifestName(a.deviceId)));
     expect(memory.dirs['keys']!.keys, contains('${b.deviceId}.json'));
     // Every call carried the tree and a directory.
     expect(

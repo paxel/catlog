@@ -64,9 +64,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get pickerCardFields => 'Sur la carte';
 
   @override
-  String get exportCsv => 'Exporter en CSV';
-
-  @override
   String get aboutAndFeedback => 'À propos & retours';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get save => 'Enregistrer';
 
   @override
+  String get clearField => 'Effacer';
+
+  @override
   String get delete => 'Supprimer';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get open => 'Ouvrir';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV enregistré dans $path';
-  }
 
   @override
   String get renameClowder => 'Renommer le clowder';
@@ -180,9 +175,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sortNewestFirst => 'Le plus récent d’abord';
 
   @override
-  String get shareAsText => 'Partager en texte';
-
-  @override
   String get shareAsPdf => 'Partager en PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'L\'animal disparaît de toutes les listes et ses photos sont supprimées — ici et, après la prochaine synchronisation, sur les autres appareils aussi.';
 
   @override
-  String get sightingRecorded => 'Observation enregistrée à ta position.';
-
-  @override
-  String get noLocationAvailable =>
-      'Pas de position disponible — appuie longuement sur la carte à la place.';
-
-  @override
   String get locationDeniedForever =>
       'L\'accès à la position est bloqué. Autorisez-le dans les réglages du système pour utiliser Stray Cam.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get captureFlier => 'Photographier l\'affiche';
+
+  @override
+  String get flierFromCamera => 'Affiche par l\'appareil photo';
+
+  @override
+  String get flierFromGallery => 'Affiche depuis la galerie';
 
   @override
   String get addPhotosTo => 'Ajouter les photos à…';
@@ -355,13 +346,34 @@ class AppLocalizationsFr extends AppLocalizations {
   String get pickFramesTitle => 'Choisir des images';
 
   @override
-  String get suggestedFrames => 'Images suggérées';
-
-  @override
-  String get scrubFrames => 'Parcourir la vidéo';
-
-  @override
   String get keepThisFrame => 'Garder cette image';
+
+  @override
+  String get frameBack => 'Une image en arrière';
+
+  @override
+  String get frameForward => 'Une image en avant';
+
+  @override
+  String get secondBack => 'Une seconde en arrière';
+
+  @override
+  String get secondForward => 'Une seconde en avant';
+
+  @override
+  String get tenSecondsBack => 'Dix secondes en arrière';
+
+  @override
+  String get tenSecondsForward => 'Dix secondes en avant';
+
+  @override
+  String get play => 'Lecture';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get keptFrames => 'Les images gardées apparaissent ici';
 
   @override
   String get fromVideo => 'Depuis une vidéo…';
@@ -448,9 +460,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Disparu depuis';
-
-  @override
-  String get phoneLabel => 'Téléphone';
 
   @override
   String get cropPortrait => 'Recadrer le portrait';
@@ -568,16 +577,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field vidé';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field revenu à « $value »';
-  }
-
-  @override
   String get leftStray => 'Parti — errant';
 
   @override
@@ -621,9 +620,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get value => 'Valeur';
-
-  @override
-  String get latitudeLongitude => 'latitude, longitude';
 
   @override
   String get newField => 'Nouveau champ';
@@ -693,11 +689,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get stopHosting => 'Arrêter d\'héberger';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN : $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count session(s) jusqu\'ici';
   }
@@ -706,35 +697,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get join => 'Rejoindre';
 
   @override
-  String get addressFromHost => 'Adresse (de l\'appareil hôte)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Synchroniser maintenant';
 
   @override
-  String get addressFormatHint =>
-      'L\'adresse doit ressembler à 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Synchronisé : $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Échec de la synchronisation : $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Dernière synchro avec $peer : $time';
-  }
-
-  @override
-  String get sharedFolder => 'Dossier partagé';
 
   @override
   String get sharedFolderExplainer =>
@@ -763,11 +734,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'N’importe quel dossier que deux appareils gardent identique convient : un disque cloud, ou Syncthing pour un dossier qui reste sur vos téléphones. Syncthing est gratuit : installe-le sur chaque téléphone, partage un dossier entre eux et choisis ce dossier ici sur chaque appareil.';
 
   @override
-  String folderSynced(String result) {
-    return 'Dossier synchronisé : $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Échec de la synchro du dossier : $error';
   }
@@ -789,15 +755,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Trajet : $name ($count positions)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Conflit — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Modifié à deux endroits en même temps. Choisis ce qui est vrai :';
 
   @override
   String privateMarker(Object field) {
@@ -1220,7 +1177,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Chaque modification, la plus récente en premier : qui a changé quoi, quand, et pour quelle valeur. Touchez une entrée pour la corriger, maintenez-la pour la supprimer ou la rétablir ; une entrée masquée reste dans le journal et s\'affiche sur demande.';
+      'Chaque modification jamais faite, la plus récente en premier : qui a changé quoi, quand, et pour quelle valeur. Touchez une entrée pour la corriger, la corbeille la retire, la flèche ramène une entrée masquée ; une entrée masquée reste dans le journal et s\'affiche sur demande.';
 
   @override
   String get helpDuplicates =>
@@ -1411,17 +1368,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get copyCode => 'Copier le code';
 
   @override
-  String get copied => 'Copié';
-
-  @override
   String get invalidCode => 'Ce code n\'est pas valide';
-
-  @override
-  String get hotspotHint =>
-      'Pas de Wi-Fi commun ? Active le partage de connexion d\'un téléphone, connecte l\'autre, puis héberge ici.';
-
-  @override
-  String get byMessenger => 'Par messagerie';
 
   @override
   String get byMessengerExplainer =>
@@ -1432,11 +1379,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get importBundle => 'Importer un paquet de synchro…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paquet importé : $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1871,9 +1813,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get valueFerret => 'Furet';
 
   @override
-  String get otherOption => 'Autre…';
-
-  @override
   String get celebrationsToggle => 'Fêter les adoptions';
 
   @override
@@ -1881,11 +1820,41 @@ class AppLocalizationsFr extends AppLocalizations {
       'Confettis et acclamations quand un chat rejoint son foyer';
 
   @override
-  String get cheerToggle => 'Son d’acclamation';
+  String get soundsSection => 'Sons';
 
   @override
-  String get cheerSubtitle =>
-      'Une courte acclamation avec les confettis, différente à chaque fois';
+  String get reminderSound => 'Son de chat pour les rappels';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Le rappel d\'une tâche dit Mrrr au lieu du son du téléphone.';
+
+  @override
+  String get soundPurr => 'Ronronnement';
+
+  @override
+  String get soundChorus => 'Chœur de miaulements';
+
+  @override
+  String get soundParty => 'Miaulement de fête';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Son personnel…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1924,11 +1893,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Tout supprimer de cet auteur';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Supprime chaque entrée et photo de $name de cet appareil. Les autres appareils gardent les leurs. Irréversible.';
-  }
 
   @override
   String get yourKey => 'Ta clé';
@@ -1988,11 +1952,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Tapez $name pour confirmer';
-  }
-
-  @override
   String get alsoBan => 'Bloquer aussi — ne plus jamais accepter ses données';
 
   @override
@@ -2000,9 +1959,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get unbanAction => 'Retirer le blocage';
-
-  @override
-  String get deletedDone => 'Supprimé.';
 
   @override
   String get syncSummaryTitle => 'Ce qui est arrivé';
@@ -2045,23 +2001,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get keepMine => 'Garder le mien';
 
   @override
-  String keptMine(String name) {
-    return 'Ta version de $name est conservée sur cet appareil.';
-  }
-
-  @override
   String get summaryMeta => 'Également arrivé';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n changements',
-      one: '1 changement',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Accepter';
@@ -2208,11 +2148,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Connectez-vous d\'abord à un Wi-Fi — les appareils pourront se trouver';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) veut synchroniser';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Vos catalogues seront échangés dans les deux sens.';
 
@@ -2220,19 +2155,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get allowOnce => 'Autoriser';
 
   @override
-  String get allowAlways => 'Toujours autoriser cet appareil';
-
-  @override
-  String get declineAction => 'Refuser';
-
-  @override
   String get syncDeclined => 'L\'autre appareil a refusé la synchronisation';
-
-  @override
-  String get trustedDevicesSection => 'Appareils toujours autorisés';
-
-  @override
-  String get removeTrust => 'Retirer';
 
   @override
   String get hostWithoutWifi => 'Héberger sans Wi-Fi';
@@ -2305,7 +2228,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Dans ce menu : réglages, trouver et fusionner les doublons, exporter en CSV, et plus.';
+      'Dans ce menu : réglages, trouver et fusionner les doublons, et plus.';
 
   @override
   String get spotCatEdit =>
@@ -2381,9 +2304,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Réafficher les astuces sur chaque page';
-
-  @override
-  String get spotReplayDone => 'Les astuces s\'afficheront à nouveau';
 
   @override
   String get searchNoResults => 'Aucun chat trouvé avec ce nom';
@@ -2514,17 +2434,15 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Tape $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Rien n’a été supprimé : le fichier du catalogue n’a pas pu être écrit ($error). Libère de la place ou réessaie plus tard.';
   }
 
   @override
   String get moveToCatalog => 'Déplacer vers un autre catalogue';
+
+  @override
+  String get moveInFromCatalog => 'Déplacer depuis un autre catalogue…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2627,9 +2545,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get agenda => 'Agenda';
 
   @override
-  String get reminderLabel => 'Rappel';
-
-  @override
   String get agendaEmpty =>
       'Aucun rendez-vous prévu. Prévois-en ici avec le plus, ou sur la page d\'un chat ou d\'un clowder.';
 
@@ -2666,6 +2581,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get markDone => 'Fait';
 
   @override
+  String get takeOffList => 'Retirer de la liste';
+
+  @override
   String get repeatTitle => 'À nouveau dans…';
 
   @override
@@ -2673,6 +2591,51 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get unitDays => 'jours';
+
+  @override
+  String get yesterday => 'Hier';
+
+  @override
+  String get weekdayMon => 'lun';
+
+  @override
+  String get weekdayTue => 'mar';
+
+  @override
+  String get weekdayWed => 'mer';
+
+  @override
+  String get weekdayThu => 'jeu';
+
+  @override
+  String get weekdayFri => 'ven';
+
+  @override
+  String get weekdaySat => 'sam';
+
+  @override
+  String get weekdaySun => 'dim';
+
+  @override
+  String get weekdayFullMon => 'lundi';
+
+  @override
+  String get weekdayFullTue => 'mardi';
+
+  @override
+  String get weekdayFullWed => 'mercredi';
+
+  @override
+  String get weekdayFullThu => 'jeudi';
+
+  @override
+  String get weekdayFullFri => 'vendredi';
+
+  @override
+  String get weekdayFullSat => 'samedi';
+
+  @override
+  String get weekdayFullSun => 'dimanche';
 
   @override
   String get unitWeeks => 'semaines';
@@ -2709,10 +2672,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Fichier calendrier enregistré sous $path';
   }
-
-  @override
-  String get calendarMirrorLabel =>
-      'Refléter dans le calendrier de l\'appareil';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2797,11 +2756,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'L\'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs chats est un seul rendez-vous : cochez les chats concernés, l\'Agenda affiche une carte avec leurs noms, et à la fin on demande quels chats ont été traités — décochez les autres, ils restent planifiés. Les tâches sont les corvées récurrentes, comme nourrir, la litière ou les médicaments. Elles figurent sous Aujourd’hui avec une coche, une série et les sept derniers jours en points ; À venir montre la semaine suivante sans les quotidiennes. Une tâche peut rappeler par notification à l’heure choisie. Le trophée ouvre les succès.';
+      'L\'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et la carte reste cochée jusqu\'à la fin de la journée ; touche-la pour prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ; la corbeille supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs chats est un seul rendez-vous : cochez les chats concernés, l\'Agenda affiche une carte avec leurs noms, et à la fin on demande quels chats ont été traités — décochez les autres, ils restent planifiés. Les tâches sont les corvées récurrentes, comme nourrir, la litière ou les médicaments. Elles figurent sous Aujourd’hui avec une coche, une série et les sept derniers jours en points ; À venir montre la semaine suivante sans les quotidiennes. Une tâche peut rappeler par notification à l’heure choisie. Le trophée ouvre les succès.';
 
   @override
   String get helpAgendaNeutral =>
-      'L\'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre l\'animal ou le foyer. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs animaux est un seul rendez-vous : cochez les animaux concernés, l\'Agenda affiche une carte avec leurs noms, et à la fin on demande quels animaux ont été traités — décochez les autres, ils restent planifiés. Les tâches sont les corvées récurrentes, comme nourrir, la litière ou les médicaments. Elles figurent sous Aujourd’hui avec une coche, une série et les sept derniers jours en points ; À venir montre la semaine suivante sans les quotidiennes. Une tâche peut rappeler par notification à l’heure choisie. Le trophée ouvre les succès.';
+      'L\'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre l\'animal ou le foyer. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et la carte reste cochée jusqu\'à la fin de la journée ; touche-la pour prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ; la corbeille supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs animaux est un seul rendez-vous : cochez les animaux concernés, l\'Agenda affiche une carte avec leurs noms, et à la fin on demande quels animaux ont été traités — décochez les autres, ils restent planifiés. Les tâches sont les corvées récurrentes, comme nourrir, la litière ou les médicaments. Elles figurent sous Aujourd’hui avec une coche, une série et les sept derniers jours en points ; À venir montre la semaine suivante sans les quotidiennes. Une tâche peut rappeler par notification à l’heure choisie. Le trophée ouvre les succès.';
 
   @override
   String get calendarRowOff => 'Calendrier : désactivé';
@@ -2834,22 +2793,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get appointmentLabel => 'Rendez-vous';
 
   @override
+  String get reminderLabel => 'Rappel';
+
+  @override
   String get addAppointment => 'Ajouter un rendez-vous';
-
-  @override
-  String get planChooserTitle => 'Rendez-vous ou rappel ?';
-
-  @override
-  String get planChooserAppointment =>
-      'Rendez-vous — une visite à une date et une heure, avec des notes';
-
-  @override
-  String get planChooserReminder =>
-      'Rappel — une valeur qui arrive à échéance un jour';
-
-  @override
-  String get planChooserChore =>
-      'Tâche — quelque chose qui revient : nourrir, gouttes, litière';
 
   @override
   String get newChore => 'Nouvelle tâche';
@@ -3108,14 +3055,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get achievementCentury => 'Un siècle complet';
 
   @override
-  String get achievementCenturyHint => 'Nous serons tous les deux très fiers.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Maître $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3125,14 +3064,6 @@ class AppLocalizationsFr extends AppLocalizations {
     );
     return '$_temp0, la première le $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Prochain palier à $n';
-  }
-
-  @override
-  String get achievementLocked => 'Pas encore';
 
   @override
   String achievementUnlocked(String name) {
@@ -3454,16 +3385,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Merci de vérifier caves, abris et garages. Ne pas poursuivre, appelez simplement.';
 
   @override
-  String get posterLastSeen => 'Vu pour la dernière fois près de';
-
-  @override
   String get posterFreeText => 'Ligne supplémentaire';
 
   @override
   String get posterQr => 'Code QR pour cat(a)log';
-
-  @override
-  String get posterPhoto => 'Photo';
 
   @override
   String get newCatIn => 'Nouveau chat dans…';
@@ -3472,10 +3397,26 @@ class AppLocalizationsFr extends AppLocalizations {
   String get newCatInNeutral => 'Nouvel animal dans…';
 
   @override
+  String get newCatHere => 'Nouveau chat ici';
+
+  @override
+  String get newCatHereNeutral => 'Nouvel animal ici';
+
+  @override
   String get choreLabel => 'Tâche';
 
   @override
   String get choreTickLabel => 'Tâche faite';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title fait';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'pour le $day';
+  }
 
   @override
   String get choreEnded => 'Terminée';
@@ -3509,8 +3450,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get coverPick => 'Image de couverture…';
 
   @override
-  String get coverHint =>
-      'Une image du lieu : la maison, la cour, le point de nourrissage. Affichée sur la carte à la place d\'un chat.';
+  String get coverLabel => 'Une image du clowder';
+
+  @override
+  String get coverLabelNeutral => 'Une image du foyer';
+
+  @override
+  String get coverLabelStrays => 'Une image pour les chats errants';
 
   @override
   String get coverRemove => 'Retirer l\'image de couverture';
@@ -3529,7 +3475,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Maintenez une valeur pour la corriger ou la retirer. Rien n\'est perdu ; les valeurs masquées s\'affichent sur demande.';
+      'Touchez une valeur pour la corriger, la corbeille la retire. Rien n\'est perdu ; les valeurs masquées s\'affichent sur demande.';
 
   @override
   String get spotBackups =>
@@ -3549,7 +3495,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Les valeurs d\'un champ dans le temps, les plus récentes d\'abord. Touchez une valeur pour la corriger : la nouvelle prend sa place, l\'ancienne se masque. Maintenez une valeur pour la retirer ou rétablir une valeur masquée ; l\'œil affiche les valeurs masquées. Copiez la liste en texte ou partagez-la en PDF.';
+      'Les valeurs d\'un champ au fil du temps, la plus récente en premier. Touchez une valeur pour la corriger : la nouvelle prend sa place, l\'ancienne est masquée. La corbeille retire une valeur, la flèche ramène une valeur masquée ; l\'œil affiche les valeurs masquées. Copiez la liste en texte ou partagez-la en PDF.';
 
   @override
   String get helpSettings =>
@@ -3643,20 +3589,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get syncAnotherDevice => 'un autre appareil';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count changements de $authors fusionnés',
-      one: '$count changement de $authors fusionné',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Afficher';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3666,12 +3598,6 @@ class AppLocalizationsFr extends AppLocalizations {
     );
     return '$_temp0, la première le $date';
   }
-
-  @override
-  String get syncRunning => 'Synchronisation avec le dossier…';
-
-  @override
-  String get syncDismiss => 'Pas maintenant';
 
   @override
   String flierHidden(int count) {
@@ -3686,4 +3612,96 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get undo => 'Annuler';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Synchronisé avec $authors. Touchez pour voir ce qui est arrivé.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Synchronisé. Rien de nouveau.';
+
+  @override
+  String get noteSyncFailed =>
+      'Échec de la synchronisation. Touchez pour les détails.';
+
+  @override
+  String get failureReport => 'Signaler';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Ouvrir $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — fait $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title fait $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n de plus';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Le dossier partagé est hors de portée depuis $since. Touchez pour les détails.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names a encore besoin de la nouvelle version pour voir vos modifications.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Dossier synchronisé : $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paquet importé : $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Observation enregistrée à ta position.';
+
+  @override
+  String get deletedDone => 'Supprimé.';
+
+  @override
+  String get spotReplayDone => 'Les astuces s\'afficheront à nouveau';
+
+  @override
+  String get syncRunning => 'Synchronisation avec le dossier…';
+
+  @override
+  String get copied => 'Copié';
+
+  @override
+  String get sharedFolder => 'Dossier partagé';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN : $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Pas maintenant';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n changements',
+      one: '1 changement',
+    );
+    return '$_temp0';
+  }
 }

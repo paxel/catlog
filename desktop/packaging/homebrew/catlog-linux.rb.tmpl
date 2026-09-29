@@ -1,0 +1,82 @@
+class Catlog < Formula
+  desc "Local-first catalog for foster cats - no server, no account"
+  homepage "https://github.com/paxel/catlog"
+  version "{{VERSION}}"
+  license any_of: ["Apache-2.0", "MIT"]
+
+  depends_on :linux
+
+  on_arm do
+    url "https://github.com/paxel/catlog/releases/download/v#{version}/catlog-#{version}-linux-arm64.tar.gz"
+    sha256 "{{SHA_LINUX_ARM64}}"
+  end
+  on_intel do
+    url "https://github.com/paxel/catlog/releases/download/v#{version}/catlog-#{version}-linux-x86_64.tar.gz"
+    sha256 "{{SHA_LINUX_X86_64}}"
+  end
+
+  def install
+    libexec.install Dir["*"]
+    bin.write_exec_script libexec/"catlog"
+
+    # An absolute Exec: a desktop session does not read Homebrew's shell environment,
+    # so its bin directory is not on the session's PATH. The icon stays a theme name,
+    # "catlog": the install step below puts the PNG into ~/.local/share/icons, where
+    # every desktop looks, and the desk itself keeps it there on every start.
+    inreplace libexec/"io.github.paxel.catlog.desktop" do |entry|
+      entry.gsub! "Exec=catlog", "Exec=#{opt_bin}/catlog"
+    end
+
+    # The helper and everything it copies live together, so it finds the icons next to
+    # itself. A wrapper rather than a symlink, for the same reason.
+    (libexec/"install-icon.sh").chmod 0755
+    (bin/"catlog-install-icon").write <<~SH
+      #!/bin/sh
+      exec "#{opt_libexec}/install-icon.sh" "$@"
+    SH
+    (bin/"catlog-install-icon").chmod 0755
+
+    # Also in Homebrew's own share, for the sessions that do read it.
+    (share/"applications").mkpath
+    cp libexec/"io.github.paxel.catlog.desktop", share/"applications/io.github.paxel.catlog.desktop"
+    (share/"mime/packages").mkpath
+    cp libexec/"catlog-mime.xml", share/"mime/packages/catlog-mime.xml"
+    (share/"icons/hicolor/256x256/apps").mkpath
+    cp libexec/"icon_256.png", share/"icons/hicolor/256x256/apps/catlog.png"
+  end
+
+  # Homebrew's own share directory is not on a desktop session's XDG_DATA_DIRS, so the
+  # entry above alone stays invisible to menus: the app could not be started at all.
+  # Homebrew on Linux runs this step outside a sandbox, so the launcher entry, the icons
+  # and the file type go into ~/.local/share here, which every session reads. Homebrew
+  # scrubs the environment first, so a custom XDG_DATA_HOME is not seen here; the
+  # caveat names the helper for that case. A home that cannot be written (a container,
+  # a bottle build) must not fail the install over a menu entry.
+  def post_install
+    system libexec/"install-icon.sh"
+  rescue ErrorDuringExecution
+    opoo "The launcher entry could not be installed; run catlog-install-icon yourself."
+  end
+
+  def caveats
+    <<~EOS
+      Needs the usual desktop libraries from your distribution: X11 or
+      Wayland with libxkbcommon, and ALSA for the cheers
+      (e.g. Debian/Ubuntu: sudo apt install libxkbcommon0 libasound2t64).
+
+      The install puts cat(a)log into your application menu, where it can also be
+      pinned, and registers .catsync files, under ~/.local/share. If it is missing
+      there, for another user on this machine, or with a custom XDG_DATA_HOME, run:
+
+        catlog-install-icon
+
+      Before brew uninstall, to take the menu entry out again:
+
+        catlog-install-icon --uninstall
+    EOS
+  end
+
+  test do
+    assert_predicate libexec/"catlog", :exist?
+  end
+end

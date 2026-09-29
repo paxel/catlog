@@ -64,9 +64,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get pickerCardFields => 'Fuq il-karta';
 
   @override
-  String get exportCsv => 'Esporta CSV';
-
-  @override
   String get aboutAndFeedback => 'Dwar & feedback';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get save => 'Issejvja';
 
   @override
+  String get clearField => 'Naddaf';
+
+  @override
   String get delete => 'Ħassar';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get open => 'Iftaħ';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV salvat f\'$path';
-  }
 
   @override
   String get renameClowder => 'Ibdel isem il-clowder';
@@ -180,9 +175,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get sortNewestFirst => 'L-aktar ġdid l-ewwel';
 
   @override
-  String get shareAsText => 'Aqsam bħala test';
-
-  @override
   String get shareAsPdf => 'Aqsam bħala PDF';
 
   @override
@@ -254,14 +246,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-annimal domestiku jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sync li jmiss, fuq l-apparati l-oħra wkoll.';
 
   @override
-  String get sightingRecorded =>
-      'Id-dehra ġiet irreġistrata fil-pożizzjoni tiegħek.';
-
-  @override
-  String get noLocationAvailable =>
-      'M\'hemmx lok disponibbli — minflok agħfas fit-tul fuq il-mappa.';
-
-  @override
   String get locationDeniedForever =>
       'L-aċċess għall-post huwa mblukkat. Ħallih fis-settings tas-sistema biex tuża Stray Cam.';
 
@@ -288,6 +272,12 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get captureFlier => 'Ħu ritratt tal-flier';
+
+  @override
+  String get flierFromCamera => 'Flier mill-kamera';
+
+  @override
+  String get flierFromGallery => 'Flier mill-gallerija';
 
   @override
   String get addPhotosTo => 'Żid ir-ritratti ma\'…';
@@ -356,13 +346,34 @@ class AppLocalizationsMt extends AppLocalizations {
   String get pickFramesTitle => 'Agħżel frejms';
 
   @override
-  String get suggestedFrames => 'Frejms issuġġeriti';
-
-  @override
-  String get scrubFrames => 'Skrolja l-video';
-
-  @override
   String get keepThisFrame => 'Żomm dan il-frejm';
+
+  @override
+  String get frameBack => 'Frejm wieħed lura';
+
+  @override
+  String get frameForward => 'Frejm wieħed \'il quddiem';
+
+  @override
+  String get secondBack => 'Sekonda lura';
+
+  @override
+  String get secondForward => 'Sekonda \'il quddiem';
+
+  @override
+  String get tenSecondsBack => 'Għaxar sekondi lura';
+
+  @override
+  String get tenSecondsForward => 'Għaxar sekondi \'il quddiem';
+
+  @override
+  String get play => 'Ilgħab';
+
+  @override
+  String get pause => 'Pawża';
+
+  @override
+  String get keptFrames => 'Il-frejms miżmuma jidhru hawn';
 
   @override
   String get fromVideo => 'Minn video…';
@@ -448,9 +459,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Mitluf minn';
-
-  @override
-  String get phoneLabel => 'Telefon';
 
   @override
   String get cropPortrait => 'Aqta\' r-ritratt';
@@ -567,16 +575,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tbattal';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field lura għal \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Telaq — tat-triq';
 
   @override
@@ -620,9 +618,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get value => 'Valur';
-
-  @override
-  String get latitudeLongitude => 'latitudni, lonġitudni';
 
   @override
   String get newField => 'Qasam ġdid';
@@ -692,11 +687,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get stopHosting => 'Ieqaf ospita';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Sessjonijiet s\'issa: $count';
   }
@@ -705,35 +695,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get join => 'Ingħaqad';
 
   @override
-  String get addressFromHost => 'Indirizz (mill-apparat li qed jospita)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Issinkronizza issa';
 
   @override
-  String get addressFormatHint =>
-      'L-indirizz irid jidher bħal 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Sinkronizzat: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Is-sinkronizzazzjoni falliet: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'L-aħħar sinkronizzazzjoni ma\' $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Folder kondiviż';
 
   @override
   String get sharedFolderExplainer =>
@@ -761,11 +731,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'Kull folder li żewġ apparati jżommu l-istess jgħodd: drive fil-cloud, jew Syncthing għal folder li jibqa’ fuq it-telefowns tagħkom. Syncthing hu b’xejn: installah fuq kull telefon, aqsam folder wieħed bejniethom u agħżel dak il-folder hawn fuq kull apparat.';
 
   @override
-  String folderSynced(String result) {
-    return 'Folder sinkronizzat: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Is-sinkronizzazzjoni tal-folder falliet: $error';
   }
@@ -787,15 +752,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Traċċa: $name ($count pożizzjonijiet)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Kunflitt — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Inbidel f\'żewġ postijiet fl-istess ħin. Agħżel x\'inhu veru:';
 
   @override
   String privateMarker(Object field) {
@@ -1217,7 +1173,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kull bidla, l-aktar riċenti l-ewwel: min, meta u għal liema valur. Mess entrata biex tikkoreġiha, żommha biex tneħħiha jew tirrestawraha; entrata moħbija tibqa\' fir-reġistru u tidher fuq talba.';
+      'Kull bidla li qatt saret, l-aktar riċenti l-ewwel: min biddel xiex, meta, u għal liema valur. Mess entrata biex tikkoreġiha, il-landa tneħħiha, il-vleġġa ġġib lura waħda moħbija; entrata moħbija tibqa\' fir-reġistru u tidher fuq talba.';
 
   @override
   String get helpDuplicates =>
@@ -1410,17 +1366,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get copyCode => 'Ikkopja l-kodiċi';
 
   @override
-  String get copied => 'Ikkupjat';
-
-  @override
   String get invalidCode => 'Dak il-kodiċi mhux validu';
-
-  @override
-  String get hotspotHint =>
-      'M\'hemmx Wi-Fi komuni? Ixgħel il-hotspot ta\' telefown wieħed, qabbad l-ieħor, imbagħad ospita hawn.';
-
-  @override
-  String get byMessenger => 'Bil-messenger';
 
   @override
   String get byMessengerExplainer =>
@@ -1431,11 +1377,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get importBundle => 'Importa l-pakkett tas-sink…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakkett importat: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1872,20 +1813,47 @@ class AppLocalizationsMt extends AppLocalizations {
   String get valueFerret => 'Nemes';
 
   @override
-  String get otherOption => 'Ieħor…';
-
-  @override
   String get celebrationsToggle => 'Iċċelebra l-adozzjonijiet';
 
   @override
   String get celebrationsSubtitle => 'Konfetti u ferħ meta qattus imur f\'daru';
 
   @override
-  String get cheerToggle => 'Ħoss ta’ ċapċip';
+  String get soundsSection => 'Ħsejjes';
 
   @override
-  String get cheerSubtitle =>
-      'Ċapċipa qasira mal-konfetti, kull darba differenti';
+  String get reminderSound => 'Ħoss ta\' qattus għat-tfakkiriet';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'It-tfakkira ta\' xogħol tgħid Mrrr minflok il-ħoss tat-telefown.';
+
+  @override
+  String get soundPurr => 'Tqarqir';
+
+  @override
+  String get soundChorus => 'Kor ta\' mjaw';
+
+  @override
+  String get soundParty => 'Mjaw tal-festa';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Ħoss tiegħek…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1923,11 +1891,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Ħassar kollox minn dan l-awtur';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Ineħħi kull entrata u ritratt ta\' $name minn dan l-apparat. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa\' lura.';
-  }
 
   @override
   String get yourKey => 'Iċ-ċavetta tiegħek';
@@ -1989,11 +1952,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Ikteb $name biex tikkonferma';
-  }
-
-  @override
   String get alsoBan => 'Ipprojbixxi wkoll — qatt iżjed data mingħandu';
 
   @override
@@ -2001,9 +1959,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get unbanAction => 'Neħħi l-projbizzjoni';
-
-  @override
-  String get deletedDone => 'Imħassar.';
 
   @override
   String get syncSummaryTitle => 'X\'wasal';
@@ -2046,23 +2001,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get keepMine => 'Żomm tiegħi';
 
   @override
-  String keptMine(String name) {
-    return 'Il-verżjoni tiegħek ta’ $name tibqa’ f’dan l-apparat.';
-  }
-
-  @override
   String get summaryMeta => 'Wasal ukoll';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n bidliet',
-      one: 'bidla waħda',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Aċċetta';
@@ -2207,11 +2146,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-ewwel aqbad ma\' Wi-Fi — imbagħad l-apparati jsibu lil xulxin';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) irid jissinkronizza';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Il-katalgi jiġu skambjati fiż-żewġ direzzjonijiet.';
 
@@ -2219,19 +2153,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get allowOnce => 'Ħalli';
 
   @override
-  String get allowAlways => 'Dejjem ħalli dan l-apparat';
-
-  @override
-  String get declineAction => 'Irrifjuta';
-
-  @override
   String get syncDeclined => 'L-apparat l-ieħor irrifjuta s-sinkronizzazzjoni';
-
-  @override
-  String get trustedDevicesSection => 'Apparati dejjem permessi';
-
-  @override
-  String get removeTrust => 'Neħħi';
 
   @override
   String get hostWithoutWifi => 'Ospita mingħajr Wi-Fi';
@@ -2304,7 +2226,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'F’din il-menu: settings, sib u għaqqad id-duplikati, esporta CSV, u iktar.';
+      'F’din il-menu: settings, sib u għaqqad id-duplikati, u iktar.';
 
   @override
   String get spotCatEdit =>
@@ -2380,9 +2302,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Erġa\' uri s-suġġerimenti f\'kull paġna';
-
-  @override
-  String get spotReplayDone => 'Is-suġġerimenti jerġgħu jidhru';
 
   @override
   String get searchNoResults => 'Ma nstab l-ebda qattus b\'dak l-isem';
@@ -2514,17 +2433,15 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Ikteb $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Ma tħassar xejn: il-fajl tal-katalgu ma setax jinkiteb ($error). Illibera spazju jew erġa’ pprova aktar tard.';
   }
 
   @override
   String get moveToCatalog => 'Mexxi għal katalgu ieħor';
+
+  @override
+  String get moveInFromCatalog => 'Ġib minn katalgu ieħor…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2627,9 +2544,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get agenda => 'Tfakkiriet';
 
   @override
-  String get reminderLabel => 'Tfakkira';
-
-  @override
   String get agendaEmpty =>
       'L-ebda appuntament ippjanat. Ippjana oħrajn hawn bil-plus, jew fuq il-paġna ta\' qattus jew clowder.';
 
@@ -2670,6 +2584,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get markDone => 'Sar';
 
   @override
+  String get takeOffList => 'Neħħi mil-lista';
+
+  @override
   String get repeatTitle => 'Mill-ġdid fi żmien…';
 
   @override
@@ -2677,6 +2594,51 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get unitDays => 'ijiem';
+
+  @override
+  String get yesterday => 'Ilbieraħ';
+
+  @override
+  String get weekdayMon => 'Tne';
+
+  @override
+  String get weekdayTue => 'Tli';
+
+  @override
+  String get weekdayWed => 'Erb';
+
+  @override
+  String get weekdayThu => 'Ħam';
+
+  @override
+  String get weekdayFri => 'Ġim';
+
+  @override
+  String get weekdaySat => 'Sib';
+
+  @override
+  String get weekdaySun => 'Ħad';
+
+  @override
+  String get weekdayFullMon => 'It-Tnejn';
+
+  @override
+  String get weekdayFullTue => 'It-Tlieta';
+
+  @override
+  String get weekdayFullWed => 'L-Erbgħa';
+
+  @override
+  String get weekdayFullThu => 'Il-Ħamis';
+
+  @override
+  String get weekdayFullFri => 'Il-Ġimgħa';
+
+  @override
+  String get weekdayFullSat => 'Is-Sibt';
+
+  @override
+  String get weekdayFullSun => 'Il-Ħadd';
 
   @override
   String get unitWeeks => 'ġimgħat';
@@ -2713,9 +2675,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Il-fajl tal-kalendarju ġie salvat f\'$path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Irrifletti fil-kalendarju tal-apparat';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2800,11 +2759,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi qtates hija appuntament wieħed: immarka l-qtates, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema qtates ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.';
+      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u l-karta tibqa\' mmarkata sal-aħħar tal-ġurnata; missha biex tippjana dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data; il-landa tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi qtates hija appuntament wieħed: immarka l-qtates, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema qtates ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.';
 
   @override
   String get helpAgendaNeutral =>
-      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ l-annimal domestiku jew id-dar. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi annimali domestiċi hija appuntament wieħed: immarka l-annimali, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema annimali ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.';
+      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ l-annimal domestiku jew id-dar. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u l-karta tibqa\' mmarkata sal-aħħar tal-ġurnata; missha biex tippjana dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data; il-landa tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b\'diversi annimali domestiċi hija appuntament wieħed: immarka l-annimali, l-Aġenda turi karta waħda b\'isimhom, u fit-tmiem tistaqsi liema annimali ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.';
 
   @override
   String get calendarRowOff => 'Kalendarju: mitfi';
@@ -2837,21 +2796,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get appointmentLabel => 'Appuntament';
 
   @override
+  String get reminderLabel => 'Tfakkira';
+
+  @override
   String get addAppointment => 'Żid appuntament';
-
-  @override
-  String get planChooserTitle => 'Appuntament jew tfakkira?';
-
-  @override
-  String get planChooserAppointment =>
-      'Appuntament — żjara f\'data u ħin, b\'noti';
-
-  @override
-  String get planChooserReminder => 'Tfakkira — valur li jsir dovut f\'ġurnata';
-
-  @override
-  String get planChooserChore =>
-      'Xogħol — xi ħaġa li terġa’ tiġi: ikel, qtar, ramel';
 
   @override
   String get newChore => 'Xogħol ġdid';
@@ -3111,14 +3059,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get achievementCentury => 'Seklu sħiħ';
 
   @override
-  String get achievementCenturyHint => 'It-tnejn se nkunu kburin ħafna.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Mastru ta’ $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3128,14 +3068,6 @@ class AppLocalizationsMt extends AppLocalizations {
     );
     return '$_temp0, l-ewwel darba $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Li jmiss f’$n';
-  }
-
-  @override
-  String get achievementLocked => 'Għadu mhux';
 
   @override
   String achievementUnlocked(String name) {
@@ -3458,16 +3390,10 @@ class AppLocalizationsMt extends AppLocalizations {
       'Jekk jogħġbok iċċekkja kantini, xkafef u garaxxijiet. Tiġrix warajh, ċempel biss.';
 
   @override
-  String get posterLastSeen => 'L-aħħar li deher qrib';
-
-  @override
   String get posterFreeText => 'Linja żejda';
 
   @override
   String get posterQr => 'Kodiċi QR għal cat(a)log';
-
-  @override
-  String get posterPhoto => 'Ritratt';
 
   @override
   String get newCatIn => 'Qattus ġdid fi…';
@@ -3476,10 +3402,26 @@ class AppLocalizationsMt extends AppLocalizations {
   String get newCatInNeutral => 'Pet ġdid fi…';
 
   @override
+  String get newCatHere => 'Qattus ġdid hawn';
+
+  @override
+  String get newCatHereNeutral => 'Annimal ġdid hawn';
+
+  @override
   String get choreLabel => 'Xogħol';
 
   @override
   String get choreTickLabel => 'Xogħol magħmul';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title magħmul';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'għal $day';
+  }
 
   @override
   String get choreEnded => 'Intemm';
@@ -3513,8 +3455,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get coverPick => 'Stampa tal-qoxra…';
 
   @override
-  String get coverHint =>
-      'Stampa tal-post: id-dar, il-bitħa, il-post tal-ikel. Fuq il-kard minflok qattus.';
+  String get coverLabel => 'Stampa tal-clowder';
+
+  @override
+  String get coverLabelNeutral => 'Stampa tad-dar';
+
+  @override
+  String get coverLabelStrays => 'Stampa għall-qtates tat-triq';
 
   @override
   String get coverRemove => 'Neħħi l-istampa tal-qoxra';
@@ -3533,7 +3480,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Żomm valur biex tikkoreġih jew tneħħih. Xejn ma jintilef; il-valuri moħbija jidhru fuq talba.';
+      'Mess valur biex tikkoreġih, il-landa tneħħih. Xejn ma jintilef; il-valuri moħbija jidhru fuq talba.';
 
   @override
   String get spotBackups =>
@@ -3553,7 +3500,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Il-valuri ta\' qasam wieħed maż-żmien, l-aktar riċenti l-ewwel. Mess valur biex tikkoreġih: il-ġdid jieħu postu, il-qadim jinħeba. Żomm valur biex tneħħih jew iġġib lura wieħed moħbi; l-għajn turi l-valuri moħbija. Ikkopja l-lista bħala test jew aqsamha bħala PDF.';
+      'Il-valuri ta\' qasam wieħed maż-żmien, l-aktar riċenti l-ewwel. Mess valur biex tikkoreġih: il-ġdid jieħu postu, il-qadim jinħeba. Il-landa tneħħi valur, il-vleġġa ġġib lura wieħed moħbi; l-għajn turi l-valuri moħbija. Ikkopja l-lista bħala test jew aqsamha bħala PDF.';
 
   @override
   String get helpSettings =>
@@ -3648,20 +3595,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get syncAnotherDevice => 'apparat ieħor';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count bidliet minn $authors magħquda',
-      one: '$count bidla minn $authors magħquda',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Uri';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3671,12 +3604,6 @@ class AppLocalizationsMt extends AppLocalizations {
     );
     return '$_temp0, l-ewwel darba fi $date';
   }
-
-  @override
-  String get syncRunning => 'Qed jissinkronizza mal-folder…';
-
-  @override
-  String get syncDismiss => 'Mhux issa';
 
   @override
   String flierHidden(int count) {
@@ -3691,4 +3618,97 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get undo => 'Ħassar';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sinkronizzat ma\' $authors. Mess biex tara x\'wasal.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sinkronizzat. Xejn ġdid.';
+
+  @override
+  String get noteSyncFailed =>
+      'Is-sinkronizzazzjoni falliet. Mess għad-dettalji.';
+
+  @override
+  String get failureReport => 'Irrapporta';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Iftaħ $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — magħmul $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title magħmul $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n oħra';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Il-folder kondiviż ilu ma jintlaħaqx mis-$since. Mess għad-dettalji.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names għad għandu bżonn il-verżjoni l-ġdida biex jara l-bidliet tiegħek.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Folder sinkronizzat: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakkett importat: $result';
+  }
+
+  @override
+  String get sightingRecorded =>
+      'Id-dehra ġiet irreġistrata fil-pożizzjoni tiegħek.';
+
+  @override
+  String get deletedDone => 'Imħassar.';
+
+  @override
+  String get spotReplayDone => 'Is-suġġerimenti jerġgħu jidhru';
+
+  @override
+  String get syncRunning => 'Qed jissinkronizza mal-folder…';
+
+  @override
+  String get copied => 'Ikkupjat';
+
+  @override
+  String get sharedFolder => 'Folder kondiviż';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Mhux issa';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n bidliet',
+      one: 'bidla waħda',
+    );
+    return '$_temp0';
+  }
 }

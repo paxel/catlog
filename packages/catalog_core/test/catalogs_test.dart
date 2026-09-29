@@ -58,6 +58,8 @@ void main() {
     final a = m.openStore(m.active)..author = 'me';
     a.setLocalSetting('locale', 'de');
     a.setLocalSetting('spot2:home', 'home-strays');
+    a.setLocalSetting('reminderCatSound', 'off');
+    a.setLocalSetting('sound:tick', 'none');
     a.setLocalSetting('mapViewport', '52.5,13.4,12');
     a.close();
 
@@ -66,9 +68,36 @@ void main() {
     expect(b.localSetting('locale'), 'de');
     expect(b.localSetting('spot2:home'), 'home-strays',
         reason: 'tips already seen must not run again');
+    expect(b.localSetting('reminderCatSound'), 'off',
+        reason: 'the reminders of every catalog speak with one voice');
+    expect(b.localSetting('sound:tick'), 'none',
+        reason: 'a moment sounds the same whichever catalog is open');
     expect(b.localSetting('mapViewport'), isNull,
         reason: 'Berlin is not Paris');
     b.close();
+  });
+
+  test('a setting that became app-wide is still read where it was set',
+      () {
+    final m = open();
+    addTearDown(m.close);
+    final berlin = m.active;
+    // Set before the release that made these keys app-wide: they sit in
+    // the catalog's own database, and nobody lifted them out.
+    final before = CatalogStore.open(berlin.dbPath);
+    before.setLocalSetting('reminderCatSound', 'off');
+    before.setLocalSetting('sound:tick', 'none');
+    before.close();
+
+    final store = m.openStore(berlin);
+    addTearDown(store.close);
+    expect(store.localSetting('reminderCatSound'), 'off');
+    expect(store.localSetting('sound:tick'), 'none');
+    // Set again, it moves to the shared place for every catalog.
+    store.setLocalSetting('sound:tick', 'purr');
+    final paris = m.openStore(m.create('Paris'));
+    addTearDown(paris.close);
+    expect(paris.localSetting('sound:tick'), 'purr');
   });
 
   test('names are unique', () {

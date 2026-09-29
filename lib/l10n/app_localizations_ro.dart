@@ -64,9 +64,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get pickerCardFields => 'Pe card';
 
   @override
-  String get exportCsv => 'Exportă CSV';
-
-  @override
   String get aboutAndFeedback => 'Despre & feedback';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get save => 'Salvează';
 
   @override
+  String get clearField => 'Golește';
+
+  @override
   String get delete => 'Șterge';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get open => 'Deschide';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV salvat în $path';
-  }
 
   @override
   String get renameClowder => 'Redenumește clowderul';
@@ -180,9 +175,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sortNewestFirst => 'Cel mai nou primul';
 
   @override
-  String get shareAsText => 'Trimite ca text';
-
-  @override
   String get shareAsPdf => 'Distribuie ca PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'Animalul dispare din toate listele, iar pozele lui sunt șterse — aici și, după următoarea sincronizare, și pe celelalte dispozitive.';
 
   @override
-  String get sightingRecorded => 'Observație înregistrată la poziția ta.';
-
-  @override
-  String get noLocationAvailable =>
-      'Locație indisponibilă — apasă lung pe hartă în schimb.';
-
-  @override
   String get locationDeniedForever =>
       'Accesul la locație este blocat. Permiteți-l în setările sistemului pentru a folosi Stray Cam.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get captureFlier => 'Fotografiază afișul';
+
+  @override
+  String get flierFromCamera => 'Afiș din cameră';
+
+  @override
+  String get flierFromGallery => 'Afiș din galerie';
 
   @override
   String get addPhotosTo => 'Adaugă fotografiile la…';
@@ -355,13 +346,34 @@ class AppLocalizationsRo extends AppLocalizations {
   String get pickFramesTitle => 'Alege cadre';
 
   @override
-  String get suggestedFrames => 'Cadre sugerate';
-
-  @override
-  String get scrubFrames => 'Derulează videoclipul';
-
-  @override
   String get keepThisFrame => 'Păstrează acest cadru';
+
+  @override
+  String get frameBack => 'Un cadru înapoi';
+
+  @override
+  String get frameForward => 'Un cadru înainte';
+
+  @override
+  String get secondBack => 'O secundă înapoi';
+
+  @override
+  String get secondForward => 'O secundă înainte';
+
+  @override
+  String get tenSecondsBack => 'Zece secunde înapoi';
+
+  @override
+  String get tenSecondsForward => 'Zece secunde înainte';
+
+  @override
+  String get play => 'Redă';
+
+  @override
+  String get pause => 'Pauză';
+
+  @override
+  String get keptFrames => 'Cadrele păstrate apar aici';
 
   @override
   String get fromVideo => 'Din video…';
@@ -447,9 +459,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Dispărut din';
-
-  @override
-  String get phoneLabel => 'Telefon';
 
   @override
   String get cropPortrait => 'Decupează portretul';
@@ -566,16 +575,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field golit';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field înapoi la \"$value\"';
-  }
-
-  @override
   String get leftStray => 'A plecat — fără stăpân';
 
   @override
@@ -619,9 +618,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get value => 'Valoare';
-
-  @override
-  String get latitudeLongitude => 'latitudine, longitudine';
 
   @override
   String get newField => 'Câmp nou';
@@ -691,11 +687,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get stopHosting => 'Oprește găzduirea';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Sesiuni până acum: $count';
   }
@@ -704,35 +695,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get join => 'Alătură-te';
 
   @override
-  String get addressFromHost => 'Adresa (de pe dispozitivul gazdă)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sincronizează acum';
 
   @override
-  String get addressFormatHint =>
-      'Adresa trebuie să arate ca 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Sincronizat: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sincronizare eșuată: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Ultima sincronizare cu $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Dosar partajat';
 
   @override
   String get sharedFolderExplainer =>
@@ -760,11 +731,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'Merge orice dosar pe care două dispozitive îl țin la fel: un drive în cloud, sau Syncthing pentru un dosar care rămâne pe telefoanele voastre. Syncthing e gratuit: instalează-l pe fiecare telefon, partajează un dosar între ele și alege acel dosar aici pe fiecare dispozitiv.';
 
   @override
-  String folderSynced(String result) {
-    return 'Dosar sincronizat: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Sincronizarea dosarului a eșuat: $error';
   }
@@ -786,15 +752,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Traseu: $name ($count poziții)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Conflict — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Modificat în două locuri deodată. Alege ce e adevărat:';
 
   @override
   String privateMarker(Object field) {
@@ -1217,7 +1174,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Fiecare modificare, cea mai nouă prima: cine, când și la ce valoare. Atinge o intrare pentru a o corecta, ține apăsat pentru a o elimina sau restabili; o intrare ascunsă rămâne în jurnal și apare la cerere.';
+      'Fiecare modificare făcută vreodată, cele mai noi primele: cine a schimbat ce, când și în ce valoare. Atinge o intrare pentru a o corecta, coșul o elimină, săgeata aduce înapoi una ascunsă; o intrare ascunsă rămâne în jurnal și apare la cerere.';
 
   @override
   String get helpDuplicates =>
@@ -1408,17 +1365,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get copyCode => 'Copiază codul';
 
   @override
-  String get copied => 'Copiat';
-
-  @override
   String get invalidCode => 'Codul nu este valid';
-
-  @override
-  String get hotspotHint =>
-      'Fără Wi-Fi comun? Pornește hotspotul unui telefon, conectează-l pe celălalt și găzduiește aici.';
-
-  @override
-  String get byMessenger => 'Prin messenger';
 
   @override
   String get byMessengerExplainer =>
@@ -1429,11 +1376,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get importBundle => 'Importă pachetul de sincronizare…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pachet importat: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1869,9 +1811,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get valueFerret => 'Dihor';
 
   @override
-  String get otherOption => 'Altele…';
-
-  @override
   String get celebrationsToggle => 'Sărbătorește adopțiile';
 
   @override
@@ -1879,11 +1818,41 @@ class AppLocalizationsRo extends AppLocalizations {
       'Confetti și urale când o pisică se mută în căminul ei';
 
   @override
-  String get cheerToggle => 'Sunet de urale';
+  String get soundsSection => 'Sunete';
 
   @override
-  String get cheerSubtitle =>
-      'Urale scurte la confetti, de fiecare dată altele';
+  String get reminderSound => 'Sunet de pisică la mementouri';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Mementoul unei treburi spune Mrrr în locul sunetului telefonului.';
+
+  @override
+  String get soundPurr => 'Tors';
+
+  @override
+  String get soundChorus => 'Cor de miaunături';
+
+  @override
+  String get soundParty => 'Miau de petrecere';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Sunet propriu…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1921,11 +1890,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Șterge tot de la acest autor';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Elimină fiecare intrare și fotografie de la $name de pe acest dispozitiv. Celelalte dispozitive le păstrează pe ale lor. Ireversibil.';
-  }
 
   @override
   String get yourKey => 'Cheia ta';
@@ -1986,11 +1950,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Tastează $name pentru confirmare';
-  }
-
-  @override
   String get alsoBan => 'Interzice și — nu mai accepta niciodată datele';
 
   @override
@@ -1998,9 +1957,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get unbanAction => 'Elimină interdicția';
-
-  @override
-  String get deletedDone => 'Șters.';
 
   @override
   String get syncSummaryTitle => 'Ce a sosit';
@@ -2043,24 +1999,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get keepMine => 'Păstrează al meu';
 
   @override
-  String keptMine(String name) {
-    return 'Versiunea ta pentru $name rămâne pe acest dispozitiv.';
-  }
-
-  @override
   String get summaryMeta => 'A mai sosit';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n de schimbări',
-      few: '$n schimbări',
-      one: '1 schimbare',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Acceptă';
@@ -2205,11 +2144,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'Conectează-te mai întâi la Wi-Fi — apoi dispozitivele se găsesc';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) vrea să sincronizeze';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Cataloagele vor fi schimbate în ambele direcții.';
 
@@ -2217,19 +2151,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get allowOnce => 'Permite';
 
   @override
-  String get allowAlways => 'Permite mereu acest dispozitiv';
-
-  @override
-  String get declineAction => 'Refuză';
-
-  @override
   String get syncDeclined => 'Celălalt dispozitiv a refuzat sincronizarea';
-
-  @override
-  String get trustedDevicesSection => 'Dispozitive permise mereu';
-
-  @override
-  String get removeTrust => 'Elimină';
 
   @override
   String get hostWithoutWifi => 'Găzduiește fără Wi-Fi';
@@ -2302,7 +2224,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'În acest meniu: setări, găsirea și unirea duplicatelor, export CSV și altele.';
+      'În acest meniu: setări, găsirea și unirea duplicatelor și altele.';
 
   @override
   String get spotCatEdit =>
@@ -2378,9 +2300,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Arată indiciile din nou pe fiecare pagină';
-
-  @override
-  String get spotReplayDone => 'Indiciile vor apărea din nou';
 
   @override
   String get searchNoResults => 'Nicio pisică găsită cu acest nume';
@@ -2513,17 +2432,15 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Scrie $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ($error). Eliberează spațiu sau încearcă mai târziu.';
   }
 
   @override
   String get moveToCatalog => 'Mută în alt catalog';
+
+  @override
+  String get moveInFromCatalog => 'Mută aici din alt catalog…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2626,9 +2543,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get agenda => 'Agendă';
 
   @override
-  String get reminderLabel => 'Memento';
-
-  @override
   String get agendaEmpty =>
       'Nicio programare planificată. Planifică altele aici cu plusul sau pe pagina unei pisici sau a unui clowder.';
 
@@ -2667,6 +2581,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get markDone => 'Gata';
 
   @override
+  String get takeOffList => 'Scoate de pe listă';
+
+  @override
   String get repeatTitle => 'Din nou peste…';
 
   @override
@@ -2674,6 +2591,51 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get unitDays => 'zile';
+
+  @override
+  String get yesterday => 'Ieri';
+
+  @override
+  String get weekdayMon => 'lun';
+
+  @override
+  String get weekdayTue => 'mar';
+
+  @override
+  String get weekdayWed => 'mie';
+
+  @override
+  String get weekdayThu => 'joi';
+
+  @override
+  String get weekdayFri => 'vin';
+
+  @override
+  String get weekdaySat => 'sâm';
+
+  @override
+  String get weekdaySun => 'dum';
+
+  @override
+  String get weekdayFullMon => 'luni';
+
+  @override
+  String get weekdayFullTue => 'marți';
+
+  @override
+  String get weekdayFullWed => 'miercuri';
+
+  @override
+  String get weekdayFullThu => 'joi';
+
+  @override
+  String get weekdayFullFri => 'vineri';
+
+  @override
+  String get weekdayFullSat => 'sâmbătă';
+
+  @override
+  String get weekdayFullSun => 'duminică';
 
   @override
   String get unitWeeks => 'săptămâni';
@@ -2710,9 +2672,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Fișierul de calendar a fost salvat în $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Oglindește în calendarul dispozitivului';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2797,11 +2756,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe pisici este o singură programare: bifează pisicile, Agenda arată un card cu numele lor, iar la încheiere întreabă ce pisici au fost tratate — debifează-le pe celelalte, rămân planificate. Treburile sunt sarcinile recurente, cum ar fi hrănirea, litiera sau medicamentele. Stau sub Azi cu o bifă, o serie și ultimele șapte zile ca puncte; În curând arată săptămâna următoare fără cele zilnice. O treabă îți poate aminti printr-o notificare la ora aleasă. Trofeul deschide realizările.';
+      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp, iar cardul rămâne bifat până la sfârșitul zilei; atinge-l pentru a planifica următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data; coșul șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe pisici este o singură programare: bifează pisicile, Agenda arată un card cu numele lor, iar la încheiere întreabă ce pisici au fost tratate — debifează-le pe celelalte, rămân planificate. Treburile sunt sarcinile recurente, cum ar fi hrănirea, litiera sau medicamentele. Stau sub Azi cu o bifă, o serie și ultimele șapte zile ca puncte; În curând arată săptămâna următoare fără cele zilnice. O treabă îți poate aminti printr-o notificare la ora aleasă. Trofeul deschide realizările.';
 
   @override
   String get helpAgendaNeutral =>
-      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide animalul sau gospodăria. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe animale este o singură programare: bifează animalele, Agenda arată un card cu numele lor, iar la încheiere întreabă ce animale au fost tratate — debifează-le pe celelalte, rămân planificate. Treburile sunt sarcinile recurente, cum ar fi hrănirea, litiera sau medicamentele. Stau sub Azi cu o bifă, o serie și ultimele șapte zile ca puncte; În curând arată săptămâna următoare fără cele zilnice. O treabă îți poate aminti printr-o notificare la ora aleasă. Trofeul deschide realizările.';
+      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide animalul sau gospodăria. Bifa confirmă o programare: valoarea se scrie în câmp, iar cardul rămâne bifat până la sfârșitul zilei; atinge-l pentru a planifica următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data; coșul șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe animale este o singură programare: bifează animalele, Agenda arată un card cu numele lor, iar la încheiere întreabă ce animale au fost tratate — debifează-le pe celelalte, rămân planificate. Treburile sunt sarcinile recurente, cum ar fi hrănirea, litiera sau medicamentele. Stau sub Azi cu o bifă, o serie și ultimele șapte zile ca puncte; În curând arată săptămâna următoare fără cele zilnice. O treabă îți poate aminti printr-o notificare la ora aleasă. Trofeul deschide realizările.';
 
   @override
   String get calendarRowOff => 'Calendar: oprit';
@@ -2834,22 +2793,10 @@ class AppLocalizationsRo extends AppLocalizations {
   String get appointmentLabel => 'Programare';
 
   @override
+  String get reminderLabel => 'Memento';
+
+  @override
   String get addAppointment => 'Adaugă programare';
-
-  @override
-  String get planChooserTitle => 'Programare sau memento?';
-
-  @override
-  String get planChooserAppointment =>
-      'Programare — o vizită la o dată și oră, cu note';
-
-  @override
-  String get planChooserReminder =>
-      'Memento — o valoare care devine scadentă într-o zi';
-
-  @override
-  String get planChooserChore =>
-      'Treabă — ceva ce revine: hrănire, picături, litieră';
 
   @override
   String get newChore => 'Treabă nouă';
@@ -3113,14 +3060,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get achievementCentury => 'Un secol întreg';
 
   @override
-  String get achievementCenturyHint => 'Vom fi amândoi foarte mândri.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Maestru $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3131,14 +3070,6 @@ class AppLocalizationsRo extends AppLocalizations {
     );
     return '$_temp0, prima dată pe $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Următorul la $n';
-  }
-
-  @override
-  String get achievementLocked => 'Încă nu';
 
   @override
   String achievementUnlocked(String name) {
@@ -3459,16 +3390,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Vă rugăm să verificați pivnițele, șoproanele și garajele. Nu alergați după el, doar sunați.';
 
   @override
-  String get posterLastSeen => 'Văzut ultima dată lângă';
-
-  @override
   String get posterFreeText => 'Rând suplimentar';
 
   @override
   String get posterQr => 'Cod QR pentru cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Pisică nouă în…';
@@ -3477,10 +3402,26 @@ class AppLocalizationsRo extends AppLocalizations {
   String get newCatInNeutral => 'Animal nou în…';
 
   @override
+  String get newCatHere => 'Pisică nouă aici';
+
+  @override
+  String get newCatHereNeutral => 'Animal nou aici';
+
+  @override
   String get choreLabel => 'Sarcină';
 
   @override
   String get choreTickLabel => 'Sarcină făcută';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title făcut';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'pentru $day';
+  }
 
   @override
   String get choreEnded => 'Încheiată';
@@ -3514,8 +3455,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get coverPick => 'Imagine de copertă…';
 
   @override
-  String get coverHint =>
-      'O imagine a locului: casa, curtea, locul de hrănire. Pe card în locul unei pisici.';
+  String get coverLabel => 'O imagine a clowderului';
+
+  @override
+  String get coverLabelNeutral => 'O imagine a gospodăriei';
+
+  @override
+  String get coverLabelStrays => 'O imagine pentru pisicile fără stăpân';
 
   @override
   String get coverRemove => 'Elimină imaginea de copertă';
@@ -3534,7 +3480,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Ține apăsat o valoare pentru a o corecta sau elimina. Nimic nu se pierde; valorile ascunse apar la cerere.';
+      'Atinge o valoare pentru a o corecta, coșul o elimină. Nimic nu se pierde; valorile ascunse apar la cerere.';
 
   @override
   String get spotBackups =>
@@ -3554,7 +3500,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Valorile unui câmp în timp, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Ține apăsat o valoare pentru a o elimina sau a readuce una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau partajeaz-o ca PDF.';
+      'Valorile unui câmp de-a lungul timpului, cele mai noi primele. Atinge o valoare pentru a o corecta: cea nouă îi ia locul, cea veche se ascunde. Coșul elimină o valoare, săgeata aduce înapoi una ascunsă; ochiul arată valorile ascunse. Copiază lista ca text sau distribuie-o ca PDF.';
 
   @override
   String get helpSettings =>
@@ -3648,21 +3594,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get syncAnotherDevice => 'alt dispozitiv';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count de modificări de la $authors îmbinate',
-      few: '$count modificări de la $authors îmbinate',
-      one: '$count modificare de la $authors îmbinată',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Arată';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3673,12 +3604,6 @@ class AppLocalizationsRo extends AppLocalizations {
     );
     return '$_temp0, prima dată pe $date';
   }
-
-  @override
-  String get syncRunning => 'Se sincronizează cu dosarul…';
-
-  @override
-  String get syncDismiss => 'Nu acum';
 
   @override
   String flierHidden(int count) {
@@ -3694,4 +3619,96 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get undo => 'Anulează';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sincronizat cu $authors. Atinge pentru a vedea ce a sosit.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sincronizat. Nimic nou.';
+
+  @override
+  String get noteSyncFailed => 'Sincronizarea a eșuat. Atinge pentru detalii.';
+
+  @override
+  String get failureReport => 'Raportează';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Deschide $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — făcut $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title făcut $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n în plus';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Dosarul partajat nu poate fi accesat de la $since. Atinge pentru detalii.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names are încă nevoie de noua versiune pentru a vedea modificările tale.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Dosar sincronizat: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pachet importat: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Observație înregistrată la poziția ta.';
+
+  @override
+  String get deletedDone => 'Șters.';
+
+  @override
+  String get spotReplayDone => 'Indiciile vor apărea din nou';
+
+  @override
+  String get syncRunning => 'Se sincronizează cu dosarul…';
+
+  @override
+  String get copied => 'Copiat';
+
+  @override
+  String get sharedFolder => 'Dosar partajat';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Nu acum';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n de schimbări',
+      few: '$n schimbări',
+      one: '1 schimbare',
+    );
+    return '$_temp0';
+  }
 }

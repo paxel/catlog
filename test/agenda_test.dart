@@ -57,27 +57,45 @@ void main() {
     expect(find.textContaining('No appointments planned'), findsOneWidget);
   });
 
-  testWidgets('done records the fact; declining repeat ends the plan',
+  testWidgets('done records the fact, asks nothing, and stays for the day',
       (tester) async {
     store.append(cat, Keys.userField('remarks'), 'worming',
         date: inDays(1), reminder: true);
     await pump(tester);
     await tester.tap(find.byTooltip('Done'));
     await tester.pumpAndSettle();
-    // The repeat dialog is open; decline it.
+    // No dialog; the plan is a fact, and the card stays, box checked.
+    expect(find.text('Again in…'), findsNothing);
+    expect(store.activeReminders(), isEmpty);
+    expect(store.current(cat, Keys.userField('remarks')), 'worming');
+    expect(find.byType(ReminderCard), findsOneWidget);
+    expect(tester.widget<Checkbox>(find.byType(Checkbox)).value, isTrue);
+    expect(find.text('Remove reminder'), findsNothing);
+
+    // A tap offers the next cycle; declining changes nothing.
+    await tester.tap(find.byType(ReminderCard));
+    await tester.pumpAndSettle();
+    expect(find.text('Again in…'), findsOneWidget);
     await tester.tap(find.text('No repeat'));
     await tester.pumpAndSettle();
     expect(store.activeReminders(), isEmpty);
-    expect(store.current(cat, Keys.userField('remarks')), 'worming');
+    expect(find.byType(ReminderCard), findsOneWidget);
+
+    // The bin takes it off the list now.
+    await tester.tap(find.byTooltip('Take off the list'));
+    await tester.pumpAndSettle();
+    expect(find.byType(ReminderCard), findsNothing);
     expect(find.textContaining('No appointments planned'), findsOneWidget);
+    expect(store.current(cat, Keys.userField('remarks')), 'worming');
   });
 
-  testWidgets('done with a repeat schedules the next cycle',
-      (tester) async {
+  testWidgets('the done card repeats the plan in a while', (tester) async {
     store.append(cat, Keys.userField('remarks'), 'worming',
         date: inDays(1), reminder: true);
     await pump(tester);
     await tester.tap(find.byTooltip('Done'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(ReminderCard));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
@@ -90,14 +108,26 @@ void main() {
     expect(store.current(cat, Keys.userField('remarks')), 'worming');
   });
 
+  testWidgets('unticking a done plan makes it live again', (tester) async {
+    store.append(cat, Keys.userField('remarks'), 'worming',
+        date: inDays(1), reminder: true);
+    await pump(tester);
+    await tester.tap(find.byTooltip('Done'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(Checkbox));
+    await tester.pumpAndSettle();
+    expect(store.activeReminders(), hasLength(1));
+    expect(store.current(cat, Keys.userField('remarks')), isNull);
+    expect(tester.widget<Checkbox>(find.byType(Checkbox)).value, isFalse);
+  });
+
   testWidgets('long-press menu removes a reminder without a fact',
       (tester) async {
     store.append(cat, Keys.userField('remarks'), 'planned visit',
         date: inDays(5), reminder: true);
     await pump(tester);
-    await tester.longPress(find.textContaining('planned visit'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Remove reminder'));
+    // The bin on the card removes it.
+    await tester.tap(find.byTooltip('Remove reminder'));
     await tester.pumpAndSettle();
     expect(store.activeReminders(), isEmpty);
     expect(store.current(cat, Keys.userField('remarks')), isNull);
@@ -165,10 +195,10 @@ void main() {
       home: CatDetailScreen(store: store, catId: cat),
     ));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Add reminder'));
+    // The plus fans the kinds out.
+    await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
-    // The plus asks which kind first (#75).
-    await tester.tap(find.textContaining('Reminder — a value'));
+    await tester.tap(find.text('Reminder').last);
     await tester.pumpAndSettle();
     expect(find.textContaining('The appointment shows in the Agenda'), findsOneWidget);
     await tester.tap(find.byType(DropdownButtonFormField<String>).last);

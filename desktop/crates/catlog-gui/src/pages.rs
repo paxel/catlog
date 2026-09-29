@@ -1,0 +1,768 @@
+//! The detail pane's pages in read mode: a Clowder with its Cats,
+//! chores, Appointments and Fields; a Cat with its photos, chores,
+//! Fields, family and timeline; the Strays. Every hold on the phone is
+//! a right-click here.
+
+use catlog_core::fields::{FieldDef, FieldScope, FieldType, IdDisplay};
+use catlog_core::units::UnitSystem;
+use catlog_core::{Catalog, EntityView, keys};
+use egui::{Ui, Vec2};
+
+use crate::agenda::{AppointmentAction, appointment_card};
+use crate::chores::{ChoreAction, chore_row};
+use crate::documents_page::DocKind;
+use crate::l10n::L10n;
+use crate::labels::{field_def_name, field_value_display, format_day, value_label};
+use crate::textures::FaceCache;
+
+/// Which part of a page is open. Remembered per device, so a habit is
+/// not punished by every page opening on Fields again.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PageTab {
+    Fields,
+    Photos,
+    Plans,
+    Family,
+    /// A Clowder's cats.
+    Cats,
+}
+
+const PAGE_TAB_KEY: &str = "pageTab";
+
+impl PageTab {
+    fn stored(self) -> &'static str {
+        match self {
+            PageTab::Fields => "fields",
+            PageTab::Photos => "photos",
+            PageTab::Plans => "plans",
+            PageTab::Family => "family",
+            PageTab::Cats => "cats",
+        }
+    }
+
+    fn of(store: &Catalog) -> PageTab {
+        match store.local_setting(PAGE_TAB_KEY).as_deref() {
+            Some("photos") => PageTab::Photos,
+            Some("plans") => PageTab::Plans,
+            Some("family") => PageTab::Family,
+            Some("cats") => PageTab::Cats,
+            _ => PageTab::Fields,
+        }
+    }
+}
+
+/// What the keeper did on a page this frame.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum PageAction {
+    None,
+    OpenCat(String),
+    OpenClowder(String),
+    ToggleHidden(String),
+    /// Edit this Field's value on this entity.
+    Edit(String, String),
+    /// Give this Cat or Clowder another name.
+    Rename(String),
+    /// Open this Field's history on this entity.
+    History(String, String),
+    /// Define a new Field for this scope.
+    NewField(FieldScope),
+    /// Move this Cat.
+    Move(String),
+    /// Record where this Cat was seen, picked on the map.
+    Sighting(String),
+    /// Show this entity on the map.
+    ShowOnMap(String),
+    /// Add photos from files to this Cat.
+    AddPhoto(String),
+    /// A picture chosen as a Clowder's cover, replacing the one before.
+    SetCover(String),
+    RemoveCover(String),
+    /// View this Cat's photo full size.
+    ViewPhoto(String, String),
+    /// Make this photo the Cat's Profile Image.
+    SetProfile(String, String),
+    /// Crop a new photo out of this one.
+    CropPhoto(String, String),
+    /// Ring the Cat in a copy of this photo.
+    MarkPhoto(String, String),
+    /// Delete this photo, after one confirmation.
+    DeletePhoto(String, String),
+    Chore(ChoreAction),
+    NewAppointment(String),
+    Appointment(AppointmentAction),
+    /// Merge this Cat or Clowder into another.
+    MergeInto(String),
+    /// Open a document page for this Cat.
+    Document(DocKind, String),
+    /// The Cat's printed Card as a picture on the clipboard.
+    CopyCard(String),
+    /// A new Cat, in this Clowder or as a Stray.
+    NewCat(Option<String>),
+}
+
+/// The pages' own state: the unit system values are read in.
+pub struct Pages {
+    pub units: UnitSystem,
+    /// The day the pages count from.
+    pub today: chrono::NaiveDate,
+}
+
+impl Default for Pages {
+    fn default() -> Self {
+        Pages {
+            units: UnitSystem::Metric,
+            today: chrono::Local::now().date_naive(),
+        }
+    }
+}
+
+impl Pages {
+    pub fn new(units: UnitSystem) -> Pages {
+        Pages {
+            units,
+            today: chrono::Local::now().date_naive(),
+        }
+    }
+
+    /// The name shown for an entity, or the word for an unnamed one.
+    fn name_of(store: &Catalog, t: &L10n, id: &str) -> String {
+        store
+            .current(id, keys::NAME)
+            .ok()
+            .flatten()
+            .unwrap_or_else(|| t.unnamed().to_string())
+    }
+
+    /// The Clowder page.
+    pub fn show_clowder(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        faces: &mut FaceCache,
+        id: &str,
+    ) -> PageAction {
+        let mut action = PageAction::None;
+        let pet_mode = store.is_pet_mode().unwrap_or(false);
+        egui::ScrollArea::vertical().show(ui, |ui| {
+            ui.horizontal(|ui| {
+                ui.heading(Self::name_of(store, t, id));
+                if crate::icons::button(ui, crate::icons::ADD, t.new_cat()).clicked() {
+                    action = PageAction::NewCat(Some(id.to_string()));
+                }
+                // Merge beside New cat: a menu with one item is no menu.
+                if crate::icons::button(
+                    ui,
+                    crate::icons::MERGE_TYPE,
+                    t.merge_this_into(t.kind_clowder()),
+                )
+                .clicked()
+                {
+                    action = PageAction::MergeInto(id.to_string());
+                }
+            });
+            // The place's own picture, chosen here, as the phone's card has it.
+            let cover = store.profile_image(id).ok().flatten();
+            if let Some(texture) = cover
+                .as_ref()
+                .and_then(|hash| faces.face(ui.ctx(), store, hash))
+            {
+                ui.add(
+                    egui::Image::from_texture(&texture)
+                        .fit_to_exact_size(Vec2::new(480.0, 160.0))
+                        .corner_radius(8.0),
+                );
+            }
+            // What it is and the buttons in one row, nothing to read first.
+            ui.horizontal(|ui| {
+                ui.label(if pet_mode {
+                    t.cover_label_neutral()
+                } else {
+                    t.cover_label()
+                });
+                if crate::icons::button(ui, crate::icons::ADD_A_PHOTO, t.cover_pick()).clicked() {
+                    action = PageAction::SetCover(id.to_string());
+                }
+                if cover.is_some()
+                    && crate::icons::button(ui, crate::icons::HIDE_IMAGE_OUTLINED, t.cover_remove())
+                        .clicked()
+                {
+                    action = PageAction::RemoveCover(id.to_string());
+                }
+            });
+            let cats = store.cats(Some(id)).unwrap_or_default();
+            let plans = store.chores_of(id, false).map(|c| c.len()).unwrap_or(0)
+                + store
+                    .appointments_of(id, false)
+                    .map(|a| a.len())
+                    .unwrap_or(0);
+            let tabs = [
+                (PageTab::Fields, t.tab_fields().to_string()),
+                (
+                    PageTab::Cats,
+                    format!(
+                        "{} ({})",
+                        if pet_mode {
+                            t.cats_neutral()
+                        } else {
+                            t.tab_cats()
+                        },
+                        cats.len()
+                    ),
+                ),
+                (PageTab::Plans, format!("{} ({})", t.tab_plans(), plans)),
+            ];
+            ui.add_space(8.0);
+            match self.tabs(ui, store, &tabs) {
+                PageTab::Cats => {
+                    for cat in &cats {
+                        if let Some(a) = self.cat_row(ui, store, t, faces, cat) {
+                            action = a;
+                        }
+                    }
+                }
+                PageTab::Plans => {
+                    if let Some(a) = self.show_chores(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                    if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                }
+                _ => {
+                    let fields = self.show_fields(ui, store, t, id, FieldScope::Clowder);
+                    if fields != PageAction::None {
+                        action = fields;
+                    }
+                }
+            }
+        });
+        action
+    }
+
+    /// The Cat page.
+    /// The tabs a page is cut into, so its sections are not one long
+    /// scroll: Fields, Photos, Plans and Family. Which one was last
+    /// open is remembered per device, not per cat.
+    fn tabs(&mut self, ui: &mut Ui, store: &Catalog, tabs: &[(PageTab, String)]) -> PageTab {
+        let mut chosen = PageTab::of(store);
+        if !tabs.iter().any(|(tab, _)| *tab == chosen) {
+            chosen = tabs.first().map(|(tab, _)| *tab).unwrap_or(PageTab::Fields);
+        }
+        ui.horizontal(|ui| {
+            for (tab, words) in tabs {
+                if ui.selectable_label(chosen == *tab, words).clicked() {
+                    chosen = *tab;
+                    let _ = store.set_local_setting(PAGE_TAB_KEY, tab.stored());
+                }
+            }
+        });
+        ui.separator();
+        chosen
+    }
+
+    pub fn show_cat(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        faces: &mut FaceCache,
+        id: &str,
+    ) -> PageAction {
+        let mut action = PageAction::None;
+        egui::ScrollArea::vertical().show(ui, |ui| {
+            ui.horizontal(|ui| {
+                ui.heading(Self::name_of(store, t, id));
+                let actions = ui.menu_button(t.actions_menu(), |ui| {
+                    if ui.button(t.move_to()).clicked() {
+                        action = PageAction::Move(id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.seen_here_now()).clicked() {
+                        action = PageAction::Sighting(id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.show_on_map()).clicked() {
+                        action = PageAction::ShowOnMap(id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.merge_this_into(t.kind_cat())).clicked() {
+                        action = PageAction::MergeInto(id.to_string());
+                        ui.close();
+                    }
+                    ui.separator();
+                    if ui.button(t.card()).clicked() {
+                        action = PageAction::Document(DocKind::Card, id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.vet_report_menu()).clicked() {
+                        action = PageAction::Document(DocKind::VetReport, id.to_string());
+                        ui.close();
+                    }
+                    if ui.button(t.poster_menu()).clicked() {
+                        action = PageAction::Document(DocKind::Poster, id.to_string());
+                        ui.close();
+                    }
+                    let hidden = store.is_hidden(id).unwrap_or(false);
+                    if ui
+                        .button(if hidden {
+                            t.unhide_label()
+                        } else {
+                            t.hide_label()
+                        })
+                        .clicked()
+                    {
+                        action = PageAction::ToggleHidden(id.to_string());
+                        ui.close();
+                    }
+                });
+                for id in ["cat-menu", "cat-report", "cat-poster"] {
+                    crate::tips::anchor(ui, id, &actions.response);
+                }
+            });
+            if let Ok(Some(when)) = store.current(id, "f:deceased") {
+                ui.label(egui::RichText::new(format!("{} · {when}", t.starter_deceased())).weak());
+            }
+            // Where it lives, as a way back to the place.
+            ui.horizontal(|ui| {
+                ui.label(t.clowder_label());
+                match store.current(id, keys::CLOWDER).ok().flatten() {
+                    Some(clowder) => {
+                        if ui.link(Self::name_of(store, t, &clowder)).clicked() {
+                            action = PageAction::OpenClowder(clowder);
+                        }
+                    }
+                    None => {
+                        ui.label(t.stray_no_clowder());
+                    }
+                }
+            });
+            // The page is cut into tabs, so its sections are not one
+            // long scroll.
+            let images = store.images(id).unwrap_or_default();
+            let plans = store.chores_of(id, false).map(|c| c.len()).unwrap_or(0)
+                + store
+                    .appointments_of(id, false)
+                    .map(|a| a.len())
+                    .unwrap_or(0);
+            let tabs = [
+                (PageTab::Fields, t.tab_fields().to_string()),
+                (
+                    PageTab::Photos,
+                    format!("{} ({})", t.tab_photos(), images.len()),
+                ),
+                (PageTab::Plans, format!("{} ({})", t.tab_plans(), plans)),
+                (PageTab::Family, t.tab_family().to_string()),
+            ];
+            ui.add_space(8.0);
+            match self.tabs(ui, store, &tabs) {
+                PageTab::Photos => {
+                    let profile = store.profile_image(id).ok().flatten();
+                    ui.add_space(8.0);
+                    ui.horizontal(|ui| {
+                        ui.strong(format!("{} ({})", t.photos(), images.len()));
+                        if crate::icons::button(ui, crate::icons::ADD_A_PHOTO, t.add_photo())
+                            .clicked()
+                        {
+                            action = PageAction::AddPhoto(id.to_string());
+                        }
+                    });
+                    ui.horizontal_wrapped(|ui| {
+                        for (i, hash) in images.iter().enumerate() {
+                            let Some(texture) = faces.face(ui.ctx(), store, hash) else {
+                                continue;
+                            };
+                            let image = egui::Image::from_texture(&texture)
+                                .fit_to_exact_size(Vec2::splat(96.0))
+                                .sense(egui::Sense::click());
+                            let response = ui.add(image);
+                            let label = format!("{} {}", t.photos(), i + 1);
+                            response.widget_info(|| {
+                                egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &label)
+                            });
+                            let is_profile = profile.as_deref() == Some(hash.as_str());
+                            if is_profile {
+                                ui.painter().rect_stroke(
+                                    response.rect,
+                                    4.0,
+                                    egui::Stroke::new(2.0, ui.visuals().selection.bg_fill),
+                                    egui::StrokeKind::Outside,
+                                );
+                            }
+                            if response.clicked() {
+                                action = PageAction::ViewPhoto(id.to_string(), hash.clone());
+                            }
+                            response.context_menu(|ui| {
+                                let profile_label = if is_profile {
+                                    t.this_is_profile_image()
+                                } else {
+                                    t.set_as_profile_image()
+                                };
+                                if ui
+                                    .add_enabled(!is_profile, egui::Button::new(profile_label))
+                                    .clicked()
+                                {
+                                    action = PageAction::SetProfile(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                                if ui.button(t.crop_photo()).clicked() {
+                                    action = PageAction::CropPhoto(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                                if ui.button(t.mark_photo()).clicked() {
+                                    action = PageAction::MarkPhoto(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                                if ui.button(t.delete_photo()).clicked() {
+                                    action = PageAction::DeletePhoto(id.to_string(), hash.clone());
+                                    ui.close();
+                                }
+                            });
+                        }
+                    });
+                }
+                PageTab::Plans => {
+                    if let Some(a) = self.show_chores(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                    if let Some(a) = self.show_appointments(ui, store, t, faces, id) {
+                        action = a;
+                    }
+                }
+                PageTab::Family => {
+                    if let Some(a) = self.show_family(ui, store, t, id) {
+                        action = a;
+                    }
+                }
+                PageTab::Fields | PageTab::Cats => {
+                    let fields = self.show_fields(ui, store, t, id, FieldScope::Cat);
+                    if fields != PageAction::None {
+                        action = fields;
+                    }
+                }
+            }
+        });
+        action
+    }
+
+    /// The Strays page: every Cat with no home right now.
+    /// One Cat as a row: face and name, a tap opens, a right-click holds
+    /// the menu.
+    fn cat_row(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        faces: &mut FaceCache,
+        cat: &EntityView,
+    ) -> Option<PageAction> {
+        let mut action = None;
+        ui.horizontal(|ui| {
+            if let Ok(Some(hash)) = store.profile_image(&cat.id)
+                && let Some(texture) = faces.face(ui.ctx(), store, &hash)
+            {
+                let drawn = ui.add(
+                    egui::Image::from_texture(&texture)
+                        .fit_to_exact_size(Vec2::splat(32.0))
+                        .corner_radius(16.0),
+                );
+                crate::textures::band_if_deceased(ui, store, &cat.id, drawn.rect);
+            }
+            let hidden = store.is_hidden(&cat.id).unwrap_or(false);
+            let text = if hidden {
+                egui::RichText::new(&cat.name).weak()
+            } else {
+                egui::RichText::new(&cat.name)
+            };
+            let response = ui.selectable_label(false, text);
+            if response.clicked() {
+                action = Some(PageAction::OpenCat(cat.id.clone()));
+            }
+            // The menu holds what the click does not: hiding.
+            let mut menu = |ui: &mut Ui| {
+                let hide = if hidden {
+                    t.unhide_label()
+                } else {
+                    t.hide_label()
+                };
+                if ui.button(hide).clicked() {
+                    action = Some(PageAction::ToggleHidden(cat.id.clone()));
+                    ui.close();
+                }
+            };
+            response.context_menu(&mut menu);
+            crate::icons::more(ui, &mut menu);
+        });
+        action
+    }
+
+    /// The Fields offered for the entity, label and value, one row each.
+    /// A double-click on a value edits it, a right-click holds the menu
+    /// with the editor and the history; an ID shows as its code and, with
+    /// a registry, as a link.
+    fn show_fields(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        id: &str,
+        scope: FieldScope,
+    ) -> PageAction {
+        let mut action = PageAction::None;
+        let defs: Vec<FieldDef> = store.field_defs(Some(scope)).unwrap_or_default();
+        let current = store.current_fields(id).unwrap_or_default();
+        ui.add_space(8.0);
+        let fields_heading = ui.strong(t.fields());
+        if scope == FieldScope::Cat {
+            crate::tips::anchor(ui, "cat-edit", &fields_heading);
+        }
+        egui::Grid::new(("fields", id))
+            .num_columns(2)
+            .spacing([16.0, 4.0])
+            .show(ui, |ui| {
+                for def in &defs {
+                    let value = current.get(&def.key()).cloned().flatten();
+                    let withheld = store.is_withheld(id, &def.key()).unwrap_or(false);
+                    ui.label(field_def_name(t, def));
+                    let response = if withheld {
+                        ui.label(egui::RichText::new(t.withheld_by_partner()).weak())
+                    } else if def.field_type == FieldType::Id && value.is_some() {
+                        self.show_id_value(ui, t, def, value.as_deref().unwrap_or_default())
+                    } else {
+                        // A cat reference reads as the cat's name, as in the history.
+                        let shown = if def.field_type == FieldType::Cat {
+                            value_label(t, store, &def.key(), value.as_deref(), self.units)
+                        } else {
+                            field_value_display(t, Some(def), value.as_deref(), self.units)
+                        };
+                        let private = store.is_field_private(id, &def.key()).unwrap_or(false);
+                        let text = if private {
+                            format!("{shown} · {}", t.private_label())
+                        } else {
+                            shown
+                        };
+                        ui.selectable_label(false, text)
+                    };
+                    if response.double_clicked() {
+                        action = PageAction::Edit(id.to_string(), def.slug.clone());
+                    }
+                    // The menu holds what the click does not: the history.
+                    let mut menu = |ui: &mut Ui| {
+                        if ui.button(t.show_history()).clicked() {
+                            action = PageAction::History(id.to_string(), def.slug.clone());
+                            ui.close();
+                        }
+                    };
+                    response.context_menu(&mut menu);
+                    crate::icons::more(ui, &mut menu);
+                    ui.end_row();
+                }
+            });
+        if ui.button(t.new_field()).clicked() {
+            action = PageAction::NewField(scope);
+        }
+        action
+    }
+
+    /// An ID value: plain, or as its QR or barcode, and as a link when
+    /// the Field points at a registry.
+    fn show_id_value(
+        &mut self,
+        ui: &mut Ui,
+        t: &L10n,
+        def: &FieldDef,
+        value: &str,
+    ) -> egui::Response {
+        let _ = t;
+        ui.vertical(|ui| {
+            let response = match catlog_core::registry::lookup_url(def, value) {
+                Some(url) => ui.hyperlink_to(value, url),
+                None => ui.selectable_label(false, value),
+            };
+            match def.id_display {
+                IdDisplay::Plain => {}
+                IdDisplay::Qr => {
+                    crate::codes::qr(ui, value, 96.0);
+                }
+                IdDisplay::Barcode => {
+                    if crate::codes::barcode(ui, value, 240.0, 48.0).is_none() {
+                        crate::codes::qr(ui, value, 96.0);
+                    }
+                }
+            }
+            response
+        })
+        .inner
+    }
+
+    fn show_chores(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        faces: &mut FaceCache,
+        id: &str,
+    ) -> Option<PageAction> {
+        let mut action = None;
+        let chores = store.chores_of(id, false).unwrap_or_default();
+        ui.add_space(8.0);
+        ui.horizontal(|ui| {
+            ui.strong(t.chores_section());
+            let new_chore = crate::icons::button(ui, crate::icons::ADD, t.new_chore());
+            crate::tips::anchor(ui, "cat-chores", &new_chore);
+            if new_chore.clicked() {
+                action = Some(PageAction::Chore(ChoreAction::New(id.to_string())));
+            }
+        });
+        for chore in &chores {
+            let a = chore_row(ui, store, t, faces, chore, self.today);
+            if a != ChoreAction::None {
+                action = Some(PageAction::Chore(a));
+            }
+        }
+        action
+    }
+
+    fn show_appointments(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        faces: &mut FaceCache,
+        id: &str,
+    ) -> Option<PageAction> {
+        let mut action = None;
+        let appointments = store.appointments_of(id, false).unwrap_or_default();
+        ui.add_space(8.0);
+        ui.horizontal(|ui| {
+            ui.strong(t.planned_section());
+            let add = crate::icons::button(ui, crate::icons::EVENT, t.add_appointment());
+            crate::tips::anchor(ui, "cat-reminder", &add);
+            if add.clicked() {
+                action = Some(PageAction::NewAppointment(id.to_string()));
+            }
+        });
+        for a in &appointments {
+            let group = store.group_of(a).unwrap_or_else(|_| vec![a.clone()]);
+            if let Some(act) = appointment_card(ui, store, t, faces, &group, group.len() > 1) {
+                action = Some(PageAction::Appointment(act));
+            }
+        }
+        action
+    }
+
+    fn show_family(
+        &mut self,
+        ui: &mut Ui,
+        store: &Catalog,
+        t: &L10n,
+        id: &str,
+    ) -> Option<PageAction> {
+        let family = store.family(id).ok()?;
+        let rows: Vec<(String, Vec<String>)> = [
+            (
+                t.starter_mother().to_string(),
+                family.mother.into_iter().collect(),
+            ),
+            (
+                t.starter_father().to_string(),
+                family.father.into_iter().collect(),
+            ),
+            (t.littermates_label().to_string(), family.littermates),
+            (t.siblings_label().to_string(), family.siblings),
+            (t.kittens_label().to_string(), family.kittens),
+        ]
+        .into_iter()
+        .filter(|(_, ids)| !ids.is_empty())
+        .collect();
+        if rows.is_empty() {
+            return None;
+        }
+        let mut action = None;
+        ui.add_space(8.0);
+        ui.strong(t.family_section());
+        for (label, ids) in rows {
+            ui.horizontal(|ui| {
+                ui.label(label);
+                for cat in ids {
+                    if ui.link(Self::name_of(store, t, &cat)).clicked() {
+                        action = Some(PageAction::OpenCat(cat));
+                    }
+                }
+            });
+        }
+        action
+    }
+}
+
+/// Everything that ever happened to one Cat or Clowder, newest first:
+/// the day over its entries, as a Field's own history reads. It used to
+/// hang at the foot of the page, where a keeper looking for it had to
+/// scroll past everything else.
+/// One line of a timeline, built once per write of the store: the day
+/// it belongs under, what changed, and who changed it.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TimelineLine {
+    pub day: String,
+    pub what: String,
+    pub who: String,
+}
+
+/// Everything that ever happened to one Cat or Clowder, newest first.
+/// Walking the log and wording every line is far too much work to do on
+/// every frame, so the app holds the answer between them.
+pub fn timeline_lines(store: &Catalog, t: &L10n, units: UnitSystem, id: &str) -> Vec<TimelineLine> {
+    store
+        .timeline(id, false)
+        .unwrap_or_default()
+        .iter()
+        .take(200)
+        .map(|e| {
+            let on = chrono::DateTime::parse_from_rfc3339(&e.date)
+                .map(|d| d.date_naive())
+                .ok();
+            TimelineLine {
+                day: on
+                    .map(|d| format_day(t.locale(), d))
+                    .unwrap_or_else(|| e.date.clone()),
+                what: crate::labels::change_line(t, store, &e.field, e.value.as_deref(), units, on),
+                who: e.author.clone(),
+            }
+        })
+        .collect()
+}
+
+/// Everything that ever happened to one Cat or Clowder, newest first:
+/// the day over its entries, as a Field's own history reads. It used to
+/// hang at the foot of the page, where a keeper looking for it had to
+/// scroll past everything else.
+pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, id: &str, lines: &[TimelineLine]) {
+    let name = store
+        .current(id, catlog_core::keys::NAME)
+        .ok()
+        .flatten()
+        .unwrap_or_else(|| t.unnamed().to_string());
+    ui.set_min_width(480.0);
+    ui.heading(format!("{name} · {}", t.timeline()));
+    let mut day_shown = "";
+    for line in lines {
+        if line.day != day_shown {
+            ui.add_space(10.0);
+            ui.label(egui::RichText::new(&line.day).strong());
+            ui.separator();
+            day_shown = &line.day;
+        }
+        let width = (ui.available_width() - 160.0).max(200.0);
+        ui.horizontal_top(|ui| {
+            ui.allocate_ui_with_layout(
+                egui::vec2(width, 0.0),
+                egui::Layout::top_down(egui::Align::LEFT),
+                |ui| {
+                    ui.set_min_width(width);
+                    ui.add(egui::Label::new(&line.what).wrap());
+                },
+            );
+            ui.label(egui::RichText::new(&line.who).weak());
+        });
+    }
+}

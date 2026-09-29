@@ -33,13 +33,12 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the plus asks appointment or reminder, then records a visit',
+  testWidgets('the plus fans Appointment out, which records a visit',
       (tester) async {
     await pump(tester, CatDetailScreen(store: store, catId: cat));
-    await tester.tap(find.byTooltip('Add reminder'));
+    await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
-    expect(find.text('Appointment or reminder?'), findsOneWidget);
-    await tester.tap(find.textContaining('Appointment — a visit'));
+    await tester.tap(find.text('Appointment').last);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField).first, 'Vet');
     await tester.enterText(find.byType(TextField).last, 'bring the form');
@@ -53,6 +52,23 @@ void main() {
     // It shows in the Planned section right away.
     expect(find.text('Planned'), findsOneWidget);
     expect(find.byType(AppointmentCard), findsOneWidget);
+  });
+
+  testWidgets('an appointment for nobody cannot be saved', (tester) async {
+    final empty = CatalogStore.inMemory();
+    empty.author = 'test';
+    addTearDown(empty.close);
+    await pump(tester, AgendaScreen(store: empty));
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Appointment').last);
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField).first, 'Vet');
+    await tester.pumpAndSettle();
+    final save = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, 'Save'),
+    );
+    expect(save.onPressed, isNull, reason: 'there is no cat to visit');
   });
 
   testWidgets('the agenda mixes both kinds by date', (tester) async {
@@ -95,7 +111,35 @@ void main() {
     final closed = store.appointmentsOf(cat, includeDone: true).single;
     expect(closed.notes, 'all fine');
     expect(store.current(cat, Keys.userField('remarks')), 'checked');
+    // Finished today, the card stays for the day: box checked, the
+    // notes on it, a tap to change them.
+    expect(find.byType(AppointmentCard), findsOneWidget);
+    expect(tester.widget<Checkbox>(find.byType(Checkbox)).value, isTrue);
+    expect(find.textContaining('all fine'), findsOneWidget);
+    await tester.tap(find.byType(AppointmentCard));
+    await tester.pumpAndSettle();
+    expect(find.text('How did it go?'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'all fine, 4.2 kg');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    expect(store.appointmentsOf(cat, includeDone: true).single.notes,
+        'all fine, 4.2 kg');
+
+    // Unticked: open again, the linked value gone with it.
+    await tester.tap(find.byType(Checkbox));
+    await tester.pumpAndSettle();
+    expect(store.appointmentsOf(cat), hasLength(1));
+    expect(store.current(cat, Keys.userField('remarks')), isNull);
+
+    // Finished once more, the bin takes it off the list.
+    await tester.tap(find.byTooltip('Finish'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Finish').last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Take off the list'));
+    await tester.pumpAndSettle();
     expect(find.byType(AppointmentCard), findsNothing);
+    expect(store.appointmentsOf(cat, includeDone: true).single.done, isTrue);
   });
 
   testWidgets('long-press deletes an appointment', (tester) async {
@@ -105,9 +149,8 @@ void main() {
         date: DateTime.now().add(const Duration(days: 1)),
         title: 'Vet'));
     await pump(tester, AgendaScreen(store: store));
-    await tester.longPress(find.textContaining('Vet'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Delete appointment'));
+    // The bin on the card deletes it.
+    await tester.tap(find.byTooltip('Delete appointment'));
     await tester.pumpAndSettle();
     expect(store.appointmentsOf(cat, includeDone: true), isEmpty);
   });
@@ -133,5 +176,11 @@ void main() {
     await pump(tester, TimelineScreen(store: store, entityId: cat));
     expect(find.textContaining('Vet 14:30'), findsOneWidget);
     expect(find.textContaining('{"date"'), findsNothing);
+
+    // Finished with notes: the timeline shows how it went.
+    final visit = store.appointmentsOf(cat).single;
+    store.finishAppointment(visit, notes: 'all fine');
+    await pump(tester, TimelineScreen(store: store, entityId: cat));
+    expect(find.textContaining('Vet 14:30 ✓\nall fine'), findsOneWidget);
   });
 }

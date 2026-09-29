@@ -1,10 +1,13 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-import 'conflict_dialog.dart';
+import 'conflict_choice.dart';
 import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
+import 'celebration.dart';
+import 'notes.dart';
 import 'pet_mode.dart';
 import 'titles.dart';
 import 'undo_import.dart';
@@ -12,15 +15,53 @@ import 'widgets/cat_avatar.dart';
 
 /// One field of a cat or a home that reads differently after an import
 /// than before it. [field] is a key; a photo shows as [Keys.imagePrefix]
-/// with the hash and [after] `deleted` when it went away.
+/// with the hash and [after] `deleted` when it went away. The ticks of
+/// one chore fold into one change under the chore's key, with [ticks]
+/// the days that were done.
 class FieldChange {
   final String field;
   final String? before;
   final String? after;
+  final List<DateTime> ticks;
 
-  const FieldChange(this.field, this.before, this.after);
+  const FieldChange(this.field, this.before, this.after,
+      {this.ticks = const []});
 
   bool get isPhoto => field.startsWith(Keys.imagePrefix);
+  bool get isTicks => ticks.isNotEmpty;
+}
+
+/// The label of one change on the arrival page: a photo, the ticks of a
+/// chore with its title and count, or the field's name.
+String changeLabel(AppLocalizations t, CatalogStore store, String entity,
+    FieldChange c) {
+  if (c.isPhoto) return t.labelPhoto;
+  if (c.isTicks) return t.choreTickedShort(choreTitle(t, store, entity, c), c.ticks.length);
+  return fieldLabel(t, store, c.field);
+}
+
+/// The chore's title for a folded tick change; the generic word when
+/// the chore itself has not arrived yet.
+String choreTitle(
+    AppLocalizations t, CatalogStore store, String entity, FieldChange c) {
+  final id = c.field.substring(Keys.chorePrefix.length);
+  for (final chore in store.choresOf(entity, includeEnded: true)) {
+    if (chore.id == id) return chore.title;
+  }
+  return t.choreTickLabel;
+}
+
+/// "Feed — done 3×, 1–3 Mar" for a folded tick change.
+String ticksLine(
+    AppLocalizations t, CatalogStore store, String entity, FieldChange c) {
+  final days = DateFormat.MMMd(t.localeName);
+  final first = c.ticks.first;
+  final last = c.ticks.last;
+  final range = first == last
+      ? days.format(first)
+      : '${days.format(first)} – ${days.format(last)}';
+  return t.choreTicked(
+      choreTitle(t, store, entity, c), c.ticks.length, range);
 }
 
 /// A cat or a home the import touched: new to this catalog, or an
@@ -156,16 +197,29 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied,
       field.startsWith(Keys.conflictPrefix);
 
   /// Each touched field once, only where the import changed what it
-  /// reads. A brand-new entity lists everything it has.
+  /// reads. A brand-new entity lists everything it has. The ticks of a
+  /// chore — one key per day — fold into one change per chore.
   List<FieldChange> effective(String entity, List<Entry> entries,
       {required bool isNew}) {
     final changes = <FieldChange>[];
+    final ticks = <String, List<DateTime>>{};
     for (final field in {for (final e in entries) e.field}) {
       if (isMarker(field)) continue;
       final after = store.current(entity, field);
       final was = isNew ? null : before(entity, field);
       if (!isNew && was == after) continue;
+      if (field.startsWith(Keys.chorePrefix)) {
+        final at = field.indexOf('@');
+        final day = at > 0 ? parseDay(field.substring(at + 1)) : null;
+        if (day != null) {
+          ticks.putIfAbsent(field.substring(0, at), () => []).add(day);
+          continue;
+        }
+      }
       changes.add(FieldChange(field, was, after));
+    }
+    for (final MapEntry(key: chore, value: days) in ticks.entries) {
+      changes.add(FieldChange(chore, null, null, ticks: days..sort()));
     }
     return changes;
   }
@@ -265,6 +319,23 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied,
       report: report);
 }
 
+/// The note a finished sync leaves at the top: who sent, and a tap that
+/// opens the arrival page — or, with nothing new, no tap at all.
+Note arrivalNote(BuildContext context, CatalogStore store, List<Entry> applied,
+    {Moment? undo, ImportReport? report}) {
+  if (applied.isEmpty) return Note.done((t) => t.noteSyncNothingNew);
+  final authors = {
+    for (final e in applied)
+      if (e.author != seedAuthor) e.author
+  };
+  return Note.done(
+    (t) => t.noteSyncDone(
+        authors.isEmpty ? t.syncAnotherDevice : authors.join(', ')),
+    onTap: () => showImportSummary(context, store, applied,
+        undo: undo, report: report),
+  );
+}
+
 /// Shows what arrived, when anything did: a full page with Accept and
 /// Reject. The data is already in the catalog; Reject returns to the
 /// moment before ([undo]), writing the removed entries to a file first.
@@ -345,13 +416,12 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
   /// rows leave the page.
   final _kept = <String>{};
 
-  /// Drops what arrived about [a], for good and locally, and says so.
+  /// Drops what arrived about [a], for good and locally; the row goes,
+  /// the paw says it worked.
   void _keepMine(EntityArrival a) {
-    final name = _name(a.id);
     store.discardEntries(a.entries);
     setState(() => _kept.add(a.id));
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(context.t.keptMine(name))));
+    paw(context);
   }
 
   String _name(String id) => store.current(id, Keys.name) ?? context.t.unnamed;
@@ -417,10 +487,16 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
     ));
   }
 
+  /// The row names what changed — photo, weight, Feed done 3× — three
+  /// at most, never a count of entries.
   Widget _entityRow(EntityArrival a) {
     final t = context.t;
+    const shown = 3;
     final subtitle = [
-      if (!a.isNew) t.changesCount(a.changes.length),
+      if (!a.isNew)
+        for (final c in a.changes.take(shown)) changeLabel(t, store, a.id, c),
+      if (!a.isNew && a.changes.length > shown)
+        t.moreChanges(a.changes.length - shown),
       for (final tag in a.tags) _tag(tag),
     ].join(' · ');
     return ListTile(
@@ -456,20 +532,20 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
   Widget _conflictRow((String, String) c) {
     final t = context.t;
     final (entity, field) = c;
-    final candidates = store.fieldHistory(entity, field).take(2).toList();
-    return ListTile(
-      leading: const Icon(Icons.warning_amber, color: Colors.amber),
-      title: Text('${_name(entity)} — ${fieldLabel(t, store, field)}'),
-      subtitle: Text([
-        for (final e in candidates)
-          '${valueLabel(t, store, field, e.value)} (${e.author})'
-      ].join(' · ')),
-      onTap: () async {
-        final changed = await showConflictDialog(context, store, entity, field);
-        if (!mounted) return;
-        setState(() => _resolved = _resolved || changed);
-      },
-    );
+    return Column(children: [
+      ListTile(
+        leading: const Icon(Icons.warning_amber, color: Colors.amber),
+        title: Text('${_name(entity)} — ${fieldLabel(t, store, field)}'),
+      ),
+      ConflictChoice(
+        store: store,
+        entity: entity,
+        field: field,
+        onResolved: () {
+          if (mounted) setState(() => _resolved = true);
+        },
+      ),
+    ]);
   }
 
   String _metaLine(MetaChange m) {
@@ -616,6 +692,12 @@ class _ChangesScreen extends StatelessWidget {
               dense: true,
               leading: const Icon(Icons.photo_outlined),
               title: Text(c.after == 'deleted' ? t.photoRemoved : t.photoAdded),
+            )
+          else if (c.isTicks)
+            ListTile(
+              dense: true,
+              leading: const Icon(Icons.check_circle_outline),
+              title: Text(ticksLine(t, store, arrival.id, c)),
             )
           else
             ListTile(

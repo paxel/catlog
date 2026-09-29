@@ -32,8 +32,9 @@ import 'package:catlog/src/pet_mode.dart';
 import 'package:catlog/src/cover_picture.dart';
 import 'package:catlog/src/screens/missing_poster_screen.dart';
 import 'package:catlog/src/screens/vet_report_screen.dart';
+import 'package:catlog/src/notes.dart';
 import 'package:catlog/src/sync/sync_watch.dart';
-import 'package:catlog/src/sync/sync_watch_line.dart';
+import 'package:flutter/foundation.dart';
 
 Future<void> _loadRealFonts() async {
   final root = Platform.environment['FLUTTER_ROOT']!;
@@ -554,9 +555,13 @@ void main() {
     store.setLocalSetting(graphSmoothKey, 'yes');
     store.setLocalSetting(graphTrendKey, 'yes');
     store.setLocalSetting(catalogNameKey, 'Foster homes');
-    // The folder line, as it looks when Marta's changes wait.
-    final watcher = SyncWatcher(store, folderOf: (_) => MemorySyncFolder())
-      ..pending = const UnseenChanges(3, {'Marta'});
+    // The waiting note, as it looks when Marta's changes wait.
+    final notes = NoteQueue();
+    final watcher = SyncWatcher(
+      store,
+      folderOf: (_) => MemorySyncFolder(),
+      notes: notes,
+    )..announce(const UnseenChanges(3, {'Marta'}));
     addTearDown(watcher.dispose);
     // The poster's preview: the printing plugin is not there in a test,
     // pdftoppm is.
@@ -595,9 +600,13 @@ void main() {
       '08-agenda': () => AgendaScreen(store: store, manager: manager),
       '09-poster': () =>
           MissingPosterScreen(store: store, catId: miezi, preview: preview),
-      '10-report': () => VetReportScreen(store: store, catId: miezi),
-      '11-sync': () => SyncWatchLine(
-        watcher: watcher,
+      // The report previews like the poster; the shot is taken before
+      // the preview has drawn, so the frame shows the page without it.
+      '10-report': () =>
+          VetReportScreen(store: store, catId: miezi, preview: preview),
+      '11-sync': () => NoteStrip(
+        queue: notes,
+        busy: ValueNotifier(const {}),
         child: ClowderListScreen(store: store),
       ),
       '12-strays': () => StraysScreen(store: store),

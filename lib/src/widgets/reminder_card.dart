@@ -2,15 +2,20 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../celebration.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
+import '../reminders/done_today.dart';
 import 'cat_ear.dart';
 import 'date_entry.dart';
 
-/// One live plan as a card (#74): relative and absolute date, who, what;
-/// done records the fact and offers the next cycle; long-press changes
-/// the date or removes the plan. Shared by the agenda and the Planned
-/// section of cat and clowder pages, so both behave alike.
+/// One live plan as a card (#74), the shape every row of the agenda
+/// has: the box on the left ticks it done, tap opens whose it is,
+/// long-press changes the date, the bin on the right removes it.
+/// Ticked today it stays for the day, box checked and faded, like a
+/// chore: tap offers the next cycle, the box unticks, the bin takes it
+/// off the list. Shared by the agenda and the Planned section of cat
+/// and clowder pages, so both behave alike.
 ///
 /// [showEntity] is false on an entity's own page. [onChanged] fires
 /// after any write — the host refreshes and runs the calendar mirror.
@@ -40,18 +45,35 @@ class ReminderCard extends StatelessWidget {
     return context.t.overdueByDays(-days);
   }
 
-  Future<void> _markDone(BuildContext context) async {
+  /// The tick records the fact; a paw, nothing to answer.
+  void _markDone(BuildContext context) {
     final r = reminder;
     store.append(r.entity, r.field, r.value);
+    paw(context);
     onChanged();
+  }
+
+  /// The box unticked again: the fact goes, the plan is live again.
+  void _undo() {
+    store.removeEntry(reminder.doneBy!.seq);
+    onChanged();
+  }
+
+  /// A tap on the done card: the same plan again, in a while.
+  Future<void> _repeat(BuildContext context) async {
+    final r = reminder;
     final again = await showDialog<DateTime>(
       context: context,
       builder: (context) => const _RepeatDialog(),
     );
-    if (again != null) {
-      store.append(r.entity, r.field, r.value, date: again, reminder: true);
-      onChanged();
-    }
+    if (again == null) return;
+    store.append(r.entity, r.field, r.value, date: again, reminder: true);
+    onChanged();
+  }
+
+  void _takeOff() {
+    takeOffList(store, reminderListKey(reminder));
+    onChanged();
   }
 
   Future<void> _changeDate(BuildContext context) async {
@@ -65,23 +87,6 @@ class ReminderCard extends StatelessWidget {
   void _cancel() {
     store.append(reminder.entity, reminder.field, null, reminder: true);
     onChanged();
-  }
-
-  Future<void> _menu(BuildContext context, Offset position) async {
-    final action = await showMenu<String>(
-      context: context,
-      position: RelativeRect.fromLTRB(
-          position.dx, position.dy, position.dx, position.dy),
-      items: [
-        PopupMenuItem(
-            value: 'date', child: Text(context.t.changeDateLabel)),
-        PopupMenuItem(
-            value: 'remove', child: Text(context.t.removeReminderLabel)),
-      ],
-    );
-    if (!context.mounted) return;
-    if (action == 'date') await _changeDate(context);
-    if (action == 'remove') _cancel();
   }
 
   @override
@@ -99,13 +104,45 @@ class ReminderCard extends StatelessWidget {
     final dateFormat =
         DateFormat.yMd(Localizations.localeOf(context).toString());
     final color = overdue ? Theme.of(context).colorScheme.error : null;
+    if (r.doneBy case final fact?) {
+      final faded = Theme.of(context).disabledColor;
+      return Card(
+        child: ListTile(
+          onTap: () => _repeat(context),
+          leading: Tooltip(
+            message: t.markDone,
+            child: Checkbox(value: true, onChanged: (_) => _undo()),
+          ),
+          title: Text(
+            '${t.doneLabel} · ${dateFormat.format(fact.date.toLocal())}',
+            style: TextStyle(
+                color: faded, decoration: TextDecoration.lineThrough),
+          ),
+          subtitle: Text('$who$fieldName\n${r.value}',
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: faded)),
+          isThreeLine: true,
+          trailing: IconButton(
+            icon: const Icon(Icons.delete_outline),
+            tooltip: t.takeOffList,
+            onPressed: _takeOff,
+          ),
+        ),
+      );
+    }
     return Card(
-      child: GestureDetector(
-        onLongPressStart: (d) => _menu(context, d.globalPosition),
-        onSecondaryTapDown: (d) => _menu(context, d.globalPosition),
-        child: WithCatEar(
-            child: ListTile(
+      child: WithCatEar(
+        child: ListTile(
           onTap: onOpen,
+          onLongPress: () => _changeDate(context),
+          leading: Tooltip(
+            message: t.markDone,
+            child: Checkbox(
+              value: false,
+              onChanged: (_) => _markDone(context),
+            ),
+          ),
           title: Text(
               '${relativeDue(context, r.due)} · ${dateFormat.format(r.due)}',
               style:
@@ -114,11 +151,11 @@ class ReminderCard extends StatelessWidget {
               maxLines: 2, overflow: TextOverflow.ellipsis),
           isThreeLine: true,
           trailing: IconButton(
-            icon: const Icon(Icons.check_circle_outline),
-            tooltip: t.markDone,
-            onPressed: () => _markDone(context),
+            icon: const Icon(Icons.delete_outline),
+            tooltip: t.removeReminderLabel,
+            onPressed: _cancel,
           ),
-        )),
+        ),
       ),
     );
   }

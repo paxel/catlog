@@ -64,9 +64,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get pickerCardFields => 'Kortelėje';
 
   @override
-  String get exportCsv => 'Eksportuoti CSV';
-
-  @override
   String get aboutAndFeedback => 'Apie ir atsiliepimai';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get save => 'Išsaugoti';
 
   @override
+  String get clearField => 'Išvalyti';
+
+  @override
   String get delete => 'Ištrinti';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get open => 'Atidaryti';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV išsaugotas: $path';
-  }
 
   @override
   String get renameClowder => 'Pervadinti klauderį';
@@ -180,9 +175,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get sortNewestFirst => 'Naujausi pirmiausia';
 
   @override
-  String get shareAsText => 'Bendrinti kaip tekstą';
-
-  @override
   String get shareAsPdf => 'Bendrinti kaip PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'Augintinis dingsta iš visų sąrašų, jo nuotraukos pašalinamos — čia ir, po kito sinchronizavimo, kituose įrenginiuose.';
 
   @override
-  String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
-
-  @override
-  String get noLocationAvailable =>
-      'Vietos nėra — vietoj to palaikykite nuspaudę žemėlapį.';
-
-  @override
   String get locationDeniedForever =>
       'Prieiga prie vietos užblokuota. Leiskite ją sistemos nustatymuose, kad galėtumėte naudoti Stray Cam.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get captureFlier => 'Nufotografuoti skelbimą';
+
+  @override
+  String get flierFromCamera => 'Skelbimas iš kameros';
+
+  @override
+  String get flierFromGallery => 'Skelbimas iš galerijos';
 
   @override
   String get addPhotosTo => 'Pridėti nuotraukas prie…';
@@ -355,13 +346,34 @@ class AppLocalizationsLt extends AppLocalizations {
   String get pickFramesTitle => 'Kadrų pasirinkimas';
 
   @override
-  String get suggestedFrames => 'Siūlomi kadrai';
-
-  @override
-  String get scrubFrames => 'Persukti vaizdo įrašą';
-
-  @override
   String get keepThisFrame => 'Palikti šį kadrą';
+
+  @override
+  String get frameBack => 'Vienas kadras atgal';
+
+  @override
+  String get frameForward => 'Vienas kadras pirmyn';
+
+  @override
+  String get secondBack => 'Viena sekundė atgal';
+
+  @override
+  String get secondForward => 'Viena sekundė pirmyn';
+
+  @override
+  String get tenSecondsBack => 'Dešimt sekundžių atgal';
+
+  @override
+  String get tenSecondsForward => 'Dešimt sekundžių pirmyn';
+
+  @override
+  String get play => 'Leisti';
+
+  @override
+  String get pause => 'Pristabdyti';
+
+  @override
+  String get keptFrames => 'Pasilikti kadrai rodomi čia';
 
   @override
   String get fromVideo => 'Iš vaizdo įrašo…';
@@ -447,9 +459,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Dingęs nuo';
-
-  @override
-  String get phoneLabel => 'Telefonas';
 
   @override
   String get cropPortrait => 'Apkirpti portretą';
@@ -565,16 +574,6 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field išvalyta';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field grąžinta į \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Išėjo — benamė';
 
   @override
@@ -618,9 +617,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get value => 'Reikšmė';
-
-  @override
-  String get latitudeLongitude => 'platuma, ilguma';
 
   @override
   String get newField => 'Naujas laukas';
@@ -690,11 +686,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get stopHosting => 'Sustabdyti priėmimą';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seansų iki šiol: $count';
   }
@@ -703,35 +694,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String get join => 'Prisijungti';
 
   @override
-  String get addressFromHost => 'Adresas (iš priimančio įrenginio)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sinchronizuoti dabar';
 
   @override
-  String get addressFormatHint =>
-      'Adresas turi atrodyti kaip 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Sinchronizuota: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sinchronizavimas nepavyko: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Paskutinis sinchronizavimas su $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Bendras aplankas';
 
   @override
   String get sharedFolderExplainer =>
@@ -759,11 +730,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'Tiks bet koks aplankas, kurį du įrenginiai laiko vienodą: debesies diskas arba Syncthing aplankui, kuris lieka jūsų telefonuose. Syncthing nemokamas: įdiekite jį kiekviename telefone, bendrinkite vieną aplanką tarp jų ir pasirinkite tą aplanką čia kiekviename įrenginyje.';
 
   @override
-  String folderSynced(String result) {
-    return 'Aplankas sinchronizuotas: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Aplanko sinchronizavimas nepavyko: $error';
   }
@@ -785,15 +751,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Kelias: $name ($count pozic.)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Konfliktas — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Pakeista dviejose vietose vienu metu. Pasirinkite, kas teisinga:';
 
   @override
   String privateMarker(Object field) {
@@ -1216,7 +1173,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kiekvienas pakeitimas, naujausias pirmas: kas, kada ir į kokią reikšmę. Palieskite įrašą, kad pataisytumėte, palaikykite, kad pašalintumėte ar atkurtumėte; paslėptas įrašas lieka žurnale ir rodomas paprašius.';
+      'Kiekvienas kada nors atliktas pakeitimas, naujausi pirmi: kas ką pakeitė, kada ir į kokią reikšmę. Bakstelėkite įrašą, kad jį pataisytumėte, šiukšliadėžė jį pašalina, rodyklė grąžina paslėptą; paslėptas įrašas lieka žurnale ir rodomas paprašius.';
 
   @override
   String get helpDuplicates =>
@@ -1407,17 +1364,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get copyCode => 'Kopijuoti kodą';
 
   @override
-  String get copied => 'Nukopijuota';
-
-  @override
   String get invalidCode => 'Šis kodas negalioja';
-
-  @override
-  String get hotspotHint =>
-      'Nėra bendro Wi-Fi? Įjunkite viešosios interneto prieigos tašką viename telefone, prijunkite kitą ir priimkite čia.';
-
-  @override
-  String get byMessenger => 'Per žinučių programą';
 
   @override
   String get byMessengerExplainer =>
@@ -1428,11 +1375,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get importBundle => 'Importuoti sinchronizavimo paketą…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paketas importuotas: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1869,9 +1811,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get valueFerret => 'Šeškas';
 
   @override
-  String get otherOption => 'Kita…';
-
-  @override
   String get celebrationsToggle => 'Švęsti priglaudimus';
 
   @override
@@ -1879,10 +1818,41 @@ class AppLocalizationsLt extends AppLocalizations {
       'Konfeti ir šūksniai, kai katė persikelia į namus';
 
   @override
-  String get cheerToggle => 'Šūksnių garsas';
+  String get soundsSection => 'Garsai';
 
   @override
-  String get cheerSubtitle => 'Trumpi šūksniai su konfeti, kaskart kiti';
+  String get reminderSound => 'Katės garsas priminimams';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Darbo priminimas sako Mrrr vietoj telefono garso.';
+
+  @override
+  String get soundPurr => 'Murkimas';
+
+  @override
+  String get soundChorus => 'Miaukimo choras';
+
+  @override
+  String get soundParty => 'Šventinis miau';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Savas garsas…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1920,11 +1890,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Ištrinti viską iš šio autoriaus';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Pašalina visus $name įrašus ir nuotraukas iš šio įrenginio. Kiti įrenginiai pasilieka savo. Neatšaukiama.';
-  }
 
   @override
   String get yourKey => 'Jūsų raktas';
@@ -1986,11 +1951,6 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Patvirtinimui įveskite $name';
-  }
-
-  @override
   String get alsoBan =>
       'Taip pat uždrausti — daugiau niekada nepriimti duomenų';
 
@@ -1999,9 +1959,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get unbanAction => 'Pašalinti draudimą';
-
-  @override
-  String get deletedDone => 'Ištrinta.';
 
   @override
   String get syncSummaryTitle => 'Kas atkeliavo';
@@ -2044,24 +2001,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get keepMine => 'Palikti mano';
 
   @override
-  String keptMine(String name) {
-    return 'Jūsų „$name“ versija liko šiame įrenginyje.';
-  }
-
-  @override
   String get summaryMeta => 'Taip pat atkeliavo';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n pakeitimų',
-      few: '$n pakeitimai',
-      one: '$n pakeitimas',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Priimti';
@@ -2208,30 +2148,13 @@ class AppLocalizationsLt extends AppLocalizations {
       'Pirmiausia prisijunk prie Wi-Fi — tada įrenginiai susiras';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) nori sinchronizuoti';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalogai bus apsikeisti abiem kryptimis.';
 
   @override
   String get allowOnce => 'Leisti';
 
   @override
-  String get allowAlways => 'Visada leisti šį įrenginį';
-
-  @override
-  String get declineAction => 'Atmesti';
-
-  @override
   String get syncDeclined => 'Kitas įrenginys atmetė sinchronizavimą';
-
-  @override
-  String get trustedDevicesSection => 'Visada leidžiami įrenginiai';
-
-  @override
-  String get removeTrust => 'Pašalinti';
 
   @override
   String get hostWithoutWifi => 'Prieglobstis be Wi-Fi';
@@ -2304,7 +2227,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Šiame meniu: nustatymai, dublikatų paieška ir sujungimas, CSV eksportas ir daugiau.';
+      'Šiame meniu: nustatymai, dublikatų paieška ir sujungimas ir daugiau.';
 
   @override
   String get spotCatEdit =>
@@ -2380,9 +2303,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Vėl rodyti patarimus kiekviename puslapyje';
-
-  @override
-  String get spotReplayDone => 'Patarimai bus rodomi vėl';
 
   @override
   String get searchNoResults => 'Katės tokiu vardu nerasta';
@@ -2515,17 +2435,15 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Įrašyk $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nieko neištrinta: nepavyko įrašyti katalogo failo ($error). Atlaisvink vietos arba pabandyk vėliau.';
   }
 
   @override
   String get moveToCatalog => 'Perkelti į kitą katalogą';
+
+  @override
+  String get moveInFromCatalog => 'Perkelti iš kito katalogo…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2628,9 +2546,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get agenda => 'Priminimai';
 
   @override
-  String get reminderLabel => 'Priminimas';
-
-  @override
   String get agendaEmpty =>
       'Suplanuotų vizitų nėra. Naujus planuok čia pliusu arba katės ar klauderio puslapyje.';
 
@@ -2671,6 +2586,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get markDone => 'Atlikta';
 
   @override
+  String get takeOffList => 'Pašalinti iš sąrašo';
+
+  @override
   String get repeatTitle => 'Vėl po…';
 
   @override
@@ -2678,6 +2596,51 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get unitDays => 'dienų';
+
+  @override
+  String get yesterday => 'Vakar';
+
+  @override
+  String get weekdayMon => 'Pr';
+
+  @override
+  String get weekdayTue => 'An';
+
+  @override
+  String get weekdayWed => 'Tr';
+
+  @override
+  String get weekdayThu => 'Kt';
+
+  @override
+  String get weekdayFri => 'Pn';
+
+  @override
+  String get weekdaySat => 'Št';
+
+  @override
+  String get weekdaySun => 'Sk';
+
+  @override
+  String get weekdayFullMon => 'pirmadienis';
+
+  @override
+  String get weekdayFullTue => 'antradienis';
+
+  @override
+  String get weekdayFullWed => 'trečiadienis';
+
+  @override
+  String get weekdayFullThu => 'ketvirtadienis';
+
+  @override
+  String get weekdayFullFri => 'penktadienis';
+
+  @override
+  String get weekdayFullSat => 'šeštadienis';
+
+  @override
+  String get weekdayFullSun => 'sekmadienis';
 
   @override
   String get unitWeeks => 'savaičių';
@@ -2714,9 +2677,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Kalendoriaus failas išsaugotas $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Atspindėti įrenginio kalendoriuje';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2801,11 +2761,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.';
+      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką, o kortelė lieka pažymėta iki dienos pabaigos; bakstelėk ją, kad suplanuotum kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą; šiukšliadėžė ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.';
 
   @override
   String get helpAgendaNeutral =>
-      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria augintinį ar namų ūkį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliais augintiniais yra vienas vizitas: pažymėkite augintinius, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurie augintiniai buvo gydyti — nuimkite žymą nuo kitų, jie lieka suplanuoti. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.';
+      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria augintinį ar namų ūkį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką, o kortelė lieka pažymėta iki dienos pabaigos; bakstelėk ją, kad suplanuotum kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą; šiukšliadėžė ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliais augintiniais yra vienas vizitas: pažymėkite augintinius, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurie augintiniai buvo gydyti — nuimkite žymą nuo kitų, jie lieka suplanuoti. Darbai – tai pasikartojančios pareigos: šėrimas, kraikas ar vaistai. Jie stovi po Šiandien su varnele, serija ir paskutinėmis septyniomis dienomis taškais; Netrukus rodo kitą savaitę be kasdienių. Darbas gali priminti pranešimu pasirinktu laiku. Taurė atveria pasiekimus.';
 
   @override
   String get calendarRowOff => 'Kalendorius: išjungta';
@@ -2838,22 +2798,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get appointmentLabel => 'Vizitas';
 
   @override
+  String get reminderLabel => 'Priminimas';
+
+  @override
   String get addAppointment => 'Pridėti vizitą';
-
-  @override
-  String get planChooserTitle => 'Vizitas ar priminimas?';
-
-  @override
-  String get planChooserAppointment =>
-      'Vizitas — apsilankymas tam tikrą dieną ir valandą, su pastabomis';
-
-  @override
-  String get planChooserReminder =>
-      'Priminimas — reikšmė, kurios terminas sueina tam tikrą dieną';
-
-  @override
-  String get planChooserChore =>
-      'Darbas — kas kartojasi: šėrimas, lašai, kraikas';
 
   @override
   String get newChore => 'Naujas darbas';
@@ -3117,14 +3065,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get achievementCentury => 'Visas šimtmetis';
 
   @override
-  String get achievementCenturyHint => 'Abu labai didžiuosimės.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title meistras';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3135,14 +3075,6 @@ class AppLocalizationsLt extends AppLocalizations {
     );
     return '$_temp0, pirmą kartą $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Kitas ties $n';
-  }
-
-  @override
-  String get achievementLocked => 'Dar ne';
 
   @override
   String achievementUnlocked(String name) {
@@ -3464,16 +3396,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Prašome patikrinti rūsius, pašiūres ir garažus. Nevaikykite, tiesiog paskambinkite.';
 
   @override
-  String get posterLastSeen => 'Paskutinį kartą matytas prie';
-
-  @override
   String get posterFreeText => 'Papildoma eilutė';
 
   @override
   String get posterQr => 'QR kodas cat(a)log';
-
-  @override
-  String get posterPhoto => 'Nuotrauka';
 
   @override
   String get newCatIn => 'Nauja katė į…';
@@ -3482,10 +3408,26 @@ class AppLocalizationsLt extends AppLocalizations {
   String get newCatInNeutral => 'Naujas augintinis į…';
 
   @override
+  String get newCatHere => 'Nauja katė čia';
+
+  @override
+  String get newCatHereNeutral => 'Naujas augintinis čia';
+
+  @override
   String get choreLabel => 'Užduotis';
 
   @override
   String get choreTickLabel => 'Užduotis atlikta';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title atlikta';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'už $day';
+  }
 
   @override
   String get choreEnded => 'Baigta';
@@ -3519,8 +3461,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get coverPick => 'Viršelio nuotrauka…';
 
   @override
-  String get coverHint =>
-      'Vietos nuotrauka: namas, kiemas, šėrimo vieta. Rodoma kortelėje vietoj katės.';
+  String get coverLabel => 'Klauderio nuotrauka';
+
+  @override
+  String get coverLabelNeutral => 'Namų ūkio nuotrauka';
+
+  @override
+  String get coverLabelStrays => 'Benamių kačių nuotrauka';
 
   @override
   String get coverRemove => 'Pašalinti viršelio nuotrauką';
@@ -3538,7 +3485,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Palaikykite reikšmę, kad ją pataisytumėte ar pašalintumėte. Niekas neprarandama; paslėptos reikšmės rodomos paprašius.';
+      'Bakstelėkite reikšmę, kad ją pataisytumėte, šiukšliadėžė ją pašalina. Niekas neprarandama; paslėptos reikšmės rodomos paprašius.';
 
   @override
   String get spotBackups =>
@@ -3558,7 +3505,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Vieno lauko reikšmės laike, naujausios pirmos. Palieskite reikšmę, kad pataisytumėte: nauja užima jos vietą, sena paslepiama. Palaikykite reikšmę, kad pašalintumėte ar grąžintumėte paslėptą; akis rodo paslėptas reikšmes. Nukopijuokite sąrašą kaip tekstą arba bendrinkite kaip PDF.';
+      'Vieno lauko reikšmės laikui bėgant, naujausios pirmos. Bakstelėkite reikšmę, kad ją pataisytumėte: nauja užima jos vietą, sena paslepiama. Šiukšliadėžė pašalina reikšmę, rodyklė grąžina paslėptą; akis rodo paslėptas reikšmes. Nukopijuokite sąrašą kaip tekstą arba bendrinkite kaip PDF.';
 
   @override
   String get helpSettings =>
@@ -3652,22 +3599,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get syncAnotherDevice => 'kitas įrenginys';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count $authors pakeitimų sulieta',
-      many: '$count $authors pakeitimo sulieta',
-      few: '$count $authors pakeitimai sulieti',
-      one: '$count $authors pakeitimas sulietas',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Rodyti';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3679,12 +3610,6 @@ class AppLocalizationsLt extends AppLocalizations {
     );
     return '$_temp0, pirmą kartą $date';
   }
-
-  @override
-  String get syncRunning => 'Sinchronizuojama su aplanku…';
-
-  @override
-  String get syncDismiss => 'Ne dabar';
 
   @override
   String flierHidden(int count) {
@@ -3701,4 +3626,97 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get undo => 'Atšaukti';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sinchronizuota su $authors. Palieskite, kad pamatytumėte, kas atkeliavo.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sinchronizuota. Nieko naujo.';
+
+  @override
+  String get noteSyncFailed =>
+      'Sinchronizuoti nepavyko. Palieskite, kad pamatytumėte išsamiau.';
+
+  @override
+  String get failureReport => 'Pranešti';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Atidaryti $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — atlikta $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title atlikta $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n daugiau';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Bendras aplankas nepasiekiamas nuo $since. Palieskite, kad pamatytumėte išsamiau.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names vis dar reikia naujos versijos, kad matytų jūsų pakeitimus.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Aplankas sinchronizuotas: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketas importuotas: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
+
+  @override
+  String get deletedDone => 'Ištrinta.';
+
+  @override
+  String get spotReplayDone => 'Patarimai bus rodomi vėl';
+
+  @override
+  String get syncRunning => 'Sinchronizuojama su aplanku…';
+
+  @override
+  String get copied => 'Nukopijuota';
+
+  @override
+  String get sharedFolder => 'Bendras aplankas';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Ne dabar';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n pakeitimų',
+      few: '$n pakeitimai',
+      one: '$n pakeitimas',
+    );
+    return '$_temp0';
+  }
 }

@@ -1,0 +1,6 @@
+{
+  "name": "withheld-later",
+  "about": "A value received as withheld sits below the version vector; a later round with private included carries it anyway. Its private marker, below the vector and no withheld value itself, stays behind in the folder; the bundle, taken whole, brings it.",
+  "writer": "65b60673d6ed884bf01c2c222d82ada0",
+  "writerEntries": 95
+}

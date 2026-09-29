@@ -5,12 +5,14 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../age.dart';
 import '../layout.dart';
 import '../help.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
+import '../widgets/cat_avatar.dart';
 import '../pdf_fonts.dart';
 import '../plus_code.dart';
 import '../share.dart';
@@ -114,7 +116,14 @@ class _CardScreenState extends State<CardScreen> {
         }
         continue;
       }
-      facts.add((fieldDefName(t, def), fieldValueDisplay(t, def, value)));
+      var display = fieldValueDisplay(t, def, value);
+      // The birth date answers "how old" here as it does on the cat's
+      // own page — with the cross when the cat has died.
+      if (def.slug == 'birthdate') {
+        final age = ageDisplay(t, store, id);
+        if (age != null) display = '$display · $age';
+      }
+      facts.add((fieldDefName(t, def), display));
     }
     return facts;
   }
@@ -330,6 +339,11 @@ class _CardScreenState extends State<CardScreen> {
         bytes: await doc.save(), filename: '$name-card.pdf');
   }
 
+  /// The card's portrait wears the mourning band, as every portrait
+  /// of a deceased cat does.
+  Widget _withBandIfDeceased(Widget portrait) =>
+      isDeceased(store, id) ? withMourningBand(portrait) : portrait;
+
   @override
   Widget build(BuildContext context) {
     final name = store.current(id, Keys.name) ?? '(unnamed)';
@@ -381,13 +395,13 @@ class _CardScreenState extends State<CardScreen> {
                   if (photo != null)
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Image(
+                      child: _withBandIfDeceased(Image(
                           // Sharp enough for the 3x export, a fraction
                           // of a full decode.
                           image: ResizeImage(photo, width: 1000),
                           width: 328,
                           height: 246,
-                          fit: BoxFit.cover),
+                          fit: BoxFit.cover)),
                     ),
                   const SizedBox(height: 12),
                   Text(name,

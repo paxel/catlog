@@ -6,6 +6,8 @@ import 'package:catlog/src/reminders/mirror_hook.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// A calendar that answers with an error switches the mirror off and
 /// says why — it must never become a crash on every start.
 class BrokenCalendar implements CalendarPort {
@@ -53,6 +55,6 @@ void main() {
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
     expect(store.localSetting(calendarMirrorEnabledKey), 'off');
-    expect(find.text('Calendar provider unavailable'), findsOneWidget);
+    expect(notesSaid(), ['Calendar provider unavailable']);
   });
 }

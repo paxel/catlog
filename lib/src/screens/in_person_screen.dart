@@ -7,10 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../exclusive.dart';
 import '../help.dart';
 import '../import_summary.dart';
 import '../sync/hotspot.dart';
 import '../l10n.dart';
+import '../notes.dart';
+import '../celebration.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
 import '../sync/tls.dart';
@@ -71,7 +74,8 @@ class _InPersonScreenState extends State<InPersonScreen> {
 
   /// A host is being started: a second tap waits, a pop stops it.
   bool _starting = false;
-  String? _lastResult;
+  /// A typed code that is no pair code: the field's own answer.
+  String? _codeError;
 
   /// Joiner's own outbound choice; never persisted (default public).
   bool _includePrivate = false;
@@ -110,45 +114,6 @@ class _InPersonScreenState extends State<InPersonScreen> {
     if (_hotspotQr != null) stopHotspot();
     _code.dispose();
     super.dispose();
-  }
-
-  /// The human trust gate: allow once, always allow this device, or
-  /// decline. Include-private for the host's outbound lives here too.
-  Future<JoinDecision> _onJoinRequest(
-      String author, String deviceInfo) async {
-    final parts = deviceInfo.split('|');
-    final deviceName = parts.first;
-    // A remembered device never gets here: the host checks its secret
-    // first. Everything else is the keeper's call.
-    if (!mounted) return const JoinDecision(false, false);
-    // 'once' / 'always' / null (decline). Private data follows the
-    // page's switch, the same one the joiner side uses — no second
-    // question here.
-    final choice = await showDialog<String>(
-      context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setDialogState) => AlertDialog(
-          title: Text(context.t.trustQuestion(author, deviceName)),
-          content: Text(context.t.trustBothWaysNote),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text(context.t.declineAction),
-            ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop('always'),
-              child: Text(context.t.allowAlways),
-            ),
-            FilledButton(
-              onPressed: () => Navigator.of(context).pop('once'),
-              child: Text(context.t.allowOnce),
-            ),
-          ],
-        ),
-      ),
-    );
-    if (choice == null) return const JoinDecision(false, false);
-    return JoinDecision(true, _includePrivate, remember: choice == 'always');
   }
 
   Future<void> _toggleHost() async {
@@ -193,10 +158,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
       final (host, pin, _) = started;
       _showCodes(host, pin, info.ip, hotspot: info);
     } catch (e) {
-      if (mounted) {
-        setState(
-            () => _lastResult = context.t.syncFailed('$e'));
-      }
+      if (mounted) noteFailed(context.t.syncFailed('$e'), detail: '$e');
     } finally {
       _starting = false;
     }
@@ -211,7 +173,6 @@ class _InPersonScreenState extends State<InPersonScreen> {
     if (!mounted) return null;
     final host = LanSyncHost(widget.store, pin,
         identity: identity,
-        onJoinRequest: _onJoinRequest,
         onSession: _onSession,
         includePrivate: () => _includePrivate);
     final address = await host.start();
@@ -223,12 +184,17 @@ class _InPersonScreenState extends State<InPersonScreen> {
     return (host, pin, address);
   }
 
+  /// A phone synced with this host: the note at the top, or the arrival
+  /// page at once when the signatures need a look.
   void _onSession(List<Entry> applied, Moment? moment, ImportReport report) {
     if (!mounted) return;
     setState(() => _sessions++);
-    if (applied.isNotEmpty || needsAttention(report)) {
+    if (needsAttention(report)) {
       showImportSummary(context, widget.store, applied,
           undo: moment, report: report);
+    } else {
+      NoteQueue.instance.add(
+          arrivalNote(context, widget.store, applied, undo: moment, report: report));
     }
   }
 
@@ -252,7 +218,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
   Future<void> _joinHotspotFlow(
       ({String ssid, String pass, String pairCode}) info) async {
     if (!Platform.isAndroid) {
-      setState(() => _lastResult = context.t.hotspotAndroidOnly);
+      noteFailed(context.t.hotspotAndroidOnly);
       return;
     }
     final ok = await showDialog<bool>(
@@ -277,10 +243,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
     try {
       final joined = await joinHotspot(info.ssid, info.pass);
       if (!joined) {
-        if (mounted) {
-          setState(
-              () => _lastResult = context.t.syncFailed('hotspot'));
-        }
+        if (mounted) noteFailed(context.t.syncFailed('hotspot'));
         return;
       }
       await _joinWith(info.pairCode, viaHotspot: true);
@@ -295,63 +258,65 @@ class _InPersonScreenState extends State<InPersonScreen> {
     // A code pointing outside the local network is not a pair code —
     // nothing is sent anywhere.
     if (info == null || !isPrivateHost(info.host)) {
-      setState(() => _lastResult = context.t.invalidCode);
+      setState(() => _codeError = context.t.invalidCode);
       return;
     }
     // Off the Wi-Fi, the host's address can never answer: name the fix
     // now instead of timing out in silence. A hotspot join brought its
     // own network a moment ago — connectivity may still be catching up.
     if (!viaHotspot && !await InPersonScreen._onWifi()) {
-      if (mounted) {
-        setState(() => _lastResult = context.t.connectToWifiFirst);
-      }
+      if (mounted) noteFailed(context.t.connectToWifiFirst);
       return;
     }
     if (!mounted) return;
     // A code without a fingerprint comes from a version before TLS.
     if (info.fingerprint == null) {
-      setState(() => _lastResult = context.t.syncPeerNoTls);
+      noteFailed(context.t.syncPeerNoTls);
       return;
     }
     setState(() {
       _joining = true;
-      _lastResult = null;
+      _codeError = null;
     });
     try {
-      final result = await lanSync(
-          widget.store, info.host, info.port, info.pin,
-          fingerprint: info.fingerprint!, includePrivate: _includePrivate);
-      if (!mounted || !widget.store.isOpen) return;
+      // Under the lanSync key so the activity line shows it running.
+      final result = await runExclusive(
+          'lanSync',
+          () => lanSync(widget.store, info.host, info.port, info.pin,
+              fingerprint: info.fingerprint!, includePrivate: _includePrivate));
+      if (result == null || !mounted || !widget.store.isOpen) return;
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
-      setState(() => _lastResult = context.t.syncedResult('$result'));
-      if (mounted &&
-          (result.applied.isNotEmpty || needsAttention(result.report))) {
+      if (needsAttention(result.report)) {
         await showImportSummary(context, widget.store, result.applied,
             undo: result.moment, report: result.report);
+      } else {
+        NoteQueue.instance.add(arrivalNote(context, widget.store,
+            result.applied,
+            undo: result.moment, report: result.report));
       }
     } on SyncException catch (e) {
       if (mounted) {
-        setState(() => _lastResult = switch (e.message) {
-              'declined' => context.t.syncDeclined,
-              'peer-older' => context.t.syncPeerOlder,
-              'peer-newer' => context.t.syncPeerNewer,
-              'peer-no-tls' => context.t.syncPeerNoTls,
-              'wrong-host' => context.t.syncWrongHost,
-              _ => context.t.syncFailed(e.message),
-            });
+        noteFailed(
+          switch (e.message) {
+            'declined' => context.t.syncDeclined,
+            'peer-older' => context.t.syncPeerOlder,
+            'peer-newer' => context.t.syncPeerNewer,
+            'peer-no-tls' => context.t.syncPeerNoTls,
+            'wrong-host' => context.t.syncWrongHost,
+            _ => context.t.syncFailed(e.message),
+          },
+          detail: e.message,
+        );
       }
-    } on SocketException {
+    } on SocketException catch (e) {
       if (mounted) {
         final hint =
             Platform.isIOS ? '\n${context.t.iosLocalNetworkHint}' : '';
-        setState(
-            () => _lastResult = '${context.t.syncUnreachable}$hint');
+        noteFailed('${context.t.syncUnreachable}$hint', detail: '$e');
       }
     } catch (e) {
-      if (mounted) {
-        setState(() => _lastResult = context.t.syncFailed('$e'));
-      }
+      if (mounted) noteFailed(context.t.syncFailed('$e'), detail: '$e');
     } finally {
       if (mounted) setState(() => _joining = false);
     }
@@ -457,8 +422,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
                               await Clipboard.setData(
                                   ClipboardData(text: _pairCode!));
                               if (context.mounted) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text(t.copied)));
+                                paw(context);
                               }
                             },
                           ),
@@ -486,6 +450,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
               decoration: InputDecoration(
                 labelText: t.orTypeCode,
                 hintText: 'xxxxx_xxxxx_xxxxx',
+                errorText: _codeError,
                 border: const OutlineInputBorder(),
                 suffixIcon: _joining
                     ? const Padding(
@@ -507,13 +472,10 @@ class _InPersonScreenState extends State<InPersonScreen> {
               inputFormatters: [PairCodeFormatter()],
               autocorrect: false,
               onChanged: (v) {
+                if (_codeError != null) setState(() => _codeError = null);
                 if (!_joining && decodePairCode(v) != null) _joinWith(v);
               },
             ),
-          ],
-          if (_lastResult != null) ...[
-            const SizedBox(height: 12),
-            Text(_lastResult!),
           ],
         ],
       ),

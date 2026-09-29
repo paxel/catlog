@@ -1,17 +1,40 @@
 # Sounds
 
-## cheer1.wav – cheer4.wav
+Eight cat sounds. Two are cut from recordings on Wikimedia Commons that
+their authors released as CC0 or into the public domain; no credit is
+owed, the sources are named so anyone can hear the originals. The other
+six are two cats' own voices, recorded and given to the app by their
+keeper. Every cut is mono, 22.05 kHz, faded, and loudness-matched.
 
-Cut from "Free Crowd Cheering Sounds" by Gregor Quendel,
-https://opengameart.org/content/free-crowd-cheering-sounds,
-licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+## purr.wav — a day of chores done
 
-Changes: 2.8-second excerpts of tracks 03 (Strong cheering I),
-04 (Strong cheering II, short), 05 (Soft cheering I) and
-08 (Rhythmic cheering), mixed to mono, resampled to 22.05 kHz,
-faded out. The credit is shown in the app under About → Open-source
-licenses.
+"Whiskers' purr" by Adam Cuerden, public domain,
+https://commons.wikimedia.org/wiki/File:Whiskers%27_purr.ogg
+Seconds 1 to 3.8.
 
-## party.wav
+## chorus.wav — a ladder climbed
 
-The original adoption cheer, shipped since 1.0.
+Socke again: the three calls below, staggered and pitched apart, so one
+cat sounds like several.
+
+## party.wav — an adoption
+
+"Purring cat bertie" by jim_mowatt, public domain,
+https://commons.wikimedia.org/wiki/File:Purring_cat_bertie.ogg
+under "Meow of a Siamese cat - freemaster2" by freemaster2, CC0,
+https://commons.wikimedia.org/wiki/File:Meow_of_a_Siamese_cat_-_freemaster2.wav
+
+## socke1.wav, socke2.wav, socke3.wav — Meep, Mrrp, Mrrr
+
+Socke, recorded by Patrick Zimmer on a phone and given to the app. Used
+by permission; not from a stock library and not under a public licence.
+Trimmed to the call, rumble filtered out, levelled.
+
+## sonne_miau.wav, sonne_purr.wav — Sonne miau, Sonne purr
+
+Sonne, recorded by Patrick Zimmer on a phone in her last days and given
+to the app. Used by permission; not from a stock library and not under a
+public licence. Both recordings are very faint, so each is filtered to
+the band the cat is in, the call from 250 Hz to 4 kHz and the purr from
+40 Hz to 1.8 kHz, before the level is lifted; without that the room's
+hiss would come up with her.

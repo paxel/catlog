@@ -11,7 +11,6 @@ export 'src/archive.dart';
 export 'src/breeds.dart';
 export 'src/bundle.dart';
 export 'src/catalogs.dart';
-export 'src/csv_export.dart';
 export 'src/duplicates.dart';
 export 'src/entry.dart';
 export 'src/fields.dart';

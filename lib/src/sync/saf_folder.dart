@@ -74,6 +74,11 @@ class SafSyncFolder implements SyncFolder {
     };
   }
 
+  /// The document tree does not hand out write times here, so the
+  /// decision falls back to what the file contains.
+  @override
+  Future<DateTime?> written(String dir, String name) async => null;
+
   @override
   Future<Uint8List?> read(String dir, String name) =>
       _call<Uint8List>('read', _args(dir, name));

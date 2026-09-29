@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/pdf_fonts.dart';
@@ -48,6 +50,21 @@ void main() {
       DateTime(2026, 2, 28),
     );
     expect(rows.map((e) => e.value), ['4200', 'Sneezing']);
+  });
+
+  test('the summary counts the age to the day the cat died', () {
+    final t = lookupAppLocalizations(const Locale('en'));
+    final now = DateTime(2026, 9, 11);
+    expect(
+      patientFacts(t, store, cat, now).firstWhere((r) => r.$1 == 'Age').$2,
+      '6 yrs 4 mo',
+    );
+    store.append(cat, Keys.userField('deceased'), '2025-05-18');
+    expect(
+      patientFacts(t, store, cat, now).firstWhere((r) => r.$1 == 'Age').$2,
+      '5 yrs †',
+      reason: 'born 2020-05-01, died 2025-05-18',
+    );
   });
 
   test('the age reads in years and months', () {
@@ -111,6 +128,7 @@ void main() {
         home: VetReportScreen(
           store: store,
           catId: cat,
+          preview: (_) async => null,
           share: (doc, name) async {
             shared = doc;
             fileName = name;
@@ -135,4 +153,112 @@ void main() {
     expect(shared, isNotNull);
     expect(fileName, 'Miezi Report for the vet.pdf');
   });
+
+  testWidgets('the report is previewed as it will print', (tester) async {
+    var previews = 0;
+    // A one-pixel PNG stands in for the rasterised first page.
+    final png = Uint8List.fromList([
+      137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, //
+      1, 0, 0, 0, 1, 8, 6, 0, 0, 0, 31, 21, 196, 137, 0, 0, 0, 13, 73, 68, 65,
+      84, 120, 156, 99, 250, 207, 192, 0, 0, 3, 1, 1, 0, 24, 221, 141, 219, 0,
+      0, 0, 0, 73, 69, 78, 68, 174, 66, 96, 130,
+    ]);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: VetReportScreen(
+          store: store,
+          catId: cat,
+          preview: (pdf) async {
+            previews++;
+            expect(pdf.isNotEmpty, isTrue, reason: 'a real PDF is rasterised');
+            return png;
+          },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Preview'), findsNothing);
+    // The timer belongs to the test's clock; the curve it then draws is
+    // real work on a real canvas, so it needs the clock let go of.
+    await tester.pump(const Duration(milliseconds: 600));
+    await tester.runAsync(() async {
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+    });
+    await tester.pumpAndSettle();
+    expect(find.text('Preview'), findsOneWidget);
+    expect(previews, 1);
+  });
+
+  testWidgets('the preview does not take Share and Print away', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(500, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: VetReportScreen(
+          store: store,
+          catId: cat,
+          preview: (_) async => null,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    // The debounce fires and the preview starts building; the page is
+    // not busy — only Share and Print make it so.
+    await tester.pump(const Duration(milliseconds: 600));
+    await tester.pump();
+    final share = tester.widget<IconButton>(
+      find.widgetWithIcon(IconButton, Icons.picture_as_pdf),
+    );
+    expect(share.onPressed, isNotNull, reason: 'the report is there to share');
+  });
+
+  testWidgets('dropping a row draws the preview again', (tester) async {
+    var previews = 0;
+    tester.view.physicalSize = const Size(500, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: VetReportScreen(
+          store: store,
+          catId: cat,
+          // The picture itself is the poster screen's business; what
+          // matters here is that a new one is asked for.
+          preview: (pdf) async {
+            previews++;
+            return null;
+          },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    Future<void> settlePreview() async {
+      await tester.pump(const Duration(milliseconds: 600));
+      await tester.runAsync(() async {
+        await Future<void>.delayed(const Duration(milliseconds: 500));
+      });
+      await tester.pumpAndSettle();
+    }
+
+    await settlePreview();
+    expect(previews, 1);
+    // A row taken out of the report is a different report.
+    await tester.tap(find.textContaining('Sneezing'));
+    await settlePreview();
+    expect(previews, 2);
+    // So is the summary going away.
+    await tester.tap(find.byType(Switch).first);
+    await settlePreview();
+    expect(previews, 3);
+  });
+
 }

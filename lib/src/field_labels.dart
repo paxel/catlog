@@ -174,9 +174,17 @@ String fieldLabel(AppLocalizations t, CatalogStore store, String key) {
   }
   if (key.startsWith(Keys.appointmentPrefix)) return t.appointmentLabel;
   if (key.startsWith(Keys.chorePrefix)) {
-    return key.substring(Keys.chorePrefix.length).contains('@')
-        ? t.choreTickLabel
-        : t.choreLabel;
+    final rest = key.substring(Keys.chorePrefix.length);
+    final at = rest.indexOf('@');
+    if (at < 0) return t.choreLabel;
+    // A tick names its chore: "Meds done", not "Chore done". A chore
+    // whose title is gone falls back to the bare words.
+    final id = rest.substring(0, at);
+    final chore = store
+        .allChores(includeEnded: true)
+        .where((c) => c.id == id)
+        .firstOrNull;
+    return chore == null ? t.choreTickLabel : t.choreDoneTitled(chore.title);
   }
   if (key == Keys.personTitle) return t.titleLabel;
   if (key == Keys.deleted) return t.deletedLabel;
@@ -213,7 +221,10 @@ String valueLabel(
         ? ''
         : ' ${a.time!.hour.toString().padLeft(2, '0')}:'
               '${a.time!.minute.toString().padLeft(2, '0')}';
-    return '${a.title}$when${a.done ? ' ✓' : ''}';
+    // The outcome notes belong to the visit: "how did it go" is what
+    // the history is read for.
+    final notes = a.notes.isEmpty ? '' : '\n${a.notes}';
+    return '${a.title}$when${a.done ? ' ✓' : ''}$notes';
   }
   if (key.startsWith(Keys.imagePrefix)) return value;
   if (key == Keys.profileImage) return '·';

@@ -1,5 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../layout.dart';
 import '../help.dart';
@@ -7,17 +9,18 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
-import '../widgets/cat_ear.dart';
+import '../celebration.dart';
 import 'field_history_screen.dart';
+import 'map_screen.dart';
 
 /// The timeline of an entity: every change in date order with Author —
 /// or, when [field] is given, the history of that one Field.
 ///
 /// Clowder timelines additionally weave in arrivals and departures of
 /// Cats (derived from the Cats' membership histories — membership lives
-/// on the Cat, see CONTEXT.md: Move). A tap corrects an entry, a long
-/// press removes or restores it: a marker hides the row, nothing is
-/// ever deleted, and hidden rows show on request.
+/// on the Cat, see CONTEXT.md: Move). A tap corrects an entry, the bin
+/// removes it and a removed row offers its way back: a marker hides the
+/// row, nothing is ever deleted, and hidden rows show on request.
 class TimelineScreen extends StatefulWidget {
   final CatalogStore store;
   final String entityId;
@@ -51,6 +54,14 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   bool get _showVoided => store.localSetting(historyShowVoidedKey) == 'yes';
 
+  /// The day a chore tick counts for, from its key; null for any other
+  /// entry.
+  String? _tickDue(Entry e) {
+    if (!e.field.startsWith(Keys.chorePrefix)) return null;
+    final at = e.field.indexOf('@');
+    return at < 0 ? null : e.field.substring(at + 1);
+  }
+
   /// Friendly rendering for a Cat's own membership entry.
   _Row _membershipRow(Entry e) => _Row(
         e,
@@ -79,6 +90,15 @@ class _TimelineScreenState extends State<TimelineScreen> {
           _membershipRow(e)
         else if (e.field == Keys.mergedInto)
           _Row(e, Icons.merge, t.duplicateMergedIn)
+        else if (_tickDue(e) case final due?)
+          // A tick: which chore, and the day it counts for when that is
+          // not the day it was ticked on.
+          _Row(
+              e,
+              Icons.check_circle_outline,
+              due == dayKey(dayOf(e.date.toLocal()))
+                  ? fieldLabel(t, store, e.field)
+                  : '${fieldLabel(t, store, e.field)} · ${t.choreDoneFor(DateFormat.yMEd(_locale).format(DateTime.parse(due)))}')
         else
           _Row(e, Icons.history,
               '${fieldLabel(t, store, e.field)}: ${valueLabel(t, store, e.field, e.value)}'),
@@ -147,55 +167,34 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   void _remove(Entry entry) {
     store.removeEntry(entry.seq);
-    final restored = store.current(entry.entity, entry.field);
     setState(() {});
-    final label = fieldLabel(context.t, store, entry.field);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(restored == null
-          ? context.t.fieldCleared(label)
-          : context.t.fieldBackTo(
-              label, valueLabel(context.t, store, entry.field, restored))),
-    ));
+    paw(context);
   }
 
-  void _entryMenu(Entry entry) {
-    final t = context.t;
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (sheetContext) => SafeArea(
-        child: Wrap(children: [
-          if (entry.voided)
-            ListTile(
-              leading: const Icon(Icons.restore),
-              title: Text(t.restoreThisValue),
-              onTap: () {
-                Navigator.of(sheetContext).pop();
-                store.restoreEntry(entry.seq);
-                setState(() {});
-              },
-            )
-          else ...[
-            if (_defOf(entry) != null)
-              ListTile(
-                leading: const Icon(Icons.edit_outlined),
-                title: Text(t.correctThisValue),
-                onTap: () {
-                  Navigator.of(sheetContext).pop();
-                  _correct(entry);
-                },
-              ),
-            ListTile(
-              leading: const Icon(Icons.delete_outline),
-              title: Text(t.removeThisValue),
-              onTap: () {
-                Navigator.of(sheetContext).pop();
-                _remove(entry);
-              },
-            ),
-          ],
-        ]),
+  /// The spot a position or location value names; null for any other
+  /// row.
+  LatLng? _spotOf(Entry e) {
+    if (e.field != CatalogStore.positionKey &&
+        _defOf(e)?.type != FieldType.location) {
+      return null;
+    }
+    final pos = CatalogStore.parsePosition(e.value);
+    return pos == null ? null : LatLng(pos.$1, pos.$2);
+  }
+
+  /// The map centered on the row's spot, with the field's trail on and
+  /// this value's dot marked.
+  Future<void> _showOnMap(Entry e, LatLng spot) async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => MapScreen(
+        store: store,
+        initialCenter: spot,
+        focus: (e.entity, spot),
+        trailOf: (e.entity, e.field),
+        dot: e.seq,
       ),
-    );
+    ));
+    if (mounted) setState(() {});
   }
 
   @override
@@ -234,6 +233,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
           final e = row.entry;
           final correctable = CatalogStore.isCorrectable(e.field);
           final muted = Theme.of(context).colorScheme.onSurfaceVariant;
+          final spot = _spotOf(e);
           final tile = ListTile(
             leading: Icon(row.icon, color: e.voided ? muted : null),
             title: Text(
@@ -248,12 +248,36 @@ class _TimelineScreenState extends State<TimelineScreen> {
                     '${voidedLine(context.t, store, e.field, e, _locale)}'
                 : '${_date(e.date)} · ${e.author}'),
             isThreeLine: e.voided,
+            // A position leads to the map: the spot, the trail, this
+            // dot. The bin removes, a removed row offers its way back.
+            trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+              if (spot != null)
+                IconButton(
+                  icon: const Icon(Icons.map_outlined),
+                  tooltip: context.t.showOnMap,
+                  onPressed: () => _showOnMap(e, spot),
+                ),
+              if (correctable && e.voided)
+                IconButton(
+                  icon: const Icon(Icons.restore),
+                  tooltip: context.t.restoreThisValue,
+                  onPressed: () {
+                    store.restoreEntry(e.seq);
+                    setState(() {});
+                  },
+                )
+              else if (correctable)
+                IconButton(
+                  icon: const Icon(Icons.delete_outline),
+                  tooltip: context.t.removeThisValue,
+                  onPressed: () => _remove(e),
+                ),
+            ]),
             onTap: correctable && !e.voided && _defOf(e) != null
                 ? () => _correct(e)
                 : null,
-            onLongPress: correctable ? () => _entryMenu(e) : null,
           );
-          return correctable ? WithCatEar(child: tile) : tile;
+          return tile;
         },
       ),
     );

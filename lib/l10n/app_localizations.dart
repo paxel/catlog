@@ -272,12 +272,6 @@ abstract class AppLocalizations {
   /// **'On the card'**
   String get pickerCardFields;
 
-  /// No description provided for @exportCsv.
-  ///
-  /// In en, this message translates to:
-  /// **'Export CSV'**
-  String get exportCsv;
-
   /// No description provided for @aboutAndFeedback.
   ///
   /// In en, this message translates to:
@@ -326,6 +320,12 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get save;
 
+  /// No description provided for @clearField.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearField;
+
   /// No description provided for @delete.
   ///
   /// In en, this message translates to:
@@ -349,12 +349,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open'**
   String get open;
-
-  /// No description provided for @csvSavedTo.
-  ///
-  /// In en, this message translates to:
-  /// **'CSV saved to {path}'**
-  String csvSavedTo(String path);
 
   /// No description provided for @renameClowder.
   ///
@@ -488,12 +482,6 @@ abstract class AppLocalizations {
   /// **'Newest first'**
   String get sortNewestFirst;
 
-  /// No description provided for @shareAsText.
-  ///
-  /// In en, this message translates to:
-  /// **'Share as text'**
-  String get shareAsText;
-
   /// No description provided for @shareAsPdf.
   ///
   /// In en, this message translates to:
@@ -626,18 +614,6 @@ abstract class AppLocalizations {
   /// **'The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.'**
   String get deleteCatBodyNeutral;
 
-  /// No description provided for @sightingRecorded.
-  ///
-  /// In en, this message translates to:
-  /// **'Sighting recorded at your position.'**
-  String get sightingRecorded;
-
-  /// No description provided for @noLocationAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'No location available — long-press the map instead.'**
-  String get noLocationAvailable;
-
   /// No description provided for @locationDeniedForever.
   ///
   /// In en, this message translates to:
@@ -685,6 +661,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Capture flier'**
   String get captureFlier;
+
+  /// No description provided for @flierFromCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Flier from camera'**
+  String get flierFromCamera;
+
+  /// No description provided for @flierFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Flier from gallery'**
+  String get flierFromGallery;
 
   /// No description provided for @addPhotosTo.
   ///
@@ -806,23 +794,65 @@ abstract class AppLocalizations {
   /// **'Pick frames'**
   String get pickFramesTitle;
 
-  /// No description provided for @suggestedFrames.
-  ///
-  /// In en, this message translates to:
-  /// **'Suggested frames'**
-  String get suggestedFrames;
-
-  /// No description provided for @scrubFrames.
-  ///
-  /// In en, this message translates to:
-  /// **'Scrub the video'**
-  String get scrubFrames;
-
   /// No description provided for @keepThisFrame.
   ///
   /// In en, this message translates to:
   /// **'Keep this frame'**
   String get keepThisFrame;
+
+  /// No description provided for @frameBack.
+  ///
+  /// In en, this message translates to:
+  /// **'One frame back'**
+  String get frameBack;
+
+  /// No description provided for @frameForward.
+  ///
+  /// In en, this message translates to:
+  /// **'One frame forward'**
+  String get frameForward;
+
+  /// No description provided for @secondBack.
+  ///
+  /// In en, this message translates to:
+  /// **'One second back'**
+  String get secondBack;
+
+  /// No description provided for @secondForward.
+  ///
+  /// In en, this message translates to:
+  /// **'One second forward'**
+  String get secondForward;
+
+  /// No description provided for @tenSecondsBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Ten seconds back'**
+  String get tenSecondsBack;
+
+  /// No description provided for @tenSecondsForward.
+  ///
+  /// In en, this message translates to:
+  /// **'Ten seconds forward'**
+  String get tenSecondsForward;
+
+  /// No description provided for @play.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get play;
+
+  /// No description provided for @pause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get pause;
+
+  /// No description provided for @keptFrames.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept frames appear here'**
+  String get keptFrames;
 
   /// No description provided for @fromVideo.
   ///
@@ -967,12 +997,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Missing since'**
   String get missingSinceLabel;
-
-  /// No description provided for @phoneLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone'**
-  String get phoneLabel;
 
   /// No description provided for @cropPortrait.
   ///
@@ -1154,18 +1178,6 @@ abstract class AppLocalizations {
   /// **'{field} — {name}'**
   String fieldHistoryOf(String field, String name);
 
-  /// No description provided for @fieldCleared.
-  ///
-  /// In en, this message translates to:
-  /// **'{field} cleared'**
-  String fieldCleared(String field);
-
-  /// No description provided for @fieldBackTo.
-  ///
-  /// In en, this message translates to:
-  /// **'{field} back to \"{value}\"'**
-  String fieldBackTo(String field, String value);
-
   /// No description provided for @leftStray.
   ///
   /// In en, this message translates to:
@@ -1231,12 +1243,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Value'**
   String get value;
-
-  /// No description provided for @latitudeLongitude.
-  ///
-  /// In en, this message translates to:
-  /// **'latitude, longitude'**
-  String get latitudeLongitude;
 
   /// No description provided for @newField.
   ///
@@ -1370,12 +1376,6 @@ abstract class AppLocalizations {
   /// **'Stop hosting'**
   String get stopHosting;
 
-  /// No description provided for @pinLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'PIN: {pin}'**
-  String pinLabel(String pin);
-
   /// No description provided for @sessionsSoFar.
   ///
   /// In en, this message translates to:
@@ -1387,12 +1387,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Join'**
   String get join;
-
-  /// No description provided for @addressFromHost.
-  ///
-  /// In en, this message translates to:
-  /// **'Address (from the hosting device)'**
-  String get addressFromHost;
 
   /// No description provided for @pin.
   ///
@@ -1406,35 +1400,11 @@ abstract class AppLocalizations {
   /// **'Sync now'**
   String get syncNow;
 
-  /// No description provided for @addressFormatHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Address must look like 192.168.0.12:38472'**
-  String get addressFormatHint;
-
-  /// No description provided for @syncedResult.
-  ///
-  /// In en, this message translates to:
-  /// **'Synced: {result}'**
-  String syncedResult(String result);
-
   /// No description provided for @syncFailed.
   ///
   /// In en, this message translates to:
   /// **'Sync failed: {error}'**
   String syncFailed(String error);
-
-  /// No description provided for @lastSyncWith.
-  ///
-  /// In en, this message translates to:
-  /// **'Last sync with {peer}: {time}'**
-  String lastSyncWith(String peer, String time);
-
-  /// No description provided for @sharedFolder.
-  ///
-  /// In en, this message translates to:
-  /// **'Shared folder'**
-  String get sharedFolder;
 
   /// No description provided for @sharedFolderExplainer.
   ///
@@ -1478,12 +1448,6 @@ abstract class AppLocalizations {
   /// **'Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.'**
   String get folderHint;
 
-  /// No description provided for @folderSynced.
-  ///
-  /// In en, this message translates to:
-  /// **'Folder synced: {result}'**
-  String folderSynced(String result);
-
   /// No description provided for @folderSyncFailed.
   ///
   /// In en, this message translates to:
@@ -1513,18 +1477,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Trail: {name} ({count} positions)'**
   String trailOfPlace(String name, int count);
-
-  /// No description provided for @conflictOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Conflict — {field}'**
-  String conflictOn(String field);
-
-  /// No description provided for @conflictBody.
-  ///
-  /// In en, this message translates to:
-  /// **'Changed in two places at once. Pick what is true:'**
-  String get conflictBody;
 
   /// No description provided for @privateMarker.
   ///
@@ -2273,7 +2225,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpTimeline.
   ///
   /// In en, this message translates to:
-  /// **'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.'**
+  /// **'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, the bin removes it, the arrow brings a hidden one back; a hidden entry stays in the log and shows on request.'**
   String get helpTimeline;
 
   /// No description provided for @helpDuplicates.
@@ -2588,29 +2540,11 @@ abstract class AppLocalizations {
   /// **'Copy code'**
   String get copyCode;
 
-  /// No description provided for @copied.
-  ///
-  /// In en, this message translates to:
-  /// **'Copied'**
-  String get copied;
-
   /// No description provided for @invalidCode.
   ///
   /// In en, this message translates to:
   /// **'That code is not valid'**
   String get invalidCode;
-
-  /// No description provided for @hotspotHint.
-  ///
-  /// In en, this message translates to:
-  /// **'No shared Wi-Fi? Turn on one phone\'s hotspot, connect the other phone to it, then host here.'**
-  String get hotspotHint;
-
-  /// No description provided for @byMessenger.
-  ///
-  /// In en, this message translates to:
-  /// **'By messenger'**
-  String get byMessenger;
 
   /// No description provided for @byMessengerExplainer.
   ///
@@ -2629,12 +2563,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Import sync bundle…'**
   String get importBundle;
-
-  /// No description provided for @bundleImported.
-  ///
-  /// In en, this message translates to:
-  /// **'Bundle imported: {result}'**
-  String bundleImported(String result);
 
   /// No description provided for @lastBackupFailed.
   ///
@@ -3470,12 +3398,6 @@ abstract class AppLocalizations {
   /// **'Ferret'**
   String get valueFerret;
 
-  /// No description provided for @otherOption.
-  ///
-  /// In en, this message translates to:
-  /// **'Other…'**
-  String get otherOption;
-
   /// No description provided for @celebrationsToggle.
   ///
   /// In en, this message translates to:
@@ -3488,17 +3410,77 @@ abstract class AppLocalizations {
   /// **'Confetti and a cheer when a cat moves into a forever home'**
   String get celebrationsSubtitle;
 
-  /// No description provided for @cheerToggle.
+  /// No description provided for @soundsSection.
   ///
   /// In en, this message translates to:
-  /// **'Cheer sound'**
-  String get cheerToggle;
+  /// **'Sounds'**
+  String get soundsSection;
 
-  /// No description provided for @cheerSubtitle.
+  /// No description provided for @reminderSound.
   ///
   /// In en, this message translates to:
-  /// **'A short cheer with the confetti, a different one each time'**
-  String get cheerSubtitle;
+  /// **'Cat sound for reminders'**
+  String get reminderSound;
+
+  /// No description provided for @reminderSoundSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A chore\'s reminder says Mrrr instead of the phone\'s own sound.'**
+  String get reminderSoundSubtitle;
+
+  /// No description provided for @soundPurr.
+  ///
+  /// In en, this message translates to:
+  /// **'Purr'**
+  String get soundPurr;
+
+  /// No description provided for @soundChorus.
+  ///
+  /// In en, this message translates to:
+  /// **'Chorus of meows'**
+  String get soundChorus;
+
+  /// No description provided for @soundParty.
+  ///
+  /// In en, this message translates to:
+  /// **'Party meow'**
+  String get soundParty;
+
+  /// No description provided for @soundMeep.
+  ///
+  /// In en, this message translates to:
+  /// **'Meep'**
+  String get soundMeep;
+
+  /// No description provided for @soundMrrp.
+  ///
+  /// In en, this message translates to:
+  /// **'Mrrp'**
+  String get soundMrrp;
+
+  /// No description provided for @soundMrrr.
+  ///
+  /// In en, this message translates to:
+  /// **'Mrrr'**
+  String get soundMrrr;
+
+  /// No description provided for @soundSonneMiau.
+  ///
+  /// In en, this message translates to:
+  /// **'Sonne miau'**
+  String get soundSonneMiau;
+
+  /// No description provided for @soundSonnePurr.
+  ///
+  /// In en, this message translates to:
+  /// **'Sonne purr'**
+  String get soundSonnePurr;
+
+  /// No description provided for @soundOwn.
+  ///
+  /// In en, this message translates to:
+  /// **'Own sound…'**
+  String get soundOwn;
 
   /// No description provided for @celebrationsSubtitleNeutral.
   ///
@@ -3571,12 +3553,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete everything by this author'**
   String get hardDeleteAction;
-
-  /// No description provided for @hardDeleteWarning.
-  ///
-  /// In en, this message translates to:
-  /// **'Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.'**
-  String hardDeleteWarning(Object name);
 
   /// No description provided for @yourKey.
   ///
@@ -3656,12 +3632,6 @@ abstract class AppLocalizations {
   /// **'Removes every entry and photo written by {name} under key {key} from this catalog. Other devices keep theirs. This cannot be undone.'**
   String hardDeleteWarningKey(Object name, Object key);
 
-  /// No description provided for @typeToConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Type {name} to confirm'**
-  String typeToConfirm(Object name);
-
   /// No description provided for @alsoBan.
   ///
   /// In en, this message translates to:
@@ -3679,12 +3649,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove ban'**
   String get unbanAction;
-
-  /// No description provided for @deletedDone.
-  ///
-  /// In en, this message translates to:
-  /// **'Deleted.'**
-  String get deletedDone;
 
   /// No description provided for @syncSummaryTitle.
   ///
@@ -3758,23 +3722,11 @@ abstract class AppLocalizations {
   /// **'Keep mine'**
   String get keepMine;
 
-  /// No description provided for @keptMine.
-  ///
-  /// In en, this message translates to:
-  /// **'Kept your version of {name} on this device.'**
-  String keptMine(String name);
-
   /// No description provided for @summaryMeta.
   ///
   /// In en, this message translates to:
   /// **'Also arrived'**
   String get summaryMeta;
-
-  /// No description provided for @changesCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{n, plural, one{1 change} other{{n} changes}}'**
-  String changesCount(int n);
 
   /// No description provided for @acceptArrival.
   ///
@@ -4004,12 +3956,6 @@ abstract class AppLocalizations {
   /// **'Connect to a Wi-Fi first — then devices can find each other'**
   String get connectToWifiFirst;
 
-  /// No description provided for @trustQuestion.
-  ///
-  /// In en, this message translates to:
-  /// **'{author} ({device}) wants to sync'**
-  String trustQuestion(Object author, Object device);
-
   /// No description provided for @trustBothWaysNote.
   ///
   /// In en, this message translates to:
@@ -4022,35 +3968,11 @@ abstract class AppLocalizations {
   /// **'Allow'**
   String get allowOnce;
 
-  /// No description provided for @allowAlways.
-  ///
-  /// In en, this message translates to:
-  /// **'Always allow this device'**
-  String get allowAlways;
-
-  /// No description provided for @declineAction.
-  ///
-  /// In en, this message translates to:
-  /// **'Decline'**
-  String get declineAction;
-
   /// No description provided for @syncDeclined.
   ///
   /// In en, this message translates to:
   /// **'The other device declined the sync'**
   String get syncDeclined;
-
-  /// No description provided for @trustedDevicesSection.
-  ///
-  /// In en, this message translates to:
-  /// **'Always-allowed devices'**
-  String get trustedDevicesSection;
-
-  /// No description provided for @removeTrust.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove'**
-  String get removeTrust;
 
   /// No description provided for @hostWithoutWifi.
   ///
@@ -4175,7 +4097,7 @@ abstract class AppLocalizations {
   /// No description provided for @spotHomeMenu.
   ///
   /// In en, this message translates to:
-  /// **'In this menu: settings, find and merge duplicate entries, export CSV, and more.'**
+  /// **'In this menu: settings, find and merge duplicate entries, and more.'**
   String get spotHomeMenu;
 
   /// No description provided for @spotCatEdit.
@@ -4297,12 +4219,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show the highlights again on each page'**
   String get spotReplaySubtitle;
-
-  /// No description provided for @spotReplayDone.
-  ///
-  /// In en, this message translates to:
-  /// **'The highlights will show again'**
-  String get spotReplayDone;
 
   /// No description provided for @searchNoResults.
   ///
@@ -4490,12 +4406,6 @@ abstract class AppLocalizations {
   /// **'{name} deleted. The file is in {where}.'**
   String catalogDeleted(String name, String where);
 
-  /// No description provided for @typeTheName.
-  ///
-  /// In en, this message translates to:
-  /// **'Type {name}'**
-  String typeTheName(String name);
-
   /// No description provided for @catalogExportFailed.
   ///
   /// In en, this message translates to:
@@ -4507,6 +4417,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Move to another catalog'**
   String get moveToCatalog;
+
+  /// No description provided for @moveInFromCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Move in from another catalog…'**
+  String get moveInFromCatalog;
 
   /// No description provided for @movedToCatalog.
   ///
@@ -4670,12 +4586,6 @@ abstract class AppLocalizations {
   /// **'Agenda'**
   String get agenda;
 
-  /// No description provided for @reminderLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Reminder'**
-  String get reminderLabel;
-
   /// No description provided for @agendaEmpty.
   ///
   /// In en, this message translates to:
@@ -4712,6 +4622,12 @@ abstract class AppLocalizations {
   /// **'Done'**
   String get markDone;
 
+  /// No description provided for @takeOffList.
+  ///
+  /// In en, this message translates to:
+  /// **'Take off the list'**
+  String get takeOffList;
+
   /// No description provided for @repeatTitle.
   ///
   /// In en, this message translates to:
@@ -4729,6 +4645,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'days'**
   String get unitDays;
+
+  /// No description provided for @yesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get yesterday;
+
+  /// No description provided for @weekdayMon.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get weekdayMon;
+
+  /// No description provided for @weekdayTue.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get weekdayTue;
+
+  /// No description provided for @weekdayWed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get weekdayWed;
+
+  /// No description provided for @weekdayThu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get weekdayThu;
+
+  /// No description provided for @weekdayFri.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get weekdayFri;
+
+  /// No description provided for @weekdaySat.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get weekdaySat;
+
+  /// No description provided for @weekdaySun.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get weekdaySun;
+
+  /// No description provided for @weekdayFullMon.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get weekdayFullMon;
+
+  /// No description provided for @weekdayFullTue.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get weekdayFullTue;
+
+  /// No description provided for @weekdayFullWed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get weekdayFullWed;
+
+  /// No description provided for @weekdayFullThu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get weekdayFullThu;
+
+  /// No description provided for @weekdayFullFri.
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get weekdayFullFri;
+
+  /// No description provided for @weekdayFullSat.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get weekdayFullSat;
+
+  /// No description provided for @weekdayFullSun.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get weekdayFullSun;
 
   /// No description provided for @unitWeeks.
   ///
@@ -4789,12 +4795,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Calendar file saved under {path}'**
   String icsSavedTo(String path);
-
-  /// No description provided for @calendarMirrorLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Mirror to device calendar'**
-  String get calendarMirrorLabel;
 
   /// No description provided for @calendarMirrorSubtitle.
   ///
@@ -4931,13 +4931,13 @@ abstract class AppLocalizations {
   /// No description provided for @helpAgenda.
   ///
   /// In en, this message translates to:
-  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.'**
+  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and the card stays for the day, ticked; tap it to plan the next one, for example in three months. Press and hold changes the date; the bin deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.'**
   String get helpAgenda;
 
   /// No description provided for @helpAgendaNeutral.
   ///
   /// In en, this message translates to:
-  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.'**
+  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and the card stays for the day, ticked; tap it to plan the next one, for example in three months. Press and hold changes the date; the bin deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned. Chores are the recurring tasks, such as feeding, litter or medicine. They sit under Today with a check, a streak and the last seven days as dots; Coming up shows the next week without the daily ones. A chore can remind you with a notification at a chosen time. The trophy opens the achievements.'**
   String get helpAgendaNeutral;
 
   /// No description provided for @calendarRowOff.
@@ -4988,35 +4988,17 @@ abstract class AppLocalizations {
   /// **'Appointment'**
   String get appointmentLabel;
 
+  /// No description provided for @reminderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder'**
+  String get reminderLabel;
+
   /// No description provided for @addAppointment.
   ///
   /// In en, this message translates to:
   /// **'Add appointment'**
   String get addAppointment;
-
-  /// No description provided for @planChooserTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Appointment or reminder?'**
-  String get planChooserTitle;
-
-  /// No description provided for @planChooserAppointment.
-  ///
-  /// In en, this message translates to:
-  /// **'Appointment — a visit at a date and time, with notes'**
-  String get planChooserAppointment;
-
-  /// No description provided for @planChooserReminder.
-  ///
-  /// In en, this message translates to:
-  /// **'Reminder — a value that becomes due on a day'**
-  String get planChooserReminder;
-
-  /// No description provided for @planChooserChore.
-  ///
-  /// In en, this message translates to:
-  /// **'Chore — a task that comes around: feeding, drops, litter'**
-  String get planChooserChore;
 
   /// No description provided for @newChore.
   ///
@@ -5402,35 +5384,11 @@ abstract class AppLocalizations {
   /// **'A full century'**
   String get achievementCentury;
 
-  /// No description provided for @achievementCenturyHint.
-  ///
-  /// In en, this message translates to:
-  /// **'We will both be very proud.'**
-  String get achievementCenturyHint;
-
-  /// No description provided for @achievementMaster.
-  ///
-  /// In en, this message translates to:
-  /// **'{title} master'**
-  String achievementMaster(String title);
-
   /// No description provided for @achievementReached.
   ///
   /// In en, this message translates to:
   /// **'{times, plural, one{Reached once} other{Reached {times} times}}, first on {date}'**
   String achievementReached(int times, String date);
-
-  /// No description provided for @achievementNext.
-  ///
-  /// In en, this message translates to:
-  /// **'Next at {n}'**
-  String achievementNext(int n);
-
-  /// No description provided for @achievementLocked.
-  ///
-  /// In en, this message translates to:
-  /// **'Not yet'**
-  String get achievementLocked;
 
   /// No description provided for @achievementUnlocked.
   ///
@@ -5984,12 +5942,6 @@ abstract class AppLocalizations {
   /// **'Please check cellars, sheds and garages. Do not chase, just call.'**
   String get posterStanding;
 
-  /// No description provided for @posterLastSeen.
-  ///
-  /// In en, this message translates to:
-  /// **'Last seen near'**
-  String get posterLastSeen;
-
   /// No description provided for @posterFreeText.
   ///
   /// In en, this message translates to:
@@ -6001,12 +5953,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'QR code for cat(a)log'**
   String get posterQr;
-
-  /// No description provided for @posterPhoto.
-  ///
-  /// In en, this message translates to:
-  /// **'Photo'**
-  String get posterPhoto;
 
   /// No description provided for @newCatIn.
   ///
@@ -6020,6 +5966,18 @@ abstract class AppLocalizations {
   /// **'New pet in…'**
   String get newCatInNeutral;
 
+  /// No description provided for @newCatHere.
+  ///
+  /// In en, this message translates to:
+  /// **'New cat here'**
+  String get newCatHere;
+
+  /// No description provided for @newCatHereNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'New pet here'**
+  String get newCatHereNeutral;
+
   /// No description provided for @choreLabel.
   ///
   /// In en, this message translates to:
@@ -6031,6 +5989,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Chore done'**
   String get choreTickLabel;
+
+  /// No description provided for @choreDoneTitled.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} done'**
+  String choreDoneTitled(Object title);
+
+  /// No description provided for @choreDoneFor.
+  ///
+  /// In en, this message translates to:
+  /// **'for {day}'**
+  String choreDoneFor(Object day);
 
   /// No description provided for @choreEnded.
   ///
@@ -6086,11 +6056,23 @@ abstract class AppLocalizations {
   /// **'Cover picture…'**
   String get coverPick;
 
-  /// No description provided for @coverHint.
+  /// No description provided for @coverLabel.
   ///
   /// In en, this message translates to:
-  /// **'A picture of the place: the house, the yard, the feeding spot. Shown on the card instead of a cat.'**
-  String get coverHint;
+  /// **'A picture of the clowder'**
+  String get coverLabel;
+
+  /// No description provided for @coverLabelNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'A picture of the household'**
+  String get coverLabelNeutral;
+
+  /// No description provided for @coverLabelStrays.
+  ///
+  /// In en, this message translates to:
+  /// **'A picture for the strays'**
+  String get coverLabelStrays;
 
   /// No description provided for @coverRemove.
   ///
@@ -6119,7 +6101,7 @@ abstract class AppLocalizations {
   /// No description provided for @spotHistoryHold.
   ///
   /// In en, this message translates to:
-  /// **'Hold a value to correct or remove it. Nothing is lost; hidden values show on request.'**
+  /// **'Tap a value to correct it, the bin removes it. Nothing is lost; hidden values show on request.'**
   String get spotHistoryHold;
 
   /// No description provided for @spotBackups.
@@ -6149,13 +6131,13 @@ abstract class AppLocalizations {
   /// No description provided for @helpHistory.
   ///
   /// In en, this message translates to:
-  /// **'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. Hold a value to remove it or bring a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.'**
+  /// **'One field\'s values over time, newest first. Tap a value to correct it: the new one takes its place, the old one hides. The bin removes a value, the arrow brings a hidden one back; the eye shows hidden values. Copy the list as text or share it as PDF.'**
   String get helpHistory;
 
   /// No description provided for @helpSettings.
   ///
   /// In en, this message translates to:
-  /// **'The app\'s own choices: language, units, celebrations and cheers, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.'**
+  /// **'The app\'s own choices: language, units, celebrations and sounds, the coat behind the pages, notifications, and where your catalogs are backed up. The tours can be replayed from here.'**
   String get helpSettings;
 
   /// No description provided for @helpLooks.
@@ -6296,35 +6278,11 @@ abstract class AppLocalizations {
   /// **'another device'**
   String get syncAnotherDevice;
 
-  /// No description provided for @syncMerged.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, one{{count} change from {authors} merged} other{{count} changes from {authors} merged}}'**
-  String syncMerged(int count, String authors);
-
-  /// No description provided for @syncShow.
-  ///
-  /// In en, this message translates to:
-  /// **'Show'**
-  String get syncShow;
-
   /// No description provided for @achievementDone.
   ///
   /// In en, this message translates to:
   /// **'{times, plural, one{Done once} other{Done {times} times}}, first on {date}'**
   String achievementDone(int times, String date);
-
-  /// No description provided for @syncRunning.
-  ///
-  /// In en, this message translates to:
-  /// **'Syncing with the folder…'**
-  String get syncRunning;
-
-  /// No description provided for @syncDismiss.
-  ///
-  /// In en, this message translates to:
-  /// **'Not now'**
-  String get syncDismiss;
 
   /// No description provided for @flierHidden.
   ///
@@ -6337,6 +6295,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Undo'**
   String get undo;
+
+  /// No description provided for @noteSyncDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Synced with {authors}. Tap to see what arrived.'**
+  String noteSyncDone(String authors);
+
+  /// No description provided for @noteSyncNothingNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Synced. Nothing new.'**
+  String get noteSyncNothingNew;
+
+  /// No description provided for @noteSyncFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync failed. Tap for details.'**
+  String get noteSyncFailed;
+
+  /// No description provided for @failureReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Report'**
+  String get failureReport;
+
+  /// No description provided for @failureOpenPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Open {page}'**
+  String failureOpenPage(String page);
+
+  /// No description provided for @choreTicked.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} — done {count}×, {days}'**
+  String choreTicked(String title, int count, String days);
+
+  /// No description provided for @choreTickedShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} done {count}×'**
+  String choreTickedShort(String title, int count);
+
+  /// No description provided for @moreChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'+{n} more'**
+  String moreChanges(int n);
+
+  /// No description provided for @noteFolderUnreachable.
+  ///
+  /// In en, this message translates to:
+  /// **'The shared folder has been out of reach since {since}. Tap for details.'**
+  String noteFolderUnreachable(String since);
+
+  /// No description provided for @noteFolderLagging.
+  ///
+  /// In en, this message translates to:
+  /// **'{names} still needs the new version to see your changes.'**
+  String noteFolderLagging(String names);
+
+  /// No description provided for @folderSynced.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder synced: {result}'**
+  String folderSynced(String result);
+
+  /// No description provided for @bundleImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Bundle imported: {result}'**
+  String bundleImported(String result);
+
+  /// No description provided for @sightingRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Sighting recorded at your position.'**
+  String get sightingRecorded;
+
+  /// No description provided for @deletedDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted.'**
+  String get deletedDone;
+
+  /// No description provided for @spotReplayDone.
+  ///
+  /// In en, this message translates to:
+  /// **'The highlights will show again'**
+  String get spotReplayDone;
+
+  /// No description provided for @syncRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing with the folder…'**
+  String get syncRunning;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get copied;
+
+  /// No description provided for @sharedFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared folder'**
+  String get sharedFolder;
+
+  /// No description provided for @pinLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN: {pin}'**
+  String pinLabel(String pin);
+
+  /// No description provided for @syncDismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get syncDismiss;
+
+  /// No description provided for @changesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 change} other{{n} changes}}'**
+  String changesCount(int n);
 }
 
 class _AppLocalizationsDelegate

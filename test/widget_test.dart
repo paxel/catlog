@@ -99,7 +99,10 @@ void main() {
     await tester.pumpWidget(CatlogApp(store: store));
     await tester.tap(find.text('Home'));
     await tester.pumpAndSettle();
+    // The plus fans the ways out; Add cat is the first of them.
     await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Add cat').last);
     await tester.pumpAndSettle();
 
     final field = tester.widget<TextField>(find.byType(TextField).first);
@@ -204,8 +207,6 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('No clowder — stray / ran away'));
     await tester.pumpAndSettle();
-    // Moves ask for the effective date (historic moves are a thing).
-    await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
 
     expect(store.strays().single.id, cat);
@@ -229,6 +230,9 @@ void main() {
 
     await tester.pumpWidget(CatlogApp(store: store));
     await tester.tap(find.textContaining('Strays'));
+    await tester.pumpAndSettle();
+    // The plus fans the ways out; Add stray is the first of them.
+    await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add stray'));
     await tester.pumpAndSettle();
@@ -370,11 +374,11 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byIcon(Icons.warning_amber), findsOneWidget);
+    // The badge leads to the conflicts page; the values are buttons.
     await tester.tap(find.text('Gender'));
     await tester.pumpAndSettle();
-    expect(find.textContaining('Conflict'), findsOneWidget);
-    await tester.tap(find.text('female'));
-    await tester.tap(find.text('Resolve'));
+    expect(find.text('Conflicts to resolve'), findsOneWidget);
+    await tester.tap(find.widgetWithText(OutlinedButton, 'female'));
     await tester.pumpAndSettle();
 
     expect(store.hasConflict(cat, Keys.userField('gender')), isFalse);
@@ -418,9 +422,12 @@ void main() {
     await tester.tap(find.byTooltip('Timeline'));
     await tester.pumpAndSettle();
 
-    await tester.longPress(find.textContaining('Name: Mizzi'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Remove this value'));
+    await tester.tap(find.descendant(
+      of: find.ancestor(
+          of: find.textContaining('Name: Mizzi'),
+          matching: find.byType(ListTile)),
+      matching: find.byTooltip('Remove this value'),
+    ));
     await tester.pumpAndSettle();
 
     expect(store.current(cat, Keys.name), 'Miezi');

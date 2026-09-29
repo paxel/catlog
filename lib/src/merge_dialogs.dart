@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import 'l10n.dart';
+import 'notes.dart';
 
 /// "Merge into…" — the record on screen is the LOSER and folds into the
 /// picked survivor, irreversibly (CONTEXT.md: Merge). Returns true if a
@@ -16,9 +17,7 @@ Future<bool> showMergeDialog({
 }) async {
   final options = candidates.where((c) => c.id != loserId).toList();
   if (options.isEmpty) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(context.t.noOtherToMergeInto(kindLabel))),
-    );
+    noteFailed(context.t.noOtherToMergeInto(kindLabel));
     return false;
   }
 

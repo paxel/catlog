@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import '../help.dart';
 import '../auto_backup.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../restore_backups.dart';
 
 /// The .catsync files of the folder the keeper picks, copied where the
@@ -125,8 +126,7 @@ class _RestoreScreenState extends State<RestoreScreen> {
     }
     if (!mounted) return;
     setState(() => _restoring = false);
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(context.t.restoreDone(count))));
+    noteDone(context.t.restoreDone(count));
     widget.onDone(first);
   }
 

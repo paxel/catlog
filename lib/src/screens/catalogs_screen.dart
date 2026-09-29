@@ -2,8 +2,8 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../help.dart';
-import '../move_to_catalog.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../layout.dart';
 import 'archive_screen.dart' show formatBytes;
 import 'catalog_settings_screen.dart';
@@ -54,15 +54,14 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
   }
 
   Future<void> _create() async {
-    final name = await askCatalogName(context, context.t.newCatalog);
+    final name = await askCatalogName(context, context.t.newCatalog,
+        taken: widget.catalogs.nameTaken);
     if (name == null || !mounted) return;
     try {
       final made = widget.catalogs.create(name);
-      // The common reason for a new catalog is an existing clowder, so
-      // the offer is here — and the same move stays available for ever
-      // afterwards from a cat or a clowder.
-      await _offerMoveInto(made);
-      if (!mounted) return;
+      // No question about moving something in: a fresh catalog is
+      // usually empty on purpose, and the move is a row on its settings
+      // page, and on every cat and clowder, whenever it is wanted.
       widget.onSwitch(made, unwind: false);
       _changed();
       // A fresh catalog is set up in its settings: what it holds, its
@@ -72,37 +71,10 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       if (!mounted) return;
       await _openSettings(made);
     } on DuplicateCatalogName {
-      if (mounted) _sayTaken(name);
+      // Checked in the dialog; a name taken meanwhile still lands here.
+      if (mounted) noteFailed(context.t.catalogNameTaken(name));
     }
   }
-
-  Future<void> _offerMoveInto(CatalogInfo made) async {
-    final wants = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.t.moveIntoNewCatalog(made.name)),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: Text(context.t.cancel)),
-          FilledButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: Text(context.t.moveToCatalog)),
-        ],
-      ),
-    );
-    if (wants != true || !mounted) return;
-    final chosen = await pickWhatToMove(context, store);
-    if (chosen == null || chosen.isEmpty || !mounted) return;
-    final count =
-        await moveInto(store, widget.catalogs, made, chosen);
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(context.t.movedToCatalog(count, made.name))));
-  }
-
-  void _sayTaken(String name) => ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(context.t.catalogNameTaken(name))));
 
   /// The catalog's own page; the list redraws on return because a name
   /// may have changed or a catalog may be gone.
@@ -177,38 +149,56 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
 }
 
 /// Asks for a catalog name. Returns null when the dialog is dismissed.
+/// A name [taken] already is refused under the field, and the dialog
+/// stays until a free one is typed.
 Future<String?> askCatalogName(BuildContext context, String title,
-    {String initial = ''}) {
+    {String initial = '', bool Function(String name)? taken}) {
   final controller = TextEditingController(text: initial);
+  String? error;
   return showDialog<String>(
     context: context,
-    builder: (context) => AlertDialog(
-      title: Text(title),
-      content: TextField(
-        controller: controller,
-        autofocus: true,
-        decoration:
-            InputDecoration(labelText: context.t.catalogNameLabel),
-        onSubmitted: (value) => Navigator.of(context).pop(value.trim()),
-      ),
-      actions: [
-        TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(context.t.cancel)),
-        FilledButton(
-          onPressed: () =>
-              Navigator.of(context).pop(controller.text.trim()),
-          child: Text(context.t.save),
-        ),
-      ],
+    builder: (context) => StatefulBuilder(
+      builder: (context, setState) {
+        void submit() {
+          final value = controller.text.trim();
+          if (value.isNotEmpty && taken != null && taken(value)) {
+            setState(() => error = context.t.catalogNameTaken(value));
+            return;
+          }
+          Navigator.of(context).pop(value);
+        }
+
+        return AlertDialog(
+          title: Text(title),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            decoration: InputDecoration(
+              labelText: context.t.catalogNameLabel,
+              errorText: error,
+            ),
+            onChanged: (_) {
+              if (error != null) setState(() => error = null);
+            },
+            onSubmitted: (_) => submit(),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text(context.t.cancel)),
+            FilledButton(onPressed: submit, child: Text(context.t.save)),
+          ],
+        );
+      },
     ),
   ).then((value) => value == null || value.isEmpty ? null : value);
 }
 
-/// The switcher behind the home screen's title: the catalogs, and the
-/// way into managing them.
+/// The switcher behind the home screen's title, dropped down from it:
+/// the catalogs, and the way into managing them.
 Future<void> showCatalogSwitcher(
   BuildContext context, {
+  required Offset at,
   required CatalogManager catalogs,
   required CatalogStore Function() storeOf,
   required void Function(CatalogInfo, {bool unwind}) onSwitch,
@@ -216,45 +206,52 @@ Future<void> showCatalogSwitcher(
 }) async {
   final t = context.t;
   final active = catalogs.active;
-  await showModalBottomSheet<void>(
+  final all = catalogs.catalogs();
+  final picked = await showMenu<String>(
     context: context,
-    showDragHandle: true,
-    builder: (sheet) => SafeArea(
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        for (final catalog in catalogs.catalogs())
-          ListTile(
+    position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+    items: [
+      for (final catalog in all)
+        PopupMenuItem(
+          value: catalog.id,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
             leading: Icon(catalog.id == active.id
                 ? Icons.folder_open
                 : Icons.folder_outlined),
             selected: catalog.id == active.id,
             title: Text(catalog.name),
-            onTap: () {
-              Navigator.of(sheet).pop();
-              onSwitch(catalog);
-              onChanged?.call();
-            },
           ),
-        const Divider(height: 1),
-        ListTile(
+        ),
+      const PopupMenuDivider(),
+      PopupMenuItem(
+        value: 'manage',
+        child: ListTile(
+          contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.settings_outlined),
           title: Text(t.manageCatalogs),
-          onTap: () async {
-            Navigator.of(sheet).pop();
-            await Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => CatalogsScreen(
-                catalogs: catalogs,
-                storeOf: storeOf,
-                onSwitch: onSwitch,
-                onChanged: onChanged,
-              ),
-            ));
-            // Going back in time, deleting, renaming — the pages behind
-            // the manage screen change the world; the home must redraw
-            // it when the keeper returns, not keep the old picture.
-            onChanged?.call();
-          },
         ),
-      ]),
-    ),
+      ),
+    ],
   );
+  if (picked == null || !context.mounted) return;
+  if (picked == 'manage') {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => CatalogsScreen(
+        catalogs: catalogs,
+        storeOf: storeOf,
+        onSwitch: onSwitch,
+        onChanged: onChanged,
+      ),
+    ));
+    // Going back in time, deleting, renaming — the pages behind the
+    // manage screen change the world; the home must redraw it when the
+    // keeper returns, not keep the old picture.
+    onChanged?.call();
+    return;
+  }
+  final catalog = all.where((c) => c.id == picked).firstOrNull;
+  if (catalog == null) return;
+  onSwitch(catalog);
+  onChanged?.call();
 }

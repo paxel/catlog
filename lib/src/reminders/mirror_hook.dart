@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n.dart';
+import '../notes.dart';
 import 'calendar_mirror.dart';
 import 'calendar_port.dart';
 import 'device_calendar_port.dart';
@@ -16,13 +17,12 @@ void mirrorAfterChange(BuildContext context, CatalogStore store,
   if (!calendarMirrorEnabled(store)) return;
   if (port == null && !deviceCalendarAvailable) return;
   final t = context.t;
-  final messenger = ScaffoldMessenger.maybeOf(context);
   void fail(String message) {
     // A catalog switched away mid-reconcile is closed by now: nothing
     // to record, nothing to report (#89).
     if (!store.isOpen) return;
     store.setLocalSetting(calendarMirrorEnabledKey, 'off');
-    messenger?.showSnackBar(SnackBar(content: Text(message)));
+    noteFailed(message);
   }
 
   reconcileCalendarOnce(store, port ?? DeviceCalendarPort(), t)
@@ -45,19 +45,18 @@ Future<void> resyncCalendarNow(BuildContext context, CatalogStore store,
     {CalendarPort? port}) async {
   if (port == null && !deviceCalendarAvailable) return;
   final t = context.t;
-  final messenger = ScaffoldMessenger.maybeOf(context);
   MirrorOutcome outcome;
   try {
     outcome = await resyncCalendar(store, port ?? DeviceCalendarPort(), t);
   } on CalendarPortException catch (e) {
     // The platform's own wording beats a guess at the cause.
-    messenger?.showSnackBar(SnackBar(content: Text(e.message)));
+    noteFailed(e.message);
     return;
   }
   final message = mirrorFailureMessage(t, outcome);
   if (message == null || !store.isOpen) return;
   store.setLocalSetting(calendarMirrorEnabledKey, 'off');
-  messenger?.showSnackBar(SnackBar(content: Text(message)));
+  noteFailed(message);
 }
 
 /// The cause-plus-fix text for a failed reconcile, null when it worked

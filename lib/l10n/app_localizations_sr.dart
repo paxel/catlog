@@ -64,9 +64,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get pickerCardFields => 'На картици';
 
   @override
-  String get exportCsv => 'Извези CSV';
-
-  @override
   String get aboutAndFeedback => 'О апликацији и утисци';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get save => 'Сачувај';
 
   @override
+  String get clearField => 'Обриши';
+
+  @override
   String get delete => 'Обриши';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get open => 'Отвори';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV сачуван у $path';
-  }
 
   @override
   String get renameClowder => 'Преименуј клаудер';
@@ -180,9 +175,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sortNewestFirst => 'Најновије прво';
 
   @override
-  String get shareAsText => 'Подели као текст';
-
-  @override
   String get shareAsPdf => 'Подели као PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsSr extends AppLocalizations {
       'Љубимац нестаје са свих листа и његове фотографије се уклањају — овде и, после следеће синхронизације, и на другим уређајима.';
 
   @override
-  String get sightingRecorded => 'Виђење забележено на вашој позицији.';
-
-  @override
-  String get noLocationAvailable =>
-      'Локација недоступна — уместо тога дуго притисните мапу.';
-
-  @override
   String get locationDeniedForever =>
       'Pristup lokaciji je blokiran. Dozvolite ga u sistemskim podešavanjima da biste koristili Stray Cam.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get captureFlier => 'Сликај оглас';
+
+  @override
+  String get flierFromCamera => 'Оглас са камере';
+
+  @override
+  String get flierFromGallery => 'Оглас из галерије';
 
   @override
   String get addPhotosTo => 'Додај фотографије у…';
@@ -355,13 +346,34 @@ class AppLocalizationsSr extends AppLocalizations {
   String get pickFramesTitle => 'Избор кадрова';
 
   @override
-  String get suggestedFrames => 'Предложени кадрови';
-
-  @override
-  String get scrubFrames => 'Премотавање видеа';
-
-  @override
   String get keepThisFrame => 'Задржи овај кадар';
+
+  @override
+  String get frameBack => 'Један кадар назад';
+
+  @override
+  String get frameForward => 'Један кадар напред';
+
+  @override
+  String get secondBack => 'Једну секунду назад';
+
+  @override
+  String get secondForward => 'Једну секунду напред';
+
+  @override
+  String get tenSecondsBack => 'Десет секунди назад';
+
+  @override
+  String get tenSecondsForward => 'Десет секунди напред';
+
+  @override
+  String get play => 'Пусти';
+
+  @override
+  String get pause => 'Пауза';
+
+  @override
+  String get keptFrames => 'Задржани кадрови се појављују овде';
 
   @override
   String get fromVideo => 'Из видеа…';
@@ -446,9 +458,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Нестао од';
-
-  @override
-  String get phoneLabel => 'Телефон';
 
   @override
   String get cropPortrait => 'Исеци портрет';
@@ -565,16 +574,6 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field испражњено';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field враћено на \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Отишла — луталица';
 
   @override
@@ -618,9 +617,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get value => 'Вредност';
-
-  @override
-  String get latitudeLongitude => 'географска ширина, дужина';
 
   @override
   String get newField => 'Ново поље';
@@ -690,11 +686,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get stopHosting => 'Заустави домаћинство';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Досад сесија: $count';
   }
@@ -703,35 +694,15 @@ class AppLocalizationsSr extends AppLocalizations {
   String get join => 'Придружи се';
 
   @override
-  String get addressFromHost => 'Адреса (са уређаја домаћина)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Синхронизуј сада';
 
   @override
-  String get addressFormatHint =>
-      'Адреса мора изгледати као 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Синхронизовано: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Синхронизација није успела: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Последња синхронизација са $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Дељена фасцикла';
 
   @override
   String get sharedFolderExplainer =>
@@ -759,11 +730,6 @@ class AppLocalizationsSr extends AppLocalizations {
       'Довољна је свака фасцикла коју два уређаја држе истом: диск у облаку или Syncthing за фасциклу која остаје на вашим телефонима. Syncthing је бесплатан: инсталирајте га на сваки телефон, поделите једну фасциклу међу њима и изаберите ту фасциклу овде на сваком уређају.';
 
   @override
-  String folderSynced(String result) {
-    return 'Фасцикла синхронизована: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Синхронизација фасцикле није успела: $error';
   }
@@ -785,15 +751,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Траг: $name ($count позиција)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Сукоб — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Промењено на два места истовремено. Изаберите шта је тачно:';
 
   @override
   String privateMarker(Object field) {
@@ -1216,7 +1173,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Свака измена, најновија прва: ко, када и на коју вредност. Додирните унос да га исправите, задржите да га уклоните или вратите; скривени унос остаје у дневнику и приказује се на захтев.';
+      'Свака икад направљена промена, најновије прво: ко је шта променио, када и на коју вредност. Додирните унос да га исправите, канта га уклања, стрелица враћа скривени; скривени унос остаје у дневнику и приказује се на захтев.';
 
   @override
   String get helpDuplicates =>
@@ -1407,17 +1364,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get copyCode => 'Копирај код';
 
   @override
-  String get copied => 'Копирано';
-
-  @override
   String get invalidCode => 'Тај код није важећи';
-
-  @override
-  String get hotspotHint =>
-      'Нема заједничког Wi-Fi-ја? Укључи хотспот на једном телефону, повежи други и буди домаћин овде.';
-
-  @override
-  String get byMessenger => 'Преко месинџера';
 
   @override
   String get byMessengerExplainer =>
@@ -1428,11 +1375,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get importBundle => 'Увези пакет синхронизације…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Пакет увезен: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1868,9 +1810,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get valueFerret => 'Твор';
 
   @override
-  String get otherOption => 'Друго…';
-
-  @override
   String get celebrationsToggle => 'Прослави усвајања';
 
   @override
@@ -1878,10 +1817,41 @@ class AppLocalizationsSr extends AppLocalizations {
       'Конфете и клицање када се мачка сели у свој дом';
 
   @override
-  String get cheerToggle => 'Звук славља';
+  String get soundsSection => 'Звуци';
 
   @override
-  String get cheerSubtitle => 'Кратко славље уз конфете, сваки пут другачије';
+  String get reminderSound => 'Мачји звук за подсетнике';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Подсетник на обавезу каже Mrrr уместо звука телефона.';
+
+  @override
+  String get soundPurr => 'Предење';
+
+  @override
+  String get soundChorus => 'Хор мјаукања';
+
+  @override
+  String get soundParty => 'Славље мјау';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Сопствени звук…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1919,11 +1889,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Обриши све од овог аутора';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Уклања сваки унос и фотографију од $name са овог уређаја. Други уређаји задржавају своје. Не може се опозвати.';
-  }
 
   @override
   String get yourKey => 'Твој кључ';
@@ -1984,11 +1949,6 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Упиши $name за потврду';
-  }
-
-  @override
   String get alsoBan => 'Такође забрани — никад више не прихватај податке';
 
   @override
@@ -1996,9 +1956,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get unbanAction => 'Уклони забрану';
-
-  @override
-  String get deletedDone => 'Обрисано.';
 
   @override
   String get syncSummaryTitle => 'Шта је стигло';
@@ -2041,24 +1998,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get keepMine => 'Задржи моје';
 
   @override
-  String keptMine(String name) {
-    return 'Ваша верзија за $name остаје на овом уређају.';
-  }
-
-  @override
   String get summaryMeta => 'Такође стигло';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n измена',
-      few: '$n измене',
-      one: '$n измена',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Прихвати';
@@ -2203,30 +2143,13 @@ class AppLocalizationsSr extends AppLocalizations {
       'Прво се повежи на Wi-Fi — тада се уређаји проналазе';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) жели синхронизацију';
-  }
-
-  @override
   String get trustBothWaysNote => 'Каталози ће се разменити у оба смера.';
 
   @override
   String get allowOnce => 'Дозволи';
 
   @override
-  String get allowAlways => 'Увек дозволи овај уређај';
-
-  @override
-  String get declineAction => 'Одбиј';
-
-  @override
   String get syncDeclined => 'Други уређај је одбио синхронизацију';
-
-  @override
-  String get trustedDevicesSection => 'Увек дозвољени уређаји';
-
-  @override
-  String get removeTrust => 'Уклони';
 
   @override
   String get hostWithoutWifi => 'Хостуј без Wi-Fi';
@@ -2299,7 +2222,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'У овом менију: подешавања, налажење и спајање дупликата, извоз CSV и више.';
+      'У овом менију: подешавања, налажење и спајање дупликата и више.';
 
   @override
   String get spotCatEdit =>
@@ -2375,9 +2298,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Поново прикажи савете на свакој страници';
-
-  @override
-  String get spotReplayDone => 'Савети ће се поново приказати';
 
   @override
   String get searchNoResults => 'Није пронађена мачка с тим именом';
@@ -2510,17 +2430,15 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Упиши $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Ништа није обрисано: датотека каталога није могла да се упише ($error). Ослободи простор или покушај касније.';
   }
 
   @override
   String get moveToCatalog => 'Премести у други каталог';
+
+  @override
+  String get moveInFromCatalog => 'Премести из другог каталога…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2623,9 +2541,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get agenda => 'Подсетници';
 
   @override
-  String get reminderLabel => 'Подсетник';
-
-  @override
   String get agendaEmpty =>
       'Нема планираних термина. Нове планираш овде плусом или на страници мачке или клаудера.';
 
@@ -2664,6 +2579,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get markDone => 'Обављено';
 
   @override
+  String get takeOffList => 'Склони са списка';
+
+  @override
   String get repeatTitle => 'Поново за…';
 
   @override
@@ -2671,6 +2589,51 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get unitDays => 'дана';
+
+  @override
+  String get yesterday => 'Јуче';
+
+  @override
+  String get weekdayMon => 'пон';
+
+  @override
+  String get weekdayTue => 'уто';
+
+  @override
+  String get weekdayWed => 'сре';
+
+  @override
+  String get weekdayThu => 'чет';
+
+  @override
+  String get weekdayFri => 'пет';
+
+  @override
+  String get weekdaySat => 'суб';
+
+  @override
+  String get weekdaySun => 'нед';
+
+  @override
+  String get weekdayFullMon => 'понедељак';
+
+  @override
+  String get weekdayFullTue => 'уторак';
+
+  @override
+  String get weekdayFullWed => 'среда';
+
+  @override
+  String get weekdayFullThu => 'четвртак';
+
+  @override
+  String get weekdayFullFri => 'петак';
+
+  @override
+  String get weekdayFullSat => 'субота';
+
+  @override
+  String get weekdayFullSun => 'недеља';
 
   @override
   String get unitWeeks => 'недеља';
@@ -2707,9 +2670,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Календарска датотека сачувана у $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Пресликај у календар уређаја';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2793,11 +2753,11 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Подсетници приказују планиране термине по датуму. Постоје две врсте: термини са временом и подсетници који важе за дан. Пропуштени остају на врху. Додир отвара мачку или клаудер. Квачица потврђује термин: вредност се уписује у поље и одмах можеш да планираш следећи, на пример за три месеца. Држање мења датум или брише термин. Прекидач на врху пресликава термине у календар твог телефона. Мени их извози као календарску датотеку. Одлазак код ветеринара са више мачака је један термин: означи мачке, Агенда приказује једну картицу са њиховим именима, а при завршетку пита које су мачке третиране — одзначи остале, остају планиране. Обавезе су понављајући задаци као храњење, песак или лекови. Стоје под Данас са квачицом, низом и последњих седам дана као тачке; Ускоро приказује следећу недељу без дневних. Обавеза може да подсети обавештењем у изабрано време. Пехар отвара достигнућа.';
+      'Подсетници приказују планиране термине по датуму. Постоје две врсте: термини са временом и подсетници који важе за дан. Пропуштени остају на врху. Додир отвара мачку или клаудер. Квачица потврђује термин: вредност се уписује у поље, а картица остаје означена до краја дана; додирни је да планираш следећи, на пример за три месеца. Држање мења датум; канта брише термин. Прекидач на врху пресликава термине у календар твог телефона. Мени их извози као календарску датотеку. Одлазак код ветеринара са више мачака је један термин: означи мачке, Агенда приказује једну картицу са њиховим именима, а при завршетку пита које су мачке третиране — одзначи остале, остају планиране. Обавезе су понављајући задаци као храњење, песак или лекови. Стоје под Данас са квачицом, низом и последњих седам дана као тачке; Ускоро приказује следећу недељу без дневних. Обавеза може да подсети обавештењем у изабрано време. Пехар отвара достигнућа.';
 
   @override
   String get helpAgendaNeutral =>
-      'Подсетници приказују планиране термине по датуму. Постоје две врсте: термини са временом и подсетници који важе за дан. Пропуштени остају на врху. Додир отвара љубимца или домаћинство. Квачица потврђује термин: вредност се уписује у поље и одмах можеш да планираш следећи, на пример за три месеца. Држање мења датум или брише термин. Прекидач на врху пресликава термине у календар твог телефона. Мени их извози као календарску датотеку. Одлазак код ветеринара са више љубимаца је један термин: означи љубимце, Агенда приказује једну картицу са њиховим именима, а при завршетку пита који су љубимци третирани — одзначи остале, остају планирани. Обавезе су понављајући задаци као храњење, песак или лекови. Стоје под Данас са квачицом, низом и последњих седам дана као тачке; Ускоро приказује следећу недељу без дневних. Обавеза може да подсети обавештењем у изабрано време. Пехар отвара достигнућа.';
+      'Подсетници приказују планиране термине по датуму. Постоје две врсте: термини са временом и подсетници који важе за дан. Пропуштени остају на врху. Додир отвара љубимца или домаћинство. Квачица потврђује термин: вредност се уписује у поље, а картица остаје означена до краја дана; додирни је да планираш следећи, на пример за три месеца. Држање мења датум; канта брише термин. Прекидач на врху пресликава термине у календар твог телефона. Мени их извози као календарску датотеку. Одлазак код ветеринара са више љубимаца је један термин: означи љубимце, Агенда приказује једну картицу са њиховим именима, а при завршетку пита који су љубимци третирани — одзначи остале, остају планирани. Обавезе су понављајући задаци као храњење, песак или лекови. Стоје под Данас са квачицом, низом и последњих седам дана као тачке; Ускоро приказује следећу недељу без дневних. Обавеза може да подсети обавештењем у изабрано време. Пехар отвара достигнућа.';
 
   @override
   String get calendarRowOff => 'Календар: искључен';
@@ -2830,22 +2790,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get appointmentLabel => 'Термин';
 
   @override
+  String get reminderLabel => 'Подсетник';
+
+  @override
   String get addAppointment => 'Додај термин';
-
-  @override
-  String get planChooserTitle => 'Термин или подсетник?';
-
-  @override
-  String get planChooserAppointment =>
-      'Термин — посета на датум и време, са белешкама';
-
-  @override
-  String get planChooserReminder =>
-      'Подсетник — вредност која доспева одређеног дана';
-
-  @override
-  String get planChooserChore =>
-      'Задатак — нешто што се понавља: храњење, капи, песак';
 
   @override
   String get newChore => 'Нови задатак';
@@ -3109,14 +3057,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get achievementCentury => 'Цео век';
 
   @override
-  String get achievementCenturyHint => 'Обоје ћемо бити веома поносни.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Мајстор: $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3127,14 +3067,6 @@ class AppLocalizationsSr extends AppLocalizations {
     );
     return '$_temp0, први пут $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Следеће на $n';
-  }
-
-  @override
-  String get achievementLocked => 'Још не';
 
   @override
   String achievementUnlocked(String name) {
@@ -3456,16 +3388,10 @@ class AppLocalizationsSr extends AppLocalizations {
       'Молимо проверите подруме, шупе и гараже. Не јурите, само позовите.';
 
   @override
-  String get posterLastSeen => 'Последњи пут виђен код';
-
-  @override
   String get posterFreeText => 'Додатни ред';
 
   @override
   String get posterQr => 'QR код за cat(a)log';
-
-  @override
-  String get posterPhoto => 'Фотографија';
 
   @override
   String get newCatIn => 'Нова мачка у…';
@@ -3474,10 +3400,26 @@ class AppLocalizationsSr extends AppLocalizations {
   String get newCatInNeutral => 'Нови љубимац у…';
 
   @override
+  String get newCatHere => 'Нова мачка овде';
+
+  @override
+  String get newCatHereNeutral => 'Нови љубимац овде';
+
+  @override
   String get choreLabel => 'Задатак';
 
   @override
   String get choreTickLabel => 'Задатак урађен';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title урађено';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'за $day';
+  }
 
   @override
   String get choreEnded => 'Завршено';
@@ -3511,8 +3453,13 @@ class AppLocalizationsSr extends AppLocalizations {
   String get coverPick => 'Насловна слика…';
 
   @override
-  String get coverHint =>
-      'Слика места: кућа, двориште, хранилиште. На картици уместо мачке.';
+  String get coverLabel => 'Слика клаудера';
+
+  @override
+  String get coverLabelNeutral => 'Слика домаћинства';
+
+  @override
+  String get coverLabelStrays => 'Слика за луталице';
 
   @override
   String get coverRemove => 'Уклони насловну слику';
@@ -3530,7 +3477,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Задржите вредност да је исправите или уклоните. Ништа се не губи; скривене вредности се приказују на захтев.';
+      'Додирните вредност да је исправите, канта је уклања. Ништа се не губи; скривене вредности се приказују на захтев.';
 
   @override
   String get spotBackups =>
@@ -3550,7 +3497,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Вредности једног поља кроз време, најновије прве. Додирните вредност да је исправите: нова заузима њено место, стара се скрива. Задржите вредност да је уклоните или вратите скривену; око приказује скривене вредности. Копирајте листу као текст или поделите као PDF.';
+      'Вредности једног поља кроз време, најновије прво. Додирните вредност да је исправите: нова заузима њено место, стара се скрива. Канта уклања вредност, стрелица враћа скривену; око приказује скривене вредности. Копирајте листу као текст или је поделите као PDF.';
 
   @override
   String get helpSettings =>
@@ -3643,21 +3590,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get syncAnotherDevice => 'другог уређаја';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count измена од $authors спојено',
-      few: '$count измене од $authors спојене',
-      one: '$count измена од $authors спојена',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Прикажи';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3668,12 +3600,6 @@ class AppLocalizationsSr extends AppLocalizations {
     );
     return '$_temp0, први пут $date';
   }
-
-  @override
-  String get syncRunning => 'Синхронизација са фасциклом…';
-
-  @override
-  String get syncDismiss => 'Не сада';
 
   @override
   String flierHidden(int count) {
@@ -3689,4 +3615,97 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get undo => 'Опозови';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Синхронизовано са $authors. Додирните да видите шта је стигло.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Синхронизовано. Ништа ново.';
+
+  @override
+  String get noteSyncFailed =>
+      'Синхронизација није успела. Додирните за детаље.';
+
+  @override
+  String get failureReport => 'Пријави';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Отвори $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — обављено $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title обављено $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n више';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Дељена фасцикла је недоступна од $since. Додирните за детаље.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names и даље треба нову верзију да види ваше измене.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Фасцикла синхронизована: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакет увезен: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Виђење забележено на вашој позицији.';
+
+  @override
+  String get deletedDone => 'Обрисано.';
+
+  @override
+  String get spotReplayDone => 'Савети ће се поново приказати';
+
+  @override
+  String get syncRunning => 'Синхронизација са фасциклом…';
+
+  @override
+  String get copied => 'Копирано';
+
+  @override
+  String get sharedFolder => 'Дељена фасцикла';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Не сада';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n измена',
+      few: '$n измене',
+      one: '$n измена',
+    );
+    return '$_temp0';
+  }
 }

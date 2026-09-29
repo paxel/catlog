@@ -1,0 +1,27 @@
+{"device":"share-fixed","dseq":1,"entity":"fielddef:gender","field":"$type","value":"fielddef","date":"2026-01-01T10:00:01.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:01.000Z"}
+{"device":"share-fixed","dseq":2,"entity":"fielddef:gender","field":"name","value":"Gender","date":"2026-01-01T10:00:02.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:02.000Z"}
+{"device":"share-fixed","dseq":3,"entity":"fielddef:gender","field":"type","value":"choice","date":"2026-01-01T10:00:03.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:03.000Z"}
+{"device":"share-fixed","dseq":4,"entity":"fielddef:gender","field":"scope","value":"cat","date":"2026-01-01T10:00:04.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:04.000Z"}
+{"device":"share-fixed","dseq":5,"entity":"fielddef:gender","field":"options","value":"female\nmale\nunknown","date":"2026-01-01T10:00:05.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:05.000Z"}
+{"device":"share-fixed","dseq":6,"entity":"fielddef:color","field":"$type","value":"fielddef","date":"2026-01-01T10:00:06.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:06.000Z"}
+{"device":"share-fixed","dseq":7,"entity":"fielddef:color","field":"name","value":"Color","date":"2026-01-01T10:00:07.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:07.000Z"}
+{"device":"share-fixed","dseq":8,"entity":"fielddef:color","field":"type","value":"text","date":"2026-01-01T10:00:08.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:08.000Z"}
+{"device":"share-fixed","dseq":9,"entity":"fielddef:color","field":"scope","value":"cat","date":"2026-01-01T10:00:09.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:09.000Z"}
+{"device":"share-fixed","dseq":10,"entity":"fielddef:status","field":"$type","value":"fielddef","date":"2026-01-01T10:00:58.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:58.000Z"}
+{"device":"share-fixed","dseq":11,"entity":"fielddef:status","field":"name","value":"Status","date":"2026-01-01T10:00:59.000Z","author":"cat(a)log","recorded":"2026-01-01T10:00:59.000Z"}
+{"device":"share-fixed","dseq":12,"entity":"fielddef:status","field":"type","value":"choice","date":"2026-01-01T10:01:00.000Z","author":"cat(a)log","recorded":"2026-01-01T10:01:00.000Z"}
+{"device":"share-fixed","dseq":13,"entity":"fielddef:status","field":"scope","value":"clowder","date":"2026-01-01T10:01:01.000Z","author":"cat(a)log","recorded":"2026-01-01T10:01:01.000Z"}
+{"device":"share-fixed","dseq":14,"entity":"fielddef:status","field":"options","value":"foster\nforever-home\nclinic\nshelter\nbarn\nowner","date":"2026-01-01T10:01:02.000Z","author":"cat(a)log","recorded":"2026-01-01T10:01:02.000Z"}
+{"device":"share-fixed","dseq":15,"entity":"fielddef:address","field":"$type","value":"fielddef","date":"2026-01-01T10:01:03.000Z","author":"cat(a)log","recorded":"2026-01-01T10:01:03.000Z"}
+{"device":"share-fixed","dseq":16,"entity":"fielddef:address","field":"name","value":"Address","date":"2026-01-01T10:01:04.000Z","author":"cat(a)log","recorded":"2026-01-01T10:01:04.000Z"}
+{"device":"share-fixed","dseq":17,"entity":"fielddef:address","field":"type","value":"text","date":"2026-01-01T10:01:05.000Z","author":"cat(a)log","recorded":"2026-01-01T10:01:05.000Z"}
+{"device":"share-fixed","dseq":18,"entity":"fielddef:address","field":"scope","value":"clowder","date":"2026-01-01T10:01:06.000Z","author":"cat(a)log","recorded":"2026-01-01T10:01:06.000Z"}
+{"device":"share-fixed","dseq":19,"entity":"cat:00000000-0000-4000-8000-000000000001","field":"$type","value":"cat","date":"2026-01-01T10:01:35.000Z","author":"Ada","recorded":"2026-01-01T10:01:35.000Z"}
+{"device":"share-fixed","dseq":20,"entity":"cat:00000000-0000-4000-8000-000000000001","field":"name","value":"Miezi","date":"2026-01-01T10:01:36.000Z","author":"Ada","recorded":"2026-01-01T10:01:36.000Z"}
+{"device":"share-fixed","dseq":21,"entity":"cat:00000000-0000-4000-8000-000000000001","field":"clowder","value":"clowder:00000000-0000-4000-8000-000000000001","date":"2026-01-01T10:01:38.000Z","author":"Ada","recorded":"2026-01-01T10:01:38.000Z"}
+{"device":"share-fixed","dseq":22,"entity":"cat:00000000-0000-4000-8000-000000000001","field":"f:gender","value":"female","date":"2026-01-01T10:01:39.000Z","author":"Ada","recorded":"2026-01-01T10:01:39.000Z"}
+{"device":"share-fixed","dseq":23,"entity":"cat:00000000-0000-4000-8000-000000000001","field":"f:color","value":"tabby","date":"2026-01-01T10:01:40.000Z","author":"Ada","recorded":"2026-01-01T10:01:40.000Z"}
+{"device":"share-fixed","dseq":24,"entity":"clowder:00000000-0000-4000-8000-000000000001","field":"$type","value":"clowder","date":"2026-01-01T10:01:27.000Z","author":"Ada","recorded":"2026-01-01T10:01:27.000Z"}
+{"device":"share-fixed","dseq":25,"entity":"clowder:00000000-0000-4000-8000-000000000001","field":"name","value":"Foster Home","date":"2026-01-01T10:01:28.000Z","author":"Ada","recorded":"2026-01-01T10:01:28.000Z"}
+{"device":"share-fixed","dseq":26,"entity":"clowder:00000000-0000-4000-8000-000000000001","field":"f:status","value":"foster","date":"2026-01-01T10:01:30.000Z","author":"Ada","recorded":"2026-01-01T10:01:30.000Z"}
+{"device":"share-fixed","dseq":27,"entity":"clowder:00000000-0000-4000-8000-000000000001","field":"f:address","value":"Katzenweg 3, Leipzig","date":"2026-01-01T10:01:29.000Z","author":"Ada","recorded":"2026-01-01T10:01:29.000Z"}

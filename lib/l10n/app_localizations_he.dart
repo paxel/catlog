@@ -64,9 +64,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get pickerCardFields => 'על הכרטיס';
 
   @override
-  String get exportCsv => 'ייצוא CSV';
-
-  @override
   String get aboutAndFeedback => 'אודות ומשוב';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get save => 'שמירה';
 
   @override
+  String get clearField => 'נקה';
+
+  @override
   String get delete => 'מחיקה';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get open => 'פתיחה';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV נשמר ב-$path';
-  }
 
   @override
   String get renameClowder => 'שינוי שם הקבוצה';
@@ -180,9 +175,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get sortNewestFirst => 'החדש קודם';
 
   @override
-  String get shareAsText => 'שיתוף כטקסט';
-
-  @override
   String get shareAsPdf => 'שיתוף כ-PDF';
 
   @override
@@ -253,13 +245,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'חיית המחמד נעלמת מכל הרשימות ותמונותיה נמחקות — כאן, ואחרי הסנכרון הבא גם במכשירים האחרים.';
 
   @override
-  String get sightingRecorded => 'התצפית נרשמה במיקומך.';
-
-  @override
-  String get noLocationAvailable =>
-      'אין מיקום זמין — במקום זאת לחצו לחיצה ארוכה על המפה.';
-
-  @override
   String get locationDeniedForever =>
       'הגישה למיקום חסומה. יש לאפשר אותה בהגדרות המערכת כדי להשתמש ב-Stray Cam.';
 
@@ -286,6 +271,12 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get captureFlier => 'צילום מודעה';
+
+  @override
+  String get flierFromCamera => 'מודעה מהמצלמה';
+
+  @override
+  String get flierFromGallery => 'מודעה מהגלריה';
 
   @override
   String get addPhotosTo => 'הוספת תמונות אל…';
@@ -354,13 +345,34 @@ class AppLocalizationsHe extends AppLocalizations {
   String get pickFramesTitle => 'בחירת פריימים';
 
   @override
-  String get suggestedFrames => 'פריימים מוצעים';
-
-  @override
-  String get scrubFrames => 'גלילה בסרטון';
-
-  @override
   String get keepThisFrame => 'שמור פריים זה';
+
+  @override
+  String get frameBack => 'פריים אחד אחורה';
+
+  @override
+  String get frameForward => 'פריים אחד קדימה';
+
+  @override
+  String get secondBack => 'שנייה אחורה';
+
+  @override
+  String get secondForward => 'שנייה קדימה';
+
+  @override
+  String get tenSecondsBack => 'עשר שניות אחורה';
+
+  @override
+  String get tenSecondsForward => 'עשר שניות קדימה';
+
+  @override
+  String get play => 'נגן';
+
+  @override
+  String get pause => 'השהה';
+
+  @override
+  String get keptFrames => 'פריימים שנשמרו מופיעים כאן';
 
   @override
   String get fromVideo => 'מסרטון…';
@@ -445,9 +457,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'נעדר מאז';
-
-  @override
-  String get phoneLabel => 'טלפון';
 
   @override
   String get cropPortrait => 'חיתוך דיוקן';
@@ -563,16 +572,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field רוקן';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field חזר אל \"$value\"';
-  }
-
-  @override
   String get leftStray => 'עזב — חתול רחוב';
 
   @override
@@ -616,9 +615,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get value => 'ערך';
-
-  @override
-  String get latitudeLongitude => 'קו רוחב, קו אורך';
 
   @override
   String get newField => 'שדה חדש';
@@ -688,11 +684,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get stopHosting => 'עצירת האירוח';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'מפגשים עד כה: $count';
   }
@@ -701,34 +692,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get join => 'הצטרפות';
 
   @override
-  String get addressFromHost => 'כתובת (מהמכשיר המארח)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'סנכרון עכשיו';
 
   @override
-  String get addressFormatHint => 'הכתובת צריכה להיראות כמו 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'סונכרן: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'הסנכרון נכשל: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'סנכרון אחרון עם $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'תיקייה משותפת';
 
   @override
   String get sharedFolderExplainer =>
@@ -756,11 +728,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'כל תיקייה ששני מכשירים שומרים זהה מתאימה: כונן ענן, או Syncthing לתיקייה שנשארת בטלפונים שלכם. Syncthing חינמי: התקינו אותו בכל טלפון, שתפו תיקייה אחת ביניהם, ובחרו את התיקייה הזו כאן בכל מכשיר.';
 
   @override
-  String folderSynced(String result) {
-    return 'התיקייה סונכרנה: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'סנכרון התיקייה נכשל: $error';
   }
@@ -782,14 +749,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'מסלול: $name ($count מיקומים)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'התנגשות — $field';
-  }
-
-  @override
-  String get conflictBody => 'שונה בשני מקומות בו-זמנית. בחרו מה נכון:';
 
   @override
   String privateMarker(Object field) {
@@ -1209,7 +1168,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'כל שינוי, החדש ראשון: מי שינה מה, מתי ולאיזה ערך. הקשה על רשומה מתקנת אותה, לחיצה ארוכה מסירה או משחזרת; רשומה מוסתרת נשארת ביומן ומוצגת לפי בקשה.';
+      'כל שינוי שנעשה אי פעם, החדש ביותר תחילה: מי שינה מה, מתי ולאיזה ערך. הקישו על רשומה כדי לתקן אותה, פח האשפה מסיר אותה, החץ מחזיר רשומה מוסתרת; רשומה מוסתרת נשארת ביומן ומוצגת לפי בקשה.';
 
   @override
   String get helpDuplicates =>
@@ -1399,17 +1358,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get copyCode => 'העתקת קוד';
 
   @override
-  String get copied => 'הועתק';
-
-  @override
   String get invalidCode => 'הקוד הזה לא תקין';
-
-  @override
-  String get hotspotHint =>
-      'אין Wi-Fi משותף? הפעילו נקודה חמה בטלפון אחד, חברו את השני וארחו כאן.';
-
-  @override
-  String get byMessenger => 'דרך מסנג\'ר';
 
   @override
   String get byMessengerExplainer =>
@@ -1420,11 +1369,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get importBundle => 'ייבוא חבילת סנכרון…';
-
-  @override
-  String bundleImported(String result) {
-    return 'החבילה יובאה: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1860,19 +1804,47 @@ class AppLocalizationsHe extends AppLocalizations {
   String get valueFerret => 'חמוס';
 
   @override
-  String get otherOption => 'אחר…';
-
-  @override
   String get celebrationsToggle => 'חגיגת אימוצים';
 
   @override
   String get celebrationsSubtitle => 'קונפטי ותרועות כשחתול עובר לבית';
 
   @override
-  String get cheerToggle => 'צליל תרועה';
+  String get soundsSection => 'צלילים';
 
   @override
-  String get cheerSubtitle => 'תרועה קצרה עם הקונפטי, שונה בכל פעם';
+  String get reminderSound => 'צליל חתול לתזכורות';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'תזכורת של מטלה אומרת Mrrr במקום צליל הטלפון.';
+
+  @override
+  String get soundPurr => 'גרגור';
+
+  @override
+  String get soundChorus => 'מקהלת מיאו';
+
+  @override
+  String get soundParty => 'מיאו חגיגי';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'צליל משלך…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1910,11 +1882,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'מחק הכול מהמחבר הזה';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'מסיר כל רשומה ותמונה של $name מהמכשיר הזה. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.';
-  }
 
   @override
   String get yourKey => 'המפתח שלך';
@@ -1975,11 +1942,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'הקלד $name לאישור';
-  }
-
-  @override
   String get alsoBan => 'גם לחסום — לעולם לא לקבל עוד נתונים';
 
   @override
@@ -1987,9 +1949,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get unbanAction => 'הסר חסימה';
-
-  @override
-  String get deletedDone => 'נמחק.';
 
   @override
   String get syncSummaryTitle => 'מה הגיע';
@@ -2032,24 +1991,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get keepMine => 'להשאיר את שלי';
 
   @override
-  String keptMine(String name) {
-    return 'הגרסה שלך של $name נשמרה במכשיר הזה.';
-  }
-
-  @override
   String get summaryMeta => 'הגיע גם';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n שינויים',
-      two: '$n שינויים',
-      one: 'שינוי אחד',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'אישור';
@@ -2194,30 +2136,13 @@ class AppLocalizationsHe extends AppLocalizations {
       'התחברו קודם ל-Wi-Fi — אז המכשירים ימצאו זה את זה';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) רוצה לסנכרן';
-  }
-
-  @override
   String get trustBothWaysNote => 'הקטלוגים יוחלפו בשני הכיוונים.';
 
   @override
   String get allowOnce => 'אפשר';
 
   @override
-  String get allowAlways => 'אפשר תמיד למכשיר זה';
-
-  @override
-  String get declineAction => 'דחה';
-
-  @override
   String get syncDeclined => 'המכשיר השני דחה את הסנכרון';
-
-  @override
-  String get trustedDevicesSection => 'מכשירים מאושרים תמיד';
-
-  @override
-  String get removeTrust => 'הסר';
 
   @override
   String get hostWithoutWifi => 'אירוח ללא Wi-Fi';
@@ -2288,8 +2213,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'הכרטיס הזה מרכז את כל חיות הרחוב — חיות מחמד בלי בית. הקישו לרשימה.';
 
   @override
-  String get spotHomeMenu =>
-      'בתפריט הזה: הגדרות, מציאת כפילויות ומיזוגן, ייצוא CSV ועוד.';
+  String get spotHomeMenu => 'בתפריט הזה: הגדרות, מציאת כפילויות ומיזוגן ועוד.';
 
   @override
   String get spotCatEdit =>
@@ -2364,9 +2288,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'הצג את הרמזים שוב בכל עמוד';
-
-  @override
-  String get spotReplayDone => 'הרמזים יוצגו שוב';
 
   @override
   String get searchNoResults => 'לא נמצא חתול בשם הזה';
@@ -2499,17 +2420,15 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'הקלד $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הקטלוג ($error). פנה מקום או נסה שוב מאוחר יותר.';
   }
 
   @override
   String get moveToCatalog => 'העברה לקטלוג אחר';
+
+  @override
+  String get moveInFromCatalog => 'העברה מקטלוג אחר…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2612,9 +2531,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get agenda => 'תזכורות';
 
   @override
-  String get reminderLabel => 'תזכורת';
-
-  @override
   String get agendaEmpty =>
       'אין פגישות מתוכננות. תכננו חדשות כאן בפלוס, או בדף של חתול או קבוצה.';
 
@@ -2653,6 +2569,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get markDone => 'בוצע';
 
   @override
+  String get takeOffList => 'הסרה מהרשימה';
+
+  @override
   String get repeatTitle => 'שוב בעוד…';
 
   @override
@@ -2660,6 +2579,51 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get unitDays => 'ימים';
+
+  @override
+  String get yesterday => 'אתמול';
+
+  @override
+  String get weekdayMon => 'ב׳';
+
+  @override
+  String get weekdayTue => 'ג׳';
+
+  @override
+  String get weekdayWed => 'ד׳';
+
+  @override
+  String get weekdayThu => 'ה׳';
+
+  @override
+  String get weekdayFri => 'ו׳';
+
+  @override
+  String get weekdaySat => 'ש׳';
+
+  @override
+  String get weekdaySun => 'א׳';
+
+  @override
+  String get weekdayFullMon => 'יום שני';
+
+  @override
+  String get weekdayFullTue => 'יום שלישי';
+
+  @override
+  String get weekdayFullWed => 'יום רביעי';
+
+  @override
+  String get weekdayFullThu => 'יום חמישי';
+
+  @override
+  String get weekdayFullFri => 'יום שישי';
+
+  @override
+  String get weekdayFullSat => 'שבת';
+
+  @override
+  String get weekdayFullSun => 'יום ראשון';
 
   @override
   String get unitWeeks => 'שבועות';
@@ -2696,9 +2660,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'קובץ היומן נשמר תחת $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'שיקוף ליומן המכשיר';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2782,11 +2743,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חתולים הוא תור אחד: סמנו את החתולים, סדר היום מציג כרטיס אחד עם שמותיהם, ובסיום נשאל אילו חתולים טופלו — בטלו את הסימון של השאר, הם נשארים מתוכננים. מטלות הן המשימות החוזרות, כמו האכלה, ארגז חול או תרופות. הן עומדות תחת היום עם סימון, רצף ושבעת הימים האחרונים כנקודות; בקרוב מציג את השבוע הבא בלי היומיות. מטלה יכולה להזכיר בהתראה בשעה שנבחרה. הגביע פותח את ההישגים.';
+      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה והכרטיס נשאר מסומן עד סוף היום; הקישו עליו כדי לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך; פח האשפה מוחק את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חתולים הוא תור אחד: סמנו את החתולים, סדר היום מציג כרטיס אחד עם שמותיהם, ובסיום נשאל אילו חתולים טופלו — בטלו את הסימון של השאר, הם נשארים מתוכננים. מטלות הן המשימות החוזרות, כמו האכלה, ארגז חול או תרופות. הן עומדות תחת היום עם סימון, רצף ושבעת הימים האחרונים כנקודות; בקרוב מציג את השבוע הבא בלי היומיות. מטלה יכולה להזכיר בהתראה בשעה שנבחרה. הגביע פותח את ההישגים.';
 
   @override
   String get helpAgendaNeutral =>
-      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את חיית המחמד או משק הבית. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חיות מחמד הוא תור אחד: סמנו את חיות המחמד, סדר היום מציג כרטיס אחד עם שמותיהן, ובסיום נשאל אילו חיות מחמד טופלו — בטלו את הסימון של השאר, הן נשארות מתוכננות. מטלות הן המשימות החוזרות, כמו האכלה, ארגז חול או תרופות. הן עומדות תחת היום עם סימון, רצף ושבעת הימים האחרונים כנקודות; בקרוב מציג את השבוע הבא בלי היומיות. מטלה יכולה להזכיר בהתראה בשעה שנבחרה. הגביע פותח את ההישגים.';
+      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את חיית המחמד או משק הבית. הסימון מאשר פגישה: הערך נכתב לשדה והכרטיס נשאר מסומן עד סוף היום; הקישו עליו כדי לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך; פח האשפה מוחק את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חיות מחמד הוא תור אחד: סמנו את חיות המחמד, סדר היום מציג כרטיס אחד עם שמותיהן, ובסיום נשאל אילו חיות מחמד טופלו — בטלו את הסימון של השאר, הן נשארות מתוכננות. מטלות הן המשימות החוזרות, כמו האכלה, ארגז חול או תרופות. הן עומדות תחת היום עם סימון, רצף ושבעת הימים האחרונים כנקודות; בקרוב מציג את השבוע הבא בלי היומיות. מטלה יכולה להזכיר בהתראה בשעה שנבחרה. הגביע פותח את ההישגים.';
 
   @override
   String get calendarRowOff => 'יומן: כבוי';
@@ -2819,19 +2780,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get appointmentLabel => 'פגישה';
 
   @override
+  String get reminderLabel => 'תזכורת';
+
+  @override
   String get addAppointment => 'הוספת פגישה';
-
-  @override
-  String get planChooserTitle => 'פגישה או תזכורת?';
-
-  @override
-  String get planChooserAppointment => 'פגישה — ביקור בתאריך ושעה, עם הערות';
-
-  @override
-  String get planChooserReminder => 'תזכורת — ערך שמגיע מועדו ביום מסוים';
-
-  @override
-  String get planChooserChore => 'מטלה — משהו שחוזר: האכלה, טיפות, ארגז חול';
 
   @override
   String get newChore => 'מטלה חדשה';
@@ -3094,14 +3046,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get achievementCentury => 'מאה שנה מלאות';
 
   @override
-  String get achievementCenturyHint => 'שנינו נהיה גאים מאוד.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'אלוף $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3112,14 +3056,6 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return '$_temp0, לראשונה ב-$date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'הבא ב-$n';
-  }
-
-  @override
-  String get achievementLocked => 'עדיין לא';
 
   @override
   String achievementUnlocked(String name) {
@@ -3440,16 +3376,10 @@ class AppLocalizationsHe extends AppLocalizations {
       'אנא בדקו מרתפים, מחסנים ומוסכים. לא לרדוף, רק להתקשר.';
 
   @override
-  String get posterLastSeen => 'נראה לאחרונה ליד';
-
-  @override
   String get posterFreeText => 'שורה נוספת';
 
   @override
   String get posterQr => 'קוד QR ל-cat(a)log';
-
-  @override
-  String get posterPhoto => 'תמונה';
 
   @override
   String get newCatIn => 'חתול חדש ב…';
@@ -3458,10 +3388,26 @@ class AppLocalizationsHe extends AppLocalizations {
   String get newCatInNeutral => 'חיית מחמד חדשה ב…';
 
   @override
+  String get newCatHere => 'חתול חדש כאן';
+
+  @override
+  String get newCatHereNeutral => 'חיית מחמד חדשה כאן';
+
+  @override
   String get choreLabel => 'מטלה';
 
   @override
   String get choreTickLabel => 'מטלה בוצעה';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title בוצע';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'עבור $day';
+  }
 
   @override
   String get choreEnded => 'הסתיים';
@@ -3495,8 +3441,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get coverPick => 'תמונת שער…';
 
   @override
-  String get coverHint =>
-      'תמונה של המקום: הבית, החצר, נקודת ההאכלה. מוצגת על הכרטיס במקום חתול.';
+  String get coverLabel => 'תמונה של הקבוצה';
+
+  @override
+  String get coverLabelNeutral => 'תמונה של משק הבית';
+
+  @override
+  String get coverLabelStrays => 'תמונה לחתולי הרחוב';
 
   @override
   String get coverRemove => 'הסרת תמונת השער';
@@ -3514,7 +3465,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'לחיצה ארוכה על ערך מתקנת או מסירה אותו. שום דבר לא אובד; ערכים מוסתרים מוצגים לפי בקשה.';
+      'הקישו על ערך כדי לתקן אותו, פח האשפה מסיר אותו. שום דבר לא אובד; ערכים מוסתרים מוצגים לפי בקשה.';
 
   @override
   String get spotBackups =>
@@ -3534,7 +3485,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'הערכים של שדה אחד לאורך זמן, החדש ראשון. הקשה על ערך מתקנת אותו: החדש תופס את מקומו, הישן מוסתר. לחיצה ארוכה מסירה ערך או משחזרת ערך מוסתר; העין מציגה ערכים מוסתרים. אפשר להעתיק את הרשימה כטקסט או לשתף כ-PDF.';
+      'הערכים של שדה אחד לאורך זמן, החדש ביותר תחילה. הקישו על ערך כדי לתקן אותו: החדש תופס את מקומו, הישן מוסתר. פח האשפה מסיר ערך, החץ מחזיר ערך מוסתר; העין מציגה ערכים מוסתרים. העתיקו את הרשימה כטקסט או שתפו אותה כ-PDF.';
 
   @override
   String get helpSettings =>
@@ -3627,21 +3578,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncAnotherDevice => 'מכשיר אחר';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count שינויים מאת $authors מוזגו',
-      two: '$count שינויים מאת $authors מוזגו',
-      one: 'שינוי אחד מאת $authors מוזג',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'הצג';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3652,12 +3588,6 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return '$_temp0, לראשונה ב-$date';
   }
-
-  @override
-  String get syncRunning => 'מסנכרן עם התיקייה…';
-
-  @override
-  String get syncDismiss => 'לא עכשיו';
 
   @override
   String flierHidden(int count) {
@@ -3673,4 +3603,96 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get undo => 'בטל';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'סונכרן עם $authors. הקש כדי לראות מה הגיע.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'סונכרן. אין חדש.';
+
+  @override
+  String get noteSyncFailed => 'הסנכרון נכשל. הקש לפרטים.';
+
+  @override
+  String get failureReport => 'דווח';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'פתח $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — בוצע $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title בוצע $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n נוספים';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'התיקייה המשותפת אינה נגישה מאז $since. הקש לפרטים.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names עדיין צריך את הגרסה החדשה כדי לראות את השינויים שלך.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'התיקייה סונכרנה: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'החבילה יובאה: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'התצפית נרשמה במיקומך.';
+
+  @override
+  String get deletedDone => 'נמחק.';
+
+  @override
+  String get spotReplayDone => 'הרמזים יוצגו שוב';
+
+  @override
+  String get syncRunning => 'מסנכרן עם התיקייה…';
+
+  @override
+  String get copied => 'הועתק';
+
+  @override
+  String get sharedFolder => 'תיקייה משותפת';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'לא עכשיו';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n שינויים',
+      two: '$n שינויים',
+      one: 'שינוי אחד',
+    );
+    return '$_temp0';
+  }
 }

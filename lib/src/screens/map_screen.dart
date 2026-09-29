@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'dart:async';
 
+import '../field_editing.dart';
 import '../field_labels.dart';
 import '../help.dart';
 import '../geocode.dart';
@@ -24,6 +25,8 @@ import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'cat_list_screen.dart';
+import 'field_history_screen.dart';
+import 'timeline_screen.dart';
 import '../exclusive.dart';
 import '../pet_mode.dart';
 
@@ -50,6 +53,10 @@ class MapScreen extends StatefulWidget {
   /// the field key, from a row with two values or more.
   final (String, String)? trailOf;
 
+  /// The trail dot marked from the start: the seq of the value a history
+  /// row was opened from. Nothing when the value is not on the trail.
+  final int? dot;
+
   const MapScreen(
       {super.key,
       required this.store,
@@ -57,7 +64,8 @@ class MapScreen extends StatefulWidget {
       this.initialCenter,
       this.geocode,
       this.focus,
-      this.trailOf});
+      this.trailOf,
+      this.dot});
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -66,6 +74,9 @@ class MapScreen extends StatefulWidget {
 /// The last viewport, kept per device so the map reopens where it was
 /// left instead of over the whole country (#55).
 const mapViewportKey = 'mapViewport';
+
+/// A trail dot's marker: the dot itself plus room for its cat ear.
+const _dotSize = 26.0;
 
 /// Greedy nearest-neighbor order over the pins, starting from [from] —
 /// the prev/next arrows walk the map like a route.
@@ -287,6 +298,12 @@ class _MapScreenState extends State<MapScreen>
   void initState() {
     super.initState();
     _trailOf = widget.trailOf;
+    if ((widget.trailOf, widget.dot) case (final of?, final seq?)) {
+      _dot = _trailPoints(of)
+          .map((p) => p.$1)
+          .where((e) => e.seq == seq)
+          .firstOrNull;
+    }
     WidgetsBinding.instance.addPostFrameCallback(
         (_) => runSpotlights(context, store, 'map'));
     if (widget.tileProvider != null) {
@@ -390,29 +407,88 @@ class _MapScreenState extends State<MapScreen>
 
   // Only sightings are recorded from the map; a clowder's position is set
   // via its Position field — clowders move far too rarely for a map menu.
-  Future<void> _longPress(LatLng point) async {
+  // The menu opens at the finger, on the spot it is about.
+  Future<void> _longPress(Offset at, LatLng point) async {
     final strays = store.visibleStrays();
-    final catId = await showModalBottomSheet<String>(
+    if (strays.isEmpty) return;
+    final catId = await showMenu<String>(
       context: context,
-      builder: (context) => SafeArea(
-        child: ListView(shrinkWrap: true, children: [
-          if (strays.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(context.t.recordSightingHere),
-            ),
-          for (final s in strays)
-            ListTile(
-              leading: CatAvatar(store: store, catId: s.id, size: 40),
-              title: Text(s.name),
-              onTap: () => Navigator.of(context).pop(s.id),
-            ),
-        ]),
-      ),
+      position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+      items: [
+        PopupMenuItem(
+          enabled: false,
+          child: Text(context.t.recordSightingHere),
+        ),
+        for (final s in strays)
+          PopupMenuItem(
+            value: s.id,
+            child: Row(children: [
+              CatAvatar(store: store, catId: s.id, size: 32),
+              const SizedBox(width: 12),
+              Text(s.name),
+            ]),
+          ),
+      ],
     );
-    if (catId == null) return;
+    if (catId == null || !mounted) return;
     store.recordPosition(catId, point.latitude, point.longitude);
     setState(() {});
+  }
+
+  /// The definition behind a trail's field; none for the built-in
+  /// position, which has no editor of its own.
+  FieldDef? _trailDef(String field) => field == CatalogStore.positionKey
+      ? null
+      : store.fieldDefs().where((d) => d.key == field).firstOrNull;
+
+  /// Hold on a trail dot: its date and author on top, then the history
+  /// it is a line of, a correction where the field has an editor, and
+  /// removal — all at the dot, nothing sliding in.
+  Future<void> _dotMenu(Entry entry, Offset at) async {
+    final t = context.t;
+    final (id, field) = _trailOf!;
+    final def = _trailDef(field);
+    final date = entry.date.toLocal().toIso8601String().substring(0, 10);
+    final action = await showMenu<String>(
+      context: context,
+      position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+      items: [
+        PopupMenuItem(enabled: false, child: Text('$date · ${entry.author}')),
+        PopupMenuItem(value: 'history', child: Text(t.fieldHistoryTooltip)),
+        if (def != null)
+          PopupMenuItem(value: 'correct', child: Text(t.correctThisValue)),
+        PopupMenuItem(value: 'remove', child: Text(t.removeThisValue)),
+      ],
+    );
+    if (action == null || !mounted) return;
+    switch (action) {
+      case 'history':
+        await Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) => def != null
+              ? FieldHistoryScreen(store: store, entityId: id, def: def)
+              : TimelineScreen(store: store, entityId: id, field: field),
+        ));
+      case 'correct':
+        final edit = await editFieldValue(
+          context,
+          def!,
+          entry.value,
+          store: store,
+          excludeId: id,
+          asOf: entry.date,
+        );
+        if (edit == null || !mounted) return;
+        store.correctEntry(entry.seq, edit.value, date: edit.date);
+        if (edit.private != store.isFieldPrivate(id, field)) {
+          store.setFieldPrivate(id, field, edit.private);
+        }
+      case 'remove':
+        store.removeEntry(entry.seq);
+    }
+    if (!mounted) return;
+    setState(() {
+      if (_dot?.seq == entry.seq) _dot = null;
+    });
   }
 
   /// Missing cats (any cat with flier positions) offered as overlay
@@ -479,29 +555,30 @@ class _MapScreenState extends State<MapScreen>
         : dead
             ? Colors.grey
             : Colors.deepOrange;
+    final avatar = CircleAvatar(
+      radius: 18,
+      backgroundColor: Colors.white,
+      // Decode at pin size — full-resolution photos (2560px ≈ 26MB
+      // decoded) in a 40px circle were the other leg of the OOM.
+      backgroundImage: photo != null ? ResizeImage(photo, width: 96) : null,
+      child: photo == null ? _placeholder() : null,
+    );
     final face = Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: ring, width: 3),
         color: Colors.white,
       ),
-      child: CircleAvatar(
-        radius: 18,
-        backgroundColor: Colors.white,
-        // Decode at pin size — full-resolution photos (2560px ≈ 26MB
-        // decoded) in a 40px circle were the other leg of the OOM.
-        backgroundImage:
-            photo != null ? ResizeImage(photo, width: 96) : null,
-        child: photo == null
-            ? _placeholder()
-            : null,
-      ),
+      child: dead
+          ? ClipOval(
+              child: withMourningBand(Opacity(
+                opacity: 0.65,
+                child: ColorFiltered(colorFilter: greyscale, child: avatar),
+              )),
+            )
+          : avatar,
     );
-    if (!dead) return face;
-    return Opacity(
-      opacity: 0.65,
-      child: ColorFiltered(colorFilter: greyscale, child: face),
-    );
+    return face;
   }
 
   /// The cat's face in a square frame: the flier pin (#83). Squarer
@@ -509,7 +586,7 @@ class _MapScreenState extends State<MapScreen>
   Widget _flierFace(String catId, bool highlighted) {
     final hash = store.profileImage(catId);
     final photo = hash == null ? null : imageProviderFor(store, hash);
-    return Container(
+    final face = Container(
       width: 42,
       height: 42,
       decoration: BoxDecoration(
@@ -524,6 +601,9 @@ class _MapScreenState extends State<MapScreen>
       ),
       child: photo == null ? _placeholder() : null,
     );
+    if (!isDeceased(store, catId)) return face;
+    return ClipRRect(
+        borderRadius: BorderRadius.circular(3), child: withMourningBand(face));
   }
 
   /// The face of an animal without a photo: the cat silhouette, or a
@@ -647,22 +727,6 @@ class _MapScreenState extends State<MapScreen>
               tooltip: context.t.nextPin,
               onPressed: () => _stepPins(1),
             ),
-            const Spacer(),
-            FilledButton.tonalIcon(
-              onPressed: () async {
-                final catId = await strayCam(context, store);
-                if (catId != null && context.mounted) {
-                  await Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => CatDetailScreen(
-                        store: store, catId: catId, startEditing: true),
-                  ));
-                }
-                if (!mounted) return;
-                setState(() {});
-              },
-              icon: const Icon(Icons.photo_camera),
-              label: Text(context.t.strayCam),
-            ),
           ]),
         ),
       ),
@@ -783,7 +847,7 @@ class _MapScreenState extends State<MapScreen>
         options: MapOptions(
           initialCenter: center,
           initialZoom: zoom,
-          onLongPress: (_, point) => _longPress(point),
+          onLongPress: (tap, point) => _longPress(tap.global, point),
           // Reopen where the user left off (#55).
           onPositionChanged: (camera, _) => _rememberViewport(camera),
           // North stays up: accidental two-finger rotation kept leaving
@@ -940,27 +1004,44 @@ class _MapScreenState extends State<MapScreen>
                 ),
               ),
             // One dot per value on the trail; a tap puts its date and
-            // author into the trail label.
+            // author into the trail label, a hold opens its menu there.
             if (_trailOf case final of?)
               for (final (entry, point) in _trailPoints(of))
                 Marker(
                   point: point,
-                  width: 20,
-                  height: 20,
-                  child: GestureDetector(
-                    onTap: () => setState(() => _dot = entry),
-                    child: Tooltip(
-                      message: entry.date
-                          .toLocal()
-                          .toIso8601String()
-                          .substring(0, 10),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: _dot == entry ? Colors.red : Colors.redAccent,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 2),
+                  width: _dotSize,
+                  height: _dotSize,
+                  // The detector sits inside the tooltip: a tooltip
+                  // claims long presses of its own and would win.
+                  child: Tooltip(
+                    message: entry.date
+                        .toLocal()
+                        .toIso8601String()
+                        .substring(0, 10),
+                    child: GestureDetector(
+                      onTap: () => setState(() => _dot = entry),
+                      onLongPressStart: (d) =>
+                          _dotMenu(entry, d.globalPosition),
+                      child: Stack(children: [
+                        Positioned(
+                          left: 3,
+                          top: 3,
+                          width: 20,
+                          height: 20,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: _dot == entry
+                                  ? Colors.red
+                                  : Colors.redAccent,
+                              shape: BoxShape.circle,
+                              border:
+                                  Border.all(color: Colors.white, width: 2),
+                            ),
+                          ),
                         ),
-                      ),
+                        const PositionedDirectional(
+                            top: 0, end: 0, child: CatEarBadge(size: 9)),
+                      ]),
                     ),
                   ),
                 ),

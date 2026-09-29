@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../celebration.dart';
 import '../chores/chore_dialog.dart';
 import '../l10n.dart';
 import 'cat_ear.dart';
@@ -45,6 +46,7 @@ class ChoreRow extends StatelessWidget {
       store.untickChore(chore, due);
     } else {
       store.tickChore(chore, due, doneOn: today);
+      tickSound(store);
     }
     onChanged();
   }

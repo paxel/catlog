@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 import 'field_editing.dart';
@@ -128,11 +129,16 @@ class FlierCaptureScreen extends StatefulWidget {
   final GeocodeSearch? geocode;
   final Future<FlierTemplateSet> Function()? templates;
 
+  /// Where the poster comes from when the button that opened the wizard
+  /// already said so; null offers camera and gallery on the page.
+  final ImageSource? source;
+
   const FlierCaptureScreen({
     super.key,
     required this.store,
     this.existingCatId,
     this.pickPhoto,
+    this.source,
     this.locate,
     this.scan,
     this.ocr,
@@ -244,10 +250,16 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// an owner clowder; an existing cat only when one was picked.
   bool get _hasClowderTarget => _newCat || _existingClowder != null;
 
+  /// The page offers camera and gallery itself when nothing chose yet.
+  bool get _choosing =>
+      widget.pickPhoto == null && widget.source == null && hasCamera;
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _capture());
+    if (!_choosing) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _capture());
+    }
   }
 
   @override
@@ -272,16 +284,30 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     super.dispose();
   }
 
-  Future<void> _capture() async {
+  /// Whether the camera or the gallery is open right now.
+  bool _picking = false;
+
+  Future<void> _capture([ImageSource? source]) async {
     // Position resolves while the camera is open; a flier without a
     // position is still a flier.
     final located = (widget.locate ?? locateDevice)();
+    setState(() => _picking = true);
     final bytes =
         await (widget.pickPhoto ??
-            ((c) => pickImageBytes(c, allowCrop: false)))(context);
+            ((c) => pickImageBytes(
+              c,
+              allowCrop: false,
+              source: source ?? widget.source ?? cameraIfThereIsOne,
+            )))(context);
     if (bytes == null) {
-      // No photo, no flier.
-      if (mounted) Navigator.of(context).pop();
+      // No photo, no flier: back where the wizard came from, unless the
+      // page itself offered the choice and can offer it again.
+      if (!mounted) return;
+      if (_choosing) {
+        setState(() => _picking = false);
+      } else {
+        Navigator.of(context).pop();
+      }
       return;
     }
     final outcome = await located;
@@ -1371,7 +1397,28 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     if (photo == null) {
       return Scaffold(
         appBar: AppBar(title: Text(_newCat ? t.captureFlier : t.addFlier)),
-        body: const Center(child: CircularProgressIndicator()),
+        body: Center(
+          child: _choosing && !_picking
+              // The two ways in, as buttons on the page: no sheet first.
+              ? Wrap(
+                  spacing: 12,
+                  runSpacing: 12,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    FilledButton.icon(
+                      onPressed: () => _capture(ImageSource.camera),
+                      icon: const Icon(Icons.photo_camera),
+                      label: Text(t.takePhoto),
+                    ),
+                    FilledButton.tonalIcon(
+                      onPressed: () => _capture(ImageSource.gallery),
+                      icon: const Icon(Icons.photo_library),
+                      label: Text(t.chooseFromGallery),
+                    ),
+                  ],
+                )
+              : const CircularProgressIndicator(),
+        ),
       );
     }
     final steps = _steps(t);

@@ -68,15 +68,25 @@ void main() {
     // Anna's second round learns Bob's key from his file.
     expect((await folderSync(a, dir.path)).report.newKeys.single.record.device,
         b.deviceId);
-    // A forged line in Anna's file is refused by Bob.
-    final own = File('${dir.path}/catlog-sync/${a.deviceId}.jsonl');
+    // A forged line in Anna's segment, announced by her manifest, is
+    // refused by Bob.
+    final root = '${dir.path}/catlog-sync';
+    final own = File('$root/${segmentName(a.deviceId, 1)}');
     final rows = own.readAsLinesSync();
-    // The file holds Bob's rows too by now: forge one of Anna's.
+    // The segment holds Bob's rows too by now: forge one of Anna's.
     final last = rows
         .map((l) => (jsonDecode(l) as Map).cast<String, dynamic>())
         .lastWhere((r) => r['device'] == a.deviceId);
     rows.add(jsonEncode({...last, 'dseq': last['dseq'] + 1, 'value': 'x'}));
     own.writeAsStringSync(rows.join('\n'));
+    final manifestFile = File('$root/${manifestName(a.deviceId)}');
+    final manifest = FolderManifest.parse(manifestFile.readAsBytesSync())!;
+    manifestFile.writeAsStringSync(jsonEncode(FolderManifest(
+      generation: manifest.generation,
+      private: manifest.private,
+      vector: manifest.vector,
+      segments: [(segmentName(a.deviceId, 1), rows.length)],
+    ).toJson()));
     final again = await folderSync(b, dir.path);
     expect(again.report.refused[('anna', a.deviceId)], 1);
     expect(again.entriesIn, 0);

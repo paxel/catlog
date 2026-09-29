@@ -64,9 +64,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get pickerCardFields => 'Op de kaart';
 
   @override
-  String get exportCsv => 'CSV exporteren';
-
-  @override
   String get aboutAndFeedback => 'Over & feedback';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get save => 'Opslaan';
 
   @override
+  String get clearField => 'Wissen';
+
+  @override
   String get delete => 'Verwijderen';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get open => 'Openen';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV opgeslagen in $path';
-  }
 
   @override
   String get renameClowder => 'Clowder hernoemen';
@@ -181,9 +176,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sortNewestFirst => 'Nieuwste eerst';
 
   @override
-  String get shareAsText => 'Delen als tekst';
-
-  @override
   String get shareAsPdf => 'Delen als PDF';
 
   @override
@@ -255,13 +247,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het huisdier verdwijnt uit alle lijsten en de foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook op de andere apparaten.';
 
   @override
-  String get sightingRecorded => 'Waarneming vastgelegd op je positie.';
-
-  @override
-  String get noLocationAvailable =>
-      'Geen locatie beschikbaar — houd in plaats daarvan de kaart ingedrukt.';
-
-  @override
   String get locationDeniedForever =>
       'Locatietoegang is geblokkeerd. Sta het toe in de systeeminstellingen om Stray Cam te gebruiken.';
 
@@ -288,6 +273,12 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get captureFlier => 'Poster fotograferen';
+
+  @override
+  String get flierFromCamera => 'Poster via camera';
+
+  @override
+  String get flierFromGallery => 'Poster uit galerij';
 
   @override
   String get addPhotosTo => 'Foto\'s toevoegen aan…';
@@ -356,13 +347,34 @@ class AppLocalizationsNl extends AppLocalizations {
   String get pickFramesTitle => 'Frames kiezen';
 
   @override
-  String get suggestedFrames => 'Voorgestelde frames';
-
-  @override
-  String get scrubFrames => 'Door de video spoelen';
-
-  @override
   String get keepThisFrame => 'Dit frame bewaren';
+
+  @override
+  String get frameBack => 'Eén beeld terug';
+
+  @override
+  String get frameForward => 'Eén beeld vooruit';
+
+  @override
+  String get secondBack => 'Eén seconde terug';
+
+  @override
+  String get secondForward => 'Eén seconde vooruit';
+
+  @override
+  String get tenSecondsBack => 'Tien seconden terug';
+
+  @override
+  String get tenSecondsForward => 'Tien seconden vooruit';
+
+  @override
+  String get play => 'Afspelen';
+
+  @override
+  String get pause => 'Pauze';
+
+  @override
+  String get keptFrames => 'Bewaarde beelden verschijnen hier';
 
   @override
   String get fromVideo => 'Uit video…';
@@ -447,9 +459,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Vermist sinds';
-
-  @override
-  String get phoneLabel => 'Telefoon';
 
   @override
   String get cropPortrait => 'Portret bijsnijden';
@@ -568,16 +577,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field leeggemaakt';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field terug naar \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Vertrokken — zwerfkat';
 
   @override
@@ -621,9 +620,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get value => 'Waarde';
-
-  @override
-  String get latitudeLongitude => 'breedtegraad, lengtegraad';
 
   @override
   String get newField => 'Nieuw veld';
@@ -693,11 +689,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get stopHosting => 'Stoppen met hosten';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '$count sessie(s) tot nu toe';
   }
@@ -706,35 +697,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get join => 'Deelnemen';
 
   @override
-  String get addressFromHost => 'Adres (van het hostende apparaat)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Nu synchroniseren';
 
   @override
-  String get addressFormatHint =>
-      'Het adres moet er zo uitzien: 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Gesynchroniseerd: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synchronisatie mislukt: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Laatste synchronisatie met $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Gedeelde map';
 
   @override
   String get sharedFolderExplainer =>
@@ -762,11 +733,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Elke map die twee apparaten gelijk houden volstaat: een clouddrive, of Syncthing voor een map die op jullie telefoons blijft. Syncthing is gratis: installeer het op elke telefoon, deel één map tussen hen en kies die map hier op elk apparaat.';
 
   @override
-  String folderSynced(String result) {
-    return 'Map gesynchroniseerd: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Map synchroniseren mislukt: $error';
   }
@@ -788,15 +754,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Spoor: $name ($count posities)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Conflict — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Op twee plekken tegelijk gewijzigd. Kies wat waar is:';
 
   @override
   String privateMarker(Object field) {
@@ -1219,7 +1176,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Elke wijziging, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Tik op een item om het te corrigeren, houd het vast om het te verwijderen of te herstellen; een verborgen item blijft in het logboek en wordt op verzoek getoond.';
+      'Elke wijziging ooit gemaakt, nieuwste eerst: wie wat wanneer naar welke waarde veranderde. Tik op een regel om hem te corrigeren, de prullenbak verwijdert hem, de pijl haalt een verborgen regel terug; een verborgen regel blijft in het logboek en toon je op verzoek.';
 
   @override
   String get helpDuplicates =>
@@ -1410,17 +1367,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get copyCode => 'Code kopiëren';
 
   @override
-  String get copied => 'Gekopieerd';
-
-  @override
   String get invalidCode => 'Die code is ongeldig';
-
-  @override
-  String get hotspotHint =>
-      'Geen gedeelde wifi? Zet de hotspot van één telefoon aan, verbind de andere en host hier.';
-
-  @override
-  String get byMessenger => 'Via messenger';
 
   @override
   String get byMessengerExplainer =>
@@ -1431,11 +1378,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get importBundle => 'Syncpakket importeren…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakket geïmporteerd: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1870,9 +1812,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get valueFerret => 'Fret';
 
   @override
-  String get otherOption => 'Anders…';
-
-  @override
   String get celebrationsToggle => 'Adopties vieren';
 
   @override
@@ -1880,11 +1819,41 @@ class AppLocalizationsNl extends AppLocalizations {
       'Confetti en gejuich wanneer een kat naar zijn thuis verhuist';
 
   @override
-  String get cheerToggle => 'Juichgeluid';
+  String get soundsSection => 'Geluiden';
 
   @override
-  String get cheerSubtitle =>
-      'Een kort gejuich bij de confetti, elke keer anders';
+  String get reminderSound => 'Kattengeluid bij herinneringen';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'De herinnering aan een taak zegt Mrrr in plaats van het geluid van de telefoon.';
+
+  @override
+  String get soundPurr => 'Spinnen';
+
+  @override
+  String get soundChorus => 'Miauwkoor';
+
+  @override
+  String get soundParty => 'Feestmiauw';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Eigen geluid…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1923,11 +1892,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Alles van deze auteur verwijderen';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Verwijdert elke invoer en foto van $name van dit apparaat. Andere apparaten houden de hunne. Kan niet ongedaan worden gemaakt.';
-  }
 
   @override
   String get yourKey => 'Jouw sleutel';
@@ -1987,11 +1951,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Typ $name om te bevestigen';
-  }
-
-  @override
   String get alsoBan => 'Ook blokkeren — nooit meer gegevens accepteren';
 
   @override
@@ -1999,9 +1958,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unbanAction => 'Blokkade opheffen';
-
-  @override
-  String get deletedDone => 'Verwijderd.';
 
   @override
   String get syncSummaryTitle => 'Wat er binnenkwam';
@@ -2044,23 +2000,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get keepMine => 'Mijn versie houden';
 
   @override
-  String keptMine(String name) {
-    return 'Jouw versie van $name blijft op dit apparaat.';
-  }
-
-  @override
   String get summaryMeta => 'Ook aangekomen';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n wijzigingen',
-      one: '1 wijziging',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Accepteren';
@@ -2205,11 +2145,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Maak eerst verbinding met wifi — dan vinden de apparaten elkaar';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) wil synchroniseren';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'Jullie catalogi worden in beide richtingen uitgewisseld.';
 
@@ -2217,19 +2152,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get allowOnce => 'Toestaan';
 
   @override
-  String get allowAlways => 'Dit apparaat altijd toestaan';
-
-  @override
-  String get declineAction => 'Weigeren';
-
-  @override
   String get syncDeclined => 'Het andere apparaat weigerde de synchronisatie';
-
-  @override
-  String get trustedDevicesSection => 'Altijd toegestane apparaten';
-
-  @override
-  String get removeTrust => 'Verwijderen';
 
   @override
   String get hostWithoutWifi => 'Hosten zonder wifi';
@@ -2302,7 +2225,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'In dit menu: instellingen, dubbele items vinden en samenvoegen, CSV exporteren en meer.';
+      'In dit menu: instellingen, dubbele items vinden en samenvoegen en meer.';
 
   @override
   String get spotCatEdit =>
@@ -2378,9 +2301,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Tips opnieuw tonen op elke pagina';
-
-  @override
-  String get spotReplayDone => 'De tips worden opnieuw getoond';
 
   @override
   String get searchNoResults => 'Geen kat gevonden met die naam';
@@ -2511,17 +2431,15 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Typ $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ($error). Maak ruimte vrij of probeer het later.';
   }
 
   @override
   String get moveToCatalog => 'Naar een andere catalogus verplaatsen';
+
+  @override
+  String get moveInFromCatalog => 'Overzetten uit een andere catalogus…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2624,9 +2542,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get agenda => 'Agenda';
 
   @override
-  String get reminderLabel => 'Herinnering';
-
-  @override
   String get agendaEmpty =>
       'Geen afspraken gepland. Nieuwe afspraken plan je hier met de plus of op de pagina van een kat of clowder.';
 
@@ -2663,6 +2578,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get markDone => 'Klaar';
 
   @override
+  String get takeOffList => 'Van de lijst halen';
+
+  @override
   String get repeatTitle => 'Opnieuw over…';
 
   @override
@@ -2670,6 +2588,51 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unitDays => 'dagen';
+
+  @override
+  String get yesterday => 'Gisteren';
+
+  @override
+  String get weekdayMon => 'ma';
+
+  @override
+  String get weekdayTue => 'di';
+
+  @override
+  String get weekdayWed => 'wo';
+
+  @override
+  String get weekdayThu => 'do';
+
+  @override
+  String get weekdayFri => 'vr';
+
+  @override
+  String get weekdaySat => 'za';
+
+  @override
+  String get weekdaySun => 'zo';
+
+  @override
+  String get weekdayFullMon => 'maandag';
+
+  @override
+  String get weekdayFullTue => 'dinsdag';
+
+  @override
+  String get weekdayFullWed => 'woensdag';
+
+  @override
+  String get weekdayFullThu => 'donderdag';
+
+  @override
+  String get weekdayFullFri => 'vrijdag';
+
+  @override
+  String get weekdayFullSat => 'zaterdag';
+
+  @override
+  String get weekdayFullSun => 'zondag';
 
   @override
   String get unitWeeks => 'weken';
@@ -2706,9 +2669,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Agendabestand opgeslagen onder $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Spiegelen naar apparaatagenda';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2793,11 +2753,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere katten is één afspraak: vink de katten aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke katten behandeld zijn — vink de andere uit, die blijven gepland. Taken zijn de terugkerende klussen, zoals voeren, kattenbak of medicijnen. Ze staan onder Vandaag met een vinkje, een reeks en de laatste zeven dagen als stippen; Binnenkort toont de komende week zonder de dagelijkse. Een taak kan je met een melding op een gekozen tijd herinneren. De trofee opent de prestaties.';
+      'De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en de kaart blijft afgevinkt staan tot het eind van de dag; tik erop om de volgende te plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum; de prullenbak verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere katten is één afspraak: vink de katten aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke katten behandeld zijn — vink de andere uit, die blijven gepland. Taken zijn de terugkerende klussen, zoals voeren, kattenbak of medicijnen. Ze staan onder Vandaag met een vinkje, een reeks en de laatste zeven dagen als stippen; Binnenkort toont de komende week zonder de dagelijkse. Een taak kan je met een melding op een gekozen tijd herinneren. De trofee opent de prestaties.';
 
   @override
   String get helpAgendaNeutral =>
-      'De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent het huisdier of huishouden. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere huisdieren is één afspraak: vink de huisdieren aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke huisdieren behandeld zijn — vink de andere uit, die blijven gepland. Taken zijn de terugkerende klussen, zoals voeren, kattenbak of medicijnen. Ze staan onder Vandaag met een vinkje, een reeks en de laatste zeven dagen als stippen; Binnenkort toont de komende week zonder de dagelijkse. Een taak kan je met een melding op een gekozen tijd herinneren. De trofee opent de prestaties.';
+      'De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent het huisdier of huishouden. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en de kaart blijft afgevinkt staan tot het eind van de dag; tik erop om de volgende te plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum; de prullenbak verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere huisdieren is één afspraak: vink de huisdieren aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke huisdieren behandeld zijn — vink de andere uit, die blijven gepland. Taken zijn de terugkerende klussen, zoals voeren, kattenbak of medicijnen. Ze staan onder Vandaag met een vinkje, een reeks en de laatste zeven dagen als stippen; Binnenkort toont de komende week zonder de dagelijkse. Een taak kan je met een melding op een gekozen tijd herinneren. De trofee opent de prestaties.';
 
   @override
   String get calendarRowOff => 'Agenda: uit';
@@ -2830,22 +2790,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appointmentLabel => 'Afspraak';
 
   @override
+  String get reminderLabel => 'Herinnering';
+
+  @override
   String get addAppointment => 'Afspraak toevoegen';
-
-  @override
-  String get planChooserTitle => 'Afspraak of herinnering?';
-
-  @override
-  String get planChooserAppointment =>
-      'Afspraak — een bezoek op een datum met tijd en notities';
-
-  @override
-  String get planChooserReminder =>
-      'Herinnering — een waarde die op een dag verschuldigd wordt';
-
-  @override
-  String get planChooserChore =>
-      'Taak — iets dat terugkomt: voeren, druppels, kattenbak';
 
   @override
   String get newChore => 'Nieuwe taak';
@@ -3103,14 +3051,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get achievementCentury => 'Een volle eeuw';
 
   @override
-  String get achievementCenturyHint => 'We zullen allebei heel trots zijn.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-meester';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3120,14 +3060,6 @@ class AppLocalizationsNl extends AppLocalizations {
     );
     return '$_temp0, de eerste op $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Volgende bij $n';
-  }
-
-  @override
-  String get achievementLocked => 'Nog niet';
 
   @override
   String achievementUnlocked(String name) {
@@ -3449,16 +3381,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Kijk alstublieft in kelders, schuren en garages. Niet achterna zitten, gewoon bellen.';
 
   @override
-  String get posterLastSeen => 'Laatst gezien bij';
-
-  @override
   String get posterFreeText => 'Extra regel';
 
   @override
   String get posterQr => 'QR-code voor cat(a)log';
-
-  @override
-  String get posterPhoto => 'Foto';
 
   @override
   String get newCatIn => 'Nieuwe kat in…';
@@ -3467,10 +3393,26 @@ class AppLocalizationsNl extends AppLocalizations {
   String get newCatInNeutral => 'Nieuw huisdier in…';
 
   @override
+  String get newCatHere => 'Nieuwe kat hier';
+
+  @override
+  String get newCatHereNeutral => 'Nieuw huisdier hier';
+
+  @override
   String get choreLabel => 'Taak';
 
   @override
   String get choreTickLabel => 'Taak gedaan';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title gedaan';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'voor $day';
+  }
 
   @override
   String get choreEnded => 'Beëindigd';
@@ -3504,8 +3446,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get coverPick => 'Omslagfoto…';
 
   @override
-  String get coverHint =>
-      'Een foto van de plek: het huis, de tuin, de voerplek. Op de kaart getoond in plaats van een kat.';
+  String get coverLabel => 'Een foto van de clowder';
+
+  @override
+  String get coverLabelNeutral => 'Een foto van het huishouden';
+
+  @override
+  String get coverLabelStrays => 'Een foto voor de zwerfkatten';
 
   @override
   String get coverRemove => 'Omslagfoto verwijderen';
@@ -3523,7 +3470,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Houd een waarde vast om hem te corrigeren of te verwijderen. Niets gaat verloren; verborgen waarden toon je op verzoek.';
+      'Tik op een waarde om hem te corrigeren, de prullenbak verwijdert hem. Niets gaat verloren; verborgen waarden toon je op verzoek.';
 
   @override
   String get spotBackups =>
@@ -3543,7 +3490,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'De waarden van één veld door de tijd, nieuwste eerst. Tik op een waarde om die te corrigeren: de nieuwe neemt zijn plaats in, de oude wordt verborgen. Houd een waarde vast om die te verwijderen of een verborgen waarde terug te halen; het oog toont verborgen waarden. Kopieer de lijst als tekst of deel hem als pdf.';
+      'De waarden van één veld door de tijd, nieuwste eerst. Tik op een waarde om hem te corrigeren: de nieuwe neemt zijn plaats in, de oude wordt verborgen. De prullenbak verwijdert een waarde, de pijl haalt een verborgen waarde terug; het oog toont verborgen waarden. Kopieer de lijst als tekst of deel hem als PDF.';
 
   @override
   String get helpSettings =>
@@ -3637,20 +3584,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get syncAnotherDevice => 'een ander apparaat';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count wijzigingen van $authors samengevoegd',
-      one: '$count wijziging van $authors samengevoegd',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Tonen';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3660,12 +3593,6 @@ class AppLocalizationsNl extends AppLocalizations {
     );
     return '$_temp0, de eerste op $date';
   }
-
-  @override
-  String get syncRunning => 'Synchroniseren met de map…';
-
-  @override
-  String get syncDismiss => 'Niet nu';
 
   @override
   String flierHidden(int count) {
@@ -3680,4 +3607,95 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get undo => 'Ongedaan maken';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Gesynchroniseerd met $authors. Tik om te zien wat er is binnengekomen.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Gesynchroniseerd. Niets nieuws.';
+
+  @override
+  String get noteSyncFailed => 'Synchronisatie mislukt. Tik voor details.';
+
+  @override
+  String get failureReport => 'Melden';
+
+  @override
+  String failureOpenPage(String page) {
+    return '$page openen';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — $count× gedaan, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title $count× gedaan';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n meer';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'De gedeelde map is sinds $since niet bereikbaar. Tik voor details.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names heeft nog de nieuwe versie nodig om je wijzigingen te zien.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Map gesynchroniseerd: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakket geïmporteerd: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Waarneming vastgelegd op je positie.';
+
+  @override
+  String get deletedDone => 'Verwijderd.';
+
+  @override
+  String get spotReplayDone => 'De tips worden opnieuw getoond';
+
+  @override
+  String get syncRunning => 'Synchroniseren met de map…';
+
+  @override
+  String get copied => 'Gekopieerd';
+
+  @override
+  String get sharedFolder => 'Gedeelde map';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Niet nu';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n wijzigingen',
+      one: '1 wijziging',
+    );
+    return '$_temp0';
+  }
 }

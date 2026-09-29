@@ -64,9 +64,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get pickerCardFields => 'Na karte';
 
   @override
-  String get exportCsv => 'Exportovať CSV';
-
-  @override
   String get aboutAndFeedback => 'O aplikácii a spätná väzba';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get save => 'Uložiť';
 
   @override
+  String get clearField => 'Vymazať';
+
+  @override
   String get delete => 'Vymazať';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get open => 'Otvoriť';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV uložené do $path';
-  }
 
   @override
   String get renameClowder => 'Premenovať clowder';
@@ -180,9 +175,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get sortNewestFirst => 'Najnovšie prvé';
 
   @override
-  String get shareAsText => 'Zdieľať ako text';
-
-  @override
   String get shareAsPdf => 'Zdieľať ako PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsSk extends AppLocalizations {
       'Miláčik zmizne zo všetkých zoznamov a jeho fotky sa odstránia — tu aj, po ďalšej synchronizácii, na ostatných zariadeniach.';
 
   @override
-  String get sightingRecorded => 'Pozorovanie zaznamenané na vašej pozícii.';
-
-  @override
-  String get noLocationAvailable =>
-      'Poloha nie je k dispozícii — namiesto toho podržte prst na mape.';
-
-  @override
   String get locationDeniedForever =>
       'Prístup k polohe je zablokovaný. Povoľte ho v nastaveniach systému, aby ste mohli používať Stray Cam.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get captureFlier => 'Odfotiť leták';
+
+  @override
+  String get flierFromCamera => 'Leták z fotoaparátu';
+
+  @override
+  String get flierFromGallery => 'Leták z galérie';
 
   @override
   String get addPhotosTo => 'Pridať fotky k…';
@@ -355,13 +346,34 @@ class AppLocalizationsSk extends AppLocalizations {
   String get pickFramesTitle => 'Výber snímok';
 
   @override
-  String get suggestedFrames => 'Navrhované snímky';
-
-  @override
-  String get scrubFrames => 'Pretáčanie videa';
-
-  @override
   String get keepThisFrame => 'Ponechať túto snímku';
+
+  @override
+  String get frameBack => 'O snímku späť';
+
+  @override
+  String get frameForward => 'O snímku vpred';
+
+  @override
+  String get secondBack => 'O sekundu späť';
+
+  @override
+  String get secondForward => 'O sekundu vpred';
+
+  @override
+  String get tenSecondsBack => 'O desať sekúnd späť';
+
+  @override
+  String get tenSecondsForward => 'O desať sekúnd vpred';
+
+  @override
+  String get play => 'Prehrať';
+
+  @override
+  String get pause => 'Pozastaviť';
+
+  @override
+  String get keptFrames => 'Ponechané snímky sa objavia tu';
 
   @override
   String get fromVideo => 'Z videa…';
@@ -447,9 +459,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Nezvestný od';
-
-  @override
-  String get phoneLabel => 'Telefón';
 
   @override
   String get cropPortrait => 'Orezať portrét';
@@ -565,16 +574,6 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field vyprázdnené';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field späť na \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Odišla — túlavá';
 
   @override
@@ -618,9 +617,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get value => 'Hodnota';
-
-  @override
-  String get latitudeLongitude => 'zemepisná šírka, dĺžka';
 
   @override
   String get newField => 'Nové pole';
@@ -690,11 +686,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get stopHosting => 'Zastaviť hostenie';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Doterajšie relácie: $count';
   }
@@ -703,34 +694,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get join => 'Pripojiť sa';
 
   @override
-  String get addressFromHost => 'Adresa (z hostiteľského zariadenia)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Synchronizovať teraz';
 
   @override
-  String get addressFormatHint => 'Adresa musí vyzerať ako 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Synchronizované: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Synchronizácia zlyhala: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Posledná synchronizácia s $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Zdieľaný priečinok';
 
   @override
   String get sharedFolderExplainer =>
@@ -758,11 +730,6 @@ class AppLocalizationsSk extends AppLocalizations {
       'Stačí akýkoľvek priečinok, ktorý dve zariadenia držia rovnaký: cloudový disk alebo Syncthing pre priečinok, ktorý zostáva vo vašich telefónoch. Syncthing je zadarmo: nainštaluj ho na každý telefón, zdieľaj medzi nimi jeden priečinok a ten tu vyber na každom zariadení.';
 
   @override
-  String folderSynced(String result) {
-    return 'Priečinok synchronizovaný: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Synchronizácia priečinka zlyhala: $error';
   }
@@ -784,15 +751,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Stopa: $name ($count pozícií)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Konflikt — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Zmenené na dvoch miestach naraz. Vyberte, čo platí:';
 
   @override
   String privateMarker(Object field) {
@@ -1215,7 +1173,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Každá zmena, najnovšia prvá: kto, kedy a na akú hodnotu. Ťuknutím záznam opravíte, podržaním odstránite alebo obnovíte; skrytý záznam ostáva v protokole a zobrazí sa na požiadanie.';
+      'Každá vykonaná zmena, najnovšie prvé: kto čo zmenil, kedy a na akú hodnotu. Ťuknutím na záznam ho opravíte, kôš ho odstráni, šípka vráti skrytý; skrytý záznam zostáva v protokole a zobrazí sa na požiadanie.';
 
   @override
   String get helpDuplicates =>
@@ -1405,17 +1363,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get copyCode => 'Kopírovať kód';
 
   @override
-  String get copied => 'Skopírované';
-
-  @override
   String get invalidCode => 'Tento kód nie je platný';
-
-  @override
-  String get hotspotHint =>
-      'Žiadna spoločná Wi-Fi? Zapnite hotspot na jednom telefóne, druhý pripojte a hostite tu.';
-
-  @override
-  String get byMessenger => 'Cez messenger';
 
   @override
   String get byMessengerExplainer =>
@@ -1426,11 +1374,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get importBundle => 'Importovať synchronizačný balík…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Balík importovaný: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1866,9 +1809,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get valueFerret => 'Fretka';
 
   @override
-  String get otherOption => 'Iné…';
-
-  @override
   String get celebrationsToggle => 'Oslavovať adopcie';
 
   @override
@@ -1876,10 +1816,41 @@ class AppLocalizationsSk extends AppLocalizations {
       'Konfety a jasot, keď sa mačka sťahuje do svojho domova';
 
   @override
-  String get cheerToggle => 'Zvuk jasotu';
+  String get soundsSection => 'Zvuky';
 
   @override
-  String get cheerSubtitle => 'Krátky jasot ku konfetám, zakaždým iný';
+  String get reminderSound => 'Mačací zvuk pri pripomienkach';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Pripomienka úlohy povie Mrrr namiesto zvuku telefónu.';
+
+  @override
+  String get soundPurr => 'Pradenie';
+
+  @override
+  String get soundChorus => 'Zbor mňaukania';
+
+  @override
+  String get soundParty => 'Oslavné mňau';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Vlastný zvuk…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1917,11 +1888,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Zmazať všetko od tohto autora';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Odstráni každý záznam a fotku od $name z tohto zariadenia. Ostatné zariadenia si svoje ponechajú. Nedá sa vrátiť.';
-  }
 
   @override
   String get yourKey => 'Tvoj kľúč';
@@ -1982,11 +1948,6 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Na potvrdenie napíšte $name';
-  }
-
-  @override
   String get alsoBan => 'Aj zakázať — už nikdy neprijímať údaje';
 
   @override
@@ -1994,9 +1955,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get unbanAction => 'Zrušiť zákaz';
-
-  @override
-  String get deletedDone => 'Zmazané.';
 
   @override
   String get syncSummaryTitle => 'Čo prišlo';
@@ -2039,24 +1997,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get keepMine => 'Nechať moje';
 
   @override
-  String keptMine(String name) {
-    return 'Tvoja verzia $name zostáva na tomto zariadení.';
-  }
-
-  @override
   String get summaryMeta => 'Tiež prišlo';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n zmien',
-      few: '$n zmeny',
-      one: '1 zmena',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Prijať';
@@ -2202,30 +2143,13 @@ class AppLocalizationsSk extends AppLocalizations {
       'Najprv sa pripoj k Wi-Fi — potom sa zariadenia nájdu';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) chce synchronizovať';
-  }
-
-  @override
   String get trustBothWaysNote => 'Katalógy sa vymenia oboma smermi.';
 
   @override
   String get allowOnce => 'Povoliť';
 
   @override
-  String get allowAlways => 'Vždy povoliť toto zariadenie';
-
-  @override
-  String get declineAction => 'Odmietnuť';
-
-  @override
   String get syncDeclined => 'Druhé zariadenie synchronizáciu odmietlo';
-
-  @override
-  String get trustedDevicesSection => 'Vždy povolené zariadenia';
-
-  @override
-  String get removeTrust => 'Odstrániť';
 
   @override
   String get hostWithoutWifi => 'Hostovať bez Wi-Fi';
@@ -2298,7 +2222,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'V tejto ponuke: nastavenia, hľadanie a zlúčenie duplicít, export CSV a ďalšie.';
+      'V tejto ponuke: nastavenia, hľadanie a zlúčenie duplicít a ďalšie.';
 
   @override
   String get spotCatEdit =>
@@ -2374,9 +2298,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Znova ukázať tipy na každej stránke';
-
-  @override
-  String get spotReplayDone => 'Tipy sa zobrazia znova';
 
   @override
   String get searchNoResults => 'Mačka s týmto menom sa nenašla';
@@ -2509,17 +2430,15 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Napíš $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Nič sa nezmazalo: súbor katalógu sa nepodarilo zapísať ($error). Uvoľni miesto alebo to skús neskôr.';
   }
 
   @override
   String get moveToCatalog => 'Presunúť do iného katalógu';
+
+  @override
+  String get moveInFromCatalog => 'Presunúť z iného katalógu…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2622,9 +2541,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get agenda => 'Pripomienky';
 
   @override
-  String get reminderLabel => 'Pripomienka';
-
-  @override
   String get agendaEmpty =>
       'Žiadne termíny nie sú naplánované. Nové naplánuješ tu plusom alebo na stránke mačky či clowderu.';
 
@@ -2663,6 +2579,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get markDone => 'Hotovo';
 
   @override
+  String get takeOffList => 'Odobrať zo zoznamu';
+
+  @override
   String get repeatTitle => 'Znova o…';
 
   @override
@@ -2670,6 +2589,51 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get unitDays => 'dní';
+
+  @override
+  String get yesterday => 'Včera';
+
+  @override
+  String get weekdayMon => 'po';
+
+  @override
+  String get weekdayTue => 'ut';
+
+  @override
+  String get weekdayWed => 'st';
+
+  @override
+  String get weekdayThu => 'št';
+
+  @override
+  String get weekdayFri => 'pi';
+
+  @override
+  String get weekdaySat => 'so';
+
+  @override
+  String get weekdaySun => 'ne';
+
+  @override
+  String get weekdayFullMon => 'pondelok';
+
+  @override
+  String get weekdayFullTue => 'utorok';
+
+  @override
+  String get weekdayFullWed => 'streda';
+
+  @override
+  String get weekdayFullThu => 'štvrtok';
+
+  @override
+  String get weekdayFullFri => 'piatok';
+
+  @override
+  String get weekdayFullSat => 'sobota';
+
+  @override
+  String get weekdayFullSun => 'nedeľa';
 
   @override
   String get unitWeeks => 'týždňov';
@@ -2706,9 +2670,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Súbor kalendára uložený do $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Zrkadliť do kalendára zariadenia';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2792,11 +2753,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí mačku alebo clowder. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými mačkami je jedno stretnutie: zaškrtnite mačky, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktoré mačky boli ošetrené — ostatné odškrtnite, zostanú naplánované. Úlohy sú opakujúce sa povinnosti ako kŕmenie, záchod alebo lieky. Stoja pod Dnes so zaškrtnutím, sériou a poslednými siedmimi dňami ako bodky; Čoskoro ukazuje budúci týždeň bez tých denných. Úloha môže pripomenúť upozornením vo zvolený čas. Pohár otvára úspechy.';
+      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí mačku alebo clowder. Fajka potvrdí termín: hodnota sa zapíše do poľa a karta zostane zaškrtnutá do konca dňa; ťukni na ňu a naplánuj ďalší, napríklad o tri mesiace. Podržanie zmení dátum; kôš termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými mačkami je jedno stretnutie: zaškrtnite mačky, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktoré mačky boli ošetrené — ostatné odškrtnite, zostanú naplánované. Úlohy sú opakujúce sa povinnosti ako kŕmenie, záchod alebo lieky. Stoja pod Dnes so zaškrtnutím, sériou a poslednými siedmimi dňami ako bodky; Čoskoro ukazuje budúci týždeň bez tých denných. Úloha môže pripomenúť upozornením vo zvolený čas. Pohár otvára úspechy.';
 
   @override
   String get helpAgendaNeutral =>
-      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí miláčika alebo domácnosť. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými miláčikmi je jedno stretnutie: zaškrtnite miláčikov, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktorí miláčikovia boli ošetrení — ostatných odškrtnite, zostanú naplánovaní. Úlohy sú opakujúce sa povinnosti ako kŕmenie, záchod alebo lieky. Stoja pod Dnes so zaškrtnutím, sériou a poslednými siedmimi dňami ako bodky; Čoskoro ukazuje budúci týždeň bez tých denných. Úloha môže pripomenúť upozornením vo zvolený čas. Pohár otvára úspechy.';
+      'Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí miláčika alebo domácnosť. Fajka potvrdí termín: hodnota sa zapíše do poľa a karta zostane zaškrtnutá do konca dňa; ťukni na ňu a naplánuj ďalší, napríklad o tri mesiace. Podržanie zmení dátum; kôš termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými miláčikmi je jedno stretnutie: zaškrtnite miláčikov, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktorí miláčikovia boli ošetrení — ostatných odškrtnite, zostanú naplánovaní. Úlohy sú opakujúce sa povinnosti ako kŕmenie, záchod alebo lieky. Stoja pod Dnes so zaškrtnutím, sériou a poslednými siedmimi dňami ako bodky; Čoskoro ukazuje budúci týždeň bez tých denných. Úloha môže pripomenúť upozornením vo zvolený čas. Pohár otvára úspechy.';
 
   @override
   String get calendarRowOff => 'Kalendár: vypnuté';
@@ -2829,22 +2790,10 @@ class AppLocalizationsSk extends AppLocalizations {
   String get appointmentLabel => 'Termín';
 
   @override
+  String get reminderLabel => 'Pripomienka';
+
+  @override
   String get addAppointment => 'Pridať termín';
-
-  @override
-  String get planChooserTitle => 'Termín alebo pripomienka?';
-
-  @override
-  String get planChooserAppointment =>
-      'Termín — návšteva v deň a hodinu, s poznámkami';
-
-  @override
-  String get planChooserReminder =>
-      'Pripomienka — hodnota, ktorá je v určitý deň na rade';
-
-  @override
-  String get planChooserChore =>
-      'Úloha — niečo, čo sa vracia: kŕmenie, kvapky, záchod';
 
   @override
   String get newChore => 'Nová úloha';
@@ -3108,14 +3057,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get achievementCentury => 'Celé storočie';
 
   @override
-  String get achievementCenturyHint => 'Obaja budeme veľmi hrdí.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Majster: $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3126,14 +3067,6 @@ class AppLocalizationsSk extends AppLocalizations {
     );
     return '$_temp0, prvýkrát $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Ďalší pri $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ešte nie';
 
   @override
   String achievementUnlocked(String name) {
@@ -3455,16 +3388,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Prosím skontrolujte pivnice, kôlne a garáže. Nenaháňajte, len zavolajte.';
 
   @override
-  String get posterLastSeen => 'Naposledy videný pri';
-
-  @override
   String get posterFreeText => 'Riadok navyše';
 
   @override
   String get posterQr => 'QR kód pre cat(a)log';
-
-  @override
-  String get posterPhoto => 'Fotka';
 
   @override
   String get newCatIn => 'Nová mačka v…';
@@ -3473,10 +3400,26 @@ class AppLocalizationsSk extends AppLocalizations {
   String get newCatInNeutral => 'Nové zviera v…';
 
   @override
+  String get newCatHere => 'Nová mačka tu';
+
+  @override
+  String get newCatHereNeutral => 'Nový miláčik tu';
+
+  @override
   String get choreLabel => 'Úloha';
 
   @override
   String get choreTickLabel => 'Úloha hotová';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title hotovo';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'za $day';
+  }
 
   @override
   String get choreEnded => 'Ukončené';
@@ -3510,8 +3453,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get coverPick => 'Titulný obrázok…';
 
   @override
-  String get coverHint =>
-      'Obrázok miesta: dom, dvor, kŕmne miesto. Na karte namiesto mačky.';
+  String get coverLabel => 'Obrázok clowderu';
+
+  @override
+  String get coverLabelNeutral => 'Obrázok domácnosti';
+
+  @override
+  String get coverLabelStrays => 'Obrázok pre túlavé mačky';
 
   @override
   String get coverRemove => 'Odstrániť titulný obrázok';
@@ -3529,7 +3477,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Podržte hodnotu, aby ste ju opravili alebo odstránili. Nič sa nestratí; skryté hodnoty zobrazíte na požiadanie.';
+      'Ťuknite na hodnotu, aby ste ju opravili, kôš ju odstráni. Nič sa nestratí; skryté hodnoty zobrazíte na požiadanie.';
 
   @override
   String get spotBackups =>
@@ -3549,7 +3497,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Hodnoty jedného poľa v čase, najnovšie prvé. Ťuknutím hodnotu opravíte: nová nastúpi na jej miesto, stará sa skryje. Podržaním hodnotu odstránite alebo skrytú vrátite; oko zobrazí skryté hodnoty. Zoznam skopírujte ako text alebo zdieľajte ako PDF.';
+      'Hodnoty jedného poľa v čase, najnovšie prvé. Ťuknutím na hodnotu ju opravíte: nová zaujme jej miesto, stará sa skryje. Kôš hodnotu odstráni, šípka vráti skrytú; oko zobrazí skryté hodnoty. Skopírujte zoznam ako text alebo ho zdieľajte ako PDF.';
 
   @override
   String get helpSettings =>
@@ -3642,21 +3590,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get syncAnotherDevice => 'iného zariadenia';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count zmien od $authors zlúčených',
-      few: '$count zmeny od $authors zlúčené',
-      one: '$count zmena od $authors zlúčená',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Zobraziť';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3667,12 +3600,6 @@ class AppLocalizationsSk extends AppLocalizations {
     );
     return '$_temp0, prvýkrát $date';
   }
-
-  @override
-  String get syncRunning => 'Synchronizácia s priečinkom…';
-
-  @override
-  String get syncDismiss => 'Teraz nie';
 
   @override
   String flierHidden(int count) {
@@ -3688,4 +3615,97 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get undo => 'Späť';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Synchronizované s $authors. Ťuknutím zobrazíte, čo prišlo.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Synchronizované. Nič nové.';
+
+  @override
+  String get noteSyncFailed =>
+      'Synchronizácia zlyhala. Ťuknutím zobrazíte podrobnosti.';
+
+  @override
+  String get failureReport => 'Nahlásiť';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Otvoriť $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — hotovo $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title hotovo $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n ďalších';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Zdieľaný priečinok je nedostupný od $since. Ťuknutím zobrazíte podrobnosti.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names stále potrebuje novú verziu, aby videl vaše zmeny.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Priečinok synchronizovaný: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Balík importovaný: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Pozorovanie zaznamenané na vašej pozícii.';
+
+  @override
+  String get deletedDone => 'Zmazané.';
+
+  @override
+  String get spotReplayDone => 'Tipy sa zobrazia znova';
+
+  @override
+  String get syncRunning => 'Synchronizácia s priečinkom…';
+
+  @override
+  String get copied => 'Skopírované';
+
+  @override
+  String get sharedFolder => 'Zdieľaný priečinok';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Teraz nie';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n zmien',
+      few: '$n zmeny',
+      one: '1 zmena',
+    );
+    return '$_temp0';
+  }
 }

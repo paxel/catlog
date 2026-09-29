@@ -30,7 +30,8 @@ void main() {
     b.createCat('Wanderer');
     await folderSyncIn(a, folder);
     expect(folder.dirs.keys, containsAll(['', 'blobs', 'keys']));
-    expect(folder.dirs['']!.keys, contains('${a.deviceId}.jsonl'));
+    expect(folder.dirs['']!.keys, contains(manifestName(a.deviceId)));
+    expect(folder.dirs['']!.keys, contains(segmentName(a.deviceId, 1)));
     expect(folder.dirs['keys']!.keys, contains('${a.deviceId}.json'));
 
     final result = await folderSyncIn(b, folder);
@@ -40,18 +41,31 @@ void main() {
     expect(a.cats().length, 2);
     expect(a.pinnedKey(b.deviceId), isNotNull);
     // Own files only, nothing written under the other's name twice.
-    expect(folder.dirs['']!.keys.where((n) => n.endsWith('.jsonl')).length, 2);
+    expect(
+        folder.dirs['']!.keys.where((n) => n.endsWith('.manifest')).length, 2);
   });
 
   test('a forged line in a partner file is refused', () async {
     final cat = a.createCat('Miezi');
     await folderSyncIn(a, folder);
     await folderSyncIn(b, folder);
-    final own = '${a.deviceId}.jsonl';
+    // The forger edits the last segment and announces the line.
+    final own = segmentName(a.deviceId, 1);
     final lines = utf8.decode(folder.dirs['']![own]!).split('\n');
     final last = (jsonDecode(lines.last) as Map).cast<String, dynamic>();
     lines.add(jsonEncode({...last, 'dseq': last['dseq'] + 1, 'value': 'x'}));
     await folder.write('', own, utf8.encode(lines.join('\n')));
+    final manifest =
+        FolderManifest.parse(folder.dirs['']![manifestName(a.deviceId)])!;
+    await folder.write(
+        '',
+        manifestName(a.deviceId),
+        utf8.encode(jsonEncode(FolderManifest(
+          generation: manifest.generation,
+          private: manifest.private,
+          vector: manifest.vector,
+          segments: [(own, lines.length)],
+        ).toJson())));
     final again = await folderSyncIn(b, folder);
     expect(again.report.refused[('anna', a.deviceId)], 1);
     expect(b.current(cat, 'name'), 'Miezi');
@@ -88,8 +102,9 @@ void main() {
     berlin.createCat('Wanderer');
     await folderSyncIn(leipzig, folder, catalog: 'leipzig');
     await folderSyncIn(berlin, folder, catalog: 'berlin');
-    expect(folder.dirs['leipzig']!.keys, contains('${leipzig.deviceId}.jsonl'));
-    expect(folder.dirs['berlin']!.keys, contains('${berlin.deviceId}.jsonl'));
+    expect(folder.dirs['leipzig']!.keys,
+        contains(manifestName(leipzig.deviceId)));
+    expect(folder.dirs['berlin']!.keys, contains(manifestName(berlin.deviceId)));
     expect(folder.dirs['leipzig/keys'], isNotNull);
     // Bob joins Leipzig only and sees Miezi, never Wanderer.
     final bob = CatalogStore.inMemory()..author = 'bob';
@@ -110,7 +125,7 @@ void main() {
     await folderSyncIn(now, folder, catalog: 'leipzig');
     expect(now.cats().single.name, 'Oldie');
     expect(now.pinnedKey(old.deviceId), isNotNull);
-    expect(folder.dirs['leipzig']!.keys, contains('${now.deviceId}.jsonl'));
+    expect(folder.dirs['leipzig']!.keys, contains(manifestName(now.deviceId)));
   });
 
   test('the subfolder name follows the catalog name', () {

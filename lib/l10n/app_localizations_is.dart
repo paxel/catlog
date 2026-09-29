@@ -64,9 +64,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get pickerCardFields => 'Á kortinu';
 
   @override
-  String get exportCsv => 'Flytja út CSV';
-
-  @override
   String get aboutAndFeedback => 'Um & ábendingar';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get save => 'Vista';
 
   @override
+  String get clearField => 'Hreinsa';
+
+  @override
   String get delete => 'Eyða';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get open => 'Opna';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV vistað í $path';
-  }
 
   @override
   String get renameClowder => 'Endurnefna hóp';
@@ -180,9 +175,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get sortNewestFirst => 'Nýjasta fyrst';
 
   @override
-  String get shareAsText => 'Deila sem texta';
-
-  @override
   String get shareAsPdf => 'Deila sem PDF';
 
   @override
@@ -254,14 +246,6 @@ class AppLocalizationsIs extends AppLocalizations {
       'Gæludýrið hverfur af öllum listum og myndir þess eru fjarlægðar — hér og, eftir næstu samstillingu, einnig á hinum tækjunum.';
 
   @override
-  String get sightingRecorded =>
-      'Skráð að kötturinn sást á staðsetningu þinni.';
-
-  @override
-  String get noLocationAvailable =>
-      'Engin staðsetning — haltu þess í stað fingri á kortinu.';
-
-  @override
   String get locationDeniedForever =>
       'Aðgangur að staðsetningu er læstur. Leyfðu hann í kerfisstillingum til að nota Stray Cam.';
 
@@ -288,6 +272,12 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get captureFlier => 'Mynda auglýsingu';
+
+  @override
+  String get flierFromCamera => 'Auglýsing úr myndavél';
+
+  @override
+  String get flierFromGallery => 'Auglýsing úr myndasafni';
 
   @override
   String get addPhotosTo => 'Bæta myndum við…';
@@ -356,13 +346,34 @@ class AppLocalizationsIs extends AppLocalizations {
   String get pickFramesTitle => 'Velja ramma';
 
   @override
-  String get suggestedFrames => 'Tillögur að römmum';
-
-  @override
-  String get scrubFrames => 'Spóla í myndbandinu';
-
-  @override
   String get keepThisFrame => 'Halda þessum ramma';
+
+  @override
+  String get frameBack => 'Einn ramma til baka';
+
+  @override
+  String get frameForward => 'Einn ramma áfram';
+
+  @override
+  String get secondBack => 'Eina sekúndu til baka';
+
+  @override
+  String get secondForward => 'Eina sekúndu áfram';
+
+  @override
+  String get tenSecondsBack => 'Tíu sekúndur til baka';
+
+  @override
+  String get tenSecondsForward => 'Tíu sekúndur áfram';
+
+  @override
+  String get play => 'Spila';
+
+  @override
+  String get pause => 'Hlé';
+
+  @override
+  String get keptFrames => 'Rammar sem þú heldur birtast hér';
 
   @override
   String get fromVideo => 'Úr myndbandi…';
@@ -448,9 +459,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Týndur síðan';
-
-  @override
-  String get phoneLabel => 'Sími';
 
   @override
   String get cropPortrait => 'Skera andlitsmynd';
@@ -568,16 +576,6 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field tæmt';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field aftur í \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Fór — flækingur';
 
   @override
@@ -621,9 +619,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get value => 'Gildi';
-
-  @override
-  String get latitudeLongitude => 'breiddargráða, lengdargráða';
 
   @override
   String get newField => 'Nýtt svæði';
@@ -693,11 +688,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get stopHosting => 'Stöðva hýsingu';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Lotur hingað til: $count';
   }
@@ -706,35 +696,15 @@ class AppLocalizationsIs extends AppLocalizations {
   String get join => 'Tengjast';
 
   @override
-  String get addressFromHost => 'Vistfang (frá hýsingartækinu)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Samstilla núna';
 
   @override
-  String get addressFormatHint =>
-      'Vistfangið á að líta út eins og 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Samstillt: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Samstilling mistókst: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Síðasta samstilling við $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Sameiginleg mappa';
 
   @override
   String get sharedFolderExplainer =>
@@ -762,11 +732,6 @@ class AppLocalizationsIs extends AppLocalizations {
       'Hvaða mappa sem tvö tæki halda eins dugar: skýjadrif, eða Syncthing fyrir möppu sem verður eftir í símunum ykkar. Syncthing er ókeypis: settu það upp á hverjum síma, deildu einni möppu milli þeirra og veldu þá möppu hér á hverju tæki.';
 
   @override
-  String folderSynced(String result) {
-    return 'Mappa samstillt: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Samstilling möppu mistókst: $error';
   }
@@ -788,15 +753,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Slóð: $name ($count staðsetningar)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Árekstur — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Breytt á tveimur stöðum í einu. Veldu hvað er rétt:';
 
   @override
   String privateMarker(Object field) {
@@ -1219,7 +1175,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Hver breyting, nýjasta fyrst: hver, hvenær og í hvaða gildi. Ýttu á færslu til að leiðrétta hana, haltu henni til að fjarlægja eða endurheimta; falin færsla er áfram í skránni og birtist sé þess óskað.';
+      'Allar breytingar sem gerðar hafa verið, nýjastar fyrst: hver breytti hverju, hvenær og í hvaða gildi. Ýttu á færslu til að leiðrétta hana, ruslafatan fjarlægir hana, örin sækir falda til baka; falin færsla helst í skránni og birtist sé þess óskað.';
 
   @override
   String get helpDuplicates =>
@@ -1410,17 +1366,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get copyCode => 'Afrita kóða';
 
   @override
-  String get copied => 'Afritað';
-
-  @override
   String get invalidCode => 'Þessi kóði er ógildur';
-
-  @override
-  String get hotspotHint =>
-      'Ekkert sameiginlegt Wi-Fi? Kveiktu á heitum reit á öðrum símanum, tengdu hinn og hýstu hér.';
-
-  @override
-  String get byMessenger => 'Með skilaboðaforriti';
 
   @override
   String get byMessengerExplainer =>
@@ -1431,11 +1377,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get importBundle => 'Flytja inn samstillingarpakka…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Pakki fluttur inn: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1870,9 +1811,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get valueFerret => 'Fretta';
 
   @override
-  String get otherOption => 'Annað…';
-
-  @override
   String get celebrationsToggle => 'Fagna ættleiðingum';
 
   @override
@@ -1880,11 +1818,41 @@ class AppLocalizationsIs extends AppLocalizations {
       'Skrautborðar og fagnaðarlæti þegar köttur flytur á heimili sitt';
 
   @override
-  String get cheerToggle => 'Fagnaðarhljóð';
+  String get soundsSection => 'Hljóð';
 
   @override
-  String get cheerSubtitle =>
-      'Stutt fagnaðaróp með konfettíinu, nýtt í hvert sinn';
+  String get reminderSound => 'Kattahljóð fyrir áminningar';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Áminning um verk segir Mrrr í stað hljóðs símans.';
+
+  @override
+  String get soundPurr => 'Mal';
+
+  @override
+  String get soundChorus => 'Mjákór';
+
+  @override
+  String get soundParty => 'Hátíðarmjá';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Eigið hljóð…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1922,11 +1890,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Eyða öllu frá þessum höfundi';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Fjarlægir allar færslur og myndir frá $name af þessu tæki. Önnur tæki halda sínum. Ekki hægt að afturkalla.';
-  }
 
   @override
   String get yourKey => 'Lykillinn þinn';
@@ -1986,11 +1949,6 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Sláðu inn $name til að staðfesta';
-  }
-
-  @override
   String get alsoBan => 'Banna líka — aldrei taka við gögnum aftur';
 
   @override
@@ -1998,9 +1956,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get unbanAction => 'Fjarlægja bann';
-
-  @override
-  String get deletedDone => 'Eytt.';
 
   @override
   String get syncSummaryTitle => 'Hvað barst';
@@ -2043,23 +1998,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get keepMine => 'Halda mínu';
 
   @override
-  String keptMine(String name) {
-    return 'Þín útgáfa af $name helst á þessu tæki.';
-  }
-
-  @override
   String get summaryMeta => 'Kom líka';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n breytingar',
-      one: '1 breyting',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Samþykkja';
@@ -2205,30 +2144,13 @@ class AppLocalizationsIs extends AppLocalizations {
       'Tengstu fyrst Wi-Fi — þá finna tækin hvort annað';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) vill samstilla';
-  }
-
-  @override
   String get trustBothWaysNote => 'Skrárnar ykkar skiptast í báðar áttir.';
 
   @override
   String get allowOnce => 'Leyfa';
 
   @override
-  String get allowAlways => 'Alltaf leyfa þessu tæki';
-
-  @override
-  String get declineAction => 'Hafna';
-
-  @override
   String get syncDeclined => 'Hitt tækið hafnaði samstillingunni';
-
-  @override
-  String get trustedDevicesSection => 'Alltaf leyfð tæki';
-
-  @override
-  String get removeTrust => 'Fjarlægja';
 
   @override
   String get hostWithoutWifi => 'Hýsa án Wi-Fi';
@@ -2301,7 +2223,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Í þessari valmynd: stillingar, finna og sameina tvítök, flytja út CSV og fleira.';
+      'Í þessari valmynd: stillingar, finna og sameina tvítök og fleira.';
 
   @override
   String get spotCatEdit =>
@@ -2377,9 +2299,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Sýna ábendingar aftur á hverri síðu';
-
-  @override
-  String get spotReplayDone => 'Ábendingarnar birtast aftur';
 
   @override
   String get searchNoResults => 'Enginn köttur fannst með þessu nafni';
@@ -2510,17 +2429,15 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Sláðu inn $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Engu var eytt: ekki tókst að skrifa skráarskrána ($error). Losaðu pláss eða reyndu aftur síðar.';
   }
 
   @override
   String get moveToCatalog => 'Færa í aðra skrá';
+
+  @override
+  String get moveInFromCatalog => 'Flytja inn úr annarri skrá…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2623,9 +2540,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get agenda => 'Áminningar';
 
   @override
-  String get reminderLabel => 'Áminning';
-
-  @override
   String get agendaEmpty =>
       'Engir tímar áætlaðir. Áætlaðu nýja hér með plúsnum eða á síðu kattar eða clowders.';
 
@@ -2662,6 +2576,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get markDone => 'Lokið';
 
   @override
+  String get takeOffList => 'Taka af listanum';
+
+  @override
   String get repeatTitle => 'Aftur eftir…';
 
   @override
@@ -2669,6 +2586,51 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get unitDays => 'daga';
+
+  @override
+  String get yesterday => 'Í gær';
+
+  @override
+  String get weekdayMon => 'mán';
+
+  @override
+  String get weekdayTue => 'þri';
+
+  @override
+  String get weekdayWed => 'mið';
+
+  @override
+  String get weekdayThu => 'fim';
+
+  @override
+  String get weekdayFri => 'fös';
+
+  @override
+  String get weekdaySat => 'lau';
+
+  @override
+  String get weekdaySun => 'sun';
+
+  @override
+  String get weekdayFullMon => 'mánudagur';
+
+  @override
+  String get weekdayFullTue => 'þriðjudagur';
+
+  @override
+  String get weekdayFullWed => 'miðvikudagur';
+
+  @override
+  String get weekdayFullThu => 'fimmtudagur';
+
+  @override
+  String get weekdayFullFri => 'föstudagur';
+
+  @override
+  String get weekdayFullSat => 'laugardagur';
+
+  @override
+  String get weekdayFullSun => 'sunnudagur';
 
   @override
   String get unitWeeks => 'vikur';
@@ -2705,9 +2667,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Dagatalsskrá vistuð undir $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Spegla í dagatal tækisins';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2792,11 +2751,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og spjaldið stendur hakað til dagsloka; ýttu á það til að áætla næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu; ruslafatan eyðir tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
 
   @override
   String get helpAgendaNeutral =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar gæludýrið eða heimilið. Hakið staðfestir tíma: gildið er skrifað í reitinn og spjaldið stendur hakað til dagsloka; ýttu á það til að áætla næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu; ruslafatan eyðir tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum gæludýrum er einn tími: merktu gæludýrin, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða gæludýr voru meðhöndluð — afmerktu hin, þau haldast áætluð. Verk eru endurtekin skylduverk eins og fóðrun, kattasandur eða lyf. Þau standa undir Í dag með haki, runu og síðustu sjö dögum sem punktum; Framundan sýnir næstu viku án þeirra daglegu. Verk getur minnt á með tilkynningu á völdum tíma. Bikarinn opnar afrekin.';
 
   @override
   String get calendarRowOff => 'Dagatal: slökkt';
@@ -2829,22 +2788,10 @@ class AppLocalizationsIs extends AppLocalizations {
   String get appointmentLabel => 'Tími';
 
   @override
+  String get reminderLabel => 'Áminning';
+
+  @override
   String get addAppointment => 'Bæta við tíma';
-
-  @override
-  String get planChooserTitle => 'Tími eða áminning?';
-
-  @override
-  String get planChooserAppointment =>
-      'Tími — heimsókn á dagsetningu og tíma, með athugasemdum';
-
-  @override
-  String get planChooserReminder =>
-      'Áminning — gildi sem fellur á gjalddaga á degi';
-
-  @override
-  String get planChooserChore =>
-      'Verk — eitthvað sem endurtekst: fóðrun, dropar, kassi';
 
   @override
   String get newChore => 'Nýtt verk';
@@ -3102,14 +3049,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get achievementCentury => 'Heil öld';
 
   @override
-  String get achievementCenturyHint => 'Við verðum bæði mjög stolt.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-meistari';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3119,14 +3058,6 @@ class AppLocalizationsIs extends AppLocalizations {
     );
     return '$_temp0, fyrst $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Næst við $n';
-  }
-
-  @override
-  String get achievementLocked => 'Ekki enn';
 
   @override
   String achievementUnlocked(String name) {
@@ -3448,16 +3379,10 @@ class AppLocalizationsIs extends AppLocalizations {
       'Vinsamlegast athugið kjallara, skúra og bílskúra. Ekki elta, bara hringja.';
 
   @override
-  String get posterLastSeen => 'Síðast séð við';
-
-  @override
   String get posterFreeText => 'Aukalína';
 
   @override
   String get posterQr => 'QR-kóði fyrir cat(a)log';
-
-  @override
-  String get posterPhoto => 'Mynd';
 
   @override
   String get newCatIn => 'Nýr köttur í…';
@@ -3466,10 +3391,26 @@ class AppLocalizationsIs extends AppLocalizations {
   String get newCatInNeutral => 'Nýtt gæludýr í…';
 
   @override
+  String get newCatHere => 'Nýr köttur hér';
+
+  @override
+  String get newCatHereNeutral => 'Nýtt gæludýr hér';
+
+  @override
   String get choreLabel => 'Verk';
 
   @override
   String get choreTickLabel => 'Verk lokið';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title lokið';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'fyrir $day';
+  }
 
   @override
   String get choreEnded => 'Lokið';
@@ -3503,8 +3444,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get coverPick => 'Forsíðumynd…';
 
   @override
-  String get coverHint =>
-      'Mynd af staðnum: húsið, garðurinn, fóðurstaðurinn. Sýnd á spjaldinu í stað kattar.';
+  String get coverLabel => 'Mynd af hópnum';
+
+  @override
+  String get coverLabelNeutral => 'Mynd af heimilinu';
+
+  @override
+  String get coverLabelStrays => 'Mynd fyrir flækingskettina';
 
   @override
   String get coverRemove => 'Fjarlægja forsíðumynd';
@@ -3522,7 +3468,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Haltu gildi til að leiðrétta eða fjarlægja það. Ekkert tapast; falin gildi birtast sé þess óskað.';
+      'Ýttu á gildi til að leiðrétta það, ruslafatan fjarlægir það. Ekkert tapast; falin gildi birtast sé þess óskað.';
 
   @override
   String get spotBackups =>
@@ -3542,7 +3488,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Gildi eins reits yfir tíma, nýjast fyrst. Ýttu á gildi til að leiðrétta það: nýja gildið tekur sætið, það gamla felst. Haltu gildi til að fjarlægja það eða endurheimta falið; augað sýnir falin gildi. Afritaðu listann sem texta eða deildu honum sem PDF.';
+      'Gildi eins reits yfir tíma, nýjust fyrst. Ýttu á gildi til að leiðrétta það: það nýja tekur sæti þess, það gamla felst. Ruslafatan fjarlægir gildi, örin sækir falið til baka; augað sýnir falin gildi. Afritaðu listann sem texta eða deildu honum sem PDF.';
 
   @override
   String get helpSettings =>
@@ -3636,20 +3582,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get syncAnotherDevice => 'öðru tæki';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count breytingar frá $authors sameinaðar',
-      one: '$count breyting frá $authors sameinuð',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Sýna';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3659,12 +3591,6 @@ class AppLocalizationsIs extends AppLocalizations {
     );
     return '$_temp0, fyrst $date';
   }
-
-  @override
-  String get syncRunning => 'Samstilli við möppuna…';
-
-  @override
-  String get syncDismiss => 'Ekki núna';
 
   @override
   String flierHidden(int count) {
@@ -3679,4 +3605,97 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get undo => 'Afturkalla';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Samstillt við $authors. Ýttu til að sjá hvað barst.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Samstillt. Ekkert nýtt.';
+
+  @override
+  String get noteSyncFailed =>
+      'Samstilling mistókst. Ýttu fyrir nánari upplýsingar.';
+
+  @override
+  String get failureReport => 'Tilkynna';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Opna $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — lokið $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title lokið $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n til viðbótar';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Sameiginlega mappan hefur verið óaðgengileg síðan $since. Ýttu fyrir nánari upplýsingar.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names þarf enn nýju útgáfuna til að sjá breytingarnar þínar.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mappa samstillt: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakki fluttur inn: $result';
+  }
+
+  @override
+  String get sightingRecorded =>
+      'Skráð að kötturinn sást á staðsetningu þinni.';
+
+  @override
+  String get deletedDone => 'Eytt.';
+
+  @override
+  String get spotReplayDone => 'Ábendingarnar birtast aftur';
+
+  @override
+  String get syncRunning => 'Samstilli við möppuna…';
+
+  @override
+  String get copied => 'Afritað';
+
+  @override
+  String get sharedFolder => 'Sameiginleg mappa';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Ekki núna';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n breytingar',
+      one: '1 breyting',
+    );
+    return '$_temp0';
+  }
 }

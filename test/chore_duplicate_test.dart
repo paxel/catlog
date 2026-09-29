@@ -6,9 +6,10 @@ import 'package:catlog/src/chores/chore_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-/// Three kittens, one feeding: Duplicate in a chore's editor asks whose
-/// the copy is, opens a preset editor over the original, and the copy
-/// carries the title, schedule and time while the original stays open.
+/// Three kittens, one feeding: Duplicate in a chore's editor opens a
+/// preset copy over the original, whose it is as the copy's first field;
+/// the copy carries the title, schedule and time while the original
+/// stays open.
 void main() {
   late Directory root;
   late CatalogManager manager;
@@ -65,17 +66,17 @@ void main() {
     expect(find.text('Edit chore'), findsOneWidget);
     await tester.tap(find.text('Duplicate'));
     await tester.pumpAndSettle();
-    // The picker lists the original's cat too: "same cat, other time"
-    // is one more tap away.
-    expect(find.text('Miezi'), findsOneWidget);
-    await tester.tap(find.text('Tom'));
-    await tester.pumpAndSettle();
-    // The preset editor: a new chore with the copied values.
+    // The preset editor opens at once: a new chore with the copied
+    // values, whose it is as its first field.
     expect(find.text('New chore'), findsOneWidget);
     expect(
-      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      tester.widget<TextField>(find.byType(TextField).first).controller!.text,
       'Feed',
     );
+    await tester.tap(find.byType(DropdownButtonFormField<String>));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Tom').last);
+    await tester.pumpAndSettle();
     expect(find.text('every 2 days'), findsOneWidget);
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();

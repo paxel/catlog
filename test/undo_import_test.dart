@@ -4,6 +4,8 @@ import 'package:catlog/src/undo_import.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// Going back removes only what the file holds: if the catalog changed
 /// while the file was being saved, nothing is removed.
 void main() {
@@ -38,6 +40,6 @@ void main() {
     expect(result, isFalse);
     expect(store.cats().map((c) => c.name),
         containsAll(['Old', 'Imported', 'Meanwhile']));
-    expect(find.textContaining('Nothing was removed'), findsOneWidget);
+    expect(notesSaid(), anyElement(contains('Nothing was removed')));
   });
 }

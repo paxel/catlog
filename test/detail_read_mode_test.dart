@@ -164,7 +164,10 @@ void main() {
     final editFieldY = tester.getTopLeft(find.text('Main St 1')).dy;
     final editGalleryY = tester.getTopLeft(find.text('Sissi')).dy;
     expect(editFieldY, lessThan(editGalleryY));
-    // Add cat stays available in both modes.
+    // The plus stays available in both modes; Add cat fans out of it.
+    expect(find.byType(FloatingActionButton), findsOneWidget);
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
     expect(find.text('Add cat'), findsOneWidget);
   });
 
@@ -214,10 +217,11 @@ void main() {
     await tester.pumpAndSettle();
     await tester.longPress(find.text('Gender'));
     await tester.pumpAndSettle();
-    // The field's history page: hold the value, remove it.
-    await tester.longPress(find.text('male'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Remove this value'));
+    // The field's history page: the bin on the value removes it.
+    await tester.tap(find.descendant(
+      of: find.ancestor(of: find.text('male'), matching: find.byType(Card)),
+      matching: find.byTooltip('Remove this value'),
+    ));
     await tester.pumpAndSettle();
     await tester.pageBack();
     await tester.pumpAndSettle();
@@ -244,10 +248,11 @@ void main() {
     // Conflicted field visible in read mode with the warning badge.
     expect(find.text('Color'), findsOneWidget);
     expect(find.byIcon(Icons.warning_amber), findsOneWidget);
-    // Tap opens the conflict dialog without entering edit mode.
+    // Tap opens the conflicts page without entering edit mode.
     await tester.tap(find.text('Color'));
     await tester.pumpAndSettle();
-    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(find.text('Conflicts to resolve'), findsOneWidget);
+    expect(find.byType(OutlinedButton), findsNWidgets(2));
   });
 
   testWidgets('in edit mode a filled field holds to its history, an empty one holds nothing',
@@ -282,5 +287,21 @@ void main() {
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
     expect(store.current(home, Keys.name), 'Barn');
+  });
+
+  testWidgets('the move is one dialog: a tap on the home moves as of today',
+      (tester) async {
+    final home = store.createClowder('Barn');
+    await pump(tester);
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Stray — no clowder'));
+    await tester.pumpAndSettle();
+    expect(find.text('Move to'), findsOneWidget);
+    expect(find.text('As of today'), findsOneWidget);
+    await tester.tap(find.text('Barn'));
+    await tester.pumpAndSettle();
+    expect(find.text('Move to'), findsNothing);
+    expect(store.current(cat, Keys.clowder), home);
   });
 }

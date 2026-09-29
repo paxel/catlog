@@ -1,0 +1,47 @@
+[package]
+name = "catlog-gui"
+description = "The cat(a)log desktop app: an egui shell over catlog-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+build = "build.rs"
+
+[lib]
+name = "catlog_gui"
+
+[[bin]]
+name = "catlog"
+path = "src/bin/catlog.rs"
+
+[dependencies]
+catlog-core = { path = "../catlog-core", version = "2.0.7" }
+catlog-l10n = { path = "../catlog-l10n", version = "2.0.7" }
+eframe = "0.35"
+egui = "0.35"
+egui_extras = "0.35"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+directories = "6"
+sys-locale = "0.3"
+getrandom = "0.3"
+qrcode = { version = "0.14", default-features = false }
+barcoders = { version = "2", default-features = false }
+hex = "0.4"
+rfd = "0.17"
+notify-rust = "4"
+open = "5"
+rodio = { version = "0.22", default-features = false, features = ["wav", "mp3", "flac", "vorbis", "playback"] }
+ab_glyph = "0.2"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+
+[build-dependencies]
+catlog-l10n = { path = "../catlog-l10n", version = "2.0.7" }
+
+[dev-dependencies]
+ttf-parser = "0.25"
+lopdf = "0.43"
+egui_kittest = { version = "0.35", features = ["wgpu", "snapshot"] }
+tempfile = "3.10"
+ureq = { version = "3", default-features = false, features = ["rustls"] }

@@ -10,6 +10,7 @@ import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/fields_screen.dart';
 import 'package:catlog/src/screens/moderation_screen.dart';
 import 'package:catlog/src/screens/settings_screen.dart';
+import 'package:catlog/src/units.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -25,8 +26,7 @@ void main() {
   setUp(() {
     dir = Directory.systemTemp.createTempSync('catlog-screens');
     Directory('${dir.path}/mine').createSync();
-    store = CatalogStore.open('${dir.path}/mine/catlog.db')
-      ..author = 'Patrick';
+    store = CatalogStore.open('${dir.path}/mine/catlog.db')..author = 'Patrick';
     clowder = store.createClowder('Hinterhof');
     cat = store.createCat('Miezi');
     store.moveCat(cat, clowder);
@@ -37,49 +37,67 @@ void main() {
     dir.deleteSync(recursive: true);
   });
 
-  Future<void> pump(WidgetTester tester, Widget screen,
-      {Size size = const Size(400, 900)}) async {
+  Future<void> pump(
+    WidgetTester tester,
+    Widget screen, {
+    Size size = const Size(400, 900),
+  }) async {
     tester.view.physicalSize = size;
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.reset);
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: screen,
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: screen,
+      ),
+    );
     await tester.pumpAndSettle();
   }
 
   group('about', () {
     testWidgets('says what the app is', (tester) async {
-      await pump(tester, AboutScreen(store: store),
-          size: const Size(500, 2000));
+      await pump(
+        tester,
+        AboutScreen(store: store),
+        size: const Size(500, 2000),
+      );
       expect(find.textContaining('cat(a)log'), findsWidgets);
       // Catalog matters live with the catalog, not here.
       expect(find.text('Archive'), findsNothing);
       expect(find.text('Authors & bans'), findsNothing);
     });
 
-    testWidgets('the red button thanks you, and says so nowhere else',
-        (tester) async {
-      await pump(tester, AboutScreen(store: store),
-          size: const Size(500, 2000));
+    testWidgets('the red button thanks you, and says so nowhere else', (
+      tester,
+    ) async {
+      await pump(
+        tester,
+        AboutScreen(store: store),
+        size: const Size(500, 2000),
+      );
       expect(find.textContaining('DANGER'), findsOneWidget);
       await tester.tap(find.textContaining('DANGER'));
       await tester.pumpAndSettle();
       expect(find.textContaining('🤗'), findsOneWidget);
     });
-
   });
 
   group('settings', () {
-    testWidgets('lists the app settings and keeps a switched setting',
-        (tester) async {
-      await pump(tester, SettingsScreen(store: store));
+    testWidgets('lists the app settings and keeps a switched setting', (
+      tester,
+    ) async {
+      // Five sound rows make the page long; a tall screen shows it all.
+      await pump(
+        tester,
+        SettingsScreen(store: store),
+        size: const Size(500, 2400),
+      );
       for (final row in [
         'Language',
         'Units',
         'Celebrate adoptions',
+        'Sounds',
         'What to announce',
         "What's new tour",
         'Quick intro',
@@ -87,14 +105,20 @@ void main() {
         expect(find.text(row), findsOneWidget, reason: row);
       }
       expect(celebrationsEnabled(store), isTrue);
-      await tester.tap(find.widgetWithText(SwitchListTile, 'Celebrate adoptions'));
+      await tester.tap(
+        find.widgetWithText(SwitchListTile, 'Celebrate adoptions'),
+      );
       await tester.pumpAndSettle();
       expect(celebrationsEnabled(store), isFalse);
     });
 
     testWidgets('tips can be replayed from here', (tester) async {
       store.setLocalSetting('spot2:home', 'home-strays');
-      await pump(tester, SettingsScreen(store: store));
+      await pump(
+        tester,
+        SettingsScreen(store: store),
+        size: const Size(500, 2400),
+      );
       await tester.tap(find.text("What's new tour"));
       await tester.pumpAndSettle();
       expect(store.localSetting('spot2:home'), isNull);
@@ -102,55 +126,73 @@ void main() {
   });
 
   group('moderation', () {
-    testWidgets('deletes one author on one device; a namesake elsewhere stays',
-        (tester) async {
-      store.author = 'Kathrin';
-      store.createCat('Fremdling');
-      store.author = 'Patrick';
-      // Somebody else wearing the same name on another device.
-      final impostor = CatalogStore.inMemory()..author = 'Kathrin';
-      addTearDown(impostor.close);
-      impostor.createCat('Impostor');
-      store.applyEntries(impostor.entriesSince(const {}),
-          senderVector: impostor.versionVector());
+    testWidgets(
+      'deletes one author on one device; a namesake elsewhere stays',
+      (tester) async {
+        store.author = 'Kathrin';
+        store.createCat('Fremdling');
+        store.author = 'Patrick';
+        // Somebody else wearing the same name on another device.
+        final impostor = CatalogStore.inMemory()..author = 'Kathrin';
+        addTearDown(impostor.close);
+        impostor.createCat('Impostor');
+        store.applyEntries(
+          impostor.entriesSince(const {}),
+          senderVector: impostor.versionVector(),
+        );
 
-      await pump(tester, ModerationScreen(store: store));
-      expect(find.text('Kathrin'), findsNWidgets(2));
-      expect(find.text('Patrick'), findsOneWidget);
+        await pump(tester, ModerationScreen(store: store));
+        expect(find.text('Kathrin'), findsNWidgets(2));
+        expect(find.text('Patrick'), findsOneWidget);
 
-      // The row of Kathrin on the impostor's device.
-      final prefix = impostor.deviceId.substring(0, 8);
-      final row = find.byWidgetPredicate((w) =>
-          w is ListTile &&
-          (w.title as Text).data == 'Kathrin' &&
-          ((w.subtitle as Text).data ?? '').contains(prefix));
-      await tester.tap(find.descendant(
-          of: row, matching: find.byIcon(Icons.delete_forever_outlined)));
-      await tester.pumpAndSettle();
-      // Deleting somebody's data asks once, plainly, and names the device.
-      expect(find.byType(TextField), findsNothing);
-      expect(find.textContaining(impostor.deviceId.substring(0, 8)),
-          findsWidgets);
-      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
-      await tester.pumpAndSettle();
+        // The row of Kathrin on the impostor's device.
+        final prefix = impostor.deviceId.substring(0, 8);
+        final row = find.byWidgetPredicate(
+          (w) =>
+              w is ListTile &&
+              (w.title as Text).data == 'Kathrin' &&
+              ((w.subtitle as Text).data ?? '').contains(prefix),
+        );
+        await tester.tap(
+          find.descendant(
+            of: row,
+            matching: find.byIcon(Icons.delete_forever_outlined),
+          ),
+        );
+        await tester.pumpAndSettle();
+        // Deleting somebody's data asks once, plainly, and names the device.
+        expect(find.byType(TextField), findsNothing);
+        expect(
+          find.textContaining(impostor.deviceId.substring(0, 8)),
+          findsWidgets,
+        );
+        await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+        await tester.pumpAndSettle();
 
-      // Only that device's data went; the real Kathrin's cat is still here.
-      expect(store.cats().map((c) => c.name), contains('Fremdling'));
-      expect(store.cats().map((c) => c.name), isNot(contains('Impostor')));
-      // The ban is on the device, never on the name.
-      expect(store.bans(), contains(('device', impostor.deviceId)));
-      expect(store.bans().where((b) => b.$1 == 'author'), isEmpty);
-      // The bans list names the person behind the device.
-      expect(find.textContaining('Kathrin · '), findsOneWidget);
-    });
+        // Only that device's data went; the real Kathrin's cat is still here.
+        expect(store.cats().map((c) => c.name), contains('Fremdling'));
+        expect(store.cats().map((c) => c.name), isNot(contains('Impostor')));
+        // The ban is on the device, never on the name.
+        expect(store.bans(), contains(('device', impostor.deviceId)));
+        expect(store.bans().where((b) => b.$1 == 'author'), isEmpty);
+        // The bans list names the person behind the device.
+        expect(find.textContaining('Kathrin · '), findsOneWidget);
+      },
+    );
 
     testWidgets('your own name has no delete button', (tester) async {
       await pump(tester, ModerationScreen(store: store));
       final row = find.ancestor(
-          of: find.text('Patrick'), matching: find.byType(ListTile));
+        of: find.text('Patrick'),
+        matching: find.byType(ListTile),
+      );
       expect(
-          find.descendant(of: row, matching: find.byIcon(Icons.delete_forever_outlined)),
-          findsNothing);
+        find.descendant(
+          of: row,
+          matching: find.byIcon(Icons.delete_forever_outlined),
+        ),
+        findsNothing,
+      );
     });
   });
 
@@ -182,8 +224,11 @@ void main() {
 
   group('card', () {
     testWidgets('prints the cat it belongs to', (tester) async {
-      await pump(tester, CardScreen(store: store, catId: cat),
-          size: const Size(500, 1200));
+      await pump(
+        tester,
+        CardScreen(store: store, catId: cat),
+        size: const Size(500, 1200),
+      );
       expect(find.textContaining('Miezi'), findsWidgets);
     });
   });
@@ -205,5 +250,21 @@ void main() {
       expect(store.localSetting('celebrations'), isNotNull);
       setCelebrationsEnabled(store, true);
     });
+  });
+
+  testWidgets('units are picked on the settings row itself', (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    await pump(
+      tester,
+      SettingsScreen(store: store),
+      size: const Size(500, 2400),
+    );
+    await tester.tap(find.textContaining('Imperial'));
+    await tester.pumpAndSettle();
+    expect(store.localSetting('units'), 'imperial');
+    expect(unitSystem.value, UnitSystem.imperial);
+    expect(find.byType(Dialog), findsNothing);
+    unitSystem.value = UnitSystem.metric;
   });
 }

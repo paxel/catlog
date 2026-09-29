@@ -1,11 +1,16 @@
 # App icon generation: dart run flutter_launcher_icons
-# Source of truth is assets/icon/icon.svg; the PNGs are rendered from it
-# with ImageMagick (see assets/icon/README.md).
+# Source of truth is assets/icon/icon_source.jpg; the PNGs are built from
+# it by tool/icon_from_raster.dart (see assets/icon/README.md).
 flutter_launcher_icons:
   image_path: assets/icon/icon.png
   android: true
-  adaptive_icon_background: "#F6E7D3"
+  # The picture's own orange, sampled by the tool.
+  adaptive_icon_background: "#FD5700"
   adaptive_icon_foreground: assets/icon/icon_fg.png
+  # The foreground already places the artwork inside the launcher's
+  # circle; the package's default 16% inset on top of it is what made the
+  # cats a speck in the ring.
+  adaptive_icon_foreground_inset: 0
   ios: true
   remove_alpha_ios: true
   windows:

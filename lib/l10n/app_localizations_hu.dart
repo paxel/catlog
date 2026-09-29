@@ -64,9 +64,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get pickerCardFields => 'A kártyán';
 
   @override
-  String get exportCsv => 'CSV exportálása';
-
-  @override
   String get aboutAndFeedback => 'Névjegy és visszajelzés';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get save => 'Mentés';
 
   @override
+  String get clearField => 'Törlés';
+
+  @override
   String get delete => 'Törlés';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get open => 'Megnyitás';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV mentve ide: $path';
-  }
 
   @override
   String get renameClowder => 'Clowder átnevezése';
@@ -180,9 +175,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get sortNewestFirst => 'Legújabb elöl';
 
   @override
-  String get shareAsText => 'Megosztás szövegként';
-
-  @override
   String get shareAsPdf => 'Megosztás PDF-ként';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'A kisállat eltűnik minden listáról, fotói törlődnek — itt és a következő szinkron után a többi eszközön is.';
 
   @override
-  String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
-
-  @override
-  String get noLocationAvailable =>
-      'Nincs helyadat — helyette nyomd hosszan a térképet.';
-
-  @override
   String get locationDeniedForever =>
       'A helyhozzáférés le van tiltva. Engedélyezze a rendszerbeállításokban a Stray Cam használatához.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get captureFlier => 'Plakát lefotózása';
+
+  @override
+  String get flierFromCamera => 'Plakát a kamerából';
+
+  @override
+  String get flierFromGallery => 'Plakát a galériából';
 
   @override
   String get addPhotosTo => 'Fotók hozzáadása ehhez…';
@@ -355,13 +346,34 @@ class AppLocalizationsHu extends AppLocalizations {
   String get pickFramesTitle => 'Képkockák kiválasztása';
 
   @override
-  String get suggestedFrames => 'Javasolt képkockák';
-
-  @override
-  String get scrubFrames => 'Videó léptetése';
-
-  @override
   String get keepThisFrame => 'Képkocka megtartása';
+
+  @override
+  String get frameBack => 'Egy képkocka vissza';
+
+  @override
+  String get frameForward => 'Egy képkocka előre';
+
+  @override
+  String get secondBack => 'Egy másodperc vissza';
+
+  @override
+  String get secondForward => 'Egy másodperc előre';
+
+  @override
+  String get tenSecondsBack => 'Tíz másodperc vissza';
+
+  @override
+  String get tenSecondsForward => 'Tíz másodperc előre';
+
+  @override
+  String get play => 'Lejátszás';
+
+  @override
+  String get pause => 'Szünet';
+
+  @override
+  String get keptFrames => 'A megtartott képkockák itt jelennek meg';
 
   @override
   String get fromVideo => 'Videóból…';
@@ -446,9 +458,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Eltűnt ekkortól';
-
-  @override
-  String get phoneLabel => 'Telefon';
 
   @override
   String get cropPortrait => 'Portré kivágása';
@@ -565,16 +574,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field kiürítve';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field vissza erre: \"$value\"';
-  }
-
-  @override
   String get leftStray => 'Elment — kóbor';
 
   @override
@@ -618,9 +617,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get value => 'Érték';
-
-  @override
-  String get latitudeLongitude => 'szélesség, hosszúság';
 
   @override
   String get newField => 'Új mező';
@@ -690,11 +686,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get stopHosting => 'Kiszolgálás leállítása';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Eddigi munkamenetek: $count';
   }
@@ -703,35 +694,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get join => 'Csatlakozás';
 
   @override
-  String get addressFromHost => 'Cím (a kiszolgáló eszközről)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Szinkronizálás most';
 
   @override
-  String get addressFormatHint =>
-      'A címnek így kell kinéznie: 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Szinkronizálva: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Sikertelen szinkronizálás: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Utolsó szinkronizálás ezzel: $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Megosztott mappa';
 
   @override
   String get sharedFolderExplainer =>
@@ -759,11 +730,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'Bármelyik mappa megteszi, amit két eszköz egyformán tart: egy felhőmeghajtó, vagy a Syncthing egy olyan mappához, ami a telefonjaitokon marad. A Syncthing ingyenes: telepítsd minden telefonra, ossz meg köztük egy mappát, és válaszd ki azt a mappát itt minden eszközön.';
 
   @override
-  String folderSynced(String result) {
-    return 'Mappa szinkronizálva: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Mappa szinkronizálása sikertelen: $error';
   }
@@ -785,15 +751,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Nyom: $name ($count pozíció)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Ütközés — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Két helyen módosították egyszerre. Válaszd ki, mi igaz:';
 
   @override
   String privateMarker(Object field) {
@@ -1215,7 +1172,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Minden változás, a legújabb elöl: ki, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, tartsd nyomva az eltávolításhoz vagy visszaállításhoz; a rejtett bejegyzés a naplóban marad, és kérésre megjelenik.';
+      'Minden valaha végzett módosítás, a legújabb elöl: ki mit módosított, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, a kuka eltávolítja, a nyíl visszahoz egy rejtettet; a rejtett bejegyzés a naplóban marad és kérésre látható.';
 
   @override
   String get helpDuplicates =>
@@ -1406,17 +1363,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get copyCode => 'Kód másolása';
 
   @override
-  String get copied => 'Másolva';
-
-  @override
   String get invalidCode => 'Ez a kód érvénytelen';
-
-  @override
-  String get hotspotHint =>
-      'Nincs közös Wi-Fi? Kapcsold be az egyik telefon hotspotját, csatlakoztasd a másikat, majd itt legyél kiszolgáló.';
-
-  @override
-  String get byMessenger => 'Üzenetküldővel';
 
   @override
   String get byMessengerExplainer =>
@@ -1427,11 +1374,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get importBundle => 'Szinkroncsomag importálása…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Csomag importálva: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1866,9 +1808,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get valueFerret => 'Vadászgörény';
 
   @override
-  String get otherOption => 'Egyéb…';
-
-  @override
   String get celebrationsToggle => 'Örökbefogadás ünneplése';
 
   @override
@@ -1876,10 +1815,41 @@ class AppLocalizationsHu extends AppLocalizations {
       'Konfetti és éljenzés, amikor egy macska az otthonába költözik';
 
   @override
-  String get cheerToggle => 'Ujjongás hangja';
+  String get soundsSection => 'Hangok';
 
   @override
-  String get cheerSubtitle => 'Rövid ujjongás a konfettihez, mindig más';
+  String get reminderSound => 'Macskahang az emlékeztetőkhöz';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'A teendő emlékeztetője Mrrr-t mond a telefon hangja helyett.';
+
+  @override
+  String get soundPurr => 'Dorombolás';
+
+  @override
+  String get soundChorus => 'Miau-kórus';
+
+  @override
+  String get soundParty => 'Ünnepi miau';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Saját hang…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1919,11 +1889,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Minden törlése ettől a szerzőtől';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Eltávolítja $name minden bejegyzését és fotóját erről az eszközről. A többi eszköz megtartja a magáét. Nem vonható vissza.';
-  }
 
   @override
   String get yourKey => 'A kulcsod';
@@ -1983,11 +1948,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Megerősítéshez írd be: $name';
-  }
-
-  @override
   String get alsoBan => 'Tiltás is — soha többé ne fogadj tőle adatot';
 
   @override
@@ -1995,9 +1955,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get unbanAction => 'Tiltás feloldása';
-
-  @override
-  String get deletedDone => 'Törölve.';
 
   @override
   String get syncSummaryTitle => 'Mi érkezett';
@@ -2040,23 +1997,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get keepMine => 'Az enyém marad';
 
   @override
-  String keptMine(String name) {
-    return 'A te $name-változatod marad ezen az eszközön.';
-  }
-
-  @override
   String get summaryMeta => 'Érkezett még';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n változás',
-      one: '1 változás',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Elfogadás';
@@ -2200,11 +2141,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'Előbb csatlakozz Wi-Fi-hez — akkor a készülékek megtalálják egymást';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) szinkronizálni szeretne';
-  }
-
-  @override
   String get trustBothWaysNote =>
       'A katalógusok mindkét irányban kicserélődnek.';
 
@@ -2212,19 +2148,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get allowOnce => 'Engedélyez';
 
   @override
-  String get allowAlways => 'Mindig engedélyezd ezt a készüléket';
-
-  @override
-  String get declineAction => 'Elutasít';
-
-  @override
   String get syncDeclined => 'A másik készülék elutasította a szinkronizálást';
-
-  @override
-  String get trustedDevicesSection => 'Mindig engedélyezett készülékek';
-
-  @override
-  String get removeTrust => 'Eltávolítás';
 
   @override
   String get hostWithoutWifi => 'Hosztolás Wi-Fi nélkül';
@@ -2297,7 +2221,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Ebben a menüben: beállítások, ismétlődések keresése és összevonása, CSV-exportálás és több.';
+      'Ebben a menüben: beállítások, ismétlődések keresése és összevonása és több.';
 
   @override
   String get spotCatEdit =>
@@ -2373,9 +2297,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'Tippek újbóli megjelenítése minden oldalon';
-
-  @override
-  String get spotReplayDone => 'A tippek újra megjelennek';
 
   @override
   String get searchNoResults => 'Nincs ilyen nevű macska';
@@ -2506,17 +2427,15 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Írd be: $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Semmi sem törlődött: a katalógusfájlt nem sikerült kiírni ($error). Szabadíts fel helyet, vagy próbáld később.';
   }
 
   @override
   String get moveToCatalog => 'Áthelyezés másik katalógusba';
+
+  @override
+  String get moveInFromCatalog => 'Áthozás másik katalógusból…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2619,9 +2538,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get agenda => 'Teendők';
 
   @override
-  String get reminderLabel => 'Emlékeztető';
-
-  @override
   String get agendaEmpty =>
       'Nincs tervezett időpont. Újat itt a plusszal, vagy egy macska vagy clowder oldalán tervezhetsz.';
 
@@ -2658,6 +2574,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get markDone => 'Kész';
 
   @override
+  String get takeOffList => 'Levétel a listáról';
+
+  @override
   String get repeatTitle => 'Újra ennyi idő múlva…';
 
   @override
@@ -2665,6 +2584,51 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get unitDays => 'nap';
+
+  @override
+  String get yesterday => 'Tegnap';
+
+  @override
+  String get weekdayMon => 'H';
+
+  @override
+  String get weekdayTue => 'K';
+
+  @override
+  String get weekdayWed => 'Sze';
+
+  @override
+  String get weekdayThu => 'Cs';
+
+  @override
+  String get weekdayFri => 'P';
+
+  @override
+  String get weekdaySat => 'Szo';
+
+  @override
+  String get weekdaySun => 'V';
+
+  @override
+  String get weekdayFullMon => 'hétfő';
+
+  @override
+  String get weekdayFullTue => 'kedd';
+
+  @override
+  String get weekdayFullWed => 'szerda';
+
+  @override
+  String get weekdayFullThu => 'csütörtök';
+
+  @override
+  String get weekdayFullFri => 'péntek';
+
+  @override
+  String get weekdayFullSat => 'szombat';
+
+  @override
+  String get weekdayFullSun => 'vasárnap';
 
   @override
   String get unitWeeks => 'hét';
@@ -2701,9 +2665,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'A naptárfájl ide került: $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Tükrözés az eszköz naptárába';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2788,11 +2749,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több macskával egyetlen időpont: jelöld be a macskákat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely macskákat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.';
+      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és a kártya kipipálva a nap végéig megmarad; koppints rá a következő tervezéséhez, például három hónap múlva. A nyomva tartás módosítja a dátumot; a kuka törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több macskával egyetlen időpont: jelöld be a macskákat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely macskákat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.';
 
   @override
   String get helpAgendaNeutral =>
-      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a kisállatot vagy a háztartást. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több kisállattal egyetlen időpont: jelöld be a kisállatokat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely kisállatokat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.';
+      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a kisállatot vagy a háztartást. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és a kártya kipipálva a nap végéig megmarad; koppints rá a következő tervezéséhez, például három hónap múlva. A nyomva tartás módosítja a dátumot; a kuka törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több kisállattal egyetlen időpont: jelöld be a kisállatokat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely kisállatokat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.';
 
   @override
   String get calendarRowOff => 'Naptár: ki';
@@ -2825,22 +2786,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get appointmentLabel => 'Időpont';
 
   @override
+  String get reminderLabel => 'Emlékeztető';
+
+  @override
   String get addAppointment => 'Időpont hozzáadása';
-
-  @override
-  String get planChooserTitle => 'Időpont vagy emlékeztető?';
-
-  @override
-  String get planChooserAppointment =>
-      'Időpont — látogatás egy dátumon és időben, jegyzetekkel';
-
-  @override
-  String get planChooserReminder =>
-      'Emlékeztető — egy érték, amely egy napon esedékes lesz';
-
-  @override
-  String get planChooserChore =>
-      'Teendő — ami visszatér: etetés, cseppek, alom';
 
   @override
   String get newChore => 'Új teendő';
@@ -3098,14 +3047,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get achievementCentury => 'Egy teljes évszázad';
 
   @override
-  String get achievementCenturyHint => 'Mindketten nagyon büszkék leszünk.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title-mester';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3115,14 +3056,6 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0, először $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Következő: $n';
-  }
-
-  @override
-  String get achievementLocked => 'Még nem';
 
   @override
   String achievementUnlocked(String name) {
@@ -3444,16 +3377,10 @@ class AppLocalizationsHu extends AppLocalizations {
       'Kérjük, nézzenek be a pincékbe, fészerekbe és garázsokba. Ne kergessék, csak hívjanak.';
 
   @override
-  String get posterLastSeen => 'Utoljára itt látták';
-
-  @override
   String get posterFreeText => 'Plusz sor';
 
   @override
   String get posterQr => 'QR-kód a cat(a)loghoz';
-
-  @override
-  String get posterPhoto => 'Fotó';
 
   @override
   String get newCatIn => 'Új macska ide…';
@@ -3462,10 +3389,26 @@ class AppLocalizationsHu extends AppLocalizations {
   String get newCatInNeutral => 'Új kedvenc ide…';
 
   @override
+  String get newCatHere => 'Új macska ide';
+
+  @override
+  String get newCatHereNeutral => 'Új kedvenc ide';
+
+  @override
   String get choreLabel => 'Teendő';
 
   @override
   String get choreTickLabel => 'Teendő kész';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title kész';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day napra';
+  }
 
   @override
   String get choreEnded => 'Befejezve';
@@ -3499,8 +3442,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get coverPick => 'Borítókép…';
 
   @override
-  String get coverHint =>
-      'Kép a helyről: a ház, az udvar, az etetőhely. A kártyán macska helyett.';
+  String get coverLabel => 'Kép a clowderről';
+
+  @override
+  String get coverLabelNeutral => 'Kép a háztartásról';
+
+  @override
+  String get coverLabelStrays => 'Kép a kóbor macskákhoz';
 
   @override
   String get coverRemove => 'Borítókép eltávolítása';
@@ -3518,7 +3466,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Tartsd nyomva az értéket a javításhoz vagy eltávolításhoz. Semmi nem vész el; a rejtett értékek kérésre láthatók.';
+      'Koppints egy értékre a javításhoz, a kuka eltávolítja. Semmi nem vész el; a rejtett értékek kérésre láthatók.';
 
   @override
   String get spotBackups =>
@@ -3538,7 +3486,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Egy mező értékei az idő során, a legújabb elöl. Koppints egy értékre a javításhoz: az új a helyére lép, a régi elrejtődik. Tartsd nyomva az értéket az eltávolításhoz vagy egy rejtett visszaállításához; a szem mutatja a rejtett értékeket. Másold a listát szövegként vagy oszd meg PDF-ként.';
+      'Egy mező értékei az idő során, a legújabb elöl. Koppints egy értékre a javításhoz: az új a helyébe lép, a régi rejtve lesz. A kuka eltávolít egy értéket, a nyíl visszahoz egy rejtettet; a szem mutatja a rejtett értékeket. Másold a listát szövegként vagy oszd meg PDF-ként.';
 
   @override
   String get helpSettings =>
@@ -3631,20 +3579,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get syncAnotherDevice => 'egy másik eszköz';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count változtatás beolvasztva ($authors)',
-      one: '$count változtatás beolvasztva ($authors)',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Mutasd';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3654,12 +3588,6 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0, először $date';
   }
-
-  @override
-  String get syncRunning => 'Szinkronizálás a mappával…';
-
-  @override
-  String get syncDismiss => 'Most nem';
 
   @override
   String flierHidden(int count) {
@@ -3674,4 +3602,96 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get undo => 'Visszavonás';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Szinkronizálva: $authors. Koppints, hogy lásd, mi érkezett.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Szinkronizálva. Semmi új.';
+
+  @override
+  String get noteSyncFailed =>
+      'A szinkronizálás nem sikerült. Koppints a részletekért.';
+
+  @override
+  String get failureReport => 'Jelentés';
+
+  @override
+  String failureOpenPage(String page) {
+    return '$page megnyitása';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — kész $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title kész $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n további';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'A megosztott mappa $since óta nem érhető el. Koppints a részletekért.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names számára még kell az új verzió, hogy lássa a módosításaidat.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Mappa szinkronizálva: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Csomag importálva: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
+
+  @override
+  String get deletedDone => 'Törölve.';
+
+  @override
+  String get spotReplayDone => 'A tippek újra megjelennek';
+
+  @override
+  String get syncRunning => 'Szinkronizálás a mappával…';
+
+  @override
+  String get copied => 'Másolva';
+
+  @override
+  String get sharedFolder => 'Megosztott mappa';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Most nem';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n változás',
+      one: '1 változás',
+    );
+    return '$_temp0';
+  }
 }

@@ -29,6 +29,10 @@ typedef CatListFab = Widget Function(
   BuildContext context,
   VoidCallback refresh,
 );
+typedef CatListExtra = Widget Function(
+  BuildContext context,
+  VoidCallback refresh,
+);
 
 /// One list for every set of cats (#87): strays, a search, a clowder's
 /// members, the cats under one map pin. List or table, sortable, with
@@ -47,6 +51,9 @@ class CatListScreen extends StatefulWidget {
   final String? helpScreenId;
   final String? spotlightScreenId;
 
+  /// A row above the filter, the strays' cover picture for one.
+  final CatListExtra? header;
+
   const CatListScreen({
     super.key,
     required this.store,
@@ -58,6 +65,7 @@ class CatListScreen extends StatefulWidget {
     this.emptyText,
     this.helpScreenId,
     this.spotlightScreenId,
+    this.header,
   });
 
   @override
@@ -253,6 +261,7 @@ class _CatListScreenState extends State<CatListScreen> {
       ),
       body: Column(
         children: [
+          ?widget.header?.call(context, _refresh),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
             child: TextField(
@@ -302,7 +311,7 @@ class _CatListScreenState extends State<CatListScreen> {
     // empty cells is nothing to choose.
     final defs = [
       for (final def in _columnDefs)
-        if (cats.any((c) => store.current(c.id, def.key) != null)) def
+        if (cats.any((c) => store.current(c.id, def.key) != null)) def,
     ];
     final chosen = _columns;
     final columns = [
@@ -323,7 +332,7 @@ class _CatListScreenState extends State<CatListScreen> {
           id: 'catColumns',
           title: t.pickerColumns,
           options: [
-            for (final def in defs) (key: def.key, label: fieldDefName(t, def))
+            for (final def in defs) (key: def.key, label: fieldDefName(t, def)),
           ],
           selected: chosen,
           onToggle: (key) {

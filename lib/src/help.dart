@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import 'l10n.dart';
+import 'layout.dart';
 import 'spotlight.dart';
 
 /// Per-screen help: what this page is for and what you can do here.
@@ -66,49 +67,51 @@ class HelpButton extends StatelessWidget {
   }
 }
 
-/// Opens the help sheet for a screen.
+/// Opens the help page for a screen.
 Future<void> showHelp(
   BuildContext context,
   CatalogStore? store,
   String screenId,
 ) async {
-  final text = helpTexts[screenId];
-  if (text == null) return;
-  final hasTips = store != null && spotlightManifest.containsKey(screenId);
-  await showModalBottomSheet<void>(
-    context: context,
-    showDragHandle: true,
-    isScrollControlled: true,
-    builder: (context) {
-      final t = context.t;
-      return SafeArea(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: MediaQuery.of(context).size.height * 0.8,
-          ),
-          child: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-            children: [
-              Text(t.helpTitle, style: Theme.of(context).textTheme.titleLarge),
-              const SizedBox(height: 12),
-              Text(text(t)),
-              if (hasTips) ...[
-                const SizedBox(height: 20),
-                FilledButton.tonalIcon(
-                  icon: const Icon(Icons.lightbulb_outline),
-                  label: Text(t.showTipsAgain),
-                  onPressed: () {
-                    // Only this screen's tips come back, not every tour.
-                    replaySpotlights(store, screenId);
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            ],
-          ),
-        ),
-      );
-    },
-  );
+  if (!helpTexts.containsKey(screenId)) return;
+  await Navigator.of(context).push(MaterialPageRoute(
+    builder: (_) => HelpScreen(store: store, screenId: screenId),
+  ));
+}
+
+/// A page, not a sheet: what this screen is for, and the way to see
+/// its tips again where it has any.
+class HelpScreen extends StatelessWidget {
+  final CatalogStore? store;
+  final String screenId;
+
+  const HelpScreen({super.key, required this.store, required this.screenId});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final text = helpTexts[screenId]!;
+    final hasTips = store != null && spotlightManifest.containsKey(screenId);
+    return Scaffold(
+      appBar: roomyAppBar(context, title: Text(t.helpTitle)),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          Text(text(t)),
+          if (hasTips) ...[
+            const SizedBox(height: 20),
+            FilledButton.tonalIcon(
+              icon: const Icon(Icons.lightbulb_outline),
+              label: Text(t.showTipsAgain),
+              onPressed: () {
+                // Only this screen's tips come back, not every tour.
+                replaySpotlights(store!, screenId);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ],
+      ),
+    );
+  }
 }

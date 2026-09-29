@@ -1,0 +1,6 @@
+{
+  "name": "photo-corrupt",
+  "about": "The folder's copy of a photo does not match its name: not taken, the reason names the bytes that came back; the next round finds the real one, as the bundle carried it all along.",
+  "writer": "65b60673d6ed884bf01c2c222d82ada0",
+  "writerEntries": 93
+}

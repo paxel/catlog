@@ -63,9 +63,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get pickerCardFields => 'カードに表示';
 
   @override
-  String get exportCsv => 'CSV をエクスポート';
-
-  @override
   String get aboutAndFeedback => '情報とフィードバック';
 
   @override
@@ -90,6 +87,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get clearField => 'クリア';
+
+  @override
   String get delete => '削除';
 
   @override
@@ -100,11 +100,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get open => '開く';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV を $path に保存しました';
-  }
 
   @override
   String get renameClowder => 'クラウダー名を変更';
@@ -179,9 +174,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sortNewestFirst => '新しい順';
 
   @override
-  String get shareAsText => 'テキストとして共有';
-
-  @override
   String get shareAsPdf => 'PDF として共有';
 
   @override
@@ -252,12 +244,6 @@ class AppLocalizationsJa extends AppLocalizations {
       'このペットはすべての一覧から消え、写真も削除されます。この端末だけでなく、次回の同期後には他の端末からも消えます。';
 
   @override
-  String get sightingRecorded => '現在地で目撃を記録しました。';
-
-  @override
-  String get noLocationAvailable => '位置情報がありません — 代わりに地図を長押ししてください。';
-
-  @override
   String get locationDeniedForever =>
       '位置情報へのアクセスがブロックされています。Stray Cam を使うにはシステム設定で許可してください。';
 
@@ -284,6 +270,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get captureFlier => 'チラシを撮影';
+
+  @override
+  String get flierFromCamera => 'カメラでチラシ';
+
+  @override
+  String get flierFromGallery => 'ギャラリーからチラシ';
 
   @override
   String get addPhotosTo => '写真の追加先…';
@@ -352,13 +344,34 @@ class AppLocalizationsJa extends AppLocalizations {
   String get pickFramesTitle => 'フレームを選ぶ';
 
   @override
-  String get suggestedFrames => 'おすすめフレーム';
-
-  @override
-  String get scrubFrames => '動画をスクラブ';
-
-  @override
   String get keepThisFrame => 'このフレームを残す';
+
+  @override
+  String get frameBack => '1コマ戻る';
+
+  @override
+  String get frameForward => '1コマ進む';
+
+  @override
+  String get secondBack => '1秒戻る';
+
+  @override
+  String get secondForward => '1秒進む';
+
+  @override
+  String get tenSecondsBack => '10秒戻る';
+
+  @override
+  String get tenSecondsForward => '10秒進む';
+
+  @override
+  String get play => '再生';
+
+  @override
+  String get pause => '一時停止';
+
+  @override
+  String get keptFrames => '残したコマはここに表示されます';
 
   @override
   String get fromVideo => '動画から…';
@@ -440,9 +453,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get missingSinceLabel => '行方不明になった日';
-
-  @override
-  String get phoneLabel => '電話';
 
   @override
   String get cropPortrait => '顔写真を切り抜く';
@@ -556,16 +566,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field をクリアしました';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field を「$value」に戻しました';
-  }
-
-  @override
   String get leftStray => '去った — 野良猫';
 
   @override
@@ -609,9 +609,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get value => '値';
-
-  @override
-  String get latitudeLongitude => '緯度、経度';
 
   @override
   String get newField => '新しい項目';
@@ -680,11 +677,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stopHosting => 'ホストを停止';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'これまでのセッション: $count';
   }
@@ -693,34 +685,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get join => '参加';
 
   @override
-  String get addressFromHost => 'アドレス（ホスト端末から）';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => '今すぐ同期';
 
   @override
-  String get addressFormatHint => 'アドレスは 192.168.0.12:38472 の形式です';
-
-  @override
-  String syncedResult(String result) {
-    return '同期完了: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return '同期に失敗: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return '$peer との最終同期: $time';
-  }
-
-  @override
-  String get sharedFolder => '共有フォルダー';
 
   @override
   String get sharedFolderExplainer =>
@@ -748,11 +721,6 @@ class AppLocalizationsJa extends AppLocalizations {
       '2台の端末が同じ状態に保つフォルダなら何でも使えます。クラウドドライブでも、端末内に留めたいなら Syncthing でも。Syncthing は無料です。各端末にインストールし、1つのフォルダを共有して、そのフォルダを各端末のここで選んでください。';
 
   @override
-  String folderSynced(String result) {
-    return 'フォルダーを同期しました: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'フォルダー同期に失敗: $error';
   }
@@ -774,14 +742,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return '経路: $name（位置 $count 件）';
   }
-
-  @override
-  String conflictOn(String field) {
-    return '競合 — $field';
-  }
-
-  @override
-  String get conflictBody => '2 か所で同時に変更されました。正しい方を選んでください:';
 
   @override
   String privateMarker(Object field) {
@@ -1193,7 +1153,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'すべての変更を新しい順に表示: 誰がいつどの値に変えたか。項目をタップで修正、長押しで取り消しまたは復元。隠した項目も記録に残り、必要なときに表示できます。';
+      'これまでの変更をすべて、新しい順に: 誰がいつ何をどの値に変えたか。項目をタップすると修正、ゴミ箱で取り消し、矢印で隠した項目を戻せます。隠した項目は記録に残り、必要なときに表示できます。';
 
   @override
   String get helpDuplicates =>
@@ -1382,17 +1342,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get copyCode => 'コードをコピー';
 
   @override
-  String get copied => 'コピーしました';
-
-  @override
   String get invalidCode => 'このコードは無効です';
-
-  @override
-  String get hotspotHint =>
-      '共通のWi-Fiがない場合は、片方のスマホのテザリングをオンにし、もう片方を接続してからここでホストしてください。';
-
-  @override
-  String get byMessenger => 'メッセンジャーで';
 
   @override
   String get byMessengerExplainer =>
@@ -1403,11 +1353,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get importBundle => '同期パッケージを取り込む…';
-
-  @override
-  String bundleImported(String result) {
-    return 'パッケージを取り込みました: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1841,19 +1786,46 @@ class AppLocalizationsJa extends AppLocalizations {
   String get valueFerret => 'フェレット';
 
   @override
-  String get otherOption => 'その他…';
-
-  @override
   String get celebrationsToggle => '譲渡をお祝いする';
 
   @override
   String get celebrationsSubtitle => '猫がおうちに移るときに紙吹雪と歓声';
 
   @override
-  String get cheerToggle => '歓声の音';
+  String get soundsSection => 'サウンド';
 
   @override
-  String get cheerSubtitle => '紙吹雪と一緒に短い歓声、毎回違うもの';
+  String get reminderSound => 'リマインダーを猫の声で';
+
+  @override
+  String get reminderSoundSubtitle => 'お世話のリマインダーが端末の音の代わりに Mrrr と鳴きます。';
+
+  @override
+  String get soundPurr => 'ゴロゴロ';
+
+  @override
+  String get soundChorus => 'ニャーの合唱';
+
+  @override
+  String get soundParty => 'お祝いのニャー';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => '自分のサウンド…';
 
   @override
   String get celebrationsSubtitleNeutral => 'ペットがおうちに移るときに紙吹雪と歓声';
@@ -1890,11 +1862,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'この作成者のすべてを削除';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return '$name のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。';
-  }
 
   @override
   String get yourKey => 'あなたの鍵';
@@ -1953,11 +1920,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return '確認のため $name と入力';
-  }
-
-  @override
   String get alsoBan => 'ブロックもする — 今後データを受け取らない';
 
   @override
@@ -1965,9 +1927,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get unbanAction => 'ブロック解除';
-
-  @override
-  String get deletedDone => '削除しました。';
 
   @override
   String get syncSummaryTitle => '届いた内容';
@@ -2008,17 +1967,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get keepMine => '自分のを保持';
 
   @override
-  String keptMine(String name) {
-    return '$name はこの端末ではあなたの版を保持しました。';
-  }
-
-  @override
   String get summaryMeta => 'その他の到着';
-
-  @override
-  String changesCount(int n) {
-    return '$n件の変更';
-  }
 
   @override
   String get acceptArrival => '受け入れる';
@@ -2155,30 +2104,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get connectToWifiFirst => 'まず Wi-Fi に接続してください — 端末同士が見つかります';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author（$device）が同期を求めています';
-  }
-
-  @override
   String get trustBothWaysNote => 'カタログは双方向で交換されます。';
 
   @override
   String get allowOnce => '許可';
 
   @override
-  String get allowAlways => 'この端末を常に許可';
-
-  @override
-  String get declineAction => '拒否';
-
-  @override
   String get syncDeclined => '相手の端末が同期を拒否しました';
-
-  @override
-  String get trustedDevicesSection => '常に許可された端末';
-
-  @override
-  String get removeTrust => '削除';
 
   @override
   String get hostWithoutWifi => 'Wi-Fi なしでホスト';
@@ -2247,7 +2179,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotHomeStraysNeutral => 'このカードには野良（家のないペット）が集まります。タップで一覧を表示。';
 
   @override
-  String get spotHomeMenu => 'このメニューには設定、重複の検出と統合、CSV書き出しなどがあります。';
+  String get spotHomeMenu => 'このメニューには設定、重複の検出と統合などがあります。';
 
   @override
   String get spotCatEdit => '鉛筆をタップして編集。ヒント：項目を長押しすると直接編集できます。';
@@ -2313,9 +2245,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => '各ページでヒントを再表示';
-
-  @override
-  String get spotReplayDone => 'ヒントを再表示します';
 
   @override
   String get searchNoResults => 'その名前の猫は見つかりません';
@@ -2434,17 +2363,15 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '$name と入力';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return '何も削除していません。カタログのファイルを書き出せませんでした（$error）。空き容量を作るか、時間をおいてやり直してください。';
   }
 
   @override
   String get moveToCatalog => '別のカタログへ移動';
+
+  @override
+  String get moveInFromCatalog => '他のカタログから移動…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2545,9 +2472,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get agenda => '予定表';
 
   @override
-  String get reminderLabel => 'リマインダー';
-
-  @override
   String get agendaEmpty => '計画した予定はありません。ここのプラス、または猫やクラウダーのページで新しい予定を計画できます。';
 
   @override
@@ -2581,6 +2505,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get markDone => '完了';
 
   @override
+  String get takeOffList => 'リストから外す';
+
+  @override
   String get repeatTitle => '次回は…';
 
   @override
@@ -2588,6 +2515,51 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get unitDays => '日後';
+
+  @override
+  String get yesterday => '昨日';
+
+  @override
+  String get weekdayMon => '月';
+
+  @override
+  String get weekdayTue => '火';
+
+  @override
+  String get weekdayWed => '水';
+
+  @override
+  String get weekdayThu => '木';
+
+  @override
+  String get weekdayFri => '金';
+
+  @override
+  String get weekdaySat => '土';
+
+  @override
+  String get weekdaySun => '日';
+
+  @override
+  String get weekdayFullMon => '月曜日';
+
+  @override
+  String get weekdayFullTue => '火曜日';
+
+  @override
+  String get weekdayFullWed => '水曜日';
+
+  @override
+  String get weekdayFullThu => '木曜日';
+
+  @override
+  String get weekdayFullFri => '金曜日';
+
+  @override
+  String get weekdayFullSat => '土曜日';
+
+  @override
+  String get weekdayFullSun => '日曜日';
 
   @override
   String get unitWeeks => '週間後';
@@ -2624,9 +2596,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'カレンダーファイルを $path に保存しました';
   }
-
-  @override
-  String get calendarMirrorLabel => '端末のカレンダーへ反映';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2707,11 +2676,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。';
+      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、カードはその日のあいだチェック済みのまま残ります。タップすると次の予定（たとえば3か月後）を計画できます。長押しで日付を変更、ゴミ箱で予定を削除できます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。';
 
   @override
   String get helpAgendaNeutral =>
-      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。';
+      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、カードはその日のあいだチェック済みのまま残ります。タップすると次の予定（たとえば3か月後）を計画できます。長押しで日付を変更、ゴミ箱で予定を削除できます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。';
 
   @override
   String get calendarRowOff => 'カレンダー：オフ';
@@ -2741,19 +2710,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appointmentLabel => '予定';
 
   @override
+  String get reminderLabel => 'リマインダー';
+
+  @override
   String get addAppointment => '予定を追加';
-
-  @override
-  String get planChooserTitle => '予定とリマインダー、どちら？';
-
-  @override
-  String get planChooserAppointment => '予定 — 日付と時刻のある訪問、メモ付き';
-
-  @override
-  String get planChooserReminder => 'リマインダー — ある日に期日となる値';
-
-  @override
-  String get planChooserChore => '日課 — 繰り返す作業: 給餌、点眼、トイレ';
 
   @override
   String get newChore => '新しい日課';
@@ -2978,25 +2938,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get achievementCentury => '皆勤の100年';
 
   @override
-  String get achievementCenturyHint => 'そのときは一緒に誇りに思いましょう。';
-
-  @override
-  String achievementMaster(String title) {
-    return '$titleマスター';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     return '$times回達成、初回 $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return '次は $n 回';
-  }
-
-  @override
-  String get achievementLocked => 'まだ';
 
   @override
   String achievementUnlocked(String name) {
@@ -3311,16 +3255,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get posterStanding => '地下室・物置・ガレージを確認してください。追いかけずに、お電話ください。';
 
   @override
-  String get posterLastSeen => '最後に見た場所';
-
-  @override
   String get posterFreeText => '追加の一行';
 
   @override
   String get posterQr => 'cat(a)log 用 QR コード';
-
-  @override
-  String get posterPhoto => '写真';
 
   @override
   String get newCatIn => '新しい猫を追加…';
@@ -3329,10 +3267,26 @@ class AppLocalizationsJa extends AppLocalizations {
   String get newCatInNeutral => '新しいペットを追加…';
 
   @override
+  String get newCatHere => 'ここに新しい猫';
+
+  @override
+  String get newCatHereNeutral => 'ここに新しいペット';
+
+  @override
   String get choreLabel => 'お世話';
 
   @override
   String get choreTickLabel => 'お世話済み';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title 完了';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day 分';
+  }
 
   @override
   String get choreEnded => '終了';
@@ -3366,7 +3320,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get coverPick => 'カバー写真…';
 
   @override
-  String get coverHint => '場所の写真: 家、庭、給餌場所。カードに猫の代わりに表示されます。';
+  String get coverLabel => 'クラウダーの写真';
+
+  @override
+  String get coverLabelNeutral => '世帯の写真';
+
+  @override
+  String get coverLabelStrays => '野良猫の写真';
 
   @override
   String get coverRemove => 'カバー写真を削除';
@@ -3382,7 +3342,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      '値を長押しすると修正または取り消しできます。何も失われず、隠した値は必要なときに表示できます。';
+      '値をタップすると修正でき、ゴミ箱で取り消せます。何も失われず、隠した値は必要なときに表示できます。';
 
   @override
   String get spotBackups => 'カタログの保管場所: 端末がバックアップするものと、選んだフォルダへのコピー。';
@@ -3401,7 +3361,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      '1つの項目の値の推移を新しい順に表示。値をタップで修正: 新しい値が置き換わり、古い値は隠れます。長押しで取り消し、または隠した値を復元。目のアイコンで隠した値を表示。テキストとしてコピー、PDF として共有できます。';
+      'ひとつの項目の値の推移、新しい順。値をタップすると修正でき、新しい値が置き換わり古い値は隠れます。ゴミ箱で値を取り消し、矢印で隠した値を戻せます。目のアイコンで隠した値を表示。一覧をテキストとしてコピーするか PDF として共有できます。';
 
   @override
   String get helpSettings =>
@@ -3493,19 +3453,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get syncAnotherDevice => '別の端末';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$authors の変更 $count 件を取り込みました',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => '表示';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3514,12 +3461,6 @@ class AppLocalizationsJa extends AppLocalizations {
     );
     return '$_temp0、初回 $date';
   }
-
-  @override
-  String get syncRunning => 'フォルダと同期中…';
-
-  @override
-  String get syncDismiss => '今はしない';
 
   @override
   String flierHidden(int count) {
@@ -3533,4 +3474,89 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get undo => '元に戻す';
+
+  @override
+  String noteSyncDone(String authors) {
+    return '$authors と同期しました。タップして届いたものを確認。';
+  }
+
+  @override
+  String get noteSyncNothingNew => '同期しました。新しいものはありません。';
+
+  @override
+  String get noteSyncFailed => '同期に失敗しました。タップして詳細を表示。';
+
+  @override
+  String get failureReport => '報告';
+
+  @override
+  String failureOpenPage(String page) {
+    return '$page を開く';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — $count回 済み、$days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title $count回 済み';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '他 $n 件';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return '共有フォルダーに $since から接続できません。タップして詳細を表示。';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names はあなたの変更を見るためにまだ新しいバージョンが必要です。';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'フォルダーを同期しました: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'パッケージを取り込みました: $result';
+  }
+
+  @override
+  String get sightingRecorded => '現在地で目撃を記録しました。';
+
+  @override
+  String get deletedDone => '削除しました。';
+
+  @override
+  String get spotReplayDone => 'ヒントを再表示します';
+
+  @override
+  String get syncRunning => 'フォルダと同期中…';
+
+  @override
+  String get copied => 'コピーしました';
+
+  @override
+  String get sharedFolder => '共有フォルダー';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => '今はしない';
+
+  @override
+  String changesCount(int n) {
+    return '$n件の変更';
+  }
 }

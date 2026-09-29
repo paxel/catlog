@@ -5,7 +5,6 @@ import 'package:latlong2/latlong.dart';
 import '../move_to_catalog.dart';
 import '../layout.dart';
 import '../help.dart';
-import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../hidden.dart';
 import '../l10n.dart';
@@ -14,7 +13,12 @@ import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
 import '../widgets/cat_avatar.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/plan_chooser.dart';
+import '../reminders/done_today.dart';
+import '../reminders/appointment_dialog.dart';
+import '../reminders/reminder_dialog.dart';
+import '../chores/chore_dialog.dart';
+import '../widgets/add_fan.dart';
+import '../reminders/plan_entity.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
 import '../widgets/appointment_card.dart';
@@ -25,6 +29,7 @@ import '../spotlight.dart';
 import 'card_screen.dart';
 import '../cover_picture.dart';
 import 'cat_detail_screen.dart';
+import 'conflicts_screen.dart';
 import 'clowder_card_screen.dart';
 import 'map_screen.dart';
 import 'field_history_screen.dart';
@@ -151,6 +156,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   @override
   void initState() {
     super.initState();
+    // The agenda's plans start with the page looked at last.
+    rememberViewed(store, id);
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => runSpotlights(context, store, 'clowder'),
     );
@@ -191,7 +198,6 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         builder: (_) => CatDetailScreen(
           store: store,
           catId: catId,
-          promptPhoto: true,
           startEditing: true,
         ),
       ),
@@ -265,10 +271,22 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     );
   }
 
+  /// The three kinds of plan, each straight into its editor with this
+  /// clowder as the For field; an appointment takes its cats along.
+  Future<void> _addAppointment() async {
+    final saved = await showAppointmentDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
+  }
+
   Future<void> _addReminder() async {
-    if (await showPlanChooser(context, store, entityId: id) && mounted) {
+    if (await showAddReminder(context, store, entityId: id) && mounted) {
       _plansChanged();
     }
+  }
+
+  Future<void> _addChore() async {
+    final saved = await showChoreDialog(context, store, entityId: id);
+    if (saved != null && mounted) _plansChanged();
   }
 
   void _plansChanged() {
@@ -282,11 +300,19 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
 
   /// The clowder's live plans, as the agenda shows them.
   List<Widget> _plannedSection() {
+    // Live plans, and the ones ticked today still in their place.
+    final mine = store.resolveEntity(id);
     final plans = [
       for (final r in store.activeReminders())
-        if (r.entity == store.resolveEntity(id)) r,
+        if (r.entity == mine) r,
+      for (final r in doneRemindersToday(store))
+        if (r.entity == mine) r,
     ];
-    final appointments = store.appointmentsOf(id);
+    final appointments = [
+      ...store.appointmentsOf(id),
+      for (final a in doneAppointmentsToday(store))
+        if (store.resolveEntity(a.entity) == mine) a,
+    ];
     final chores = partitionChores(
         store, store.choresOf(id), DateUtils.dateOnly(DateTime.now()));
     final laterCount = chores.later.length + chores.paused.length;
@@ -389,10 +415,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       defs: defs,
       editing: _editing,
       onEdit: _editField,
-      onConflict: (def) async {
-        await showConflictDialog(context, store, id, def.key);
-        if (!mounted) return;
-        setState(() {});
+      // The badge leads to the conflicts page, where the two values
+      // are buttons on the row.
+      onConflict: (_) async {
+        await Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ConflictsScreen(store: store)),
+        );
+        if (mounted) setState(() {});
       },
       onHistory: (def) async {
         await Navigator.of(context).push(
@@ -499,14 +528,6 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                 ),
               ),
             ),
-            Spotlight(
-              id: 'clowder-reminder',
-              child: IconButton(
-                icon: const Icon(Icons.alarm_add),
-                tooltip: context.t.addReminder,
-                onPressed: _addReminder,
-              ),
-            ),
             IconButton(
               icon: Icon(_editing ? Icons.check : Icons.edit),
               tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
@@ -590,10 +611,34 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             const SizedBox(height: 80),
           ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: _addCat,
-          icon: const Icon(Icons.add),
-          label: Text(context.t.addCat),
+        // The one plus: a cat, or a plan of one of three kinds.
+        floatingActionButton: Spotlight(
+          id: 'clowder-reminder',
+          child: AddFan(
+            tooltip: context.t.addCat,
+            items: [
+              FanItem(
+                icon: Icons.add,
+                label: context.t.addCat,
+                onTap: _addCat,
+              ),
+              FanItem(
+                icon: Icons.event,
+                label: context.t.appointmentLabel,
+                onTap: _addAppointment,
+              ),
+              FanItem(
+                icon: Icons.alarm,
+                label: context.t.reminderLabel,
+                onTap: _addReminder,
+              ),
+              FanItem(
+                icon: Icons.checklist,
+                label: context.t.choreLabel,
+                onTap: _addChore,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -612,53 +657,37 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     itemCount: cats.length,
     itemBuilder: (context, i) {
       final cat = cats[i];
-      Future<void> menu(Offset at) async {
-        final action = await showMenu<String>(
-          context: context,
-          position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
-          items: [
-            PopupMenuItem(value: 'open', child: Text(context.t.open)),
-            PopupMenuItem(value: 'card', child: Text(context.t.card)),
-          ],
-        );
-        if (!context.mounted) return;
-        if (action == 'open') _openCat(cat.id);
-        if (action == 'card') {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => CardScreen(store: store, catId: cat.id),
-            ),
-          );
-        }
-      }
+      // Tap opens the cat; a hold, with the cat ear, its printed Card.
+      // Right-click stays as the desktop way to the same.
+      void card() => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => CardScreen(store: store, catId: cat.id),
+        ),
+      );
 
       return InkWell(
         onTap: () => _openCat(cat.id),
-        // Long-press = menu, the app-wide gesture convention —
-        // right-click stays as the desktop way in.
-        onSecondaryTapDown: (d) => menu(d.globalPosition),
+        onLongPress: card,
+        onSecondaryTap: card,
         borderRadius: BorderRadius.circular(12),
-        child: GestureDetector(
-          onLongPressStart: (d) => menu(d.globalPosition),
-          child: WithCatEar(
-            child: Column(
-              children: [
-                Expanded(
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: CatAvatar(store: store, catId: cat.id, size: 96),
-                  ),
+        child: WithCatEar(
+          child: Column(
+            children: [
+              Expanded(
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: CatAvatar(store: store, catId: cat.id, size: 96),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 4),
-                  child: Text(
-                    cat.name,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text(
+                  cat.name,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       );

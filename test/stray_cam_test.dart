@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/src/pet_mode.dart';
 import 'package:catlog/src/stray_cam.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -118,6 +119,20 @@ void main() {
     final cat = store.cats().single;
     expect(store.positionOf(cat.id), (48.1, 11.5));
     expect(store.images(cat.id), isNotEmpty);
+  });
+
+  testWidgets('in a pets catalog the last species picked is a field, no prompt',
+      (tester) async {
+    petMode.value = true;
+    addTearDown(() => petMode.value = false);
+    store.setLocalSetting(lastSpeciesKey, 'dog');
+    final context = await _pumpHost(tester);
+    final result = await tester.runAsync(() => strayCam(context, store,
+        locate: () async => (pos: (48.1, 11.5), failure: null),
+        pickPhoto: (_) async => _jpeg()));
+    expect(result, isNotNull);
+    expect(store.current(result!, 'f:species'), 'dog');
+    expect(find.text('Species'), findsNothing);
   });
 
   testWidgets('killed capture is completed from lost data on next start',

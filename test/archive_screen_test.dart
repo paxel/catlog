@@ -7,6 +7,8 @@ import 'package:catlog/src/screens/archive_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// #53: the archive screen writes the file first and only then deletes.
 void main() {
   setUpAll(useSystemSqlite);
@@ -84,7 +86,7 @@ void main() {
     await tester.tap(find.widgetWithText(FilledButton, 'Archive'));
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('Nothing was deleted'), findsOneWidget);
+    expect(notesSaid(), anyElement(contains('Nothing was deleted')));
     expect(store.cats().where((c) => c.id == cat), isNotEmpty);
   });
 

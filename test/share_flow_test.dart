@@ -7,6 +7,8 @@ import 'package:catlog/src/share_publicly.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// #40 app side: whitelist chips on the share screen, preview-then-
 /// confirm on the finder's scan.
 void main() {
@@ -103,8 +105,7 @@ void main() {
         scan: (_) async => 'https://random.example/whatever',
         fetch: (_) async => Uint8List(0));
     await tester.pump();
-    expect(find.text('That code is not a cat(a)log share.'),
-        findsOneWidget);
+    expect(notesSaid(), ['That code is not a cat(a)log share.']);
     expect(finder.cats(), isEmpty);
   });
 }

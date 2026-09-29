@@ -62,9 +62,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get pickerCardFields => '卡片上显示';
 
   @override
-  String get exportCsv => '导出 CSV';
-
-  @override
   String get aboutAndFeedback => '关于与反馈';
 
   @override
@@ -89,6 +86,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get clearField => '清空';
+
+  @override
   String get delete => '删除';
 
   @override
@@ -99,11 +99,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get open => '打开';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV 已保存到 $path';
-  }
 
   @override
   String get renameClowder => '重命名猫群';
@@ -178,9 +173,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sortNewestFirst => '最新的在前';
 
   @override
-  String get shareAsText => '以文本分享';
-
-  @override
   String get shareAsPdf => '以 PDF 分享';
 
   @override
@@ -250,12 +242,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '这只宠物将从所有列表中消失，照片也会被删除——本机立即生效，下次同步后其他设备也一样。';
 
   @override
-  String get sightingRecorded => '已在你的位置记录目击。';
-
-  @override
-  String get noLocationAvailable => '无法获取位置——请改为长按地图。';
-
-  @override
   String get locationDeniedForever => '位置权限已被禁止。请在系统设置中允许，以使用 Stray Cam。';
 
   @override
@@ -278,6 +264,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get captureFlier => '拍摄寻猫启事';
+
+  @override
+  String get flierFromCamera => '用相机拍摄启事';
+
+  @override
+  String get flierFromGallery => '从相册选择启事';
 
   @override
   String get addPhotosTo => '将照片添加到…';
@@ -344,13 +336,34 @@ class AppLocalizationsZh extends AppLocalizations {
   String get pickFramesTitle => '挑选画面';
 
   @override
-  String get suggestedFrames => '推荐画面';
-
-  @override
-  String get scrubFrames => '拖动视频';
-
-  @override
   String get keepThisFrame => '保留此画面';
+
+  @override
+  String get frameBack => '后退一帧';
+
+  @override
+  String get frameForward => '前进一帧';
+
+  @override
+  String get secondBack => '后退一秒';
+
+  @override
+  String get secondForward => '前进一秒';
+
+  @override
+  String get tenSecondsBack => '后退十秒';
+
+  @override
+  String get tenSecondsForward => '前进十秒';
+
+  @override
+  String get play => '播放';
+
+  @override
+  String get pause => '暂停';
+
+  @override
+  String get keptFrames => '保留的帧显示在此处';
 
   @override
   String get fromVideo => '来自视频…';
@@ -431,9 +444,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get missingSinceLabel => '失踪日期';
-
-  @override
-  String get phoneLabel => '电话';
 
   @override
   String get cropPortrait => '裁剪头像';
@@ -542,16 +552,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '已清空 $field';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field 已恢复为“$value”';
-  }
-
-  @override
   String get leftStray => '离开了 — 流浪猫';
 
   @override
@@ -595,9 +595,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get value => '值';
-
-  @override
-  String get latitudeLongitude => '纬度，经度';
 
   @override
   String get newField => '新字段';
@@ -666,11 +663,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stopHosting => '停止托管';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN：$pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return '已完成会话：$count';
   }
@@ -679,34 +671,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get join => '加入';
 
   @override
-  String get addressFromHost => '地址（来自主机设备）';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => '立即同步';
 
   @override
-  String get addressFormatHint => '地址格式应类似 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return '已同步：$result';
-  }
-
-  @override
   String syncFailed(String error) {
     return '同步失败：$error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return '与 $peer 的上次同步：$time';
-  }
-
-  @override
-  String get sharedFolder => '共享文件夹';
 
   @override
   String get sharedFolderExplainer =>
@@ -734,11 +707,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '任何由两台设备保持同步的文件夹都可以：云盘，或用 Syncthing 让文件夹留在你们的手机上。Syncthing 免费：在每部手机上安装，在它们之间共享一个文件夹，然后在每台设备上于此处选择该文件夹。';
 
   @override
-  String folderSynced(String result) {
-    return '文件夹已同步：$result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return '文件夹同步失败：$error';
   }
@@ -760,14 +728,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return '轨迹：$name（$count 个位置）';
   }
-
-  @override
-  String conflictOn(String field) {
-    return '冲突 — $field';
-  }
-
-  @override
-  String get conflictBody => '同时在两处被修改。选出正确的：';
 
   @override
   String privateMarker(Object field) {
@@ -1177,7 +1137,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      '所有更改，最新在前：谁在何时改成了什么值。点按条目可修正，长按可移除或恢复；隐藏的条目仍留在记录中，可按需显示。';
+      '所有更改，最新在前：谁在何时把什么改成了哪个值。点按条目可修正，垃圾桶将其移除，箭头找回隐藏的条目；隐藏的条目仍留在记录中，可按需显示。';
 
   @override
   String get helpDuplicates =>
@@ -1366,16 +1326,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get copyCode => '复制代码';
 
   @override
-  String get copied => '已复制';
-
-  @override
   String get invalidCode => '该代码无效';
-
-  @override
-  String get hotspotHint => '没有共同的 Wi-Fi？打开一部手机的热点，让另一部连接，然后在这里托管。';
-
-  @override
-  String get byMessenger => '通过聊天软件';
 
   @override
   String get byMessengerExplainer =>
@@ -1386,11 +1337,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get importBundle => '导入同步包…';
-
-  @override
-  String bundleImported(String result) {
-    return '已导入同步包：$result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1824,19 +1770,46 @@ class AppLocalizationsZh extends AppLocalizations {
   String get valueFerret => '雪貂';
 
   @override
-  String get otherOption => '其他…';
-
-  @override
   String get celebrationsToggle => '庆祝领养';
 
   @override
   String get celebrationsSubtitle => '猫咪搬进新家时撒彩纸并欢呼';
 
   @override
-  String get cheerToggle => '欢呼声';
+  String get soundsSection => '声音';
 
   @override
-  String get cheerSubtitle => '伴随彩纸的短促欢呼，每次不同';
+  String get reminderSound => '用猫声提醒';
+
+  @override
+  String get reminderSoundSubtitle => '事务提醒会喵一声 Mrrr，而不是手机自带的提示音。';
+
+  @override
+  String get soundPurr => '呼噜';
+
+  @override
+  String get soundChorus => '喵喵合唱';
+
+  @override
+  String get soundParty => '派对喵';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => '自定义声音…';
 
   @override
   String get celebrationsSubtitleNeutral => '宠物搬进新家时撒彩纸并欢呼';
@@ -1873,11 +1846,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get hardDeleteAction => '删除该作者的全部内容';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return '从此设备移除 $name 的所有记录和照片。其他设备保留其副本。无法撤销。';
-  }
 
   @override
   String get yourKey => '你的密钥';
@@ -1936,11 +1904,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return '输入 $name 以确认';
-  }
-
-  @override
   String get alsoBan => '同时封禁——不再接收其数据';
 
   @override
@@ -1948,9 +1911,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get unbanAction => '解除封禁';
-
-  @override
-  String get deletedDone => '已删除。';
 
   @override
   String get syncSummaryTitle => '同步内容';
@@ -1991,17 +1951,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get keepMine => '保留我的';
 
   @override
-  String keptMine(String name) {
-    return '已在此设备上保留你的 $name 版本。';
-  }
-
-  @override
   String get summaryMeta => '同时到达';
-
-  @override
-  String changesCount(int n) {
-    return '$n 项更改';
-  }
 
   @override
   String get acceptArrival => '接受';
@@ -2138,30 +2088,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get connectToWifiFirst => '请先连接 Wi-Fi——设备才能互相发现';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author（$device）请求同步';
-  }
-
-  @override
   String get trustBothWaysNote => '双方的目录将双向交换。';
 
   @override
   String get allowOnce => '允许';
 
   @override
-  String get allowAlways => '始终允许此设备';
-
-  @override
-  String get declineAction => '拒绝';
-
-  @override
   String get syncDeclined => '对方设备拒绝了同步';
-
-  @override
-  String get trustedDevicesSection => '始终允许的设备';
-
-  @override
-  String get removeTrust => '移除';
 
   @override
   String get hostWithoutWifi => '无 Wi-Fi 主持';
@@ -2228,7 +2161,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotHomeStraysNeutral => '这张卡片汇集所有流浪动物——没有家的宠物。点按查看列表。';
 
   @override
-  String get spotHomeMenu => '此菜单中有：设置、查找并合并重复条目、导出 CSV 等。';
+  String get spotHomeMenu => '此菜单中有：设置、查找并合并重复条目等。';
 
   @override
   String get spotCatEdit => '点铅笔编辑这只猫。提示：长按任意字段可直接编辑。';
@@ -2291,9 +2224,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => '在每个页面重新显示提示';
-
-  @override
-  String get spotReplayDone => '提示将重新显示';
 
   @override
   String get searchNoResults => '没有找到这个名字的猫';
@@ -2411,17 +2341,15 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '输入 $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return '没有删除任何内容：无法写入目录文件（$error）。请腾出空间或稍后再试。';
   }
 
   @override
   String get moveToCatalog => '移动到其他目录';
+
+  @override
+  String get moveInFromCatalog => '从其他目录移入…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2522,9 +2450,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get agenda => '日程';
 
   @override
-  String get reminderLabel => '提醒';
-
-  @override
   String get agendaEmpty => '没有已计划的安排。可以在这里用加号，或在猫或猫群的页面上计划新的安排。';
 
   @override
@@ -2557,6 +2482,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get markDone => '完成';
 
   @override
+  String get takeOffList => '从列表移除';
+
+  @override
   String get repeatTitle => '下次间隔…';
 
   @override
@@ -2564,6 +2492,51 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get unitDays => '天后';
+
+  @override
+  String get yesterday => '昨天';
+
+  @override
+  String get weekdayMon => '周一';
+
+  @override
+  String get weekdayTue => '周二';
+
+  @override
+  String get weekdayWed => '周三';
+
+  @override
+  String get weekdayThu => '周四';
+
+  @override
+  String get weekdayFri => '周五';
+
+  @override
+  String get weekdaySat => '周六';
+
+  @override
+  String get weekdaySun => '周日';
+
+  @override
+  String get weekdayFullMon => '星期一';
+
+  @override
+  String get weekdayFullTue => '星期二';
+
+  @override
+  String get weekdayFullWed => '星期三';
+
+  @override
+  String get weekdayFullThu => '星期四';
+
+  @override
+  String get weekdayFullFri => '星期五';
+
+  @override
+  String get weekdayFullSat => '星期六';
+
+  @override
+  String get weekdayFullSun => '星期日';
 
   @override
   String get unitWeeks => '周后';
@@ -2600,9 +2573,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String icsSavedTo(String path) {
     return '日历文件已保存到 $path';
   }
-
-  @override
-  String get calendarMirrorLabel => '同步到设备日历';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2676,11 +2646,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只猫一起看兽医是一个预约：勾选这些猫，日程会显示一张带有它们名字的卡片，完成时会询问哪些猫接受了处理——取消勾选其余的猫，它们仍保持计划中。 日常事务是喂食、猫砂、喂药等重复的任务。它们位于“今天”下方，带勾选、连续记录和最近七天的圆点；“即将”显示下一周，不含每日事务。事务可在选定时间通过通知提醒你。奖杯打开成就。';
+      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，卡片当天保持勾选状态；点按它可计划下一次，例如三个月后。长按可更改日期；垃圾桶删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只猫一起看兽医是一个预约：勾选这些猫，日程会显示一张带有它们名字的卡片，完成时会询问哪些猫接受了处理——取消勾选其余的猫，它们仍保持计划中。 日常事务是喂食、猫砂、喂药等重复的任务。它们位于“今天”下方，带勾选、连续记录和最近七天的圆点；“即将”显示下一周，不含每日事务。事务可在选定时间通过通知提醒你。奖杯打开成就。';
 
   @override
   String get helpAgendaNeutral =>
-      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开宠物或家庭。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只宠物一起看兽医是一个预约：勾选这些宠物，日程会显示一张带有它们名字的卡片，完成时会询问哪些宠物接受了处理——取消勾选其余的宠物，它们仍保持计划中。 日常事务是喂食、猫砂、喂药等重复的任务。它们位于“今天”下方，带勾选、连续记录和最近七天的圆点；“即将”显示下一周，不含每日事务。事务可在选定时间通过通知提醒你。奖杯打开成就。';
+      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开宠物或家庭。勾选即确认安排：该值写入字段，卡片当天保持勾选状态；点按它可计划下一次，例如三个月后。长按可更改日期；垃圾桶删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只宠物一起看兽医是一个预约：勾选这些宠物，日程会显示一张带有它们名字的卡片，完成时会询问哪些宠物接受了处理——取消勾选其余的宠物，它们仍保持计划中。 日常事务是喂食、猫砂、喂药等重复的任务。它们位于“今天”下方，带勾选、连续记录和最近七天的圆点；“即将”显示下一周，不含每日事务。事务可在选定时间通过通知提醒你。奖杯打开成就。';
 
   @override
   String get calendarRowOff => '日历：关';
@@ -2709,19 +2679,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appointmentLabel => '安排';
 
   @override
+  String get reminderLabel => '提醒';
+
+  @override
   String get addAppointment => '添加安排';
-
-  @override
-  String get planChooserTitle => '安排还是提醒？';
-
-  @override
-  String get planChooserAppointment => '安排——在某个日期和时间的拜访，附带备注';
-
-  @override
-  String get planChooserReminder => '提醒——在某一天到期的值';
-
-  @override
-  String get planChooserChore => '日常任务 — 会重复的事：喂食、滴药、猫砂';
 
   @override
   String get newChore => '新任务';
@@ -2944,25 +2905,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get achievementCentury => '完整的一百年';
 
   @override
-  String get achievementCenturyHint => '到那时我们都会非常自豪。';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title大师';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     return '已达成 $times 次，首次于 $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return '下一级 $n';
-  }
-
-  @override
-  String get achievementLocked => '尚未';
 
   @override
   String achievementUnlocked(String name) {
@@ -3274,16 +3219,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get posterStanding => '请检查地下室、棚屋和车库。请勿追赶，请来电。';
 
   @override
-  String get posterLastSeen => '最后出现地点';
-
-  @override
   String get posterFreeText => '附加一行';
 
   @override
   String get posterQr => 'cat(a)log 二维码';
-
-  @override
-  String get posterPhoto => '照片';
 
   @override
   String get newCatIn => '新猫加入…';
@@ -3292,10 +3231,26 @@ class AppLocalizationsZh extends AppLocalizations {
   String get newCatInNeutral => '新宠物加入…';
 
   @override
+  String get newCatHere => '在此新建猫';
+
+  @override
+  String get newCatHereNeutral => '在此新建宠物';
+
+  @override
   String get choreLabel => '事务';
 
   @override
   String get choreTickLabel => '事务已完成';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title 已完成';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day 的';
+  }
 
   @override
   String get choreEnded => '已结束';
@@ -3329,7 +3284,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get coverPick => '封面图片…';
 
   @override
-  String get coverHint => '地点的图片：房子、院子、喂食点。在卡片上代替猫显示。';
+  String get coverLabel => '猫群的照片';
+
+  @override
+  String get coverLabelNeutral => '家庭的照片';
+
+  @override
+  String get coverLabelStrays => '流浪猫的照片';
 
   @override
   String get coverRemove => '移除封面图片';
@@ -3344,7 +3305,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotLooks => '勾选你看到的。与其他目录的匹配由此而来。';
 
   @override
-  String get spotHistoryHold => '长按一个值可修正或移除它。什么都不会丢失；隐藏的值可按需显示。';
+  String get spotHistoryHold => '点按一个值可修正它，垃圾桶将其移除。什么都不会丢失；隐藏的值可按需显示。';
 
   @override
   String get spotBackups => '您的目录的安全存放位置：手机备份的内容，以及您选择的文件夹中的副本。';
@@ -3360,7 +3321,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      '一个字段随时间的值，最新在前。点按一个值可修正：新值取代它，旧值隐藏。长按可移除或恢复隐藏的值；眼睛图标显示隐藏的值。可复制为文本或以 PDF 分享。';
+      '一个字段随时间的值，最新在前。点按一个值可修正它：新值取而代之，旧值被隐藏。垃圾桶移除一个值，箭头找回隐藏的值；眼睛显示隐藏的值。可将列表复制为文本或以 PDF 分享。';
 
   @override
   String get helpSettings =>
@@ -3451,19 +3412,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get syncAnotherDevice => '另一台设备';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '已合并来自 $authors 的 $count 项更改',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => '显示';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3472,12 +3420,6 @@ class AppLocalizationsZh extends AppLocalizations {
     );
     return '$_temp0，首次 $date';
   }
-
-  @override
-  String get syncRunning => '正在与文件夹同步…';
-
-  @override
-  String get syncDismiss => '暂不';
 
   @override
   String flierHidden(int count) {
@@ -3491,4 +3433,89 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get undo => '撤销';
+
+  @override
+  String noteSyncDone(String authors) {
+    return '已与 $authors 同步。点按查看收到的内容。';
+  }
+
+  @override
+  String get noteSyncNothingNew => '已同步。没有新内容。';
+
+  @override
+  String get noteSyncFailed => '同步失败。点按查看详情。';
+
+  @override
+  String get failureReport => '报告';
+
+  @override
+  String failureOpenPage(String page) {
+    return '打开 $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — 已完成 $count×，$days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title 已完成 $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '另有 $n 项';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return '自 $since 起无法访问共享文件夹。点按查看详情。';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names 仍需要新版本才能看到你的更改。';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return '文件夹已同步：$result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return '已导入同步包：$result';
+  }
+
+  @override
+  String get sightingRecorded => '已在你的位置记录目击。';
+
+  @override
+  String get deletedDone => '已删除。';
+
+  @override
+  String get spotReplayDone => '提示将重新显示';
+
+  @override
+  String get syncRunning => '正在与文件夹同步…';
+
+  @override
+  String get copied => '已复制';
+
+  @override
+  String get sharedFolder => '共享文件夹';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN：$pin';
+  }
+
+  @override
+  String get syncDismiss => '暂不';
+
+  @override
+  String changesCount(int n) {
+    return '$n 项更改';
+  }
 }

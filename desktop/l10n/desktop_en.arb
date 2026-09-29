@@ -1,0 +1,198 @@
+{
+  "@@locale": "en",
+  "menuView": "View",
+  "menuCatalog": "Catalog",
+  "menuHelp": "Help",
+  "quit": "Quit",
+  "introTipsQuestion": "Want the tips as you go? Each one points at what it explains and can be skipped.",
+  "startWithTips": "Start with the tips",
+  "startWithoutTips": "Start without tips",
+  "renameCatalog": "Rename catalog",
+  "choresSection": "Chores",
+  "historyOldestFirst": "Oldest first",
+  "historyShowHidden": "Show corrected and removed values",
+  "editValue": "Edit value",
+  "cardAddValue": "Fill in a field…",
+  "valueActions": "More for this value",
+  "onTheDesk": "On the desk",
+  "viewFamily": "Family",
+  "familyUnknownBirth": "Birth date unknown",
+  "familyEmpty": "No cat has a mother or a father yet. Set one on a cat's card, and the tree grows.",
+  "calendarMonth": "Month",
+  "calendarWeek": "Week",
+  "allDay": "All day",
+  "pickMonth": "Pick a month",
+  "repeats": "Repeats",
+  "previewTitle": "Preview",
+  "previewContent": "What goes on the sheet",
+  "tabFields": "Fields",
+  "tabPhotos": "Photos",
+  "tabPlans": "Plans",
+  "tabFamily": "Family",
+  "tabCats": "Cats",
+  "markedCount": "{count} marked",
+  "@markedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markedOpen": "Open on the desk",
+  "markedExport": "Export…",
+  "markedDelete": "Delete…",
+  "markedDeleteBody": "{count} cats and homes will be deleted. The deletion reaches everyone you sync with.",
+  "@markedDeleteBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "moveToHome": "Move to another home",
+  "moveToHomeNeutral": "Move to another household",
+  "openAllPets": "Open all pets",
+  "cardHeight": "Drag to make the card taller or shorter",
+  "catalogDeletedEmpty": "{name} deleted. It held no cats and no homes, so there was nothing to back up.",
+  "@catalogDeletedEmpty": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaList": "List",
+  "agendaWeek": "Week",
+  "agendaMonth": "Month",
+  "today": "Today",
+  "stopSharing": "Stop sharing",
+  "stopSharingNote": "Entries already sent stay in the folder.",
+  "notShared": "Not shared",
+  "switchToCatalog": "Switch to this catalog",
+  "catalogActive": "Open now",
+  "onlyKind": "Only {kind}",
+  "@onlyKind": {
+    "placeholders": {
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
+  "zoomIn": "Zoom in",
+  "zoomOut": "Zoom out",
+  "monthBefore": "Month before",
+  "monthAfter": "Month after",
+  "cardPlacePicture": "The place on the map",
+  "cardTrendOf": "{field} over time",
+  "@cardTrendOf": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "showHistory": "History",
+  "backLabel": "Back",
+  "search": "Search",
+  "searchPlaceHint": "Address, city or country",
+  "actionsMenu": "Actions",
+  "showOnMap": "Show on map",
+  "trailOff": "Hide trail",
+  "close": "Close",
+  "nextPhoto": "Next",
+  "previousPhoto": "Previous",
+  "savePhotoAs": "Save photo as…",
+  "dropPhotosHint": "Drop image files here to add them as photos",
+  "syncMenu": "Sync…",
+  "bundlesSection": "Sync bundle files",
+  "exportBundle": "Export sync bundle…",
+  "newKeyPinned": "New partner key pinned: {code}",
+  "noneLabel": "None",
+  "bundleWritten": "Bundle written to {path}",
+  "unitDays": "days",
+  "unitWeeks": "weeks",
+  "unitMonths": "months",
+  "unitYears": "years",
+  "chorePending": "Pending",
+  "choreUpcoming": "Upcoming",
+  "choreNotDue": "Not due",
+  "choreDoneState": "Done",
+  "everyLabel": "Every",
+  "weekdaysLabel": "Weekdays",
+  "remindAtLabel": "Remind at",
+  "chores": "Chores",
+  "newAppointment": "New appointment",
+  "ticksLabel": "Ticks",
+  "dateLabel": "Date",
+  "savePdf": "Save as PDF…",
+  "saveImage": "Save as image…",
+  "printHint": "Opens the PDF in your viewer, where you print it",
+  "documentSaved": "Saved to {path}",
+  "cardContent": "What goes on the card",
+  "dateHint": "YYYY-MM-DD",
+  "fontsIncomplete": "The fonts for this language could not be fetched; the page is set in Noto Sans.",
+  "openImage": "Open image…",
+  "flierLines": "Lines from the poster",
+  "recognizing": "Reading the poster…",
+  "helpMenu": "Help for this page",
+  "restartHint": "Close this to go on; the report stays until it is sent.",
+  "yourKeyLine": "Your key: {code}",
+  "licencesRust": "Rust crates",
+  "viewHome": "Home",
+  "viewVet": "Vet",
+  "clowdersCount": "{count} clowders",
+  "@clowdersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "straysCount": "{count} strays",
+  "@straysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missingCount": "{count} missing",
+  "@missingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dashboardDue": "Due today",
+  "dashboardNothingDue": "Nothing due today",
+  "dashboardRecent": "Recent changes",
+  "dashboardNoChanges": "No changes yet",
+  "dashboardLastViewed": "Last viewed",
+  "dashboardNothingViewed": "Open a cat or a clowder and it shows up here",
+  "closeLabel": "Close",
+  "columnsButton": "Columns",
+  "filterMissing": "Missing",
+  "statusHome": "At home",
+  "columnLastChange": "Last change",
+  "columnFace": "Face",
+  "columnStatus": "Status",
+  "cardPage": "Edit",
+  "cardFields": "Fields on the card",
+  "cardClose": "Close card",
+  "deskTile": "Tile",
+  "deskStack": "Stack",
+  "deskCloseAll": "Close all",
+  "vetOpen": "Open",
+  "columnWhen": "When",
+  "vetEmpty": "No runs or appointments yet",
+  "vetPickRun": "Pick a run or an appointment to see its patient",
+  "eyeCandyToggle": "Eye candy: fades, slides and eased hovers",
+  "allFiles": "All files",
+  "mapSearchHint": "Cat, clowder, person or place",
+  "copyImage": "Copy as image",
+  "copyPhoto": "Copy photo",
+  "copyGraphImage": "Copy graph as image",
+  "hostLockedOut": "Too many wrong PINs: nothing is answered any more. Stop and start hosting again for a new PIN.",
+  "inPersonExplainerDesk": "A phone in the same room joins this desk: scan the code there, or type it."
+}

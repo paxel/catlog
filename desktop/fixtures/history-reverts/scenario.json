@@ -1,0 +1,6 @@
+{
+  "name": "history-reverts",
+  "about": "One Field changed four times, one change backdated, one corrected into another value, one taken back and one restored: the current value follows the effective dates, the history shows every row and marks the hidden ones.",
+  "writer": "65b60673d6ed884bf01c2c222d82ada0",
+  "writerEntries": 103
+}

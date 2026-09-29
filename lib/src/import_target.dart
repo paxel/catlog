@@ -60,7 +60,8 @@ class _ImportTargetDialogState extends State<_ImportTargetDialog> {
     }
     // A name prefilled from the file: "Schneeweißchen-share".
     final base = widget.fileName.replaceFirst(RegExp(r'\.catsync$'), '');
-    final name = await askCatalogName(context, t.newCatalog, initial: base);
+    final name = await askCatalogName(context, t.newCatalog,
+        initial: base, taken: widget.catalogs.nameTaken);
     if (name == null || name.isEmpty || !mounted) return;
     Navigator.of(context).pop(ImportIntoNew(name));
   }

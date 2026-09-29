@@ -40,25 +40,13 @@ class ModeLocalizations implements AppLocalizations {
   String get achievementCentury => base.achievementCentury;
 
   @override
-  String get achievementCenturyHint => base.achievementCenturyHint;
-
-  @override
   String get achievementDecade => base.achievementDecade;
 
   @override
   String achievementDone(int times, String date) => base.achievementDone(times, date);
 
   @override
-  String get achievementLocked => base.achievementLocked;
-
-  @override
-  String achievementMaster(String title) => base.achievementMaster(title);
-
-  @override
   String get achievementMonth => base.achievementMonth;
-
-  @override
-  String achievementNext(int n) => base.achievementNext(n);
 
   @override
   String achievementReached(int times, String date) => base.achievementReached(times, date);
@@ -106,13 +94,7 @@ class ModeLocalizations implements AppLocalizations {
   String addingPhotos(int done, int total) => base.addingPhotos(done, total);
 
   @override
-  String get addressFormatHint => base.addressFormatHint;
-
-  @override
   String get addressFoundTitle => base.addressFoundTitle;
-
-  @override
-  String get addressFromHost => base.addressFromHost;
 
   @override
   String get addressLocated => base.addressLocated;
@@ -155,9 +137,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get allDoneToday => base.allDoneToday;
-
-  @override
-  String get allowAlways => base.allowAlways;
 
   @override
   String get allowOnce => base.allowOnce;
@@ -424,16 +403,10 @@ class ModeLocalizations implements AppLocalizations {
   String get buyCoffee => base.buyCoffee;
 
   @override
-  String get byMessenger => base.byMessenger;
-
-  @override
   String get byMessengerExplainer => base.byMessengerExplainer;
 
   @override
   String get calendarGone => base.calendarGone;
-
-  @override
-  String get calendarMirrorLabel => base.calendarMirrorLabel;
 
   @override
   String get calendarMirrorSubtitle => base.calendarMirrorSubtitle;
@@ -526,12 +499,6 @@ class ModeLocalizations implements AppLocalizations {
   String changesCount(int n) => base.changesCount(n);
 
   @override
-  String get cheerSubtitle => base.cheerSubtitle;
-
-  @override
-  String get cheerToggle => base.cheerToggle;
-
-  @override
   String get chipScanHint => pets ? base.chipScanHintNeutral : base.chipScanHint;
 
   @override
@@ -553,7 +520,13 @@ class ModeLocalizations implements AppLocalizations {
   String get choreDoneEarly => base.choreDoneEarly;
 
   @override
+  String choreDoneFor(Object day) => base.choreDoneFor(day);
+
+  @override
   String get choreDoneLate => base.choreDoneLate;
+
+  @override
+  String choreDoneTitled(Object title) => base.choreDoneTitled(title);
 
   @override
   String choreDue(String date) => base.choreDue(date);
@@ -625,7 +598,16 @@ class ModeLocalizations implements AppLocalizations {
   String get choreTickLabel => base.choreTickLabel;
 
   @override
+  String choreTicked(String title, int count, String days) => base.choreTicked(title, count, days);
+
+  @override
+  String choreTickedShort(String title, int count) => base.choreTickedShort(title, count);
+
+  @override
   String get choreTitleLabel => base.choreTitleLabel;
+
+  @override
+  String get clearField => base.clearField;
 
   @override
   String get clowderLabel => pets ? base.clowderLabelNeutral : base.clowderLabel;
@@ -697,12 +679,6 @@ class ModeLocalizations implements AppLocalizations {
   String get colWho => base.colWho;
 
   @override
-  String get conflictBody => base.conflictBody;
-
-  @override
-  String conflictOn(String field) => base.conflictOn(field);
-
-  @override
   String conflictSame(Object value) => base.conflictSame(value);
 
   @override
@@ -724,7 +700,13 @@ class ModeLocalizations implements AppLocalizations {
   String get correctThisValue => base.correctThisValue;
 
   @override
-  String get coverHint => base.coverHint;
+  String get coverLabel => pets ? base.coverLabelNeutral : base.coverLabel;
+
+  @override
+  String get coverLabelNeutral => base.coverLabelNeutral;
+
+  @override
+  String get coverLabelStrays => base.coverLabelStrays;
 
   @override
   String get coverPick => base.coverPick;
@@ -766,9 +748,6 @@ class ModeLocalizations implements AppLocalizations {
   String get cropTitle => base.cropTitle;
 
   @override
-  String csvSavedTo(String path) => base.csvSavedTo(path);
-
-  @override
   String get dangerButton => base.dangerButton;
 
   @override
@@ -785,9 +764,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get deceasedInFuture => base.deceasedInFuture;
-
-  @override
-  String get declineAction => base.declineAction;
 
   @override
   String get delete => base.delete;
@@ -946,13 +922,16 @@ class ModeLocalizations implements AppLocalizations {
   String get existingClowderNeutral => base.existingClowderNeutral;
 
   @override
-  String get exportCsv => base.exportCsv;
-
-  @override
   String get exportIcs => base.exportIcs;
 
   @override
   String get exportShareFile => base.exportShareFile;
+
+  @override
+  String failureOpenPage(String page) => base.failureOpenPage(page);
+
+  @override
+  String get failureReport => base.failureReport;
 
   @override
   String get familySection => base.familySection;
@@ -965,12 +944,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get favouriteRemove => base.favouriteRemove;
-
-  @override
-  String fieldBackTo(String field, String value) => base.fieldBackTo(field, value);
-
-  @override
-  String fieldCleared(String field) => base.fieldCleared(field);
 
   @override
   String fieldHistoryOf(String field, String name) => base.fieldHistoryOf(field, name);
@@ -995,6 +968,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get finishUntickHintNeutral => base.finishUntickHintNeutral;
+
+  @override
+  String get flierFromCamera => base.flierFromCamera;
+
+  @override
+  String get flierFromGallery => base.flierFromGallery;
 
   @override
   String flierHidden(int count) => base.flierHidden(count);
@@ -1034,6 +1013,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get forClowdersNeutral => base.forClowdersNeutral;
+
+  @override
+  String get frameBack => base.frameBack;
+
+  @override
+  String get frameForward => base.frameForward;
 
   @override
   String get fromVideo => base.fromVideo;
@@ -1079,9 +1064,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get hardDeleteAction => base.hardDeleteAction;
-
-  @override
-  String hardDeleteWarning(Object name) => base.hardDeleteWarning(name);
 
   @override
   String hardDeleteWarningKey(Object name, Object key) => base.hardDeleteWarningKey(name, key);
@@ -1243,9 +1225,6 @@ class ModeLocalizations implements AppLocalizations {
   String get hotspotAndroidOnly => base.hotspotAndroidOnly;
 
   @override
-  String get hotspotHint => base.hotspotHint;
-
-  @override
   String get hotspotJoinNote => base.hotspotJoinNote;
 
   @override
@@ -1345,7 +1324,7 @@ class ModeLocalizations implements AppLocalizations {
   String get keepThisFrame => base.keepThisFrame;
 
   @override
-  String keptMine(String name) => base.keptMine(name);
+  String get keptFrames => base.keptFrames;
 
   @override
   String keyChangedRefused(Object name) => base.keyChangedRefused(name);
@@ -1397,12 +1376,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String lastBackupFailed(String error) => base.lastBackupFailed(error);
-
-  @override
-  String lastSyncWith(String peer, String time) => base.lastSyncWith(peer, time);
-
-  @override
-  String get latitudeLongitude => base.latitudeLongitude;
 
   @override
   String get leftStray => base.leftStray;
@@ -1807,7 +1780,13 @@ class ModeLocalizations implements AppLocalizations {
   String get momentSync => base.momentSync;
 
   @override
+  String moreChanges(int n) => base.moreChanges(n);
+
+  @override
   String motherNotFemale(String name) => base.motherNotFemale(name);
+
+  @override
+  String get moveInFromCatalog => base.moveInFromCatalog;
 
   @override
   String moveIntoNewCatalog(String name) => base.moveIntoNewCatalog(name);
@@ -1832,6 +1811,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get newCat => pets ? base.newCatNeutral : base.newCat;
+
+  @override
+  String get newCatHere => pets ? base.newCatHereNeutral : base.newCatHere;
+
+  @override
+  String get newCatHereNeutral => base.newCatHereNeutral;
 
   @override
   String get newCatIn => pets ? base.newCatInNeutral : base.newCatIn;
@@ -1900,9 +1885,6 @@ class ModeLocalizations implements AppLocalizations {
   String get noLinkedField => base.noLinkedField;
 
   @override
-  String get noLocationAvailable => base.noLocationAvailable;
-
-  @override
   String get noMatchCandidates => base.noMatchCandidates;
 
   @override
@@ -1939,6 +1921,21 @@ class ModeLocalizations implements AppLocalizations {
   String get notSaved => base.notSaved;
 
   @override
+  String noteFolderLagging(String names) => base.noteFolderLagging(names);
+
+  @override
+  String noteFolderUnreachable(String since) => base.noteFolderUnreachable(since);
+
+  @override
+  String noteSyncDone(String authors) => base.noteSyncDone(authors);
+
+  @override
+  String get noteSyncFailed => base.noteSyncFailed;
+
+  @override
+  String get noteSyncNothingNew => base.noteSyncNothingNew;
+
+  @override
   String get notesLabel => base.notesLabel;
 
   @override
@@ -1972,9 +1969,6 @@ class ModeLocalizations implements AppLocalizations {
   String get orTypeCode => base.orTypeCode;
 
   @override
-  String get otherOption => base.otherOption;
-
-  @override
   String get outcomeTitle => base.outcomeTitle;
 
   @override
@@ -1996,10 +1990,10 @@ class ModeLocalizations implements AppLocalizations {
   String parentBornAfterKittenNeutral(String name, String date) => base.parentBornAfterKittenNeutral(name, date);
 
   @override
-  String get pdfFontMissing => base.pdfFontMissing;
+  String get pause => base.pause;
 
   @override
-  String get phoneLabel => base.phoneLabel;
+  String get pdfFontMissing => base.pdfFontMissing;
 
   @override
   String get photoAdded => base.photoAdded;
@@ -2044,19 +2038,10 @@ class ModeLocalizations implements AppLocalizations {
   String pinLabel(String pin) => base.pinLabel(pin);
 
   @override
-  String get planChooserAppointment => base.planChooserAppointment;
-
-  @override
-  String get planChooserChore => base.planChooserChore;
-
-  @override
-  String get planChooserReminder => base.planChooserReminder;
-
-  @override
-  String get planChooserTitle => base.planChooserTitle;
-
-  @override
   String get plannedSection => base.plannedSection;
+
+  @override
+  String get play => base.play;
 
   @override
   String get posterFrameHint => base.posterFrameHint;
@@ -2068,13 +2053,7 @@ class ModeLocalizations implements AppLocalizations {
   String get posterHeadline => base.posterHeadline;
 
   @override
-  String get posterLastSeen => base.posterLastSeen;
-
-  @override
   String get posterMenu => base.posterMenu;
-
-  @override
-  String get posterPhoto => base.posterPhoto;
 
   @override
   String get posterPhotos => base.posterPhotos;
@@ -2209,13 +2188,16 @@ class ModeLocalizations implements AppLocalizations {
   String get reminderLabel => base.reminderLabel;
 
   @override
+  String get reminderSound => base.reminderSound;
+
+  @override
+  String get reminderSoundSubtitle => base.reminderSoundSubtitle;
+
+  @override
   String get removeReminderLabel => base.removeReminderLabel;
 
   @override
   String get removeThisValue => base.removeThisValue;
-
-  @override
-  String get removeTrust => base.removeTrust;
 
   @override
   String get rename => base.rename;
@@ -2308,9 +2290,6 @@ class ModeLocalizations implements AppLocalizations {
   String get scanShareLabel => base.scanShareLabel;
 
   @override
-  String get scrubFrames => base.scrubFrames;
-
-  @override
   String get searchByNameHint => pets ? base.searchByNameHintNeutral : base.searchByNameHint;
 
   @override
@@ -2330,6 +2309,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get searchPlaceHint => base.searchPlaceHint;
+
+  @override
+  String get secondBack => base.secondBack;
+
+  @override
+  String get secondForward => base.secondForward;
 
   @override
   String get seenHereNow => base.seenHereNow;
@@ -2354,9 +2339,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get shareAsPdf => base.shareAsPdf;
-
-  @override
-  String get shareAsText => base.shareAsText;
 
   @override
   String get shareBundle => base.shareBundle;
@@ -2417,6 +2399,36 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get sortOldestFirst => base.sortOldestFirst;
+
+  @override
+  String get soundChorus => base.soundChorus;
+
+  @override
+  String get soundMeep => base.soundMeep;
+
+  @override
+  String get soundMrrp => base.soundMrrp;
+
+  @override
+  String get soundMrrr => base.soundMrrr;
+
+  @override
+  String get soundOwn => base.soundOwn;
+
+  @override
+  String get soundParty => base.soundParty;
+
+  @override
+  String get soundPurr => base.soundPurr;
+
+  @override
+  String get soundSonneMiau => base.soundSonneMiau;
+
+  @override
+  String get soundSonnePurr => base.soundSonnePurr;
+
+  @override
+  String get soundsSection => base.soundsSection;
 
   @override
   String get sourceCode => base.sourceCode;
@@ -2689,9 +2701,6 @@ class ModeLocalizations implements AppLocalizations {
   String streakDays(int n) => base.streakDays(n);
 
   @override
-  String get suggestedFrames => base.suggestedFrames;
-
-  @override
   String get summaryAdopted => base.summaryAdopted;
 
   @override
@@ -2764,9 +2773,6 @@ class ModeLocalizations implements AppLocalizations {
   String get syncFolderNow => base.syncFolderNow;
 
   @override
-  String syncMerged(int count, String authors) => base.syncMerged(count, authors);
-
-  @override
   String get syncNow => base.syncNow;
 
   @override
@@ -2782,9 +2788,6 @@ class ModeLocalizations implements AppLocalizations {
   String get syncRunning => base.syncRunning;
 
   @override
-  String get syncShow => base.syncShow;
-
-  @override
   String get syncSummaryTitle => base.syncSummaryTitle;
 
   @override
@@ -2797,10 +2800,10 @@ class ModeLocalizations implements AppLocalizations {
   String get syncWrongHost => base.syncWrongHost;
 
   @override
-  String syncedResult(String result) => base.syncedResult(result);
+  String get systemDefault => base.systemDefault;
 
   @override
-  String get systemDefault => base.systemDefault;
+  String get takeOffList => base.takeOffList;
 
   @override
   String get takePhoto => base.takePhoto;
@@ -2816,6 +2819,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get targetRegistryNumber => base.targetRegistryNumber;
+
+  @override
+  String get tenSecondsBack => base.tenSecondsBack;
+
+  @override
+  String get tenSecondsForward => base.tenSecondsForward;
 
   @override
   String get thisIsProfileImage => base.thisIsProfileImage;
@@ -2897,18 +2906,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get trustBothWaysNote => base.trustBothWaysNote;
-
-  @override
-  String trustQuestion(Object author, Object device) => base.trustQuestion(author, device);
-
-  @override
-  String get trustedDevicesSection => base.trustedDevicesSection;
-
-  @override
-  String typeTheName(String name) => base.typeTheName(name);
-
-  @override
-  String typeToConfirm(Object name) => base.typeToConfirm(name);
 
   @override
   String get typeUnitValue => base.typeUnitValue;
@@ -3073,6 +3070,48 @@ class ModeLocalizations implements AppLocalizations {
   String get viewAsTiles => base.viewAsTiles;
 
   @override
+  String get weekdayFri => base.weekdayFri;
+
+  @override
+  String get weekdayFullFri => base.weekdayFullFri;
+
+  @override
+  String get weekdayFullMon => base.weekdayFullMon;
+
+  @override
+  String get weekdayFullSat => base.weekdayFullSat;
+
+  @override
+  String get weekdayFullSun => base.weekdayFullSun;
+
+  @override
+  String get weekdayFullThu => base.weekdayFullThu;
+
+  @override
+  String get weekdayFullTue => base.weekdayFullTue;
+
+  @override
+  String get weekdayFullWed => base.weekdayFullWed;
+
+  @override
+  String get weekdayMon => base.weekdayMon;
+
+  @override
+  String get weekdaySat => base.weekdaySat;
+
+  @override
+  String get weekdaySun => base.weekdaySun;
+
+  @override
+  String get weekdayThu => base.weekdayThu;
+
+  @override
+  String get weekdayTue => base.weekdayTue;
+
+  @override
+  String get weekdayWed => base.weekdayWed;
+
+  @override
   String get welcomeBody => base.welcomeBody;
 
   @override
@@ -3086,6 +3125,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get writeTheDeveloper => base.writeTheDeveloper;
+
+  @override
+  String get yesterday => base.yesterday;
 
   @override
   String get yourKey => base.yourKey;

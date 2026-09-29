@@ -31,6 +31,13 @@ bool isSharedSetting(String key) =>
     key.startsWith('tls:') ||
     key == 'introSeen' ||
     key == 'celebrations' ||
+    // One device, one notification sound: the switch drives every
+    // catalog's chore reminders, so it may not live in one of them.
+    key == 'reminderCatSound' ||
+    // The sound of a moment sits beside the app-wide celebrations
+    // switch, and its own file is kept once per moment for the device.
+    key.startsWith('sound:') ||
+    key == 'soundsFromCelebrations' ||
     key == 'windowBounds' ||
     key.startsWith('spot:') ||
     key.startsWith('spot2:') ||
@@ -69,11 +76,16 @@ class ActiveReminder {
   /// The flagged entry itself; [due] is its effective date.
   final Entry entry;
 
+  /// The fact that ticked the plan today, from [CatalogStore.remindersDoneToday];
+  /// null while the plan is live.
+  final Entry? doneBy;
+
   const ActiveReminder(
       {required this.entity,
       required this.field,
       required this.value,
-      required this.entry});
+      required this.entry,
+      this.doneBy});
 
   /// Entry dates are stored as UTC instants; the due DAY is a local
   /// notion — without toLocal a midnight due date reads as the
@@ -114,6 +126,11 @@ class CatalogStore {
   SharedSettings? shared;
 
   CatalogStore._(this._db, this._blobs);
+
+  /// Where the store reads the wall clock for [Entry.recorded] and for
+  /// moments. Tools that need a reproducible log — the fixture corpus
+  /// the desktop core is tested against — swap it for a fixed clock.
+  static DateTime Function() clock = DateTime.now;
 
   /// Opens an on-disk catalog, creating it if needed. Image blobs go to an
   /// `images` directory next to the database file.
@@ -393,6 +410,7 @@ class CatalogStore {
     );
     if (field == Keys.mergedInto) _mergeTargetsCache = null;
     _noteVoid(field);
+    onLocalChange?.call();
   }
 
   // ---------------------------------------------------------------- voids
@@ -494,8 +512,12 @@ class CatalogStore {
         'ALTER TABLE entries ADD COLUMN reminder INTEGER NOT NULL DEFAULT 0');
   }
 
+  /// Makes the ids of chores and appointments; the fixture generator
+  /// replaces it with a counter so the corpus is the same on every run.
+  static String Function() idMaker = _uuid;
+
   /// A fresh id for an appointment key (#75).
-  String newAppointmentId() => _uuid();
+  String newAppointmentId() => idMaker();
 
   /// Runs [body] as one SQLite transaction: all of its writes land, or
   /// none do — a kill halfway through a move or a merge must not leave
@@ -554,7 +576,13 @@ class CatalogStore {
   /// folder paths, …).
   String? localSetting(String key) {
     final s = shared;
-    if (s != null && isSharedSetting(key)) return s.get(key);
+    if (s != null && isSharedSetting(key)) {
+      final value = s.get(key);
+      // A key that became app-wide in a later release still sits in the
+      // catalog it was set in: it is read there until it is set again,
+      // so nobody's choice is quietly replaced by the default.
+      if (value != null) return value;
+    }
     final rows = _db
         .select('SELECT value FROM local_settings WHERE key = ?', ['u:$key']);
     return rows.isEmpty ? null : rows.first['value'] as String;
@@ -730,6 +758,18 @@ class CatalogStore {
 
   /// Records that dseqs up to [dseq] of [device] were seen-and-discarded,
   /// so the merged version vector advances past banned rows.
+  static const _historyGenerationKey = 'historyGeneration';
+
+  /// How many times rows were physically removed from this store — going
+  /// back, hard delete, keep mine. The folder's manifest carries it, so
+  /// a reader knows when the segments were rewritten (ADR-0010).
+  int get historyGeneration =>
+      int.tryParse(localSetting(_historyGenerationKey) ?? '') ?? 0;
+
+  /// Told after every entry this device writes itself: the folder
+  /// publisher gathers a few seconds of them into one write.
+  void Function()? onLocalChange;
+
   void _recordDiscarded(String device, int dseq) {
     final key = 'banvector:$device';
     final current = int.tryParse(localSetting(key) ?? '') ?? 0;
@@ -766,7 +806,7 @@ class CatalogStore {
       {DateTime? date, String? as, bool reminder = false}) {
     final by = as ?? author;
     if (by == null) throw StateError('No author configured');
-    final now = DateTime.now().toUtc();
+    final now = clock().toUtc();
     final device = deviceId;
     final next = _nextDseq(device);
     _insertOwn(
@@ -1020,6 +1060,46 @@ class CatalogStore {
         if (e.reminder && e.value != null && !isDeleted(entity))
           ActiveReminder(
               entity: entity, field: field, value: e.value!, entry: e)
+    ];
+    result.sort((a, b) => a.due.compareTo(b.due));
+    return result;
+  }
+
+  /// The plans ticked today: for every (entity, field) pair whose newest
+  /// entry by append order is a plain fact dated today, and the entry
+  /// appended before it was a live plan with the same value, that plan
+  /// with [ActiveReminder.doneBy] set to the fact. The agenda keeps
+  /// them for the day, box checked, like a chore ticked today; voiding
+  /// the fact makes the plan live again.
+  List<ActiveReminder> remindersDoneToday(DateTime today) {
+    final rows = _db.select(
+      'SELECT * FROM entries WHERE 1 $_live '
+      'ORDER BY recorded DESC, author DESC, device DESC, dseq DESC',
+    );
+    final newest = <(String, String), List<Entry>>{};
+    for (final r in rows) {
+      final e = _entry(r);
+      if (!_unionKind(e.entity)) continue;
+      final key = (resolveEntity(e.entity), canonicalKey(e.field));
+      final pair = newest.putIfAbsent(key, () => []);
+      if (pair.length < 2) pair.add(e);
+    }
+    final result = <ActiveReminder>[
+      for (final MapEntry(key: (String entity, String field), value: pair)
+          in newest.entries)
+        if (pair.length == 2 && !isDeleted(entity))
+          if ((pair[0], pair[1]) case (final fact, final plan)
+              when !fact.reminder &&
+                  fact.value != null &&
+                  plan.reminder &&
+                  plan.value == fact.value &&
+                  sameLocalDay(fact.date, today))
+            ActiveReminder(
+                entity: entity,
+                field: field,
+                value: plan.value!,
+                entry: plan,
+                doneBy: fact)
     ];
     result.sort((a, b) => a.due.compareTo(b.due));
     return result;
@@ -1541,7 +1621,7 @@ class CatalogStore {
     final mark = seq == null || seq > now ? now : seq;
     _db.execute(
       'INSERT INTO moments (seq, cause, label, at) VALUES (?, ?, ?, ?)',
-      [mark, cause, label, _iso(at ?? DateTime.now())],
+      [mark, cause, label, _iso(at ?? clock())],
     );
     return _db.lastInsertRowId;
   }
@@ -1619,6 +1699,9 @@ class CatalogStore {
       for (final r in removed) {
         _recordDiscarded(r['device'] as String, r['m'] as int);
       }
+      // The history shrank: what the folder holds of it is rewritten
+      // from the start on the next publish (ADR-0010).
+      setLocalSetting(_historyGenerationKey, '${historyGeneration + 1}');
       _db.execute('COMMIT');
     } catch (_) {
       _db.execute('ROLLBACK');
@@ -2681,4 +2764,11 @@ class _MemoryBlobStore implements _BlobStore {
     }
     return (bytes, _blobs.length);
   }
+}
+
+/// Whether two instants fall on the same local day.
+bool sameLocalDay(DateTime a, DateTime b) {
+  final x = a.toLocal();
+  final y = b.toLocal();
+  return x.year == y.year && x.month == y.month && x.day == y.day;
 }

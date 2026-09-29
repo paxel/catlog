@@ -7,6 +7,8 @@ import 'package:catlog/src/restore_backups.dart';
 import 'package:catlog/src/screens/restore_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'notes_helper.dart';
 import 'package:image/image.dart' as img;
 
 /// After a reinstall the backups of the install before come back as
@@ -166,7 +168,7 @@ void main() {
     expect(done, 1);
     expect(first!.name, 'Paris');
     expect(catalogs.catalogs().map((c) => c.name), ['Berlin', 'Paris']);
-    expect(find.text('1 catalog restored.'), findsOneWidget);
+    expect(notesSaid(), ['1 catalog restored.']);
   });
 
   testWidgets('an empty folder on a fresh start is done at once', (

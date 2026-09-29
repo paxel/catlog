@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import '../auto_backup.dart';
 import '../help.dart';
 import '../l10n.dart';
+import '../move_to_catalog.dart';
+import '../notes.dart';
 import '../pet_mode.dart';
 import '../titles.dart';
 import 'archive_screen.dart';
@@ -100,6 +102,8 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       context,
       context.t.rename,
       initial: catalog.name,
+      taken: (n) => n.toLowerCase() != catalog.name.toLowerCase() &&
+          widget.catalogs.nameTaken(n),
     );
     if (name == null || !mounted) return;
     try {
@@ -115,10 +119,8 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       }
       _changed();
     } on DuplicateCatalogName {
-      if (!mounted) return;
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(context.t.catalogNameTaken(name))));
+      // Checked in the dialog; a name taken meanwhile still lands here.
+      if (mounted) noteFailed(context.t.catalogNameTaken(name));
     }
   }
 
@@ -140,8 +142,7 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
     final t = context.t;
     final catalog = _catalog;
     if (_isActive) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.switchBeforeDeleting)));
+      noteFailed(t.switchBeforeDeleting);
       return;
     }
     final confirmed = await showDialog<bool>(
@@ -171,19 +172,62 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       if (!mounted) return;
       // The page's catalog is gone; the switcher shows what is left and
       // where the file went.
-      final messenger = ScaffoldMessenger.of(context);
       Navigator.of(context).pop();
-      messenger.showSnackBar(
-        SnackBar(content: Text(t.catalogDeleted(catalog.name, where))),
-      );
+      noteDone(t.catalogDeleted(catalog.name, where));
     } catch (e) {
       if (!mounted) return;
       // Nothing was deleted: the file has to exist before the catalog
       // stops existing.
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.catalogExportFailed('$e'))));
+      noteFailed(t.catalogExportFailed('$e'), detail: '$e');
     } finally {
       if (mounted && !_closed) setState(() => _deleting = false);
+    }
+  }
+
+  /// Moves cats and clowders from another catalog into this one: the
+  /// source drops down from the row when there is a choice, then the
+  /// picker. Their catalog loses them the ordinary way.
+  Future<void> _moveIn(BuildContext row) async {
+    final t = context.t;
+    final others = [
+      for (final c in widget.catalogs.catalogs())
+        if (c.id != widget.catalog.id) c
+    ];
+    if (others.isEmpty) return;
+    // One other catalog needs no choosing; `single` on a longer list
+    // throws, and the throw died unseen in this async tap — the entry
+    // simply did nothing with three catalogs or more.
+    CatalogInfo? source = others.first;
+    if (others.length > 1) {
+      final box = row.findRenderObject() as RenderBox;
+      final at = box.localToGlobal(Offset(0, box.size.height));
+      source = await showMenu<CatalogInfo>(
+        context: context,
+        position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+        items: [
+          for (final c in others)
+            PopupMenuItem(
+              value: c,
+              child: ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.folder_outlined),
+                title: Text(c.name),
+              ),
+            ),
+        ],
+      );
+    }
+    if (source == null || !mounted) return;
+    final own = source.id != widget.catalogs.active.id;
+    final from = own ? widget.catalogs.openStore(source) : widget.activeStore();
+    try {
+      final chosen = await pickWhatToMove(context, from);
+      if (chosen == null || chosen.isEmpty || !mounted) return;
+      final count = transferEntities(from, _store, chosen).moved.length;
+      noteDone(t.movedToCatalog(count, _catalog.name));
+      _changed();
+    } finally {
+      if (own) from.close();
     }
   }
 
@@ -292,6 +336,14 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
             ),
             onTap: () => _push(ArchiveScreen(store: _store)),
           ),
+          if (widget.catalogs.catalogs().length > 1)
+            Builder(
+              builder: (row) => ListTile(
+                leading: const Icon(Icons.drive_file_move_outline),
+                title: Text(t.moveInFromCatalog),
+                onTap: _deleting ? null : () => _moveIn(row),
+              ),
+            ),
           ListTile(
             leading: const Icon(Icons.history),
             title: Text(t.goBackTitle),

@@ -64,9 +64,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pickerCardFields => 'Kartta';
 
   @override
-  String get exportCsv => 'CSV dışa aktar';
-
-  @override
   String get aboutAndFeedback => 'Hakkında ve geri bildirim';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get save => 'Kaydet';
 
   @override
+  String get clearField => 'Temizle';
+
+  @override
   String get delete => 'Sil';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get open => 'Aç';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV şuraya kaydedildi: $path';
-  }
 
   @override
   String get renameClowder => 'Clowder\'ı yeniden adlandır';
@@ -180,9 +175,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sortNewestFirst => 'Önce en yeni';
 
   @override
-  String get shareAsText => 'Metin olarak paylaş';
-
-  @override
   String get shareAsPdf => 'PDF olarak paylaş';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Evcil hayvan tüm listelerden kaybolur ve fotoğrafları silinir — burada ve bir sonraki eşitlemeden sonra diğer cihazlarda da.';
 
   @override
-  String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
-
-  @override
-  String get noLocationAvailable =>
-      'Konum alınamadı — bunun yerine haritaya uzun basın.';
-
-  @override
   String get locationDeniedForever =>
       'Konum erişimi engellendi. Stray Cam kullanmak için sistem ayarlarından izin verin.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get captureFlier => 'İlanı fotoğrafla';
+
+  @override
+  String get flierFromCamera => 'Kameradan ilan';
+
+  @override
+  String get flierFromGallery => 'Galeriden ilan';
 
   @override
   String get addPhotosTo => 'Fotoğrafları şuna ekle…';
@@ -355,13 +346,34 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pickFramesTitle => 'Kare seç';
 
   @override
-  String get suggestedFrames => 'Önerilen kareler';
-
-  @override
-  String get scrubFrames => 'Videoda gezin';
-
-  @override
   String get keepThisFrame => 'Bu kareyi tut';
+
+  @override
+  String get frameBack => 'Bir kare geri';
+
+  @override
+  String get frameForward => 'Bir kare ileri';
+
+  @override
+  String get secondBack => 'Bir saniye geri';
+
+  @override
+  String get secondForward => 'Bir saniye ileri';
+
+  @override
+  String get tenSecondsBack => 'On saniye geri';
+
+  @override
+  String get tenSecondsForward => 'On saniye ileri';
+
+  @override
+  String get play => 'Oynat';
+
+  @override
+  String get pause => 'Duraklat';
+
+  @override
+  String get keptFrames => 'Tutulan kareler burada görünür';
 
   @override
   String get fromVideo => 'Videodan…';
@@ -446,9 +458,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Kayıp tarihi';
-
-  @override
-  String get phoneLabel => 'Telefon';
 
   @override
   String get cropPortrait => 'Portreyi kırp';
@@ -564,16 +573,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field temizlendi';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field \"$value\" değerine döndü';
-  }
-
-  @override
   String get leftStray => 'Ayrıldı — sokak kedisi';
 
   @override
@@ -617,9 +616,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get value => 'Değer';
-
-  @override
-  String get latitudeLongitude => 'enlem, boylam';
 
   @override
   String get newField => 'Yeni alan';
@@ -689,11 +685,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get stopHosting => 'Sunmayı durdur';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Şimdiye kadar $count oturum';
   }
@@ -702,34 +693,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get join => 'Katıl';
 
   @override
-  String get addressFromHost => 'Adres (sunucu cihazdan)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Şimdi eşitle';
 
   @override
-  String get addressFormatHint => 'Adres şöyle görünmeli: 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Eşitlendi: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Eşitleme başarısız: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return '$peer ile son eşitleme: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Ortak klasör';
 
   @override
   String get sharedFolderExplainer =>
@@ -757,11 +729,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'İki cihazın aynı tuttuğu herhangi bir klasör yeter: bir bulut sürücüsü ya da telefonlarınızda kalan bir klasör için Syncthing. Syncthing ücretsizdir: her telefona kur, aralarında bir klasörü paylaş ve o klasörü burada her cihazda seç.';
 
   @override
-  String folderSynced(String result) {
-    return 'Klasör eşitlendi: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Klasör eşitleme başarısız: $error';
   }
@@ -783,15 +750,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'İz: $name ($count konum)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Çakışma — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Aynı anda iki yerde değiştirildi. Doğru olanı seçin:';
 
   @override
   String privateMarker(Object field) {
@@ -1214,7 +1172,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Her değişiklik, en yenisi önce: kim, ne zaman ve hangi değere. Düzeltmek için bir kayda dokunun, kaldırmak veya geri getirmek için basılı tutun; gizli bir kayıt günlükte kalır ve istendiğinde gösterilir.';
+      'Şimdiye kadar yapılan her değişiklik, en yenisi önce: kim neyi, ne zaman, hangi değere değiştirdi. Düzeltmek için bir kayda dokunun, çöp kutusu onu kaldırır, ok gizli olanı geri getirir; gizli kayıt günlükte kalır ve istendiğinde gösterilir.';
 
   @override
   String get helpDuplicates =>
@@ -1405,17 +1363,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get copyCode => 'Kodu kopyala';
 
   @override
-  String get copied => 'Kopyalandı';
-
-  @override
   String get invalidCode => 'Bu kod geçersiz';
-
-  @override
-  String get hotspotHint =>
-      'Ortak Wi-Fi yok mu? Bir telefonun erişim noktasını aç, diğerini bağla, sonra burada sun.';
-
-  @override
-  String get byMessenger => 'Mesajlaşma ile';
 
   @override
   String get byMessengerExplainer =>
@@ -1426,11 +1374,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importBundle => 'Eşitleme paketini içe aktar…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paket içe aktarıldı: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1865,9 +1808,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get valueFerret => 'Gelincik';
 
   @override
-  String get otherOption => 'Diğer…';
-
-  @override
   String get celebrationsToggle => 'Sahiplendirmeleri kutla';
 
   @override
@@ -1875,11 +1815,41 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bir kedi yuvasına taşındığında konfeti ve tezahürat';
 
   @override
-  String get cheerToggle => 'Tezahürat sesi';
+  String get soundsSection => 'Sesler';
 
   @override
-  String get cheerSubtitle =>
-      'Konfetiyle kısa bir tezahürat, her seferinde farklı';
+  String get reminderSound => 'Hatırlatmalarda kedi sesi';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Bir görevin hatırlatması telefonun sesi yerine Mrrr der.';
+
+  @override
+  String get soundPurr => 'Mırıltı';
+
+  @override
+  String get soundChorus => 'Miyav korosu';
+
+  @override
+  String get soundParty => 'Kutlama miyavı';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Kendi sesin…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1918,11 +1888,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Bu yazarın her şeyini sil';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return '$name tarafından yazılan her kaydı ve fotoğrafı bu cihazdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
-  }
 
   @override
   String get yourKey => 'Anahtarın';
@@ -1982,11 +1947,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Onaylamak için $name yazın';
-  }
-
-  @override
   String get alsoBan => 'Ayrıca yasakla — bir daha asla veri kabul etme';
 
   @override
@@ -1994,9 +1954,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unbanAction => 'Yasağı kaldır';
-
-  @override
-  String get deletedDone => 'Silindi.';
 
   @override
   String get syncSummaryTitle => 'Ne geldi';
@@ -2039,23 +1996,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get keepMine => 'Benimkini koru';
 
   @override
-  String keptMine(String name) {
-    return '$name için senin sürümün bu cihazda kaldı.';
-  }
-
-  @override
   String get summaryMeta => 'Ayrıca gelenler';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n değişiklik',
-      one: '1 değişiklik',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Kabul et';
@@ -2200,30 +2141,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Önce bir Wi-Fi\'ye bağlanın — cihazlar birbirini o zaman bulur';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return '$author ($device) eşitlemek istiyor';
-  }
-
-  @override
   String get trustBothWaysNote => 'Kataloglarınız iki yönde de değiştirilecek.';
 
   @override
   String get allowOnce => 'İzin ver';
 
   @override
-  String get allowAlways => 'Bu cihaza her zaman izin ver';
-
-  @override
-  String get declineAction => 'Reddet';
-
-  @override
   String get syncDeclined => 'Diğer cihaz eşitlemeyi reddetti';
-
-  @override
-  String get trustedDevicesSection => 'Her zaman izinli cihazlar';
-
-  @override
-  String get removeTrust => 'Kaldır';
 
   @override
   String get hostWithoutWifi => 'Wi-Fi olmadan barındır';
@@ -2296,7 +2220,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Bu menüde: ayarlar, yinelenen kayıtları bul ve birleştir, CSV dışa aktar ve daha fazlası.';
+      'Bu menüde: ayarlar, yinelenen kayıtları bul ve birleştir ve daha fazlası.';
 
   @override
   String get spotCatEdit =>
@@ -2372,9 +2296,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotReplaySubtitle => 'İpuçlarını her sayfada yeniden göster';
-
-  @override
-  String get spotReplayDone => 'İpuçları yeniden gösterilecek';
 
   @override
   String get searchNoResults => 'Bu isimde kedi bulunamadı';
@@ -2505,17 +2426,15 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return '$name yaz';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Hiçbir şey silinmedi: katalog dosyası yazılamadı ($error). Yer aç ya da daha sonra yeniden dene.';
   }
 
   @override
   String get moveToCatalog => 'Başka bir kataloğa taşı';
+
+  @override
+  String get moveInFromCatalog => 'Başka bir katalogdan buraya taşı…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2618,9 +2537,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get agenda => 'Ajanda';
 
   @override
-  String get reminderLabel => 'Hatırlatma';
-
-  @override
   String get agendaEmpty =>
       'Planlanmış randevu yok. Yenilerini burada artı ile ya da bir kedinin veya clowder\'ın sayfasında planla.';
 
@@ -2657,6 +2573,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get markDone => 'Yapıldı';
 
   @override
+  String get takeOffList => 'Listeden kaldır';
+
+  @override
   String get repeatTitle => 'Tekrar…';
 
   @override
@@ -2664,6 +2583,51 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unitDays => 'gün sonra';
+
+  @override
+  String get yesterday => 'Dün';
+
+  @override
+  String get weekdayMon => 'Pzt';
+
+  @override
+  String get weekdayTue => 'Sal';
+
+  @override
+  String get weekdayWed => 'Çar';
+
+  @override
+  String get weekdayThu => 'Per';
+
+  @override
+  String get weekdayFri => 'Cum';
+
+  @override
+  String get weekdaySat => 'Cmt';
+
+  @override
+  String get weekdaySun => 'Paz';
+
+  @override
+  String get weekdayFullMon => 'Pazartesi';
+
+  @override
+  String get weekdayFullTue => 'Salı';
+
+  @override
+  String get weekdayFullWed => 'Çarşamba';
+
+  @override
+  String get weekdayFullThu => 'Perşembe';
+
+  @override
+  String get weekdayFullFri => 'Cuma';
+
+  @override
+  String get weekdayFullSat => 'Cumartesi';
+
+  @override
+  String get weekdayFullSun => 'Pazar';
 
   @override
   String get unitWeeks => 'hafta sonra';
@@ -2700,9 +2664,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Takvim dosyası $path konumuna kaydedildi';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Cihaz takvimine yansıt';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2787,11 +2748,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve kart gün sonuna kadar işaretli kalır; bir sonrakini, örneğin üç ay sonrasına planlamak için karta dokun. Basılı tutmak tarihi değiştirir; çöp kutusu randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
 
   @override
   String get helpAgendaNeutral =>
-      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve kart gün sonuna kadar işaretli kalır; bir sonrakini, örneğin üç ay sonrasına planlamak için karta dokun. Basılı tutmak tarihi değiştirir; çöp kutusu randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.';
 
   @override
   String get calendarRowOff => 'Takvim: kapalı';
@@ -2824,21 +2785,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get appointmentLabel => 'Randevu';
 
   @override
+  String get reminderLabel => 'Hatırlatma';
+
+  @override
   String get addAppointment => 'Randevu ekle';
-
-  @override
-  String get planChooserTitle => 'Randevu mu, hatırlatma mı?';
-
-  @override
-  String get planChooserAppointment =>
-      'Randevu — bir tarih ve saatte ziyaret, notlarla';
-
-  @override
-  String get planChooserReminder =>
-      'Hatırlatma — bir gün vadesi gelen bir değer';
-
-  @override
-  String get planChooserChore => 'Görev — tekrar eden bir iş: mama, damla, kum';
 
   @override
   String get newChore => 'Yeni görev';
@@ -3096,14 +3046,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get achievementCentury => 'Tam bir yüzyıl';
 
   @override
-  String get achievementCenturyHint => 'İkimiz de çok gurur duyacağız.';
-
-  @override
-  String achievementMaster(String title) {
-    return '$title ustası';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3113,14 +3055,6 @@ class AppLocalizationsTr extends AppLocalizations {
     );
     return '$_temp0, ilki $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'Sonraki: $n';
-  }
-
-  @override
-  String get achievementLocked => 'Henüz değil';
 
   @override
   String achievementUnlocked(String name) {
@@ -3442,16 +3376,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Lütfen bodrumları, kulübeleri ve garajları kontrol edin. Kovalamayın, sadece arayın.';
 
   @override
-  String get posterLastSeen => 'Son görüldüğü yer';
-
-  @override
   String get posterFreeText => 'Ek satır';
 
   @override
   String get posterQr => 'cat(a)log için QR kodu';
-
-  @override
-  String get posterPhoto => 'Fotoğraf';
 
   @override
   String get newCatIn => 'Şuraya yeni kedi…';
@@ -3460,10 +3388,26 @@ class AppLocalizationsTr extends AppLocalizations {
   String get newCatInNeutral => 'Şuraya yeni evcil hayvan…';
 
   @override
+  String get newCatHere => 'Buraya yeni kedi';
+
+  @override
+  String get newCatHereNeutral => 'Buraya yeni evcil hayvan';
+
+  @override
   String get choreLabel => 'Görev';
 
   @override
   String get choreTickLabel => 'Görev yapıldı';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title yapıldı';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return '$day için';
+  }
 
   @override
   String get choreEnded => 'Sona erdi';
@@ -3497,8 +3441,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get coverPick => 'Kapak resmi…';
 
   @override
-  String get coverHint =>
-      'Yerin bir resmi: ev, avlu, besleme noktası. Kartta kedi yerine gösterilir.';
+  String get coverLabel => 'Clowder\'ın bir fotoğrafı';
+
+  @override
+  String get coverLabelNeutral => 'Hanenin bir fotoğrafı';
+
+  @override
+  String get coverLabelStrays => 'Sokak kedileri için bir fotoğraf';
 
   @override
   String get coverRemove => 'Kapak resmini kaldır';
@@ -3516,7 +3465,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Düzeltmek veya kaldırmak için bir değeri basılı tutun. Hiçbir şey kaybolmaz; gizli değerler istendiğinde gösterilir.';
+      'Düzeltmek için bir değere dokunun, çöp kutusu onu kaldırır. Hiçbir şey kaybolmaz; gizli değerler istendiğinde gösterilir.';
 
   @override
   String get spotBackups =>
@@ -3536,7 +3485,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Bir alanın zaman içindeki değerleri, en yenisi önce. Düzeltmek için bir değere dokunun: yenisi yerini alır, eskisi gizlenir. Kaldırmak veya gizli bir değeri geri getirmek için basılı tutun; göz gizli değerleri gösterir. Listeyi metin olarak kopyalayın veya PDF olarak paylaşın.';
+      'Bir alanın zaman içindeki değerleri, en yenisi önce. Düzeltmek için bir değere dokunun: yenisi onun yerini alır, eskisi gizlenir. Çöp kutusu bir değeri kaldırır, ok gizli olanı geri getirir; göz gizli değerleri gösterir. Listeyi metin olarak kopyalayın veya PDF olarak paylaşın.';
 
   @override
   String get helpSettings =>
@@ -3630,20 +3579,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get syncAnotherDevice => 'başka bir cihaz';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$authors kaynaklı $count değişiklik birleştirildi',
-      one: '$authors kaynaklı $count değişiklik birleştirildi',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Göster';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3653,12 +3588,6 @@ class AppLocalizationsTr extends AppLocalizations {
     );
     return '$_temp0, ilki $date';
   }
-
-  @override
-  String get syncRunning => 'Klasörle eşitleniyor…';
-
-  @override
-  String get syncDismiss => 'Şimdi değil';
 
   @override
   String flierHidden(int count) {
@@ -3673,4 +3602,96 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get undo => 'Geri al';
+
+  @override
+  String noteSyncDone(String authors) {
+    return '$authors ile eşitlendi. Gelenleri görmek için dokunun.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Eşitlendi. Yeni bir şey yok.';
+
+  @override
+  String get noteSyncFailed =>
+      'Eşitleme başarısız oldu. Ayrıntılar için dokunun.';
+
+  @override
+  String get failureReport => 'Bildir';
+
+  @override
+  String failureOpenPage(String page) {
+    return '$page sayfasını aç';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — $count× yapıldı, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title $count× yapıldı';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n daha';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Paylaşılan klasöre $since itibarıyla ulaşılamıyor. Ayrıntılar için dokunun.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return '$names değişikliklerinizi görmek için hâlâ yeni sürüme ihtiyaç duyuyor.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Klasör eşitlendi: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paket içe aktarıldı: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
+
+  @override
+  String get deletedDone => 'Silindi.';
+
+  @override
+  String get spotReplayDone => 'İpuçları yeniden gösterilecek';
+
+  @override
+  String get syncRunning => 'Klasörle eşitleniyor…';
+
+  @override
+  String get copied => 'Kopyalandı';
+
+  @override
+  String get sharedFolder => 'Ortak klasör';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Şimdi değil';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n değişiklik',
+      one: '1 değişiklik',
+    );
+    return '$_temp0';
+  }
 }

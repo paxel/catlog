@@ -9,12 +9,16 @@ import 'package:share_plus/share_plus.dart';
 
 import '../help.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../layout.dart';
 import '../reminders/calendar_mirror.dart';
 import '../reminders/calendar_port.dart';
 import '../reminders/device_calendar_port.dart';
+import '../reminders/done_today.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/plan_chooser.dart';
+import '../reminders/reminder_dialog.dart';
+import '../chores/chore_dialog.dart';
+import '../widgets/add_fan.dart';
 import '../share.dart';
 import '../spotlight.dart';
 import '../reminders/appointment_dialog.dart';
@@ -68,11 +72,14 @@ class AppointmentItem extends AgendaItem {
   DateTime get when => appointment.start;
 }
 
-/// Everything open, both kinds, earliest first.
+/// Everything open, both kinds, earliest first — and what was ticked
+/// today, still in its place for the day.
 List<AgendaItem> agendaItems(CatalogStore store) {
   final items = <AgendaItem>[
     for (final r in store.activeReminders()) ReminderItem(r),
+    for (final r in doneRemindersToday(store)) ReminderItem(r),
     for (final g in store.openAppointmentGroups()) AppointmentItem(g),
+    for (final a in doneAppointmentsToday(store)) AppointmentItem([a]),
   ];
   items.sort((x, y) => x.when.compareTo(y.when));
   return items;
@@ -131,11 +138,25 @@ class _AgendaScreenState extends State<AgendaScreen> {
     mirrorAfterChange(context, store, port: widget.calendarPort);
   }
 
-  Future<void> _add() async {
-    if (await showPlanChooser(context, store) && mounted) {
-      _changed();
-      refreshChoreReminders(store, body: _reminderBody);
-    }
+  /// One of the three kinds of plan, straight into its editor; whose
+  /// it is is the editor's first field.
+  Future<void> _addAppointment() async {
+    final saved = await showAppointmentDialog(context, store);
+    if (saved != null && mounted) _added();
+  }
+
+  Future<void> _addReminder() async {
+    if (await showAddReminder(context, store) && mounted) _added();
+  }
+
+  Future<void> _addChore() async {
+    final saved = await showChoreDialog(context, store);
+    if (saved != null && mounted) _added();
+  }
+
+  void _added() {
+    _changed();
+    refreshChoreReminders(store, body: _reminderBody);
   }
 
   Future<void> _openEntity(String id) async {
@@ -186,15 +207,11 @@ class _AgendaScreenState extends State<AgendaScreen> {
       final file = File('${dir.path}/catlog.ics');
       await file.writeAsString(ics);
       if (!mounted) return;
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(context.t.icsSavedTo(file.path))));
+      noteDone(context.t.icsSavedTo(file.path));
     }
   }
 
-  void _say(String message) =>
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(message)));
+  void _say(String message) => noteFailed(message);
 
   /// Switching the mirror on: permission, then the user picks one of
   /// the device's writable calendars. Every refusal is named.
@@ -327,19 +344,20 @@ class _AgendaScreenState extends State<AgendaScreen> {
         title: Text(t.agenda),
         actions: [
           HelpButton(store: store, screenId: 'agenda'),
-          PopupMenuButton<String>(
-            onSelected: (v) {
-              if (v == 'ics') _exportIcs();
-              if (v == 'resync') {
-                resyncCalendarNow(context, store, port: widget.calendarPort);
-              }
-            },
-            itemBuilder: (context) => [
-              PopupMenuItem(value: 'ics', child: Text(t.exportIcs)),
-              if (calendarMirrorEnabled(store) && _calendarAvailable)
-                PopupMenuItem(value: 'resync', child: Text(t.resyncCalendar)),
-            ],
+          // The export as a button of its own; the resync beside it
+          // while the calendar mirror is on. No menu for one item.
+          IconButton(
+            icon: const Icon(Icons.ios_share),
+            tooltip: t.exportIcs,
+            onPressed: _exportIcs,
           ),
+          if (calendarMirrorEnabled(store) && _calendarAvailable)
+            IconButton(
+              icon: const Icon(Icons.sync),
+              tooltip: t.resyncCalendar,
+              onPressed: () =>
+                  resyncCalendarNow(context, store, port: widget.calendarPort),
+            ),
         ],
       ),
       body: ListView(
@@ -435,10 +453,25 @@ class _AgendaScreenState extends State<AgendaScreen> {
       ),
       floatingActionButton: Spotlight(
         id: 'agenda-add',
-        child: FloatingActionButton(
-          onPressed: _add,
+        child: AddFan(
           tooltip: t.addAppointment,
-          child: const Icon(Icons.add),
+          items: [
+            FanItem(
+              icon: Icons.event,
+              label: t.appointmentLabel,
+              onTap: _addAppointment,
+            ),
+            FanItem(
+              icon: Icons.alarm,
+              label: t.reminderLabel,
+              onTap: _addReminder,
+            ),
+            FanItem(
+              icon: Icons.checklist,
+              label: t.choreLabel,
+              onTap: _addChore,
+            ),
+          ],
         ),
       ),
     );

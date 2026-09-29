@@ -142,6 +142,14 @@ void main() {
       expect(find.textContaining('Miezi'), findsWidgets);
       expect(find.byType(ListTile), findsWidgets);
     });
+
+    testWidgets('a sighting in the timeline leads to the map', (tester) async {
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      expect(find.byTooltip('Show on map'), findsNothing);
+      store.recordPosition(cat, 52.52, 13.40);
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      expect(find.byTooltip('Show on map'), findsOneWidget);
+    });
   });
 
   group('the card', () {

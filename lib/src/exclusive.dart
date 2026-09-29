@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'notes.dart';
+
 /// Keys of the user flows running right now (#91). Buttons watch it to
 /// show they are busy instead of taking a second press.
 final ValueNotifier<Set<String>> busyFlows = ValueNotifier(const {});
@@ -23,10 +25,7 @@ Future<T?> runExclusive<T>(
   try {
     return await body();
   } on PlatformException catch (e) {
-    if (e.code != 'already_active' && context != null && context.mounted) {
-      ScaffoldMessenger.maybeOf(context)
-          ?.showSnackBar(SnackBar(content: Text(e.message ?? e.code)));
-    }
+    if (e.code != 'already_active') noteFailed(e.message ?? e.code);
     return null;
   } finally {
     busyFlows.value = {...busyFlows.value}..remove(key);

@@ -64,9 +64,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get pickerCardFields => 'Ar an gcárta';
 
   @override
-  String get exportCsv => 'Easpórtáil CSV';
-
-  @override
   String get aboutAndFeedback => 'Maidir leis & aiseolas';
 
   @override
@@ -91,6 +88,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get save => 'Sábháil';
 
   @override
+  String get clearField => 'Glan';
+
+  @override
   String get delete => 'Scrios';
 
   @override
@@ -101,11 +101,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get open => 'Oscail';
-
-  @override
-  String csvSavedTo(String path) {
-    return 'CSV sábháilte in $path';
-  }
 
   @override
   String get renameClowder => 'Athainmnigh an clowdar';
@@ -180,9 +175,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get sortNewestFirst => 'Is nuaí ar dtús';
 
   @override
-  String get shareAsText => 'Roinn mar théacs';
-
-  @override
   String get shareAsPdf => 'Roinn mar PDF';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsGa extends AppLocalizations {
       'Imíonn an peata as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar na gléasanna eile freisin.';
 
   @override
-  String get sightingRecorded => 'Feiceáil taifeadta ag do shuíomh.';
-
-  @override
-  String get noLocationAvailable =>
-      'Níl suíomh ar fáil — brúigh go fada ar an léarscáil ina ionad.';
-
-  @override
   String get locationDeniedForever =>
       'Tá rochtain ar an suíomh coiscthe. Ceadaigh í i socruithe an chórais chun Stray Cam a úsáid.';
 
@@ -287,6 +272,12 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get captureFlier => 'Grianghraf den bhileog';
+
+  @override
+  String get flierFromCamera => 'Bileog ón gceamara';
+
+  @override
+  String get flierFromGallery => 'Bileog ón ngailearaí';
 
   @override
   String get addPhotosTo => 'Cuir grianghraif le…';
@@ -355,13 +346,34 @@ class AppLocalizationsGa extends AppLocalizations {
   String get pickFramesTitle => 'Roghnaigh frámaí';
 
   @override
-  String get suggestedFrames => 'Frámaí molta';
-
-  @override
-  String get scrubFrames => 'Scrollaigh tríd an bhfíseán';
-
-  @override
   String get keepThisFrame => 'Coinnigh an fráma seo';
+
+  @override
+  String get frameBack => 'Fráma amháin siar';
+
+  @override
+  String get frameForward => 'Fráma amháin ar aghaidh';
+
+  @override
+  String get secondBack => 'Soicind amháin siar';
+
+  @override
+  String get secondForward => 'Soicind amháin ar aghaidh';
+
+  @override
+  String get tenSecondsBack => 'Deich soicind siar';
+
+  @override
+  String get tenSecondsForward => 'Deich soicind ar aghaidh';
+
+  @override
+  String get play => 'Seinn';
+
+  @override
+  String get pause => 'Sos';
+
+  @override
+  String get keptFrames => 'Taispeántar na frámaí coinnithe anseo';
 
   @override
   String get fromVideo => 'Ó fhíseán…';
@@ -448,9 +460,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get missingSinceLabel => 'Ar iarraidh ó';
-
-  @override
-  String get phoneLabel => 'Teileafón';
 
   @override
   String get cropPortrait => 'Bearr an phortráid';
@@ -569,16 +578,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String fieldCleared(String field) {
-    return '$field glanta';
-  }
-
-  @override
-  String fieldBackTo(String field, String value) {
-    return '$field ar ais go \"$value\"';
-  }
-
-  @override
   String get leftStray => 'D\'imigh — cat fáin';
 
   @override
@@ -622,9 +621,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get value => 'Luach';
-
-  @override
-  String get latitudeLongitude => 'domhanleithead, domhanfhad';
 
   @override
   String get newField => 'Réimse nua';
@@ -694,11 +690,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get stopHosting => 'Stop ag óstáil';
 
   @override
-  String pinLabel(String pin) {
-    return 'PIN: $pin';
-  }
-
-  @override
   String sessionsSoFar(int count) {
     return 'Seisiúin go dtí seo: $count';
   }
@@ -707,35 +698,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get join => 'Glac páirt';
 
   @override
-  String get addressFromHost => 'Seoladh (ón ngléas óstála)';
-
-  @override
   String get pin => 'PIN';
 
   @override
   String get syncNow => 'Sioncrónaigh anois';
 
   @override
-  String get addressFormatHint =>
-      'Caithfidh an seoladh a bheith mar 192.168.0.12:38472';
-
-  @override
-  String syncedResult(String result) {
-    return 'Sioncrónaithe: $result';
-  }
-
-  @override
   String syncFailed(String error) {
     return 'Theip ar an sioncrónú: $error';
   }
-
-  @override
-  String lastSyncWith(String peer, String time) {
-    return 'Sioncrónú deireanach le $peer: $time';
-  }
-
-  @override
-  String get sharedFolder => 'Fillteán comhroinnte';
 
   @override
   String get sharedFolderExplainer =>
@@ -763,11 +734,6 @@ class AppLocalizationsGa extends AppLocalizations {
       'Déanfaidh fillteán ar bith a choinníonn dhá ghléas mar a chéile cúis: tiomántán néil, nó Syncthing d’fhillteán a fhanann ar bhur nguthán. Tá Syncthing saor in aisce: suiteáil ar gach guthán é, comhroinn fillteán amháin eatarthu agus roghnaigh an fillteán sin anseo ar gach gléas.';
 
   @override
-  String folderSynced(String result) {
-    return 'Fillteán sioncrónaithe: $result';
-  }
-
-  @override
   String folderSyncFailed(String error) {
     return 'Theip ar shioncrónú an fhillteáin: $error';
   }
@@ -789,15 +755,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String trailOfPlace(String name, int count) {
     return 'Rian: $name ($count suíomh)';
   }
-
-  @override
-  String conflictOn(String field) {
-    return 'Coinbhleacht — $field';
-  }
-
-  @override
-  String get conflictBody =>
-      'Athraithe in dhá áit ag an am céanna. Roghnaigh cad atá fíor:';
 
   @override
   String privateMarker(Object field) {
@@ -1220,7 +1177,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Gach athrú, an ceann is nuaí ar dtús: cé, cathain agus go dtí cén luach. Tapáil iontráil chun í a cheartú, coinnigh í chun í a bhaint nó a athchóiriú; fanann iontráil fholaithe sa loga agus taispeántar í ar iarratas.';
+      'Gach athrú a rinneadh riamh, an ceann is nuaí ar dtús: cé a d\'athraigh cad, cathain, agus go dtí cén luach. Tapáil iontráil chun í a cheartú, baineann an bosca bruscair í, tugann an tsaighead ceann folaithe ar ais; fanann iontráil fholaithe sa loga agus taispeántar í ar iarratas.';
 
   @override
   String get helpDuplicates =>
@@ -1411,17 +1368,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get copyCode => 'Cóipeáil an cód';
 
   @override
-  String get copied => 'Cóipeáilte';
-
-  @override
   String get invalidCode => 'Níl an cód sin bailí';
-
-  @override
-  String get hotspotHint =>
-      'Gan Wi-Fi comhroinnte? Cas air hotspot ar fhón amháin, ceangail an ceann eile, ansin óstáil anseo.';
-
-  @override
-  String get byMessenger => 'Trí theachtaire';
 
   @override
   String get byMessengerExplainer =>
@@ -1432,11 +1379,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get importBundle => 'Iompórtáil paca sioncronaithe…';
-
-  @override
-  String bundleImported(String result) {
-    return 'Paca iompórtáilte: $result';
-  }
 
   @override
   String lastBackupFailed(String error) {
@@ -1874,9 +1816,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get valueFerret => 'Firéad';
 
   @override
-  String get otherOption => 'Eile…';
-
-  @override
   String get celebrationsToggle => 'Ceiliúradh uchtálacha';
 
   @override
@@ -1884,11 +1823,41 @@ class AppLocalizationsGa extends AppLocalizations {
       'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile';
 
   @override
-  String get cheerToggle => 'Fuaim gártha';
+  String get soundsSection => 'Fuaimeanna';
 
   @override
-  String get cheerSubtitle =>
-      'Gártha gearra leis an confetti, ceann difriúil gach uair';
+  String get reminderSound => 'Fuaim cait do mheabhrúcháin';
+
+  @override
+  String get reminderSoundSubtitle =>
+      'Deir meabhrúchán cúraim Mrrr in ionad fhuaim an ghutháin.';
+
+  @override
+  String get soundPurr => 'Crónán';
+
+  @override
+  String get soundChorus => 'Cór meamhaíola';
+
+  @override
+  String get soundParty => 'Meamhaíl chóisire';
+
+  @override
+  String get soundMeep => 'Meep';
+
+  @override
+  String get soundMrrp => 'Mrrp';
+
+  @override
+  String get soundMrrr => 'Mrrr';
+
+  @override
+  String get soundSonneMiau => 'Sonne miau';
+
+  @override
+  String get soundSonnePurr => 'Sonne purr';
+
+  @override
+  String get soundOwn => 'Fuaim féin…';
 
   @override
   String get celebrationsSubtitleNeutral =>
@@ -1926,11 +1895,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get hardDeleteAction => 'Scrios gach rud ón údar seo';
-
-  @override
-  String hardDeleteWarning(Object name) {
-    return 'Baineann sé gach iontráil agus grianghraf le $name den ghléas seo. Coinníonn gléasanna eile a gcuid. Ní féidir é a chealú.';
-  }
 
   @override
   String get yourKey => 'D’eochair';
@@ -1993,11 +1957,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String typeToConfirm(Object name) {
-    return 'Clóscríobh $name le deimhniú';
-  }
-
-  @override
   String get alsoBan => 'Cosc freisin — ná glac sonraí uaidh arís';
 
   @override
@@ -2005,9 +1964,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get unbanAction => 'Bain an cosc';
-
-  @override
-  String get deletedDone => 'Scriosta.';
 
   @override
   String get syncSummaryTitle => 'Cad a tháinig';
@@ -2050,26 +2006,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get keepMine => 'Coinnigh mo cheann';
 
   @override
-  String keptMine(String name) {
-    return 'Coinníodh do leagan de $name ar an ngléas seo.';
-  }
-
-  @override
   String get summaryMeta => 'Tháinig freisin';
-
-  @override
-  String changesCount(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n athrú',
-      many: '$n n-athrú',
-      few: '$n athrú',
-      two: '$n athrú',
-      one: '1 athrú',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get acceptArrival => 'Glac';
@@ -2219,30 +2156,13 @@ class AppLocalizationsGa extends AppLocalizations {
       'Ceangail le Wi-Fi ar dtús — ansin aimsíonn na gléasanna a chéile';
 
   @override
-  String trustQuestion(Object author, Object device) {
-    return 'Ba mhaith le $author ($device) sioncronú';
-  }
-
-  @override
   String get trustBothWaysNote => 'Malartófar bhur gcatalóga sa dá threo.';
 
   @override
   String get allowOnce => 'Ceadaigh';
 
   @override
-  String get allowAlways => 'Ceadaigh an gléas seo i gcónaí';
-
-  @override
-  String get declineAction => 'Diúltaigh';
-
-  @override
   String get syncDeclined => 'Dhiúltaigh an gléas eile don sioncronú';
-
-  @override
-  String get trustedDevicesSection => 'Gléasanna a cheadaítear i gcónaí';
-
-  @override
-  String get removeTrust => 'Bain';
 
   @override
   String get hostWithoutWifi => 'Óstáil gan Wi-Fi';
@@ -2315,7 +2235,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Sa roghchlár seo: socruithe, dúbailtí a aimsiú agus a chumasc, CSV a easpórtáil, agus tuilleadh.';
+      'Sa roghchlár seo: socruithe, dúbailtí a aimsiú agus a chumasc, agus tuilleadh.';
 
   @override
   String get spotCatEdit =>
@@ -2392,9 +2312,6 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get spotReplaySubtitle =>
       'Taispeáin na leideanna arís ar gach leathanach';
-
-  @override
-  String get spotReplayDone => 'Taispeánfar na leideanna arís';
 
   @override
   String get searchNoResults => 'Níor aimsíodh cat leis an ainm sin';
@@ -2531,17 +2448,15 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String typeTheName(String name) {
-    return 'Clóscríobh $name';
-  }
-
-  @override
   String catalogExportFailed(String error) {
     return 'Níor scriosadh aon rud: níorbh fhéidir comhad na catalóige a scríobh ($error). Déan spás a shaoradh nó bain triail eile as níos déanaí.';
   }
 
   @override
   String get moveToCatalog => 'Bog go catalóg eile';
+
+  @override
+  String get moveInFromCatalog => 'Bog isteach ó chatalóg eile…';
 
   @override
   String movedToCatalog(int count, String name) {
@@ -2644,9 +2559,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get agenda => 'Meabhrúcháin';
 
   @override
-  String get reminderLabel => 'Meabhrúchán';
-
-  @override
   String get agendaEmpty =>
       'Níl aon choinne beartaithe. Beartaigh cinn nua anseo leis an bplus, nó ar leathanach cait nó clowdair.';
 
@@ -2689,6 +2601,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get markDone => 'Déanta';
 
   @override
+  String get takeOffList => 'Bain den liosta';
+
+  @override
   String get repeatTitle => 'Arís i gceann…';
 
   @override
@@ -2696,6 +2611,51 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get unitDays => 'lá';
+
+  @override
+  String get yesterday => 'Inné';
+
+  @override
+  String get weekdayMon => 'Luan';
+
+  @override
+  String get weekdayTue => 'Máirt';
+
+  @override
+  String get weekdayWed => 'Céad';
+
+  @override
+  String get weekdayThu => 'Déar';
+
+  @override
+  String get weekdayFri => 'Aoine';
+
+  @override
+  String get weekdaySat => 'Sath';
+
+  @override
+  String get weekdaySun => 'Domh';
+
+  @override
+  String get weekdayFullMon => 'Dé Luain';
+
+  @override
+  String get weekdayFullTue => 'Dé Máirt';
+
+  @override
+  String get weekdayFullWed => 'Dé Céadaoin';
+
+  @override
+  String get weekdayFullThu => 'Déardaoin';
+
+  @override
+  String get weekdayFullFri => 'Dé hAoine';
+
+  @override
+  String get weekdayFullSat => 'Dé Sathairn';
+
+  @override
+  String get weekdayFullSun => 'Dé Domhnaigh';
 
   @override
   String get unitWeeks => 'seachtaine';
@@ -2732,9 +2692,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String icsSavedTo(String path) {
     return 'Sábháladh an comhad féilire faoi $path';
   }
-
-  @override
-  String get calendarMirrorLabel => 'Scáthánaigh chuig féilire an ghléis';
 
   @override
   String get calendarMirrorSubtitle =>
@@ -2819,11 +2776,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt cat: ticeáil na cait, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na cait ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.';
+      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus fanann an cárta ticeáilte go deireadh an lae; tapáil é chun an chéad cheann eile a bheartú, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta; scriosann an bosca bruscair an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt cat: ticeáil na cait, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na cait ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.';
 
   @override
   String get helpAgendaNeutral =>
-      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an peata nó an líon tí. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt peataí: ticeáil na peataí, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na peataí ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.';
+      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an peata nó an líon tí. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus fanann an cárta ticeáilte go deireadh an lae; tapáil é chun an chéad cheann eile a bheartú, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta; scriosann an bosca bruscair an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire. Is coinne amháin í cuairt tréidlia le roinnt peataí: ticeáil na peataí, taispeánann an Clár Oibre cárta amháin lena n-ainmneacha, agus ag an deireadh fiafraítear cé na peataí ar cuireadh cóir orthu — bain an tic de na cinn eile, fanann siad pleanáilte. Is iad na cúraimí na tascanna athfhillteacha, mar bheathú, bosca bruscair nó leigheas. Seasann siad faoi Inniu le tic, sraith agus na seacht lá deireanacha mar phoncanna; taispeánann Ag teacht an tseachtain seo chugainn gan na cinn laethúla. Is féidir le cúram meabhrú duit le fógra ag am roghnaithe. Osclaíonn an trófaí na héachtaí.';
 
   @override
   String get calendarRowOff => 'Féilire: as';
@@ -2856,22 +2813,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get appointmentLabel => 'Coinne';
 
   @override
+  String get reminderLabel => 'Meabhrúchán';
+
+  @override
   String get addAppointment => 'Cuir coinne leis';
-
-  @override
-  String get planChooserTitle => 'Coinne nó meabhrúchán?';
-
-  @override
-  String get planChooserAppointment =>
-      'Coinne — cuairt ar dháta agus ag am, le nótaí';
-
-  @override
-  String get planChooserReminder =>
-      'Meabhrúchán — luach a bhíonn dlite lá éigin';
-
-  @override
-  String get planChooserChore =>
-      'Cúram — rud a thagann ar ais: beathú, braonta, bruscar';
 
   @override
   String get newChore => 'Cúram nua';
@@ -3149,14 +3094,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get achievementCentury => 'Céad bliain iomlán';
 
   @override
-  String get achievementCenturyHint => 'Beidh an-bhród orainn beirt.';
-
-  @override
-  String achievementMaster(String title) {
-    return 'Máistir $title';
-  }
-
-  @override
   String achievementReached(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3169,14 +3106,6 @@ class AppLocalizationsGa extends AppLocalizations {
     );
     return '$_temp0, den chéad uair $date';
   }
-
-  @override
-  String achievementNext(int n) {
-    return 'An chéad cheann eile ag $n';
-  }
-
-  @override
-  String get achievementLocked => 'Níl fós';
 
   @override
   String achievementUnlocked(String name) {
@@ -3498,16 +3427,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Seiceáil siléir, seideanna agus garáistí le do thoil. Ná téigh sa tóir, glaoigh.';
 
   @override
-  String get posterLastSeen => 'Feicthe go deireanach in aice le';
-
-  @override
   String get posterFreeText => 'Líne bhreise';
 
   @override
   String get posterQr => 'Cód QR do cat(a)log';
-
-  @override
-  String get posterPhoto => 'Grianghraf';
 
   @override
   String get newCatIn => 'Cat nua i…';
@@ -3516,10 +3439,26 @@ class AppLocalizationsGa extends AppLocalizations {
   String get newCatInNeutral => 'Peata nua i…';
 
   @override
+  String get newCatHere => 'Cat nua anseo';
+
+  @override
+  String get newCatHereNeutral => 'Peata nua anseo';
+
+  @override
   String get choreLabel => 'Cúram';
 
   @override
   String get choreTickLabel => 'Cúram déanta';
+
+  @override
+  String choreDoneTitled(Object title) {
+    return '$title déanta';
+  }
+
+  @override
+  String choreDoneFor(Object day) {
+    return 'do $day';
+  }
 
   @override
   String get choreEnded => 'Críochnaithe';
@@ -3553,8 +3492,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get coverPick => 'Pictiúr clúdaigh…';
 
   @override
-  String get coverHint =>
-      'Pictiúr den áit: an teach, an clós, an láthair bheathaithe. Ar an gcárta in ionad cait.';
+  String get coverLabel => 'Pictiúr den chlowdar';
+
+  @override
+  String get coverLabelNeutral => 'Pictiúr den líon tí';
+
+  @override
+  String get coverLabelStrays => 'Pictiúr do na cait fháin';
 
   @override
   String get coverRemove => 'Bain an pictiúr clúdaigh';
@@ -3573,7 +3517,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotHistoryHold =>
-      'Coinnigh luach chun é a cheartú nó a bhaint. Ní chailltear aon rud; taispeántar luachanna folaithe ar iarratas.';
+      'Tapáil luach chun é a cheartú, baineann an bosca bruscair é. Ní chailltear aon rud; taispeántar luachanna folaithe ar iarratas.';
 
   @override
   String get spotBackups =>
@@ -3593,7 +3537,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpHistory =>
-      'Luachanna réimse amháin le himeacht ama, an ceann is nuaí ar dtús. Tapáil luach chun é a cheartú: glacann an ceann nua a áit, folaítear an seancheann. Coinnigh luach chun é a bhaint nó ceann folaithe a thabhairt ar ais; taispeánann an tsúil luachanna folaithe. Cóipeáil an liosta mar théacs nó roinn é mar PDF.';
+      'Luachanna réimse amháin le himeacht ama, an ceann is nuaí ar dtús. Tapáil luach chun é a cheartú: glacann an ceann nua a áit, folaítear an seancheann. Baineann an bosca bruscair luach, tugann an tsaighead ceann folaithe ar ais; taispeánann an tsúil luachanna folaithe. Cóipeáil an liosta mar théacs nó comhroinn é mar PDF.';
 
   @override
   String get helpSettings =>
@@ -3688,23 +3632,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get syncAnotherDevice => 'gléas eile';
 
   @override
-  String syncMerged(int count, String authors) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count athrú ó $authors cumaiscthe',
-      many: '$count n-athrú ó $authors cumaiscthe',
-      few: '$count athrú ó $authors cumaiscthe',
-      two: '$count athrú ó $authors cumaiscthe',
-      one: '$count athrú ó $authors cumaiscthe',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get syncShow => 'Taispeáin';
-
-  @override
   String achievementDone(int times, String date) {
     String _temp0 = intl.Intl.pluralLogic(
       times,
@@ -3717,12 +3644,6 @@ class AppLocalizationsGa extends AppLocalizations {
     );
     return '$_temp0, den chéad uair ar $date';
   }
-
-  @override
-  String get syncRunning => 'Ag sioncronú leis an bhfillteán…';
-
-  @override
-  String get syncDismiss => 'Ní anois';
 
   @override
   String flierHidden(int count) {
@@ -3740,4 +3661,99 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get undo => 'Cealaigh';
+
+  @override
+  String noteSyncDone(String authors) {
+    return 'Sioncronaithe le $authors. Tapáil chun a bhfuil tagtha a fheiceáil.';
+  }
+
+  @override
+  String get noteSyncNothingNew => 'Sioncronaithe. Rud ar bith nua.';
+
+  @override
+  String get noteSyncFailed =>
+      'Theip ar an sioncronú. Tapáil le haghaidh sonraí.';
+
+  @override
+  String get failureReport => 'Tuairiscigh';
+
+  @override
+  String failureOpenPage(String page) {
+    return 'Oscail $page';
+  }
+
+  @override
+  String choreTicked(String title, int count, String days) {
+    return '$title — déanta $count×, $days';
+  }
+
+  @override
+  String choreTickedShort(String title, int count) {
+    return '$title déanta $count×';
+  }
+
+  @override
+  String moreChanges(int n) {
+    return '+$n eile';
+  }
+
+  @override
+  String noteFolderUnreachable(String since) {
+    return 'Tá an fillteán comhroinnte as raon ó $since. Tapáil le haghaidh sonraí.';
+  }
+
+  @override
+  String noteFolderLagging(String names) {
+    return 'Tá an leagan nua fós ag teastáil ó $names chun do chuid athruithe a fheiceáil.';
+  }
+
+  @override
+  String folderSynced(String result) {
+    return 'Fillteán sioncrónaithe: $result';
+  }
+
+  @override
+  String bundleImported(String result) {
+    return 'Paca iompórtáilte: $result';
+  }
+
+  @override
+  String get sightingRecorded => 'Feiceáil taifeadta ag do shuíomh.';
+
+  @override
+  String get deletedDone => 'Scriosta.';
+
+  @override
+  String get spotReplayDone => 'Taispeánfar na leideanna arís';
+
+  @override
+  String get syncRunning => 'Ag sioncronú leis an bhfillteán…';
+
+  @override
+  String get copied => 'Cóipeáilte';
+
+  @override
+  String get sharedFolder => 'Fillteán comhroinnte';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String get syncDismiss => 'Ní anois';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n athrú',
+      many: '$n n-athrú',
+      few: '$n athrú',
+      two: '$n athrú',
+      one: '1 athrú',
+    );
+    return '$_temp0';
+  }
 }

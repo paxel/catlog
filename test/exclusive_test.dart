@@ -7,6 +7,8 @@ import 'package:catlog/src/stray_cam.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'notes_helper.dart';
 import 'package:image/image.dart' as img;
 
 /// One flow at a time (#91): a second Stray Cam press during a slow
@@ -94,7 +96,7 @@ void main() {
     );
     await tester.pump();
     expect(result, isNull);
-    expect(find.text('Boom'), findsOneWidget);
+    expect(notesSaid(), ['Boom']);
     expect(isBusy('x'), isFalse);
     await runExclusive<int>(
       'y',

@@ -77,4 +77,17 @@ void main() {
     await tester.pumpAndSettle();
     expect(edit?.value, '4535.9');
   });
+
+  testWidgets('the X empties the field, and hides once it is empty', (
+    tester,
+  ) async {
+    final context = await pump(tester);
+    editFieldValue(context, weight, '4250');
+    await tester.pumpAndSettle();
+    expect(find.text('4.25'), findsOneWidget);
+    await tester.tap(find.byTooltip('Clear'));
+    await tester.pumpAndSettle();
+    expect(find.text('4.25'), findsNothing);
+    expect(find.byTooltip('Clear'), findsNothing);
+  });
 }

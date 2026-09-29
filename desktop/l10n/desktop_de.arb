@@ -1,0 +1,198 @@
+{
+  "@@locale": "de",
+  "menuView": "Ansicht",
+  "menuCatalog": "Katalog",
+  "menuHelp": "Hilfe",
+  "quit": "Beenden",
+  "introTipsQuestion": "Tipps unterwegs? Jeder zeigt auf das, was er erklärt, und lässt sich überspringen.",
+  "startWithTips": "Mit den Tipps starten",
+  "startWithoutTips": "Ohne Tipps starten",
+  "renameCatalog": "Katalog umbenennen",
+  "choresSection": "Aufgaben",
+  "historyOldestFirst": "Älteste zuerst",
+  "historyShowHidden": "Korrigierte und entfernte Werte zeigen",
+  "editValue": "Wert bearbeiten",
+  "cardAddValue": "Feld ausfüllen…",
+  "valueActions": "Mehr zu diesem Wert",
+  "onTheDesk": "Auf dem Schreibtisch",
+  "viewFamily": "Familie",
+  "familyUnknownBirth": "Geburtsdatum unbekannt",
+  "familyEmpty": "Noch hat keine Katze Mutter oder Vater. Trag es auf einer Karte ein, dann wächst der Baum.",
+  "calendarMonth": "Monat",
+  "calendarWeek": "Woche",
+  "allDay": "Ganztägig",
+  "pickMonth": "Monat wählen",
+  "repeats": "Wiederholt sich",
+  "previewTitle": "Vorschau",
+  "previewContent": "Was auf das Blatt kommt",
+  "tabFields": "Felder",
+  "tabPhotos": "Fotos",
+  "tabPlans": "Geplant",
+  "tabFamily": "Familie",
+  "tabCats": "Katzen",
+  "markedCount": "{count} markiert",
+  "@markedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markedOpen": "Auf dem Schreibtisch öffnen",
+  "markedExport": "Exportieren…",
+  "markedDelete": "Löschen…",
+  "markedDeleteBody": "{count} Katzen und Zuhause werden gelöscht. Die Löschung erreicht alle, mit denen du synchronisierst.",
+  "@markedDeleteBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "moveToHome": "In ein anderes Zuhause umziehen",
+  "moveToHomeNeutral": "In einen anderen Haushalt umziehen",
+  "openAllPets": "Alle Tiere öffnen",
+  "cardHeight": "Ziehen macht die Karte höher oder niedriger",
+  "catalogDeletedEmpty": "{name} gelöscht. Er enthielt weder Katzen noch Zuhause, also gab es nichts zu sichern.",
+  "@catalogDeletedEmpty": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaList": "Liste",
+  "agendaWeek": "Woche",
+  "agendaMonth": "Monat",
+  "today": "Heute",
+  "stopSharing": "Teilen beenden",
+  "stopSharingNote": "Bereits gesendete Einträge bleiben im Ordner.",
+  "notShared": "Nicht geteilt",
+  "switchToCatalog": "Zu diesem Katalog wechseln",
+  "catalogActive": "Jetzt offen",
+  "onlyKind": "Nur {kind}",
+  "@onlyKind": {
+    "placeholders": {
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
+  "zoomIn": "Heranzoomen",
+  "zoomOut": "Herauszoomen",
+  "monthBefore": "Voriger Monat",
+  "monthAfter": "Nächster Monat",
+  "cardPlacePicture": "Der Ort auf der Karte",
+  "cardTrendOf": "{field} im Verlauf",
+  "@cardTrendOf": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "showHistory": "Verlauf",
+  "backLabel": "Zurück",
+  "search": "Suchen",
+  "searchPlaceHint": "Adresse, Stadt oder Land",
+  "actionsMenu": "Aktionen",
+  "showOnMap": "Auf der Karte zeigen",
+  "trailOff": "Spur ausblenden",
+  "close": "Schließen",
+  "nextPhoto": "Weiter",
+  "previousPhoto": "Zurück",
+  "savePhotoAs": "Foto speichern unter…",
+  "dropPhotosHint": "Bilddateien hier ablegen, um sie als Fotos hinzuzufügen",
+  "syncMenu": "Synchronisieren…",
+  "bundlesSection": "Sync-Bündel-Dateien",
+  "exportBundle": "Sync-Bündel exportieren…",
+  "newKeyPinned": "Neuer Partnerschlüssel gemerkt: {code}",
+  "noneLabel": "Keine",
+  "bundleWritten": "Bündel geschrieben nach {path}",
+  "unitDays": "Tage",
+  "unitWeeks": "Wochen",
+  "unitMonths": "Monate",
+  "unitYears": "Jahre",
+  "chorePending": "Offen",
+  "choreUpcoming": "Steht an",
+  "choreNotDue": "Nicht fällig",
+  "choreDoneState": "Erledigt",
+  "everyLabel": "Alle",
+  "weekdaysLabel": "Wochentage",
+  "remindAtLabel": "Erinnern um",
+  "chores": "Aufgaben",
+  "newAppointment": "Neuer Termin",
+  "ticksLabel": "Häkchen",
+  "dateLabel": "Datum",
+  "savePdf": "Als PDF speichern…",
+  "saveImage": "Als Bild speichern…",
+  "printHint": "Öffnet das PDF in deinem Betrachter, dort druckst du es",
+  "documentSaved": "Gespeichert unter {path}",
+  "cardContent": "Was auf die Karte kommt",
+  "dateHint": "JJJJ-MM-TT",
+  "fontsIncomplete": "Die Schriften für diese Sprache konnten nicht geladen werden; die Seite ist in Noto Sans gesetzt.",
+  "openImage": "Bild öffnen…",
+  "flierLines": "Zeilen vom Plakat",
+  "recognizing": "Plakat wird gelesen…",
+  "helpMenu": "Hilfe zu dieser Seite",
+  "restartHint": "Schließen, um weiterzumachen; der Bericht bleibt, bis er gesendet ist.",
+  "yourKeyLine": "Dein Schlüssel: {code}",
+  "licencesRust": "Rust-Bibliotheken",
+  "viewHome": "Start",
+  "viewVet": "Tierarzt",
+  "clowdersCount": "{count} Kolonien",
+  "@clowdersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "straysCount": "{count} Streuner",
+  "@straysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missingCount": "{count} vermisst",
+  "@missingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dashboardDue": "Heute fällig",
+  "dashboardNothingDue": "Heute ist nichts fällig",
+  "dashboardRecent": "Letzte Änderungen",
+  "dashboardNoChanges": "Noch keine Änderungen",
+  "dashboardLastViewed": "Zuletzt angesehen",
+  "dashboardNothingViewed": "Öffne eine Katze oder eine Kolonie, dann erscheint sie hier",
+  "closeLabel": "Schließen",
+  "columnsButton": "Spalten",
+  "filterMissing": "Vermisst",
+  "statusHome": "Zuhause",
+  "columnLastChange": "Letzte Änderung",
+  "columnFace": "Gesicht",
+  "columnStatus": "Status",
+  "cardPage": "Bearbeiten",
+  "cardFields": "Felder auf der Karte",
+  "cardClose": "Karte schließen",
+  "deskTile": "Nebeneinander",
+  "deskStack": "Stapeln",
+  "deskCloseAll": "Alle schließen",
+  "vetOpen": "Offen",
+  "columnWhen": "Wann",
+  "vetEmpty": "Noch keine Termine",
+  "vetPickRun": "Wähle einen Termin, um den Patienten zu sehen",
+  "eyeCandyToggle": "Augenschmaus: Einblendungen, Übergänge und weiche Farben",
+  "allFiles": "Alle Dateien",
+  "mapSearchHint": "Katze, Kolonie, Person oder Ort",
+  "copyImage": "Als Bild kopieren",
+  "copyPhoto": "Foto kopieren",
+  "copyGraphImage": "Diagramm als Bild kopieren",
+  "hostLockedOut": "Zu viele falsche PINs: es wird nichts mehr beantwortet. Anbieten beenden und neu starten für eine neue PIN.",
+  "inPersonExplainerDesk": "Ein Telefon im selben Raum tritt diesem Rechner bei: dort den Code scannen oder eingeben."
+}

@@ -10,10 +10,13 @@ import 'package:window_manager/window_manager.dart';
 
 import 'src/auto_backup.dart';
 import 'src/crash_guard.dart';
+import 'src/event_toasts.dart';
 import 'src/import_summary.dart';
 import 'src/incoming_file.dart';
 import 'src/sync/sync_watch.dart';
-import 'src/sync/sync_watch_line.dart';
+import 'src/celebration.dart';
+import 'src/exclusive.dart';
+import 'src/notes.dart';
 import 'src/stray_cam.dart';
 import 'src/hidden.dart';
 import 'src/fur_background.dart';
@@ -28,11 +31,11 @@ import 'src/screens/intro_screen.dart';
 import 'src/screens/cat_list_screen.dart';
 import 'src/screens/sync_screen.dart';
 import 'src/image_provider_cache.dart';
+import 'src/sounds.dart';
 import 'src/units.dart';
 import 'src/pet_mode.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
-final messengerKey = GlobalKey<ScaffoldMessengerState>();
 
 /// The catalog everything writes to right now. A file or photo shared
 /// into the app lands in the catalog on screen, not in the one that
@@ -46,14 +49,18 @@ void Function(CatalogInfo)? switchCatalog;
 Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    // The cheers are somebody's work: the credit CC BY asks for, on the
-    // licences page beside the packages'.
+    // Two cat sounds come from Wikimedia Commons, CC0 and public domain:
+    // no credit is owed, the sources are named on the licences page. The
+    // rest are one cat's own calls, given to the app by its keeper.
     LicenseRegistry.addLicense(() => Stream.value(const LicenseEntryWithLineBreaks(
-          ['Free Crowd Cheering Sounds'],
-          'cheer1.wav–cheer4.wav are excerpts of "Free Crowd Cheering Sounds" '
-          'by Gregor Quendel (https://opengameart.org/content/free-crowd-cheering-sounds), '
-          'licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). '
-          'Cut short, mixed to mono, faded out.',
+          ['Cat sounds'],
+          'purr.wav and party.wav are cut from recordings on Wikimedia '
+          'Commons by Adam Cuerden, freemaster2 and jim_mowatt, released as '
+          'CC0 or into the public domain. socke1.wav, socke2.wav, '
+          'socke3.wav and the chorus made of them are recordings of a cat '
+          'called Socke; sonne_miau.wav and sonne_purr.wav are recordings '
+          'of a cat called Sonne. Both are used by permission of their '
+          'keeper. See assets/sounds/LICENSES.md for the sources.',
         )));
     final dir = await getApplicationSupportDirectory();
     // The language decides what the catalog carried over from an older
@@ -98,6 +105,7 @@ Future<void> _openAndRun(
   final store = catalogs.openStore(catalogs.active);
   activeStore = store;
   catalogManager = catalogs;
+  adoptLegacyCelebrationSwitch(store);
   applyUnitSystem(store, _resolvedLocale());
   refreshPetMode(store);
   // A Stray Cam capture the OS killed mid-camera completes here.
@@ -169,8 +177,31 @@ class _CatlogAppState extends State<CatlogApp>
   /// Watches the shared folder while the app is on screen (#watch).
   late SyncWatcher _watcher = _watcherFor(widget.store);
 
-  SyncWatcher _watcherFor(CatalogStore store) =>
-      SyncWatcher(store)..onMerged = _merged;
+  SyncWatcher _watcherFor(CatalogStore store) {
+    final watcher = SyncWatcher(store)
+      ..onMerged = _merged
+      ..onFailed = _mergeFailed
+      ..onLagging = (devices) => _lagging(store, devices);
+    // Every entry this device writes starts the gather that puts it in
+    // the folder.
+    store.onLocalChange = watcher.changed;
+    return watcher;
+  }
+
+  /// Devices in the folder still writing the old layout: they cannot
+  /// see this device's changes until updated, so their keepers are
+  /// named once.
+  void _lagging(CatalogStore store, Set<String> devices) {
+    final names = {
+      for (final device in devices)
+        store.authorsOverview().where((r) => r.device == device).firstOrNull
+                ?.author ??
+            device.substring(0, device.length.clamp(0, 8)),
+    };
+    NoteQueue.instance.add(Note.failed(
+      (t) => t.noteFolderLagging(names.join(', ')),
+    ));
+  }
 
   /// Photos stored with camera metadata are rewritten without it once
   /// per catalog (photo_privacy.dart); a later import may bring more.
@@ -183,34 +214,34 @@ class _CatlogAppState extends State<CatlogApp>
     }
   }
 
-  /// After a merge the watcher ran: the summary when something needs a
-  /// look, else one line with a way to the summary.
+  /// After a merge: the arrival page at once when the signatures need a
+  /// look; a finished note whose tap opens the page when the keeper
+  /// tapped; nothing but the news notes when the watcher merged on its
+  /// own — the activity line was the sign.
   void _merged(FolderSyncResult result, Moment? undo, bool fromTap) {
     final context = navigatorKey.currentContext;
     if (context == null || !context.mounted) return;
-    // The keeper's own tap gets what the Sync button gives: the summary.
-    if (needsAttention(result.report) ||
-        (fromTap && result.applied.isNotEmpty)) {
+    if (needsAttention(result.report)) {
       showImportSummary(context, _store, result.applied,
           undo: undo, report: result.report);
       return;
     }
-    if (result.applied.isEmpty) return;
-    final t = context.t;
-    final authors = {
-      for (final e in result.applied)
-        if (e.author != seedAuthor) e.author
-    };
-    messengerKey.currentState?.showSnackBar(SnackBar(
-      content: Text(t.syncMerged(result.applied.length,
-          authors.isEmpty ? t.syncAnotherDevice : authors.join(', '))),
-      action: SnackBarAction(
-        label: t.syncShow,
-        onPressed: () => showImportSummary(context, _store, result.applied,
-            undo: undo, report: result.report),
-      ),
-    ));
+    if (fromTap) {
+      NoteQueue.instance.add(arrivalNote(context, _store, result.applied,
+          undo: undo, report: result.report));
+    } else if (result.applied.isNotEmpty) {
+      showEventToasts(context, _store, result.applied);
+    }
   }
+
+  void _mergeFailed(Object error) => NoteQueue.instance.add(Note.failed(
+        (t) => t.noteSyncFailed,
+        detail: '$error',
+        pageLabel: (t) => t.sync,
+        onOpenPage: () => navigatorKey.currentState?.push(MaterialPageRoute(
+              builder: (_) => SyncScreen(store: _store),
+            )),
+      ));
 
   /// Switches the app to another catalog: the new one becomes what
   /// everything writes to, and the app returns to the list.
@@ -354,6 +385,9 @@ class _CatlogAppState extends State<CatlogApp>
     // and mark the exit clean so the next launch doesn't cry crash.
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive) {
+      // What was gathered goes to the folder before the phone is put
+      // down; the backup follows.
+      _watcher.flush();
       autoBackup(_store);
       markCleanExit();
     }
@@ -376,7 +410,6 @@ class _CatlogAppState extends State<CatlogApp>
       valueListenable: localeOverride,
       builder: (context, locale, _) => MaterialApp(
         navigatorKey: navigatorKey,
-        scaffoldMessengerKey: messengerKey,
         // The fur ground follows each page's own scroll position.
         navigatorObservers: [furScroll],
         title: 'cat(a)log',
@@ -411,9 +444,13 @@ class _CatlogAppState extends State<CatlogApp>
             const SingleActivator(LogicalKeyboardKey.escape): () =>
                 navigatorKey.currentState?.maybePop(),
           },
-          child: SyncWatchLine(
-            watcher: _watcher,
-            child: child ?? const SizedBox.shrink(),
+          child: TouchTracker(
+            child: NoteStrip(
+              queue: NoteQueue.instance,
+              busy: busyFlows,
+              openIn: () => navigatorKey.currentContext!,
+              child: child ?? const SizedBox.shrink(),
+            ),
           ),
           ),
           ),

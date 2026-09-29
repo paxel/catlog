@@ -47,3 +47,14 @@ app.*.map.json
 # Widget Preview related
 .widget_preview/
 /packages/catalog_core/build/test_cache/build/3aefcf5282b8d73fb605759cba0683d2.cache.dill.track.dill
+
+# Rust desktop
+desktop/target/
+
+# Leftovers of a failed or updated snapshot run
+desktop/crates/catlog-gui/tests/snapshots/*.new.png
+desktop/crates/catlog-gui/tests/snapshots/*.diff.png
+desktop/crates/catlog-gui/tests/snapshots/*.old.png
+
+# Flutter regenerates the macOS scaffolding on pub get; 2.0 has no Flutter macOS target
+/macos/

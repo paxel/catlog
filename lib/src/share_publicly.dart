@@ -7,6 +7,7 @@ import 'package:share_plus/share_plus.dart';
 
 import 'field_labels.dart';
 import 'l10n.dart';
+import 'notes.dart';
 import 'share.dart';
 import 'private_temp.dart';
 
@@ -100,8 +101,7 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
     } catch (e) {
       // Sharing a cat must never take the app down with it.
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(context.t.shareFileFailed('$e'))));
+        noteFailed(context.t.shareFileFailed('$e'), detail: '$e');
       }
     }
   }

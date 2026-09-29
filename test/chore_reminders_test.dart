@@ -4,8 +4,11 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/chores/chore_dialog.dart';
 import 'package:catlog/src/chores/chore_reminders.dart';
+import 'package:catlog/src/sounds.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'notes_helper.dart';
 
 /// A port that records what was scheduled and answers the permission
 /// question as told.
@@ -16,10 +19,14 @@ class _FakePort implements ReminderPort {
   int batteryOpens = 0;
   final scheduled = <(int, DateTime, String, String)>[];
   final shown = <(String, String)>[];
+  /// Whether each notification asked for the cat's voice.
+  final cats = <bool>[];
 
   @override
-  Future<void> showNow(String title, String body) async {
+  Future<void> showNow(String title, String body,
+      {required bool catSound}) async {
     shown.add((title, body));
+    cats.add(catSound);
   }
 
   @override
@@ -32,8 +39,10 @@ class _FakePort implements ReminderPort {
   }
 
   @override
-  Future<void> schedule(int id, DateTime at, String title, String body) async {
+  Future<void> schedule(int id, DateTime at, String title, String body,
+      {required bool catSound}) async {
     scheduled.add((id, at, title, body));
+    cats.add(catSound);
   }
 
   @override
@@ -243,8 +252,8 @@ void main() {
       await tester.pumpAndSettle();
       expect(port.permissionAsks, 1);
       expect(
-        find.textContaining('No permission for notifications'),
-        findsOneWidget,
+        notesSaid(),
+        anyElement(contains('No permission for notifications')),
       );
       expect(tester.widget<Switch>(find.byType(Switch)).value, isFalse);
       await tester.tap(find.text('Save'));
@@ -286,5 +295,33 @@ void main() {
           ));
       expect(store.choresOf(cat).single.remind, isTrue);
     });
+  });
+
+  test('the cat speaks for a reminder unless the switch says otherwise', () async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final cat = store.createCat('Miezi');
+    store.createChore(Chore(
+      id: '',
+      entity: cat,
+      title: 'Feed',
+      schedule: const ChoreSchedule.daily(),
+      start: DateTime(2026, 1, 1),
+      remind: true,
+      remindAt: (hour: 8, minute: 0),
+    ));
+    final port = _FakePort();
+    // Nothing chosen: Socke's Mrrr.
+    expect(reminderCatSound(store), isTrue);
+    await rescheduleChoreReminders(store, port,
+        now: DateTime(2026, 1, 2, 7), body: (c) => 'Miezi');
+    expect(port.cats, [isTrue]);
+    // Switched off: the phone's own sound, and the reminder still stands.
+    setReminderCatSound(store, false);
+    port.cats.clear();
+    await rescheduleChoreReminders(store, port,
+        now: DateTime(2026, 1, 2, 7), body: (c) => 'Miezi');
+    expect(port.cats, [isFalse]);
+    expect(port.scheduled, hasLength(1));
   });
 }

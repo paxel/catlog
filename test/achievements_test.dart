@@ -8,6 +8,8 @@ import 'package:catlog/src/screens/agenda_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'notes_helper.dart';
+
 /// What the chores add up to: full months and years, a master ladder
 /// per chore, recorded once per climb, shown on a page.
 void main() {
@@ -122,6 +124,41 @@ void main() {
     expect(row.last, DateTime(2026, 10, 20).toUtc());
   });
 
+  test('a dismissed achievement hides until its ladder climbs past', () {
+    dailyDone('Feed', DateTime(2026, 8, 20), DateTime(2026, 9, 5));
+    recordLadders(manager, ladders(gatherStats([store], DateTime(2026, 9, 6))),
+        DateTime(2026, 9, 6));
+    Achievement feedRow() =>
+        manager.achievements().firstWhere((a) => a.id == '${masterPrefix}feed');
+    expect(feedRow().shows(1), isTrue);
+    manager.dismissAchievement('${masterPrefix}feed');
+    expect(feedRow().dismissed, 1);
+    expect(feedRow().shows(1), isFalse);
+    // The next tier is something new again.
+    expect(feedRow().shows(2), isTrue);
+  });
+
+  testWidgets('a hold on an achievement offers Delete, and it goes', (
+    tester,
+  ) async {
+    dailyDone('Feed', DateTime(2026, 8, 20), DateTime.now());
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: AchievementsScreen(manager: manager, stores: [store]),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.textContaining('(Feed)'), findsOneWidget);
+    await tester.longPress(find.textContaining('(Feed)'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Delete'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('(Feed)'), findsNothing);
+    expect(find.byType(BottomSheet), findsNothing);
+  });
+
   testWidgets('the page lists ladders, reached ones with their count', (
     tester,
   ) async {
@@ -196,7 +233,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byType(Checkbox));
     await tester.pumpAndSettle();
-    expect(find.textContaining('Servant (Feed)'), findsOneWidget);
+    expect(notesSaid(), anyElement(contains('Servant (Feed)')));
     expect(
       manager.achievements().map((a) => a.id),
       contains('${masterPrefix}feed'),

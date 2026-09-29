@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import '../help.dart';
 import '../auto_backup.dart';
 import '../l10n.dart';
+import '../notes.dart';
 import '../sync/saf_folder.dart';
 
 /// Where the catalogs are kept safe, in the reader's own terms: what the
@@ -93,15 +94,11 @@ class _BackupsScreenState extends State<BackupsScreen> {
     if (!mounted) return;
     setState(() => _busy = false);
     final error = store.localSetting(backupErrorKey);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          error == null || error.isEmpty
-              ? context.t.backupsDone
-              : context.t.lastBackupFailed(error),
-        ),
-      ),
-    );
+    if (error == null || error.isEmpty) {
+      noteDone(context.t.backupsDone);
+    } else {
+      noteFailed(context.t.lastBackupFailed(error), detail: error);
+    }
   }
 
   @override

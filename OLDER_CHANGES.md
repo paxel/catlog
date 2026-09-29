@@ -2,6 +2,154 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [2.0.6] - 2026-09-27
+
+### Added
+- A Family view on the desk, beside the other views: every cat with kin as its face and its name, grouped by the month it was born in, oldest at the top, a line drawn between a kitten and its mother or father, and the cats whose birth day nobody wrote down last under a question mark. A face opens that cat.
+- The agenda is a list beside a calendar now, not three tabs: the plans on the left, a month or a week on the right. The week lays the day out hour by hour with an all-day band above it and a line across the time it is; the month gives every day a cell with its all-day things first and the timed ones under them, recurring chores on every day they are due. Back, forward, Today and a month picker steer it, and an entry opens the cat or the home it belongs to.
+- A preview on the desk's document pages: the Card as the picture it becomes, updating as values are ticked on and off, and what will be printed on the missing poster and the vet report.
+- The vet report on the phone is previewed as it will print, the way the missing poster already was.
+- Marking several rows and moving them into another home in one go, from either table.
+- A card on the desk is made taller or shorter by dragging its bottom edge, and keeps that height.
+- A home's card can lay every pet living in it on the desk at once and tile them.
+
+### Fixed
+- The card copied as a picture wraps its values instead of running them off the right edge on one line, and the sheet is as tall as what it holds instead of half a page of white.
+- The red line of text at the top of a view is gone: what the app has to say is a note at the top of the window, which goes by itself when it only says a job is done, and stays with a × when something failed.
+- Copying a card, a photo or a graph answers with a green paw at the pointer instead of a word in the corner — and the phone's paw appears at last: it went into whatever overlay was nearest, so a paw asked for inside a dialog vanished with the dialog.
+- The timeline opens at once: it used to walk the whole log again on every frame, which made it unusable on a real catalog.
+- The desk's graph offers the phone's ranges — week, month, year, all and a custom from/to — and writes them under the phone's own setting, so a catalog opened on either shows what was picked on the other.
+- The home a cat is in now is named plainly in the Move dialog; it used to carry a tick this font has not, which drew as an empty box.
+
+### Changed
+- The page behind Edit is cut into tabs — Fields, Photos, Plans and Family, and Fields, Cats and Plans for a home — instead of one long scroll. The tab last used comes back with the next page.
+- Every dialog on the desk confirms on the right, with Cancel beside it.
+- The value editor reads as a dialog now: room around its content, the value, the date it counts from and the private mark kept apart.
+- Checkboxes on the desk are squares that cross themselves off, instead of a tick too small to recognise.
+- Marking rows in the Cats or Clowders table is worth something now: the marked rows carry a menu — open them all on the desk, move them into another home or another catalog, hide or show them, export them into one file, delete them after one question — and a tick on a marked row speaks for every marked row.
+- A card's rows are separated by a hairline instead of alternating colours, and the body's scrollbar floats over them, so the card is one shape from the title bar down.
+- Stack lays the pile in the cascade's order: the card highest up is furthest back.
+- The card's menu says "Move to another home" instead of "Move to", and no longer offers "Seen here now" — a desk has no here.
+
+## [2.0.5] - 2026-09-26
+
+### Added
+- Week and Month views on the desk's agenda, beside the list it already had: the appointments, reminders and due chores laid out on their days, a step back and forth and a way home to today, and an entry that opens the cat or the home it belongs to.
+- A Catalogs page on the desk: every catalog on this device on the left, what can be done with the chosen one on the right — create, open, rename, delete, and the shared folder with a way to stop sharing it. The catalog entries in the menu are gone; the menu opens the page.
+- Two more sounds to pick from for any moment, on the phone and the desk: Sonne miau and Sonne purr, a second cat's voice.
+- A cat or a home can be renamed from its card on the desk: the pen beside the name on the title bar.
+- A home's card chooses which Fields it shows, as a cat's card already did.
+- A number measured more than once draws its course under the value on the card — the weight at a glance, without opening the history.
+- An address can be searched when a place is set on the desk: type it, press Search, pick the match. The lookup runs only when asked, never while typing.
+- Every free-text Field on the desk takes as many lines as the keeper writes, not only Remarks.
+- Buttons for closer, further and pin by pin on the desk's map, beside the search and the stray areas it already had; the location picker gets the zoom buttons too.
+- Shift and drag on the desk's map draws a box and zooms into it; a plain drag still pans.
+- A calendar on the desk's field editor: a date is picked from the month rather than spelled out, and can still be typed.
+- A place on a card shows where it is: the coordinates with their Plus Code, a picture of the spot on the map and the code a phone reads to go there, in place of the words "On the map".
+
+### Changed
+- The history graph on the desk takes a time range — one month, six months, a year or everything — and the smoothed curve replaces the measured line instead of being drawn over it.
+- The card's menu says Edit, because the page behind it is where a cat or a home is edited, and offers Timeline beside it: everything that ever happened to that one, in a window of its own instead of a fold at the foot of the page.
+- The Mother and Father pickers on the desk offer only cats that could be one — a male cat is no longer offered as a mother and then refused. A cat whose gender is unknown is still offered.
+- A card on the desk lists only the Fields the cat or the home actually has a value for, and every value is changed by the pen on its row, which opens the ordinary field editor — so a private mark and a date picker are there wherever the value is edited. A button under the rows fills in a Field that is still empty. A long value wraps over as many lines as it needs, and a card whose body outgrows the desk scrolls inside itself instead of growing past the edge. Every row is as wide as the card, so the stripes no longer stop halfway across, and the card's outline is visible against its own title bar.
+
+### Fixed
+- The desk's map zooms in as deep as the tiles go, keeps the place under the pointer where it was while zooming, and the wheel gathers before it steps a level, so a brush of the wheel no longer throws the view out to the whole world.
+- A ticked chore in the desk's history names the chore — "Feed done" instead of "Chore done" — and no longer repeats the date the line beside it already carries.
+- A Field's history on the desk reads as a diary: the day stands over what was written on it, and a long value wraps instead of stretching the window past both edges of the screen.
+- Tile on the desk fits every card into its cell — a card with more in it than the cell holds scrolls inside it instead of being laid out of reach. Tile lays a real grid: columns from the desk's width, rows sharing what is left above the dock. It used to start the second row below the tallest card, which pushed those cards off the desk, where egui pinned them and no hand could drag them back. No card is ever laid down past the desk's edge now, whichever way it was arranged.
+
+## [2.0.4] - 2026-09-25
+
+### Added
+- A chore's reminder says Mrrr: the notification carries Socke's call instead of the phone's own sound, and the desk speaks it with its popup. A switch under Sounds on both Settings pages turns it back to the system's sound.
+- Three more sounds to pick from for any moment, on the phone and the desk: Meep, Mrrp and Mrrr, the calls of a cat called Socke.
+
+### Removed
+- The Meow sound. Meep takes its place as the sound of a ticked chore, and the chorus for a ladder climbed is now made of Socke's three calls instead of three borrowed meows. A device that had Meow picked for a moment hears that moment's own sound again.
+- The desk's cards wear a title bar like a window: the name, × to close, ⋮ with the menu. A dock floats at the bottom of the desk while cards lie there: Tile lays them out in rows, Stack cascades them, Close all clears the desk, and one face per open card brings that card to the front, the one on top marked with a dot.
+
+## [2.0.3] - 2026-09-24
+
+### Added
+- An achievement can be deleted: hold it on the phone, right-click or the ⋮ on the desk. For a chore's typo or a ladder nobody wants. It stays gone until the ladder climbs past the tier it was waved off at, which counts as new.
+
+### Removed
+- The CSV export on the phone's home menu. One flat row per cat was no export of a catalog; what an export should hold is an open question, and nothing stands in its place until it is answered.
+
+### Changed
+- The sync folder deletes nothing on another device's behalf any more. 2.0.2 removed the whole-history file of an install gone quiet for a week; now such a file stays where it is, nobody is named for it, and the live devices drop the frozen files they kept for it. A reader that arrives later reads it and moves on.
+- Picking frames from a video is a page of its own with the video playing in it: the slider seeks the picture as the finger moves, play and pause, steps of one frame, one second and ten seconds either way, held to repeat, and "Keep this frame" takes the exact frame at the player's position. The kept frames line up at the bottom, a tap lets one go. The guessed "suggested frames" are gone; the scrubber that showed a frame only after the finger came to rest, half a second later, is gone with them.
+
+### Fixed
+- A fresh cat's page no longer opens with the plus fanned out; it fanned from where the "Create" button had been, its items over the app bar. The plus stays a plus until tapped, and while the fan is out the minus stands lit above the veil instead of darkened under it.
+
+## [2.0.2] - 2026-09-23
+
+### Added
+- The portrait of a deceased cat wears the Trauerflor, a black band across its lower right corner: on the avatar in every list, the map pin, the card, and on the desk's faces, rows and tiles. On the placeholder too, so a cat without a photo reads as deceased. The other photos stay as they are.
+- A history row with a position carries a map icon: the map opens on that spot with the trail drawn and that value's dot marked.
+- Typed fields in the value editor (remarks, numbers, unit values, ids) carry an X that empties them, so a fresh note starts blank without selecting and deleting the old one first.
+- Holding a trail dot on the map opens its menu right there: the value's history, a correction where the field has an editor, and removal. Holding the map itself offers the strays for a sighting in a menu at the finger.
+
+### Changed
+- The desk's Home and Agenda are laid out in cards: every section is a rounded card with its heading, and a chore, appointment or reminder is a two-line row inside it, the tick box or Finish at its side, whose it is with the face on the second line. Recent changes are grouped by day, Today and Yesterday by name, older days by weekday and date, each line with its time and the face of the cat or the cover of the clowder. The "Last viewed" clowder shows its own cover, not a cat's face. Weekday names are translated.
+- A reminder or appointment ticked today stays on the agenda for the day, box checked, like a chore. The tick asks nothing; a tap on the done reminder plans the next cycle, a tap on the done appointment reopens its outcome notes, the box unticks, the bin takes it off the list.
+- Moving a cat is one dialog: the homes and "stray" as rows, the day at the foot for a historic move.
+- Creating a catalog asks nothing about moving things in; "Move in from another catalog…" is a row on the catalog's settings page.
+- The unit system is picked on the settings row itself, no dialog.
+- Nothing slides in from the bottom any more. Every menu opens where the finger is: the photo menu, the cover picture's menu, the catalog switcher under the title, the map's menus. Help is a page of its own, and shared photos are placed on one page that lists cats, homes with "New cat here", a new stray, and a new home typed right there.
+- History rows on the timeline, the field history and the chore log have the agenda shape: a tap corrects, the bin removes, a removed row shows the arrow that brings it back. A chore tick's day and time are corrected in one dialog.
+- A chore tick in the history names its chore, and the day it counts for when that is not the day it was ticked.
+- A button that says "take a picture" or "from the gallery" no longer asks which one it meant.
+
+### Fixed
+- The sync folder no longer names an install that is gone as "still needs the new version" on every start. A whole-history file nobody has written to for a week, whose entries every device already holds, is an old install; phone and desk delete it and its key file, and the live devices drop the frozen files they kept for it. A manifest still on its way from the cloud client no longer counts as a device on the old layout either.
+- The desk is usable with a real catalog. It used to ask the database for every value on every frame, and every such read scanned the whole log twice, so a catalog of a thousand cats took ten seconds per frame in the Cats view and half a minute on the agenda. The store now keeps what every read needs between writes, the views keep their rows until something changes, and the reminder check runs twice a minute instead of once a frame.
+- The outcome notes of a finished appointment show in the history under the visit; they were stored but shown nowhere.
+- On Linux the desk's menu entry shows the cat icon, on KDE as on GNOME. The entry names the icon by its theme name and a 256 pixel PNG sits where every desktop looks; 2.0.1 pointed the entry at an SVG file inside the Homebrew prefix, which drew nothing. The desk also keeps its own launcher entry, icon and `.catsync` file type current in the application menu on every start, so a Homebrew, tarball or AppImage install is in the menu with its icon after one start, and a moved binary heals its entry itself.
+
+## [2.0.1] - 2026-09-21
+
+### Changed
+- Every sound has its own setting, on the phone and the desk: a chore ticked, the day's chores done, a ladder climbed, an adoption, each with a list to pick from under Settings, Sounds. The pick is heard as it is made; None is a choice, and so is a sound file of your own. The one Cheer sound switch is gone; a device that had it off stays silent until a moment gets its own sound.
+- A clowder's cover picture is one row with the camera and the gallery as buttons, on the phone; the desk's row says what it is beside its button. The explanation and the sheet in between are gone. The strays list leads with the same row for its own picture instead of an icon in the bar.
+- One plus on every page that adds in more than one way, fanning the ways out with their words: on the strays list New stray, Take photo, Choose from gallery, From video, Flier from camera and Flier from gallery; on a cat's page Take photo, Choose from gallery, From video, Appointment, Reminder and Chore, fanned out already when a fresh cat's page opens; on a clowder's page Add cat, Appointment, Reminder and Chore; on the agenda the three kinds of plan. The Stray Cam, flier and Add reminder icons in the bars are gone, as is the "Appointment or reminder?" dialog. A Stray Cam picture opens the page in edit mode straight away, species a field on it; the Looks question before the page is gone.
+- Every plan editor starts with whose it is, a For field preset from the page it was opened on and changeable; from the agenda it starts with the cat or clowder looked at last. The dialog asking whose came first is gone, also before a duplicated chore.
+- The map's Stray Cam button is gone; a stray is added from the strays list.
+- A conflict is settled on its row: the two values are buttons with who and when, a tap keeps one. On the conflicts page, on the arrival page, and on the desk's conflicts and arrival views alike; a field's conflict badge leads to the conflicts page. The dialog that asked again is gone, and so is its explanation.
+- The agenda's three rows share one shape: the box on the left ticks a chore, marks a reminder done or finishes an appointment, tap opens whose it is, a hold edits it, and a bin on the right removes a reminder or deletes an appointment. The long-press menus on the reminder and appointment cards are gone.
+- On a clowder's page a hold on a cat opens its Card straight away; the two-item menu is gone. The agenda's export and its calendar resync are icons in the bar instead of a one-item menu.
+- Desk: one menu under cat(a)log holds Settings and Quit in place of File and Edit; the language is picked on Settings only. Merge is a button beside New cat on a clowder's page. A row's menu holds only what a click does not do already, and every row with a menu shows a ⋮ at its end, the chore row included, so the right-click is not the only way in.
+- Hosting an in-person sync no longer asks whether the phone that just scanned the code may join: the code and the PIN off the screen are the answer. Always-allowed devices, their list under Authors and the question on the desk are gone with it; the Include private switch stays the one setting a join reads.
+- A button that already says camera opens the camera: the flier capture, and the missing poster's picture tiles, which now come as a gallery tile and a camera tile. The flier capture from a cat's page offers the two as buttons on its page.
+- Every view on the desk opens with its name as a headline under the bar; Agenda, Map and Vet no longer squeeze theirs into the toolbar.
+- The desk's tips look and work like the phone's: one bubble with Skip and Next, Got it on a page's last, Skip ending that page's tips. A tip whose widget is not on screen shows the same bubble under the bar instead of a line under the menu. The intro asks whether the tips are wanted, with Start with the tips and Start without tips under the name, instead of a checkbox.
+
+### Fixed
+- On Linux the desk installed through Homebrew is in the application menu right after `brew install`, and its window shows the cat icon on Wayland; before, the menu entry had to be registered by hand and the window carried a generic icon. The `.deb` shows the icon on Wayland too. `catlog-install-icon --uninstall` takes the menu entry out again.
+
+## [2.0.0] - 2026-09-20
+
+### Added
+- The desktop app is new, written in Rust, and looks like the phone: the cream from the icon, the cat orange for what is chosen, Noto Sans and the Material icons beside every label. A bar under the menu leads to six views over the same Catalogs, shared folders and `.catsync` bundles the phones use: Home, a dashboard with the counts, what is due today with tick and finish, the recent changes and the cat and clowder looked at last; Cats, a table with columns chosen per Catalog, sorting, search, Strays and Missing filters and multi-select; Clowders, a table with faces, counts and status; Map; Agenda; and Vet, the runs and appointments across all cats with the patient sheet and the report one click away. A cat or clowder opens as its index card on the desk, several side by side, dragged into place and found there again; simple values are edited on the card, complex ones in the editor; every other page opens as a modal that Escape closes. Motion is modest and the Eye candy switch stills it. A chore is duplicated onto another cat or home from its dialog, a clowder gets its cover picture, the map searches cats, clowders, people and places, a new cat comes with a proposed name and the dice for another, and the impossible is refused with the phone's words, as on the phone. A tip rings the widget it is about and speaks beside it. The rest is the phone's: Clowders, Cats and Strays with their Fields, photos with crop and mark, chores with the agenda and desktop reminders, appointments and Vet Runs, the map with sightings and stray areas, the sync pages with the watch line and the conflicts page, duplicates with Merge and Transfer, Moments with going back, automatic backups with restore, archiving, the authors page with bans, the Card, the missing poster with its QR code and the report for the vet as PDFs, flier capture from an image file, achievements with the cheers, tips, help and settings. Linux ships as tar.gz, .deb and AppImage, Windows as a zip through Scoop, macOS as a dmg through the Homebrew cask.
+- The desk hosts an in-person sync (#138): Start hosting on the Sync page shows the pair code as a QR and as text with the PIN, a phone joins it as it joins another phone, every unknown phone is allowed once, always or declined, and what arrived opens as after a folder round. The desk serves over its own certificate only while the modal is open.
+- Copy as image on the desk (#138): the printed Card from a card's menu and from its document page, a photo full size from the viewer, and the history graph drawn on white ground with its title, range, days and trend, each straight to the clipboard for a messenger or a mail.
+- Duplicate in a chore's editor: pick the cat or home the copy is for and a new editor opens with the same title, schedule, time and reminder, over the original, so every kitten gets its feeding with one pick and one Save each.
+
+### Changed
+- A shared folder carries a change within a minute while both apps are on screen: every entry written on this phone goes to the folder a few seconds later, gathered with whatever else lands in those seconds, and the folder is looked at every thirty seconds instead of every five minutes. A phone's history in the folder is a run of small segments beside a manifest: only the open segment travels, full ones never again, and a reader takes only the lines it has not seen. A merge the phone ran on its own says nothing but the news notes; the folder out of reach for a while raises one note that stays until dismissed. Phones and the desk write and read the new layout in this release; a device still on the old one keeps what it had and is named until it updates.
+- Everything the app has to say now comes at the top of the screen, under the status bar: one note at a time, the page moving down under it, nothing at the bottom where the navigation gestures and the keyboard are. A thin line pulses with one icon per running job while a folder sync, an in-person sync, a backup or an archive runs. A note only says that a job finished, that it failed, or that changes wait: tap a finished sync for what arrived, tap a failure for the cause, the full text and a Report button, swipe left for the next note, swipe right to clear the news; a failure stays until it is swiped left or tapped, a finished job leaves after three seconds. Copied, recorded and cleared no longer announce themselves; a green paw at the tapped button says it worked. The sync pages no longer print entry and photo counts, and a catalog name already taken is answered under the name field. On the arrival page the ticks of one chore are one row with the chore's title and count, and a cat's row names what changed instead of counting changes.
+- The cheers are cats now, on the phone and the desk: a short meow when a chore is ticked, a purr when the day's chores are done, a chorus of meows for a ladder climbed, a meow over a purr for an adoption. The recordings come from Wikimedia Commons, CC0 and public domain; the crowd cheers and their credit are gone.
+- The flier text page shows one card per line, the text as wide as the page, the target under it; the X or a swipe puts a line aside, Undo brings it back. Links on the text and registry pages and in the remember-service dialog show in full.
+- Shared folder sync is several times faster: a round skips the entries it already holds before checking them, and the lookups behind private and merged values are asked once instead of once per entry. A round with nothing new takes a sixth of the time, a first import a little over half.
+
+### Removed
+- The Flutter desktop targets. Their data stays where it was; the new app keeps its own data under the same app id in a `v2` folder.
+
+### Fixed
+- A battery saver closing the app in the background no longer brings the crash report on the next start. On Android 11 and newer the app asks the system why it was ended and offers the report only after a crash, a freeze, or a memory kill while it was on screen; the report names the system's reason.
+
 ## [1.3.4] - 2026-09-15
 
 ### Changed

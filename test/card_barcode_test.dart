@@ -55,6 +55,25 @@ void main() {
     expect(find.textContaining('ÄÖÜ 1234'), findsWidgets);
   });
 
+  testWidgets('the card says the age a cat that died reached', (tester) async {
+    tester.view.physicalSize = const Size(500, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    store.append(cat, Keys.userField('birthdate'), '2010-12-27');
+    store.append(cat, Keys.userField('deceased'), '2025-05-18');
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: CardScreen(store: store, catId: cat),
+    ));
+    await tester.pumpAndSettle();
+
+    // The birth date answers "how old", with the cross, as the cat's
+    // own page does.
+    expect(find.textContaining('14 yrs 4 mo †'), findsWidgets);
+  });
+
   testWidgets('a registry QR carries the search link, the caption the id',
       (tester) async {
     tester.view.physicalSize = const Size(500, 1600);

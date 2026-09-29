@@ -10,9 +10,10 @@ import '../achievements.dart';
 import '../language_dialog.dart';
 import '../spotlight.dart';
 import '../units.dart';
-import '../units_dialog.dart';
 import 'intro_screen.dart';
 import '../move_to_catalog.dart';
+import '../chores/chore_reminders.dart';
+import '../sounds.dart';
 import 'achievements_screen.dart';
 import 'backups_screen.dart';
 
@@ -46,8 +47,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       0;
 
   String _coatLabel(AppLocalizations t) {
-    final favourite =
-        FurPattern.values.asNameMap()[widget.store.localSetting('furFavourite')];
+    final favourite = FurPattern.values
+        .asNameMap()[widget.store.localSetting('furFavourite')];
     return favourite == null ? t.coatRandom : coatLabel(t, favourite);
   }
 
@@ -76,8 +77,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } else {
       widget.store.setLocalSetting('furFavourite', picked);
     }
-    pickCoat(favourite: picked.isEmpty ? null : picked, fullMonths: _fullMonths);
+    pickCoat(
+      favourite: picked.isEmpty ? null : picked,
+      fullMonths: _fullMonths,
+    );
     setState(() {});
+  }
+
+  /// The sound of one moment: none, a shipped sound or an own file,
+  /// each heard as it is picked.
+  Future<void> _pickSound(Cheer moment) async {
+    await showDialog<void>(
+      context: context,
+      builder: (context) => SoundDialog(store: widget.store, moment: moment),
+    );
+    if (mounted) setState(() {});
   }
 
   Future<void> _pick(
@@ -87,12 +101,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (mounted) setState(() {});
   }
 
-  String _unitsLabel(AppLocalizations t) =>
-      switch (widget.store.localSetting(unitsSettingKey)) {
-        'metric' => t.unitsMetric,
-        'imperial' => t.unitsImperial,
-        _ => t.unitsAuto,
-      };
+  /// Metric or imperial, or whatever the region says (#96). Device-local
+  /// and immediate: every value on screen changes its unit.
+  void _setUnits(String value) {
+    widget.store.setLocalSetting(unitsSettingKey, value);
+    applyUnitSystem(widget.store, Localizations.localeOf(context));
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,11 +125,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(languageLabel(context, widget.store)),
             onTap: () => _pick(showLanguageDialog),
           ),
+          // The choice on the row itself, as the catalog's Cats and
+          // Pets is; no dialog for three options.
           ListTile(
             leading: const Icon(Icons.straighten),
             title: Text(t.unitsLabel),
-            subtitle: Text(_unitsLabel(t)),
-            onTap: () => _pick(showUnitsDialog),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: SegmentedButton<String>(
+                segments: [
+                  ButtonSegment(value: 'auto', label: Text(t.unitsAuto)),
+                  ButtonSegment(value: 'metric', label: Text(t.unitsMetric)),
+                  ButtonSegment(
+                      value: 'imperial', label: Text(t.unitsImperial)),
+                ],
+                selected: {widget.store.localSetting(unitsSettingKey) ?? 'auto'},
+                onSelectionChanged: (s) => _setUnits(s.first),
+              ),
+            ),
           ),
           SwitchListTile(
             secondary: const Icon(Icons.celebration_outlined),
@@ -124,17 +152,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (v) =>
                 setState(() => setCelebrationsEnabled(widget.store, v)),
           ),
-          // The cheer on its own switch: confetti for the eyes, silence
-          // for the ears, when that is the mood.
+          // Every moment with a sound has its own row: the pick is
+          // heard as it is made, none is a choice, and so is a file.
+          ListTile(
+            leading: const Icon(Icons.volume_up_outlined),
+            title: Text(t.soundsSection),
+          ),
+          for (final moment in Cheer.values)
+            ListTile(
+              leading: const SizedBox(width: 24),
+              title: Text(momentLabel(t, moment)),
+              subtitle: Text(choiceLabel(t, soundFor(widget.store, moment))),
+              onTap: () => _pickSound(moment),
+            ),
+          // A reminder arrives while the app is closed, so the system
+          // owns it: the cat's voice or the phone's, nothing else.
           SwitchListTile(
-            secondary: const Icon(Icons.volume_up_outlined),
-            title: Text(t.cheerToggle),
-            subtitle: Text(t.cheerSubtitle),
-            value: celebrationsEnabled(widget.store) &&
-                cheerEnabled(widget.store),
-            onChanged: celebrationsEnabled(widget.store)
-                ? (v) => setState(() => setCheerEnabled(widget.store, v))
-                : null,
+            secondary: const SizedBox(width: 24),
+            title: Text(t.reminderSound),
+            subtitle: Text(t.reminderSoundSubtitle),
+            value: reminderCatSound(widget.store),
+            onChanged: (v) => setState(() {
+              setReminderCatSound(widget.store, v);
+              refreshChoreReminders(
+                widget.store,
+                body: (c) =>
+                    widget.store.current(c.entity, Keys.name) ?? context.t.unnamed,
+              );
+            }),
           ),
           // The coat under every page: a different one each start, or
           // a favourite among the ones earned.
@@ -148,10 +193,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ListTile(
               leading: const Icon(Icons.emoji_events_outlined),
               title: Text(t.achievementsTitle),
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => AchievementsScreen(
-                    manager: catalogManager!, stores: [widget.store]),
-              )),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => AchievementsScreen(
+                    manager: catalogManager!,
+                    stores: [widget.store],
+                  ),
+                ),
+              ),
             ),
           Spotlight(
             id: 'settings-backups',
@@ -182,8 +231,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(t.spotReplaySubtitle),
             onTap: () {
               resetSpotlights(widget.store);
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(t.spotReplayDone)));
+              paw(context);
             },
           ),
           ListTile(
@@ -200,6 +248,80 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// One moment's sound: a list to pick from, the pick heard at once and
+/// kept; Own sound… asks for a file. Close is the only button.
+class SoundDialog extends StatefulWidget {
+  final CatalogStore store;
+  final Cheer moment;
+
+  const SoundDialog({super.key, required this.store, required this.moment});
+
+  @override
+  State<SoundDialog> createState() => _SoundDialogState();
+}
+
+class _SoundDialogState extends State<SoundDialog> {
+  late SoundChoice _choice = soundFor(widget.store, widget.moment);
+
+  void _choose(SoundChoice choice) {
+    setSound(widget.store, widget.moment, choice);
+    setState(() => _choice = choice);
+    playSound(choice);
+  }
+
+  Future<void> _own() async {
+    final picked = await pickOwnSound(widget.moment);
+    if (picked != null && mounted) _choose(picked);
+  }
+
+  Widget _row(String label, bool selected, VoidCallback onTap) => ListTile(
+    leading: Icon(
+      selected ? Icons.radio_button_checked : Icons.radio_button_off,
+    ),
+    title: Text(label),
+    onTap: onTap,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final chosen = _choice;
+    return AlertDialog(
+      title: Text(momentLabel(t, widget.moment)),
+      contentPadding: const EdgeInsets.symmetric(vertical: 8),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _row(
+              t.alertNone,
+              chosen is NoSound,
+              () => _choose(const NoSound()),
+            ),
+            for (final preset in Preset.values)
+              _row(
+                presetLabel(t, preset),
+                chosen is PresetSound && chosen.preset == preset,
+                () => _choose(PresetSound(preset)),
+              ),
+            _row(
+              chosen is OwnSound ? choiceLabel(t, chosen) : t.soundOwn,
+              chosen is OwnSound,
+              _own,
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.ok),
+        ),
+      ],
     );
   }
 }
