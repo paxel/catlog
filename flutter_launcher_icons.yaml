@@ -5,7 +5,7 @@ flutter_launcher_icons:
   image_path: assets/icon/icon.png
   android: true
   # The picture's own orange, sampled by the tool.
-  adaptive_icon_background: "#FD5700"
+  adaptive_icon_background: "#FF5001"
   adaptive_icon_foreground: assets/icon/icon_fg.png
   # The foreground already places the artwork inside the launcher's
   # circle; the package's default 16% inset on top of it is what made the
