@@ -4,8 +4,8 @@
 
 Both stores carry 1.4.0, so this release brings a keeper everything from 2.0.0 to 2.0.7 in one update. The store frames were regenerated from the branch: every page on them changed since 1.3.3. Play is listed in en-US and de-DE; the App Store in English, with the German texts here for the locale to add once in App Store Connect.
 
-- Play Kit — (published after the edits are settled)
-- App Store Kit — (published after the edits are settled)
+- Play Kit — <https://claude.ai/artifact/P1GAvwB85NdLWJw3GWvGNB>
+- App Store Kit — <https://claude.ai/artifact/8BKZPKM7QuXRhFwaUZDiZM>
 
 <!-- store-kit
 live_play: 1.4.0
@@ -20,7 +20,7 @@ frames: regenerated
 <!-- block id=play_notes_en limit=500 lang=en title="Release notes, en-US" where="Production release" -->
 ```
 Added
-• A cat that died keeps its place: a mourning band on its picture, the age it reached on its card
+• A cat that died: a mourning band on its picture, the age it reached on its card
 • Your own sound for each moment; a cat's voice for chore reminders
 
 Changed
@@ -37,7 +37,7 @@ Fixed
 <!-- block id=play_notes_de limit=500 lang=de title="Versionshinweise, de-DE" where="Production release" -->
 ```
 Neu
-• Eine verstorbene Katze behält ihren Platz: Trauerflor auf dem Bild, erreichtes Alter auf der Karte
+• Eine verstorbene Katze: Trauerflor auf dem Bild, erreichtes Alter auf der Karte
 • Eigener Klang je Moment; Katzenstimme für Aufgaben-Erinnerungen
 
 Geändert
@@ -55,7 +55,7 @@ Behoben
 
 <!-- block id=appstore_whatsnew_en limit=4000 lang=en title="What's New, English" where="Version information" -->
 ```
-Deceased cats keep their place. The photo wears a mourning band in every list, on the map and on the cat's card, and the card and the report for the vet give the age the cat reached.
+A cat that died: its photo wears a mourning band in every list, on the map and on its card, and the card and the report for the vet give the age it reached.
 
 Notes now appear at the top of the screen, one at a time. Tap one for the details, swipe left for the next, swipe right to clear them. A note about something that failed stays until you deal with it, and a quick success answers with a green paw at the button you touched.
 
@@ -74,7 +74,7 @@ Also fixed: an appointment could be saved with nobody to visit, moving in from a
 
 <!-- block id=appstore_whatsnew_de limit=4000 lang=de title="Neue Funktionen, Deutsch" where="Version information" -->
 ```
-Verstorbene Katzen behalten ihren Platz. Das Foto trägt einen Trauerflor in jeder Liste, auf der Karte und auf der Karteikarte der Katze, und Karteikarte wie Bericht für den Tierarzt nennen das Alter, das die Katze erreicht hat.
+Eine verstorbene Katze: ihr Foto trägt einen Trauerflor in jeder Liste, auf der Karte und auf ihrer Karteikarte, und Karteikarte wie Bericht für den Tierarzt nennen das Alter, das sie erreicht hat.
 
 Meldungen erscheinen jetzt oben am Bildschirmrand, eine nach der anderen. Tippen zeigt die Einzelheiten, ein Wisch nach links die nächste, ein Wisch nach rechts räumt sie weg. Eine Meldung über einen Fehlschlag bleibt stehen, bis du dich darum kümmerst, und ein kleiner Erfolg antwortet mit einer grünen Pfote an der Schaltfläche.
 
@@ -281,7 +281,7 @@ AUSSERDEM
 
 One per changed listing line; the block above stays live until an edit is accepted.
 
-<!-- edit block=play_full_en status=pending -->
+<!-- edit block=play_full_en status=rejected -->
 Changelog 2.0.2 Added (the mourning band) and 2.0.7 Changed (the age reached on the card): a cat that died is treated with care, and the listing says nothing about it. One line under ALSO, after the photos.
 ```
 • Photos: crop one kitten out of a group picture, or circle it when they are too tangled to crop.
@@ -291,7 +291,7 @@ Changelog 2.0.2 Added (the mourning band) and 2.0.7 Changed (the age reached on 
 • A cat that died keeps its place: its picture wears a mourning band, and its card gives the age it reached.
 ```
 
-<!-- edit block=play_full_de status=pending -->
+<!-- edit block=play_full_de status=rejected -->
 Same edit, German.
 ```
 • Fotos: ein Kitten aus dem Gruppenbild ausschneiden oder einkreisen, wenn sie zu verknäult sind.
@@ -301,7 +301,7 @@ Same edit, German.
 • Eine verstorbene Katze behält ihren Platz: ihr Bild trägt einen Trauerflor, und ihre Karte nennt das erreichte Alter.
 ```
 
-<!-- edit block=appstore_desc_en status=pending -->
+<!-- edit block=appstore_desc_en status=rejected -->
 Same edit, App Store description.
 ```
 • Photos: crop one kitten out of a group picture, or circle it when they are too tangled to crop.
@@ -311,7 +311,7 @@ Same edit, App Store description.
 • A cat that died keeps its place: its picture wears a mourning band, and its card gives the age it reached.
 ```
 
-<!-- edit block=appstore_desc_de status=pending -->
+<!-- edit block=appstore_desc_de status=rejected -->
 Same edit, App Store description, German.
 ```
 • Fotos: ein Kitten aus dem Gruppenbild ausschneiden oder einkreisen, wenn sie zu verknäult sind.
