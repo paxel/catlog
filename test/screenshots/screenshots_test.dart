@@ -124,14 +124,18 @@ CatalogStore _demoStore() {
   store.recordPosition(millers, 52.5138, 13.4021, date: _ago(40));
 
   // ---- cats at the foster home
-  final miezi = store.createCat('Miezi', clowderId: home, date: _ago(128));
+  final miezi = store.createCat(
+    'Herr Sonnenschein',
+    clowderId: home,
+    date: _ago(128),
+  );
   store.addImage(miezi, _photo(1), date: _ago(128));
-  put(miezi, 'f:gender', 'female', date: _ago(128));
+  put(miezi, 'f:gender', 'male', date: _ago(128));
   put(miezi, 'f:color', 'white & ginger', date: _ago(128));
   put(miezi, 'f:breed', 'European Shorthair', date: _ago(128));
   put(miezi, 'f:chipid', '276 0981 0234 5678', date: _ago(120), as: 'Marta');
   put(miezi, 'f:neutered', 'yes', date: _ago(85), as: 'Marta');
-  put(miezi, 'f:birthdate', '2026-03-01', date: _ago(128));
+  put(miezi, 'f:birthdate', '2010-12-27', date: _ago(128));
   put(
     miezi,
     'f:looks',
@@ -152,16 +156,18 @@ CatalogStore _demoStore() {
     as: 'Marta',
   );
   put(miezi, 'f:remarks', 'Loves the window seat', date: _ago(9), as: 'Jonas');
+  // A grown tom of six kilos, weighed every fortnight: the curve of an
+  // adult, not of a kitten.
   for (final (i, grams) in [
-    980,
-    1240,
-    1510,
-    1760,
-    2050,
-    2290,
-    2480,
-    2610,
-    2700,
+    5620,
+    5700,
+    5760,
+    5810,
+    5880,
+    5920,
+    5950,
+    5980,
+    6000,
   ].indexed) {
     put(
       miezi,
@@ -172,7 +178,7 @@ CatalogStore _demoStore() {
     );
   }
 
-  final balu = store.createCat('Balu', clowderId: home, date: _ago(128));
+  final balu = store.createCat('Hoernchen', clowderId: home, date: _ago(128));
   store.addImage(balu, _photo(13), date: _ago(128));
   put(balu, 'f:gender', 'male', date: _ago(128));
   put(balu, 'f:color', 'black', date: _ago(128));
@@ -189,15 +195,15 @@ CatalogStore _demoStore() {
     put(balu, 'f:weight', '$grams', date: _ago(120 - 20 * i));
   }
 
-  final nala = store.createCat('Nala', clowderId: home, date: _ago(60));
+  final nala = store.createCat('Socke', clowderId: home, date: _ago(60));
   store.addImage(nala, _photo(5), date: _ago(60));
-  put(nala, 'f:gender', 'female', date: _ago(60), as: 'Marta');
-  put(nala, 'f:color', 'tortoiseshell', date: _ago(60), as: 'Marta');
+  put(nala, 'f:gender', 'male', date: _ago(60), as: 'Marta');
+  put(nala, 'f:color', 'black & white', date: _ago(60), as: 'Marta');
   put(nala, 'f:birthdate', '2026-06-15', date: _ago(60), as: 'Marta');
   put(
     nala,
     'f:looks',
-    'size=small; colours=black,ginger; pattern=tortoiseshell; fur=medium',
+    'size=small; colours=black,white; pattern=bicolour; fur=short',
     date: _ago(60),
     as: 'Marta',
   );
@@ -452,7 +458,6 @@ CatalogStore _demoStore() {
   return store;
 }
 
-
 void main() {
   setUpAll(() async {
     useSystemSqlite();
@@ -519,7 +524,8 @@ void main() {
       final data = await image.toByteData(format: ui.ImageByteFormat.png);
       // Flutter writes RGBA; App Store Connect refuses a screenshot with
       // an alpha channel. Three channels, nothing else changes.
-      final rgb = img.decodePng(data!.buffer.asUint8List())!
+      final rgb = img
+          .decodePng(data!.buffer.asUint8List())!
           .convert(numChannels: 3);
       File('docs/screenshots/$name.png').writeAsBytesSync(img.encodePng(rgb));
     });
@@ -531,7 +537,7 @@ void main() {
     agendaAutoOpened = true;
     final store = _demoStore();
     addTearDown(store.close);
-    final miezi = store.searchCats('Miezi').single.id;
+    final miezi = store.searchCats('Herr Sonnenschein').single.id;
     final home = store
         .clowders()
         .firstWhere((c) => c.name == 'Foster Home South')
