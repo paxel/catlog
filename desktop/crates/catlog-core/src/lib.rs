@@ -34,6 +34,7 @@ pub mod ics;
 pub mod keys;
 pub mod lan;
 pub mod looks;
+pub mod map_pins;
 pub mod moments;
 pub mod partial_date;
 pub mod pdf;

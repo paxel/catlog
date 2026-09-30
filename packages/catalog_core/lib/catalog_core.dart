@@ -18,6 +18,7 @@ export 'src/folder_sync.dart';
 export 'src/flier_share.dart';
 export 'src/ics.dart';
 export 'src/looks.dart';
+export 'src/map_pins.dart';
 export 'src/match.dart';
 export 'src/transfer.dart';
 export 'src/units.dart';

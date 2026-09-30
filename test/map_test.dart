@@ -13,7 +13,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
-import 'package:catlog/src/screens/cat_list_screen.dart';
+import 'package:catlog/src/screens/clowder_detail_screen.dart';
+import 'package:catlog/src/screens/map_spot_screen.dart';
 
 /// Serves one local PNG for every tile — no network in tests.
 class _FakeTileProvider extends TileProvider {
@@ -28,33 +29,43 @@ class _FakeTileProvider extends TileProvider {
 void main() {
   setUpAll(useSystemSqlite);
 
-  testWidgets('map shows stray and clowder pins from positions',
-      (tester) async {
+  testWidgets('map shows stray and clowder pins from positions', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_map');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
 
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
     final home = store.createClowder('Home');
     store.recordPosition(home, 52.52, 13.40);
-    store.addImage(home,
-        CatalogStore.compressImage(Uint8List.fromList(
-            img.encodeJpg(img.Image(width: 60, height: 60)))));
+    store.addImage(
+      home,
+      CatalogStore.compressImage(
+        Uint8List.fromList(img.encodeJpg(img.Image(width: 60, height: 60))),
+      ),
+    );
     final stray = store.createCat('Roamer');
     store.recordPosition(stray, 52.53, 13.41);
-    store.addImage(stray,
-        CatalogStore.compressImage(Uint8List.fromList(
-            img.encodeJpg(img.Image(width: 60, height: 60)))));
+    store.addImage(
+      stray,
+      CatalogStore.compressImage(
+        Uint8List.fromList(img.encodeJpg(img.Image(width: 60, height: 60))),
+      ),
+    );
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
 
     expect(find.text('Home'), findsOneWidget);
@@ -75,27 +86,39 @@ void main() {
     final mapRect = tester.getRect(find.byType(FlutterMap));
     for (final marker in markers) {
       final tip = find.descendant(
-          of: find.byWidget(marker.child), matching: find.byType(PinTip));
+        of: find.byWidget(marker.child),
+        matching: find.byType(PinTip),
+      );
       final tipRect = tester.getRect(tip);
       final spot = camera.latLngToScreenOffset(marker.point);
-      expect(tipRect.bottom,
-          moreOrLessEquals(mapRect.top + spot.dy, epsilon: 1));
-      expect(tipRect.center.dx,
-          moreOrLessEquals(mapRect.left + spot.dx, epsilon: 1));
+      expect(
+        tipRect.bottom,
+        moreOrLessEquals(mapRect.top + spot.dy, epsilon: 1),
+      );
+      expect(
+        tipRect.center.dx,
+        moreOrLessEquals(mapRect.left + spot.dx, epsilon: 1),
+      );
     }
     // The clowder's photo is decoded at pin size, like the cat faces.
     expect(
-        find.byWidgetPredicate((w) =>
+      find.byWidgetPredicate(
+        (w) =>
             w is Container &&
             w.decoration is BoxDecoration &&
-            (w.decoration as BoxDecoration).image?.image is ResizeImage),
-        findsWidgets);
+            (w.decoration as BoxDecoration).image?.image is ResizeImage,
+      ),
+      findsWidgets,
+    );
     expect(
-        find.byWidgetPredicate((w) =>
+      find.byWidgetPredicate(
+        (w) =>
             w is Container &&
             w.decoration is BoxDecoration &&
-            (w.decoration as BoxDecoration).image?.image is MemoryImage),
-        findsNothing);
+            (w.decoration as BoxDecoration).image?.image is MemoryImage,
+      ),
+      findsNothing,
+    );
     expect(find.text('OpenStreetMap contributors'), findsOneWidget);
     // A stray WITH a photo shows its face ring, never the paw fallback.
     expect(find.byIcon(Icons.pets), findsNothing);
@@ -108,14 +131,15 @@ void main() {
     expect(find.textContaining('sightings'), findsOneWidget);
   });
 
-
-  testWidgets('in pet mode an animal without a photo pins as a paw',
-      (tester) async {
+  testWidgets('in pet mode an animal without a photo pins as a paw', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_map');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     addTearDown(() => petMode.value = false);
@@ -123,42 +147,50 @@ void main() {
     final stray = store.createCat('Rex', species: 'dog');
     store.recordPosition(stray, 52.53, 13.41);
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
     // Cat mode: the cat placeholder, no paw.
     expect(find.byIcon(Icons.pets), findsNothing);
 
     setPetMode(store, true);
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
     expect(find.byIcon(Icons.pets), findsOneWidget);
   });
 
-  testWidgets('a flier-only stray pins where its poster says (#83)',
-      (tester) async {
+  testWidgets('a flier-only stray pins where its poster says (#83)', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_map');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
     final lost = store.createCat('Minka');
     store.recordPosition(lost, 52.50, 13.40, kind: PositionKind.flier);
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
     expect(find.text('Minka'), findsOneWidget);
 
@@ -170,13 +202,13 @@ void main() {
   });
 
   testWidgets('members of a clowder without a position pin themselves; '
-      'cats on one spot share a pin that opens the list (#88)',
-      (tester) async {
+      'cats on one spot share a pin that opens the list (#88)', (tester) async {
     final dir = Directory.systemTemp.createTempSync('catlog_map');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
@@ -188,29 +220,86 @@ void main() {
     store.moveCat(rooster, yard);
     // Five metres away: the same spot.
     store.recordPosition(rooster, 49.42644, 6.8376);
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
     expect(find.text('Hahn +1'), findsOneWidget);
     expect(find.text('Schneeweißchen'), findsNothing);
 
     await tester.tap(find.text('Hahn +1'));
     await tester.pumpAndSettle();
-    expect(find.byType(CatListScreen), findsOneWidget);
+    expect(find.byType(MapSpotScreen), findsOneWidget);
     expect(find.text('Hahn'), findsOneWidget);
     expect(find.text('Schneeweißchen'), findsOneWidget);
   });
 
-  testWidgets('"Show on map" pins the spot it was pressed for (#88)',
-      (tester) async {
+  testWidgets('two homes at one address share a pin; the home leads a cat', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_map');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final loft = store.createClowder('Eckesloft');
+    store.recordPosition(loft, 51.3396, 12.3713);
+    final patricks = store.createClowder('Patricks Loft');
+    store.recordPosition(patricks, 51.33962, 12.3713);
+    // A stray seen at the door: behind the homes, not in front of them.
+    final stray = store.createCat('Oskar');
+    store.recordPosition(stray, 51.33961, 12.3713);
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Eckesloft +2'), findsOneWidget);
+    expect(find.text('Patricks Loft'), findsNothing);
+    expect(find.text('Oskar'), findsNothing);
+
+    // The pin opens the list of what is there, in the pin's order.
+    await tester.tap(find.text('Eckesloft +2'));
+    await tester.pumpAndSettle();
+    expect(find.byType(MapSpotScreen), findsOneWidget);
+    final rows = tester
+        .widgetList<ListTile>(find.byType(ListTile))
+        .map((t) => (t.title as Text).data)
+        .toList();
+    expect(rows, ['Eckesloft', 'Patricks Loft', 'Oskar']);
+    // The map icon goes back to the map with that home's trail on.
+    await tester.tap(find.byIcon(Icons.map).at(1));
+    await tester.pumpAndSettle();
+    expect(find.byType(MapSpotScreen), findsNothing);
+    expect(find.byType(MapScreen), findsOneWidget);
+    // A row opens the thing.
+    await tester.tap(find.text('Eckesloft +2'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Patricks Loft'));
+    await tester.pumpAndSettle();
+    expect(find.byType(ClowderDetailScreen), findsOneWidget);
+  });
+
+  testWidgets('"Show on map" pins the spot it was pressed for (#88)', (
+    tester,
+  ) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_map');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
@@ -219,28 +308,33 @@ void main() {
     final hen = store.createCat('Schneeweißchen');
     store.moveCat(hen, yard);
     store.recordPosition(hen, 49.4264, 6.8376);
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(
           store: store,
           tileProvider: _FakeTileProvider(tile),
           initialCenter: const LatLng(49.4264, 6.8376),
-          focus: (hen, const LatLng(49.4264, 6.8376))),
-    ));
+          focus: (hen, const LatLng(49.4264, 6.8376)),
+        ),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
     // The clowder has a position, so the member would not pin on its
     // own — the focus pin is there regardless.
     expect(find.text('Schneeweißchen'), findsOneWidget);
   });
 
-  testWidgets('the stray-area overlay draws 500 m flier circles',
-      (tester) async {
+  testWidgets('the stray-area overlay draws 500 m flier circles', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_area');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
 
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
@@ -248,11 +342,13 @@ void main() {
     final missing = store.createCat('Minka');
     store.recordPosition(missing, 48.1, 11.5, kind: PositionKind.flier);
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
 
     // No circles until the overlay is toggled on.
@@ -264,20 +360,21 @@ void main() {
     // Close the sheet.
     await tester.tap(find.text('OK'));
     await tester.pumpAndSettle();
-    final layer =
-        tester.widget<CircleLayer>(find.byType(CircleLayer));
+    final layer = tester.widget<CircleLayer>(find.byType(CircleLayer));
     expect(layer.circles, hasLength(1));
     expect(layer.circles.single.radius, 500.0);
     expect(layer.circles.single.useRadiusInMeter, isTrue);
   });
 
-  testWidgets('a runaway stray gets a circle around the home it left',
-      (tester) async {
+  testWidgets('a runaway stray gets a circle around the home it left', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_home');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
 
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
@@ -288,11 +385,13 @@ void main() {
     final runaway = store.createCat('Minka', clowderId: home);
     store.moveCat(runaway, null);
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
 
     await tester.tap(find.byTooltip('Possible stray area'));
@@ -309,30 +408,38 @@ void main() {
     expect(layer.circles.single.radius, 500.0);
   });
 
-  testWidgets('a found place is shown at its own extent, not country zoom',
-      (tester) async {
+  testWidgets('a found place is shown at its own extent, not country zoom', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_zoom');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(
-        store: store,
-        initialCenter: const LatLng(51.0, 10.0),
-        tileProvider: _FakeTileProvider(tile),
-        geocode: (q) async => const [
-          GeoHit('Grimmaische Straße, Leipzig', 51.3397, 12.3792,
-              bounds: (51.3390, 51.3404, 12.3770, 12.3815)),
-        ],
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(
+          store: store,
+          initialCenter: const LatLng(51.0, 10.0),
+          tileProvider: _FakeTileProvider(tile),
+          geocode: (q) async => const [
+            GeoHit(
+              'Grimmaische Straße, Leipzig',
+              51.3397,
+              12.3792,
+              bounds: (51.3390, 51.3404, 12.3770, 12.3815),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
     await tester.pump(const Duration(seconds: 1));
 
     await tester.enterText(find.byType(TextField), 'Grimmaische');
@@ -348,13 +455,15 @@ void main() {
     expect(camera.zoom, greaterThan(14));
   });
 
-  testWidgets('two hits on the same spot never blow the zoom to infinity',
-      (tester) async {
+  testWidgets('two hits on the same spot never blow the zoom to infinity', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_samespot');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
@@ -363,16 +472,16 @@ void main() {
     // toInt" on every later tile update).
     for (final name in ['Miezi', 'Miezi II']) {
       final cat = store.createCat(name);
-      store.recordPosition(cat, 51.34, 12.37,
-          kind: PositionKind.sighting);
+      store.recordPosition(cat, 51.34, 12.37, kind: PositionKind.sighting);
     }
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(
-          store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
 
     await tester.enterText(find.byType(TextField), 'Miezi');
@@ -386,13 +495,15 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('a poisoned stored viewport is rejected, not restored',
-      (tester) async {
+  testWidgets('a poisoned stored viewport is rejected, not restored', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_poison');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
@@ -400,12 +511,13 @@ void main() {
     // crash the map on every open, forever.
     store.setLocalSetting(mapViewportKey, '51.34,12.37,Infinity');
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(
-          store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
 
     final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
@@ -425,27 +537,30 @@ void main() {
     expect(chain.map((e) => e.$1.name), ['B', 'C', 'A']);
   });
 
-  testWidgets('map search falls back to places when the catalog is empty',
-      (tester) async {
+  testWidgets('map search falls back to places when the catalog is empty', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_geo');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(
-        store: store,
-        tileProvider: _FakeTileProvider(tile),
-        geocode: (q) async =>
-            [GeoHit('Leipzig, Sachsen', 51.34, 12.37)],
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(
+          store: store,
+          tileProvider: _FakeTileProvider(tile),
+          geocode: (q) async => [GeoHit('Leipzig, Sachsen', 51.34, 12.37)],
+        ),
       ),
-    ));
+    );
     await tester.pump(const Duration(seconds: 1));
 
     await tester.enterText(find.byType(TextField), 'Leipzig');
@@ -458,8 +573,9 @@ void main() {
     final dir = Directory.systemTemp.createTempSync('catlog_vp');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
     final store = CatalogStore.inMemory();
     addTearDown(store.close);
     store.author = 'axel';
@@ -468,37 +584,43 @@ void main() {
     store.recordPosition(home, 40.0, 9.0);
     store.setLocalSetting(mapViewportKey, '51.34,12.37,14.0');
 
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
     final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
     expect(map.options.initialCenter.latitude, closeTo(51.34, 1e-6));
     expect(map.options.initialZoom, 14.0);
   });
 
-  testWidgets('picker geocode search jumps the map via the stub',
-      (tester) async {
+  testWidgets('picker geocode search jumps the map via the stub', (
+    tester,
+  ) async {
     final dir = Directory.systemTemp.createTempSync('catlog_picker');
     addTearDown(() => dir.deleteSync(recursive: true));
     final tile = File('${dir.path}/tile.png')
-      ..writeAsBytesSync(Uint8List.fromList(
-          img.encodePng(img.Image(width: 1, height: 1))));
+      ..writeAsBytesSync(
+        Uint8List.fromList(img.encodePng(img.Image(width: 1, height: 1))),
+      );
 
     final queries = <String>[];
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: PositionPickerScreen(
-        tileProvider: _FakeTileProvider(tile),
-        geocode: (q) async {
-          queries.add(q);
-          return const [GeoHit('Lisbon, Portugal', 38.72, -9.14)];
-        },
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: PositionPickerScreen(
+          tileProvider: _FakeTileProvider(tile),
+          geocode: (q) async {
+            queries.add(q);
+            return const [GeoHit('Lisbon, Portugal', 38.72, -9.14)];
+          },
+        ),
       ),
-    ));
+    );
     await tester.pump(const Duration(seconds: 1));
 
     await tester.enterText(find.byType(TextField), 'Lisbon');

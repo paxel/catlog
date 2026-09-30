@@ -7613,6 +7613,62 @@ mod tests {
     }
 
     #[test]
+    fn things_on_one_spot_share_a_pin_that_lists_them() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let barn = "clowder:00000000-0000-4000-8000-000000000002";
+        let mut app = seeded(dir.path());
+        // Two homes at one address, five metres apart.
+        app.store_mut()
+            .append(foster, "f:position", Some("51.34,12.37"))
+            .unwrap();
+        app.store_mut()
+            .append(barn, "f:position", Some("51.34005,12.37"))
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        open_view(&mut h, "Map");
+        let none = std::collections::HashSet::new();
+        let spots = MapPage::spots(h.state().store(), &none);
+        let shared = spots.iter().find(|s| s.merged()).expect("one shared spot");
+        assert_eq!(shared.label(), "Foster Home +1");
+        assert_eq!(
+            MapPage::pins(h.state().store(), None, &none)
+                .iter()
+                .filter(|p| p.label == "Foster Home +1")
+                .count(),
+            1,
+            "one pin for the two homes"
+        );
+        // A click on the shared pin opens its list instead of a trail.
+        let clicked = h.state_mut().map_page.click_pin(foster);
+        assert_eq!(clicked, MapPageAction::None);
+        assert!(h.state().map_page.trail_of.is_none());
+        h.run();
+        h.get_by_label("Barn");
+        // The map icon on a row draws that thing's trail and closes the
+        // list. The rows sit under the map, past the window's edge in
+        // this harness, so the clicks go by accesskit.
+        h.get_all_by_label("Show on map")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        assert_eq!(h.state().map_page.trail_of.as_deref(), Some(barn));
+        assert!(h.state().map_page.open_spot.is_none());
+        // A row's name opens the thing.
+        h.state_mut().map_page.click_pin(foster);
+        h.run();
+        h.get_by_label("Barn").click_accesskit();
+        h.run();
+        assert_eq!(h.state().view(), View::Clowders, "the home's own view");
+        assert!(
+            h.state().desk.open.contains(&barn.to_string()),
+            "its card on the desk"
+        );
+    }
+
+    #[test]
     fn a_card_opens_the_editor_and_the_whole_history_of_its_own() {
         let dir = tempfile::tempdir().unwrap();
         let miezi = "cat:00000000-0000-4000-8000-000000000001";
