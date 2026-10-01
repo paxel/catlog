@@ -1140,11 +1140,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Gatos que ahora mismo no tienen hogar: encontrados, escapados o sacados de un cartel. El botón de la cámara registra un gato que tienes delante; el botón del cartel convierte un cartel de gato perdido en un gato con el contacto de su dueño; el escáner lee un código cat(a)log del cartel. Toca Stray Cam para una foto; mantén pulsado para grabar un vídeo y guardar los mejores fotogramas como fotos.';
+      'Gatos que ahora mismo no tienen hogar: encontrados, escapados o sacados de un cartel. El botón de la cámara registra un gato que tienes delante; el botón del cartel convierte un cartel de gato perdido en un gato con el contacto de su dueño; el escáner lee un código cat(a)log del cartel. «Desde vídeo…» elige un vídeo y guarda los mejores fotogramas como fotos.';
 
   @override
   String get helpStraysNeutral =>
-      'Mascotas que ahora mismo no tienen hogar: encontradas, escapadas o sacadas de un cartel. El botón de la cámara registra un animal que tienes delante; el botón del cartel convierte un cartel de mascota perdida en una mascota con el contacto de su dueño; el escáner lee un código cat(a)log del cartel. Toca Stray Cam para una foto; mantén pulsado para grabar un vídeo y guardar los mejores fotogramas como fotos.';
+      'Mascotas que ahora mismo no tienen hogar: encontradas, escapadas o sacadas de un cartel. El botón de la cámara registra un animal que tienes delante; el botón del cartel convierte un cartel de mascota perdida en una mascota con el contacto de su dueño; el escáner lee un código cat(a)log del cartel. «Desde vídeo…» elige un vídeo y guarda los mejores fotogramas como fotos.';
 
   @override
   String get helpMap =>

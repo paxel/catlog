@@ -1141,11 +1141,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Cait gan bhaile faoi láthair: cait a fuarthas, cait a d\'éalaigh, nó cait ó phóstaer. Taifeadann cnaipe an cheamara cat atá os do chomhair; casann cnaipe an phóstaeir póstaer cat ar iarraidh ina chat le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer. Tapáil Stray Cam le haghaidh grianghraif; coinnigh brúite chun físeán a dhéanamh agus na frámaí is fearr a choinneáil mar ghrianghraif.';
+      'Cait gan bhaile faoi láthair: cait a fuarthas, cait a d\'éalaigh, nó cait ó phóstaer. Taifeadann cnaipe an cheamara cat atá os do chomhair; casann cnaipe an phóstaeir póstaer cat ar iarraidh ina chat le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer. Roghnaíonn “Ó fhíseán…” físeán agus coinníonn sé na frámaí is fearr mar ghrianghraif.';
 
   @override
   String get helpStraysNeutral =>
-      'Peataí gan bhaile faoi láthair: ainmhithe a fuarthas, ainmhithe a d\'éalaigh, nó ainmhithe ó phóstaer. Taifeadann cnaipe an cheamara ainmhí atá os do chomhair; casann cnaipe an phóstaeir póstaer peata ar iarraidh ina pheata le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer. Tapáil Stray Cam le haghaidh grianghraif; coinnigh brúite chun físeán a dhéanamh agus na frámaí is fearr a choinneáil mar ghrianghraif.';
+      'Peataí gan bhaile faoi láthair: ainmhithe a fuarthas, ainmhithe a d\'éalaigh, nó ainmhithe ó phóstaer. Taifeadann cnaipe an cheamara ainmhí atá os do chomhair; casann cnaipe an phóstaeir póstaer peata ar iarraidh ina pheata le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer. Roghnaíonn “Ó fhíseán…” físeán agus coinníonn sé na frámaí is fearr mar ghrianghraif.';
 
   @override
   String get helpMap =>

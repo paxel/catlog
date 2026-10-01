@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
@@ -16,27 +16,26 @@ import 'stray_cam.dart';
 import 'video_frames.dart';
 import 'exclusive.dart';
 
-/// Picks (or films) a video and runs the frame picker over it. Returns
-/// the kept frames as JPEG bytes; the video is never stored (#41).
+/// Picks a video file and runs the frame picker over it. Returns the
+/// kept frames as JPEG bytes; the video is never stored (#41).
 /// Mobile only — elsewhere the reason is explained instead of failing.
-Future<List<Uint8List>?> pickVideoFrames(BuildContext context,
-    {ImageSource source = ImageSource.gallery}) =>
-    runExclusive('imagePicker', () => _pickVideoFrames(context, source: source),
+Future<List<Uint8List>?> pickVideoFrames(BuildContext context) =>
+    runExclusive('imagePicker', () => _pickVideoFrames(context),
         context: context);
 
-Future<List<Uint8List>?> _pickVideoFrames(BuildContext context,
-    {ImageSource source = ImageSource.gallery}) async {
-  if (!Platform.isAndroid && !Platform.isIOS) {
+Future<List<Uint8List>?> _pickVideoFrames(BuildContext context) async {
+  if (defaultTargetPlatform != TargetPlatform.android &&
+      defaultTargetPlatform != TargetPlatform.iOS) {
     noteFailed(context.t.videoMobileOnly);
     return null;
   }
-  final video = await ImagePicker().pickVideo(source: source);
+  final video = await ImagePicker().pickVideo(source: ImageSource.gallery);
   if (video == null || !context.mounted) return null;
   return framesFromVideoFile(context, video.path);
 }
 
-/// Runs the frame picker over a video already on disk — picked, filmed,
-/// or shared in. Returns the kept frames as JPEG bytes.
+/// Runs the frame picker over a video already on disk — picked or
+/// shared in. Returns the kept frames as JPEG bytes.
 Future<List<Uint8List>?> framesFromVideoFile(
     BuildContext context, String path) async {
   final controller = VideoPlayerController.file(File(path));
@@ -112,14 +111,15 @@ class _ControllerPlayer extends ChangeNotifier implements FramePlayer {
   }
 }
 
-/// Stray Cam's film mode (#41): film the stray, pick frames, and only a
-/// kept frame creates the cat — the photo-first rule holds. Extra kept
-/// frames join as further photos.
-Future<String?> strayCamVideo(
-    BuildContext context, CatalogStore store) async {
+/// Stray Cam from a video (#41): pick a video file of the stray, pick
+/// frames, and only a kept frame creates the cat — the photo-first rule
+/// holds. Extra kept frames join as further photos.
+Future<String?> strayCamVideo(BuildContext context, CatalogStore store,
+    {Locator locate = locateDevice}) async {
   List<Uint8List>? frames;
-  final catId = await strayCam(context, store, pickPhoto: (c) async {
-    frames = await pickVideoFrames(c, source: ImageSource.camera);
+  final catId =
+      await strayCam(context, store, locate: locate, pickPhoto: (c) async {
+    frames = await pickVideoFrames(c);
     return frames == null || frames!.isEmpty ? null : frames!.first;
   });
   if (catId != null && frames != null) {

@@ -1141,11 +1141,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Les chats sans foyer actuel : trouvés, échappés, ou venus d\'une affiche. Le bouton appareil photo enregistre un chat devant vous ; le bouton affiche transforme une affiche en chat avec le contact du propriétaire ; le scanner lit un code cat(a)log sur l\'affiche. Touchez Stray Cam pour une photo ; maintenez pour filmer une vidéo et garder les meilleures images comme photos.';
+      'Les chats sans foyer actuel : trouvés, échappés, ou venus d\'une affiche. Le bouton appareil photo enregistre un chat devant vous ; le bouton affiche transforme une affiche en chat avec le contact du propriétaire ; le scanner lit un code cat(a)log sur l\'affiche. « Depuis une vidéo… » choisit une vidéo et garde les meilleures images comme photos.';
 
   @override
   String get helpStraysNeutral =>
-      'Les animaux sans foyer actuel : trouvés, échappés, ou venus d\'une affiche. Le bouton appareil photo enregistre un animal devant vous ; le bouton affiche transforme une affiche en animal avec le contact du propriétaire ; le scanner lit un code cat(a)log sur l\'affiche. Touchez Stray Cam pour une photo ; maintenez pour filmer une vidéo et garder les meilleures images comme photos.';
+      'Les animaux sans foyer actuel : trouvés, échappés, ou venus d\'une affiche. Le bouton appareil photo enregistre un animal devant vous ; le bouton affiche transforme une affiche en animal avec le contact du propriétaire ; le scanner lit un code cat(a)log sur l\'affiche. « Depuis une vidéo… » choisit une vidéo et garde les meilleures images comme photos.';
 
   @override
   String get helpMap =>

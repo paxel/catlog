@@ -1137,11 +1137,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. Palieskite „Stray Cam“ nuotraukai; palaikykite, kad nufilmuotumėte vaizdo įrašą ir geriausius kadrus išsaugotumėte kaip nuotraukas.';
+      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. „Iš vaizdo įrašo…“ pasirenka vaizdo įrašą ir geriausius kadrus išsaugo kaip nuotraukas.';
 
   @override
   String get helpStraysNeutral =>
-      'Augintiniai, kurie dabar neturi namų: rasti, pabėgę arba iš skelbimo. Kameros mygtukas įrašo gyvūną priešais jus; skelbimo mygtukas paverčia dingusio augintinio skelbimą augintiniu su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. Palieskite „Stray Cam“ nuotraukai; palaikykite, kad nufilmuotumėte vaizdo įrašą ir geriausius kadrus išsaugotumėte kaip nuotraukas.';
+      'Augintiniai, kurie dabar neturi namų: rasti, pabėgę arba iš skelbimo. Kameros mygtukas įrašo gyvūną priešais jus; skelbimo mygtukas paverčia dingusio augintinio skelbimą augintiniu su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. „Iš vaizdo įrašo…“ pasirenka vaizdo įrašą ir geriausius kadrus išsaugo kaip nuotraukas.';
 
   @override
   String get helpMap =>

@@ -1138,11 +1138,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja. Prek Stray Cam për një foto; mbaje shtypur për të filmuar një video dhe mbaj kuadrot më të mira si foto.';
+      'Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja. “Nga video…” zgjedh një video dhe mban kuadrot më të mira si foto.';
 
   @override
   String get helpStraysNeutral =>
-      'Kafshë që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një kafshë para teje; butoni i fletushkës e kthen një afishe në kafshë me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja. Prek Stray Cam për një foto; mbaje shtypur për të filmuar një video dhe mbaj kuadrot më të mira si foto.';
+      'Kafshë që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një kafshë para teje; butoni i fletushkës e kthen një afishe në kafshë me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja. “Nga video…” zgjedh një video dhe mban kuadrot më të mira si foto.';
 
   @override
   String get helpMap =>

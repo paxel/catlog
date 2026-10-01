@@ -1140,11 +1140,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Gatti che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un gatto che hai davanti; il pulsante volantino trasforma un manifesto in un gatto con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto. Tocca Stray Cam per una foto; tieni premuto per girare un video e tenere i fotogrammi migliori come foto.';
+      'Gatti che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un gatto che hai davanti; il pulsante volantino trasforma un manifesto in un gatto con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto. «Da video…» sceglie un video e tiene i fotogrammi migliori come foto.';
 
   @override
   String get helpStraysNeutral =>
-      'Animali che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un animale che hai davanti; il pulsante volantino trasforma un manifesto in un animale con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto. Tocca Stray Cam per una foto; tieni premuto per girare un video e tenere i fotogrammi migliori come foto.';
+      'Animali che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un animale che hai davanti; il pulsante volantino trasforma un manifesto in un animale con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto. «Da video…» sceglie un video e tiene i fotogrammi migliori come foto.';
 
   @override
   String get helpMap =>

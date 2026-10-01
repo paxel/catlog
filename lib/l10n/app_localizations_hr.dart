@@ -1137,11 +1137,11 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Mačke koje trenutno nemaju dom: pronađene, pobjegle ili s letka. Gumb s kamerom bilježi mačku pred tobom; gumb s letkom pretvara plakat u mačku s kontaktom vlasnika; skener čita cat(a)log kod s plakata. Dodirni Stray Cam za fotografiju; drži pritisnuto da snimiš video i zadržiš najbolje kadrove kao fotografije.';
+      'Mačke koje trenutno nemaju dom: pronađene, pobjegle ili s letka. Gumb s kamerom bilježi mačku pred tobom; gumb s letkom pretvara plakat u mačku s kontaktom vlasnika; skener čita cat(a)log kod s plakata. „Iz videa…” odabire video i zadržava najbolje kadrove kao fotografije.';
 
   @override
   String get helpStraysNeutral =>
-      'Ljubimci koji trenutno nemaju dom: pronađeni, pobjegli ili s letka. Gumb s kamerom bilježi životinju pred tobom; gumb s letkom pretvara plakat u ljubimca s kontaktom vlasnika; skener čita cat(a)log kod s plakata. Dodirni Stray Cam za fotografiju; drži pritisnuto da snimiš video i zadržiš najbolje kadrove kao fotografije.';
+      'Ljubimci koji trenutno nemaju dom: pronađeni, pobjegli ili s letka. Gumb s kamerom bilježi životinju pred tobom; gumb s letkom pretvara plakat u ljubimca s kontaktom vlasnika; skener čita cat(a)log kod s plakata. „Iz videa…” odabire video i zadržava najbolje kadrove kao fotografije.';
 
   @override
   String get helpMap =>

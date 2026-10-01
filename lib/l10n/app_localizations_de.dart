@@ -1143,11 +1143,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katzen, die gerade kein Zuhause haben: Fundkatzen, entlaufene Katzen, Katzen von einem Aushang. Der Kamera-Knopf hält eine Katze fest, die vor dir sitzt; der Aushang-Knopf macht aus einem Vermisst-Plakat eine Katze samt Besitzer-Kontakt; der Scanner liest einen cat(a)log-Code vom Plakat. Tippen auf Stray Cam macht ein Foto; gedrückt halten filmt ein Video, aus dem du die besten Bilder als Fotos behältst.';
+      'Katzen, die gerade kein Zuhause haben: Fundkatzen, entlaufene Katzen, Katzen von einem Aushang. Der Kamera-Knopf hält eine Katze fest, die vor dir sitzt; der Aushang-Knopf macht aus einem Vermisst-Plakat eine Katze samt Besitzer-Kontakt; der Scanner liest einen cat(a)log-Code vom Plakat. „Aus Video…“ wählt ein Video, aus dem du die besten Bilder als Fotos behältst.';
 
   @override
   String get helpStraysNeutral =>
-      'Tiere, die gerade kein Zuhause haben: Fundtiere, entlaufene Tiere, Tiere von einem Aushang. Der Kamera-Knopf hält ein Tier fest, das vor dir sitzt; der Aushang-Knopf macht aus einem Vermisst-Plakat ein Tier samt Besitzer-Kontakt; der Scanner liest einen cat(a)log-Code vom Plakat. Tippen auf Stray Cam macht ein Foto; gedrückt halten filmt ein Video, aus dem du die besten Bilder als Fotos behältst.';
+      'Tiere, die gerade kein Zuhause haben: Fundtiere, entlaufene Tiere, Tiere von einem Aushang. Der Kamera-Knopf hält ein Tier fest, das vor dir sitzt; der Aushang-Knopf macht aus einem Vermisst-Plakat ein Tier samt Besitzer-Kontakt; der Scanner liest einen cat(a)log-Code vom Plakat. „Aus Video…“ wählt ein Video, aus dem du die besten Bilder als Fotos behältst.';
 
   @override
   String get helpMap =>

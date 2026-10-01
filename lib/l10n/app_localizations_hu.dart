@@ -1136,11 +1136,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. Koppints a Stray Camre egy fotóhoz; tartsd lenyomva videóhoz, és a legjobb képkockákat fotóként megtarthatod.';
+      'Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. A „Videóból…” kiválaszt egy videót, és a legjobb képkockákat fotóként megtartja.';
 
   @override
   String get helpStraysNeutral =>
-      'Kisállatok, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted lévő állatot; a plakát gomb egy eltűnt-plakátból kisállatot csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. Koppints a Stray Camre egy fotóhoz; tartsd lenyomva videóhoz, és a legjobb képkockákat fotóként megtarthatod.';
+      'Kisállatok, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted lévő állatot; a plakát gomb egy eltűnt-plakátból kisállatot csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. A „Videóból…” kiválaszt egy videót, és a legjobb képkockákat fotóként megtartja.';
 
   @override
   String get helpMap =>

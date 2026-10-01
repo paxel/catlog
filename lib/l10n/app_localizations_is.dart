@@ -1139,11 +1139,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni. Ýttu á Stray Cam fyrir mynd; haltu inni til að taka myndband og geyma bestu rammana sem myndir.';
+      'Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni. „Úr myndbandi…“ velur myndband og geymir bestu rammana sem myndir.';
 
   @override
   String get helpStraysNeutral =>
-      'Gæludýr sem eiga ekkert heimili núna: fundin, strokudýr eða af auglýsingu. Myndavélarhnappurinn skráir dýr fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í gæludýr með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni. Ýttu á Stray Cam fyrir mynd; haltu inni til að taka myndband og geyma bestu rammana sem myndir.';
+      'Gæludýr sem eiga ekkert heimili núna: fundin, strokudýr eða af auglýsingu. Myndavélarhnappurinn skráir dýr fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í gæludýr með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni. „Úr myndbandi…“ velur myndband og geymir bestu rammana sem myndir.';
 
   @override
   String get helpMap =>

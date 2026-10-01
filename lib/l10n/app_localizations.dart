@@ -2171,13 +2171,13 @@ abstract class AppLocalizations {
   /// No description provided for @helpStrays.
   ///
   /// In en, this message translates to:
-  /// **'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.'**
+  /// **'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. “From video…” picks a video and keeps its best frames as photos.'**
   String get helpStrays;
 
   /// No description provided for @helpStraysNeutral.
   ///
   /// In en, this message translates to:
-  /// **'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.'**
+  /// **'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. “From video…” picks a video and keeps its best frames as photos.'**
   String get helpStraysNeutral;
 
   /// No description provided for @helpMap.
