@@ -262,6 +262,11 @@ jobs:
     if: github.ref_type == 'tag' || github.event.inputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
+      # The listing (texts, F-Droid fields, store graphics, screenshots)
+      # and the changelog.
+      - uses: actions/checkout@v5
+        with:
+          path: app
       # Channel-repo pattern like Homebrew/Scoop: the index and APK live
       # in paxel/fdroid (own Pages), not in this repo's history.
       - uses: actions/download-artifact@v7
@@ -289,6 +294,22 @@ jobs:
           rm -f repo/catlog-*.apk
           cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-arm64-v8a.apk" \
              "$GITHUB_WORKSPACE/apks/catlog-$v-android-armeabi-v7a.apk" repo/
+          # The store listing travels with the app: only cat(a)log's files
+          # are replaced, the other app's stay untouched.
+          id=io.github.paxel.catlog
+          app="$GITHUB_WORKSPACE/app"
+          mkdir -p metadata
+          cp "$app/fdroid/metadata.yml" "metadata/$id.yml"
+          rm -rf "metadata/$id" "repo/$id"
+          mkdir -p "metadata/$id"
+          cp -r "$app/fastlane/metadata/android/." "metadata/$id/"
+          en="metadata/$id/en-US"
+          mkdir -p "$en/images/phoneScreenshots" "$en/changelogs"
+          cp "$app/assets/icon/store/play-icon-512.png" "$en/images/icon.png"
+          cp "$app/assets/icon/store/play-feature-1024x500.png" "$en/images/featureGraphic.png"
+          cp "$app"/docs/screenshots/play/play-*.png "$en/images/phoneScreenshots/"
+          # What's new: this version's CHANGELOG entries, cut to F-Droid's limit.
+          python3 "$app/tool/whats_new.py" "$v" "$app/CHANGELOG.md" > "$en/changelogs/default.txt"
           # Must stay word for word the same as chaos-alert's release
           # workflow, or each release renames the repository.
           cat > config.yml <<EOF

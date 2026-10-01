@@ -1,0 +1,24 @@
+<b>cat(a)log ist das gemeinsame Gedächtnis einer Gruppe von Menschen, die sich um Katzen kümmern — oder um andere Haustiere.</b> Es beantwortet jederzeit und für jedes Tier: Wer ist das, wo lebt es gerade, was ist mit ihm passiert, und wer hat wann was gemacht.
+
+Es ist für die Wirklichkeit der Tierhilfe gebaut. Katzen ziehen um: aus dem Tierheim in die Pflegestelle, von der Pflegestelle zu den Adoptanten, aus dem Garten auf die Straße und wieder zurück. Mehrere Leute führen die Aufzeichnungen: du, wer dich am Wochenende vertritt, die Nachbarin, die die Kolonie füttert. Niemand hat einen Server, und nichts darf verloren gehen.
+
+<b>DIE AUFZEICHNUNG</b>
+• <b>Jedes Tier hat einen Ort.</b> Katzen leben in Kolonien — dein Zuhause, eine Pflegestelle, die Wohnung der Adoptanten. Ein Umzug ist ein datiertes Ereignis, darum weiß die Aufzeichnung, wo Miezi im Mai war und wer sie jetzt hat. Ein Tier ohne Ort ist ein Streuner, und die App behandelt es so.
+• <b>Jede Tatsache hat Datum und Namen.</b> Kastriert, geimpft, gewogen, umgezogen, umbenannt: die App speichert, wann es passiert ist und wer es eingetragen hat, nicht nur den aktuellen Wert. Die Seite einer Katze liest sich wie ein Tagebuch. Nichts wird je überschrieben; ein Fehler wird mit einem neuen Eintrag korrigiert, und auch die Korrektur bleibt sichtbar.
+• <b>Gewicht und jede andere Zahl bekommen ein Diagramm.</b> Gewicht ist eingebaut, in deinen Einheiten — Kilogramm oder Pfund — und jede Zahl, die du festhältst, wird über die Zeit gezeichnet: Woche, Monat, Jahr, Änderung seit dem letzten Mal.
+• <b>Mehrere Leute, eine Aufzeichnung, kein Server.</b> Jede Helferin trägt den ganzen Katalog auf dem eigenen Gerät. Handys gleichen sich direkt und verschlüsselt über WLAN ab, über einen Ordner, den ihr ohnehin teilt (Nextcloud, Syncthing, USB-Stick), oder als Datei über jeden Messenger. Haben zwei Leute gleichzeitig dasselbe geändert, zeigt die App beide Versionen, und ihr entscheidet.
+• <b>Eine Katze ist eine Katze.</b> Chipnummern und Registernummern (TASSO und andere, mit einem Tipp geöffnet) identifizieren ein Tier. Zwei Einträge, die dieselbe Katze sind, werden zusammengeführt, und beide Geschichten bleiben erhalten.
+
+<b>WAS DAS IM ALLTAG HEISST</b>
+• <b>Einen Wurf in Pflege:</b> welches der zehn gleich aussehenden Kitten ist schon kastriert, welches ist zur Familie im Nachbarort gezogen, und wann. Ein Tierarzttermin für den ganzen Wurf — die Katzen anhaken, die mitkommen, und hinterher festhalten, wer behandelt wurde.
+• <b>Eine Kolonie füttern:</b> ein neues Gesicht am Futterplatz bekommt mit einem Tipp Foto und Position; taucht es zwei Straßen weiter wieder auf, zeichnet die Karte seinen Weg. Über Monate zeigt die Aufzeichnung, wer zur Kolonie gehört und wer nur durchkam.
+• <b>Eine Katze wird vermisst:</b> fotografiere den Aushang, den du aufhängst, oder einen, den jemand anders aufgehängt hat. Die App liest den Aushang, merkt sich den Ort und zeichnet das 500-m-Gebiet, in dem die Katze wahrscheinlich unterwegs ist. Die nächste Sichtung in diesem Gebiet landet bei der richtigen Katze.
+• <b>Die eigenen Tiere:</b> stelle einen Katalog auf Tiere um, und er spricht von Tieren und Haushalten — Hund, Kaninchen, Pferd, was bei dir lebt. Chipnummer, Impfungen, Tierarztbesuche, Medikamente — und Termine in einer Agenda, die der Kalender des Handys spiegeln kann.
+
+<b>AUSSERDEM</b>
+• Eigene Felder — „Flohbehandlung“, „Lieblingsfutter“, eine Temperatur — verhalten sich wie die eingebauten, Geschichte und Verlauf inklusive.
+• Fotos: ein Kitten aus dem Gruppenbild ausschneiden oder einkreisen, wenn sie zu verknäult sind.
+• Eine druckbare Seite pro Tier mit Foto und Chipcode, für den Tierarzt oder die Adoptanten.
+• Funktioniert offline. Android, iOS, Windows, macOS, Linux.
+• 38 Sprachen, auch von rechts nach links.
+• Kostenlos, quelloffen (Apache-2.0 / MIT), ohne Werbung, ohne Konto, ohne Tracking. Deine Daten bleiben auf deinen Geräten, in einem Format, das du lesen und exportieren kannst.

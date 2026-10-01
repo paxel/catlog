@@ -1,0 +1,24 @@
+<b>cat(a)log is the shared memory of a group of people who care for cats — or for any pets.</b> It answers, at any time and for every animal: who is this, where does it live right now, what has happened to it, and who did what, when.
+
+It is built for how animal care actually works. Cats move: from the shelter to a foster home, from the foster home to an adopter, out of a garden and onto the street, back again. Several people keep the record: you, the person who covers your weekends, the neighbour who feeds the colony. Nobody has a server, and nothing must get lost.
+
+<b>THE RECORD</b>
+• <b>Every animal has a place.</b> Cats live in clowders — your home, a foster home, an adopter's flat, the barn behind the station. Moving one is a dated event, so the record knows where Miezi was in May and who has her now. An animal without a place is a stray, and the app treats it as one.
+• <b>Every fact has a date and a name.</b> Neutered, vaccinated, weighed, moved, renamed: the app stores when it happened and who wrote it down, not just the current value. A cat's page reads like a diary. Nothing is ever overwritten; a mistake is corrected with a new entry, and the correction is visible too.
+• <b>Weight and every other number get a graph.</b> Weight is built in, in your units — kilograms or pounds, as your region says — and any number you log, a temperature or a dose, is drawn over time: week, month, year, the change since last time, vet visits marked along the way.
+• <b>Several people, one record, no server.</b> Each helper carries the whole catalog on their own device. Phones sync directly and encrypted over Wi-Fi, through a folder you already share (Nextcloud, Syncthing, a USB stick), or as a file through any messenger. If two people changed the same thing at once, both versions are shown and you decide.
+• <b>One cat is one cat.</b> Chip numbers and registry numbers (TASSO and others, opened with one tap) identify an animal. Two entries that are the same cat are merged, and both histories survive. A stray seen inside the search area of a missing cat is offered as a possible match.
+
+<b>WHAT THAT MEANS DAY TO DAY</b>
+• <b>Fostering a litter:</b> which of the ten identical kittens is already neutered, which one went to the family in the next town, and when. One vet appointment for the whole litter — tick the cats that come along, and afterwards note who was treated.
+• <b>Feeding a colony:</b> a new face at the feeding spot gets a photo and a position with one tap; when it turns up two streets away, the map draws its trail. Over months, the record shows who belongs to the colony and who was passing through.
+• <b>A cat is missing:</b> photograph the poster you hang up, or one somebody else hung up. The app reads the poster, marks the spot, and draws the 500 m area where the cat probably roams. The next sighting inside that area lands on the right cat.
+• <b>Your own pets:</b> switch a catalog to pets and it speaks of pets and households — dog, rabbit, horse, whatever lives with you, each with its own breeds. Chip number, vaccinations, vet visits, medication, weight — and appointments in an agenda your phone's calendar can mirror.
+
+<b>ALSO</b>
+• Your own fields — "flea treatment", "favourite food", a body temperature in °C or °F — behave like the built-in ones, history and graph included.
+• Photos: crop one kitten out of a group picture, or circle it when they are too tangled to crop.
+• A printable page per animal with photo and chip code, for the vet or the adopter.
+• Runs offline. Android, iOS, Windows, macOS, Linux.
+• 38 languages, right-to-left included.
+• Free, open source (Apache-2.0 / MIT), no ads, no account, no tracking. Your data stays on your devices, in a format you can read and export.
