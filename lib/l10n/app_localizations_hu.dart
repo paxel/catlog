@@ -1724,6 +1724,21 @@ class AppLocalizationsHu extends AppLocalizations {
   String get looksValueExtraToes => 'Több lábujj';
 
   @override
+  String get looksValueMissingLeg => 'Hiányzó láb';
+
+  @override
+  String get looksValueMissingToes => 'Hiányzó lábujjak';
+
+  @override
+  String get looksValueInjuredWing => 'Sérült szárny';
+
+  @override
+  String get looksValueClippedWings => 'Nyírt szárnyak';
+
+  @override
+  String get looksValueDamagedShell => 'Sérült páncél';
+
+  @override
   String get rejectMatch => 'Nem ugyanaz';
 
   @override

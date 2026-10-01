@@ -1726,6 +1726,21 @@ class AppLocalizationsUk extends AppLocalizations {
   String get looksValueExtraToes => 'Зайві пальці';
 
   @override
+  String get looksValueMissingLeg => 'Немає лапи';
+
+  @override
+  String get looksValueMissingToes => 'Немає пальців';
+
+  @override
+  String get looksValueInjuredWing => 'Поранене крило';
+
+  @override
+  String get looksValueClippedWings => 'Підрізані крила';
+
+  @override
+  String get looksValueDamagedShell => 'Пошкоджений панцир';
+
+  @override
   String get rejectMatch => 'Не той самий';
 
   @override

@@ -1722,6 +1722,21 @@ class AppLocalizationsFa extends AppLocalizations {
   String get looksValueExtraToes => 'انگشتان اضافی';
 
   @override
+  String get looksValueMissingLeg => 'پای از دست رفته';
+
+  @override
+  String get looksValueMissingToes => 'انگشتان از دست رفته';
+
+  @override
+  String get looksValueInjuredWing => 'بال آسیب‌دیده';
+
+  @override
+  String get looksValueClippedWings => 'بال‌های چیده‌شده';
+
+  @override
+  String get looksValueDamagedShell => 'لاک آسیب‌دیده';
+
+  @override
   String get rejectMatch => 'همان نیست';
 
   @override

@@ -1726,6 +1726,21 @@ class AppLocalizationsPt extends AppLocalizations {
   String get looksValueExtraToes => 'Dedos a mais';
 
   @override
+  String get looksValueMissingLeg => 'Falta uma pata';
+
+  @override
+  String get looksValueMissingToes => 'Faltam dedos';
+
+  @override
+  String get looksValueInjuredWing => 'Asa ferida';
+
+  @override
+  String get looksValueClippedWings => 'Asas aparadas';
+
+  @override
+  String get looksValueDamagedShell => 'Carapaça danificada';
+
+  @override
   String get rejectMatch => 'Não é o mesmo';
 
   @override

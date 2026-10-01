@@ -1724,6 +1724,21 @@ class AppLocalizationsTr extends AppLocalizations {
   String get looksValueExtraToes => 'Fazla parmak';
 
   @override
+  String get looksValueMissingLeg => 'Eksik bacak';
+
+  @override
+  String get looksValueMissingToes => 'Eksik parmaklar';
+
+  @override
+  String get looksValueInjuredWing => 'Yaralı kanat';
+
+  @override
+  String get looksValueClippedWings => 'Kırpılmış kanatlar';
+
+  @override
+  String get looksValueDamagedShell => 'Hasarlı kabuk';
+
+  @override
   String get rejectMatch => 'Aynı değil';
 
   @override

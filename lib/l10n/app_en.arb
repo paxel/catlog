@@ -933,6 +933,11 @@
   "looksValueMissingHindLeg": "Missing hind leg",
   "looksValueNoTeeth": "No teeth",
   "looksValueExtraToes": "Extra toes",
+  "looksValueMissingLeg": "Missing leg",
+  "looksValueMissingToes": "Missing toes",
+  "looksValueInjuredWing": "Injured wing",
+  "looksValueClippedWings": "Clipped wings",
+  "looksValueDamagedShell": "Damaged shell",
   "rejectMatch": "Not the same",
   "traitsAgree": "{count, plural, =1{1 trait agrees} other{{count} traits agree}}",
   "@traitsAgree": {

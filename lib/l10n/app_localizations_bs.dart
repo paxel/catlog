@@ -1725,6 +1725,21 @@ class AppLocalizationsBs extends AppLocalizations {
   String get looksValueExtraToes => 'Dodatni prsti';
 
   @override
+  String get looksValueMissingLeg => 'Nedostaje noga';
+
+  @override
+  String get looksValueMissingToes => 'Nedostaju prsti';
+
+  @override
+  String get looksValueInjuredWing => 'Povrijeđeno krilo';
+
+  @override
+  String get looksValueClippedWings => 'Podrezana krila';
+
+  @override
+  String get looksValueDamagedShell => 'Oštećen oklop';
+
+  @override
   String get rejectMatch => 'Nije isto';
 
   @override

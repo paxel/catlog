@@ -101,6 +101,11 @@ String looksValueLabel(AppLocalizations t, String group, String value) =>
       'missing hind leg' => t.looksValueMissingHindLeg,
       'no teeth' => t.looksValueNoTeeth,
       'extra toes' => t.looksValueExtraToes,
+      'missing leg' => t.looksValueMissingLeg,
+      'missing toes' => t.looksValueMissingToes,
+      'injured wing' => t.looksValueInjuredWing,
+      'clipped wings' => t.looksValueClippedWings,
+      'damaged shell' => t.looksValueDamagedShell,
       _ => value,
     };
 

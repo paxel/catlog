@@ -1731,6 +1731,21 @@ class AppLocalizationsDe extends AppLocalizations {
   String get looksValueExtraToes => 'Zusätzliche Zehen';
 
   @override
+  String get looksValueMissingLeg => 'Fehlendes Bein';
+
+  @override
+  String get looksValueMissingToes => 'Fehlende Zehen';
+
+  @override
+  String get looksValueInjuredWing => 'Verletzter Flügel';
+
+  @override
+  String get looksValueClippedWings => 'Gestutzte Flügel';
+
+  @override
+  String get looksValueDamagedShell => 'Beschädigter Panzer';
+
+  @override
   String get rejectMatch => 'Nicht dieselbe';
 
   @override

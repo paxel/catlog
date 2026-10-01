@@ -1687,6 +1687,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get looksValueExtraToes => '多趾';
 
   @override
+  String get looksValueMissingLeg => '缺腿';
+
+  @override
+  String get looksValueMissingToes => '缺趾';
+
+  @override
+  String get looksValueInjuredWing => '翅膀受伤';
+
+  @override
+  String get looksValueClippedWings => '剪过的翅膀';
+
+  @override
+  String get looksValueDamagedShell => '龟壳受损';
+
+  @override
   String get rejectMatch => '不是同一只';
 
   @override

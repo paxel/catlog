@@ -1726,6 +1726,21 @@ class AppLocalizationsRo extends AppLocalizations {
   String get looksValueExtraToes => 'Degete în plus';
 
   @override
+  String get looksValueMissingLeg => 'Picior lipsă';
+
+  @override
+  String get looksValueMissingToes => 'Degete lipsă';
+
+  @override
+  String get looksValueInjuredWing => 'Aripă rănită';
+
+  @override
+  String get looksValueClippedWings => 'Aripi tăiate';
+
+  @override
+  String get looksValueDamagedShell => 'Carapace deteriorată';
+
+  @override
   String get rejectMatch => 'Nu e același';
 
   @override

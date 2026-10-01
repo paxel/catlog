@@ -1724,6 +1724,21 @@ class AppLocalizationsEt extends AppLocalizations {
   String get looksValueExtraToes => 'Lisavarbad';
 
   @override
+  String get looksValueMissingLeg => 'Puuduv jalg';
+
+  @override
+  String get looksValueMissingToes => 'Puuduvad varbad';
+
+  @override
+  String get looksValueInjuredWing => 'Vigastatud tiib';
+
+  @override
+  String get looksValueClippedWings => 'Kärbitud tiivad';
+
+  @override
+  String get looksValueDamagedShell => 'Kahjustatud kilp';
+
+  @override
   String get rejectMatch => 'Pole sama';
 
   @override

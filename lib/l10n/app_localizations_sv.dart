@@ -1725,6 +1725,21 @@ class AppLocalizationsSv extends AppLocalizations {
   String get looksValueExtraToes => 'Extra tår';
 
   @override
+  String get looksValueMissingLeg => 'Saknat ben';
+
+  @override
+  String get looksValueMissingToes => 'Saknade tår';
+
+  @override
+  String get looksValueInjuredWing => 'Skadad vinge';
+
+  @override
+  String get looksValueClippedWings => 'Klippta vingar';
+
+  @override
+  String get looksValueDamagedShell => 'Skadat skal';
+
+  @override
   String get rejectMatch => 'Inte samma';
 
   @override

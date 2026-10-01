@@ -1507,6 +1507,21 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueExtraToes => base.looksValueExtraToes;
 
   @override
+  String get looksValueMissingLeg => base.looksValueMissingLeg;
+
+  @override
+  String get looksValueMissingToes => base.looksValueMissingToes;
+
+  @override
+  String get looksValueInjuredWing => base.looksValueInjuredWing;
+
+  @override
+  String get looksValueClippedWings => base.looksValueClippedWings;
+
+  @override
+  String get looksValueDamagedShell => base.looksValueDamagedShell;
+
+  @override
   String get looksValueFloppy => base.looksValueFloppy;
 
   @override

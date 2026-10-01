@@ -1727,6 +1727,21 @@ class AppLocalizationsIs extends AppLocalizations {
   String get looksValueExtraToes => 'Aukatær';
 
   @override
+  String get looksValueMissingLeg => 'Vantar fót';
+
+  @override
+  String get looksValueMissingToes => 'Vantar tær';
+
+  @override
+  String get looksValueInjuredWing => 'Særður vængur';
+
+  @override
+  String get looksValueClippedWings => 'Klipptir vængir';
+
+  @override
+  String get looksValueDamagedShell => 'Skemmd skel';
+
+  @override
   String get rejectMatch => 'Ekki það sama';
 
   @override

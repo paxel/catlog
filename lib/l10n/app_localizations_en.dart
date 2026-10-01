@@ -1724,6 +1724,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get looksValueExtraToes => 'Extra toes';
 
   @override
+  String get looksValueMissingLeg => 'Missing leg';
+
+  @override
+  String get looksValueMissingToes => 'Missing toes';
+
+  @override
+  String get looksValueInjuredWing => 'Injured wing';
+
+  @override
+  String get looksValueClippedWings => 'Clipped wings';
+
+  @override
+  String get looksValueDamagedShell => 'Damaged shell';
+
+  @override
   String get rejectMatch => 'Not the same';
 
   @override

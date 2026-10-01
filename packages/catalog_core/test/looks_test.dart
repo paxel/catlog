@@ -8,7 +8,8 @@ void main() {
   setUpAll(useSystemSqlite);
 
   group('groups and encoding', () {
-    test('groups follow the species; unknown gets size and colours', () {
+    test('groups follow the species; unknown gets size, colours, features',
+        () {
       List<String> ids(String? s) =>
           looksGroupsFor(s).map((g) => g.id).toList();
       expect(ids('cat'), [
@@ -26,11 +27,54 @@ void main() {
       expect(ids('rabbit'), isNot(contains('pattern')));
       expect(ids('bird'),
           ['size', 'colours', 'marks', 'crest', 'beak', 'ring', 'features']);
-      expect(ids('horse'), ['size', 'colours', 'marks', 'features']);
+      for (final s in ['horse', 'ferret']) {
+        expect(ids(s),
+            ['size', 'colours', 'fur', 'tail', 'ears', 'marks', 'features'],
+            reason: s);
+      }
+      expect(ids('tortoise'), ['size', 'colours', 'features']);
       expect(ids(null), ['size', 'colours', 'features']);
       expect(ids('dragon'), ['size', 'colours', 'features']);
       expect(looksGroupsFor('bird').firstWhere((g) => g.id == 'colours').values,
           contains('green'));
+    });
+
+    test('features name only the body parts a species has', () {
+      Set<String> features(String? s) =>
+          looksGroupsFor(s).firstWhere((g) => g.id == 'features').values.toSet();
+      expect(features('bird'), {
+        'missing eye',
+        'cloudy eye',
+        'missing leg',
+        'missing toes',
+        'injured wing',
+        'clipped wings'
+      });
+      expect(features('tortoise'), {
+        'missing eye',
+        'cloudy eye',
+        'missing front leg',
+        'missing hind leg',
+        'damaged shell'
+      });
+      expect(features('tortoise'), isNot(contains('no teeth')));
+      expect(features('cat'), containsAll(['tipped ear', 'no teeth']));
+      expect(features('cat'), isNot(contains('injured wing')));
+      // An unknown animal may have any of them.
+      final all = {
+        for (final s in speciesPresets) ...features(s),
+      };
+      expect(features(null), all);
+      expect(features('dragon'), all);
+    });
+
+    test('a tortoise is not described in fur colours', () {
+      final colours = looksGroupsFor('tortoise')
+          .firstWhere((g) => g.id == 'colours')
+          .values;
+      expect(colours, containsAll(['brown', 'green', 'yellow']));
+      expect(colours, isNot(contains('ginger')));
+      expect(colours, isNot(contains('smoke')));
     });
 
     test('the line round-trips, sorted, empty as null', () {

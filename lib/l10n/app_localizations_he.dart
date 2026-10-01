@@ -1719,6 +1719,21 @@ class AppLocalizationsHe extends AppLocalizations {
   String get looksValueExtraToes => 'אצבעות נוספות';
 
   @override
+  String get looksValueMissingLeg => 'רגל חסרה';
+
+  @override
+  String get looksValueMissingToes => 'אצבעות חסרות';
+
+  @override
+  String get looksValueInjuredWing => 'כנף פצועה';
+
+  @override
+  String get looksValueClippedWings => 'כנפיים גזוזות';
+
+  @override
+  String get looksValueDamagedShell => 'שריון פגוע';
+
+  @override
   String get rejectMatch => 'לא אותו אחד';
 
   @override

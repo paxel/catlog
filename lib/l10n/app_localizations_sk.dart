@@ -1724,6 +1724,21 @@ class AppLocalizationsSk extends AppLocalizations {
   String get looksValueExtraToes => 'Nadbytočné prsty';
 
   @override
+  String get looksValueMissingLeg => 'Chýba noha';
+
+  @override
+  String get looksValueMissingToes => 'Chýbajú prsty';
+
+  @override
+  String get looksValueInjuredWing => 'Zranené krídlo';
+
+  @override
+  String get looksValueClippedWings => 'Zastrihnuté krídla';
+
+  @override
+  String get looksValueDamagedShell => 'Poškodený pancier';
+
+  @override
   String get rejectMatch => 'Nie je to isté';
 
   @override

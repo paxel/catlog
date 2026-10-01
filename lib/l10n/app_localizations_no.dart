@@ -1724,6 +1724,21 @@ class AppLocalizationsNo extends AppLocalizations {
   String get looksValueExtraToes => 'Ekstra tær';
 
   @override
+  String get looksValueMissingLeg => 'Manglende bein';
+
+  @override
+  String get looksValueMissingToes => 'Manglende tær';
+
+  @override
+  String get looksValueInjuredWing => 'Skadet vinge';
+
+  @override
+  String get looksValueClippedWings => 'Klippede vinger';
+
+  @override
+  String get looksValueDamagedShell => 'Skadet skall';
+
+  @override
   String get rejectMatch => 'Ikke den samme';
 
   @override

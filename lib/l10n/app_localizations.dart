@@ -3248,6 +3248,36 @@ abstract class AppLocalizations {
   /// **'Extra toes'**
   String get looksValueExtraToes;
 
+  /// No description provided for @looksValueMissingLeg.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing leg'**
+  String get looksValueMissingLeg;
+
+  /// No description provided for @looksValueMissingToes.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing toes'**
+  String get looksValueMissingToes;
+
+  /// No description provided for @looksValueInjuredWing.
+  ///
+  /// In en, this message translates to:
+  /// **'Injured wing'**
+  String get looksValueInjuredWing;
+
+  /// No description provided for @looksValueClippedWings.
+  ///
+  /// In en, this message translates to:
+  /// **'Clipped wings'**
+  String get looksValueClippedWings;
+
+  /// No description provided for @looksValueDamagedShell.
+  ///
+  /// In en, this message translates to:
+  /// **'Damaged shell'**
+  String get looksValueDamagedShell;
+
   /// No description provided for @rejectMatch.
   ///
   /// In en, this message translates to:

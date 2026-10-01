@@ -1726,6 +1726,21 @@ class AppLocalizationsFi extends AppLocalizations {
   String get looksValueExtraToes => 'Ylimääräiset varpaat';
 
   @override
+  String get looksValueMissingLeg => 'Puuttuva jalka';
+
+  @override
+  String get looksValueMissingToes => 'Puuttuvat varpaat';
+
+  @override
+  String get looksValueInjuredWing => 'Vahingoittunut siipi';
+
+  @override
+  String get looksValueClippedWings => 'Leikatut siivet';
+
+  @override
+  String get looksValueDamagedShell => 'Vaurioitunut kilpi';
+
+  @override
   String get rejectMatch => 'Ei sama';
 
   @override

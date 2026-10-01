@@ -1733,6 +1733,21 @@ class AppLocalizationsEl extends AppLocalizations {
   String get looksValueExtraToes => 'Επιπλέον δάχτυλα';
 
   @override
+  String get looksValueMissingLeg => 'Λείπει πόδι';
+
+  @override
+  String get looksValueMissingToes => 'Λείπουν δάχτυλα';
+
+  @override
+  String get looksValueInjuredWing => 'Τραυματισμένη φτερούγα';
+
+  @override
+  String get looksValueClippedWings => 'Κομμένα φτερά';
+
+  @override
+  String get looksValueDamagedShell => 'Χτυπημένο καβούκι';
+
+  @override
   String get rejectMatch => 'Δεν είναι το ίδιο';
 
   @override

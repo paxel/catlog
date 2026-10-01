@@ -1729,6 +1729,21 @@ class AppLocalizationsMk extends AppLocalizations {
   String get looksValueExtraToes => 'Дополнителни прсти';
 
   @override
+  String get looksValueMissingLeg => 'Недостасува нога';
+
+  @override
+  String get looksValueMissingToes => 'Недостасуваат прсти';
+
+  @override
+  String get looksValueInjuredWing => 'Повредено крило';
+
+  @override
+  String get looksValueClippedWings => 'Скратени крилја';
+
+  @override
+  String get looksValueDamagedShell => 'Оштетен оклоп';
+
+  @override
   String get rejectMatch => 'Не е истото';
 
   @override

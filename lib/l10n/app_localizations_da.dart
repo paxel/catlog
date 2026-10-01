@@ -1726,6 +1726,21 @@ class AppLocalizationsDa extends AppLocalizations {
   String get looksValueExtraToes => 'Ekstra tæer';
 
   @override
+  String get looksValueMissingLeg => 'Manglende ben';
+
+  @override
+  String get looksValueMissingToes => 'Manglende tæer';
+
+  @override
+  String get looksValueInjuredWing => 'Skadet vinge';
+
+  @override
+  String get looksValueClippedWings => 'Klippede vinger';
+
+  @override
+  String get looksValueDamagedShell => 'Skadet skjold';
+
+  @override
   String get rejectMatch => 'Ikke den samme';
 
   @override

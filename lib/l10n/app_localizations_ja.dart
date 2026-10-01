@@ -1703,6 +1703,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String get looksValueExtraToes => '多指';
 
   @override
+  String get looksValueMissingLeg => '脚欠損';
+
+  @override
+  String get looksValueMissingToes => '趾欠損';
+
+  @override
+  String get looksValueInjuredWing => '翼の負傷';
+
+  @override
+  String get looksValueClippedWings => '風切羽カット';
+
+  @override
+  String get looksValueDamagedShell => '甲羅の損傷';
+
+  @override
   String get rejectMatch => '同じではない';
 
   @override

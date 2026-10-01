@@ -1727,6 +1727,21 @@ class AppLocalizationsMt extends AppLocalizations {
   String get looksValueExtraToes => 'Swaba’ żejda';
 
   @override
+  String get looksValueMissingLeg => 'Nieqsa sieq';
+
+  @override
+  String get looksValueMissingToes => 'Neqsin swaba’';
+
+  @override
+  String get looksValueInjuredWing => 'Ġewnaħ imweġġa’';
+
+  @override
+  String get looksValueClippedWings => 'Ġwienaħ maqtugħa';
+
+  @override
+  String get looksValueDamagedShell => 'Qoxra mħassra';
+
+  @override
   String get rejectMatch => 'Mhux l-istess';
 
   @override

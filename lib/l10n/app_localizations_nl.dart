@@ -1728,6 +1728,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String get looksValueExtraToes => 'Extra tenen';
 
   @override
+  String get looksValueMissingLeg => 'Ontbrekende poot';
+
+  @override
+  String get looksValueMissingToes => 'Ontbrekende tenen';
+
+  @override
+  String get looksValueInjuredWing => 'Gewonde vleugel';
+
+  @override
+  String get looksValueClippedWings => 'Geknipte vleugels';
+
+  @override
+  String get looksValueDamagedShell => 'Beschadigd schild';
+
+  @override
   String get rejectMatch => 'Niet dezelfde';
 
   @override

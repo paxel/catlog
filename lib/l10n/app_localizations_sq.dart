@@ -1725,6 +1725,21 @@ class AppLocalizationsSq extends AppLocalizations {
   String get looksValueExtraToes => 'Gishta shtesë';
 
   @override
+  String get looksValueMissingLeg => 'Mungon këmba';
+
+  @override
+  String get looksValueMissingToes => 'Mungojnë gishtat';
+
+  @override
+  String get looksValueInjuredWing => 'Krah i plagosur';
+
+  @override
+  String get looksValueClippedWings => 'Krahë të prerë';
+
+  @override
+  String get looksValueDamagedShell => 'Guaskë e dëmtuar';
+
+  @override
   String get rejectMatch => 'Jo i njëjti';
 
   @override

@@ -1729,6 +1729,21 @@ class AppLocalizationsGa extends AppLocalizations {
   String get looksValueExtraToes => 'Ladhracha breise';
 
   @override
+  String get looksValueMissingLeg => 'Cos ar iarraidh';
+
+  @override
+  String get looksValueMissingToes => 'Ladhracha ar iarraidh';
+
+  @override
+  String get looksValueInjuredWing => 'Sciathán gortaithe';
+
+  @override
+  String get looksValueClippedWings => 'Sciatháin bhearrtha';
+
+  @override
+  String get looksValueDamagedShell => 'Blaosc damáistithe';
+
+  @override
   String get rejectMatch => 'Ní hé an ceann céanna';
 
   @override

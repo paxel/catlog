@@ -1725,6 +1725,21 @@ class AppLocalizationsRu extends AppLocalizations {
   String get looksValueExtraToes => 'Лишние пальцы';
 
   @override
+  String get looksValueMissingLeg => 'Нет лапы';
+
+  @override
+  String get looksValueMissingToes => 'Нет пальцев';
+
+  @override
+  String get looksValueInjuredWing => 'Повреждённое крыло';
+
+  @override
+  String get looksValueClippedWings => 'Подрезанные крылья';
+
+  @override
+  String get looksValueDamagedShell => 'Повреждённый панцирь';
+
+  @override
   String get rejectMatch => 'Не тот же';
 
   @override

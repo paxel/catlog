@@ -1725,6 +1725,21 @@ class AppLocalizationsLt extends AppLocalizations {
   String get looksValueExtraToes => 'Papildomi pirštai';
 
   @override
+  String get looksValueMissingLeg => 'Trūksta kojos';
+
+  @override
+  String get looksValueMissingToes => 'Trūksta pirštų';
+
+  @override
+  String get looksValueInjuredWing => 'Sužeistas sparnas';
+
+  @override
+  String get looksValueClippedWings => 'Pakirpti sparnai';
+
+  @override
+  String get looksValueDamagedShell => 'Pažeistas šarvas';
+
+  @override
   String get rejectMatch => 'Ne tas pats';
 
   @override

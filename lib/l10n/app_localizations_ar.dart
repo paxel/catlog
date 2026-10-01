@@ -1721,6 +1721,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get looksValueExtraToes => 'أصابع زائدة';
 
   @override
+  String get looksValueMissingLeg => 'ساق مفقودة';
+
+  @override
+  String get looksValueMissingToes => 'أصابع مفقودة';
+
+  @override
+  String get looksValueInjuredWing => 'جناح مصاب';
+
+  @override
+  String get looksValueClippedWings => 'أجنحة مقصوصة';
+
+  @override
+  String get looksValueDamagedShell => 'درع متضرر';
+
+  @override
   String get rejectMatch => 'ليس نفسه';
 
   @override

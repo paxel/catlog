@@ -100,8 +100,10 @@ const _beak = LooksGroup('beak',
 const _ring = LooksGroup('ring', single: true, values: ['yes', 'no']);
 
 /// What never grows back and what was done on purpose: the strongest
-/// evidence two sightings are one animal. Every species has it.
-const _features = LooksGroup('features', single: false, values: [
+/// evidence two sightings are one animal. Every species has it, with
+/// the body parts it has: ears and teeth for fur, wings for feathers, a
+/// shell for a tortoise.
+const _furFeatures = LooksGroup('features', single: false, values: [
   'tipped ear',
   'notched ear',
   'ear tattoo',
@@ -113,9 +115,62 @@ const _features = LooksGroup('features', single: false, values: [
   'no teeth',
   'extra toes'
 ]);
+const _birdFeatures = LooksGroup('features', single: false, values: [
+  'missing eye',
+  'cloudy eye',
+  'missing leg',
+  'missing toes',
+  'injured wing',
+  'clipped wings'
+]);
+const _tortoiseFeatures = LooksGroup('features', single: false, values: [
+  'missing eye',
+  'cloudy eye',
+  'missing front leg',
+  'missing hind leg',
+  'damaged shell'
+]);
+
+/// An animal the app does not know may have any of them.
+const _anyFeatures = LooksGroup('features', single: false, values: [
+  'tipped ear',
+  'notched ear',
+  'ear tattoo',
+  'missing ear',
+  'missing eye',
+  'cloudy eye',
+  'missing front leg',
+  'missing hind leg',
+  'missing leg',
+  'missing toes',
+  'extra toes',
+  'injured wing',
+  'clipped wings',
+  'damaged shell',
+  'no teeth'
+]);
+
+/// A tortoise's shell and skin, in the colours there are words for.
+const _shellColours = LooksGroup('colours', single: false, values: [
+  'black',
+  'brown',
+  'tan',
+  'yellow',
+  'orange',
+  'green',
+  'grey'
+]);
 
 /// Species with fur, a tail and ears worth describing.
-const _furred = {'cat', 'dog', 'rabbit', 'guinea pig', 'hamster'};
+const _furred = {
+  'cat',
+  'dog',
+  'rabbit',
+  'guinea pig',
+  'hamster',
+  'horse',
+  'ferret'
+};
 
 /// Every group id there is, in display order, with whether it takes one
 /// value — the rule table reads this, whatever the species.
@@ -158,28 +213,38 @@ String? knownSpecies(String? species) =>
     species != null && speciesPresets.contains(species) ? species : null;
 
 /// The groups an animal of [species] is described with. Unknown species
-/// get size and colours only — nothing that presumes fur or feathers.
+/// get size, colours and every feature — nothing else presumes fur or
+/// feathers.
 List<LooksGroup> looksGroupsFor(String? species) {
   final known = knownSpecies(species);
-  if (known == null) return const [_size, _furColours, _features];
+  if (known == null) return const [_size, _furColours, _anyFeatures];
   if (known == 'bird') {
-    return const [_size, _plumage, _birdMarks, _crest, _beak, _ring, _features];
-  }
-  if (_furred.contains(known)) {
-    return [
+    return const [
       _size,
-      _furColours,
-      if (known == 'cat' || known == 'dog') _eyes,
-      if (known == 'cat') _catPattern,
-      if (known == 'dog') _dogPattern,
-      _fur,
-      _tail,
-      _ears,
-      _furMarks,
-      _features,
+      _plumage,
+      _birdMarks,
+      _crest,
+      _beak,
+      _ring,
+      _birdFeatures
     ];
   }
-  return const [_size, _furColours, _furMarks, _features];
+  if (known == 'tortoise') {
+    return const [_size, _shellColours, _tortoiseFeatures];
+  }
+  if (!_furred.contains(known)) return const [_size, _furColours, _anyFeatures];
+  return [
+    _size,
+    _furColours,
+    if (known == 'cat' || known == 'dog') _eyes,
+    if (known == 'cat') _catPattern,
+    if (known == 'dog') _dogPattern,
+    _fur,
+    _tail,
+    _ears,
+    _furMarks,
+    _furFeatures,
+  ];
 }
 
 /// The stored line as a map of group to chosen values. Tolerant: an

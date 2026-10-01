@@ -1726,6 +1726,21 @@ class AppLocalizationsCs extends AppLocalizations {
   String get looksValueExtraToes => 'Přebytečné prsty';
 
   @override
+  String get looksValueMissingLeg => 'Chybí noha';
+
+  @override
+  String get looksValueMissingToes => 'Chybí prsty';
+
+  @override
+  String get looksValueInjuredWing => 'Zraněné křídlo';
+
+  @override
+  String get looksValueClippedWings => 'Zastřižená křídla';
+
+  @override
+  String get looksValueDamagedShell => 'Poškozený krunýř';
+
+  @override
   String get rejectMatch => 'Není totéž';
 
   @override
