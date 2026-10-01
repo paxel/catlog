@@ -284,14 +284,17 @@ jobs:
           cd channel
           mkdir -p repo
           # Only the latest release stays in the repo; clients that lag
-          # simply get the newest version, and Pages stays small.
-          rm -f repo/*.apk
+          # simply get the newest version, and Pages stays small. The repo
+          # is shared with chaos-alert: only cat(a)log's own APKs go.
+          rm -f repo/catlog-*.apk
           cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-arm64-v8a.apk" \
              "$GITHUB_WORKSPACE/apks/catlog-$v-android-armeabi-v7a.apk" repo/
+          # Must stay word for word the same as chaos-alert's release
+          # workflow, or each release renames the repository.
           cat > config.yml <<EOF
           repo_url: https://paxel.github.io/fdroid/repo
-          repo_name: cat(a)log
-          repo_description: Releases of cat(a)log, the local-first catalog for people fostering cats.
+          repo_name: paxel's apps
+          repo_description: Releases of paxel's Android apps.
           repo_keyalias: repokey
           keystore: $RUNNER_TEMP/fdroid.p12
           keystorepass: $KEYSTORE_PASS
