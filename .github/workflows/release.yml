@@ -288,12 +288,15 @@ jobs:
           echo "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/fdroid.p12"
           cd channel
           mkdir -p repo
-          # Only the latest release stays in the repo; clients that lag
-          # simply get the newest version, and Pages stays small. The repo
-          # is shared with chaos-alert: only cat(a)log's own APKs go.
-          rm -f repo/catlog-*.apk
-          cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-arm64-v8a.apk" \
-             "$GITHUB_WORKSPACE/apks/catlog-$v-android-armeabi-v7a.apk" repo/
+          # F-Droid gets the 64-bit APK only: Flutter numbers split APKs
+          # ABI x 1000 + build, which F-Droid's archiving would sort wrongly.
+          # 32-bit APKs from before this go.
+          rm -f repo/catlog-*-armeabi-v7a.apk archive/catlog-*-armeabi-v7a.apk
+          # The main repository keeps the newest version and F-Droid moves
+          # the one before into the archive, which keeps three: make room.
+          mkdir -p archive
+          ls archive/catlog-*-android-arm64-v8a.apk 2>/dev/null | sort -V | head -n -2 | xargs -r rm -f
+          cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-arm64-v8a.apk" repo/
           # The store listing travels with the app: only cat(a)log's files
           # are replaced, the other app's stay untouched.
           id=io.github.paxel.catlog
@@ -320,8 +323,17 @@ jobs:
           keystore: $RUNNER_TEMP/fdroid.p12
           keystorepass: $KEYSTORE_PASS
           keypass: $KEYSTORE_PASS
-          archive_older: 0
+          archive_older: 1
+          archive_name: paxel's apps (archive)
+          archive_description: Older versions of paxel's Android apps.
           EOF
+          # fdroidserver links each icon and feature graphic to a copy named
+          # after its hash. Git keeps no hard links, so on the next run the
+          # copies look stale and get deleted while the index still points
+          # at them. Removing every app's copies first makes fdroidserver
+          # create them all again.
+          find repo -path 'repo/*/*' -regextype posix-extended \
+            -regex '.*/(icon|featureGraphic|promoGraphic|tvBanner)_[A-Za-z0-9_=-]+\.(png|jpe?g)' -delete
           fdroid update --create-metadata
           rm config.yml
           git add -A
