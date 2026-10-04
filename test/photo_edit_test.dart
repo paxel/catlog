@@ -107,4 +107,72 @@ void main() {
 
     expect(result, source);
   });
+
+  group('select only', () {
+    Future<CropChoice?> open(WidgetTester tester,
+        Future<void> Function() act) async {
+      final source = Uint8List.fromList(
+          img.encodeJpg(img.Image(width: 400, height: 400)));
+      CropChoice? result;
+      await tester.pumpWidget(MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Builder(
+          builder: (context) => ElevatedButton(
+            onPressed: () async {
+              result = await Navigator.of(context).push<CropChoice>(
+                MaterialPageRoute(
+                  builder: (_) => PhotoEditScreen(
+                      bytes: source,
+                      mode: PhotoEditMode.crop,
+                      allowSkip: true,
+                      selectOnly: true),
+                ),
+              );
+            },
+            child: const Text('go'),
+          ),
+        ),
+      ));
+      await tester.tap(find.text('go'));
+      await tester.pump();
+      // Real time for the image decode to finish.
+      await tester.runAsync(
+          () => Future<void>.delayed(const Duration(milliseconds: 400)));
+      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pump(const Duration(milliseconds: 400));
+      await act();
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.pump(const Duration(milliseconds: 300));
+      return result;
+    }
+
+    testWidgets('a drag and Crop return the selection, not bytes',
+        (tester) async {
+      final result = await open(tester, () async {
+        final center = tester.getCenter(find.byKey(const Key('photoEditArea')));
+        final gesture =
+            await tester.startGesture(center - const Offset(80, 80));
+        await gesture.moveBy(const Offset(80, 80));
+        await tester.pump();
+        await gesture.moveBy(const Offset(80, 80));
+        await tester.pump();
+        await gesture.up();
+        await tester.pump(const Duration(milliseconds: 300));
+        await tester.tap(find.widgetWithText(TextButton, 'Crop'));
+      });
+
+      final crop = result?.crop;
+      expect(crop, isNotNull);
+      expect(crop!.w, inExclusiveRange(0, 1));
+      expect(crop.h, inExclusiveRange(0, 1));
+    });
+
+    testWidgets('use full photo returns no crop', (tester) async {
+      final result =
+          await open(tester, () => tester.tap(find.text('Use full photo')));
+      expect(result, isNotNull, reason: 'kept, not canceled');
+      expect(result!.crop, isNull);
+    });
+  });
 }

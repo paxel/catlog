@@ -9,6 +9,10 @@ import 'dart:ui' as ui;
 
 enum PhotoEditMode { crop, mark }
 
+/// What a crop page in [PhotoEditScreen.selectOnly] mode decided: the
+/// part to keep, or null for "use full photo".
+typedef CropChoice = ({CropFractions? crop});
+
 /// Drag-to-select photo editing: a rectangle to Crop one cat out, or an
 /// ellipse to Mark it (CONTEXT.md: Crop, Mark). Pops the edited JPEG
 /// bytes; [allowSkip] (import flow) offers "use full photo", which pops
@@ -18,11 +22,17 @@ class PhotoEditScreen extends StatefulWidget {
   final PhotoEditMode mode;
   final bool allowSkip;
 
+  /// Crop only: pops a [CropChoice] instead of bytes and leaves the
+  /// cutting to the compression, so the photo is encoded once.
+  final bool selectOnly;
+
   const PhotoEditScreen(
       {super.key,
       required this.bytes,
       required this.mode,
-      this.allowSkip = false});
+      this.allowSkip = false,
+      this.selectOnly = false})
+      : assert(!selectOnly || mode == PhotoEditMode.crop);
 
   @override
   State<PhotoEditScreen> createState() => _PhotoEditScreenState();
@@ -91,6 +101,10 @@ class _PhotoEditScreenState extends State<PhotoEditScreen> {
     final w = sel.width / rendered.width;
     final h = sel.height / rendered.height;
 
+    if (widget.selectOnly) {
+      Navigator.of(context).pop<CropChoice>((crop: (x: x, y: y, w: w, h: h)));
+      return;
+    }
     setState(() => _busy = true);
     final result = await Isolate.run(
         _editTask(widget.bytes, widget.mode, x, y, w, h));
@@ -107,7 +121,8 @@ class _PhotoEditScreenState extends State<PhotoEditScreen> {
         actions: [
           if (widget.allowSkip)
             TextButton(
-              onPressed: () => Navigator.of(context).pop(widget.bytes),
+              onPressed: () => Navigator.of(context)
+                  .pop(widget.selectOnly ? (crop: null) : widget.bytes),
               child: Text(t.useFullPhoto),
             ),
           // A labeled button, not a bare checkmark: next to "Use full

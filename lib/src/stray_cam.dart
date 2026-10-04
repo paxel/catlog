@@ -119,6 +119,8 @@ Future<void> explainLocationFailure(
 Future<String?> strayCam(BuildContext context, CatalogStore store,
     {Locator locate = locateDevice,
     Future<Uint8List?> Function(BuildContext)? pickPhoto,
+    Future<String?> Function(CatalogStore store, String catId, Uint8List bytes)
+        addPhoto = addCompressedImage,
     ImageSource? source,
     Future<bool> Function() openSettings = Geolocator.openAppSettings,
     Future<bool> Function() openLocationSettings =
@@ -128,6 +130,7 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
     () => _strayCam(context, store,
         locate: locate,
         pickPhoto: pickPhoto,
+        addPhoto: addPhoto,
         source: source,
         openSettings: openSettings,
         openLocationSettings: openLocationSettings),
@@ -138,6 +141,8 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
 Future<String?> _strayCam(BuildContext context, CatalogStore store,
     {Locator locate = locateDevice,
     Future<Uint8List?> Function(BuildContext)? pickPhoto,
+    Future<String?> Function(CatalogStore store, String catId, Uint8List bytes)
+        addPhoto = addCompressedImage,
     ImageSource? source,
     Future<bool> Function() openSettings = Geolocator.openAppSettings,
     Future<bool> Function() openLocationSettings =
@@ -183,7 +188,7 @@ Future<String?> _strayCam(BuildContext context, CatalogStore store,
   final catId = store.createCat(name,
       species: petMode.value ? (store.localSetting(lastSpeciesKey) ?? 'cat') : 'cat');
   store.recordPosition(catId, position.$1, position.$2);
-  await addCompressedImage(store, catId, bytes);
+  await addPhoto(store, catId, bytes);
   return catId;
 }
 

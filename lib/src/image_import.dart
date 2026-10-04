@@ -22,28 +22,67 @@ Future<String?> pickAndAddImage(
   return addCompressedImage(store, catId, raw);
 }
 
-/// Compresses off the UI thread and stores the photo on the cat. Null
-/// when the catalog was switched away (and closed) meanwhile — the
-/// photo then has no home, and a write would be a crash.
+/// Compresses off the UI thread, cutting out [crop] if given, and
+/// stores the photo on the cat. Null when the catalog was switched away
+/// (and closed) meanwhile — the photo then has no home, and a write
+/// would be a crash.
 Future<String?> addCompressedImage(
-    CatalogStore store, String catId, Uint8List bytes) async {
-  final jpeg = await Isolate.run(() => CatalogStore.compressImage(bytes));
+    CatalogStore store, String catId, Uint8List bytes,
+    {CropFractions? crop}) async {
+  final jpeg =
+      await Isolate.run(() => CatalogStore.compressImage(bytes, crop: crop));
   if (!store.isOpen) return null;
   return store.addImage(catId, jpeg);
 }
 
+/// A frame kept from a video and the part of it to store; a null [crop]
+/// stores all of it.
+typedef KeptFrame = ({Uint8List bytes, CropFractions? crop});
+
 /// Stores [frames] on the cat one after the other and reports after
 /// each — the page shows them as they land instead of all at once after
 /// a silent wait. Returns how many landed.
-Future<int> addFrames(CatalogStore store, String catId, List<Uint8List> frames,
+Future<int> addFrames(CatalogStore store, String catId, List<KeptFrame> frames,
     {void Function(int done, int total)? onProgress}) async {
   var done = 0;
   for (final frame in frames) {
-    if (await addCompressedImage(store, catId, frame) == null) break;
+    if (await addCompressedImage(store, catId, frame.bytes,
+            crop: frame.crop) ==
+        null) {
+      break;
+    }
     done++;
     onProgress?.call(done, frames.length);
   }
   return done;
+}
+
+/// One crop page over a frame: null when canceled.
+typedef CropStep = Future<CropChoice?> Function(
+    BuildContext context, Uint8List frame);
+
+Future<CropChoice?> cropPage(BuildContext context, Uint8List frame) =>
+    Navigator.of(context).push<CropChoice>(MaterialPageRoute(
+      builder: (_) => PhotoEditScreen(
+          bytes: frame,
+          mode: PhotoEditMode.crop,
+          allowSkip: true,
+          selectOnly: true),
+    ));
+
+/// The crop step for each frame kept from a video, in order, on the
+/// full-size frame before anything is compressed. "Use full photo"
+/// keeps a frame whole; Cancel drops only that frame.
+Future<List<KeptFrame>> cropFrames(
+    BuildContext context, List<Uint8List> frames,
+    {CropStep cropStep = cropPage}) async {
+  final kept = <KeptFrame>[];
+  for (final frame in frames) {
+    if (!context.mounted) break;
+    final choice = await cropStep(context, frame);
+    if (choice != null) kept.add((bytes: frame, crop: choice.crop));
+  }
+  return kept;
 }
 
 /// A photo from the camera or the gallery onto the cat, as the fan
@@ -56,14 +95,19 @@ Future<bool> addPhotoFrom(
   return true;
 }
 
-/// Frames picked from a video onto the cat (#41), landing one by one;
-/// [onProgress] hears about each. True when any landed.
+/// Frames picked from a video onto the cat (#41), each through the
+/// crop step, then landing one by one; [onProgress] hears about each.
+/// True when any landed.
 Future<bool> addPhotosFromVideo(
     BuildContext context, CatalogStore store, String catId,
-    {void Function(int done, int total)? onProgress}) async {
-  final frames = await pickVideoFrames(context);
-  if (frames == null || frames.isEmpty) return false;
-  return await addFrames(store, catId, frames, onProgress: onProgress) > 0;
+    {void Function(int done, int total)? onProgress,
+    Future<List<Uint8List>?> Function(BuildContext) pickFrames =
+        pickVideoFrames,
+    CropStep cropStep = cropPage}) async {
+  final frames = await pickFrames(context);
+  if (frames == null || frames.isEmpty || !context.mounted) return false;
+  final kept = await cropFrames(context, frames, cropStep: cropStep);
+  return await addFrames(store, catId, kept, onProgress: onProgress) > 0;
 }
 
 /// Whether this device has a camera to offer.

@@ -156,6 +156,16 @@ void main() {
       expect(decoded.height, CatalogStore.maxImageEdge ~/ 2);
     });
 
+    test('a crop is cut from the full-size photo, before the scaling', () {
+      // The left quarter of a 5120 px frame: 1280 px kept. Scaled to
+      // 2560 first and cropped after, the same cat had 640.
+      final compressed = CatalogStore.compressImage(makeJpeg(5120, 2560),
+          crop: (x: 0, y: 0, w: 0.25, h: 1));
+      final decoded = img.decodeImage(compressed)!;
+      expect(decoded.width, 1280);
+      expect(decoded.height, 2560);
+    });
+
     test('small images are not upscaled', () {
       final compressed = CatalogStore.compressImage(makeJpeg(800, 600));
       final decoded = img.decodeImage(compressed)!;

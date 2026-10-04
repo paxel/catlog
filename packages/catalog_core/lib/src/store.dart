@@ -112,6 +112,10 @@ class ClowderEvent {
       required this.counterpart});
 }
 
+/// A part of a photo to Crop (CONTEXT.md), in 0..1 fractions of its
+/// width and height.
+typedef CropFractions = ({double x, double y, double w, double h});
+
 /// The catalog: an append-only entry log over SQLite with a latest-wins
 /// projection (ADR-0001). All reads and writes are synchronous.
 ///
@@ -1446,14 +1450,17 @@ class CatalogStore {
   }
 
   /// Pure function: re-encodes a photo as JPEG, scaled to [maxImageEdge].
-  /// CPU-heavy — call through `Isolate.run` from UI code.
-  static Uint8List compressImage(Uint8List bytes) {
+  /// A [crop] is cut from the full-size photo before the scaling, so a
+  /// cat cut out of a big frame keeps its pixels, and the photo is
+  /// encoded once. CPU-heavy — call through `Isolate.run` from UI code.
+  static Uint8List compressImage(Uint8List bytes, {CropFractions? crop}) {
     if (imageTooLarge(bytes)) {
       throw const FormatException('Image too large');
     }
     var decoded = img.decodeImage(bytes);
     if (decoded == null) throw const FormatException('Not a decodable image');
     decoded = img.bakeOrientation(decoded);
+    if (crop != null) decoded = _crop(decoded, crop);
     final edge = max(decoded.width, decoded.height);
     if (edge > maxImageEdge) {
       final scale = maxImageEdge / edge;
@@ -1477,19 +1484,23 @@ class CatalogStore {
       Uint8List bytes, double x, double y, double w, double h) {
     final decoded = img.decodeImage(bytes);
     if (decoded == null) throw const FormatException('Not a decodable image');
-    final px = (x.clamp(0.0, 1.0) * decoded.width).round();
-    final py = (y.clamp(0.0, 1.0) * decoded.height).round();
-    final pw = (w.clamp(0.0, 1.0) * decoded.width).round();
-    final ph = (h.clamp(0.0, 1.0) * decoded.height).round();
+    final cropped = _crop(decoded, (x: x, y: y, w: w, h: h));
+    return Uint8List.fromList(img.encodeJpg(cropped, quality: 85));
+  }
+
+  static img.Image _crop(img.Image decoded, CropFractions crop) {
+    final px = (crop.x.clamp(0.0, 1.0) * decoded.width).round();
+    final py = (crop.y.clamp(0.0, 1.0) * decoded.height).round();
+    final pw = (crop.w.clamp(0.0, 1.0) * decoded.width).round();
+    final ph = (crop.h.clamp(0.0, 1.0) * decoded.height).round();
     if (pw < 8 || ph < 8) {
       throw ArgumentError('Crop rectangle too small');
     }
-    final cropped = img.copyCrop(decoded,
+    return img.copyCrop(decoded,
         x: px,
         y: py,
         width: pw.clamp(1, decoded.width - px),
         height: ph.clamp(1, decoded.height - py));
-    return Uint8List.fromList(img.encodeJpg(cropped, quality: 85));
   }
 
   /// Pure function: bakes a highlight ellipse into a copy of a photo —

@@ -29,7 +29,7 @@ A point a Catalog can be returned to, recorded before anything that changes a lo
 _Avoid_: snapshot, save point, restore point, checkpoint
 
 **Crop**:
-Cutting one cat out of a photo. Happens in the import flow (skippable; Stray Cam skips it) or later from the photo menu; cropping later adds the cropped copy as a new photo, the original stays.
+Cutting one cat out of a photo. Happens in the import flow (skippable; Stray Cam photos skip it, frames kept from a video get it one by one, cut from the full-size frame) or later from the photo menu; cropping later adds the cropped copy as a new photo, the original stays.
 
 **Mark**:
 A highlight (ellipse/arrow) baked into a copy of a photo to point at one cat when cropping cannot isolate it — an ordinary new photo, synced and printed like any other.

@@ -17,7 +17,8 @@ import 'video_frames.dart';
 import 'exclusive.dart';
 
 /// Picks a video file and runs the frame picker over it. Returns the
-/// kept frames as JPEG bytes; the video is never stored (#41).
+/// kept frames as JPEG bytes at the video's own size — the crop step
+/// cuts from them before compression; the video is never stored (#41).
 /// Mobile only — elsewhere the reason is explained instead of failing.
 Future<List<Uint8List>?> pickVideoFrames(BuildContext context) =>
     runExclusive('imagePicker', () => _pickVideoFrames(context),
@@ -31,13 +32,14 @@ Future<List<Uint8List>?> _pickVideoFrames(BuildContext context) async {
   }
   final video = await ImagePicker().pickVideo(source: ImageSource.gallery);
   if (video == null || !context.mounted) return null;
-  return framesFromVideoFile(context, video.path);
+  return framesFromVideoFile(context, video.path, keptWidth: 0);
 }
 
 /// Runs the frame picker over a video already on disk — picked or
-/// shared in. Returns the kept frames as JPEG bytes.
+/// shared in. Returns the kept frames as JPEG bytes, at most
+/// [keptWidth] wide; 0 keeps the video's own size.
 Future<List<Uint8List>?> framesFromVideoFile(
-    BuildContext context, String path) async {
+    BuildContext context, String path, {int keptWidth = 2560}) async {
   final controller = VideoPlayerController.file(File(path));
   try {
     await controller.initialize();
@@ -58,7 +60,7 @@ Future<List<Uint8List>?> framesFromVideoFile(
           timeMs: ms,
           imageFormat: ImageFormat.JPEG,
           quality: 90,
-          maxWidth: 2560,
+          maxWidth: keptWidth,
         ),
       ),
     ));
@@ -112,20 +114,24 @@ class _ControllerPlayer extends ChangeNotifier implements FramePlayer {
 }
 
 /// Stray Cam from a video (#41): pick a video file of the stray, pick
-/// frames, and only a kept frame creates the cat — the photo-first rule
-/// holds. Extra kept frames join as further photos.
+/// frames, each through the crop step, and only a kept frame creates
+/// the cat — the photo-first rule holds. Extra kept frames join as
+/// further photos.
 Future<String?> strayCamVideo(BuildContext context, CatalogStore store,
-    {Locator locate = locateDevice}) async {
-  List<Uint8List>? frames;
-  final catId =
-      await strayCam(context, store, locate: locate, pickPhoto: (c) async {
-    frames = await pickVideoFrames(c);
-    return frames == null || frames!.isEmpty ? null : frames!.first;
-  });
-  if (catId != null && frames != null) {
-    for (final frame in frames!.skip(1)) {
-      await addCompressedImage(store, catId, frame);
-    }
-  }
+    {Locator locate = locateDevice,
+    Future<List<Uint8List>?> Function(BuildContext) pickFrames =
+        pickVideoFrames,
+    CropStep cropStep = cropPage}) async {
+  var kept = <KeptFrame>[];
+  final catId = await strayCam(context, store, locate: locate,
+      pickPhoto: (c) async {
+    final frames = await pickFrames(c);
+    if (frames == null || !c.mounted) return null;
+    kept = await cropFrames(c, frames, cropStep: cropStep);
+    return kept.isEmpty ? null : kept.first.bytes;
+  },
+      addPhoto: (store, catId, bytes) =>
+          addCompressedImage(store, catId, bytes, crop: kept.first.crop));
+  if (catId != null) await addFrames(store, catId, kept.skip(1).toList());
   return catId;
 }
