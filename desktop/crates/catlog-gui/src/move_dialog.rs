@@ -1,7 +1,7 @@
 //! Moving a Cat: into a Clowder, or out to the street as a Stray, as of
 //! a day the keeper may set back.
 
-use catlog_core::{Catalog, EntityView, keys};
+use catlog_core::{Catalog, EntityView, Entry, keys};
 use egui::{Context, Key};
 
 use crate::l10n::L10n;
@@ -21,6 +21,11 @@ pub struct MoveDialog {
     /// The chosen destination; none for the street.
     pub target: Option<String>,
     pub as_of: String,
+    /// The move being corrected, from a timeline: saving replaces that
+    /// entry instead of adding a move. None for a new move.
+    pub correcting: Option<i64>,
+    /// The day the corrected move had, to tell a new day from it.
+    as_of_then: String,
     id: u64,
 }
 
@@ -46,6 +51,25 @@ impl MoveDialog {
         self.clowders = store.clowders().unwrap_or_default();
         self.target = self.current.clone();
         self.as_of = chrono::Local::now().date_naive().to_string();
+        self.correcting = None;
+    }
+
+    /// The same dialog over a move already made, from a timeline: its
+    /// home ticked, its day set; saving corrects where to and when.
+    pub fn ask_correction(&mut self, store: &Catalog, entry: &Entry) {
+        self.open = true;
+        self.id += 1;
+        self.cats = vec![entry.entity.clone()];
+        self.mixed = false;
+        self.picked = false;
+        self.current = entry.value.clone();
+        self.clowders = store.clowders().unwrap_or_default();
+        self.target = self.current.clone();
+        self.as_of = chrono::DateTime::parse_from_rfc3339(&entry.date)
+            .map(|d| d.with_timezone(&chrono::Local).date_naive().to_string())
+            .unwrap_or_default();
+        self.as_of_then = self.as_of.clone();
+        self.correcting = Some(entry.seq);
     }
 
     /// Draws the dialog; true when a Move was recorded.
@@ -87,6 +111,8 @@ impl MoveDialog {
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 let changed = if self.mixed {
                     self.picked
+                } else if self.correcting.is_some() {
+                    self.target != self.current || self.as_of.trim() != self.as_of_then
                 } else {
                     self.target != self.current
                 };
@@ -104,7 +130,21 @@ impl MoveDialog {
                             d.with_timezone(&chrono::Utc)
                                 .to_rfc3339_opts(chrono::SecondsFormat::Micros, true)
                         });
-                    for cat in &self.cats {
+                    if let Some(seq) = self.correcting {
+                        // The day kept keeps the move's own moment.
+                        let when = if self.as_of.trim() == self.as_of_then {
+                            None
+                        } else {
+                            at.as_deref()
+                        };
+                        if store
+                            .correct_entry(seq, self.target.as_deref(), when)
+                            .is_ok()
+                        {
+                            moved = true;
+                        }
+                    }
+                    for cat in self.cats.iter().filter(|_| self.correcting.is_none()) {
                         if store
                             .append_at(
                                 cat,

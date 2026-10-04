@@ -1247,8 +1247,10 @@ impl App {
                 self.editor.text = picked;
             }
         }
-        // A move into a forever home is an adoption: the party plays.
+        // A move into a forever home is an adoption: the party plays. A
+        // corrected move only puts the record right.
         if self.mover.show(ui.ctx(), &mut self.store, &t)
+            && self.mover.correcting.is_none()
             && let Some(target) = self.mover.target.clone()
             && self
                 .store
@@ -2676,6 +2678,7 @@ impl App {
             other => format!("{other:?}#{}", self.modal_opened),
         };
         let mut page_action = PageAction::None;
+        let mut timeline_tap = None;
         let hosting = modal == Modal::InPerson;
         let (_, close) = views::show_modal(ctx, &id, t.close_label(), |ui| match modal {
             Modal::Page(id) => {
@@ -2753,7 +2756,7 @@ impl App {
                         crate::pages::timeline_lines(&self.store, &t, units, &id)
                     })
                     .clone();
-                crate::pages::show_timeline(ui, &self.store, &t, &id, &lines);
+                timeline_tap = crate::pages::show_timeline(ui, &self.store, &t, &id, &lines);
             }
             Modal::Help => self.show_help(ui),
             Modal::About => self.show_about(ui),
@@ -2877,6 +2880,52 @@ impl App {
         }
         if page_action != PageAction::None {
             self.act_page(page_action);
+        }
+        if let Some(tap) = timeline_tap {
+            self.open_from_timeline(tap);
+        }
+    }
+
+    /// A timeline line clicked: the move dialog on that move, or the
+    /// appointment's or the chore's own editor; a done day opens the
+    /// chore's log.
+    fn open_from_timeline(&mut self, (seq, tap): (i64, crate::pages::TimelineTap)) {
+        use crate::pages::TimelineTap;
+        let Ok(Some(entry)) = self.store.entry_by_seq(seq) else {
+            return;
+        };
+        let today = self.pages.today;
+        let current = |field: &str| self.store.current(&entry.entity, field).ok().flatten();
+        match tap {
+            TimelineTap::Move => self.mover.ask_correction(&self.store, &entry),
+            TimelineTap::Appointment => {
+                let id = &entry.field[keys::APPOINTMENT_PREFIX.len()..];
+                if let Some(a) = catlog_core::appointments::Appointment::from_json(
+                    id,
+                    &entry.entity,
+                    current(&entry.field).as_deref(),
+                ) {
+                    self.appointment_dialog
+                        .ask(&self.store, &entry.entity, Some(a), today);
+                }
+            }
+            TimelineTap::Chore | TimelineTap::ChoreTick => {
+                let rest = &entry.field[keys::CHORE_PREFIX.len()..];
+                let id = rest.split('@').next().unwrap_or(rest);
+                let key = format!("{}{id}", keys::CHORE_PREFIX);
+                let Some(chore) = catlog_core::chores::Chore::from_json(
+                    id,
+                    &entry.entity,
+                    current(&key).as_deref(),
+                ) else {
+                    return;
+                };
+                if tap == TimelineTap::ChoreTick {
+                    self.chore_history.open_for(&self.store, chore, today);
+                } else {
+                    self.chore_dialog.ask(&entry.entity, Some(chore), today);
+                }
+            }
         }
     }
 
@@ -7159,6 +7208,166 @@ mod tests {
             Some("week"),
             "written as the phone writes it"
         );
+    }
+
+    /// The timeline line that opens what `tap` names.
+    fn timeline_line(app: &App, id: &str, tap: crate::pages::TimelineTap) -> String {
+        crate::pages::timeline_lines(app.store(), app.t(), app.pages.units, id)
+            .into_iter()
+            .find(|l| l.tap.is_some_and(|(_, k)| k == tap))
+            .map(|l| l.what)
+            .unwrap()
+    }
+
+    #[test]
+    fn a_move_in_the_timeline_is_corrected_in_the_move_dialog() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let store = app.store_mut();
+        store.create_clowder("clowder:yard", "Hinterhof").unwrap();
+        store.create_clowder("clowder:garden", "Garten").unwrap();
+        store.create_cat("cat:tiger", "Tiger", None, "cat").unwrap();
+        store
+            .append_at(
+                "cat:tiger",
+                keys::CLOWDER,
+                Some("clowder:yard"),
+                Some("2025-10-03T09:00:00Z"),
+                false,
+            )
+            .unwrap();
+        let moved = timeline_line(&app, "cat:tiger", crate::pages::TimelineTap::Move);
+        let mut h = harness(app);
+        h.state_mut()
+            .open_modal(Modal::Timeline("cat:tiger".into()));
+        h.run();
+        // The desk behind may name the same change: the modal is on top.
+        h.get_all_by_label(&moved).last().unwrap().click();
+        h.run();
+        assert!(h.state().mover.open, "the move dialog opens on the move");
+        assert_eq!(h.state().mover.as_of, "2025-10-03");
+        // The list pane says "Garten" too; the dialog's radio comes last.
+        h.get_all_by_label("Garten").last().unwrap().click();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let store = h.state().store();
+        assert_eq!(
+            store
+                .current("cat:tiger", keys::CLOWDER)
+                .unwrap()
+                .as_deref(),
+            Some("clowder:garden")
+        );
+        let moves = store
+            .field_history("cat:tiger", keys::CLOWDER, false)
+            .unwrap();
+        assert_eq!(moves.len(), 1, "corrected, not added");
+        assert_eq!(
+            moves[0].date, "2025-10-03T09:00:00.000000Z",
+            "the day kept keeps the moment"
+        );
+    }
+
+    #[test]
+    fn an_arrival_in_a_home_s_timeline_corrects_the_cat_s_move() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let store = app.store_mut();
+        store.create_clowder("clowder:yard", "Hinterhof").unwrap();
+        store
+            .create_cat("cat:tiger", "Tiger", Some("clowder:yard"), "cat")
+            .unwrap();
+        let mut h = harness(app);
+        h.state_mut()
+            .open_modal(Modal::Timeline("clowder:yard".into()));
+        h.run();
+        h.get_by_label("Tiger arrived").click();
+        h.run();
+        assert!(h.state().mover.open);
+        h.get_by_label("No clowder — stray / ran away").click();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let store = h.state().store();
+        assert_eq!(store.current("cat:tiger", keys::CLOWDER).unwrap(), None);
+        assert_eq!(
+            store
+                .field_history("cat:tiger", keys::CLOWDER, false)
+                .unwrap()
+                .len(),
+            1
+        );
+    }
+
+    #[test]
+    fn appointments_and_chores_in_the_timeline_open_their_own_editors() {
+        use crate::pages::TimelineTap;
+        use catlog_core::appointments::{Appointment, AppointmentAlert};
+        use catlog_core::chores::{Chore, ChoreSchedule};
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let today = app.pages.today;
+        let store = app.store_mut();
+        store.create_cat("cat:tiger", "Tiger", None, "cat").unwrap();
+        store
+            .create_appointment(
+                "a1",
+                &Appointment {
+                    id: String::new(),
+                    entity: "cat:tiger".into(),
+                    date: today,
+                    time: None,
+                    title: "Vet".into(),
+                    notes: String::new(),
+                    linked_field: None,
+                    linked_value: None,
+                    alert: AppointmentAlert::None,
+                    done: false,
+                    group: None,
+                    extra: Default::default(),
+                },
+            )
+            .unwrap();
+        let feed = store
+            .create_chore(
+                "c1",
+                &Chore {
+                    id: String::new(),
+                    entity: "cat:tiger".into(),
+                    title: "Feed".into(),
+                    schedule: ChoreSchedule::daily(),
+                    time: None,
+                    start: today,
+                    paused: false,
+                    ended: false,
+                    remind: false,
+                    remind_at: None,
+                    extra: Default::default(),
+                },
+            )
+            .unwrap();
+        store.tick_chore(&feed, today, today).unwrap();
+        let appointment = timeline_line(&app, "cat:tiger", TimelineTap::Appointment);
+        let chore = timeline_line(&app, "cat:tiger", TimelineTap::Chore);
+        let tick = timeline_line(&app, "cat:tiger", TimelineTap::ChoreTick);
+        let mut h = harness(app);
+        h.state_mut()
+            .open_modal(Modal::Timeline("cat:tiger".into()));
+        h.run();
+        h.get_by_label(&appointment).click();
+        h.run();
+        assert!(h.state().appointment_dialog.open);
+        h.state_mut().appointment_dialog.open = false;
+        h.run();
+        h.get_by_label(&chore).click();
+        h.run();
+        assert!(h.state().chore_dialog.open);
+        h.state_mut().chore_dialog.open = false;
+        h.run();
+        h.get_by_label(&tick).click();
+        h.run();
+        assert!(h.state().chore_history.open);
     }
 
     #[test]
