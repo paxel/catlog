@@ -331,7 +331,8 @@ impl Catalog {
 
     /// Merges two Cats: `loser` folds into `survivor`, irreversibly. The
     /// survivor re-asserts its current values so they win the combined
-    /// projection; loser values fill only gaps.
+    /// projection; loser values fill only gaps. The home is not
+    /// re-asserted: the latest move of either, by its date, decides it.
     pub fn merge_cat(&mut self, loser: &str, survivor: &str) -> Result<()> {
         self.merge(loser, survivor, "cat:", true)
     }

@@ -2228,8 +2228,9 @@ class CatalogStore {
         throw ArgumentError('Merge would create a cycle or re-merge a loser');
       }
       if (reassert) {
-        // Survivor-wins: re-assert survivor values that the loser's newer
-        // entries would otherwise override in the combined projection.
+        // Survivor-wins (the home aside, below): re-assert survivor values
+        // that the loser's newer entries would otherwise override in the
+        // combined projection.
         final survivorFields = currentFields(survivorId);
         final loserFields = currentFields(loserId);
         // Snapshot the pair's live plans first: a fact re-assertion below

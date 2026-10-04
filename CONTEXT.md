@@ -76,7 +76,7 @@ _Avoid_: search radius, home range
 One-tap capture of a new Stray: creates the Cat at the device's current position with a photo (system camera or picked from the device), no further input required.
 
 **Merge**:
-Combining two records of the same real thing — Cat, Clowder, or Field. The user picks the survivor; the survivor's current values win, the other record's history joins the survivor's timeline, the other record ceases to exist. Irreversible.
+Combining two records of the same real thing — Cat, Clowder, or Field. The user picks the survivor; the survivor's current values win — except where the cat lives, which the latest move of either record decides by its own date — the other record's history joins the survivor's timeline, the other record ceases to exist. Irreversible.
 
 **Card**:
 The presentation of one Cat — as a detail screen in the app, and as a shareable/printable export (image or PDF) with photo and current field values.
