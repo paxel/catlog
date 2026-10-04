@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/src/chores/chore_dialog.dart';
+import 'package:catlog/src/chores/chore_history_screen.dart';
 import 'package:catlog/src/screens/card_screen.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
@@ -185,6 +187,42 @@ void main() {
 
       expect(store.current(cat, Keys.clowder), isNull);
       expect(store.fieldHistory(cat, Keys.clowder), hasLength(1));
+    });
+
+    testWidgets('an appointment row opens the appointment dialog',
+        (tester) async {
+      store.createAppointment(Appointment(
+        id: '',
+        entity: cat,
+        date: DateTime(2099, 9, 3),
+        title: 'Vet',
+      ));
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      await tester.tap(find.textContaining('Appointment'));
+      await tester.pumpAndSettle();
+      expect(find.widgetWithText(TextField, 'Vet'), findsOneWidget);
+    });
+
+    testWidgets('a chore row opens its editor, a tick its log',
+        (tester) async {
+      final today = DateUtils.dateOnly(DateTime.now());
+      final feed = store.createChore(Chore(
+        id: '',
+        entity: cat,
+        title: 'Feed',
+        schedule: const ChoreSchedule.daily(),
+        start: today,
+      ));
+      store.tickChore(feed, today, doneOn: today);
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      await tester.tap(find.textContaining('Feed done'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ChoreHistoryScreen), findsOneWidget);
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      await tester.tap(find.textContaining('Chore'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ChoreEditorScreen), findsOneWidget);
     });
 
     testWidgets('a sighting in the timeline leads to the map', (tester) async {

@@ -11,6 +11,9 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../celebration.dart';
 import '../move_dialog.dart';
+import '../chores/chore_dialog.dart';
+import '../chores/chore_history_screen.dart';
+import '../reminders/appointment_dialog.dart';
 import 'field_history_screen.dart';
 import 'map_screen.dart';
 
@@ -147,11 +150,49 @@ class _TimelineScreenState extends State<TimelineScreen> {
     return null;
   }
 
+  /// The appointment a row belongs to, as it stands now; null for any
+  /// other row.
+  Appointment? _appointmentOf(Entry e) {
+    if (!e.field.startsWith(Keys.appointmentPrefix)) return null;
+    return Appointment.fromJson(e.field.substring(Keys.appointmentPrefix.length),
+        e.entity, store.current(e.entity, e.field));
+  }
+
+  /// The chore a row — the chore itself or one of its ticks — belongs
+  /// to, as it stands now; null for any other row.
+  Chore? _choreOf(Entry e) {
+    if (!e.field.startsWith(Keys.chorePrefix)) return null;
+    final id = e.field.substring(Keys.chorePrefix.length).split('@').first;
+    return Chore.fromJson(id, e.entity, store.current(e.entity, Keys.chore(id)));
+  }
+
   /// Whether a tap on [e] has an editor to open.
-  bool _hasEditor(Entry e) => e.field == Keys.clowder || _defOf(e) != null;
+  bool _hasEditor(Entry e) =>
+      e.field == Keys.clowder ||
+      _defOf(e) != null ||
+      _appointmentOf(e) != null ||
+      _choreOf(e) != null;
 
   Future<void> _correct(Entry e) async {
     if (e.field == Keys.clowder) return _correctMove(e);
+    // Appointments and chores have editors of their own: the row opens
+    // them, a tick opens its chore's log of done days.
+    if (_appointmentOf(e) case final appointment?) {
+      await showAppointmentDialog(context, store,
+          entityId: appointment.entity, existing: appointment);
+      if (mounted) setState(() {});
+      return;
+    }
+    if (_choreOf(e) case final chore?) {
+      if (_tickDue(e) != null) {
+        await Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => ChoreHistoryScreen(store: store, chore: chore)));
+      } else {
+        await showChoreDialog(context, store, existing: chore);
+      }
+      if (mounted) setState(() {});
+      return;
+    }
     final def = _defOf(e);
     if (def == null) return;
     final edit = await editFieldValue(
