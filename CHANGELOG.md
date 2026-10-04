@@ -14,6 +14,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ### Fixed
 - A hand-made flier finds its ran-away date: a line saying "weggelaufen am", "entlaufen", "vermisst seit", "verschwunden seit", "missing since" or "lost on" gives the date on it or on the line right after it. Before, only the TASSO poster layout was read, and a hand-made flier's cat went missing today.
 - A flier added to a cat you already have, with its home picked, dates the cat's move home and its running away to the flier's day, and shows the "Missing since" tile to check it. Before, both moves were dated the day the flier was added.
+- Merging two cats no longer moves the merged cat back home. The most recent move of either cat, by its own date, decides where it is, so a flier's stray keeps its ran-away day when merged into the cat already in the catalog. On phone and desk.
 - A flier reads more of the ways people write a date by hand: 03-10-2025, 03.10.25, "3. Oktober 2025", "Oct 3, 2025", and 3.10. without a year, which counts as the latest such day that has already passed.
 
 ---

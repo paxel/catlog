@@ -2244,6 +2244,10 @@ class CatalogStore {
         for (final key in survivorFields.keys) {
           if (key == Keys.type || key == Keys.deleted) continue;
           if (key.startsWith(Keys.imagePrefix)) continue;
+          // A move is history, not a preference: the latest move of
+          // either cat, by its own date, says where the merged cat is —
+          // a flier's ran-away day must not lose to the merge's.
+          if (key == Keys.clowder) continue;
           if (!loserFields.containsKey(key)) continue;
           if (loserFields[key] == survivorFields[key]) continue;
           append(survivorId, key, survivorFields[key], date: date);

@@ -384,6 +384,12 @@ impl Catalog {
                 {
                     continue;
                 }
+                // A move is history, not a preference: the latest move of
+                // either cat, by its own date, says where the merged cat
+                // is — a flier's ran-away day must not lose to the merge's.
+                if key == keys::CLOWDER {
+                    continue;
+                }
                 let Some(theirs) = loser_fields.get(key) else {
                     continue;
                 };
@@ -671,6 +677,35 @@ mod tests {
         c.delete_clowder("clowder:h").unwrap();
         assert!(c.clowders().unwrap().is_empty());
         assert_eq!(c.strays().unwrap().len(), 1);
+    }
+
+    #[test]
+    fn a_merge_leaves_the_home_to_the_latest_move_by_its_date() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = catalog("me", dir.path());
+        c.create_clowder("clowder:h", "Home").unwrap();
+        c.create_cat("cat:home", "Minka", None, "cat").unwrap();
+        c.append_at(
+            "cat:home",
+            keys::CLOWDER,
+            Some("clowder:h"),
+            Some("2020-01-01T00:00:00Z"),
+            false,
+        )
+        .unwrap();
+        // A flier: the cat ran away from its home on 3 October.
+        c.create_cat("cat:flier", "Minka (flier)", None, "cat")
+            .unwrap();
+        c.append_at(
+            "cat:flier",
+            keys::CLOWDER,
+            None,
+            Some("2025-10-03T00:00:00Z"),
+            false,
+        )
+        .unwrap();
+        c.merge_cat("cat:flier", "cat:home").unwrap();
+        assert_eq!(c.current("cat:home", keys::CLOWDER).unwrap(), None);
     }
 
     #[test]
