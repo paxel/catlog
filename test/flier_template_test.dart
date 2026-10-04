@@ -157,6 +157,57 @@ void main() {
     });
   });
 
+  group('hand-made missing since', () {
+    test('a keyword and a date on one line', () {
+      final reading = readFlier(const [
+        FlierPair(null, 'KATZE ENTLAUFEN'),
+        FlierPair(null, 'Minka ist am 03.10.25 weggelaufen'),
+        FlierPair(null, 'Tel. 0171 1234567'),
+      ], templates);
+      expect(reading.template, isNull);
+      expect(
+        reading.first(FlierTarget.missingSince),
+        'Minka ist am 03.10.25 weggelaufen',
+      );
+    });
+
+    test('a keyword label beside its date', () {
+      final reading = readFlier(const [
+        FlierPair('Weggelaufen am', '3. Oktober'),
+      ], templates);
+      expect(reading.first(FlierTarget.missingSince), '3. Oktober');
+    });
+
+    test('a keyword line over its date', () {
+      final reading = readFlier(const [
+        FlierPair(null, 'Vermisst seit'),
+        FlierPair(null, 'Freitag, 3.10.2025'),
+      ], templates);
+      expect(reading.first(FlierTarget.missingSince), 'Freitag, 3.10.2025');
+      expect(reading.entries.first.target, FlierTarget.remarks);
+    });
+
+    test('a keyword without any date nearby takes nothing', () {
+      final reading = readFlier(const [
+        FlierPair(null, 'ENTLAUFEN'),
+        FlierPair(null, 'Kater Hugo'),
+        FlierPair(null, 'geboren 2019'),
+      ], templates);
+      expect(reading.of(FlierTarget.missingSince), isEmpty);
+    });
+
+    test('a template label wins over a keyword', () {
+      final reading = readFlier(const [
+        FlierPair('Suchdienstnummer', 'S1'),
+        FlierPair('Verlustdatum', '05.06.2025'),
+        FlierPair(null, 'weggelaufen am 01.06.2025'),
+      ], templates);
+      expect(reading.of(FlierTarget.missingSince).map((e) => e.value), [
+        '05.06.2025',
+      ]);
+    });
+  });
+
   group('values', () {
     test('words turn into options, longest synonym first', () {
       expect(templates.normalize('neutered', 'kastriert'), 'yes');

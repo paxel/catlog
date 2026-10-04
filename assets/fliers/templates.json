@@ -20,6 +20,7 @@
       "contact": ["tasso.net", "06190", "0 61 90", "6190 937", "TASSO e.V", "TASSO e V", "Notruf"]
     }
   ],
+  "missingSinceWords": ["weggelaufen", "entlaufen", "vermisst seit", "verschwunden seit", "missing since", "lost on"],
   "values": {
     "species": {
       "cat": ["Katze", "Kater", "cat", "tomcat", "Hauskatze"],

@@ -136,7 +136,15 @@ class FlierTemplateSet {
   /// Field slug → option → synonyms.
   final Map<String, Map<String, List<String>>> values;
 
-  const FlierTemplateSet(this.templates, this.values);
+  /// Words that say "ran away on" anywhere on a poster, any layout —
+  /// hand-made fliers match no template.
+  final List<String> missingSinceWords;
+
+  const FlierTemplateSet(
+    this.templates,
+    this.values, [
+    this.missingSinceWords = const [],
+  ]);
 
   static const empty = FlierTemplateSet([], {});
 
@@ -168,6 +176,10 @@ class FlierTemplateSet {
               o.key: [for (final s in o.value as List) s as String],
           },
       },
+      [
+        for (final w in (json['missingSinceWords'] as List? ?? const []))
+          w as String,
+      ],
     );
   }
 
@@ -273,9 +285,11 @@ class FlierReading {
 FlierReading readFlier(List<FlierPair> pairs, FlierTemplateSet templates) {
   final template = templates.match(pairs);
   if (template == null) {
-    return FlierReading(null, [
+    final entries = [
       for (final p in pairs) FlierEntry(label: p.label, value: p.value),
-    ]);
+    ];
+    _findMissingSince(entries, templates.missingSinceWords);
+    return FlierReading(null, entries);
   }
   final entries = <FlierEntry>[];
   for (final pair in pairs) {
@@ -310,7 +324,31 @@ FlierReading readFlier(List<FlierPair> pairs, FlierTemplateSet templates) {
     }
     entries.addAll(_composite(labelParts, targets, pair.value, templates));
   }
+  _findMissingSince(entries, templates.missingSinceWords);
   return FlierReading(template, entries);
+}
+
+/// Unless a label already gave it, the missing-since date is the date
+/// on a line saying "weggelaufen am" or the like — on that line, or on
+/// the one right after it ("Vermisst seit" over "3. Oktober").
+void _findMissingSince(List<FlierEntry> entries, List<String> words) {
+  if (entries.any((e) => e.target == FlierTarget.missingSince)) return;
+  bool dated(FlierEntry e) =>
+      e.target == FlierTarget.remarks && parseFlierDate(e.value) != null;
+  for (var i = 0; i < entries.length; i++) {
+    final entry = entries[i];
+    if (entry.target != FlierTarget.remarks) continue;
+    final text = _fold('${entry.label ?? ''} ${entry.value}');
+    if (!words.any((w) => _containsWord(text, _fold(w)))) continue;
+    final next = i + 1 < entries.length ? entries[i + 1] : null;
+    final hit = dated(entry)
+        ? entry
+        : (next != null && dated(next) ? next : null);
+    if (hit != null) {
+      hit.target = FlierTarget.missingSince;
+      return;
+    }
+  }
 }
 
 /// A composite row: value parts zip onto label parts when the counts
