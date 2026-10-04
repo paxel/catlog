@@ -207,6 +207,36 @@ void main() {
     );
   });
 
+  testWidgets('a flier for a known cat dates its moves to the ran-away day', (
+    tester,
+  ) async {
+    final cat = store.createCat('Minka');
+    final home = store.createClowder('Home');
+    await pump(
+      tester,
+      existingCatId: cat,
+      text: 'Minka ist am 03.10.2025 weggelaufen',
+    );
+    await next(tester);
+    // No home picked yet: nothing to leave, no day to ask for.
+    expect(find.text('Missing since'), findsNothing);
+    await tester.tap(find.text('Existing clowder'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Home'));
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    expect(find.text('10/3/2025'), findsOneWidget);
+    await save(tester);
+
+    final moves = store.fieldHistory(cat, Keys.clowder);
+    expect(moves.map((e) => e.value), containsAll([home, null]));
+    expect(
+      moves.map((e) => e.date.toLocal()),
+      everyElement(DateTime(2025, 10, 3)),
+    );
+    expect(store.current(cat, Keys.clowder), isNull);
+  });
+
   testWidgets('a Tasso link on the poster becomes a looked-up ID field', (
     tester,
   ) async {
