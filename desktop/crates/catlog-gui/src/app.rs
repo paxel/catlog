@@ -7358,13 +7358,16 @@ mod tests {
         h.get_by_label(&appointment).click();
         h.run();
         assert!(h.state().appointment_dialog.open);
-        h.state_mut().appointment_dialog.open = false;
+        // Drawn over the timeline: its own Cancel takes the click.
+        h.get_all_by_label("Cancel").last().unwrap().click();
         h.run();
+        assert!(!h.state().appointment_dialog.open);
         h.get_by_label(&chore).click();
         h.run();
         assert!(h.state().chore_dialog.open);
-        h.state_mut().chore_dialog.open = false;
+        h.get_all_by_label("Cancel").last().unwrap().click();
         h.run();
+        assert!(!h.state().chore_dialog.open);
         h.get_by_label(&tick).click();
         h.run();
         assert!(h.state().chore_history.open);
