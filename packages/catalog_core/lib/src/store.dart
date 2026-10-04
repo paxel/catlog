@@ -1217,7 +1217,9 @@ class CatalogStore {
     final entry = _correctable(seq);
     final device = deviceId;
     final next = _nextDseq(device);
-    append(entry.entity, entry.field, value, date: date ?? entry.date);
+    // A corrected plan is still a plan (#74), not a fact.
+    append(entry.entity, entry.field, value,
+        date: date ?? entry.date, reminder: entry.reminder);
     final fresh = entryById(device, next)!;
     _setVoid(entry, fresh.id);
     return fresh;

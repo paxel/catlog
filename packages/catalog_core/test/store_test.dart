@@ -394,6 +394,19 @@ void main() {
       expect(store.voidMarker(wrong)?.value, fixed.id);
     });
 
+    test('a corrected plan stays a plan', () {
+      final cat = store.createCat('Miezi');
+      final visit = DateTime.utc(2099, 5, 1);
+      store.append(cat, 'f:remarks', 'vet', date: visit, reminder: true);
+      final plan = store.fieldHistory(cat, 'f:remarks').single;
+
+      final fixed = store.correctEntry(plan.seq, 'vet check');
+      expect(fixed.reminder, isTrue);
+      expect(store.activeReminders().map((r) => (r.entity, r.value)), [
+        (cat, 'vet check'),
+      ]);
+    });
+
     test('a correction may move the value to another moment', () {
       final cat = store.createCat('Miezi');
       store.append(cat, 'f:weight', '4100', date: DateTime.utc(2025, 3, 4));

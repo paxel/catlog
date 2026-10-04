@@ -2054,7 +2054,8 @@ impl Catalog {
             &entry.field,
             value,
             Some(date.unwrap_or(&entry.date)),
-            false,
+            // A corrected plan is still a plan, not a fact.
+            entry.reminder,
         )?;
         let fresh = self
             .entry_by_id(&device, next)?
@@ -3012,6 +3013,28 @@ mod tests {
         assert_eq!(after.len(), before + 3);
         assert_eq!(after.last().unwrap().field, "f:phone");
         assert!(c.set_field_private("clowder:h", keys::NAME, true).is_err());
+    }
+
+    #[test]
+    fn a_corrected_plan_stays_a_plan() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut c = Catalog::open_with_device(dir.path(), "me").unwrap();
+        c.set_author("Ada").unwrap();
+        c.create_cat("cat:a", "Miezi", None, "cat").unwrap();
+        c.append_at(
+            "cat:a",
+            "f:remarks",
+            Some("vet"),
+            Some("2099-05-01T00:00:00Z"),
+            true,
+        )
+        .unwrap();
+        let plan = c.field_history("cat:a", "f:remarks", false).unwrap()[0].seq;
+        let fresh = c.correct_entry(plan, Some("vet check"), None).unwrap();
+        assert!(fresh.reminder);
+        let plans = c.active_reminders().unwrap();
+        assert_eq!(plans.len(), 1);
+        assert_eq!(plans[0].value, "vet check");
     }
 
     #[test]
