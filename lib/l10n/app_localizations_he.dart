@@ -459,6 +459,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get missingSinceLabel => 'נעדר מאז';
 
   @override
+  String get missingSinceNotOnFlier => 'לא נמצא במודעה — היום';
+
+  @override
   String get cropPortrait => 'חיתוך דיוקן';
 
   @override

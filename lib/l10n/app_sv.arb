@@ -266,6 +266,7 @@
   "metersApart": "{distance} m ifrån varandra",
   "addFlier": "Lägg till anslag",
   "missingSinceLabel": "Försvunnen sedan",
+  "missingSinceNotOnFlier": "Hittades inte på lappen — i dag",
   "cropPortrait": "Beskär porträtt",
   "statusOwner": "Ägare",
   "ocrUnavailable": "Textigenkänning är inte tillgänglig på den här enheten — skriv anslags­texten själv.",

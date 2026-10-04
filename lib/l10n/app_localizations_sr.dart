@@ -460,6 +460,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get missingSinceLabel => 'Нестао од';
 
   @override
+  String get missingSinceNotOnFlier => 'Није пронађено на летку — данас';
+
+  @override
   String get cropPortrait => 'Исеци портрет';
 
   @override

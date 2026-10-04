@@ -462,6 +462,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get missingSinceLabel => 'Savnet siden';
 
   @override
+  String get missingSinceNotOnFlier => 'Ikke funnet på plakaten — i dag';
+
+  @override
   String get cropPortrait => 'Beskjær portrett';
 
   @override

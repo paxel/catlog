@@ -461,6 +461,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get missingSinceLabel => 'Nezvestný od';
 
   @override
+  String get missingSinceNotOnFlier => 'Na letáku nenájdené — dnes';
+
+  @override
   String get cropPortrait => 'Orezať portrét';
 
   @override

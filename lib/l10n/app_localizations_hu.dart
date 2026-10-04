@@ -460,6 +460,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get missingSinceLabel => 'Eltűnt ekkortól';
 
   @override
+  String get missingSinceNotOnFlier => 'Nem található a plakáton — ma';
+
+  @override
   String get cropPortrait => 'Portré kivágása';
 
   @override

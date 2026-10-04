@@ -462,6 +462,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get missingSinceLabel => 'Пропал с';
 
   @override
+  String get missingSinceNotOnFlier => 'Не найдено в объявлении — сегодня';
+
+  @override
   String get cropPortrait => 'Обрезать портрет';
 
   @override

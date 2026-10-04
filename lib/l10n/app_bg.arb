@@ -266,6 +266,7 @@
   "metersApart": "На {distance} м един от друг",
   "addFlier": "Добавяне на обява",
   "missingSinceLabel": "Изчезнал от",
+  "missingSinceNotOnFlier": "Не е намерено в листовката — днес",
   "cropPortrait": "Изрязване на портрет",
   "statusOwner": "Собственик",
   "ocrUnavailable": "Разпознаването на текст не е налично на това устройство — въведете текста на обявата сами.",

@@ -446,6 +446,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get missingSinceLabel => '失踪日期';
 
   @override
+  String get missingSinceNotOnFlier => '传单上未找到 — 今天';
+
+  @override
   String get cropPortrait => '裁剪头像';
 
   @override

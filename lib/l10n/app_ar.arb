@@ -266,6 +266,7 @@
   "metersApart": "يبعدان {distance} م",
   "addFlier": "إضافة منشور",
   "missingSinceLabel": "مفقود منذ",
+  "missingSinceNotOnFlier": "لم يُعثر عليه في المنشور — اليوم",
   "cropPortrait": "قصّ صورة الوجه",
   "statusOwner": "المالك",
   "ocrUnavailable": "التعرف على النص غير متاح على هذا الجهاز — اكتب نص المنشور بنفسك.",

@@ -266,6 +266,7 @@
   "metersApart": "{distance} m larg njëri-tjetrit",
   "addFlier": "Shto fletushkë",
   "missingSinceLabel": "I humbur që nga",
+  "missingSinceNotOnFlier": "Nuk u gjet në fletëpalosje — sot",
   "cropPortrait": "Prit portretin",
   "statusOwner": "Pronari",
   "ocrUnavailable": "Njohja e tekstit nuk ofrohet në këtë pajisje — shkruajeni vetë tekstin e fletushkës.",

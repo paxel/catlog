@@ -266,6 +266,7 @@
   "metersApart": "{distance} m-re egymástól",
   "addFlier": "Plakát hozzáadása",
   "missingSinceLabel": "Eltűnt ekkortól",
+  "missingSinceNotOnFlier": "Nem található a plakáton — ma",
   "cropPortrait": "Portré kivágása",
   "statusOwner": "Gazda",
   "ocrUnavailable": "A szövegfelismerés ezen az eszközön nem érhető el — írja be a plakát szövegét kézzel.",

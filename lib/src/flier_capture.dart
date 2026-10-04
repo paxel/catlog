@@ -167,6 +167,10 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// only — a timestamp needs a day, a stored value never gets one.
   PartialDate? _missingSincePartial;
 
+  /// Whether [_missingSince] came from the poster or the picker; until
+  /// then it is today by default, and the tile says so.
+  bool _missingSinceKnown = false;
+
   final _name = TextEditingController();
   final _chip = TextEditingController();
   final _phone = TextEditingController();
@@ -372,6 +376,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         if (date != null) {
           _missingSince = date.earliest;
           _missingSincePartial = date;
+          _missingSinceKnown = true;
         }
       }
       for (final entry in reading.entries) {
@@ -563,6 +568,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       setState(() {
         _missingSince = DateUtils.dateOnly(picked);
         _missingSincePartial = null;
+        _missingSinceKnown = true;
       });
     }
   }
@@ -1128,9 +1134,16 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       if (_newCat)
         ListTile(
           contentPadding: EdgeInsets.zero,
-          leading: const Icon(Icons.event_busy),
+          // A day the poster did not give is a guess: it looks like one.
+          leading: _missingSinceKnown
+              ? const Icon(Icons.event_busy)
+              : const Icon(Icons.warning_amber, color: Colors.amber),
           title: Text(t.missingSinceLabel),
-          subtitle: Text(_missingSinceText(context)),
+          subtitle: Text(
+            _missingSinceKnown
+                ? _missingSinceText(context)
+                : t.missingSinceNotOnFlier,
+          ),
           onTap: _pickMissingSince,
         ),
       // Fields the poster filled, each with its own type-aware

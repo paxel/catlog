@@ -461,6 +461,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get missingSinceLabel => 'Изчезнал от';
 
   @override
+  String get missingSinceNotOnFlier => 'Не е намерено в листовката — днес';
+
+  @override
   String get cropPortrait => 'Изрязване на портрет';
 
   @override

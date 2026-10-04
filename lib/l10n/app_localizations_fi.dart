@@ -461,6 +461,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get missingSinceLabel => 'Kadonnut alkaen';
 
   @override
+  String get missingSinceNotOnFlier => 'Ei löytynyt ilmoituksesta — tänään';
+
+  @override
   String get cropPortrait => 'Rajaa muotokuva';
 
   @override

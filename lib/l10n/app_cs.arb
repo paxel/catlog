@@ -266,6 +266,7 @@
   "metersApart": "Vzdálenost {distance} m",
   "addFlier": "Přidat leták",
   "missingSinceLabel": "Pohřešován od",
+  "missingSinceNotOnFlier": "Na letáku nenalezeno — dnes",
   "cropPortrait": "Oříznout portrét",
   "statusOwner": "Majitel",
   "ocrUnavailable": "Rozpoznávání textu není na tomto zařízení dostupné — napište text letáku ručně.",

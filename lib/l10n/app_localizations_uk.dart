@@ -462,6 +462,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get missingSinceLabel => 'Зник з';
 
   @override
+  String get missingSinceNotOnFlier => 'Не знайдено в оголошенні — сьогодні';
+
+  @override
   String get cropPortrait => 'Обрізати портрет';
 
   @override

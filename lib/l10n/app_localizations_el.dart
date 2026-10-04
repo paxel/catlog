@@ -462,6 +462,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get missingSinceLabel => 'Αγνοείται από';
 
   @override
+  String get missingSinceNotOnFlier => 'Δεν βρέθηκε στο φυλλάδιο — σήμερα';
+
+  @override
   String get cropPortrait => 'Περικοπή πορτρέτου';
 
   @override

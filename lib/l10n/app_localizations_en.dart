@@ -461,6 +461,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get missingSinceLabel => 'Missing since';
 
   @override
+  String get missingSinceNotOnFlier => 'Not found on the flier — today';
+
+  @override
   String get cropPortrait => 'Crop portrait';
 
   @override

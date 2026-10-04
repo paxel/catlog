@@ -266,6 +266,7 @@
   "metersApart": "Udaljeni {distance} m",
   "addFlier": "Dodaj letak",
   "missingSinceLabel": "Nestao od",
+  "missingSinceNotOnFlier": "Nije pronađeno na letku — danas",
   "cropPortrait": "Izreži portret",
   "statusOwner": "Vlasnik",
   "ocrUnavailable": "Prepoznavanje teksta nije dostupno na ovom uređaju — upišite tekst letka sami.",

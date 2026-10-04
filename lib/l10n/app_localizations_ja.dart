@@ -455,6 +455,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get missingSinceLabel => '行方不明になった日';
 
   @override
+  String get missingSinceNotOnFlier => 'チラシに見つかりません — 今日';
+
+  @override
   String get cropPortrait => '顔写真を切り抜く';
 
   @override

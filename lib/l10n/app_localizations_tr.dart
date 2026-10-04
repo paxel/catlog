@@ -460,6 +460,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get missingSinceLabel => 'Kayıp tarihi';
 
   @override
+  String get missingSinceNotOnFlier => 'İlanda bulunamadı — bugün';
+
+  @override
   String get cropPortrait => 'Portreyi kırp';
 
   @override

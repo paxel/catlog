@@ -266,6 +266,7 @@
   "metersApart": "A {distance} m de distancia",
   "addFlier": "Añadir cartel",
   "missingSinceLabel": "Desaparecido desde",
+  "missingSinceNotOnFlier": "No aparece en el cartel — hoy",
   "cropPortrait": "Recortar retrato",
   "statusOwner": "Dueño",
   "ocrUnavailable": "El reconocimiento de texto no está disponible en este dispositivo — escribe tú el texto del cartel.",

@@ -266,6 +266,7 @@
   "metersApart": "W odległości {distance} m",
   "addFlier": "Dodaj ogłoszenie",
   "missingSinceLabel": "Zaginiony od",
+  "missingSinceNotOnFlier": "Nie znaleziono na ulotce — dziś",
   "cropPortrait": "Przytnij portret",
   "statusOwner": "Właściciel",
   "ocrUnavailable": "Rozpoznawanie tekstu nie jest dostępne na tym urządzeniu — wpisz treść ogłoszenia ręcznie.",

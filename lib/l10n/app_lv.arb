@@ -266,6 +266,7 @@
   "metersApart": "{distance} m attālumā",
   "addFlier": "Pievienot sludinājumu",
   "missingSinceLabel": "Pazudis kopš",
+  "missingSinceNotOnFlier": "Skrejlapā nav atrasts — šodien",
   "cropPortrait": "Apgriezt portretu",
   "statusOwner": "Saimnieks",
   "ocrUnavailable": "Teksta atpazīšana šajā ierīcē nav pieejama — ierakstiet sludinājuma tekstu paši.",

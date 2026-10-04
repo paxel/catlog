@@ -460,6 +460,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get missingSinceLabel => 'Nestao od';
 
   @override
+  String get missingSinceNotOnFlier => 'Nije pronađeno na letku — danas';
+
+  @override
   String get cropPortrait => 'Izreži portret';
 
   @override

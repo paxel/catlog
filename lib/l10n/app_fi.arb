@@ -266,6 +266,7 @@
   "metersApart": "{distance} m päässä toisistaan",
   "addFlier": "Lisää ilmoitus",
   "missingSinceLabel": "Kadonnut alkaen",
+  "missingSinceNotOnFlier": "Ei löytynyt ilmoituksesta — tänään",
   "cropPortrait": "Rajaa muotokuva",
   "statusOwner": "Omistaja",
   "ocrUnavailable": "Tekstintunnistus ei ole käytettävissä tällä laitteella — kirjoita ilmoituksen teksti itse.",

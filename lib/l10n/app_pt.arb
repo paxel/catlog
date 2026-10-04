@@ -266,6 +266,7 @@
   "metersApart": "A {distance} m de distância",
   "addFlier": "Adicionar cartaz",
   "missingSinceLabel": "Desaparecido desde",
+  "missingSinceNotOnFlier": "Não encontrado no cartaz — hoje",
   "cropPortrait": "Recortar retrato",
   "statusOwner": "Dono",
   "ocrUnavailable": "O reconhecimento de texto não está disponível neste dispositivo — escreva você o texto do cartaz.",

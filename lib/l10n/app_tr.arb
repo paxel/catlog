@@ -266,6 +266,7 @@
   "metersApart": "Aralarında {distance} m var",
   "addFlier": "İlan ekle",
   "missingSinceLabel": "Kayıp tarihi",
+  "missingSinceNotOnFlier": "İlanda bulunamadı — bugün",
   "cropPortrait": "Portreyi kırp",
   "statusOwner": "Sahip",
   "ocrUnavailable": "Metin tanıma bu cihazda kullanılamıyor — ilan metnini kendiniz yazın.",

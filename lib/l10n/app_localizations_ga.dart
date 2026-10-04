@@ -462,6 +462,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get missingSinceLabel => 'Ar iarraidh ó';
 
   @override
+  String get missingSinceNotOnFlier => 'Gan aimsiú ar an mbileog — inniu';
+
+  @override
   String get cropPortrait => 'Bearr an phortráid';
 
   @override

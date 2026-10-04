@@ -461,6 +461,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get missingSinceLabel => 'Týndur síðan';
 
   @override
+  String get missingSinceNotOnFlier => 'Fannst ekki á auglýsingunni — í dag';
+
+  @override
   String get cropPortrait => 'Skera andlitsmynd';
 
   @override

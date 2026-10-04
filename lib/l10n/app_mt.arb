@@ -266,6 +266,7 @@
   "metersApart": "{distance} m 'il bogħod",
   "addFlier": "Żid flier",
   "missingSinceLabel": "Mitluf minn",
+  "missingSinceNotOnFlier": "Ma nstabx fuq il-fuljett — illum",
   "cropPortrait": "Aqta' r-ritratt",
   "statusOwner": "Sid",
   "ocrUnavailable": "L-għarfien tat-test mhux disponibbli fuq dan l-apparat — ikteb it-test tal-flier int stess.",

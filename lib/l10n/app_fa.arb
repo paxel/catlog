@@ -266,6 +266,7 @@
   "metersApart": "{distance} متر فاصله",
   "addFlier": "افزودن آگهی",
   "missingSinceLabel": "گم‌شده از",
+  "missingSinceNotOnFlier": "در آگهی پیدا نشد — امروز",
   "cropPortrait": "برش چهره",
   "statusOwner": "صاحب",
   "ocrUnavailable": "تشخیص متن در این دستگاه در دسترس نیست — متن آگهی را خودتان بنویسید.",

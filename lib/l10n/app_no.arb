@@ -266,6 +266,7 @@
   "metersApart": "{distance} m fra hverandre",
   "addFlier": "Legg til oppslag",
   "missingSinceLabel": "Savnet siden",
+  "missingSinceNotOnFlier": "Ikke funnet på plakaten — i dag",
   "cropPortrait": "Beskjær portrett",
   "statusOwner": "Eier",
   "ocrUnavailable": "Tekstgjenkjenning er ikke tilgjengelig på denne enheten — skriv inn oppslagsteksten selv.",

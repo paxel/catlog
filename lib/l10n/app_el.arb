@@ -266,6 +266,7 @@
   "metersApart": "Απέχουν {distance} μ.",
   "addFlier": "Προσθήκη αφίσας",
   "missingSinceLabel": "Αγνοείται από",
+  "missingSinceNotOnFlier": "Δεν βρέθηκε στο φυλλάδιο — σήμερα",
   "cropPortrait": "Περικοπή πορτρέτου",
   "statusOwner": "Ιδιοκτήτης",
   "ocrUnavailable": "Η αναγνώριση κειμένου δεν είναι διαθέσιμη σε αυτήν τη συσκευή — πληκτρολογήστε το κείμενο της αφίσας.",

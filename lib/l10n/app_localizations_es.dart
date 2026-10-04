@@ -462,6 +462,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get missingSinceLabel => 'Desaparecido desde';
 
   @override
+  String get missingSinceNotOnFlier => 'No aparece en el cartel — hoy';
+
+  @override
   String get cropPortrait => 'Recortar retrato';
 
   @override

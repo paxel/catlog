@@ -266,6 +266,7 @@
   "metersApart": "במרחק {distance} מ' זה מזה",
   "addFlier": "הוספת מודעה",
   "missingSinceLabel": "נעדר מאז",
+  "missingSinceNotOnFlier": "לא נמצא במודעה — היום",
   "cropPortrait": "חיתוך דיוקן",
   "statusOwner": "בעלים",
   "ocrUnavailable": "זיהוי טקסט אינו זמין במכשיר זה — הקלידו את טקסט המודעה בעצמכם.",

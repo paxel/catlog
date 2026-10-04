@@ -460,6 +460,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get missingSinceLabel => 'مفقود منذ';
 
   @override
+  String get missingSinceNotOnFlier => 'لم يُعثر عليه في المنشور — اليوم';
+
+  @override
   String get cropPortrait => 'قصّ صورة الوجه';
 
   @override

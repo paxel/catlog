@@ -462,6 +462,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get missingSinceLabel => 'Исчезнат од';
 
   @override
+  String get missingSinceNotOnFlier => 'Не е пронајдено на летокот — денес';
+
+  @override
   String get cropPortrait => 'Исечи портрет';
 
   @override

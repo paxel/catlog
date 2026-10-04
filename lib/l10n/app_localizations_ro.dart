@@ -461,6 +461,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get missingSinceLabel => 'Dispărut din';
 
   @override
+  String get missingSinceNotOnFlier => 'Nu a fost găsit pe afiș — azi';
+
+  @override
   String get cropPortrait => 'Decupează portretul';
 
   @override

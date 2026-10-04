@@ -266,6 +266,7 @@
   "metersApart": "{distance} m atstumu",
   "addFlier": "Pridėti skelbimą",
   "missingSinceLabel": "Dingęs nuo",
+  "missingSinceNotOnFlier": "Skelbime nerasta — šiandien",
   "cropPortrait": "Apkirpti portretą",
   "statusOwner": "Šeimininkas",
   "ocrUnavailable": "Teksto atpažinimas šiame įrenginyje negalimas — įveskite skelbimo tekstą patys.",

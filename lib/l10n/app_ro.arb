@@ -266,6 +266,7 @@
   "metersApart": "La {distance} m distanță",
   "addFlier": "Adaugă afiș",
   "missingSinceLabel": "Dispărut din",
+  "missingSinceNotOnFlier": "Nu a fost găsit pe afiș — azi",
   "cropPortrait": "Decupează portretul",
   "statusOwner": "Stăpân",
   "ocrUnavailable": "Recunoașterea textului nu este disponibilă pe acest dispozitiv — tastați singur textul afișului.",

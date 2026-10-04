@@ -462,6 +462,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get missingSinceLabel => 'Försvunnen sedan';
 
   @override
+  String get missingSinceNotOnFlier => 'Hittades inte på lappen — i dag';
+
+  @override
   String get cropPortrait => 'Beskär porträtt';
 
   @override

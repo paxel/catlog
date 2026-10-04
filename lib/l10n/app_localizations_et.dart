@@ -460,6 +460,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get missingSinceLabel => 'Kadunud alates';
 
   @override
+  String get missingSinceNotOnFlier => 'Lendlehelt ei leitud — täna';
+
+  @override
   String get cropPortrait => 'Kärbi portree';
 
   @override

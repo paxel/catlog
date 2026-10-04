@@ -462,6 +462,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get missingSinceLabel => 'Scomparso dal';
 
   @override
+  String get missingSinceNotOnFlier => 'Non trovato sul volantino — oggi';
+
+  @override
   String get cropPortrait => 'Ritaglia ritratto';
 
   @override

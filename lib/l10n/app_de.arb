@@ -138,6 +138,7 @@
   "metersApart": "{distance} m voneinander entfernt",
   "addFlier": "Aushang hinzufügen",
   "missingSinceLabel": "Vermisst seit",
+  "missingSinceNotOnFlier": "Nicht auf dem Flyer gefunden — heute",
   "cropPortrait": "Porträt zuschneiden",
   "statusOwner": "Besitzer",
   "ocrUnavailable": "Texterkennung ist auf diesem Gerät nicht verfügbar — tippe den Aushangtext selbst ein.",

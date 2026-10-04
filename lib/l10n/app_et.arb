@@ -266,6 +266,7 @@
   "metersApart": "{distance} m kaugusel",
   "addFlier": "Lisa kuulutus",
   "missingSinceLabel": "Kadunud alates",
+  "missingSinceNotOnFlier": "Lendlehelt ei leitud — täna",
   "cropPortrait": "Kärbi portree",
   "statusOwner": "Omanik",
   "ocrUnavailable": "Tekstituvastus pole selles seadmes saadaval — sisesta kuulutuse tekst ise.",

@@ -461,6 +461,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get missingSinceLabel => 'Pazudis kopš';
 
   @override
+  String get missingSinceNotOnFlier => 'Skrejlapā nav atrasts — šodien';
+
+  @override
   String get cropPortrait => 'Apgriezt portretu';
 
   @override

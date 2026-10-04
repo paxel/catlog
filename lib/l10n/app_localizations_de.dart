@@ -463,6 +463,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get missingSinceLabel => 'Vermisst seit';
 
   @override
+  String get missingSinceNotOnFlier => 'Nicht auf dem Flyer gefunden — heute';
+
+  @override
   String get cropPortrait => 'Porträt zuschneiden';
 
   @override

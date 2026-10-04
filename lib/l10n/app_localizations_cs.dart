@@ -461,6 +461,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get missingSinceLabel => 'Pohřešován od';
 
   @override
+  String get missingSinceNotOnFlier => 'Na letáku nenalezeno — dnes';
+
+  @override
   String get cropPortrait => 'Oříznout portrét';
 
   @override

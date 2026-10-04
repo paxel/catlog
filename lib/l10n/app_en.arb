@@ -214,6 +214,7 @@
   },
   "addFlier": "Add flier",
   "missingSinceLabel": "Missing since",
+  "missingSinceNotOnFlier": "Not found on the flier — today",
   "cropPortrait": "Crop portrait",
   "statusOwner": "Owner",
   "ocrUnavailable": "Text recognition is not available on this device — type the flier text yourself.",

@@ -266,6 +266,7 @@
   "metersApart": "{distance} m van elkaar",
   "addFlier": "Poster toevoegen",
   "missingSinceLabel": "Vermist sinds",
+  "missingSinceNotOnFlier": "Niet gevonden op de flyer — vandaag",
   "cropPortrait": "Portret bijsnijden",
   "statusOwner": "Eigenaar",
   "ocrUnavailable": "Tekstherkenning is niet beschikbaar op dit apparaat — typ de postertekst zelf.",

@@ -1474,6 +1474,9 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueChocolate => base.looksValueChocolate;
 
   @override
+  String get looksValueClippedWings => base.looksValueClippedWings;
+
+  @override
   String get looksValueCloudyEye => base.looksValueCloudyEye;
 
   @override
@@ -1498,6 +1501,9 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueCurly => base.looksValueCurly;
 
   @override
+  String get looksValueDamagedShell => base.looksValueDamagedShell;
+
+  @override
   String get looksValueEarTattoo => base.looksValueEarTattoo;
 
   @override
@@ -1505,21 +1511,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get looksValueExtraToes => base.looksValueExtraToes;
-
-  @override
-  String get looksValueMissingLeg => base.looksValueMissingLeg;
-
-  @override
-  String get looksValueMissingToes => base.looksValueMissingToes;
-
-  @override
-  String get looksValueInjuredWing => base.looksValueInjuredWing;
-
-  @override
-  String get looksValueClippedWings => base.looksValueClippedWings;
-
-  @override
-  String get looksValueDamagedShell => base.looksValueDamagedShell;
 
   @override
   String get looksValueFloppy => base.looksValueFloppy;
@@ -1541,6 +1532,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get looksValueHairless => base.looksValueHairless;
+
+  @override
+  String get looksValueInjuredWing => base.looksValueInjuredWing;
 
   @override
   String get looksValueKinked => base.looksValueKinked;
@@ -1574,6 +1568,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get looksValueMissingHindLeg => base.looksValueMissingHindLeg;
+
+  @override
+  String get looksValueMissingLeg => base.looksValueMissingLeg;
+
+  @override
+  String get looksValueMissingToes => base.looksValueMissingToes;
 
   @override
   String get looksValueNoTeeth => base.looksValueNoTeeth;
@@ -1763,6 +1763,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get missingSinceLabel => base.missingSinceLabel;
+
+  @override
+  String get missingSinceNotOnFlier => base.missingSinceNotOnFlier;
 
   @override
   String get modeCats => base.modeCats;

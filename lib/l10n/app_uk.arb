@@ -266,6 +266,7 @@
   "metersApart": "На відстані {distance} м",
   "addFlier": "Додати оголошення",
   "missingSinceLabel": "Зник з",
+  "missingSinceNotOnFlier": "Не знайдено в оголошенні — сьогодні",
   "cropPortrait": "Обрізати портрет",
   "statusOwner": "Власник",
   "ocrUnavailable": "Розпізнавання тексту недоступне на цьому пристрої — введіть текст оголошення вручну.",

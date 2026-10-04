@@ -461,6 +461,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get missingSinceLabel => 'Dingęs nuo';
 
   @override
+  String get missingSinceNotOnFlier => 'Skelbime nerasta — šiandien';
+
+  @override
   String get cropPortrait => 'Apkirpti portretą';
 
   @override

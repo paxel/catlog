@@ -461,6 +461,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get missingSinceLabel => 'Mitluf minn';
 
   @override
+  String get missingSinceNotOnFlier => 'Ma nstabx fuq il-fuljett — illum';
+
+  @override
   String get cropPortrait => 'Aqta\' r-ritratt';
 
   @override

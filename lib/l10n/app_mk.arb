@@ -266,6 +266,7 @@
   "metersApart": "На {distance} м растојание",
   "addFlier": "Додај оглас",
   "missingSinceLabel": "Исчезнат од",
+  "missingSinceNotOnFlier": "Не е пронајдено на летокот — денес",
   "cropPortrait": "Исечи портрет",
   "statusOwner": "Сопственик",
   "ocrUnavailable": "Препознавањето текст не е достапно на овој уред — внесете го текстот на огласот сами.",

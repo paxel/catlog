@@ -460,6 +460,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get missingSinceLabel => 'Zaginiony od';
 
   @override
+  String get missingSinceNotOnFlier => 'Nie znaleziono na ulotce — dziś';
+
+  @override
   String get cropPortrait => 'Przytnij portret';
 
   @override

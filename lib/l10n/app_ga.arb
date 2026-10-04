@@ -266,6 +266,7 @@
   "metersApart": "{distance} m óna chéile",
   "addFlier": "Cuir bileog leis",
   "missingSinceLabel": "Ar iarraidh ó",
+  "missingSinceNotOnFlier": "Gan aimsiú ar an mbileog — inniu",
   "cropPortrait": "Bearr an phortráid",
   "statusOwner": "Úinéir",
   "ocrUnavailable": "Níl aithint téacs ar fáil ar an ngléas seo — clóscríobh téacs na bileoige tú féin.",

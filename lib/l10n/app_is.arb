@@ -266,6 +266,7 @@
   "metersApart": "{distance} m á milli",
   "addFlier": "Bæta við auglýsingu",
   "missingSinceLabel": "Týndur síðan",
+  "missingSinceNotOnFlier": "Fannst ekki á auglýsingunni — í dag",
   "cropPortrait": "Skera andlitsmynd",
   "statusOwner": "Eigandi",
   "ocrUnavailable": "Textagreining er ekki í boði á þessu tæki — sláðu sjálf(ur) inn texta auglýsingarinnar.",

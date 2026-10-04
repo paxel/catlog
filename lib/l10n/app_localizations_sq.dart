@@ -461,6 +461,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get missingSinceLabel => 'I humbur që nga';
 
   @override
+  String get missingSinceNotOnFlier => 'Nuk u gjet në fletëpalosje — sot';
+
+  @override
   String get cropPortrait => 'Prit portretin';
 
   @override

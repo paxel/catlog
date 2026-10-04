@@ -998,6 +998,12 @@ abstract class AppLocalizations {
   /// **'Missing since'**
   String get missingSinceLabel;
 
+  /// No description provided for @missingSinceNotOnFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Not found on the flier — today'**
+  String get missingSinceNotOnFlier;
+
   /// No description provided for @cropPortrait.
   ///
   /// In en, this message translates to:

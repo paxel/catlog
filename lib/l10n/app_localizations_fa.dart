@@ -460,6 +460,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get missingSinceLabel => 'گم‌شده از';
 
   @override
+  String get missingSinceNotOnFlier => 'در آگهی پیدا نشد — امروز';
+
+  @override
   String get cropPortrait => 'برش چهره';
 
   @override
