@@ -7,9 +7,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 - Frames kept from a video — for a cat or a new stray — offer the crop step one after the other before they are stored, cut from the frame at the video's full size. A cat cut out of a 4K video keeps far more detail than when cropped later from the stored photo. "Use full photo" keeps a frame whole; Cancel drops only that frame.
-
-### Changed
 - When a flier gives no ran-away date, its "Missing since" tile says "Not found on the flier — today" with a warning sign, so a guessed day no longer looks like one that was read.
+- A move in a cat's history — moved home, ran away, adopted — opens the move dialog on a tap, set to that move's home and day, and corrects where to and when. A home's history does the same for a cat's arrival or departure. Before, a move could only be removed.
 
 ### Fixed
 - A hand-made flier finds its ran-away date: a line saying "weggelaufen am", "entlaufen", "vermisst seit", "verschwunden seit", "missing since" or "lost on" gives the date on it or on the line right after it. Before, only the TASSO poster layout was read, and a hand-made flier's cat went missing today.

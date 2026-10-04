@@ -10,6 +10,7 @@ import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import '../celebration.dart';
+import '../move_dialog.dart';
 import 'field_history_screen.dart';
 import 'map_screen.dart';
 
@@ -146,7 +147,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
     return null;
   }
 
+  /// Whether a tap on [e] has an editor to open.
+  bool _hasEditor(Entry e) => e.field == Keys.clowder || _defOf(e) != null;
+
   Future<void> _correct(Entry e) async {
+    if (e.field == Keys.clowder) return _correctMove(e);
     final def = _defOf(e);
     if (def == null) return;
     final edit = await editFieldValue(
@@ -162,6 +167,24 @@ class _TimelineScreenState extends State<TimelineScreen> {
     if (edit.private != store.isFieldPrivate(e.entity, e.field)) {
       store.setFieldPrivate(e.entity, e.field, edit.private);
     }
+    setState(() {});
+  }
+
+  /// A move — here or as a home's arrival or departure — corrected in
+  /// the move dialog it was made with: where to, and when.
+  Future<void> _correctMove(Entry e) async {
+    final picked = await showDialog<(String?, DateTime)>(
+      context: context,
+      builder: (context) => MoveDialog(
+        clowders: store.clowders(),
+        current: e.value,
+        asOf: e.date.toLocal(),
+      ),
+    );
+    if (picked == null || !mounted) return;
+    final (destination, asOf) = picked;
+    if (destination == e.value && asOf == e.date.toLocal()) return;
+    store.correctEntry(e.seq, destination, date: asOf);
     setState(() {});
   }
 
@@ -273,7 +296,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                   onPressed: () => _remove(e),
                 ),
             ]),
-            onTap: correctable && !e.voided && _defOf(e) != null
+            onTap: correctable && !e.voided && _hasEditor(e)
                 ? () => _correct(e)
                 : null,
           );
