@@ -8445,6 +8445,45 @@ mod tests {
     }
 
     #[test]
+    fn a_hand_made_poster_gives_its_ran_away_day_and_a_guess_says_so() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let t = *app.t();
+        app.capture
+            .start(chrono::NaiveDate::from_ymd_opt(2025, 10, 20).unwrap());
+        app.capture.read(
+            &app.store,
+            &t,
+            vec![catlog_core::flier::FlierLine::new(
+                "Lost cat Minka",
+                10.0,
+                10.0,
+                200.0,
+                20.0,
+            )],
+        );
+        assert!(!app.capture.missing_since_known, "no day on it: a guess");
+        app.capture
+            .start(chrono::NaiveDate::from_ymd_opt(2025, 10, 20).unwrap());
+        app.capture.read(
+            &app.store,
+            &t,
+            vec![
+                catlog_core::flier::FlierLine::new("KATZE ENTLAUFEN", 10.0, 10.0, 200.0, 20.0),
+                catlog_core::flier::FlierLine::new(
+                    "Minka ist am 03.10.25 weggelaufen",
+                    10.0,
+                    60.0,
+                    400.0,
+                    20.0,
+                ),
+            ],
+        );
+        assert!(app.capture.missing_since_known);
+        assert_eq!(app.capture.missing_since, "2025-10-03");
+    }
+
+    #[test]
     fn a_poster_image_becomes_a_missing_cat_with_its_owner_and_flier_position() {
         let dir = tempfile::tempdir().unwrap();
         let poster = picture_file(dir.path(), "poster.png", 60, 80);

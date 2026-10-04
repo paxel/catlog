@@ -36,6 +36,9 @@ pub struct CapturePage {
     pub error: Option<String>,
     pub draft: FlierDraft,
     pub missing_since: String,
+    /// Whether the missing-since day came from the poster or the keeper;
+    /// until then it is today by default, and the page says so.
+    pub missing_since_known: bool,
     pub hidden: Vec<usize>,
     pub address_hit: Option<String>,
     templates: Option<FlierTemplateSet>,
@@ -90,6 +93,7 @@ impl CapturePage {
         {
             draft.missing_since = Some(date);
             self.missing_since = date.to_string();
+            self.missing_since_known = true;
         }
         for (i, entry) in reading.entries.iter().enumerate() {
             if self.hidden.contains(&i) {
@@ -328,16 +332,28 @@ impl CapturePage {
                 ui.add(egui::TextEdit::singleline(&mut self.draft.name).desired_width(260.0));
                 ui.end_row();
                 ui.label(t.missing_since_label());
-                if ui
-                    .add(
-                        egui::TextEdit::singleline(&mut self.missing_since)
-                            .desired_width(100.0)
-                            .hint_text(t.date_hint()),
-                    )
-                    .changed()
-                {
-                    self.draft.missing_since = self.missing_since.trim().parse::<NaiveDate>().ok();
-                }
+                ui.horizontal(|ui| {
+                    if ui
+                        .add(
+                            egui::TextEdit::singleline(&mut self.missing_since)
+                                .desired_width(100.0)
+                                .hint_text(t.date_hint()),
+                        )
+                        .changed()
+                    {
+                        self.draft.missing_since =
+                            self.missing_since.trim().parse::<NaiveDate>().ok();
+                        self.missing_since_known = true;
+                    }
+                    // A day the poster did not give is a guess: it looks
+                    // like one.
+                    if !self.missing_since_known {
+                        ui.colored_label(
+                            ui.visuals().warn_fg_color,
+                            t.missing_since_not_on_flier(),
+                        );
+                    }
+                });
                 ui.end_row();
                 ui.label(t.starter_chip_id());
                 ui.add(egui::TextEdit::singleline(&mut self.draft.chip_id).desired_width(200.0));
