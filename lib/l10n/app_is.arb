@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Á…",
   "choreRepeatWeekdays": "Vikudagar",
   "choreRepeatOnce": "Einu sinni",
+  "choreNoDueDate": "Enginn skiladagur — hvaða dag sem er",
   "choreEveryDays": "{n, plural, one{daglega} other{{n}. hvern dag}}",
   "choreEveryWeeks": "{n, plural, one{vikulega} other{{n}. hverja viku}}",
   "choreEveryMonths": "{n, plural, one{mánaðarlega} other{{n}. hvern mánuð}}",

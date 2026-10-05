@@ -961,6 +961,7 @@
   "choreRepeatEvery": "n日ごと",
   "choreRepeatWeekdays": "曜日",
   "choreRepeatOnce": "1回のみ",
+  "choreNoDueDate": "期限なし — いつでも",
   "choreEveryDays": "{n}日ごと",
   "choreEveryWeeks": "{n}週間ごと",
   "choreEveryMonths": "{n}か月ごと",

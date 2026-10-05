@@ -568,6 +568,9 @@ class ModeLocalizations implements AppLocalizations {
   String get choreMissed => base.choreMissed;
 
   @override
+  String get choreNoDueDate => base.choreNoDueDate;
+
+  @override
   String get choreNoTime => base.choreNoTime;
 
   @override

@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Co…",
   "choreRepeatWeekdays": "Dni tygodnia",
   "choreRepeatOnce": "Jednorazowo",
+  "choreNoDueDate": "Bez terminu — dowolnego dnia",
   "choreEveryDays": "{n, plural, one{codziennie} few{co {n} dni} other{co {n} dni}}",
   "choreEveryWeeks": "{n, plural, one{co tydzień} few{co {n} tygodnie} other{co {n} tygodni}}",
   "choreEveryMonths": "{n, plural, one{co miesiąc} few{co {n} miesiące} other{co {n} miesięcy}}",

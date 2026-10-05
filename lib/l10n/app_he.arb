@@ -961,6 +961,7 @@
   "choreRepeatEvery": "כל…",
   "choreRepeatWeekdays": "ימים",
   "choreRepeatOnce": "פעם אחת",
+  "choreNoDueDate": "ללא תאריך יעד — בכל יום",
   "choreEveryDays": "{n, plural, one{כל יום} two{כל יומיים} other{כל {n} ימים}}",
   "choreEveryWeeks": "{n, plural, one{כל שבוע} two{כל שבועיים} other{כל {n} שבועות}}",
   "choreEveryMonths": "{n, plural, one{כל חודש} two{כל חודשיים} other{כל {n} חודשים}}",

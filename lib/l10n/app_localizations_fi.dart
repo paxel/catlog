@@ -2832,6 +2832,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get choreRepeatOnce => 'Kerran';
 
   @override
+  String get choreNoDueDate => 'Ei määräpäivää — mikä tahansa päivä';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

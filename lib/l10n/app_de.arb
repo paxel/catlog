@@ -967,6 +967,7 @@
   "choreRepeatEvery": "Alle…",
   "choreRepeatWeekdays": "Wochentage",
   "choreRepeatOnce": "Einmalig",
+  "choreNoDueDate": "Kein Fälligkeitstag — irgendwann",
   "choreEveryDays": "{n, plural, one{jeden Tag} other{alle {n} Tage}}",
   "choreEveryWeeks": "{n, plural, one{jede Woche} other{alle {n} Wochen}}",
   "choreEveryMonths": "{n, plural, one{jeden Monat} other{alle {n} Monate}}",

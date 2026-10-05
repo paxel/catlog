@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Elke…",
   "choreRepeatWeekdays": "Weekdagen",
   "choreRepeatOnce": "Eenmalig",
+  "choreNoDueDate": "Geen vervaldag — elke dag",
   "choreEveryDays": "{n, plural, one{elke dag} other{elke {n} dagen}}",
   "choreEveryWeeks": "{n, plural, one{elke week} other{elke {n} weken}}",
   "choreEveryMonths": "{n, plural, one{elke maand} other{elke {n} maanden}}",

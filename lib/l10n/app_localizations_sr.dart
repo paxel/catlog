@@ -2835,6 +2835,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get choreRepeatOnce => 'Једнократно';
 
   @override
+  String get choreNoDueDate => 'Без рока — било који дан';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

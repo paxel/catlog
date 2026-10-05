@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Iga…",
   "choreRepeatWeekdays": "Nädalapäevad",
   "choreRepeatOnce": "Ühekordne",
+  "choreNoDueDate": "Tähtajata — ükskõik mis päeval",
   "choreEveryDays": "{n, plural, one{iga päev} other{iga {n} päeva järel}}",
   "choreEveryWeeks": "{n, plural, one{iga nädal} other{iga {n} nädala järel}}",
   "choreEveryMonths": "{n, plural, one{iga kuu} other{iga {n} kuu järel}}",

@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Gach…",
   "choreRepeatWeekdays": "Laethanta",
   "choreRepeatOnce": "Uair amháin",
+  "choreNoDueDate": "Gan dáta dlite — lá ar bith",
   "choreEveryDays": "{n, plural, one{gach lá} two{gach {n} lá} few{gach {n} lá} many{gach {n} lá} other{gach {n} lá}}",
   "choreEveryWeeks": "{n, plural, one{gach seachtain} two{gach {n} sheachtain} few{gach {n} seachtaine} many{gach {n} seachtain} other{gach {n} seachtain}}",
   "choreEveryMonths": "{n, plural, one{gach mí} two{gach {n} mhí} few{gach {n} mhí} many{gach {n} mí} other{gach {n} mí}}",

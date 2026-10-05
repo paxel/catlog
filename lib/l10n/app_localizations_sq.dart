@@ -2831,6 +2831,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get choreRepeatOnce => 'Një herë';
 
   @override
+  String get choreNoDueDate => 'Pa afat — çdo ditë';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

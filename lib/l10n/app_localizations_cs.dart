@@ -2836,6 +2836,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get choreRepeatOnce => 'Jednorázově';
 
   @override
+  String get choreNoDueDate => 'Bez termínu — kterýkoli den';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

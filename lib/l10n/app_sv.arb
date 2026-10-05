@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Var…",
   "choreRepeatWeekdays": "Veckodagar",
   "choreRepeatOnce": "En gång",
+  "choreNoDueDate": "Inget förfallodatum — vilken dag som helst",
   "choreEveryDays": "{n, plural, one{varje dag} other{var {n}:e dag}}",
   "choreEveryWeeks": "{n, plural, one{varje vecka} other{var {n}:e vecka}}",
   "choreEveryMonths": "{n, plural, one{varje månad} other{var {n}:e månad}}",

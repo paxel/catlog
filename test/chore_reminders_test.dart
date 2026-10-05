@@ -264,6 +264,10 @@ void main() {
     testWidgets('granted permission asks the time and saves the reminder', (
       tester,
     ) async {
+      // The editor is a long page: a tall window builds every row.
+      tester.view.physicalSize = const Size(800, 2000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
       await tester.pumpWidget(host());
       await tester.tap(find.text('open'));
       await tester.pumpAndSettle();

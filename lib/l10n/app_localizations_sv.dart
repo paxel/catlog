@@ -2829,6 +2829,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get choreRepeatOnce => 'En gång';
 
   @override
+  String get choreNoDueDate => 'Inget förfallodatum — vilken dag som helst';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

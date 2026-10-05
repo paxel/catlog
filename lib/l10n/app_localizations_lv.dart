@@ -2840,6 +2840,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get choreRepeatOnce => 'Vienreizējs';
 
   @override
+  String get choreNoDueDate => 'Bez termiņa — jebkurā dienā';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

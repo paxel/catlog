@@ -1519,6 +1519,7 @@
   "choreRepeatEvery": "Every…",
   "choreRepeatWeekdays": "Weekdays",
   "choreRepeatOnce": "One time",
+  "choreNoDueDate": "No due date — any day",
   "choreEveryDays": "{n, plural, one{every day} other{every {n} days}}",
   "@choreEveryDays": {
     "placeholders": {

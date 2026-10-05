@@ -2830,6 +2830,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get choreRepeatOnce => 'Еднократно';
 
   @override
+  String get choreNoDueDate => 'Без срок — който и да е ден';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

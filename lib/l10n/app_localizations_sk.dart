@@ -2835,6 +2835,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get choreRepeatOnce => 'Jednorazovo';
 
   @override
+  String get choreNoDueDate => 'Bez termínu — ktorýkoľvek deň';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

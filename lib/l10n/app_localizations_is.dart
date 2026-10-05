@@ -2833,6 +2833,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get choreRepeatOnce => 'Einu sinni';
 
   @override
+  String get choreNoDueDate => 'Enginn skiladagur — hvaða dag sem er';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

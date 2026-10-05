@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Vsakih…",
   "choreRepeatWeekdays": "Dnevi",
   "choreRepeatOnce": "Enkratno",
+  "choreNoDueDate": "Brez roka — kateri koli dan",
   "choreEveryDays": "{n, plural, one{vsak dan} two{vsaka {n} dneva} few{vsake {n} dni} other{vsakih {n} dni}}",
   "choreEveryWeeks": "{n, plural, one{vsak teden} two{vsaka {n} tedna} few{vsake {n} tedne} other{vsakih {n} tednov}}",
   "choreEveryMonths": "{n, plural, one{vsak mesec} two{vsaka {n} meseca} few{vsake {n} mesece} other{vsakih {n} mesecev}}",

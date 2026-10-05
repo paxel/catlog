@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Kas…",
   "choreRepeatWeekdays": "Savaitės dienos",
   "choreRepeatOnce": "Vienkartinis",
+  "choreNoDueDate": "Be termino — bet kurią dieną",
   "choreEveryDays": "{n, plural, one{kasdien} few{kas {n} dienas} other{kas {n} dienų}}",
   "choreEveryWeeks": "{n, plural, one{kas savaitę} few{kas {n} savaites} other{kas {n} savaičių}}",
   "choreEveryMonths": "{n, plural, one{kas mėnesį} few{kas {n} mėnesius} other{kas {n} mėnesių}}",

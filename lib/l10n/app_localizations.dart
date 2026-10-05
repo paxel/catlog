@@ -5078,6 +5078,12 @@ abstract class AppLocalizations {
   /// **'One time'**
   String get choreRepeatOnce;
 
+  /// No description provided for @choreNoDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No due date — any day'**
+  String get choreNoDueDate;
+
   /// No description provided for @choreEveryDays.
   ///
   /// In en, this message translates to:

@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Joka…",
   "choreRepeatWeekdays": "Viikonpäivät",
   "choreRepeatOnce": "Kerran",
+  "choreNoDueDate": "Ei määräpäivää — mikä tahansa päivä",
   "choreEveryDays": "{n, plural, one{joka päivä} other{joka {n}. päivä}}",
   "choreEveryWeeks": "{n, plural, one{joka viikko} other{joka {n}. viikko}}",
   "choreEveryMonths": "{n, plural, one{joka kuukausi} other{joka {n}. kuukausi}}",

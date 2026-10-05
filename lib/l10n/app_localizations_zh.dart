@@ -2724,6 +2724,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get choreRepeatOnce => '一次性';
 
   @override
+  String get choreNoDueDate => '无截止日期 — 任何一天';
+
+  @override
   String choreEveryDays(int n) {
     return '每 $n 天';
   }

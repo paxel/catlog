@@ -2831,6 +2831,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get choreRepeatOnce => 'Egyszeri';
 
   @override
+  String get choreNoDueDate => 'Nincs határidő — bármelyik nap';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

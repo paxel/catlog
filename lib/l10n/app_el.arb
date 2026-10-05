@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Κάθε…",
   "choreRepeatWeekdays": "Ημέρες",
   "choreRepeatOnce": "Μία φορά",
+  "choreNoDueDate": "Χωρίς προθεσμία — οποιαδήποτε μέρα",
   "choreEveryDays": "{n, plural, one{κάθε μέρα} other{κάθε {n} μέρες}}",
   "choreEveryWeeks": "{n, plural, one{κάθε εβδομάδα} other{κάθε {n} εβδομάδες}}",
   "choreEveryMonths": "{n, plural, one{κάθε μήνα} other{κάθε {n} μήνες}}",

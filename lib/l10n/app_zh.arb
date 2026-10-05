@@ -961,6 +961,7 @@
   "choreRepeatEvery": "每隔…",
   "choreRepeatWeekdays": "星期",
   "choreRepeatOnce": "一次性",
+  "choreNoDueDate": "无截止日期 — 任何一天",
   "choreEveryDays": "每 {n} 天",
   "choreEveryWeeks": "每 {n} 周",
   "choreEveryMonths": "每 {n} 个月",

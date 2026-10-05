@@ -2830,6 +2830,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get choreRepeatOnce => 'Bir kez';
 
   @override
+  String get choreNoDueDate => 'Son tarih yok — herhangi bir gün';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

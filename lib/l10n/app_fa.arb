@@ -961,6 +961,7 @@
   "choreRepeatEvery": "هر…",
   "choreRepeatWeekdays": "روزها",
   "choreRepeatOnce": "یک‌بار",
+  "choreNoDueDate": "بدون موعد — هر روزی",
   "choreEveryDays": "هر {n} روز",
   "choreEveryWeeks": "هر {n} هفته",
   "choreEveryMonths": "هر {n} ماه",

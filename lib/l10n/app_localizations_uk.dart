@@ -2843,6 +2843,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get choreRepeatOnce => 'Одноразово';
 
   @override
+  String get choreNoDueDate => 'Без терміну — будь-якого дня';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

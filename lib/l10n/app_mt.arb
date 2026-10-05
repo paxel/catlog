@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Kull…",
   "choreRepeatWeekdays": "Ġranet",
   "choreRepeatOnce": "Darba waħda",
+  "choreNoDueDate": "L-ebda data — kull jum",
   "choreEveryDays": "{n, plural, one{kuljum} other{kull {n} ijiem}}",
   "choreEveryWeeks": "{n, plural, one{kull ġimgħa} other{kull {n} ġimgħat}}",
   "choreEveryMonths": "{n, plural, one{kull xahar} other{kull {n} xhur}}",

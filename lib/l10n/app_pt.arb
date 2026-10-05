@@ -961,6 +961,7 @@
   "choreRepeatEvery": "A cada…",
   "choreRepeatWeekdays": "Dias",
   "choreRepeatOnce": "Uma vez",
+  "choreNoDueDate": "Sem prazo — qualquer dia",
   "choreEveryDays": "{n, plural, one{todos os dias} other{a cada {n} dias}}",
   "choreEveryWeeks": "{n, plural, one{todas as semanas} other{a cada {n} semanas}}",
   "choreEveryMonths": "{n, plural, one{todos os meses} other{a cada {n} meses}}",

@@ -961,6 +961,7 @@
   "choreRepeatEvery": "Каждые…",
   "choreRepeatWeekdays": "Дни недели",
   "choreRepeatOnce": "Однократно",
+  "choreNoDueDate": "Без срока — в любой день",
   "choreEveryDays": "{n, plural, one{каждый день} few{каждые {n} дня} other{каждые {n} дней}}",
   "choreEveryWeeks": "{n, plural, one{каждую неделю} few{каждые {n} недели} other{каждые {n} недель}}",
   "choreEveryMonths": "{n, plural, one{каждый месяц} few{каждые {n} месяца} other{каждые {n} месяцев}}",

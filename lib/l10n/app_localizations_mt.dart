@@ -2841,6 +2841,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get choreRepeatOnce => 'Darba waħda';
 
   @override
+  String get choreNoDueDate => 'L-ebda data — kull jum';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,
