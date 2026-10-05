@@ -113,6 +113,41 @@ void main() {
       );
     });
 
+    test('a one-time chore reminds once, on its due day', () {
+      store.createChore(
+        Chore(
+          id: '',
+          entity: cat,
+          title: 'Papers',
+          schedule: const ChoreSchedule.once(),
+          start: DateTime(2026, 9, 10),
+          due: DateTime(2026, 9, 10),
+          remind: true,
+          remindAt: (hour: 9, minute: 0),
+        ),
+      );
+      store.createChore(
+        Chore(
+          id: '',
+          entity: cat,
+          title: 'Basket',
+          schedule: const ChoreSchedule.once(),
+          start: DateTime(2026, 9, 7),
+          remind: true,
+          remindAt: (hour: 9, minute: 0),
+        ),
+      );
+      List<(String, DateTime)> at(DateTime now) => [
+        for (final p in plannedReminders(store, now)) (p.chore.title, p.at),
+      ];
+      expect(at(DateTime(2026, 9, 8, 12)), [
+        ('Papers', DateTime(2026, 9, 10, 9)),
+      ], reason: 'without a due day, no reminder');
+      expect(at(DateTime(2026, 9, 10, 10)), isEmpty,
+          reason: 'its time passed: no other day follows');
+      expect(at(DateTime(2026, 9, 12, 8)), isEmpty, reason: 'overdue');
+    });
+
     test('the chore time serves when no reminder time was chosen', () {
       make(time: (hour: 20, minute: 15));
       expect(
