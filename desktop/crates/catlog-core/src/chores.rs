@@ -577,6 +577,28 @@ pub fn days_to_due(chore: &Chore, today: NaiveDate) -> Option<i64> {
     chore.schedule.due.map(|due| (due - today).num_days())
 }
 
+/// Whether `chore` is part of what `today` asks for, the "all done
+/// today" count: a recurring chore due today; a one-time one once its
+/// due day has come, or when it was done today.
+pub fn counts_today(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> bool {
+    if !chore.once() {
+        return is_due_on(chore, ticks, today);
+    }
+    matches!(
+        once_standing(chore, ticks, today),
+        OnceStanding::Due | OnceStanding::DoneToday
+    )
+}
+
+/// Whether `chore` still waits to be done `today`.
+pub fn open_today(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> bool {
+    if chore.once() {
+        once_standing(chore, ticks, today) == OnceStanding::Due
+    } else {
+        is_due_on(chore, ticks, today) && !ticks.contains_key(&today)
+    }
+}
+
 /// Where a chore goes in today's order: one-time chores due or overdue
 /// first, the recurring ones (and one-time ones done today) next, then
 /// one-time chores not due yet.

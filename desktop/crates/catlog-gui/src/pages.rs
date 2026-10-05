@@ -604,7 +604,20 @@ impl Pages {
         id: &str,
     ) -> Option<PageAction> {
         let mut action = None;
-        let chores = store.chores_of(id, false).unwrap_or_default();
+        // A one-time chore done before today is in no list any more.
+        let chores: Vec<_> = store
+            .chores_of(id, false)
+            .unwrap_or_default()
+            .into_iter()
+            .filter(|c| {
+                !c.once()
+                    || catlog_core::chores::shows_today(
+                        c,
+                        &store.chore_ticks(c).unwrap_or_default(),
+                        self.today,
+                    )
+            })
+            .collect();
         ui.add_space(8.0);
         ui.horizontal(|ui| {
             ui.strong(t.chores_section());

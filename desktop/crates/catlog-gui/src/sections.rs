@@ -47,6 +47,9 @@ pub struct PlanRow<'a> {
     pub deceased: bool,
     pub line1: &'a str,
     pub line2: String,
+    /// A colour for both lines when the plan presses: red overdue,
+    /// orange due soon; none for the quiet weak grey.
+    pub tone: Option<egui::Color32>,
 }
 
 /// One plan as a row inside a section: what stands left of it (a tick
@@ -69,7 +72,11 @@ pub fn plan_row(
             ui.horizontal(|ui| {
                 leading(ui);
                 ui.vertical(|ui| {
-                    label = Some(ui.label(RichText::new(row.line1).strong()));
+                    let line1 = RichText::new(row.line1).strong();
+                    label = Some(ui.label(match row.tone {
+                        Some(tone) if tone == ui.visuals().error_fg_color => line1.color(tone),
+                        _ => line1,
+                    }));
                     ui.horizontal(|ui| {
                         if let Some(face) = &row.face {
                             let drawn = ui.add(
@@ -82,7 +89,11 @@ pub fn plan_row(
                             }
                         }
                         if !row.line2.is_empty() {
-                            ui.label(RichText::new(&row.line2).weak());
+                            let line2 = RichText::new(&row.line2);
+                            ui.label(match row.tone {
+                                Some(tone) => line2.color(tone),
+                                None => line2.weak(),
+                            });
                         }
                     });
                 });

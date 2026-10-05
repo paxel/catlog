@@ -2,8 +2,8 @@
 //! dialog that makes or changes one, and the history window.
 
 use catlog_core::chores::{
-    Chore, ChoreDay, ChoreLogRow, ChoreRepeat, ChoreSchedule, ChoreUnit, Hhmm, state_on, streak,
-    week_dots,
+    Chore, ChoreDay, ChoreLogRow, ChoreRepeat, ChoreSchedule, ChoreUnit, Hhmm, OnceStanding,
+    days_to_due, once_standing, state_on, streak, week_dots,
 };
 use catlog_core::{Catalog, keys};
 use chrono::NaiveDate;
@@ -40,9 +40,19 @@ pub fn chore_row(
 ) -> ChoreAction {
     let mut action = ChoreAction::None;
     let ticks = store.chore_ticks(chore).unwrap_or_default();
+    let once = chore.once();
     let state = state_on(chore, &ticks, today, today);
-    let due_today = matches!(state, ChoreDay::Pending | ChoreDay::Done | ChoreDay::Missed);
-    let mut done = ticks.contains_key(&today);
+    // A one-time chore can be ticked any day it stands in the list.
+    let due_today = if once {
+        once_standing(chore, &ticks, today) != OnceStanding::Gone
+    } else {
+        matches!(state, ChoreDay::Pending | ChoreDay::Done | ChoreDay::Missed)
+    };
+    let mut done = if once {
+        !ticks.is_empty()
+    } else {
+        ticks.contains_key(&today)
+    };
     let who = store
         .current(&chore.entity, keys::NAME)
         .ok()
@@ -58,8 +68,36 @@ pub fn chore_row(
     if run > 0 {
         parts.push(t.streak_days(run as i64));
     }
-    if !due_today && let Some(next) = catlog_core::chores::next_due(chore, &ticks, today) {
+    if !once
+        && !due_today
+        && let Some(next) = catlog_core::chores::next_due(chore, &ticks, today)
+    {
         parts.push(t.chore_due(&format_day(t.locale(), next)));
+    }
+    // A one-time chore says how its day stands: overdue in red, due
+    // soon in orange, the date further off, nothing without a day.
+    let to_due = if once && !done {
+        days_to_due(chore, today)
+    } else {
+        None
+    };
+    let mut tone = None;
+    match to_due {
+        Some(n) if n < 0 => {
+            parts.push(t.overdue_by_days(-n));
+            tone = Some(ui.visuals().error_fg_color);
+        }
+        Some(0) => parts.push(t.due_today().to_string()),
+        Some(n) if n <= 3 => {
+            parts.push(t.chore_due(&t.due_in_days(n)));
+            tone = Some(ui.visuals().warn_fg_color);
+        }
+        Some(_) => {
+            if let Some(due) = chore.schedule.due {
+                parts.push(t.chore_due(&format_day(t.locale(), due)));
+            }
+        }
+        None => {}
     }
     let line1 = chore_words(t, chore);
     // Edit, pause, history and end: behind the right-click and behind
@@ -74,7 +112,8 @@ pub fn chore_row(
         } else {
             t.chore_pause()
         };
-        if ui.button(pause).clicked() {
+        // A deadline has nothing to pause: End covers "not needed".
+        if !once && ui.button(pause).clicked() {
             action = ChoreAction::PauseResume(chore.clone());
             ui.close();
         }
@@ -96,6 +135,7 @@ pub fn chore_row(
             deceased: crate::textures::is_deceased(store, &chore.entity),
             line1: &line1,
             line2: parts.join(" · "),
+            tone,
         },
         |ui| {
             if chore.paused {
@@ -109,7 +149,10 @@ pub fn chore_row(
         },
         |ui| {
             crate::icons::more(ui, &mut menu);
-            paint_week_dots(ui, &dots);
+            // A week has nothing to say about a chore done once.
+            if !once {
+                paint_week_dots(ui, &dots);
+            }
         },
     );
     label.context_menu(&mut menu);
@@ -160,6 +203,8 @@ pub struct ChoreDialog {
     pub weekdays: [bool; 7],
     pub time: String,
     pub start: String,
+    /// A one-time chore's due day, typed; empty when any day will do.
+    pub due: String,
     pub remind: bool,
     pub remind_at: String,
     pub error: Option<String>,
@@ -189,6 +234,7 @@ impl ChoreDialog {
                 }
                 self.time = c.time.map(|t| t.text()).unwrap_or_default();
                 self.start = c.start.to_string();
+                self.due = c.schedule.due.map(|d| d.to_string()).unwrap_or_default();
                 self.remind = c.remind;
                 self.remind_at = c.remind_at.or(c.time).map(|t| t.text()).unwrap_or_default();
             }
@@ -200,6 +246,7 @@ impl ChoreDialog {
                 self.weekdays = [false; 7];
                 self.time.clear();
                 self.start = today.to_string();
+                self.due.clear();
                 self.remind = false;
                 self.remind_at.clear();
             }
@@ -230,7 +277,10 @@ impl ChoreDialog {
         }
         let schedule = match self.repeat.unwrap_or(ChoreRepeat::Daily) {
             ChoreRepeat::Daily => ChoreSchedule::daily(),
-            ChoreRepeat::Once => ChoreSchedule::once(None),
+            ChoreRepeat::Once => ChoreSchedule::once(match self.due.trim() {
+                "" => None,
+                raw => Some(raw.parse::<NaiveDate>().map_err(|_| "due".to_string())?),
+            }),
             ChoreRepeat::EveryDays => ChoreSchedule::every(
                 self.every
                     .trim()
@@ -350,6 +400,24 @@ impl ChoreDialog {
                         ui.horizontal(|ui| {
                             for (i, on) in self.weekdays.iter_mut().enumerate() {
                                 crate::icons::check_box(ui, on, weekday_short(t, i as u32 + 1));
+                            }
+                        });
+                    }
+                    ui.radio_value(
+                        &mut self.repeat,
+                        Some(ChoreRepeat::Once),
+                        t.chore_repeat_once(),
+                    );
+                    if self.repeat == Some(ChoreRepeat::Once) {
+                        ui.horizontal(|ui| {
+                            ui.label(t.due_date_label());
+                            ui.add(
+                                egui::TextEdit::singleline(&mut self.due)
+                                    .desired_width(100.0)
+                                    .hint_text("YYYY-MM-DD"),
+                            );
+                            if self.due.trim().is_empty() {
+                                ui.label(egui::RichText::new(t.chore_no_due_date()).weak());
                             }
                         });
                     }

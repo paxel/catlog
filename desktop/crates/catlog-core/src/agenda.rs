@@ -7,15 +7,19 @@ use chrono::{NaiveDate, NaiveDateTime, NaiveTime};
 use crate::Result;
 use crate::appointments::{Appointment, AppointmentAlert};
 use crate::catalog::Catalog;
-use crate::chores::{Chore, days_from, is_due_on, next_due, upcoming};
+use crate::chores::{
+    Chore, counts_today, days_from, next_due, open_today, shows_today, today_group, upcoming,
+};
 use crate::entities::ActiveReminder;
 
 /// The chores section of the agenda.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct ChoresAgenda {
     pub day: NaiveDate,
-    /// Due today, done or not, by time of day, chores without a time
-    /// first.
+    /// Today's chores in today's order: one-time chores due or overdue
+    /// first, by due day; then the recurring ones by time of day,
+    /// chores without a time first; then one-time chores not due yet,
+    /// by due day, those without one last.
     pub today: Vec<Chore>,
     /// The next due day of every chore due within the week.
     pub upcoming: Vec<(Chore, NaiveDate)>,
@@ -25,15 +29,21 @@ pub struct ChoresAgenda {
 }
 
 impl ChoresAgenda {
-    /// True when every chore due today is ticked.
+    /// True when every chore today asks for is ticked; a one-time chore
+    /// still waiting for its day does not count.
     pub fn all_done_today(&self, store: &Catalog) -> bool {
-        !self.today.is_empty()
-            && self.today.iter().all(|c| {
-                store
-                    .chore_ticks(c)
-                    .map(|ticks| ticks.contains_key(&self.day))
-                    .unwrap_or(false)
-            })
+        let mut asked = 0;
+        for c in &self.today {
+            let ticks = store.chore_ticks(c).unwrap_or_default();
+            if !counts_today(c, &ticks, self.day) {
+                continue;
+            }
+            if open_today(c, &ticks, self.day) {
+                return false;
+            }
+            asked += 1;
+        }
+        asked > 0
     }
 }
 
@@ -65,14 +75,34 @@ impl Catalog {
                 continue;
             }
             let ticks = self.chore_ticks(c)?;
-            if is_due_on(c, &ticks, today) {
+            if shows_today(c, &ticks, today) {
                 agenda.today.push(c.clone());
             }
             if let Some(day) = upcoming(c, &ticks, today, 7).into_iter().next() {
                 agenda.upcoming.push((c.clone(), day));
             }
         }
-        agenda.today.sort_by(by_time);
+        let mut keyed: Vec<(u8, Chore)> = Vec::new();
+        for c in agenda.today.drain(..) {
+            let ticks = self.chore_ticks(&c)?;
+            keyed.push((today_group(&c, &ticks, today), c));
+        }
+        keyed.sort_by(|(ga, a), (gb, b)| {
+            ga.cmp(gb).then_with(|| {
+                if *ga == 1 {
+                    by_time(a, b)
+                } else {
+                    // By due day, those without one last.
+                    let far = NaiveDate::MAX;
+                    a.schedule
+                        .due
+                        .unwrap_or(far)
+                        .cmp(&b.schedule.due.unwrap_or(far))
+                        .then_with(|| a.title.to_lowercase().cmp(&b.title.to_lowercase()))
+                }
+            })
+        });
+        agenda.today = keyed.into_iter().map(|(_, c)| c).collect();
         agenda
             .upcoming
             .sort_by(|a, b| a.1.cmp(&b.1).then_with(|| by_time(&a.0, &b.0)));
@@ -210,6 +240,62 @@ mod tests {
             remind_at: None,
             extra: BTreeMap::new(),
         }
+    }
+
+    #[test]
+    fn one_time_chores_stand_in_today_s_order_until_done() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut store = Catalog::open(dir.path()).unwrap();
+        store.set_author("Ada").unwrap();
+        store.create_cat("cat:a", "Miezi", None, "cat").unwrap();
+        let today = day(2026, 3, 10);
+        let feed = store
+            .create_chore(
+                "c1",
+                &chore("Feed", ChoreSchedule::daily(), day(2026, 3, 1)),
+            )
+            .unwrap();
+        let once = |title: &str, due: Option<NaiveDate>| Chore {
+            title: title.into(),
+            ..chore(
+                title,
+                ChoreSchedule::once(due),
+                due.unwrap_or(day(2026, 3, 1)),
+            )
+        };
+        let papers = store
+            .create_chore("c2", &once("Papers", Some(day(2026, 3, 8))))
+            .unwrap();
+        store
+            .create_chore("c3", &once("Vaccine", Some(day(2026, 3, 12))))
+            .unwrap();
+        store.create_chore("c4", &once("Basket", None)).unwrap();
+        store
+            .create_chore("c5", &once("Brush", Some(day(2026, 3, 30))))
+            .unwrap();
+        let titles = |store: &Catalog, on: NaiveDate| -> Vec<String> {
+            store
+                .chores_agenda(on)
+                .unwrap()
+                .today
+                .iter()
+                .map(|c| c.title.clone())
+                .collect()
+        };
+        assert_eq!(
+            titles(&store, today),
+            vec!["Papers", "Feed", "Vaccine", "Brush", "Basket"]
+        );
+        assert!(store.chores_agenda(today).unwrap().upcoming.is_empty());
+        // The day is not done while the overdue one waits; the waiting
+        // ones do not hold it up.
+        store.tick_chore(&feed, today, today).unwrap();
+        assert!(!store.chores_agenda(today).unwrap().all_done_today(&store));
+        store.tick_chore(&papers, papers.start, today).unwrap();
+        assert!(store.chores_agenda(today).unwrap().all_done_today(&store));
+        // Done today: still listed; the day after, gone.
+        assert!(titles(&store, today).contains(&"Papers".to_string()));
+        assert!(!titles(&store, day(2026, 3, 11)).contains(&"Papers".to_string()));
     }
 
     #[test]

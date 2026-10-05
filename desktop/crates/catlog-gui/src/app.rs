@@ -1519,6 +1519,22 @@ impl App {
         let today = self.pages.today;
         let result = match action {
             ChoreAction::None => Ok(()),
+            ChoreAction::Toggle(chore) if chore.once() => {
+                // One occurrence, on its first day; a tick there settles
+                // it, and taking it back takes back whichever tick there is.
+                let ticks = self.store.chore_ticks(&chore).unwrap_or_default();
+                if ticks.is_empty() {
+                    let result = self.store.tick_chore(&chore, chore.start, today);
+                    if result.is_ok() {
+                        self.celebrate_ticks();
+                    }
+                    result
+                } else {
+                    ticks
+                        .keys()
+                        .try_for_each(|occurrence| self.store.untick_chore(&chore, *occurrence))
+                }
+            }
             ChoreAction::Toggle(chore) => {
                 let ticks = self.store.chore_ticks(&chore).unwrap_or_default();
                 let result = if ticks.contains_key(&today) {
@@ -4974,6 +4990,76 @@ mod tests {
                 .is_empty()
         );
         h.get_by_label("No appointments planned. Plan new ones here with the plus, or on a cat's or clowder's page.");
+    }
+
+    #[test]
+    fn a_one_time_chore_on_the_desk_stands_until_done_and_says_its_day() {
+        use catlog_core::chores::{Chore, ChoreSchedule};
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 9);
+        app.pages.today = chrono::NaiveDate::from_ymd_opt(2026, 3, 10).unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let day = |d: u32| chrono::NaiveDate::from_ymd_opt(2026, 3, d).unwrap();
+        let once = |title: &str, due: Option<chrono::NaiveDate>| Chore {
+            id: String::new(),
+            entity: miezi.into(),
+            title: title.into(),
+            schedule: ChoreSchedule::once(due),
+            time: None,
+            start: due.unwrap_or(day(1)),
+            paused: false,
+            ended: false,
+            remind: false,
+            remind_at: None,
+            extra: Default::default(),
+        };
+        let store = app.store_mut();
+        let papers = store
+            .create_chore("o1", &once("Papers", Some(day(8))))
+            .unwrap();
+        store
+            .create_chore("o2", &once("Vaccine", Some(day(12))))
+            .unwrap();
+        let gone = store.create_chore("o3", &once("Basket", None)).unwrap();
+        store.tick_chore(&gone, gone.start, day(9)).unwrap();
+        let mut h = harness(app);
+        open_cat_page(&mut h, miezi);
+        h.get_by_label_contains("Plans (").click();
+        h.run();
+        // The page and the dashboard behind it say the same.
+        assert!(h.get_all_by_label_contains("2 days overdue").count() >= 1);
+        assert!(h.get_all_by_label_contains("Due in 2 days").count() >= 1);
+        assert!(
+            h.query_by_label_contains("Basket").is_none(),
+            "done yesterday: in no list"
+        );
+        // The box ticks the one occurrence; again, it takes it back.
+        h.state_mut().act_chore(ChoreAction::Toggle(papers.clone()));
+        let ticks = h.state().store().chore_ticks(&papers).unwrap();
+        assert_eq!(ticks.values().copied().collect::<Vec<_>>(), vec![day(10)]);
+        h.state_mut().act_chore(ChoreAction::Toggle(papers.clone()));
+        assert!(h.state().store().chore_ticks(&papers).unwrap().is_empty());
+    }
+
+    #[test]
+    fn the_chore_dialog_makes_a_one_time_chore_with_or_without_a_due_day() {
+        use catlog_core::chores::ChoreRepeat;
+        let today = chrono::NaiveDate::from_ymd_opt(2026, 3, 10).unwrap();
+        let mut dialog = crate::chores::ChoreDialog::default();
+        dialog.ask("cat:a", None, today);
+        dialog.title = "Papers".into();
+        dialog.repeat = Some(ChoreRepeat::Once);
+        let open = dialog.draft().unwrap();
+        assert!(open.once());
+        assert_eq!(open.schedule.due, None);
+        dialog.due = "2026-03-12".into();
+        assert_eq!(
+            dialog.draft().unwrap().schedule.due,
+            chrono::NaiveDate::from_ymd_opt(2026, 3, 12)
+        );
+        dialog.due = "soon".into();
+        assert_eq!(dialog.draft().unwrap_err(), "due");
     }
 
     #[test]

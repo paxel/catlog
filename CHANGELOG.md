@@ -15,6 +15,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A chore can be one time: "One time" is a fourth choice next to daily, every… and weekdays, with an optional due date. It offers Duplicate and End, not Pause. How often a chore comes around is now a list of radio buttons instead of pills. An older app shows a one-time chore on its due day only and leaves it as it is.
 - A one-time chore stands in today's chores from the day it is made until it is done, never under Coming up. Due or overdue it moves to the top, red when overdue; until then it waits at the bottom by its due date, saying "Due in 2 days" in orange from three days before. Done, it stays crossed out for the day and is gone the next. It has no streak and no week dots, and one still waiting does not keep the day from being all done.
 - A one-time chore with reminders on reminds once, on its due day at its time; without a due date it does not remind.
+- The desk has one-time chores too: a fourth radio in its chore editor with an optional due date, today's order on the agenda, the dashboard and the cat's page, red when overdue and orange when due within three days, no Pause and no week dots, and the due date in its calendar.
 
 ### Fixed
 - A hand-made flier finds its ran-away date: a line saying "weggelaufen am", "entlaufen", "vermisst seit", "verschwunden seit", "missing since" or "lost on" gives the date on it or on the line right after it. Before, only the TASSO poster layout was read, and a hand-made flier's cat went missing today. On phone and desk.
