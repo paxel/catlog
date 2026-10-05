@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Çdo ditë",
   "choreRepeatEvery": "Çdo…",
   "choreRepeatWeekdays": "Ditë",
+  "choreRepeatOnce": "Një herë",
   "choreEveryDays": "{n, plural, one{çdo ditë} other{çdo {n} ditë}}",
   "choreEveryWeeks": "{n, plural, one{çdo javë} other{çdo {n} javë}}",
   "choreEveryMonths": "{n, plural, one{çdo muaj} other{çdo {n} muaj}}",

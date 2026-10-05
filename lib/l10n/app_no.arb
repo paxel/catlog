@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Daglig",
   "choreRepeatEvery": "Hver…",
   "choreRepeatWeekdays": "Ukedager",
+  "choreRepeatOnce": "Én gang",
   "choreEveryDays": "{n, plural, one{hver dag} other{hver {n}. dag}}",
   "choreEveryWeeks": "{n, plural, one{hver uke} other{hver {n}. uke}}",
   "choreEveryMonths": "{n, plural, one{hver måned} other{hver {n}. måned}}",

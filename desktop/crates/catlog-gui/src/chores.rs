@@ -230,6 +230,7 @@ impl ChoreDialog {
         }
         let schedule = match self.repeat.unwrap_or(ChoreRepeat::Daily) {
             ChoreRepeat::Daily => ChoreSchedule::daily(),
+            ChoreRepeat::Once => ChoreSchedule::once(None),
             ChoreRepeat::EveryDays => ChoreSchedule::every(
                 self.every
                     .trim()

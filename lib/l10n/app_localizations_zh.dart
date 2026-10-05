@@ -2721,6 +2721,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get choreRepeatWeekdays => '星期';
 
   @override
+  String get choreRepeatOnce => '一次性';
+
+  @override
   String choreEveryDays(int n) {
     return '每 $n 天';
   }

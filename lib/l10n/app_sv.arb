@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Dagligen",
   "choreRepeatEvery": "Var…",
   "choreRepeatWeekdays": "Veckodagar",
+  "choreRepeatOnce": "En gång",
   "choreEveryDays": "{n, plural, one{varje dag} other{var {n}:e dag}}",
   "choreEveryWeeks": "{n, plural, one{varje vecka} other{var {n}:e vecka}}",
   "choreEveryMonths": "{n, plural, one{varje månad} other{var {n}:e månad}}",

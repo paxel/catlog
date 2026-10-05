@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Kuljum",
   "choreRepeatEvery": "Kull…",
   "choreRepeatWeekdays": "Ġranet",
+  "choreRepeatOnce": "Darba waħda",
   "choreEveryDays": "{n, plural, one{kuljum} other{kull {n} ijiem}}",
   "choreEveryWeeks": "{n, plural, one{kull ġimgħa} other{kull {n} ġimgħat}}",
   "choreEveryMonths": "{n, plural, one{kull xahar} other{kull {n} xhur}}",

@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Всеки ден",
   "choreRepeatEvery": "На всеки…",
   "choreRepeatWeekdays": "Дни",
+  "choreRepeatOnce": "Еднократно",
   "choreEveryDays": "{n, plural, one{всеки ден} other{на всеки {n} дни}}",
   "choreEveryWeeks": "{n, plural, one{всяка седмица} other{на всеки {n} седмици}}",
   "choreEveryMonths": "{n, plural, one{всеки месец} other{на всеки {n} месеца}}",

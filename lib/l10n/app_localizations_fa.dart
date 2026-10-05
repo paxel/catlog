@@ -2810,6 +2810,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get choreRepeatWeekdays => 'روزها';
 
   @override
+  String get choreRepeatOnce => 'یک‌بار';
+
+  @override
   String choreEveryDays(int n) {
     return 'هر $n روز';
   }

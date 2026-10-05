@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Щодня",
   "choreRepeatEvery": "Кожні…",
   "choreRepeatWeekdays": "Дні тижня",
+  "choreRepeatOnce": "Одноразово",
   "choreEveryDays": "{n, plural, one{щодня} few{кожні {n} дні} other{кожні {n} днів}}",
   "choreEveryWeeks": "{n, plural, one{щотижня} few{кожні {n} тижні} other{кожні {n} тижнів}}",
   "choreEveryMonths": "{n, plural, one{щомісяця} few{кожні {n} місяці} other{кожні {n} місяців}}",

@@ -5072,6 +5072,12 @@ abstract class AppLocalizations {
   /// **'Weekdays'**
   String get choreRepeatWeekdays;
 
+  /// No description provided for @choreRepeatOnce.
+  ///
+  /// In en, this message translates to:
+  /// **'One time'**
+  String get choreRepeatOnce;
+
   /// No description provided for @choreEveryDays.
   ///
   /// In en, this message translates to:

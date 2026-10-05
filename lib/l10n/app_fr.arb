@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Chaque jour",
   "choreRepeatEvery": "Tous les…",
   "choreRepeatWeekdays": "Jours",
+  "choreRepeatOnce": "Une fois",
   "choreEveryDays": "{n, plural, one{chaque jour} other{tous les {n} jours}}",
   "choreEveryWeeks": "{n, plural, one{chaque semaine} other{toutes les {n} semaines}}",
   "choreEveryMonths": "{n, plural, one{chaque mois} other{tous les {n} mois}}",

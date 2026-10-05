@@ -2833,6 +2833,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get choreRepeatWeekdays => 'Dny v týdnu';
 
   @override
+  String get choreRepeatOnce => 'Jednorázově';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

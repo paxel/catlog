@@ -2752,6 +2752,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get choreRepeatWeekdays => '曜日';
 
   @override
+  String get choreRepeatOnce => '1回のみ';
+
+  @override
   String choreEveryDays(int n) {
     return '$n日ごと';
   }

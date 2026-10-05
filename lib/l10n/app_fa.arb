@@ -960,6 +960,7 @@
   "choreRepeatDaily": "هر روز",
   "choreRepeatEvery": "هر…",
   "choreRepeatWeekdays": "روزها",
+  "choreRepeatOnce": "یک‌بار",
   "choreEveryDays": "هر {n} روز",
   "choreEveryWeeks": "هر {n} هفته",
   "choreEveryMonths": "هر {n} ماه",

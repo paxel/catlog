@@ -2855,6 +2855,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get choreRepeatWeekdays => 'Laethanta';
 
   @override
+  String get choreRepeatOnce => 'Uair amháin';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

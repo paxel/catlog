@@ -586,6 +586,9 @@ class ModeLocalizations implements AppLocalizations {
   String get choreRepeatEvery => base.choreRepeatEvery;
 
   @override
+  String get choreRepeatOnce => base.choreRepeatOnce;
+
+  @override
   String get choreRepeatWeekdays => base.choreRepeatWeekdays;
 
   @override

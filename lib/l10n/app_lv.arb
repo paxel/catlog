@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Katru dienu",
   "choreRepeatEvery": "Ik pēc…",
   "choreRepeatWeekdays": "Nedēļas dienas",
+  "choreRepeatOnce": "Vienreizējs",
   "choreEveryDays": "{n, plural, zero{ik pēc {n} dienām} one{katru dienu} other{ik pēc {n} dienām}}",
   "choreEveryWeeks": "{n, plural, zero{ik pēc {n} nedēļām} one{katru nedēļu} other{ik pēc {n} nedēļām}}",
   "choreEveryMonths": "{n, plural, zero{ik pēc {n} mēnešiem} one{katru mēnesi} other{ik pēc {n} mēnešiem}}",

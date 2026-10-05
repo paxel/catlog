@@ -1518,6 +1518,7 @@
   "choreRepeatDaily": "Daily",
   "choreRepeatEvery": "Every…",
   "choreRepeatWeekdays": "Weekdays",
+  "choreRepeatOnce": "One time",
   "choreEveryDays": "{n, plural, one{every day} other{every {n} days}}",
   "@choreEveryDays": {
     "placeholders": {

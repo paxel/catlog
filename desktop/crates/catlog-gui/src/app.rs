@@ -5274,6 +5274,7 @@ mod tests {
                 every: 1,
                 unit: ChoreUnit::Days,
                 weekdays: Vec::new(),
+                due: None,
             },
             time: None,
             start: chrono::NaiveDate::from_ymd_opt(2026, 3, 1).unwrap(),

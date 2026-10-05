@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Naponta",
   "choreRepeatEvery": "Minden…",
   "choreRepeatWeekdays": "Napok",
+  "choreRepeatOnce": "Egyszeri",
   "choreEveryDays": "{n, plural, one{minden nap} other{{n} naponta}}",
   "choreEveryWeeks": "{n, plural, one{minden héten} other{{n} hetente}}",
   "choreEveryMonths": "{n, plural, one{minden hónapban} other{{n} havonta}}",

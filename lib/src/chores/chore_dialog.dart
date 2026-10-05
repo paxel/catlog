@@ -134,6 +134,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     ChoreRepeat.daily => const ChoreSchedule.daily(),
     ChoreRepeat.everyDays => ChoreSchedule.every(_every, _unit),
     ChoreRepeat.weekdays => ChoreSchedule.weekdays(_weekdays),
+    ChoreRepeat.once => const ChoreSchedule.once(),
   };
 
   void _save() {

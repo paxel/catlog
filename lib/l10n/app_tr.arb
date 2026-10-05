@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Her gün",
   "choreRepeatEvery": "Her…",
   "choreRepeatWeekdays": "Günler",
+  "choreRepeatOnce": "Bir kez",
   "choreEveryDays": "{n, plural, one{her gün} other{her {n} günde bir}}",
   "choreEveryWeeks": "{n, plural, one{her hafta} other{her {n} haftada bir}}",
   "choreEveryMonths": "{n, plural, one{her ay} other{her {n} ayda bir}}",

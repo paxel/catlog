@@ -2838,6 +2838,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get choreRepeatWeekdays => 'Дни недели';
 
   @override
+  String get choreRepeatOnce => 'Однократно';
+
+  @override
   String choreEveryDays(int n) {
     String _temp0 = intl.Intl.pluralLogic(
       n,

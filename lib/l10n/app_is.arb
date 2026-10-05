@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Daglega",
   "choreRepeatEvery": "Á…",
   "choreRepeatWeekdays": "Vikudagar",
+  "choreRepeatOnce": "Einu sinni",
   "choreEveryDays": "{n, plural, one{daglega} other{{n}. hvern dag}}",
   "choreEveryWeeks": "{n, plural, one{vikulega} other{{n}. hverja viku}}",
   "choreEveryMonths": "{n, plural, one{mánaðarlega} other{{n}. hvern mánuð}}",

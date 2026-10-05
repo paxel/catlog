@@ -424,6 +424,7 @@ pub fn document_words(raw: &str) -> Option<String> {
 pub fn schedule_words(t: &L10n, s: &ChoreSchedule) -> String {
     match s.repeat {
         ChoreRepeat::Daily => t.chore_repeat_daily().to_string(),
+        ChoreRepeat::Once => t.chore_repeat_once().to_string(),
         ChoreRepeat::EveryDays => match s.unit {
             ChoreUnit::Days => t.chore_every_days(s.every as i64),
             ChoreUnit::Weeks => t.chore_every_weeks(s.every as i64),

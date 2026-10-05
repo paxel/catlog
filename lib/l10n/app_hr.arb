@@ -960,6 +960,7 @@
   "choreRepeatDaily": "Svaki dan",
   "choreRepeatEvery": "Svakih…",
   "choreRepeatWeekdays": "Dani",
+  "choreRepeatOnce": "Jednokratno",
   "choreEveryDays": "{n, plural, one{svaki dan} few{svaka {n} dana} other{svakih {n} dana}}",
   "choreEveryWeeks": "{n, plural, one{svaki tjedan} few{svaka {n} tjedna} other{svakih {n} tjedana}}",
   "choreEveryMonths": "{n, plural, one{svaki mjesec} few{svaka {n} mjeseca} other{svakih {n} mjeseci}}",
