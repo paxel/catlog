@@ -107,9 +107,17 @@ void main() {
     // narrows the curve and is remembered.
     await tester.tap(find.text('Graph').first);
     await tester.pumpAndSettle();
+    // One range of five on radio lines, the two lines as checkboxes:
+    // no pills (ui-laws).
+    expect(find.byType(FilterChip), findsNothing);
+    expect(find.byType(RadioListTile<GraphRange>), findsNWidgets(5));
+    expect(find.byType(CheckboxListTile), findsNWidgets(2));
     await tester.tap(find.text('Week'));
     await tester.pumpAndSettle();
     expect(store.localSetting(graphRangeKey), 'week');
+    await tester.tap(find.text('Trend'));
+    await tester.pumpAndSettle();
+    expect(store.localSetting(graphTrendKey), 'yes');
   });
 
   testWidgets('a clowder page offers no graph — the curve is the animal\'s',
