@@ -7200,6 +7200,8 @@ mod tests {
                 h.get_all_by_label_contains(words).count() > 0,
                 "the graph offers {words}"
             );
+            // One choice of five: radio lines, not pills.
+            h.get_by_role_and_label(egui::accesskit::Role::RadioButton, words);
         }
         h.get_by_label("Week").click();
         h.run();
