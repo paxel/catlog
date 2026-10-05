@@ -494,6 +494,22 @@ bool showsToday(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) =>
         ? onceStanding(chore, ticks, today) != OnceStanding.gone
         : isDueOn(chore, ticks, today);
 
+/// Whether [chore] is part of what [today] asks for — the "all done
+/// today" count: a recurring chore due today; a one-time one once its
+/// due day has come, or when it was done today. One still waiting for
+/// its day is in the list but not yet asked for.
+bool countsToday(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) {
+  if (!chore.once) return isDueOn(chore, ticks, today);
+  final standing = onceStanding(chore, ticks, today);
+  return standing == OnceStanding.due || standing == OnceStanding.doneToday;
+}
+
+/// Whether [chore] still waits to be done [today].
+bool openToday(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) =>
+    chore.once
+        ? onceStanding(chore, ticks, today) == OnceStanding.due
+        : isDueOn(chore, ticks, today) && !ticks.containsKey(dayOf(today));
+
 /// Days from [today] to a one-time chore's due day: negative when
 /// overdue, null without a due day.
 int? daysToDue(Chore chore, DateTime today) {

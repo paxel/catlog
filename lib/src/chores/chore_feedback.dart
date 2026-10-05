@@ -17,11 +17,10 @@ void afterChoreTick(
   final today = DateUtils.dateOnly(DateTime.now());
   final due = [
     for (final c in store.allChores())
-      if (c.active && isDueOn(c, store.choreTicks(c), today)) c,
+      if (c.active && countsToday(c, store.choreTicks(c), today)) c,
   ];
   final allDone =
-      due.isNotEmpty &&
-      due.every((c) => store.choreTicks(c).containsKey(today));
+      due.isNotEmpty && !due.any((c) => openToday(c, store.choreTicks(c), today));
   Cheer? cheer;
   if (allDone && store.localSetting('choresCelebrated') != dayKey(today)) {
     store.setLocalSetting('choresCelebrated', dayKey(today));
@@ -56,9 +55,10 @@ void afterChoreTick(
   if (cheer != null) celebrate(context, store, cheer);
 }
 
-/// The chores of a cat or home, split as the pages list them: due
-/// today by time of day with the timeless ones on top; the rest by
-/// their next due day; paused ones apart.
+/// The chores of a cat or home, split as the pages list them: today's
+/// in today's order (see [todayOrder]) — one-time chores stand there
+/// until the day after they are done; the rest by their next due day;
+/// paused ones apart.
 ({List<Chore> due, List<Chore> later, List<Chore> paused}) partitionChores(
   CatalogStore store,
   List<Chore> chores,
@@ -75,15 +75,16 @@ void afterChoreTick(
   final later = <(Chore, DateTime?)>[];
   final paused = <Chore>[];
   for (final c in chores) {
+    final ticks = store.choreTicks(c);
     if (c.paused) {
       paused.add(c);
-    } else if (isDueOn(c, store.choreTicks(c), today)) {
+    } else if (showsToday(c, ticks, today)) {
       due.add(c);
-    } else {
-      later.add((c, nextDue(c, store.choreTicks(c), today)));
+    } else if (!c.once) {
+      later.add((c, nextDue(c, ticks, today)));
     }
   }
-  due.sort(byTime);
+  final ordered = todayOrder(due, store.choreTicks, today);
   later.sort((a, b) {
     if (a.$2 == null && b.$2 == null) return byTime(a.$1, b.$1);
     if (a.$2 == null) return 1;
@@ -92,5 +93,9 @@ void afterChoreTick(
     return d != 0 ? d : byTime(a.$1, b.$1);
   });
   paused.sort(byTime);
-  return (due: due, later: [for (final (c, _) in later) c], paused: paused);
+  return (
+    due: ordered,
+    later: [for (final (c, _) in later) c],
+    paused: paused,
+  );
 }

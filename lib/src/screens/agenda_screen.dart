@@ -299,10 +299,12 @@ class _AgendaScreenState extends State<AgendaScreen> {
       return t != 0 ? t : a.title.toLowerCase().compareTo(b.title.toLowerCase());
     }
 
-    final due = [
+    // One-time chores stand here from the day they are made until the
+    // day after they are done; due ones on top, waiting ones below.
+    final due = todayOrder([
       for (final c in active)
-        if (isDueOn(c, store.choreTicks(c), today)) c
-    ]..sort(byTime);
+        if (showsToday(c, store.choreTicks(c), today)) c
+    ], store.choreTicks, today);
     final soon = <(Chore, DateTime)>[
       for (final c in active)
         for (final day in upcoming(c, store.choreTicks(c), today).take(1))
@@ -336,8 +338,12 @@ class _AgendaScreenState extends State<AgendaScreen> {
     final items = agendaItems(store);
     final today = DateUtils.dateOnly(DateTime.now());
     final chores = _chores(today);
-    final allDone = chores.today.isNotEmpty &&
-        chores.today.every((c) => store.choreTicks(c).containsKey(today));
+    final asked = [
+      for (final c in chores.today)
+        if (countsToday(c, store.choreTicks(c), today)) c
+    ];
+    final allDone = asked.isNotEmpty &&
+        !asked.any((c) => openToday(c, store.choreTicks(c), today));
     return Scaffold(
       appBar: roomyAppBar(
         context,
