@@ -460,6 +460,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get missingSinceLabel => 'Kayıp tarihi';
 
   @override
+  String get missingSinceNotOnFlier => 'İlanda bulunamadı — bugün';
+
+  @override
   String get cropPortrait => 'Portreyi kırp';
 
   @override
@@ -1136,11 +1139,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur. Fotoğraf için Stray Cam\'e dokun; video çekmek için basılı tut ve en iyi kareleri fotoğraf olarak sakla.';
+      'Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur. “Videodan…” bir video seçer ve en iyi kareleri fotoğraf olarak saklar.';
 
   @override
   String get helpStraysNeutral =>
-      'Şu anda evi olmayan evcil hayvanlar: bulunmuş, kaçmış ya da ilandan gelen hayvanlar. Kamera düğmesi önündeki hayvanı kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir evcil hayvana dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur. Fotoğraf için Stray Cam\'e dokun; video çekmek için basılı tut ve en iyi kareleri fotoğraf olarak sakla.';
+      'Şu anda evi olmayan evcil hayvanlar: bulunmuş, kaçmış ya da ilandan gelen hayvanlar. Kamera düğmesi önündeki hayvanı kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir evcil hayvana dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur. “Videodan…” bir video seçer ve en iyi kareleri fotoğraf olarak saklar.';
 
   @override
   String get helpMap =>
@@ -1722,6 +1725,21 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Fazla parmak';
+
+  @override
+  String get looksValueMissingLeg => 'Eksik bacak';
+
+  @override
+  String get looksValueMissingToes => 'Eksik parmaklar';
+
+  @override
+  String get looksValueInjuredWing => 'Yaralı kanat';
+
+  @override
+  String get looksValueClippedWings => 'Kırpılmış kanatlar';
+
+  @override
+  String get looksValueDamagedShell => 'Hasarlı kabuk';
 
   @override
   String get rejectMatch => 'Aynı değil';
@@ -2807,6 +2825,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Günler';
+
+  @override
+  String get choreRepeatOnce => 'Bir kez';
+
+  @override
+  String get choreNoDueDate => 'Son tarih yok — herhangi bir gün';
 
   @override
   String choreEveryDays(int n) {

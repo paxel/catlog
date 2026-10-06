@@ -101,6 +101,7 @@ pub fn appointment_card(
             deceased: crate::textures::is_deceased(store, &a.entity),
             line1: &line1,
             line2: line2.join(" · "),
+            tone: None,
         },
         |_ui| {},
         |ui| {
@@ -164,6 +165,7 @@ fn reminder_row(
             deceased: crate::textures::is_deceased(store, &r.entity),
             line1: &line1,
             line2: name.clone(),
+            tone: None,
         },
         |_ui| {},
         |ui| {
@@ -549,6 +551,11 @@ fn day_entries(
         // Paused, and the calendar used to print it on every cell of
         // the month all the same.
         if chore.paused || !chore.active() {
+            continue;
+        }
+        // A one-time chore belongs on its due day only; without one it
+        // has no day in the calendar.
+        if chore.once() && chore.schedule.due.is_none() {
             continue;
         }
         let ticks = store.chore_ticks(&chore).unwrap_or_default();
@@ -1008,6 +1015,44 @@ mod tests {
         chore.paused = true;
         store.create_chore(&chore.id, &chore).unwrap();
         assert_eq!(entries(&store), 0, "paused is due on no day");
+    }
+
+    #[test]
+    fn a_one_time_chore_is_on_its_due_day_only_and_without_one_on_none() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut store = Catalog::open(dir.path()).unwrap();
+        store.set_author("Ada").unwrap();
+        store.create_cat("cat:a", "Miezi", None, "cat").unwrap();
+        let once = |title: &str, due: Option<NaiveDate>| catlog_core::chores::Chore {
+            id: String::new(),
+            entity: "cat:a".into(),
+            title: title.into(),
+            schedule: catlog_core::chores::ChoreSchedule::once(due),
+            time: None,
+            start: due.unwrap_or(day(2026, 3, 2)),
+            paused: false,
+            ended: false,
+            remind: false,
+            remind_at: None,
+            extra: Default::default(),
+        };
+        store
+            .create_chore("o1", &once("Papers", Some(day(2026, 3, 12))))
+            .unwrap();
+        store.create_chore("o2", &once("Basket", None)).unwrap();
+        let t = L10n::new("en");
+        let items = store.agenda_items().unwrap();
+        let entries = day_entries(
+            &store,
+            &t,
+            &items,
+            day(2026, 3, 10),
+            Calendar::Month,
+            day(2026, 3, 10),
+        );
+        let days: Vec<(NaiveDate, &str)> =
+            entries.iter().map(|e| (e.day, e.words.as_str())).collect();
+        assert_eq!(days, vec![(day(2026, 3, 12), "Miezi · Papers")]);
     }
 
     #[test]

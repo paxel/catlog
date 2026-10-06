@@ -461,6 +461,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get missingSinceLabel => 'Vermist sinds';
 
   @override
+  String get missingSinceNotOnFlier => 'Niet gevonden op de flyer — vandaag';
+
+  @override
   String get cropPortrait => 'Portret bijsnijden';
 
   @override
@@ -1140,11 +1143,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster. Tik op Stray Cam voor een foto; houd ingedrukt om een video te filmen en de beste beelden als foto\'s te bewaren.';
+      'Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster. ‘Uit video…’ kiest een video en bewaart de beste beelden als foto\'s.';
 
   @override
   String get helpStraysNeutral =>
-      'Huisdieren die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een dier vast dat voor je staat; de posterknop maakt van een vermist-poster een huisdier met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster. Tik op Stray Cam voor een foto; houd ingedrukt om een video te filmen en de beste beelden als foto\'s te bewaren.';
+      'Huisdieren die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een dier vast dat voor je staat; de posterknop maakt van een vermist-poster een huisdier met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster. ‘Uit video…’ kiest een video en bewaart de beste beelden als foto\'s.';
 
   @override
   String get helpMap =>
@@ -1726,6 +1729,21 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Extra tenen';
+
+  @override
+  String get looksValueMissingLeg => 'Ontbrekende poot';
+
+  @override
+  String get looksValueMissingToes => 'Ontbrekende tenen';
+
+  @override
+  String get looksValueInjuredWing => 'Gewonde vleugel';
+
+  @override
+  String get looksValueClippedWings => 'Geknipte vleugels';
+
+  @override
+  String get looksValueDamagedShell => 'Beschadigd schild';
 
   @override
   String get rejectMatch => 'Niet dezelfde';
@@ -2812,6 +2830,12 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Weekdagen';
+
+  @override
+  String get choreRepeatOnce => 'Eenmalig';
+
+  @override
+  String get choreNoDueDate => 'Geen vervaldag — elke dag';
 
   @override
   String choreEveryDays(int n) {

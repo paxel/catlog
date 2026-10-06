@@ -461,6 +461,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get missingSinceLabel => 'Desaparecido desde';
 
   @override
+  String get missingSinceNotOnFlier => 'Não encontrado no cartaz — hoje';
+
+  @override
   String get cropPortrait => 'Recortar retrato';
 
   @override
@@ -1138,11 +1141,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz. Toque em Stray Cam para uma foto; mantenha premido para filmar um vídeo e guardar os melhores fotogramas como fotos.';
+      'Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz. «De um vídeo…» escolhe um vídeo e guarda os melhores fotogramas como fotos.';
 
   @override
   String get helpStraysNeutral =>
-      'Animais que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um animal à tua frente; o botão do cartaz transforma um cartaz de desaparecido num animal com o contacto do dono; o leitor lê um código cat(a)log do cartaz. Toque em Stray Cam para uma foto; mantenha premido para filmar um vídeo e guardar os melhores fotogramas como fotos.';
+      'Animais que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um animal à tua frente; o botão do cartaz transforma um cartaz de desaparecido num animal com o contacto do dono; o leitor lê um código cat(a)log do cartaz. «De um vídeo…» escolhe um vídeo e guarda os melhores fotogramas como fotos.';
 
   @override
   String get helpMap =>
@@ -1724,6 +1727,21 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Dedos a mais';
+
+  @override
+  String get looksValueMissingLeg => 'Falta uma pata';
+
+  @override
+  String get looksValueMissingToes => 'Faltam dedos';
+
+  @override
+  String get looksValueInjuredWing => 'Asa ferida';
+
+  @override
+  String get looksValueClippedWings => 'Asas aparadas';
+
+  @override
+  String get looksValueDamagedShell => 'Carapaça danificada';
 
   @override
   String get rejectMatch => 'Não é o mesmo';
@@ -2809,6 +2827,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Dias';
+
+  @override
+  String get choreRepeatOnce => 'Uma vez';
+
+  @override
+  String get choreNoDueDate => 'Sem prazo — qualquer dia';
 
   @override
   String choreEveryDays(int n) {

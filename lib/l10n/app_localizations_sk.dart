@@ -461,6 +461,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get missingSinceLabel => 'Nezvestný od';
 
   @override
+  String get missingSinceNotOnFlier => 'Na letáku nenájdené — dnes';
+
+  @override
   String get cropPortrait => 'Orezať portrét';
 
   @override
@@ -1137,11 +1140,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Mačky, ktoré teraz nemajú domov: nájdené, ušlé alebo z letáka. Tlačidlo fotoaparátu zapíše mačku pred tebou; tlačidlo letáka premení plagát na mačku aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu. Ťuknutím na Stray Cam urobíš fotku; podržaním natočíš video a najlepšie snímky si necháš ako fotky.';
+      'Mačky, ktoré teraz nemajú domov: nájdené, ušlé alebo z letáka. Tlačidlo fotoaparátu zapíše mačku pred tebou; tlačidlo letáka premení plagát na mačku aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu. „Z videa…“ vyberie video a najlepšie snímky si necháš ako fotky.';
 
   @override
   String get helpStraysNeutral =>
-      'Miláčikovia, ktorí teraz nemajú domov: nájdení, ušlí alebo z letáka. Tlačidlo fotoaparátu zapíše zviera pred tebou; tlačidlo letáka premení plagát na miláčika aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu. Ťuknutím na Stray Cam urobíš fotku; podržaním natočíš video a najlepšie snímky si necháš ako fotky.';
+      'Miláčikovia, ktorí teraz nemajú domov: nájdení, ušlí alebo z letáka. Tlačidlo fotoaparátu zapíše zviera pred tebou; tlačidlo letáka premení plagát na miláčika aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu. „Z videa…“ vyberie video a najlepšie snímky si necháš ako fotky.';
 
   @override
   String get helpMap =>
@@ -1722,6 +1725,21 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Nadbytočné prsty';
+
+  @override
+  String get looksValueMissingLeg => 'Chýba noha';
+
+  @override
+  String get looksValueMissingToes => 'Chýbajú prsty';
+
+  @override
+  String get looksValueInjuredWing => 'Zranené krídlo';
+
+  @override
+  String get looksValueClippedWings => 'Zastrihnuté krídla';
+
+  @override
+  String get looksValueDamagedShell => 'Poškodený pancier';
 
   @override
   String get rejectMatch => 'Nie je to isté';
@@ -2812,6 +2830,12 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Dni v týždni';
+
+  @override
+  String get choreRepeatOnce => 'Jednorazovo';
+
+  @override
+  String get choreNoDueDate => 'Bez termínu — ktorýkoľvek deň';
 
   @override
   String choreEveryDays(int n) {

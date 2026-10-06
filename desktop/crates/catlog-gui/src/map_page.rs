@@ -8,6 +8,7 @@ use std::sync::Arc;
 
 use catlog_core::entities::{POSITION_KEY, PositionKind, parse_position, parse_position_kind};
 use catlog_core::geo::STRAY_AREA_RADIUS_METERS;
+use catlog_core::map_pins::{MapPin, PinKind, PinSpot, SPOT_METERS, group_pins};
 use catlog_core::{Catalog, keys};
 use egui::{Ui, Vec2};
 
@@ -32,6 +33,10 @@ pub struct MapPage {
     walked: i32,
     /// The pin whose trail is drawn.
     pub trail_of: Option<String>,
+    /// What stands on each spot, as the pins were last drawn.
+    pub spots: Vec<PinSpot>,
+    /// The shared spot whose list is open, by index into `spots`.
+    pub open_spot: Option<usize>,
     /// Missing cats whose possible stray area is overlaid.
     pub stray_areas: HashSet<String>,
     pub areas_open: bool,
@@ -55,6 +60,8 @@ impl MapPage {
             map,
             walked: -1,
             trail_of: None,
+            spots: Vec::new(),
+            open_spot: None,
             stray_areas: HashSet::new(),
             areas_open: false,
             sighting_at: None,
@@ -160,21 +167,20 @@ impl MapPage {
             .collect()
     }
 
-    pub fn pins(
-        store: &Catalog,
-        trail_of: Option<&str>,
-        stray_areas: &HashSet<String>,
-    ) -> Vec<Pin> {
+    /// Everything on the map, one spot per 20 m: homes at their
+    /// position, cats at their latest sighting, and for a chosen
+    /// missing cat its flier positions, so a flier-only cat stays
+    /// reachable. Within a spot the home leads, then the cats.
+    pub fn spots(store: &Catalog, stray_areas: &HashSet<String>) -> Vec<PinSpot> {
         let mut pins = Vec::new();
         for c in store.clowders().unwrap_or_default() {
             if let Ok(Some((lat, lon))) = store.position_of(&c.id) {
-                pins.push(Pin {
+                pins.push(MapPin {
+                    kind: PinKind::Home,
                     id: c.id.clone(),
+                    name: c.name,
                     lat,
                     lon,
-                    label: c.name,
-                    highlighted: trail_of == Some(c.id.as_str()),
-                    place: true,
                 });
             }
         }
@@ -183,31 +189,75 @@ impl MapPage {
                 continue;
             }
             if let Ok(Some((lat, lon))) = store.sighting_position_of(&cat.id) {
-                pins.push(Pin {
+                pins.push(MapPin {
+                    kind: PinKind::Cat,
                     id: cat.id.clone(),
+                    name: cat.name.clone(),
                     lat,
                     lon,
-                    label: cat.name.clone(),
-                    highlighted: trail_of == Some(cat.id.as_str()),
-                    place: false,
                 });
             }
-            // A missing cat's flier positions carry its name too, so a
-            // flier-only cat stays reachable.
             if stray_areas.contains(&cat.id) {
                 for (lat, lon) in store.flier_positions(&cat.id).unwrap_or_default() {
-                    pins.push(Pin {
+                    pins.push(MapPin {
+                        kind: PinKind::Flier,
                         id: cat.id.clone(),
+                        name: cat.name.clone(),
                         lat,
                         lon,
-                        label: cat.name.clone(),
-                        highlighted: false,
-                        place: false,
                     });
                 }
             }
         }
-        pins
+        group_pins(pins, SPOT_METERS)
+    }
+
+    /// One pin per spot: the front thing's name with the count of the
+    /// rest, the home's colour when a home leads, lit when any of them
+    /// wears the trail.
+    pub fn pins(
+        store: &Catalog,
+        trail_of: Option<&str>,
+        stray_areas: &HashSet<String>,
+    ) -> Vec<Pin> {
+        Self::spots(store, stray_areas)
+            .iter()
+            .map(|spot| Pin {
+                id: spot.front().id.clone(),
+                lat: spot.lat(),
+                lon: spot.lon(),
+                label: spot.label(),
+                highlighted: spot.pins.iter().any(|p| trail_of == Some(p.id.as_str())),
+                place: spot.front().kind == PinKind::Home,
+            })
+            .collect()
+    }
+
+    /// A click on a pin: a shared spot opens its list; a single pin
+    /// toggles its trail, and a second click opens the thing.
+    pub fn click_pin(&mut self, id: &str) -> MapPageAction {
+        if let Some(at) = self
+            .spots
+            .iter()
+            .position(|s| s.merged() && s.front().id == id)
+        {
+            self.open_spot = Some(at);
+            return MapPageAction::None;
+        }
+        if self.trail_of.as_deref() == Some(id) {
+            Self::open(id)
+        } else {
+            self.trail_of = Some(id.to_string());
+            MapPageAction::None
+        }
+    }
+
+    fn open(id: &str) -> MapPageAction {
+        if id.starts_with("clowder:") {
+            MapPageAction::OpenClowder(id.to_string())
+        } else {
+            MapPageAction::OpenCat(id.to_string())
+        }
     }
 
     fn circles(store: &Catalog, stray_areas: &HashSet<String>) -> Vec<Circle> {
@@ -327,6 +377,7 @@ impl MapPage {
                 }
             }
         }
+        self.spots = Self::spots(store, &self.stray_areas);
         let pins = Self::pins(store, self.trail_of.as_deref(), &self.stray_areas);
         if step != 0 && !pins.is_empty() {
             let count = pins.len() as i32;
@@ -349,20 +400,36 @@ impl MapPage {
         );
         match self.map.show(ui, size, &pins, &circles, &trail) {
             MapAction::None => {}
-            MapAction::Pin(id) => {
-                // A tap toggles the pin's trail; a second tap opens it.
-                if self.trail_of.as_deref() == Some(id.as_str()) {
-                    action = if id.starts_with("clowder:") {
-                        MapPageAction::OpenClowder(id)
-                    } else {
-                        MapPageAction::OpenCat(id)
-                    };
-                } else {
-                    self.trail_of = Some(id);
-                }
-            }
+            MapAction::Pin(id) => action = self.click_pin(&id),
             MapAction::Click(_, _) => {}
             MapAction::SecondaryClick(lat, lon) => self.sighting_at = Some((lat, lon)),
+        }
+        // What stands on the shared spot that was clicked: a row per
+        // thing, the name opens it, the map icon draws its trail.
+        if let Some(spot) = self.open_spot.and_then(|at| self.spots.get(at).cloned()) {
+            ui.horizontal(|ui| {
+                ui.strong(spot.label());
+                if ui.button(t.close_label()).clicked() {
+                    self.open_spot = None;
+                }
+            });
+            for pin in &spot.pins {
+                ui.horizontal(|ui| {
+                    if ui.button(&pin.name).clicked() {
+                        action = Self::open(&pin.id);
+                    }
+                    let kind = match pin.kind {
+                        PinKind::Home => t.kind_clowder(),
+                        PinKind::Cat => t.kind_cat(),
+                        PinKind::Flier | PinKind::Field => t.stray(),
+                    };
+                    ui.label(egui::RichText::new(kind).weak());
+                    if ui.button(t.show_on_map()).clicked() {
+                        self.trail_of = Some(pin.id.clone());
+                        self.open_spot = None;
+                    }
+                });
+            }
         }
         if let Some((lat, lon)) = self.sighting_at {
             // A right-click on the map records a sighting of a Cat here.

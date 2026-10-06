@@ -460,6 +460,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get missingSinceLabel => 'Zaginiony od';
 
   @override
+  String get missingSinceNotOnFlier => 'Nie znaleziono na ulotce — dziś';
+
+  @override
   String get cropPortrait => 'Przytnij portret';
 
   @override
@@ -1136,11 +1139,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Koty, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje kota, który siedzi przed tobą; przycisk ogłoszenia zamienia plakat w kota wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu. Stuknij Stray Cam, aby zrobić zdjęcie; przytrzymaj, aby nagrać wideo i zachować najlepsze klatki jako zdjęcia.';
+      'Koty, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje kota, który siedzi przed tobą; przycisk ogłoszenia zamienia plakat w kota wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu. „Z wideo…” wybiera wideo i zachowuje najlepsze klatki jako zdjęcia.';
 
   @override
   String get helpStraysNeutral =>
-      'Zwierzęta, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje zwierzę, które jest przed tobą; przycisk ogłoszenia zamienia plakat w zwierzę wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu. Stuknij Stray Cam, aby zrobić zdjęcie; przytrzymaj, aby nagrać wideo i zachować najlepsze klatki jako zdjęcia.';
+      'Zwierzęta, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje zwierzę, które jest przed tobą; przycisk ogłoszenia zamienia plakat w zwierzę wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu. „Z wideo…” wybiera wideo i zachowuje najlepsze klatki jako zdjęcia.';
 
   @override
   String get helpMap =>
@@ -1723,6 +1726,21 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Dodatkowe palce';
+
+  @override
+  String get looksValueMissingLeg => 'Brak nogi';
+
+  @override
+  String get looksValueMissingToes => 'Brak palców';
+
+  @override
+  String get looksValueInjuredWing => 'Zranione skrzydło';
+
+  @override
+  String get looksValueClippedWings => 'Przycięte skrzydła';
+
+  @override
+  String get looksValueDamagedShell => 'Uszkodzony pancerz';
 
   @override
   String get rejectMatch => 'To nie ten sam';
@@ -2819,6 +2837,12 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Dni tygodnia';
+
+  @override
+  String get choreRepeatOnce => 'Jednorazowo';
+
+  @override
+  String get choreNoDueDate => 'Bez terminu — dowolnego dnia';
 
   @override
   String choreEveryDays(int n) {

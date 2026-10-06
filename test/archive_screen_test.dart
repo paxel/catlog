@@ -70,6 +70,23 @@ void main() {
     expect(store.cats().where((c) => c.id == cat), isEmpty);
   });
 
+  testWidgets('how long quiet is one choice of three, on radio lines',
+      (tester) async {
+    final three = DateTime.now().subtract(const Duration(days: 365 * 3));
+    store.createCat('Mimzy', date: three);
+    store.append(
+        store.cats().single.id, Keys.userField('deceased'), '2020-03-01',
+        date: three);
+
+    await pump(tester);
+    expect(find.byType(ChoiceChip), findsNothing);
+    expect(find.byType(RadioListTile<int>), findsNWidgets(3));
+    expect(find.text('Mimzy'), findsOneWidget, reason: 'quiet two years');
+    await tester.tap(find.text('Quiet for 5 years'));
+    await tester.pumpAndSettle();
+    expect(find.text('Mimzy'), findsNothing, reason: 'not quiet five');
+  });
+
   testWidgets('a failed export deletes nothing', (tester) async {
     final long = DateTime(2020, 1, 1);
     final cat = store.createCat('Mimzy', date: long);

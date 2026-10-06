@@ -110,6 +110,104 @@ void main() {
     expect(done.style?.color, isNotNull);
   });
 
+  group('one time', () {
+    Chore once(String title, {DateTime? due, DateTime? made}) =>
+        store.createChore(
+          Chore(
+            id: '',
+            entity: cat,
+            title: title,
+            schedule: const ChoreSchedule.once(),
+            start: made ?? today,
+            due: due,
+          ),
+        );
+
+    List<String> order(WidgetTester tester, List<String> names) => [
+      for (final r
+          in tester
+              .widgetList<ListTile>(find.byType(ListTile))
+              .map((t) => (t.title as Text).data ?? ''))
+        for (final n in names)
+          if (r.startsWith(n)) n,
+    ];
+
+    testWidgets('due ones on top in red, waiting ones at the bottom', (
+      tester,
+    ) async {
+      feed();
+      once('Papers', due: today.subtract(const Duration(days: 2)));
+      once('Vaccine', due: today.add(const Duration(days: 2)));
+      once('Brush', due: today.add(const Duration(days: 20)));
+      once('Basket');
+      await pump(tester, AgendaScreen(store: store));
+      final names = ['Papers', 'Feed', 'Vaccine', 'Brush', 'Basket'];
+      expect(order(tester, names), names);
+      // Never in Coming up.
+      expect(find.text('Coming up'), findsNothing);
+      final red = Theme.of(tester.element(find.text('Papers')))
+          .colorScheme
+          .error;
+      expect(tester.widget<Text>(find.text('Papers')).style?.color, red);
+      expect(find.textContaining('2 days overdue'), findsOneWidget);
+      final soon = tester.widget<Text>(find.textContaining('Due in 2 days'));
+      expect(soon.style?.color, Colors.orange.shade800);
+      expect(tester.widget<Text>(find.text('Brush')).style?.color, isNull);
+      // A chore done once has no week to show.
+      final basket = find.ancestor(
+        of: find.text('Basket'),
+        matching: find.byType(ListTile),
+      );
+      expect(tester.widget<ListTile>(basket).trailing, isNull);
+    });
+
+    testWidgets('done stays crossed out today, gone tomorrow', (tester) async {
+      final papers = once('Papers', due: today);
+      await pump(tester, AgendaScreen(store: store));
+      await tester.tap(find.byType(Checkbox));
+      await tester.pumpAndSettle();
+      expect(store.choreTicks(papers).values, [today]);
+      expect(
+        tester.widget<Text>(find.text('Papers')).style?.decoration,
+        TextDecoration.lineThrough,
+      );
+      expect(find.text('Today: all done'), findsOneWidget);
+      // The day after: in no list, on the agenda or the cat's page.
+      final yesterday = today.subtract(const Duration(days: 1));
+      store.untickChore(papers, papers.start);
+      store.tickChore(papers, papers.start, doneOn: yesterday);
+      await pump(tester, AgendaScreen(store: store));
+      expect(find.text('Papers'), findsNothing);
+      await pump(tester, CatDetailScreen(store: store, catId: cat));
+      expect(find.textContaining('Papers'), findsNothing);
+    });
+
+    testWidgets('a waiting one does not keep the day from being done', (
+      tester,
+    ) async {
+      final chore = feed();
+      store.tickChore(chore, today, doneOn: today);
+      once('Basket');
+      await pump(tester, AgendaScreen(store: store));
+      expect(find.text('Today: all done'), findsOneWidget);
+      expect(find.text('Basket'), findsOneWidget);
+    });
+
+    testWidgets('the cat page lists them in today\'s order too', (
+      tester,
+    ) async {
+      once('Basket');
+      once('Papers', due: today.subtract(const Duration(days: 1)));
+      feed();
+      await pump(tester, CatDetailScreen(store: store, catId: cat));
+      expect(order(tester, ['Papers', 'Feed', 'Basket']), [
+        'Papers',
+        'Feed',
+        'Basket',
+      ]);
+    });
+  });
+
   testWidgets('Coming up shows the next due day; a tick there is early', (
     tester,
   ) async {
@@ -252,9 +350,10 @@ void main() {
     await pump(tester, CatDetailScreen(store: store, catId: cat));
     // Due today in order; the rest behind a fold, closed at first.
     List<String> order() => [
-      for (final r in tester
-          .widgetList<ListTile>(find.byType(ListTile))
-          .map((t) => (t.title as Text).data ?? ''))
+      for (final r
+          in tester
+              .widgetList<ListTile>(find.byType(ListTile))
+              .map((t) => (t.title as Text).data ?? ''))
         for (final n in ['Litter', 'Morning', 'Evening', 'Nails', 'Resting'])
           if (r.startsWith(n)) n,
     ];

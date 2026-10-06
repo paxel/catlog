@@ -1,0 +1,14 @@
+# F-Droid fields that fastlane's layout has no place for. The release
+# workflow copies this to metadata/io.github.paxel.catlog.yml in the
+# paxel/fdroid repository; texts come from fastlane/metadata, images from
+# assets/icon/store and docs/screenshots/play.
+AuthorName: paxel
+AuthorEmail: taum@tuta.io
+Categories:
+  - Pets
+License: Apache-2.0 OR MIT
+WebSite: https://github.com/paxel/catlog
+SourceCode: https://github.com/paxel/catlog
+IssueTracker: https://github.com/paxel/catlog/issues
+Changelog: https://github.com/paxel/catlog/blob/HEAD/CHANGELOG.md
+Donate: https://ko-fi.com/paxel7

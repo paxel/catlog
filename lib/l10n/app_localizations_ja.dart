@@ -455,6 +455,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get missingSinceLabel => '行方不明になった日';
 
   @override
+  String get missingSinceNotOnFlier => 'チラシに見つかりません — 今日';
+
+  @override
   String get cropPortrait => '顔写真を切り抜く';
 
   @override
@@ -1117,11 +1120,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'いま家のない猫：保護した猫、脱走した猫、チラシから登録した猫。カメラボタンは目の前の猫を記録、チラシボタンは迷子チラシを飼い主の連絡先つきの猫に変換、スキャナーはチラシの cat(a)log コードを読み取ります。 Stray Cam をタップすると写真、長押しすると動画を撮影し、良いフレームを写真として残せます。';
+      'いま家のない猫：保護した猫、脱走した猫、チラシから登録した猫。カメラボタンは目の前の猫を記録、チラシボタンは迷子チラシを飼い主の連絡先つきの猫に変換、スキャナーはチラシの cat(a)log コードを読み取ります。 「動画から…」で動画を選び、良いフレームを写真として残せます。';
 
   @override
   String get helpStraysNeutral =>
-      'いま家のないペット：保護した動物、脱走した動物、チラシから登録した動物。カメラボタンは目の前の動物を記録、チラシボタンは迷子チラシを飼い主の連絡先つきのペットに変換、スキャナーはチラシの cat(a)log コードを読み取ります。 Stray Cam をタップすると写真、長押しすると動画を撮影し、良いフレームを写真として残せます。';
+      'いま家のないペット：保護した動物、脱走した動物、チラシから登録した動物。カメラボタンは目の前の動物を記録、チラシボタンは迷子チラシを飼い主の連絡先つきのペットに変換、スキャナーはチラシの cat(a)log コードを読み取ります。 「動画から…」で動画を選び、良いフレームを写真として残せます。';
 
   @override
   String get helpMap =>
@@ -1701,6 +1704,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => '多指';
+
+  @override
+  String get looksValueMissingLeg => '脚欠損';
+
+  @override
+  String get looksValueMissingToes => '趾欠損';
+
+  @override
+  String get looksValueInjuredWing => '翼の負傷';
+
+  @override
+  String get looksValueClippedWings => '風切羽カット';
+
+  @override
+  String get looksValueDamagedShell => '甲羅の損傷';
 
   @override
   String get rejectMatch => '同じではない';
@@ -2732,6 +2750,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => '曜日';
+
+  @override
+  String get choreRepeatOnce => '1回のみ';
+
+  @override
+  String get choreNoDueDate => '期限なし — いつでも';
 
   @override
   String choreEveryDays(int n) {

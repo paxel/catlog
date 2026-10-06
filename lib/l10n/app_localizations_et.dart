@@ -460,6 +460,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get missingSinceLabel => 'Kadunud alates';
 
   @override
+  String get missingSinceNotOnFlier => 'Lendlehelt ei leitud — täna';
+
+  @override
   String get cropPortrait => 'Kärbi portree';
 
   @override
@@ -1136,11 +1139,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi. Puuduta Stray Cami foto jaoks; hoia all, et filmida video ja jätta parimad kaadrid fotodeks.';
+      'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi. „Videost…“ valib video ja jätab parimad kaadrid fotodeks.';
 
   @override
   String get helpStraysNeutral =>
-      'Lemmikloomad, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab looma sinu ees; kuulutuse nupp teeb kadunud-kuulutusest lemmiklooma koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi. Puuduta Stray Cami foto jaoks; hoia all, et filmida video ja jätta parimad kaadrid fotodeks.';
+      'Lemmikloomad, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab looma sinu ees; kuulutuse nupp teeb kadunud-kuulutusest lemmiklooma koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi. „Videost…“ valib video ja jätab parimad kaadrid fotodeks.';
 
   @override
   String get helpMap =>
@@ -1722,6 +1725,21 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Lisavarbad';
+
+  @override
+  String get looksValueMissingLeg => 'Puuduv jalg';
+
+  @override
+  String get looksValueMissingToes => 'Puuduvad varbad';
+
+  @override
+  String get looksValueInjuredWing => 'Vigastatud tiib';
+
+  @override
+  String get looksValueClippedWings => 'Kärbitud tiivad';
+
+  @override
+  String get looksValueDamagedShell => 'Kahjustatud kilp';
 
   @override
   String get rejectMatch => 'Pole sama';
@@ -2806,6 +2824,12 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Nädalapäevad';
+
+  @override
+  String get choreRepeatOnce => 'Ühekordne';
+
+  @override
+  String get choreNoDueDate => 'Tähtajata — ükskõik mis päeval';
 
   @override
   String choreEveryDays(int n) {

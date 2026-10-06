@@ -12,8 +12,13 @@ import 'store.dart';
 /// the same day merge into one done and an untick is a later entry.
 /// Everything syncs, reverts and merges like every other value.
 
-/// How often a chore comes around.
-enum ChoreRepeat { daily, everyDays, weekdays }
+/// How often a chore comes around; [once] not again (2.3.0).
+enum ChoreRepeat { daily, everyDays, weekdays, once }
+
+/// The gap a one-time chore is stored with, so an app from before 2.3.0
+/// reads an every-N chore due on its first day only and keeps it so on
+/// an edit — it does not know [ChoreRepeat.once] and would make it daily.
+const onceGapDays = 36500;
 
 /// The unit of an every-N gap: a vaccine comes every year, not every
 /// 365 days. Months and years step by the calendar — the 31st becomes
@@ -53,6 +58,13 @@ class ChoreSchedule {
         every = 1,
         unit = ChoreUnit.days;
 
+  /// Done once, then gone; due by [Chore.due] when that is set.
+  const ChoreSchedule.once()
+      : repeat = ChoreRepeat.once,
+        every = 1,
+        unit = ChoreUnit.days,
+        weekdays = const {};
+
   /// [day] moved forward by the gap.
   DateTime step(DateTime day) => switch (unit) {
         ChoreUnit.days => daysFrom(day, every),
@@ -61,15 +73,17 @@ class ChoreSchedule {
         ChoreUnit.years => monthsFrom(day, 12 * every),
       };
 
-  Map<String, dynamic> toJson() => {
-        'repeat': repeat.name,
-        if (repeat == ChoreRepeat.everyDays) 'every': every,
-        // Absent for days, so a 1.2.0 reader sees the old shape; it
-        // reads a gap in other units as days, the best it can do.
-        if (repeat == ChoreRepeat.everyDays && unit != ChoreUnit.days)
-          'unit': unit.name,
-        if (repeat == ChoreRepeat.weekdays) 'days': weekdays.toList()..sort(),
-      };
+  Map<String, dynamic> toJson() => repeat == ChoreRepeat.once
+      ? const {'repeat': 'everyDays', 'every': onceGapDays}
+      : {
+          'repeat': repeat.name,
+          if (repeat == ChoreRepeat.everyDays) 'every': every,
+          // Absent for days, so a 1.2.0 reader sees the old shape; it
+          // reads a gap in other units as days, the best it can do.
+          if (repeat == ChoreRepeat.everyDays && unit != ChoreUnit.days)
+            'unit': unit.name,
+          if (repeat == ChoreRepeat.weekdays) 'days': weekdays.toList()..sort(),
+        };
 
   static ChoreSchedule fromJson(Map<String, dynamic> json) {
     switch (json['repeat']) {
@@ -106,6 +120,10 @@ class Chore {
   final bool remind;
   final ({int hour, int minute})? remindAt;
 
+  /// For a one-time chore: the day it must be done by; null when any
+  /// day will do. [start] is that day, or the day the chore was made.
+  final DateTime? due;
+
   /// Keys this version does not know, carried through unchanged.
   final Map<String, dynamic> extra;
 
@@ -120,10 +138,13 @@ class Chore {
     this.ended = false,
     this.remind = false,
     this.remindAt,
+    this.due,
     this.extra = const {},
   });
 
   String get key => Keys.chore(id);
+
+  bool get once => schedule.repeat == ChoreRepeat.once;
 
   bool get active => !paused && !ended;
 
@@ -137,11 +158,14 @@ class Chore {
     bool? ended,
     bool? remind,
     ({int hour, int minute})? remindAt,
+    DateTime? due,
+    bool clearDue = false,
   }) =>
       Chore(
         id: id,
         entity: entity,
         extra: extra,
+        due: clearDue ? null : (due ?? this.due),
         title: title ?? this.title,
         schedule: schedule ?? this.schedule,
         time: clearTime ? null : (time ?? this.time),
@@ -161,6 +185,8 @@ class Chore {
     'ended',
     'remind',
     'remindAt',
+    'once',
+    'due',
   };
 
   Map<String, dynamic> toJson() => {
@@ -168,11 +194,16 @@ class Chore {
         'title': title,
         'schedule': schedule.toJson(),
         if (time != null) 'time': _hhmm(time!),
-        'start': dayKey(start),
+        // A one-time chore starts on its due day: the one day an app
+        // from before 2.3.0 shows it.
+        'start': dayKey(once && due != null ? due! : start),
         if (paused) 'paused': true,
         if (ended) 'ended': true,
         if (remind) 'remind': true,
         if (remindAt != null) 'remindAt': _hhmm(remindAt!),
+        // Read only from 2.3.0 on; an older app keeps both as unknown keys.
+        if (once) 'once': true,
+        if (once && due != null) 'due': dayKey(due!),
       };
 
   /// Parses a stored value; null when it is not a chore document.
@@ -180,12 +211,17 @@ class Chore {
     if (raw == null) return null;
     try {
       final json = jsonDecode(raw) as Map<String, dynamic>;
+      final once = json['once'] == true;
       return Chore(
         id: id,
         entity: entity,
         title: json['title'] as String? ?? '',
-        schedule: ChoreSchedule.fromJson(
-            (json['schedule'] as Map?)?.cast<String, dynamic>() ?? const {}),
+        schedule: once
+            ? const ChoreSchedule.once()
+            : ChoreSchedule.fromJson(
+                (json['schedule'] as Map?)?.cast<String, dynamic>() ??
+                    const {}),
+        due: once ? parseDay(json['due'] as String?) : null,
         time: _parseHhmm(json['time'] as String?),
         start: parseDay(json['start'] as String?) ?? DateTime(1970),
         paused: json['paused'] == true,
@@ -280,6 +316,12 @@ List<ChoreOccurrence> occurrences(
   }
 
   switch (chore.schedule.repeat) {
+    case ChoreRepeat.once:
+      // One occurrence, on its first day; any tick settles it.
+      final done = ticks.values.firstOrNull;
+      if (!start.isBefore(from) && !start.isAfter(to)) {
+        result.add(ChoreOccurrence(start, done));
+      }
     case ChoreRepeat.daily:
     case ChoreRepeat.weekdays:
       final days = chore.schedule.weekdays;
@@ -333,10 +375,18 @@ ChoreDay stateOn(
 bool isDueOn(Chore chore, Map<DateTime, DateTime> ticks, DateTime day) =>
     occurrences(chore, ticks, day, day).isNotEmpty;
 
-/// The first due day on or after [today] that is not done yet.
+/// The first due day on or after [today] that is not done yet. A
+/// one-time chore has one only when it has a due day still ahead.
 DateTime? nextDue(Chore chore, Map<DateTime, DateTime> ticks, DateTime today,
     {int horizonDays = 3660}) {
   today = dayOf(today);
+  if (chore.once) {
+    final due = chore.due;
+    if (due == null || ticks.isNotEmpty || dayOf(due).isBefore(today)) {
+      return null;
+    }
+    return dayOf(due);
+  }
   for (final o
       in occurrences(chore, ticks, today, daysFrom(today, horizonDays))) {
     if (!o.done) return o.due;
@@ -349,7 +399,11 @@ DateTime? nextDue(Chore chore, Map<DateTime, DateTime> ticks, DateTime today,
 List<DateTime> upcoming(
     Chore chore, Map<DateTime, DateTime> ticks, DateTime today,
     {int days = 7}) {
-  if (chore.schedule.repeat == ChoreRepeat.daily) return const [];
+  // Dailies are upcoming by nature; a one-time chore stands in today's
+  // list until it is done.
+  if (chore.schedule.repeat == ChoreRepeat.daily || chore.once) {
+    return const [];
+  }
   today = dayOf(today);
   return [
     for (final o
@@ -362,6 +416,7 @@ List<DateTime> upcoming(
 /// and is skipped while still pending; a missed day before that ends
 /// the run.
 int streak(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) {
+  if (chore.once) return 0;
   today = dayOf(today);
   final past = occurrences(chore, ticks, dayOf(chore.start), today);
   var run = 0;
@@ -379,6 +434,7 @@ int streak(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) {
 
 /// The longest run of done occurrences ever, up to [today].
 int bestStreak(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) {
+  if (chore.once) return 0;
   var best = 0, run = 0;
   for (final o in occurrences(chore, ticks, dayOf(chore.start), dayOf(today))) {
     if (o.done) {
@@ -401,6 +457,101 @@ List<ChoreDay> weekDots(
   ];
 }
 
+/// Where a one-time chore stands in today's list, top to bottom.
+enum OnceStanding {
+  /// Due today or overdue, and not done: at the top.
+  due,
+
+  /// Not due yet, or without a due day: at the bottom.
+  waiting,
+
+  /// Done today: crossed out until tomorrow.
+  doneToday,
+
+  /// Done before today: in no list any more.
+  gone,
+}
+
+/// Where the one-time [chore] stands on [today].
+OnceStanding onceStanding(
+    Chore chore, Map<DateTime, DateTime> ticks, DateTime today) {
+  today = dayOf(today);
+  final done = ticks.values.firstOrNull;
+  if (done != null) {
+    return dayOf(done).isBefore(today)
+        ? OnceStanding.gone
+        : OnceStanding.doneToday;
+  }
+  final due = chore.due;
+  if (due != null && !dayOf(due).isAfter(today)) return OnceStanding.due;
+  return OnceStanding.waiting;
+}
+
+/// Whether [chore] belongs in [today]'s list: due today for a recurring
+/// one; for a one-time one, every day until the day after it is done.
+bool showsToday(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) =>
+    chore.once
+        ? onceStanding(chore, ticks, today) != OnceStanding.gone
+        : isDueOn(chore, ticks, today);
+
+/// Whether [chore] is part of what [today] asks for — the "all done
+/// today" count: a recurring chore due today; a one-time one once its
+/// due day has come, or when it was done today. One still waiting for
+/// its day is in the list but not yet asked for.
+bool countsToday(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) {
+  if (!chore.once) return isDueOn(chore, ticks, today);
+  final standing = onceStanding(chore, ticks, today);
+  return standing == OnceStanding.due || standing == OnceStanding.doneToday;
+}
+
+/// Whether [chore] still waits to be done [today].
+bool openToday(Chore chore, Map<DateTime, DateTime> ticks, DateTime today) =>
+    chore.once
+        ? onceStanding(chore, ticks, today) == OnceStanding.due
+        : isDueOn(chore, ticks, today) && !ticks.containsKey(dayOf(today));
+
+/// Days from [today] to a one-time chore's due day: negative when
+/// overdue, null without a due day.
+int? daysToDue(Chore chore, DateTime today) {
+  final due = chore.due;
+  if (due == null) return null;
+  final d = DateTime.utc(due.year, due.month, due.day);
+  final t = DateTime.utc(today.year, today.month, today.day);
+  return d.difference(t).inDays;
+}
+
+/// [chores] in today's order: one-time chores due or overdue first, by
+/// due day; then the recurring ones (and one-time ones done today) by
+/// time, timeless first, then title; then one-time chores not due yet,
+/// by due day, those without one last.
+List<Chore> todayOrder(List<Chore> chores,
+    Map<DateTime, DateTime> Function(Chore) ticksOf, DateTime today) {
+  int group(Chore c) {
+    if (!c.once) return 1;
+    return switch (onceStanding(c, ticksOf(c), today)) {
+      OnceStanding.due => 0,
+      OnceStanding.waiting => 2,
+      _ => 1,
+    };
+  }
+
+  int minutes(Chore c) =>
+      c.time == null ? -1 : c.time!.hour * 60 + c.time!.minute;
+  final far = DateTime(9999);
+  return [...chores]..sort((a, b) {
+      final byGroup = group(a).compareTo(group(b));
+      if (byGroup != 0) return byGroup;
+      if (group(a) != 1) {
+        final byDue = (a.due ?? far).compareTo(b.due ?? far);
+        if (byDue != 0) return byDue;
+      } else {
+        final byTime = minutes(a).compareTo(minutes(b));
+        if (byTime != 0) return byTime;
+      }
+      return a.title.toLowerCase().compareTo(b.title.toLowerCase());
+    });
+}
+
 /// Chores live in the ordinary entry log; these are the readers and
 /// writers around it.
 extension Chores on CatalogStore {
@@ -417,6 +568,7 @@ extension Chores on CatalogStore {
       ended: draft.ended,
       remind: draft.remind,
       remindAt: draft.remindAt,
+      due: draft.due,
       extra: draft.extra,
     );
     append(made.entity, made.key, jsonEncode(made.toJson()), date: date);

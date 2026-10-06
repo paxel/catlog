@@ -23,7 +23,7 @@ The tool crops the picture to a centred square and writes:
   shows only the middle 72/108 of it, in a circle, and the cats' heads
   sit at the top of the picture; so the artwork is scaled to 80 % and
   moved down by 10 % of the canvas, on the picture's own orange
-  (`#FD5700`, also the adaptive background in
+  (`#FF5001`, also the adaptive background in
   `flutter_launcher_icons.yaml`). `adaptive_icon_foreground_inset` stays
   `0`: the margin is already in the file, and letting the package inset
   it again is what once made the cats a speck in the ring.

@@ -459,6 +459,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get missingSinceLabel => 'נעדר מאז';
 
   @override
+  String get missingSinceNotOnFlier => 'לא נמצא במודעה — היום';
+
+  @override
   String get cropPortrait => 'חיתוך דיוקן';
 
   @override
@@ -1132,11 +1135,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'חתולים שאין להם בית כרגע: נמצאו, ברחו או הגיעו ממודעה. כפתור המצלמה מתעד חתול שיושב מולך; כפתור המודעה הופך מודעת נעדר לחתול עם פרטי הבעלים; הסורק קורא קוד cat(a)log מהמודעה. הקש על Stray Cam לצילום תמונה; לחץ לחיצה ארוכה לצילום וידאו ושמור את הפריימים הטובים ביותר כתמונות.';
+      'חתולים שאין להם בית כרגע: נמצאו, ברחו או הגיעו ממודעה. כפתור המצלמה מתעד חתול שיושב מולך; כפתור המודעה הופך מודעת נעדר לחתול עם פרטי הבעלים; הסורק קורא קוד cat(a)log מהמודעה. „מסרטון…” בוחר סרטון ושומר את הפריימים הטובים ביותר כתמונות.';
 
   @override
   String get helpStraysNeutral =>
-      'חיות מחמד שאין להן בית כרגע: נמצאו, ברחו או הגיעו ממודעה. כפתור המצלמה מתעד חיה שמולך; כפתור המודעה הופך מודעת נעדר לחיית מחמד עם פרטי הבעלים; הסורק קורא קוד cat(a)log מהמודעה. הקש על Stray Cam לצילום תמונה; לחץ לחיצה ארוכה לצילום וידאו ושמור את הפריימים הטובים ביותר כתמונות.';
+      'חיות מחמד שאין להן בית כרגע: נמצאו, ברחו או הגיעו ממודעה. כפתור המצלמה מתעד חיה שמולך; כפתור המודעה הופך מודעת נעדר לחיית מחמד עם פרטי הבעלים; הסורק קורא קוד cat(a)log מהמודעה. „מסרטון…” בוחר סרטון ושומר את הפריימים הטובים ביותר כתמונות.';
 
   @override
   String get helpMap =>
@@ -1717,6 +1720,21 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'אצבעות נוספות';
+
+  @override
+  String get looksValueMissingLeg => 'רגל חסרה';
+
+  @override
+  String get looksValueMissingToes => 'אצבעות חסרות';
+
+  @override
+  String get looksValueInjuredWing => 'כנף פצועה';
+
+  @override
+  String get looksValueClippedWings => 'כנפיים גזוזות';
+
+  @override
+  String get looksValueDamagedShell => 'שריון פגוע';
 
   @override
   String get rejectMatch => 'לא אותו אחד';
@@ -2802,6 +2820,12 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'ימים';
+
+  @override
+  String get choreRepeatOnce => 'פעם אחת';
+
+  @override
+  String get choreNoDueDate => 'ללא תאריך יעד — בכל יום';
 
   @override
   String choreEveryDays(int n) {

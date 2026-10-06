@@ -125,23 +125,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(languageLabel(context, widget.store)),
             onTap: () => _pick(showLanguageDialog),
           ),
-          // The choice on the row itself, as the catalog's Cats and
-          // Pets is; no dialog for three options.
+          // The choice on the row itself, no dialog for three options;
+          // stacked, as three labels with their units are too long for
+          // one pill on a phone.
           ListTile(
             leading: const Icon(Icons.straighten),
             title: Text(t.unitsLabel),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: SegmentedButton<String>(
-                segments: [
-                  ButtonSegment(value: 'auto', label: Text(t.unitsAuto)),
-                  ButtonSegment(value: 'metric', label: Text(t.unitsMetric)),
-                  ButtonSegment(
-                      value: 'imperial', label: Text(t.unitsImperial)),
-                ],
-                selected: {widget.store.localSetting(unitsSettingKey) ?? 'auto'},
-                onSelectionChanged: (s) => _setUnits(s.first),
-              ),
+          ),
+          RadioGroup<String>(
+            groupValue: widget.store.localSetting(unitsSettingKey) ?? 'auto',
+            onChanged: (v) {
+              if (v != null) _setUnits(v);
+            },
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                RadioListTile<String>(title: Text(t.unitsAuto), value: 'auto'),
+                RadioListTile<String>(
+                  title: Text(t.unitsMetric),
+                  value: 'metric',
+                ),
+                RadioListTile<String>(
+                  title: Text(t.unitsImperial),
+                  value: 'imperial',
+                ),
+              ],
             ),
           ),
           SwitchListTile(
@@ -177,7 +185,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               refreshChoreReminders(
                 widget.store,
                 body: (c) =>
-                    widget.store.current(c.entity, Keys.name) ?? context.t.unnamed,
+                    widget.store.current(c.entity, Keys.name) ??
+                    context.t.unnamed,
               );
             }),
           ),

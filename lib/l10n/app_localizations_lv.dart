@@ -461,6 +461,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get missingSinceLabel => 'Pazudis kopš';
 
   @override
+  String get missingSinceNotOnFlier => 'Skrejlapā nav atrasts — šodien';
+
+  @override
   String get cropPortrait => 'Apgriezt portretu';
 
   @override
@@ -1138,11 +1141,11 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta. Pieskaries Stray Cam, lai uzņemtu foto; turi nospiestu, lai filmētu video un labākos kadrus paturētu kā foto.';
+      'Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta. “No video…” izvēlas video un labākos kadrus patur kā foto.';
 
   @override
   String get helpStraysNeutral =>
-      'Mājdzīvnieki, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta dzīvnieku tavā priekšā; sludinājuma poga pārvērš pazuduša mājdzīvnieka plakātu par mājdzīvnieku ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta. Pieskaries Stray Cam, lai uzņemtu foto; turi nospiestu, lai filmētu video un labākos kadrus paturētu kā foto.';
+      'Mājdzīvnieki, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta dzīvnieku tavā priekšā; sludinājuma poga pārvērš pazuduša mājdzīvnieka plakātu par mājdzīvnieku ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta. “No video…” izvēlas video un labākos kadrus patur kā foto.';
 
   @override
   String get helpMap =>
@@ -1724,6 +1727,21 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Papildu pirksti';
+
+  @override
+  String get looksValueMissingLeg => 'Trūkst kājas';
+
+  @override
+  String get looksValueMissingToes => 'Trūkst pirkstu';
+
+  @override
+  String get looksValueInjuredWing => 'Savainots spārns';
+
+  @override
+  String get looksValueClippedWings => 'Apgriezti spārni';
+
+  @override
+  String get looksValueDamagedShell => 'Bojāts bruņu vairogs';
 
   @override
   String get rejectMatch => 'Nav tas pats';
@@ -2817,6 +2835,12 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Nedēļas dienas';
+
+  @override
+  String get choreRepeatOnce => 'Vienreizējs';
+
+  @override
+  String get choreNoDueDate => 'Bez termiņa — jebkurā dienā';
 
   @override
   String choreEveryDays(int n) {

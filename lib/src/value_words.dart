@@ -24,6 +24,8 @@ String scheduleWords(AppLocalizations t, ChoreSchedule s) {
         ChoreUnit.months => t.choreEveryMonths(s.every),
         ChoreUnit.years => t.choreEveryYears(s.every),
       };
+    case ChoreRepeat.once:
+      return t.choreRepeatOnce;
     case ChoreRepeat.weekdays:
       final monday = DateTime(2026, 9, 7);
       final days = s.weekdays.toList()..sort();

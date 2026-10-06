@@ -41,6 +41,42 @@ void main() {
           contains('Mizzi II'));
     });
 
+    group('the latest move by its own date decides the home', () {
+      late String home;
+      late String homeCat;
+      late String flierCat;
+
+      setUp(() {
+        home = store.createClowder('Home');
+        homeCat = store.createCat('Minka',
+            clowderId: home, date: DateTime.utc(2020, 1, 1));
+        // A flier: the cat ran away from its home on 3 October.
+        flierCat = store.createCat('Minka (flier)',
+            clowderId: home, date: DateTime.utc(2025, 10, 3));
+        store.moveCat(flierCat, null, date: DateTime.utc(2025, 10, 3));
+      });
+
+      test('the flier cat merged into the home cat stays a stray', () {
+        store.mergeCat(flierCat, homeCat);
+        expect(store.current(homeCat, Keys.clowder), isNull);
+        expect(store.fieldHistory(homeCat, Keys.clowder).first.date,
+            DateTime.utc(2025, 10, 3));
+      });
+
+      test('the home cat merged into the flier cat stays one too', () {
+        store.mergeCat(homeCat, flierCat);
+        expect(store.current(flierCat, Keys.clowder), isNull);
+        expect(store.fieldHistory(flierCat, Keys.clowder).first.date,
+            DateTime.utc(2025, 10, 3));
+      });
+
+      test('a later move home wins over the flier', () {
+        store.moveCat(homeCat, home, date: DateTime.utc(2025, 10, 9));
+        store.mergeCat(flierCat, homeCat);
+        expect(store.current(homeCat, Keys.clowder), home);
+      });
+    });
+
     test('loser photos show on the survivor', () {
       final survivor = store.createCat('Miezi');
       final loser = store.createCat('Mizzi');

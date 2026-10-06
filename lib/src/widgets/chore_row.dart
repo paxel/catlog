@@ -42,6 +42,20 @@ class ChoreRow extends StatelessWidget {
 
   void _toggle() {
     final ticks = store.choreTicks(chore);
+    if (chore.once) {
+      // One occurrence, on its first day; a tick there settles it, and
+      // taking it back takes back whichever tick there is.
+      if (ticks.isEmpty) {
+        store.tickChore(chore, chore.start, doneOn: today);
+        tickSound(store);
+      } else {
+        for (final occurrence in ticks.keys) {
+          store.untickChore(chore, occurrence);
+        }
+      }
+      onChanged();
+      return;
+    }
     if (ticks.containsKey(dayOf(due))) {
       store.untickChore(chore, due);
     } else {
@@ -55,16 +69,35 @@ class ChoreRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.t;
     final ticks = store.choreTicks(chore);
-    final done = ticks.containsKey(dayOf(due));
-    final later = dayOf(due).isAfter(dayOf(today));
+    final once = chore.once;
+    final done = once ? ticks.isNotEmpty : ticks.containsKey(dayOf(due));
+    final later = !once && dayOf(due).isAfter(dayOf(today));
     final run = streak(chore, ticks, today);
     final locale = Localizations.localeOf(context).toString();
+    // A one-time chore says how its day stands: overdue in red, due
+    // soon in orange, the date further off, nothing without a day.
+    final toDue = once && !done ? daysToDue(chore, today) : null;
+    final overdue = toDue != null && toDue < 0;
+    final soon = toDue != null && toDue > 0 && toDue <= 3;
+    final dueWords = switch (toDue) {
+      null => null,
+      < 0 => t.overdueByDays(-toDue),
+      0 => t.dueToday,
+      <= 3 => t.choreDue(t.dueInDays(toDue)),
+      _ => t.choreDue(DateFormat.MMMEd(locale).format(chore.due!)),
+    };
     final parts = <String>[
       if (showEntity) store.current(chore.entity, Keys.name) ?? t.unnamed,
       if (later) t.choreDue(DateFormat.MMMEd(locale).format(due)),
+      ?dueWords,
       if (run > 0) t.streakDays(run),
       if (chore.paused) t.chorePaused,
     ];
+    final alarm = overdue
+        ? Theme.of(context).colorScheme.error
+        : soon
+            ? Colors.orange.shade800
+            : null;
     final time = chore.time;
     final title = time == null
         ? chore.title
@@ -87,13 +120,20 @@ class ChoreRow extends StatelessWidget {
               ? TextStyle(decoration: TextDecoration.lineThrough, color: faded)
               : paused
                   ? TextStyle(color: faded)
-                  : null,
+                  : overdue
+                      ? TextStyle(color: alarm)
+                      : null,
         ),
         subtitle: parts.isEmpty
             ? null
             : Text(parts.join(' · '),
-                style: done || paused ? TextStyle(color: faded) : null),
-        trailing: _WeekDots(weekDots(chore, ticks, today)),
+                style: done || paused
+                    ? TextStyle(color: faded)
+                    : alarm == null
+                        ? null
+                        : TextStyle(color: alarm)),
+        // A week has nothing to say about a chore done once.
+        trailing: once ? null : _WeekDots(weekDots(chore, ticks, today)),
         onTap: onOpen,
         onLongPress: () => _edit(context),
       ),

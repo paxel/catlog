@@ -24,7 +24,7 @@ import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
-import 'cat_list_screen.dart';
+import 'map_spot_screen.dart';
 import 'field_history_screen.dart';
 import 'timeline_screen.dart';
 import '../exclusive.dart';
@@ -57,15 +57,16 @@ class MapScreen extends StatefulWidget {
   /// row was opened from. Nothing when the value is not on the trail.
   final int? dot;
 
-  const MapScreen(
-      {super.key,
-      required this.store,
-      this.tileProvider,
-      this.initialCenter,
-      this.geocode,
-      this.focus,
-      this.trailOf,
-      this.dot});
+  const MapScreen({
+    super.key,
+    required this.store,
+    this.tileProvider,
+    this.initialCenter,
+    this.geocode,
+    this.focus,
+    this.trailOf,
+    this.dot,
+  });
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -81,15 +82,29 @@ const _dotSize = 26.0;
 /// Greedy nearest-neighbor order over the pins, starting from [from] —
 /// the prev/next arrows walk the map like a route.
 List<(EntityView, LatLng)> navChain(
-    List<(EntityView, LatLng)> pins, LatLng from) {
+  List<(EntityView, LatLng)> pins,
+  LatLng from,
+) {
   final remaining = [...pins];
   final chain = <(EntityView, LatLng)>[];
   var cursor = from;
   while (remaining.isNotEmpty) {
-    remaining.sort((a, b) => haversineMeters(cursor.latitude,
-            cursor.longitude, a.$2.latitude, a.$2.longitude)
-        .compareTo(haversineMeters(cursor.latitude, cursor.longitude,
-            b.$2.latitude, b.$2.longitude)));
+    remaining.sort(
+      (a, b) =>
+          haversineMeters(
+            cursor.latitude,
+            cursor.longitude,
+            a.$2.latitude,
+            a.$2.longitude,
+          ).compareTo(
+            haversineMeters(
+              cursor.latitude,
+              cursor.longitude,
+              b.$2.latitude,
+              b.$2.longitude,
+            ),
+          ),
+    );
     final next = remaining.removeAt(0);
     chain.add(next);
     cursor = next.$2;
@@ -170,8 +185,10 @@ class _MapScreenState extends State<MapScreen>
           !camera.zoom.isFinite) {
         return;
       }
-      store.setLocalSetting(mapViewportKey,
-          '${center.latitude},${center.longitude},${camera.zoom}');
+      store.setLocalSetting(
+        mapViewportKey,
+        '${center.latitude},${center.longitude},${camera.zoom}',
+      );
     });
   }
 
@@ -179,26 +196,26 @@ class _MapScreenState extends State<MapScreen>
   void _animateTo(LatLng dest, double zoom) {
     _glide?.dispose();
     final camera = _controller.camera;
-    final latTween =
-        Tween(begin: camera.center.latitude, end: dest.latitude);
-    final lonTween =
-        Tween(begin: camera.center.longitude, end: dest.longitude);
+    final latTween = Tween(begin: camera.center.latitude, end: dest.latitude);
+    final lonTween = Tween(begin: camera.center.longitude, end: dest.longitude);
     final zoomTween = Tween(begin: camera.zoom, end: zoom);
     final controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 600));
-    final curve =
-        CurvedAnimation(parent: controller, curve: Curves.easeInOut);
+      vsync: this,
+      duration: const Duration(milliseconds: 600),
+    );
+    final curve = CurvedAnimation(parent: controller, curve: Curves.easeInOut);
     controller.addListener(() {
       _controller.move(
-          LatLng(latTween.evaluate(curve), lonTween.evaluate(curve)),
-          zoomTween.evaluate(curve));
+        LatLng(latTween.evaluate(curve), lonTween.evaluate(curve)),
+        zoomTween.evaluate(curve),
+      );
     });
     controller.forward();
     _glide = controller;
   }
 
-  Future<void> _jumpToMyLocation() => runExclusive(
-      'locate', _jumpToMyLocationNow, context: context);
+  Future<void> _jumpToMyLocation() =>
+      runExclusive('locate', _jumpToMyLocationNow, context: context);
 
   Future<void> _jumpToMyLocationNow() async {
     final outcome = await locateDevice();
@@ -206,7 +223,9 @@ class _MapScreenState extends State<MapScreen>
     if (pos == null) {
       if (mounted) {
         await explainLocationFailure(
-            context, outcome.failure ?? LocationFailure.noFix);
+          context,
+          outcome.failure ?? LocationFailure.noFix,
+        );
       }
       return;
     }
@@ -227,10 +246,8 @@ class _MapScreenState extends State<MapScreen>
   /// user currently looks; the chain rebuilds when pins change.
   void _stepPins(int direction) {
     final pins = [
-      ..._positioned(store.visibleClowders(), sightingsOnly: false),
-      for (final g in _grouped(_catPins())) (g.cats.first, g.point),
-      ..._flierPinned(store.visibleStrays()),
-      for (final (e, _, p) in _userPins()) (e, p),
+      for (final s in _spots())
+        (EntityView(s.front.id, s.front.name), LatLng(s.lat, s.lon)),
     ];
     if (pins.isEmpty) return;
     if (_navChain == null || _navChain!.length != pins.length) {
@@ -254,45 +271,47 @@ class _MapScreenState extends State<MapScreen>
                 CatalogStore.parsePositionKind(e.value ?? '') ==
                     PositionKind.sighting))
           if (CatalogStore.parsePosition(e.value) case final pos?)
-            (e, LatLng(pos.$1, pos.$2))
+            (e, LatLng(pos.$1, pos.$2)),
     ];
   }
 
   /// The location fields a keeper added, besides the built-in position.
   List<FieldDef> _userLocationFields(FieldScope scope) => [
-        for (final def in store.visibleFieldDefs())
-          if (def.type == FieldType.location &&
-              def.key != CatalogStore.positionKey &&
-              (def.scope == FieldScope.both || def.scope == scope))
-            def
-      ];
+    for (final def in store.visibleFieldDefs())
+      if (def.type == FieldType.location &&
+          def.key != CatalogStore.positionKey &&
+          (def.scope == FieldScope.both || def.scope == scope))
+        def,
+  ];
 
   /// Every value of a user-added location field on a visible cat or
   /// home: one pin each.
   List<(EntityView, FieldDef, LatLng)> _userPins() => [
-        for (final (entities, scope) in [
-          (store.visibleCats(), FieldScope.cat),
-          (store.visibleClowders(), FieldScope.clowder),
-        ])
-          for (final def in _userLocationFields(scope))
-            for (final e in entities)
-              if (CatalogStore.parsePosition(store.current(e.id, def.key))
-                  case final pos?)
-                (e, def, LatLng(pos.$1, pos.$2))
-      ];
+    for (final (entities, scope) in [
+      (store.visibleCats(), FieldScope.cat),
+      (store.visibleClowders(), FieldScope.clowder),
+    ])
+      for (final def in _userLocationFields(scope))
+        for (final e in entities)
+          if (CatalogStore.parsePosition(store.current(e.id, def.key))
+              case final pos?)
+            (e, def, LatLng(pos.$1, pos.$2)),
+  ];
 
   /// A neutral face for a user-added location: a place mark in a ring.
   Widget _placeFace(bool highlighted) => Container(
-        width: 42,
-        height: 42,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-              color: highlighted ? Colors.red : Colors.blueGrey, width: 3),
-          color: Colors.white,
-        ),
-        child: const Icon(Icons.place, size: 24, color: Colors.blueGrey),
-      );
+    width: 42,
+    height: 42,
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      border: Border.all(
+        color: highlighted ? Colors.red : Colors.blueGrey,
+        width: 3,
+      ),
+      color: Colors.white,
+    ),
+    child: const Icon(Icons.place, size: 24, color: Colors.blueGrey),
+  );
 
   @override
   void initState() {
@@ -305,14 +324,18 @@ class _MapScreenState extends State<MapScreen>
           .firstOrNull;
     }
     WidgetsBinding.instance.addPostFrameCallback(
-        (_) => runSpotlights(context, store, 'map'));
+      (_) => runSpotlights(context, store, 'map'),
+    );
     if (widget.tileProvider != null) {
       _tiles = widget.tileProvider;
     } else {
       getApplicationSupportDirectory().then((dir) {
         if (mounted) {
-          setState(() =>
-              _tiles = DiskCachingTileProvider(Directory('${dir.path}/tiles')));
+          setState(
+            () => _tiles = DiskCachingTileProvider(
+              Directory('${dir.path}/tiles'),
+            ),
+          );
         }
       });
     }
@@ -321,25 +344,26 @@ class _MapScreenState extends State<MapScreen>
   /// Strays pin at their latest sighting; their flier positions get
   /// their own square pins ([_flierPinned], #83). Clowders pin at their
   /// plain position.
-  List<(EntityView, LatLng)> _positioned(List<EntityView> entities,
-          {required bool sightingsOnly}) =>
-      [
-        for (final e in entities)
-          if ((sightingsOnly
-                  ? store.sightingPositionOf(e.id)
-                  : store.positionOf(e.id))
-              case final pos?)
-            (e, LatLng(pos.$1, pos.$2))
-      ];
+  List<(EntityView, LatLng)> _positioned(
+    List<EntityView> entities, {
+    required bool sightingsOnly,
+  }) => [
+    for (final e in entities)
+      if ((sightingsOnly
+              ? store.sightingPositionOf(e.id)
+              : store.positionOf(e.id))
+          case final pos?)
+        (e, LatLng(pos.$1, pos.$2)),
+  ];
 
   /// Each stray's latest flier position — where its poster says it was
   /// lost — for the square pins (#83). Older flier positions stay in
   /// the stray-area overlay (#55).
   List<(EntityView, LatLng)> _flierPinned(List<EntityView> entities) => [
-        for (final e in entities)
-          if (store.flierPositions(e.id).firstOrNull case final pos?)
-            (e, LatLng(pos.$1, pos.$2))
-      ];
+    for (final e in entities)
+      if (store.flierPositions(e.id).firstOrNull case final pos?)
+        (e, LatLng(pos.$1, pos.$2)),
+  ];
 
   /// Cats that pin on their own: strays, and members of a clowder that
   /// has no position of its own (#88) — each at its latest sighting,
@@ -364,46 +388,84 @@ class _MapScreenState extends State<MapScreen>
     return pins;
   }
 
-  /// Cat pins within [groupMeters] of each other merge into one pin
-  /// (#88): one face, the name, and "+x"; tapping opens the cat list.
-  List<_PinGroup> _grouped(List<(EntityView, LatLng, DateTime)> pins) {
-    final groups = <_PinGroup>[];
-    for (final (cat, point, _) in pins) {
-      _PinGroup? near;
-      for (final g in groups) {
-        if (haversineMeters(g.point.latitude, g.point.longitude,
-                point.latitude, point.longitude) <=
-            groupMeters) {
-          near = g;
-          break;
-        }
-      }
-      if (near == null) {
-        groups.add(_PinGroup([cat], point));
-      } else {
-        near.cats.add(cat);
-      }
-    }
-    return groups;
-  }
+  /// Everything on the map as pins, one spot per [spotMeters]: homes at
+  /// their position, cats at their latest sighting, fliers where the
+  /// poster says a cat was lost, a keeper's own location fields. Within
+  /// a spot the home leads, then the cats freshest first (#88).
+  List<PinSpot> _spots() => groupPins([
+    for (final (c, p) in _positioned(
+      store.visibleClowders(),
+      sightingsOnly: false,
+    ))
+      MapPin(
+        kind: PinKind.home,
+        id: c.id,
+        name: c.name,
+        lat: p.latitude,
+        lon: p.longitude,
+      ),
+    for (final (cat, p, _) in _catPins())
+      MapPin(
+        kind: PinKind.cat,
+        id: cat.id,
+        name: cat.name,
+        lat: p.latitude,
+        lon: p.longitude,
+      ),
+    for (final (cat, p) in _flierPinned(store.visibleStrays()))
+      MapPin(
+        kind: PinKind.flier,
+        id: cat.id,
+        name: cat.name,
+        lat: p.latitude,
+        lon: p.longitude,
+      ),
+    for (final (e, def, p) in _userPins())
+      MapPin(
+        kind: PinKind.field,
+        id: e.id,
+        name: e.name,
+        lat: p.latitude,
+        lon: p.longitude,
+        fieldKey: def.key,
+      ),
+  ]);
 
   Widget _focusFace(String id) =>
       id.startsWith('clowder:') ? _clowderFace(id) : _catFace(id, true);
 
-  Future<void> _openGroup(_PinGroup group) async {
-    final ids = {for (final c in group.cats) c.id};
-    await Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => CatListScreen(
-        store: store,
-        title: context.t.cats,
-        source: (s) => [
-          for (final c in s.visibleCats())
-            if (ids.contains(c.id)) c
-        ],
+  /// A merged pin opens the list of what is there; the map icon on a
+  /// row comes back with that thing's trail on.
+  Future<void> _openSpot(PinSpot spot) async {
+    final trail = await Navigator.of(context).push<(String, String)>(
+      MaterialPageRoute(
+        builder: (_) => MapSpotScreen(store: store, spot: spot),
       ),
-    ));
-    if (mounted) setState(() {});
+    );
+    if (!mounted) return;
+    setState(() {
+      if (trail != null) _trailOf = trail;
+    });
   }
+
+  Color _pinColor(PinKind kind) => switch (kind) {
+    PinKind.home => Theme.of(context).colorScheme.primary,
+    PinKind.field => Colors.blueGrey,
+    PinKind.cat || PinKind.flier => Colors.deepOrange,
+  };
+
+  Widget _face(MapPin pin, bool highlighted) => switch (pin.kind) {
+    PinKind.home => _clowderFace(pin.id),
+    PinKind.cat => _catFace(pin.id, highlighted),
+    PinKind.flier => _flierFace(pin.id, highlighted),
+    PinKind.field => _placeFace(highlighted),
+  };
+
+  /// A single pin's label: the name, and for an own location field the
+  /// field's name beside it.
+  String _singleLabel(MapPin pin) => pin.kind == PinKind.field
+      ? '${pin.name} · ${fieldDefName(context.t, store.visibleFieldDefs().firstWhere((d) => d.key == pin.fieldKey))}'
+      : pin.name;
 
   // Only sightings are recorded from the map; a clowder's position is set
   // via its Position field — clowders move far too rarely for a map menu.
@@ -422,11 +484,13 @@ class _MapScreenState extends State<MapScreen>
         for (final s in strays)
           PopupMenuItem(
             value: s.id,
-            child: Row(children: [
-              CatAvatar(store: store, catId: s.id, size: 32),
-              const SizedBox(width: 12),
-              Text(s.name),
-            ]),
+            child: Row(
+              children: [
+                CatAvatar(store: store, catId: s.id, size: 32),
+                const SizedBox(width: 12),
+                Text(s.name),
+              ],
+            ),
           ),
       ],
     );
@@ -463,11 +527,13 @@ class _MapScreenState extends State<MapScreen>
     if (action == null || !mounted) return;
     switch (action) {
       case 'history':
-        await Navigator.of(context).push(MaterialPageRoute(
-          builder: (_) => def != null
-              ? FieldHistoryScreen(store: store, entityId: id, def: def)
-              : TimelineScreen(store: store, entityId: id, field: field),
-        ));
+        await Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => def != null
+                ? FieldHistoryScreen(store: store, entityId: id, def: def)
+                : TimelineScreen(store: store, entityId: id, field: field),
+          ),
+        );
       case 'correct':
         final edit = await editFieldValue(
           context,
@@ -498,7 +564,7 @@ class _MapScreenState extends State<MapScreen>
       for (final cat in store.visibleCats())
         if (store.flierPositions(cat.id).isNotEmpty ||
             strayHomePosition(store, cat.id) != null)
-          cat
+          cat,
     ];
     // A dialog with OK, not a sheet: a sheet has no visible way out
     // but tapping beside it, which nobody guesses.
@@ -511,26 +577,32 @@ class _MapScreenState extends State<MapScreen>
             width: 360,
             child: missing.isEmpty
                 ? Text(context.t.noMissingCats)
-                : ListView(shrinkWrap: true, children: [
-                    for (final cat in missing)
-                      CheckboxListTile(
-                        contentPadding: EdgeInsets.zero,
-                        value: _strayAreas.contains(cat.id),
-                        title: Text(cat.name),
-                        secondary:
-                            CatAvatar(store: store, catId: cat.id, size: 36),
-                        onChanged: (on) {
-                          setDialog(() {});
-                          setState(() {
-                            if (on == true) {
-                              _strayAreas.add(cat.id);
-                            } else {
-                              _strayAreas.remove(cat.id);
-                            }
-                          });
-                        },
-                      ),
-                  ]),
+                : ListView(
+                    shrinkWrap: true,
+                    children: [
+                      for (final cat in missing)
+                        CheckboxListTile(
+                          contentPadding: EdgeInsets.zero,
+                          value: _strayAreas.contains(cat.id),
+                          title: Text(cat.name),
+                          secondary: CatAvatar(
+                            store: store,
+                            catId: cat.id,
+                            size: 36,
+                          ),
+                          onChanged: (on) {
+                            setDialog(() {});
+                            setState(() {
+                              if (on == true) {
+                                _strayAreas.add(cat.id);
+                              } else {
+                                _strayAreas.remove(cat.id);
+                              }
+                            });
+                          },
+                        ),
+                    ],
+                  ),
           ),
           actions: [
             FilledButton(
@@ -553,8 +625,8 @@ class _MapScreenState extends State<MapScreen>
     final ring = highlighted
         ? Colors.red
         : dead
-            ? Colors.grey
-            : Colors.deepOrange;
+        ? Colors.grey
+        : Colors.deepOrange;
     final avatar = CircleAvatar(
       radius: 18,
       backgroundColor: Colors.white,
@@ -571,10 +643,12 @@ class _MapScreenState extends State<MapScreen>
       ),
       child: dead
           ? ClipOval(
-              child: withMourningBand(Opacity(
-                opacity: 0.65,
-                child: ColorFiltered(colorFilter: greyscale, child: avatar),
-              )),
+              child: withMourningBand(
+                Opacity(
+                  opacity: 0.65,
+                  child: ColorFiltered(colorFilter: greyscale, child: avatar),
+                ),
+              ),
             )
           : avatar,
     );
@@ -592,18 +666,24 @@ class _MapScreenState extends State<MapScreen>
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3),
         border: Border.all(
-            color: highlighted ? Colors.red : Colors.deepOrange, width: 3),
+          color: highlighted ? Colors.red : Colors.deepOrange,
+          width: 3,
+        ),
         color: Colors.white,
         image: photo != null
             ? DecorationImage(
-                image: ResizeImage(photo, width: 96), fit: BoxFit.cover)
+                image: ResizeImage(photo, width: 96),
+                fit: BoxFit.cover,
+              )
             : null,
       ),
       child: photo == null ? _placeholder() : null,
     );
     if (!isDeceased(store, catId)) return face;
     return ClipRRect(
-        borderRadius: BorderRadius.circular(3), child: withMourningBand(face));
+      borderRadius: BorderRadius.circular(3),
+      child: withMourningBand(face),
+    );
   }
 
   /// The face of an animal without a photo: the cat silhouette, or a
@@ -612,7 +692,8 @@ class _MapScreenState extends State<MapScreen>
       ? const Icon(Icons.pets, size: 24, color: Colors.deepOrange)
       : const CustomPaint(
           size: Size(24, 24),
-          painter: _CatSilhouettePainter(Colors.deepOrange));
+          painter: _CatSilhouettePainter(Colors.deepOrange),
+        );
 
   /// A clowder's own photo in a rounded-square ring — visually distinct
   /// from the round cat faces; house silhouette only as placeholder.
@@ -620,8 +701,7 @@ class _MapScreenState extends State<MapScreen>
     final images = store.images(clowderId);
     // Same rule as the cat faces: the cached provider, decoded at pin
     // size — a fresh full-size MemoryImage per build was the leak.
-    final photo =
-        images.isEmpty ? null : imageProviderFor(store, images.first);
+    final photo = images.isEmpty ? null : imageProviderFor(store, images.first);
     final color = Theme.of(context).colorScheme.primary;
     return Container(
       width: 42,
@@ -632,7 +712,9 @@ class _MapScreenState extends State<MapScreen>
         color: photo == null ? color : Colors.white,
         image: photo != null
             ? DecorationImage(
-                image: ResizeImage(photo, width: 96), fit: BoxFit.cover)
+                image: ResizeImage(photo, width: 96),
+                fit: BoxFit.cover,
+              )
             : null,
       ),
       child: photo == null
@@ -659,7 +741,7 @@ class _MapScreenState extends State<MapScreen>
         ..._positioned(store.visibleClowders(), sightingsOnly: false),
         for (final (e, _, p) in _userPins()) (e, p),
       ])
-        if (matches(entry.$1)) entry
+        if (matches(entry.$1)) entry,
     ];
     if (found.isEmpty) {
       // The catalog knows nothing by this name — ask the world (#55).
@@ -683,14 +765,16 @@ class _MapScreenState extends State<MapScreen>
     if (found.length == 1) {
       _animateTo(found.single.$2, 15);
     } else if (found.length > 1) {
-      _controller.fitCamera(CameraFit.bounds(
-        bounds: LatLngBounds.fromPoints([for (final f in found) f.$2]),
-        padding: const EdgeInsets.all(64),
-        // Several hits on the same spot make zero-size bounds; without
-        // a ceiling the fit computes an infinite zoom and every tile
-        // update crashes with "Infinity or NaN toInt".
-        maxZoom: 17,
-      ));
+      _controller.fitCamera(
+        CameraFit.bounds(
+          bounds: LatLngBounds.fromPoints([for (final f in found) f.$2]),
+          padding: const EdgeInsets.all(64),
+          // Several hits on the same spot make zero-size bounds; without
+          // a ceiling the fit computes an infinite zoom and every tile
+          // update crashes with "Infinity or NaN toInt".
+          maxZoom: 17,
+        ),
+      );
     }
   }
 
@@ -703,31 +787,33 @@ class _MapScreenState extends State<MapScreen>
         top: false,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          child: Row(children: [
-            Spotlight(
-              id: 'map-layers',
-              child: IconButton(
-                icon: const Icon(Icons.layers_outlined),
-                tooltip: context.t.strayAreaLabel,
-                onPressed: _pickStrayAreas,
+          child: Row(
+            children: [
+              Spotlight(
+                id: 'map-layers',
+                child: IconButton(
+                  icon: const Icon(Icons.layers_outlined),
+                  tooltip: context.t.strayAreaLabel,
+                  onPressed: _pickStrayAreas,
+                ),
               ),
-            ),
-            IconButton(
-              icon: const BusyIcon(keys: {'locate'}, icon: Icons.my_location),
-              tooltip: context.t.useMyLocation,
-              onPressed: _jumpToMyLocation,
-            ),
-            IconButton(
-              icon: const Icon(Icons.chevron_left),
-              tooltip: context.t.prevPin,
-              onPressed: () => _stepPins(-1),
-            ),
-            IconButton(
-              icon: const Icon(Icons.chevron_right),
-              tooltip: context.t.nextPin,
-              onPressed: () => _stepPins(1),
-            ),
-          ]),
+              IconButton(
+                icon: const BusyIcon(keys: {'locate'}, icon: Icons.my_location),
+                tooltip: context.t.useMyLocation,
+                onPressed: _jumpToMyLocation,
+              ),
+              IconButton(
+                icon: const Icon(Icons.chevron_left),
+                tooltip: context.t.prevPin,
+                onPressed: () => _stepPins(-1),
+              ),
+              IconButton(
+                icon: const Icon(Icons.chevron_right),
+                tooltip: context.t.nextPin,
+                onPressed: () => _stepPins(1),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -747,35 +833,39 @@ class _MapScreenState extends State<MapScreen>
     var label = def != null
         ? t.trailOfField(name, fieldDefName(t, def), count)
         : id.startsWith('clowder:')
-            ? t.trailOfPlace(name, count)
-            : t.trailOf(name, count);
+        ? t.trailOfPlace(name, count)
+        : t.trailOf(name, count);
     if (_dot case final dot?) {
       final date = dot.date.toLocal().toIso8601String().substring(0, 10);
       label = '$label · $date · ${dot.author}';
     }
     return BottomAppBar(
-      child: Row(children: [
-        Expanded(child: Text(label, overflow: TextOverflow.ellipsis)),
-        TextButton(
-          onPressed: () async {
-            await Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => id.startsWith('clowder:')
-                  ? ClowderDetailScreen(store: store, clowderId: id)
-                  : CatDetailScreen(store: store, catId: id),
-            ));
-            if (!mounted) return;
-            setState(() {});
-          },
-          child: Text(t.open),
-        ),
-        IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => setState(() {
-            _trailOf = null;
-            _dot = null;
-          }),
-        ),
-      ]),
+      child: Row(
+        children: [
+          Expanded(child: Text(label, overflow: TextOverflow.ellipsis)),
+          TextButton(
+            onPressed: () async {
+              await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => id.startsWith('clowder:')
+                      ? ClowderDetailScreen(store: store, clowderId: id)
+                      : CatDetailScreen(store: store, catId: id),
+                ),
+              );
+              if (!mounted) return;
+              setState(() {});
+            },
+            child: Text(t.open),
+          ),
+          IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () => setState(() {
+              _trailOf = null;
+              _dot = null;
+            }),
+          ),
+        ],
+      ),
     );
   }
 
@@ -784,19 +874,14 @@ class _MapScreenState extends State<MapScreen>
     if (_tiles == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final groups = _grouped(_catPins());
-    final fliers = _flierPinned(store.visibleStrays());
-    final clowders =
-        _positioned(store.visibleClowders(), sightingsOnly: false);
-    final userPins = _userPins();
+    final spots = _spots();
     final all = [
-      for (final g in groups) (g.cats.first, g.point),
-      ...fliers,
-      ...clowders,
-      for (final (e, _, p) in userPins) (e, p),
+      for (final s in spots)
+        (EntityView(s.front.id, s.front.name), LatLng(s.lat, s.lon)),
     ];
     final stored = _storedViewport();
-    final center = widget.initialCenter ??
+    final center =
+        widget.initialCenter ??
         stored?.$1 ??
         (all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2);
     final zoom = widget.initialCenter != null
@@ -806,314 +891,315 @@ class _MapScreenState extends State<MapScreen>
       appBar: AppBar(
         title: Text(context.t.map),
         // All map controls live in the toolbar below the map.
-        actions: [
-          HelpButton(store: store, screenId: 'map'),
-        ],
+        actions: [HelpButton(store: store, screenId: 'map')],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(56),
           child: Spotlight(
             id: 'map-search',
             child: Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-            child: TextField(
-              controller: _search,
-              textInputAction: TextInputAction.search,
-              onSubmitted: (_) => _runSearch(),
-              onChanged: (v) {
-                if (v.isEmpty) setState(() => _hits = null);
-              },
-              decoration: InputDecoration(
-                hintText: context.t.mapSearchHint,
-                isDense: true,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
-                  borderSide: BorderSide.none,
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+              child: TextField(
+                controller: _search,
+                textInputAction: TextInputAction.search,
+                onSubmitted: (_) => _runSearch(),
+                onChanged: (v) {
+                  if (v.isEmpty) setState(() => _hits = null);
+                },
+                decoration: InputDecoration(
+                  hintText: context.t.mapSearchHint,
+                  isDense: true,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(24),
+                    borderSide: BorderSide.none,
+                  ),
+                  prefixIcon: const Icon(Icons.search),
                 ),
-                prefixIcon: const Icon(Icons.search),
               ),
             ),
-          ),
           ),
         ),
       ),
       // One toolbar row below the map instead of buttons floating on
       // it: nothing covers the map, and aiming at a button can no
       // longer pan it (fat fingers, #74 sibling).
-      body: Column(children: [
-        Expanded(child: Stack(children: [
-        FlutterMap(
-        mapController: _controller,
-        options: MapOptions(
-          initialCenter: center,
-          initialZoom: zoom,
-          onLongPress: (tap, point) => _longPress(tap.global, point),
-          // Reopen where the user left off (#55).
-          onPositionChanged: (camera, _) => _rememberViewport(camera),
-          // North stays up: accidental two-finger rotation kept leaving
-          // testers with a tilted map and no way back.
-          interactionOptions: const InteractionOptions(
-            flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
-          ),
-        ),
+      body: Column(
         children: [
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'io.github.paxel.catlog',
-            tileProvider: _tiles,
-            // Cached tiles pop in instantly; the fade animation only
-            // delays them (and never finishes under the test clock).
-            tileDisplay: const TileDisplay.instantaneous(),
-          ),
-          if (_strayAreas.isNotEmpty)
-            CircleLayer(circles: [
-              // The union of fixed 500 m circles around each selected
-              // missing cat's flier positions and the home it ran from
-              // — no radius knob (#31).
-              for (final catId in _strayAreas)
-                for (final pos in [
-                  ...store.flierPositions(catId),
-                  ?strayHomePosition(store, catId),
-                ])
-                  CircleMarker(
-                    point: LatLng(pos.$1, pos.$2),
-                    radius: strayAreaRadiusMeters,
-                    useRadiusInMeter: true,
-                    color: Colors.orange.withValues(alpha: 0.18),
-                    borderColor: Colors.deepOrange,
-                    borderStrokeWidth: 2,
-                  ),
-            ]),
-          // The trail line lies under the pins and dots, so both stay
-          // tappable.
-          if (_trailOf != null && _trailPoints(_trailOf!).length > 1)
-            PolylineLayer(polylines: [
-              Polyline(
-                points: [for (final (_, p) in _trailPoints(_trailOf!)) p],
-                strokeWidth: 3,
-                color: Colors.redAccent,
-              ),
-            ]),
-          MarkerLayer(markers: [
-            // Toggled stray areas carry the missing cat's face on each
-            // flier position — flier-only cats become reachable (#55).
-            for (final catId in _strayAreas)
-              for (final pos in store.flierPositions(catId).skip(1))
-                Marker(
-                  point: LatLng(pos.$1, pos.$2),
-                  width: _MapPin.width,
-                  height: _MapPin.height,
-                  alignment: Alignment.topCenter,
-                  child: _MapPin(
-                    label: null,
-                    onTap: () async {
-                      await Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) =>
-                            CatDetailScreen(store: store, catId: catId),
-                      ));
-                      if (!mounted) return;
-                      setState(() {});
-                    },
-                    child: _catFace(catId, false),
-                  ),
-                ),
-            for (final (clowder, point) in clowders)
-              Marker(
-                point: point,
-                width: _MapPin.width,
-                height: _MapPin.height,
-                alignment: Alignment.topCenter,
-                child: _MapPin(
-                  label: clowder.name,
-                  color: Theme.of(context).colorScheme.primary,
-                  highlighted: _onTrail(clowder.id),
-                  child: _clowderFace(clowder.id),
-                  onTap: () => _toggleTrail(clowder.id),
-                ),
-              ),
-            for (final group in groups)
-              if (group.cats case [final cat])
-                Marker(
-                  point: group.point,
-                  width: _MapPin.width,
-                  height: _MapPin.height,
-                  alignment: Alignment.topCenter,
-                  child: _MapPin(
-                    label: cat.name,
-                    highlighted: _onTrail(cat.id),
-                    child: _catFace(cat.id, _onTrail(cat.id)),
-                    onTap: () => _toggleTrail(cat.id),
-                  ),
-                )
-              else
-                // Several cats on one spot: one pin, the freshest face,
-                // the count — the list behind it tells them apart (#88).
-                Marker(
-                  point: group.point,
-                  width: _MapPin.width,
-                  height: _MapPin.height,
-                  alignment: Alignment.topCenter,
-                  child: _MapPin(
-                    label: '${group.cats.first.name} +${group.cats.length - 1}',
-                    child: _catFace(group.cats.first.id, false),
-                    onTap: () => _openGroup(group),
-                  ),
-                ),
-            if (widget.focus case (final id, final point))
-              Marker(
-                point: point,
-                width: _MapPin.width,
-                height: _MapPin.height,
-                alignment: Alignment.topCenter,
-                child: _MapPin(
-                  label: store.current(id, Keys.name) ?? context.t.unnamed,
-                  highlighted: true,
-                  child: _focusFace(id),
-                  onTap: () {},
-                ),
-              ),
-            // Where the poster says the cat was lost: a square pin,
-            // apart from the round sighting pins (#83).
-            for (final (cat, point) in fliers)
-              Marker(
-                point: point,
-                width: _MapPin.width,
-                height: _MapPin.height,
-                alignment: Alignment.topCenter,
-                child: _MapPin(
-                  label: cat.name,
-                  highlighted: _onTrail(cat.id),
-                  child: _flierFace(cat.id, _onTrail(cat.id)),
-                  onTap: () => _toggleTrail(cat.id),
-                ),
-              ),
-            // A keeper's own location fields: neutral pins, the field
-            // named on the label, a trail like any other.
-            for (final (entity, def, point) in userPins)
-              Marker(
-                point: point,
-                width: _MapPin.width,
-                height: _MapPin.height,
-                alignment: Alignment.topCenter,
-                child: _MapPin(
-                  label: '${entity.name} · ${fieldDefName(context.t, def)}',
-                  color: Colors.blueGrey,
-                  highlighted: _onTrail(entity.id, def.key),
-                  child: _placeFace(_onTrail(entity.id, def.key)),
-                  onTap: () => _toggleTrail(entity.id, def.key),
-                ),
-              ),
-            // One dot per value on the trail; a tap puts its date and
-            // author into the trail label, a hold opens its menu there.
-            if (_trailOf case final of?)
-              for (final (entry, point) in _trailPoints(of))
-                Marker(
-                  point: point,
-                  width: _dotSize,
-                  height: _dotSize,
-                  // The detector sits inside the tooltip: a tooltip
-                  // claims long presses of its own and would win.
-                  child: Tooltip(
-                    message: entry.date
-                        .toLocal()
-                        .toIso8601String()
-                        .substring(0, 10),
-                    child: GestureDetector(
-                      onTap: () => setState(() => _dot = entry),
-                      onLongPressStart: (d) =>
-                          _dotMenu(entry, d.globalPosition),
-                      child: Stack(children: [
-                        Positioned(
-                          left: 3,
-                          top: 3,
-                          width: 20,
-                          height: 20,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: _dot == entry
-                                  ? Colors.red
-                                  : Colors.redAccent,
-                              shape: BoxShape.circle,
-                              border:
-                                  Border.all(color: Colors.white, width: 2),
-                            ),
-                          ),
-                        ),
-                        const PositionedDirectional(
-                            top: 0, end: 0, child: CatEarBadge(size: 9)),
-                      ]),
+          Expanded(
+            child: Stack(
+              children: [
+                FlutterMap(
+                  mapController: _controller,
+                  options: MapOptions(
+                    initialCenter: center,
+                    initialZoom: zoom,
+                    onLongPress: (tap, point) => _longPress(tap.global, point),
+                    // Reopen where the user left off (#55).
+                    onPositionChanged: (camera, _) => _rememberViewport(camera),
+                    // North stays up: accidental two-finger rotation kept leaving
+                    // testers with a tilted map and no way back.
+                    interactionOptions: const InteractionOptions(
+                      flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
                     ),
                   ),
+                  children: [
+                    TileLayer(
+                      urlTemplate:
+                          'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                      userAgentPackageName: 'io.github.paxel.catlog',
+                      tileProvider: _tiles,
+                      // Cached tiles pop in instantly; the fade animation only
+                      // delays them (and never finishes under the test clock).
+                      tileDisplay: const TileDisplay.instantaneous(),
+                    ),
+                    if (_strayAreas.isNotEmpty)
+                      CircleLayer(
+                        circles: [
+                          // The union of fixed 500 m circles around each selected
+                          // missing cat's flier positions and the home it ran from
+                          // — no radius knob (#31).
+                          for (final catId in _strayAreas)
+                            for (final pos in [
+                              ...store.flierPositions(catId),
+                              ?strayHomePosition(store, catId),
+                            ])
+                              CircleMarker(
+                                point: LatLng(pos.$1, pos.$2),
+                                radius: strayAreaRadiusMeters,
+                                useRadiusInMeter: true,
+                                color: Colors.orange.withValues(alpha: 0.18),
+                                borderColor: Colors.deepOrange,
+                                borderStrokeWidth: 2,
+                              ),
+                        ],
+                      ),
+                    // The trail line lies under the pins and dots, so both stay
+                    // tappable.
+                    if (_trailOf != null && _trailPoints(_trailOf!).length > 1)
+                      PolylineLayer(
+                        polylines: [
+                          Polyline(
+                            points: [
+                              for (final (_, p) in _trailPoints(_trailOf!)) p,
+                            ],
+                            strokeWidth: 3,
+                            color: Colors.redAccent,
+                          ),
+                        ],
+                      ),
+                    MarkerLayer(
+                      markers: [
+                        // Toggled stray areas carry the missing cat's face on each
+                        // flier position — flier-only cats become reachable (#55).
+                        for (final catId in _strayAreas)
+                          for (final pos in store.flierPositions(catId).skip(1))
+                            Marker(
+                              point: LatLng(pos.$1, pos.$2),
+                              width: _MapPin.width,
+                              height: _MapPin.height,
+                              alignment: Alignment.topCenter,
+                              child: _MapPin(
+                                label: null,
+                                onTap: () async {
+                                  await Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => CatDetailScreen(
+                                        store: store,
+                                        catId: catId,
+                                      ),
+                                    ),
+                                  );
+                                  if (!mounted) return;
+                                  setState(() {});
+                                },
+                                child: _catFace(catId, false),
+                              ),
+                            ),
+                        for (final spot in spots)
+                          if (spot.merged)
+                            // Several things on one spot: one pin, the front thing's
+                            // face and colour, the count — the page behind it lists
+                            // them (#88).
+                            Marker(
+                              point: LatLng(spot.lat, spot.lon),
+                              width: _MapPin.width,
+                              height: _MapPin.height,
+                              alignment: Alignment.topCenter,
+                              child: _MapPin(
+                                label: spot.label,
+                                color: _pinColor(spot.front.kind),
+                                child: _face(spot.front, false),
+                                onTap: () => _openSpot(spot),
+                              ),
+                            )
+                          else
+                            Marker(
+                              point: LatLng(spot.lat, spot.lon),
+                              width: _MapPin.width,
+                              height: _MapPin.height,
+                              alignment: Alignment.topCenter,
+                              child: _MapPin(
+                                label: _singleLabel(spot.front),
+                                color: _pinColor(spot.front.kind),
+                                highlighted: _onTrail(
+                                  spot.front.id,
+                                  spot.front.fieldKey ??
+                                      CatalogStore.positionKey,
+                                ),
+                                child: _face(
+                                  spot.front,
+                                  _onTrail(
+                                    spot.front.id,
+                                    spot.front.fieldKey ??
+                                        CatalogStore.positionKey,
+                                  ),
+                                ),
+                                onTap: () => _toggleTrail(
+                                  spot.front.id,
+                                  spot.front.fieldKey ??
+                                      CatalogStore.positionKey,
+                                ),
+                              ),
+                            ),
+                        if (widget.focus case (final id, final point))
+                          Marker(
+                            point: point,
+                            width: _MapPin.width,
+                            height: _MapPin.height,
+                            alignment: Alignment.topCenter,
+                            child: _MapPin(
+                              label:
+                                  store.current(id, Keys.name) ??
+                                  context.t.unnamed,
+                              highlighted: true,
+                              child: _focusFace(id),
+                              onTap: () {},
+                            ),
+                          ),
+                        // One dot per value on the trail; a tap puts its date and
+                        // author into the trail label, a hold opens its menu there.
+                        if (_trailOf case final of?)
+                          for (final (entry, point) in _trailPoints(of))
+                            Marker(
+                              point: point,
+                              width: _dotSize,
+                              height: _dotSize,
+                              // The detector sits inside the tooltip: a tooltip
+                              // claims long presses of its own and would win.
+                              child: Tooltip(
+                                message: entry.date
+                                    .toLocal()
+                                    .toIso8601String()
+                                    .substring(0, 10),
+                                child: GestureDetector(
+                                  onTap: () => setState(() => _dot = entry),
+                                  onLongPressStart: (d) =>
+                                      _dotMenu(entry, d.globalPosition),
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                        left: 3,
+                                        top: 3,
+                                        width: 20,
+                                        height: 20,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            color: _dot == entry
+                                                ? Colors.red
+                                                : Colors.redAccent,
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color: Colors.white,
+                                              width: 2,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const PositionedDirectional(
+                                        top: 0,
+                                        end: 0,
+                                        child: CatEarBadge(size: 9),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                      ],
+                    ),
+                    const SimpleAttributionWidget(
+                      source: Text('OpenStreetMap contributors'),
+                    ),
+                  ],
                 ),
-          ]),
-          const SimpleAttributionWidget(
-            source: Text('OpenStreetMap contributors'),
+                if (_hits != null && _hits!.length != 1)
+                  Material(
+                    elevation: 4,
+                    child: _hits!.isEmpty
+                        ? ListTile(title: Text(context.t.noPlacesFound))
+                        : ListView(
+                            shrinkWrap: true,
+                            children: [
+                              for (final (entity, point) in _hits!)
+                                ListTile(
+                                  dense: true,
+                                  leading: Icon(
+                                    entity.id.startsWith('cat:')
+                                        ? Icons.pets
+                                        : Icons.home_outlined,
+                                  ),
+                                  title: Text(entity.name),
+                                  onTap: () {
+                                    setState(() => _hits = null);
+                                    FocusScope.of(context).unfocus();
+                                    _animateTo(point, 15);
+                                  },
+                                ),
+                            ],
+                          ),
+                  ),
+                if (_placeHits != null)
+                  Material(
+                    elevation: 4,
+                    child: _placeHits!.isEmpty
+                        ? ListTile(title: Text(context.t.noPlacesFound))
+                        : ListView(
+                            shrinkWrap: true,
+                            children: [
+                              for (final hit in _placeHits!)
+                                ListTile(
+                                  dense: true,
+                                  leading: const Icon(Icons.place_outlined),
+                                  title: Text(
+                                    hit.name,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  onTap: () {
+                                    setState(() => _placeHits = null);
+                                    FocusScope.of(context).unfocus();
+                                    _showPlace(hit);
+                                  },
+                                ),
+                            ],
+                          ),
+                  ),
+                // The whole map answers to long-press (records a sighting) —
+                // it wears the ear like every other hold-for-more surface.
+                const PositionedDirectional(
+                  top: 0,
+                  end: 0,
+                  child: CatEarBadge(),
+                ),
+              ],
+            ),
           ),
+          _toolbar(context),
         ],
       ),
-        if (_hits != null && _hits!.length != 1)
-          Material(
-            elevation: 4,
-            child: _hits!.isEmpty
-                ? ListTile(title: Text(context.t.noPlacesFound))
-                : ListView(shrinkWrap: true, children: [
-                    for (final (entity, point) in _hits!)
-                      ListTile(
-                        dense: true,
-                        leading: Icon(entity.id.startsWith('cat:')
-                            ? Icons.pets
-                            : Icons.home_outlined),
-                        title: Text(entity.name),
-                        onTap: () {
-                          setState(() => _hits = null);
-                          FocusScope.of(context).unfocus();
-                          _animateTo(point, 15);
-                        },
-                      ),
-                  ]),
-          ),
-        if (_placeHits != null)
-          Material(
-            elevation: 4,
-            child: _placeHits!.isEmpty
-                ? ListTile(title: Text(context.t.noPlacesFound))
-                : ListView(shrinkWrap: true, children: [
-                    for (final hit in _placeHits!)
-                      ListTile(
-                        dense: true,
-                        leading: const Icon(Icons.place_outlined),
-                        title: Text(hit.name,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis),
-                        onTap: () {
-                          setState(() => _placeHits = null);
-                          FocusScope.of(context).unfocus();
-                          _showPlace(hit);
-                        },
-                      ),
-                  ]),
-          ),
-          // The whole map answers to long-press (records a sighting) —
-          // it wears the ear like every other hold-for-more surface.
-          const PositionedDirectional(
-              top: 0, end: 0, child: CatEarBadge()),
-        ])),
-        _toolbar(context),
-      ]),
       bottomNavigationBar: _trailOf == null ? null : _trailBar(context),
     );
   }
-}
-
-/// Map pin: avatar/icon with the name on a readable chip below.
-/// Cat pins within this distance merge into one (#88).
-const groupMeters = 20.0;
-
-class _PinGroup {
-  final List<EntityView> cats;
-  final LatLng point;
-
-  _PinGroup(this.cats, this.point);
 }
 
 /// A pin on the map: the name above, the face, and a tip whose point
@@ -1130,12 +1216,13 @@ class _MapPin extends StatelessWidget {
   /// The tip's colour; the face's ring colour, so they read as one.
   final Color color;
 
-  const _MapPin(
-      {required this.label,
-      required this.child,
-      required this.onTap,
-      this.highlighted = false,
-      this.color = Colors.deepOrange});
+  const _MapPin({
+    required this.label,
+    required this.child,
+    required this.onTap,
+    this.highlighted = false,
+    this.color = Colors.deepOrange,
+  });
 
   /// The marker box every pin is laid out in; it sits above the point.
   static const width = 110.0;
@@ -1148,34 +1235,35 @@ class _MapPin extends StatelessWidget {
       // The marker box is laid out tight; packing to the end keeps the
       // tip's apex on the bottom edge, which is the coordinate.
       child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-        if (label case final label?)
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-            decoration: BoxDecoration(
-              color: highlighted ? Colors.red : Colors.white,
-              borderRadius: BorderRadius.circular(8),
-              boxShadow: const [
-                BoxShadow(blurRadius: 2, color: Colors.black26),
-              ],
-            ),
-            child: Text(
-              label,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: highlighted ? Colors.white : Colors.black87,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          if (label case final label?)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+              decoration: BoxDecoration(
+                color: highlighted ? Colors.red : Colors.white,
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: const [
+                  BoxShadow(blurRadius: 2, color: Colors.black26),
+                ],
+              ),
+              child: Text(
+                label,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: highlighted ? Colors.white : Colors.black87,
+                ),
               ),
             ),
-          ),
-        if (label != null) const SizedBox(height: 2),
-        child,
-        PinTip(color: highlighted ? Colors.red : color),
-      ]),
+          if (label != null) const SizedBox(height: 2),
+          child,
+          PinTip(color: highlighted ? Colors.red : color),
+        ],
+      ),
     );
   }
 }
@@ -1188,10 +1276,8 @@ class PinTip extends StatelessWidget {
   const PinTip({super.key, required this.color});
 
   @override
-  Widget build(BuildContext context) => CustomPaint(
-        size: const Size(14, 9),
-        painter: _PinTipPainter(color),
-      );
+  Widget build(BuildContext context) =>
+      CustomPaint(size: const Size(14, 9), painter: _PinTipPainter(color));
 }
 
 class _PinTipPainter extends CustomPainter {

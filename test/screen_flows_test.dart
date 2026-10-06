@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/src/chores/chore_dialog.dart';
+import 'package:catlog/src/chores/chore_history_screen.dart';
 import 'package:catlog/src/screens/card_screen.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
@@ -141,6 +143,86 @@ void main() {
       await pump(tester, TimelineScreen(store: store, entityId: cat));
       expect(find.textContaining('Miezi'), findsWidgets);
       expect(find.byType(ListTile), findsWidgets);
+    });
+
+    testWidgets('a tapped move is corrected in the move dialog',
+        (tester) async {
+      final yard = store.createClowder('Garten');
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      await tester.tap(find.text('Moved to Hinterhof'));
+      await tester.pumpAndSettle();
+      // The dialog opens on the move: its day, not today.
+      expect(find.text('Move to'), findsOneWidget);
+      await tester.tap(find.text('Garten'));
+      await tester.pumpAndSettle();
+
+      expect(store.current(cat, Keys.clowder), yard);
+      expect(find.text('Moved to Garten'), findsOneWidget);
+      expect(find.text('Moved to Hinterhof'), findsNothing);
+      expect(store.fieldHistory(cat, Keys.clowder), hasLength(1));
+    });
+
+    testWidgets('a move is re-dated without changing where to',
+        (tester) async {
+      final moved = store.fieldHistory(cat, Keys.clowder).single;
+      store.correctEntry(moved.seq, clowder, date: DateTime(2025, 10, 3, 9));
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      await tester.tap(find.text('Moved to Hinterhof'));
+      await tester.pumpAndSettle();
+      expect(find.text('As of 10/3/2025'), findsOneWidget);
+      // Picking the same home again keeps everything as it was.
+      await tester.tap(find.text('Hinterhof').last);
+      await tester.pumpAndSettle();
+      expect(store.fieldHistory(cat, Keys.clowder).single.date.toLocal(),
+          DateTime(2025, 10, 3, 9));
+    });
+
+    testWidgets('an arrival in a home\'s history corrects the cat\'s move',
+        (tester) async {
+      await pump(tester, TimelineScreen(store: store, entityId: clowder));
+      await tester.tap(find.text('Miezi arrived'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('No clowder — stray / ran away'));
+      await tester.pumpAndSettle();
+
+      expect(store.current(cat, Keys.clowder), isNull);
+      expect(store.fieldHistory(cat, Keys.clowder), hasLength(1));
+    });
+
+    testWidgets('an appointment row opens the appointment dialog',
+        (tester) async {
+      store.createAppointment(Appointment(
+        id: '',
+        entity: cat,
+        date: DateTime(2099, 9, 3),
+        title: 'Vet',
+      ));
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      await tester.tap(find.textContaining('Appointment'));
+      await tester.pumpAndSettle();
+      expect(find.widgetWithText(TextField, 'Vet'), findsOneWidget);
+    });
+
+    testWidgets('a chore row opens its editor, a tick its log',
+        (tester) async {
+      final today = DateUtils.dateOnly(DateTime.now());
+      final feed = store.createChore(Chore(
+        id: '',
+        entity: cat,
+        title: 'Feed',
+        schedule: const ChoreSchedule.daily(),
+        start: today,
+      ));
+      store.tickChore(feed, today, doneOn: today);
+      await pump(tester, TimelineScreen(store: store, entityId: cat));
+      await tester.tap(find.textContaining('Feed done'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ChoreHistoryScreen), findsOneWidget);
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      await tester.tap(find.textContaining('Chore'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ChoreEditorScreen), findsOneWidget);
     });
 
     testWidgets('a sighting in the timeline leads to the map', (tester) async {

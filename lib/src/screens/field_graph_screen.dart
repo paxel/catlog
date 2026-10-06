@@ -14,7 +14,6 @@ import '../layout.dart';
 import '../share.dart';
 import '../units.dart';
 import '../widgets/date_entry.dart';
-import '../widgets/foldable_chips.dart';
 
 /// One value of a field's history as the graph draws it: the moment and
 /// the number in the device's unit.
@@ -279,6 +278,14 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
     setState(() {});
   }
 
+  String _rangeLabel(AppLocalizations t, GraphRange range) => switch (range) {
+    GraphRange.week => t.rangeWeek,
+    GraphRange.month => t.rangeMonth,
+    GraphRange.year => t.rangeYear,
+    GraphRange.all => t.rangeAll,
+    GraphRange.custom => t.rangeCustom,
+  };
+
   String _unit() => widget.def.type == FieldType.unitValue
       ? entryUnit(widget.def.unitDimension, unitSystem.value)
       : '';
@@ -366,34 +373,58 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
             ),
           const SizedBox(height: 12),
           // Range and lines fold away behind one header that names the
-          // choice; the chips were a wall above the curve.
-          FoldableChips(
+          // choice. The range is one choice of five: radio lines, not
+          // pills (ui-laws); the lines are checkboxes.
+          _GraphChoices(
             store: store,
-            id: 'graph',
             title: t.graphLabel,
-            options: [
-              for (final (range, label) in [
-                (GraphRange.week, t.rangeWeek),
-                (GraphRange.month, t.rangeMonth),
-                (GraphRange.year, t.rangeYear),
-                (GraphRange.all, t.rangeAll),
-                (GraphRange.custom, t.rangeCustom),
-              ])
-                (key: 'range:${range.name}', label: label),
-              (key: 'smooth', label: t.graphSmoothed),
-              (key: 'trend', label: t.graphTrend),
+            summary: [
+              _rangeLabel(t, _range),
+              if (_smooth) t.graphSmoothed,
+              if (_trend) t.graphTrend,
+            ].join(', '),
+            children: [
+              RadioGroup<GraphRange>(
+                groupValue: _range,
+                onChanged: (range) {
+                  if (range != null) _pick(range);
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    for (final range in GraphRange.values)
+                      RadioListTile<GraphRange>(
+                        dense: true,
+                        title: Text(_rangeLabel(t, range)),
+                        value: range,
+                        // The chosen custom range can be picked anew.
+                        secondary: range == GraphRange.custom &&
+                                _range == GraphRange.custom
+                            ? IconButton(
+                                icon: const Icon(Icons.edit_calendar_outlined),
+                                tooltip: t.rangeCustom,
+                                onPressed: () => _pick(GraphRange.custom),
+                              )
+                            : null,
+                      ),
+                  ],
+                ),
+              ),
+              CheckboxListTile(
+                dense: true,
+                controlAffinity: ListTileControlAffinity.leading,
+                title: Text(t.graphSmoothed),
+                value: _smooth,
+                onChanged: (on) => _toggle(graphSmoothKey, on ?? false),
+              ),
+              CheckboxListTile(
+                dense: true,
+                controlAffinity: ListTileControlAffinity.leading,
+                title: Text(t.graphTrend),
+                value: _trend,
+                onChanged: (on) => _toggle(graphTrendKey, on ?? false),
+              ),
             ],
-            selected: {
-              'range:${_range.name}',
-              if (_smooth) 'smooth',
-              if (_trend) 'trend',
-            },
-            onToggle: (key) {
-              if (key == 'smooth') return _toggle(graphSmoothKey, !_smooth);
-              if (key == 'trend') return _toggle(graphTrendKey, !_trend);
-              final range = GraphRange.values.asNameMap()[key.substring(6)];
-              if (range != null) _pick(range);
-            },
           ),
           if (_trend)
             if (trendLine(
@@ -713,4 +744,68 @@ class GraphPainter extends CustomPainter {
   @override
   bool shouldRepaint(GraphPainter old) =>
       old.points != points || old.from != from || old.to != to;
+}
+
+/// The graph's choices behind one header that names them; folded they
+/// read as one line. The fold is remembered on this device, as the
+/// chips it replaces remembered theirs (`chips:graph`).
+class _GraphChoices extends StatefulWidget {
+  final CatalogStore store;
+  final String title;
+  final String summary;
+  final List<Widget> children;
+
+  const _GraphChoices({
+    required this.store,
+    required this.title,
+    required this.summary,
+    required this.children,
+  });
+
+  @override
+  State<_GraphChoices> createState() => _GraphChoicesState();
+}
+
+class _GraphChoicesState extends State<_GraphChoices> {
+  static const _key = 'chips:graph';
+
+  bool get _open => widget.store.localSetting(_key) == 'open';
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        InkWell(
+          onTap: () {
+            widget.store.setLocalSetting(_key, _open ? 'closed' : 'open');
+            setState(() {});
+          },
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 8, 4),
+            child: Row(
+              children: [
+                Text(widget.title, style: theme.textTheme.titleSmall),
+                const Spacer(),
+                Icon(_open ? Icons.expand_less : Icons.expand_more),
+              ],
+            ),
+          ),
+        ),
+        if (_open)
+          ...widget.children
+        else
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+            child: Text(
+              widget.summary,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: theme.textTheme.bodySmall,
+            ),
+          ),
+      ],
+    );
+  }
 }

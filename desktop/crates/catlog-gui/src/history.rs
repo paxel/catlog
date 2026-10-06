@@ -291,15 +291,14 @@ impl HistoryPage {
             }
         });
         // How far back the graph looks: a month tells a sick cat's week
-        // apart, everything tells a life.
-        ui.horizontal(|ui| {
-            for one in Range::ALL {
-                if ui.selectable_label(range == one, one.words(t)).clicked() {
-                    range = one;
-                    let _ = store.set_local_setting(RANGE_KEY, one.stored());
-                }
+        // apart, everything tells a life. One choice of five: radio
+        // lines, not pills (ui-laws).
+        for one in Range::ALL {
+            if ui.radio(range == one, one.words(t)).clicked() {
+                range = one;
+                let _ = store.set_local_setting(RANGE_KEY, one.stored());
             }
-        });
+        }
         let points = range.keep(store, &all);
         // A custom range is two days, typed as the phone types them.
         if range == Range::Custom {

@@ -462,6 +462,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get missingSinceLabel => 'Αγνοείται από';
 
   @override
+  String get missingSinceNotOnFlier => 'Δεν βρέθηκε στο φυλλάδιο — σήμερα';
+
+  @override
   String get cropPortrait => 'Περικοπή πορτρέτου';
 
   @override
@@ -1143,11 +1146,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Γάτες χωρίς σπίτι αυτή τη στιγμή: βρεθείσες, δραπέτες ή από αφίσα. Το κουμπί της κάμερας καταγράφει μια γάτα μπροστά σου· το κουμπί της αφίσας μετατρέπει μια αφίσα σε γάτα με την επαφή του ιδιοκτήτη· ο σαρωτής διαβάζει κωδικό cat(a)log από την αφίσα. Πάτησε το Stray Cam για φωτογραφία· κράτησέ το πατημένο για βίντεο και κράτα τα καλύτερα καρέ ως φωτογραφίες.';
+      'Γάτες χωρίς σπίτι αυτή τη στιγμή: βρεθείσες, δραπέτες ή από αφίσα. Το κουμπί της κάμερας καταγράφει μια γάτα μπροστά σου· το κουμπί της αφίσας μετατρέπει μια αφίσα σε γάτα με την επαφή του ιδιοκτήτη· ο σαρωτής διαβάζει κωδικό cat(a)log από την αφίσα. Το «Από βίντεο…» επιλέγει ένα βίντεο και κρατά τα καλύτερα καρέ ως φωτογραφίες.';
 
   @override
   String get helpStraysNeutral =>
-      'Κατοικίδια χωρίς σπίτι αυτή τη στιγμή: βρεθέντα, δραπέτες ή από αφίσα. Το κουμπί της κάμερας καταγράφει ένα ζώο μπροστά σου· το κουμπί της αφίσας μετατρέπει μια αφίσα σε κατοικίδιο με την επαφή του ιδιοκτήτη· ο σαρωτής διαβάζει κωδικό cat(a)log από την αφίσα. Πάτησε το Stray Cam για φωτογραφία· κράτησέ το πατημένο για βίντεο και κράτα τα καλύτερα καρέ ως φωτογραφίες.';
+      'Κατοικίδια χωρίς σπίτι αυτή τη στιγμή: βρεθέντα, δραπέτες ή από αφίσα. Το κουμπί της κάμερας καταγράφει ένα ζώο μπροστά σου· το κουμπί της αφίσας μετατρέπει μια αφίσα σε κατοικίδιο με την επαφή του ιδιοκτήτη· ο σαρωτής διαβάζει κωδικό cat(a)log από την αφίσα. Το «Από βίντεο…» επιλέγει ένα βίντεο και κρατά τα καλύτερα καρέ ως φωτογραφίες.';
 
   @override
   String get helpMap =>
@@ -1731,6 +1734,21 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Επιπλέον δάχτυλα';
+
+  @override
+  String get looksValueMissingLeg => 'Λείπει πόδι';
+
+  @override
+  String get looksValueMissingToes => 'Λείπουν δάχτυλα';
+
+  @override
+  String get looksValueInjuredWing => 'Τραυματισμένη φτερούγα';
+
+  @override
+  String get looksValueClippedWings => 'Κομμένα φτερά';
+
+  @override
+  String get looksValueDamagedShell => 'Χτυπημένο καβούκι';
 
   @override
   String get rejectMatch => 'Δεν είναι το ίδιο';
@@ -2818,6 +2836,12 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Ημέρες';
+
+  @override
+  String get choreRepeatOnce => 'Μία φορά';
+
+  @override
+  String get choreNoDueDate => 'Χωρίς προθεσμία — οποιαδήποτε μέρα';
 
   @override
   String choreEveryDays(int n) {

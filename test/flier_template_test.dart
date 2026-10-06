@@ -157,6 +157,57 @@ void main() {
     });
   });
 
+  group('hand-made missing since', () {
+    test('a keyword and a date on one line', () {
+      final reading = readFlier(const [
+        FlierPair(null, 'KATZE ENTLAUFEN'),
+        FlierPair(null, 'Minka ist am 03.10.25 weggelaufen'),
+        FlierPair(null, 'Tel. 0171 1234567'),
+      ], templates);
+      expect(reading.template, isNull);
+      expect(
+        reading.first(FlierTarget.missingSince),
+        'Minka ist am 03.10.25 weggelaufen',
+      );
+    });
+
+    test('a keyword label beside its date', () {
+      final reading = readFlier(const [
+        FlierPair('Weggelaufen am', '3. Oktober'),
+      ], templates);
+      expect(reading.first(FlierTarget.missingSince), '3. Oktober');
+    });
+
+    test('a keyword line over its date', () {
+      final reading = readFlier(const [
+        FlierPair(null, 'Vermisst seit'),
+        FlierPair(null, 'Freitag, 3.10.2025'),
+      ], templates);
+      expect(reading.first(FlierTarget.missingSince), 'Freitag, 3.10.2025');
+      expect(reading.entries.first.target, FlierTarget.remarks);
+    });
+
+    test('a keyword without any date nearby takes nothing', () {
+      final reading = readFlier(const [
+        FlierPair(null, 'ENTLAUFEN'),
+        FlierPair(null, 'Kater Hugo'),
+        FlierPair(null, 'geboren 2019'),
+      ], templates);
+      expect(reading.of(FlierTarget.missingSince), isEmpty);
+    });
+
+    test('a template label wins over a keyword', () {
+      final reading = readFlier(const [
+        FlierPair('Suchdienstnummer', 'S1'),
+        FlierPair('Verlustdatum', '05.06.2025'),
+        FlierPair(null, 'weggelaufen am 01.06.2025'),
+      ], templates);
+      expect(reading.of(FlierTarget.missingSince).map((e) => e.value), [
+        '05.06.2025',
+      ]);
+    });
+  });
+
   group('values', () {
     test('words turn into options, longest synonym first', () {
       expect(templates.normalize('neutered', 'kastriert'), 'yes');
@@ -174,6 +225,46 @@ void main() {
       expect(parseFlierDate('seit 5/6/2025'), PartialDate.parse('2025-06-05'));
       expect(parseFlierDate('31.02.2025'), isNull);
       expect(parseFlierDate('Sommer 2025'), PartialDate.parse('2025'));
+    });
+
+    group('hand-made spellings', () {
+      final today = DateTime(2025, 10, 20);
+      PartialDate? read(String s) => parseFlierDate(s, today: today);
+      PartialDate day(String iso) => PartialDate.parse(iso)!;
+
+      test('hyphens and two-digit years', () {
+        expect(read('03-10-2025'), day('2025-10-03'));
+        expect(read('Weggelaufen am 03.10.25'), day('2025-10-03'));
+        expect(read('3/10/25'), day('2025-10-03'));
+      });
+
+      test('written months, German and English', () {
+        expect(read('am 3. Oktober 2025'), day('2025-10-03'));
+        expect(read('3 Okt. 2025'), day('2025-10-03'));
+        expect(read('seit 1. März 2025'), day('2025-03-01'));
+        expect(read('Oct 3, 2025'), day('2025-10-03'));
+        expect(read('October 3rd 2025'), day('2025-10-03'));
+        expect(read('lost on 3 October 2025'), day('2025-10-03'));
+        expect(read('Oktober 2025'), PartialDate.parse('2025-10'));
+      });
+
+      test('no year: the latest such day not after today', () {
+        expect(read('am 3.10.'), day('2025-10-03'));
+        expect(read('3. Oktober'), day('2025-10-03'));
+        expect(
+          read('am 24.12.'),
+          day('2024-12-24'),
+          reason: 'Christmas lies ahead, so it was last year',
+        );
+        expect(read('Oct 20'), day('2025-10-20'), reason: 'today counts');
+      });
+
+      test('what is not a date stays none', () {
+        expect(read('Gewicht 4.5 kg'), isNull);
+        expect(read('31-02-2025'), isNull);
+        expect(read('Tel. 0171 1234567'), isNull);
+        expect(read('Mail an tasso'), isNull);
+      });
     });
   });
 }

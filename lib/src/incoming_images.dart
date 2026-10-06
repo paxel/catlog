@@ -48,7 +48,10 @@ Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
         if (!context.mounted) return;
         final frames =
             await (extractFrames ?? framesFromVideoFile)(context, path);
-        if (frames != null) added += await addFrames(store, catId, frames);
+        if (frames != null) {
+          added += await addFrames(
+              store, catId, [for (final f in frames) (bytes: f, crop: null)]);
+        }
         continue;
       }
       final bytes = await File(path).readAsBytes();

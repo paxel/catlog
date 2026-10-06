@@ -446,6 +446,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get missingSinceLabel => '失踪日期';
 
   @override
+  String get missingSinceNotOnFlier => '传单上未找到 — 今天';
+
+  @override
   String get cropPortrait => '裁剪头像';
 
   @override
@@ -1101,11 +1104,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。 点按 Stray Cam 拍照；长按录制视频，并把最佳画面保留为照片。';
+      '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。 “来自视频…”选取一段视频，并把最佳画面保留为照片。';
 
   @override
   String get helpStraysNeutral =>
-      '当前没有家的宠物：捡到的、走失的，或来自启事的动物。相机按钮记录眼前的动物；启事按钮把寻宠启事变成一只带主人联系方式的宠物；扫描器读取启事上的 cat(a)log 码。 点按 Stray Cam 拍照；长按录制视频，并把最佳画面保留为照片。';
+      '当前没有家的宠物：捡到的、走失的，或来自启事的动物。相机按钮记录眼前的动物；启事按钮把寻宠启事变成一只带主人联系方式的宠物；扫描器读取启事上的 cat(a)log 码。 “来自视频…”选取一段视频，并把最佳画面保留为照片。';
 
   @override
   String get helpMap =>
@@ -1685,6 +1688,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => '多趾';
+
+  @override
+  String get looksValueMissingLeg => '缺腿';
+
+  @override
+  String get looksValueMissingToes => '缺趾';
+
+  @override
+  String get looksValueInjuredWing => '翅膀受伤';
+
+  @override
+  String get looksValueClippedWings => '剪过的翅膀';
+
+  @override
+  String get looksValueDamagedShell => '龟壳受损';
 
   @override
   String get rejectMatch => '不是同一只';
@@ -2701,6 +2719,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => '星期';
+
+  @override
+  String get choreRepeatOnce => '一次性';
+
+  @override
+  String get choreNoDueDate => '无截止日期 — 任何一天';
 
   @override
   String choreEveryDays(int n) {

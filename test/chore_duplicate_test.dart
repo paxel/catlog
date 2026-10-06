@@ -44,6 +44,13 @@ void main() {
     root.deleteSync(recursive: true);
   });
 
+  // The editor is a long page: a tall window builds every row.
+  void tall(WidgetTester tester) {
+    tester.view.physicalSize = const Size(800, 2000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+  }
+
   Widget host() => MaterialApp(
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
@@ -60,6 +67,7 @@ void main() {
   testWidgets('a duplicate lands on the picked cat and the editor stays', (
     tester,
   ) async {
+    tall(tester);
     await tester.pumpWidget(host());
     await tester.tap(find.text('open'));
     await tester.pumpAndSettle();

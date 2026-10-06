@@ -460,6 +460,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get missingSinceLabel => 'گم‌شده از';
 
   @override
+  String get missingSinceNotOnFlier => 'در آگهی پیدا نشد — امروز';
+
+  @override
   String get cropPortrait => 'برش چهره';
 
   @override
@@ -1135,11 +1138,11 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'گربه‌هایی که اکنون خانه ندارند: پیداشده، فراری یا برگرفته از آگهی. دکمهٔ دوربین گربه‌ای را که جلوی شماست ثبت می‌کند؛ دکمهٔ آگهی یک پوستر گمشده را به گربه‌ای همراه با تماس صاحبش تبدیل می‌کند؛ اسکنر کد cat(a)log را از پوستر می‌خواند. برای عکس روی Stray Cam ضربه بزنید؛ برای فیلم‌برداری نگه دارید و بهترین فریم‌ها را به‌عنوان عکس نگه دارید.';
+      'گربه‌هایی که اکنون خانه ندارند: پیداشده، فراری یا برگرفته از آگهی. دکمهٔ دوربین گربه‌ای را که جلوی شماست ثبت می‌کند؛ دکمهٔ آگهی یک پوستر گمشده را به گربه‌ای همراه با تماس صاحبش تبدیل می‌کند؛ اسکنر کد cat(a)log را از پوستر می‌خواند. «از ویدیو…» یک ویدیو انتخاب می‌کند و بهترین فریم‌ها را به‌عنوان عکس نگه می‌دارد.';
 
   @override
   String get helpStraysNeutral =>
-      'حیوانات خانگی‌ای که اکنون خانه ندارند: پیداشده، فراری یا برگرفته از آگهی. دکمهٔ دوربین حیوانی را که جلوی شماست ثبت می‌کند؛ دکمهٔ آگهی یک پوستر گمشده را به حیوان خانگی همراه با تماس صاحبش تبدیل می‌کند؛ اسکنر کد cat(a)log را از پوستر می‌خواند. برای عکس روی Stray Cam ضربه بزنید؛ برای فیلم‌برداری نگه دارید و بهترین فریم‌ها را به‌عنوان عکس نگه دارید.';
+      'حیوانات خانگی‌ای که اکنون خانه ندارند: پیداشده، فراری یا برگرفته از آگهی. دکمهٔ دوربین حیوانی را که جلوی شماست ثبت می‌کند؛ دکمهٔ آگهی یک پوستر گمشده را به حیوان خانگی همراه با تماس صاحبش تبدیل می‌کند؛ اسکنر کد cat(a)log را از پوستر می‌خواند. «از ویدیو…» یک ویدیو انتخاب می‌کند و بهترین فریم‌ها را به‌عنوان عکس نگه می‌دارد.';
 
   @override
   String get helpMap =>
@@ -1720,6 +1723,21 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'انگشتان اضافی';
+
+  @override
+  String get looksValueMissingLeg => 'پای از دست رفته';
+
+  @override
+  String get looksValueMissingToes => 'انگشتان از دست رفته';
+
+  @override
+  String get looksValueInjuredWing => 'بال آسیب‌دیده';
+
+  @override
+  String get looksValueClippedWings => 'بال‌های چیده‌شده';
+
+  @override
+  String get looksValueDamagedShell => 'لاک آسیب‌دیده';
 
   @override
   String get rejectMatch => 'همان نیست';
@@ -2790,6 +2808,12 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'روزها';
+
+  @override
+  String get choreRepeatOnce => 'یک‌بار';
+
+  @override
+  String get choreNoDueDate => 'بدون موعد — هر روزی';
 
   @override
   String choreEveryDays(int n) {

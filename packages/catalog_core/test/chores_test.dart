@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:test/test.dart';
 
@@ -129,6 +131,84 @@ void main() {
       final drops = chore(ChoreSchedule.weekdays({DateTime.wednesday}));
       expect(upcoming(drops, {}, d(0)), [d(2)]);
       expect(nextDue(nails, {d(5): d(0)}, d(0)), d(10));
+    });
+  });
+
+  group('one time', () {
+    Chore once({DateTime? due, DateTime? made}) => Chore(
+        id: 'x',
+        entity: 'cat:1',
+        title: 'Vet papers',
+        schedule: const ChoreSchedule.once(),
+        start: due ?? made ?? mon,
+        due: due);
+
+    test('stored so an older app sees it on one day and keeps it so', () {
+      final json = once(due: d(5)).toJson();
+      expect(json['schedule'], {'repeat': 'everyDays', 'every': 36500});
+      expect(json['once'], true);
+      expect(json['due'], dayKey(d(5)));
+      expect(json['start'], dayKey(d(5)));
+      // An older reader: an every-N chore, due on its start only.
+      final old = Chore(
+          id: 'x',
+          entity: 'cat:1',
+          title: 'Vet papers',
+          schedule: ChoreSchedule.fromJson(json['schedule']),
+          start: d(5));
+      expect(occurrences(old, {}, d(0), d(3000)).map((o) => o.due), [d(5)]);
+    });
+
+    test('reads back as one time, with or without a due day', () {
+      final back =
+          Chore.fromJson('x', 'cat:1', jsonEncode(once(due: d(5)).toJson()))!;
+      expect(back.once, isTrue);
+      expect(back.due, d(5));
+      final open = Chore.fromJson('x', 'cat:1', jsonEncode(once().toJson()))!;
+      expect(open.once, isTrue);
+      expect(open.due, isNull);
+      expect(open.start, mon);
+      // Made recurring again, the marker goes.
+      final daily = back.copyWith(schedule: const ChoreSchedule.daily());
+      expect(daily.toJson().containsKey('once'), isFalse);
+      expect(daily.toJson().containsKey('due'), isFalse);
+    });
+
+    test('stands in today\'s list until the day after it is done', () {
+      final c = once(due: d(5));
+      expect(onceStanding(c, {}, d(0)), OnceStanding.waiting);
+      expect(onceStanding(c, {}, d(5)), OnceStanding.due);
+      expect(onceStanding(c, {}, d(9)), OnceStanding.due, reason: 'overdue');
+      final ticks = {d(5): d(7)};
+      expect(onceStanding(c, ticks, d(7)), OnceStanding.doneToday);
+      expect(onceStanding(c, ticks, d(8)), OnceStanding.gone);
+      expect(showsToday(c, {}, d(0)), isTrue);
+      expect(showsToday(c, ticks, d(8)), isFalse);
+      expect(onceStanding(once(), {}, d(400)), OnceStanding.waiting,
+          reason: 'without a due day it waits until done');
+    });
+
+    test('never upcoming, no streak, one reminder day', () {
+      final c = once(due: d(5));
+      expect(upcoming(c, {}, d(0)), isEmpty);
+      expect(streak(c, {d(5): d(5)}, d(5)), 0);
+      expect(nextDue(c, {}, d(0)), d(5));
+      expect(nextDue(c, {}, d(6)), isNull, reason: 'overdue: no alarm');
+      expect(nextDue(c, {d(5): d(3)}, d(4)), isNull, reason: 'done');
+      expect(nextDue(once(), {}, d(0)), isNull);
+      expect(daysToDue(c, d(2)), 3);
+      expect(daysToDue(c, d(8)), -3);
+    });
+
+    test('today\'s order: due first, the recurring, then the waiting', () {
+      final overdue = once(due: d(-2));
+      final daily = chore(const ChoreSchedule.daily());
+      final soon = once(due: d(2));
+      final later = once(due: d(20));
+      final open = once();
+      final order = todayOrder(
+          [open, later, daily, soon, overdue], (_) => const {}, d(0));
+      expect(order, [overdue, daily, soon, later, open]);
     });
   });
 

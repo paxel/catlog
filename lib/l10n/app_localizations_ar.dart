@@ -460,6 +460,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get missingSinceLabel => 'مفقود منذ';
 
   @override
+  String get missingSinceNotOnFlier => 'لم يُعثر عليه في المنشور — اليوم';
+
+  @override
   String get cropPortrait => 'قصّ صورة الوجه';
 
   @override
@@ -1134,11 +1137,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'قطط بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل قطة أمامك؛ زر المنشور يحوّل منشور فقدان إلى قطة مع بيانات صاحبها؛ الماسح يقرأ رمز cat(a)log من المنشور. انقر على كاميرا الضالة لالتقاط صورة؛ اضغط مطولاً لتصوير فيديو والاحتفاظ بأفضل اللقطات كصور.';
+      'قطط بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل قطة أمامك؛ زر المنشور يحوّل منشور فقدان إلى قطة مع بيانات صاحبها؛ الماسح يقرأ رمز cat(a)log من المنشور. «من فيديو…» يختار فيديو ويحتفظ بأفضل لقطاته كصور.';
 
   @override
   String get helpStraysNeutral =>
-      'حيوانات أليفة بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل حيوانًا أمامك؛ زر المنشور يحوّل منشور فقدان إلى حيوان أليف مع بيانات صاحبه؛ الماسح يقرأ رمز cat(a)log من المنشور. انقر على كاميرا الضالة لالتقاط صورة؛ اضغط مطولاً لتصوير فيديو والاحتفاظ بأفضل اللقطات كصور.';
+      'حيوانات أليفة بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل حيوانًا أمامك؛ زر المنشور يحوّل منشور فقدان إلى حيوان أليف مع بيانات صاحبه؛ الماسح يقرأ رمز cat(a)log من المنشور. «من فيديو…» يختار فيديو ويحتفظ بأفضل لقطاته كصور.';
 
   @override
   String get helpMap =>
@@ -1719,6 +1722,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'أصابع زائدة';
+
+  @override
+  String get looksValueMissingLeg => 'ساق مفقودة';
+
+  @override
+  String get looksValueMissingToes => 'أصابع مفقودة';
+
+  @override
+  String get looksValueInjuredWing => 'جناح مصاب';
+
+  @override
+  String get looksValueClippedWings => 'أجنحة مقصوصة';
+
+  @override
+  String get looksValueDamagedShell => 'درع متضرر';
 
   @override
   String get rejectMatch => 'ليس نفسه';
@@ -2823,6 +2841,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'أيام';
+
+  @override
+  String get choreRepeatOnce => 'مرة واحدة';
+
+  @override
+  String get choreNoDueDate => 'بلا موعد — في أي يوم';
 
   @override
   String choreEveryDays(int n) {

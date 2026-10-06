@@ -131,8 +131,10 @@ const BEAK: LooksGroup = group(
 );
 const RING: LooksGroup = group("ring", true, &["yes", "no"]);
 /// What never grows back and what was done on purpose: the strongest
-/// evidence two sightings are one animal.
-const FEATURES: LooksGroup = group(
+/// evidence two sightings are one animal. Every species has it, with
+/// the body parts it has: ears and teeth for fur, wings for feathers, a
+/// shell for a tortoise.
+const FUR_FEATURES: LooksGroup = group(
     "features",
     false,
     &[
@@ -148,15 +150,66 @@ const FEATURES: LooksGroup = group(
         "extra toes",
     ],
 );
+const BIRD_FEATURES: LooksGroup = group(
+    "features",
+    false,
+    &[
+        "missing eye",
+        "cloudy eye",
+        "missing leg",
+        "missing toes",
+        "injured wing",
+        "clipped wings",
+    ],
+);
+const TORTOISE_FEATURES: LooksGroup = group(
+    "features",
+    false,
+    &[
+        "missing eye",
+        "cloudy eye",
+        "missing front leg",
+        "missing hind leg",
+        "damaged shell",
+    ],
+);
+/// An animal the app does not know may have any of them.
+const ANY_FEATURES: LooksGroup = group(
+    "features",
+    false,
+    &[
+        "tipped ear",
+        "notched ear",
+        "ear tattoo",
+        "missing ear",
+        "missing eye",
+        "cloudy eye",
+        "missing front leg",
+        "missing hind leg",
+        "missing leg",
+        "missing toes",
+        "extra toes",
+        "injured wing",
+        "clipped wings",
+        "damaged shell",
+        "no teeth",
+    ],
+);
+/// A tortoise's shell and skin, in the colours there are words for.
+const SHELL_COLOURS: LooksGroup = group(
+    "colours",
+    false,
+    &["black", "brown", "tan", "yellow", "orange", "green", "grey"],
+);
 
 /// The groups an animal of `species` is described with. Unknown
-/// species get size and colours only.
+/// species get size, colours and every feature.
 pub fn looks_groups_for(species: Option<&str>) -> Vec<LooksGroup> {
     let known = species.filter(|s| crate::fields::SPECIES_PRESETS.contains(s));
     match known {
-        None => vec![SIZE, FUR_COLOURS, FEATURES],
-        Some("bird") => vec![SIZE, PLUMAGE, BIRD_MARKS, CREST, BEAK, RING, FEATURES],
-        Some(s @ ("cat" | "dog" | "rabbit" | "guinea pig" | "hamster")) => {
+        Some("bird") => vec![SIZE, PLUMAGE, BIRD_MARKS, CREST, BEAK, RING, BIRD_FEATURES],
+        Some("tortoise") => vec![SIZE, SHELL_COLOURS, TORTOISE_FEATURES],
+        Some(s @ ("cat" | "dog" | "rabbit" | "guinea pig" | "hamster" | "horse" | "ferret")) => {
             let mut groups = vec![SIZE, FUR_COLOURS];
             if s == "cat" || s == "dog" {
                 groups.push(EYES);
@@ -167,10 +220,10 @@ pub fn looks_groups_for(species: Option<&str>) -> Vec<LooksGroup> {
             if s == "dog" {
                 groups.push(DOG_PATTERN);
             }
-            groups.extend([FUR, TAIL, EARS, FUR_MARKS, FEATURES]);
+            groups.extend([FUR, TAIL, EARS, FUR_MARKS, FUR_FEATURES]);
             groups
         }
-        Some(_) => vec![SIZE, FUR_COLOURS, FUR_MARKS, FEATURES],
+        _ => vec![SIZE, FUR_COLOURS, ANY_FEATURES],
     }
 }
 
@@ -283,10 +336,10 @@ mod tests {
                 "size", "colours", "marks", "crest", "beak", "ring", "features"
             ]
         );
-        assert_eq!(
-            ids(Some("horse")),
-            vec!["size", "colours", "marks", "features"]
-        );
+        for s in ["horse", "ferret"] {
+            assert_eq!(ids(Some(s)), ids(Some("rabbit")), "{s}");
+        }
+        assert_eq!(ids(Some("tortoise")), vec!["size", "colours", "features"]);
         assert_eq!(ids(None), vec!["size", "colours", "features"]);
         assert_eq!(ids(Some("axolotl")), ids(None));
         assert!(
@@ -294,5 +347,46 @@ mod tests {
                 .iter()
                 .all(|g| group_is_single(g.id) == g.single)
         );
+    }
+
+    #[test]
+    fn the_features_name_only_body_parts_the_species_has() {
+        let features = |s: Option<&str>| -> std::collections::BTreeSet<&str> {
+            let groups = looks_groups_for(s);
+            let g = groups.iter().find(|g| g.id == "features").unwrap();
+            g.values.iter().copied().collect()
+        };
+        assert_eq!(
+            features(Some("bird")),
+            [
+                "missing eye",
+                "cloudy eye",
+                "missing leg",
+                "missing toes",
+                "injured wing",
+                "clipped wings"
+            ]
+            .into()
+        );
+        assert_eq!(
+            features(Some("tortoise")),
+            [
+                "missing eye",
+                "cloudy eye",
+                "missing front leg",
+                "missing hind leg",
+                "damaged shell"
+            ]
+            .into()
+        );
+        assert!(features(Some("cat")).contains("no teeth"));
+        assert!(!features(Some("cat")).contains("injured wing"));
+        // An unknown animal may have any of them.
+        let all: std::collections::BTreeSet<&str> = crate::fields::SPECIES_PRESETS
+            .iter()
+            .flat_map(|s| features(Some(s)))
+            .collect();
+        assert_eq!(features(None), all);
+        assert_eq!(features(Some("axolotl")), all);
     }
 }

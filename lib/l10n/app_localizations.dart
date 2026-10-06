@@ -998,6 +998,12 @@ abstract class AppLocalizations {
   /// **'Missing since'**
   String get missingSinceLabel;
 
+  /// No description provided for @missingSinceNotOnFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Not found on the flier — today'**
+  String get missingSinceNotOnFlier;
+
   /// No description provided for @cropPortrait.
   ///
   /// In en, this message translates to:
@@ -2171,13 +2177,13 @@ abstract class AppLocalizations {
   /// No description provided for @helpStrays.
   ///
   /// In en, this message translates to:
-  /// **'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.'**
+  /// **'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. “From video…” picks a video and keeps its best frames as photos.'**
   String get helpStrays;
 
   /// No description provided for @helpStraysNeutral.
   ///
   /// In en, this message translates to:
-  /// **'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.'**
+  /// **'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. “From video…” picks a video and keeps its best frames as photos.'**
   String get helpStraysNeutral;
 
   /// No description provided for @helpMap.
@@ -3247,6 +3253,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Extra toes'**
   String get looksValueExtraToes;
+
+  /// No description provided for @looksValueMissingLeg.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing leg'**
+  String get looksValueMissingLeg;
+
+  /// No description provided for @looksValueMissingToes.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing toes'**
+  String get looksValueMissingToes;
+
+  /// No description provided for @looksValueInjuredWing.
+  ///
+  /// In en, this message translates to:
+  /// **'Injured wing'**
+  String get looksValueInjuredWing;
+
+  /// No description provided for @looksValueClippedWings.
+  ///
+  /// In en, this message translates to:
+  /// **'Clipped wings'**
+  String get looksValueClippedWings;
+
+  /// No description provided for @looksValueDamagedShell.
+  ///
+  /// In en, this message translates to:
+  /// **'Damaged shell'**
+  String get looksValueDamagedShell;
 
   /// No description provided for @rejectMatch.
   ///
@@ -5035,6 +5071,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Weekdays'**
   String get choreRepeatWeekdays;
+
+  /// No description provided for @choreRepeatOnce.
+  ///
+  /// In en, this message translates to:
+  /// **'One time'**
+  String get choreRepeatOnce;
+
+  /// No description provided for @choreNoDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No due date — any day'**
+  String get choreNoDueDate;
 
   /// No description provided for @choreEveryDays.
   ///

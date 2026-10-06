@@ -3,40 +3,26 @@
 All notable changes to cat(a)log are documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [SemVer](https://semver.org/).
 
-## [2.0.7] - 2026-09-28
+## [2.3.0] - Unreleased
 
 ### Changed
-- The card a keeper shares says how old the cat is beside its birth date, and for a cat that has died the age it reached, marked with the cross — the same as on the cat's own page, on phone and desk.
-- The vet report's age counts to the day a cat died instead of to today, and carries the cross. So does the Age column of the desk's Cats table.
+- Frames kept from a video — for a cat or a new stray — offer the crop step one after the other before they are stored, cut from the frame at the video's full size. A cat cut out of a 4K video keeps far more detail than when cropped later from the stored photo. "Use full photo" keeps a frame whole; Cancel drops only that frame.
+- When a flier gives no ran-away date, its "Missing since" tile says "Not found on the flier — today" with a warning sign, so a guessed day no longer looks like one that was read. On phone and desk.
+- A move in a cat's history — moved home, ran away, adopted — opens the move dialog on a tap, set to that move's home and day, and corrects where to and when. A home's history does the same for a cat's arrival or departure. Before, a move could only be removed.
+- An appointment or a chore in a history opens its own editor on a tap, and a chore's done day opens that chore's log. Before, these rows could only be removed there.
+- On the desk, a cat's timeline opens the move dialog on a click on a move and corrects where to and when; a home's timeline now lists its cats' arrivals and departures, which correct the same way. Appointments and chores open their editors from there, a chore's done day its log.
+- Choosing one of several options is a list of radio buttons, one per line, instead of a row of pills: how long the Archive waits, and the graph's range on phone and desk; the phone graph's Smoothed and Trend are checkboxes.
+- A chore can be one time: "One time" is a fourth choice next to daily, every… and weekdays, with an optional due date. It offers Duplicate and End, not Pause. How often a chore comes around is now a list of radio buttons instead of pills. An older app shows a one-time chore on its due day only and leaves it as it is.
+- A one-time chore stands in today's chores from the day it is made until it is done, never under Coming up. Due or overdue it moves to the top, red when overdue; until then it waits at the bottom by its due date, saying "Due in 2 days" in orange from three days before. Done, it stays crossed out for the day and is gone the next. It has no streak and no week dots, and one still waiting does not keep the day from being all done.
+- A one-time chore with reminders on reminds once, on its due day at its time; without a due date it does not remind.
+- The desk has one-time chores too: a fourth radio in its chore editor with an optional due date, today's order on the agenda, the dashboard and the cat's page, red when overdue and orange when due within three days, no Pause and no week dots, and the due date in its calendar.
 
 ### Fixed
-- "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
-- A phone that syncs but records nothing for a week is no longer treated as an install that is gone: its warning stays and the whole-history file it reads is kept, instead of being cut off for good. Only a file nobody has written to for a week counts as gone, and a folder that cannot say when a file was written — an Android shared folder — keeps everyone.
-- The mother or father already written down stays on the picker's list even after that cat's gender is corrected, so the relation can be changed instead of only cancelled.
-- Opening a cat while the desk shows homes only puts the card on the desk and lets the filter go, instead of swallowing the click until the filter is found and turned off. A face in the dock brings its card back the same way, and Tile arranges the cards in sight and leaves the hidden ones where they lie.
-- A paused chore is off the agenda's calendar; the month grid used to print it on every day while the list filed it under Paused.
-- A note that follows a failure is drawn as news again and fades by itself; later notes used to inherit the red ground and the close button of the failure before them. A failure of its own — a photo that could not be read, a catalog whose keepsake file could not be written, an archive or a calendar file that failed — now waits for the x instead of fading after six seconds.
-- A moment's sound, the confetti switch and the reminder's voice are the device's own: they are the same in every catalog on phone and desk, and an own sound picked in one catalog no longer replaces another's file behind its back. A choice made before this release is read where it was made.
-- Turning the chore reminder's cat sound off is no longer undone by ticking a chore in another catalog.
-- The vet report's preview on the desk speaks the app's units and counts from the app's day, so it says what the written report says.
-- "Copy graph as image" is offered only when the chosen range actually draws a graph; it used to be clickable and do nothing.
-- The year arrows in the agenda's month picker lead back where they came from: a year back from 31 March is 31 March, not 28 February.
-- A place near the edge of a map tile is drawn undistorted on the card, with the pin on the place itself instead of always in the middle.
-- Deleting an achievement takes it off the list: it is waved off at the tier shown, so a ladder that climbed through a sync no longer comes straight back, and one that was never recorded goes too.
-- Deleting an empty catalog says there was nothing to back up instead of naming a keepsake file that was never written.
-- Saving picked video frames no longer hangs on a spinner when a full-size frame cannot be read; the picked picture is kept instead. A frame that cannot be grabbed leaves Keep this frame working, rather than dead for the rest of the picking.
-- Pulling a tiled card's bottom edge changes that card's height instead of snapping it back to the tile's row, so a card no longer shrinks with every pull and the cards beside it keep theirs.
-- The vet report's preview follows every change again: a new date range, the patient summary switch and a row taken out all redraw it, not only the field chips. Drawing it no longer greys out Share and Print.
-- An appointment can no longer be saved with nobody to visit; Save stays grey until a cat or a home is picked.
-- Turning the adoption confetti off no longer silences the tick, the day's chores, the ladder and the adoption sounds as well. A device that had the switch off before the moments had their own sounds keeps its silence: it is read once as the choice for every moment.
-- A marked home is highlighted in the Clowders table again; the row was marked but looked like any other.
-- Moving marked cats that are not all in the same home now starts with nothing ticked, and any choice — the street included — can be saved. The street used to look ticked and Save stayed grey.
-- Marked rows stay in the catalog they were marked in. They used to survive a switch, and a bulk action — a delete above all — would then be aimed at cats the new catalog has never heard of.
-- The plus on a wide screen fans its ways out under itself again: in the two-pane layout they were drawn a pane's width to the left, over the list.
-- Deleting a catalog takes the one the question names. Looking at another catalog on the Catalogs page could leave that one marked, and the delete from Settings then took it instead of the one it had asked about.
-- "Move in from another catalog" works with three catalogs or more; it used to do nothing at all, throwing where nobody could see it.
-- Settling a conflict in the window that lists what arrived leaves the window open, with the conflicts still to settle in it. It used to close on the first choice.
-- What arrives from a phone or a folder shows up at once: a sync wrote the entries but never told the views, so the cats, the dashboard, the agenda and the family tree went on showing the catalog as it was before it.
+- A hand-made flier finds its ran-away date: a line saying "weggelaufen am", "entlaufen", "vermisst seit", "verschwunden seit", "missing since" or "lost on" gives the date on it or on the line right after it. Before, only the TASSO poster layout was read, and a hand-made flier's cat went missing today. On phone and desk.
+- A flier added to a cat you already have, with its home picked, dates the cat's move home and its running away to the flier's day, and shows the "Missing since" tile to check it. Before, both moves were dated the day the flier was added.
+- Merging two cats no longer moves the merged cat back home. The most recent move of either cat, by its own date, decides where it is, so a flier's stray keeps its ran-away day when merged into the cat already in the catalog. On phone and desk.
+- Correcting a planned reminder in a history keeps it a reminder; before, the corrected plan turned into a plain value. On phone and desk.
+- A flier reads more of the ways people write a date by hand: 03-10-2025, 03.10.25, "3. Oktober 2025", "Oct 3, 2025", and 3.10. without a year, which counts as the latest such day that has already passed. On phone and desk.
 
 ---
 

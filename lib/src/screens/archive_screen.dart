@@ -148,18 +148,22 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
           title: Text(t.storageLine(formatBytes(usage.dbBytes),
               formatBytes(usage.photoBytes), usage.photoCount)),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Wrap(spacing: 8, children: [
+        // One choice of three: radio lines, not pills (ui-laws).
+        RadioGroup<int>(
+          groupValue: _years,
+          onChanged: (years) {
+            if (years == null) return;
+            setState(() {
+              _years = years;
+              _selected.clear();
+              _cache = null;
+            });
+          },
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
             for (final years in [1, 2, 5])
-              ChoiceChip(
-                label: Text(t.quietForYears(years)),
-                selected: _years == years,
-                onSelected: (_) => setState(() {
-                  _years = years;
-                  _selected.clear();
-                  _cache = null;
-                }),
+              RadioListTile<int>(
+                title: Text(t.quietForYears(years)),
+                value: years,
               ),
           ]),
         ),

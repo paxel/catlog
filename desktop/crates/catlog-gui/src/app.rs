@@ -1247,8 +1247,10 @@ impl App {
                 self.editor.text = picked;
             }
         }
-        // A move into a forever home is an adoption: the party plays.
+        // A move into a forever home is an adoption: the party plays. A
+        // corrected move only puts the record right.
         if self.mover.show(ui.ctx(), &mut self.store, &t)
+            && self.mover.correcting.is_none()
             && let Some(target) = self.mover.target.clone()
             && self
                 .store
@@ -1517,6 +1519,22 @@ impl App {
         let today = self.pages.today;
         let result = match action {
             ChoreAction::None => Ok(()),
+            ChoreAction::Toggle(chore) if chore.once() => {
+                // One occurrence, on its first day; a tick there settles
+                // it, and taking it back takes back whichever tick there is.
+                let ticks = self.store.chore_ticks(&chore).unwrap_or_default();
+                if ticks.is_empty() {
+                    let result = self.store.tick_chore(&chore, chore.start, today);
+                    if result.is_ok() {
+                        self.celebrate_ticks();
+                    }
+                    result
+                } else {
+                    ticks
+                        .keys()
+                        .try_for_each(|occurrence| self.store.untick_chore(&chore, *occurrence))
+                }
+            }
             ChoreAction::Toggle(chore) => {
                 let ticks = self.store.chore_ticks(&chore).unwrap_or_default();
                 let result = if ticks.contains_key(&today) {
@@ -2676,6 +2694,7 @@ impl App {
             other => format!("{other:?}#{}", self.modal_opened),
         };
         let mut page_action = PageAction::None;
+        let mut timeline_tap = None;
         let hosting = modal == Modal::InPerson;
         let (_, close) = views::show_modal(ctx, &id, t.close_label(), |ui| match modal {
             Modal::Page(id) => {
@@ -2753,7 +2772,7 @@ impl App {
                         crate::pages::timeline_lines(&self.store, &t, units, &id)
                     })
                     .clone();
-                crate::pages::show_timeline(ui, &self.store, &t, &id, &lines);
+                timeline_tap = crate::pages::show_timeline(ui, &self.store, &t, &id, &lines);
             }
             Modal::Help => self.show_help(ui),
             Modal::About => self.show_about(ui),
@@ -2877,6 +2896,52 @@ impl App {
         }
         if page_action != PageAction::None {
             self.act_page(page_action);
+        }
+        if let Some(tap) = timeline_tap {
+            self.open_from_timeline(tap);
+        }
+    }
+
+    /// A timeline line clicked: the move dialog on that move, or the
+    /// appointment's or the chore's own editor; a done day opens the
+    /// chore's log.
+    fn open_from_timeline(&mut self, (seq, tap): (i64, crate::pages::TimelineTap)) {
+        use crate::pages::TimelineTap;
+        let Ok(Some(entry)) = self.store.entry_by_seq(seq) else {
+            return;
+        };
+        let today = self.pages.today;
+        let current = |field: &str| self.store.current(&entry.entity, field).ok().flatten();
+        match tap {
+            TimelineTap::Move => self.mover.ask_correction(&self.store, &entry),
+            TimelineTap::Appointment => {
+                let id = &entry.field[keys::APPOINTMENT_PREFIX.len()..];
+                if let Some(a) = catlog_core::appointments::Appointment::from_json(
+                    id,
+                    &entry.entity,
+                    current(&entry.field).as_deref(),
+                ) {
+                    self.appointment_dialog
+                        .ask(&self.store, &entry.entity, Some(a), today);
+                }
+            }
+            TimelineTap::Chore | TimelineTap::ChoreTick => {
+                let rest = &entry.field[keys::CHORE_PREFIX.len()..];
+                let id = rest.split('@').next().unwrap_or(rest);
+                let key = format!("{}{id}", keys::CHORE_PREFIX);
+                let Some(chore) = catlog_core::chores::Chore::from_json(
+                    id,
+                    &entry.entity,
+                    current(&key).as_deref(),
+                ) else {
+                    return;
+                };
+                if tap == TimelineTap::ChoreTick {
+                    self.chore_history.open_for(&self.store, chore, today);
+                } else {
+                    self.chore_dialog.ask(&entry.entity, Some(chore), today);
+                }
+            }
         }
     }
 
@@ -4928,6 +4993,76 @@ mod tests {
     }
 
     #[test]
+    fn a_one_time_chore_on_the_desk_stands_until_done_and_says_its_day() {
+        use catlog_core::chores::{Chore, ChoreSchedule};
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        fixed_day(&mut app, 2026, 3, 10, 9);
+        app.pages.today = chrono::NaiveDate::from_ymd_opt(2026, 3, 10).unwrap();
+        let miezi = "cat:00000000-0000-4000-8000-000000000001";
+        let day = |d: u32| chrono::NaiveDate::from_ymd_opt(2026, 3, d).unwrap();
+        let once = |title: &str, due: Option<chrono::NaiveDate>| Chore {
+            id: String::new(),
+            entity: miezi.into(),
+            title: title.into(),
+            schedule: ChoreSchedule::once(due),
+            time: None,
+            start: due.unwrap_or(day(1)),
+            paused: false,
+            ended: false,
+            remind: false,
+            remind_at: None,
+            extra: Default::default(),
+        };
+        let store = app.store_mut();
+        let papers = store
+            .create_chore("o1", &once("Papers", Some(day(8))))
+            .unwrap();
+        store
+            .create_chore("o2", &once("Vaccine", Some(day(12))))
+            .unwrap();
+        let gone = store.create_chore("o3", &once("Basket", None)).unwrap();
+        store.tick_chore(&gone, gone.start, day(9)).unwrap();
+        let mut h = harness(app);
+        open_cat_page(&mut h, miezi);
+        h.get_by_label_contains("Plans (").click();
+        h.run();
+        // The page and the dashboard behind it say the same.
+        assert!(h.get_all_by_label_contains("2 days overdue").count() >= 1);
+        assert!(h.get_all_by_label_contains("Due in 2 days").count() >= 1);
+        assert!(
+            h.query_by_label_contains("Basket").is_none(),
+            "done yesterday: in no list"
+        );
+        // The box ticks the one occurrence; again, it takes it back.
+        h.state_mut().act_chore(ChoreAction::Toggle(papers.clone()));
+        let ticks = h.state().store().chore_ticks(&papers).unwrap();
+        assert_eq!(ticks.values().copied().collect::<Vec<_>>(), vec![day(10)]);
+        h.state_mut().act_chore(ChoreAction::Toggle(papers.clone()));
+        assert!(h.state().store().chore_ticks(&papers).unwrap().is_empty());
+    }
+
+    #[test]
+    fn the_chore_dialog_makes_a_one_time_chore_with_or_without_a_due_day() {
+        use catlog_core::chores::ChoreRepeat;
+        let today = chrono::NaiveDate::from_ymd_opt(2026, 3, 10).unwrap();
+        let mut dialog = crate::chores::ChoreDialog::default();
+        dialog.ask("cat:a", None, today);
+        dialog.title = "Papers".into();
+        dialog.repeat = Some(ChoreRepeat::Once);
+        let open = dialog.draft().unwrap();
+        assert!(open.once());
+        assert_eq!(open.schedule.due, None);
+        dialog.due = "2026-03-12".into();
+        assert_eq!(
+            dialog.draft().unwrap().schedule.due,
+            chrono::NaiveDate::from_ymd_opt(2026, 3, 12)
+        );
+        dialog.due = "soon".into();
+        assert_eq!(dialog.draft().unwrap_err(), "due");
+    }
+
+    #[test]
     fn reminders_sound_once_when_their_moment_passes() {
         let dir = tempfile::tempdir().unwrap();
         let mut app = seeded(dir.path());
@@ -5225,6 +5360,7 @@ mod tests {
                 every: 1,
                 unit: ChoreUnit::Days,
                 weekdays: Vec::new(),
+                due: None,
             },
             time: None,
             start: chrono::NaiveDate::from_ymd_opt(2026, 3, 1).unwrap(),
@@ -7151,6 +7287,8 @@ mod tests {
                 h.get_all_by_label_contains(words).count() > 0,
                 "the graph offers {words}"
             );
+            // One choice of five: radio lines, not pills.
+            h.get_by_role_and_label(egui::accesskit::Role::RadioButton, words);
         }
         h.get_by_label("Week").click();
         h.run();
@@ -7159,6 +7297,169 @@ mod tests {
             Some("week"),
             "written as the phone writes it"
         );
+    }
+
+    /// The timeline line that opens what `tap` names.
+    fn timeline_line(app: &App, id: &str, tap: crate::pages::TimelineTap) -> String {
+        crate::pages::timeline_lines(app.store(), app.t(), app.pages.units, id)
+            .into_iter()
+            .find(|l| l.tap.is_some_and(|(_, k)| k == tap))
+            .map(|l| l.what)
+            .unwrap()
+    }
+
+    #[test]
+    fn a_move_in_the_timeline_is_corrected_in_the_move_dialog() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let store = app.store_mut();
+        store.create_clowder("clowder:yard", "Hinterhof").unwrap();
+        store.create_clowder("clowder:garden", "Garten").unwrap();
+        store.create_cat("cat:tiger", "Tiger", None, "cat").unwrap();
+        store
+            .append_at(
+                "cat:tiger",
+                keys::CLOWDER,
+                Some("clowder:yard"),
+                Some("2025-10-03T09:00:00Z"),
+                false,
+            )
+            .unwrap();
+        let moved = timeline_line(&app, "cat:tiger", crate::pages::TimelineTap::Move);
+        let mut h = harness(app);
+        h.state_mut()
+            .open_modal(Modal::Timeline("cat:tiger".into()));
+        h.run();
+        // The desk behind may name the same change: the modal is on top.
+        h.get_all_by_label(&moved).last().unwrap().click();
+        h.run();
+        assert!(h.state().mover.open, "the move dialog opens on the move");
+        assert_eq!(h.state().mover.as_of, "2025-10-03");
+        // The list pane says "Garten" too; the dialog's radio comes last.
+        h.get_all_by_label("Garten").last().unwrap().click();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let store = h.state().store();
+        assert_eq!(
+            store
+                .current("cat:tiger", keys::CLOWDER)
+                .unwrap()
+                .as_deref(),
+            Some("clowder:garden")
+        );
+        let moves = store
+            .field_history("cat:tiger", keys::CLOWDER, false)
+            .unwrap();
+        assert_eq!(moves.len(), 1, "corrected, not added");
+        assert_eq!(
+            moves[0].date, "2025-10-03T09:00:00.000000Z",
+            "the day kept keeps the moment"
+        );
+    }
+
+    #[test]
+    fn an_arrival_in_a_home_s_timeline_corrects_the_cat_s_move() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let store = app.store_mut();
+        store.create_clowder("clowder:yard", "Hinterhof").unwrap();
+        store
+            .create_cat("cat:tiger", "Tiger", Some("clowder:yard"), "cat")
+            .unwrap();
+        let mut h = harness(app);
+        h.state_mut()
+            .open_modal(Modal::Timeline("clowder:yard".into()));
+        h.run();
+        h.get_by_label("Tiger arrived").click();
+        h.run();
+        assert!(h.state().mover.open);
+        h.get_by_label("No clowder — stray / ran away").click();
+        h.run();
+        h.get_by_label("Save").click();
+        h.run();
+        let store = h.state().store();
+        assert_eq!(store.current("cat:tiger", keys::CLOWDER).unwrap(), None);
+        assert_eq!(
+            store
+                .field_history("cat:tiger", keys::CLOWDER, false)
+                .unwrap()
+                .len(),
+            1
+        );
+    }
+
+    #[test]
+    fn appointments_and_chores_in_the_timeline_open_their_own_editors() {
+        use crate::pages::TimelineTap;
+        use catlog_core::appointments::{Appointment, AppointmentAlert};
+        use catlog_core::chores::{Chore, ChoreSchedule};
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let today = app.pages.today;
+        let store = app.store_mut();
+        store.create_cat("cat:tiger", "Tiger", None, "cat").unwrap();
+        store
+            .create_appointment(
+                "a1",
+                &Appointment {
+                    id: String::new(),
+                    entity: "cat:tiger".into(),
+                    date: today,
+                    time: None,
+                    title: "Vet".into(),
+                    notes: String::new(),
+                    linked_field: None,
+                    linked_value: None,
+                    alert: AppointmentAlert::None,
+                    done: false,
+                    group: None,
+                    extra: Default::default(),
+                },
+            )
+            .unwrap();
+        let feed = store
+            .create_chore(
+                "c1",
+                &Chore {
+                    id: String::new(),
+                    entity: "cat:tiger".into(),
+                    title: "Feed".into(),
+                    schedule: ChoreSchedule::daily(),
+                    time: None,
+                    start: today,
+                    paused: false,
+                    ended: false,
+                    remind: false,
+                    remind_at: None,
+                    extra: Default::default(),
+                },
+            )
+            .unwrap();
+        store.tick_chore(&feed, today, today).unwrap();
+        let appointment = timeline_line(&app, "cat:tiger", TimelineTap::Appointment);
+        let chore = timeline_line(&app, "cat:tiger", TimelineTap::Chore);
+        let tick = timeline_line(&app, "cat:tiger", TimelineTap::ChoreTick);
+        let mut h = harness(app);
+        h.state_mut()
+            .open_modal(Modal::Timeline("cat:tiger".into()));
+        h.run();
+        h.get_by_label(&appointment).click();
+        h.run();
+        assert!(h.state().appointment_dialog.open);
+        // Drawn over the timeline: its own Cancel takes the click.
+        h.get_all_by_label("Cancel").last().unwrap().click();
+        h.run();
+        assert!(!h.state().appointment_dialog.open);
+        h.get_by_label(&chore).click();
+        h.run();
+        assert!(h.state().chore_dialog.open);
+        h.get_all_by_label("Cancel").last().unwrap().click();
+        h.run();
+        assert!(!h.state().chore_dialog.open);
+        h.get_by_label(&tick).click();
+        h.run();
+        assert!(h.state().chore_history.open);
     }
 
     #[test]
@@ -7610,6 +7911,62 @@ mod tests {
         h.get_by_label("Previous pin").click();
         h.run();
         assert_eq!(h.state().map_page.map.viewport, first, "and back again");
+    }
+
+    #[test]
+    fn things_on_one_spot_share_a_pin_that_lists_them() {
+        let dir = tempfile::tempdir().unwrap();
+        let foster = "clowder:00000000-0000-4000-8000-000000000001";
+        let barn = "clowder:00000000-0000-4000-8000-000000000002";
+        let mut app = seeded(dir.path());
+        // Two homes at one address, five metres apart.
+        app.store_mut()
+            .append(foster, "f:position", Some("51.34,12.37"))
+            .unwrap();
+        app.store_mut()
+            .append(barn, "f:position", Some("51.34005,12.37"))
+            .unwrap();
+        let mut h = harness(app);
+        h.run();
+        open_view(&mut h, "Map");
+        let none = std::collections::HashSet::new();
+        let spots = MapPage::spots(h.state().store(), &none);
+        let shared = spots.iter().find(|s| s.merged()).expect("one shared spot");
+        assert_eq!(shared.label(), "Foster Home +1");
+        assert_eq!(
+            MapPage::pins(h.state().store(), None, &none)
+                .iter()
+                .filter(|p| p.label == "Foster Home +1")
+                .count(),
+            1,
+            "one pin for the two homes"
+        );
+        // A click on the shared pin opens its list instead of a trail.
+        let clicked = h.state_mut().map_page.click_pin(foster);
+        assert_eq!(clicked, MapPageAction::None);
+        assert!(h.state().map_page.trail_of.is_none());
+        h.run();
+        h.get_by_label("Barn");
+        // The map icon on a row draws that thing's trail and closes the
+        // list. The rows sit under the map, past the window's edge in
+        // this harness, so the clicks go by accesskit.
+        h.get_all_by_label("Show on map")
+            .last()
+            .unwrap()
+            .click_accesskit();
+        h.run();
+        assert_eq!(h.state().map_page.trail_of.as_deref(), Some(barn));
+        assert!(h.state().map_page.open_spot.is_none());
+        // A row's name opens the thing.
+        h.state_mut().map_page.click_pin(foster);
+        h.run();
+        h.get_by_label("Barn").click_accesskit();
+        h.run();
+        assert_eq!(h.state().view(), View::Clowders, "the home's own view");
+        assert!(
+            h.state().desk.open.contains(&barn.to_string()),
+            "its card on the desk"
+        );
     }
 
     #[test]
@@ -8386,6 +8743,45 @@ mod tests {
             std::thread::sleep(std::time::Duration::from_millis(20));
         }
         panic!("recognition never answered");
+    }
+
+    #[test]
+    fn a_hand_made_poster_gives_its_ran_away_day_and_a_guess_says_so() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut app = seeded(dir.path());
+        let t = *app.t();
+        app.capture
+            .start(chrono::NaiveDate::from_ymd_opt(2025, 10, 20).unwrap());
+        app.capture.read(
+            &app.store,
+            &t,
+            vec![catlog_core::flier::FlierLine::new(
+                "Lost cat Minka",
+                10.0,
+                10.0,
+                200.0,
+                20.0,
+            )],
+        );
+        assert!(!app.capture.missing_since_known, "no day on it: a guess");
+        app.capture
+            .start(chrono::NaiveDate::from_ymd_opt(2025, 10, 20).unwrap());
+        app.capture.read(
+            &app.store,
+            &t,
+            vec![
+                catlog_core::flier::FlierLine::new("KATZE ENTLAUFEN", 10.0, 10.0, 200.0, 20.0),
+                catlog_core::flier::FlierLine::new(
+                    "Minka ist am 03.10.25 weggelaufen",
+                    10.0,
+                    60.0,
+                    400.0,
+                    20.0,
+                ),
+            ],
+        );
+        assert!(app.capture.missing_since_known);
+        assert_eq!(app.capture.missing_since, "2025-10-03");
     }
 
     #[test]

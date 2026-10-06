@@ -10,11 +10,14 @@ import 'package:image/image.dart' as img;
 void main() {
   setUpAll(useSystemSqlite);
 
-  Uint8List frame(int shade) => Uint8List.fromList(
-    img.encodeJpg(
-      img.Image(width: 40, height: 40)
-        ..clear(img.ColorRgb8(shade, shade, shade)),
+  KeptFrame frame(int shade) => (
+    bytes: Uint8List.fromList(
+      img.encodeJpg(
+        img.Image(width: 40, height: 40)
+          ..clear(img.ColorRgb8(shade, shade, shade)),
+      ),
     ),
+    crop: null,
   );
 
   test('each frame is stored and reported before the next', () async {
@@ -34,6 +37,19 @@ void main() {
     expect(done, 3);
     // Reported after each one, with that many photos already on the cat.
     expect(seen, [(1, 3, 1), (2, 3, 2), (3, 3, 3)]);
+  });
+
+  test('a frame lands with its crop cut out', () async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final cat = store.createCat('Miezi');
+
+    await addFrames(store, cat, [
+      (bytes: frame(10).bytes, crop: (x: 0.5, y: 0, w: 0.5, h: 0.5)),
+    ]);
+
+    final stored = img.decodeImage(store.imageBytes(store.images(cat).single)!)!;
+    expect((stored.width, stored.height), (20, 20));
   });
 
   test('a closed catalog stops the run without a crash', () async {

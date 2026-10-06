@@ -462,6 +462,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get missingSinceLabel => 'Savnet siden';
 
   @override
+  String get missingSinceNotOnFlier => 'Ikke funnet på plakaten — i dag';
+
+  @override
   String get cropPortrait => 'Beskjær portrett';
 
   @override
@@ -1136,11 +1139,11 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katter uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer en katt foran deg; oppslagsknappen gjør et savnet-oppslag om til en katt med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget. Trykk på Stray Cam for et bilde; hold inne for å filme en video og beholde de beste rutene som bilder.';
+      'Katter uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer en katt foran deg; oppslagsknappen gjør et savnet-oppslag om til en katt med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget. «Fra video…» velger en video og beholder de beste rutene som bilder.';
 
   @override
   String get helpStraysNeutral =>
-      'Kjæledyr uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer et dyr foran deg; oppslagsknappen gjør et savnet-oppslag om til et kjæledyr med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget. Trykk på Stray Cam for et bilde; hold inne for å filme en video og beholde de beste rutene som bilder.';
+      'Kjæledyr uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer et dyr foran deg; oppslagsknappen gjør et savnet-oppslag om til et kjæledyr med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget. «Fra video…» velger en video og beholder de beste rutene som bilder.';
 
   @override
   String get helpMap =>
@@ -1722,6 +1725,21 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Ekstra tær';
+
+  @override
+  String get looksValueMissingLeg => 'Manglende bein';
+
+  @override
+  String get looksValueMissingToes => 'Manglende tær';
+
+  @override
+  String get looksValueInjuredWing => 'Skadet vinge';
+
+  @override
+  String get looksValueClippedWings => 'Klippede vinger';
+
+  @override
+  String get looksValueDamagedShell => 'Skadet skall';
 
   @override
   String get rejectMatch => 'Ikke den samme';
@@ -2806,6 +2824,12 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Ukedager';
+
+  @override
+  String get choreRepeatOnce => 'Én gang';
+
+  @override
+  String get choreNoDueDate => 'Ingen frist — hvilken som helst dag';
 
   @override
   String choreEveryDays(int n) {

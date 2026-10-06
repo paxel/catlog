@@ -262,6 +262,11 @@ jobs:
     if: github.ref_type == 'tag' || github.event.inputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
+      # The listing (texts, F-Droid fields, store graphics, screenshots)
+      # and the changelog.
+      - uses: actions/checkout@v5
+        with:
+          path: app
       # Channel-repo pattern like Homebrew/Scoop: the index and APK live
       # in paxel/fdroid (own Pages), not in this repo's history.
       - uses: actions/download-artifact@v7
@@ -283,21 +288,52 @@ jobs:
           echo "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/fdroid.p12"
           cd channel
           mkdir -p repo
-          # Only the latest release stays in the repo; clients that lag
-          # simply get the newest version, and Pages stays small.
-          rm -f repo/*.apk
-          cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-arm64-v8a.apk" \
-             "$GITHUB_WORKSPACE/apks/catlog-$v-android-armeabi-v7a.apk" repo/
+          # F-Droid gets the 64-bit APK only: Flutter numbers split APKs
+          # ABI x 1000 + build, which F-Droid's archiving would sort wrongly.
+          # 32-bit APKs from before this go.
+          rm -f repo/catlog-*-armeabi-v7a.apk archive/catlog-*-armeabi-v7a.apk
+          # The main repository keeps the newest version and F-Droid moves
+          # the one before into the archive, which keeps three: make room.
+          mkdir -p archive
+          ls archive/catlog-*-android-arm64-v8a.apk 2>/dev/null | sort -V | head -n -2 | xargs -r rm -f
+          cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-arm64-v8a.apk" repo/
+          # The store listing travels with the app: only cat(a)log's files
+          # are replaced, the other app's stay untouched.
+          id=io.github.paxel.catlog
+          app="$GITHUB_WORKSPACE/app"
+          mkdir -p metadata
+          cp "$app/fdroid/metadata.yml" "metadata/$id.yml"
+          rm -rf "metadata/$id" "repo/$id"
+          mkdir -p "metadata/$id"
+          cp -r "$app/fastlane/metadata/android/." "metadata/$id/"
+          en="metadata/$id/en-US"
+          mkdir -p "$en/images/phoneScreenshots" "$en/changelogs"
+          cp "$app/assets/icon/store/play-icon-512.png" "$en/images/icon.png"
+          cp "$app/assets/icon/store/play-feature-1024x500.png" "$en/images/featureGraphic.png"
+          cp "$app"/docs/screenshots/play/play-*.png "$en/images/phoneScreenshots/"
+          # What's new: this version's CHANGELOG entries, cut to F-Droid's limit.
+          python3 "$app/tool/whats_new.py" "$v" "$app/CHANGELOG.md" > "$en/changelogs/default.txt"
+          # Must stay word for word the same as chaos-alert's release
+          # workflow, or each release renames the repository.
           cat > config.yml <<EOF
           repo_url: https://paxel.github.io/fdroid/repo
-          repo_name: cat(a)log
-          repo_description: Releases of cat(a)log, the local-first catalog for people fostering cats.
+          repo_name: paxel's apps
+          repo_description: Releases of paxel's Android apps.
           repo_keyalias: repokey
           keystore: $RUNNER_TEMP/fdroid.p12
           keystorepass: $KEYSTORE_PASS
           keypass: $KEYSTORE_PASS
-          archive_older: 0
+          archive_older: 1
+          archive_name: paxel's apps (archive)
+          archive_description: Older versions of paxel's Android apps.
           EOF
+          # fdroidserver links each icon and feature graphic to a copy named
+          # after its hash. Git keeps no hard links, so on the next run the
+          # copies look stale and get deleted while the index still points
+          # at them. Removing every app's copies first makes fdroidserver
+          # create them all again.
+          find repo -path 'repo/*/*' -regextype posix-extended \
+            -regex '.*/(icon|featureGraphic|promoGraphic|tvBanner)_[A-Za-z0-9_=-]+\.(png|jpe?g)' -delete
           fdroid update --create-metadata
           rm config.yml
           git add -A

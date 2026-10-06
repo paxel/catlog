@@ -461,6 +461,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get missingSinceLabel => 'Dispărut din';
 
   @override
+  String get missingSinceNotOnFlier => 'Nu a fost găsit pe afiș — azi';
+
+  @override
   String get cropPortrait => 'Decupează portretul';
 
   @override
@@ -1138,11 +1141,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș. Atinge Stray Cam pentru o fotografie; ține apăsat pentru a filma un videoclip și a păstra cele mai bune cadre ca fotografii.';
+      'Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș. „Din video…” alege un videoclip și păstrează cele mai bune cadre ca fotografii.';
 
   @override
   String get helpStraysNeutral =>
-      'Animale care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează un animal din fața ta; butonul cu afișul transformă un afiș de animal dispărut într-un animal cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș. Atinge Stray Cam pentru o fotografie; ține apăsat pentru a filma un videoclip și a păstra cele mai bune cadre ca fotografii.';
+      'Animale care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează un animal din fața ta; butonul cu afișul transformă un afiș de animal dispărut într-un animal cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș. „Din video…” alege un videoclip și păstrează cele mai bune cadre ca fotografii.';
 
   @override
   String get helpMap =>
@@ -1724,6 +1727,21 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Degete în plus';
+
+  @override
+  String get looksValueMissingLeg => 'Picior lipsă';
+
+  @override
+  String get looksValueMissingToes => 'Degete lipsă';
+
+  @override
+  String get looksValueInjuredWing => 'Aripă rănită';
+
+  @override
+  String get looksValueClippedWings => 'Aripi tăiate';
+
+  @override
+  String get looksValueDamagedShell => 'Carapace deteriorată';
 
   @override
   String get rejectMatch => 'Nu e același';
@@ -2815,6 +2833,12 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Zile';
+
+  @override
+  String get choreRepeatOnce => 'O singură dată';
+
+  @override
+  String get choreNoDueDate => 'Fără termen — în orice zi';
 
   @override
   String choreEveryDays(int n) {

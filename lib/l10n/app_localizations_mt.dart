@@ -461,6 +461,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get missingSinceLabel => 'Mitluf minn';
 
   @override
+  String get missingSinceNotOnFlier => 'Ma nstabx fuq il-fuljett — illum';
+
+  @override
   String get cropPortrait => 'Aqta\' r-ritratt';
 
   @override
@@ -1137,11 +1140,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster. Mess Stray Cam għal ritratt; żomm magħfus biex tiffilmja vidjo u żomm l-aħjar frames bħala ritratti.';
+      'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster. “Minn video…” jagħżel vidjo u jżomm l-aħjar frames bħala ritratti.';
 
   @override
   String get helpStraysNeutral =>
-      'Annimali domestiċi li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel annimal quddiemek; il-buttuna tal-flier tibdel poster ta\' annimal mitluf f\'annimal domestiku bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster. Mess Stray Cam għal ritratt; żomm magħfus biex tiffilmja vidjo u żomm l-aħjar frames bħala ritratti.';
+      'Annimali domestiċi li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel annimal quddiemek; il-buttuna tal-flier tibdel poster ta\' annimal mitluf f\'annimal domestiku bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster. “Minn video…” jagħżel vidjo u jżomm l-aħjar frames bħala ritratti.';
 
   @override
   String get helpMap =>
@@ -1725,6 +1728,21 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Swaba’ żejda';
+
+  @override
+  String get looksValueMissingLeg => 'Nieqsa sieq';
+
+  @override
+  String get looksValueMissingToes => 'Neqsin swaba’';
+
+  @override
+  String get looksValueInjuredWing => 'Ġewnaħ imweġġa’';
+
+  @override
+  String get looksValueClippedWings => 'Ġwienaħ maqtugħa';
+
+  @override
+  String get looksValueDamagedShell => 'Qoxra mħassra';
 
   @override
   String get rejectMatch => 'Mhux l-istess';
@@ -2818,6 +2836,12 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Ġranet';
+
+  @override
+  String get choreRepeatOnce => 'Darba waħda';
+
+  @override
+  String get choreNoDueDate => 'L-ebda data — kull jum';
 
   @override
   String choreEveryDays(int n) {

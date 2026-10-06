@@ -2,6 +2,60 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [2.2.0] - 2026-10-01
+
+### Changed
+- The F-Droid repository is now called "paxel's apps" and also carries chaos-alert; the address stays the same.
+
+### Fixed
+- Looks offer each species only what it has, on phone and desk. A bird's features are a missing leg or toes, an injured or clipped wing, and its eyes — no ears, front legs or teeth. A tortoise gets shell colours and a damaged shell instead of fur colours, marks and teeth. Horses and ferrets get fur, tail and ears like the other furred animals. An animal of unknown species can pick from every feature.
+- Adding a stray from a video picks a video file, the same as adding photos from a video to a cat, instead of opening the camera.
+- The Strays help no longer says to press and hold Stray Cam to film a video; it points to "From video…" instead.
+
+## [2.1.0] - 2026-09-30
+
+### Added
+- Everything on one spot of the map shares one pin, on the phone and on the desk: two homes at one address, a cat seen at a home's door, a poster's spot. The pin wears the home's cover — or the freshest face — with "+2" for the rest, and opens the list of what is there; a tap on a row opens it, the map icon on the row puts its trail on the map. Cats already shared a pin; homes, fliers and own location fields now join in.
+
+### Fixed
+
+- The unit system in Settings is three rows with a radio each; the one-line pill squeezed its labels into a tall blob on a phone.
+
+## [2.0.7] - 2026-09-28
+
+### Changed
+- The card a keeper shares says how old the cat is beside its birth date, and for a cat that has died the age it reached, marked with the cross — the same as on the cat's own page, on phone and desk.
+- The vet report's age counts to the day a cat died instead of to today, and carries the cross. So does the Age column of the desk's Cats table.
+
+### Fixed
+- "Move to another catalog" on marked rows moves the rows that were marked. It used to offer whole homes and strays instead, so moving five cats out of a home meant moving the home. A cat whose home stays behind arrives as a stray rather than in a home that is not there.
+- A phone that syncs but records nothing for a week is no longer treated as an install that is gone: its warning stays and the whole-history file it reads is kept, instead of being cut off for good. Only a file nobody has written to for a week counts as gone, and a folder that cannot say when a file was written — an Android shared folder — keeps everyone.
+- The mother or father already written down stays on the picker's list even after that cat's gender is corrected, so the relation can be changed instead of only cancelled.
+- Opening a cat while the desk shows homes only puts the card on the desk and lets the filter go, instead of swallowing the click until the filter is found and turned off. A face in the dock brings its card back the same way, and Tile arranges the cards in sight and leaves the hidden ones where they lie.
+- A paused chore is off the agenda's calendar; the month grid used to print it on every day while the list filed it under Paused.
+- A note that follows a failure is drawn as news again and fades by itself; later notes used to inherit the red ground and the close button of the failure before them. A failure of its own — a photo that could not be read, a catalog whose keepsake file could not be written, an archive or a calendar file that failed — now waits for the x instead of fading after six seconds.
+- A moment's sound, the confetti switch and the reminder's voice are the device's own: they are the same in every catalog on phone and desk, and an own sound picked in one catalog no longer replaces another's file behind its back. A choice made before this release is read where it was made.
+- Turning the chore reminder's cat sound off is no longer undone by ticking a chore in another catalog.
+- The vet report's preview on the desk speaks the app's units and counts from the app's day, so it says what the written report says.
+- "Copy graph as image" is offered only when the chosen range actually draws a graph; it used to be clickable and do nothing.
+- The year arrows in the agenda's month picker lead back where they came from: a year back from 31 March is 31 March, not 28 February.
+- A place near the edge of a map tile is drawn undistorted on the card, with the pin on the place itself instead of always in the middle.
+- Deleting an achievement takes it off the list: it is waved off at the tier shown, so a ladder that climbed through a sync no longer comes straight back, and one that was never recorded goes too.
+- Deleting an empty catalog says there was nothing to back up instead of naming a keepsake file that was never written.
+- Saving picked video frames no longer hangs on a spinner when a full-size frame cannot be read; the picked picture is kept instead. A frame that cannot be grabbed leaves Keep this frame working, rather than dead for the rest of the picking.
+- Pulling a tiled card's bottom edge changes that card's height instead of snapping it back to the tile's row, so a card no longer shrinks with every pull and the cards beside it keep theirs.
+- The vet report's preview follows every change again: a new date range, the patient summary switch and a row taken out all redraw it, not only the field chips. Drawing it no longer greys out Share and Print.
+- An appointment can no longer be saved with nobody to visit; Save stays grey until a cat or a home is picked.
+- Turning the adoption confetti off no longer silences the tick, the day's chores, the ladder and the adoption sounds as well. A device that had the switch off before the moments had their own sounds keeps its silence: it is read once as the choice for every moment.
+- A marked home is highlighted in the Clowders table again; the row was marked but looked like any other.
+- Moving marked cats that are not all in the same home now starts with nothing ticked, and any choice — the street included — can be saved. The street used to look ticked and Save stayed grey.
+- Marked rows stay in the catalog they were marked in. They used to survive a switch, and a bulk action — a delete above all — would then be aimed at cats the new catalog has never heard of.
+- The plus on a wide screen fans its ways out under itself again: in the two-pane layout they were drawn a pane's width to the left, over the list.
+- Deleting a catalog takes the one the question names. Looking at another catalog on the Catalogs page could leave that one marked, and the delete from Settings then took it instead of the one it had asked about.
+- "Move in from another catalog" works with three catalogs or more; it used to do nothing at all, throwing where nobody could see it.
+- Settling a conflict in the window that lists what arrived leaves the window open, with the conflicts still to settle in it. It used to close on the first choice.
+- What arrives from a phone or a folder shows up at once: a sync wrote the entries but never told the views, so the cats, the dashboard, the agenda and the family tree went on showing the catalog as it was before it.
+
 ## [2.0.6] - 2026-09-27
 
 ### Added

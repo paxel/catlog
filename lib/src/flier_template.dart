@@ -136,7 +136,15 @@ class FlierTemplateSet {
   /// Field slug → option → synonyms.
   final Map<String, Map<String, List<String>>> values;
 
-  const FlierTemplateSet(this.templates, this.values);
+  /// Words that say "ran away on" anywhere on a poster, any layout —
+  /// hand-made fliers match no template.
+  final List<String> missingSinceWords;
+
+  const FlierTemplateSet(
+    this.templates,
+    this.values, [
+    this.missingSinceWords = const [],
+  ]);
 
   static const empty = FlierTemplateSet([], {});
 
@@ -168,6 +176,10 @@ class FlierTemplateSet {
               o.key: [for (final s in o.value as List) s as String],
           },
       },
+      [
+        for (final w in (json['missingSinceWords'] as List? ?? const []))
+          w as String,
+      ],
     );
   }
 
@@ -273,9 +285,11 @@ class FlierReading {
 FlierReading readFlier(List<FlierPair> pairs, FlierTemplateSet templates) {
   final template = templates.match(pairs);
   if (template == null) {
-    return FlierReading(null, [
+    final entries = [
       for (final p in pairs) FlierEntry(label: p.label, value: p.value),
-    ]);
+    ];
+    _findMissingSince(entries, templates.missingSinceWords);
+    return FlierReading(null, entries);
   }
   final entries = <FlierEntry>[];
   for (final pair in pairs) {
@@ -310,7 +324,31 @@ FlierReading readFlier(List<FlierPair> pairs, FlierTemplateSet templates) {
     }
     entries.addAll(_composite(labelParts, targets, pair.value, templates));
   }
+  _findMissingSince(entries, templates.missingSinceWords);
   return FlierReading(template, entries);
+}
+
+/// Unless a label already gave it, the missing-since date is the date
+/// on a line saying "weggelaufen am" or the like — on that line, or on
+/// the one right after it ("Vermisst seit" over "3. Oktober").
+void _findMissingSince(List<FlierEntry> entries, List<String> words) {
+  if (entries.any((e) => e.target == FlierTarget.missingSince)) return;
+  bool dated(FlierEntry e) =>
+      e.target == FlierTarget.remarks && parseFlierDate(e.value) != null;
+  for (var i = 0; i < entries.length; i++) {
+    final entry = entries[i];
+    if (entry.target != FlierTarget.remarks) continue;
+    final text = _fold('${entry.label ?? ''} ${entry.value}');
+    if (!words.any((w) => _containsWord(text, _fold(w)))) continue;
+    final next = i + 1 < entries.length ? entries[i + 1] : null;
+    final hit = dated(entry)
+        ? entry
+        : (next != null && dated(next) ? next : null);
+    if (hit != null) {
+      hit.target = FlierTarget.missingSince;
+      return;
+    }
+  }
 }
 
 /// A composite row: value parts zip onto label parts when the counts
@@ -394,8 +432,140 @@ List<FlierEntry> _loneLine(
 
 /// A date as posters print it: 05.06.2025, 5.6.2025, 2025-06-05,
 /// 5/6/2025 — or only a month (05/2025) or a year (2025), kept at that
-/// precision (#76). Null when the line holds no date.
-PartialDate? parseFlierDate(String text) => PartialDate.find(text);
+/// precision (#76). Hand-made posters add 03-10-2025, 03.10.25,
+/// "3. Oktober 2025", "Oct 3, 2025" and 3.10. without a year — the
+/// latest such day not after [today], as a cat goes missing in the
+/// past. Null when the line holds no date. Typed dates do not take
+/// these: a typed appointment lies ahead, not behind.
+PartialDate? parseFlierDate(String text, {DateTime? today}) {
+  final at = today ?? DateTime.now();
+  final now = DateTime(at.year, at.month, at.day);
+  final s = text.toLowerCase();
+  final dmy = RegExp(r'(?<!\d)(\d{1,2})[./-](\d{1,2})[./-](\d{4}|\d{2})(?!\d)')
+      .firstMatch(s);
+  if (dmy != null) {
+    return _day(
+      _year(dmy.group(3)!),
+      int.parse(dmy.group(2)!),
+      int.parse(dmy.group(1)!),
+    );
+  }
+  final iso = RegExp(r'(\d{4})-(\d{2})-(\d{2})').firstMatch(s);
+  if (iso != null) return PartialDate.parse(iso.group(0)!);
+  final written = _writtenDate(s, now);
+  if (written != null) return written;
+  final dm = RegExp(r'(?<![\d.])(\d{1,2})\.(\d{1,2})\.(?![\d])').firstMatch(s);
+  if (dm != null) {
+    return _latest(int.parse(dm.group(2)!), int.parse(dm.group(1)!), now);
+  }
+  return PartialDate.find(text);
+}
+
+/// A two-digit year is this century's.
+int _year(String y) => y.length == 2 ? 2000 + int.parse(y) : int.parse(y);
+
+/// The day if it exists; null for 31.02.
+PartialDate? _day(int year, int month, int day) => PartialDate.parse(
+  '${year.toString().padLeft(4, '0')}-${month.toString().padLeft(2, '0')}'
+  '-${day.toString().padLeft(2, '0')}',
+);
+
+/// The latest [month]/[day] not after [today].
+PartialDate? _latest(int month, int day, DateTime today) {
+  final thisYear = _day(today.year, month, day);
+  if (thisYear != null && !thisYear.earliest.isAfter(today)) return thisYear;
+  return _day(today.year - 1, month, day);
+}
+
+/// Month words in German and English, by month number; a shortening
+/// may carry a dot.
+const _months = {
+  'januar': 1,
+  'jänner': 1,
+  'january': 1,
+  'jan': 1,
+  'februar': 2,
+  'february': 2,
+  'feb': 2,
+  'märz': 3,
+  'maerz': 3,
+  'march': 3,
+  'mär': 3,
+  'mar': 3,
+  'april': 4,
+  'apr': 4,
+  'mai': 5,
+  'may': 5,
+  'juni': 6,
+  'june': 6,
+  'jun': 6,
+  'juli': 7,
+  'july': 7,
+  'jul': 7,
+  'august': 8,
+  'aug': 8,
+  'september': 9,
+  'sept': 9,
+  'sep': 9,
+  'oktober': 10,
+  'october': 10,
+  'okt': 10,
+  'oct': 10,
+  'november': 11,
+  'nov': 11,
+  'dezember': 12,
+  'december': 12,
+  'dez': 12,
+  'dec': 12,
+};
+
+/// "3. Oktober 2025", "3 Okt.", "Oct 3, 2025", "October 3rd" or
+/// "Oktober 2025"; null when no month word is there.
+PartialDate? _writtenDate(String s, DateTime today) {
+  final names = (_months.keys.toList()..sort((a, b) => b.length - a.length))
+      .map(RegExp.escape)
+      .join('|');
+  final dayFirst = RegExp(
+    '(?<!\\d)(\\d{1,2})\\.?\\s*($names)\\b\\.?(?:\\s*,?\\s*(\\d{4}))?',
+    unicode: true,
+  ).firstMatch(s);
+  if (dayFirst != null) {
+    return _dated(
+      dayFirst.group(3),
+      _months[dayFirst.group(2)]!,
+      int.parse(dayFirst.group(1)!),
+      today,
+    );
+  }
+  final monthFirst = RegExp(
+    '\\b($names)\\b\\.?\\s*(\\d{1,2})(?:st|nd|rd|th)?(?!\\d)'
+    '(?:\\s*,?\\s*(\\d{4}))?',
+    unicode: true,
+  ).firstMatch(s);
+  if (monthFirst != null) {
+    return _dated(
+      monthFirst.group(3),
+      _months[monthFirst.group(1)]!,
+      int.parse(monthFirst.group(2)!),
+      today,
+    );
+  }
+  final monthYear = RegExp(
+    '\\b($names)\\b\\.?\\s*(\\d{4})',
+    unicode: true,
+  ).firstMatch(s);
+  if (monthYear != null) {
+    return PartialDate.parse(
+      '${monthYear.group(2)}-${_months[monthYear.group(1)]!.toString().padLeft(2, '0')}',
+    );
+  }
+  return null;
+}
+
+PartialDate? _dated(String? year, int month, int day, DateTime today) =>
+    year == null
+    ? _latest(month, day, today)
+    : _day(int.parse(year), month, day);
 
 String _fold(String s) =>
     s.toLowerCase().trim().replaceAll(RegExp(r'\s+'), ' ');

@@ -461,6 +461,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get missingSinceLabel => 'Kadonnut alkaen';
 
   @override
+  String get missingSinceNotOnFlier => 'Ei löytynyt ilmoituksesta — tänään';
+
+  @override
   String get cropPortrait => 'Rajaa muotokuva';
 
   @override
@@ -1137,11 +1140,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta. Napauta Stray Camia ottaaksesi kuvan; pidä pohjassa kuvataksesi videon ja säilytä parhaat ruudut kuvina.';
+      'Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta. ”Videosta…” valitsee videon ja säilyttää parhaat ruudut kuvina.';
 
   @override
   String get helpStraysNeutral =>
-      'Lemmikit, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa eläimen, joka on edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta lemmikin omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta. Napauta Stray Camia ottaaksesi kuvan; pidä pohjassa kuvataksesi videon ja säilytä parhaat ruudut kuvina.';
+      'Lemmikit, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa eläimen, joka on edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta lemmikin omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta. ”Videosta…” valitsee videon ja säilyttää parhaat ruudut kuvina.';
 
   @override
   String get helpMap =>
@@ -1724,6 +1727,21 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Ylimääräiset varpaat';
+
+  @override
+  String get looksValueMissingLeg => 'Puuttuva jalka';
+
+  @override
+  String get looksValueMissingToes => 'Puuttuvat varpaat';
+
+  @override
+  String get looksValueInjuredWing => 'Vahingoittunut siipi';
+
+  @override
+  String get looksValueClippedWings => 'Leikatut siivet';
+
+  @override
+  String get looksValueDamagedShell => 'Vaurioitunut kilpi';
 
   @override
   String get rejectMatch => 'Ei sama';
@@ -2809,6 +2827,12 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Viikonpäivät';
+
+  @override
+  String get choreRepeatOnce => 'Kerran';
+
+  @override
+  String get choreNoDueDate => 'Ei määräpäivää — mikä tahansa päivä';
 
   @override
   String choreEveryDays(int n) {

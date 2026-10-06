@@ -8,6 +8,7 @@ import '../l10n.dart';
 import '../sounds.dart';
 import '../notes.dart';
 import '../reminders/plan_entity.dart';
+import '../widgets/date_entry.dart';
 import 'chore_history_screen.dart';
 import 'chore_reminders.dart';
 
@@ -108,6 +109,9 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
   }
 
   late final Set<int> _weekdays = {...?_source?.schedule.weekdays};
+
+  /// A one-time chore's due day; null when any day will do.
+  late DateTime? _due = _source?.due;
   late ({int hour, int minute})? _time = _source?.time;
   late bool _remind = _source?.remind ?? false;
   late ({int hour, int minute})? _remindAt =
@@ -134,6 +138,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     ChoreRepeat.daily => const ChoreSchedule.daily(),
     ChoreRepeat.everyDays => ChoreSchedule.every(_every, _unit),
     ChoreRepeat.weekdays => ChoreSchedule.weekdays(_weekdays),
+    ChoreRepeat.once => const ChoreSchedule.once(),
   };
 
   void _save() {
@@ -148,6 +153,8 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
         clearTime: _time == null,
         remind: _remind,
         remindAt: _remindAt,
+        due: _repeat == ChoreRepeat.once ? _due : null,
+        clearDue: _repeat != ChoreRepeat.once || _due == null,
       );
       store.updateChore(saved);
     } else {
@@ -161,6 +168,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
           start: dayOf(DateTime.now()),
           remind: _remind,
           remindAt: _remindAt,
+          due: _repeat == ChoreRepeat.once ? _due : null,
         ),
       );
     }
@@ -217,6 +225,11 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     Navigator.of(context).pop(changed);
   }
 
+  Future<void> _pickDue() async {
+    final picked = await pickDay(context, initial: _due ?? DateTime.now());
+    if (picked != null && mounted) setState(() => _due = dayOf(picked));
+  }
+
   Future<void> _pickTime() async {
     final picked = await showTimePicker(
       context: context,
@@ -245,7 +258,13 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
                   schedule: _schedule,
                   start: dayOf(DateTime.now()),
                 ))
-            .copyWith(schedule: _schedule, remind: true, remindAt: at);
+            .copyWith(
+              schedule: _schedule,
+              remind: true,
+              remindAt: at,
+              due: _due,
+              clearDue: _due == null,
+            );
     final ticks = existing == null
         ? <DateTime, DateTime>{}
         : store.choreTicks(existing!);
@@ -336,24 +355,47 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
             onChanged: (_) => setState(() {}),
           ),
           const SizedBox(height: 16),
-          SegmentedButton<ChoreRepeat>(
-            segments: [
-              ButtonSegment(
-                value: ChoreRepeat.daily,
-                label: Text(t.choreRepeatDaily),
-              ),
-              ButtonSegment(
-                value: ChoreRepeat.everyDays,
-                label: Text(t.choreRepeatEvery),
-              ),
-              ButtonSegment(
-                value: ChoreRepeat.weekdays,
-                label: Text(t.choreRepeatWeekdays),
-              ),
-            ],
-            selected: {_repeat},
-            onSelectionChanged: (s) => setState(() => _repeat = s.first),
+          // One choice of four: radio lines, not pills (ui-laws).
+          RadioGroup<ChoreRepeat>(
+            groupValue: _repeat,
+            onChanged: (r) {
+              if (r != null) setState(() => _repeat = r);
+            },
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (final (repeat, label) in [
+                  (ChoreRepeat.daily, t.choreRepeatDaily),
+                  (ChoreRepeat.everyDays, t.choreRepeatEvery),
+                  (ChoreRepeat.weekdays, t.choreRepeatWeekdays),
+                  (ChoreRepeat.once, t.choreRepeatOnce),
+                ])
+                  RadioListTile<ChoreRepeat>(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(label),
+                    value: repeat,
+                  ),
+              ],
+            ),
           ),
+          if (_repeat == ChoreRepeat.once)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.event),
+              title: Text(
+                _due == null
+                    ? t.choreNoDueDate
+                    : '${t.dueDateLabel}: ${DateFormat.yMMMEd(locale).format(_due!)}',
+              ),
+              trailing: _due == null
+                  ? null
+                  : IconButton(
+                      icon: const Icon(Icons.clear),
+                      tooltip: t.choreNoDueDate,
+                      onPressed: () => setState(() => _due = null),
+                    ),
+              onTap: _pickDue,
+            ),
           if (_repeat == ChoreRepeat.everyDays)
             Padding(
               padding: const EdgeInsets.only(top: 8),
@@ -499,11 +541,15 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
               title: Text(t.choreDuplicate),
               onTap: _duplicate,
             ),
-            ListTile(
-              leading: Icon(existing!.paused ? Icons.play_arrow : Icons.pause),
-              title: Text(existing!.paused ? t.choreResume : t.chorePause),
-              onTap: _pauseOrResume,
-            ),
+            // A deadline has nothing to pause: End covers "not needed".
+            if (!existing!.once)
+              ListTile(
+                leading: Icon(
+                  existing!.paused ? Icons.play_arrow : Icons.pause,
+                ),
+                title: Text(existing!.paused ? t.choreResume : t.chorePause),
+                onTap: _pauseOrResume,
+              ),
             ListTile(
               leading: Icon(
                 Icons.delete_outline,

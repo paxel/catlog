@@ -207,6 +207,36 @@ void main() {
     );
   });
 
+  testWidgets('a flier for a known cat dates its moves to the ran-away day', (
+    tester,
+  ) async {
+    final cat = store.createCat('Minka');
+    final home = store.createClowder('Home');
+    await pump(
+      tester,
+      existingCatId: cat,
+      text: 'Minka ist am 03.10.2025 weggelaufen',
+    );
+    await next(tester);
+    // No home picked yet: nothing to leave, no day to ask for.
+    expect(find.text('Missing since'), findsNothing);
+    await tester.tap(find.text('Existing clowder'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Home'));
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    expect(find.text('10/3/2025'), findsOneWidget);
+    await save(tester);
+
+    final moves = store.fieldHistory(cat, Keys.clowder);
+    expect(moves.map((e) => e.value), containsAll([home, null]));
+    expect(
+      moves.map((e) => e.date.toLocal()),
+      everyElement(DateTime(2025, 10, 3)),
+    );
+    expect(store.current(cat, Keys.clowder), isNull);
+  });
+
   testWidgets('a Tasso link on the poster becomes a looked-up ID field', (
     tester,
   ) async {
@@ -414,8 +444,9 @@ void main() {
     );
   });
 
-  testWidgets('an existing clowder picked in the wizard takes the owner data',
-      (tester) async {
+  testWidgets('an existing clowder picked in the wizard takes the owner data', (
+    tester,
+  ) async {
     final home = store.createClowder('Home');
     store.append(home, Keys.userField('phone'), '111');
     await pump(tester);
@@ -442,8 +473,9 @@ void main() {
     );
   });
 
-  testWidgets('a line sent to a clowder field lands on the owner',
-      (tester) async {
+  testWidgets('a line sent to a clowder field lands on the owner', (
+    tester,
+  ) async {
     await pump(tester, text: 'Minka\nreward!');
     await tester.tap(find.byType(DropdownButton<String>).last);
     await tester.pumpAndSettle();
@@ -518,6 +550,30 @@ void main() {
       store.current(store.cats().single.id, Keys.userField('remarks')),
       'typed by hand',
     );
+  });
+
+  testWidgets('a hand-made flier dates the stray to its ran-away day', (
+    tester,
+  ) async {
+    await pump(tester, text: 'Minka ist am 03.10.2025 weggelaufen');
+    await next(tester);
+    expect(find.text('10/3/2025'), findsOneWidget);
+    expect(find.text('Not found on the flier — today'), findsNothing);
+    await save(tester);
+
+    final cat = store.cats().single.id;
+    final stray = store.fieldHistory(cat, Keys.clowder).first;
+    expect(stray.value, isNull);
+    expect(stray.date.toLocal(), DateTime(2025, 10, 3));
+  });
+
+  testWidgets('without a date on the flier the tile says today is a guess', (
+    tester,
+  ) async {
+    await pump(tester);
+    await next(tester);
+    expect(find.text('Not found on the flier — today'), findsOneWidget);
+    expect(find.byIcon(Icons.warning_amber), findsOneWidget);
   });
 
   testWidgets('a missing date in the future stays a remark', (tester) async {

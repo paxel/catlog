@@ -460,6 +460,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get missingSinceLabel => 'Eltűnt ekkortól';
 
   @override
+  String get missingSinceNotOnFlier => 'Nem található a plakáton — ma';
+
+  @override
   String get cropPortrait => 'Portré kivágása';
 
   @override
@@ -1136,11 +1139,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. Koppints a Stray Camre egy fotóhoz; tartsd lenyomva videóhoz, és a legjobb képkockákat fotóként megtarthatod.';
+      'Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. A „Videóból…” kiválaszt egy videót, és a legjobb képkockákat fotóként megtartja.';
 
   @override
   String get helpStraysNeutral =>
-      'Kisállatok, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted lévő állatot; a plakát gomb egy eltűnt-plakátból kisállatot csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. Koppints a Stray Camre egy fotóhoz; tartsd lenyomva videóhoz, és a legjobb képkockákat fotóként megtarthatod.';
+      'Kisállatok, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted lévő állatot; a plakát gomb egy eltűnt-plakátból kisállatot csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. A „Videóból…” kiválaszt egy videót, és a legjobb képkockákat fotóként megtartja.';
 
   @override
   String get helpMap =>
@@ -1722,6 +1725,21 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Több lábujj';
+
+  @override
+  String get looksValueMissingLeg => 'Hiányzó láb';
+
+  @override
+  String get looksValueMissingToes => 'Hiányzó lábujjak';
+
+  @override
+  String get looksValueInjuredWing => 'Sérült szárny';
+
+  @override
+  String get looksValueClippedWings => 'Nyírt szárnyak';
+
+  @override
+  String get looksValueDamagedShell => 'Sérült páncél';
 
   @override
   String get rejectMatch => 'Nem ugyanaz';
@@ -2808,6 +2826,12 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Napok';
+
+  @override
+  String get choreRepeatOnce => 'Egyszeri';
+
+  @override
+  String get choreNoDueDate => 'Nincs határidő — bármelyik nap';
 
   @override
   String choreEveryDays(int n) {

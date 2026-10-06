@@ -461,6 +461,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get missingSinceLabel => 'Missing since';
 
   @override
+  String get missingSinceNotOnFlier => 'Not found on the flier — today';
+
+  @override
   String get cropPortrait => 'Crop portrait';
 
   @override
@@ -1136,11 +1139,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.';
+      'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. “From video…” picks a video and keeps its best frames as photos.';
 
   @override
   String get helpStraysNeutral =>
-      'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.';
+      'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. “From video…” picks a video and keeps its best frames as photos.';
 
   @override
   String get helpMap =>
@@ -1722,6 +1725,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Extra toes';
+
+  @override
+  String get looksValueMissingLeg => 'Missing leg';
+
+  @override
+  String get looksValueMissingToes => 'Missing toes';
+
+  @override
+  String get looksValueInjuredWing => 'Injured wing';
+
+  @override
+  String get looksValueClippedWings => 'Clipped wings';
+
+  @override
+  String get looksValueDamagedShell => 'Damaged shell';
 
   @override
   String get rejectMatch => 'Not the same';
@@ -2807,6 +2825,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Weekdays';
+
+  @override
+  String get choreRepeatOnce => 'One time';
+
+  @override
+  String get choreNoDueDate => 'No due date — any day';
 
   @override
   String choreEveryDays(int n) {

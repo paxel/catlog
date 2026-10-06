@@ -462,6 +462,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get missingSinceLabel => 'Försvunnen sedan';
 
   @override
+  String get missingSinceNotOnFlier => 'Hittades inte på lappen — i dag';
+
+  @override
   String get cropPortrait => 'Beskär porträtt';
 
   @override
@@ -1137,11 +1140,11 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget. Tryck på Stray Cam för ett foto; håll nere för att filma en video och behåll de bästa bildrutorna som foton.';
+      'Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget. ”Från video…” väljer en video och behåller de bästa bildrutorna som foton.';
 
   @override
   String get helpStraysNeutral =>
-      'Husdjur utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar ett djur framför dig; anslagsknappen gör ett efterlysningsanslag till ett husdjur med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget. Tryck på Stray Cam för ett foto; håll nere för att filma en video och behåll de bästa bildrutorna som foton.';
+      'Husdjur utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar ett djur framför dig; anslagsknappen gör ett efterlysningsanslag till ett husdjur med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget. ”Från video…” väljer en video och behåller de bästa bildrutorna som foton.';
 
   @override
   String get helpMap =>
@@ -1723,6 +1726,21 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Extra tår';
+
+  @override
+  String get looksValueMissingLeg => 'Saknat ben';
+
+  @override
+  String get looksValueMissingToes => 'Saknade tår';
+
+  @override
+  String get looksValueInjuredWing => 'Skadad vinge';
+
+  @override
+  String get looksValueClippedWings => 'Klippta vingar';
+
+  @override
+  String get looksValueDamagedShell => 'Skadat skal';
 
   @override
   String get rejectMatch => 'Inte samma';
@@ -2806,6 +2824,12 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Veckodagar';
+
+  @override
+  String get choreRepeatOnce => 'En gång';
+
+  @override
+  String get choreNoDueDate => 'Inget förfallodatum — vilken dag som helst';
 
   @override
   String choreEveryDays(int n) {

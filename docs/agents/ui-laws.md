@@ -56,6 +56,12 @@ a screen that breaks one is a bug, not a style choice.
   buttons stacked full width or in one row of two, never a cramped row
   of four. The content scrolls if it does not fit; nothing shrinks to
   fit.
+- **No pills for one choice of many.** A single choice between more
+  than two options is a column of radio buttons, one option per line —
+  never a segmented pill or a row of choice chips, which cramp and grow
+  ugly with every option added. Two options may stay a pill or a
+  switch; several options that can be picked together are checkboxes
+  or filter chips. Tabs that switch pages are not a choice of value.
 - Two sentences at most in a dialog body. Concrete nouns, no metaphors
   (see the plain-text rule in `CONTEXT.md`).
 - Destructive actions (delete, end, hard delete) confirm once, in a

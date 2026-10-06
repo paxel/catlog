@@ -604,7 +604,20 @@ impl Pages {
         id: &str,
     ) -> Option<PageAction> {
         let mut action = None;
-        let chores = store.chores_of(id, false).unwrap_or_default();
+        // A one-time chore done before today is in no list any more.
+        let chores: Vec<_> = store
+            .chores_of(id, false)
+            .unwrap_or_default()
+            .into_iter()
+            .filter(|c| {
+                !c.once()
+                    || catlog_core::chores::shows_today(
+                        c,
+                        &store.chore_ticks(c).unwrap_or_default(),
+                        self.today,
+                    )
+            })
+            .collect();
         ui.add_space(8.0);
         ui.horizontal(|ui| {
             ui.strong(t.chores_section());
@@ -706,37 +719,123 @@ pub struct TimelineLine {
     pub day: String,
     pub what: String,
     pub who: String,
+    /// The entry a click opens, and with what; none for the rows the
+    /// timeline only shows.
+    pub tap: Option<(i64, TimelineTap)>,
+}
+
+/// What a click on a timeline line opens: the move dialog on that move,
+/// or the editor an appointment or a chore has of its own; a chore's
+/// done day opens the chore's log.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum TimelineTap {
+    Move,
+    Appointment,
+    Chore,
+    ChoreTick,
+}
+
+fn tap_of(field: &str) -> Option<TimelineTap> {
+    if field == keys::CLOWDER {
+        Some(TimelineTap::Move)
+    } else if field.starts_with(keys::APPOINTMENT_PREFIX) {
+        Some(TimelineTap::Appointment)
+    } else {
+        field.strip_prefix(keys::CHORE_PREFIX).map(|rest| {
+            if rest.contains('@') {
+                TimelineTap::ChoreTick
+            } else {
+                TimelineTap::Chore
+            }
+        })
+    }
 }
 
 /// Everything that ever happened to one Cat or Clowder, newest first.
 /// Walking the log and wording every line is far too much work to do on
 /// every frame, so the app holds the answer between them.
 pub fn timeline_lines(store: &Catalog, t: &L10n, units: UnitSystem, id: &str) -> Vec<TimelineLine> {
-    store
+    let day_of = |date: &str| {
+        chrono::DateTime::parse_from_rfc3339(date)
+            .map(|d| d.date_naive())
+            .ok()
+    };
+    let day_line = |date: &str| {
+        day_of(date)
+            .map(|d| format_day(t.locale(), d))
+            .unwrap_or_else(|| date.to_string())
+    };
+    let mut dated: Vec<(String, i64, TimelineLine)> = store
         .timeline(id, false)
         .unwrap_or_default()
         .iter()
         .take(200)
         .map(|e| {
-            let on = chrono::DateTime::parse_from_rfc3339(&e.date)
-                .map(|d| d.date_naive())
-                .ok();
-            TimelineLine {
-                day: on
-                    .map(|d| format_day(t.locale(), d))
-                    .unwrap_or_else(|| e.date.clone()),
-                what: crate::labels::change_line(t, store, &e.field, e.value.as_deref(), units, on),
+            let line = TimelineLine {
+                day: day_line(&e.date),
+                what: crate::labels::change_line(
+                    t,
+                    store,
+                    &e.field,
+                    e.value.as_deref(),
+                    units,
+                    day_of(&e.date),
+                ),
                 who: e.author.clone(),
-            }
+                tap: tap_of(&e.field).map(|tap| (e.seq, tap)),
+            };
+            (e.date.clone(), e.seq, line)
         })
-        .collect()
+        .collect();
+    // A home's own timeline weaves in its cats' arrivals and departures,
+    // each the cat's move, corrected where it was made.
+    if id.starts_with("clowder:") {
+        let home = |place: &Option<String>| match place {
+            Some(p) => store
+                .current(p, keys::NAME)
+                .ok()
+                .flatten()
+                .unwrap_or_else(|| t.unnamed().to_string()),
+            None => t.stray().to_string(),
+        };
+        for ev in store.clowder_occupancy(id).unwrap_or_default() {
+            let cat = store
+                .current(&ev.cat, keys::NAME)
+                .ok()
+                .flatten()
+                .unwrap_or_else(|| t.unnamed().to_string());
+            let what = match (ev.arrived, &ev.counterpart) {
+                (true, None) => t.arrived_plain(&cat),
+                (true, from) => t.arrived_from(&cat, &home(from)),
+                (false, to) => t.left_to(&cat, &home(to)),
+            };
+            let line = TimelineLine {
+                day: day_line(&ev.entry.date),
+                what,
+                who: ev.entry.author.clone(),
+                tap: Some((ev.entry.seq, TimelineTap::Move)),
+            };
+            dated.push((ev.entry.date.clone(), ev.entry.seq, line));
+        }
+        dated.sort_by(|a, b| b.0.cmp(&a.0).then(b.1.cmp(&a.1)));
+        dated.truncate(200);
+    }
+    dated.into_iter().map(|(_, _, line)| line).collect()
 }
 
 /// Everything that ever happened to one Cat or Clowder, newest first:
 /// the day over its entries, as a Field's own history reads. It used to
 /// hang at the foot of the page, where a keeper looking for it had to
 /// scroll past everything else.
-pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, id: &str, lines: &[TimelineLine]) {
+/// A click on a line says which entry to open, and with what.
+pub fn show_timeline(
+    ui: &mut Ui,
+    store: &Catalog,
+    t: &L10n,
+    id: &str,
+    lines: &[TimelineLine],
+) -> Option<(i64, TimelineTap)> {
+    let mut tapped = None;
     let name = store
         .current(id, catlog_core::keys::NAME)
         .ok()
@@ -759,10 +858,27 @@ pub fn show_timeline(ui: &mut Ui, store: &Catalog, t: &L10n, id: &str, lines: &[
                 egui::Layout::top_down(egui::Align::LEFT),
                 |ui| {
                     ui.set_min_width(width);
-                    ui.add(egui::Label::new(&line.what).wrap());
+                    match line.tap {
+                        Some(tap) => {
+                            let label = ui
+                                .add(
+                                    egui::Label::new(&line.what)
+                                        .wrap()
+                                        .sense(egui::Sense::click()),
+                                )
+                                .on_hover_cursor(egui::CursorIcon::PointingHand);
+                            if label.clicked() {
+                                tapped = Some(tap);
+                            }
+                        }
+                        None => {
+                            ui.add(egui::Label::new(&line.what).wrap());
+                        }
+                    }
                 },
             );
             ui.label(egui::RichText::new(&line.who).weak());
         });
     }
+    tapped
 }

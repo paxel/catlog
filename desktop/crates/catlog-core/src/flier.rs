@@ -5,6 +5,7 @@
 
 use std::collections::BTreeMap;
 
+use chrono::{Datelike, NaiveDate};
 use regex::Regex;
 
 use crate::Result;
@@ -173,6 +174,9 @@ pub struct FlierTemplateSet {
     pub templates: Vec<FlierTemplate>,
     /// Field slug to option to the words that mean it.
     pub values: BTreeMap<String, BTreeMap<String, Vec<String>>>,
+    /// Words that say "ran away on" anywhere on a poster, any layout —
+    /// hand-made fliers match no template.
+    pub missing_since_words: Vec<String>,
 }
 
 impl FlierTemplateSet {
@@ -218,7 +222,11 @@ impl FlierTemplateSet {
                 values.insert(slug.clone(), by_option);
             }
         }
-        Ok(FlierTemplateSet { templates, values })
+        Ok(FlierTemplateSet {
+            templates,
+            values,
+            missing_since_words: strings(json.get("missingSinceWords")),
+        })
     }
 
     /// The templates that ship with the app.
@@ -339,13 +347,15 @@ impl FlierReading {
 /// Reads pairs against the templates.
 pub fn read_flier(pairs: &[FlierPair], templates: &FlierTemplateSet) -> FlierReading {
     let Some(template) = templates.matching(pairs) else {
+        let mut entries: Vec<FlierEntry> = pairs
+            .iter()
+            .map(|p| FlierEntry::new(p.label.as_deref(), &p.value, target::REMARKS))
+            .collect();
+        find_missing_since(&mut entries, &templates.missing_since_words);
         return FlierReading {
             template: None,
             registry: None,
-            entries: pairs
-                .iter()
-                .map(|p| FlierEntry::new(p.label.as_deref(), &p.value, target::REMARKS))
-                .collect(),
+            entries,
         };
     };
     let mut entries = Vec::new();
@@ -376,10 +386,45 @@ pub fn read_flier(pairs: &[FlierPair], templates: &FlierTemplateSet) -> FlierRea
         }
         entries.extend(composite(&parts, &targets, &pair.value, templates));
     }
+    find_missing_since(&mut entries, &templates.missing_since_words);
     FlierReading {
         template: Some(template.name.clone()),
         registry: Some(template.registry.clone()),
         entries,
+    }
+}
+
+/// Unless a label already gave it, the missing-since date is the date
+/// on a line saying "weggelaufen am" or the like — on that line, or on
+/// the one right after it ("Vermisst seit" over "3. Oktober").
+fn find_missing_since(entries: &mut [FlierEntry], words: &[String]) {
+    if entries.iter().any(|e| e.target == target::MISSING_SINCE) {
+        return;
+    }
+    let dated =
+        |e: &FlierEntry| e.target == target::REMARKS && parse_flier_date(&e.value).is_some();
+    for i in 0..entries.len() {
+        let entry = &entries[i];
+        if entry.target != target::REMARKS {
+            continue;
+        }
+        let text = fold(&format!(
+            "{} {}",
+            entry.label.as_deref().unwrap_or_default(),
+            entry.value
+        ));
+        if !words.iter().any(|w| contains_word(&text, &fold(w))) {
+            continue;
+        }
+        let hit = if dated(entry) {
+            Some(i)
+        } else {
+            entries.get(i + 1).filter(|next| dated(next)).map(|_| i + 1)
+        };
+        if let Some(hit) = hit {
+            entries[hit].target = target::MISSING_SINCE.to_string();
+            return;
+        }
     }
 }
 
@@ -462,9 +507,141 @@ fn lone_line(
     vec![FlierEntry::new(None, text, t)]
 }
 
-/// A date as a poster spells it.
+/// A date as a poster spells it. Hand-made posters add 03-10-2025,
+/// 03.10.25, "3. Oktober 2025", "Oct 3, 2025" and 3.10. without a year —
+/// the latest such day not after today, as a cat goes missing in the
+/// past. Typed dates do not take these: a typed appointment lies ahead.
 pub fn parse_flier_date(text: &str) -> Option<PartialDate> {
+    parse_flier_date_at(text, chrono::Local::now().date_naive())
+}
+
+/// [`parse_flier_date`] as of `today`.
+pub fn parse_flier_date_at(text: &str, today: NaiveDate) -> Option<PartialDate> {
+    let s = text.to_lowercase();
+    let dmy =
+        Regex::new(r"(?:^|[^\d])(\d{1,2})[./-](\d{1,2})[./-](\d{4}|\d{2})(?:$|[^\d])").ok()?;
+    if let Some(c) = dmy.captures(&s) {
+        let year = if c[3].len() == 2 {
+            2000 + number(&c[3])
+        } else {
+            number(&c[3])
+        };
+        return day(year, number(&c[2]), number(&c[1]));
+    }
+    let iso = Regex::new(r"(\d{4})-(\d{2})-(\d{2})").ok()?;
+    if let Some(c) = iso.captures(&s) {
+        return PartialDate::parse(&c[0]);
+    }
+    if let Some(date) = written_date(&s, today) {
+        return Some(date);
+    }
+    let dm = Regex::new(r"(?:^|[^\d.])(\d{1,2})\.(\d{1,2})\.(?:$|[^\d])").ok()?;
+    if let Some(c) = dm.captures(&s) {
+        return latest(number(&c[2]), number(&c[1]), today);
+    }
     PartialDate::find(text)
+}
+
+fn number(digits: &str) -> u32 {
+    digits.parse().unwrap_or(0)
+}
+
+/// The day if it exists; none for 31.02.
+fn day(year: u32, month: u32, day: u32) -> Option<PartialDate> {
+    PartialDate::parse(&format!("{year:04}-{month:02}-{day:02}"))
+}
+
+/// The latest `month`/`day` not after `today`.
+fn latest(month: u32, d: u32, today: NaiveDate) -> Option<PartialDate> {
+    let year = u32::try_from(today.year()).unwrap_or(0);
+    match day(year, month, d) {
+        Some(this_year) if this_year.earliest().is_some_and(|e| e <= today) => Some(this_year),
+        _ => day(year.saturating_sub(1), month, d),
+    }
+}
+
+/// Month words in German and English; a shortening may carry a dot.
+const MONTHS: [(&str, u32); 37] = [
+    ("januar", 1),
+    ("jänner", 1),
+    ("january", 1),
+    ("jan", 1),
+    ("februar", 2),
+    ("february", 2),
+    ("feb", 2),
+    ("märz", 3),
+    ("maerz", 3),
+    ("march", 3),
+    ("mär", 3),
+    ("mar", 3),
+    ("april", 4),
+    ("apr", 4),
+    ("mai", 5),
+    ("may", 5),
+    ("juni", 6),
+    ("june", 6),
+    ("jun", 6),
+    ("juli", 7),
+    ("july", 7),
+    ("jul", 7),
+    ("august", 8),
+    ("aug", 8),
+    ("september", 9),
+    ("sept", 9),
+    ("sep", 9),
+    ("oktober", 10),
+    ("october", 10),
+    ("okt", 10),
+    ("oct", 10),
+    ("november", 11),
+    ("nov", 11),
+    ("dezember", 12),
+    ("december", 12),
+    ("dez", 12),
+    ("dec", 12),
+];
+
+fn month_of(word: &str) -> u32 {
+    MONTHS
+        .iter()
+        .find(|(name, _)| *name == word)
+        .map(|(_, m)| *m)
+        .unwrap_or(0)
+}
+
+/// "3. Oktober 2025", "3 Okt.", "Oct 3, 2025", "October 3rd" or
+/// "Oktober 2025"; none when no month word is there.
+fn written_date(s: &str, today: NaiveDate) -> Option<PartialDate> {
+    let mut names: Vec<&str> = MONTHS.iter().map(|(n, _)| *n).collect();
+    names.sort_by_key(|n| std::cmp::Reverse(n.chars().count()));
+    let names = names
+        .iter()
+        .map(|n| regex::escape(n))
+        .collect::<Vec<_>>()
+        .join("|");
+    let dated = |year: Option<regex::Match>, month: u32, d: u32| match year {
+        Some(y) => day(number(y.as_str()), month, d),
+        None => latest(month, d, today),
+    };
+    let day_first = Regex::new(&format!(
+        r"(?:^|[^\d])(\d{{1,2}})\.?\s*({names})\b\.?(?:\s*,?\s*(\d{{4}}))?"
+    ))
+    .ok()?;
+    if let Some(c) = day_first.captures(s) {
+        return dated(c.get(3), month_of(&c[2]), number(&c[1]));
+    }
+    let month_first = Regex::new(&format!(
+        r"\b({names})\b\.?\s*(\d{{1,2}})(?:st|nd|rd|th)?(?:\s*,?\s*(\d{{4}}))?(?:$|[^\d])"
+    ))
+    .ok()?;
+    if let Some(c) = month_first.captures(s) {
+        return dated(c.get(3), month_of(&c[1]), number(&c[2]));
+    }
+    let month_year = Regex::new(&format!(r"\b({names})\b\.?\s*(\d{{4}})")).ok()?;
+    if let Some(c) = month_year.captures(s) {
+        return PartialDate::parse(&format!("{}-{:02}", &c[2], month_of(&c[1])));
+    }
+    None
 }
 
 /// A fifteen-digit chip number, spaced or dashed, anywhere in `text`.
@@ -956,6 +1133,101 @@ pub mod fixtures {
 mod tests {
     use super::fixtures::hugo_lines;
     use super::*;
+
+    fn read(text: &str) -> Option<PartialDate> {
+        let today = NaiveDate::from_ymd_opt(2025, 10, 20).unwrap();
+        parse_flier_date_at(text, today)
+    }
+
+    fn day(iso: &str) -> Option<PartialDate> {
+        PartialDate::parse(iso)
+    }
+
+    #[test]
+    fn hand_made_posters_spell_dates_their_own_way() {
+        assert_eq!(read("03-10-2025"), day("2025-10-03"));
+        assert_eq!(read("Weggelaufen am 03.10.25"), day("2025-10-03"));
+        assert_eq!(read("3/10/25"), day("2025-10-03"));
+        assert_eq!(read("am 3. Oktober 2025"), day("2025-10-03"));
+        assert_eq!(read("3 Okt. 2025"), day("2025-10-03"));
+        assert_eq!(read("seit 1. März 2025"), day("2025-03-01"));
+        assert_eq!(read("Oct 3, 2025"), day("2025-10-03"));
+        assert_eq!(read("October 3rd 2025"), day("2025-10-03"));
+        assert_eq!(read("lost on 3 October 2025"), day("2025-10-03"));
+        assert_eq!(read("Oktober 2025"), day("2025-10"));
+        assert_eq!(read("Sommer 2025"), day("2025"));
+    }
+
+    #[test]
+    fn a_date_without_a_year_is_the_latest_such_day_not_after_today() {
+        assert_eq!(read("am 3.10."), day("2025-10-03"));
+        assert_eq!(read("3. Oktober"), day("2025-10-03"));
+        assert_eq!(read("am 24.12."), day("2024-12-24"));
+        assert_eq!(read("Oct 20"), day("2025-10-20"));
+    }
+
+    #[test]
+    fn what_is_no_date_stays_none() {
+        assert_eq!(read("Gewicht 4.5 kg"), None);
+        assert_eq!(read("31-02-2025"), None);
+        assert_eq!(read("Tel. 0171 1234567"), None);
+        assert_eq!(read("Mail an tasso"), None);
+    }
+
+    #[test]
+    fn a_hand_made_poster_finds_its_ran_away_date() {
+        let templates = FlierTemplateSet::shipped();
+        let same_line = read_flier(
+            &[
+                FlierPair::lone("KATZE ENTLAUFEN"),
+                FlierPair::lone("Minka ist am 03.10.25 weggelaufen"),
+            ],
+            &templates,
+        );
+        assert_eq!(same_line.template, None);
+        assert_eq!(
+            same_line.first(target::MISSING_SINCE),
+            Some("Minka ist am 03.10.25 weggelaufen")
+        );
+        let beside = read_flier(
+            &[FlierPair::labelled("Weggelaufen am", "3. Oktober")],
+            &templates,
+        );
+        assert_eq!(beside.first(target::MISSING_SINCE), Some("3. Oktober"));
+        let below = read_flier(
+            &[
+                FlierPair::lone("Vermisst seit"),
+                FlierPair::lone("Freitag, 3.10.2025"),
+            ],
+            &templates,
+        );
+        assert_eq!(
+            below.first(target::MISSING_SINCE),
+            Some("Freitag, 3.10.2025")
+        );
+        let none = read_flier(
+            &[
+                FlierPair::lone("ENTLAUFEN"),
+                FlierPair::lone("Kater Hugo"),
+                FlierPair::lone("geboren 2019"),
+            ],
+            &templates,
+        );
+        assert_eq!(none.first(target::MISSING_SINCE), None);
+        let template_wins = read_flier(
+            &[
+                FlierPair::labelled("Suchdienstnummer", "S1"),
+                FlierPair::labelled("Verlustdatum", "05.06.2025"),
+                FlierPair::lone("weggelaufen am 01.06.2025"),
+            ],
+            &templates,
+        );
+        let found: Vec<&str> = template_wins
+            .of(target::MISSING_SINCE)
+            .map(|e| e.value.as_str())
+            .collect();
+        assert_eq!(found, vec!["05.06.2025"]);
+    }
 
     fn rudi_pairs() -> Vec<FlierPair> {
         vec![

@@ -462,6 +462,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get missingSinceLabel => 'Пропал с';
 
   @override
+  String get missingSinceNotOnFlier => 'Не найдено в объявлении — сегодня';
+
+  @override
   String get cropPortrait => 'Обрезать портрет';
 
   @override
@@ -1138,11 +1141,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Кошки, у которых сейчас нет дома: найденные, сбежавшие или взятые с объявления. Кнопка камеры записывает кошку, которая сидит перед вами; кнопка объявления превращает плакат в кошку с контактом владельца; сканер читает код cat(a)log с плаката. Нажмите Stray Cam для фото; удерживайте, чтобы снять видео и сохранить лучшие кадры как фото.';
+      'Кошки, у которых сейчас нет дома: найденные, сбежавшие или взятые с объявления. Кнопка камеры записывает кошку, которая сидит перед вами; кнопка объявления превращает плакат в кошку с контактом владельца; сканер читает код cat(a)log с плаката. «Из видео…» выбирает видео и сохраняет лучшие кадры как фото.';
 
   @override
   String get helpStraysNeutral =>
-      'Питомцы, у которых сейчас нет дома: найденные, сбежавшие или взятые с объявления. Кнопка камеры записывает животное, которое находится перед вами; кнопка объявления превращает плакат в питомца с контактом владельца; сканер читает код cat(a)log с плаката. Нажмите Stray Cam для фото; удерживайте, чтобы снять видео и сохранить лучшие кадры как фото.';
+      'Питомцы, у которых сейчас нет дома: найденные, сбежавшие или взятые с объявления. Кнопка камеры записывает животное, которое находится перед вами; кнопка объявления превращает плакат в питомца с контактом владельца; сканер читает код cat(a)log с плаката. «Из видео…» выбирает видео и сохраняет лучшие кадры как фото.';
 
   @override
   String get helpMap =>
@@ -1723,6 +1726,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Лишние пальцы';
+
+  @override
+  String get looksValueMissingLeg => 'Нет лапы';
+
+  @override
+  String get looksValueMissingToes => 'Нет пальцев';
+
+  @override
+  String get looksValueInjuredWing => 'Повреждённое крыло';
+
+  @override
+  String get looksValueClippedWings => 'Подрезанные крылья';
+
+  @override
+  String get looksValueDamagedShell => 'Повреждённый панцирь';
 
   @override
   String get rejectMatch => 'Не тот же';
@@ -2818,6 +2836,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Дни недели';
+
+  @override
+  String get choreRepeatOnce => 'Однократно';
+
+  @override
+  String get choreNoDueDate => 'Без срока — в любой день';
 
   @override
   String choreEveryDays(int n) {

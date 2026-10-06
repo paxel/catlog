@@ -460,6 +460,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get missingSinceLabel => 'Pogrešan od';
 
   @override
+  String get missingSinceNotOnFlier => 'Ni najdeno na letaku — danes';
+
+  @override
   String get cropPortrait => 'Obreži portret';
 
   @override
@@ -1137,11 +1140,11 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Mačke, ki zdaj nimajo doma: najdene, pobegle ali z letaka. Gumb s kamero zabeleži mačko pred tabo; gumb z letakom spremeni plakat v mačko s stikom lastnika; bralnik prebere kodo cat(a)log z letaka. Tapni Stray Cam za fotografijo; pridrži za snemanje videa in obdrži najboljše sličice kot fotografije.';
+      'Mačke, ki zdaj nimajo doma: najdene, pobegle ali z letaka. Gumb s kamero zabeleži mačko pred tabo; gumb z letakom spremeni plakat v mačko s stikom lastnika; bralnik prebere kodo cat(a)log z letaka. »Iz videa…« izbere video in obdrži najboljše sličice kot fotografije.';
 
   @override
   String get helpStraysNeutral =>
-      'Ljubljenčki, ki zdaj nimajo doma: najdeni, pobegli ali z letaka. Gumb s kamero zabeleži žival pred tabo; gumb z letakom spremeni plakat v ljubljenčka s stikom lastnika; bralnik prebere kodo cat(a)log z letaka. Tapni Stray Cam za fotografijo; pridrži za snemanje videa in obdrži najboljše sličice kot fotografije.';
+      'Ljubljenčki, ki zdaj nimajo doma: najdeni, pobegli ali z letaka. Gumb s kamero zabeleži žival pred tabo; gumb z letakom spremeni plakat v ljubljenčka s stikom lastnika; bralnik prebere kodo cat(a)log z letaka. »Iz videa…« izbere video in obdrži najboljše sličice kot fotografije.';
 
   @override
   String get helpMap =>
@@ -1723,6 +1726,21 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Dodatni prsti';
+
+  @override
+  String get looksValueMissingLeg => 'Manjka noga';
+
+  @override
+  String get looksValueMissingToes => 'Manjkajo prsti';
+
+  @override
+  String get looksValueInjuredWing => 'Poškodovano krilo';
+
+  @override
+  String get looksValueClippedWings => 'Pristrižena krila';
+
+  @override
+  String get looksValueDamagedShell => 'Poškodovan oklep';
 
   @override
   String get rejectMatch => 'Ni isto';
@@ -2820,6 +2838,12 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Dnevi';
+
+  @override
+  String get choreRepeatOnce => 'Enkratno';
+
+  @override
+  String get choreNoDueDate => 'Brez roka — kateri koli dan';
 
   @override
   String choreEveryDays(int n) {

@@ -461,6 +461,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get missingSinceLabel => 'Dingęs nuo';
 
   @override
+  String get missingSinceNotOnFlier => 'Skelbime nerasta — šiandien';
+
+  @override
   String get cropPortrait => 'Apkirpti portretą';
 
   @override
@@ -1137,11 +1140,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. Palieskite „Stray Cam“ nuotraukai; palaikykite, kad nufilmuotumėte vaizdo įrašą ir geriausius kadrus išsaugotumėte kaip nuotraukas.';
+      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. „Iš vaizdo įrašo…“ pasirenka vaizdo įrašą ir geriausius kadrus išsaugo kaip nuotraukas.';
 
   @override
   String get helpStraysNeutral =>
-      'Augintiniai, kurie dabar neturi namų: rasti, pabėgę arba iš skelbimo. Kameros mygtukas įrašo gyvūną priešais jus; skelbimo mygtukas paverčia dingusio augintinio skelbimą augintiniu su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. Palieskite „Stray Cam“ nuotraukai; palaikykite, kad nufilmuotumėte vaizdo įrašą ir geriausius kadrus išsaugotumėte kaip nuotraukas.';
+      'Augintiniai, kurie dabar neturi namų: rasti, pabėgę arba iš skelbimo. Kameros mygtukas įrašo gyvūną priešais jus; skelbimo mygtukas paverčia dingusio augintinio skelbimą augintiniu su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. „Iš vaizdo įrašo…“ pasirenka vaizdo įrašą ir geriausius kadrus išsaugo kaip nuotraukas.';
 
   @override
   String get helpMap =>
@@ -1723,6 +1726,21 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get looksValueExtraToes => 'Papildomi pirštai';
+
+  @override
+  String get looksValueMissingLeg => 'Trūksta kojos';
+
+  @override
+  String get looksValueMissingToes => 'Trūksta pirštų';
+
+  @override
+  String get looksValueInjuredWing => 'Sužeistas sparnas';
+
+  @override
+  String get looksValueClippedWings => 'Pakirpti sparnai';
+
+  @override
+  String get looksValueDamagedShell => 'Pažeistas šarvas';
 
   @override
   String get rejectMatch => 'Ne tas pats';
@@ -2820,6 +2838,12 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get choreRepeatWeekdays => 'Savaitės dienos';
+
+  @override
+  String get choreRepeatOnce => 'Vienkartinis';
+
+  @override
+  String get choreNoDueDate => 'Be termino — bet kurią dieną';
 
   @override
   String choreEveryDays(int n) {

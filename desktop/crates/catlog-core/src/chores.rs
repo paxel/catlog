@@ -14,14 +14,20 @@ use crate::catalog::Catalog;
 use crate::entry::Entry;
 use crate::keys;
 
-/// How often a chore comes around.
+/// How often a chore comes around; `Once` not again (2.3.0).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub enum ChoreRepeat {
     Daily,
     EveryDays,
     Weekdays,
+    Once,
 }
+
+/// The gap a one-time chore is stored with, so an app from before 2.3.0
+/// reads an every-N chore due on its first day only and keeps it so on
+/// an edit; it does not know `Once` and would make it daily.
+pub const ONCE_GAP_DAYS: u32 = 36500;
 
 /// The unit of an every-N gap. Months and years step by the calendar.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -42,6 +48,9 @@ pub struct ChoreSchedule {
     pub unit: ChoreUnit,
     /// For weekdays: Monday = 1 .. Sunday = 7.
     pub weekdays: Vec<u32>,
+    /// For a one-time chore: the day it must be done by; none when any
+    /// day will do. Stored as the chore's top-level `due`.
+    pub due: Option<NaiveDate>,
 }
 
 impl ChoreSchedule {
@@ -51,6 +60,7 @@ impl ChoreSchedule {
             every: 1,
             unit: ChoreUnit::Days,
             weekdays: Vec::new(),
+            due: None,
         }
     }
 
@@ -60,6 +70,7 @@ impl ChoreSchedule {
             every,
             unit,
             weekdays: Vec::new(),
+            due: None,
         }
     }
 
@@ -71,6 +82,18 @@ impl ChoreSchedule {
             every: 1,
             unit: ChoreUnit::Days,
             weekdays: days,
+            due: None,
+        }
+    }
+
+    /// Done once, then gone; due by `due` when that is set.
+    pub fn once(due: Option<NaiveDate>) -> ChoreSchedule {
+        ChoreSchedule {
+            repeat: ChoreRepeat::Once,
+            every: 1,
+            unit: ChoreUnit::Days,
+            weekdays: Vec::new(),
+            due,
         }
     }
 
@@ -86,6 +109,11 @@ impl ChoreSchedule {
 
     pub fn to_json(&self) -> Value {
         let mut m = serde_json::Map::new();
+        if self.repeat == ChoreRepeat::Once {
+            m.insert("repeat".into(), Value::from("everyDays"));
+            m.insert("every".into(), Value::from(ONCE_GAP_DAYS));
+            return Value::Object(m);
+        }
         m.insert(
             "repeat".into(),
             serde_json::to_value(self.repeat).unwrap_or(Value::Null),
@@ -170,8 +198,8 @@ pub struct Chore {
     pub extra: BTreeMap<String, Value>,
 }
 
-const KNOWN: [&str; 8] = [
-    "title", "schedule", "time", "start", "paused", "ended", "remind", "remindAt",
+const KNOWN: [&str; 10] = [
+    "title", "schedule", "time", "start", "paused", "ended", "remind", "remindAt", "once", "due",
 ];
 
 impl Chore {
@@ -181,6 +209,10 @@ impl Chore {
 
     pub fn active(&self) -> bool {
         !self.paused && !self.ended
+    }
+
+    pub fn once(&self) -> bool {
+        self.schedule.repeat == ChoreRepeat::Once
     }
 
     pub fn to_json(&self) -> Value {
@@ -193,7 +225,13 @@ impl Chore {
         if let Some(t) = self.time {
             m.insert("time".into(), Value::from(t.text()));
         }
-        m.insert("start".into(), Value::from(day_key(self.start)));
+        // A one-time chore starts on its due day: the one day an app
+        // from before 2.3.0 shows it.
+        let start = match self.schedule.due {
+            Some(due) if self.once() => due,
+            _ => self.start,
+        };
+        m.insert("start".into(), Value::from(day_key(start)));
         if self.paused {
             m.insert("paused".into(), Value::Bool(true));
         }
@@ -205,6 +243,13 @@ impl Chore {
         }
         if let Some(t) = self.remind_at {
             m.insert("remindAt".into(), Value::from(t.text()));
+        }
+        // Read only from 2.3.0 on; an older app keeps both as unknown keys.
+        if self.once() {
+            m.insert("once".into(), Value::Bool(true));
+            if let Some(due) = self.schedule.due {
+                m.insert("due".into(), Value::from(day_key(due)));
+            }
         }
         Value::Object(m)
     }
@@ -218,7 +263,11 @@ impl Chore {
             id: id.to_string(),
             entity: entity.to_string(),
             title: text("title").unwrap_or_default().to_string(),
-            schedule: ChoreSchedule::from_json(obj.get("schedule").unwrap_or(&Value::Null)),
+            schedule: if obj.get("once") == Some(&Value::Bool(true)) {
+                ChoreSchedule::once(parse_day(text("due")))
+            } else {
+                ChoreSchedule::from_json(obj.get("schedule").unwrap_or(&Value::Null))
+            },
             time: text("time").and_then(Hhmm::parse),
             start: parse_day(text("start"))
                 .unwrap_or(NaiveDate::from_ymd_opt(1970, 1, 1).unwrap_or_default()),
@@ -342,6 +391,15 @@ pub fn occurrences(
         });
     };
     match chore.schedule.repeat {
+        // One occurrence, on its first day; any tick settles it.
+        ChoreRepeat::Once => {
+            if start >= from && start <= to {
+                result.push(ChoreOccurrence {
+                    due: start,
+                    done_on: ticks.values().next().copied(),
+                });
+            }
+        }
         ChoreRepeat::Daily | ChoreRepeat::Weekdays => {
             let mut day = if start > from { start } else { from };
             while day <= to {
@@ -399,8 +457,15 @@ pub fn is_due_on(chore: &Chore, ticks: &Ticks, day: NaiveDate) -> bool {
     !occurrences(chore, ticks, day, day).is_empty()
 }
 
-/// The first due day on or after `today` that is not done yet.
+/// The first due day on or after `today` that is not done yet. A
+/// one-time chore has one only when it has a due day still ahead.
 pub fn next_due(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> Option<NaiveDate> {
+    if chore.once() {
+        return chore
+            .schedule
+            .due
+            .filter(|due| ticks.is_empty() && *due >= today);
+    }
     occurrences(chore, ticks, today, days_from(today, 3660))
         .into_iter()
         .find(|o| !o.done())
@@ -410,7 +475,9 @@ pub fn next_due(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> Option<NaiveD
 /// Due days after `today` within `days` that are not done. Dailies are
 /// left out, they are upcoming by nature.
 pub fn upcoming(chore: &Chore, ticks: &Ticks, today: NaiveDate, days: i64) -> Vec<NaiveDate> {
-    if chore.schedule.repeat == ChoreRepeat::Daily {
+    // Dailies are upcoming by nature; a one-time chore stands in today's
+    // list until it is done.
+    if chore.schedule.repeat == ChoreRepeat::Daily || chore.once() {
         return Vec::new();
     }
     occurrences(chore, ticks, days_from(today, 1), days_from(today, days))
@@ -424,6 +491,9 @@ pub fn upcoming(chore: &Chore, ticks: &Ticks, today: NaiveDate, days: i64) -> Ve
 /// and is skipped while still pending; a missed day before that ends
 /// the run.
 pub fn streak(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> u32 {
+    if chore.once() {
+        return 0;
+    }
     let mut run = 0;
     for o in occurrences(chore, ticks, chore.start, today).iter().rev() {
         if o.done() {
@@ -439,6 +509,9 @@ pub fn streak(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> u32 {
 
 /// The longest run of done occurrences ever, up to `today`.
 pub fn best_streak(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> u32 {
+    if chore.once() {
+        return 0;
+    }
     let mut best = 0;
     let mut run = 0;
     for o in occurrences(chore, ticks, chore.start, today) {
@@ -458,6 +531,86 @@ pub fn week_dots(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> Vec<ChoreDay
         .rev()
         .map(|i| state_on(chore, ticks, days_from(today, -i), today))
         .collect()
+}
+
+/// Where a one-time chore stands in today's list, top to bottom.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum OnceStanding {
+    /// Due today or overdue, and not done: at the top.
+    Due,
+    /// Not due yet, or without a due day: at the bottom.
+    Waiting,
+    /// Done today: crossed out until tomorrow.
+    DoneToday,
+    /// Done before today: in no list any more.
+    Gone,
+}
+
+/// Where the one-time `chore` stands on `today`.
+pub fn once_standing(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> OnceStanding {
+    if let Some(done) = ticks.values().next() {
+        return if *done < today {
+            OnceStanding::Gone
+        } else {
+            OnceStanding::DoneToday
+        };
+    }
+    match chore.schedule.due {
+        Some(due) if due <= today => OnceStanding::Due,
+        _ => OnceStanding::Waiting,
+    }
+}
+
+/// Whether `chore` belongs in `today`'s list: due today for a recurring
+/// one; for a one-time one, every day until the day after it is done.
+pub fn shows_today(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> bool {
+    if chore.once() {
+        once_standing(chore, ticks, today) != OnceStanding::Gone
+    } else {
+        is_due_on(chore, ticks, today)
+    }
+}
+
+/// Days from `today` to a one-time chore's due day: negative when
+/// overdue, none without a due day.
+pub fn days_to_due(chore: &Chore, today: NaiveDate) -> Option<i64> {
+    chore.schedule.due.map(|due| (due - today).num_days())
+}
+
+/// Whether `chore` is part of what `today` asks for, the "all done
+/// today" count: a recurring chore due today; a one-time one once its
+/// due day has come, or when it was done today.
+pub fn counts_today(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> bool {
+    if !chore.once() {
+        return is_due_on(chore, ticks, today);
+    }
+    matches!(
+        once_standing(chore, ticks, today),
+        OnceStanding::Due | OnceStanding::DoneToday
+    )
+}
+
+/// Whether `chore` still waits to be done `today`.
+pub fn open_today(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> bool {
+    if chore.once() {
+        once_standing(chore, ticks, today) == OnceStanding::Due
+    } else {
+        is_due_on(chore, ticks, today) && !ticks.contains_key(&today)
+    }
+}
+
+/// Where a chore goes in today's order: one-time chores due or overdue
+/// first, the recurring ones (and one-time ones done today) next, then
+/// one-time chores not due yet.
+pub fn today_group(chore: &Chore, ticks: &Ticks, today: NaiveDate) -> u8 {
+    if !chore.once() {
+        return 1;
+    }
+    match once_standing(chore, ticks, today) {
+        OnceStanding::Due => 0,
+        OnceStanding::Waiting => 2,
+        _ => 1,
+    }
 }
 
 /// One due day of a chore as the log tells it.
@@ -605,6 +758,75 @@ mod tests {
 
     fn d(y: i32, m: u32, day: u32) -> NaiveDate {
         NaiveDate::from_ymd_opt(y, m, day).unwrap()
+    }
+
+    fn once(due: Option<NaiveDate>, made: NaiveDate) -> Chore {
+        Chore {
+            title: "Vet papers".into(),
+            ..chore(ChoreSchedule::once(due), due.unwrap_or(made))
+        }
+    }
+
+    #[test]
+    fn a_one_time_chore_is_stored_so_an_older_app_sees_it_once() {
+        let c = once(Some(d(2026, 9, 12)), d(2026, 9, 7));
+        let json = c.to_json();
+        assert_eq!(
+            json["schedule"],
+            serde_json::json!({"repeat": "everyDays", "every": 36500})
+        );
+        assert_eq!(json["once"], Value::Bool(true));
+        assert_eq!(json["due"], Value::from("2026-09-12"));
+        assert_eq!(json["start"], Value::from("2026-09-12"));
+        // An older reader: an every-N chore, due on its start only.
+        let old = chore(ChoreSchedule::from_json(&json["schedule"]), d(2026, 9, 12));
+        let dues: Vec<NaiveDate> = occurrences(&old, &Ticks::new(), d(2026, 9, 1), d(2034, 1, 1))
+            .iter()
+            .map(|o| o.due)
+            .collect();
+        assert_eq!(dues, vec![d(2026, 9, 12)]);
+        let back = Chore::from_json("c1", "cat:a", Some(&json.to_string())).unwrap();
+        assert!(back.once());
+        assert_eq!(back.schedule.due, Some(d(2026, 9, 12)));
+        let open = once(None, d(2026, 9, 7));
+        let back = Chore::from_json("c1", "cat:a", Some(&open.to_json().to_string())).unwrap();
+        assert!(back.once());
+        assert_eq!(back.schedule.due, None);
+        assert_eq!(back.start, d(2026, 9, 7));
+    }
+
+    #[test]
+    fn a_one_time_chore_stands_until_the_day_after_it_is_done() {
+        let c = once(Some(d(2026, 9, 12)), d(2026, 9, 7));
+        let none = Ticks::new();
+        assert_eq!(
+            once_standing(&c, &none, d(2026, 9, 7)),
+            OnceStanding::Waiting
+        );
+        assert_eq!(once_standing(&c, &none, d(2026, 9, 12)), OnceStanding::Due);
+        assert_eq!(once_standing(&c, &none, d(2026, 9, 20)), OnceStanding::Due);
+        let ticks: Ticks = [(d(2026, 9, 12), d(2026, 9, 14))].into_iter().collect();
+        assert_eq!(
+            once_standing(&c, &ticks, d(2026, 9, 14)),
+            OnceStanding::DoneToday
+        );
+        assert_eq!(
+            once_standing(&c, &ticks, d(2026, 9, 15)),
+            OnceStanding::Gone
+        );
+        assert!(shows_today(&c, &none, d(2026, 9, 7)));
+        assert!(!shows_today(&c, &ticks, d(2026, 9, 15)));
+        assert!(upcoming(&c, &none, d(2026, 9, 7), 7).is_empty());
+        assert_eq!(streak(&c, &ticks, d(2026, 9, 14)), 0);
+        assert_eq!(next_due(&c, &none, d(2026, 9, 7)), Some(d(2026, 9, 12)));
+        assert_eq!(next_due(&c, &none, d(2026, 9, 13)), None);
+        assert_eq!(next_due(&c, &ticks, d(2026, 9, 10)), None);
+        assert_eq!(days_to_due(&c, d(2026, 9, 9)), Some(3));
+        assert_eq!(days_to_due(&c, d(2026, 9, 15)), Some(-3));
+        assert_eq!(today_group(&c, &none, d(2026, 9, 12)), 0);
+        assert_eq!(today_group(&c, &none, d(2026, 9, 7)), 2);
+        let daily = chore(ChoreSchedule::daily(), d(2026, 9, 1));
+        assert_eq!(today_group(&daily, &none, d(2026, 9, 7)), 1);
     }
 
     fn chore(schedule: ChoreSchedule, start: NaiveDate) -> Chore {

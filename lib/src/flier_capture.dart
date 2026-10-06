@@ -167,6 +167,10 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// only — a timestamp needs a day, a stored value never gets one.
   PartialDate? _missingSincePartial;
 
+  /// Whether [_missingSince] came from the poster or the picker; until
+  /// then it is today by default, and the tile says so.
+  bool _missingSinceKnown = false;
+
   final _name = TextEditingController();
   final _chip = TextEditingController();
   final _phone = TextEditingController();
@@ -367,12 +371,14 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       if (_newCat) {
         _name.text = reading.first(FlierTarget.name) ?? '';
         _address.text = reading.first(FlierTarget.lostPlace) ?? '';
-        final since = reading.first(FlierTarget.missingSince);
-        final date = since == null ? null : _missingDate(since);
-        if (date != null) {
-          _missingSince = date.earliest;
-          _missingSincePartial = date;
-        }
+      }
+      // A known cat runs away on the poster's day as much as a new one.
+      final since = reading.first(FlierTarget.missingSince);
+      final date = since == null ? null : _missingDate(since);
+      if (date != null) {
+        _missingSince = date.earliest;
+        _missingSincePartial = date;
+        _missingSinceKnown = true;
       }
       for (final entry in reading.entries) {
         // The label names the line on the Flier text page and nowhere
@@ -385,7 +391,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           case FlierTarget.lostPlace:
             if (!_newCat) remarks.add(line);
           case FlierTarget.missingSince:
-            if (!_newCat || _missingDate(entry.value) == null) {
+            if (!_hasClowderTarget || _missingDate(entry.value) == null) {
               remarks.add(line);
             }
           case FlierTarget.registryNumber:
@@ -563,6 +569,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       setState(() {
         _missingSince = DateUtils.dateOnly(picked);
         _missingSincePartial = null;
+        _missingSinceKnown = true;
       });
     }
   }
@@ -762,8 +769,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         if (clowderId != null) {
           // Known cat, known household: it lived there and went stray on
           // the flier's date.
-          store.moveCat(catId, clowderId);
-          store.moveCat(catId, null);
+          store.moveCat(catId, clowderId, date: _missingSince);
+          store.moveCat(catId, null, date: _missingSince);
         }
       }
       if (_position case final pos?) {
@@ -1125,12 +1132,20 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           ),
         ],
       ),
-      if (_newCat)
+      // The day the cat left its home: wherever there is a home to leave.
+      if (_hasClowderTarget)
         ListTile(
           contentPadding: EdgeInsets.zero,
-          leading: const Icon(Icons.event_busy),
+          // A day the poster did not give is a guess: it looks like one.
+          leading: _missingSinceKnown
+              ? const Icon(Icons.event_busy)
+              : const Icon(Icons.warning_amber, color: Colors.amber),
           title: Text(t.missingSinceLabel),
-          subtitle: Text(_missingSinceText(context)),
+          subtitle: Text(
+            _missingSinceKnown
+                ? _missingSinceText(context)
+                : t.missingSinceNotOnFlier,
+          ),
           onTap: _pickMissingSince,
         ),
       // Fields the poster filled, each with its own type-aware
@@ -1336,7 +1351,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           _name.text.trim().isEmpty ? t.captureFlier : _name.text.trim(),
         ),
       if (_chip.text.trim().isNotEmpty) (t.starterChipId, _chip.text.trim()),
-      if (_newCat) (t.missingSinceLabel, _missingSinceText(context)),
+      if (_hasClowderTarget) (t.missingSinceLabel, _missingSinceText(context)),
       if (_newCat && _looks != null) (t.starterLooks, looksDisplay(t, _looks!)),
       for (final input in _fieldInputs.values)
         if (input.value case final value?)

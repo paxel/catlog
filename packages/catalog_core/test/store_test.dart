@@ -156,6 +156,16 @@ void main() {
       expect(decoded.height, CatalogStore.maxImageEdge ~/ 2);
     });
 
+    test('a crop is cut from the full-size photo, before the scaling', () {
+      // The left quarter of a 5120 px frame: 1280 px kept. Scaled to
+      // 2560 first and cropped after, the same cat had 640.
+      final compressed = CatalogStore.compressImage(makeJpeg(5120, 2560),
+          crop: (x: 0, y: 0, w: 0.25, h: 1));
+      final decoded = img.decodeImage(compressed)!;
+      expect(decoded.width, 1280);
+      expect(decoded.height, 2560);
+    });
+
     test('small images are not upscaled', () {
       final compressed = CatalogStore.compressImage(makeJpeg(800, 600));
       final decoded = img.decodeImage(compressed)!;
@@ -382,6 +392,19 @@ void main() {
       expect(store.replacementOf(wrong)?.seq, fixed.seq);
       expect(store.correctedBy(fixed)?.seq, wrong.seq);
       expect(store.voidMarker(wrong)?.value, fixed.id);
+    });
+
+    test('a corrected plan stays a plan', () {
+      final cat = store.createCat('Miezi');
+      final visit = DateTime.utc(2099, 5, 1);
+      store.append(cat, 'f:remarks', 'vet', date: visit, reminder: true);
+      final plan = store.fieldHistory(cat, 'f:remarks').single;
+
+      final fixed = store.correctEntry(plan.seq, 'vet check');
+      expect(fixed.reminder, isTrue);
+      expect(store.activeReminders().map((r) => (r.entity, r.value)), [
+        (cat, 'vet check'),
+      ]);
     });
 
     test('a correction may move the value to another moment', () {
